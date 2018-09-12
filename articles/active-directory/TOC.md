@@ -197,6 +197,7 @@
 #### [Klientrestriktioner](manage-apps/tenant-restrictions.md)
 #### [Använd SCIM-etablering av användare](manage-apps/use-scim-to-provision-users-and-groups.md)
 
+### [Förstå medgivande i Azure AD-program](application-consent-experience.md)
 
 ### Felsöka
 

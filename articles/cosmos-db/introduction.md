@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 488ec66eb485761d484e305c298dfb9117745a42
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145289"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696456"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Som en globalt distribuerad databastjänst med fler modeller gör Azure Cosmos D
         * [SQL API](sql-api-introduction.md): En JSON-databasmotor utan schema med omfattande SQL-frågemöjligheter.
         * [MongoDB API](mongodb-introduction.md): En mycket skalbar *MongoDB som en tjänst* som drivs på Azure Cosmos DB-plattformen. Kompatibel med befintliga bibliotek, drivrutiner, verktyg och program för MongoDB.
         * [Cassandra API](cassandra-introduction.md): En globalt distribuerad Cassandra som en tjänst som drivs på Azure Cosmos DB-plattformen. Kompatibel med befintliga bibliotek, drivrutiner, verktyg och program för [Apache Cassandra](https://cassandra.apache.org/).
-        * [Gremlin API](graph-introduction.md): En fullständigt hanterad, vågrätt skalbar grafdatabastjänst som gör det enkelt att skapa och köra program som fungerar med mycket anslutna datauppsättningar med stöd för Open Graph-API:er (baserade på [Apache TinkerPop-specifikationen](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [Gremlin API](graph-introduction.md): En fullständigt hanterad, vågrätt skalbar grafdatabastjänst som gör det enkelt att skapa och köra program som fungerar med mycket anslutna datauppsättningar med stöd för Open Gremlin-API:er (baserade på [Apache TinkerPop-specifikationen](http://tinkerpop.apache.org/), Apache Gremlin).
         * [Tabell-API](table-introduction.md): En nyckel/värde-databastjänst som skapats för att tillhandahålla premium-funktioner (till exempel automatisk indexering, garanteras snabb svarstid, global distribution) till befintliga Azure Table Storage-program utan att göra några ändringar i appen.
         * Ytterligare datamodeller och API:er kommer snart!
 

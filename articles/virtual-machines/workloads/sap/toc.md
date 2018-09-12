@@ -24,7 +24,11 @@
 ## Installera SAP HANA
 ### [Verifiera konfigurationen](hana-installation.md)
 ### [Exempel på HANA-installation](hana-example-installation.md)
-## [Hög tillgänglighet och haveriberedskap](hana-overview-high-availability-disaster-recovery.md)
+## Hög tillgänglighet och haveriberedskap
+### [Alternativ och överväganden](hana-overview-high-availability-disaster-recovery.md)
+### [Säkerhetskopiering och återställning](hana-backup-restore.md)
+### [Principer och förberedelse](hana-concept-preparation.md)
+### [Redundans för haveriberedskap](hana-failover-procedure.md)
 ## Felsök och övervaka
 ### [Övervaka HLI](troubleshooting-monitoring.md)
 ### [Övervaka och felsöka från HANA-sida](hana-monitor-troubleshoot.md)

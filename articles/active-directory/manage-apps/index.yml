@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: d7df652a5549f3cea1b3d5bd5652c6e39fbd456a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44381819"
+documentType: LandingData
+title: Dokumentation om Azure AD-programhantering
+metadata:
+  title: Dokumentation om Azure Active Directory-programhantering
+  meta.description: Learn how to manage and deploy applications with Azure Active Directory.
+  services: active-directory
+  author: barbkess
+  manager: mtillman
+  layout: LandingPage
+  ms.assetid: 
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 09/06/2018
+  ms.author: barbkess
+abstract:
+  description: Lär dig hur du hanterar och distribuerar program med Azure Active Directory.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig hur du lägger till ett program så att användarna får tillgång till det genom Azure Active Directory.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_protect.svg
+      text: Lägga till ett program
+      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
+    - image:
+        src: https://docs.microsoft.com/media/common/i_protect.svg
+      text: Visa dina program
+      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig hur du aktiverar en enkel och säker inloggningsprocess för dina program.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Konfigurera enkel inloggning</a>

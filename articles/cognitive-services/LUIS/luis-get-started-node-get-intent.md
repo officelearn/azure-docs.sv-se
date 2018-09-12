@@ -1,82 +1,74 @@
 ---
-title: Självstudie om att anropa en Language Understanding Intelligent Services-app (LUIS) med hjälp av Node.js | Microsoft Docs
-description: I den här självstudien lär du dig att anropa en LUIS-app med hjälp av Node.js.
+title: Analysera text med naturligt språk i Language Understanding Intelligent Service (LUIS) med hjälp av Node.js – Cognitive Services – Azure Cognitive Services | Microsoft Docs
+description: I den här snabbstarten använder du en tillgänglig offentlig LUIS-app för att fastställa användarens avsikt i konversationstext. Skicka med hjälp av Node.js användarens avsikt som text till den offentliga appens HTTP-slutpunkt för förutsägelse. Vid slutpunkten tillämpar LUIS den offentliga appens modell för att analysera betydelsen av text med naturligt språk, och fastställa den övergripande avsikten och extrahera data som är relevanta för appens ämnesdomän.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 5e9df272be3c48602d38f551a791376c043bf409
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/23/2018
+ms.author: diberry
+ms.openlocfilehash: d7067041ae8e413675de3c95ca4ba0c1b987f47a
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263660"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "43771695"
 ---
-# <a name="tutorial-call-a-luis-endpoint-using-nodejs"></a>Självstudie: anropa en LUIS-slutpunkt med Node.js
-Överför yttranden till en LUIS-slutpunkt och få avsikt och entiteter tillbaka.
+# <a name="quickstart-analyze-text-using-nodejs"></a>Snabbstart: Analysera text med hjälp av Node.js
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Skapa LUIS-prenumeration och kopiera nyckelvärde för senare användning
-> * Visa LUIS-slutpunktsresultat från webbläsaren till offentlig IoT-exempelapp
-> * Skapa Visual Studio C#-konsolapp för att göra HTTPS-anrop till LUIS-slutpunkt
+[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+<a name="create-luis-subscription-key"></a>
 
-## <a name="create-luis-subscription-key"></a>Skapa LUIS-prenumerationsnyckel
-Du behöver en Cognitive Services API-nyckel för att göra anrop till den LUIS-exempelapp som används i den här genomgången. 
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att få en API-nyckel följer du de här stegen: 
-
-1. Först behöver du skapa ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) i Azure-portalen. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-2. Logga in på Azure Portal på https://portal.azure.com. 
-
-3. Följ stegen på sidan om att [skapa prenumerationsnycklar med hjälp av Azure](./luis-how-to-azure-subscription.md) för att få en nyckel.
-
-4. Gå tillbaka till [LUIS-webbplatsen](luis-reference-regions.md) och logga in med ditt Azure-konto. 
-
-    [![](media/luis-get-started-node-get-intent/app-list.png "Skärmbild av applistan")](media/luis-get-started-node-get-intent/app-list.png)
-
-## <a name="understand-what-luis-returns"></a>Förstå vad LUIS returnerar
-
-För att förstå vad en LUIS-app returnerar kan du klistra in URL:en för en LUIS-exempelapp i ett webbläsarfönster. Exempelappen är en IoT-app som känner av om användaren vill aktivera eller inaktivera ljus.
-
-1. Slutpunkten för exempelappen har det här formatet: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Kopiera URL:en och ange din prenumerationsnyckel som värde i fältet `subscription-key`.
-2. Klistra in URL:en i ett webbläsarfönster och tryck på Retur. Webbläsaren visar ett JSON-resultat som indikerar att LUIS identifierar avsikten `HomeAutomation.TurnOn` och entiteten `HomeAutomation.Room` med värdet `bedroom`.
-
-    ![JSON-resultatet identifierar avsikten TurnOn](./media/luis-get-started-node-get-intent/turn-on-bedroom.png)
-3. Ändra värdet för parametern `q=` i URL: en till `turn off the living room light`, och tryck på Retur. Resultatet indikerar nu att LUIS identifierat avsikten `HomeAutomation.TurnOff` och entiteten `HomeAutomation.Room` med värdet `living room`. 
-
-    ![JSON-resultatet identifierar avsikten TurnOff](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
+* Programmeringsspråket [Node.js](https://nodejs.org/) 
+* [Visual Studio Code](https://code.visualstudio.com/)
+* Offentlig app-ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-## <a name="consume-a-luis-result-using-the-endpoint-api-with-nodejs"></a>Förbruka ett LUIS-resultat med hjälp av slutpunkts-API med Node.js
+> [!NOTE] 
+> Den fullständiga Node.js-lösningen finns i [**LUIS-Samples** Github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
+
+## <a name="get-luis-key"></a>Hämta LUIS-nyckel
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+
+## <a name="analyze-text-with-browser"></a>Analysera text med webbläsare
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+
+## <a name="analyze-text-with-nodejs"></a>Analysera text med Node.js
 
 Du kan använda Node.js för att komma åt samma resultat som du såg i webbläsarfönstret i föregående steg.
 
 1. Kopiera följande kodfragment:
 
-   [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/endpoint-api-samples/node/call-endpoint.js)]
+   [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/quickstarts/analyze-text/node/call-endpoint.js)]
 
-2. Ange miljövariabeln `LUIS_APP_ID` enligt beskrivningen i kodkommentarerna. 
+2. Skapa filen `.env` med följande text eller ange dessa variabler i systemmiljön:
 
-3. Ange miljövariabeln `LUIS_SUBSCRIPTION_KEY` till din Cognitive Services-prenumerationsnyckel.
+    ```CMD
+    LUIS_APP_ID=df67dcdb-c37d-46af-88e1-8b97951ca1c2
+    LUIS_ENDPOINT_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    ```
 
-4. Kör koden. Det visar samma värden som du såg tidigare i webbläsarfönstret.
-<!-- 
-![Console window displays JSON result from LUIS](./media/luis-get-started-Node.js-get-intent/console-turn-on.png)
--->
+3. Ange miljövariabeln `LUIS_ENDPOINT_KEY` för nyckeln.
+
+4. Installera beroenden genom att köra följande kommando på kommandoraden: `npm install`.
+
+5. Kör koden med `npm start`. Det visar samma värden som du såg tidigare i webbläsarfönstret.
+
+## <a name="luis-keys"></a>LUIS-nycklar
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-De två resurser som skapades i den här självstudien är LUIS-prenumerationsnyckeln och C#-projektet. Ta bort LUIS-prenumerationsnyckeln från Azure-portalen. Stäng Visual Studio-projektet och ta bort katalogen från filsystemet. 
+
+Ta bort Node.js-filen.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Lägg till yttranden](luis-get-started-node-add-utterance.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

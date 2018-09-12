@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920380"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343470"
 ---
 # <a name="secure-your-key-vault"></a>Säkra ditt nyckelvalv
 Azure Key Vault är en molntjänst som skyddar krypteringsnycklar och hemligheter (som certifikat, anslutningssträngar, lösenord) för dina molnprogram. Eftersom dessa data är känsliga och verksamhetskritiska, behöver du säkra åtkomsten till dina nyckelvalv så att enbart auktoriserade program och användare har åtkomst. Den här artikeln ger en översikt över åtkomstmodellen för nyckelvalvet, förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomst till nyckelvalvet för dina molnprogram med ett exempel.
@@ -94,8 +94,8 @@ Nyckelvalvets dataplan består av åtgärder som påverkar objekten i ett nyckel
 
 > [!IMPORTANT]
 > Observera att åtkomstprinciper för nyckelvalv gäller på valvnivå. En användare som har beviljats behörighet att skapa och ta bort nycklar, kan utföra de åtgärderna på alla nycklar i nyckelvalvet.
-> 
-> 
+
+Utöver åtkomstprinciper kan även dataplansåtkomst vara begränsad med [tjänstslutpunkter för virtuellt nätverk för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) genom att konfigurera [brandväggar och regler för virtuella nätverk](key-vault-network-security.md) för ett extra säkerhetslager.
 
 ## <a name="example"></a>Exempel
 Anta att du utvecklar ett program som använder ett certifikat för SSL, Azure Storage för att lagra data och använder sig av en RSA 2048-bitars nyckel för signeringsåtgärder. Anta att det här programmet körs i en VM (eller en VM-skaluppsättning). Du kan använda ett nyckelvalv för att lagra alla programmets hemligheter och använda nyckelvalvet för att lagra bootstrap-certifikatet som används av programmet för att autentisera med Azure Active Directory.
@@ -201,8 +201,8 @@ Det här exemplet visar ett enkelt scenario. Scenarier i verkliga livet är vanl
 
 > [!NOTE]
 > Obs: Det här exemplet visar hur åtkomst till nyckelvalvet låses i produktionen. Utvecklarna bör ha sina egna prenumerationer eller resursgrupper där de har fullständiga behörigheter att hantera sina valv, VM:ar och lagringskonton där de utvecklar programmet.
-> 
-> 
+
+Vi rekommenderar starkt att skydda åtkomst till ditt nyckelvalv ytterligare genom att [konfigurera Key Vault-brandväggar och virtuella nätverk](key-vault-network-security.md).
 
 ## <a name="resources"></a>Resurser
 * [Azure Active Directory rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md)
@@ -243,6 +243,8 @@ Det här exemplet visar ett enkelt scenario. Scenarier i verkliga livet är vanl
   Länkar till referensdokumentation för PowerShell-cmdletar för att hantera åtkomstprinciper för nyckelvalvet.
 
 ## <a name="next-steps"></a>Nästa steg
+[Konfigurera Key Vault-brandväggar och virtuella nätverk](key-vault-network-security.md)
+
 För en komma igång-självstudie för administratörer, kan du se [Kom igång med Azure Key Vault](key-vault-get-started.md).
 
 Mer information om av användningsloggning för Key Vault finns i avsnittet om [Azure Key Vault-loggning](key-vault-logging.md).

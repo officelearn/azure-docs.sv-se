@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/13/2018
+ms.date: 08/31/2018
 ms.author: jovanpop-msft
-ms.openlocfilehash: cb378c2d2773096992ef688653fd77b2625f8754
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4271f0cef31b0e028ed1f9408166c37d4cbbe109
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023546"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382006"
 ---
 # <a name="create-an-azure-sql-managed-instance"></a>Skapa en Azure SQL-hanterad instans
 
@@ -60,7 +60,7 @@ Följande steg visar hur du skapar en hanterad instans när förhandsversionen h
 2. Leta upp den **hanterade instansen** och välj sedan **Azure SQL Database Managed Instance (förhandsversion)**.
 3. Klicka på **Skapa**.
 
-   ![Skapa en hanterad instans](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Skapa en hanterad instans](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
 4. Välj din prenumeration och kontrollera att villkoren för förhandsversionen är **godkända**.
 
@@ -77,26 +77,21 @@ Följande steg visar hur du skapar en hanterad instans när förhandsversionen h
    |**Plats**|Den plats som du tidigare valt|För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/).|
    |**Virtuellt nätverk**|Det virtuella nätverk som du skapade tidigare| Välj objektet **MyNewVNet/ManagedInstances** om du inte ändrade namnen i föregående steg. Annars väljer du namnet på det virtuella nätverket och undernätet för hanterade instanser som du angav i föregående avsnitt. **Använd inte standardundernätet eftersom det inte är konfigurerat att vara värd för hanterade instanser**. |
 
-   ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
+   ![managed instance create form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
 6. Klicka på **Prisnivå** för att beräkna storlek på instanser och lagringsresurser samt granska alternativen för prisnivå. Som standard får din instans 32 GB lagringsutrymme kostnadsfritt, **vilket kanske inte är tillräckligt för dina program**.
 7. Använd skjutreglagen eller textrutorna för att ange mängden lagringsutrymme och antalet virtuella kärnor. 
-   ![prisnivå för hanterad instans](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+   ![prisnivå för hanterad instans](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
 
 8. När du är klar klickar du på **Verkställ** för att spara ditt val.  
 9. Klicka på **Skapa** för att distribuera den hanterade instansen.
 10. Klicka på **ikonen för meddelanden** för att visa status för distributionen.
- 
-   ![deployment progress](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
-
 11. Klicka på **Distribution pågår** för att öppna fönstret för den hanterade instansen om du vill fortsätta övervaka förloppet för distributionen.
- 
-   ![deployment progress 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
 Under distributionen kan du fortsätta till nästa procedur.
 
 > [!IMPORTANT]
-> För den första instansen i ett undernät tar distributionen vanligtvis mycket längre tid än för efterföljande instanser. Ibland kan den ta mer än 24 timmar att slutföra. Avbryt inte distributionen om den tar längre tid än förväntat. Att det tar lång tid att distribuera den första instansen är bara tillfälligt. Förvänta dig en betydande minskning av distributionstiden kort efter att den offentliga granskningen börjat. Det tar några minuter att skapa den andra hanterade instansen i undernätet.
+> För den första instansen i ett undernät tar distributionen vanligtvis mycket längre tid än för efterföljande instanser. Avbryt inte distributionen om den tar längre tid än förväntat. Det tar några minuter att skapa den andra hanterade instansen i undernätet.
 
 ## <a name="prepare-client-machine"></a>Förbereda klientdatorn
 

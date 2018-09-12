@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f46a3ecb3c4ef6ace31b7010ba9068ab04a43315
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 37130e946aad00ef4eca14b7ce7942a8e435e6cd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126549"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782336"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Självstudie: Beställa Azure Data Box Disk (förhandsversion)
 
-Azure Data Box Disk är en molnlösning. Via den kan du importera lokala data till Azure på ett snabbt, enkelt och tillförlitligt sätt. Du överför data till SSD-diskar som tillhandahålls av Microsoft och skickar sedan tillbaka diskarna. Dessa data överförs sedan till Azure. 
+Azure Data Box Disk är en hybridmolnlösning. Via den kan du importera lokala data till Azure på ett snabbt, enkelt och tillförlitligt sätt. Du överför data till SSD-diskar som tillhandahålls av Microsoft och skickar sedan tillbaka diskarna. Dessa data överförs sedan till Azure. 
 
 I den här självstudien beskriver vi hur du kan beställa Azure Data Box-diskar. I den här självstudien lär du dig:
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 > [!IMPORTANT]
 > - Data Box Disk är tillgängligt som förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
-> - Under förhandsversionen kan Data Box Disk levereras till kunder i USA och EU. Mer information finns i [Regional tillgänglighet](data-box-disk-overview.md#region-availability).
+> - Under förhandsversionsfasen kan Data Box Disk levereras till kunder i USA, västra och norra Europa, Kanada och Australien. Mer information finns i [Regional tillgänglighet](data-box-disk-overview.md#region-availability).
 
 ## <a name="sign-up"></a>Registrera dig 
 
@@ -80,7 +80,7 @@ Utför följande steg på [Azure-portalen](https://aka.ms/azuredataboxfromdiskdo
     |---|---|
     |Namn|Välj ett smeknamn så att du kan spåra beställningen.<br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra. |
     |Resursgrupp| Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
-    |Azure-målregion| Välj en region för lagringskontot.<br> För närvarande stöds lagringskonton i regionerna i hela USA samt i västra och norra Europa. |
+    |Azure-målregion| Välj en region för lagringskontot.<br> För närvarande stöds lagringskonton i USA, västra och norra Europa, Kanada och Australien. |
     |Lagringskonto(n)|Baserat på den angivna Azure-regionen kan du välja ur en filtrerad lista med befintliga lagringskonton. <br>Du kan också skapa nya konton för generell användning av typen v1 eller v2. |
     |Beräknad datastorlek i TB| Ange en uppskattning i TB. <br>Microsoft skickar baserat på datastorlek ett lämpligt antal SSD-diskar på vardera 8 TB (7 TB användbar kapacitet). <br>Den maximala kapaciteten som kan användas på 5 diskar är upp till 35 TB. |
 

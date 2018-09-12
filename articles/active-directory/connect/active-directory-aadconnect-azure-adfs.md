@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 924269e16ab09cfd144955d3bd462cab7b37aaaf
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917143"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381762"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuera Active Directory Federation Services i Azure
 AD FS tillhandahåller förenklad, säker identitetsfederation och funktioner för enkel inloggning (SSO). Federation med Azure AD eller O365 gör att användarna kan autentiseras med lokala autentiseringsuppgifter och få åtkomst till alla resurser i molnet. Därför är det viktigt att du har en AD FS-infrastruktur med hög tillgänglighet för att säkerställa åtkomsten till resurser både lokalt och i molnet. Genom att distribuera AD FS i Azure kan du uppnå den höga tillgänglighet som krävs med minimalt arbete.
@@ -41,7 +41,7 @@ Diagrammet ovan illustrerar den rekommenderade grundläggande topologin för dis
 * **DC/ADFS-servrar**: Om du har färre än 1 000 användare behöver du bara installera AD FS-rollen på domänkontrollanterna. Om du vill undvika en prestandaförsämring på domänkontrollanterna eller om du har fler än 1 000 användare distribuerar du AD FS på separata servrar.
 * **WAP-server** – Du måste distribuera WAP-servrar (webbprogramproxyservrar) så att användarna kan nå AD FS även när de inte är anslutna till företagets nätverk.
 * **DMZ**: WAP-servrarna placeras i DMZ och endast TCP/443-åtkomst tillåts mellan DMZ och det interna undernätet.
-* **Belastningsutjämnare**: Om du vill garantera hög tillgänglighet för AD FS- och WAP-servrar rekommenderar vi att du använder en intern belastningsutjämnare för AD FS-servrar och Azure Load Balancer för WAP-servrar.
+* **Lastbalanserare**: Om du vill garantera hög tillgänglighet för AD FS- och WAP-servrar rekommenderar vi att du använder en intern lastbalanserare för AD FS-servrar och Azure Load Balancer för WAP-servrar.
 * **Tillgänglighetsuppsättningar**: Om du vill tillhandahålla redundans i AD FS-distributionen rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning för liknande arbetsbelastningar. Den här konfigurationen garanterar att minst en virtuell dator är tillgänglig under planerat eller oplanerat underhåll.
 * **Lagringskonton**: Vi rekommenderar att du har två lagringskonton. Om du bara har ett lagringskonto kan det ge upphov till en felkritisk systemdel och göra att distributionen blir otillgänglig i det osannolika scenariot att lagringskontot skulle krascha. Två lagringskonton innebär att ett lagringskonto kan associeras med varje felrad.
 * **Nätverkssegregering**: WAP-servrar bör distribueras i ett separat DMZ-nätverk. Du kan dela upp ett virtuellt nätverk i två undernät och sedan distribuera WAP-servrarna i ett isolerat undernät. Konfigurera bara inställningar för nätverkssäkerhetsgrupper för varje undernät och tillåt endast nödvändig kommunikation mellan de två undernäten. Mer information finns i distributionsscenarierna nedan.
@@ -148,35 +148,35 @@ Fönstret för din virtuella dator bör se ut så här när distributionen är k
 * Flytta upp de två servrarna som replikeringsdomänkontrollanter med DNS
 * Konfigurera AD FS-servrarna genom att installera AD FS-rollen med hjälp av Serverhanteraren.
 
-### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Distribuera en intern belastningsutjämnare (ILB)
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Distribuera en intern lastbalanserare (ILB)
 **6.1. Skapa den interna belastningsutjämnaren**
 
-Om du vill distribuera en intern belastningsutjämnare väljer du Belastningsutjämning på Azure-portalen och klickar på Lägg till (+).
+Om du vill distribuera en intern lastbalanserare väljer du Lastbalanserare på Azure-portalen och klickar på Lägg till (+).
 
 > [!NOTE]
-> Om du inte ser **Belastningsutjämning** på menyn klickar du på **Bläddra** längst ned till vänster på portalen och rullar tills du ser **Belastningsutjämning**.  Sedan klickar du på den gula stjärnan för att lägga till den på menyn. Välj sedan ikonen för den nya belastningsutjämnaren för att öppna panelen och börja konfigurera belastningsutjämningen.
+> Om du inte ser **Lastbalansering** på menyn klickar du på **Bläddra** längst ned till vänster på portalen och rullar tills du ser **Lastbalansering**.  Sedan klickar du på den gula stjärnan för att lägga till den på menyn. Välj sedan ikonen för den nya lastbalanseraren för att öppna panelen och börja konfigurera lastbalanseringen.
 > 
 > 
 
-![Bläddra till belastningsutjämnaren](./media/active-directory-aadconnect-azure-adfs/browseloadbalancer.png)
+![Bläddra till lastbalanseraren](./media/active-directory-aadconnect-azure-adfs/browseloadbalancer.png)
 
-* **Namn**: Ge belastningsutjämnaren ett lämpligt namn.
-* **Schema**: Eftersom den här belastningsutjämnaren ska placeras framför AD FS-servrarna och är avsedd ENDAST för interna nätverksanslutningar så väljer du ”Intern”.
+* **Namn**: Ge lastbalanseraren ett lämpligt namn.
+* **Schema**: Eftersom den här lastbalanseraren ska placeras framför AD FS-servrarna och är avsedd ENDAST för interna nätverksanslutningar så väljer du ”Intern”.
 * **Virtual Network**: Välj det virtuella nätverket där du distribuerar AD FS.
 * **Undernät**: Välj det interna undernätet.
 * **IP-adresstilldelning**: Statisk
 
-![Intern belastningsutjämnare](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
+![Intern lastbalanserare](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
 
-När du klickar på Skapa och när den interna belastningsutjämnaren har distribuerats bör du se den i listan med belastningsutjämnare:
+När du klickar på Skapa och när den interna lastbalanseraren har distribuerats bör du se den i listan med lastbalanserare:
 
-![Belastningsutjämnare efter ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment2.png)
+![Lastbalanserare efter ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment2.png)
 
 Nästa steg är att konfigurera serverdelspoolen och serverdelsavsökningen.
 
 **6.2. Konfigurera serverdelspoolen för den interna belastningsutjämnaren**
 
-Välj den nya interna belastningsutjämnaren på panelen Belastningsutjämning. Nu öppnas inställningspanelen. 
+Välj den nya interna lastbalanseraren på panelen Lastbalansering. Nu öppnas inställningspanelen. 
 
 1. Välj Serverdelspooler från inställningspanelen.
 2. Klicka på Lägg till virtuell dator på panelen Lägg till serverdelspool.
@@ -187,12 +187,14 @@ Välj den nya interna belastningsutjämnaren på panelen Belastningsutjämning. 
 
 **6.3. Konfigurera avsökning**
 
-Välj Avsökningar på panelen för ILB-inställningar.
+Välj Hälsoavsökningar på panelen för ILB-inställningar.
 
 1. Klicka på Lägg till.
-2. Ange information för avsökningen a. **Namn**: Avsökningens namn. b. **Protokoll**: TCP. c. **Port**: 443 (HTTPS). d. **Intervall**: 5 (standardvärde) – Den interna belastningsutjämnaren söker av datorerna i serverdelspoolen enligt detta intervall. e. **Tröskelvärde för ohälsosamt tillstånd**: 2 (standardvärde) – Det här är tröskelvärdet för upprepade avsökningsfel, varefter den interna belastningsutjämnaren deklarerar att en dator i serverdelspoolen inte svarar och slutar att skicka trafik till den.
+2. Ange information för avsökningen a. **Namn**: Avsökningens namn. b. **Protokoll**: HTTP c. **Port**: 80 (HTTP) d. **Sökväg**: /adfs/probe e. **Intervall**: 5 (standardvärde) – Den interna belastningsutjämnaren söker av datorerna i serverdelspoolen enligt detta intervall. f. **Tröskelvärde för ohälsosamt tillstånd**: 2 (standardvärde) – Det här är tröskelvärdet för upprepade avsökningsfel, varefter den interna belastningsutjämnaren deklarerar att en dator i serverdelspoolen inte svarar och slutar att skicka trafik till den.
 
 ![Konfigurera ILB-avsökning](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+Vi använder avsökningsslutpunkten /adfs/som har skapats uttryckligen för hälsokontroller i en AD FS-miljö där en fullständig HTTPS-sökvägskontroll inte kan göras.  Det här är betydligt bättre än en enkel port 443-kontroll, som inte exakt speglar statusen för en modern AD FS-distribution.  Mer information om det här finns på https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/.
 
 **6.4. Skapa regler för belastningsutjämning**
 
@@ -219,50 +221,50 @@ Säkerställ att WAP-servrarna kan nå AD FS-servarna bakom den interna belastni
 När du har kontrollerat att WAP-servrarna kan nå AD FS-servarna bakom den interna belastningsutjämnaren kan du gå vidare och installera WAP-servrarna. Web Application Proxy-servarna ska inte anslutas till domänen. Installera WAP-rollerna på två WAP-servrar genom att välja fjärråtkomstrollen. Serverhanteraren vägleder dig genom WAP-installationen.
 Mer information om hur du distribuerar WAP finns i [Installera och konfigurera WAP (webbprogramproxyserver)](https://technet.microsoft.com/library/dn383662.aspx).
 
-### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Distribuera den Internetuppkopplade (offentliga) belastningsutjämnaren
-**8.1.  Skapa en Internetuppkopplad (offentlig) belastningsutjämnare**
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Distribuera den Internetuppkopplade (offentliga) lastbalanseraren
+**8.1.  Skapa en Internetuppkopplad (offentlig) lastbalanserare**
 
-Välj Belastningsutjämning på Azure-portalen och klicka sedan på Lägg till. Ange följande information på panelen Skapa belastningsutjämnare:
+Välj Lastbalanserare i Azure-portalen och klicka sedan på Lägg till. Ange följande information på panelen Skapa lastbalanserare
 
-1. **Namn**: Belastningsutjämnarens namn.
-2. **Schema**: Offentligt – det här alternativet anger att belastningsutjämnaren behöver en offentlig adress.
+1. **Namn**: Lastbalanserarens namn.
+2. **Schema**: Offentligt – det här alternativet anger att lastbalanseraren behöver en offentlig adress.
 3. **IP-adress**: Skapa en ny IP-adress (dynamisk).
 
-![Internetuppkopplad belastningsutjämnare](./media/active-directory-aadconnect-azure-adfs/elbdeployment1.png)
+![Internetuppkopplad lastbalanserare](./media/active-directory-aadconnect-azure-adfs/elbdeployment1.png)
 
-Efter distributionen visas belastningsutjämnaren i listan över belastningsutjämnare.
+Efter distributionen visas lastbalanseraren i listan över lastbalanserare.
 
-![Lista med belastningsutjämnare](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
+![Lista med lastbalanserare](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
 **8.2. Ange en DNS-etikett för den offentliga IP-adressen**
 
-Öppna konfigurationspanelen genom att klicka på den nya posten för belastningsutjämnaren på panelen Belastningsutjämning. Konfigurera DNS-etiketten för den offentliga IP-adressen genom att följa stegen nedan:
+Öppna konfigurationspanelen genom att klicka på den nya posten för lastbalanseraren på panelen Lastbalanserare. Konfigurera DNS-etiketten för den offentliga IP-adressen genom att följa stegen nedan:
 
 1. Klicka på den offentliga IP-adressen. Nu öppnas panelen för den offentliga IP-adressen och dess inställningar.
 2. Klicka på Konfiguration.
-3. Ange en DNS-etikett. Den här etiketten blir den offentliga DNS-etiketten som du kan komma åt överallt, till exempel contosofs.westus.cloudapp.azure.com. Du kan lägga till en post i externa DNS för federationstjänsten (t.ex. fs.contoso.com) som matchar DNS-etiketten för den externa belastningsutjämnaren (contosofs.westus.cloudapp.azure.com).
+3. Ange en DNS-etikett. Den här etiketten blir den offentliga DNS-etiketten som du kan komma åt överallt, till exempel contosofs.westus.cloudapp.azure.com. Du kan lägga till en post i externa DNS för federationstjänsten (t.ex. fs.contoso.com) som matchar DNS-etiketten för den externa lastbalanseraren (contosofs.westus.cloudapp.azure.com).
 
-![Konfigurera en Internetuppkopplad belastningsutjämnare](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png) 
+![Konfigurera en Internetuppkopplad lastbalanserare](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png) 
 
-![Konfigurera en Internetuppkopplad belastningsutjämnare (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
+![Konfigurera en Internetuppkopplad lastbalanserare (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3. Konfigurera serverdelspoolen för den Internetuppkopplade (offentliga) belastningsutjämnaren** 
+**8.3. Konfigurera serverdelspoolen för den Internetuppkopplade (offentliga) lastbalanseraren** 
 
-Följ samma steg som när du skapade den interna belastningsutjämnaren för att konfigurera serverdelspoolen för den Internetuppkopplade (offentliga) belastningsutjämnaren som tillgänglighetsuppsättningen för WAP-servrarna. Till exempel contosowapset.
+Följ samma steg som när du skapade den interna lastbalanseraren för att konfigurera serverdelspoolen för den Internetuppkopplade (offentliga) lastbalanseraren som tillgänglighetsuppsättningen för WAP-servrarna. Till exempel contosowapset.
 
-![Konfigurera serverdelspoolen för den Internetuppkopplade belastningsutjämnaren](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
+![Konfigurera serverdelspoolen för den Internetuppkopplade lastbalanseraren](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
 **8.4. Konfigurera avsökning**
 
-Följ samma steg som när du konfigurerade den interna belastningsutjämnaren för att konfigurera avsökningen för serverdelspoolen för WAP-servrar.
+Följ samma steg som när du konfigurerade den interna lastbalanseraren för att konfigurera avsökningen för serverdelspoolen för WAP-servrar.
 
-![Konfigurera avsökningen för den Internetuppkopplade belastningsutjämnaren](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
+![Konfigurera avsökningen för den Internetuppkopplade lastbalanseraren](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
 **8.5. Skapa belastningsutjämningsregler**
 
 Följ samma steg som när du konfigurerade den interna belastningsutjämnaren för att konfigurera belastningsutjämningsregeln för TCP 443.
 
-![Konfigurera belastningsutjämningsregler för den Internetuppkopplade belastningsutjämnaren](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
+![Konfigurera lastbalanseringsregler för den Internetuppkopplade lastbalanseraren](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
 ### <a name="9-securing-the-network"></a>9. Skydda nätverket
 **9.1. Skydda det interna undernätet**
@@ -339,7 +341,7 @@ Du kan använda ett befintligt virtuellt nätverk eller skapa ett nytt VNET när
 | ADFS02NICIPAddress |Den interna IP-adressen för den andra AD FS-servern, den här IP-adressen kommer att statiskt tilldelas till AD FS-servern och måste vara en giltig IP-adress inom det interna undernätet |
 | WAP01NICIPAddress |Den interna IP-adressen för den första WAP-servern, den här IP-adressen kommer att statiskt tilldelas till WAP-servern och måste vara en giltig IP-adress inom DMZ-undernätet |
 | WAP02NICIPAddress |Den interna IP-adressen för den andra WAP-servern, den här IP-adressen kommer att statiskt tilldelas till WAP-servern och måste vara en giltig IP-adress inom DMZ-undernätet |
-| ADFSLoadBalancerPrivateIPAddress |Den interna IP-adressen för AD FS-belastningsutjämnaren, den här IP-adressen kommer att statiskt tilldelas till belastningsutjämnaren och måste vara en giltig IP-adress inom det interna undernätet |
+| ADFSLoadBalancerPrivateIPAddress |Den interna IP-adressen för AD FS-lastbalanseraren, den här IP-adressen kommer att statiskt tilldelas till lastbalanseraren och måste vara en giltig IP-adress inom det interna undernätet |
 | ADDCVMNamePrefix |Virtual Machine-namnprefixet för domänkontrollanter |
 | ADFSVMNamePrefix |Virtual Machine-namnprefixet för AD FS-servrar |
 | WAPVMNamePrefix |Virtual Machine-namnprefixet för WAP-servrar |
@@ -352,8 +354,8 @@ Du kan använda ett befintligt virtuellt nätverk eller skapa ett nytt VNET när
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Tillgänglighetsuppsättningar](https://aka.ms/Azure/Availability) 
 * [Azure Load Balancer](https://aka.ms/Azure/ILB)
-* [Interna belastningsutjämnare](https://aka.ms/Azure/ILB/Internal)
-* [Internetuppkopplad belastningsutjämnare](https://aka.ms/Azure/ILB/Internet)
+* [Intern lastbalanserare](https://aka.ms/Azure/ILB/Internal)
+* [Internetuppkopplad lastbalanserare](https://aka.ms/Azure/ILB/Internet)
 * [Lagringskonton](https://aka.ms/Azure/Storage)
 * [Azure Virtual Networks](https://aka.ms/Azure/VNet)
 * [AD FS och WAP-länkar (webbprogramproxy)](https://aka.ms/ADFSLinks) 

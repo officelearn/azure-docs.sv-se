@@ -1,0 +1,126 @@
+items:
+- name: Dokumentation om Azure AD-programhantering
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Om programhantering
+    href: what-is-application-management.md
+- name: Snabbstarter
+  items:
+  - name: Lägg till ett program – portalen
+    href: add-application-portal.md
+  - name: Visa klientorganisationsappar – portalen
+    href: view-applications-portal.md
+  expanded: true
+- name: Självstudier
+  items:
+  - name: Konfigurera enkel inloggning – portalen
+    href: configure-single-sign-on-portal.md
+- name: Begrepp
+  items:
+  - name: Planera integration av en molnapp
+    items:
+    - name: Vad händer när du lägger till en app
+      href: plan-an-application-integration.md
+  - name: Planera integration av en lokal app
+    items:
+    - name: Programproxy
+      href: application-proxy.md
+    - name: Anslutningar
+      href: application-proxy-connectors.md
+    - name: Anslutningsgrupper
+      href: application-proxy-connector-groups.md
+    - name: Säkerhet
+      href: application-proxy-security.md
+    - name: Nätverkstopologi
+      href: application-proxy-network-topology.md
+    - name: Jämförelse mellan fjärråtkomstlösningar
+      href: application-proxy-migration.md
+  - name: Försörj användare och grupper
+    items:
+    - name: Automatisk användarförsörjning
+      href: configure-automatic-user-provisioning-portal.md
+    - name: SCIM-aktiverade appar
+      href: use-scim-to-provision-users-and-groups.md
+  - name: Programsäkerhet
+    items:
+    - name: Åtkomstalternativ för appar
+      href: what-is-access-management.md
+    - name: Alternativ för certifikatsignering
+      href: certificate-signing-options.md
+    - name: Hantera certifikat
+      href: manage-certificates-for-federated-single-sign-on.md
+  - name: Enkel inloggning
+    items:
+    - name: Metoder för enkel inloggning
+      href: application-proxy-single-sign-on.md
+    - name: Upptäckt av hemsfär
+      href: configure-authentication-for-federated-users-portal.md
+    - name: Begränsad Kerberos-delegering (KCD)
+      href: application-proxy-configure-single-sign-on-with-kcd.md
+    - name: Lösenordsvalv
+      href: application-proxy-configure-single-sign-on-password-vaulting.md
+    - name: Pinga åtkomst
+      href: application-proxy-configure-single-sign-on-with-ping-access.md
+- name: Instruktionsguider
+  items:
+  - name: Integration av en molnapp
+    items:
+    - name: Ändra namn eller logotyp
+      href: change-name-or-logo-portal.md
+  - name: Integration av en lokal app
+    items:
+    - name: Aktivera Application Proxy
+      href: application-proxy-enable.md
+    - name: Publicera app för fjärråtkomst
+      href: application-proxy-publish-azure-portal.md
+    - name: Konfigurera anslutningsappar
+      href: application-proxy-configure-connectors-with-proxy-servers.md
+    - name: Konfigurera anspråksmedvetna appar
+      href: application-proxy-configure-for-claims-aware-applications.md
+    - name: Registrera anslutningsapp – tyst installation
+      href: application-proxy-register-connector-powershell.md
+    - name: Konfigurera ursprungliga klientappar
+      href: application-proxy-configure-native-client-application.md
+    - name: Konfigurera anpassad startsida
+      href: application-proxy-configure-custom-home-page.md
+    - name: Översätt infogade länkar
+      href: application-proxy-configure-hard-coded-link-translation.md
+    - name: Publicera med jokertecken
+      href: application-proxy-wildcard.md
+    - name: Ta bort personliga data
+      href: application-proxy-remove-personal-data.md
+    - name: Konfigurera anpassat domän
+      href: application-proxy-configure-custom-domain.md
+    - name: Integrera med Fjärrskrivbord
+      href: application-proxy-integrate-with-remote-desktop-services.md
+    - name: Integrera med SharePoint
+      href: application-proxy-integrate-with-sharepoint-server.md
+    - name: Integrera med Teams
+      href: application-proxy-integrate-with-teams.md
+    - name: Integrera med Tableau
+      href: application-proxy-integrate-with-tableau.md
+    - name: Integrera med Qlik
+      href: application-proxy-qlik.md
+    - name: Konfigurationsfel
+      href: application-proxy-troubleshoot.md
+  - name: Programåtkomst
+    items:
+    - name: Tilldela en användare till en app
+      href: assign-user-or-group-access-portal.md
+    - name: Ta bort användar- eller gruppåtkomst
+      href: remove-user-or-group-access-portal.md
+    - name: Göm en app från en användare
+      href: hide-application-from-user-portal.md
+    - name: Inaktivera användarinloggning
+      href: disable-user-sign-in-portal.md
+  - name: Migrering
+    items:
+    - name: Migrera en ADFS-app till Azure
+      href: migrate-adfs-apps-to-azure.md
+ms.openlocfilehash: 57a377c56764272b70814bc78b31f718d3d902b7
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44381820"

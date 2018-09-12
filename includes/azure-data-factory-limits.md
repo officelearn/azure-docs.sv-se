@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 67144407b078a30c521201cbc31c6087c839fa26
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4aa4809c57eaf26b10053d432f9191580ec143a0
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39029961"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44381097"
 ---
 Data factory är en tjänst för flera klienter som har följande standardgränserna på plats för att kontrollera kundprenumerationer skyddas från varandras arbetsbelastningar. Många av gränserna kan enkelt höjas för din prenumeration upp till den maximala gränsen genom att kontakta supporten.
 
@@ -38,6 +38,8 @@ Data factory är en tjänst för flera klienter som har följande standardgräns
 | Data integration enheter per körningen av kopieringsaktiviteten <sup>3</sup> | 256 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Skriv API-anrop | 2500/timme<br/><br/> Den här gränsen har införts i Azure Resource Manager, inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Läs API-anrop | 12 500/timme<br/><br/> Den här gränsen har införts i Azure Resource Manager, inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Övervakning av frågor per minut | 1000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Entiteten CRUD-åtgärder per minut | 50 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
 
 ### <a name="version-1"></a>Version 1
@@ -64,7 +66,7 @@ Data factory är en tjänst för flera klienter som har följande standardgräns
 
 | **Resurs** | **Lägre Standardgräns** | **Lägsta tillåtna värdet** |
 | --- | --- | --- |
-| Planering intervallet |15 minuter |15 minuter |
+| Planering intervallet |15 minuter |15 minuter |
 | Intervall mellan försök |1 sekund |1 sekund |
 | Gör om timeout-värde |1 sekund |1 sekund |
 

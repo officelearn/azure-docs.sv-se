@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
-ms.translationtype: HT
+ms.openlocfilehash: d8c5e660b460e763fb4a500463543316c8c914ed
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343470"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159423"
 ---
 # <a name="secure-your-key-vault"></a>Säkra ditt nyckelvalv
 Azure Key Vault är en molntjänst som skyddar krypteringsnycklar och hemligheter (som certifikat, anslutningssträngar, lösenord) för dina molnprogram. Eftersom dessa data är känsliga och verksamhetskritiska, behöver du säkra åtkomsten till dina nyckelvalv så att enbart auktoriserade program och användare har åtkomst. Den här artikeln ger en översikt över åtkomstmodellen för nyckelvalvet, förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomst till nyckelvalvet för dina molnprogram med ett exempel.

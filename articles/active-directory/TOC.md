@@ -232,11 +232,11 @@
 
 
 #### Programregistrering
-##### [Ange fält för programobjektet](application-dev-registration-config-specific-application-property-how-to.md)
-##### [Ändra standardinställningarna för livslängd för token](application-dev-registration-config-change-token-lifetime-how-to.md)
+##### [Ange fält för programobjektet](develop/registration-config-specific-application-property-how-to.md)
+##### [Ändra standardinställningarna för livslängd för token](develop/registration-config-change-token-lifetime-how-to.md)
 
 #### Autentisering
-##### [Konfigurera slutpunkter](application-dev-registration-config-how-to.md)
+##### [Konfigurera slutpunkter](develop/registration-config-how-to.md)
 
 #### Villkorlig åtkomst
 ##### [Kunden uppfyllde inte förhandskraven för enhetsregistrering](active-directory-conditional-access.md)
@@ -248,7 +248,7 @@
 ##### [Vilka program stöds med villkorlig åtkomst?](active-directory-conditional-access-supported-apps.md)
 
 #### Hitta ett API
-##### [Hitta ett API](application-dev-api-find-an-api-how-to.md)
+##### [Hitta ett API](develop/api-find-an-api-how-to.md)
 
 #### Hantera åtkomst
 ##### [Tilldela användare och grupper till en app](manage-apps/methods-for-assigning-users-and-groups.md)
@@ -258,14 +258,14 @@
 ##### [Oväntad app i programlistan](manage-apps/application-types.md)
 
 #### Appar för flera klienter
-##### [Konfigurera en ny app](application-dev-setup-multi-tenant-app.md)
-##### [Lägga till i appgalleriet](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+##### [Konfigurera en ny app](develop/setup-multi-tenant-app.md)
+##### [Lägga till i appgalleriet](develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md)
 
 #### Behörigheter
-##### [Välja behörigheter för ett API](application-dev-perms-for-given-api.md)
-##### [Bevilja behörigheter till min app](application-dev-registration-config-grant-permissions-how-to.md)
-##### [Delegerat/programbehörigheter](application-dev-delegated-and-app-perms.md)
-##### [Programmedgivande](application-dev-consent-framework.md)
+##### [Välja behörigheter för ett API](develop/perms-for-given-api.md)
+##### [Bevilja behörigheter till min app](develop/registration-config-grant-permissions-how-to.md)
+##### [Delegerat/programbehörigheter](develop/delegated-and-app-perms.md)
+##### [Programmedgivande](develop/consent-framework.md)
 
 #### Etablering
 ##### [Hur lång tid det tar](manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)
@@ -278,7 +278,7 @@
 
 #### Enkel inloggning
 ##### [Välj en metod](manage-apps/single-sign-on-modes.md)
-##### [Konfigurera](application-dev-registration-config-sso-how-to.md)
+##### [Konfigurera](develop/registration-config-sso-how-to.md)
 ##### [Konfigurera externa – galleriappar](manage-apps/configure-federated-single-sign-on-gallery-applications.md)
 ##### [Vanliga problem vid konfiguration av externa – galleriappar](manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md)
 ##### [Konfigurera externa – inte galleriappar](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
@@ -303,7 +303,7 @@
 ##### [Problem med lokal app – programproxy](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
 ### [Utveckla appar](active-directory-applications-guiding-developers-for-lob-applications.md)
-### [Dokumentbibliotek](active-directory-apps-index.md)
+
 
 ## Hantera din katalog
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)

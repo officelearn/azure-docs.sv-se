@@ -7,14 +7,14 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 01/06/2018
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: d936ff91cd2b7db6a88c4adb0a6f332205b814bb
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0402d9dc1dfee5e146d3550d095f4fb53e52f12b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022074"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720941"
 ---
 # <a name="start-moderation-jobs-using-net"></a>Starta moderering jobb med hjälp av .NET
 
@@ -59,8 +59,6 @@ Du använder namnet på arbetsflödet i din kod som startar moderering av jobbet
 
 1. Välj det här projektet som enda Startprojekt för lösningen.
 
-1. Lägg till en referens till den **ModeratorHelper** projektet sammansättning som du skapade i den [Content Moderator klienten helper Snabbstart](content-moderator-helper-quickstart-dotnet.md).
-
 ### <a name="install-required-packages"></a>Installera de paket som krävs
 
 Installera följande NuGet-paket:
@@ -73,14 +71,64 @@ Installera följande NuGet-paket:
 
 Ändra programmet är med hjälp av uttryck.
 
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
+
+### <a name="create-the-content-moderator-client"></a>Skapa Content Moderator-klienten
+
+Lägg till följande kod för att skapa en Content Moderator-klient för din prenumeration.
+
+> [!IMPORTANT]
+> Uppdatera den **AzureRegion** och **CMSubscriptionKey** fält med värdena för din region identifierare och prenumeration nyckel.
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.BaseUrl = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="initialize-application-specific-settings"></a>Initiera programspecifika inställningar
 
@@ -90,7 +138,7 @@ Lägg till följande konstanter och statiska fält till den **programmet** klass
 > Du kan ange TeamName konstant namnet du använde när du skapade prenumerationen Content Moderator. Du kan hämta TeamName från den [Content Moderator-webbplats](https://westus.contentmoderator.cognitive.microsoft.com/).
 > När du har loggat in väljer **autentiseringsuppgifter** från den **inställningar** (kugghjulet)-menyn.
 >
-> Ditt Teamnamn är värdet för den **ID** i den **API** avsnittet.
+> Ditt Teamnamn är värdet för den **Id** i den **API** avsnittet.
 
 
     /// <summary>

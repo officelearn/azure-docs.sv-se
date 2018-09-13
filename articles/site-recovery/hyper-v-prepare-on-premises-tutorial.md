@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb820d124fd9b5e882cad538ad436532d7865fbc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: f1899817ee2d0efec4ab561a64f24e49cb173c29
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921544"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720777"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala Hyper-V-servrar på haveriberedskap till Azure
 
@@ -60,13 +60,15 @@ Förbereda VMM nätverksmappningen på följande sätt:
 ## <a name="verify-internet-access"></a>Kontrollera åtkomst till internet
 
 1. För kursen är den enklaste konfigurationen för Hyper-V-värdar och VMM-servern får direkt åtkomst till internet utan att använda en proxyserver. 
-2. Kontrollera att Hyper-V-värdar och VMM-servern om det behövs, kan komma åt dessa webbadresser: 
-
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
+2. Kontrollera att Hyper-V-värdar och VMM-servern om det behövs, kan komma åt nödvändiga adresserna nedan.   
 3. Om du kontrollera åtkomst med IP-adress, se till att:
     - IP-adressbaserade brandväggsregler kan ansluta till [Azure Datacenter IP-intervall](https://www.microsoft.com/download/confirmation.aspx?id=41653), och HTTPS-port (443).
     - Tillåt IP-adressintervall för Azure-regionen för din prenumeration.
+    
+### <a name="required-urls"></a>URL: erna
+
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling

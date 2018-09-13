@@ -7,14 +7,14 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 4a73892d44b4ae92f08976c8f54771292bba3a1d
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 1cccd12b7a0676da8db61ba1f02e199f2a086ee0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025524"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719111"
 ---
 # <a name="moderate-images-using-net"></a>Måttlig bilder med hjälp av .NET
 
@@ -27,8 +27,8 @@ Den här artikeln förutsätter att du redan är bekant med Visual Studio och C#
 
 ## <a name="sign-up-for-content-moderator-services"></a>Registrera dig för Content Moderator-tjänster
 
-Innan du kan använda Content Moderator-tjänster via REST-API: et eller SDK: N, måste en prenumerationsnyckel.
-Referera till den [snabbstarten](quick-start.md) att lära dig hur du kan hämta nyckeln.
+Innan du kan använda Content Moderator-tjänster via REST-API: et eller SDK: N, behöver du en API-nyckel och regionen som din API-konto.
+Referera till den [snabbstarten](quick-start.md) att lära dig hur du registrerar dig för Content Moderator att hämta båda.
 
 ## <a name="create-your-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
@@ -38,7 +38,6 @@ Referera till den [snabbstarten](quick-start.md) att lära dig hur du kan hämta
 
 1. Välj det här projektet som enda Startprojekt för lösningen.
 
-1. Lägg till en referens till den **ModeratorHelper** projektet sammansättning som du skapade i den [Content Moderator klienten helper Snabbstart](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Installera de paket som krävs
 
@@ -52,14 +51,63 @@ Installera följande NuGet-paket:
 
 Ändra programmet är med hjälp av uttryck.
 
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
+
+### <a name="create-the-content-moderator-client"></a>Skapa Content Moderator-klienten
+
+Lägg till följande kod för att skapa en Content Moderator-klient för din prenumeration.
+
+> [!IMPORTANT]
+> Uppdatera den **AzureRegion** och **CMSubscriptionKey** fält med värdena för din region identifierare och prenumeration nyckel.
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.BaseUrl = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="initialize-application-specific-settings"></a>Initiera programspecifika inställningar
 

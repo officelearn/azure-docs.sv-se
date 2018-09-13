@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 097eba4f5bcbb74d4158cc8d4135255d31e03ebd
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 4e1456064e35b55871638e9eeb34859194cb869b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027018"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714912"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Remote Monitoring solution accelerator översikt
 
@@ -50,7 +50,7 @@ Du kan etablera fysiska enheter från instrumentpanelen på lösningsportalen.
 
 ### <a name="device-simulation-microservice"></a>Enheten simulering mikrotjänst
 
-Lösningen innehåller den [enheten simulering mikrotjänst](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) som hjälper dig att hantera en pool med simulerade enheter från instrumentpanelen för lösningen att testa flödet slutpunkt till slutpunkt i lösningen. De simulerade enheterna:
+Lösningen innehåller den [enheten simulering mikrotjänst](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) som hjälper dig att hantera en pool med simulerade enheter från lösningsportalen att testa flödet slutpunkt till slutpunkt i lösningen. De simulerade enheterna:
 
 * Generera enhet-till-moln-telemetri.
 * Svara på metodanrop för moln-till-enhet från IoT Hub.
@@ -87,9 +87,9 @@ Den här tjänsten körs även IoT-hubb frågor för att hämta enheter som hör
 
 Mikrotjänst innehåller en RESTful-slutpunkt för att hantera enheter och enhetstvillingar, anropa metoder och köra frågor för IoT Hub.
 
-### <a name="telemetry-microservice"></a>Telemetri mikrotjänst
+### <a name="device-telemetry-microservice"></a>Enheten telemetri mikrotjänst
 
-Den [telemetri mikrotjänst](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) innehåller en RESTful-slutpunkt för läsåtkomst till enhetstelemetri, CRUD-åtgärder på regler och läs-/ skrivbehörighet för larm definitioner från storage.
+Den [enheten telemetri mikrotjänst](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) innehåller en RESTful-slutpunkt för läsåtkomst till enhetstelemetri som lagras i Time Series Insights. RESTful-slutpunkten kan också CRUD-åtgärder på regler och läs-/ skrivbehörighet för larm definitionerna från lagring.
 
 ### <a name="storage-adapter-microservice"></a>Storage nätverkskort mikrotjänst
 
@@ -99,21 +99,27 @@ Värden är ordnade i samlingar. Du kan arbeta med enskilda värden eller hämta
 
 Tjänsten tillhandahåller en RESTful-slutpunkt för CRUD-åtgärder på nyckel / värde-par. Värden
 
-### <a name="cosmos-db"></a>Cosmos DB
+### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Standarddistribution för solution accelerator använder [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) som dess huvudsakliga storage-tjänst.
+Solution accelerator distributioner använder [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) att lagra regler, larm, konfigurationsinställningar och alla andra kall lagring.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Azure Stream Analytics manager mikrotjänst
 
 Den [Azure Stream Analytics manager mikrotjänst](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/asa-manager) hanterar Azure Stream Analytics (ASA) jobb, inklusive att ställa in deras konfiguration, starta och stoppa dem och övervaka deras status.
 
-ASA-jobbet stöds av två referensdatauppsättningar. En datauppsättning som definierar regler och ett definierar enhetsgrupper. Referensdata regler skapas från den information som hanteras av telemetri-mikrotjänst. Azure Stream Analytics manager mikrotjänst omvandlar telemetri regler till logik för strömbearbetning.
+ASA-jobbet stöds av två referensdatauppsättningar. En datauppsättning som definierar regler och ett definierar enhetsgrupper. Referensdata regler skapas från den information som hanteras av enheten telemetri mikrotjänst. Azure Stream Analytics manager mikrotjänst omvandlar telemetri regler till logik för strömbearbetning.
 
 Referensdata för enheten grupper används för att identifiera vilken grupp av regler som avser ett inkommande telemetri-meddelande. Enhetsgrupper som hanteras av configuration mikrotjänster och Använd enhetstvillingfrågor för Azure IoT Hub.
+
+ASA-jobben leverera telemetri från anslutna enheter till Time Series Insights för lagring och analys.
 
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) är en händelsebearbetningsmotor som hjälper dig att undersöka stora mängder data som strömmas från enheter.
+
+### <a name="azure-time-series-insights"></a>Azure Time Series Insights
+
+[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) butiker telemetri från enheterna är anslutna till lösningsaccelerator. Dessutom kan visualisera och fråga enhetstelemetri i webbgränssnittet för lösningen.
 
 ### <a name="configuration-microservice"></a>Konfiguration av mikrotjänster
 
@@ -125,7 +131,7 @@ Den [autentisering och auktorisering mikrotjänst](https://github.com/Azure/remo
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Standarddistribution för solution accelerator använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) som en OpenID Connect-provider. Azure Active Directory lagrar information om användare och tillhandahåller certifikat för att verifiera JWT-token signaturer. 
+Solution accelerator distributioner använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) som en OpenID Connect-provider. Azure Active Directory lagrar information om användare och tillhandahåller certifikat för att verifiera JWT-token signaturer.
 
 ## <a name="presentation"></a>Presentation
 
@@ -142,13 +148,15 @@ Användargränssnittet visar alla funktioner för lösningen-accelerator och sam
 * Autentisering och auktorisering mikrotjänst att skydda användardata.
 * IoT Hub manager mikrotjänst att visa och hantera IoT-enheter.
 
+Användargränssnittet integreras i Azure Time Series Insights explorer om du vill aktivera frågor och analys av enhetstelemetri.
+
 Konfiguration av mikrotjänster gör det möjligt för användargränssnittet för att lagra och hämta konfigurationsinställningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill utforska dokumentationen för källa code och utvecklarverktyg, börja med någon av de två GitHub-databaserna:
 
-* [Solution accelerator för fjärrövervakning med Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Solution accelerator för fjärrövervakning med Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 * [Solution accelerator för fjärrövervakning med Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
 Arkitekturdiagram för detaljerad lösningen:

@@ -1,6 +1,6 @@
 ---
-title: Hanterad tjänstidentitet i App Service och Azure Functions | Microsoft Docs
-description: Konceptuell referens och installationsprogrammet guide för hanterad tjänstidentitet stöd i Azure App Service och Azure Functions
+title: Hanterade tjänstidentiteter i App Service och Azure Functions | Microsoft Docs
+description: Konceptuell referens och installationsprogrammet guide för hanterade identiteter i Azure App Service och Azure Functions
 services: app-service
 author: mattchenderson
 manager: cfowler
@@ -11,22 +11,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: c7a819f987de41ba7705d21bb6de95475cd3f9c8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5d058059f523d3567817cad8ac11e837fb4a0a49
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027194"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714263"
 ---
-# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Hur du använder Azure-hanterad tjänstidentitet i App Service och Azure Functions
+# <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Hur du använder hanterade identiteter för App Service och Azure Functions
 
 > [!NOTE] 
-> App Service i Linux och Web App for Containers stöder för närvarande inte hanterade tjänstidentiteten.
+> App Service i Linux och Web App for Containers stöder för närvarande inte hanterade identiteter.
 
 > [!Important] 
-> Hanterad tjänstidentitet för App Service och Azure Functions fungerar inte som förväntat om din app migreras över prenumerationer/klienter. Appen måste du skaffa en ny identitet som kan göras genom att inaktivera och återaktivera funktionen. Se [tar bort en identitet](#remove) nedan. Underordnade resurser måste också ha åtkomstprinciper har uppdaterats för att använda den nya identiteten.
+> Hanterade identiteter för App Service och Azure Functions fungerar inte som förväntat om din app migreras över prenumerationer/klienter. Appen måste du skaffa en ny identitet som kan göras genom att inaktivera och återaktivera funktionen. Se [tar bort en identitet](#remove) nedan. Underordnade resurser måste också ha åtkomstprinciper har uppdaterats för att använda den nya identiteten.
 
-Det här avsnittet visar hur du skapar en hanterad app identitet för App Service och Azure Functions och hur du använder den för att komma åt andra resurser. En hanterad tjänstidentitet från Azure Active Directory kan din app för att enkelt komma åt andra AAD-skyddade resurser, till exempel Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att etablera eller rotera hemligheter. Mer information om hanterad tjänstidentitet finns i den [hanterad tjänstidentitet översikt](../active-directory/managed-identities-azure-resources/overview.md).
+Det här avsnittet visar hur du skapar en hanterad identitet för App Service och Azure Functions och hur du använder den för att komma åt andra resurser. En hanterad identitet från Azure Active Directory kan din app för att enkelt komma åt andra AAD-skyddade resurser, till exempel Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att etablera eller rotera hemligheter. Mer information om hanterade identiteter i AAD finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Skapa en app med en identitet
 
@@ -34,21 +34,21 @@ Skapa en app med en identitet som kräver ytterligare en egenskap anges för pro
 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
-Om du vill konfigurera en hanterad tjänstidentitet i portalen, ska du först skapa ett program som vanligt och sedan aktivera funktionen.
+Om du vill konfigurera en hanterad identitet i portalen måste du först skapa ett program som vanligt och sedan aktivera funktionen.
 
 1. Skapa en app i portalen som vanligt. Navigera till den i portalen.
 
 2. Om du använder en funktionsapp, gå till **plattformsfunktioner**. För andra typer av appar, rulla ned till den **inställningar** i det vänstra navigeringsfönstret.
 
-3. Välj **hanterad tjänstidentitet**.
+3. Välj **hanterad identitet**.
 
 4. Växeln **registreras med Azure Active Directory** till **på**. Klicka på **Spara**.
 
-![Hanterad tjänstidentitet i App Service](media/app-service-managed-service-identity/msi-blade.png)
+![Hanterad identitet i App Service](media/app-service-managed-service-identity/msi-blade.png)
 
 ### <a name="using-the-azure-cli"></a>Använda Azure CLI
 
-Om du vill konfigurera en hanterad tjänstidentitet med hjälp av Azure CLI, behöver du använda den `az webapp identity assign` kommandot mot ett befintligt program. Har du tre alternativ för att köra exemplen i det här avsnittet:
+Om du vill konfigurera en hanterad identitet med hjälp av Azure CLI, behöver du använda den `az webapp identity assign` kommandot mot ett befintligt program. Har du tre alternativ för att köra exemplen i det här avsnittet:
 
 - Använd [Azure Cloud Shell](../cloud-shell/overview.md) från Azure-portalen.
 - Använd inbäddad Azure Cloud Shell via ”Prova” knappen, finns i det övre högra hörnet av varje kodblocket nedan.
@@ -151,13 +151,13 @@ Där `<TENANTID>` och `<PRINCIPALID>` har ersatts med GUID. Egenskapen tenantId 
 En app kan använda sin identitet för att hämta token till andra resurser som skyddas av AAD, till exempel Azure Key Vault. Dessa token representerar programmet åtkomst till resursen och inte någon specifik användare av programmet. 
 
 > [!IMPORTANT]
-> Du kan behöva konfigurera målresursen för att tillåta åtkomst från ditt program. Om du begär en token för Key Vault, måste du kontrollera att du har lagt till en åtkomstprincip som innehåller ditt programs identitet. I annat fall avvisas dina anrop till Key Vault, även om de innehåller token. Läs mer om vilka resurser som stöder hanterad tjänstidentitet token i [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
+> Du kan behöva konfigurera målresursen för att tillåta åtkomst från ditt program. Om du begär en token för Key Vault, måste du kontrollera att du har lagt till en åtkomstprincip som innehåller ditt programs identitet. I annat fall avvisas dina anrop till Key Vault, även om de innehåller token. Läs mer om vilka resurser som stöder Azure Active Directory-token i [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
 
 Det finns ett enkelt REST-protokoll för att hämta en token i App Service och Azure Functions. För .NET-program, Microsoft.Azure.Services.AppAuthentication biblioteket ger en abstraktion över det här protokollet och har stöd för en lokal utvecklingsmiljö.
 
 ### <a name="asal"></a>Med hjälp av Microsoft.Azure.Services.AppAuthentication-klientbiblioteket för .NET
 
-För .NET-program och funktioner är det enklaste sättet att arbeta med hanterade tjänstidentiteter via Microsoft.Azure.Services.AppAuthentication-paketet. Det här biblioteket gör också att du kan testa din kod lokalt på utvecklingsdatorn, använder användarkontot från Visual Studio, den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), eller Active Directory-integrerad autentisering. Mer information om alternativ för lokal utveckling med det här biblioteket finns i den [Microsoft.Azure.Services.AppAuthentication referens]. Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
+För .NET-program och funktioner är det enklaste sättet att arbeta med en hanterad identitet via Microsoft.Azure.Services.AppAuthentication-paketet. Det här biblioteket gör också att du kan testa din kod lokalt på utvecklingsdatorn, använder användarkontot från Visual Studio, den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), eller Active Directory-integrerad autentisering. Mer information om alternativ för lokal utveckling med det här biblioteket finns i den [Microsoft.Azure.Services.AppAuthentication referens]. Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
 
 1. Lägg till referenser till den [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-paket till ditt program.
 
@@ -168,7 +168,7 @@ using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.KeyVault;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
-string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
 // OR
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
@@ -177,7 +177,7 @@ Läs mer om Microsoft.Azure.Services.AppAuthentication och vilka åtgärder som 
 
 ### <a name="using-the-rest-protocol"></a>Med hjälp av REST-protokoll
 
-En app med en hanterad tjänstidentitet har två miljövariabler som definieras:
+En app med en hanterad identitet har två miljövariabler som definieras:
 - MSI_ENDPOINT
 - MSI_SECRET
 
@@ -205,7 +205,7 @@ En lyckad svar med 200 OK innehåller en JSON-texten med följande egenskaper:
 Svaret är samma som den [svar för AAD tjänst-till-tjänst begäran om åtkomsttoken](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE] 
-> Miljövariabler som ställs in när processen startas första gången, så när du har aktiverat hanterad tjänstidentitet för ditt program du kan behöva starta om ditt program eller distribuera om koden, innan `MSI_ENDPOINT` och `MSI_SECRET` är tillgängliga för din kod.
+> Miljövariabler som ställs in när processen startas första gången, så när du har aktiverat en hanterad identitet för ditt program, du kan behöva starta om ditt program eller distribuera om koden, innan `MSI_ENDPOINT` och `MSI_SECRET` är tillgängliga för din kod.
 
 ### <a name="rest-protocol-examples"></a>REST-protokollet exempel
 En exempelbegäran kan se ut så här:
@@ -276,11 +276,11 @@ En identitet kan tas bort genom att inaktivera funktionen med hjälp av portalen
 Ta bort identiteten på så vis tas även bort huvudkontot från AAD. Systemtilldelade identiteter tas automatiskt bort från AAD när appresursen tas bort.
 
 > [!NOTE] 
-> Det finns också en programinställningen som kan ställas in WEBSITE_DISABLE_MSI, vilket bara inaktiverar den lokala token-tjänsten. Men den lämnar identiteten på plats och verktyg fortfarande visas MSI som ”on” eller ”aktiverad”. Användning av den här inställningen är därför inte rekommenderas.
+> Det finns också en programinställningen som kan ställas in WEBSITE_DISABLE_MSI, vilket bara inaktiverar den lokala token-tjänsten. Men den lämnar identiteten på plats och verktyg fortfarande visas den hanterade identitet som ”on” eller ”aktiverad”. Användning av den här inställningen är därför inte rekommenderas.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Säker åtkomst till SQL-databaser med hanterade tjänstidentiteter](app-service-web-tutorial-connect-msi.md)
+> [Åtkomst till SQL-databas på ett säkert sätt med en hanterad identitet](app-service-web-tutorial-connect-msi.md)
 
 [Microsoft.Azure.Services.AppAuthentication referens]: https://go.microsoft.com/fwlink/p/?linkid=862452

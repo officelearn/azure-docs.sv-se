@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure Stack - PowerShell | Microsoft Docs
+title: Distribuera Azure Stack – PowerShell | Microsoft Docs
 description: I den här artikeln får installera du ASDK från kommandoraden med hjälp av PowerShell.
 services: azure-stack
 documentationcenter: ''
@@ -13,76 +13,76 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849965"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716034"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Distribuera ASDK från kommandoraden
-ASDK är en miljö för testning och utveckling som du kan distribuera om du vill utvärdera och visa Azure Stack-funktioner och tjänster. För att få måste igång, att förbereda miljön maskinvaran och köra några skript (det kan ta flera timmar). Därefter kan du logga in på portalerna administratörs- och att börja använda Azure-stacken.
+ASDK är en miljö för testning och utveckling som du kan distribuera för att utvärdera och demonstrera Azure Stack-funktioner och tjänster. Om du vill hämta den måste drift, att förbereda miljön maskinvara och köra några skript (det kan ta flera timmar). Efter det kan du logga in på portalerna administratörs- och att börja använda Azure Stack.
 
 ## <a name="prerequisites"></a>Förutsättningar 
-Förbereda värddatorn development kit. Planera din maskinvara, programvara och nätverk. Den dator som är värd för development kit (development kit host) måste uppfylla nätverkskrav för maskinvara, programvara och. Du måste också välja mellan att använda Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS). Se till att uppfylla dessa krav innan du påbörjar distributionen så att installationen körs utan problem. 
+Förbered värddatorn development kit. Planera din maskinvara, programvara och nätverk. Den dator som är värd för development kit (development kit host) måste uppfylla maskinvara, programvara och nätverkskrav. Du måste också välja mellan att använda Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS). Var noga med att följa dessa krav innan du påbörjar distributionen så att installationen körs smidigt. 
 
-Innan du distribuerar ASDK Kontrollera planerad development kit värddatorns maskinvara, operativsystem, konto och nätverkskonfigurationer uppfyller de lägsta kraven för att installera ASDK.
+Innan du distribuerar ASDK måste du kontrollera att planerade development kit värddatorns maskinvara, operativsystem, konto och nätverkskonfigurationer uppfyller minimikraven för att installera ASDK.
 
-**[Granska överväganden vid planering av ASDK distributionen](asdk-deploy-considerations.md)**
+**[Granska ASDK distributionen saker att tänka på](asdk-deploy-considerations.md)**
 
 > [!TIP]
-> Du kan använda den [Azure Stack distributionskrav Kontrollera verktyget](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) när du har installerat operativsystemet för att bekräfta att maskinvaran uppfyller alla krav.
+> Du kan använda den [distributionskrav för Azure Stack Kontrollera verktyget](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) när du har installerat operativsystemet för att bekräfta att maskinvaran uppfyller alla krav.
 
 ## <a name="download-and-extract-the-deployment-package"></a>Ladda ned och extrahera distributionspaketet
-När du har kontrollerat att värddatorn development kit uppfyller de grundläggande kraven för att installera ASDK är nästa steg att ladda ned och extrahera ASDK distributionspaketet. Distributionspaketet innehåller filen Cloudbuilder.vhdx, som är en virtuell hårddisk som innehåller ett startbart operativsystem och Azure Stack-installationsfilerna.
+När du har säkerställt att värddatorn development kit uppfyller de grundläggande kraven för att installera ASDK, är nästa steg att ladda ned och extrahera ASDK distributionspaketet. Distributionspaketet innehåller filen Cloudbuilder.vhdx, som är en virtuell hårddisk som innehåller en startbar operativsystemet och Azure Stack-installationsfilerna.
 
-Du kan hämta distributionspaketet för development kit värden eller en annan dator. De extraherade filerna tar upp 60 GB ledigt diskutrymme, så använder en annan dator kan minska maskinvarukraven för development kit värden.
+Du kan hämta distributionspaketet till development kit värden eller till en annan dator. Extraherade distributionsfiler ta 60 GB ledigt diskutrymme, så att använda en annan dator kan minska maskinvarukraven för development kit värden.
 
 **[Ladda ned och extrahera Azure Stack Development Kit (ASDK)](asdk-download.md)**
 
 ## <a name="prepare-the-development-kit-host-computer"></a>Förbereda värddatorn development kit
-Innan du kan installera ASDK på värddatorn, måste du förbereda miljön och systemets konfigurerade för start från VHD. Efter det här steget startar development kit värden till Cloudbuilder.vhdx (en virtuell hårddisk som innehåller ett startbart operativsystem och installationsfilerna för Azure-stacken).
+Innan du kan installera ASDK på värddatorn, måste du förbereda miljön och systemet konfigurerade för start från virtuell Hårddisk. Efter det här steget startas development kit värden med Cloudbuilder.vhdx (en virtuell hårddisk som innehåller en startbar operativsystemet och Azure Stack-installationsfiler).
 
-Använd PowerShell för att konfigurera värddatorn ASDK för start från CloudBuilder.vhdx. Dessa kommandon konfigurerar datorn ASDK värden för start från hämtade och extraherade Azure Stack virtuella inaktivitetsgränsen (CloudBuilder.vhdx). Starta om värddatorn ASDK när du har slutfört de här stegen.
+Använd PowerShell för att konfigurera värddatorn ASDK CloudBuilder.vhdx för start. Dessa kommandon konfigurerar ASDK värddatorn för start från den hämtade och extraherade Azure Stack virtuella utrymme på (CloudBuilder.vhdx). Starta om värddatorn ASDK när du har slutfört de här stegen.
 
-Konfigurera värddatorn ASDK för start från CloudBuilder.vhdx:
+Konfigurera ASDK värddatorn för start från CloudBuilder.vhdx:
 
   1. Starta en kommandotolk som administratör.
   2. Kör `bcdedit /copy {current} /d "Azure Stack"`
-  3. Kopiera (CTRL + C) CLSID-värdet returnerade, inklusive de nödvändiga {}' s. Det här värdet kallas {CLSID} och behöver att kunna klistras in i (CTRL + V eller högerklicka) i stegen.
+  3. Kopiera (CTRL + C) CLSID-värdet returneras, inklusive de nödvändiga {}”s. Det här värdet kallas {CLSID} och behöver för att klistras in i (CTRL + V eller högerklicka) i de resterande stegen.
   4. Kör `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` 
   5. Kör `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` 
   6. Kör `bcdedit /set {CLSID} detecthal on` 
   7. Kör `bcdedit /default {CLSID}`
-  8. Om du vill verifiera startinställningarna, kör `bcdedit`. 
-  9. Se till att CloudBuilder.vhdx filen har flyttats till roten på enhet C:\ (C:\CloudBuilder.vhdx) och starta om värddatorn development kit. När värddatorn ASDK startas om, bör den startas från CloudBuilder.vhdx virtuella hårddisken ska börja ASDK distribution. 
+  8. Kontrollera inställningar för klientstart med `bcdedit`. 
+  9. Se till att CloudBuilder.vhdx filen har flyttats till roten C:\ enheten (C:\CloudBuilder.vhdx) och starta om värddatorn development kit. När värddatorn ASDK startas om, bör den startas från CloudBuilder.vhdx virtuella hårddisken till börjar ASDK distributionen. 
 
 > [!IMPORTANT]
-> Kontrollera att du har direkt fysiska eller KVM-åtkomst till värddatorn development kit innan du startar om den. När den virtuella datorn först startas, uppmanas du att slutföra installationen av Windows Server. Ange samma administratörsautentiseringsuppgifter som du använde för att logga in på värddatorn development kit. 
+> Se till att du har direkt eller KVM-åtkomst till värddatorn development kit innan du startar om den. När den virtuella datorn startas första gången, uppmanas du att slutföra installationsprogrammet för Windows Server. Ange samma administratörsautentiseringsuppgifter som du använde för att logga in på värddatorn för development kit. 
 
 ### <a name="prepare-the-development-kit-host-using-powershell"></a>Förbereda development kit värden med hjälp av PowerShell 
-Efter development kit startar värddatorn i CloudBuilder.vhdx bilden och logga in med samma autentiseringsuppgifter för lokal administratör du använde för att logga in på värddatorn development kit (och som du angav som en del av Slutför Windows Server Konfigurera när värddatorn startas från VHD). 
+När du har i development kit startar värddatorn i CloudBuilder.vhdx bilden och logga in med samma autentiseringsuppgifter för lokal administratör du använde för att logga in på värddatorn för development kit (och som du angav som en del av Slutför Windows Server Konfigurera när värddatorn startats från en virtuell Hårddisk). 
 
 > [!NOTE]
-> Du kan också konfigurera [Azure Stack telemetriinställningar](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry) *innan* installerar ASDK.
+> Du kan också konfigurera [Azure Stack-telemetriinställningar](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry) *innan* installerar ASDK.
 
-Öppna en upphöjd PowerShell-konsolen och kör kommandona i det här avsnittet för att distribuera ASDK på development kit värden.
+Öppna en upphöjd PowerShell-konsol och köra kommandona i det här avsnittet för att distribuera ASDK på development kit värden.
 
 > [!IMPORTANT] 
-> Installation av ASDK stöder exakt en nätverksgränssnittskortet (NIC) för nätverk. Om du har flera nätverkskort kan du kontrollera att endast en är aktiverat (och alla andra har inaktiverats) innan du kör skriptet för distribution.
+> ASDK installation har stöd för exakt ett nätverkskort (NIC) för nätverk. Om du har flera nätverkskort kan du kontrollera att endast ett är aktiverat (och alla andra har inaktiverats) innan du kör skriptet för distribution.
 
-Du kan distribuera Azure-stacken med Azure AD- eller Windows Server AD FS som identitetsleverantören. Fungerar på samma sätt med både Azure-stacken, resursproviders och andra program.
+Du kan distribuera Azure Stack med Azure AD- eller Windows Server AD FS som identitetsleverantör. Fungerar på samma sätt med både Azure Stack, resursprovidrar och andra program.
 
 > [!TIP]
-> Om du inte anger någon installationsparametrar (se InstallAzureStackPOC.ps1 valfria parametrar och exemplen nedan) måste ombeds du de obligatoriska parametrarna.
+> Om du inte anger några parametrar för installation (se InstallAzureStackPOC.ps1 valfria parametrar och exemplen nedan), uppmanas du de obligatoriska parametrarna.
 
-### <a name="deploy-azure-stack-using-azure-ad"></a>Distribuera Azure-stacken använder Azure AD 
-Att distribuera Azure-stacken **använder Azure AD som identitetsleverantören**, måste du ha Internetanslutning direkt eller via en transparent proxy. 
+### <a name="deploy-azure-stack-using-azure-ad"></a>Distribuera Azure Stack med hjälp av Azure AD 
+Distribuera Azure Stack **med hjälp av Azure AD som identitetsleverantör**, du måste ha Internetanslutning antingen direkt eller via en transparent proxy. 
 
-Kör följande PowerShell-kommandon för att distribuera i development kit med Azure AD:
+Kör följande PowerShell-kommandon för att distribuera i development kit med hjälp av Azure AD:
 
   ```powershell
   cd C:\CloudDeployment\Setup     
@@ -90,10 +90,12 @@ Kör följande PowerShell-kommandon för att distribuera i development kit med A
   .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password
   ```
 
-Några minuter till ASDK installationen uppmanas du att autentiseringsuppgifter för Azure AD. Du måste ange autentiseringsuppgifter som global administratör för Azure AD-klienten. 
+Ett par minuter till ASDK installationen uppmanas du att Azure AD-autentiseringsuppgifter. Du måste ange autentiseringsuppgifterna för global administratör för Azure AD-klienten. 
 
-### <a name="deploy-azure-stack-using-ad-fs"></a>Distribuera Azure-stacken använder AD FS 
-Att distribuera development kit **med AD FS som identitetsleverantören**, kör följande PowerShell-kommandon (du behöver bara lägga till parametern - UseADFS): 
+Efter distributionen krävs inte behörighet för Azure Active Directory global administratör. Vissa åtgärder kan dock kräva autentiseringsuppgifter för global administratör. Till exempel ett resource provider installer skript eller en ny funktion som kräver en behörighet som ska beviljas. Du kan tillfälligt återställa kontots behörigheter som global administratör eller använda ett separat globalt administratörskonto som äger den *standard providerprenumeration*.
+
+### <a name="deploy-azure-stack-using-ad-fs"></a>Distribuera Azure Stack med hjälp av AD FS 
+Distribuera i development kit **med hjälp av AD FS som identitetsleverantör**, kör följande PowerShell-kommandon (du behöver bara lägga till parametern - UseADFS): 
 
   ```powershell
   cd C:\CloudDeployment\Setup     
@@ -101,16 +103,16 @@ Att distribuera development kit **med AD FS som identitetsleverantören**, kör 
   .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -UseADFS
   ```
 
-I AD FS-distributioner används standard stämpeln katalogtjänsten som identitetsleverantören. Logga in med standardkontot är azurestackadmin@azurestack.local, och kommer att ange lösenordet du angav som en del av installationen PowerShell-kommandon.
+I AD FS-distributioner används standard-stämpel katalogtjänst som identitetsleverantör. Logga in med standardkontot är azurestackadmin@azurestack.local, och lösenordet anges till vad du har angett som en del av installationen PowerShell-kommandon.
 
-Distributionen kan ta några timmar, under vilken tid systemet startar om automatiskt en gång. När distributionen lyckas PowerShell-konsolen visar: **Slutför: åtgärden 'Distribution'**. Om distributionen av misslyckas, kan du köra skriptet igen med - kör-parametern. Du kan [omdistribuera ASDK](asdk-redeploy.md) från början.
+Distributionsprocessen kan ta några timmar, under tiden systemet startar om automatiskt en gång. När distributionen är klar, PowerShell-konsolen visas: **Slutför: åtgärden ”distribution”**. Om distributionen misslyckas, kan du köra skriptet igen med kör parametern-. Du kan också [omdistribuera ASDK](asdk-redeploy.md) från grunden.
 
 > [!IMPORTANT]
-> Om du vill övervaka förloppet för distributionen efter ASDK värden startas om måste du logga in som AzureStack\AzureStackAdmin. Om du loggar in som lokal administratör när värddatorn har startats om (och ansluten till domänen azurestack.local), visas inte förloppet för distributionen. Inte köra distribution, i stället logga in som azurestack att verifiera att den körs.
+> Om du vill övervaka förloppet för distributionen när ASDK värden om måste du logga in som AzureStack\AzureStackAdmin. Om du loggar in som lokal administratör när värddatorn har startats om (och anslutna till domänen azurestack.local), visas inte förloppet för distributionen. Inte köra distributionen, i stället logga in som azurestack att verifiera att den körs.
 
 
-#### <a name="azure-ad-deployment-script-examples"></a>Azure AD-distribution exempel på skript
-Du kan skapa ett skript för hela Azure AD-distribution. Här följer några kommenterad exempel som innehåller vissa valfria parametrar.
+#### <a name="azure-ad-deployment-script-examples"></a>Exempelskript för Azure AD-distribution
+Du kan skapa ett skript för hela Azure AD-distribution. Här följer några kommenterade exempel som innehåller vissa valfria parametrar.
 
 Om din Azure AD-identitet är endast associerat med **en** Azure AD-katalog:
 ```powershell
@@ -120,7 +122,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>"
 .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
-Om din Azure AD-identitet är associerat med **större än ett** Azure AD-katalog:
+Om din Azure AD-identitet som är associerad med **större än ett** Azure AD-katalog:
 ```powershell
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
@@ -128,44 +130,44 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
-Om miljön inte har DHCP aktiverat, måste du inkludera följande ytterligare parametrar till något av alternativen ovan (exempel på användning tillhandahålls): 
+Om din miljö inte har DHCP-aktiverat, måste du inkludera de här parametrarna till något av alternativen ovan (exempel på användning tillhandahålls): 
 
 ```powershell
 .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1 -TimeServer 10.222.112.26
 ```
 
-### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 valfria parametrar finns:
-|Parameter|Nödvändiga/valfria|Beskrivning|
+### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 valfria parametrar
+|Parameter|Krävs/valfritt|Beskrivning|
 |-----|-----|-----|
-|AdminPassword|Krävs|Anger det lokala administratörskontot och alla andra användarkonton för alla virtuella datorer som skapats som en del av development kit distribution. Lösenordet måste överensstämma med det aktuella lösenordet för lokal administratör på värden.|
-|InfraAzureDirectoryTenantName|Krävs|Anger klientkatalogen. Använd den här parametern om du vill ange en specifik katalog där AAD-konto har behörighet att hantera flera kataloger. Fullständigt namn på en AAD Directory-klient i formatet. onmicrosoft.com eller en Azure AD verifierat domännamn.|
+|AdminPassword|Krävs|Anger det lokala administratörskontot och alla andra användarkonton för alla virtuella datorer som skapas som en del av development kit distribution. Det här lösenordet måste matcha det aktuella lösenordet för lokal administratör på värden.|
+|InfraAzureDirectoryTenantName|Krävs|Anger klientkatalog. Använd den här parametern om du vill ange en viss katalog där AAD-kontot har behörighet att hantera flera kataloger. Fullständig namnet på en AAD-Directory-klient i formatet. onmicrosoft.com eller en Azure AD verifierat domännamn.|
 |TimeServer|Krävs|Använd den här parametern om du vill ange en viss tidpunkt-server. Den här parametern måste anges som en giltig tid serverns IP-adress. Servernamn stöds inte.|
-|InfraAzureDirectoryTenantAdminCredential|Valfri|Anger det Azure Active Directory-användarnamn och lösenord. Dessa autentiseringsuppgifter för Azure måste vara ett Org ID.|
-|InfraAzureEnvironment|Valfri|Välj den Azure-miljön som du vill registrera den här Azure Stack-distributionen. Till exempel offentlig Azure, Azure - Kina, Azure - som tillhör amerikanska myndigheter.|
-|DNSForwarder|Valfri|En DNS-server har skapats som en del av distributionen av Azure-stacken. Ange din befintliga infrastruktur för DNS-server så att datorer i lösningen för att matcha namn utanför stämpeln. DNS-servern i stämpel vidarebefordras okänt namn på den här servern.|
-|NatIPv4Address|Krävs för DHCP NAT-stöd|Anger en statisk IP-adress för MAS BGPNAT01. Använd enbart den här parametern om DHCP inte kan tilldela en giltig IP-adress för att få åtkomst till Internet.|
-|NatIPv4Subnet|Krävs för DHCP NAT-stöd|IP-undernät prefix som används för DHCP över NAT-stöd. Använd enbart den här parametern om DHCP inte kan tilldela en giltig IP-adress för att få åtkomst till Internet.|
-|PublicVlanId|Valfri|Anger VLAN-ID. Använd bara den här parametern om värden och MAS BGPNAT01 måste konfigurera VLAN-ID för att komma åt den fysiska nätverk (och Internet). Till exempel.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
-|Kör om|Valfri|Använd den här flaggan igen för distribution. Alla tidigare indata används. Återinföra informationen tidigare stöds inte eftersom flera unika värden genereras och används för distribution.|
+|InfraAzureDirectoryTenantAdminCredential|Valfri|Ställer in Azure Active Directory-användarnamn och lösenord. Dessa autentiseringsuppgifter för Azure måste vara ett Org ID.|
+|InfraAzureEnvironment|Valfri|Välj Azure-miljön som du vill registrera den här Azure Stack-distributionen. Till exempel offentliga Azure, Azure - Kina, Azure - amerikanska myndigheter.|
+|DNSForwarder|Valfri|En DNS-server skapas som en del av Azure Stack-distribution. Ange din befintliga infrastruktur för DNS-server så att datorer i lösningen att matcha namn utanför stämpeln. DNS-server i stämpel vidarebefordras okänt namn på den här servern.|
+|NatIPv4Address|Krävs för DHCP NAT-support|Anger en statisk IP-adress för MAS-BGPNAT01. Använd enbart den här parametern om DHCP inte kan tilldela en giltig IP-adress för att få åtkomst till Internet.|
+|NatIPv4Subnet|Krävs för DHCP NAT-support|IP-undernät prefix som används för DHCP över NAT-stöd. Använd enbart den här parametern om DHCP inte kan tilldela en giltig IP-adress för att få åtkomst till Internet.|
+|PublicVlanId|Valfri|Anger VLAN-ID. Använd bara den här parametern om värden och MAS-BGPNAT01 måste konfigurera VLAN-ID för att komma åt den fysiska nätverk (och Internet). Till exempel.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
+|Kör om|Valfri|Använd den här flaggan för att köra distributionen. Alla tidigare indata används. Återinföra data som tidigare tillhandahölls stöds inte eftersom flera unika värden genereras och används för distribution.|
 
 
-## <a name="perform-post-deployment-configurations"></a>Utför konfigurationer efter distributionen
-När du har installerat ASDK finns några rekommenderade efter installationen kontroller och konfigurationsändringar som ska göras. Du kan verifiera installationen har installerats kan använda cmdleten test-AzureStack och installera Azure-stacken PowerShell- och GitHub. 
+## <a name="perform-post-deployment-configurations"></a>Utför efter distributionen konfigurationer
+När du har installerat ASDK, finns det några rekommenderade efter installationen kontroller och konfigurationsändringar som ska göras. Du kan verifiera installationen har installerats med cmdleten test-AzureStack och installera verktyg för Azure Stack PowerShell och GitHub. 
 
-Du bör också återställa förfalloprincipen för lösenord för att se till att lösenordet för development kit värden inte upphör att gälla innan din utvärderingsversion har upphört att gälla.
+Du bör också återställa förfalloprincipen för lösenord för att se till att lösenordet för development kit värden inte går ut innan din utvärderingsversion har upphört att gälla.
 
 > [!NOTE]
-> Du kan också konfigurera [Azure Stack telemetriinställningar](asdk-telemetry.md#enable-or-disable-telemetry-after-deployment) *när* installerar ASDK.
+> Du kan också konfigurera [Azure Stack-telemetriinställningar](asdk-telemetry.md#enable-or-disable-telemetry-after-deployment) *när* installerar ASDK.
 
-**[Bokför ASDK distributionsuppgifter](asdk-post-deploy.md)**
+**[Publicera ASDK distributionsuppgifter](asdk-post-deploy.md)**
 
 ## <a name="register-with-azure"></a>Registrera med Azure
-Du måste registrera Azure stacken med Azure så att du kan [hämta Azure marketplace-objekt](asdk-marketplace-item.md) till Azure-stacken.
+Du måste registrera Azure Stack med Azure så att du kan [ladda ned Azure marketplace-objekt](asdk-marketplace-item.md) till Azure Stack.
 
-**[Registrera Azure stacken med Azure](asdk-register.md)**
+**[Registrera Azure Stack med Azure](asdk-register.md)**
 
 ## <a name="next-steps"></a>Nästa steg
-Grattis! När du slutfört de här stegen har du en development kit miljö med både [administratör](https://adminportal.local.azurestack.external) och [användaren](https://portal.local.azurestack.external) portaler. 
+Grattis! När du har slutfört de här stegen har du en utvecklingsmiljö kit med både [administratör](https://adminportal.local.azurestack.external) och [användaren](https://portal.local.azurestack.external) portaler. 
 
-[Publicera ASDK installation konfigurationsuppgifter](asdk-post-deploy.md)
+[Publicera konfigurationsuppgifter för ASDK installation](asdk-post-deploy.md)
 

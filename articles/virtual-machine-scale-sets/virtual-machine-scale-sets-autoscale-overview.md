@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48e64f0cc65ade870425f73989209e8bef8ec8d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4c33466af6e57264e02a7d5c298f7f1f9fbf4ed8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630294"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717309"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Översikt över automatisk skalning med Azure-datorer anger
 En Azure VM-skalningsuppsättning kan automatiskt öka eller minska antalet Virtuella datorinstanser som kör programmet. Detta automatiserad och elastiska minskar hanteringsomkostnaderna för att övervaka och optimera prestanda för ditt program. Du kan skapa regler som definierar acceptabel prestanda för en positiv kundupplevelse. När de definierade tröskelvärdena är uppfyllda, regler för automatisk skalning att vidta åtgärder för att justera kapaciteten för din skalningsuppsättning. Du kan även schemalägga händelser att automatiskt öka eller minska kapaciteten för din skalningsuppsättning på fast gånger. Den här artikeln innehåller en översikt över vilka mått som är tillgängliga och vilka åtgärder som automatisk skalning kan utföra.
@@ -30,7 +30,7 @@ En Azure VM-skalningsuppsättning kan automatiskt öka eller minska antalet Virt
 ## <a name="benefits-of-autoscale"></a>Fördelarna med automatisk skalning
 Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstanserna i din skalningsuppsättning. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen.
 
-När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via belastningsutjämnaren. Du kan styra vilka mått som ska övervakas, som CPU eller minne, hur länge programbelastningen måste uppfylla ett visst tröskelvärde och ange hur många Virtuella datorinstanser att lägga till i skalan.
+När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via lastbalanseraren. Du kan styra vilka mått som ska övervakas, som CPU eller minne, hur länge programbelastningen måste uppfylla ett visst tröskelvärde och ange hur många Virtuella datorinstanser att lägga till i skalan.
 
 På kvällar eller helger, kan efterfrågan på ditt program minska. Om den här minskade belastningen är konsekvent över en tidsperiod, kan du konfigurera regler för automatisk skalning för att minska antalet virtuella datorinstanser i skalningsuppsättningen. Den här åtgärden för skala in minskar kostnaden för att köra din skalningsuppsättningen eftersom du bara köra de antal instanser som krävs för att uppfylla den aktuella efterfrågan.
 
@@ -106,7 +106,7 @@ När regeln utlöses en automatisk skalning kan din skalningsuppsättning automa
 | Öka antal med   | Ett fast antal VM-instanser för att skapa. Användbart i skalningsuppsättningar med ett mindre antal virtuella datorer.                                           |
 | Öka procent med | En procentandel-baserade ökning av VM-instanser. Bra för större skala anger där en fast ökning kan inte märkbart förbättra prestandan. |
 | Öka antal till   | Skapa så många Virtuella datorinstanser som krävs för att nå en önskad längsta.                                                            |
-| Minska antal till   | Ett fast antal VM-instanser för att ta bort. Användbart i skalningsuppsättningar med ett mindre antal virtuella datorer.                                           |
+| Minska antal med   | Ett fast antal VM-instanser för att ta bort. Användbart i skalningsuppsättningar med ett mindre antal virtuella datorer.                                           |
 | Minska procent med | En procentandel-baserade minskning av VM-instanser. Bra för större skala anger där en fast ökning kan avsevärt minska inte resursförbrukning och kostnader. |
 | Minska antal till   | Ta bort eftersom många Virtuella datorinstanser som krävs för att nå den önskade minimimängd.                                                            |
 

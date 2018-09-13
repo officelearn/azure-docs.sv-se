@@ -11,88 +11,88 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/06/2015
+ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d4bf0c5beeba22569e0000b28b007fb5b0ff68f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 70086cdff3ed313d2b6851139ca8c8a937426aab
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294184"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716799"
 ---
-# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Genomgång: Exportera till SQL från Application Insights med Stream Analytics
-Den här artikeln visar hur du flyttar telemetridata från [Azure Application Insights] [ start] till en Azure SQL-databas med hjälp av [löpande Export] [ export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Genomgång: Exportera till SQL från Application Insights med hjälp av Stream Analytics
+Den här artikeln visar hur du flyttar dina telemetridata från [Azure Application Insights] [ start] till en Azure SQL-databas med hjälp av [löpande Export] [ export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
-Löpande export flyttar telemetridata till Azure Storage i JSON-format. Vi parsa JSON-objekt med Azure Stream Analytics och skapa rader i en databastabell.
+Löpande export flyttar telemetridata till Azure Storage i JSON-format. Vi parsa JSON-objekt med hjälp av Azure Stream Analytics och skapa rader i en databastabell.
 
-(Mer generellt löpande Export är sätt att göra egna analys av telemetri dina appar skicka till Application Insights. Du kan anpassa det här kodexemplet om du vill göra andra saker med den exporterade telemetrin, till exempel aggregering av data.)
+(Mer allmänt löpande Export är sättet att göra analyser om telemetri som dina appar skicka till Application Insights. Du kan anpassa det här kodexemplet för att göra andra saker med den exporterade telemetrin, till exempel aggregering av data.)
 
-Vi börjar med att anta att du redan har appen som du vill övervaka.
+Vi börjar med antagandet att du redan har appen som du vill övervaka.
 
-I det här exemplet ska vi använda sidan Visa data, men samma mönster kan enkelt utökas till andra datatyper, till exempel anpassade händelser och undantag. 
+I det här exemplet kommer vi att använda sidan Visa data, men samma mönster kan enkelt utökas till andra datatyper, till exempel anpassade händelser och undantag. 
 
 ## <a name="add-application-insights-to-your-application"></a>Lägg till Application Insights i ditt program
 Så här kommer du igång:
 
-1. [Konfigurera Application Insights för webbsidor](app-insights-javascript.md). 
+1. [Konfigurera Application Insights för dina webbsidor](app-insights-javascript.md). 
    
-    (I det här exemplet ska vi fokusera på bearbetning av data om sidvisningar från klientens webbläsare, men du kan också ställa in Programinsikter för serversidan av din [Java](app-insights-java-get-started.md) eller [ASP.NET](app-insights-asp-net.md) app och bearbeta begäran, beroende och andra server telemetri.)
-2. Publicera din app och titta på telemetridata som visas i Application Insights-resurs.
+    (I det här exemplet vi att fokusera på att bearbeta data om sidvisningar från klientwebbläsarna, men du kan också ställa in Application Insights för serversidan i din [Java](app-insights-java-get-started.md) eller [ASP.NET](app-insights-asp-net.md) app och bearbeta begäran beroende och annan telemetri.)
+2. Publicera din app och titta på dessa data visas i Application Insights-resursen.
 
 ## <a name="create-storage-in-azure"></a>Skapa lagring i Azure
-Löpande export alltid matar ut data till ett Azure Storage-konto, så måste du först skapa lagring.
+Löpande export alltid matar ut data till ett Azure Storage-konto, så du måste först skapa lagringen.
 
-1. Skapa ett lagringskonto i din prenumeration i den [Azure-portalen][portal].
+1. Skapa ett lagringskonto i din prenumeration på den [Azure-portalen][portal].
    
     ![Välj ny, Data, lagring i Azure-portalen. Välj klassisk, väljer du skapa. Ange ett namn för lagring.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
-2. Skapa en behållare
+2. Skapa en container
    
-    ![I det nya lagringsutrymmet Välj behållare, klicka på panelen behållare och Lägg till](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
-3. Kopiera lagringsåtkomstnyckel
+    ![I det nya lagringsutrymmet Välj behållare, klicka på panelen för behållare och sedan på Lägg till](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+3. Kopiera lagringsåtkomstnyckeln
    
-    Du behöver den snart att ställa in indata till stream analytics-tjänsten.
+    Du behöver den snart för att ställa in indata till stream analytics-tjänsten.
    
-    ![I lagringen, öppna inställningarna för nycklar, och ta en kopia av den primära åtkomstnyckeln](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
+    ![Öppna inställningar, nycklar, i lagringen, och ta en kopia av den primära åtkomstnyckeln](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## <a name="start-continuous-export-to-azure-storage"></a>Starta löpande export till Azure-lagring
+## <a name="start-continuous-export-to-azure-storage"></a>Starta löpande export till Azure storage
 1. Bläddra till Application Insights-resurs som du har skapat för ditt program i Azure-portalen.
    
-    ![Klicka på Bläddra, Application Insights för ditt program](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
+    ![Välj Bläddra, Application Insights, ditt program](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
 2. Skapa en löpande export.
    
-    ![Välj Lägg till inställningar för löpande Export](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
+    ![Välj Lägg till inställningar, löpande Export](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
 
-    Välj lagringskontot som du skapade tidigare:
+    Välj det lagringskonto du skapade tidigare:
 
     ![Ange mål för export](./media/app-insights-code-sample-export-sql-stream-analytics/080-add.png)
 
-    Ange händelsetyper som du vill visa:
+    Ange händelsetyper som du vill se:
 
     ![Välj händelsetyper](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Kan vissa data ackumuleras. Sitta tillbaka och låta personer använder programmet ett tag. Telemetri kommer så ser du statistiska diagram i [mått explorer](app-insights-metrics-explorer.md) och enskilda händelser i [diagnostiska Sök](app-insights-diagnostic-search.md). 
+1. Kan vissa data ackumuleras. Luta dig tillbaka och låta personer som använder programmet ett tag. Telemetri kommer så ser du statistiska diagrammen i [metric explorer](app-insights-metrics-explorer.md) och enskilda händelser i [diagnostiksökning](app-insights-diagnostic-search.md). 
    
-    Och även exporteras data till din lagring. 
-2. Granska de exportera data, antingen i portalen – Välj **Bläddra**, Välj ditt lagringskonto och sedan **behållare** - eller i Visual Studio. I Visual Studio väljer **visa / Cloud Explorer**, och öppna Azure / lagring. (Om du inte har alternativet, måste du installera Azure SDK: öppna dialogrutan Nytt projekt och Visual C# / molnet / hämta Microsoft Azure SDK för .NET.)
+    Och dessutom data exporteras till din lagring. 
+2. Granska de exporterade data, antingen i portalen – Välj **Bläddra**, Välj ditt lagringskonto och sedan **behållare** - eller i Visual Studio. I Visual Studio väljer **visa / Cloud Explorer**, och öppna Azure / Storage. (Om du inte har alternativet kan du behöva installera Azure SDK: öppna dialogrutan Nytt projekt och öppna Visual C# / i molnet / hämta Microsoft Azure SDK för .NET.)
    
     ![Öppna i Visual Studio, servrar, Azure, lagring](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
    
-    Anteckna den vanliga del av sökvägen som härleds från programmet namn och instrumentation nyckeln. 
+    Anteckna den vanliga delen av sökvägen som härleds från programnyckeln namn och instrumentering. 
 
-Händelser skrivs till blob-filer i JSON-format. Varje fil kan innehålla en eller flera händelser. Vi vill så att läsa informationen om händelsen och filtrera bort de fält som vi vill. Det finns många olika sätt som vi kan göra med data, men vår plan är idag att använda Stream Analytics för att flytta data till en SQL-databas. Som gör det lätt att köra många intressanta frågor.
+Händelser skrivs till blob-filer i JSON-format. Varje fil kan innehålla en eller flera händelser. Så vill vi läsa av data och filtrera bort de fält som vi vill. Det finns många olika sätt som vi kan göra med data, men vår plan är idag att använda Stream Analytics för att flytta data till en SQL-databas. Som gör det enkelt att köra många olika intressanta frågor.
 
 ## <a name="create-an-azure-sql-database"></a>Skapa en Azure SQL Database
-Igen från din prenumeration i [Azure-portalen][portal], skapa databasen (och en ny server om du har redan ett) där du kan skriva data.
+Igen från din prenumeration i [Azure-portalen][portal], skapa databasen (och en ny server om du redan har en) som du ska skriva data.
 
-![Nya Data, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
+![Ny, Data, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
 Kontrollera att databasservern tillåter åtkomst till Azure-tjänster:
 
 ![Bläddra, servrar, din server, inställningar, brandvägg, Tillåt åtkomst till Azure](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-db"></a>Skapa en tabell i Azure SQL DB
-Ansluta till databasen som skapats i föregående avsnitt med din önskade hanteringsverktyg. I den här genomgången ska vi använda [SQL Server Management Tools](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
+Ansluta till databasen som skapades i föregående avsnitt med dina önskade hanteringsverktyg. I den här genomgången ska vi använda [SQL Server Management Tools](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -138,54 +138,54 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
-I det här exemplet använder data från sidvisningar. Om du vill visa andra tillgängliga data inspektera JSON-utdata och se den [exportera datamodellen](app-insights-export-data-model.md).
+I det här exemplet använder vi data från sidvisningar. Om du vill se andra tillgängliga data, granska dina JSON-utdata och se den [exportera datamodell](app-insights-export-data-model.md).
 
-## <a name="create-an-azure-stream-analytics-instance"></a>Skapa en Azure Stream Analytics-instans
+## <a name="create-an-azure-stream-analytics-instance"></a>Skapa en instans av Azure Stream Analytics
 Från den [Azure-portalen](https://portal.azure.com/), Välj Azure Stream Analytics-tjänsten och skapa ett nytt Stream Analytics-jobb:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
+![Inställningarna för Stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-När det nya jobbet skapas, Välj **finns resurs**.
+När det nya projektet har skapats, Välj **gå till resurs**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
+![Inställningarna för Stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="add-a-new-input"></a>Lägga till en ny indata
+#### <a name="add-a-new-input"></a>Lägg till en ny indata
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+![Inställningarna för Stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
 
-Ställ in den att hämta indata från din löpande Export blob:
+Ändra det till indatan hämtas från bloben löpande Export:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
+![Inställningarna för Stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA0005.png)
 
-Nu behöver du den primära åtkomstnyckeln från ditt Lagringskonto som du antecknade tidigare. Ange som Lagringskontots åtkomstnyckel.
+Nu behöver du den primära åtkomstnyckeln från ditt Lagringskonto som du antecknade tidigare. Ange som Lagringskontonyckeln.
 
-#### <a name="set-path-prefix-pattern"></a>Ange sökvägar för prefix
+#### <a name="set-path-prefix-pattern"></a>Ange prefixmönster för sögväg
 
-**Glöm inte att ange datumformatet för åååå-MM-DD (med bindestreck).**
+**Glöm inte att ange formatet för datum till åååå-MM-DD (med bindestreck).**
 
-Prefixet sökvägar anger hur Stream Analytics hittar indatafilerna i lagringen. Du måste konfigurera den så att de motsvarar hur löpande Export lagrar data. Ställ in den så här:
+Prefixet Sökvägsmönster anger hur Stream Analytics hittar indatafilerna i lagringen. Du måste ange den som motsvarar hur löpande Export lagrar data. Konfigurerar du den så här:
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 I det här exemplet:
 
-* `webapplication27` är namnet på Application Insights-resurs **i gemen**. 
-* `1234...` är instrumentation nyckel för Application Insights-resursen **med bindestreck bort**. 
-* `PageViews` är typ av data som vi vill analysera. Tillgängliga typer är beroende av filtret som du anger i löpande Export. Granska exporterade data för att se de tillgängliga typerna och se den [exportera datamodellen](app-insights-export-data-model.md).
-* `/{date}/{time}` ett mönster skrivs bokstavligt.
+* `webapplication27` är namnet på Application Insights-resurs **allt i gemener**. 
+* `1234...` är instrumenteringsnyckeln för Application Insights-resursen **med bindestreck bort**. 
+* `PageViews` är typ av data som vi vill analysera. Tillgängliga typer beror på de filter som du anger i löpande Export. Granska den exporterade data för att visa de tillgängliga typerna och se den [exportera datamodell](app-insights-export-data-model.md).
+* `/{date}/{time}` skrivs ett mönster bokstavligt.
 
-Öppna Essentials på dess översiktssidan för att få namnet och iKey av Application Insights-resurs, eller öppna inställningar.
+Öppna Essentials på dess översiktssidan för att hämta namnet och iKey av Application Insights-resursen, eller öppna inställningar.
 
 > [!TIP]
-> Funktionen exempel används för att kontrollera att du har angett korrekt inkommande sökvägen. Om det misslyckas: Kontrollera att det finns data i lagringen för det exemplet tidsintervallet som du har valt. Redigera den inkommande definitionen och kontrollerar du ange storage-konto, sökväg prefix och datumformat korrekt.
+> Funktionen exemplet används för att kontrollera att du har angett korrekt indatasökvägen. Om det misslyckas: Kontrollera att det finns data i lagring för exemplet tidsintervall som du har valt. Redigera definitionen för indata och kontrollera du ange storage-konto, sökvägsprefix och datumformat korrekt.
 > 
 > 
 ## <a name="set-query"></a>Ange fråga
 Öppna avsnittet fråga:
 
-Ersätt standardfråga med:
+Ersätt standardfrågan med:
 
 ```SQL
 
@@ -223,16 +223,16 @@ Ersätt standardfråga med:
 
 ```
 
-Observera att de första några egenskaperna är specifika för data om sidvisningar. Export av andra telemetri typer har olika egenskaper. Finns det [detaljerad data model-referens för egenskapstyper och värden.](app-insights-export-data-model.md)
+Observera att de första egenskaperna är specifika för data om sidvisningar. Export av andra typer av telemetri har olika egenskaper. Se den [detaljerad referens för datamodell för egenskapstyper och värden.](app-insights-export-data-model.md)
 
-## <a name="set-up-output-to-database"></a>Ställ in utdata till databasen
+## <a name="set-up-output-to-database"></a>Konfigurera utdata till databasen
 Välj SQL som utdata.
 
 ![Välj utdata i stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
-Ange SQL-databasen.
+Ange SQL-databas.
 
-![Fyll i informationen för din databas](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
+![Fyll i informationen om din databas](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 Stäng guiden och vänta tills ett meddelande om att utdata har ställts in.
 
@@ -241,17 +241,17 @@ Starta jobbet från Åtgärdsfältet:
 
 ![Klicka på Start i stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
-Du kan välja om du vill starta bearbetning av data från och med nu, eller starta med tidigare data. Den andra är användbar om du har haft löpande Export redan körs på ett tag.
+Du kan välja om du vill starta bearbetning av data från och med nu eller börja med tidigare data. Den andra är användbar om du har haft löpande Export redan körs på ett tag.
 
-Gå tillbaka till SQL Server-hanteringsverktyg och titta på de data som flödar i efter några minuter. Till exempel använda en fråga så här:
+Gå tillbaka till SQL Server Management Tools och titta på de data som flödar i efter ett par minuter. Till exempel använda en fråga så här:
 
     SELECT TOP 100 *
     FROM [dbo].[PageViewsTable]
 
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Exportera till PowerBI med Stream Analytics](app-insights-export-power-bi.md)
-* [Detaljerad datamodell referens för egenskapstyper och värden.](app-insights-export-data-model.md)
+* [Exportera till Power BI med hjälp av Stream Analytics](app-insights-export-power-bi.md)
+* [Detaljerade data modell-referens för egenskapstyper och värden.](app-insights-export-data-model.md)
 * [Löpande Export i Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 

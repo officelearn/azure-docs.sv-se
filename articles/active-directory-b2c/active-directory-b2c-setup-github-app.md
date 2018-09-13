@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11f3f190c0f55e45c549a8bd1de35f78eb7b752d
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 92ae3e0697c2ecd345c8e75690d40a81ef473ba4
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337437"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713790"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett GitHub-konto med hjälp av Azure Active Directory B2C
 
@@ -28,22 +28,18 @@ Om du vill använda ett Github-konto som identitetsprovider i Azure Active Direc
 ## <a name="create-a-github-oauth-application"></a>Skapa ett GitHub OAuth-program
 
 1. Logga in på den [GitHub Developer](https://github.com/settings/developers) webbplats med dina autentiseringsuppgifter för GitHub.
-2. Välj **OAuth appar** och välj sedan **registrera ett nytt program**.
+2. Välj **OAuth appar** och välj sedan **ny OAuth-App**.
 3. Ange en **programnamn** och din **Hemsides-URL**.
-4. Ange `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` i **Motringnings-URL för auktorisering**. Ersätt **{klient}** med Azure AD B2C-klientens namn (till exempel contosob2c).
+4. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i **Motringnings-URL för auktorisering**. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient.
 5. Klicka på **registrera program**.
 6. Kopiera värdena för **klient-ID** och **Klienthemlighet**. Du måste båda för att lägga till identitetsleverantören i din klient.
 
 ## <a name="configure-a-github-account-as-an-identity-provider"></a>Konfigurera ett GitHub-konto som identitetsprovider
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
-2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att växla till den i det övre högra hörnet i Azure-portalen. Välj din prenumerationsinformation och välj därefter **Växla katalog**. 
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.  
 
     ![Växla till Azure AD B2C-klientorganisationen](./media/active-directory-b2c-setup-github-app/switch-directories.png)
-
-    Välj den katalog som innehåller din klient.
-
-    ![Välj katalog](./media/active-directory-b2c-setup-github-app/select-directory.png)
 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 8574eeb54d3695eff5bca43b24e90e45a36b1a70
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: e6127ce37e2aba4c0c68bcc0a1712501c0b92ff0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391665"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715116"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -53,6 +53,11 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 
 - <!-- 2489570 | IS ASDK--> **Stöd för anpassade konfigurationer för IPSec/IKE-princip** för [VPN-gatewayer i Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
+- <!-- | IS ASDK--> **Marketplace-objekt för Kubernetes**. Du kan nu distribuera Kubernetes-kluster med hjälp av den [Kubernetes Marketplace-objekt](azure-stack-solution-template-kubernetes-cluster-add.md). Användare kan det Kubernetes-objekt och fylla i några parametrar för att distribuera ett Kubernetes-kluster i Azure Stack. Syftet med mallarna är att göra det enkelt för användarna att installationsprogrammet utveckling/testning i Kubernetes-distribution med några få steg.
+
+- <!-- | IS ASDK--> **Blockchain mallar**. Du kan nu köra [Ethereum consortium distributioner](azure-stack-ethereum.md) på Azure Stack. Du kan hitta tre nya mallar i den [Azure Stack Snabbstartsmallarna](https://github.com/Azure/AzureStack-QuickStart-Templates). De används att distribuera och konfigurera ett flera medlem Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum. Syftet med mallarna är att göra det enkelt för användarna att installationsprogrammet utveckling/testning Blockchain distributioner med några få steg.
+
+
 
  ### <a name="fixed-issues"></a>Åtgärdade problem
 - <!-- IS ASDK--> Vi har åtgärdat problemet för att skapa en tillgänglighetsuppsättning i portalen som resulterade i gruppen med en feldomän och uppdateringsdomän 1. 
@@ -70,8 +75,6 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 - <!-- 1697698  | IS, ASDK --> *Snabbstartsguider* i användaren portalens instrumentpanel nu länken till artiklarna i onlinedokumentationen för Azure Stack.
 
 - <!-- 2515955   | IS ,ASDK--> *Alla tjänster* ersätter *fler tjänster* i Azure Stack administratörs- och portaler. Du kan nu använda *alla tjänster* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler.
-
-- <!-- TBD | IS, ASDK --> **+ Skapa en resurs** ersätter **+ ny** i Azure Stack administratörs- och portaler.  Du kan nu använda *+ skapa en resurs* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler. 
 
 - <!--  TBD – IS, ASDK --> *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken.  
 
@@ -107,17 +110,14 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
 
 - Installera Azure Stack [1807 uppdatera](azure-stack-update-1807.md) innan du installerar Azure Stack 1808 uppdateringen. 
 
+- Installera den senaste tillgängliga [uppdatering eller snabbkorrigering för version 1805](azure-stack-update-1805.md#post-update-steps).  
   > [!TIP]  
   > Prenumerera på följande *RRS* eller *Atom* flöden, hålla jämna steg med Azure Stack snabbkorrigeringar:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
 
 
-- Innan du påbörjar installationen av uppdateringen kör [Test AzureStack](azure-stack-diagnostic-test.md) med följande parametrar för att verifiera statusen för din Azure Stack och lösa alla operativa problem som hittades, inklusive alla varningar och fel. Även granska aktiva aviseringar och lösningar som kräver åtgärd.  
-
-  ```PowerShell
-  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
-  ``` 
+- Innan du påbörjar installationen av uppdateringen kör [Test AzureStack](azure-stack-diagnostic-test.md) att verifiera statusen för din Azure Stack och lösa alla operativa problem som hittas, inklusive alla varningar och fel. Även granska aktiva aviseringar och lösningar som kräver åtgärd.
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen
 
@@ -139,7 +139,9 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
 
 Här följer efter installation kända problem för den här build-versionen.
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portalen
+- <!-- 2967387 – IS, ASDK --> Det konto som används för att logga in på Azure Stack-administratör eller användare portalen visas som **Oidentifierad användare**. Detta inträffar när kontot inte har antingen en *första* eller *senaste* namnen. Undvik problemet genom att redigera användarkontot om du vill använda den första eller sista. Du måste sedan logga ut och logga sedan in igen på portalen. 
+
 -  <!--  2873083 - IS ASDK --> När du använder portalen för att skapa en virtuell datorskalning ange (VMSS), den *instansstorlek* listrutan inte in korrekt när du använder Internet Explorer. Undvik problemet genom att använda en annan webbläsare när du använder portalen för att skapa en VMSS.  
 
 - <!-- 2931230 – IS  ASDK --> Planer som läggs till i en användarprenumeration som en tilläggsplanen kan inte raderas även när du tar bort planen från användarprenumerationen. Planen finns kvar tills de prenumerationer som refererar till tilläggsplanen tas också bort. 
@@ -147,8 +149,6 @@ Här följer efter installation kända problem för den här build-versionen.
 - <!--2760466 – IS  ASDK --> När du installerar en ny Azure Stack-miljö med den här versionen, aviseringen-värde som anger *aktivering krävs* kanske inte visas. [Aktivering](azure-stack-registration.md) krävs innan du kan använda marketplace syndikering.  
 
 - <!-- TBD - IS ASDK --> Två administrativa prenumerationstyper som var [introducerades i version 1804](azure-stack-update-1804.md#new-features) bör inte användas. Typerna av prenumeration är **Avläsning av prenumeration**, och **förbrukning prenumeration**. Dessa typer av prenumerationer visas i den nya Azure Stack miljöer från och med version 1804 men ännu inte är redo att användas. Du bör fortsätta att använda den **Standard Provider** prenumerationstyp.
-
-- <!-- TBD - IS --> Det kanske inte går att visa resurser för beräkning eller lagring i administratörsportalen. Orsaken till problemet är ett fel under installationen av uppdateringen som gör att uppdateringen ska rapporteras felaktigt som slutförd. Om det här problemet inträffar kan du kontakta Microsofts kundsupport om du behöver hjälp.
 
 - <!-- TBD - IS --> Du kan se en tom instrumentpanel i portalen. Om du vill återställa instrumentpanelen, väljer du kugghjulsikonen i det övre högra hörnet i portalen och välj sedan **Återställ standardinställningarna**.
 
@@ -240,7 +240,7 @@ Här följer efter installation kända problem för den här build-versionen.
 
 
 
-### <a name="usage"></a>Användning   
+### <a name="usage"></a>Användning  
 - <!-- TBD - IS ASDK --> Offentlig IP-adress användning mätaren användningsdata visar samma *EventDateTime* värde för varje post i stället för den *TimeDate* stämpel som visar när posten skapades. För närvarande kan använda du inte dessa data för att utföra redovisas korrekt användning av offentlig IP-adress.
 
 

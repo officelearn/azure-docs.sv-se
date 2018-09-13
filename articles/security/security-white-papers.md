@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 9/10/2018
 ms.author: tomsh
-ms.openlocfilehash: b6953cc45305cf0812b185187c01149f0345756d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9ecdc0b7d2d21962dbfc7c14e9fff3fd969dd018
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346075"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721100"
 ---
 # <a name="azure-security-white-papers"></a>Azure Security-faktablad
 | | |
@@ -33,7 +33,7 @@ ms.locfileid: "44346075"
 |[Azure Functions och plattform utan Server-säkerhet](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Detta nedladdningsbara white paper redovisar fördelarna med databearbetning säkerhetsaspekter och åtgärder i kontexten av Azure. |
 |[Behållarsäkerhet i Microsoft Azure](abstract-container-security-microsoft-azure.md)|Beskriver behållare, behållardistribution och hantering och interna plattformstjänster. Här beskrivs också runtime säkerhetsproblem som kan uppstå med hjälp av behållare på Azure-plattformen. |
 |[Azure driftsäkerhet](abstract-azure-operational-security.md)|Ger en omfattande titt på kundinriktade driftsäkerhet tekniker och tjänster som är tillgängliga med Azure.|
-|[Tekniska funktioner för Azure-säkerhet](azure-security-technical-capabilities.md)|Fokuserar på funktioner för säkerhet och funktioner som stöder Azure Storage, Azure SQL-databaser, virtuell dator i Azure-modellen och verktyg och infrastruktur som hanterar allt.|
+|[Tekniska funktioner för Azure-säkerhet](azure-security-technical-capabilities.md)|Fokuserar på funktioner för säkerhet och funktioner som stöder Azure Storage, Azure SQL Database, Azure VM-modellen och verktyg och infrastruktur som hanterar allt.|
 |[Säkerhetsguide för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Innehåller en översikt över alla säkerhetsfunktioner som kan användas med Azure Storage. Beskriver management plan säkerhet, plan datasäkerhet och kryptering i vila, kryptering under flygning och lagringsanalys.|
 |[Dataklassificering för användning i molnet](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |Det här nedladdningsbara dokumentet beskriver grunderna i dataklassificering och dess värde i samband med cloud computing. Organisationer utvärdera cloud nytta computing för framtida användning eller organisationer som för närvarande med molntjänster och söka metoder för att optimera data management kommer mest av det här dokumentet.|
 |[Styrning i Azure](governance-in-azure.md)|Beskriver de funktioner för säkerhet och styrning är inbyggda i Azure. De huvudsakliga styrning problem som beskrivs är: principer, processer och procedurer implementeringen för din organisationsmål; säkerhet och kontinuerlig efterlevnad med organisation standarder. avisering och övervakning.

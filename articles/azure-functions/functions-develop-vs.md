@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 39745991f7ab3b181f892bbaa59283d92737ecf3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 63213e38dab5ef2edd5150fe0adb620fecb2041c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093881"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714453"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -96,7 +96,7 @@ Ange anslutningssträng för lagringskonto:
 
 3. Upprepa föregående steg för att lägga till unika nycklar till den **värden** matris för andra anslutningar som krävs av dina funktioner.
 
-## <a name="create-a-function"></a>Skapa en funktion
+## <a name="add-a-function-to-your-project"></a>Lägg till en funktion i projektet
 
 I förväg kompilerad funktion definieras de bindningar som används av funktionen genom att använda i koden. När du använder Azure Functions Tools för att skapa dina funktioner från de tillhandahållna mallarna, tillämpas attributen för dig. 
 

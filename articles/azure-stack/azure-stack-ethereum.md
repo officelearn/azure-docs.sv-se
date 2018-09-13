@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/03/2018
+ms.date: 09/12/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298122"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721998"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blockchain-lösningsmallar
 
@@ -50,7 +50,7 @@ Mallen kan distribuera Ethereum consortium för ledare och Anslut till medlem i 
 Mallen consortium ledare konfigurerar den första medlemmen fotavtryck i nätverket. 
 
 1. Ladda ned den [ledare mall från GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
-2. I Azure Stack-administrationsportalen väljer **New > malldistributionen** ska distribueras från en anpassad mall.
+2. I Azure Stack-administrationsportalen väljer **+ skapa en resurs > malldistributionen** ska distribueras från en anpassad mall.
 3. Välj **redigera mallen** så här redigerar du den anpassa mallen.
 4. Kopiera och klistra in ledare-mallens JSON som du tidigare har hämtat i fönstret Redigera till höger.
     
@@ -105,7 +105,7 @@ Kontrollera filmens distribution genom att bläddra filmens administrationswebbp
 ### <a name="joining-consortium-member-deployment"></a>Koppla consortium medlem distribution
 
 1. Ladda ned den [consortium medlem mall från GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
-2. I Azure Stack-administrationsportalen väljer **New > malldistributionen** ska distribueras från en anpassad mall.
+2. I Azure Stack-administrationsportalen väljer **+ skapa en resurs > malldistributionen** ska distribueras från en anpassad mall.
 3. Välj **redigera mallen** så här redigerar du den anpassa mallen.
 4. Kopiera och klistra in ledare-mallens JSON som du hämtade tidigare i den redigering rutan till höger.
 5. Välj **Spara**.
@@ -157,7 +157,7 @@ I bilden visas medlemmens noder status är **körs inte**. Det beror på att int
 Den här mallen skapar en anslutning från ledaren till en fjärransluten medlem. 
 
 1. Ladda ned den [ansluta medlems- och mallen från GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
-2. I Azure Stack-administrationsportalen väljer **New > malldistributionen** ska distribueras från en anpassad mall.
+2. I Azure Stack-administrationsportalen väljer **+ skapa en resurs > malldistributionen** ska distribueras från en anpassad mall.
 3. Välj **redigera mallen** så här redigerar du den anpassa mallen.
 4. Kopiera och klistra in ledare-mallens JSON som du hämtade tidigare i den redigering rutan till höger.
     

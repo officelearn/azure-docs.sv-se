@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: cbfbe02926907ca3ca5b6c13932c8b67862c8456
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 4c5bb0ab3431fa951871e64d7bdd8a3a313f480f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842031"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721508"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Skapa och hantera elastiska pooler i Azure SQL Database
 
@@ -102,10 +102,10 @@ Använd dessa REST API-begäranden för att skapa och hantera SQL Database elast
 |[Elastiska pooler – skapa eller uppdatera](/rest/api/sql/elasticpools/createorupdate)|Skapar en ny elastisk pool eller uppdaterar en befintlig elastisk pool.|
 |[Elastiska pooler – ta bort](/rest/api/sql/elasticpools/delete)|Tar bort den elastiska poolen.|
 |[Elastiska pooler – Get](/rest/api/sql/elasticpools/get)|Hämtar en elastisk pool.|
-|[Elastiska pooler – listan efter Server](/rest/api/sql/elasticpools/listbyserver)|Returnerar en lista med elastiska pooler på en server.|
+|[Elastiska pooler – lista med Server](/rest/api/sql/elasticpools/listbyserver)|Returnerar en lista med elastiska pooler på en server.|
 |[Elastiska pooler – uppdatera](/rest/api/sql/elasticpools/update)|Uppdaterar en befintlig elastisk pool.|
-|[Elastisk Pool-aktiviteter](/rest/api/sql/elasticpoolactivities)|Returnerar elastisk pool aktiviteter.|
-|[Elastisk Pool databasaktiviteter](/rest/api/sql/elasticpooldatabaseactivities)|Returnerar aktivitet på databaser i en elastisk pool.|
+|[Elastisk pool aktiviteter](/rest/api/sql/elasticpoolactivities)|Returnerar elastisk pool aktiviteter.|
+|[Elastisk pool databasaktiviteter](/rest/api/sql/elasticpooldatabaseactivities)|Returnerar aktivitet på databaser i en elastisk pool.|
 |[Databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
 |[Databaser – Get](/rest/api/sql/databases/get)|Hämtar en databas.|
 |[Databaser – lista med elastisk Pool](/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|

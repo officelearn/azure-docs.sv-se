@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: cea59d061dadfa3e10330cbce7b6005a286524cc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 975c5c2c5f0da7a6db946c6d1032b485947134d2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024174"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717717"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Med hjälp av administratörsportalen i Azure Stack
 
@@ -70,7 +70,7 @@ Administratörs- och portaler backas upp av separata instanser av Azure Resource
 
 ### <a name="customize-the-dashboard"></a>Anpassa instrumentpanelen
 
-Instrumentpanelen innehåller en uppsättning standardpaneler som. Du kan välja **redigera instrumentpanel** att ändra standardinstrumentpanelen eller välj **ny instrumentpanel** att lägga till en anpassad instrumentpanel. Du kan enkelt lägga till paneler på en instrumentpanel. Du kan till exempel välja **New**, högerklicka på **erbjuder + planer**, och välj sedan **fäst på instrumentpanelen**.
+Instrumentpanelen innehåller en uppsättning standardpaneler som. Du kan välja **redigera instrumentpanel** att ändra standardinstrumentpanelen eller välj **ny instrumentpanel** att lägga till en anpassad instrumentpanel. Du kan enkelt lägga till paneler på en instrumentpanel. Du kan till exempel välja **+ skapa en resurs**, högerklicka på **erbjuder + planer**, och välj sedan **fäst på instrumentpanelen**.
 
 ### <a name="quick-access-to-online-documentation"></a>Snabbåtkomst till online-dokumentation
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 70af437fb7baa461b63430747cf5252be3503c0e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264662"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714793"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Designa globalt tillgängliga tjänster som använder Azure SQL Database
 
@@ -160,4 +160,4 @@ Din strategi för katastrofåterställning specifika molnet kan kombinera eller 
 ## <a name="next-steps"></a>Nästa steg
 * En översikt över affärskontinuitet och scenarier finns i [översikt över affärskontinuitet](sql-database-business-continuity.md)
 * Läs om geo-replikering och redundans-grupper i [aktiv geo-replikering](sql-database-geo-replication-overview.md)  
-* Information om aktiv geo-replikering med elastiska pooler finns i [elastisk Pool strategier för haveriberedskap](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Information om aktiv geo-replikering med elastiska pooler finns i [elastisk pool strategier för haveriberedskap](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

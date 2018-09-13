@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c64b32656db2d3b821833450b4e866b9e33e44cd
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5ded04f564439be332152bfad0fc571fe8eaf8c2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337353"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720981"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med en Amazon-konto med hjälp av Azure Active Directory B2C
 
@@ -26,21 +26,17 @@ Om du vill använda ett Amazon-konto som identitetsprovider i Azure Active Direc
 1. Logga in på den [Amazon Developer Center](https://login.amazon.com/) med autentiseringsuppgifterna för ditt Amazon.
 2. Om du inte redan har gjort det, klickar du på **registrera dig**, av utvecklare registrering anvisningarna och acceptera principen.
 3. Välj **registrera nya program**.
-4. Ange en **namn**, **beskrivning**, och **meddelande Sekretesswebbadress**, och klicka sedan på **spara**.
+4. Ange en **namn**, **beskrivning**, och **meddelande Sekretesswebbadress**, och klicka sedan på **spara**. Sekretessmeddelandet är en sida som du hanterar och som innehåller Sekretessinformation för användare.
 5. I den **webbinställningar** och kopiera värdena för **klient-ID**. Välj **visa hemligheten** att hämta klienthemligheten och kopiera den. Du måste båda du konfigurerar ett Amazon-konto som identitetsprovider i din klient. **Klienthemlighet** är en viktig säkerhetsuppgift för autentisering.
-6. I den **webbinställningar** väljer **redigera**, och ange sedan `https://{tenant}.b2clogin.com` i **tillåtna ursprung för JavaScript** och `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` i **tillåten Returnerar URL: er**. Ersätt **{klient}** med klientens namn (till exempel contosob2c). 
+6. I den **webbinställningar** väljer **redigera**, och ange sedan `https://your-tenant-name.b2clogin.com` i **tillåtna ursprung för JavaScript** och `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i **tillåten Returnerar URL: er**. Ersätt `your-tenant-name` med namnet på din klient. Du måste använda gemener när du anger ditt klientnamn även om klienten har definierats med versaler i Azure AD B2C.
 7. Klicka på **Spara**.
 
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Konfigurera ett Amazon-konto som identitetsprovider
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
-2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att växla till den i det övre högra hörnet i Azure-portalen. Välj din prenumerationsinformation och välj därefter **Växla katalog**. 
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient. 
 
-    ![Växla till Azure AD B2C-klientorganisationen](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
-    Välj den katalog som innehåller din klient.
-
-    ![Välj katalog](./media/active-directory-b2c-setup-fb-app/select-directory.png)
+    ![Växla till Azure AD B2C-klientorganisationen](./media/active-directory-b2c-setup-amzn-app/switch-directories.png)
 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: de3f23f58ef34bdd5f9769f820d64ed7e00ca7d8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702069"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715082"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Överföringar av meddelanden, lås och uppgörelser
 
@@ -62,7 +62,7 @@ for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Det är viktigt att Observera att alla asynkrona programmeringsmodeller använda någon form av Minnesbaserad, dold arbetskö som innehåller väntande åtgärder. När [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) eller **skicka** (Java) returneras, skicka aktiviteten är i kö i den arbetskön men protocol-gest inleds endast när det är aktivitetens tur att köra. För kod som ofta push ökningar av meddelanden och där tillförlitlighet är viktigt, anledning att inte för många meddelanden placeras ”som rör sig” på samma gång eftersom alla skickade meddelanden ta upp minne tills de har formellt förts till ledningen.
@@ -79,7 +79,7 @@ for (int i = 0; i < 100; i++)
 
   tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Program bör **aldrig** initiera en asynkron sändningsåtgärden i ett ”utlöses och Glöm” sätt utan att hämta resultatet av åtgärden. Då kan du läsa in interna och osynliga aktivitetskö upp till minnet är förbrukat, och programmet att identifiera skicka fel:

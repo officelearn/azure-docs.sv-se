@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: b58118a3ed4fba5017e0eb630d822ec59f04aa16
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d3e3bcc9f637ed0a93091c0b0b8797d667459f11
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024784"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716204"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegera erbjudanden i Azure Stack
 
@@ -113,7 +113,7 @@ Nästa steg är att skapa plan och erbjudande som du kommer att delegera och som
 
 Logga in på användarportalen som delegerad provider och sedan skapa ett nytt erbjudande med hjälp av det delegerade erbjudandet som en mall.
 
-1. Välj **nya** > **klient erbjuder + planer** > **erbjuder**.
+1. Välj **+ skapa en resurs** > **Klienterbjudanden och planer** > **erbjuder**.
 
     ![Skapa ett nytt erbjudande](media/azure-stack-delegated-provider/image5.png)
 

@@ -11,17 +11,21 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9507280bf5df1e63c81f0b2488b9676784c69812
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: abd1329f2ebac90bf846dfd5fc5b307ddb5e52bd
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260882"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35968026"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox UI-element
-En kontroll som lägger till dialogrutan.
+En kontroll som lägger till en informationsruta. Rutan innehåller viktig text eller varningar som hjälper användarna att förstå de värden som de anger. Det kan också länka till en URI för mer information.
+
+## <a name="ui-sample"></a>UI-exempel
+![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft.common.infobox.png)
+
 
 ## <a name="schema"></a>Schema
 ```json
@@ -49,5 +53,5 @@ En kontroll som lägger till dialogrutan.
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till att skapa UI-definitioner, se [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element, se [CreateUiDefinition element](create-uidefinition-elements.md).
+* En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element som finns i [CreateUiDefinition element](create-uidefinition-elements.md).

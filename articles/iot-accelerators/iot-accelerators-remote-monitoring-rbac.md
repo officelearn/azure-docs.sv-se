@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: fccdc4ac40878060b94d495b8895e2a128c9477c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886318"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716119"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserade åtkomstkontroller i lösningsacceleratorn för fjärrövervakning
 
@@ -134,11 +134,11 @@ Följande steg beskriver hur du lägger till en roll till ett program i Azure Ac
 
 ### <a name="define-a-policy-for-the-new-role"></a>Definiera en princip för den nya rollen
 
-När du vill lägga till rollen till appen i Azure-portalen, måste du definiera en princip i [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json) för den roll som tilldelar de behörigheter som krävs för att hantera enheter.
+När du vill lägga till rollen till appen i Azure-portalen, måste du definiera en princip i [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) för den roll som tilldelar de behörigheter som krävs för att hantera enheter.
 
-1. Klona den [autentisering och auktorisering mikrotjänst](https://github.com/Azure/pcs-auth-dotnet) databasen från GitHub till den lokala datorn.
+1. Klona den [Remote Monitoring Mikrotjänster](https://github.com/Azure/remote-monitoring-services-dotnet) databasen från GitHub till den lokala datorn.
 
-1. Redigera den **Services/data/policies/roles.json** fil att lägga till principen för den **ManageDevices** roll som du ser i följande kodavsnitt. Den **ID** och **rollen** värdena måste matcha rolldefinitionen i appmanifestet i föregående avsnitt. Listan över tillåtna åtgärder gör att någon är i den **ManageDevices** roll för att skapa, uppdatera och ta bort enheter som är anslutna till lösningen:
+1. Redigera den **auth/Services/data/policies/roles.json** fil att lägga till principen för den **ManageDevices** roll som du ser i följande kodavsnitt. Den **ID** och **rollen** värdena måste matcha rolldefinitionen i appmanifestet i föregående avsnitt. Listan över tillåtna åtgärder gör att någon är i den **ManageDevices** roll för att skapa, uppdatera och ta bort enheter som är anslutna till lösningen:
 
     ```json
     {
@@ -184,7 +184,7 @@ När du vill lägga till rollen till appen i Azure-portalen, måste du definiera
 
 ### <a name="how-the-web-ui-enforces-permissions"></a>Hur webbgränssnittet använder behörigheter
 
-Webb Gränssnittet använder de [autentisering och auktorisering mikrotjänst](https://github.com/Azure/pcs-auth-dotnet) för att avgöra vilka åtgärder en användare kan ta och vilka kontroller som visas i Användargränssnittet. Exempel: om din lösning kallas **contoso rm4**, webbgränssnittet hämtar en lista över tillåtna åtgärder för den aktuella användaren genom att skicka följande begäran:
+Webb Gränssnittet använder de [autentisering och auktorisering mikrotjänst](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) för att avgöra vilka åtgärder en användare kan ta och vilka kontroller som visas i Användargränssnittet. Exempel: om din lösning kallas **contoso rm4**, webbgränssnittet hämtar en lista över tillåtna åtgärder för den aktuella användaren genom att skicka följande begäran:
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -226,7 +226,7 @@ Mer information finns i [skyddade komponenter](https://github.com/Azure/pcs-remo
 
 Mikrotjänster kan du också kontrollera behörigheter för att skydda mot obehörig API-begäranden. När en mikrotjänst får en API-begäran, avkodar och verifierar JWT-token för att få det användar-ID och de behörigheter som är associerade med användarens roll.
 
-Följande kodavsnitt från den [DevicesController.cs](https://github.com/Azure/iothub-manager-dotnet/blob/master/WebService/v1/Controllers/DevicesController.cs) fil i den [IoTHub Manager mikrotjänst](https://github.com/Azure/iothub-manager-dotnet), visar hur behörigheterna som används:
+Följande kodavsnitt från den [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) fil i den [IoTHub Manager mikrotjänst](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager), visar hur behörigheterna som används:
 
 ```csharp
 [HttpDelete("{id}")]

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/05/2018
+ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: afb4cbafeb29800b1f5b1c837da301e2944d678b
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9bdc0c479e7a620f29bf11d350b8414881be3326
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842540"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717938"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -568,6 +568,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 Den lagrade proceduren funktionen utnyttjar [Table-Valued parametrar](https://msdn.microsoft.com/library/bb675163.aspx).
+
+>[!NOTE]
+>Om du skriver till pengar/Smallmoney-datatypen som anropar lagrade proceduren, är det möjligt att värden ska avrundas. Ange den motsvarande datatypen i TVP som decimaltal i stället för pengar/Smallmoney för att minska. 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Datatypsmappningen för Azure SQL Database
 

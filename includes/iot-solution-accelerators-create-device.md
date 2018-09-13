@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: c6e57d5094f455983b8b474b6930f628d654e457
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 9196648d7e3d2ea717b1a61cbca959805649ed2f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371213"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44754391"
 ---
 I det första scenariot lägger du till en ny typ av telemetri till Contoso befintliga **kylaggregat** enhetstyp.
 
@@ -73,6 +73,7 @@ Om du vill följa den här guiden behöver du:
 
 * Visual Studio Code. Du kan [ladda ned Visual Studio Code för Mac, Linux och Windows](https://code.visualstudio.com/download).
 * .NET core. Du kan ladda ned [.NET Core för Mac, Linux och Windows](https://www.microsoft.com/net/download).
+* [C# för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Postman. Du kan ladda ned [Postman för Mac, Windows eller Linux](https://www.getpostman.com/apps).
 * En [IoT hub som är distribuerad på Azure-prenumerationen](../articles/iot-hub/iot-hub-create-through-portal.md). Du behöver anslutningssträngen för IoT-hubben att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
 * En Cosmos DB-databas som använder SQL-API och som är konfigurerad för [stark konsekvens](../articles/cosmos-db/manage-account.md). Du behöver anslutningssträngen för Cosmos DB-databasen för att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
@@ -89,13 +90,11 @@ Anvisningarna i den här artikeln förutsätter att du använder Windows. Om du 
 
 ### <a name="download-the-microservices"></a>Ladda ned mikrotjänster
 
-Hämta och packa upp den [storage nätverkskort mikrotjänst](https://github.com/Azure/pcs-storage-adapter-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn.
-
-Hämta och packa upp den [enheten simulering mikrotjänst](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn.
+Hämta och packa upp den [mikrotjänster för fjärrövervakning](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn.
 
 ### <a name="run-the-storage-adapter-microservice"></a>Kör storage nätverkskort mikrotjänst
 
-Öppna den **datorer-storage-adapter-dotnet-master** mappen i Visual Studio Code. Klicka på någon **återställa** knappar för att åtgärda eventuella olöst beroenden.
+Öppna den **remote-monitoring-services-dotnet-master\storage-adapter** mappen i Visual Studio Code. Klicka på någon **återställa** knappar för att åtgärda eventuella olöst beroenden.
 
 Öppna den **.vscode/launch.json** fil och tilldela din Cosmos DB-anslutningssträngen till den **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** miljövariabeln.
 
@@ -420,7 +419,7 @@ I det här avsnittet ska testa du de enhetstyper som du skapade i föregående a
 
 ### <a name="run-the-device-simulation-microservice"></a>Kör enheten simulering mikrotjänst
 
-Öppna den **enhet-simulering-dotnet-master** mapp som du laddade ned från GitHub i en ny instans av Visual Studio Code. Klicka på någon **återställa** knappar för att åtgärda eventuella olöst beroenden.
+Öppna den **remote-monitoring-services-dotnet-master\device-simulation** mapp som du laddade ned från GitHub i en ny instans av Visual Studio Code. Klicka på någon **återställa** knappar för att åtgärda eventuella olöst beroenden.
 
 Öppna den **.vscode/launch.json** fil och tilldela din IoT Hub-anslutningssträngen till den **PCS_IOTHUB_CONNSTRING** miljövariabeln.
 

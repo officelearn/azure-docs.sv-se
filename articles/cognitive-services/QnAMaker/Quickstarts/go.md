@@ -3,19 +3,19 @@ title: 'Snabbstart: Gå för QnA Maker API (V4)'
 titleSuffix: Azure Cognitive Services
 description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Microsoft Translator Text API i Microsoft Cognitive Services på Azure.
 services: cognitive-services
-author: nitinme
+author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 5daf4d5e971e840db020e35d1997615723f8e06d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 320eb7b643d785899482a00bfc0bda1d89e61b3b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349049"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714878"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Snabbstart för Microsoft QnA Maker API med Go 
 <a name="HOLTop"></a>
@@ -39,19 +39,19 @@ Den här artikeln visar hur du använder den [Microsoft QnA Maker API](../Overvi
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [gå 1.10.1](https://golang.org/dl/) att köra den här koden.
+Du behöver [Go 1.10.1](https://golang.org/dl/) för att köra den här koden.
 
-Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft QnA Maker API**. Du behöver en betald prenumerationsnyckel från din [Azure-instrumentpanelen](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Du behöver ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft QnA Maker API**. Du behöver prenumerationsnyckeln för en betalprenumeration från din [Azure-instrumentpanel](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 <a name="Create"></a>
 
-## <a name="create-knowledge-base"></a>Skapa kunskapsbas
+## <a name="create-knowledge-base"></a>Skapa en kunskapsbas
 
-Följande kod skapar en ny knowledge base med hjälp av den [skapa](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) metod.
+Följande kod skapar en ny kunskapsbas med hjälp av metoden [Skapa](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -190,7 +190,7 @@ func main() {
 
 **Skapa kunskapsbas svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -225,11 +225,11 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 ## <a name="update-knowledge-base"></a>Uppdatera kunskapsbas
 
-Följande kod uppdaterar en grundläggande, med hjälp av befintliga kunskaper i [uppdatering](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) metod.
+Följande kod uppdaterar en befintlig kunskapsbas med hjälp av metoden [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) (Uppdatera).
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -373,7 +373,7 @@ func main() {
 
 **Uppdatera kunskapsbas svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -409,11 +409,11 @@ Du kan anropa den [åtgärden](https://westus.dev.cognitive.microsoft.com/docs/s
 
 ## <a name="publish-knowledge-base"></a>Publicera kunskapsbas
 
-Följande kod publicerar en grundläggande, med hjälp av befintliga kunskaper i [publicera](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) metod.
+Följande kod publicerar en befintlig kunskapsbas med hjälp av metoden [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) (Publicera).
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -485,7 +485,7 @@ func main() {
 
 **Publicera kunskapsbas svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -501,9 +501,9 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 Följande kod ersätter innehållet i den angivna kunskapen kodbas, med hjälp av den [Ersätt](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) metod.
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -593,7 +593,7 @@ func main() {
 
 **Ersätt kunskapsbas svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -609,9 +609,9 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 Följande kod laddar ned innehållet i den angivna kunskapen kodbas, med hjälp av den [hämta kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) metod.
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -677,7 +677,7 @@ func main() {
 
 **Ladda ned kunskapsbas svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -718,7 +718,7 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 Följande kod hämtar svar på en fråga med hjälp av angivna kunskapsbasen, med den **Generera svar** metod.
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 1. Lägg till koden nedan.
 1. Ersätt den `host` värdet med namnet på webbplatsen för QnA Maker-prenumeration. Mer information finns i [skapa QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md).
 1. Ersätt den `endpoint_key` värde med en giltig slutpunkt-nyckel för din prenumeration. Observera att detta inte är samma som din prenumerationsnyckel. Du kan hämta din slutpunkt-nycklar med hjälp av den [hämta slutpunkten nycklar](#GetKeys) metod.
@@ -791,7 +791,7 @@ func main() {
 
 **Få svar-svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -819,9 +819,9 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 Följande kod hämtar information om den angivna knowledge base med hjälp av den [kunskapsbas information](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) metod.
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -883,7 +883,7 @@ func main() {
 
 **Hämta kunskapsbas information svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -911,9 +911,9 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 Följande kod hämtar information om alla kunskapsbaser för en viss användare med hjälp av den [hämta kunskapsbaser för användaren](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) metod.
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -972,7 +972,7 @@ func main() {
 
 **Hämta kunskapsbaser för användarsvar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -1016,9 +1016,9 @@ Press any key to continue.
 
 Följande kod tar du bort den angivna kunskapen kodbas, med hjälp av den [ta bort kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) metod.
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -1086,7 +1086,7 @@ func main() {
 
 **Ta bort kunskapsbas svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -1102,9 +1102,9 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 Följande kod hämtar de aktuella endpoint-nycklar med den [hämta slutpunkten nycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) metod.
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -1163,7 +1163,7 @@ func main() {
 
 **Hämta slutpunkten nycklar svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -1180,9 +1180,9 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 Följande kod återskapar de aktuella endpoint-nycklar med den [uppdatera slutpunkten nycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) metod.
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -1249,7 +1249,7 @@ func main() {
 
 **Uppdatera slutpunkten nycklar svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -1266,9 +1266,9 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 Följande kod hämtar de aktuella word-ändringar, med hjälp av den [hämta förändras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) metod.
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -1327,7 +1327,7 @@ func main() {
 
 **Hämta word förändras svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -1350,9 +1350,9 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 Följande kod ersätter de aktuella word-ändringar, med hjälp av den [Ersätt förändras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) metod.
 
-1. Skapa ett nytt Go-projekt i din favorit-IDE.
+1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```go
@@ -1431,7 +1431,7 @@ func main() {
 
 **Ersätt word förändras svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -1444,7 +1444,7 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referens för QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
 ## <a name="see-also"></a>Se också 
 

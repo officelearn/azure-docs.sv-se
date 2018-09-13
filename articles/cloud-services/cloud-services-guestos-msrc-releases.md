@@ -3,7 +3,7 @@ title: Lista över uppdateringar till Gästoperativsystemet i Azure | Microsoft 
 description: Listan över uppdateringar gäst-OS-versioner
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: RichardScheel
 manager: timlt
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
@@ -12,17 +12,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2018
-ms.author: raiye
-ms.openlocfilehash: aa7ee049177fccbcca7d648ca749eb9fb35a0f53
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.date: 9/12/2018
+ms.author: RichardScheel
+ms.openlocfilehash: 4ef49fe978db5c9b04bf9c8271e192fa60433d4b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522313"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722307"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
+
+## <a name="august-guest-os"></a>Augusti gäst-OS
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
+| --- | --- | --- | --- | --- |
+| Rel 18-08 | [4343887] | Windows 10-säkerhet | 5.22 | Den 14 augusti 2018 |
+| Rel 18-08 | [4343899] | Endast Windows-säkerhet | 2,77 | Den 14 augusti 2018 |
+| Rel 18-08 | [4343896] | Endast Windows-säkerhet | 3.64 | Den 14 augusti 2018 |
+| Rel 18-08 | [4343888] | Endast Windows-säkerhet | 4.57 | Den 14 augusti 2018 |
+| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 säkerhet | 2,77 | Den 14 augusti 2018 |
+| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x-säkerhet | 3.64 | Den 14 augusti 2018 |
+| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x-säkerhet | 4.57 | Den 14 augusti 2018 |
+| Rel 18-08 | [4346742], [4346739] | .NET 3.5, 4.x OOB-version | 3.64 | 30 juli 2018 |
+| Rel 18-08 | [4346745], [4346408] | .NET 3.5, 4.x OOB-version | 4.57 | 30 juli 2018 |
+| Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | Den 14 augusti 2018 |
+| Rel 18-08 | [4343205] | Internet Explorer | 2,77, 3.64, 4.57 | Den 14 augusti 2018 |
+| Gäller inte | [4338818] |Insamling av juli icke-säkerhet |2,77 | Den 10 juli 2018 |
+| Gäller inte | [4019990] |D3D kompilatorn uppdatering för .NET |2,77 | Den 10 juli 2018 |
+| Gäller inte | [4338830] |Insamling av juli icke-säkerhet |3.64 | Den 10 juli 2018 |
+| Gäller inte | [4338421] |Insamling av juli ej säkerhet .NET 3.5 |3.64 | Den 10 juli 2018 |
+| Gäller inte | [4338416] |Juli ej säkerhet .NET 4 x rollup |3.64 | Den 10 juli 2018 |
+| Gäller inte | [4338815] |Insamling av juli icke-säkerhet |4.57 | Den 10 juli 2018 |
+| Gäller inte | [4338424] |Insamling av juli ej säkerhet .NET 3.5 |3.64 | Den 10 juli 2018 |
+| Gäller inte | [4338415] |Juli ej säkerhet .NET 4 x rollup |3.64 | Den 10 juli 2018 |
 
 
 ## <a name="july-guest-os"></a>Juli gäst-OS
@@ -696,6 +719,31 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[2896881] |Länge inloggningstid när du använder kommandot AddPrinterConnection VBScript för att mappa skrivare för användare vid inloggning i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
 
+[4343887]: http://support.microsoft.com/kb/4343887
+[4343899]: http://support.microsoft.com/kb/4343899
+[4343896]: http://support.microsoft.com/kb/4343896
+[4343888]: http://support.microsoft.com/kb/4343888
+[4344177]: http://support.microsoft.com/kb/4344177
+[4344173]: http://support.microsoft.com/kb/4344173
+[4344175]: http://support.microsoft.com/kb/4344175
+[4344172]: http://support.microsoft.com/kb/4344172
+[4344178]: http://support.microsoft.com/kb/4344178
+[4344171]: http://support.microsoft.com/kb/4344171
+[4346742]: http://support.microsoft.com/kb/4346742
+[4346739]: http://support.microsoft.com/kb/4346739
+[4346745]: http://support.microsoft.com/kb/4346745
+[4346408]: http://support.microsoft.com/kb/4346408
+[4343902]: http://support.microsoft.com/kb/4343902
+[4343205]: http://support.microsoft.com/kb/4343205
+[4338818]: http://support.microsoft.com/kb/4338818
+[4019990]: http://support.microsoft.com/kb/4019990
+[4338830]: http://support.microsoft.com/kb/4338830
+[4338421]: http://support.microsoft.com/kb/4338421
+[4338416]: http://support.microsoft.com/kb/4338416
+[4338815]: http://support.microsoft.com/kb/4338815
+[4338424]: http://support.microsoft.com/kb/4338424
+[4338415]: http://support.microsoft.com/kb/4338415
+
 
 [4338814]: http://support.microsoft.com/kb/4338814
 [4338823]: http://support.microsoft.com/kb/4338823
@@ -1303,7 +1351,6 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 [3057839]:http://support.microsoft.com/kb/3057839
 [3062577]:http://support.microsoft.com/kb/3062577
 [3063858]:http://support.microsoft.com/kb/3063858
-
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

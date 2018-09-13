@@ -1,6 +1,6 @@
 ---
-title: Azure innehåll kontrollant - video avbrottsmoderering | Microsoft Docs
-description: Använda video avbrottsmoderering om du vill söka efter möjliga innehåll för vuxna och dyr.
+title: Azure Content Moderator - videomoderering | Microsoft Docs
+description: Använd videomoderering för att söka efter möjliga vuxet eller olämpligt innehåll.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,18 +9,18 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: sajagtap
-ms.openlocfilehash: ef58f5990d4a0a19ab2b8c61b42ab2a0754dc6fa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 27e189d93573dea139c2b67c237c376a28100c2b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355098"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714317"
 ---
 # <a name="video-moderation"></a>Videomoderering
 
-Idag, generera online visningsprogram miljarder video vyer över populära och regionala sociala medier webbplatser och öka. Genom att använda maskininlärning tjänster för att förutsäga potentiella innehåll för vuxna och dyr sänker kostnaderna för dina insatser med måtta.
+Idag, generera online visningsprogram miljarder video vyer över webbplatser för populära och regionala sociala medier och ökar. Genom att använda maskininlärning tjänster för att förutsäga potentiellt vuxet eller olämpligt innehåll kan sänka du kostnaden för ditt arbete med moderering.
 
-## <a name="sign-up-for-the-content-moderator-media-processor-public-preview"></a>Registrera dig för medieprocessor innehåll kontrollant (förhandsversion)
+## <a name="sign-up-for-the-content-moderator-media-processor-preview"></a>Registrera dig för Content Moderator-mediebearbetare (förhandsversion)
 
 ### <a name="create-a-free-azure-account"></a>Skapa ett kostnadsfritt Azure-konto
 
@@ -28,44 +28,44 @@ Idag, generera online visningsprogram miljarder video vyer över populära och r
 
 ### <a name="create-an-azure-media-services-account"></a>Skapa ett Azure Media Services-konto
 
-Innehåll kontrollanten video funktion är tillgänglig som en förhandsversion **medieprocessor** i Azure Media Services (AMS) utan kostnad.
+Content Moderator video funktionen är tillgänglig som en offentlig förhandsversion **medieprocessor** i Azure Media Services (AMS) utan kostnad.
 
-[Skapa ett Azure Media Services-konto](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) i din Azure-prenumeration.
+[Skapa ett Azure Media Services-konto](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) i Azure-prenumerationen.
 
-### <a name="get-azure-active-directory-credentials"></a>Hämta Azure Active Directory-autentiseringsuppgifter
+### <a name="get-azure-active-directory-credentials"></a>Hämta autentiseringsuppgifter för Azure Active Directory
 
-   1. Läs den [Azure Media Services portal artikel](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) att lära dig hur du använder Azure-portalen för att hämta autentiseringsuppgifter för din Azure AD.
-   1. Läs den [Azure Media Services .NET artikel](https://docs.microsoft.com/azure/media-services/media-services-dotnet-get-started-with-aad) att lära dig hur du använder Azure Active Directory-autentiseringsuppgifter med .NET SDK.
+   1. Läs den [Azure Media Services portal artikeln](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) att lära dig hur du använder Azure-portalen för att hämta dina autentiseringsuppgifter för Azure AD-autentisering.
+   1. Läs den [Azure Media Services .NET artikeln](https://docs.microsoft.com/azure/media-services/media-services-dotnet-get-started-with-aad) att lära dig hur du använder Azure Active Directory-autentiseringsuppgifter med .NET SDK.
 
    > [!NOTE]
-   > Exempelkoden i den här snabbstarten använder den **primära autentiseringen av tjänsten** metod som beskrivs i båda artiklar.
+   > Exempelkoden i den här snabbstarten använder den **tjänstobjektautentisering** metod som beskrivs i båda artiklar.
 
-När du har hämtat dina autentiseringsuppgifter för AMS finns två sätt att försöka medieprocessor innehåll kontrollanten.
+När du har hämtat dina AMS-autentiseringsuppgifter, finns det två sätt att testa mediebearbetare Content Moderator.
 
 ## <a name="use-azure-media-services-explorer"></a>Använd Azure Media Services Explorer
 
-Använd den interaktiva [Azure Media Services (AMS) explorer](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) överföra videor för att bläddra bland AMS-kontot och skanna med medieprocessor innehåll kontrollanten. [Hämta och installera det](https://github.com/Azure/Azure-Media-Services-Explorer/releases) från GitHub och [Bläddra källkoden](http://github.com/Azure/Azure-Media-Services-Explorer) till fördjupa dig i med hjälp av AMS SDK.
+Använd det interaktiva [Azure Media Services (AMS) explorer](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) för att bläddra bland ditt AMS-konto, ladda upp videor och Genomsök med Content Moderator mediebearbetare. [Hämta och installera det](https://github.com/Azure/Azure-Media-Services-Explorer/releases) från GitHub, och [Bläddra källkoden](http://github.com/Azure/Azure-Media-Services-Explorer) att ta itu med hjälp av AMS SDK.
 
-![Azure Media Services explorer med innehåll kontrollant](images/ams-explorer-content-moderator.PNG)
+![Azure Media Services explorer med Content Moderator](images/ams-explorer-content-moderator.PNG)
 
 ## <a name="net-quickstart-with-visual-studio-and-c"></a>Snabbstart för .NET med Visual Studio och C#
 
-1. Lägg till en ny **konsolapp (.NET Framework)** projekt i lösningen.
+1. Lägga till en ny **konsolapp (.NET Framework)** projekt i lösningen.
 
-   Namnge projektet i koden, **VideoModeration**.
+   Namnge projektet i exempelkoden **VideoModeration**.
 
-1. Välj det här projektet som Startprojekt enda för lösningen.
+1. Välj det här projektet som enda Startprojekt för lösningen.
 
 ### <a name="install-required-packages"></a>Installera de paket som krävs
 
-Installera till följande NuGet-paket på [NuGet](https://www.nuget.org/).
+Installera följande NuGet-paketen tillgängliga på [NuGet](https://www.nuget.org/).
 
 - windowsazure.mediaservices
 - windowsazure.mediaservices.Extensions
 
-### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder instruktioner
+### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder uttryck
 
-Ändra programmet använder instruktioner.
+Ändra programmet är med hjälp av uttryck.
 
     using System;
     using System.Linq;
@@ -81,7 +81,7 @@ Installera till följande NuGet-paket på [NuGet](https://www.nuget.org/).
 
 ### <a name="initialize-application-specific-settings"></a>Initiera programspecifika inställningar
 
-Lägg till följande statiska fält till den **programmet** klassen i Program.cs.
+Lägg till följande statiska fält i den **programmet** klassen i Program.cs.
 
     // declare constants and globals
     private static CloudMediaContext _context = null;
@@ -123,9 +123,9 @@ Skapa en JSON-fil i den aktuella katalogen med versionsnumret.
 
 ### <a name="add-the-following-code-to-the-main-method"></a>Lägg till följande kod i main-metoden
 
-Main-metoden skapar först ett Azure Media kontext och en Azure Storage-kontext om dina videor i blob storage.
-Den återstående koden går igenom en video från en lokal mapp, blob eller flera blobbar i en Azure storage-behållare.
-Kommentera bort andra rader med kod kan du försöka alla alternativ.
+Main-metoden skapar först en kontext för Azure Media och sedan på ett Azure Storage-kontext om dina videor som finns i blob storage.
+Återstående koden söker igenom en video från en lokal mapp, blob eller flera blobbar i en Azure storage-behållare.
+Du kan prova alla alternativ genom att kommentera ut andra rader med kod.
 
     // Create Azure Media Context
     CreateMediaContext();
@@ -149,7 +149,7 @@ Kommentera bort andra rader med kod kan du försöka alla alternativ.
     // Just run the content moderator on all blobs in a list (from a Blob Container)
     RunContentModeratorJobOnBlobs();
 
-### <a name="add-the-code-to-create-an-azure-media-context"></a>Lägg till kod för att skapa ett Azure Media-kontexten
+### <a name="add-the-code-to-create-an-azure-media-context"></a>Lägg till kod för att skapa en Azure Media-kontext
 
     /// <summary>
     /// Creates a media context from azure credentials
@@ -168,8 +168,8 @@ Kommentera bort andra rader med kod kan du försöka alla alternativ.
         _context = new CloudMediaContext(new Uri(REST_API_ENDPOINT), tokenProvider);
     }
 
-### <a name="add-the-code-to-create-an-azure-storage-context"></a>Lägg till kod för att skapa en Azure Storage-kontext
-Du kan använda lagring kontext, skapas från dina autentiseringsuppgifter för lagring för åtkomst till blobblagring.
+### <a name="add-the-code-to-create-an-azure-storage-context"></a>Lägg till kod för att skapa ett Azure Storage-kontext
+Du kan använda Storage-kontext som skapats från Storage-autentiseringsuppgifter för att få åtkomst till ditt blob storage.
 
     /// <summary>
     /// Creates a storage context from the AMS associated storage name and key
@@ -184,8 +184,8 @@ Du kan använda lagring kontext, skapas från dina autentiseringsuppgifter för 
         _StorageAccount = new CloudStorageAccount(_StorageCredentials, false);
     }
 
-### <a name="add-the-code-to-create-azure-media-assets-from-local-file-and-blob"></a>Lägg till kod för att skapa Azure Media tillgångar från lokal fil- och blobbdata
-Medieprocessor innehåll kontrollant körs jobb på **tillgångar** i Azure Media Services-plattform.
+### <a name="add-the-code-to-create-azure-media-assets-from-local-file-and-blob"></a>Lägg till kod för att skapa Azure Medietillgångar från lokal fil och blob
+Mediebearbetare för Content Moderator kör jobb **tillgångar** i Azure Media Services-plattformen.
 Dessa metoder skapa tillgångar från en lokal fil eller en associerad blob.
 
     /// <summary>
@@ -208,7 +208,7 @@ Dessa metoder skapa tillgångar från en lokal fil eller en associerad blob.
         return _context.Assets.CreateFromBlob(Blob, _StorageCredentials, AssetCreationOptions.None);
     }
 
-### <a name="add-the-code-to-scan-a-collection-of-videos-as-blobs-within-a-container"></a>Lägg till kod för att skanna en samling med videoklipp (som blobar) i en behållare
+### <a name="add-the-code-to-scan-a-collection-of-videos-as-blobs-within-a-container"></a>Lägg till kod för att skanna en samling med videor (som blobar) i en behållare
 
     /// <summary>
     /// Runs the Content Moderator Job on all Blobs in a given container name
@@ -247,7 +247,7 @@ Dessa metoder skapa tillgångar från en lokal fil eller en associerad blob.
         return blobList;
     }
 
-### <a name="add-the-method-to-run-the-content-moderator-job"></a>Lägg till metoden för att köra jobbet innehåll kontrollant
+### <a name="add-the-method-to-run-the-content-moderator-job"></a>Lägg till metod för att köra jobbet för Content Moderator
 
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
@@ -316,7 +316,7 @@ Dessa metoder skapa tillgångar från en lokal fil eller en associerad blob.
 
 ### <a name="add-a-couple-of-helper-functions"></a>Lägg till ett par hjälpfunktioner
 
-Dessa metoder ladda ned innehåll kontrollant utdatafilen (JSON) från Azure Media Services tillgången och att spåra status för jobbet avbrottsmoderering så att programmet kan logga en Körstatus till konsolen.
+Dessa metoder ladda ned utdatafilen Content Moderator (JSON) från Azure Media Services-tillgången och hjälpa dig spåra statusen för moderering-jobbet så att programmet kan logga en Körstatus till konsolen.
 
     static void DownloadAsset(IAsset asset, string outputDirectory)
     {
@@ -355,21 +355,21 @@ Dessa metoder ladda ned innehåll kontrollant utdatafilen (JSON) från Azure Med
         }
     }
 
-### <a name="run-the-program-and-review-the-output"></a>Kör programmet och granska utdata
+### <a name="run-the-program-and-review-the-output"></a>Kör programmet och granska resultatet
 
-När innehåll Avbrottsmoderering jobbet är slutfört, analysera JSON-svar. Det består av följande element:
+När innehållsmoderering jobbet har slutförts kan du analysera JSON-svar. Det består av följande element:
 
-- Video information sammanfattning
-- **Bilderna** som ”**fragment**”
-- **Nyckeln ramar** som ”**händelser**” med en **reviewRecommended ”(= true eller false)”** flaggan baserat på **vuxna** och **Racy** resultat
-- **Starta**, **varaktighet**, **totalDuration**, och **tidsstämpel** finns i ”tick”. Division med **tidsrymd** att få en i sekunder.
+- Videoinformation sammanfattning
+- **Skärmbilder** som ”**fragment**”
+- **Nyckeln bildrutor** som ”**händelser**” med en **reviewRecommended ”(= SANT eller FALSKT)”** flaggan utifrån **vuxet** och **Racy** poäng
+- **Starta**, **varaktighet**, **totalDuration**, och **tidsstämpel** finns i ”ticken”. Dela med **tidsskalan** att få en på några sekunder.
  
 > [!NOTE]
 
-> - `adultScore` representerar potentiella närvaro och förutsägelse poängen för innehåll som kan uppfattas som webbplatser explicit eller vuxna i vissa situationer.
-> - `racyScore` representerar potentiella närvaro och förutsägelse poängen för innehåll som kan uppfattas som webbplatser något eller mogen i vissa situationer.
-> - `adultScore` och `racyScore` är mellan 0 och 1. Ju högre poäng, desto högre modellen är att förutsäga att kategorin kan användas. Den här förhandsgranskningen är beroende av en statistisk modell i stället för manuellt kodade resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori passar dina behov.
-> - `reviewRecommended` är antingen SANT eller FALSKT beroende på den interna poängen tröskelvärden. Kunder bör bedöma om du vill använda det här värdet eller besluta om anpassade tröskelvärden baserat på deras innehåll principer.
+> - `adultScore` representerar den potentiella närvaro och förutsägelse poängen för innehåll som kan uppfattas som sexuellt explicit eller är olämpligt för barn i vissa situationer.
+> - `racyScore` representerar den potentiella närvaro och förutsägelse poängen för innehåll som kan uppfattas som sexuellt något eller mogen i vissa situationer.
+> - `adultScore` och `racyScore` är mellan 0 och 1. Ju högre poäng desto högre modellen är att förutsäga att kategorin kan användas. Den här förhandsversionen är beroende av en statistisk modell i stället för manuellt kodade resultat. Vi rekommenderar att du testar med ditt eget innehåll att avgöra hur varje kategori stämmer överens med dina behov.
+> - `reviewRecommended` är true eller false beroende på den interna poängen tröskelvärden. Kunder bör utvärdera om du vill använda det här värdet eller välja anpassade tröskelvärden baserat på deras innehåll principer.
 >
 
     {
@@ -424,10 +424,10 @@ När innehåll Avbrottsmoderering jobbet är slutfört, analysera JSON-svar. Det
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du skapar [video granskar](video-reviews-quickstart-dotnet.md) från avbrottsmoderering-utdata.
+Lär dig hur du skapar [videon går igenom](video-reviews-quickstart-dotnet.md) från moderering-utdata.
 
-Lägg till [betyg avbrottsmoderering](video-transcript-moderation-review-tutorial-dotnet.md) till din video granskningar.
+Lägg till [avskrift moderering](video-transcript-moderation-review-tutorial-dotnet.md) på din video granskningar.
 
-Kolla in detaljerad vägledning om hur du skapar en [väljer video- och betyg avbrottsmoderering](video-transcript-moderation-review-tutorial-dotnet.md).
+Kolla in detaljerad genomgång om hur du skapar en [väljer video- och avskrift moderering](video-transcript-moderation-review-tutorial-dotnet.md).
 
-[Hämta Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra innehåll kontrollant Snabbstart för .NET.
+[Ladda ned Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET.

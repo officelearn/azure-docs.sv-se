@@ -1,33 +1,34 @@
 ---
-title: Bevilja åtkomst till Azure SQL Database | Microsoft Docs
-description: Läs dig hur du beviljar åtkomst till Microsoft Azure SQL Database.
+title: Bevilja åtkomst till Azure SQL Database och SQL Data Warehouse | Microsoft Docs
+description: Läs mer om att bevilja åtkomst till Microsoft Azure SQL Database och SQL Data Warehouse.
 services: sql-database
-author: CarlRabeler
+author: VanMSFT
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 2ab2f047839763239358e61f61f0fc962c17d729
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 06/13/2018
+ms.author: vanto
+ms.openlocfilehash: 5944f757782cf565b60904ac9f0e2f4a3e71d3d8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647443"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35968909"
 ---
-# <a name="azure-sql-database-access-control"></a>Azure SQL Database-åtkomstkontroll
-För att erbjuda säkerhet, kontrollerar SQL Database åtkomsten med hjälp av brandväggsregler som begränsar anslutning efter IP-adress, autentiseringsmekanismer kräver att användare bevisar sin identitet och auktoriseringsmekanismer begränsar användare till specifika åtgärder och data. 
+# <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Åtkomstkontroll för Azure SQL Database och SQL Data Warehouse
+Att skydda Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) åtkomstkontroll med brandväggsregler som begränsar anslutning efter IP-adress, autentiseringsmekanismer kräver att användare bevisar sin identitet och auktoriseringsmekanismer begränsar användare till specifika åtgärder och data. 
 
 > [!IMPORTANT]
-> En översikt över säkerhetsfunktionerna i SQL Database finns i [SQL Säkerhetsöversikt](sql-database-security-overview.md). En självstudiekurs finns [skydda din Azure SQL Database](sql-database-security-tutorial.md).
+> En översikt över säkerhetsfunktionerna i SQL Database finns i [SQL Säkerhetsöversikt](sql-database-security-overview.md). En självstudiekurs finns i [skydda din Azure SQL Database](sql-database-security-tutorial.md). En översikt över SQL Data Warehouse-säkerhetsfunktioner finns [översikt över SQL Data Warehouse-säkerhet](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
 
 ## <a name="firewall-and-firewall-rules"></a>Brandvägg och brandväggsregler
 Microsoft Azure SQL Database tillhandahåller en relationsdatabastjänst för Azure och andra Internetbaserade program. För att skydda dina data förhindrar brandväggar all åtkomst till din databasserver tills du anger vilka datorer som har behörighet. Brandväggen ger åtkomst till databaser baserat på vilken IP-adress som varje begäran kommer från. Mer information finns i [Översikt över Azure SQL Database-brandväggsregler](sql-database-firewall-configure.md)
 
 Azure SQL Database-tjänsten är endast tillgänglig via TCP-port 1433. Se till att klientdatorns brandvägg tillåter utgående TCP-kommunikation på TCP-port 1433 för att komma åt en SQL Database från datorn. Om det inte behövs för andra program, blockera inkommande anslutningar på TCP-port 1433. 
 
-Som en del av anslutningen omdirigeras anslutningar från virtuella Azure-datorer till en annan IP-adress och port, som är unik för varje arbetsroll. Portnumret är i intervallet 11000 till 11999. Mer information om TCP-portar finns [portar utöver 1433 för ADO.NET 4.5 och SQL Database2](sql-database-develop-direct-route-ports-adonet-v12.md).
+Som en del av anslutningen omdirigeras anslutningar från virtuella Azure-datorer till en annan IP-adress och port, som är unik för varje arbetsroll. Portnumret är i intervallet 11000 till 11999. Mer information om TCP-portar finns i [portar utöver 1433 för ADO.NET 4.5 och SQL Databas2](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 ## <a name="authentication"></a>Autentisering
 
@@ -36,9 +37,9 @@ SQL Database stöder två typer av autentisering:
 * **SQL-autentisering**, som använder ett användarnamn och lösenord. När du skapade den logiska servern för databasen angav du en "serveradministratörsinloggning” med ett användarnamn och lösenord. Med dessa autentiseringsuppgifter kan du autentisera till en databas på servern som databasens ägare eller "dbo." 
 * **Azure Active Directory-autentisering**, som använder identiteter som hanteras av Azure Active Directory och stöder hanterade och integrerade domäner. Använd Active Directory-autentisering (integrerad säkerhet) [närhelst det går](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode). Om du vill använda Azure Active Directory-autentisering måste du skapa en annan serveradministratör som kallas "Azure AD-admin," som tillåts administrera Azure AD-användare och -grupper. Den här administratören kan också utföra alla åtgärder som en vanlig serveradministratören kan. Se [Ansluta till SQL Database genom att använda Azure Active Directory-autentisering](sql-database-aad-authentication.md) för en genomgång av hur du skapar en Azure AD-administratör för att aktivera Azure Active Directory-autentisering.
 
-Databasmotorn stänger anslutningar som är inaktiva under mer än 30 minuter. Anslutningen måste logga in igen innan den kan användas. Kontinuerligt aktiva anslutningar till SQL Database kräver omauktorisering (utförs av databasmotorn) minst var 10:e timma. Databasmotorn försöker omauktorisera det ursprungligen skickade lösenordet och inga indata från användaren krävs. Av prestandaskäl, när en lösenordsåterställning i SQL-databas autentiseras anslutningen inte, även om anslutningen ska återställas på grund av anslutningspooler. Detta skiljer sig från beteendet för lokal SQL Server. Om lösenordet har ändrats sedan anslutningen ursprungligen auktoriserades, måste anslutningen avslutas och en ny anslutning skapas med det nya lösenordet. En användare med behörigheten `KILL DATABASE CONNECTION` kan explicit avsluta en anslutning till SQL Database med hjälp av kommandot [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql).
+Databasmotorn stänger anslutningar som är inaktiva under mer än 30 minuter. Anslutningen måste logga in igen innan den kan användas. Kontinuerligt aktiva anslutningar till SQL Database kräver omauktorisering (utförs av databasmotorn) minst var 10:e timma. Databasmotorn försöker omauktorisera det ursprungligen skickade lösenordet och inga indata från användaren krävs. Av prestandaskäl, när ett lösenord återställs i SQL Database autentiseras anslutningen inte, även om anslutningen har återställts på grund av anslutningspoolning. Detta skiljer sig från beteendet för lokal SQL Server. Om lösenordet har ändrats sedan anslutningen ursprungligen auktoriserades, måste anslutningen avslutas och en ny anslutning skapas med det nya lösenordet. En användare med behörigheten `KILL DATABASE CONNECTION` kan explicit avsluta en anslutning till SQL Database med hjälp av kommandot [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql).
 
-Användarkonton kan skapas i huvuddatabasen och kan tilldelas behörigheter i alla databaser på servern, eller så kan de skapas i själva databasen (kallas inneslutna användare). För information om hur man skapar och hanterar inloggningar, se [Hantera inloggningar](sql-database-manage-logins.md). Använda inneslutna databaser för att förbättra portability och skalbarhet. Mer information om inneslutna användare finns i [Inneslutna databasanvändare – Gör din databas portabel](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), [Skapa användare (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) och [Inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases).
+Användarkonton kan skapas i huvuddatabasen och kan tilldelas behörigheter i alla databaser på servern, eller så kan de skapas i själva databasen (kallas inneslutna användare). För information om hur man skapar och hanterar inloggningar, se [Hantera inloggningar](sql-database-manage-logins.md). Använd inneslutna databaser för att förbättra portabilitet och skalbarhet. Mer information om inneslutna användare finns i [Inneslutna databasanvändare – Gör din databas portabel](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), [Skapa användare (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) och [Inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases).
 
 Ett bra tips är att ditt program bör använda ett särskilt konto för autentisering – på det här sättet kan du begränsa behörigheterna för programmet och minska riskerna för skadlig programvara om din programkod är sårbar för ett SQL-angrepp. Den rekommenderade metoden är att skapa en [innesluten databasanvändare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), vilket gör att din app kan autentisera direkt till databasen. 
 
@@ -57,7 +58,7 @@ Du bör bekanta dig med följande funktioner som kan användas för att begräns
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt över säkerhetsfunktionerna i SQL Database finns i [SQL Säkerhetsöversikt](sql-database-security-overview.md).
-- Mer information om brandväggsregler finns [regler i brandväggen](sql-database-firewall-configure.md).
+- Mer information om brandväggsregler finns [brandväggsregler](sql-database-firewall-configure.md).
 - Mer information om användare och inloggningar finns i [Hantera inloggningar](sql-database-manage-logins.md). 
-- En beskrivning av Proaktiv övervakning finns [Database Auditing](sql-database-auditing.md) och [Hotidentifiering för SQL-databasen](sql-database-threat-detection.md).
-- En självstudiekurs finns [skydda din Azure SQL Database](sql-database-security-tutorial.md).
+- En diskussion om Proaktiv övervakning, se [Databasgranskning](sql-database-auditing.md) och [SQL Database Threat Detection](sql-database-threat-detection.md).
+- En självstudiekurs finns i [skydda din Azure SQL Database](sql-database-security-tutorial.md).

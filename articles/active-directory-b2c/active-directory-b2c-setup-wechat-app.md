@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 418f399213f2b1b60d4d4f464fd9fe89c6f35ba7
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d967e99257c7c7f3074db24cc5954682e3dff9ea
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338215"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716493"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett WeChat-konto med Azure Active Directory B2C
 
@@ -32,19 +32,15 @@ Om du vill använda ett WeChat-konto som identitetsprovider i Azure Active Direc
 1. Logga in på [ https://open.weixin.qq.com/ ](https://open.weixin.qq.com/) med dina autentiseringsuppgifter för WeChat.
 2. Välj**管理中心**(management center).
 3. Följ stegen för att registrera ett nytt program.
-4. Ange `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` i**授权回调域**(Motringnings-URL). Exempel: om din `tenant_name` är contoso, ange URL: en ska vara `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+4. Ange `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i**授权回调域**(Motringnings-URL). Till exempel om ditt klientnamn är contoso anger du URL: en ska vara `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 5. Kopiera den **APP-ID** och **APPNYCKELN**. Du behöver dessa att lägga till identitetsleverantören till din klient.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Konfigurera WeChat som en identitetsprovider i din klient
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
-2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att växla till den i det övre högra hörnet i Azure-portalen. Välj din prenumerationsinformation och välj därefter **Växla katalog**. 
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.  
 
     ![Växla till Azure AD B2C-klientorganisationen](./media/active-directory-b2c-setup-wechat-app/switch-directories.png)
-
-    Välj den katalog som innehåller din klient.
-
-    ![Välj katalog](./media/active-directory-b2c-setup-wechat-app/select-directory.png)
 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.

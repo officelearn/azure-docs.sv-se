@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f3cf1232861239069894a8e5fa60c911053f038d
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841989"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719451"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Saker att tänka på för Azure Stack-distribution
 Innan du distribuerar Azure Stack Development Kit (ASDK) måste du kontrollera att värddatorn development kit uppfyller kraven som beskrivs i den här artikeln.
@@ -93,6 +93,8 @@ För att distribuera Azure Stack med hjälp av en Azure AD-konto, måste du för
    | Microsoft-konto med giltig prenumeration på offentlig Azure |Ja |
    | Arbets- eller skolkonto konto med giltig prenumeration på China Azure |Ja |
    | Arbets- eller skolkonto konto med giltig US Government Azure-prenumeration |Ja |
+
+Efter distributionen krävs inte behörighet för Azure Active Directory global administratör. Vissa åtgärder kan dock kräva autentiseringsuppgifter för global administratör. Till exempel ett resource provider installer skript eller en ny funktion som kräver en behörighet som ska beviljas. Du kan tillfälligt återställa kontots behörigheter som global administratör eller använda ett separat globalt administratörskonto som äger den *standard providerprenumeration*.
 
 ## <a name="network"></a>Nätverk
 ### <a name="switch"></a>Växel

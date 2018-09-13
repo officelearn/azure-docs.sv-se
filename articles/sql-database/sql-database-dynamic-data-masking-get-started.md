@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: ronitr
-ms.openlocfilehash: 714fe94d295157f0d4d90139da98254f46794731
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: c4d9eb5f7105e0e1b16ad994d397885b9232a0ea
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060227"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719536"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database dynamisk datamaskning
 
@@ -52,5 +52,5 @@ Rekommendationsmotorn DDM flaggar vissa fält från databasen som potentiellt k�
 Se [cmdlet: ar för Azure SQL Database](https://docs.microsoft.com/powershell/module/azurerm.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Konfigurera dynamisk datamaskning för din databas med hjälp av REST API
-Se [åtgärder för Azure SQL-databaser](https://msdn.microsoft.com/library/dn505719.aspx).
+Se [åtgärder för Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).
 

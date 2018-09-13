@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2017
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: c7f2892586dd78f3e4b102deb8c51b9979ed07e2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e7488abb3e82f90f63fa338b84a6516202e504ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348182"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714538"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Avancerade alternativ i SAML-token för gallery-appar i Azure Active Directory för Certifikatsignering
 Idag stöd för tusentals förintegrerade program i Appgalleriet för Azure Active Directory i Azure Active Directory (AD Azure). Det här värdet innefattar fler än 500 program som stöder enkel inloggning med hjälp av SAML 2.0-protokollet. När en användare autentiseras till ett program via Azure AD med hjälp av SAML skickar Azure AD en token till programmet (via en HTTP-POST). Programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token har signerats med det unika certifikat som genereras i Azure AD och av specifika standard algoritmer.
@@ -35,7 +35,7 @@ Azure AD stöder avancerade inställningar för certifikatsignering. För att v�
 
 När du har valt den här kryssrutan, kan du konfigurera alternativ för certifikatsignering och certifikatsignering.
 
-## <a name="certificate-signing-options"></a>Alternativ för Certifikatsignering
+## <a name="certificate-signing-options"></a>Alternativ för certifikatsignering
 
 Azure AD stöder tre alternativ för signering av certifikat:
 
@@ -45,7 +45,7 @@ Azure AD stöder tre alternativ för signering av certifikat:
 
 * **Signera SAML-svar och försäkran**. Om det här alternativet väljs, Azure AD som en IdP loggar hela SAML-token med X509 certifikatet för programmet. Dessutom används den Signeringsalgoritm som anges i den **signering algoritmen** listrutan.
 
-    ![Alternativ för Certifikatsignering](./media/certificate-signing-options/saml-signing-options.png)
+    ![Alternativ för certifikatsignering](./media/certificate-signing-options/saml-signing-options.png)
 
 ## <a name="certificate-signing-algorithms"></a>Algoritmer för Certifikatsignering
 
@@ -60,7 +60,6 @@ Azure AD stöder två Signeringsalgoritmer för att signera SAML-svar:
     ![SHA-1 Certifikatsignering](./media/certificate-signing-options/saml-signing-algo-sha1.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory App-galleriet](configure-federated-single-sign-on-non-gallery-applications.md)
 * [Felsöka SAML-baserad enkel inloggning](../develop/howto-v1-debug-saml-sso-issues.md)
 

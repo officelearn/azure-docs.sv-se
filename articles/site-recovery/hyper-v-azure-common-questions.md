@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 42e8f8bd3f921686c3ba13f4c752d52e3067fbbe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177663"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721916"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Vanliga frågor – Hyper-V till Azure replikering
 
@@ -64,7 +64,7 @@ Ja, både kryptering under överföring och [kryptering i Azure](https://docs.mi
 
 ### <a name="what-do-i-need-on-premises"></a>Vad gör jag behöver på plats?
 
-Du behöver en eller flera virtuella datorer som körs på en eller flera fristående eller klustrade Hyper-V-värdar. Du kan också replikera virtuella datorer som körs på värdar som hanteras av System Center Virtual Machine Manager (VMM). Du kan också replikera virtuella datorer som körs på värdar som hanteras av System Center Virtual Machine Manager (VMM).
+Du behöver en eller flera virtuella datorer som körs på en eller flera fristående eller klustrade Hyper-V-värdar. Du kan också replikera virtuella datorer som körs på värdar som hanteras av System Center Virtual Machine Manager (VMM).
     - Om du inte använder VMM under distributionen av Site Recovery kan du samla in Hyper-V-värdar och kluster i Hyper-V-platser. Du installerar Site Recovery-agenter (Azure Site Recovery-providern och Recovery Services-agent) på varje Hyper-V-värd.
     - Om Hyper-V-värdar finns i VMM-moln kan dirigera du replikering i VMM. Du installerar Site Recovery-providern på VMM-servern och Recovery Services-agenten på varje Hyper-V-värd. Du kan mappa mellan VMM logiska och VM-nätverk och virtuella Azure-nätverk.
     - 
@@ -166,11 +166,6 @@ Site Recovery behöver åtkomst till Hyper-V-värdar att replikera de virtuella 
 ### <a name="what-does-site-recovery-install-on-hyper-v-vms"></a>Vad kan Site Recovery installeras i Hyper-V-datorer?
 
 Site Recovery installerar uttryckligen inte något på Hyper-V-datorer som aktiverats för replikering.
-- Under replikering kommunicerar virtuella datorer med Site Recovery på följande sätt:
-    - Virtuella datorer kommunicerar med konfigurationsservern på port HTTPS 443 för replikeringshantering.
-    - Virtuella datorer skickar replikeringsdata till processervern på port HTTPS 9443 (kan ändras).
-    - Om du aktiverar konsekvens för flera datorer, kommunicera virtuella datorer med varandra på port 20004.
-
 
 
 
@@ -211,7 +206,7 @@ När din lokala infrastruktur är igång igen kan du inte återställa. Återst�
 5. När arbetsbelastningar har återställts, aktiverar du omvänd replikering så att replikera lokala virtuella datorer till Azure igen.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Kan jag återställa till en annan plats?
-Ja, om du växlas över till Azure, du kan växla tillbaka till en annan plats om den ursprungliga som inte är tillgänglig. [Läs mer](concepts-types-of-failback.md#alternate-location-recovery-alr).
+Ja, om du växlas över till Azure, du kan växla tillbaka till en annan plats om den ursprungliga som inte är tillgänglig. [Läs mer](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
 
 
 

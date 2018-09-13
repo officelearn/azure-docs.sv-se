@@ -1,43 +1,33 @@
 ---
 title: Felsök appar i en lokal Docker-behållare | Microsoft Docs
 description: Lär dig hur du ändrar en app som körs i en lokal dockerbehållare, uppdatera behållare via Redigera och uppdatera och ange brytpunkter-felsökning
-services: azure-container-service
-documentationcenter: na
+services: container-service
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 480e3062-aae7-48ef-9701-e4f9ea041382
 ms.service: multiple
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/22/2016
-ms.author: mlearned
-ms.openlocfilehash: 07a7c1e11d8ca20ff4f42abcb84961cb7cd9e0e1
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 09/11/2018
+ms.author: ghogen
+ms.openlocfilehash: 0f3f323cb4486c06f6f18de4c695efaf8dce4d99
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298224"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715728"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Felsök appar i en lokal Docker-container
 ## <a name="overview"></a>Översikt
-Visual Studio 2017 ger ett konsekvent sätt att utveckla i en Linux-Docker-behållare och validera ditt program lokalt.
+Visual Studio 2017 ger ett konsekvent sätt att utveckla i en Docker-behållare och validera ditt program lokalt.
 Du behöver starta om behållaren varje gång du gör en kod ändra.
 Den här artikeln visar hur du använder funktionen ”Redigera och uppdatera” för att starta en ASP.NET Core-webbapp i en lokal dockerbehållare, gör nödvändiga ändringar och uppdatera sedan webbläsaren så visas dessa ändringar.
 Den här artikeln visar också hur du kan ange brytpunkter för felsökning.
 
-> [!NOTE]
-> Stöd för Windows-behållare kommer i en framtida version
->
->
-
 ## <a name="prerequisites"></a>Förutsättningar
 Följande verktyg installeras.
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* [Microsoft ASP.NET Core 1.0-SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) med arbetsbelastningen webbutveckling installerad.
 
 Om du vill köra Docker-behållare lokalt, måste en lokal docker-klienten.
 Du kan använda den [Docker verktygslådan](https://www.docker.com/products/docker-toolbox), vilket kräver att Hyper-V kan inaktiveras eller du kan använda [Docker för Windows](https://www.docker.com/get-docker), som använder Hyper-V och kräver Windows 10.
@@ -47,10 +37,7 @@ Om du använder Docker verktygslådan, du behöver [konfigurera Docker-klienten]
 ## <a name="1-create-a-web-app"></a>1. Skapa en webbapp
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## <a name="2-add-docker-support"></a>2. Lägga till Docker-stöd
-[!INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
-
-## <a name="3-edit-your-code-and-refresh"></a>3. Redigera din kod och uppdatering
+## <a name="2-edit-your-code-and-refresh"></a>2. Redigera din kod och uppdatering
 För att snabbt iterera ändringar, kan du starta appen i en behållare och fortsätta att göra ändringar, visar dem precis som med IIS Express.
 
 1. Konfigurera lösningen `Debug` och tryck på  **&lt;CTRL + F5 >** och skapa en docker-avbildning som du kan köra det lokalt.
@@ -70,19 +57,20 @@ För att snabbt iterera ändringar, kan du starta appen i en behållare och fort
    Now listening on: http://*:80
    Application started. Press Ctrl+C to shut down
    ```
+
 6. Ändringarna har tillämpats!
 
-## <a name="4-debug-with-breakpoints"></a>4. Felsöka med brytpunkter
+## <a name="3-debug-with-breakpoints"></a>3. Felsöka med brytpunkter
 Ofta behöver ändringar ytterligare kontroll, att utnyttja felsökningsfunktioner i Visual Studio.
 
-1. Gå tillbaka till Visual Studio och öppna `Controllers\HomeController.cs`
-2. Ersätt innehållet i metoden About() med följande:
+1. Gå tillbaka till Visual Studio och öppna `About.cshtml.cs`
+2. Ersätt innehållet i metoden OnGet() med följande:
 
+   ```cs
+       Message = "Your application description page from within a Container";
    ```
-   string message = "Your application description page from within a Container";
-   ViewData["Message"] = message;
-   ````
-3. Konfigurera en brytpunkt till vänster om den `string message`... rad.
+
+3. Konfigurera en brytpunkt till vänster om raden kod.
 4. Tryck på  **&lt;F5 >** att starta felsökningen.
 5. Gå till sidan om att kommer din brytpunkten.
 6. Växla till Visual Studio för att visa brytpunkten och kontrollera värdet för meddelande.
@@ -96,11 +84,11 @@ Du kan hämta produktivitet arbeta lokalt, med produktion mer i att utveckla i e
 [Felsökning av Visual Studio Docker-utveckling](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>Mer om Docker med Visual Studio, Windows och Azure
-* [Docker-verktyg för Azure DevOps](http://aka.ms/dockertoolsforvsts) – skapa och distribuera docker-behållare
+* [Behållare-utveckling med Visual Studio](/visualstudio/containers) – en behållare utveckling-hubbsida
+* [Docker-integrering för Azure Pipelines](http://aka.ms/dockertoolsforvsts) – skapa och distribuera docker-behållare
 * [Docker-verktyg för Visual Studio Code](http://aka.ms/dockertoolsforvscode) -språktjänster för redigering av dockerfiler med flera e2e scenarier kommer
 * [Windows-behållare Information](http://aka.ms/containers)-information om Windows Server och Nano Server
-* [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [Azure Container Service-innehåll](http://aka.ms/AzureContainerService)
-* Fler exempel på hur du arbetar med Docker finns [arbeta med Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) från den [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Fler snabbstartsguider från HealthClinic.biz-demonstrationen finns i [Snabbstartsguider för Azure Developer Tools](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) - [dokumentation om Azure Kubernetes Service](/azure/aks)
 
 ## <a name="various-docker-tools"></a>Olika Docker-verktyg
 [Några bra docker-verktyg (Steve Lasker blogg)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 338c2a197cb50091c3b272e0ce590341ffda1d7f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 911f8df6aa513a289cd15ea7fc96d7fc8806bb4a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43341091"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719519"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Microsoft-konto med hjälp av Azure Active Directory B2C
 
@@ -25,22 +25,18 @@ Om du vill använda ett Microsoft-konto som identitetsprovider i Azure Active Di
 
 1. Logga in på den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) med autentiseringsuppgifterna för ditt Microsoft-konto.
 2. I det övre högra hörnet väljer **lägga till en app**.
-3. Ange en **namn** för dina program och klicka på **skapa**.
-4. På registreringssidan, kopierar du värdet för **program-Id**. Du kan använda den för att konfigurera ditt Microsoft-konto som identitetsprovider i din klient.
+3. Ange en **namn** för ditt program. Till exempel *MSAapp1*.
+4. Välj **generera nytt lösenord** och se till att du kopierar lösenordet som ska användas när du konfigurerar identitetsprovidern. Också kopiera den **program-Id**. 
 5. Välj **Lägg till plattform**, och sedan och välj **Web**.
-6. Ange `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` i **omdirigera URL: er**. Ersätt **{klient}** med klientens namn (till exempel contosob2c).
-7. Välj **generera ett nytt lösenord** under **Programhemligheter**. Kopiera det nya lösenordet som visas på skärmen. Du behöver den för att konfigurera ett Microsoft-konto som en identitetsprovider i din klient. Det här lösenordet är en viktig säkerhetsuppgift för autentisering.
+4. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i **omdirigera URL: er**. Ersätt `your-tenant-name` med namnet på din klient.
+5. Välj **Spara**.
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Konfigurera ett Microsoft-konto som identitetsprovider
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
-2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att växla till den i det övre högra hörnet i Azure-portalen. Välj din prenumerationsinformation och välj därefter **Växla katalog**. 
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.  
 
     ![Växla till Azure AD B2C-klientorganisationen](./media/active-directory-b2c-setup-msa-app/switch-directories.png)
-
-    Välj den katalog som innehåller din klient.
-
-    ![Välj katalog](./media/active-directory-b2c-setup-msa-app/select-directory.png)
 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.

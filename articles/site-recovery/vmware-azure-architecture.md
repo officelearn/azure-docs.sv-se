@@ -3,14 +3,14 @@ title: VMware till Azure-replikeringsarkitektur i Azure Site Recovery | Microsof
 description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera lokala virtuella VMware-datorer till Azure med Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 08/29/2018
+ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288149"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715762"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware till Azure-replikering-arkitektur
 
@@ -36,16 +36,23 @@ Följande tabell och bild ger en översikt över de komponenter som används fö
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 
-1. När du aktiverar replikering för en virtuell dator, börjar den replikera enligt replikeringsprincipen. 
+1. När du aktiverar replikering för en virtuell dator, börjar den inledande replikeringen till Azure storage med hjälp av den angivna replikeringsprincipen. Observera följande:
+    - För virtuella VMware-datorer är replikering på blocknivå, nästan kontinuerlig, med hjälp av mobilitetstjänstagenten som körs på den virtuella datorn.
+    - Alla replikeringsprincipens inställningar tillämpas:
+        - **Tröskelvärde för Replikeringspunktmål**. Den här inställningen påverkar inte replikering. Det hjälper dig med övervakning. En händelse inträffar och eventuellt ett e-postmeddelande skickas om aktuellt RPO överskrider tröskelvärdet gränsen som du anger.
+        - **Kvarhållning av återställningspunkt**. Den här inställningen anger hur långt tillbaka i tiden som du vill gå när avbrott uppstår. Maximal kvarhållning på premium storage är 24 timmar. Det är 72 timmar med standardlagring. 
+        - **Appkonsekventa ögonblicksbilder**. Appkompatibel ögonblicksbild kan ta varje 1 till 12 timmar, beroende på behoven för dina appar. Ögonblicksbilder är standard Azure blob-ögonblicksbilder. Mobilitetsagenten som körs på en virtuell dator begär en VSS-ögonblicksbild i enlighet med den här inställningen och bokmärken som point-in-time som ett program som är konsekvent pekar i dataströmmen för replikering.
+
 2. Trafik som replikeras till Azure storage-offentliga slutpunkter för via internet. Alternativt kan du använda Azure ExpressRoute med [offentlig peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replikering av trafik via ett plats-till-plats virtuellt privat nätverk (VPN) från en lokal plats till Azure stöds inte.
-3. En inledande kopia av virtuella datorns data replikeras till Azure storage.
-4. När den inledande replikeringen är klar börjar replikeringen av deltaändringar till Azure. Spårade ändringar för en dator lagras i en .hrl-fil.
-5. Kommunikation händer följande:
+3. När den inledande replikeringen är klar börjar replikeringen av deltaändringar till Azure. Spårade ändringar för en dator skickas till processervern.
+4. Kommunikation händer följande:
 
     - Virtuella datorer kommunicera med den lokala konfigurationsservern på port HTTPS 443 inkommande, för replikeringshantering.
     - Konfigurationsservern samordnar replikeringen med Azure via port HTTPS 443 utgående.
     - Virtuella datorer skickar replikeringsdata till processervern (som körs på configuration server-datorn) på port HTTPS 9443 inkommande. Den här porten kan ändras.
     - Processervern tar emot replikeringsdata, optimerar och krypterar dem och skickar dem till Azure storage över port 443 utgående.
+
+
 
 
 **VMware till Azure replikeringsprocessen**
@@ -65,7 +72,7 @@ När replikering har ställts in och du kör ett programåterställningstest (te
     * **Tillfällig processerver i Azure**: Om du vill redundansväxla från Azure, du har konfigurerat en Azure-dator så att den fungerar som en processerver för att hantera replikering från Azure. Du kan ta bort den här virtuella datorn när återställningen är klar.
     * **VPN-anslutningen**: för att återställa, du behöver en VPN-anslutning (eller ExpressRoute) från Azure-nätverket till den lokala platsen.
     * **Separat huvudmålserver**: som standard som installerades med konfigurationsservern på en lokal VMware VM huvudmålservern hanterar återställning efter fel. Om du vill växla tillbaka stora mängder trafik kan du konfigurera en separat lokal huvudmålserver för detta ändamål.
-    * **Återställningsprincip**: Om du vill replikera tillbaka till din lokala plats behöver du en återställningsprincip. Den här principen skapades automatiskt när du skapade din replikeringsprincip från en lokal plats till Azure.
+    * **Återställningsprincip**: Om du vill replikera tillbaka till din lokala plats behöver du en återställningsprincip. Den här principen skapas automatiskt när du skapar en replikeringsprincip från en lokal plats till Azure.
 4. När komponenterna är på plats så utförs återställning efter fel i tre åtgärder:
 
     - Steg 1: Återaktivera skyddet av virtuella Azure-datorer så att de replikera från Azure till lokala VMware-datorer.

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 2f18840802a39f03659792a4d5b33ad3a73c5961
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051450"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722222"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB vanliga frågor och svar
 ## <a name="azure-cosmos-db-fundamentals"></a>Grunderna i Azure Cosmos DB
@@ -118,6 +118,10 @@ Behållare och nivån dataflöde Databasetableringen är två separata erbjudand
 
 Du kan för närvarande skapa samling med en partition viktiga dataflöde med hjälp av den [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) metod av .net SDK eller med hjälp av den [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Skapa en fast samling med hjälp av Azure-portalen är inte stöds för närvarande.  
 
+### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure cosmos DB har stöd för analys av tidsserier? 
+Ja Azure cosmos DB har stöd för analys av tidsserier, här är ett exempel för [serien tidmönster](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). Det här exemplet visar hur du använder ändringsflödet för att skapa sammansatta vyer över time series-data. Du kan utöka den här metoden med hjälp av spark streaming eller en annan stream registerförare.
+
+
 ## <a name="sql-api"></a>API för SQL
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Hur börjar jag utveckla mot SQL-API: et?
@@ -208,6 +212,10 @@ Förutom MongoDB vanliga felkoder har MongoDB-API sin egen specifika felkoder:
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Det totala antalet enheter för programbegäran som förbrukas har överskridit den etablerade begäransenhet hastigheten för samlingen och har begränsats. | Överväg att skala dataflöde som tilldelats till en behållare eller en uppsättning behållare från Azure portal eller omförsök igen. |
 | ExceededMemoryLimit | 16501 | Som en tjänst för flera innehavare överskred åtgärden klientens minne mängd. | Minska omfånget för åtgärd via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {name: ”Andy”}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {ålder: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>Är Simba drivrutinen för MongoDB som stöds för användning med Azure cosmos DB MongoDB API?
+Ja, du kan använda Simba's Mongo ODBC-drivrutinen med Azure cosmos DB MongoDB API
+
 
 ## <a id="table"></a>Tabell-API
 
@@ -458,7 +466,7 @@ Azure Cosmos DB använder [horisontell partitionering](partition-data.md) automa
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Hur kan jag skydda mot inmatningsattacker med hjälp av Gremlin drivrutiner? 
 
-De flesta interna Tinkerpop Gremlin-drivrutiner kan alternativet för att skapa en ordlista med parametrar för frågekörning. Det här är ett exempel på hur du gör i [Gremlin.Net]() och i [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+De flesta interna Tinkerpop Gremlin-drivrutiner kan alternativet för att skapa en ordlista med parametrar för frågekörning. Det här är ett exempel på hur du gör i [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) och i [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Varför får jag det ”Gremlin Frågekompileringsfel: Det gick inte att hitta någon av metoderna” fel?
 

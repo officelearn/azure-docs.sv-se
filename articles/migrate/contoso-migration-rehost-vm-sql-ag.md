@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9a9bcc25a0ab6c50ebce394a43edd7bfcd764bed
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7c96f362793ca2697eb2c92c07ff38d2fe6caad2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304721"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716885"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso-migrering: Appvärd på virtuella datorer i Azure och SQL Server AlwaysOn Availability Group på plats
 
@@ -107,7 +107,7 @@ Contoso utvärderar sina föreslagna design genom att sätta ihop en lista med f
 **Beräkningen** | **Detaljer**
 --- | ---
 **Experter** | WEBVM kommer att flyttas till Azure utan ändringar, kan du förenkla migreringen.<br/><br/> SQL Server-nivå ska köras på SQL Server 2017 och Windows Server 2016. Detta drar tillbaka deras aktuella Windows Server 2008 R2-operativsystem och som kör SQL Server 2017 stöder Contosos tekniska krav och mål. IT ger 100% kompatibilitet samtidigt som rör sig från SQL Server 2008 R2.<br/><br/> Contoso kan utnyttja deras investering i Software Assurance, med hjälp av Azure Hybrid-förmånen.<br/><br/> En SQL Server-distribution i Azure med hög tillgänglighet ger feltolerans så att datanivån för appen är inte längre en enda åtkomstpunkt för redundans.
-**Nackdelar** | WEBVM kör Windows Server 2008 R2. Operativsystemet stöds av Azure för specifika roller (juli 2018). [Läs mer](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> Webbnivå appens förblir en enda åtkomstpunkt för redundans.</br><br/> Contoso behöver att fortsätta stödja webbnivån som en Azure virtuell dator i stället för att flytta till en hanterad tjänst, till exempel Azure App Service.<br/><br/> Med den valda lösningen måste Contoso fortsätta att hantera två SQL Server-datorer i stället för att flytta till en hanterad plattform, till exempel Azure SQL Managed Instance. Dessutom kan Contoso med Software Assurance exchange sina befintliga licenser för rabatterade priser på Azure SQL Managed Instance.
+**Nackdelar** | WEBVM kör Windows Server 2008 R2. Operativsystemet stöds av Azure för specifika roller (juli 2018). [Läs mer](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> Webbnivå appens förblir en enda åtkomstpunkt för redundans.</br><br/> Contoso behöver att fortsätta stödja webbnivån som en Azure virtuell dator i stället för att flytta till en hanterad tjänst, till exempel Azure App Service.<br/><br/> Med den valda lösningen måste Contoso fortsätta att hantera två SQL Server-datorer i stället för att flytta till en hanterad plattform, till exempel Azure SQL Database Managed Instance. Dessutom kan Contoso med Software Assurance exchange sina befintliga licenser för rabatterade priser på Azure SQL Database Managed Instance.
 
 
 ### <a name="azure-services"></a>Azure-tjänster

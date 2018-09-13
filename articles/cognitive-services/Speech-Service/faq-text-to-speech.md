@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 4e08abedf9b60f229865bf935d50443782bd928c
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 330acf3e1258951f0129a1ba47f03c5140c30adf
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024473"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719060"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Vanliga och frågor svar om text till tal
 
@@ -55,6 +55,10 @@ Vi tillhandahåller ytterligare tjänster för att hjälpa dig att förbereda sk
 **F: kan jag hämta Mina modellen och köra den lokalt?**
 
 **En**: modeller kan inte hämtas och köras lokalt.
+
+**F: är Mina förfrågningar begränsas?**
+
+**En**: REST API begränsar begäranden till 25 per 5 sekunder. Information finns i vår sidor för [Text till tal](text-to-speech.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 

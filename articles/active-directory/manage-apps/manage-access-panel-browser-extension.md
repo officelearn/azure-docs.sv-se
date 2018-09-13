@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b13b5a7d5366a0bce97d8e735dbf3822186d21cb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9ebd949460f826c9529b9f392bc4a7f4918ee170
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357592"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715048"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Felsöka Access Panel-tillägg för Internet Explorer
 Den här artikeln hjälper dig att felsöka följande problem:
@@ -91,7 +91,6 @@ Avinstallera tillägget åtkomstpanelen från datorn:
 Om du får problem med avinstallera tillägget, du kan också ta bort den med hjälp av den [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) verktyget.
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Programåtkomst och enkel inloggning med Azure Active Directory](what-is-single-sign-on.md)
 * [Så här distribuerar du Access Panel-tillägg för Internet Explorer med hjälp av en Grupprincip](deploy-access-panel-browser-extension.md)
 

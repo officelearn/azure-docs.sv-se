@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347128"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717226"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>ZIP-distribution för Azure Functions
 
@@ -89,9 +89,6 @@ När du använder Azure CLI på din lokala dator `<zip_file_path>` är sökväge
 ## <a name="run-functions-from-the-deployment-package"></a>Köra funktioner från distributionspaketet
 
 Du kan också välja att köra dina funktioner direkt från paketet distributionsfilen. Den här metoden hoppar över distributionssteg för att kopiera filer från paketet till den `wwwroot` katalog på din funktionsapp. I stället paketfilen monteras med Functions-körning och innehållet i den `wwwroot` directory blir skrivskyddade.  
-
-> [!NOTE]
-> Möjligheten att köra din funktionsapp från distributionspaketet genomgår förhandsgranskning.
 
 ZIP-distribution kan integreras med den här funktionen, som du kan aktivera genom att ange funktionsappsinställning `WEBSITE_RUN_FROM_PACKAGE` till ett värde av `1`. Mer information finns i [kör dina funktioner från en distribution paketfil](run-functions-from-deployment-package.md).
 

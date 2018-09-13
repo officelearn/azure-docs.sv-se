@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 2bfa9944d85fde65ad8dbd73ddda11fa405df2f8
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 90823eded03f298dd912735fb0170fd8002328f3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358373"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715898"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmässigt skapa Azure Enterprise-prenumerationer (förhandsversion)
 
@@ -176,7 +176,7 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 | `EnrollmentAccountObjectId`      | Ja       | Sträng | Objekt-ID för registreringskontot att prenumerationen har skapats under och faktureras till. Det här värdet är ett GUID som du får från `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Nej       | Sträng | Objekt-ID för alla användare som du vill lägga till som ägare RBAC för prenumerationen när den skapas.  |
 | `OwnerSignInName`    | Nej       | Sträng | E-postadress för alla användare som du vill lägga till som ägare RBAC för prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId`.|
-| `OwnerApplicationId` | Nej       | Sträng | Program-ID för alla huvudnamn för tjänsten som du vill lägga till som ägare RBAC för prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId`.| 
+| `OwnerApplicationId` | Nej       | Sträng | Program-ID för alla huvudnamn för tjänsten som du vill lägga till som ägare RBAC för prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId`. När du använder den här parametern måste tjänstens huvudnamn måste ha [läsbehörighet till katalogen](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 En fullständig lista över alla parametrar finns i [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview).
 
@@ -197,7 +197,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `enrollment-account-object-id`      | Ja       | Sträng | Objekt-ID för registreringskontot att prenumerationen har skapats under och faktureras till. Det här värdet är ett GUID som du får från `az billing enrollment-account list`. |
 | `owner-object-id`      | Nej       | Sträng | Objekt-ID för alla användare som du vill lägga till som ägare RBAC för prenumerationen när den skapas.  |
 | `owner-upn`    | Nej       | Sträng | E-postadress för alla användare som du vill lägga till som ägare RBAC för prenumerationen när den skapas. Du kan använda den här parametern i stället för `owner-object-id`.|
-| `owner-spn` | Nej       | Sträng | Program-ID för alla huvudnamn för tjänsten som du vill lägga till som ägare RBAC för prenumerationen när den skapas. Du kan använda den här parametern i stället för `owner-object-id`.| 
+| `owner-spn` | Nej       | Sträng | Program-ID för alla huvudnamn för tjänsten som du vill lägga till som ägare RBAC för prenumerationen när den skapas. Du kan använda den här parametern i stället för `owner-object-id`. När du använder den här parametern måste tjänstens huvudnamn måste ha [läsbehörighet till katalogen](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 En fullständig lista över alla parametrar finns i [az konto skapa](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 

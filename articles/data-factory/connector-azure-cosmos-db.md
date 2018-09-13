@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: eb290dffd7bdd86b9776d4f30b6fd09a2a952a46
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600344"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720029"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos DB med Azure Data Factory
 
@@ -34,10 +34,14 @@ Du kan kopiera data från Azure Cosmos DB till alla mottagare som stöds eller k
 
 Mer specifikt stöder den här Azure Cosmos DB-anslutningen:
 
-- Cosmos DB [SQL API: T](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Kopiera data från/till Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Skrivningen till Cosmos DB som INSERT eller UPSERT.
 - Importerar/exporterar JSON-dokument som – är eller kopiera data från/till datauppsättning i tabellformat t.ex. SQL-databas, CSV-filer, osv. Dokument som att kopiera-är till och från JSON-filer eller en annan Cosmos DB-samling finns i [Import/Export JSON-dokument](#importexport-json-documents).
 
 Data Factory kan integreras med [Cosmos DB bulk executor biblioteket](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) att ge bästa möjliga prestanda skrivning till Cosmos DB.
+
+>[!TIP]
+>Titta på [videon](https://www.youtube.com/watch?v=5-SRNiC_qOU&t=760s) som vägleder genom att kopiera data från Azure Blob storage till Cosmos DB och beskriver överväganden för att föra in data till Cosmos DB i allmänhet för prestandajustering.
 
 ## <a name="getting-started"></a>Komma igång
 

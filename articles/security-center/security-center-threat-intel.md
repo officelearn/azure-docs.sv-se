@@ -1,6 +1,6 @@
 ---
-title: Hotinformation i Azure Security Center | Microsoft Docs
-description: Lär dig hur du använder hotinformationsfunktionen i Azure Security Center för att identifiera potentiella hot i dina datorer och virtuella datorer.
+title: Intelligens och avisering säkerhetskarta i Azure Security Center | Microsoft Docs
+description: Lär dig hur du använder den secuity kartan och threat intelligence funktionen för säkerhetsavisering i Azure Security Center för att identifiera potentiella hot i dina virtuella datorer och datorer.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: a3988575074708a46138b5e550bfc0014ca3bd15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d82d52e05d85fbd5197f84f032a55dd9c74f9d1f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44293940"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714436"
 ---
-# <a name="security-alerts-map-azure-security-center"></a>Säkerhetsaviseringar mappa Azure Security Center
+# <a name="security-alerts-map-and-threat-intelligence"></a>Säkerhetsvarningar kartan och hotinformation för
 Den här artikeln hjälper dig att använda Azure Security Center säkerhetskarta aviseringar och säkerhet händelsebaserad karta för hotinformation att åtgärda säkerhetsrelaterade problem med.
 
 ## <a name="how-the-security-alerts-map-works"></a>Hur säkerhetsaviseringar mappar fungerar
@@ -49,7 +49,8 @@ Du kan använda säkerhetskarta för aviseringar i Security Center för att de h
 Aviseringar säkerhetskarta baseras på aviseringar. Dessa aviseringar baseras på aktiviteter för vilka nätverk kommunikation associerades med en IP-adress som löstes har, oavsett om IP-adressen är en känd riskfyllda IP-adress (till exempel en känd cryptominer) eller en IP-adress som inte känns igen tidigare som riskfyllt. Kartan innehåller varningar för alla prenumerationer som du tidigare valt i Azure. 
 
 Aviseringar på kartan visas enligt den geografiska platsen där de identifieras som kommer från, och de är färgkodade efter allvarlighetsgrad. 
- 
+    ![Hotinformation](./media/security-center-threat-intel/security-center-alert-map.png)
+
 ## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Visa händelsebaserad instrumentpanelen för hotinformation
 Du kan följa den här proceduren om du vill visa den karta för hotinformation baserat på raw säkerhetshändelser. Den här kartan visar endast de händelser som rör en IP-adress som anses risk, till exempel en IP-adress av ett känt botnät.
 

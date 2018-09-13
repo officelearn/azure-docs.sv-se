@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: c033a465bb6e8e03c909ac7bc5a233f6b8b4cd76
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d1e73af69d3220c0719bd05e3f160e20f8c02858
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298094"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715609"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timerutlösare för Azure Functions 
 
@@ -132,7 +132,7 @@ Här är bindningsdata i den *function.json* fil:
 }
 ```
 
-Här är skriptet JavaScript-koden:
+Här är JavaScript-kod:
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -140,9 +140,9 @@ module.exports = function (context, myTimer) {
 
     if(myTimer.isPastDue)
     {
-        context.log('Node.js is running late!');
+        context.log('Node is running late!');
     }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log('Node timer trigger function ran!', timeStamp);   
 
     context.done();
 };
@@ -192,7 +192,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Namn** | Saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
 |**schedule**|**ScheduleExpression**|En [CRON-uttryck](#cron-expressions) eller en [TimeSpan](#timespan) värde. En `TimeSpan` kan bara användas för en funktionsapp som körs på en App Service Plan. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till appinställningen namn och är inneslutna i **%** tecken, som i följande exempel: ”% ScheduleAppSetting %”. |
 |**runOnStartup**|**runOnStartup**|Om `true`, funktionen anropas när körningen startar. Till exempel startar körningen när funktionsappen aktiveras efter inaktivitet på grund av inaktivitet. När appen startas om på grund av funktionen ändringar, och när appen skalas ut. Så **runOnStartup** sällan om någonsin sättas till `true`, särskilt i produktion. |
-|**useMonitor**|**useMonitor**|Ange `true` eller `false` att indikera om schemat ska övervakas. Övervakning av schema kvarstår schema förekomster som hjälper till att upprätthålla schemat underhålls korrekt även om funktionen app-instanserna startas om. Om inte har angetts uttryckligen är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard används `false`.
+|**UseMonitor**|**useMonitor**|Ange `true` eller `false` att indikera om schemat ska övervakas. Övervakning av schema kvarstår schema förekomster som hjälper till att upprätthålla schemat underhålls korrekt även om funktionen app-instanserna startas om. Om inte har angetts uttryckligen är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard används `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

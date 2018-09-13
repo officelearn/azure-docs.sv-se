@@ -1,121 +1,121 @@
 ---
-title: Flygfoto avbildningen klassificering | Microsoft Docs
-description: Innehåller instruktioner för verkligt scenario på Flygfoto avbildningen klassificering
+title: Klassificering av Flygfoto | Microsoft Docs
+description: Innehåller instruktioner för verkligt scenario om klassificering av Flygfoto
 author: mawah
 ms.author: mawah
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: d34f25fd75816f0ae840b3cbb2e0e88cbc2bfd91
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: eb788f56825166ccaa376d32b07371db0588edc8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832415"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35963847"
 ---
-# <a name="aerial-image-classification"></a>Flygfoto avbildningen klassificering
+# <a name="aerial-image-classification"></a>Klassificering av Flygfoto
 
-Det här exemplet visar hur du använder Azure Machine Learning-arbetsstationen för att koordinera distribuerade utbildnings- och operationalization av avbildningen klassificering modeller. Vi använder två metoder för träning: (i) förfina en djupa neurala nätverket med hjälp av en [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) GPU-kluster och (ii) med hjälp av den [Microsoft Machine Learning för Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) paketet till featurize bilder med pretrained CNTK modeller och för att träna klassificerare använder härledda funktioner. Vi använder sedan tränade modeller i parallella sätt stor bild anger i molnet med hjälp av en [Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) klustret, så att vi kan skala på utbildning och operationalization genom att lägga till eller ta bort arbetarnoder.
+Det här exemplet visar hur du använder Azure Machine Learning Workbench för att samordna distribuerade utbildnings- och driftsättning av avbildningsklassificeringsmodeller. Vi använder två metoder för utbildning: (i) förfina en djupa neurala nätverk med hjälp av en [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) GPU-kluster och (ii) med hjälp av den [Microsoft Machine Learning för Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) paket till funktionalisera bilder med hjälp av tränats CNTK-modeller och för att träna klassificerare härledda funktioner. Vi sedan använda de tränade modellerna i parallella sätt för stor bild uppsättningar i molnet med en [Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) kluster, vilket gör att vi kan skala hastighet utbildnings-och driftsättning genom att lägga till eller ta bort arbetsnoder.
 
-Det här exemplet visar två metoder för att överföra learning som utnyttjar pretrained modeller för att undvika kostnader för djupa neurala nätverk från grunden. Omtränings djupa neurala nätverk vanligtvis kräver GPU beräkning, men kan leda till större precision när träningsmängden är tillräckligt stor. Tränar en enkel klassificerare på featurized bilder kräver inte GPU beräkning, natur snabb och skalbar godtyckligt och passar färre parametrar. Den här metoden är därför ett utmärkt val när utbildning exemplen är tillgängliga--vilket ofta är fallet för anpassade användningsfall. 
+Det här exemplet visar två metoder för att överföra learning, som utnyttjar tränats modeller för att undvika kostnader för djupa neurala nätverk från grunden. Träna ett djupa neurala nätverk normalt kräver GPU-beräkning, men kan leda till större noggrannhet när är tillräckligt stort. Träna en enkel klassificerare på trädmodell avbildningar kräver inte GPU-beräkning, sin natur snabbt och godtyckligt skalbara och passar färre parametrar. Den här metoden är därför ett utmärkt val när få utbildning exemplen finns tillgängliga – vilket ofta är fallet för anpassade användningsfall. 
 
-Spark-kluster som används i det här exemplet har 40 arbetarnoder och kostnader för ~$40/hr ska fungera; klusterresurser Batch AI omfattar åtta GPU-kort och kostnaden ~$10/hr ska fungera. Slutför den här genomgången tar cirka tre timmar. När du är klar följer du anvisningarna rensa och ta bort resurser som du har skapat och stoppa medför kostnader.
+Spark-kluster som används i det här exemplet har 40 arbetsnoder och kostar ~$40/hr ska fungera; Batch AI-klusterresurser omfattar åtta GPU: er och kostnad ~$10/hr ska fungera. Den här genomgången tar cirka tre timmar. När du är klar följer du anvisningarna rensa ta bort resurserna du har skapat och stoppa ådrar sig några kostnader.
 
 ## <a name="link-to-the-gallery-github-repository"></a>Länka till galleriet GitHub-lagringsplatsen
 
-Offentliga GitHub-lagringsplatsen för den här verkligt scenario innehåller alla material, inklusive kodexempel som behövs för det här exemplet:
+Offentliga GitHub-lagringsplatsen för den här verkligt scenario innehåller allt material, inklusive kodexempel som behövs för det här exemplet:
 
 [https://github.com/Azure/MachineLearningSamples-AerialImageClassification](https://github.com/Azure/MachineLearningSamples-AerialImageClassification)
 
-## <a name="use-case-description"></a>Använd case beskrivning
+## <a name="use-case-description"></a>Case användarbeskrivningen
 
-I det här scenariot träna vi machine learning-modeller att klassificera typ av mark som visas i Flygfoto avbildningar av 224 mätaren x 224 mätaren områden. Mark Använd klassificering modeller som kan användas för att spåra urbanization, kalhuggning, förlust av våtmarker och andra viktiga miljön trender som regelbundet använder samlas in Flygfoto bilder visar färgerna. Vi har förberett utbildning och validering bilden anger baserat på bilder visar färgerna från USA Nationella jordbruket bilder visar färgerna Program och mark använda etiketter som publicerats av USA: s Nationella mark omfattar databas. Exempel bilder i varje mark användningsklass visas här:
+I detta scenario tränar vi machine learning-modeller att klassificera datatypen för mark som visas i Flygfoto bilder av 224 mätaren x 224 mätaren områden. Mark Använd klassificering modeller kan användas för att spåra urbanization, kalhuggning, förlust av våtmarker och andra större miljön trender med regelbundet samlas in Flygfoto bilder. Vi har förberett utbildnings- och verifiering bild uppsättningar som bygger på bilder från USA Nationella jordbruk bilder Program och mark använda etiketter som publicerats av USA: s National mark Cover-databasen. Exempel-avbildningar i varje land användningsklass visas här:
 
-![Exempel regioner för varje mark använder etikett](media/scenario-aerial-image-classification/example-labels.PNG)
+![Använder exemplet regioner för varje land](media/scenario-aerial-image-classification/example-labels.PNG)
 
-Efter utbildnings- och verifiera klassificerare modellen ska vi användas för Flygfoto bilder utsträckning Middlesex region, MA--home av Microsofts New England forskning och utveckling (NERD) Center – för att demonstrera hur dessa modeller kan användas för att studera trender i Urbant utveckling.
+När du utbildning och verifiera klassificerare modellen, ska vi användas för Flygfoto avbildningar utsträckning Middlesex County, MA, USA – start av Microsofts New England forskning och utveckling (NERD) Center – för att demonstrera hur dessa modeller kan användas för att studera trender i städer utveckling.
 
-För att skapa en avbildning klassificerare med överföring Lär dataanalytiker ofta skapa flera modeller med olika metoder och välj de mest performant modell. Azure Machine Learning arbetsstationen kan hjälpa data forskare samordna utbildning mellan olika beräknings-miljöer, spåra och jämför prestanda för flera modeller och använda en vald modell för stora datamängder i molnet.
+För att skapa en avbildning klassificerare med induktiv inlärning, dataexperter ofta konstruera flera modeller med flera olika metoder och välj mest högpresterande modell. Azure Machine Learning Workbench kan hjälpa data forskare koordinera utbildning mellan olika beräkningsmiljöer, spåra och jämföra prestanda för flera modeller och tillämpa en vald modell på stora datauppsättningar i molnet.
 
 ## <a name="scenario-structure"></a>Scenario-struktur
 
-I det här exemplet sparades bilddata och pretrained modeller i ett Azure storage-konto. Ett Azure HDInsight Spark-kluster läser filerna och skapar en modell för klassificering av avbildning med hjälp av MMLSpark. Den tränade modellen och dess förutsägelser skrivs sedan till lagringskontot, där de kan analyseras och visualiseras av en Jupyter-anteckningsbok körs lokalt. Azure Machine Learning arbetsstationen samordnar fjärrkörning av skript i Spark-klustret. Den spårar också noggrannhet mätvärden för flera modeller tränas med olika metoder, vilket gör att användaren kan välja de mest performant modell.
+I det här exemplet förvaras avbildningsdata och tränats modeller i ett Azure storage-konto. Ett Azure HDInsight Spark-kluster läser dessa filer och skapar en modell för klassificering av avbildning med hjälp av MMLSpark. Den tränade modellen och dess förutsägelser skrivs sedan till storage-konto, där de kan analyseras och visualiseras av en Jupyter-anteckningsbok som körs lokalt. Azure Machine Learning Workbench samordnar fjärrkörning av skript i Spark-klustret. Den spårar också Precision mått för flera modeller tränas med olika metoder, så att användaren kan välja den mest högpresterande modellen.
 
-![Skiss för Flygfoto avbildningen klassificering verkligt scenario](media/scenario-aerial-image-classification/scenario-schematic.PNG)
+![Skiss för Flygfoto klassificering verkligt scenario](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-Dessa stegvisa anvisningar börjar du med guidar dig genom att skapa och förberedelse av en Azure storage-konto och Spark-kluster, inklusive data transfer och beroende installation. De kan sedan beskrivs hur du starta utbildning jobb och jämför prestanda för de resulterande modellerna. Slutligen illustrerar de hur du kan tillämpa en vald modell till en stor bild i Spark-klustret och analysera resultaten förutsägelse lokalt.
+Dessa stegvisa anvisningar börjar guidar dig genom skapandet och förberedelsen av en Azure storage-konto och Spark-kluster, inklusive installation för överföring och beroende av data. De sedan beskrivs hur du startar upplärningsjobb och jämföra prestanda för de resulterande modellerna. Slutligen illustrerar de hur du kan tillämpa en vald modell till en stor bild uppsättning i Spark-klustret och analysera resultatet lokalt.
 
 
-## <a name="set-up-the-execution-environment"></a>Ställ in körningsmiljön
+## <a name="set-up-the-execution-environment"></a>Konfigurera körningsmiljö
 
-Följande instruktionerna leder dig igenom processen för att konfigurera körningsmiljö för det här exemplet.
+Följande anvisningar hjälper dig genom processen för att ställa in körningsmiljö för det här exemplet.
 
 ### <a name="prerequisites"></a>Förutsättningar
-- En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns)
-    - Du skapar ett HDInsight Spark-kluster med 40 arbetarnoder (168 kärnor totala). Kontrollera att ditt konto har tillräckligt med tillgängliga kärnor genom att granska ”användning + kvoter” för din prenumeration på Azure-portalen.
-       - Om du har färre kärnor som är tillgängliga kan du ändra mallen HDInsight-kluster för att minska antalet personer som har etablerats. Instruktioner för detta visas under avsnittet ”Skapa HDInsight Spark-kluster”.
-    - Det här exemplet skapar en Batch AI utbildning-kluster med två NC6 (1 GPU, 6 vCPU) virtuella datorer. Kontrollera att ditt konto har tillräckligt med tillgängliga kärnor i östra USA genom att granska ”användning + kvoter” för din prenumeration på Azure-portalen.
+- En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga)
+    - Du skapar ett HDInsight Spark-kluster med 40 arbetsnoder (totalt antal 168 kärnor). Kontrollera att ditt konto har tillräckligt många tillgängliga kärnor genom att granska ”användning + kvoter” fliken för din prenumeration i Azure-portalen.
+       - Om du har färre kärnor tillgängliga, kan du ändra mallen för HDInsight-kluster för att minska antalet arbetare som etablerats. Instruktioner för detta visas under avsnittet ”Skapa HDInsight Spark-kluster”.
+    - Det här exemplet skapar ett Batch AI Training-kluster med två NC6 (1 GPU, 6 vCPU) virtuella datorer. Kontrollera att ditt konto har tillräckligt många tillgängliga kärnor i regionen USA, östra genom att granska ”användning + kvoter” fliken för din prenumeration i Azure-portalen.
 - [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)
-    - Följ den [installera och skapa Quickstart](../service/quickstart-installation.md) att installera Azure Machine Learning arbetsstationen och skapa undersökningar och konton för hantering av modellen.
-- [Batch-AI](https://github.com/Azure/BatchAI) Python SDK och Azure CLI 2.0
-    - Gå igenom följande avsnitt i den [Batch AI recept viktigt](https://github.com/Azure/BatchAI/tree/master/recipes):
-        - ”Krav”
+    - Följ den [installera och skapa Quickstart](../service/quickstart-installation.md) att installera Azure Machine Learning Workbench och skapa experimentering och konton för modellhantering.
+- [Batch AI](https://github.com/Azure/BatchAI) Python SDK och Azure CLI
+    - Gå igenom följande avsnitt i den [Batch AI-recept README](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - ”Förutsättningar”
         - ”Skapa och få programmet Azure Active Directory (AAD)”
-        - ”Registrera BatchAI Resursproviders” (under ”kör recept med hjälp av Azure CLI 2.0”)
-        - ”Installera Azure Batch AI Management-klienten”
+        - ”Registrera BatchAI Resursprovidrar” (under ”kör recept med hjälp av Azure CLI”)
+        - ”Installera Azure Batch AI-Hanteringsklient”
         - ”Installera Azure Python SDK”
-    - Klient-ID-post, secret och klient-ID för Azure Active Directory-program kommer du att skapa. Dessa autentiseringsuppgifter används senare i den här kursen.
-    - När detta skrivs Azure Machine Learning arbetsstationen och Azure Batch AI kan du använda separata fildelar av Azure CLI 2.0. För tydlighetens skull kallar vi i arbetsstationen version av CLI som ”en CLI som startas från Azure Machine Learning arbetsstationen” och allmänna-versionen (som innehåller Batch AI) ”Azure CLI 2.0”.
-- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)en kostnadsfria verktyg för att koordinera filöverföring mellan Azure storage-konton
-    - Kontrollera att mappen som innehåller den körbara filen AzCopy finns på systemets PATH-miljövariabeln. (Instruktioner för att ändra miljövariabler finns [här](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
-- En SSH-klienten. Vi rekommenderar [PuTTY](http://www.putty.org/).
+    - Post klient-ID, hemlighet och klient-ID för Azure Active Directory-programmet kommer du att skapa. Du använder dessa autentiseringsuppgifter senare i den här självstudien.
+    - När detta skrivs Azure Machine Learning Workbench och Azure Batch AI kan du använda separata förgreningar av Azure CLI. För tydlighetens skull refererar vi till Workbench-versionen av CLI som ”en CLI som startas från Azure Machine Learning Workbench” och den allmänt-versionen (som innehåller Batch AI) som ”Azure CLI”.
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), ett kostnadsfritt verktyg för att samordna filöverföring mellan Azure storage-konton
+    - Kontrollera att mappen som innehåller den AzCopy körbara filen finns på systemets PATH-miljövariabeln. (Instruktioner om hur du ändrar miljövariabler finns [här](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
+- En SSH-klient; Vi rekommenderar att [PuTTY](http://www.putty.org/).
 
-Det här exemplet har testats på en Windows 10-dator; du ska kunna köra den från alla Windows-datorer, inklusive Azure datavetenskap virtuella datorer. Azure CLI 2.0 har installerats från en MSI enligt [instruktionerna](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Mindre ändringar kan krävas (t.ex, ändringar av filepaths) när du kör det här exemplet på macOS.
+Det här exemplet har testats på en Windows 10-dator; du ska kunna köra den från alla Windows-datorn, inklusive Azure virtuella datorer för datavetenskap. Azure CLI har installerats från en MSI enligt [instruktionerna](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Mindre ändringar kan krävas (t.ex, ändringar i filepaths) när du kör det här exemplet på macOS.
 
-### <a name="set-up-azure-resources"></a>Konfigurera Azure-resurser
+### <a name="set-up-azure-resources"></a>Ställa in Azure-resurser
 
-Det här exemplet kräver ett HDInsight Spark-kluster och ett Azure storage-konto för värden relevanta filer. Följ instruktionerna för att skapa dessa resurser i en ny Azure resursgrupp:
+Det här exemplet kräver ett HDInsight Spark-kluster och ett Azure storage-konto till värd relevanta filer. Följ dessa instruktioner för att skapa dessa resurser i en ny Azure resursgrupp:
 
-#### <a name="create-a-new-workbench-project"></a>Skapa ett nytt projekt arbetsstationen
+#### <a name="create-a-new-workbench-project"></a>Skapa ett nytt Workbench-projekt
 
-Skapa ett nytt projekt med det här exemplet som mall:
-1.  Öppna Azure Machine Learning-arbetsstationen
+Skapa ett nytt projekt med hjälp av det här exemplet som en mall:
+1.  Öppna Azure Machine Learning Workbench
 2.  På den **projekt** klickar du på den **+** och markera **nytt projekt**
 3.  I den **Skapa nytt projekt** rutan, fyller du i informationen för det nya projektet
-4.  I den **Sök projektmallar** sökrutan, Skriv ”Flygfoto avbildningen klassificering” och välj mallen
+4.  I den **Sök efter projektmallar** sökrutan skriver du ”klassificering av Flygfoto avbildning” och väljer mallen
 5.  Klicka på **Skapa**
  
 #### <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
-1. När du läser in ditt projekt i Azure Machine Learning arbetsstationen, öppna en kommandoradsgränssnittet (CLI) genom att klicka på Arkiv -> Öppna Kommandotolken.
-    Använd den här versionen av CLI för flesta av kursen. (Där anges, du uppmanas att öppna en annan version av CLI för att förbereda Batch AI-resurser.)
+1. När du läser in ditt projekt i Azure Machine Learning Workbench, öppna ett kommandoradsgränssnitt (CLI) genom att klicka på Arkiv -> Öppna Kommandotolken.
+    Använd den här versionen av CLI för flesta av självstudiekursen. (Där det anges, du uppmanas att öppna en annan version av CLI för att förbereda Batch AI-resurser.)
 
-1. Från kommandoradsgränssnittet, loggar du in på Azure-konto genom att köra följande kommando:
+1. Från kommandoradsgränssnittet, loggar du in på Azure-kontot genom att köra följande kommando:
 
     ```
     az login
     ```
 
-    Du uppmanas att besöka en URL och ange en tillfällig angivna kod. webbplatsen begär dina Azure-autentiseringsuppgifter.
+    Du uppmanas att gå till en URL och ange ett angivet tillfälliga code; webbplatsen begär dina Azure-autentiseringsuppgifter.
     
-1. När inloggningen är klar, gå tillbaka till CLI och kör följande kommando för att avgöra vilka Azure-prenumerationer som är tillgängliga för ditt Azure-konto:
+1. När inloggningen är klar, gå tillbaka till CLI och kör följande kommando för att avgöra vilka Azure-prenumerationer som är tillgängliga på Azure-kontot:
 
     ```
     az account list
     ```
 
-    Det här kommandot visar alla prenumerationer som är kopplade till ditt Azure-konto. Hitta ID för den prenumeration som du vill använda. Skriv prenumerations-ID ange där det anges i följande kommando och sedan aktiv prenumeration genom att köra kommandot:
+    Det här kommandot visar en lista över alla prenumerationer som är associerade med ditt Azure-konto. Hitta ID för den prenumeration som du vill använda. Skriv prenumerations-ID ange där det anges i följande kommando och sedan aktiv prenumeration genom att köra kommandot:
 
     ```
     az account set --subscription [subscription ID]
     ```
 
-1. Azure-resurser skapas i det här exemplet lagras tillsammans i en Azure-resursgrupp. Välj ett unikt resursgruppens namn och skriver den där anges, kör du båda kommandon för att skapa Azure-resursgrupp:
+1. Azure-resurser skapas i det här exemplet lagras tillsammans i en Azure-resursgrupp. Välj ett unikt Resursgruppsnamn och skriva där det anges, och kör sedan bägge kommandona för att skapa Azure-resursgrupp:
 
     ```
     set AZURE_RESOURCE_GROUP=[resource group name]
@@ -126,31 +126,31 @@ Skapa ett nytt projekt med det här exemplet som mall:
 
 Nu kan vi skapa storage-konto att värdar projektfiler som måste kunna nås av HDInsight Spark.
 
-1. Välj ett unikt lagringskontonamn och skriver den där det anges i följande `set` kommandot och sedan skapa ett Azure storage-konto genom att köra båda kommandon:
+1. Välj ett unikt namn på lagringskontot och skriva där det anges i följande `set` kommandot och sedan skapa ett Azure storage-konto genom att köra båda kommandon:
 
     ```
     set STORAGE_ACCOUNT_NAME=[storage account name]
     az storage account create --name %STORAGE_ACCOUNT_NAME% --resource-group %AZURE_RESOURCE_GROUP% --sku Standard_LRS
     ```
 
-1. Lista nycklar till lagringskontot genom att köra följande kommando:
+1. Lista över nycklar till lagringskontot genom att köra följande kommando:
 
     ```
     az storage account keys list --resource-group %AZURE_RESOURCE_GROUP% --account-name %STORAGE_ACCOUNT_NAME%
     ```
 
-    Registrera värdet för `key1` som lagringsnyckel i kommandot Kör kommando för att lagra värdet.
+    Anteckna värdet för `key1` som storage-nyckel i följande kommando kör kommando för att lagra värdet.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
     ```
-1. Skapa en filresurs med namnet `baitshare` i ditt lagringskonto med följande kommando:
+1. Skapa en filresurs med namnet `baitshare` i ditt storage-konto med följande kommando:
 
     ```
     az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
-1. I valfri textredigerare, läsa in den `settings.cfg` från projektet Azure Machine Learning arbetsstationen ”Code” underkatalog och infoga lagringskontonamn och nyckel som anges. Spara och Stäng den `settings.cfg` filen.
-1. Om du inte redan har gjort det hämtar och installerar den [AzCopy](http://aka.ms/downloadazcopy) verktyget. Kontrollera att den körbara filen AzCopy finns på systemsökvägen genom att skriva ”AzCopy” och trycka på RETUR för att visa dess dokumentation.
-1. Utfärda följande kommandon för att kopiera alla exempeldata, pretrained modeller och modellen utbildning skript till lämplig plats i ditt lagringskonto:
+1. Läsa in i valfri textredigerare den `settings.cfg` från Azure Machine Learning Workbench-projekt ”Code” underkatalog och infoga lagringskontonamnet och nyckeln som anges. Spara och Stäng den `settings.cfg` filen.
+1. Om du inte redan har gjort det, hämta och installera den [AzCopy](http://aka.ms/downloadazcopy) verktyget. Kontrollera att den AzCopy körbara filen finns på systemsökvägen genom att skriva ”AzCopy” och trycka på RETUR för att visa dess dokumentation.
+1. Kör följande kommandon för att kopiera alla exempeldata, tränats modeller och modellen utbildningsskript till lämplig plats i ditt storage-konto:
 
     ```
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/test /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.blob.core.windows.net/test /DestKey:%STORAGE_ACCOUNT_KEY% /S
@@ -161,15 +161,15 @@ Nu kan vi skapa storage-konto att värdar projektfiler som måste kunna nås av 
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Förvänta dig filöverföring ta ungefär en timme. Medan du väntar kan du fortsätta till följande avsnitt: du kan behöva öppna en annan kommandoradsgränssnittet via arbetsstationen och definiera om det tillfälliga variabler.
+    Förvänta dig Filöverföring till ta ungefär en timme. Medan du väntar kan du fortsätta till följande avsnitt: du kan behöva öppna en annan kommandoradsgränssnitt via Workbench och definiera om de tillfälliga variablerna.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>Skapa HDInsight Spark-kluster
 
-Vår metod som rekommenderas för att skapa ett HDInsight-kluster använder HDInsight Spark-kluster resource manager-mallen finns i undermappen ”Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning” i det här projektet.
+Våra rekommenderade metoden för att skapa ett HDInsight-kluster använder HDInsight Spark-kluster resource manager-mallen i undermappen ”Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning” i det här projektet.
 
-1. Mallen HDInsight Spark-klustret är i ”template.json” filen undermappen ”Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning” i det här projektet. Som standard skapar mallen ett Spark-kluster med 40 arbetsnoderna. Om du måste justera numret öppna mallen i valfri textredigerare och Ersätt alla förekomster av ”40” med worker nodnumret på ditt val.
-    - Minnet är slut fel kan inträffa senare om antalet arbetarnoder som du väljer är mindre. För att bekämpa minnesfel, kan du köra skript utbildning och operationalization för en delmängd med tillgängliga data som beskrivs senare i det här dokumentet.
-2. Välj ett unikt namn och lösenord för till HDInsight-kluster och skriva dem där det anges i följande kommando: skapa klustret genom att utfärda kommandon:
+1. HDInsight Spark-kluster-mallen är filen ”template.json” under undermappen ”Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning” i det här projektet. Som standard skapar mallen ett Spark-kluster med 40 arbetsnoder. Om du måste justera det numret, öppna mallen i valfri textredigerare och Ersätt alla instanser av ”40” med worker noden antalet ditt val.
+    - Minnet är slut fel kan inträffa senare om antalet arbetsnoder som du väljer är mindre. För att bekämpa minnesfel kan du köra skripten utbildnings- och driftsättning för en delmängd av alla tillgängliga data som beskrivs senare i det här dokumentet.
+2. Välj ett unikt namn och lösenord för HDInsight-kluster och skriva dem där det anges i följande kommando: skapa klustret genom att utfärda kommandon:
 
     ```
     set HDINSIGHT_CLUSTER_NAME=[HDInsight cluster name]
@@ -179,29 +179,29 @@ Vår metod som rekommenderas för att skapa ett HDInsight-kluster använder HDIn
 
 Ditt kluster-distributionen kan ta upp till 30 minuter (inklusive körningen på etablering och skript).
 
-### <a name="set-up-batch-ai-resources"></a>Ange Batch AI-resurser
+### <a name="set-up-batch-ai-resources"></a>Konfigurera Batch AI-resurser
 
-Du kan förbereda Batch AI Network File Server (NFS) och GPU-klustret medan du väntar Filöverföring för Storage-konto och Spark-kluster-distribution för att slutföra. Öppna en kommandotolk med Azure CLI 2.0 och kör följande kommando:
+Du kan förbereda Batch AI Network File Server (NFS) och GPU-kluster medan du väntar Filöverföring för Storage-konto och distribution av Spark-kluster för att slutföra. Öppna en kommandotolk för Azure CLI och kör följande kommando:
 
 ```
 az --version 
 ```
 
-Bekräfta att `batchai` visas i listan med installerade moduler. Om inte, kan du använda en annan kommandoradsgränssnittet (till exempel en öppnas via arbetsstationen).
+Bekräfta att `batchai` visas i listan med installerade moduler. Om inte, kanske du använder en annan Command Line Interface (till exempel en öppnas via Workbench).
 
-Kontrollera sedan att registreringen har slutförts. (Registreringen av providern tar upp till femton minuter och eventuellt fortfarande pågående om du nyligen har slutfört den [Batch AI instruktioner](https://github.com/Azure/BatchAI/tree/master/recipes).) Kontrollera att både ”Microsoft.Batch” och ”Microsoft.BatchAI” visas med statusen ”registrerad” i utdata av följande kommando:
+Därefter kontrollerar du att registreringen har slutförts. (Providerregistrering tar upp till 15 minuter och kan fortfarande vara pågående om du nyligen har slutfört den [Batch AI konfigurationsanvisningar](https://github.com/Azure/BatchAI/tree/master/recipes).) Bekräfta att både ”Microsoft.Batch” och ”Microsoft.BatchAI” visas med statusen ”registrerad” i utdata från följande kommando:
 
 ```
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
-Om inte, kör följande provider registrering kommandon och vänta ~ 15 minuter för registrering att slutföra.
+Om inte, kör följande provider registrering kommandon och vänta ~ 15 minuter för registrering för att slutföra.
 ```
 az provider register --namespace Microsoft.Batch
 az provider register --namespace Microsoft.BatchAI
 ```
 
-Ändra följande kommandon för att ersätta uttrycken inom hakparenteser med värden som du använde tidigare under skapande av resurs grupp och storage-konto. Lagra sedan värdena som variabler genom att köra kommandon:
+Ändra följande kommandon för att ersätta uttrycken inom hakparenteser med de värden som du använde tidigare när resursen grupp och storage-kontot skapades. Sedan kan lagra värdena som variabler genom att köra kommandona:
 ```
 az account set --subscription [subscription ID]
 set AZURE_RESOURCE_GROUP=[resource group name]
@@ -211,46 +211,46 @@ az configure --defaults location=eastus
 az configure --defaults group=%AZURE_RESOURCE_GROUP%
 ```
 
-Identifiera den mapp som innehåller din Azure Machine Learning-projektet (till exempel `C:\Users\<your username>\AzureML\aerialimageclassification`). Ersätt värdet inom hakparenteser med mappens filepath (med inga avslutande omvänt snedstreck) och kör kommandot:
+Identifiera den mapp som innehåller din Azure Machine Learning-projekt (till exempel `C:\Users\<your username>\AzureML\aerialimageclassification`). Ersätt värdet inom hakparenteser med mappens filepath (med utan avslutande snedstreck) och kör kommandot:
 ```
 set PATH_TO_PROJECT=[The filepath of your project's root directory]
 ```
-Du är nu redo att skapa Batch AI-resurser som krävs för den här kursen.
+Du är nu redo att skapa Batch AI-resurser som behövs för den här självstudien.
 
-#### <a name="prepare-the-batch-ai-network-file-server"></a>Förbereda nätverksserver för AI i Batch
+#### <a name="prepare-the-batch-ai-network-file-server"></a>Förbereda Batch AI-Network-filserver
 
-Batch AI-klustret har åtkomst till din utbildning data på en filserver i nätverket. Dataåtkomst kanske several-fold snabbare vid åtkomst till filer från en NFS jämfört med en Azure-filresursen eller Azure Blob Storage.
+Batch AI-kluster har åtkomst till dina utbildningsdata på en filserver för nätverket. Åtkomst till data kan vara several-fold snabbare när åtkomst till filer från en NFS jämfört med en Azure-filresurs eller Azure Blob Storage.
 
-1. Utfärda följande kommando för att skapa en filserver i nätverket:
+1. Kör följande kommando för att skapa en filserver för nätverk:
 
     ```
     az batchai file-server create -n landuseclassifier -u demoUser -p "Dem0Pa$$w0rd" --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
-1. Kontrollera Etableringsstatus på filservern nätverk med följande kommando:
+1. Kontrollera Etableringsstatus för ditt nätverk med hjälp av följande kommando:
 
     ```
     az batchai file-server list
     ```
 
-    När filservern nätverk med namnet ”landuseclassifier” ”provisioningState” är ”lyckades”, är det redo för användning. Förvänta dig etablering för att ta cirka fem minuter.
-1. Hitta IP-adressen för din NFS i utdata från det föregående kommandot (egenskapen ”fileServerPublicIp” under ”mountSettings”). Skriv IP-adress där det anges i följande kommando och sedan lagra värdet genom att köra kommandot:
+    När ”provisioningState” på filservern nätverk med namnet ”landuseclassifier” är ”lyckades”, är det redo för användning. Förvänta dig etablering för att ta ungefär fem minuter.
+1. Hitta IP-adressen för din NFS i utdata från föregående kommando (egenskapen ”fileServerPublicIp” under ”mountSettings”). Skriv IP-adress där det anges i följande kommando och sedan lagra värdet genom att köra kommandot:
 
     ```
     set AZURE_BATCH_AI_TRAINING_NFS_IP=[your NFS IP address]
     ```
 
-1. Med hjälp av din favorit SSH-verktyget (följande exempel kommando använder [PuTTY](http://www.putty.org/)), köra det här projektet `prep_nfs.sh` skriptet på NFS att överföra avbildningen utbildning och validering anger det.
+1. Med ditt favorit SSH (följande exempel kommandot använder [PuTTY](http://www.putty.org/)), köra det här projektet `prep_nfs.sh` skriptet på NFS att överföra avbildningen utbildnings- och verifiering anger det.
 
     ```
     putty -ssh demoUser@%AZURE_BATCH_AI_TRAINING_NFS_IP% -pw Dem0Pa$$w0rd -m %PATH_TO_PROJECT%\Code\01_Data_Acquisition_and_Understanding\02_Batch_AI_Training_Provisioning\prep_nfs.sh
     ```
 
-    Behöver inte bry om hämtning och extrahering statusuppdateringar data rulla över fönstret shell så snabbt att de är oläslig.
+    Behöver inte oroa om data nedladdning och extrahering statusuppdateringar bläddrar i fönstret shell så snabbt att de är oläsligt.
 
-Om du vill kan du bekräfta att dataöverföringen har fortsatte som planerat genom att logga in på filservern med din favorit SSH-verktyget och kontrollera den `/mnt/data` kataloginnehållet. Du bör hitta två mappar, training_images och validation_images använder varje som innehåller med undermappar med namnet enligt mark kategorier.  Uppsättningar för träning och validering ska innehålla ~ 44 k och ~ 11 k bilder respektive.
+Om du vill kan du bekräfta att dataöverföringen har fortsatte som planerat genom att logga in på servern med din favorit SSH-verktyg och kontrollera den `/mnt/data` kataloginnehållet. Du bör hitta två mappar, training_images och validation_images, var och en innehåller med undermapparna som namnges enligt mark använda kategorier.  Uppsättningar för träning och verifiering ska innehålla ~ 44 k och ~ 11 k bilder, respektive.
 
-#### <a name="create-a-batch-ai-cluster"></a>Skapa en Batch AI-kluster
+#### <a name="create-a-batch-ai-cluster"></a>Skapa ett Batch AI-kluster
 
 1. Skapa klustret genom att följande kommando:
 
@@ -258,25 +258,25 @@ Om du vill kan du bekräfta att dataöverföringen har fortsatte som planerat ge
     az batchai cluster create -n landuseclassifier2 -u demoUser -p "Dem0Pa$$w0rd" --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
-1. Använd följande kommando för att kontrollera Etableringsstatus för klustret:
+1. Använd följande kommando för att kontrollera etableringsstatusen för ditt kluster:
 
     ```
     az batchai cluster list
     ```
 
-    När tillståndet allokering för klustret med namnet ”landuseclassifier” ändringar från ändrar storlek så att konstant, är det möjligt att skicka jobb. Dock startar jobb inte köras tills alla virtuella datorer i klustret har lämnat tillståndet ”förbereda”. Om egenskapen ”fel” i klustret inte är null, ett fel uppstod när klustret skapas och den bör inte användas.
+    När allokeringstillståndet för klustret med namnet ”landuseclassifier” ändringar från ändrar storlek så att konstant, är det möjligt att skicka jobb. Dock startar jobb inte köras tills alla virtuella datorer i klustret har kvar ”förberedande” status. Om egenskapen ”fel” för klustret inte är null, ett fel uppstod när klustret skapas och det bör inte användas.
 
-#### <a name="record-batch-ai-training-credentials"></a>Registrera Batch AI utbildning autentiseringsuppgifter
+#### <a name="record-batch-ai-training-credentials"></a>Registrera Batch AI Training autentiseringsuppgifter
 
-Medan du väntar för klustret tilldelning att slutföra, öppna den `settings.cfg` filen från underkatalogen ”kod” för det här projektet i textredigeraren önskat. Uppdatera följande variabler med dina autentiseringsuppgifter:
-- `bait_subscription_id` (36 tecken Azure-prenumeration ID)
+Medan du väntar kluster allokering att slutföra, öppna den `settings.cfg` filen från ”Code” underkatalog i det här projektet i valfri textredigerare. Uppdatera följande variabler med dina autentiseringsuppgifter:
+- `bait_subscription_id` (36 tecken Azure prenumerations-ID)
 - `bait_aad_client_id` (Azure Active Directory-program/klient-ID anges i avsnittet ”förutsättningar”)
-- `bait_aad_secret` (Azure Active Directory programhemlighet anges i avsnittet ”förutsättningar”)
+- `bait_aad_secret` (Azure Active Directory programhemlighet nämns i avsnittet ”förutsättningar”)
 - `bait_aad_tenant` (Azure Active Directory klient-ID anges i avsnittet ”förutsättningar”)
 - `bait_region` (när detta skrivs är det enda alternativet: eastus)
-- `bait_resource_group_name` (resursgrupp som du valde tidigare)
+- `bait_resource_group_name` (den resursgrupp du valde tidigare)
 
-När du har tilldelat dessa värden bör ändrade raderna i filen settings.cfg likna följande:
+När du har tilldelat dessa värden, bör de ändrade raderna i filen settings.cfg likna följande:
 
 ```
 [Settings]
@@ -295,31 +295,31 @@ När du har tilldelat dessa värden bör ändrade raderna i filen settings.cfg l
 
 Spara och Stäng `settings.cfg`.
 
-Du kan stänga fönstret CLI där du kör kommandona Batch AI resursen skapas. Alla ytterligare steg i den här kursen använder en CLI som startas från Azure Machine Learning-arbetsstationen.
+Du kan nu stänga CLI-fönstret där du kör kommandona Batch AI-resurs skapas. Alla ytterligare steg i den här självstudien använder en CLI som startas från Azure Machine Learning Workbench.
 
-### <a name="prepare-the-azure-machine-learning-workbench-execution-environment"></a>Förbereda körningsmiljö Azure Machine Learning arbetsstationen
+### <a name="prepare-the-azure-machine-learning-workbench-execution-environment"></a>Förbereda miljön för Azure Machine Learning Workbench-körning
 
-#### <a name="register-the-hdinsight-cluster-as-an-azure-machine-learning-workbench-compute-target"></a>Registrera HDInsight-klustret som ett mål för beräkning av Azure Machine Learning arbetsstationen
+#### <a name="register-the-hdinsight-cluster-as-an-azure-machine-learning-workbench-compute-target"></a>Registrera dig i HDInsight-klustret som en Azure Machine Learning Workbench beräkningsmål
 
-När HDInsight-klustret har skapats, registrerar du klustret som beräkning mål för projektet enligt följande:
+När HDInsight-kluster har skapats registrerar du klustret som beräkningsmål för ditt projekt på följande sätt:
 
-1.  Kör du följande kommando från Azure Machine Learning kommandoradsgränssnittet:
+1.  Kör följande kommando från Azure Machine Learning kommandoradsgränssnittet:
 
     ```
     az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
-    Detta kommando lägger till två filer, `myhdi.runconfig` och `myhdi.compute`, i ditt projekt `aml_config` mapp.
+    Det här kommandot lägger till två filer, `myhdi.runconfig` och `myhdi.compute`, i projektets `aml_config` mapp.
 
 1. Öppna den `myhdi.compute` filen i valfri textredigerare. Ändra den `yarnDeployMode: cluster` raden till `yarnDeployMode: client`, spara och stäng filen.
-1. Kör följande kommando för att förbereda miljön för HDInsight:
+1. Kör följande kommando för att förbereda din miljö för användning för HDInsight:
    ```
    az ml experiment prepare -c myhdi
    ```
 
 #### <a name="install-local-dependencies"></a>Installera lokala beroenden
 
-Öppna en CLI från Azure Machine Learning arbetsstationen och installera beroenden som krävs för lokal körning av följande kommando:
+Öppna en CLI från Azure Machine Learning Workbench och installera beroenden som krävs för lokal körning av att följande kommando:
 
 ```
 pip install matplotlib azure-storage==0.36.0 pillow scikit-learn azure-mgmt-batchai
@@ -327,83 +327,83 @@ pip install matplotlib azure-storage==0.36.0 pillow scikit-learn azure-mgmt-batc
 
 ## <a name="data-acquisition-and-understanding"></a>Förvärv och förståelse av data
 
-Det här scenariot använder offentligt tillgängliga Flygfoto bilder visar färgerna data från den [nationella jordbruket bilder visar färgerna programmet](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) med 1 mätaren upplösning. Vi har genererat filuppsättningar 224 pixel x 224 pixel PNG beskäras från de ursprungliga NAIP data och sorteras enligt mark Använd etiketter från den [nationella mark omfattar databasen](https://www.mrlc.gov/nlcd2011.php). En exempelbild med etiketten ”utvecklade” visas i full storlek:
+Det här scenariot använder offentligt tillgängliga Flygfoto bilder data från den [nationella jordbruk bilder programmet](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) med 1-mätaren upplösning. Vi har genererat filuppsättningar 224 pixel x 224 pixel PNG beskärs från den ursprungliga NAIP informationen och sorterade enligt mark Använd etiketter från den [nationella mark täcker Database](https://www.mrlc.gov/nlcd2011.php). En exempelbild med etiketten ”utvecklade” visas i full storlek:
 
 ![En exempel-panel utvecklade mark](media/scenario-aerial-image-classification/sample-tile-developed.png)
 
-Klassen belastningsutjämnade uppsättningar med ~ 44 k och 11 k bilder används för modellen utbildning och verifiering, respektive. Vi visar modellen distribution på en ~ 67 k avbildning ange färdiga Middlesex region, MA--home av Microsofts New England forskning och utveckling (NERD) center. Mer information om hur dessa uppsättningar av avbildningen konstruerades finns i [Embarrassingly parallella avbildningen klassificering git-lagringsplats](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
+Klass-belastningsutjämnade uppsättningar av ~ 44 k och 11 k-avbildningar används för modellträning och validering, respektive. Vi visar distribution av modeller på en ~ 67 k bild ange färdiga Middlesex County, MA, USA – start av Microsofts New England forskning och utveckling (NERD) center. Mer information om hur dessa bild uppsättningar konstruerades finns i den [Embarrassingly Parallel Bildklassificering git-lagringsplats](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
 
 ![Platsen för Middlesex regionen, Massachusetts](media/scenario-aerial-image-classification/middlesex-ma.png)
 
-De Flygfoto bild som används i det här exemplet har överförts till lagringskontot som du skapade under installationen. Utbildning, verifiering och operationalization avbildningar är alla 224 pixel x 224 pixel PNG-filer med en upplösning på en bildpunkt per kvadratisk mätaren. Utbildning och validering bilder har tagits ordnade i undermappar baserat på deras mark Använd etikett. (Mark Använd etiketter operationalization avbildningar är okända och i många fall tvetydig; vissa av dessa avbildningar innehåller flera mark-typer.) Mer information om hur dessa uppsättningar av avbildningen konstruerades finns i [Embarrassingly parallella avbildningen klassificering git-lagringsplats](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
+Flygfoto-uppsättningarna som används i det här exemplet har överförts till det lagringskonto som du skapade under installationen. Utbildning, validering och driftsättning avbildningar är alla 224 pixel x 224 pixel PNG-filer med en upplösning på en bildpunkt per kvadratmeter. Utbildning och verifiering avbildningar har tagits uppdelade i undermappar baserat på deras mark Använd etikett. (Mark Använd etiketter driftsättning avbildning är okända och i många fall tvetydig; vissa av dessa avbildningar innehåller flera mark-typer.) Mer information om hur dessa bild uppsättningar konstruerades finns i den [Embarrassingly Parallel Bildklassificering git-lagringsplats](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
 
-Visa exempel bilder i ditt Azure storage-konto (valfritt):
+Visa exempel avbildningar i Azure storage-konto (valfritt):
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter namnet på ditt lagringskonto i sökfältet överst på skärmen. Klicka på ditt lagringskonto i sökresultaten.
+1. Sök efter namnet på ditt lagringskonto i sökfältet längst upp på skärmen. Klicka på ditt lagringskonto i sökresultaten.
 2. Klicka på länken ”BLOB” i huvudfönstret för storage-konto.
-3. Klicka på behållaren med namnet ”train”. Du bör se en lista över kataloger som heter enligt mark använder.
-4. Klicka på någon av de här katalogerna att läsa in listan över bilder som den innehåller.
-5. Klicka på någon bild och ladda ned för att visa bilden.
-6. Om du vill kan du klicka på behållare med namnet ”test” och ”middlesexma2016” för att visa innehållet samt.
+3. Klicka på behållaren med namnet ”train”. Du bör se en lista med kataloger som heter enligt mark använder.
+4. Klicka på någon av dessa kataloger att läsa in listan över avbildningar som den innehåller.
+5. Klicka på valfri bild och ladda ned det för att visa bilden.
+6. Om du vill kan du klicka på behållare med namnet ”test” och ”middlesexma2016” om du vill visa samt deras innehåll.
 
 ## <a name="modeling"></a>Modellering
 
 ### <a name="training-models-with-azure-batch-ai"></a>Utbildning modeller med Azure Batch AI
 
-Den `run_batch_ai.py` skriptet i mappen ”Code\02_Modeling” i projektet arbetsstationen används för att utfärda ett Batch AI utbildning jobb. Det här jobbet retrains image-klassificerare DNN som valts av användaren (AlexNet eller ResNet 18 pretrained på ImageNet). Djupet för omtränings kan också anges: omtränings det sista säkerhetslagret i nätverket kan minska overfitting när utbildning exemplen är tillgängliga när finjustera hela nätverket (eller för AlexNet fullt ansluten lager) kan leda till större modellen prestanda när träningsmängden är tillräckligt stor.
+Den `run_batch_ai.py` skript i undermappen ”Code\02_Modeling” i Workbench-projekt som används för att utfärda ett Batch AI Training jobb. Det här jobbet retrains en bild-klassificerare DNN som valts av användaren (AlexNet eller ResNet 18 tränats på ImageNet). Djupet för att träna kan också anges: träna bara det sista lagret för nätverket kan minska overfitting när utbildning exemplen är tillgängliga, när du finjusterar hela nätverket (eller för AlexNet, fullständigt anslutna lager) kan leda till större modell prestanda när den är tillräckligt stort.
 
-När utbildning jobbet är slutfört, sparar det här skriptet modellen (tillsammans med en fil som beskriver mappningen mellan modellens heltal utdata och etiketter sträng) och förutsägelser till blob storage. Jobbet BETE loggfilen analyseras för att extrahera timecourse av fel hastighet förbättring jämfört med utbildning epoker. Fel hastighet improvement timecourse loggas till AML arbetsstationen kör funktionen för visning av senare.
+När utbildningsjobbet är klar sparar det här skriptet modellen (tillsammans med en fil som beskriver mappningen mellan modellens heltal utdata och etiketter för sträng) och förutsägelserna till blob storage. Loggfilen för jobbets BAIT analyseras för att extrahera timecourse av fel hastighet förbättring jämfört med utbildning epoker. Fel hastighet improvement timecourse loggas AML-arbetsstationen kör historik-funktionen för att visa den senare.
 
-Välj ett namn för din tränad modell och en pretrained modelltyp omtränings djup. Skriv dina val där det anges i följande kommando och sedan börjar via programmering genom att köra kommandot från en Azure ML kommandoradsgränssnittet:
+Välj ett namn för din tränad modell, en tränats modelltyp och ett omtränings djup. Skriv dina val där det anges i följande kommando och sedan börjar träna genom att köra kommandot från en Azure ML Command Line Interface:
 
 ```
 az ml experiment submit -c local Code\02_Modeling\run_batch_ai.py --config_filename Code/settings.cfg --output_model_name [unique model name, alphanumeric characters only] --pretrained_model_type {alexnet,resnet18} --retraining_type {last_only,fully_connected,all} --num_epochs 10
 ```
 
-Förvänta dig Azure Machine Learning som körs för att ta ungefär en halvtimme för att slutföra. Vi rekommenderar att du kör några liknande kommandon (varierande modellnamnet utdata och pretrained modelltypen omtränings djup) så att du kan jämföra prestanda i modeller tränas med olika metoder.
+Förvänta dig Azure Machine Learning körs för att ta ungefär en halvtimme för att slutföra. Vi rekommenderar att du kör några liknande kommandon (varierande modellnamn utdata och tränats modelltypen omtränings djupet) så att du kan jämföra prestanda för modeller tränas med olika metoder.
 
 ### <a name="training-models-with-mmlspark"></a>Utbildning modeller med MMLSpark
 
-Den `run_mmlspark.py` skriptet i mappen ”Code\02_Modeling” i projektet arbetsstationen används för att träna en [MMLSpark](https://github.com/Azure/mmlspark) modellen för klassificering av avbildningen. Skriptet första featurizes utbildning ange bilder med en avbildning klassificerare DNN pretrained på ImageNet datauppsättningen (AlexNet eller en ResNet 18 layer). Skriptet använder sedan featurized avbildningar för att träna en MMLSpark modell (en slumpmässig skog eller en logistic regressionsmodell) att klassificera avbildningar. Uppsättningen test avbildningen är sedan featurized och bedömas med den tränade modellen. Riktighet modellens förutsägelser på uppsättningen test beräknas och inloggade Azure Machine Learning-arbetsstationens kör funktionen. Slutligen sparas den tränade modellen MMLSpark och dess förutsägelser på uppsättningen test för att blob storage.
+Den `run_mmlspark.py` skript i undermappen ”Code\02_Modeling” i Workbench-projekt som används för att träna en [MMLSpark](https://github.com/Azure/mmlspark) modeller för klassificering av avbildning. Skriptet första featurizes utbildningen ange bilder med hjälp av en avbildning klassificerare DNN tränats på ImageNet-datauppsättning (AlexNet eller en 18 lager ResNet). Skriptet använder sedan trädmodell avbildningar för att träna en MMLSpark-modell (en slumpmässig skog eller en logistic regression-modellen) att klassificera bilderna. Bild testmängd är sedan trädmodell och poängsätts med den tränade modellen. Precisionen i modellens förutsägelser på test-uppsättning beräknas och inloggade Azure Machine Learning Workbench körningshistoriken funktionen. Slutligen sparas den tränade modellen MMLSpark och dess förutsägelser utifrån test-datauppsättning till blob storage.
 
-Välj ett unikt utdata modellnamn för din tränad modell, pretrained modelltypen och en MMLSpark modelltypen. Skriv dina val där det anges i mallen följande kommando påbörja via programmering genom att köra kommandot från en Azure ML kommandoradsgränssnittet:
+Välj ett unikt utdata modellnamn för din tränad modell, en tränats modelltyp och en MMLSpark modelltypen. Skriv dina val där det anges i följande kommando mallen sedan börjar träna genom att köra kommandot från en Azure ML Command Line Interface:
 
 ```
 az ml experiment submit -c myhdi Code\02_Modeling\run_mmlspark.py --config_filename Code/settings.cfg --output_model_name [unique model name, alphanumeric characters only] --pretrained_model_type {alexnet,resnet18} --mmlspark_model_type {randomforest,logisticregression}
 ```
 
-Ytterligare `--sample_frac` parametern kan användas för att träna och testa modellen med en delmängd av tillgängliga data. Om du använder ett litet exempel bråk minskar runtime och minne krav på bekostnad av tränade modellen noggrannhet. (Till exempel ett kör med `--sample_frac 0.1` förväntas ta ungefär 20 minuter.) Mer information om den här och andra parametrar kör `python Code\02_Modeling\run_mmlspark.py -h`.
+Ytterligare `--sample_frac` parametern kan användas för att träna och testa modellen med en delmängd av tillgängliga data. Om du använder ett litet antal bråkvärde minskar körningen och minneskraven på bekostnad av Precision tränade modellen. (Till exempel en körning med `--sample_frac 0.1` förväntas ta ungefär 20 minuter.) Mer information om den här och andra parametrar kör `python Code\02_Modeling\run_mmlspark.py -h`.
 
-Användarna uppmanas att köra detta skript flera gånger med olika indataparametrar. Prestanda för de resulterande modellerna kan sedan jämföras i Azure Machine Learning-arbetsstationens kör funktionen.
+Användarna uppmanas att köra det här skriptet flera gånger med olika indataparametrar. Prestanda för de resulterande modellerna kan sedan jämföras i Azure Machine Learning Workbench Körningshistorik funktionen.
 
-### <a name="comparing-model-performance-using-the-workbench-run-history-feature"></a>Jämföra modellen prestanda med hjälp av funktionen arbetsstationen kör tidigare
+### <a name="comparing-model-performance-using-the-workbench-run-history-feature"></a>Jämföra modellprestanda med funktionen Workbench Körningshistorik
 
-När du har genomfört två eller flera utbildning körs båda typer av, kan du gå till funktionen Körningshistorik i arbetsstationen genom att klicka på ikonen klockan längs vänstra menyraden. Välj `run_mmlspark.py` från listan över skript längst till vänster. En ruta läser in jämföra test ange precisionen för alla körs. Bläddra nedåt och klicka på namnet på en enskild kör om du vill se mer information.
+När du har genomfört två eller fler utbildning körs båda typer av, går du till funktionen Körningshistoriken i Workbench genom att klicka på klockikonen längs vänstra menyraden. Välj `run_mmlspark.py` i listan med skript till vänster. Ett fönster som läser in jämföra test set Precision för alla körningar. Om du vill se mer information, rulla nedåt och klicka på namnet på en enskild körning.
 
 ## <a name="deployment"></a>Distribution
 
-Om du vill använda en av dina tränade modeller Flygfoto bilder sida vid sida med fjärrkörning på HDInsight Middlesex region, MA, infoga din önskade modellnamn i följande kommando och kör det:
+Infoga dina önskade modellnamn i följande kommando om du vill använda en av dina anpassade modeller till Flygfoto avbildningar sida vid sida med fjärrkörning på HDInsight Middlesex County, MA, och kör den:
 
 ```
 az ml experiment submit -c myhdi Code\03_Deployment\batch_score_spark.py --config_filename Code/settings.cfg --output_model_name [trained model name chosen earlier]
 ```
 
-Ytterligare `--sample_frac` parametern kan användas för att operationalisera modellen med en delmängd av tillgängliga data. Om du använder ett litet exempel bråk minskar runtime och minne krav på bekostnad av förutsägelse är fullständig. Mer information om den här och andra parametrar kör `python Code\03_Deployment\batch_score_spark -h`.
+Ytterligare `--sample_frac` parametern kan användas för att operationalisera modellen med en delmängd av tillgängliga data. Om du använder ett litet antal bråkvärde minskar körningen och minneskraven på bekostnad av förutsägelse kompletta. Mer information om den här och andra parametrar kör `python Code\03_Deployment\batch_score_spark -h`.
 
-Det här skriptet skriver modellens förutsägelser till ditt lagringskonto. Förutsägelser granskas som beskrivs i nästa avsnitt.
+Det här skriptet skriver modellens förutsägelser till ditt lagringskonto. Förutsägelserna granskas enligt beskrivningen i nästa avsnitt.
 
 ## <a name="visualization"></a>Visualisering
 
-”Modellen förutsägelse analys” Jupyter-anteckningsbok i undermappen ”Code\04_Result_Analysis” i projektet arbetsstationen visualizes förutsägelser för en modell. Läsa in och kör den bärbara datorn enligt följande:
-1. Öppna projektet i arbetsstationen och klicka på mappen (”filer”) ikonen längs den vänstra menyn att läsa in kataloglistan.
-2. Navigera till undermappen ”Code\04_Result_Analysis” och klicka på den bärbara datorn med namnet ”modell förutsägelse analys”. En förhandsgranskning återgivningen av den bärbara datorn ska visas.
-3. Klicka på ”Starta anteckningsboken Server” för att läsa in den bärbara datorn.
-4. Ange namnet på modell vars resultat du vill analysera där det anges i den första cellen.
-5. Klicka på ”Cell -> Kör alla” att köra alla celler i den bärbara datorn.
-6. Läsa tillsammans med anteckningsboken på Läs mer om analys och visualiseringar som det visas.
+”Modellera förutsägande analys” Jupyter-anteckningsboken i undermappen ”Code\04_Result_Analysis” i Workbench-projekt att visualisera en modellens förutsägelser. Läsa in och köra anteckningsboken på följande sätt:
+1. Öppna projektet i Workbench och klicka på mappen (”filer”) ikonen längs den vänstra menyn för att läsa in kataloglistan.
+2. Navigera till undermappen ”Code\04_Result_Analysis” och klicka på den bärbara datorn med namnet ”modell förutsägande analys”. En förhandsversion återgivningen av anteckningsboken ska visas.
+3. Klicka på ”Starta Notebook Server” för att läsa in anteckningsboken.
+4. Ange namnet på modellen vars resultat du vill analysera där det anges i den första cellen.
+5. Klicka på ”Cell -> Kör alla” att köra alla celler i anteckningsboken.
+6. Läsa tillsammans med anteckningsboken mer information om analyser och visualiseringar som det visas.
 
 ## <a name="cleanup"></a>Rensa
-När du har slutfört exemplet, rekommenderar vi att du tar bort alla resurser som du har skapat genom att köra följande kommando från Azure-kommandoradsgränssnittet:
+När du har slutfört exemplet, rekommenderar vi att du tar bort alla resurser som du har skapat genom att köra följande kommando från Azure-kommandoradsgränssnitt:
 
   ```
   az group delete --name %AZURE_RESOURCE_GROUP%
@@ -411,19 +411,19 @@ När du har slutfört exemplet, rekommenderar vi att du tar bort alla resurser s
 
 ## <a name="references"></a>Referenser
 
-- [Databasen Embarrassingly parallella avbildningen klassificering](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)
-   - Beskriver dataset konstruktion från gratis bilder visar färgerna och etiketter
-- [MMLSpark](https://github.com/Azure/mmlspark) GitHub-lagringsplatsen
-   - Innehåller ytterligare exempel på modellen träning och utvärdering med MMLSpark
+- [Lagringsplatsen Embarrassingly Parallel Bildklassificering](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)
+   - Beskriver datauppsättningen konstruktion från gratis bilder och etiketter
+- [MMLSpark](https://github.com/Azure/mmlspark) GitHub-lagringsplats
+   - Innehåller ytterligare exempel på modellinlärning och utvärdering med MMLSpark
 
 ## <a name="conclusions"></a>Slutsatser
 
-Azure Machine Learning arbetsstationen hjälper datavetare enkelt distribuera koden på fjärranslutna beräkning mål. I det här exemplet distribuerades lokal MMLSpark utbildning kod för fjärrkörning på ett HDInsight-kluster och lokala skriptet startas ett utbildning jobb på Azure Batch AI GPU-kluster. Azure Machine Learning-arbetsstationens kör funktionen spåras prestanda för flera modeller och hjälp oss att identifiera den mest korrekta modellen. Arbetsstationens Jupyter-anteckningsböcker funktionen hjälpt visualisera förutsägelser för våra modeller i en interaktiv, grafisk miljö.
+Azure Machine Learning Workbench kan dataforskare enkelt distribuera sin kod på fjärranslutna beräkningsmål. I det här exemplet distribuerades lokal kod i MMLSpark-utbildning för fjärrkörning på ett HDInsight-kluster och ett lokalt skript startas ett utbildningsjobb i ett Azure Batch AI GPU-kluster. Azure Machine Learning Workbench körningshistoriken funktionen spåras prestanda för flera modeller och hjälpt oss att identifiera den bästa modellen. Workbench Jupyter-anteckningsböcker funktionen hjälpte visualisera våra modeller förutsägelser i en interaktiv grafisk miljö.
 
 ## <a name="next-steps"></a>Nästa steg
 Att gå på djupet i det här exemplet:
-- Klicka på växeln symboler för att välja vilka diagram och mått som visas i Azure Machine Learning-arbetsstationens Körningshistorik funktionen.
-- Granska exempelskript för instruktioner anropar den `run_logger`. Kontrollera att du förstår hur varje mått registreras.
-- Granska exempelskript för instruktioner anropar den `blob_service`. Kontrollera att du förstår hur tränade modeller och förutsägelser lagras och hämtas från molnet.
-- Utforska innehållet i behållare som skapats i blob storage-konto. Se till att du förstår vilka skriptet eller kommandot är ansvarig för att skapa varje grupp med filer.
-- Ändra skriptet utbildning för att träna en annan MMLSpark modelltyp eller ändra justeringsmodeller. Använd funktionen körningshistoriken för att avgöra om ändringarna ökas eller minskas modellens precision.
+- I Azure Machine Learning Workbench Körningshistorik funktionen klickar du på kugghjulet symboler för att välja vilka diagram och mått som visas.
+- Granska exempelskript för uttryck som anropar den `run_logger`. Kontrollera att du förstår hur varje mått registreras.
+- Granska exempelskript för uttryck som anropar den `blob_service`. Kontrollera att du förstår hur tränade modeller och förutsägelser lagras och hämtas från molnet.
+- Utforska innehållet i de behållare som skapats i blob storage-kontot. Kontrollera att du förstår vilka skriptet eller kommandot är ansvarig för att skapa varje grupp av filer.
+- Ändra skriptet utbildning för att träna en annan MMLSpark modelltyp eller ändra justeringsmodeller. Använd funktionen körningshistorik för att avgöra om ändringarna ökar eller minskar modellens precision.

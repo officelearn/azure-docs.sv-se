@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4dc88abda0f19896b8f1ed6465fe0fc39ac81b72
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: aad6aa788e9d7c7ca2c438bdeb63e77e91e4791a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381775"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714487"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Om tekniska profiler i Azure Active Directory B2C anpassade principer
 
@@ -37,7 +37,6 @@ Tekniska profilen gör det möjligt för dessa typer av scenarier:
 - [RESTful-providern](restful-technical-profile.md) -anrop till REST API-tjänster, t.ex. verifiera indata från användaren, utöka användardata eller integrera med line-of-business-program.
 - [SAML2](saml-technical-profile.md) -Federation med alla protokollet SAML-identitetsprovider.
 - [Lokal verifieringsvillkor](self-asserted-technical-profile.md) -interagera med användaren. Till exempel samla in användarens autentiseringsuppgifter för inloggning, återge registreringssidan eller återställning av lösenord.
-- [Token utfärdare](jwt-issuer-technical-profile.md) -utfärda ett åtkomsttoken.
 - **WsFed** -Federation med alla WsFed protokollet identitetsprovider. 
 - **Sessionshantering** – hantera olika typer av sessioner. 
 - **Användarprovider resa kontext**

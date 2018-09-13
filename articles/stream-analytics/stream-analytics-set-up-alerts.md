@@ -1,5 +1,5 @@
 ---
-title: Konfigurera övervakning notifieringar för Azure Stream Analytics-jobb
+title: Konfigurera övervakning av aviseringar för Azure Stream Analytics-jobb
 description: Den här artikeln beskriver hur du använder Azure-portalen för att konfigurera övervakning och aviseringar för Azure Stream Analytics-jobb.
 services: stream-analytics
 author: jseb225
@@ -9,38 +9,38 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.openlocfilehash: fb69f1b52e5b17dd6794c896969c29003a929c9b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4c676ab3039a02a4fda27ab00312133e5de8077a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412118"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35968870"
 ---
-# <a name="tutorial-set-up-alerts-for-azure-stream-analytics-jobs"></a>Självstudier: Konfigurera aviseringar för Azure Stream Analytics-jobb
-Du kan konfigurera aviseringar för att utlösa en avisering när ett mått når ett villkor som du anger. Du kan till exempel skapa en avisering om ett villkor som liknar följande:
+# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurera aviseringar för Azure Stream Analytics-jobb
+Du kan ställa in aviseringar för att utlösa en avisering när ett mått når ett villkor som du anger. Du kan till exempel ställa in en avisering om ett villkor som liknar följande:
 
 `If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`
 
-Regler kan ställas in på mätvärden via portalen eller kan konfigureras [programmässigt](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) över Åtgärdsloggar data.
+Regler kan ställas in på mått via portalen eller kan konfigureras [programmässigt](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) Åtgärdsloggar data.
 
-## <a name="set-up-alerts-in-the-azure-portal"></a>Konfigurera aviseringar i Azure-portalen
-1. Öppna Stream Analytics-jobbet som du vill skapa en avisering för i Azure-portalen. 
+## <a name="set-up-alerts-in-the-azure-portal"></a>Konfigurera aviseringar i Azure portal
+1. I Azure-portalen öppnar du ett Stream Analytics-jobb som du vill skapa en avisering för. 
 
-2. I den **jobbet** bladet, klickar du på den **övervakning** avsnitt.  
+2. I den **jobbet** bladet klickar du på den **övervakning** avsnittet.  
 
-3. I den **mått** bladet, klickar du på den **Lägg till avisering** kommando.
+3. I den **mått** bladet klickar du på den **Lägg till avisering** kommando.
 
       ![Konfigurationen av Azure portal](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
 
 4. Ange ett namn och en beskrivning.
 
-5. Använd väljare för att definiera de villkor under vilka aviseringen ska skickas.
+5. Använd väljare för att definiera villkor som aviseringen ska skickas.
 
-6. Ange information om aviseringen ska var.
+6. Ange information om där aviseringen ska gå.
 
-      ![Ställa in en avisering för ett Azure Streaming Analytics-jobb](./media/stream-analytics-set-up-alerts/stream-analytics-add-alert.png)  
+      ![Ställa in en avisering för Azure Streaming Analytics-jobb](./media/stream-analytics-set-up-alerts/stream-analytics-add-alert.png)  
 
-Mer information om hur du konfigurerar aviseringar i Azure portal finns [få aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
+Mer information om hur du konfigurerar aviseringar i Azure-portalen finns i [Varningsaviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
 
 
 ## <a name="get-help"></a>Få hjälp

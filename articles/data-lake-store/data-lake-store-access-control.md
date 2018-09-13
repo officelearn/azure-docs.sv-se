@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 114413d65bb8b1d70bad21badb9508c5f942845c
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 72bc0408ed1eba2d959d246a55677ee9964ef106
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391121"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718822"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -69,10 +69,10 @@ Behörigheter för ett objekt i filsystemet är **Läsa**, **Skriva** och **Kör
 
 | Numeriskt format | Kortformat |      Vad det innebär     |
 |--------------|------------|------------------------|
-| 7            | RWX        | Läsa + skriva + köra |
-| 5            | R-X        | Läsa + köra         |
-| 4            | R--        | Läsbehörighet                   |
-| 0            | ---        | Inga behörigheter         |
+| 7            | `RWX`        | Läsa + skriva + köra |
+| 5            | `R-X`        | Läsa + köra         |
+| 4            | `R--`        | Läsa                   |
+| 0            | `---`        | Inga behörigheter         |
 
 
 ### <a name="permissions-do-not-inherit"></a>Behörigheter ärvs inte
@@ -83,15 +83,15 @@ I POSIX modellen som används av Data Lake Storage Gen1, förvaras behörigheter
 
 Nedan följer några vanliga scenarier för att förstå vilka behörigheter som krävs för att utföra vissa åtgärder på ett Data Lake Storage Gen1-konto.
 
-|    Operation             |    /    | Seattle / | Portland / | Data.txt     |
+|    Åtgärd             |    /    | Seattle / | Portland / | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Läs Data.txt            |   --X   |   --X    |  --X      | R--          |
-| Lägga till i Data.txt       |   --X   |   --X    |  --X      | RW-          |
-| Ta bort Data.txt          |   --X   |   --X    |  -WX      | ---          |
-| Skapa Data.txt          |   --X   |   --X    |  -WX      | ---          |
-| Lista /                   |   R-X   |   ---    |  ---      | ---          |
-| Lista /Seattle/           |   --X   |   R-X    |  ---      | ---          |
-| Lista /Seattle/Portland /  |   --X   |   --X    |  R-X      | ---          |
+| Läs Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Lägga till i Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Ta bort Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Skapa Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Lista /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Lista /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Lista /Seattle/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -99,25 +99,6 @@ Nedan följer några vanliga scenarier för att förstå vilka behörigheter som
 >
 >
 
-### <a name="permissions-needed-to-enumerate-a-folder"></a>Behörigheter som krävs för att iterera en mapp
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
-
-* För att mappen ska iterera behöver anroparen **Läs + kör**-behörigheter.
-* För alla överordnade mappar behöver anroparen **Kör**-behörigheter.
-
-
-Från den **Datautforskaren** bladet i Data Lake Storage Gen1-kontot, klickar du på **åtkomst** att se ACL: er för filen eller mappen som visas i Datautforskaren. Klicka på **åtkomst** att se ACL: er för den **catalog** mapp under den **mydatastorage** konto.
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
-
-Överst på det här bladet visas ägarens behörigheter. (På skärmbilden är den ägande användaren Bob.) Efter det så visas de tilldelade åtkomst-ACL:erna. 
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Klicka på **Avancerad vy** om du vill se en mer avancerad vy där standard-ACL:er, mask och en beskrivning av superanvändare visas.  Det här bladet ger också ett sätt att rekursivt ange åtkomst- och standard-ACL:er för underordnade filer och mappar baserat på behörigheterna i den aktuella mappen.
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## <a name="the-super-user"></a>Superanvändaren
 
@@ -127,13 +108,8 @@ En superanvändare har mest behörighet av alla användare i Data Lake Storage G
 * Kan ändra behörigheterna för alla filer och mappar.
 * Kan ändra ägande användare eller ägande grupp för alla filer och mappar.
 
-I Azure har ett Data Lake Storage Gen1 konto flera Azure-roller, inklusive:
+Alla användare som är en del av den **ägare** för ett Data Lake Storage Gen1 konto blir automatiskt en superanvändare.
 
-* Ägare
-* Deltagare
-* Läsare
-
-Alla i den **ägare** roll för ett Data Lake Storage Gen1-konto är automatiskt en superanvändare för det kontot. Läs mer i [rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md).
 Om du vill skapa en anpassad rollbaserad åtkomstkontroll(RBAC)-roll som har superanvändarbehörigheter så måste den ha följande behörigheter:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -153,11 +129,16 @@ Användaren som skapade objektet är automatiskt ägande användare för objekte
 
 ## <a name="the-owning-group"></a>Ägande grupp
 
+**Bakgrund**
+
 I POSIX-ACL:er är varje användare associerad med en "primär grupp". Användaren "Alice" kan t.ex. tillhöra gruppen "Ekonomi". Alice kan också tillhöra flera grupper, men en grupp anges alltid som hennes primära grupp. När Alice skapar en fil i POSIX ställs den ägande gruppen för filen in som hennes primära grupp, som i det här fallet är "Ekonomi". Den ägande gruppen fungerar annars ungefär som tilldelade behörigheter för andra användare/grupper.
 
-Koppla den ägande gruppen för en ny fil eller mapp:
+**Koppla den ägande gruppen för en ny fil eller mapp**
+
 * **Fall 1**: Rotmappen "/". Den här mappen skapas när ett Data Lake Storage Gen1 konto skapas. I det här fallet har den ägande gruppen angetts till den användaren som skapade kontot.
 * **Fall 2** (alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade mappen.
+
+**Ändra den ägande gruppen**
 
 Den ägande gruppen kan ändras av:
 * Alla superanvändare.
@@ -179,30 +160,32 @@ def access_check( user, desired_perms, path ) :
   # path is the file or folder
   # Note: the "sticky bit" is not illustrated in this algorithm
   
-# Handle super users
-    if (is_superuser(user)) :
-      return True
+# Handle super users.
+  if (is_superuser(user)) :
+    return True
 
-  # Handle the owning user. Note that mask is not used.
-    if (is_owning_user(path, user))
-      perms = get_perms_for_owning_user(path)
-      return ( (desired_perms & perms) == desired_perms )
+  # Handle the owning user. Note that mask IS NOT used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & e.permissions) == desired_perms )
 
-  # Handle the named user. Note that mask is used.
-  if (user in get_named_users( path )) :
-      perms = get_perms_for_named_user(path, user)
-      mask = get_mask( path )
-      return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USERS )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permmissions & mask) == desired_perms)
 
   # Handle groups (named groups and owning group)
-  belongs_to_groups = [g for g in get_groups(path) if is_member_of(user, g) ]
-  if (len(belongs_to_groups)>0) :
-    group_perms = [get_perms_for_group(path,g) for g in belongs_to_groups]
-    perms = 0
-    for p in group_perms : perms = perms | p # bitwise OR all the perms together
-    mask = get_mask( path )
-    return ( (desired_perms & perms & mask ) == desired_perms)
-
+  member_count = 0
+  perms = 0
+  for g in get_groups(path) :
+    if (user_is_member_of_group(user, g)) :
+      member_count += 1
+      perms | =  get_perms_for_group(path,g)
+  if (member_count>0) :
+    return ((desired_perms & perms & mask ) == desired_perms)
+ 
   # Handle other
   perms = get_perms_for_other(path)
   mask = get_mask( path )
@@ -218,7 +201,7 @@ Enligt beskrivningen i algoritmen Kontrollera åtkomst, masken begränsar åtkom
 >
 >
 
-#### <a name="the-sticky-bit"></a>Sticky bit
+### <a name="the-sticky-bit"></a>Sticky bit
 
 Sticky bit är en mer avancerad funktion i ett POSIX-filsystem. I samband med Data Lake Storage Gen1 är det troligt att sticky bit kommer att behövas. Sammanfattningsvis om sticky bit är aktiverad på en mapp, kan ett underordnat objekt bara tas bort eller byta namn på av det underordnade objektets ägande användare.
 
@@ -239,9 +222,9 @@ Umask för Azure Data Lake Storage Gen1 en konstant värde som är inställt på
 
 | umask-komponent     | Numeriskt format | Kortformat | Betydelse |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   ---      | För ägande användare, kopierar du överordnat filens standard-ACL till barnets åtkomst-ACL | 
-| umask.owning_group  |    0         |   ---      | Kopiera överordnat filens standard-ACL till barnets åtkomst-ACL för ägande grupp | 
-| umask.Other         |    7         |   RWX      | Ta bort alla behörigheter för barnets åtkomst-ACL för andra, |
+| umask.owning_user   |    0         |   `---`      | För ägande användare, kopierar du överordnat filens standard-ACL till barnets åtkomst-ACL | 
+| umask.owning_group  |    0         |   `---`      | Kopiera överordnat filens standard-ACL till barnets åtkomst-ACL för ägande grupp | 
+| umask.Other         |    7         |   `RWX`      | Ta bort alla behörigheter för barnets åtkomst-ACL för andra, |
 
 Umask-värde som används av Azure Data Lake Storage Gen1 effektivt innebär att värdet för andra aldrig skickas som standard på nya underordnade - oavsett vad som anger standard-ACL. 
 

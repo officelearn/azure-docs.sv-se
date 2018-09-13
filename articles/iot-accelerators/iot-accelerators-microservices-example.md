@@ -1,19 +1,18 @@
 ---
 title: Ändra och distribuera om en mikrotjänst | Microsoft Docs
 description: Den här självstudiekursen visar hur du ändrar och distribuera om en mikrotjänst i fjärrövervakning
-author: giyeh
-manager: hegate
-ms.author: giyeh
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: e15e17a499ad33a270b220fa7483d96c2945f6bb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 561c5b0f49c36cf15e85e3a334c7a8aa326f70a9
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338085"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715065"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Anpassa och distribuera om en mikrotjänst
 
@@ -47,14 +46,15 @@ I den här delen kan du anropa standard IoT hub manager mikrotjänst API. API: e
 2. Leta upp som du laddade ned Postman och öppna den.
 3. I Postman, anger du följande i GET: http://localhost:8080/iothubmanager/v1/status.
 4. Visa avkastningen och du bör se, ”Status” ”: OK: Alive och väl”.
-![Alive och väl Postman meddelande](./media/iot-accelerators-microservices-example/postman-alive-well.png)
+
+    ![Alive och väl Postman meddelande](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
 ## <a name="change-the-status-and-build-the-image"></a>Ändra status och skapa avbildningen
 
 Ändra nu statusmeddelande för Iot Hub-hanterare mikrotjänst till ”nya ändringar görs här”! och sedan återskapa docker-avbildning med den nya statusen. Om du stöter på problem här, se vår [felsökning](#Troubleshoot) avsnittet.
 
 1. Kontrollera att din terminal är öppen och ändra till den katalog där du har klonade av lösningen för fjärrövervakning. 
-2. Ändra katalogen till ”.. azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/WebService/v1/Controllers ”.
+2. Ändra katalogen till ”azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers”.
 3. Öppna StatusController.cs i valfri textredigerare eller IDE som helst. 
 4. Leta upp följande kod:
 
@@ -68,7 +68,7 @@ I den här delen kan du anropa standard IoT hub manager mikrotjänst API. API: e
     return new StatusApiModel(true, "New Edits Made Here!");
     ```
 
-5. Gå tillbaka till terminalen men nu ändras till följande katalog ”:... azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/scripts/docker”.
+5. Gå tillbaka till terminalen men nu ändras till följande katalog: ”azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker”.
 6. Om du vill skapa en ny docker-avbildning, skriver du:
 
     ```cmd/sh
@@ -113,7 +113,7 @@ Innan du kan skicka en ny docker-avbildning till en docker-hubb, förväntas bil
 ## <a name="update-your-remote-monitoring-solution"></a>Uppdatera lösningen för fjärrövervakning
 Nu måste du uppdatera din lokala docker-compose.yml om du vill hämta en ny docker-avbildning från docker hub. Om du stöter på problem här, se vår [felsökning](#Troubleshoot) avsnittet.
 
-1. Gå tillbaka till terminalen och ändra till följande katalog ”:... Azure-IOT-PCs-Remote-Monitoring-DotNet/Scripts/Local ”.
+1. Gå tillbaka till terminalen och ändra till följande katalog: ”azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local”.
 2. Öppna docker-compose.yml i valfri textredigerare eller IDE som helst.
 3. Leta upp följande kod:
 
@@ -130,7 +130,7 @@ Nu måste du uppdatera din lokala docker-compose.yml om du vill hämta en ny doc
 ## <a name="view-the-new-response-status"></a>Visa den nya svarsstatusen
 Slutför genom att omdistribuera en lokal instans av lösningen för fjärrövervakning och visa nya statussvar i Postman.
 
-1. Gå tillbaka till terminalen och ändra till följande katalog ”:... Azure-IOT-PCs-Remote-Monitoring-DotNet/Scripts/Local ”.
+1. Gå tillbaka till terminalen och ändra till följande katalog: ”azure-iot-pcs-remote-monitoring-dotnet/scripts/local”.
 2. Starta din lokala instans av lösningen för fjärrövervakning genom att skriva följande kommando i terminalen:
 
     ```cmd/sh

@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/12/2017
+ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: bdc8754253ce2567d957b4d6240fe52242aea2ea
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d84c3b556f27366c249382a37e0a8227726110cf
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450014"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714692"
 ---
 # <a name="managing-owners-for-a-group"></a>Hantera ägare för en grupp
 När en resursägare har tilldelats åtkomst till en resurs till en Azure AD-grupp, hanteras medlemskap i gruppen av gruppägare. Resursägaren delegerar effektivt behörighet att tilldela användare till resursen till ägare av gruppen.
@@ -42,6 +42,6 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md)
 * [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md)
-* [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
+* [Programhantering i Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Vad är Azure Active Directory?](active-directory-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](../connect/active-directory-aadconnect.md)

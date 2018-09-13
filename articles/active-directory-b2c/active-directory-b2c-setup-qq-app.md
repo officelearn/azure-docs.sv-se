@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11bb5bf132103bed9e154a12c0e628177ca6a57a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7abe86d49ec62460f4bfe039cbd935efe21caba8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344932"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716340"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med en QT-konto med hjälp av Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Om du vill använda ett QT-konto som identitetsprovider i Azure Active Directory
 1. Gå till [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 2. Välj**应用管理**(app management).
 5. Välj**创建应用**(skapa app) och ange nödvändig information.
-7. Ange `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` i**授权回调域**(Motringnings-URL). Exempel: om din `tenant_name` är contoso, ange URL: en ska vara `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+7. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` i**授权回调域**(Motringnings-URL). Exempel: om din `tenant_name` är contoso, ange URL: en ska vara `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 8. Välj**创建应用**(skapa app).
 9. På bekräftelsesidan väljer**应用管理**(app management) för att återgå till sidan för hantering av appen.
 10. Välj**查看**(Visa) bredvid appen som du skapat.
@@ -50,13 +50,9 @@ Om du vill använda ett QT-konto som identitetsprovider i Azure Active Directory
 ## <a name="configure-qq-as-an-identity-provider"></a>Konfigurera QT som identitetsprovider
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
-2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att växla till den i det övre högra hörnet i Azure-portalen. Välj din prenumerationsinformation och välj därefter **Växla katalog**. 
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.  
 
     ![Växla till Azure AD B2C-klientorganisationen](./media/active-directory-b2c-setup-qq-app/switch-directories.png)
-
-    Välj den katalog som innehåller din klient.
-
-    ![Välj katalog](./media/active-directory-b2c-setup-qq-app/select-directory.png)
 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.

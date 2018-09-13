@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 948a0d6a3d6fb6b6f3f7c13be6340c8ac364ee57
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4540b68dedc3086c3ea0fb12ebbe3cfe2344698b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357611"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718805"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Så här distribuerar du Access Panel-tillägg för Internet Explorer med hjälp av en Grupprincip
 Den här självstudien visar hur du använder grupprinciper för att fjärrinstallera Access Panel-tillägg för Internet Explorer på användarnas datorer. Det här tillägget är obligatoriskt för Internet Explorer-användare som behöver logga in på appar som har konfigurerats med hjälp av [lösenordsbaserad enkel inloggning](what-is-single-sign-on.md#password-based-single-sign-on).
@@ -162,7 +162,6 @@ Följ stegen nedan för att kontrollera om tillägget distributionen har lyckats
     ![Kontrollera att tillägget för åtkomst-panelen är installerat och aktiverat.](./media/deploy-access-panel-browser-extension/verify-install.png)
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Programåtkomst och enkel inloggning med Azure Active Directory](what-is-single-sign-on.md)
 * [Felsöka Access Panel-tillägg för Internet Explorer](manage-access-panel-browser-extension.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure innehåll kontrollant - Video avbrottsmoderering | Microsoft Docs
-description: Använd datorn stödd video avbrottsmoderering och mänsklig granska verktyg för att måttlig olämpligt innehåll
+title: Azure Content Moderator - Video moderering | Microsoft Docs
+description: Använd datorstödd videomoderering och verktyg för mänsklig granskning för att hantera olämpligt innehåll
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,30 +9,30 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: fb26c9af55381c80a3f520b1a0068d8f72c91061
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d9c01d4c2590535a4106e8e4ee79a12bdc60d956
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35351531"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714504"
 ---
 # <a name="video-moderation"></a>Videomoderering
 
-Använd innehållet kontrollant dator-stödd [video avbrottsmoderering](video-moderation-api.md) och [mänsklig granska verktyget](Review-Tool-User-Guide/human-in-the-loop.md) måttlig videor och betyg för vuxna (explicit) och dyr (något) innehåll att få bästa resultat för ditt företag.
+Använd Content Moderator datorstödd [videomoderering](video-moderation-api.md) och [verktyg för mänsklig granskning](Review-Tool-User-Guide/human-in-the-loop.md) måttlig videor och betyg för vuxen (explicit) och olämpligt (något) innehåll att få bästa resultat för ditt företag.
 
-## <a name="video-trained-classifier"></a>Video-utbildade klassificerare
+## <a name="video-trained-classifier-preview"></a>Video-utbildade klassificerare (förhandsversion)
 
-Dator-stödd video klassificering uppnås antingen med bild tränats modeller eller video tränade modeller. Till skillnad från avbildningen tränats video klassificerare tränas Microsofts vuxna och dyr video klassificerare med videor. Den här metoden resulterar i bättre matchning kvalitet.
+Maskinassisterad video klassificering uppnås antingen med bild som tränas modeller eller video tränade modeller. Till skillnad från avbildningen tränas video klassificerare tränas Microsofts vuxet och vågat innehåll video klassificerare med videor. Den här metoden resulterar i bättre matchning kvalitet.
 
 ## <a name="shot-detection"></a>Som identifiering
 
-Vid presentation klassificering information hjälper ytterligare video intelligence med mer flexibilitet för att analysera videor. I stället för att mata ut precis ramar innehåller Microsoft-video avbrottsmoderering tjänsten nivå som visar information för. Nu har du alternativet för att analysera dina videor på nivån som och RAM-nivå.
+När du genererar klassificering information kan ytterligare video intelligens mer flexibilitet att analysera videor. I stället för att mata ut bara bildrutor innehåller Microsofts videomodereringen på servernivå som visar information för. Du har nu möjlighet att analysera dina videoklipp på som nivå och RAM-nivå.
  
-## <a name="key-frame-detection"></a>Nyckelbilden identifiering
+## <a name="key-frame-detection"></a>Viktiga ramtyp
 
-I stället för att mata ut ramar med jämna mellanrum tjänsten video avbrottsmoderering identifierar och matar ut ramar som bara kan vara fullständig (bra). Funktionen kan effektivt ram-generering för ram-nivå vuxna och dyr analys.
+I stället för att mata ut bildrutor med jämna mellanrum videomodereringen identifierar och visar endast potentiellt fullständiga (bra) bildrutor. Funktionen kan effektivt ramens generation för ramens på servernivå vuxet och vågat innehåll analys.
 
-Följande utdrag visar ett partiellt svar med potentiella bilderna och viktiga ramar vuxna och dyr resultat:
+Följande utdrag visar ett partiellt svar med potentiella skärmbilder och viktiga bildrutor vuxet och vågat innehåll poäng:
 
     "fragments": [
     {
@@ -74,36 +74,36 @@ Följande utdrag visar ett partiellt svar med potentiella bilderna och viktiga r
       ]
 
 
-## <a name="visualization-for-human-reviews"></a>Visualisering för mänsklig granskningar
+## <a name="visualization-for-human-reviews"></a>Visualisering för mänsklig granskning
 
-För mer nuanced fall företag behöver en mänsklig granska lösning för att återge videon dess ramar och datorn som tilldelats taggar. Hämta en fullständig överblick över insikter mänsklig moderatorer granska videor och ramar, ändra taggar och skicka sina beslut.
+För mer nyanserade fall företag behöver en lösning för mänsklig granskning för att återge videon, dess ramar och datorn tilldelade taggar. Få en fullständig vy över insikterna mänskliga moderatorer granskar videor och ramar, ändra taggar och skicka sina beslut.
 
 ![standardvyn för video granska verktyget](images/video-review-default-view.png)
 
-## <a name="player-view-for-video-level-review"></a>Player vyn för granskning av video-nivå
+## <a name="player-view-for-video-level-review"></a>Player vy för video på servernivå granskning
 
-Video-nivå binära beslut fattas möjligt med en videospelare vy som visar möjliga vuxna och dyr ramar. Mänsklig granskare navigera video med olika alternativ för hastighet för att granska i bakgrunden. De bekräfta sina beslut genom att använda taggar.
+Video på servernivå binära beslut fattas möjligt med en videospelare vy som visar potentiellt vuxet eller olämpligt bildrutor. Mänsklig granskare navigera i videon med olika hastighet alternativ för att undersöka kulisserna. De bekräftar beslutsfattandet med taggar.
 
-![Visar video granska player](images/video-review-player-view.PNG)
+![Granska video player visar](images/video-review-player-view.PNG)
 
-## <a name="frames-view-for-detailed-reviews"></a>Visa ramar för detaljerad granskning
+## <a name="frames-view-for-detailed-reviews"></a>Bildrutor vy för detaljerad granskning
 
-En detaljerad video granskning för analys av bildruta för bildruta möjliggörs med ram-baserade. Mänsklig granskare granska och välj en eller flera ramar och växla mellan taggar om du vill bekräfta sina beslut. Ett valfritt nästa steg är bortredigering stötande ramar eller innehåll.
+En detaljerad video granskning för bildruta för bildruta analys möjliggörs med en ram-baserad vy. Mänsklig granskare granskar och välj en eller flera bildrutor och växla taggar om du vill bekräfta sina beslut. Ett valfritt nästa steg är redigering av stötande bildrutor eller innehåll.
 
-![Visa video granska verktyget ramar](images/video-review-frames-view-apply-tags.PNG)
+![Visa video granska verktyget bildrutor](images/video-review-frames-view-apply-tags.PNG)
 
-## <a name="transcript-moderation"></a>Betyg avbrottsmoderering
+## <a name="transcript-moderation"></a>Moderering av avskrift
 
-Videor har vanligtvis röst över som behöver avbrottsmoderering samt för stötande tal. Du kan använda tjänsten Azure Media Indexer för att konvertera tal till text och använda innehåll kontrollant granska API för att skicka utskrifter för text avbrottsmoderering i Granska-verktyget.
+Videor har vanligtvis Röst via som behöver moderering samt för stötande tal. Du kan använda tjänsten Azure Media Indexer för att omvandla tal till text och använder Content Moderator granska API för att skicka avskrift för textmoderering inom granskningsverktyget.
 
-![Visar video granska betyg](images/video-review-transcript-view.png)
+![Visar video granska avskrift](images/video-review-transcript-view.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med den [video avbrottsmoderering quickstart](video-moderation-api.md). 
+Kom igång med den [videomoderering snabbstarten](video-moderation-api.md). 
 
-Lär dig hur du skapar [video granskar](video-reviews-quickstart-dotnet.md) för granskarna mänsklig från din kontrollerad utdata.
+Lär dig hur du skapar [videon går igenom](video-reviews-quickstart-dotnet.md) för din mänsklig granskare från dina kontrollerad utdata.
 
-Lägg till [video betyg granskar](video-transcript-reviews-quickstart-dotnet.md) till din video granskningar.
+Lägg till [videoavskriften granskar](video-transcript-reviews-quickstart-dotnet.md) på din video granskningar.
 
-Kolla in detaljerad vägledning om hur du utvecklar en [slutföra video avbrottsmoderering lösning](video-transcript-moderation-review-tutorial-dotnet.md). 
+Kolla in detaljerad genomgång om hur du utvecklar en [slutföra videomoderering lösning](video-transcript-moderation-review-tutorial-dotnet.md). 

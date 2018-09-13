@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7e0a65e4a5807cb9a6b39feecfd2d5b2643ea4a9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1ab7518ff5a9524dbfe1b258a51b7ad0ef5c9765
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331112"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716782"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Extern delning i Office 365 och Azure Active Directory B2B-samarbete
 
@@ -38,9 +38,14 @@ För att hantera extern delning i OneDrive/SharePoint Online med Azure AD B2B-sa
 
 ![OneDrive/SharePoint Online extern delning](media/o365-external-user/odsp-sharing-setting.png)
 
+När du har aktiverat extern delning är möjligheten att söka efter befintliga gästanvändare i SharePoint Online (SPO) Personväljaren av som standard så att de matchar äldre beteende.
+
+Du kan aktivera den här funktionen med hjälp av inställningen ”ShowPeoplePickerSuggestionsForGuestUsers” på samlingsnivå klient- och plats. Du kan ange funktionen med hjälp av Set-SPOTenant och Set-SPOSite cmdletar som ger möjlighet att söka efter alla befintliga gästanvändare i katalogen. Ändringar i klientorganisationsområdet påverkar inte redan etablerade SPO-webbplatser.
+
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
 * [Att lägga till en B2B-användare till en roll](add-guest-to-role.md)
 * [Delegera inbjudningar för B2B-samarbete](delegate-invitations.md)
 * [Dynamiska grupper och B2B-samarbete](use-dynamic-groups.md)
+* [Felsökning av Azure Active Directory B2B-samarbete](troubleshoot.md)

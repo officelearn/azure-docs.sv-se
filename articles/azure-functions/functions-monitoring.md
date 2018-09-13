@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 9c39d621bfc8df338a4556fd412ae54489982074
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 89f222d28a284abff50e60b12c691be2f8691255
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092775"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718958"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -234,7 +234,7 @@ Det här exemplet ställer in följande regler:
 
 Kategori-värdet i *host.json* styr loggning för alla kategorier som börjar med samma värde. Till exempel ”värd” i *host.json* styr loggning för ”Host.General”, ”Host.Executor”, ”Host.Results” och så vidare.
 
-Om *host.json* innehåller flera kategorier som börjar med samma sträng, de längre som matchas. Anta exempelvis att du vill att allt från runtime utom ”Host.Aggregator” för att logga in på `Error` nivå när ”Host.Aggregator” loggar på `Information` nivå:
+Om *host.json* innehåller flera kategorier som börjar med samma sträng, de längre som matchas. Anta exempelvis att du vill att allt från runtime utom ”Host.Aggregator” för att logga in på `Error` nivå, men du vill att ”Host.Aggregator” för att logga in på den `Information` nivå:
 
 ```json
 {
@@ -298,7 +298,7 @@ Enligt vad som anges i föregående avsnitt, aggregerar körningen data om funkt
 
 ## <a name="configure-sampling"></a>Konfigurera sampling
 
-Application Insights har en [sampling](../application-insights/app-insights-sampling.md) funktion som kan skydda dig från att producera för mycket telemetridata vid tidpunkter med hög belastning. När antalet objekt som telemetri överskrider en angiven hastighet, startar Application Insights att ignorera slumpmässigt några av de inkommande objekt. Standardinställningen för maximalt antal objekt per sekund är 5. Du kan konfigurera linjer i *host.json*.  Här är ett exempel:
+Application Insights har en [sampling](../application-insights/app-insights-sampling.md) funktion som kan skydda dig från att producera för mycket telemetridata vid tidpunkter med hög belastning. När mängden inkommande telemetri överskrider ett angivet tröskelvärde, startar Application Insights att ignorera slumpmässigt några av de inkommande objekt. Standardinställningen för maximalt antal objekt per sekund är 5. Du kan konfigurera linjer i *host.json*.  Här är ett exempel:
 
 ```json
 {
@@ -457,11 +457,6 @@ namespace functionapp0915
                 };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
-            
-            return name == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, 
-                    "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
         
         // This correllates all telemetry with the current Function invocation
@@ -499,18 +494,6 @@ module.exports = function (context, req) {
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
     client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
     context.done();
 };
 ```

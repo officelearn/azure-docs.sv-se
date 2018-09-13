@@ -6,17 +6,17 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 09/11/2018
 ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: c6ca3003c1338f3e057c76d9e04d8b0cbd2210c7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841617"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721202"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -26,9 +26,13 @@ Den här guiden innehåller information om vanliga problem som du kan ha när du
 
 Det kan hjälpa för att skapa mer detaljerade loggar för granskning för att felsöka problem med mer effektivt.
 
-För Visual Studio-tillägget kan du göra detta genom att ange den `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` miljövariabeln till 1. Glöm inte att starta om Visual Studio för miljövariabeln ska börja gälla. När du har aktiverat, detaljerade loggar skrivs till din `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
+Visual Studio-tillägg, ange den `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` miljövariabeln till 1. Glöm inte att starta om Visual Studio för miljövariabeln ska börja gälla. När du har aktiverat, detaljerade loggar skrivs till din `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
 I CLI, kan du mata ut mer information under Kommandokörning med hjälp av den `--verbose` växla.
+
+## <a name="debugging-services-with-multiple-instances"></a>Felsökning av tjänster med flera instanser
+
+För närvarande stöder Azure Dev blanksteg felsökning endast på en enda instans (pod). Azds.yaml-filen innehåller en inställning, replicaCount, som anger antalet instanser som körs för din tjänst. Om du ändrar replicaCount för att konfigurera din app för att köra flera instanser för en viss tjänst, kanske inte beteendet för felsökningsprogrammet som förväntat.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Felet ”Det gick inte att skapa Azure Dev blanksteg controller'
 
@@ -67,14 +71,14 @@ När du använder _azds.exe_, använda--utförlig kommandoradsalternativet och a
 
 I Visual Studio:
 
-1. Öppna **Verktyg > alternativ** och under **produkter och lösningar**, Välj och **skapa och köra**.
+1. Öppna **Verktyg > alternativ** och under **produkter och lösningar**, Välj **skapa och köra**.
 2. Ändra inställningarna för **MSBuild projekt build utdata utförlighet** till **detaljerat** eller **diagnostiska**.
 
     ![Skärmbild av alternativ för dialogrutan](media/common/VerbositySetting.PNG)
     
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>DNS-namnmatchningen misslyckas för en offentlig URL som är associerade med en tjänst för utveckling blanksteg
 
-När detta inträffar kan det hända att ett ”sidan kan inte visas” eller ”den här platsen kan inte nås” fel i webbläsaren när du försöker ansluta till en offentlig URL som är associerade med en tjänst för utveckling blanksteg.
+När DNS-namnmatchningen misslyckas visas ett ”sidan kan inte visas” eller ”den här platsen kan inte nås” fel i webbläsaren när du försöker ansluta till en offentlig URL som är associerade med en tjänst för utveckling blanksteg.
 
 ### <a name="try"></a>Prova:
 
@@ -84,7 +88,7 @@ Du kan använda följande kommando för att lista ut alla URL: er som är associ
 azds list-uris
 ```
 
-Om en Webbadress finns i den *väntande* tillstånd, som innebär att Dev blanksteg väntar fortfarande för DNS-registrering att slutföra. Ibland kan tar det några minuter innan detta ske. Dev blanksteg öppnas även en localhost-tunnel för varje tjänst, som du kan använda under väntan på DNS-registrering.
+Om en Webbadress finns i den *väntande* tillstånd, som innebär att Dev blanksteg väntar fortfarande för DNS-registrering att slutföra. Ibland kan tar det några minuter för registrering för att slutföra. Dev blanksteg öppnas även en localhost-tunnel för varje tjänst, som du kan använda under väntan på DNS-registrering.
 
 Om en URL som finns kvar i den *väntande* tillstånd under mer än 5 minuter, det kan bero på problem med den externa DNS-pod som skapar den offentliga slutpunkten och/eller nginx ingående controller pod som hämtar den offentliga slutpunkten. Du kan använda följande kommandon för att ta bort dessa poddar. De kommer att återskapas automatiskt.
 
@@ -121,7 +125,7 @@ Azure Dev blanksteg har inbyggt stöd för C# och Node.js. När du kör *azds pr
 Du kan fortfarande använda Azure Dev blanksteg med kod som skrivits på andra språk, men du kommer att behöva skapa Dockerfile själv innan du kör *azds upp* för första gången.
 
 ### <a name="try"></a>Prova:
-Om ditt program är skrivet på ett språk att Azure Dev blanksteg inte har inbyggt stöd, måste du ange en lämplig Dockerfile för att skapa en behållaravbildning som kör koden. Docker innehåller en [lista över bästa praxis för att skriva Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) samt en [Dockerfile-referensen](https://docs.docker.com/engine/reference/builder/) som kan hjälpa dig göra detta.
+Om ditt program är skrivet på ett språk att Azure Dev blanksteg inte har inbyggt stöd, måste du ange en lämplig Dockerfile för att skapa en behållaravbildning som kör koden. Docker innehåller en [lista över bästa praxis för att skriva Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) samt en [Dockerfile-referensen](https://docs.docker.com/engine/reference/builder/) som hjälper dig att skriva en Dockerfile som passar dina behov.
 
 När du har en lämplig Dockerfile på plats kan du fortsätta med körs *azds upp* att köra ditt program i Azure Dev blanksteg.
 
@@ -152,7 +156,7 @@ Du måste köra `azds up` från rotkatalogen för kod som du vill köra och mås
 1. Om du inte har en _azds.yaml_ filen i mappen kod kör `azds prep` att generera Docker, Kubernetes och Azure Dev blanksteg tillgångar.
 
 ## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Fel: ”det pipe programmet 'azds' avslutades oväntat med koden 126”.
-Starta VS Code-felsökare kan ibland resultera i det här felet. Det här är ett känt problem.
+Starta VS Code-felsökare kan ibland resultera i det här felet.
 
 ### <a name="try"></a>Prova:
 1. Stäng och öppna VS Code.
@@ -162,7 +166,7 @@ Starta VS Code-felsökare kan ibland resultera i det här felet. Det här är et
 Köra felsökaren för VS Code rapporterar felet: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Orsak
-Du har inte det VS Code-tillägget för C#-installerat på utvecklingsdatorn som innehåller felsökning för .net Core (CoreCLR).
+Du har inte det VS Code-tillägget för C#-installerat på utvecklingsdatorn. C#-tillägget innehåller felsökning för .net Core (CoreCLR).
 
 ### <a name="try"></a>Prova:
 Installera den [VS Code-tillägg för C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

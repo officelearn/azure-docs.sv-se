@@ -1,5 +1,5 @@
 ---
-title: Flera innehavare appar med RLS och elastiska Databasverktyg | Microsoft Docs
+title: Appar för flera klienter med RLS och elastiska Databasverktyg | Microsoft Docs
 description: Använd elastiska Databasverktyg med säkerhet på radnivå för att skapa ett program med en mycket skalbar datanivå.
 metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
@@ -10,60 +10,60 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: thmullan
-ms.openlocfilehash: 02ad01185a86aa5a975be2a66b54a214029dd73f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 96093ea65452693a999363f6bbad26a4a1904f60
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645818"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714963"
 ---
-# <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Program med flera klienter med elastiska Databasverktyg och säkerhet på radnivå
+# <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Program för flera innehavare med elastic database-verktyg och säkerhet på radnivå
 
-[Elastisk Databasverktyg](sql-database-elastic-scale-get-started.md) och [på radnivå (RLS) för säkerhet] [ rls] samarbetar för att aktivera skalning datanivå i ett program för flera innehavare med Azure SQL Database. Tillsammans hjälper dessa tekniker dig att skapa ett program som har en mycket skalbar datanivå. Datanivå har stöd för flera innehavare delar och använder **ADO.NET SqlClient** eller **Entity Framework**. Mer information finns i [designmönster för flera innehavare SaaS-program med Azure SQL Database](saas-tenancy-app-design-patterns.md).
+[Elastiska Databasverktyg](sql-database-elastic-scale-get-started.md) och [rad säkerhet på radnivå (RLS)] [ rls] samarbeta för att aktivera skalning av datanivån för ett program med flera innehavare med Azure SQL Database. Ihop dessa tekniker hjälper dig att skapa ett program som har en hög skalbar datanivå. Datanivån har stöd för flera klientorganisationer fragmenten och använder **ADO.NET SqlClient** eller **Entity Framework**. Mer information finns i [designmönster för SaaS-program för flera klientorganisationer med Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
-- **Elastisk Databasverktyg** ger utvecklare möjligheten att skala ut datanivå med standard horisontell partitionering praxis med hjälp av .NET-bibliotek och mallar för Azure-tjänsten. Hantera shards med hjälp av den [klientbibliotek för elastisk databas] [ s-d-elastic-database-client-library] hjälper till att automatisera och förenkla många av de infrastrukturella uppgifter som vanligtvis är kopplad till horisontell partitionering.
-- **Säkerhet för radnivå** gör att utvecklare kan lagra data på ett säkert sätt för flera klienter i samma databas. RLS säkerhetsprinciper filtrerar ut rader som inte tillhör den klient som kör en fråga. Centralisera filter logiken i databasen förenklar du Underhåll och minskar risken för ett säkerhetsfel. Alternativ för att förlita sig på alla klientkod till enfore security är riskfyllda.
+- **Elastiska Databasverktyg** möjligt för utvecklare att skala ut datanivån med delningsprinciper som är standard, med hjälp av .NET-bibliotek och mallar för Azure-tjänsten. Hantera shards med hjälp av den [klientbibliotek för elastiska databaser] [ s-d-elastic-database-client-library] hjälper till att automatisera och förenkla infrastrukturen uppgifter som vanligtvis associeras med horisontell partitionering.
+- **Säkerhet på radnivå** ger utvecklare möjlighet att på ett säkert sätt lagra data för flera klienter i samma databas. RLS säkerhetsprinciper filtrerar ut rader som inte tillhör den klient som kör en fråga. Centralisera filter logiken i databasen förenklar underhåll och minskar risken för ett säkerhetsfel. Med alternativet att förlita dig på alla klientkod till enfore security är riskfyllda.
 
-Ett program kan lagra data för flera klienter i samma fragment-databas genom att använda dessa funktioner tillsammans. Det kostar mindre per klient när klienterna delar en databas. Ännu kan samma program också erbjuda dess premium-klienter möjlighet att betala för sina egna dedikerade stöd för en innehavare Fragmentera. En fördel med enda klientisolering är firmer prestanda garantier. Det finns någon klientorganisation som konkurrerar om resurser i en enskild klient-databas.
+Genom att använda de här funktionerna tillsammans, kan ett program lagra data för flera klienter i samma shard-databas. Det kostar mindre per klient när innehavarna som delar en databas. Ännu kan samma program också erbjuda dess premium-klienter möjlighet att betala för sina egna dedikerade enda klient-fragment. En fördel med enda klient isolering är firmer prestanda garantier. Det finns ingen annan klient som konkurrerar om resurser i en enda klient-databas.
 
-Målet är att använda klientbibliotek för elastisk databas [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md) API: er för varje given klient ansluta automatiskt till rätt Fragmentera-databasen. Endast en Fragmentera innehåller viss TenantId värde för den angivna klienten. TenantId är den *horisontell partitionering nyckeln*. När anslutningen har upprättats, säkerställer en RLS säkerhetsprincip i databasen att viss klient kan komma åt de datarader som innehåller dess TenantId.
+Målet är att använda elastic database-klientbibliotek [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) API: er för att automatiskt ansluta varje viss klient till rätt fragment-databasen. Endast en shard innehåller viss TenantId värde för den angivna klienten. TenantId är den *shardingnyckel*. När anslutningen har upprättats, säkerställer en säkerhetsprincip för RLS i databasen att viss klient har åtkomst till de datarader som innehåller dess TenantId.
 
 > [!NOTE]
-> Klient-ID kan bestå av fler än en kolumn. För bekvämlighet är den här diskussionen, förutsätter vi informellt en TenantId för en kolumn.
+> Klient-ID kan bestå av fler än en kolumn. För enkelhetens är den här diskussionen, förutsätter vi informellt TenantId för en kolumn.
 
-![Bloggar app-arkitektur][1]
+![Blogga app-arkitektur][1]
 
-## <a name="download-the-sample-project"></a>Hämta exempelprojektet
+## <a name="download-the-sample-project"></a>Ladda ned exempelprojektet
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- Använda Visual Studio (2012 eller senare) 
+- Använd Visual Studio (2012 eller senare) 
 - Skapa tre Azure SQL-databaser 
-- Hämta exempelprojektet: [elastisk DB-verktyg för Azure SQL - Shards för flera innehavare](http://go.microsoft.com/?linkid=9888163)
+- Ladda ned exempelprojektet: [elastiska DB-verktyg för Azure SQL - fragment för flera innehavare](http://go.microsoft.com/?linkid=9888163)
   - Fyll i information för dina databaser i början av **Program.cs** 
 
-Det här projektet utökar den som beskrivs i [elastisk DB-verktyg för Azure SQL - Entity Framework-integrering](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) genom att lägga till stöd för flera innehavare Fragmentera databaser. Projektet skapar ett enkelt konsolprogram för att skapa bloggar och tjänster. Projektet innehåller fyra klienter samt två databaser för flera innehavare Fragmentera. Den här konfigurationen visas i föregående diagram. 
+Det här projektet utökar det som beskrivs i [elastiska DB-verktyg för Azure SQL - integrering av Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) genom att lägga till stöd för flera innehavare fragment databaser. Projektet bygger ett enkelt konsolprogram för att skapa bloggar och inlägg. Projektet innehåller fyra klienter, samt två databaser för flera innehavare fragment. Den här konfigurationen visas i föregående diagram. 
 
-Skapa och köra programmet. Det här körs startar elastisk Databasverktyg Fragmentera kartan manager och utför följande test: 
+Skapa och kör programmet. Den här körningen startar karthanteraren för elastic database-verktyg och utför följande test: 
 
-1. Använder Entity Framework och LINQ, skapa en ny blogg och sedan visa alla bloggar för varje klient
+1. Med Entity Framework och LINQ kan skapa en ny blogg och visar sedan alla bloggar för varje klient
 2. Med ADO.NET SqlClient kan visa alla bloggar för en klient
-3. Försök att infoga en blogg för fel klienten att verifiera att ett fel genereras  
+3. Försök att infoga en blogg att verifiera att ett fel inträffar fel klient  
 
-Observera att eftersom RLS inte ännu har aktiverats i Fragmentera databaser, var och en av de här testerna visar att ett problem: klienter ska kunna visa bloggar som inte hör till dem och programmet inte hindras från att lägga till en blogg för innehavaren av fel. Resten av den här artikeln beskriver hur du löser dessa problem genom att genomdriva klientisolering med RLS. Det finns två steg: 
+Observera att eftersom RLS inte har ännu aktiverats i fragment-databaser, var och en av de här testerna visar ett problem: klienter ska kunna visa bloggar som inte tillhör dem och programmet inte hindras från att infoga en blogg för fel klient. Resten av den här artikeln beskriver hur du löser dessa problem genom att genomdriva klientisolering med RLS. Det finns två steg: 
 
-1. **Programmet nivå**: ändra programkoden för att alltid ange den aktuella TenantId i sessionen\_KONTEXT efter att öppna en anslutning. Exempelprojektet anger TenantId redan det här sättet. 
-2. **Datanivå**: skapa en säkerhetsprincip för RLS i varje Fragmentera databas för att filtrera rader baserat på TenantId lagras i SESSION\_KONTEXT. Skapa en princip för var och en av dina Fragmentera databaser, annars rader i flera delar vara filtreras inte. 
+1. **Programnivå**: ändra programkoden alltid ange den aktuella TenantId i sessionen\_KONTEXT när du har öppnat en anslutning. Exempelprojektet anger TenantId redan det här sättet. 
+2. **Datanivå**: skapa en säkerhetsprincip för RLS i varje shard-databasen för att filtrera rader baserat på TenantId lagras i sessionen\_KONTEXT. Skapa en princip för varje shard-databaser, annars rader i flera fragment inte är att filtreras. 
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Programmet nivå: Ange TenantId i sessionen\_KONTEXT
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Programnivå: Set-TenantId i sessionen\_KONTEXT
 
-Du ansluter till en Fragmentera-databas med hjälp av API: routning data beroende av klientbiblioteket för elastisk databas. Programmet fortfarande tala databasen vilka TenantId använder anslutningen. TenantId visar säkerhetsprincip RLS vilka rader måste filtreras som tillhör andra klienter. Lagrar den aktuella TenantId i den [SESSION\_KONTEXTEN](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) för anslutningen.
+Först ansluta du till en shard-databas med hjälp av databeroende routning API: er av klientbiblioteket för elastiska databaser. Programmet fortfarande tala om för databasen som TenantId med hjälp av anslutningen. TenantId berättar säkerhetsprincip RLS vilka rader som måste ha filtrerats ut. som tillhör andra klienter. Store aktuella TenantId i den [SESSION\_KONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) för anslutningen.
 
-Ett alternativ till sessionen\_KONTEXT är att använda [KONTEXTEN\_INFO](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Men sessionen\_KONTEXT är ett bättre alternativ. SESSIONEN\_KONTEXT är enklare att använda NULL returneras som standard och den stöder nyckel-värdepar.
+Ett alternativ till sessionen\_KONTEXT är att använda [KONTEXT\_INFO](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Men sessionen\_KONTEXTEN är ett bättre alternativ. SESSIONEN\_KONTEXTEN är enklare att använda NULL returnerar som standard och den har stöd för nyckel / värde-par.
 
 ### <a name="entity-framework"></a>Entity Framework
 
-För program som använder Entity Framework, är det enklaste sättet att sessionen\_KONTEXTEN inom ElasticScaleContext åsidosättningen beskrivs i [Data-beroende routning med EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Skapa och köra en SqlCommand som anger TenantId i sessionen\_KONTEXT för att shardingKey anges för anslutningen. Returnera anslutningen asynkrona via data beroende routning. Det här sättet behöver du bara att skriva kod en gång för att ange sessionen\_KONTEXT. 
+För program som använder Entity Framework, den enklaste metoden är att ange sessionen\_KONTEXTEN i ElasticScaleContext åsidosättningen som beskrivs i [databeroende routning med hjälp av EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Skapa och köra en SqlCommand som anger TenantId i sessionen\_KONTEXT till shardingKey som angetts för anslutningen. Returnera anslutningen asynkrona via databeroende routning. På så sätt kan du bara behöva skriver koden en gång för att ställa in sessionen\_KONTEXT. 
 
 ```csharp
 // ElasticScaleContext.cs 
@@ -121,7 +121,7 @@ public static SqlConnection OpenDDRConnection(
 // ... 
 ```
 
-Nu sessionen\_KONTEXTEN ställs in automatiskt med den angivna TenantId när ElasticScaleContext anropas: 
+Nu sessionen\_KONTEXTEN ställs automatiskt med den angivna TenantId när ElasticScaleContext har anropats: 
 
 ```csharp
 // Program.cs 
@@ -145,7 +145,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### <a name="adonet-sqlclient"></a>ADO.NET SqlClient
 
-Skapa en wrapper-funktion runt metoden ShardMap.OpenConnectionForKey för program med hjälp av ADO.NET SqlClient. Har wrapper automatiskt in TenantId i sessionen\_KONTEXT för att den aktuella TenantId innan det returneras en anslutning. Att se till att den aktuella sessionen\_SAMMANHANG anges alltid, bör du bara öppna anslutningar som använder den här wrapper-funktionen.
+Skapa en funktion för omslutning runt metoden ShardMap.OpenConnectionForKey för program med hjälp av ADO.NET SqlClient. Har omslutningen automatiskt in TenantId i sessionen\_KONTEXT till aktuella TenantId innan det returneras en anslutning. Att se till att den aktuella sessionen\_KONTEXTEN har alltid värdet, bör du bara öppna anslutningar som använder den här wrapper-funktionen.
 
 ```csharp
 // Program.cs
@@ -211,22 +211,22 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2. Datanivå: skapa radnivå säkerhetsprincip
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. Datanivå: skapa en princip för säkerhet på radnivå
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Skapa en säkerhetsprincip för att filtrera de rader som har åtkomst till varje klient
 
-Nu när sessionen har angetts av programmet\_tillsammans med den aktuella TenantId innan en RLS säkerhetsprincip kan filtrera frågor och utelämna rader som har en annan TenantId.  
+Nu när sessionen har angetts av programmet\_KONTEXT med aktuella TenantId innan en säkerhetsprincip för RLS kan filtrera frågor och utelämna rader som har en annan TenantId.  
 
 RLS har implementerats i Transact-SQL. En användardefinierad funktion definierar logik för åtkomst och en säkerhetsprincip Binder den här funktionen till valfritt antal tabeller. För det här projektet:
 
-1. Funktionen verifierar att programmet är ansluten till databasen och att TenantId lagras i en SESSION\_KONTEXTEN matchar TenantId på en viss rad.
-    - Programmet är ansluten i stället för en annan SQL-användare.
+1. Funktionen kontrollerar att programmet är anslutet till databasen och att TenantId lagras i en SESSION\_KONTEXT överensstämmer med TenantId på en viss rad.
+    - Programmet är ansluten, i stället för en annan SQL-användare.
 
-2. Ett filterpredikat kan rader som uppfyller TenantId filtret som ska passera för SELECT-, UPDATE-, och ta bort frågor.
-    - Ett BLOCK-predikat förhindras rader som inte filtret infogad eller uppdaterad.
-    - Om sessionen\_KONTEXT har inte angetts, returnerar funktionen NULL och inga rader är synlig eller kan läggas till. 
+2. Ett filterpredikat kan rader som uppfyller TenantId filtret som ska passera för väljer du UPPDATERINGEN och ta bort frågor.
+    - Ett BLOCK-predikat förhindrar rader som inte filter från att vara infogad eller uppdaterad.
+    - Om sessionen\_KONTEXTEN har inte angetts, returnerar funktionen NULL och inga rader är synlig eller kan infogas. 
 
-Om du vill aktivera RLS på alla delar, kör du följande T-SQL med hjälp av Visual Studio (SSDT), SSMS eller PowerShell-skript som ingår i projektet. Eller om du använder [elastiska databasen jobb](sql-database-elastic-jobs-overview.md), kan du automatisera körningen av den här T-SQL i alla delar.
+Om du vill aktivera RLS på alla shards, kör du följande T-SQL med hjälp av Visual Studio (SSDT), SSMS eller PowerShell-skript som ingår i projektet. Eller om du använder [elastiska Databasjobb](sql-database-elastic-jobs-overview.md), kan du automatisera körningen av den här T-SQL i alla shards.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
@@ -252,11 +252,11 @@ GO
 ```
 
 > [!TIP]
-> I ett komplext projekt som du kan behöva lägga till predikatet på hundratals olika tabeller, vilket kan vara tråkigt. Det finns en helper lagrade procedur som automatiskt genererar en säkerhetsprincip och lägger till ett predikat för alla tabeller i ett schema. Mer information finns i blogginlägget vid [tillämpas på radnivå säkerhet till alla tabeller - helper-skript (blogg)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> I ett komplext projekt som du kan behöva lägga till predikatet på hundratals olika tabeller, vilket kan orsaka tedious. Det finns en helper lagrade procedur som automatiskt genererar en säkerhetsprincip och lägger till ett predikat för alla tabeller i ett schema. Mer information finns i blogginlägget vid [gäller säkerhet på radnivå till alla tabeller - helper-skript (blogg)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
-Om du kör exempelprogrammet igen finns nu innehavare endast rader som de tillhör. Dessutom kan går inte att programmet infoga rader som hör till innehavare andra än den som för tillfället är anslutna till databasen Fragmentera. Appen kan inte också uppdatera TenantId i några rader som den kan se. Om appen försöker göra något, utlöses en DbUpdateException.
+Nu se klienter endast de rader som hör till dem om du kör exempelprogrammet igen. Dessutom kan kan inte programmet infoga rader som hör till klienter andra än den som är anslutna till den shard-databasen. Appen kan inte också uppdatera TenantId i alla rader som den kan se. Om appen försöker göra något, utlöses en DbUpdateException.
 
-Om du lägger till en ny tabell senare ändra säkerhetsprincip för att lägga till FILTRET och BLOCK-predikat på den nya tabellen.
+Om du lägger till en ny tabell senare ändra säkerhetsprincipen för att lägga till FILTER och BLOCK-predikat på den nya tabellen.
 
 ```sql
 ALTER SECURITY POLICY rls.tenantAccessPolicy     
@@ -267,7 +267,7 @@ GO
 
 ### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>Lägg till standardbegränsningar för att automatiskt fylla i TenantId för infogningar
 
-Du kan placera en default-begränsning för varje tabell för att automatiskt fylla TenantId med det värde som för närvarande lagras i SESSION\_KONTEXTEN vid infogning av rader. Ett exempel visas nedan. 
+Du kan placera en Standardbegränsning i varje tabell för att automatiskt fylla TenantId med det värde som för närvarande lagras i sessionen\_KONTEXT när du infogar rader. Ett exempel visas nedan. 
 
 ```sql
 -- Create default constraints to auto-populate TenantId with the
@@ -300,14 +300,14 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 > [!NOTE]
-> Om du använder standardbegränsningar för Entity Framework-projekt, rekommenderar vi att du *inte* innehåller klient-ID-kolumnen i datamodellen EF. Denna rekommendation beror på att Entity Framework frågar automatiskt ange standardvärden som åsidosätter standardbegränsningar skapas i T-SQL som använder sessionen\_KONTEXT.
-> Om du vill använda standardbegränsningar i exempelprojektet, exempelvis bör du ta bort TenantId från DataClasses.cs (och kör Add-migrering i Package Manager-konsolen) och använder T-SQL så att det bara finns fältet i databastabeller. Det här sättet EF automatiskt tillhandahåller felaktiga standardvärden vid infogning av data.
+> Om du använder standardbegränsningar för ett projekt med Entity Framework, rekommenderar vi att du *inte* innehåller TenantId-kolumnen i datamodellen EF. Den här rekommendationen är eftersom Entity Framework-frågor automatiskt ange standardvärden som åsidosätter standardbegränsningar skapas i T-SQL som använder SESSION\_KONTEXT.
+> Om du vill använda standardbegränsningar i exempelprojektet, till exempel bör du ta bort TenantId från DataClasses.cs (och kör Add-migrering i Package Manager-konsolen) och använder T-SQL så att det endast finns på fältet i databastabeller. På så sätt kan EF automatiskt ange felaktiga standardvärden vid infogning av data.
 
-### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(Valfritt) Aktivera en *superanvändare* åtkomst till alla rader
+### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(Valfritt) Aktivera en *superanvändare* att få åtkomst till alla rader
 
-Vissa program kanske vill skapa en *superanvändare* vem som kan komma åt alla rader. En superanvändare gick att aktivera rapportering över alla klienter i alla delar. Eller superanvändare kan utföra åtgärder för delade dokument på shards där du flyttar klienten rader mellan databaser.
+Vissa program kanske vill skapa en *superanvändare* vem som kan komma åt alla rader. En superanvändare kan aktivera rapportering för alla klienter på alla shards. Eller en superanvändare kan utföra åtgärder för dela / sammanslå i fragment som flyttar klient rader mellan databaser.
 
-Om du vill aktivera en superanvändare, skapa en ny SQL-användare (`superuser` i det här exemplet) i varje Fragmentera-databas. Sedan ändra säkerhetsprincipen med en ny predikat funktion som gör att användaren åtkomst till alla rader. En sådan funktion ges nästa.
+Om du vill aktivera en superanvändare, skapa en ny SQL-användare (`superuser` i det här exemplet) i varje shard-databas. Sedan ändra säkerhetsprincipen med en ny predikat funktion som gör att användaren åtkomst till alla rader. Därefter får en sådan funktion.
 
 ```sql
 -- New predicate function that adds superuser logic.
@@ -339,24 +339,24 @@ GO
 
 ### <a name="maintenance"></a>Underhåll
 
-- **Lägga till nya shards**: köra T-SQL-skript för att aktivera RLS på alla nya shards, annars frågor om dessa delar inte att filtreras.
-- **Lägga till nya tabeller**: Lägg till ett FILTER och BLOCK-predikat i säkerhetsprincipen på alla delar när en ny tabell skapas. Frågor om den nya tabellen är annars inte filtreras. Det här tillägget kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [tillämpas på radnivå säkerhet automatiskt till nya tabeller (blogg)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Att lägga till nya fragmenten**: köra T-SQL-skript om du vill aktivera RLS på alla nya fragmenten, annars frågor på dessa fragment inte är att filtreras.
+- **Att lägga till nya tabeller**: lägga till ett FILTER och BLOCK-predikat i säkerhetsprincipen på alla shards varje gång en ny tabell skapas. Frågor om den nya tabellen är annars inte filtreras. Det här tillägget kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [gäller säkerhet på radnivå automatiskt till nya tabeller (blogg)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Sammanfattning
 
-Elastisk Databasverktyg och säkerhet på radnivå kan vara användas ihop skalbar datanivå för ett program med stöd för både flera innehavare och stöd för en innehavare delar. Flera innehavare shards kan användas för att lagra data mer effektivt. Den här effektiviteten uttalas där ett stort antal klienter har bara ett fåtal rader med data. Stöd för en innehavare shards har stöd för premium-klienter som har striktare prestanda och isoleringskrav för.  Mer information finns i [säkerhet på radnivå referens][rls].
+Verktyg för elastiska databaser och säkerhet på radnivå kan finnas tillsammans användas för att skala ut datanivån för ett program med stöd för både flera innehavare och enstaka klientorganisationer fragmenten. Flera klientorganisationer fragmenten kan användas för att lagra data mer effektivt. Den här effektiviteten uttalas där ett stort antal klienter har bara några rader med data. Premium-klienter som har strängare prestanda och isoleringskrav har stöd för enstaka klientorganisationer fragmenten.  Mer information finns i [säkerhet på radnivå referens][rls].
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Vad är en Azure elastisk pool?](sql-database-elastic-pool.md)
+- [Vad är en elastisk pool i Azure?](sql-database-elastic-pool.md)
 - [Skala ut med Azure SQL Database](sql-database-elastic-scale-introduction.md)
 - [Designmönster för SaaS-program med flera klientorganisationer med Azure SQL Database](saas-tenancy-app-design-patterns.md)
 - [Autentisering i appar med flera klienter, med hjälp av Azure AD och OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Tailspin Surveys-programmet](../guidance/guidance-multitenant-identity-tailspin.md)
 
-## <a name="questions-and-feature-requests"></a>Frågor och Funktionsbegäranden
+## <a name="questions-and-feature-requests"></a>Frågor och funktionsförfrågningar
 
-Om du har frågor kontaktar du oss på den [SQL Database-forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Och Lägg till alla funktionsbegäranden till den [SQL-databas Feedbackforum](https://feedback.azure.com/forums/217321-sql-database/).
+Frågor kan du kontakta oss på den [SQL Database-forumet](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Och Lägg till eventuella funktionsbegäranden till den [SQL Database-Feedbackforum](https://feedback.azure.com/forums/217321-sql-database/).
 
 
 <!--Image references-->

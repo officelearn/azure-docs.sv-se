@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 77dca29b0c60726f0a072dd662aba0d12730502a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 650fead700afcc1f6d1d18c7356324074fb9365b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413696"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716459"
 ---
 # <a name="create-mysql-databases"></a>Skapa MySQL-databaser
 
@@ -28,7 +28,7 @@ Du kan skapa och hantera självbetjäning databaser i användarportalen. En Azur
 ## <a name="test-your-deployment-by-creating-a-mysql-database"></a>Testa distributionen genom att skapa en MySQL-databas
 
 1. Logga in på användarportalen för Azure Stack.
-2. Välj **+ ny** > **Data + lagring** > **MySQL-databas** > **lägga till**.
+2. Välj **+ skapa en resurs** > **Data + lagring** > **MySQL-databas** > **Lägg till**.
 3. Under **skapa MySQL-databas**, ange namnet på databasen och konfigurera andra inställningar som krävs för din miljö.
 
     ![Skapa ett test-MySQL-databas](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)

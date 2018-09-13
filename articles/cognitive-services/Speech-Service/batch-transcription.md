@@ -1,6 +1,6 @@
 ---
 title: Azure Batch avskrift API
-description: Prover
+description: Exempel
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: b6fb39ef5941157cfe0d18324deeb9d836d7ab09
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 02af95859bcbdc3dd9fdd6d6354cae9cdf99eae8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377629"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717955"
 ---
 # <a name="batch-transcription"></a>Batch-transkription
 
@@ -59,36 +59,38 @@ Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar B
 
 ## <a name="authorization-token"></a>Autentiseringstoken
 
-Som med alla funktioner i enhetliga Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com). Dessutom kan skaffa du en API-nyckel från portalen tal: 
+Som med alla funktioner i enhetliga Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com). Följ dessa enkla steg 6.
 
-1. Logga in på [Custom Speech](https://customspeech.ai).
+1. En nyckel för prenumerationen har skapats i Azure följande vår [Get-Started guide](get-started.md) 
 
-2. Välj **Prenumerationer**.
+2. Logga in på [Custom Speech](https://customspeech.ai).
 
-3. Välj **generera API-nyckel**.
+3. Välj **Prenumerationer**.
+
+4. Välj **ansluta befintliga prenumeration**.
+
+5. Lägg till prenumerationsnyckeln och ett alias i vyn som visas
 
     ![Skärmbild för anpassat tal prenumerationssidan](media/stt/Subscriptions.jpg)
 
-4. Kopiera och klistra in nyckeln i klientkoden i följande exempel.
+6. Kopiera och klistra in nyckeln i klientkoden i följande exempel.
 
 > [!NOTE]
-> Om du planerar att använda en anpassad modell behöver du ID för den modellen för. Observera att detta inte är distribution eller slutpunkt-ID som du hittar i vyn information om slutpunkten. Det är det modell-ID som du kan hämta när du väljer information om den modellen.
+> Om du planerar att använda en anpassad modell behöver du ID för den modellen för. Observera att detta inte är slutpunkts-ID som du hittar i vyn information om slutpunkten. Det är det modell-ID som du kan hämta när du väljer information om den modellen.
 
 ## <a name="sample-code"></a>Exempelkod
 
 Anpassa följande exempelkod med en prenumerationsnyckel och en API-nyckel. På så sätt kan du hämta en ägartoken.
 
 ```cs
-    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+
         {
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-
-            var tokenProviderPath = "/oauth/ctoken";
-            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
-
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+         
             return new CrisClient(client);
         }
 ```

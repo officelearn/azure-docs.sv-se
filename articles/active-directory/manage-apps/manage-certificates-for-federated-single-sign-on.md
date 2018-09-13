@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/09/2017
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: 7bae891bd16ecd3fbbad88022fbbffd32ff41eae
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d7a5bf23f2855b43c4a2e4022568028d852c094b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577557"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719587"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Hantera certifikat för federerad enkel inloggning i Azure Active Directory
 Den här artikeln innehåller vanliga frågor och information som rör de certifikat som skapas i Azure Active Directory (Azure AD) för att upprätta federerad enkel inloggning (SSO) till dina SaaS-program. Lägg till program från Azure AD-appgalleri eller genom att använda en mall för icke-galleriprogram. Konfigurera programmet med hjälp av alternativet federerad enkel inloggning.
@@ -86,6 +86,6 @@ Följande steg för förnyelse resulterar i utan betydande driftavbrott för din
 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
+* [Programhantering i Azure Active Directory](what-is-application-management.md)
 * [Programåtkomst och enkel inloggning med Azure Active Directory](what-is-single-sign-on.md)
 * [Felsöka SAML-baserad enkel inloggning](../develop/howto-v1-debug-saml-sso-issues.md)

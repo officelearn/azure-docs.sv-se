@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: rebeccaz
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: feb187101ec02d6e765d6b025f518dc416f55b8b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: cc52b9ee290ca362c51f7a30cc09056e66df3c55
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043971"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719825"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett Transparent datakryptering (TDE)-skydd med hjälp av PowerShell
 ## <a name="prerequisites"></a>Förutsättningar

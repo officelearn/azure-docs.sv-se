@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 82845f475857f9a911febd496e86eb2a60f69c25
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: b8d8acda4ff1dee0643227c3fa2375c634c1b4a4
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782251"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717428"
 ---
-# <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL-databaser med hjälp av Azure SQL Analytics (förhandsversion)
+# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
 ![Azure SQL Analytics-symbol](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
@@ -117,13 +117,13 @@ Azure SQL Database [smarta insikter](../sql-database/sql-database-intelligent-in
 
 ![Azure SQL Analytics insikter](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
-### <a name="elastic-pool-and-database-reports"></a>Elastiska pooler och rapporter
+### <a name="elastic-pool-and-database-reports"></a>Elastisk pool och databasrapporter
 
 Både elastiska pooler och databaser har sina egna specifika rapporter som visar alla data som samlas in för resursen i den angivna tiden.
 
 ![Azure SQL Analytics-databas](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
-![Azure SQL Analytics elastisk Pool](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
+![Azure SQL-databaspool](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
 
 ### <a name="query-reports"></a>Fråga rapporter
 
@@ -150,7 +150,7 @@ AzureMetrics
 > - Före kravet för att ställa in den här aviseringen är den övervakade databaser stream diagnostikmåtten (alternativet ”alla mått”) till lösningen.
 > - Ersätt MetricName värdet cpu_percent med dtu_consumption_percent att få hög DTU-resultaten i stället.
 
-*Hög CPU på elastiska pooler i Azure SQL Database*
+*Hög CPU på Azure SQL Database elastiska pooler*
 
 ```
 AzureMetrics 

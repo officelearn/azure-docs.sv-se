@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/09/2018
+ms.date: 09/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3a29319a0d478537dfc4905ee77865b8fea64587
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9cb9fcbb6750bf854cca74ed6bd08a91caed9e26
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38598415"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717598"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Använda Azure Key Vault för att skicka säkra parametervärdet under distributionen
 
@@ -168,63 +168,104 @@ New-AzureRmResourceGroupDeployment `
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>Referera till en hemlighet med dynamiska ID
 
-Föregående avsnitt visade hur du skickar en statisk resurs-ID för key vault-hemlighet. Men i vissa fall kan behöva du referera till en key vault-hemlighet som varierar baserat på den aktuella distributionen. I så fall kan du inte hårdkoda resurs-ID i parameterfilen. Dynamiskt Tyvärr kan du kan inte generera resurs-ID i parameterfilen eftersom malluttryck inte tillåts i parameterfilen.
+Föregående avsnitt visade hur du skickar en statisk resurs-ID för key vault-hemlighet från parametern. Men i vissa fall kan behöva du referera till en key vault-hemlighet som varierar baserat på den aktuella distributionen. Eller så kan du helt enkelt ange parametervärden för mallen i stället skapa en referens-parameter i parameterfilen. I båda fallen kan du dynamiskt generera resurs-ID för en hemlighet i nyckelvalvet genom att använda en länkad mall.
 
-För att dynamiskt generera resurs-ID för en hemlighet i nyckelvalvet, måste du flytta den resurs som behöver hemligheten i en länkad mall. I den överordnade mallen, du lägger till länkad mall och skicka in en parameter som innehåller dynamiskt skapade resurs-ID. Följande bild visar hur en parameter i mallen länkade refererar till hemligheten.
+Du kan inte dynamiskt generera resurs-ID i parameterfilen eftersom malluttryck inte tillåts i parameterfilen. 
+
+I den överordnade mallen, du lägger till länkad mall och skicka in en parameter som innehåller dynamiskt skapade resurs-ID. Följande bild visar hur en parameter i mallen länkade refererar till hemligheten.
 
 ![Dynamisk ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
 
-Länkade mallen måste vara tillgänglig via en extern URI. Normalt kan du lägga till mallen till ett lagringskonto och via URI som `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
-
-Den [följande mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json) dynamiskt skapar nyckelvalvs-ID och skickar det som en parameter. Den länkar till en [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) i GitHub.
+Den [följande mall](https://github.com/Azure/azure-quickstart-templates/tree/master/201-key-vault-use-dynamic-id) dynamiskt skapar nyckelvalvs-ID och skickar det som en parameter.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "vaultName": {
-        "type": "string"
-      },
-      "vaultResourceGroup": {
-        "type": "string"
-      },
-      "secretName": {
-        "type": "string"
-      },
-      "adminLogin": {
-        "type": "string"
-      },
-      "sqlServerName": {
-        "type": "string"
-      }
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "The location where the resources will be deployed."
+            }
+        },
+        "vaultName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the keyvault that contains the secret."
+            }
+        },
+        "secretName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the secret."
+            }
+        },
+        "vaultResourceGroupName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the resource group that contains the keyvault."
+            }
+        },
+        "vaultSubscription": {
+            "type": "string",
+            "defaultValue": "[subscription().subscriptionId]",
+            "metadata": {
+                "description": "The name of the subscription that contains the keyvault."
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
+            },
+            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/"
+        },
+        "_artifactsLocationSasToken": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
+            },
+            "defaultValue": ""
+        }
     },
     "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "adminPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "[resourceId(subscription().subscriptionId,  parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-              },
-              "secretName": "[parameters('secretName')]"
+        {
+            "apiVersion": "2018-05-01",
+            "name": "dynamicSecret",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "contentVersion": "1.0.0.0",
+                    "uri": "[uri(parameters('_artifactsLocation'), concat('./nested/sqlserver.json', parameters('_artifactsLocationSasToken')))]"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[parameters('location')]"
+                    },
+                    "adminLogin": {
+                        "value": "ghuser"
+                    },
+                    "adminPassword": {
+                        "reference": {
+                            "keyVault": {
+                                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+                            },
+                            "secretName": "[parameters('secretName')]"
+                        }
+                    }
+                }
             }
-          },
-          "adminLogin": { "value": "[parameters('adminLogin')]" },
-          "sqlServerName": {"value": "[parameters('sqlServerName')]"}
         }
-      }
-    }],
-    "outputs": {}
+    ],
+    "outputs": {
+        "sqlFQDN": {
+            "type": "string",
+            "value": "[reference('dynamicSecret').outputs.sqlFQDN.value]"
+        }
+    }
 }
 ```
 
@@ -237,8 +278,8 @@ az group create --name datagroup --location "South Central US"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json \
-    --parameters vaultName=<your-vault> vaultResourceGroup=examplegroup secretName=examplesecret adminLogin=exampleadmin sqlServerName=<server-name>
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json \
+    --parameters vaultName=<your-vault> vaultResourceGroupName=examplegroup secretName=examplesecret
 ```
 
 Om du använder PowerShell använder du:
@@ -248,8 +289,8 @@ New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json `
-  -vaultName <your-vault> -vaultResourceGroup examplegroup -secretName examplesecret -adminLogin exampleadmin -sqlServerName <server-name>
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json `
+  -vaultName <your-vault> -vaultResourceGroupName examplegroup -secretName examplesecret
 ```
 
 ## <a name="next-steps"></a>Nästa steg

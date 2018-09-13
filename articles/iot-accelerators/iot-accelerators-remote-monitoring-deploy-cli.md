@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: dd696330c9ee78ef84ac9fcf85946c837ad5b824
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188031"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721627"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera den lösningsacceleratorn för fjärrövervakning med hjälp av CLI
 
@@ -54,7 +54,7 @@ När du distribuerar solution accelerator, finns det flera alternativ som konfig
 | SKU    | `basic`, `standard`, `local` | En _grundläggande_ distribution är avsedd för testning och demonstrationer, alla mikrotjänster distribueras till en virtuell dator. En _standard_ distribution är avsedd för produktion, mikrotjänster distribueras till flera virtuella datorer. En _lokala_ distribution konfigurerar en Docker-behållare för att köra mikrotjänster på den lokala datorn och använder Azure-tjänster, till exempel lagring och Cosmos DB, i molnet. |
 | Körmiljö | `dotnet`, `java` | Väljer språk implementeringen av mikrotjänster. |
 
-Läs om hur du använder den lokala distributionen i [körs av lösningen för fjärrövervakning lokalt](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
+Läs om hur du använder den lokala distributionen i [körs av lösningen för fjärrövervakning lokalt](iot-accelerators-remote-monitoring-deploy-local.md).
 
 ## <a name="basic-vs-standard-deployments"></a>Grundläggande vs. Standard-distributioner
 
@@ -69,9 +69,16 @@ Skapa en grundläggande lösning resulterar i följande Azure-tjänster som etab
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux-dator](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Som är värd för mikrotjänster |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Standard-nivån | Enhetshantering och kommunikation |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Lagra konfigurationsdata och enhetstelemetri som regler och larm meddelanden |  
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Lagra konfigurationsdata, regler, larm och andra kall lagring |  
 | 1     | [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Lagring för virtuell dator och strömma kontrollpunkter |
 | 1     | [Webbprogram](https://azure.microsoft.com/services/app-service/web/)        |                 | Som är värd för frontend-webbprogram |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Hantera användaridentiteter och säkerhet |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visa tillgången platser |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 enheter              | Att aktivera analyser i realtid |
+| 1     | [Azure Device Provisioning-tjänsten](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Etablera enheter i stor skala |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelanden data och aktiverar djupdykning telemetrianalyser |
+
+
 
 ### <a name="standard"></a>Standard
 Standarddistributionen är en produktionsklar distribution utvecklare kan anpassa och utöka för att uppfylla deras behov. För tillförlitlighet och skala program mikrotjänster skapas med Docker-behållare och distribueras via en initierare ([Kubernetes](https://kubernetes.io/) som standard). Orchestrator är ansvarig för distribution, skalning och hantering av programmet.
@@ -82,10 +89,15 @@ Skapa en lösning som Standard leder följande Azure-tjänster som etableras i d
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Virtuella Linux-datorer](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 huvudserver och 3 agenter som värd för mikrotjänster med redundans |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
-| 1     | [Azure IoT Hub] [https://azure.microsoft.com/services/iot-hub/]                     | S2 – Standard-nivån | Enhetshantering, kommando och kontroll |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard-nivån | Enhetshantering, kommando och kontroll |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Lagra konfigurationsdata och enhetstelemetri som regler och larm meddelanden |
 | 5     | [Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 för VM-lagring och 1 för strömmande kontrollpunkter |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Programgateway via SSL |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Hantera användaridentiteter och säkerhet |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visa tillgången platser |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 enheter              | Att aktivera analyser i realtid |
+| 1     | [Azure Device Provisioning-tjänsten](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Etablera enheter i stor skala |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelanden data och aktiverar djupdykning telemetrianalyser |
 
 > Information om priser för de här tjänsterna hittar [här](https://azure.microsoft.com/pricing). Förbrukade belopp och fakturainformationen för prenumerationen kan hittas i den [Azure-portalen](https://portal.azure.com/).
 

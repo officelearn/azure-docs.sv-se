@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 931c3d8beb9f2ed12228c74f09f84bbdee1798b8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b2f4fbca2dcbdd537302746c7b6109e467ea31d7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057373"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720233"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Distribuera mallar med hjälp av Azure Stack-portalen
 
@@ -30,7 +30,7 @@ Du kan använda portalen för att distribuera Azure Resource Manager-mallar i Az
 
 ## <a name="to-deploy-a-template"></a>Distribuera en mall
 
-1. Logga in på portalen väljer **New**, och välj sedan **anpassad**.
+1. Logga in på portalen väljer **+ skapa en resurs**, och välj sedan **anpassad**.
 2. Välj **malldistributionen**.
 3. Välj **redigera mallen**, och sedan klistra in koden JSON-mall i code-fönstret. Välj **Spara**.
 4. Välj **redigera parametrar**, ange värden för parametrarna som visas och välj sedan **OK**.

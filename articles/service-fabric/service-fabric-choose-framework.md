@@ -1,6 +1,6 @@
 ---
-title: Service Fabric programming modellen översikt | Microsoft Docs
-description: 'Service Fabric erbjuder två ramverk för att skapa tjänster: aktören framework och ramverk för tjänster. De erbjuder distinkta avvägningarna i enkelhet och kontroll.'
+title: Service Fabric programming model översikt | Microsoft Docs
+description: 'Service Fabric erbjuder två ramverk för att skapa tjänster: ramverket och tjänstramverket. De ger distinkta kompromisser i enkelhet och kontroll.'
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,56 +14,56 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: a03bb3c74d9c776b893b11c3dec8788fe9ac598c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f37e1ed2c7dd720e4a77076c8587fdf540b29ca5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205984"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713960"
 ---
-# <a name="service-fabric-programming-model-overview"></a>Service Fabric programming översikt över säkerhetsmodell
-Service Fabric finns flera sätt att skriva och hantera dina tjänster. Tjänster kan du använda Service Fabric-API: er för att dra full nytta av funktioner och ramverk för programmet för plattformen. Tjänster kan också vara alla kompilerade körbara program som skrivits i valfritt språk eller en kod som körs i en behållare som finns på ett Service Fabric-kluster.
+# <a name="service-fabric-programming-model-overview"></a>Service Fabric programming model-översikt
+Service Fabric finns flera sätt att skriva och hantera dina tjänster. Tjänster kan du använda Service Fabric-API: er för att dra full nytta av plattformens funktioner och ramverk för programmet. Tjänster kan också vara alla kompilerade körbara program som skrivits i valfritt språk eller kod som körs i en behållare som ett Service Fabric-kluster som värd.
 
 ## <a name="guest-executables"></a>Körbara gästfiler
-En [gäst körbara](service-fabric-guest-executables-introduction.md) är en befintlig godtycklig körbar fil (skrivs på olika språk) som kan köras som en tjänst i ditt program. Gästen körbara filer anropar inte API: er för Service Fabric SDK direkt. Men de fortfarande dra nytta av funktioner som plattformen erbjuder, till exempel tjänsten synlighet, anpassade hälsa och läsa in rapportering genom att anropa REST-API: er för Service Fabric. De kan också ha fullständig programmets livscykeln för support.
+En [körbar gäst](service-fabric-guest-executables-introduction.md) är en befintlig skadlig körbar fil (skrivna på valfritt språk) som kan köras som en tjänst i ditt program. Körbara gäster anropa inte Service Fabric SDK-API: er direkt. Men de fortfarande dra nytta av funktioner som plattformen erbjuder, till exempel tjänsten synlighet, anpassade hälsotillstånd och läsa in rapportering genom att anropa REST API: er visas av Service Fabric. De har också fullständig programmets livscykel för support.
 
-Kom igång med gäst körbara filer genom att distribuera din första [gäst körbara programmet](service-fabric-deploy-existing-app.md).
+Kom igång med gästfiler genom att distribuera din första [körbart gästprogram](service-fabric-deploy-existing-app.md).
 
-## <a name="containers"></a>Behållare
-Som standard Service Fabric distribuerar och aktiverar tjänster som processer. Service Fabric kan också distribuera tjänster i [behållare](service-fabric-containers-overview.md). Service Fabric stöder distribution av behållare för Linux och Windows-behållare på Windows Server 2016. Behållaren avbildningar kan hämtas från databasen för alla behållare och distribueras till datorn. Du kan distribuera befintliga program som gäst körbara filer, Service Fabric tillståndslösa och tillståndskänsliga Reliable services eller Reliable Actors i behållare, och du kan blanda tjänster i processer och tjänster i behållare i samma program.
+## <a name="containers"></a>Containrar
+Som standard, Service Fabric distribuerar och aktiverar tjänster som processer. Service Fabric kan också distribuera tjänster i [behållare](service-fabric-containers-overview.md). Service Fabric stöder distribution av Linux-behållare och Windows-behållare på Windows Server 2016. Behållaravbildningar kan hämtas från en lagringsplats för behållare och distribueras till datorn. Du kan distribuera befintliga program som körbara gäster, Service Fabric tillståndslösa eller tillståndskänsliga Reliable services eller Reliable Actors i behållare och du kan blanda tjänster i processer och tjänster i behållare i samma program.
 
-[Mer information om containerizing dina tjänster i Windows eller Linux](service-fabric-deploy-container.md)
+[Mer information om användning av dina tjänster i Windows eller Linux](service-fabric-deploy-container.md)
 
 ## <a name="reliable-services"></a>Reliable Services
-Reliable Services är ett ramverk för inaktiverat alternativ för att skriva tjänster som integreras med Service Fabric-plattformen och dra nytta av en fullständig uppsättning funktioner. Reliable Services ger en minimal uppsättning API: er som tillåter Service Fabric runtime att hantera livscykeln för dina tjänster och som gör att dina tjänster att interagera med körningsmiljön. Application framework är minimal, vilket ger dig fullständig kontroll över alternativ för design och implementering och kan användas som värd för alla andra programramverk, till exempel ASP.NET Core.
+Reliable Services är en lätt ramverk för att skriva tjänster som integreras med Service Fabric-plattformen och dra nytta av den fullständiga uppsättningen funktioner. Reliable Services tillhandahåller en minimal uppsättning API: er som gör det Service Fabric-körning för att hantera livscykeln för dina tjänster och som gör att dina tjänster för att interagera med körningsmiljön. Application framework är minimal, vilket ger dig fullständig kontroll över alternativ för design och implementering, och kan användas som värd för alla andra programramverket, till exempel ASP.NET Core.
 
-Reliable Services kan vara tillståndslös, liknar de flesta service-plattformar, till exempel webbservrar, där varje instans av tjänsten har skapats lika och tillstånd sparas i en extern lösning, till exempel Azure DB eller Azure Table Storage.
+Reliable Services kan vara tillståndslösa, ungefär som i de flesta service-plattformar, till exempel webbservrar, där varje instans av tjänsten är skapade på samma sätt och tillstånd sparas i en extern lösning, till exempel Azure DB eller Azure Table Storage.
 
-Reliable Services kan också vara tillståndsbaserad exklusivt för Service Fabric, där tillståndet sparas direkt i tjänsten sig själv med hjälp av tillförlitliga samlingar. Tillståndet gjort hög tillgänglighet via replikering och distribueras via partitionering, allt hanteras automatiskt av Service Fabric.
+Reliable Services kan också vara tillståndskänslig uteslutande till Service Fabric, där tillståndet bevaras direkt i tjänsten själva med hjälp av tillförlitliga samlingar. Tillstånd har gjorts med hög tillgänglighet via replikering och distribueras via partitionering, allt hanteras automatiskt av Service Fabric.
 
-[Mer information om Reliable Services](service-fabric-reliable-services-introduction.md) eller Kom igång genom att [skriva din första tillförlitlig tjänst](service-fabric-reliable-services-quick-start.md).
+[Läs mer om Reliable Services](service-fabric-reliable-services-introduction.md) eller Kom igång genom att [skriva din första tillförlitlig tjänst](service-fabric-reliable-services-quick-start.md).
 
 ## <a name="aspnet-core"></a>ASP.NET Core
-ASP.NET Core är ett nytt öppen källkod och plattformsoberoende ramverk för att bygga moderna molnbaserade Internetanslutna program, till exempel webbappar, IoT-appar och mobila serverdelar. Service Fabric integreras med ASP.NET Core så att du kan skriva ASP.NET Core både tillståndslösa och tillståndskänsliga program som utnyttjar tillförlitliga samlingar och Service Fabric avancerade orchestration-funktioner.
+ASP.NET Core är en ny öppen källkod och plattformsoberoende ramverk för att skapa moderna molnbaserade Internet-anslutna program, till exempel webbappar, IoT-appar och mobila serverdelar. Service Fabric integreras med ASP.NET Core så att du kan skriva både tillståndslösa och tillståndskänsliga ASP.NET Core program som drar nytta av tillförlitliga samlingar och Service Fabric avancerade orchestration-funktioner.
 
-[Lär dig mer om ASP.NET Core i Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) eller Kom igång genom att [skriver din första ASP.NET Core Service Fabric-program](service-fabric-reliable-services-communication-aspnetcore.md).
+[Läs mer om ASP.NET Core i Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) eller Kom igång genom att [skriva din första ASP.NET Core Service Fabric-program](service-fabric-tutorial-create-dotnet-app.md).
 
 ## <a name="reliable-actors"></a>Reliable Actors
-Tillförlitliga aktören framework är byggda på Reliable Services ett programramverk som implementerar virtuella aktören mönster, baserat på aktören designmönstret. Tillförlitliga aktören framework används oberoende enheter beräkning och tillstånd med Enkeltrådig körning kallas aktörer. Ramverket för tillförlitlig aktören innehåller inbyggd kommunikation för aktörer och förinställda tillstånd beständighet och skalbar konfigurationer.
+Skapad utifrån Reliable Services och är Reliable Actor-ramverket ett programramverk som implementerar mönstret virtuella aktören baserat på designmönstret aktör. Reliable Actor-framework använder oberoende enheter av beräknings- och tillstånd med Enkeltrådig körning kallas aktörer. Reliable Actor-ramverk tillhandahåller inbyggd kommunikation för aktörer och förinställda tillstånd persistence och skala ut konfigurationer.
 
-Eftersom Reliable Actors är ett programramverk som bygger på Reliable Services, är den helt integrerade med Service Fabric-plattformen och fördelarna med en fullständig uppsättning funktioner som erbjuds av plattformen.
+Eftersom Reliable Actors är ett programramverk som bygger på Reliable Services, är det helt integrerat med Service Fabric-plattformen och fördelarna med en fullständig uppsättning funktioner som erbjuds av plattformen.
 
-[Mer information om Reliable Actors](service-fabric-reliable-actors-introduction.md) eller Kom igång genom att [skriva din första tillförlitliga aktören-tjänst](service-fabric-reliable-actors-get-started.md)
+[Läs mer om Reliable Actors](service-fabric-reliable-actors-introduction.md) eller Kom igång genom att [skriva din första Reliable Actor-tjänst](service-fabric-reliable-actors-get-started.md)
 
 
-[Skapa en frontend-tjänst med ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+[En frontend-tjänst med ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ## <a name="next-steps"></a>Nästa steg
 [Översikt över Service Fabric och behållare](service-fabric-containers-overview.md)
 
 [Översikt över Reliable Services](service-fabric-reliable-services-introduction.md)
 
-[Översikt över tillförlitliga aktörer](service-fabric-reliable-actors-introduction.md)
+[Översikt över Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
 [Service Fabric och ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
 

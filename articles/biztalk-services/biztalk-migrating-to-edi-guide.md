@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 001dc4d5057767191003697c5fb819e53a8658f2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365595"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719944"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrera BizTalk Server EDI-lösningar till BizTalk Services: teknisk Guide
 
@@ -55,7 +55,7 @@ Viktiga skillnader och likheter mellan ett EDI-lösningsflödet i BizTalk Server
   
     I BizTalk Services, när EDI fått brygga behandlar EDI-meddelande, dirigeras meddelandet till en extern process. Extern process kan köras på Microsoft Azure eller lokalt. Extern process bör dirigera meddelandet till EDI skicka bryggan; Skicka bryggan hämtar inte meddelandet sin natur. När behandlingen av meddelandet dirigerar bryggan EDI skicka meddelandet till handelspartner.
 
-BizTalk Services får du en enkel att använda konfigurationsupplevelse för att snabbt skapa och distribuera en B2B-avtal mellan handelspartner utan att konfigurera alla Microsoft Azure Compute-instanser (Web- eller Worker-roller), alla Microsoft Azure SQL-databaser eller någon Microsoft Azure storage-konton. Mer komplicerade scenarier kräver integreras i arbetsflöden eller annan bearbetning som tjänst ”runt kanterna” i en Trading Partner avtal, det vill säga före eller efter Trading Partner avtal EDI bridge-bearbetning. I detalj inträffar av händelser följande under ett EDI-meddelandebehandling i BizTalk Services.
+BizTalk Services får du en enkel att använda konfigurationsupplevelse för att snabbt skapa och distribuera en B2B-avtal mellan handelspartner utan att konfigurera alla Microsoft Azure Compute-instanser (Web- eller Worker-roller), valfri Microsoft Azure SQL-databas eller någon Microsoft Azure storage-konton. Mer komplicerade scenarier kräver integreras i arbetsflöden eller annan bearbetning som tjänst ”runt kanterna” i en Trading Partner avtal, det vill säga före eller efter Trading Partner avtal EDI bridge-bearbetning. I detalj inträffar av händelser följande under ett EDI-meddelandebehandling i BizTalk Services.
 
 1. Ett EDI-meddelande tas emot från handelspartner, Fabrikam.  För att ta emot EDI-meddelanden från handelspartner BizTalk Services har stöd för transport som FTP-, SFTP, AS2 och HTTP/S.
 2. Handel partner avtal receive side bearbetningen Disassemblerar EDI-meddelande till XML-format.  Du kan dirigera nedmonterade EDI-meddelanden (i XML-format) till Service Bus-slutpunkter som en Service Bus Relay-slutpunkt, Service Bus-ämne, Service Bus-kö eller en brygga med BizTalk Services.

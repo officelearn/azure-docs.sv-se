@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/1/2018
+ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 441469e24de5324fb5bed40c75f9a6b26f85bcc5
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325064"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717683"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -33,9 +33,9 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 1. I den [portal](https://portal.azure.com)väljer **övervakaren**. Den **övervakaren** bladet konsoliderar alla dina övervakningsinställningar och -data i en vy.
 
     ![”Övervakningstjänsten”](./media/monitoring-action-groups/home-monitor.png)
-1. I den **inställningar** väljer **åtgärdsgrupper**.
+1. Välj **aviseringar** därefter **hantera åtgärdsgrupper**.
 
-    ![Fliken ”åtgärdsgrupper”](./media/monitoring-action-groups/action-groups-blade.png)
+    ![Hantera åtgärdsgrupper knappen](./media/monitoring-action-groups/manage-action-groups.png)
 1. Välj **Lägg till åtgärdsgrupp**, och Fyll i fälten.
 
     ![Kommandot ”Lägg till åtgärdsgrupp”](./media/monitoring-action-groups/add-action-group.png)
@@ -97,6 +97,17 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 <dt>Webhook</dt>
 <dd>Du kan ha upp till 10 Webhook-åtgärder i en åtgärdsgrupp
 <dd>Logik för omprövning - tidsgränsen för svar är 10 sekunder. Webhook-anrop kommer att göras upp till 2 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504 eller HTTP-slutpunkten inte svarar. Det första återförsöket sker efter 10 sekunder. Andra och sista återförsök sker efter 100 sekunder.</dd>
+<dd>Käll-IP-adressintervall
+<ul>
+    <li>13.106.57.181</li>
+    <li>13.106.54.3</li>
+    <li>13.106.54.19</li>
+    <li>13.106.38.142</li>
+    <li>13.106.38.148</li>
+    <li>13.106.57.196</li>
+</ul>
+Att ta emot uppdateringar om ändringar av dessa IP-adresser som vi rekommenderar att du konfigurerar en [hälsoavisering för tjänst](./monitoring-service-notifications.md) som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
+</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>Hantera din åtgärdsgrupper ##

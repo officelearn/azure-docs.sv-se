@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d111a9f852b849df15dbd056a7210fac82cee190
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: eebe41ea879ad34defadd08ce3095f7f6edca4d8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324263"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719808"
 ---
 # <a name="about-the-text-to-speech-api"></a>Om Text till tal-API
 
@@ -37,6 +37,21 @@ Scenarier i vilka tal syntes används är:
 Microsofts **text till tal** tjänsten erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda dessa standard ”rösttyper”, behöver du bara ange voice-namn med några andra parametrar när du anropar tjänstens REST API. Information om röster som stöds, se [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
 
 Om du vill ha en unik röst för ditt program, kan du skapa [anpassade rösttyper](how-to-customize-voice-font.md) från din egen tal-exempel.
+
+## <a name="api-capabilities"></a>API-funktioner
+
+Många av funktionerna i den **Text till tal** API - särskilt när det gäller anpassning - är tillgängliga via REST. I följande tabell sammanfattas funktionerna för varje metod för att komma åt API: et. För en fullständig lista över funktioner och API: et. detaljer finns [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+
+| Användningsfall | REST | SDK:er |
+|-----|-----|-----|----|
+| Ladda upp datauppsättningar för röst-anpassning | Ja | Nej |
+| Skapa och hantera modeller för röst-teckensnitt | Ja | Nej |
+| Skapa och hantera distributioner av röst teckensnitt | Ja | Nej |
+| Skapa och hantera röst teckensnitt tester| Ja | Nej |
+| Hantera prenumerationer | Ja | Nej |
+
+> [!NOTE]
+> API: et implementerar de nätverksbegränsningar API-begäranden till 25 per 5 sekunder. Meddelandet hearders informerar begränsningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

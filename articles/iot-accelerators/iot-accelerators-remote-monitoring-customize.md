@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 36e63d26bf7ada2d23fa3cd9fddbb5ba90494527
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 01ef5fd70b1c919c5aa2a7afbb6e46558a80b1f3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126030"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717345"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Anpassa lösningsacceleratorn för fjärrövervakning
 
@@ -454,8 +454,8 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 Du kan redigera koden för att ändra presentationen och visualiseringar lagret i lösningen för fjärrövervakning ytterligare. De relevanta GitHub-databaserna är:
 
-* [Konfiguration av mikrotjänster för Azure IoT lösningar (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
-* [Konfiguration av mikrotjänster för Azure IoT-lösningar (Java)](https://github.com/Azure/pcs-ui-config-java/)
+* [Konfiguration av mikrotjänster för Azure IoT lösningar (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)
+* [Konfiguration av mikrotjänster för Azure IoT-lösningar (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config)
 * [Azure IoT-datorer webbgränssnittet för fjärrövervakning](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## <a name="next-steps"></a>Nästa steg

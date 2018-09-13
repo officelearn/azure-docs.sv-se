@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 7948b54bd6402cf238c5709d270087746ed4fa95
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 7cd5fc965a57052323d4b916f0f2b7dbc0feb7b3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380377"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715422"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Skapa och konfigurera lokal Integration Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Mer information om IR finns [översikten över Integration Runtime](concepts-integration-runtime.md).
@@ -57,7 +57,7 @@ Här är ett övergripande dataflöde för sammanfattning av stegen för att kop
 
 ## <a name="considerations-for-using-self-hosted-ir"></a>Att tänka på när lokal IR
 
-- En enda lokal integration runtime kan användas för flera lokala datakällor. Men en **enda lokal integration runtime är knuten till endast en Azure data factory** och kan inte delas med en annan data factory.
+- En enda lokal integration runtime kan användas för flera lokala datakällor. En **enda lokal integration runtime kan** delas med en annan data factory inom samma Azure Active Directory-klientorganisation. Mer information finns i [delning av en lokal integration runtime](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
 - Du kan ha **endast en instans av lokal integration runtime** installeras på en enda dator. Anta att du har två datafabriker som behöver åtkomst till lokala datakällor kan behöva du installera lokal integration runtime på två lokala datorer. Med andra ord är en lokal integration runtime knuten till en specifik data factory
 - Den **lokal integration runtime behöver inte finnas på samma dator som datakällan**. Men minskar integration runtime med egen värd närmare datakällan tiden för lokal integration runtime kan ansluta till datakällan. Vi rekommenderar att du installerar den lokala integreringskörningen på en dator som skiljer sig från det som är värd för en lokal datakälla. När lokal integration runtime och datakällan finns på olika datorer, lokal integration runtime inte konkurrerar om resurser med datakällan.
 - Du kan ha **flera IR-körningar på olika datorer som ansluter till samma lokala datakälla**. Exempelvis kan du kan ha två lokal integration runtime som betjänar två datafabriker men samma lokala datakälla har registrerats med båda datafabriker.

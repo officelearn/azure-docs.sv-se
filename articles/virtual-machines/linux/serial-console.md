@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: ceaa61832212093ac52225fc34db1ed7f4571a18
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 8a4b29cf8f2a5a79c68bad3631a54449d3ada09a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380309"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717870"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtual Machine Serial Console (förhandsversion) 
 
@@ -172,7 +172,7 @@ Problem                           |   Åtgärd
 :---------------------------------|:--------------------------------------------|
 Träffa ange när anslutningen popup-meddelandet inte visas en logg i Kommandotolken | Finns på följande sida: [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Detta kan inträffa om du använder en anpassad virtuell dator, förstärkt installation eller GRUB konfiguration som orsakar Linux för att kunna ansluta ordentligt till den seriella porten.
 Ett ”förbjuden”-svar påträffades vid åtkomst till den här Virtuella datorns lagringskonto för startdiagnostik. | Kontrollera att startdiagnostik inte har en brandvägg för kontot. Ett lagringskonto för tillgänglig startdiagnostik är nödvändigt för seriekonsolen ska fungera.
-Seriell konsol text tar endast upp en del av skärmstorlek (ofta när du använder en textredigerare) | Det här är ett känt problem med okänt skärmstorlek över seriella anslutningar. Vi rekommenderar instaling xterm eller några andra liknande verktyg som ger kommandot 'storleksändring'. Köra, ändra storlek på' åtgärda detta.
+Seriell konsol text tar endast upp en del av skärmstorlek (ofta när du använder en textredigerare) | Seriell konsoler stöder inte förhandling om fönsterstorlek ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), vilket innebär att det blir inga SIGWINCH signalen skickas till uppdatera skärmens storlek och den virtuella datorn har ingen kunskap om storleken på din terminal. Vi rekommenderar instaling xterm eller några andra liknande verktyg som ger kommandot 'storleksändring'. Köra, ändra storlek på' åtgärda detta.
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar 

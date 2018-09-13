@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 133cba72a93d692851043f1c66d6a4a38e18b324
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d82cc3ee1074e326c9e4dee7fd65e338cb95e19f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379476"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722239"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -40,7 +40,7 @@ Du skapar inte säkerhetskopior i Azure SQL DB och det beror på att du inte beh
 
 |Prestandanivå|Kvarhållningsperiod i dagar|
 |---|:---:|
-|Standard|7|
+|Basic|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -234,7 +234,7 @@ SQL Database erbjuder olika tjänstnivåerna Basic, Standard och Premium. Varje 
 
 För att se till att du använder rätt prestandanivå, kan du övervaka din fråga och databasen resursförbrukning genom någon av ovan nämnda sätt i ”hur övervakar jag prestanda och Resursanvändning i SQL Database”. Du bör märka att dina frågor/databaser konsekvent kör frekvent på processor/minne etc. kan du skala till en högre prestandanivå. På samma sätt, om du Observera att även under din belastning du verkar inte använda resurserna så mycket; Överväg att skala från den aktuella prestandanivån. 
 
-Om du har ett mönster för SaaS-app eller ett scenario för konsolidering av databasen kan du använda en elastisk Pool för kostnadsoptimeringar. Elastisk pool är ett bra sätt att uppnå databasen konsoliderings- och kostnadsoptimeringar. Läsa mer om hur du hanterar flera databaser med hjälp av elastisk Pool, se: [hantera pooler och databaser](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
+Om du har ett mönster för SaaS-app eller ett scenario för konsolidering av databasen kan du använda en elastisk pool för kostnadsoptimeringar. Elastisk pool är ett bra sätt att uppnå databasen konsoliderings- och kostnadsoptimeringar. Läsa mer om hur du hanterar flera databaser med hjälp av elastisk Pool, se: [hantera pooler och databaser](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Hur ofta behöver jag kör databasen integritetskontroller min databas?
 SQL Database använder vissa smart tekniker för att den kan hantera vissa klasser av skadade data automatiskt och utan dataförlust. Dessa metoder är inbyggda i tjänsten och utnyttjas av tjänsten när behöver uppstår. Med jämna mellanrum testas din databassäkerhetskopior för tjänsten, genom att återställa dem och köra DBCC CHECKDB på den. Om det finns problem, hanterar SQL-databas proaktivt dem. [Automatisk reparation](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) utnyttjas för att åtgärda sidor som är skadad eller har problem med dataintegriteten. Sidorna databasen verifieras alltid med KONTROLLSUMMA standardinställningen som kontrollerar integriteten för sidan. SQL Database proaktivt övervakar och granskar dataintegriteten för din databas och, om det uppstår fel bemöta dem med högst prioritet. Förutom dessa kan du om du vill köra dina egna integritetskontroller när du din vill.  Mer information finns i [dataintegriteten i SQL-databas](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)

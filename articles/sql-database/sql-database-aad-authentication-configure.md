@@ -10,13 +10,13 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: mireks
-ms.reviewer: carlrab
-ms.openlocfilehash: a648071d4d98f500e70557b330d5c79dba747a1f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.reviewer: vanto
+ms.openlocfilehash: d123cb2d272f1c360d12e9d71eec6dc5ca508ebd
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345251"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718754"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL Database Managed Instance eller SQL Data Warehouse
 
@@ -189,7 +189,7 @@ I följande exempel tar bort en Azure AD-administratör:
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-Du kan också etablera en Azure Active Directory-administratör med hjälp av REST-API: er. Mer information finns i [Service Management REST API-referens och åtgärder för Azure SQL-databaser för Azure SQL-databaser](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+Du kan också etablera en Azure Active Directory-administratör med hjälp av REST-API: er. Mer information finns i [Service Management REST API-referens och åtgärder för Azure SQL Database-åtgärder för Azure SQL Database](https://msdn.microsoft.com/library/azure/dn505719.aspx)
 
 ### <a name="cli"></a>CLI  
 Du kan också etablera en Azure AD-administratör genom att anropa följande CLI-kommandon:

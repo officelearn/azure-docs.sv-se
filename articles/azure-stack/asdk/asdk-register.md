@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c4fb8e1972286776a5fc7a13c5e9a8c91e370dd3
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: eacf8fc9335af2dacffa3e13da47ea39a2776f2b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338627"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714572"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registrering
 Du kan registrera din Azure Stack Development Kit (ASDK)-installation med Azure kan du hämta marketplace från Azure och du ställer in handelsdata rapporterar tillbaka till Microsoft. Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive marketplace syndikering. Registrering rekommenderas eftersom det gör att du kan testa viktiga Azure Stack-funktioner som marketplace-syndikering och användningsrapportering. När du har registrerat Azure Stack rapporteras användning till Azure commerce. Du kan se den prenumeration som du använde för registrering. ASDK användare debiteras dock inte för eventuell användning av rapporterar.
@@ -45,12 +45,11 @@ Följ dessa steg för att registrera ASDK med Azure.
 
 1. Öppna en PowerShell-konsol som administratör.  
 
-2. Kör följande PowerShell-kommandon för att registrera din ASDK-installation med Azure. Du behöver att logga in på både Azure-prenumerationen och den lokala ASDK-installationen. Om du inte har en Azure-prenumeration än kan du [skapa ett kostnadsfritt konto här](https://azure.microsoft.com/free/?b=17.06). Registrera Azure Stack medför utan kostnad på din Azure-prenumeration.  
+2. Kör följande PowerShell-kommandon för att registrera din ASDK-installation med Azure. Du behöver att logga in på både Azure-prenumerationen och den lokala ASDK-installationen. Om du inte har en Azure-prenumeration än kan du [skapa ett kostnadsfritt konto här](https://azure.microsoft.com/free/?b=17.06). Registrera Azure Stack medför utan kostnad på din Azure-prenumeration.<br><br>Om du kör skriptet registrering på fler än en instans av Azure Stack med samma Azure-prenumerationens ID, ange ett unikt namn för registrering när du kör den **Set-AzsRegistration** cmdlet. Den **RegistrationName** parametern har ett standardvärde på **AzureStackRegistration**. Om du använder samma namn på fler än en instans av Azure Stack kan misslyckas skriptet.
 
-Om du kör skriptet registrering på fler än en instans av Azure Stack med samma Azure-prenumerationens ID, ange ett unikt namn för registrering när du kör den **Set-AzsRegistration** cmdlet. Den **RegistrationName** parametern har ett standardvärde på **AzureStackRegistration**. Om du använder samma namn på fler än en instans av Azure Stack kan misslyckas skriptet.
-
-  ```PowerShell  
-    # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
+    ```PowerShell  
+    # Add the Azure cloud subscription environment name. 
+    # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
     Add-AzureRmAccount -EnvironmentName "AzureCloud"
 
     # Register the Azure Stack resource provider in your Azure subscription
@@ -67,7 +66,7 @@ Om du kör skriptet registrering på fler än en instans av Azure Stack med samm
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
     -RegistrationName "<Unique-name>"
-  ```
+    ```
 3. När skriptet har slutförts bör du se det här meddelandet: **miljön är nu registrerad och aktiverad med hjälp av de angivna parametrarna.**
 
     ![Din miljö är nu registrerad](media/asdk-register/1.PNG)

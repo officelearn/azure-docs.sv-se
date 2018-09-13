@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c12a8d342e2fec41cb2318ac7abfe1d3fce31cef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391699"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713977"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Tillgänglighet för SAP HANA i Azure-regioner
 
@@ -46,7 +46,7 @@ Om du använder oss av delar DR-målet med en QA-dator i en virtuell dator kan b
 - Det finns två [arbetslägen](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) med delta_datashipping och logreplay, som är tillgängliga för ett sådant scenario
 - Båda arbetslägen har olika minneskrav utan förinläsning av data
 - Delta_datashipping kan kräva drastiskt mindre minne utan alternativet true än logreplay kan det krävas. Se kapitel 4.3 av SAP-dokumentet [hur du utför System Replication för SAP HANA](https://archive.sap.com/kmuuid2/9049e009-b717-3110-ccbd-e14c277d84a3/How%20to%20Perform%20System%20Replication%20for%20SAP%20HANA.pdf)
-- Minneskravet för logreplay arbetsläge utan Förhandsladda är inte deterministisk och beror på inlästa columnstore strukturer
+- Minneskravet för logreplay arbetsläge utan Förhandsladda är inte deterministisk och beror på inlästa columnstore strukturer. Du kan behöva 50% av minnet för den primära instansen i extrema fall. Minne för logreplay arbetsläge är oberoende på om du har valt att förinlästa informationen eller inte.
 
 
 ![Diagram över två regioner på två virtuella datorer](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c5621d5e16e31104ee28cc521386a5c0ca290a8b
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 66494ca6bd9b4d8276469e85f4c6bb435ae245f7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187707"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716408"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Vanliga frågor om IoT-Lösningsacceleratorer
 
@@ -73,10 +73,6 @@ Två. Du kan skapa två interna transaktioner nivå 1 Bing Maps för Enterprise-
 > Microsoft Azure för DreamSpark kallas nu Microsoft Imagine för studenter.
 
 För närvarande kan du inte skapa en lösningsaccelerator med en [Microsoft Azure för DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) konto. Du kan dock skapa en [kostnadsfritt utvärderingskonto för Azure](https://azure.microsoft.com/free/) på bara några minuter som du kan skapa en lösningsaccelerator.
-
-### <a name="can-i-create-a-solution-accelerator-if-i-have-cloud-solution-provider-csp-subscription"></a>Kan jag skapa en lösningsaccelerator om jag har Cloud Solution Provider (CSP)-prenumeration?
-
-För närvarande kan skapa du inte en lösningsaccelerator med en prenumeration för Cloud Solution Provider (CSP). Du kan dock skapa en [kostnadsfritt utvärderingskonto för Azure](https://azure.microsoft.com/free/) på bara några minuter som du kan skapa en lösningsaccelerator.
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>Hur tar jag bort en AAD-klient?
 

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 09/12/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 748489785241c0eab6022e3585164974f330d6f9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1ec4a6033fad643c75cdf9f7ebc5cdb1f4bab9c3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049681"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717156"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett virtuellt nätverk för Azure SQL Database Managed Instance
 
@@ -38,31 +38,31 @@ Planera hur du distribuerar en hanterad instans i virtuellt nätverk med dina sv
 
 ## <a name="requirements"></a>Krav
 
-För att skapa en hanterad instans måste du anger ett undernät i det virtuella nätverket som uppfyller följande krav:
-- **Dedikerade undernät**: undernätet får inte innehålla andra molntjänst som är associerade med den och det får inte vara Gateway-undernätet. Du kan inte skapa Managed Instance i undernät som innehåller resurser än hanterad instans eller lägga till andra resurser i undernätet senare.
-- **Inga Nätverkssäkerhetsgrupper är**: undernätet får inte ha en Nätverkssäkerhetsgrupp som är kopplade till den. 
-- **Har specifika routningstabellen**: undernätet måste ha en användare väg tabell (UDR) med 0.0.0.0/0 nästa hopp till Internet som den enda vägen tilldelade till den. Mer information finns i [skapar nödvändiga routningstabell och associerar den](#create-the-required-route-table-and-associate-it)
-3. **Valfri anpassad DNS**: om anpassad DNS anges i det virtuella nätverket, Azures rekursiva matchare IP-adress (till exempel 168.63.129.16) måste läggas till i listan. Mer information finns i [konfigurera anpassad DNS](sql-database-managed-instance-custom-dns.md).
-4. **Tjänsten har inga slutpunkter**: undernätet får inte ha en tjänstslutpunkt som är associerade med den. Kontrollera att tjänsten slutpunkter alternativet inaktiveras när du skapar virtuella nätverk.
-5. **Tillräckligt med IP-adresser**: undernätet måste ha minst 16 IP-adresser (rekommenderas minst är 32 IP-adresser). Mer information finns i [avgör storleken på undernätet för hanterade instanser](#determine-the-size-of-subnet-for-managed-instances)
+Om du vill skapa en hanterad instans, skapar du ett dedikerat undernät (hanterad instans-undernät) i det virtuella nätverket som uppfyller följande krav:
+- **Dedikerade undernät**: The Managed Instance undernätet får inte innehålla andra molntjänst som är associerade med det och det får inte vara ett Gateway-undernät. Du kommer inte att kunna skapa en hanterad instans i ett undernät som innehåller resurser än Managed Instance och du kan inte senare lägga till andra resurser i undernätet.
+- **Kompatibel Nätverkssäkerhetsgrupp (NSG)**: en NSG som är associerade med en hanterad instans-undernätet måste innehålla regler som visas i följande tabeller (obligatorisk inkommande säkerhetsregler och obligatoriska utgående säkerhetsregler) framför andra regler. Du kan använda en NSG för att fullständigt kontrollera åtkomsten till slutpunkten för hanterad instans-data genom att filtrera trafik på port 1433. 
+- **Tabellen kompatibla användardefinierad väg (UDR)**: The Managed Instance undernätet måste ha en routningstabell för användare med **0.0.0.0/0 nästa hopp till Internet** som obligatoriska UDR tilldelade till den. Dessutom kan du lägga till en UDR som dirigerar trafik som har lokala privata IP-adressintervall som ett mål via vnet-gateway eller virtuell nätverksinstallation (NVA). 
+- **Valfri anpassad DNS**: om en anpassad DNS har angetts på thevirtual nät nätverken nätverk, Azures rekursiva matchare IP-adress (till exempel 168.63.129.16) måste läggas till i listan. Mer information finns i [konfigurera anpassad DNS](sql-database-managed-instance-custom-dns.md). Anpassad DNS-server måste kunna matcha värdnamn i följande domäner och deras underdomäner: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, och *microsoftonline p.com*. 
+- **Tjänsten har inga slutpunkter**: The Managed Instance undernätet får inte ha en tjänstslutpunkt som är associerade med den. Kontrollera att tjänsten slutpunkter alternativet inaktiveras när du skapar det virtuella nätverket.
+- **Tillräckligt med IP-adresser**: The Managed Instance undernätet måste ha minst 16 IP-adresser (rekommenderas minst är 32 IP-adresser). Mer information finns i [avgör storleken på undernätet för hanterade instanser](#determine-the-size-of-subnet-for-managed-instances)
 
 > [!IMPORTANT]
-> Du kan inte distribuera nya Managed Instance om målundernätet inte är kompatibel med alla föregående krav. Målets virtuella nätverket och undernätet måste hållas i enlighet med kraven för hanterad instans (före och efter distributionen), eftersom varje överträdelse kan medföra att instansen att ange felaktigt tillstånd och blir otillgänglig. Återställa från att tillstånd måste du skapa ny instans i ett virtuellt nätverk med efterlevnadsprinciperna för nätverk, återskapa nivå instansdata och Återställ dina databaser. Det här medför betydande driftavbrott för dina program.
+> Du kan inte distribuera en ny hanterad instans om målundernätet inte är kompatibel med alla dessa krav. När en hanterad instans skapas en *avsikt nätverksprincip* har tillämpats på undernätet för att förhindra att icke-kompatibla ändringar till konfiguration av nätverk. När den senaste instansen har tagits bort från undernätet på *avsikt nätverksprincip* tas också bort
 
-Med introduktionen av _avsikt nätverksprincip_, du kan lägga till en nätverkssäkerhetsgrupp (NSG) i ett undernät för hanterad instans när den hanterade instansen har skapats.
-
-Du kan nu använda en NSG för att begränsa IP-adressintervall som program och användare kan söka i och hantera data genom att filtrera trafik som skickas till port 1433. 
-
-> [!IMPORTANT]
-> När du konfigurerar NSG-regler som kommer fasthålla åtkomst till port 1433, måste du också att infoga den högsta prioriteten regler för inkommande trafik som visas i tabellen nedan. Annars nätverksprincip avsikt blockerar ändringen som inte är kompatibla.
+### <a name="mandatory-inbound-security-rules"></a>Obligatorisk inkommande säkerhetsregler 
 
 | NAMN       |PORT                        |PROTOKOLL|KÄLLA           |MÅL|ÅTGÄRD|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|hantering  |9000, 9003, 1438, 1440, 1452|Alla     |Alla              |Alla        |Tillåt |
+|hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |Alla        |Tillåt |
 |. mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |Alla        |Tillåt |
 |health_probe|Alla                         |Alla     |AzureLoadBalancer|Alla        |Tillåt |
 
-Routning upplevelsen har också förbättrats så att förutom 0.0.0.0/0 nexthop-typen Internet-väg, kan du nu lägga till UDR för att dirigera trafik skickas till din lokala privata IP-adressintervall via vnet-gateway eller virtuell nätverksinstallation (NVA).
+### <a name="mandatory-outbound-security-rules"></a>Obligatorisk utgående säkerhetsregler 
+
+| NAMN       |PORT          |PROTOKOLL|KÄLLA           |MÅL|ÅTGÄRD|
+|------------|--------------|--------|-----------------|-----------|------|
+|hantering  |80, 443, 12000|TCP     |Alla              |Alla        |Tillåt |
+|. mi_subnet   |Alla           |Alla     |Alla              |MI – UNDERNÄT  |Tillåt |
 
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Avgör storleken på undernätet för hanterade instanser
 

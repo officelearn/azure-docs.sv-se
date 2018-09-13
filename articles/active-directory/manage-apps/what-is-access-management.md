@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: barbkess
-ms.openlocfilehash: d39df136c6c81e380ccbe7fa2c050d906dc4c182
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: cec1b3089403966cbf738b372a4380bdacf264b7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367053"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718305"
 ---
 # <a name="managing-access-to-apps"></a>Hantera åtkomst till appar
 Pågående hantering, användning utvärdering och rapportering fortsätta att vara en utmaning att när en app har integrerats i din organisations identitetssystem. I många fall kan måste IT-administratörer eller supportavdelningen vidta en pågående aktiv roll i hanteringen av åtkomst till dina appar. Ibland utförs tilldelning av en allmän eller avdelningar IT-team. Ofta tilldelning beslutet är avsedd att delegeras till beslutsfattare företag som kräver godkännande innan IT gör tilldelningen.  Andra organisationer investera i integrering med ett befintligt automatiserade identitets- och -system, som rollbaserad åtkomstkontroll (RBAC) eller attributbaserad åtkomstkontroll (ABAC). Både integrering och utveckling av regeln brukar vara särskilda och dyra. Övervakning eller rapporter på antingen hanteringsstrategi är en egen separat, kostsamma och komplexa investering.
@@ -54,7 +54,5 @@ I det här fallet skulle alla tilldelade användare etableras automatiskt till S
 Administratörer kan använda [Azure AD villkorsstyrd åtkomst](../active-directory-conditional-access-azure-portal.md) att ställa in åtkomstprinciper för specifika roller. Dessa principer kan innehålla om åtkomst tillåts utanför företagets miljö och även Multi-Factor Authentication eller enhet kraven för att få åtkomst i olika fall.
 
 ## <a name="next-steps"></a>Nästa steg
-
-* [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Skydda appar med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)
 * [Självbetjäning management/SSAA](../users-groups-roles/groups-self-service-management.md)

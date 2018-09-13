@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e9616b39491aac01427ee34fb23db556c5c9b9
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: b62679332a45127d7c1a45593c162182886a7150
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357624"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719366"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserad programetablering med Omfångsfilter
 Målet med den här artikeln är att förklara hur du använder Omfångsfilter för att definiera attributbaserade regler som bestämmer vilka användare som tilldelas ett program.
@@ -111,7 +111,6 @@ Omfångsfilter konfigureras som en del av attributmappningar för varje Azure AD
 
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Automatisera etablering och avetablering för SaaS-program](user-provisioning.md)
 * [Anpassa attributmappningar för etableringen av användare](customize-application-attributes.md)
 * [Skriva uttryck för attributmappningar](functions-for-customizing-application-data.md)

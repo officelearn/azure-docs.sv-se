@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 860ca62e6e5ed544fabb1667d6e63c8221f5683e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: fc7510fdc635de03ac4dd4f64118bc5be040e969
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357475"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719417"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory-programgalleriet
 
@@ -172,8 +172,6 @@ När du har valt **nästa**, uppmanas du att ange Webbadressen till programmet f
 >
 
 ## <a name="related-articles"></a>Relaterade artiklar
-
-- [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 - [Anpassa anspråk som utfärdats i SAML-Token för förintegrerade appar](../develop/active-directory-saml-claims-customization.md)
 - [Felsöka SAML-baserad enkel inloggning](../develop/howto-v1-debug-saml-sso-issues.md)
 

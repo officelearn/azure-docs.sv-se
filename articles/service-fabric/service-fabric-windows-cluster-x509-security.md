@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b32e9628b80705a99a2a8cf77534ed37a47515c8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8383d6afa4b6029aca3978c53eec1865d1d8c8ea
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669104"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721848"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster i Windows genom att använda X.509-certifikat
 Den här artikeln beskriver hur du skyddar kommunikationen mellan de olika noderna i ditt fristående Windows-kluster. Det beskriver också hur du autentiserar klienter som ansluter till det här klustret genom att använda X.509-certifikat. Autentisering säkerställer att endast behöriga användare kan få åtkomst till klustret och distribuerade program och utföra administrativa uppgifter. Certifikatsäkerhet ska aktiveras på klustret när klustret har skapats.  
@@ -88,7 +88,7 @@ Börja med [hämtningspaketet Service Fabric för Windows Server](service-fabric
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint": "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]",
                 "IsAdmin": true
             }
         ],

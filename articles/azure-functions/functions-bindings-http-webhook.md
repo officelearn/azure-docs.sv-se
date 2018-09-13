@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 41870f4f3cf4a0aba461021b4787e1ba004e5ead
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: eef84e8c5fb67faef99beec934f29e55365ce811
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095121"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715966"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP och webhook-bindningar
 
-Den här artikeln förklarar hur du arbetar med HTTP-bindningar i Azure Functions. Azure Functions har stöd för HTTP-utlösare och utdatabindningar.
+Den här artikeln förklarar hur du arbetar med HTTP-utlösare och utdatabindningar i Azure Functions. Azure Functions har stöd för HTTP-utlösare och utdatabindningar.
 
 En HTTP-utlösare kan anpassas för att svara på [webhooks](https://en.wikipedia.org/wiki/Webhook). En webhooksutlösare accepterar endast en JSON-nyttolast och validerar JSON. Det finns särskilda versioner av webhook-utlösaren som gör det enklare att hantera webhooks från vissa leverantörer, till exempel GitHub och Slack.
 
@@ -276,7 +276,7 @@ module.exports = function(context, req) {
 
 ### <a name="trigger---java-example"></a>Utlösare - Java-exemplet
 
-I följande exempel visas en utlösare-bindning i en *function.json* fil och en [Java funktionen](functions-reference-java.md) som använder bindningen. Funktionen returnerar ett HTTP-status kod 200-svar med arequest brödtext som prefix utlösande begärandetexten med en ”Hello” hälsning.
+I följande exempel visas en utlösare-bindning i en *function.json* fil och en [Java funktionen](functions-reference-java.md) som använder bindningen. Funktionen returnerar ett HTTP-status-kod 200-svar med en begärantext som prefix utlösande begärandetexten med en ”Hello” hälsning.
 
 
 Här är den *function.json* fil:
@@ -504,7 +504,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 ## <a name="trigger---usage"></a>Utlösare - användning
 
-För C# och F #, kan du deklarera vilken typ av utlösaren indata ska vara antingen `HttpRequestMessage` eller en anpassad typ. Om du väljer `HttpRequestMessage`, får du fullständig åtkomst till Begäranobjektet. För en anpassad typ försöker Functions parsa JSON-begärandetexten för att ange objektets egenskaper. 
+För C# och F #, kan du deklarera vilken typ av utlösaren indata ska vara antingen `HttpRequestMessage` eller en anpassad typ. Om du väljer `HttpRequestMessage`, får du fullständig åtkomst till Begäranobjektet. För en anpassad typ försöker körningen parsa JSON-begärandetexten för att ange objektets egenskaper.
 
 Functions-körning ger begärandetexten i stället för Begäranobjektet för JavaScript-funktioner. Mer information finns i den [JavaScript utlösaren exempel](#trigger---javascript-example).
 
@@ -603,47 +603,70 @@ Som standard alla funktionen vägar har prefixet *api*. Du kan också anpassa el
 
 ### <a name="authorization-keys"></a>Auktoriseringsregel för nycklar
 
-HTTP-utlösare kan du använda nycklar för ökad säkerhet. En standard HTTP-utlösare kan använda dem som en API-nyckel kräver nyckeln måste finnas på begäran. Webhooks kan använda för att godkänna begäranden på flera olika sätt beroende på vad providern stöder.
+Functions kan du använda för att göra det svårare att komma åt din HTTP-slutpunkter för funktionen under utveckling.  En standard HTTP-utlösare kan kräva sådana en API-nyckel finnas i begäran. Webhooks kan använda för att godkänna begäranden på flera olika sätt beroende på vad providern stöder.
 
-> [!NOTE]
-> När du kör funktioner lokalt auktorisering är inaktiverad än den `authLevel` i `function.json`. När du publicerar på Azure Functions, den `authLevel` träder i kraft omedelbart.
-
-Nycklar lagras som en del av din funktionsapp i Azure och krypteras på plats. Om du vill visa dina nycklar, skapa nya, eller distribuera nycklarna till nya värden, navigerar du till något av dina funktioner i portalen och välj ”hantera”. 
+> [!IMPORTANT]
+> När nycklar kan hjälpa Förvräng HTTP-slutpunkter under utvecklingen, är men inte avsedda som ett sätt att skydda en HTTP-utlösare i produktion. Mer information finns i [skydda en HTTP-slutpunkt i produktion](#secure-an-http-endpoint-in-production).
 
 Det finns två typer av nycklar:
 
-- **Värdnycklar**: de här nycklarna som delas av alla funktioner i funktionsappen. När det används som en API-nyckel, de här alternativen kan åtkomst till en funktion i funktionsappen.
-- **Funktionstangenter**: de här nycklarna gäller endast för specifika funktioner som de definieras. När det används som en API-nyckel, Tillåt dessa endast åtkomst till funktionen.
+* **Värdnycklar**: de här nycklarna som delas av alla funktioner i funktionsappen. När det används som en API-nyckel, de här alternativen kan åtkomst till en funktion i funktionsappen.
+* **Funktionstangenter**: de här nycklarna gäller endast för specifika funktioner som de definieras. När det används som en API-nyckel, Tillåt dessa endast åtkomst till funktionen.
 
 Varje nyckel heter referens och det är en standardnyckel (med namnet ”standard”) på funktionen och värden. Funktionstangenter företräde framför värdnycklar. När två nycklar har definierats med samma namn, används alltid funktionsnyckel.
 
-Den **huvudnyckeln** är en standard-värdnyckeln med namnet ”_master” som har definierats för varje funktionsapp. Den här nyckeln kan inte återkallas. Det ger administrativ åtkomst till runtime API: er. Med hjälp av `"authLevel": "admin"` i bindningen JSON kräver den här nyckeln som ska presenteras på begäran; andra nyckeln resulterar i Auktoriseringen misslyckades.
+Varje funktionsapp har även en särskild **huvudnyckeln**. Den här nyckeln är en värdnyckel med namnet `_master`, som tillhandahåller administrativ åtkomst till körningsmiljön API: er. Den här nyckeln kan inte återkallas. När du ställer in en auktorisering för `admin`, begäranden måste använda huvudnyckeln; andra nyckeln resulterar i Auktoriseringen misslyckades.
 
-> [!IMPORTANT]  
-> På grund av de utökade behörigheter som beviljas av huvudnyckeln, bör du inte dela den här nyckeln med tredje part eller distribuera i interna klientprogram. Var försiktig när du väljer administratören åtkomstnivå.
+> [!CAUTION]  
+> På grund av de utökade behörigheterna i din funktionsapp som beviljats av huvudnyckeln bör du inte dela den här nyckeln med tredje part eller distribuera den i interna klientprogram. Var försiktig när du väljer administratören åtkomstnivå.
+
+### <a name="obtaining-keys"></a>Erhålla nycklar
+
+Nycklar lagras som en del av din funktionsapp i Azure och krypteras på plats. Om du vill visa dina nycklar, skapa nya, eller distribuera nycklarna till nya värden, navigerar du till något av dina HTTP-utlösta funktioner i den [Azure-portalen](https://portal.azure.com) och välj **hantera**.
+
+![Hantera funktionstangenterna i portalen.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+
+Det finns inga stöds API för att programmässigt erhålla funktionstangenter.
 
 ### <a name="api-key-authorization"></a>API: et auktoriseringsprincipen
 
-Som standard måste en HTTP-utlösare en API-nyckel i HTTP-begäran. HTTP-begäran ser så normalt ut som följande:
+De flesta http-utlösaren mallar kräver en API-nyckel i begäran. HTTP-begäran ser så normalt ut som följande URL:
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-Nyckeln kan ingå i en fråga variabel med namnet `code`, precis som ovan eller den kan ingå i en `x-functions-key` HTTP-huvud. Värdet för nyckeln kan vara valfri funktionsnyckel som definierats för funktionen eller valfri tangent för värden.
+Nyckeln kan ingå i en fråga variabel med namnet `code`, precis som ovan. Det kan också ingå i en `x-functions-key` HTTP-huvud. Värdet för nyckeln kan vara valfri funktionsnyckel som definierats för funktionen eller valfri tangent för värden.
 
 Du kan tillåta anonyma begäranden som inte kräver nycklar. Du kan också kräva att huvudnyckeln kan användas. Du kan ändra standardnivån för auktorisering med hjälp av den `authLevel` -egenskapen i bindningen JSON. Mer information finns i [utlösare - konfigurationen](#trigger---configuration).
 
+> [!NOTE]
+> När du kör funktioner lokalt kan inaktiveras auktorisering, oavsett den angivna autentiseringstypen inställningen. Efter publicering till Azure, den `authLevel` inställningen i utlösaren tillämpas.
+
 ### <a name="keys-and-webhooks"></a>Nycklar och webhooks
 
-Webhook-auktorisering hanteras av webhook mottagare komponent, en del av HTTP-utlösare och mekanismen varierar beroende på typ av webhook. Varje metod har, men förlitar sig på en nyckel. Som standard används funktionsnyckel med namnet ”standard”. Konfigurera webhook-providern för att skicka nyckelnamnet med förfrågan i något av följande sätt om du vill använda en annan nyckel:
+Webhook-auktorisering hanteras av webhook mottagare komponent, en del av HTTP-utlösare och mekanismen varierar beroende på typ av webhook. Varje metod förlitar sig på en nyckel. Som standard används funktionsnyckel med namnet ”standard”. Konfigurera webhook-providern för att skicka nyckelnamnet med förfrågan i något av följande sätt om du vill använda en annan nyckel:
 
-- **Frågesträng**: providern skickar nyckelnamnet i den `clientid` frågesträngparametern, till exempel `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-- **Begärandehuvud**: providern skickar nyckelnamnet i den `x-functions-clientid` rubrik.
+* **Frågesträng**: providern skickar nyckelnamnet i den `clientid` frågesträngparametern, till exempel `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Begärandehuvud**: providern skickar nyckelnamnet i den `x-functions-clientid` rubrik.
+
+Ett exempel på en webhook som skyddas med en nyckel finns i [skapa en funktion som utlöses av en GitHub-webhook](functions-create-github-webhook-triggered-function.md).
+
+### <a name="secure-an-http-endpoint-in-production"></a>Skydda en HTTP-slutpunkt i produktion
+
+För att fullständigt skydda dina slutpunkter för funktionen i produktion, bör du implementering av en av följande alternativ för funktionen säkerhet på radnivå app:
+
+* Aktivera App Service-auktorisering/autentisering för din funktionsapp. App Service-plattformen kan använda Azure Active Directory (AAD), autentisering av tjänstens huvudnamn och betrodda identitetsleverantörer från tredje part för att autentisera användare. Den här funktionen är aktiverad kan endast autentiserade användare komma åt din funktionsapp. Mer information finns i [konfigurera App Service-appen för att använda Azure Active Directory-inloggning](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+
+* Använd Azure API Management (APIM) för att autentisera begäranden. APIM erbjuder en mängd olika API säkerhetsalternativ för inkommande begäranden. Mer information finns i [API Management autentiseringsprinciper](../api-management/api-management-authentication-policies.md). Med APIM på plats kan du konfigurera funktionsappen för att godkänna begäranden endast från PI-adressen för din APIM-instansen. Mer information finns i [IP-adressbegränsningar](ip-addresses.md#ip-address-restrictions).
+
+* Distribuera appen till en Azure App Service Environment (ASE). ASE ger en dedikerad värdmiljö där du kan köra dina funktioner. ASE kan du konfigurera en enda klientdelsgateway som du kan använda för att autentisera alla inkommande begäranden. Mer information finns i [konfigurera Web Application Firewall (WAF) för App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
+
+När du använder någon av följande metoder för säkerhet på radnivå app av funktionen, bör du ange HTTP-utlöst funktion-autentisering till `anonymous`.
 
 ## <a name="trigger---limits"></a>Utlösare - gränser
 
-HTTP-begäran längden är begränsad till 100MB (104,857,600 byte) och URL-längd är begränsad till 4KB (4 096 byte). Dessa gränser anges av den `httpRuntime` element i en runtime [Web.config-filen](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+HTTP-begäran längden är begränsad till 100 MB (104,857,600 byte) och URL-längd är begränsad till 4 KB (4 096 byte). Dessa gränser anges av den `httpRuntime` element i en runtime [Web.config-filen](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
-Om en funktion som använder HTTP-utlösaren inte slutförs inom cirka 2,5 minuter, kommer gatewaytimeout och returnera ett HTTP 502-fel. Funktionen fortsätter att köras, men kommer inte att returnera ett HTTP-svar. För långvariga funktioner rekommenderar vi att du följer async mönster och returnera en plats där du kan pinga status för begäran. Information om hur lång tid en funktion kan köra finns i [skalning och värdtjänster - standardförbrukningsplanen](functions-scale.md#consumption-plan). 
+Om en funktion som använder HTTP-utlösaren inte slutförs inom cirka 2,5 minuter, gateway att gälla och returnera ett HTTP 502-fel. Funktionen fortsätter att köras, men kommer inte att returnera ett HTTP-svar. För långvariga funktioner rekommenderar vi att du följer async mönster och returnera en plats där du kan pinga status för begäran. Information om hur lång tid en funktion kan köra finns i [skalning och värdtjänster - standardförbrukningsplanen](functions-scale.md#consumption-plan). 
 
 ## <a name="trigger---hostjson-properties"></a>Utlösare - host.json egenskaper
 
@@ -657,7 +680,7 @@ Använd HTTP-utdatabindning svarar på http-begäran avsändaren. Den här bindn
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 
-I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil. För C#-klass det finns inga attributegenskaper som motsvarar dessa *function.json* egenskaper. 
+I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil. Det finns inga attributegenskaper som motsvarar dessa för C#-klassbibliotek, *function.json* egenskaper. 
 
 |Egenskap   |Beskrivning  |
 |---------|---------|

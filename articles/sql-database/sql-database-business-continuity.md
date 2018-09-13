@@ -12,12 +12,12 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ce0684f9ab06b5362ccdf25aeaff15ea668ce96c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: c653f1f5366e7dac43f51d5daf1f0b13d93674ce
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444156"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722001"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -101,7 +101,7 @@ Den här funktionen används för att skydda mot verksamhetsavbrott om det uppst
 * Har en hög frekvens av dataändringar och en timmes dataförlust är inte acceptabelt.
 * Den extra kostnaden för aktiv geo-replikering är lägre än de potentiella ekonomiska skyldigheterna och den associerade affärsförlusten.
 
-När du utför en åtgärd, hur lång tid det tar att återställa och hur mycket data går förlorade beror på hur du väljer att använda dessa funktioner för affärskontinuitet i ditt program. Verkligen, kan du välja att använda en kombination av databassäkerhetskopior och aktiv geo-replikering beroende på dina programkrav. Information om designöverväganden för fristående databaser och för elastiska pooler när dessa funktioner för affärskontinuitet används finns i [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) (Utforma ett program för haveriberedskap i molnet) och [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) (Haveriberedskapsstrategier med en elastisk pool).
+När du utför en åtgärd, hur lång tid det tar att återställa och hur mycket data går förlorade beror på hur du väljer att använda dessa funktioner för affärskontinuitet i ditt program. Verkligen, kan du välja att använda en kombination av databassäkerhetskopior och aktiv geo-replikering beroende på dina programkrav. En beskrivning av designöverväganden för fristående databaser och för elastiska pooler när dessa funktioner för affärskontinuitet, finns i [utforma ett program för katastrofåterställning i molnet](sql-database-designing-cloud-solutions-for-disaster-recovery.md) och [elastisk lagringspoolen strategier för haveriberedskap](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 Följande avsnitt innehåller en översikt över stegen för att återställa med hjälp av databassäkerhetskopior eller aktiv geo-replikering. Detaljerade anvisningar för planering av krav, steg efter återställning och information om hur du simulerar ett avbrott för att utföra ett programåterställningstest, i [återställa en SQL-databas från ett avbrott](sql-database-disaster-recovery.md).
 
@@ -142,4 +142,4 @@ Efter återställningen från endera återställningsmetod måste du utföra fö
 Ibland måste ett program kopplas från på grund av planerat underhåll, till exempel en uppgradering av programmet. [Hantera programuppgraderingar](sql-database-manage-application-rolling-upgrade.md) beskriver hur du använder aktiv geo-replikering för att möjliggöra löpande uppgraderingar av ditt molnprogram minimal avbrottstid under uppgraderingarna och etablera en återställningsväg om något går fel. 
 
 ## <a name="next-steps"></a>Nästa steg
-En beskrivning av designöverväganden för fristående databaser och för elastiska pooler finns i [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) (Utforma ett program för haveriberedskap i molnet) och [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) (Haveriberedskapsstrategier med en elastisk pool).
+En beskrivning av designöverväganden för fristående databaser och för elastiska pooler finns i [utforma ett program för katastrofåterställning i molnet](sql-database-designing-cloud-solutions-for-disaster-recovery.md) och [strategier för elastisk pool haveriberedskap](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

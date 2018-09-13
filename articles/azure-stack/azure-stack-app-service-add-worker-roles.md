@@ -1,6 +1,6 @@
 ---
-title: Skala ut arbetsroller i Apptjänster - Azure Stack | Microsoft Docs
-description: Detaljerade riktlinjer för att skala Azure Stack Apptjänster
+title: Skala ut arbetsroller i App Services – Azure Stack | Microsoft Docs
+description: Detaljerad vägledning för att skala Azure Stack App Services
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,41 +12,41 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 04a93bc841d553296dca7635151c14892970121c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: abfc75e40e146b1cf7cb237f18a1ff08626e5be1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357800"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35965839"
 ---
-# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Apptjänst Azure stacken: lägga till fler infrastruktur eller worker-roller
+# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service i Azure Stack: lägga till fler infrastruktur- eller worker-roller
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*  
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*  
 
-Det här dokumentet innehåller instruktioner om hur du skalar Apptjänst på Azure-stacken infrastruktur- och arbetsroller roller. Den innehåller anvisningar för att skapa ytterligare arbetsroller för program i alla storlekar.
+Det här dokumentet innehåller anvisningar om hur du skalar App Service på Azure Stack-infrastruktur- och worker-roller. Den innehåller anvisningar för att skapa ytterligare worker-roller för att stödja program i alla storlekar.
 
 > [!NOTE]
-> Om miljön i Azure-stacken inte har fler än 96 GB RAM-minne kan det vara svårt att lägga till ytterligare kapacitet.
+> Om din Azure Stack-miljön inte har fler än 96 GB RAM-minne kan det vara svårt att lägga till ytterligare kapacitet.
 
-Apptjänst på Azure-stacken, som standard stöder lediga och delade worker nivåer. Om du vill lägga till andra worker-nivåer, som du behöver lägga till flera arbetsroller.
+App Service i Azure Stack, som standard har stöd för kostnadsfria och delade arbetarnivåer. Om du vill lägga till andra arbetarnivåer, som du behöver lägga till flera worker-roller.
 
-Om du inte är säker på vad som har distribuerats med App Service på Azure-stacken installation kan du granska ytterligare information i den [Apptjänst på Azure-stacken översikt](azure-stack-app-service-overview.md).
+Om du inte är säker på vad som har distribuerats med App Service på Azure Stack-installation kan du granska ytterligare information i den [App Service i Azure Stack-översikt](azure-stack-app-service-overview.md).
 
-Azure Apptjänst Azure stacken distribuerar alla roller med hjälp av virtuella datorer och drar därmed nytta av funktioner för skalning av arbetsbelastningen. Därför sker alla skalning av worker-nivåer via App Service administratören.
+Azure App Service i Azure Stack distribuerar alla roller med hjälp av Virtual Machine Scale Sets och drar därmed nytta av skalningsmöjligheterna med den här arbetsbelastningen. Därför sker alla skalning av arbetarnivåer via App-tjänstadministratör
 
 > [!IMPORTANT]
-> Det är för närvarande inte möjligt att skala skalningsuppsättningar i virtuella datorer i portalen som identifieras i Azure-stacken viktig information måste du därför använda PowerShell-exempel för att skala ut.
+> För närvarande går det inte att skala VM-skalningsuppsättningar i portalen som du identifierade i Azure Stack viktig information, därför använda PowerShell-exempel för att skala ut.
 >
 >
 
-## <a name="add-additional-workers-with-powershell"></a>Lägg till ytterligare arbetare med PowerShell
+## <a name="add-additional-workers-with-powershell"></a>Lägg till fler arbeten med PowerShell
 
-1. [Konfigurera Azure Stack Admin-miljö i PowerShell](azure-stack-powershell-configure-admin.md)
+1. [Konfigurera Azure Stack-Admin-miljö i PowerShell](azure-stack-powershell-configure-admin.md)
 
-2. Använd det här exemplet för att skala ut skaluppsättning:
+2. Använd det här exemplet för att skala upp skalningsuppsättningen:
    ```powershell
    
     ##### Scale out the AppService Role instances ######
@@ -73,13 +73,13 @@ Azure Apptjänst Azure stacken distribuerar alla roller med hjälp av virtuella 
    ```    
 
    > [!NOTE]
-   > Det här steget kan ta flera timmar att slutföra beroende på vilken typ av roll och antalet instanser.
+   > Det här steget kan ta flera timmar att slutföra beroende på typ av roll och hur många instanser.
    >
    >
 
-3. Övervaka status för de nya rollinstanserna i App Service Administration klickar du på om du vill kontrollera status för en enskild rollinstans rolltypen i listan.
+3. Övervaka status för nya rollinstanserna i App Service-Administration, för att kontrollera status för en enskild rollinstans klickar du på vilken roll i listan.
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Lägg till ytterligare arbetare direkt i App Service-administratören Resource Provider.
+## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Lägg till fler arbeten direkt i App Service-administratör Resource Provider.
 
 1. Logga in på Azure Stack-administrationsportalen som tjänstadministratör.
 
@@ -87,32 +87,32 @@ Azure Apptjänst Azure stacken distribuerar alla roller med hjälp av virtuella 
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Klicka på **roller**. Här kan du se uppdelning av alla roller för App Service som distribueras.
+3. Klicka på **roller**. Här kan du se en analys på detaljnivå för alla App Service-roller som distribueras.
 
-4. Högerklicka på raden i vilken du vill skala och klicka sedan på **ScaleSet**.
+4. Högerklicka på raden i den typ som du vill skala och klicka sedan på **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Klicka på **skalning**, Välj antalet instanser som du vill skala till och klicka sedan på **spara**.
+5. Klicka på **skalning**, väljer du antalet instanser som du vill skala till och klicka sedan på **spara**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. Apptjänst Azure stacken ska nu lägga till ytterligare virtuella datorer, konfigurera dem, installera nödvändig programvara och markeras som redo när processen har slutförts. Den här processen kan ta ungefär 80 minuter.
+6. App Service i Azure Stack kommer nu lägga till ytterligare virtuella datorer, konfigurera dem, installera alla nödvändiga program och markera dem som redo när den här processen är klar. Den här processen kan ta cirka 80 minuter.
 
-7. Du kan övervaka förloppet för av nya roller genom att visa arbetare i den **roller** bladet.
+7. Du kan övervaka förloppet för beredskap för de nya rollerna genom att visa arbetare i den **roller** bladet.
 
 ## <a name="result"></a>Resultat
 
-Arbetare blir tillgängliga för användare att distribuera arbetsbelastningen till dem när de är helt distribuerade och redo. Nedan visas ett exempel på tillgängliga flera prisnivåer som standard. Om det finns inga tillgängliga arbetare för en viss worker-nivå, är möjlighet att välja motsvarande prisnivån inte tillgänglig.
+”Arbetarna” blir tillgängliga för användare att distribuera deras arbetsbelastning till dem när de är helt distribuerats och är redo. Nedan visas ett exempel på flera olika prisnivåer tillgängliga som standard. Om det finns inga tillgängliga arbeten för en viss arbetarnivå, är möjlighet att välja motsvarande prisnivån inte tillgänglig.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Om du vill skala ut Management lägga klientdelen eller utgivare roller till utskalningsdistribution motsvarande rolltyp av. 
+> Om du vill skala ut Management klientdelen eller utgivare rollerna tillgång till skalar du ut motsvarande rolltypen. 
 >
 >
 
-Om du vill skala ut Management, klientdelen eller utgivare roller följer du samma steg att välja rätt roll. Domänkontrollanter distribueras inte som Skaluppsättningar och därför två bör distribueras vid installationen för alla Produktionsdistribution.
+Om du vill skala ut Management, klient eller utgivare roller, följer du samma steg att välja rätt roll. Domänkontrollanter distribueras inte som Skalningsuppsättningar och därför två som ska distribueras vid installationen för alla distributioner av produktion.
 
 ### <a name="next-steps"></a>Nästa steg
 

@@ -3,7 +3,7 @@ title: Förstå Azure AD-programtillåtelser inträffar | Microsoft Docs
 description: Lär dig mer om Azure AD godkänna upplevelser för att se hur du kan använda den när du hanterar och utveckla program i Azure AD
 services: active-directory
 documentationcenter: ''
-author: Zawad
+author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2017
-ms.author: Zawad
-ms.openlocfilehash: 894428b2cb3e7d867615c38160bbb4266fede032
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.date: 09/11/2018
+ms.author: celested
+ms.reviewer: zawad
+ms.openlocfilehash: ccf90084e87d35e4e62f6838f85c45013e9579ac
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381767"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717326"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå Azure AD-programtillåtelser inträffar
 
@@ -45,7 +46,7 @@ Följande diagram och tabell innehåller information om de olika byggstenarna i 
 | # | Komponent | Syfte |
 | ----- | ----- | ----- |
 | 1 | Användaridentifierare | Den här identifieraren representerar den användare som begär åtkomst till skyddade resurser på uppdrag av klientprogrammet. |
-| 2 | Namn | Rubrik-ändringar baserat på om användarna går igenom godkännandeflöde användare eller administratör. I användarens medgivande flow kommer rubriken att ”behörighet begärt” medan medgivande administratörsflöde rubriken har ytterligare en rad ”acceptera för din organisation”. |
+| 2 | Titel | Rubrik-ändringar baserat på om användarna går igenom godkännandeflöde användare eller administratör. I användarens medgivande flow kommer rubriken att ”behörighet begärt” medan medgivande administratörsflöde rubriken har ytterligare en rad ”acceptera för din organisation”. |
 | 3 | Applogotyp | Den här bilden hjälpa användare som har en visuell ledtråd om den här appen är appen de avsedda att få åtkomst till. Den här bilden kommer från programutvecklare och ägarskap för den här bilden är inte verifieras. |
 | 4 | Appnamn | Det här värdet bör informera användare som begär åtkomst till sina data. Observera att det här namnet kommer från utvecklare och ägarskap för den här appens namn är inte verifieras. |
 | 5 | Publisher-domän | Det här värdet bör ge användare med en domän som de kanske kan utvärdera för tillförlitlighet. Den här domänen tillhandahålls av utvecklare och ägarskap för den här publisher-domänen har verifierats. |

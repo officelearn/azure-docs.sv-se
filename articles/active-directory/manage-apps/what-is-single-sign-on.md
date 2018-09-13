@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: d17b5967519bc51e4fb33a410149d17c82c28d10
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347995"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720131"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär det att kunna komma åt alla program och resurser som du behöver för att göra affärer, genom att logga in med ett enda användarkonto. När du har loggat in, du kan komma åt alla program som du behöver utan att behöva autentisera dig (exempel: Skriv ett lösenord) en andra gång.
@@ -191,7 +191,6 @@ När en behörig användare klickar på någon av länkarna programspecifika vis
 Dessa länkar använder samma metoder för kontroll av åtkomst som åtkomstpanelen och Office 365 och endast de användare eller grupper som har tilldelats till programmet i Azure-portalen kommer att kunna autentisera. Alla användare som är obehörig visas ett meddelande som förklarar att de inte har beviljats åtkomst och får en länk för att läsa in panelen om du vill visa tillgängliga program som de har åtkomst.
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Konfigurera Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introduktion till hantering av åtkomst till appar](what-is-access-management.md)

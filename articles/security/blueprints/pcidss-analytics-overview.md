@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 9ee5bf94b13b671dc6be89ce07c37d28d24650db
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fbab6d1f35aeb2d81581b39b19a6ea93214f3486
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908107"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719553"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-pci-dss"></a>Azure-säkerhet och efterlevnad skiss: analys för PCI DSS
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7e66f9a0f22103c01e947c028a5c8355cb4d0e15
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dc362dba62e8fd41b33e10368483577d8166f300
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095580"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722341"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -2418,24 +2418,24 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.KeyVault/checkNameAvailability/read | Kontrollera att nyckelvalvsnamnet är giltigt och inte används |
-> | Åtgärd | Microsoft.KeyVault/deletedVaults/read | Visa egenskaperna för de ej permanent borttagna nyckelvalven |
+> | Åtgärd | Microsoft.KeyVault/checkNameAvailability/read | Kontrollerar att ett key vault-namn är giltigt och används inte |
+> | Åtgärd | Microsoft.KeyVault/deletedVaults/read | Visa egenskaperna för ej permanent borttagna nyckelvalven |
 > | Åtgärd | Microsoft.KeyVault/hsmPools/delete | Ta bort en HSM-pool |
 > | Åtgärd | Microsoft.KeyVault/hsmPools/joinVault/action | Anslut ett nyckelvalv till en HSM-pool |
 > | Åtgärd | Microsoft.KeyVault/hsmPools/read | Visa egenskaperna för en HSM-pool |
-> | Åtgärd | Microsoft.KeyVault/hsmPools/write | Skapa en ny HSM-pool eller uppdatera egenskaperna för en befintlig HSM-pool |
-> | Åtgärd | Microsoft.KeyVault/locations/deletedVaults/purge/action | Rensa ett ej permanent borttaget nyckelvalv |
-> | Åtgärd | Microsoft.KeyVault/locations/deletedVaults/read | Visa egenskaperna för ett ej permanent borttaget nyckelvalv |
+> | Åtgärd | Microsoft.KeyVault/hsmPools/write | Skapa en ny HSM-pool Update egenskaperna för en befintlig HSM-pool |
+> | Åtgärd | Microsoft.KeyVault/locations/deletedVaults/purge/action | Rensa ett ej permanent Borttaget nyckelvalv |
+> | Åtgärd | Microsoft.KeyVault/locations/deletedVaults/read | Visa egenskaperna för ett ej permanent Borttaget nyckelvalv |
 > | Åtgärd | Microsoft.KeyVault/locations/deleteVirtualNetworkOrSubnets/action | Aviserar Microsoft.KeyVault att ett virtuellt nätverk eller undernät tas bort |
 > | Åtgärd | Microsoft.KeyVault/locations/operationResults/read | Kontrollera resultatet för en långkörd åtgärd |
-> | Åtgärd | Microsoft.KeyVault/operations/read | Listar de åtgärder som finns tillgängliga på resursprovidern Microsoft.KeyVault |
+> | Åtgärd | Microsoft.KeyVault/operations/read | Visar en lista över åtgärder som är tillgängliga på resursprovidern Microsoft.keyvault |
 > | Åtgärd | Microsoft.KeyVault/register/action | Registrerar en prenumeration |
 > | Åtgärd | Microsoft.KeyVault/unregister/action | Avregistrerar en prenumeration |
-> | Åtgärd | Microsoft.KeyVault/vaults/accessPolicies/write | Uppdatera en befintlig åtkomstprincip genom att sammanfoga, ersätta eller lägga till en ny åtkomstprincip till ett valv. |
+> | Åtgärd | Microsoft.KeyVault/vaults/accessPolicies/write | Uppdatera en befintlig åtkomstprincip genom att sammanfoga ersätta eller lägga till en ny åtkomstprincip till ett valv. |
 > | Åtgärd | Microsoft.KeyVault/vaults/delete | Ta bort ett nyckelvalv |
-> | Åtgärd | Microsoft.KeyVault/vaults/deploy/action | Tillåter åtkomst till hemligheter i ett nyckelvalv vid distribution av Azure-resurser |
-> | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för resursen |
-> | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Åtgärd | Microsoft.KeyVault/vaults/deploy/action | Tillåter åtkomst till hemligheter i key vault när du distribuerar Azure-resurser |
+> | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Read | Hämtar diagnostikinställningen för resursen |
+> | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Write | Skapar eller uppdaterar diagnostikinställningen för resursen |
 > | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för ett nyckelvalv |
 > | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för ett nyckelvalv |
 > | Åtgärd | Microsoft.KeyVault/vaults/read | Visa egenskaperna för ett nyckelvalv |
@@ -2456,7 +2456,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Kusto/Clusters/Databases/write | Skriver en databasresurs. |
 > | Åtgärd | Microsoft.Kusto/Clusters/delete | Tar bort en klusterresurs. |
 > | Åtgärd | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar diagnostikinställningarna för resursen |
-> | Åtgärd | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Åtgärd | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för resursen |
 > | Åtgärd | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/metricDefinitions/read | Hämtar måttdefinitioner för resursen |
 > | Åtgärd | Microsoft.Kusto/Clusters/read | Läser en klusterresurs. |
 > | Åtgärd | Microsoft.Kusto/Clusters/write | Skriver en klusterresurs. |
@@ -4455,7 +4455,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/managedInstances/delete | Tar bort en befintlig hanterad instans. |
 > | Åtgärd | Microsoft.Sql/managedInstances/encryptionProtector/read | Returnerar en lista över server kryptering protectors eller hämtar egenskaperna för den angivna servern krypteringsskyddet. |
 > | Åtgärd | Microsoft.Sql/managedInstances/encryptionProtector/write | Uppdatera egenskaperna för den angivna Serverkrypteringsskydd. |
-> | Åtgärd | Microsoft.Sql/managedInstances/keys/delete | Tar bort en befintlig Azure SQL Managed Instance-nyckel. |
+> | Åtgärd | Microsoft.Sql/managedInstances/keys/delete | Tar bort en befintlig Azure SQL Database Managed Instance-nyckel. |
 > | Åtgärd | Microsoft.Sql/managedInstances/keys/read | Returnera listan över hanterade instansen nycklar eller hämtar egenskaperna för angivna hanterad instans-nyckeln. |
 > | Åtgärd | Microsoft.Sql/managedInstances/keys/write | Skapar en nyckel med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för angivna hanterad instans-nyckeln. |
 > | Åtgärd | Microsoft.Sql/managedInstances/metricDefinitions/read | Hämta måttdefinitioner för den hanterade instansen |

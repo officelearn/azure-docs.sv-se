@@ -1,0 +1,47 @@
+---
+title: Knowledge base - Microsoft Cognitive Services | Microsoft Docs
+titleSuffix: Azure
+description: Om en kunskapsbas
+services: cognitive-services
+author: nstulasi
+manager: sangitap
+ms.service: cognitive-services
+ms.component: QnAMaker
+ms.topic: article
+ms.date: 05/07/2018
+ms.author: saneppal
+ms.openlocfilehash: 5dfb96f454bf5ce3f030ebfc6a97482fcfc9469b
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35760293"
+---
+# <a name="knowledge-base"></a>Kunskapsbas
+
+En kunskapsbas med QnA Maker består av en uppsättning fråga/svar (frågor och svar)-par och valfria metadata som är associerade med varje par med frågor och svar.
+
+## <a name="key-knowledge-base-concepts"></a>Viktiga kunskapsbas-begrepp
+
+* **Frågor** – en fråga som innehåller text som bäst representerar en användarfråga. 
+* **Svar** -svar är svaret som returneras när en användarfråga matchas med associerade frågan.  
+* **Metadata** -Metadata är taggar som är associerad med ett par frågor och svar och visas i form av nyckel / värde-par. Metadata för att filtrera QnA-par och begränsa de över vilken fråga matchar utförs.
+
+En enda QnA som representeras av ett numeriskt QnA-ID har flera varianter av en fråga (alternativa frågor) att mappas till ett enda svar. Varje sådan par kan dessutom ha flera metadatafält som är kopplade till den.
+
+![QnA Maker kunskapsbaser](../media/qnamaker-concepts-knowledgebase/knowledgebase.png) 
+
+## <a name="knowledge-base-content-format"></a>Kunskapsbas innehållsformat
+
+När du mata in formaterade innehållet i en kunskapsbas försöker QnA Maker konvertering av innehåll till markdown. Läs [detta](https://aka.ms/qnamaker-docs-markdown-support) blogg om du vill förstå markdown formaterar klusterverifieringsrapportschemat de flesta chatt-klienter.
+
+Metadatafält består av nyckel / värde-par avgränsade med kolon **(produkt: fragmentering)**. Både nyckel och värde måste vara endast text. Metadatanyckel får inte innehålla några blanksteg.
+
+## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Livscykeln för utveckling av en kunskapsbas](./development-lifecycle-knowledge-base.md)
+
+## <a name="see-also"></a>Se också
+
+[Översikt över QnA Maker](../Overview/overview.md)

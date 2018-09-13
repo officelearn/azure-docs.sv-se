@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: 91035f84d02810d838127ecf6a2f6424ef5df6cf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 51c04a567ff953c4e84930e3feae448f78627683
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054595"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713943"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Hantera Nyckelvalv i Azure Stack med hjälp av portalen
 
@@ -33,7 +33,7 @@ Du måste prenumerera på ett erbjudande som innehåller Azure Key Vault-tjänst
 
 1. Logga in på den [användarportalen](https://portal.local.azurestack.external).
 
-2. Från instrumentpanelen väljer **New** > **säkerhet + identitet** > **Key Vault**.
+2. Från instrumentpanelen väljer **+ skapa en resurs** > **säkerhet + identitet** > **Key Vault**.
 
     ![Key Vault-skärmen](media/azure-stack-kv-manage-portal/image1.png)
 

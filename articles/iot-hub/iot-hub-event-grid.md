@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 068e9a3379bd2762455aade1761592fa70a09a20
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 3c12e98137f44ac094adaae282b5d56d30061e60
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144386"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719859"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub-händelser med Event Grid för att utlösaråtgärder
 
@@ -34,12 +34,11 @@ IoT Hub publicerar följande händelsetyper:
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publicerade när en enhet registreras till en IoT hub. |
-| Microsoft.Devices.DeviceDeleted | Publicerade när en enhet tas bort från en IoT-hubb. | 
-| Microsoft.Devices.DeviceConnected | Publicerade när en enhet är ansluten till en IoT-hubb. | 
-| Microsoft.Devices.DeviceDisconnected | Publicerade när en enhet är bortkopplad från en IoT-hubb. | 
-Observera att enheten ansluten och enheten frånkopplad händelser kommer att aktiveras för regionerna Östra Kanada och östra USA snart.
+| Microsoft.Devices.DeviceDeleted | Publicerade när en enhet tas bort från en IoT-hubb. |
+| Microsoft.Devices.DeviceConnected | Publicerade när en enhet är ansluten till en IoT-hubb. |
+| Microsoft.Devices.DeviceDisconnected | Publicerade när en enhet är bortkopplad från en IoT-hubb. |
 
-Använd Azure portal eller Azure CLI för att konfigurera vilka händelser som ska publicera från varje IoT-hubb. Exempelvis kan du prova guiden [skicka e-postaviseringar om Azure IoT Hub-händelser med hjälp av Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md). 
+Använd Azure portal eller Azure CLI för att konfigurera vilka händelser som ska publicera från varje IoT-hubb. Exempelvis kan du prova guiden [skicka e-postaviseringar om Azure IoT Hub-händelser med hjälp av Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
 ## <a name="event-schema"></a>Händelseschema
 
@@ -146,7 +145,7 @@ Program som hanterar IoT Hub-händelser bör följa dessa rekommendationer:
 ## <a name="next-steps"></a>Nästa steg
 
 * [Prova guiden för IoT Hub-händelser](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* [Lär dig att ordna enheter anslutas och kopplas händelser](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
+* [Lär dig att ordna enhetsanslutningshändelser och frånkopplingar](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * [Läs mer om Event Grid][lnk-eg-overview]
 * [Jämför routning IoT Hub-händelser och meddelanden][lnk-eg-compare]
 

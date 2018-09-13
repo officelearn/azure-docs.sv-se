@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e1949c32833bb1d5e6603a6f5e36e22dc58e8cec
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: a2bab2ebd6af5d69e233ff52cf3a472d1eaea504
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336936"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714521"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett LinkedIn-konto med Azure Active Directory B2C
 
@@ -28,18 +28,14 @@ Om du vill använda en LinkedIn-konto som identitetsprovider i Azure Active Dire
 3. Ange **företagsnamn**, **programnamn**, **Programbeskrivning**, **Programlogotyp**, **programanvändning** , **Webbadress**, **företags-e-**, och **Företagstelefon**.
 4. Godkänn den **LinkedIn API användningsvillkor** och klicka på **skicka**.
 5. Kopiera värdena för **klient-ID** och **Klienthemlighet**. Du hittar dem under **autentiseringsnycklar**. Du måste båda för att konfigurera LinkedIn som en identitetsprovider i din klient. **Klienthemlighet** är en viktig säkerhetsuppgift för autentisering.
-6. Ange `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` i **behörighet-URL: Omdirigeringswebbadresser**. Ersätt **{klient}** med klientens namn (till exempel contosob2c). Välj **Lägg till**, och klicka sedan på **uppdatering**.
+6. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i **behörighet-URL: Omdirigeringswebbadresser**. Ersätt `your-tenant-name` med namnet på din klient. Du måste använda gemener när du anger ditt klientnamn även om klienten har definierats med versaler i Azure AD B2C. Välj **Lägg till**, och klicka sedan på **uppdatering**.
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Konfigurera ett LinkedIn-konto som identitetsprovider
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
-2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att växla till den i det övre högra hörnet i Azure-portalen. Välj din prenumerationsinformation och välj därefter **Växla katalog**. 
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient. 
 
     ![Växla till Azure AD B2C-klientorganisationen](./media/active-directory-b2c-setup-li-app/switch-directories.png)
-
-    Välj den katalog som innehåller din klient.
-
-    ![Välj katalog](./media/active-directory-b2c-setup-li-app/select-directory.png)
 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.

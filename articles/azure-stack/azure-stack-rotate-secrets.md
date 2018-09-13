@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: dacfa738a99eb2d580d825957d09b2b1a3111e93
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051405"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722018"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotera hemligheter i Azure Stack
 
@@ -110,6 +110,8 @@ Så här roterar både externa en intern hemlighet:
     En säker sträng med det lösenord som används för alla pfx-certifikat-filer som skapas.
 4. Vänta medan din hemliga rotera.  
 När hemlig rotation har slutförts, visar konsolen **övergripande Åtgärdsstatus: lyckad**. 
+    > [!note]  
+    > Om det inte går att hemliga rotation, följ instruktionerna i felmeddelandet och kör start-secretrotation med den **-kör** parametern. Kontakta supporten om du får upprepas hemliga rotation fel. 
 5. När installationen har slutförts hemliga rotationsvinkel, ta bort certifikaten från filresursen som skapades i tidigare steg och lagra dem i deras säker plats för säkerhetskopia. 
 
 ## <a name="walkthrough-of-secret-rotation"></a>Genomgång av hemliga rotation
@@ -136,6 +138,10 @@ Så här roterar endast hemligheter som är interna i Azure Stack:
 
 1. Skapa en PowerShell-session med den [privilegierad slutpunkt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. Privilegierad slutpunkt-session kör **Start SecretRotation** utan argument.
+3. Vänta medan din hemliga rotera.  
+När hemlig rotation har slutförts, visar konsolen **övergripande Åtgärdsstatus: lyckad**. 
+    > [!note]  
+    > Om det inte går att hemliga rotation, följ instruktionerna i felmeddelandet och kör start-secretrotation med den **-köra** parametern. Kontakta supporten om du får upprepas hemliga rotation fel. 
 
 ## <a name="start-secretrotation-reference"></a>Start-SecretRotation referens
 

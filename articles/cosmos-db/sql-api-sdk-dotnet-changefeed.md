@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 443cb2786c12bddd87535a7267d66c0332473b1b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6c4dafa5b15548b3dbc02a9c093232197b3f1400
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055379"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716561"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -42,6 +42,10 @@ ms.locfileid: "42055379"
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="v2-builds"></a>v2-versioner
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Lagt till nya API: et, uppgift&lt;IReadOnlyList&lt;RemainingPartitionWork&gt; &gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). Detta kan användas för att få uppskattade arbetet för varje partition.
+* Har stöd för Microsoft Azure documentdb SDK 2.0. Kräver Microsoft.Azure.DocumentDB 2.0 eller senare.
 
 ### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
 * Har lagts till ChangeFeedEventHost.HostName offentlig egenskap för compativility med v1.

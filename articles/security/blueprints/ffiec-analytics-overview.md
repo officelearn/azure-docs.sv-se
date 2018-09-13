@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 42fde31851968434eef2983f24b0fd01d5386d7e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 49c10e928fe321c73ddd2cd5dc2ef529cfa4e854
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908163"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722052"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Azure-säkerhet och efterlevnad skiss: analys för FFIEC ekonomiska tjänster
 

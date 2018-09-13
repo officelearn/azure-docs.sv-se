@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9e868788d0cf3b3c0f2f30095388046f64ced71c
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ae742bbe1e5b751a8a8cabf378afd049728c3b8a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378548"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717513"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en App Service-resursprovider i Azure Stack
 
@@ -151,11 +151,11 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
     >[!NOTE]
     >Vid Produktionsdistribution måste följa riktlinjerna i [kapacitetsplanering för Azure App Service-serverroller i Azure Stack](azure-stack-app-service-capacity-planning.md).
 
-    | Roll | Minsta instanser | Minsta SKU | OBS! |
+    | Roll | Minsta instanser | Minsta SKU | Anteckningar |
     | --- | --- | --- | --- |
     | Kontrollenhet | 1 | Standard_A2 - (2 virtuella processorer, 3584 MB) | Hanterar och underhåller hälsotillståndet för App Service-molnet. |
     | Hantering | 1 | Standard_A2 - (2 virtuella processorer, 3584 MB) | Hanterar App Service Azure Resource Manager och API-slutpunkter, portal tillägg (admin, klient, Functions-portalen) och data service. Stöd för växling vid fel, ökat rekommenderade instanserna till 2. |
-    | Publisher | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publicerar innehåll via FTP och webbtjänster distribution. |
+    | Utgivare | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publicerar innehåll via FTP och webbtjänster distribution. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Dirigerar begäranden till App Service-program. |
     | Delade Arbetarservrar | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Webb-värdar eller API-program och Azure Functions-appar. Du kanske vill lägga till fler instanser. Som operatör kan du definiera ditt erbjudande och välja valfri SKU-nivå. Nivåerna måste ha minst en virtuell processor. |
 
@@ -228,7 +228,7 @@ När du distribuerar och registrera resursprovidern App Service kan du testa den
 
 Följ dessa steg om du vill skapa en webbapp för test:
 
-1. I Azure Stack-klient-portalen väljer **New** > **webb + mobilt** > **Webbapp**.
+1. Välj i användarportalen för Azure Stack **+ skapa en resurs** > **webb + mobilt** > **Webbapp**.
 
 2. Under **Webbapp**, ange ett namn i **webbapp**.
 

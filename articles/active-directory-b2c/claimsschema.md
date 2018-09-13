@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3ac80b045443614e66bc1d8446047087629b1d96
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 76fdf532a35cbe16543bc49b5c02fad5d86690d5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381688"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719006"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,9 +42,9 @@ Den **ClaimsSchema** elementet definierar vilka anspråkstyper som kan referera 
 
 Den **ClaimType** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare som används för Anspråkstypen. Andra element kan använda den här identifieraren i principen. |
+| Id | Ja | En identifierare som används för Anspråkstypen. Andra element kan använda den här identifieraren i principen. |
 
 Den **ClaimType** elementet innehåller följande element:
 
@@ -69,7 +69,7 @@ Den **DefaultPartnerClaimTypes** kan innehålla följande element:
 
 Den **protokollet** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden är: OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed eller WsTrust. |
 | PartnerClaimType | Ja | Anspråk typnamn som ska användas. |
@@ -104,7 +104,7 @@ Därför JWT-token som utfärdas av Azure AD B2C utesluter den `family_name` i s
 
 Den **Mask** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Typ | Ja | Typ av anspråk masken. Möjliga värden: `Simple` eller `Regex`. Den `Simple` värdet anger att en enkel text mask tillämpas på den ledande delen av ett sträng-anspråk. Den `Regex` värdet anger att ett reguljärt uttryck används till sträng anspråk som helhet.  Om den `Regex` värde har angetts, ett valfritt attribut måste också ha definierats med reguljära uttrycket som ska användas. |
 | Regex | Nej | Om **typ** är inställd på `Regex`, ange det reguljära uttrycket att använda.
@@ -115,8 +115,7 @@ I följande exempel konfigureras en **PhoneNumber** anspråk med den `Simple` ma
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone</DisplayName>
   <DataType>string</DataType>
-  <Mask Type="Simple">XXX-XXX-</Mask>
-  <AdminHelpText/>
+  <Mask Type="Simple">XXX-XXX-</Mask>  
   <UserHelpText>Your telephone number.</UserHelpText>
 </ClaimType>
 ```
@@ -145,7 +144,7 @@ Den Identitetsramverk återges endast den första bokstaven i e-postadressen och
 
 Den **begränsning** element kan innehålla följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | MergeBehavior | Nej | Den metod som används för att slå samman uppräkningsvärdena med en ClaimType i en överordnad-princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som angetts i basprincipen. Möjliga värden: `Append`, `Prepend`, eller `ReplaceAll`. Den `Append` värdet är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. Den `Prepend` värdet är en samling data som ska läggas till innan den samling som anges i den överordnade principen. Den `ReplaceAll` värdet är en samling data som anges i den överordnade-princip som ska ignoreras. |
 
@@ -160,7 +159,7 @@ Den **begränsning** elementet innehåller följande element:
 
 Den **uppräkning** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Text | Ja | Visningssträngen som visas för användaren i användargränssnittet för det här alternativet. |
 |Värde | Ja | Anspråkets värde som är associerad med det här alternativet. |
@@ -189,7 +188,7 @@ Stad listruta med ett standardvärde som angetts till New York:
 
 Den **mönstret** element kan innehålla följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Reguljärt uttryck | Ja | Det reguljära uttrycket som anspråk av den här typen måste matcha för att vara giltiga. |
 | Hjälptext | Nej | Mönster eller reguljärt uttryck för denna begäran. |
@@ -277,7 +276,6 @@ Den **DateTimeDropdown** typ av användarindata som används för att tillhandah
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date Of Birth</DisplayName>
   <DataType>date</DataType>
-  <AdminHelpText/>
   <UserHelpText>The date on which you were born.</UserHelpText>
   <UserInputType>DateTimeDropdown</UserInputType>
 </ClaimType>

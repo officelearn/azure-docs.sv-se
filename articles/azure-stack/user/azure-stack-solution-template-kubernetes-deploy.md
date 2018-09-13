@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c0c625852ff131aaa26e424ded75fbe51f94f23d
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 00c3fd0d1f637575904ebaa8031159344adf7e9f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159307"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718584"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Distribuera ett Kubernetes-kluster i Azure Stack
 
@@ -106,7 +106,7 @@ Ge tjänstens huvudnamn åtkomst till din prenumeration så att huvudkontot kan 
 
 1. Öppna den [Azure Stack-portalen](https://portal.local.azurestack.external).
 
-1. Välj **+ ny** > **Compute** > **Kubernetes-kluster**. Klicka på **Skapa**.
+1. Välj **+ skapa en resurs** > **Compute** > **Kubernetes-kluster**. Klicka på **Skapa**.
 
     ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

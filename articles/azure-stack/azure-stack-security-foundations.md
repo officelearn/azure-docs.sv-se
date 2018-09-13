@@ -3,23 +3,22 @@ title: Förstå säkerhetskontroller för Azure Stack | Microsoft Docs
 description: Lär dig om de säkerhetskontroller som tillämpas på Azure Stack som en tjänstadministratör
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: PatAltimore
 manager: femila
 editor: ''
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: mabrigg
-ms.openlocfilehash: a3bd314a1df3c45c76b2e3a5acb31c1474d0fdf5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 09/12/2018
+ms.author: patricka
+ms.openlocfilehash: 048a2e8204b3b8776b5a7e0e425dbc5fdf3d504c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008834"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719026"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Säkerhetspositionen för Azure Stack-infrastruktur
 
@@ -87,3 +86,5 @@ ACL: er för nätverket tillämpas i tre lager:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Lär dig hur du rotera dina hemligheter i Azure Stack](azure-stack-rotate-secrets.md)
+- [PCI-DSS och CSA-CCM-dokument för Azure Stack](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
+- [DoD och NIST dokument för Azure Stack](https://servicetrust.microsoft.com/ViewPage/Blueprint)

@@ -1,6 +1,6 @@
 ---
-title: Skapa uppgifter för att förbereda jobb och fullständig jobb på datornoderna - Azure Batch | Microsoft Docs
-description: Använd jobbet nivå förberedande uppgifter för att minimera överföring av data till Azure Batch-beräkningsnoder och släpp aktiviteter för rensning av noden på jobbet har slutförts.
+title: Skapa uppgifter för att förbereda jobb och fullständig jobb på beräkningsnoder – Azure Batch | Microsoft Docs
+description: Använd jobbnivå förberedande uppgifter för att minimera dataöverföringen till Azure Batch compute-noder och publiceringsuppgifter för noden rensning när jobbet har slutförts.
 services: batch
 documentationcenter: .net
 author: dlepow
@@ -15,71 +15,71 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 543c03c22b31389c3d6e048cc9f13c24add5aae7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: da69cc22fbb071ce3fa4b2c53aaf0b1ec4ba5e46
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314729"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35968037"
 ---
-# <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Kör jobbförberedelse och jobbet versionen uppgifter på Batch-beräkningsnoder
+# <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Kör jobbförberedelse- och jobbpubliceringsaktiviteter på Batch compute-noder
 
- En Azure Batch-jobbet kräver ofta någon form av installationsprogrammet innan dess aktiviteter utförs och jobbet efter Underhåll när dess aktiviteter är slutförda. Du kan behöva hämta vanliga uppgiften indata till compute-noder eller överföra utdata för aktiviteten till Azure Storage när jobbet har slutförts. Du kan använda **jobbet förberedelse** och **jobbet versionen** åtgärder att utföra dessa åtgärder.
+ Ett Azure Batch-jobb kräver ofta någon form av installationen innan dess aktiviteter utförs och efter jobbets Underhåll när dess aktiviteter har slutförts. Du kan behöva hämta vanliga indata för aktiviteten till compute-noder eller överför uppgift utdata till Azure Storage när jobbet har slutförts. Du kan använda **jobbförberedelse** och **jobbet versionen** uppgifter du utför dessa åtgärder.
 
-## <a name="what-are-job-preparation-and-release-tasks"></a>Vad är jobbförberedelseuppgiften och viktiga uppgifter?
-Innan du kör ett jobb uppgifter jobbförberedelseuppgift jobb som körs på alla compute-noder som är schemalagda att köras minst en aktivitet. När jobbet är slutfört, körs jobbet versionen aktiviteten på varje nod i den pool som körs minst en aktivitet. Du kan ange en kommandorad som ska anropas när en förberedelse eller viktig aktivitet körs precis som med normal batchaktiviteter.
+## <a name="what-are-job-preparation-and-release-tasks"></a>Vad är jobbförberedelse och publiceringsuppgifter?
+Innan aktiviteterna i ett jobb kör körs jobbförberedelseaktiviteten på alla beräkningsnoder som schemalagts att köra minst en aktivitet. När jobbet har slutförts körs jobbpubliceringsaktiviteten på alla noder i poolen som har kört minst en aktivitet. Du kan ange en kommandorad som ska anropas när en projektaktivitet för förberedelse eller versionen körs precis som med normal Batch-aktiviteterna.
 
-Jobbet förberedelse och version aktiviteter finns bekant Batch aktivitet funktioner, till exempel Filhämtning ([resursfiler][net_job_prep_resourcefiles]), utökade körning, anpassade miljövariabler, varaktighet för maximal körning av, försök igen antal och kvarhållningstiden för filen.
+Jobbförberedelse-och versionen stöder välbekanta Batch uppgift funktioner som Filhämtning ([resursfiler][net_job_prep_resourcefiles]), utökade körning, anpassade miljövariabler, högsta körningstid, försök igen antal och kvarhållningstid för filer.
 
-I följande avsnitt du lär dig hur du använder den [JobPreparationTask] [ net_job_prep] och [JobReleaseTask] [ net_job_release] klasser hittades i [ Batch-.NET] [ api_net] bibliotek.
+I avsnitten nedan får du lära dig hur du använder den [JobPreparationTask] [ net_job_prep] och [JobReleaseTask] [ net_job_release] klasser finns i [ Batch .NET] [ api_net] biblioteket.
 
 > [!TIP]
-> Jobbet förberedelse och version aktiviteter är särskilt användbart i miljöer med ”delat poolen”, som en pool av datornoderna kvarstår mellan jobbkörningar och används av många jobb.
+> Jobbförberedelse-och versionen är särskilt användbart i ”delade poolen” miljöer, som en pool med beräkningsnoder som kvarstår mellan körs och används av många jobb.
 > 
 > 
 
-## <a name="when-to-use-job-preparation-and-release-tasks"></a>När du ska använda jobbförberedelseuppgiften och släpp aktiviteter
-Jobbförberedelseuppgiften och versionen jobbuppgifter är passar bra för följande situationer:
+## <a name="when-to-use-job-preparation-and-release-tasks"></a>När du ska använda jobbförberedelse och publiceringsuppgifter
+Jobbförberedelse- och jobbpubliceringsaktiviteter är ett bra alternativ i följande situationer:
 
-**Hämta vanliga aktivitetsdata**
+**Ladda ned vanliga uppgiftsinformation**
 
-Batchjobb kräver ofta en gemensam uppsättning data som indata för jobbets uppgifter. Till exempel i dagliga risk analys beräkningar är marknaden data projektspecifika ännu gemensamma för alla uppgifter i jobbet. Informationen marknaden ofta flera gigabyte i storlek, ska hämtas till varje compute-nod bara en gång så att alla aktiviteter som körs på noden kan använda den. Använd en **förberedelse projektaktivitet** att hämta dessa data till varje nod innan körningen av jobbet har andra aktiviteter.
+Batch-jobb kräver ofta en gemensam uppsättning data som indata för jobbets uppgifter. Till exempel är marknadsdata i dagliga riskberäkningarna över analys, projektspecifika, ännu gemensamma för alla aktiviteter i jobbet. Den här marknadsdata, ofta flera gigabyte, ska bara en gång laddas ned till varje beräkningsnod så att alla aktiviteter som körs på noden kan använda den. Använd en **jobbförberedelseaktiviteten** att hämta dessa data till varje nod innan körningen av jobbet är andra aktiviteter.
 
-**Ta bort jobb- och utdata**
+**Ta bort jobb- och uppgiftsutdata**
 
-I en ”delad pool” miljö, där en pool compute-noder inte är inaktiverade mellan jobb, kan du behöva ta bort jobbdata mellan körs. Du kan behöva spara diskutrymme på noderna eller uppfyller organisationens säkerhetsprinciper. Använd en **versionen projektaktivitet** att ta bort data som hämtas av en projektaktivitet förberedelse, eller genereras under körning av aktiviteten.
+I en ”delad pool” miljö, där en poolens beräkningsnoder inte är inaktiverade mellan jobb kan du behöva ta bort jobbdata mellan körningar. Du kan behöva spara diskutrymme på noderna eller uppfylla organisationens säkerhetsprinciper. Använd en **jobbpubliceringsaktivitet** att ta bort data som hämtas av en jobbförberedelseaktivitet eller genereras under körning av aktiviteten.
 
 **Kvarhållning av logg**
 
-Du kanske vill behålla en kopia av loggfiler som dina aktiviteter genererar eller kanske kraschdumpfiler som genereras av misslyckade program. Använd en **versionen projektaktivitet** i sådana fall att komprimera och överföra data till en [Azure Storage] [ azure_storage] konto.
+Du kanske vill behålla en kopia av loggfiler som dina aktiviteter genererar eller kanske kraschdumpfiler som genereras av misslyckade program. Använd en **jobbpubliceringsaktivitet** i sådana fall att komprimera och ladda upp dem till en [Azure Storage] [ azure_storage] konto.
 
 > [!TIP]
-> Ett annat sätt att bevara loggar och andra jobb- och utdata data är att använda den [Azure Batch filen konventioner](batch-task-output.md) bibliotek.
+> Ett annat sätt att spara loggar och andra jobb- och utdata i data är att använda den [Azure Batch File Conventions](batch-task-output.md) biblioteket.
 > 
 > 
 
 ## <a name="job-preparation-task"></a>Jobbförberedelseuppgift
-Innan körningen av ett jobb uppgifter utför Batch förberedelse projektaktivitet på varje beräkningsnod som kommer att köra en aktivitet. Som standard väntar Batch-tjänsten för förberedelse projektaktivitet ska slutföras innan du kör uppgifter som är schemalagda att köras på noden. Du kan dock konfigurera tjänsten som inte ska vänta. Om noden har startats om förberedelse projektaktivitet körs igen, men du kan också inaktivera det här beteendet.
+Innan körningen av ett jobb och uppgifter utför Batch jobbförberedelseaktiviteten på varje beräkningsnod som har schemalagts att köra en uppgift. Som standard väntar Batch-tjänsten för jobbförberedelseaktiviteten ska slutföras innan du kör uppgifter som är schemalagd att köras på noden. Du kan dock konfigurera tjänsten inte vänta. Om noden startar om jobbförberedelseaktiviteten körs igen, men du kan också inaktivera det här beteendet.
 
-Förberedelse av projektaktivitet körs bara på noder som är schemalagda att köra en aktivitet. Detta förhindrar att onödiga körningen av en jobbförberedelseuppgift om en nod inte har tilldelats en aktivitet. Detta kan inträffa när antalet aktiviteter för ett jobb är mindre än antalet noder i en pool. Det gäller även när [samtidiga uppgiftskörningen](batch-parallel-node-tasks.md) är aktiverad, vilket lämnar vissa noder inaktiv om antal uppgifter är lägre än totalt antal möjliga samtidiga uppgifter. Genom att inte köra förberedelse projektaktivitet på inaktiv noder kan lägga du mindre pengar på kostnader för överföring av data.
+Jobbförberedelseaktiviteten körs bara på noder som är schemalagda att köra en uppgift. Detta förhindrar onödig körningen av en förberedande aktivitet om en nod inte har tilldelats en uppgift. Detta kan inträffa när antalet uppgifter för ett jobb är mindre än antalet noder i poolen. Det gäller även när [för körning av samtidiga aktiviteten](batch-parallel-node-tasks.md) är aktiverad, så att vissa noder inaktiv om antal uppgifter är lägre än totalt antal möjliga samtidiga aktiviteter. Genom att inte köra jobbförberedelseaktiviteten på inaktiva noder, kan du spenderar mindre på kostnaderna för dataöverföring.
 
 > [!NOTE]
-> [JobPreparationTask] [ net_job_prep_cloudjob] skiljer sig från [CloudPool.StartTask] [ pool_starttask] i att JobPreparationTask körs i början av varje jobb medan startuppgift har ställts körs bara när en beräkningsnod först ansluter till en pool eller startar om.
+> [JobPreparationTask] [ net_job_prep_cloudjob] skiljer sig från [CloudPool.StartTask] [ pool_starttask] eftersom JobPreparationTask körs i början av varje jobb medan StartTask körs bara när en beräkningsnod först ansluter till en pool eller startar om.
 > 
 > 
 
 ## <a name="job-release-task"></a>Jobbpubliceringsuppgift
-När ett jobb har markerats som slutförd, körs jobbet viktig aktivitet på varje nod i den pool som körs minst en aktivitet. Du kan markera ett jobb som slutförd genom att utfärda en avsluta begäran. Batch-tjänsten sedan anger jobbets status till *avslutar*, avbryts alla aktiva eller köra uppgifter som är kopplad till jobbet och kör jobbet versionen aktiviteten. Jobbet flyttas sedan till den *slutförts* tillstånd.
+När ett jobb har markerats som slutförd, körs jobbpubliceringsaktiviteten på varje nod i poolen som har kört minst en aktivitet. Du kan markera ett jobb som slutförd genom att utfärda en avslutningsbegäran. Batch-tjänsten anger sedan jobbets status till *avslutande*avslutas alla aktiva eller pågående aktiviteter som är kopplade till jobbet och körs jobbpubliceringsaktiviteten. Jobbet därefter flyttas till den *slutförts* tillstånd.
 
 > [!NOTE]
-> Borttagning av jobbet körs också viktig projektaktivitet. Men om ett jobb har redan avslutats, körs släpp uppgift inte en gång om jobbet senare tas bort.
+> Borttagning av jobbet körs också jobbpubliceringsaktiviteten. Men om ett jobb har redan avslutats, version aktiviteten körs inte en gång om jobbet tas bort senare.
 > 
 > 
 
-## <a name="job-prep-and-release-tasks-with-batch-net"></a>Jobbet prep och släpp aktiviteter med Batch .NET
-Om du vill använda en projektaktivitet förberedelse, tilldela en [JobPreparationTask] [ net_job_prep] objekt till ditt jobb [CloudJob.JobPreparationTask] [ net_job_prep_cloudjob] egenskapen. På liknande sätt kan initiera en [JobReleaseTask] [ net_job_release] och tilldela den till ditt jobb [CloudJob.JobReleaseTask] [ net_job_prep_cloudjob] egenskapen anges jobbet Släpp uppgiften.
+## <a name="job-prep-and-release-tasks-with-batch-net"></a>Jobbet prep och släpper aktiviteter med Batch .NET
+Om du vill använda en jobbförberedelseaktivitet, tilldela en [JobPreparationTask] [ net_job_prep] objekt för jobbets [CloudJob.JobPreparationTask] [ net_job_prep_cloudjob] egenskapen. På samma sätt kan initiera en [JobReleaseTask] [ net_job_release] och tilldela den till ditt jobb [CloudJob.JobReleaseTask] [ net_job_prep_cloudjob] egenskapen att ställa in jobbets Släpp uppgiften.
 
-I det här kodstycket `myBatchClient` är en instans av [BatchClient][net_batch_client], och `myPool` är en befintlig adresspool i Batch-kontot.
+I det här kodfragmentet `myBatchClient` är en instans av [BatchClient][net_batch_client], och `myPool` är en befintlig pool i Batch-konto.
 
 ```csharp
 // Create the CloudJob for CloudPool "myPool"
@@ -105,7 +105,7 @@ myJob.JobReleaseTask =
 await myJob.CommitAsync();
 ```
 
-Som tidigare nämnts är körs den här uppgiften när ett jobb avslutas eller tas bort. Avsluta ett jobb med [JobOperations.TerminateJobAsync][net_job_terminate]. Ta bort ett jobb med [JobOperations.DeleteJobAsync][net_job_delete]. Du vanligtvis avsluta eller ta bort ett jobb när dess aktiviteter har slutförts eller när en tidsgräns som du har definierat har uppnåtts.
+Som tidigare nämnts körs den version uppgiften när ett jobb avslutas eller tas bort. Avsluta ett jobb med [JobOperations.TerminateJobAsync][net_job_terminate]. Ta bort ett jobb med [JobOperations.DeleteJobAsync][net_job_delete]. Du kan vanligtvis avsluta eller ta bort ett jobb när dess aktiviteter har slutförts, eller när en tidsgräns som du har definierat har uppnåtts.
 
 ```csharp
 // Terminate the job to mark it as Completed; this will initiate the
@@ -116,22 +116,22 @@ await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## <a name="code-sample-on-github"></a>Kodexempel på GitHub
-Om du vill se jobbförberedelseuppgiften och viktiga uppgifter i praktiken, ta en titt på [JobPrepRelease] [ job_prep_release_sample] exempelprojektet på GitHub. Detta konsolprogram gör följande:
+Om du vill se jobbförberedelse och publiceringsuppgifter i praktiken, Kolla in den [JobPrepRelease] [ job_prep_release_sample] exempelprojektet på GitHub. Den här konsolappen gör följande:
 
-1. Skapar en pool med två noder som ”liten”.
-2. Skapar ett jobb med jobbförberedelseuppgiften, version och standarduppgifter.
-3. Kör jobbet förberedelse aktiviteten som först skriver nod-ID till en textfil i en nod ”delade” katalogen.
-4. Kör en aktivitet på varje nod som skriver dess aktivitets-ID till samma textfil.
-5. När alla aktiviteter har slutförts (eller tidsgränsen uppnås), skriver du innehållet på varje nod textfil till konsolen.
-6. När jobbet har slutförts körs projektaktiviteten versionen om du vill ta bort filen från noden.
-7. Skriver ut slutkoder jobbet förberedelse och version uppgifter för varje nod som de körs.
-8. Pausar körningen för att bekräfta borttagning av jobbet och/eller poolen.
+1. Skapar en pool med två noder.
+2. Skapar ett jobb med jobbförberedelse, versionen och standardaktiviteter.
+3. Kör jobbförberedelseaktiviteten, som först skriver nod-ID till en textfil i en nod ”delade” katalogen.
+4. Kör en aktivitet på varje nod som skriver dess aktivitets-ID till samma textfilen.
+5. När alla aktiviteter har slutförts (eller tidsgränsen har nåtts), skriver du ut innehållet i varje nod textfil till konsolen.
+6. När jobbet har slutförts körs jobbpubliceringsaktiviteten för att ta bort filen från noden.
+7. Skriver ut slutkoder över projektaktiviteter för jobbförberedelse- och jobbpubliceringsaktiviteter för varje nod som de körs.
+8. Pausar körningen så att en bekräftelse av borttagning av jobb och/eller pool.
 
-Utdata från exempelprogrammet som liknar följande:
+Utdata från exempelprogrammet ser ut ungefär så här:
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-Created pool JobPrepReleaseSamplePool with 2 small nodes
+Created pool JobPrepReleaseSamplePool with 2 nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...
@@ -173,27 +173,27 @@ Sample complete, hit ENTER to exit...
 ```
 
 > [!NOTE]
-> På grund av variabeln skapa och starta när noder i en ny pool (vissa noder är redo för uppgifter före andra), kan du se olika utdata. Eftersom uppgifterna slutföra snabbt, kan en av noderna i den poolen specifikt köra alla uppgifter i jobbet. Om detta händer ser du att jobbet Förbered dig och versionen uppgifter finns inte för noden som körs inga aktiviteter.
+> På grund av variabel skapas och börja tidpunkten för noder i en ny pool (vissa noder är redo för uppgifter före andra), kan du se olika utdata. Eftersom aktiviteterna slutförs snabbt, kan en av noderna i poolen mer specifikt kan köra alla jobbets aktiviteter. Om detta händer ser du att jobbet Förbered och publiceringsuppgifter finns inte för den nod som körs inga aktiviteter.
 > 
 > 
 
-### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Granska jobbförberedelseuppgiften och versionen uppgifter i Azure-portalen
-När du kör exempelprogrammet som du kan använda den [Azure-portalen] [ portal] att visa egenskaperna för jobbet och dess uppgifter eller även hämta den delade textfil som ändras av jobbets uppgifter.
+### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Inspektera jobbförberedelse och publiceringsuppgifter i Azure portal
+När du kör exempelprogrammet, du kan använda den [Azure-portalen] [ portal] visa egenskaperna för jobbets och aktiviteternas eller även hämta delade textfilen som ändras av jobbets aktiviteter.
 
-Skärmbilden nedan visar den **förberedelse uppgifter bladet** i Azure portal efter en körning av exempelprogrammet. Navigera till den *JobPrepReleaseSampleJob* egenskaper när aktiviteterna har slutförts (men innan du tar bort dina jobb och poolen) och klicka på **förberedande uppgifter** eller **viktiga uppgifter**visa deras egenskaper.
+Skärmbilden nedan visar den **förberedelse uppgifter bladet** i Azure-portalen när du har en körning av exempelprogrammet. Navigera till den *JobPrepReleaseSampleJob* egenskaper efter dina aktiviteter har slutförts (men innan du tar bort i jobbet och poolen) och klicka på **förberedelseuppgifter** eller **publiceringsuppgifter**visa deras egenskaper.
 
-![Förberedelse av jobbegenskaper i Azure-portalen][1]
+![Egenskaper för förberedelser i Azure-portalen][1]
 
 ## <a name="next-steps"></a>Nästa steg
 ### <a name="application-packages"></a>Programpaket
-Förutom projektaktiviteten förberedelse, du kan också använda den [programpaket](batch-application-packages.md) funktion i Batch för att förbereda compute-noder för körning av aktiviteten. Den här funktionen är särskilt användbar för att distribuera program som inte kräver kör ett installationsprogram, program som innehåller många (100 +) filer eller program som kräver strikt versionskontroll.
+Förutom jobbförberedelseaktiviteten, du kan också använda den [programpaket](batch-application-packages.md) i Batch för att förbereda beräkningsnoder för körning av aktiviteten. Den här funktionen är särskilt användbar för att distribuera program som inte behöver köra ett installationsprogram, program som innehåller många (100 +) filer eller program som kräver strikt versionskontroll.
 
-### <a name="installing-applications-and-staging-data"></a>Installera program och mellanlagring av data
-Den här MSDN-foruminlägg innehåller en översikt över flera metoder för att förbereda din noder för pågående aktiviteter:
+### <a name="installing-applications-and-staging-data"></a>Installera program, organiserar data
+Den här MSDN-foruminlägg innehåller en översikt över flera metoder för att förbereda noderna för att köra uppgifter:
 
-[Installera program och mellanlagring av data på Batch-beräkningsnoder][forum_post]
+[Installera program, organiserar data på Batch compute-noder][forum_post]
 
-Skrivs av en Azure Batch-gruppmedlemmar beskrivs den flera metoder som du kan använda för att distribuera program och data för att compute-noder.
+Skrivna med ett Azure Batch-gruppmedlemmar beskrivs den flera metoder som du kan använda för att distribuera program och data för att beräkna noder.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx

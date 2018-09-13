@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 38b59c28096b23a22b216158d9e945a2881a4f41
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 999ac78427ae1202db584efeb7de538bcc1248c7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189266"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714810"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
@@ -38,7 +38,7 @@ Azure SQL Database automatisk justering kan vara en av de viktigaste funktionern
 
 ## <a name="safe-reliable-and-proven"></a>Säker, pålitlig och beprövad
 
-Justering åtgärder som tillämpas på Azure SQL-databaser är helt säkra för prestanda för dina mest intensiva arbetsbelastningar. Systemet har utformats med försiktighet inte stör användaren arbetsbelastningar. Automatiska justeringsrekommendationer tillämpas endast vid tidpunkter med låg belastning. Systemet kan också tillfälligt inaktivera automatisk justering åtgärder för att skydda arbetsbelastningsprestandan. I detta fall, kommer ”inaktiverad av systemet” meddelandet att visas i Azure-portalen. Automatisk justering betraktar arbetsbelastningar med högst prioritet för resursen.
+Justeringsåtgärder som tillämpas på Azure SQL är-databaser helt säkra för prestanda för dina mest intensiva arbetsbelastningar. Systemet har utformats med försiktighet inte stör användaren arbetsbelastningar. Automatiska justeringsrekommendationer tillämpas endast vid tidpunkter med låg belastning. Systemet kan också tillfälligt inaktivera automatisk justering åtgärder för att skydda arbetsbelastningsprestandan. I detta fall, kommer ”inaktiverad av systemet” meddelandet att visas i Azure-portalen. Automatisk justering betraktar arbetsbelastningar med högst prioritet för resursen.
 
 Mekanismer för automatisk justering är mogen och har varit högerklicksmeny på flera miljoner databaser som körs på Azure. Automatisk justering åtgärder som tillämpas verifieras automatiskt att se till att det finns en positiv förbättring för arbetsbelastningsprestandan. Försämrad prestandarekommendationer dynamiskt upptäcks och utan dröjsmål har återställts. Det finns en tydlig spårning av justering av förbättringarna för varje Azure SQL-databas via justering historiken registreras. 
 

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: thoroet
-ms.openlocfilehash: 02602243bcb4e426ebf4984e387da8e8c148232e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 0899b1784c796e5f6265dda842ca8955615a1584
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055854"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718108"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Lägga till ytterligare skalning enhet noder i Azure Stack
 
@@ -64,7 +64,7 @@ Du kan använda administrationsportalen eller PowerShell för att lägga till ny
 ### <a name="use-the-admin-portal"></a>Använda administrationsportalen
 
 1. Logga in på administrationsportalen för Azure Stack som en Azure Stack-operator.
-2. Gå till **nya** > **kapacitet** > **skala enhet noden**.
+2. Gå till **+ skapa en resurs** > **kapacitet** > **skala enhet noden**.
    ![Skala enhet nod](media/azure-stack-add-scale-node/select-node1.png)
 3. På den **Lägg till nod** väljer den *Region*, och välj sedan den *skalningsenhet* att du vill lägga till noden. Ange den *BMC IP-adress* för skala enhet nod som du lägger till. Du kan bara lägga till en nod i taget.
    ![Lägg till nodinformation](media/azure-stack-add-scale-node/select-node2.png)

@@ -8,20 +8,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: dobett
-ms.openlocfilehash: 710de8021abfa5b1fc17491af6b8b9f2bdd3a19f
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: b57a448459101150363d595910cefcde991f1f92
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919045"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721828"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Förstå och använda Azure IoT Hub SDK: er
 
 Det finns två typer av software development Kit (SDK) för att arbeta med IoT Hub:
 
-* **SDK: er för enhetens** hjälper dig att skapa appar som körs på dina IoT-enheter. De här apparna skicka telemetri till din IoT-hubb och du kan också ta emot meddelanden, jobb, metod eller uppdateringar för enhetstvilling från IoT hub.
+* **SDK: er för enhetens** hjälper dig att skapa appar som körs på dina IoT-enheter med hjälp av enhetsklienten eller modulen klienten. De här apparna skicka telemetri till din IoT-hubb och du kan också ta emot meddelanden, jobb, metod eller uppdateringar för enhetstvilling från IoT hub.  Du kan också använda modulen klienten för att skapa [moduler](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) för [Azure IoT Edge-körningen](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge).
 
-* **Tjänst-SDK: er** gör det möjligt att hantera din IoT-hubb och du kan också skicka meddelanden, schemalägga jobb, anropa direktmetoder eller skicka önskad egenskap uppdateringar till din IoT-enheter.
+* **Tjänst-SDK: er** gör det möjligt att hantera din IoT-hubb och du kan också skicka meddelanden, schemalägga jobb, anropa direktmetoder eller skickar uppdateringar för önskad egenskap till din IoT-enheter eller moduler.
 
 Lär dig mer om fördelarna med att utveckla med Azure IoT SDK: er [här][lnk-benefits-blog].
 
@@ -35,21 +35,25 @@ Azure IoT Hub device SDK för .NET:
 * Installera från [Nuget][lnk-nuget-csharp-device]
 * [Källkod][lnk-dotnet-sdk]
 * [API-referens][lnk-dotnet-ref]
+* [Modulreferens] [https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet]
 
 Azure IoT Hub device SDK för C: som skrivits i ANSI C (C99) för portabilitet och bred plattformskompatibilitet
 * Installera från [apt-get, MBED, Arduino IDE eller Nuget][lnk-c-package]
 * [Källkod][lnk-c-sdk]
 * [API-referens][lnk-c-ref]
+* [Modulreferens] [https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h]
 
 Azure IoT Hub device SDK för Java: 
 * Lägg till i [Maven] [ lnk-maven-device] projekt
 * [Källkod][lnk-java-sdk]
 * [API-referens][lnk-java-ref]
+* [Modulreferens] [https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable]
 
 Azure IoT Hub device SDK för Node.js: 
 * Installera från [npm][lnk-npm-device]
 * [Källkod][lnk-node-sdk]
 * [API-referens][lnk-node-ref]
+* [Modulreferens] [https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest]
 
 Azure IoT Hub device SDK för Python: 
 * Installera från [pip][lnk-pip-device]

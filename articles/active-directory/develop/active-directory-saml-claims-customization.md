@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2405f1a8ab5ef03e5ed2992b7a089571077ce59b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ba4d8d46a6423a932eceea7fbe20ae985445c6a3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348522"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718890"
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory
 Idag Azure Active Directory har stöd för enkel inloggning på med de flesta företagsprogram, inklusive båda programmen som är förintegrerade i appgalleriet för Azure AD samt anpassade program. När en användare autentiseras till ett program via Azure AD med hjälp av protokollet SAML 2.0, skickar Azure AD en token till programmet (via en HTTP-POST). Och sedan programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token innehåller uppgifter om den användare som kallas ”anspråk”.
@@ -129,7 +129,7 @@ Det finns vissa begränsade anspråk i SAML. Om du lägger till dessa anspråk s
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>Nästa steg
-* [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
+* [Programhantering i Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Felsöka SAML-baserad enkel inloggning](howto-v1-debug-saml-sso-issues.md)
 

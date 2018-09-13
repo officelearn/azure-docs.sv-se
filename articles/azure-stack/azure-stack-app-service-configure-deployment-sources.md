@@ -1,6 +1,6 @@
 ---
-title: Konfigurera distributionen källor för Apptjänster Azure stacken | Microsoft Docs
-description: Hur en tjänstadministratör kan konfigurera distributionen källor (Git, GitHub, BitBucket, DropBox och OneDrive) för användning på Azure-stacken
+title: Konfigurera Distributionskällor för App Services i Azure Stack | Microsoft Docs
+description: Hur en tjänstadministratör kan konfigurera distributionskällor (Git, GitHub, BitBucket, DropBox och OneDrive) för App Service i Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 4ee333fcc50937679c4bc25b83c2d6aa389ba194
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4945ab0b8da961fc5739388d83f7c645f40e510d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359602"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35963978"
 ---
 # <a name="configure-deployment-sources"></a>Konfigurera distributionskällor
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 
-Apptjänst Azure stacken stöder distribution på begäran från flera Källkontrollsprovidrar. Den här funktionen kan programutvecklare distribuera direkt från sina databaser för kontroll av källa. Om användarna vill konfigurera App Service för att ansluta till sina databaser, måste en moln-operator du konfigurera integrationen mellan App Service på Azure-stacken och en Källkontrollsleverantör.  
+App Service i Azure Stack har stöd för distribution på begäran från flera Källkontrollsprovidrar. Den här funktionen kan utvecklare distribuera direkt deras källkodsdatabaser. Om användarna vill konfigurera App Service för att ansluta till sina databaser, måste en molnoperator du konfigurera integreringen mellan App Service i Azure Stack och en Källkontrollsleverantör.  
 
 Förutom lokal Git stöds följande Källkontrollsprovidrar:
 
@@ -35,104 +35,104 @@ Förutom lokal Git stöds följande Källkontrollsprovidrar:
 * OneDrive
 * DropBox
 
-## <a name="view-deployment-sources-in-app-service-administration"></a>Visa distribution källor i App Service-administration
+## <a name="view-deployment-sources-in-app-service-administration"></a>Visa distributionskällor i App Service-administration
 
-1. Logga in på administrationsportalen för stacken i Azure (https://adminportal.local.azurestack.external) som tjänstadministratör.
-2. Bläddra till **Resursproviders** och välj den **App tjänstadministratör Resource Provider**.  ![Apptjänst Resource Provider Admin][1]
-3. Klicka på **källa kontrollkonfiguration**.  Här ser du listan över alla distribution källor konfigurerats.
-    ![Appen resursen Admin källa Kontrollkonfiguration av ServiceProvider][2]
+1. Logga in på administrationsportalen för Azure Stack (https://adminportal.local.azurestack.external) som tjänstadministratör.
+2. Bläddra till **Resursprovidrar** och välj den **App tjänstadministratören Resource Provider**.  ![App Service Resource Provider-administratör][1]
+3. Klicka på **källkontrollkonfiguration**.  Här kan du se listan över alla Distributionskällor som har konfigurerats.
+    ![App Service Resource Provider Admin konfiguration av källkontroll][2]
 
 ## <a name="configure-github"></a>Konfigurera GitHub
 
-Du måste ha en GitHub-konto för att slutföra åtgärden. Du kanske vill använda ett konto för din organisation i stället för ett personligt konto.
+Du måste ha ett GitHub-konto för att slutföra den här åtgärden. Du kanske vill använda ett konto för din organisation i stället för ett personligt konto.
 
-1. Logga in på GitHub, bläddra till https://www.github.com/settings/developers och på **registrera ett nytt program**.
+1. Logga in på GitHub, bläddra till https://www.github.com/settings/developers och klicka på **registrera ett nytt program**.
     ![GitHub - registrera ett nytt program][3]
-2. Ange en **programnamn** till exempel - användning på Azure-stacken.
-3. Ange den **webbsida URL**. Webbsida URL-Adressen måste vara Azure Stack Portal-adress. Till exempel https://portal.local.azurestack.external.
-4. Ange en **Programbeskrivningen**.
-5. Ange den **auktorisering återanrop URL**.  I en standarddistribution av Azure-stacken är URL-adressen i formatet https://portal.local.azurestack.external/TokenAuthorize, om du använder en annan domän ersättning din domän för local.azurestack.external
-6. Klicka på **registrera program**.  Nu visas med en lista över sidan i **klient-ID** och **Klienthemlighet** för programmet.
-    ![GitHub - färdiga programmet registrering][5]
-7.  I en ny webbläsarflik eller logga in på administrationsportalen för stacken i Azure (https://adminportal.local.azurestack.external) som tjänstadministratör.
-8.  Bläddra till **Resursproviders** och välj den **App tjänstadministratör Resource Provider**.
-9. Klicka på **källa kontrollkonfiguration**.
+2. Ange en **programnamn** till exempel – App Service i Azure Stack.
+3. Ange den **Hemsides-URL**. Hemsides-URL måste vara Azure Stack Portal-adress. Till exempel https://portal.local.azurestack.external.
+4. Ange en **Programbeskrivning**.
+5. Ange den **Motringnings-URL för auktorisering**.  I en standarddistribution av Azure Stack-URL: en är i formatet https://portal.local.azurestack.external/TokenAuthorize, om du kör i en annan domän ersättning din domän för local.azurestack.external
+6. Klicka på **registrera program**.  Nu visas med en sida-lista de **klient-ID** och **Klienthemlighet** för programmet.
+    ![GitHub - slutförda programregistrering][5]
+7.  I en ny webbläsarflik eller logga in på administrationsportalen för Azure Stack (https://adminportal.local.azurestack.external) som tjänstadministratör.
+8.  Bläddra till **Resursprovidrar** och välj den **App tjänstadministratören Resource Provider**.
+9. Klicka på **källkontrollkonfiguration**.
 10. Kopiera och klistra in den **klient-ID** och **Klienthemlighet** till motsvarande indata rutorna för GitHub.
 11. Klicka på **Spara**.
 
 ## <a name="configure-bitbucket"></a>Konfigurera BitBucket
 
-Du måste ha ett BitBucket-konto för att slutföra den här aktiviteten. Du kanske vill använda ett konto för din organisation i stället för ett personligt konto.
+Du måste ha ett BitBucket-konto för att slutföra den här åtgärden. Du kanske vill använda ett konto för din organisation i stället för ett personligt konto.
 
-1. Logga in på BitBucket och bläddra till **integreringar** på ditt konto.
-    ![Instrumentpanel för BitBucket - integrering][7]
-2. Klicka på **OAuth** under hantering och **Lägg till konsumenten**.
-    ![BitBucket lägga till OAuth-Consumer][8]
-3. Ange en **namn** för konsumenten, till exempel Apptjänst Azure stacken.
+1. Logga in på BitBucket och bläddra till **integreringar** under ditt konto.
+    ![Instrumentpanel för BitBucket - integreringar][7]
+2. Klicka på **OAuth** under åtkomsthantering och **Lägg till konsumenten**.
+    ![BitBucket lägga till OAuth-konsument][8]
+3. Ange en **namn** för konsumenten, till exempel App Service i Azure Stack.
 4. Ange en **beskrivning** för programmet.
-5. Ange den **motringning URL**.  I en standarddistribution av Azure-stacken återanrop URL: en är i formatet https://portal.local.azurestack.external/TokenAuthorize, om du använder en annan domän ersättning din domän för azurestack.local.  URL: en måste följa skiftläget som anges här för BitBucket-integrering ska lyckas.
+5. Ange den **Motringnings-URL för**.  I en standarddistribution av Azure Stack är Motringnings-Url i formatet https://portal.local.azurestack.external/TokenAuthorize, om du kör i en annan domän ersättning din domän för azurestack.local.  URL: en måste följa skiftläget som anges här för BitBucket-integrering ska lyckas.
 6. Ange den **URL** -URL: en ska vara Azure Stack Portal URL, till exempel https://portal.local.azurestack.external.
 7. Välj den **behörigheter** krävs:
     - **Databaser**: *Läs*
     - **Webhooks**: *läsning och skrivning*
-8. Klicka på **Spara**.  Nu visas den här nya program, tillsammans med den **nyckeln** och **hemlighet** under **OAuth konsumenter**.
-    ![Lista över BitBucket-program][9]
-9.  I en ny webbläsarflik eller logga in på administrationsportalen för stacken i Azure (https://adminportal.local.azurestack.external) som tjänstadministratör.
-10.  Bläddra till **Resursproviders** och välj den **App tjänstadministratör Resource Provider**.
-11. Klicka på **källa kontrollkonfiguration**.
-12. Kopiera och klistra in den **nyckeln** till den **klient-ID** textrutan och **hemlighet** till den **Klienthemlighet** textrutan för BitBucket.
+8. Klicka på **Spara**.  Nu visas det här nya programmet tillsammans med den **nyckel** och **hemlighet** under **OAuth konsumenter**.
+    ![Lista för BitBucket-program][9]
+9.  I en ny webbläsarflik eller logga in på administrationsportalen för Azure Stack (https://adminportal.local.azurestack.external) som tjänstadministratör.
+10.  Bläddra till **Resursprovidrar** och välj den **App tjänstadministratören Resource Provider**.
+11. Klicka på **källkontrollkonfiguration**.
+12. Kopiera och klistra in den **nyckel** till den **klient-ID** inmatningsrutan och **hemlighet** till den **Klienthemlighet** textrutan för BitBucket.
 13. Klicka på **Spara**.
 
 
 ## <a name="configure-onedrive"></a>Konfigurera OneDrive
 
-Du måste ha ett Account kopplad till OneDrive-konto att slutföra uppgiften.  Du kanske vill använda ett konto för din organisation i stället för ett personligt konto.
+Du måste ha ett Account länkad till en OneDrive-konto att slutföra den här uppgiften.  Du kanske vill använda ett konto för din organisation i stället för ett personligt konto.
 
 > [!NOTE]
 > OneDrive för företag-konton stöds inte för närvarande.
 
 1. Bläddra till https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm och logga in med ditt Microsoft-Account.
-2. Under **Mina program**, klickar du på **Lägg till en app**.
+2. Under **Mina program**, klickar du på **lägga till en app**.
 ![OneDrive-program][10]
-3. Ange en **namn** för registreringen av nya program ange **Apptjänst Azure stacken**, och klicka på **skapa program**
-4. På nästa skärm visas egenskaperna för det nya programmet. Posten i **program-ID**.
+3. Ange en **namn** ny programregistrering ange **App Service i Azure Stack**, och klicka på **skapa program**
+4. Nästa skärm visas egenskaperna för det nya programmet. Post i **program-ID**.
 ![Egenskaper för OneDrive-program][11]
-5. Under **programmet hemligheter**, klickar du på **generera nya lösenord**. Anteckna **nytt lösenord genereras**. Det här är din programhemlighet och kan inte hämtas när du klickar på **OK** i det här skedet.
-6. Under **plattformar** klickar du på **lägga till plattformen** och välj **Web**.
-7. Ange den **omdirigerings-URI**.  I en standarddistribution av Azure-stacken omdirigerings-URI är i formatet https://portal.local.azurestack.external/TokenAuthorize, om du använder en annan domän ersättning din domän för azurestack.local ![OneDrive program – Lägg till webbplattform][12]
-8. Lägg till den **Microsoft Graph behörigheter** - **delegerad behörighet**
+5. Under **Programhemligheter**, klickar du på **generera nytt lösenord**. Anteckna **nytt lösenord har genererats**. Det här är din programhemlighet och kan inte hämtas när du klickar på **OK** i det här skedet.
+6. Under **plattformar** klickar du på **Lägg till plattform** och välj **Web**.
+7. Ange den **omdirigerings-URI**.  I en standarddistribution av Azure Stack är omdirigerings-URI i formatet https://portal.local.azurestack.external/TokenAuthorize, om du kör i en annan domän ersättning din domän för azurestack.local ![OneDrive program – Lägg till webbplattform][12]
+8. Lägg till den **Microsoft Graph-behörigheter** - **delegerade behörigheter**
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
-      ![Program i OneDrive - diagram-behörigheter][13]
+      ![Program i OneDrive - Graph-behörigheter][13]
 9. Klicka på **Spara**.
-10.  I en ny webbläsarflik eller logga in på administrationsportalen för stacken i Azure (https://adminportal.local.azurestack.external) som tjänstadministratör.
-11.  Bläddra till **Resursproviders** och välj den **App tjänstadministratör Resource Provider**.
-12. Klicka på **källa kontrollkonfiguration**.
-13. Kopiera och klistra in den **program-ID** till den **klient-ID** textrutan och **lösenord** till den **Klienthemlighet** textrutan för OneDrive.
+10.  I en ny webbläsarflik eller logga in på administrationsportalen för Azure Stack (https://adminportal.local.azurestack.external) som tjänstadministratör.
+11.  Bläddra till **Resursprovidrar** och välj den **App tjänstadministratören Resource Provider**.
+12. Klicka på **källkontrollkonfiguration**.
+13. Kopiera och klistra in den **program-ID** till den **klient-ID** inmatningsrutan och **lösenord** till den **Klienthemlighet** textrutan för OneDrive.
 14. Klicka på **Spara**.
 
 ## <a name="configure-dropbox"></a>Konfigurera DropBox
 
 > [!NOTE]
-> Du måste ha ett DropBox-konto för att slutföra den här aktiviteten.  Du kanske vill använda ett konto för din organisation i stället för ett personligt konto.
+> Du måste ha ett DropBox-konto för att slutföra den här åtgärden.  Du kanske vill använda ett konto för din organisation i stället för ett personligt konto.
 
-1. Bläddra till https://www.dropbox.com/developers/apps och logga in med ditt DropBox.
+1. Bläddra till https://www.dropbox.com/developers/apps och logga in med ditt DropBox-konto.
 2. Klicka på **skapa app**.
 
     ![Dropbox-program][14]
 
 3. Välj **DropBox API**.
-4. Anger åtkomsten till **App mappen**.
+4. Anger åtkomst till **App mappen**.
 5. Ange en **namn** för ditt program.
-![Registrering för dropbox-applikation][15]
-6. Klicka på **skapa App**.  Nu visas med en sida med inställningarna för App inklusive **appkey** och **App hemlighet**.
-7. Kontrollera den **App mappnamn** är inställd på **Apptjänst Azure stacken**.
-8. Ange den **OAuth 2 omdirigerings-URI** och på **Lägg till**.  I en standarddistribution av Azure-stacken omdirigerings-URI är i formatet https://portal.local.azurestack.external/TokenAuthorize, om du använder en annan domän ersättning din domän för azurestack.local.
-![Dropbox-programkonfigurationen][16]
-9.  I en ny webbläsarflik eller logga in på administrationsportalen för stacken i Azure (https://adminportal.local.azurestack.external) som tjänstadministratör.
-10.  Bläddra till **Resursproviders** och välj den **App tjänstadministratör Resource Provider**.
-11. Klicka på **källa kontrollkonfiguration**.
-12. Kopiera och klistra in den **Programnyckeln** i den **klient-ID** textrutan och **App hemlighet** i den **Klienthemlighet** textrutan för DropBox.
+![Dropbox programregistrering][15]
+6. Klicka på **skapa App**.  Nu visas med en sida med inställningarna för appen, inklusive **appnyckeln** och **apphemlighet**.
+7. Kontrollera den **App mappnamn** är inställd på **App Service i Azure Stack**.
+8. Ange den **OAuth 2 omdirigerings-URI** och klicka på **Lägg till**.  I en standarddistribution av Azure Stack är omdirigerings-URI i formatet https://portal.local.azurestack.external/TokenAuthorize, om du kör i en annan domän ersättning din domän för azurestack.local.
+![Dropbox programkonfiguration][16]
+9.  I en ny webbläsarflik eller logga in på administrationsportalen för Azure Stack (https://adminportal.local.azurestack.external) som tjänstadministratör.
+10.  Bläddra till **Resursprovidrar** och välj den **App tjänstadministratören Resource Provider**.
+11. Klicka på **källkontrollkonfiguration**.
+12. Kopiera och klistra in den **Programnyckel** till den **klient-ID** inmatningsrutan och **apphemlighet** till den **Klienthemlighet** textrutan för DropBox.
 13. Klicka på **Spara**.
 
 
@@ -156,4 +156,4 @@ Du måste ha ett Account kopplad till OneDrive-konto att slutföra uppgiften.  D
 
 ## <a name="next-steps"></a>Nästa steg
 
-Användare kan nu använda distribution källor för saker som [kontinuerlig distribution](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [lokal Git-distribution](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), och [molnet mappsynkronisering](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).
+Användare kan nu använda distributionskällor för saker som [kontinuerlig distribution](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [lokal Git-distribution](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), och [cloud mappsynkronisering](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: d4322e5a7f9d587049e9225c3adde08d04325afc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8de34e4ac01dea9cf4a0c718883e8cc828be6403
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024312"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714629"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Certifikatkrav för Azure Stack-infrastruktur för offentliga nycklar
 
@@ -40,7 +40,7 @@ I följande lista beskrivs kraven på certifikaten som behövs för att distribu
 - När du roterar certifikat, måste certifikaten ha antingen utfärdas från samma interna certifikatutfärdare används för att signera certifikat som angavs vid distribution eller en offentlig certifikatutfärdare ovan
 - Användning av självsignerade certifikat stöds inte
 - För distribution och rotation som du kan antingen använda ett enstaka certifikat som täcker alla namnutrymmen i certifikatets ämnesnamn och alternativt namn på CERTIFIKATMOTTAGARE eller du kan använda person-certifikat för varje namnrum nedan som Azure Stack tjänster som du planerar att använda kräver. Obs: båda metoderna kräver med jokertecken för slutpunkter där de är obligatoriska, till exempel **KeyVault** och **KeyVaultInternal**. 
-- Signaturalgoritm certifikatet får inte vara SHA1, eftersom det måste vara starkare. 
+- Signaturalgoritm certifikatet måste vara 3DES. Algoritmen kan inte vara SHA1, eftersom det måste vara starkare. 
 - Certifikatformatet måste vara PFX, som både offentliga och privata nycklar som krävs för installation av Azure Stack. 
 - Pfx-filer för certifikatet måste ha ett värde ”Digital signatur” och ”KeyEncipherment” i dess ”nyckelanvändning”.
 - Pfx-filer för certifikatet måste ha värdena ”serverautentisering (1.3.6.1.5.5.7.3.1)” och ”klientautentisering (1.3.6.1.5.5.7.3.2)” i fältet ”förbättrad nyckelanvändning”.

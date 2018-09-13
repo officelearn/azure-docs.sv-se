@@ -3,20 +3,20 @@ title: Azure SQL Database och Data Warehouse-brandväggsregler | Microsoft Docs
 description: Lär dig hur du konfigurerar SQL-databas och SQL Data Warehouse-brandvägg med brandväggsregler på servernivå att hantera åtkomst och konfigurera brandväggsregler för SQL-databas på databasnivå.
 keywords: Server database-brandvägg
 services: sql-database
-author: CarlRabeler
+author: VanMSFT
 manager: craigg
 ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.author: carlrab
-ms.openlocfilehash: 51b7a42e5b08c0fb40b3c9407d6da345db494214
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.author: vanto
+ms.openlocfilehash: 118911687326bfa938c7276337377e3d3cb66bf2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057249"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715405"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL Database och SQL Data Warehouse brandväggsregler 
 
@@ -43,7 +43,7 @@ Anslutningsförsök från Internet och Azure måste först passera brandväggen 
    ![Diagram över brandväggskonfigurationen.][1]
 
 * **Brandväggsregler på servernivå:** Dessa regler gör att klienterna kan komma åt hela Azure SQL-servern, det vill säga alla databaser som finns på samma logiska server. Dessa regler lagras i **huvuddatabasen**. Brandväggsregler på servernivå kan konfigureras via portalen eller med hjälp av Transact-SQL-instruktioner. Du måste vara prenumerationsägare eller prenumerationsdeltagare för att skapa brandväggsregler på servernivå med Azure Portal eller PowerShell. För att skapa en brandväggsregel på servernivå med hjälp av Transact-SQL, måste du ansluta till SQL Database-instansen med huvudsaklig inloggning på servernivå eller som Azure Active Directory-administratör (vilket innebär att en brandväggsregel på servernivå först måste ha skapats av en användare med Azure-behörighet).
-* **Databasnivå brandväggsregler:** dessa regler gör att klienterna kan komma åt vissa (säkra) databaser inom samma logiska server. Du kan skapa dessa regler för varje databas (inklusive den **master** databas) och de lagras i de enskilda databaserna. Brandväggsregler på databasnivå för huvud- och användardatabaser kan bara skapas och hanteras med hjälp av Transact-SQL-instruktioner och bara när du har konfigurerat den första brandväggen på servernivå. Om du anger ett IP-adressintervall i brandväggsregeln på databasnivå som ligger utanför det intervall som angetts i brandväggsregeln på servernivå kan endast klienter som har IP-adresser som ligger i intervallet som angetts för databasnivån komma åt databasen. Du kan skapa upp till 128 brandväggsregler på databasnivå för en databas. Mer information om hur du konfigurerar brandväggsregler på databasnivå finns i exemplet senare i den här artikeln och se [sp_set_database_firewall_rule (Azure SQL-databaser)](https://msdn.microsoft.com/library/dn270010.aspx).
+* **Databasnivå brandväggsregler:** dessa regler gör att klienterna kan komma åt vissa (säkra) databaser inom samma logiska server. Du kan skapa dessa regler för varje databas (inklusive den **master** databas) och de lagras i de enskilda databaserna. Brandväggsregler på databasnivå för huvud- och användardatabaser kan bara skapas och hanteras med hjälp av Transact-SQL-instruktioner och bara när du har konfigurerat den första brandväggen på servernivå. Om du anger ett IP-adressintervall i brandväggsregeln på databasnivå som ligger utanför det intervall som angetts i brandväggsregeln på servernivå kan endast klienter som har IP-adresser som ligger i intervallet som angetts för databasnivån komma åt databasen. Du kan skapa upp till 128 brandväggsregler på databasnivå för en databas. Mer information om hur du konfigurerar brandväggsregler på databasnivå finns i exemplet senare i den här artikeln och se [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 **Rekommendation:** Microsoft rekommenderar att du använder brandväggsregler på databasnivå när det är möjligt för att förbättra säkerheten och göra databasen mer portabel. Använd brandväggsregler på servernivå för administratörer och om du har många databaser med samma åtkomstkrav och du inte vill lägga tid på att konfigurera varje databas individuellt.
 

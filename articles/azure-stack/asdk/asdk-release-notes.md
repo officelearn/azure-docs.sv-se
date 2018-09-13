@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: c1b88518f9e27093ff00ad020e470fa5670dfcd6
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 1d3e4724820f7109eb9b695fe06d221a2796c26f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391954"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722219"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Viktig information om Azure Stack Development Kit  
 Den här artikeln innehåller information om förbättringar, korrigeringar och kända problem i Azure Stack Development Kit. Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -42,6 +42,10 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 - <!-- IS, ASDK --> **Virtual Machine Scale Sets skalning**.  Du kan använda portalen för att [skala en VM-Skalningsuppsättning](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
 
 - <!-- 2489570 | IS ASDK--> **Stöd för anpassade konfigurationer för IPSec/IKE-princip** för [VPN-gatewayer i Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
+
+- <!-- | IS ASDK--> **Marketplace-objekt för Kubernetes**. Du kan nu distribuera Kubernetes-kluster med hjälp av den [Kubernetes Marketplace-objekt](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Användare kan det Kubernetes-objekt och fylla i några parametrar för att distribuera ett Kubernetes-kluster i Azure Stack. Syftet med mallarna är att göra det enkelt för användarna att installationsprogrammet utveckling/testning i Kubernetes-distribution med några få steg.
+
+- <!-- | IS ASDK--> **Blockchain mallar**. Du kan nu köra [Ethereum consortium distributioner](/azure/azure-stack/azure-stack-ethereum) på Azure Stack. Du kan hitta tre nya mallar i den [Azure Stack Snabbstartsmallarna](https://github.com/Azure/AzureStack-QuickStart-Templates). De används att distribuera och konfigurera ett flera medlem Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum. Syftet med mallarna är att göra det enkelt för användarna att installationsprogrammet utveckling/testning Blockchain distributioner med några få steg.
 
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
@@ -67,7 +71,9 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
 ### <a name="known-issues"></a>Kända problem
 
-#### <a name="portal"></a>Portal  
+#### <a name="portal"></a>Portalen  
+- <!-- 2967387 – IS, ASDK --> Det konto som används för att logga in på Azure Stack-administratör eller användare portalen visas som **Oidentifierad användare**. Detta inträffar när kontot inte har antingen en *första* eller *senaste* namnen. Undvik problemet genom att redigera användarkontot om du vill använda den första eller sista. Du måste sedan logga ut och logga sedan in igen på portalen. 
+
 -  <!--  2873083 - IS ASDK --> När du använder portalen för att skapa en virtuell datorskalning ange (VMSS), den *instansstorlek* listrutan inte in korrekt när du använder Internet Explorer. Undvik problemet genom att använda en annan webbläsare när du använder portalen för att skapa en VMSS.  
 
 - <!-- TBD  ASDK --> Standardtidszon för alla Azure Stack-distributioner är nu ställa in att Coordinated Universal Time (UTC). Du kan välja en tidszon när du installerar Azure Stack, men det automatiskt med UTC som standard under installationen.
@@ -160,7 +166,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 - <!-- TBD - IS ASDK --> För att skala ut infrastruktur (arbetare, hantering, frontend-roller), måste du använda PowerShell enligt beskrivningen i viktig information för beräkning.  
 
 
-#### <a name="usage"></a>Användning   
+#### <a name="usage"></a>Användning  
 - <!-- TBD -  IS ASDK --> Offentlig IP-adress användning mätaren användningsdata visar samma *EventDateTime* värde för varje post i stället för den *TimeDate* stämpel som visar när posten skapades. För närvarande kan använda du inte dessa data för att utföra redovisas korrekt användning av offentlig IP-adress.
 
 <!-- #### Identity -->
@@ -246,7 +252,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
 ### <a name="known-issues"></a>Kända problem
 
-#### <a name="portal"></a>Portal  
+#### <a name="portal"></a>Portalen  
 - <!-- 2931230 – IS  ASDK --> Planer som läggs till i en användarprenumeration som en tilläggsplanen kan inte raderas även när du tar bort planen från användarprenumerationen. Planen finns kvar tills de prenumerationer som refererar till tilläggsplanen tas också bort. 
 
 - <!--2760466 – IS  ASDK --> När du installerar en ny Azure Stack-miljö med den här versionen, aviseringen-värde som anger *aktivering krävs* kanske inte visas. [Aktivering](.\.\azure-stack-registration.md) krävs innan du kan använda marketplace syndikering. 
@@ -344,7 +350,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
 - <!-- TBD - IS ASDK --> App Service kan bara distribueras till den *standard providerprenumeration* just nu. I en kommande uppdatering distribuerar App Service till den nya *Avläsning av prenumeration* som introducerades i Azure Stack 1804. När Avläsning av programvara stöds för användning, kommer alla befintliga distributioner att migreras till den här nya prenumerationstypen.
 
-#### <a name="usage"></a>Användning   
+#### <a name="usage"></a>Användning  
 - <!-- TBD -  IS ASDK --> Offentlig IP-adress användning mätaren användningsdata visar samma *EventDateTime* värde för varje post i stället för den *TimeDate* stämpel som visar när posten skapades. För närvarande kan använda du inte dessa data för att utföra redovisas korrekt användning av offentlig IP-adress.
 
 <!-- #### Identity -->
@@ -393,7 +399,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
 ### <a name="known-issues"></a>Kända problem
 
-#### <a name="portal"></a>Portal
+#### <a name="portal"></a>Portalen
 - <!-- 2931230 – IS  ASDK --> Planer som läggs till i en användarprenumeration som en tilläggsplanen kan inte raderas även när du tar bort planen från användarprenumerationen. Planen finns kvar tills de prenumerationer som refererar till tilläggsplanen tas också bort. 
 
 - <!-- 2551834 - IS, ASDK --> När du väljer **översikt** för ett lagringskonto på administratören eller användaren portalerna kan informationen från den *Essentials* fönstret visas inte.  Fönstret information visar information om kontot som dess *resursgrupp*, *plats*, och *prenumerations-ID*.  Andra alternativ för översikt över är tillgängliga, t.ex. *Services* och *övervakning*, samt som alternativ till *öppna i Explorer* eller *ta bort lagringskonto* .  
@@ -520,7 +526,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
 - <!-- TBD - IS ASDK --> App Service kan bara distribueras till den *standard providerprenumeration* just nu. <!-- In a future update, App Service will deploy into the new *Metering subscription* that was introduced in Azure Stack 1804. When Metering is supported for use, all existing deployments will be migrated to this new subscription type. -->
 
-#### <a name="usage"></a>Användning   
+#### <a name="usage"></a>Användning  
 - <!-- TBD -  IS ASDK --> Offentlig IP-adress användning mätaren användningsdata visar samma *EventDateTime* värde för varje post i stället för den *TimeDate* stämpel som visar när posten skapades. För närvarande kan använda du inte dessa data för att utföra redovisas korrekt användning av offentlig IP-adress.
 
 <!-- #### Identity -->

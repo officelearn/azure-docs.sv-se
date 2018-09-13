@@ -1,6 +1,6 @@
 ---
 title: Cache-Utdatacacheprovider för ASP.NET
-description: Lär dig att cachelagra ASP.NET sidutdata med hjälp av Azure Redis-Cache
+description: Lär dig hur du cachelagrar ASP.NET sidans utdata med Azure Redis Cache
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: wesmc
-ms.openlocfilehash: 81c95949971d54833ca7a15ec5148116c94767f7
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 3cf906830965959709a8c7e8dc7d2acc3f3a6f32
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27909830"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35968856"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>ASP.NET Utdatacacheprovider för Azure Redis-Cache
-Redis Utdatacacheprovider är en mekanism för lagring av out-of-process för cache-utdata. Informationen är specifikt för fullständig HTTP-svar (sidan cachelagring av utdata). Providern ansluts till den nya utdata cache providern utökningspunkt som introducerades i ASP.NET 4.
+Redis-Utdatacacheprovider är en molnlagringsmekanism för out-of-process för cache-utdata. Dessa data är specifikt för fullständig HTTP-svar (sidan cachelagring av utdata). Providern ansluts till den nya utökningsbarhet punkten för utdata cache-providern som introducerades i ASP.NET 4.
 
-Om du vill använda Redis Utdatacacheprovider först konfigurera din cache och sedan konfigurera ASP.NET-program med hjälp av Redis utdata Cache providern NuGet-paketet. Det här avsnittet ger vägledning om hur du konfigurerar programmet att använda Redis Utdatacacheprovider. Mer information om hur du skapar och konfigurerar Azure Redis-Cache-instansen finns [skapa ett cacheminne](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+För att använda Redis Utdatacacheprovider måste först konfigurera din cache och konfigurera ASP.NET-program med hjälp av Redis utdata Cache-providern NuGet-paketet. Det här avsnittet innehåller information om hur du konfigurerar programmet att använda Redis Utdatacacheprovider. Läs mer om att skapa och konfigurera en Azure Redis Cache-instans, [skapa ett cacheminne](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-## <a name="store-aspnet-page-output-in-the-cache"></a>Lagra ASP.NET sidutdata i cacheminnet
-Om du vill konfigurera ett klientprogram i Visual Studio med Redis-Cache Session tillstånd NuGet-paketet, klickar du på **NuGet Package Manager**, **Pakethanterarkonsolen** från den **verktyg**menyn.
+## <a name="store-aspnet-page-output-in-the-cache"></a>Store ASP.NET sidutdata i cacheminnet
+Om du vill konfigurera ett klientprogram i Visual Studio med Redis Cache-Session tillstånd NuGet-paketet, klickar du på **NuGet-Pakethanteraren**, **Pakethanterarkonsolen** från den **verktyg**menyn.
 
 Kör följande kommando från fönstret `Package Manager Console`.
     
@@ -35,21 +35,24 @@ Kör följande kommando från fönstret `Package Manager Console`.
 Install-Package Microsoft.Web.RedisOutputCacheProvider
 ```
 
-Redis utdata Cache providern NuGet-paketet har ett beroende på StackExchange.Redis.StrongName-paketet. Om paketet StackExchange.Redis.StrongName inte finns i ditt projekt, installeras. Mer information om Redis utdata Cache providern NuGet-paketet finns i [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet-sidan.
+Redis utdata Cache-providern NuGet-paketet har ett beroende på StackExchange.Redis.StrongName-paketet. Om StackExchange.Redis.StrongName paketet inte är tillgänglig i ditt projekt, installeras. Mer information om Redis utdata Cache-providern NuGet-paketet finns i den [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet-sidan.
 
 >[!NOTE]
->Förutom starkt krypterat namn StackExchange.Redis.StrongName paket finns det också StackExchange.Redis icke-starkt krypterat namn version. Om ditt projekt använder icke-starkt krypterat namn StackExchange.Redis versionen måste du avinstallera den, hämta annars du namnkonflikter i projektet. Mer information om dessa paket finns [konfigurerar .NET-cacheklienter](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+>Förutom starkt krypterad StackExchange.Redis.StrongName paketet finns det också StackExchange.Redis icke-starkt krypterad version. Om projektet använder den icke-starkt krypterad StackExchange.Redis version måste du avinstallera den, hämta annars du namnkonflikter i projektet. Mer information om dessa paket finns i [konfigurerar .NET-cacheklienter](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 >
 >
 
-NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferenser och lägger till följande avsnitt i web.config-filen. Det här avsnittet innehåller nödvändig konfiguration för ASP.NET-program att använda Redis Utdatacacheprovider.
+NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferenserna och lägger till följande avsnitt i web.config-filen. Det här avsnittet innehåller konfigurationen som krävs för ASP.NET-program att använda Redis Utdatacacheprovider.
 
 ```xml
 <caching>
   <outputCachedefault Provider="MyRedisOutputCache">
     <providers>
+      <!-- For more details check https://github.com/Azure/aspnet-redis-providers/wiki -->
+      <!-- Either use 'connectionString' OR 'settingsClassName' and 'settingsMethodName' OR use 'host','port','accessKey','ssl','connectionTimeoutInMilliseconds' and 'operationTimeoutInMilliseconds'. -->
+      <!-- 'databaseId' and 'applicationName' can be used with both options. -->
       <!--
-      <add name="MyRedisOutputCache"
+      <add name="MyRedisOutputCache" 
         host = "127.0.0.1" [String]
         port = "" [number]
         accessKey = "" [String]
@@ -57,39 +60,47 @@ NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferense
         databaseId = "0" [number]
         applicationName = "" [String]
         connectionTimeoutInMilliseconds = "5000" [number]
-        operationTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "1000" [number]
+        connectionString = "<Valid StackExchange.Redis connection string>" [String]
+        settingsClassName = "<Assembly qualified class name that contains settings method specified below. Which basically return 'connectionString' value>" [String]
+        settingsMethodName = "<Settings method should be defined in settingsClass. It should be public, static, does not take any parameters and should have a return type of 'String', which is basically 'connectionString' value.>" [String]
+        loggingClassName = "<Assembly qualified class name that contains logging method specified below>" [String]
+        loggingMethodName = "<Logging method should be defined in loggingClass. It should be public, static, does not take any parameters and should have a return type of System.IO.TextWriter.>" [String]
+        redisSerializerType = "<Assembly qualified class name that implements Microsoft.Web.Redis.ISerializer>" [String]
       />
       -->
-      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-    </providers>
+      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider"
+           host=""
+           accessKey=""
+           ssl="true" />
   </outputCache>
 </caching>
 ```
 
-Kommenterade avsnittet ger ett exempel på de attribut och exempel på inställningar för varje attribut.
+Kommenterade avsnittet innehåller ett exempel på de attribut och exempel på inställningar för varje attribut.
 
-Konfigurera attribut med värden från din cachebladet i Microsoft Azure-portalen och konfigurera andra värden efter behov. Anvisningar för att komma åt egenskaper för cache finns [konfigurera Redis cacheinställningarna](cache-configure.md#configure-redis-cache-settings).
+Konfigurera attribut med värden från din cachebladet i Microsoft Azure-portalen och konfigurera de andra värdena efter behov. Anvisningar om hur du använder cache-egenskaper finns i [konfigurera Redis-cacheinställningarna](cache-configure.md#configure-redis-cache-settings).
 
 * **värden** – ange cache-slutpunkten.
-* **port** – använda icke-SSL-port eller SSL-port, beroende på ssl-inställningar.
+* **port** – använda icke-SSL-port eller SSL-porten, beroende på vilka ssl-inställningar.
 * **accessKey** – Använd den primära eller sekundära nyckeln för ditt cacheminne.
-* **SSL** – SANT om du vill skydda klient och cache-kommunikation med ssl, annars false. Se till att ange rätt port.
-  * Observera att icke-SSL-porten är inaktiverad som standard för nya cacheminnen. Ange true för den här inställningen att använda SSL-porten. Mer information om hur du aktiverar icke-SSL-porten finns i [Åtkomstportar](cache-configure.md#access-ports) under den [konfigurera en cache](cache-configure.md) avsnittet.
-* **databaseId** – angivna vilken databas som ska användas för cache-utdata. Om inget anges används standardvärdet 0.
-* **applicationName** – nycklar lagras i redis som `<AppName>_<SessionId>_Data`. Den här namngivningsschemat kan flera program kan dela samma nyckel. Den här parametern är valfri och om du inte anger den ett standardvärde används.
-* **connectionTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen connectTimeout i StackExchange.Redis-klienten. Om inget anges används standardinställningen connectTimeout 5000. Mer information finns i [StackExchange.Redis Konfigurationsmodell](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen syncTimeout i StackExchange.Redis-klienten. Om inget anges används standardinställningen för syncTimeout 1000. Mer information finns i [StackExchange.Redis Konfigurationsmodell](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **SSL** – SANT om du vill skydda cache/klientkommunikation med ssl, annars false. Glöm inte att ange rätt port.
+  * Observera att icke-SSL-porten är inaktiverad som standard för nya cacheminnen. Ange som SANT för den här inställningen för att använda SSL-porten. Mer information om hur du aktiverar icke-SSL-porten finns i den [Åtkomstportar](cache-configure.md#access-ports) i avsnittet den [konfigurera en cache](cache-configure.md) avsnittet.
+* **databaseId** – angivna vilken databas som ska användas för cache-utdata. Om den inte anges används standardvärdet 0.
+* **applicationName** – nycklar lagras i redis som `<AppName>_<SessionId>_Data`. Den här namngivningsschemat kan flera program delar samma nyckel. Den här parametern är valfri och om du inte anger den ett standardvärde används.
+* **connectionTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen connectTimeout i StackExchange.Redis-klienten. Om den inte anges används standardinställningen connectTimeout 5000. Mer information finns i [Konfigurationsmodell](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen syncTimeout i StackExchange.Redis-klienten. Om den inte anges används standardinställningen för syncTimeout på 1 000. Mer information finns i [Konfigurationsmodell](http://go.microsoft.com/fwlink/?LinkId=398705).
 
-Lägg till en direktivet OutputCache på varje sida som du vill cachelagra utdata.
+Lägga till ett OutputCache-direktiv i varje sida som du vill cachelagra utdata.
 
 ```
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-I föregående exempel cachelagrade siddata finns kvar i cacheminnet för 60 sekunder, och en annan version av sidan cachelagras för varje parameter-kombination. Läs mer om direktivet OutputCache [ @OutputCache ](http://go.microsoft.com/fwlink/?linkid=320837).
+I föregående exempel cachelagrade siddata behålls på cacheplatsen i 60 sekunder och en annan version av sidan cachelagras för varje kombination av parametern. Läs mer om direktivet OutputCache [ @OutputCache ](http://go.microsoft.com/fwlink/?linkid=320837).
 
-Programmet är konfigurerat för att använda Redis Utdatacacheprovider när dessa steg utförs.
+När dessa steg utförs har ditt program konfigurerats för att använda Redis Utdatacacheprovider.
 
 ## <a name="next-steps"></a>Nästa steg
-Kolla in den [ASP.NET-Sessionstillståndsprovider för Azure Redis-Cache](cache-aspnet-session-state-provider.md).
+Kolla in den [ASP.NET-Sessionstillståndsprovider för Azure Redis Cache](cache-aspnet-session-state-provider.md).
 

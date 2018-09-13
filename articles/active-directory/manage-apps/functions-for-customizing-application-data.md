@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: fd42d2d7f3a277f9ea568e255ab5ba5eb76476ae
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: cf0e94b859b49eddb8e2471d5319b3cc4a2c17ba
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357817"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720301"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -264,7 +264,6 @@ Om delstatskod inte matchar någon av de fördefinierade alternativ, använder d
 * **UTDATA**: ”Australien/Brisbane”
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Automatisera användaren etablering/avetablering för SaaS-appar](user-provisioning.md)
 * [Anpassa attributmappningar för etableringen av användare](customize-application-attributes.md)
 * [Omfångsfilter för etableringen av användare](define-conditional-rules-for-provisioning-user-accounts.md)

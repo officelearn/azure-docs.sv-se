@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972204"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721338"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 
@@ -43,7 +43,7 @@ Med Microsoft Azure kan du:
 
 ## <a name="scope"></a>Omfång
 
-I centrum av detta White Paper gäller säkerhetsfunktioner och funktioner som stöder kärnkomponenterna i Microsoft Azure, nämligen [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL-databaser](https://docs.microsoft.com/azure/sql-database/), [ Modellen för Microsoft Azure VM](https://docs.microsoft.com/azure/virtual-machines/), och de verktyg och infrastruktur som hanterar allt. Den här vitboken fokus på Microsoft Azure tekniska funktioner tillgängliga för dig som kunder att uppfylla deras roll i att skydda säkerheten och sekretessen för sina data.
+I centrum av detta White Paper gäller säkerhetsfunktioner och funktioner som stöder kärnkomponenterna i Microsoft Azure, nämligen [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [ Modellen för Microsoft Azure VM](https://docs.microsoft.com/azure/virtual-machines/), och de verktyg och infrastruktur som hanterar allt. Den här vitboken fokus på Microsoft Azure tekniska funktioner tillgängliga för dig som kunder att uppfylla deras roll i att skydda säkerheten och sekretessen för sina data.
 
 Vikten av att förstå den här modellen delat ansvar är nödvändigt för kunder som migrerar till molnet. Molnleverantörer erbjuder betydande fördelar för säkerhet och efterlevnad, men dessa fördelar dessutom inte kunden från att skydda sina användare, program och erbjudanden.
 
@@ -63,7 +63,7 @@ Azure hjälper dig att skydda företags- och personlig information genom att han
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsoft identitets- och hantering av lösningar kan IT-avdelningen skydda åtkomsten till program och resurser i företagets datacenter och i molnet, aktiverar extra kontrollnivåer verifiering, till exempel multifaktorautentisering och villkorlig åtkomst principer. Övervaka misstänkt aktivitet via avancerad säkerhet reporting, granskning och aviseringar hjälper till att minimera potentiella säkerhetsproblem. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) tillhandahåller enkel inloggning till tusentals molnappar (SaaS) och åtkomst till webbappar som du kör lokalt.
+Microsoft identitets- och hantering av lösningar kan IT-avdelningen skydda åtkomsten till program och resurser i företagets datacenter och i molnet, aktiverar extra kontrollnivåer verifiering, till exempel multifaktorautentisering och villkorlig åtkomst principer. Övervakning av misstänkt aktivitet genom avancerad säkerhetsrapportering, -granskning och -avisering hjälper till att minska potentiella säkerhetsproblem. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) tillhandahåller enkel inloggning till tusentals molnappar (SaaS) och åtkomst till webbappar som du kör lokalt.
 
 Säkerhetsfördelarna med Azure Active Directory (Azure AD) är möjligheten att:
 

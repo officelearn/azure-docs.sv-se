@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 6eb28ad918f9d95c26d91c05d8ee9556ef768bd3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c500a1ecc817e4d95e39ca0ac985e1d90ffc8a78
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125860"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721271"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap recovery (BCDR): parade Azure-regioner
 
@@ -73,7 +73,7 @@ Enligt figur 2.
 
 ![Storage](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** -Geo-Redundant lagring (GRS) är konfigurerat som standard när ett Azure Storage-konto har skapats. Med GRS, är dina data automatiskt replikeras tre gånger inom den primära regionen och tre gånger i den parade regionen. Mer information finns i [redundansalternativ för Azure Storage](storage/common/storage-redundancy.md).
 
-![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL-databaser** – med Azure SQL Standard Geo-Replikation, som du kan konfigurera asynkron replikering av transaktioner till en parad region. Med premium geo-replikering, kan du konfigurera replikering till alla regioner i världen; Vi rekommenderar dock att du distribuerar dessa resurser i en parad region för de flesta scenarier med haveriberedskap. Mer information finns i [Geo-replikering i Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
+![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – med Azure SQL Database Geo-replikering, kan du konfigurera asynkron replikering av transaktioner till alla regioner i världen; men vi rekommenderar att du distribuerar dessa resurser i en länkad region för de flesta scenarier med haveriberedskap. Mer information finns i [Geo-replikering i Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 
 ![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** -Resource Manager tillhandahåller sin natur logisk avgränsning av service management-komponenter i olika regioner. Det innebär att logiska fel i en region är mindre troligt att påverka en annan.
 

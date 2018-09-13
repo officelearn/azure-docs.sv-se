@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 06a79250bac977fc4ade7853594c5307bb11d983
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 614198b959c447e7b7c8d116eaa800759fc80cca
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336953"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718261"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Weibo-konto med Azure Active Directory B2C
 
@@ -45,19 +45,15 @@ Om du vill använda ett Weibo-konto som identitetsprovider i Azure Active Direct
 6. Välj**保存以上信息**(spara).
 7. Välj**高级信息**(avancerad information).
 8. Välj**编辑**(redigera) bredvid fältet för OAuth2.0**授权设置**(omdirigerings-URL).
-9. Ange `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` för OAuth2.0**授权设置**(omdirigerings-URL). Exempel: om din `tenant_name` är contoso, ange URL: en ska vara `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+9. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` för OAuth2.0**授权设置**(omdirigerings-URL). Till exempel om ditt klientnamn är contoso anger du URL: en ska vara `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 10. Välj**提交**(skicka).  
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Konfigurera ett Weibo-konto som identitetsprovider
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
-2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att växla till den i det övre högra hörnet i Azure-portalen. Välj din prenumerationsinformation och välj därefter **Växla katalog**. 
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.  
 
     ![Växla till Azure AD B2C-klientorganisationen](./media/active-directory-b2c-setup-weibo-app/switch-directories.png)
-
-    Välj den katalog som innehåller din klient.
-
-    ![Välj katalog](./media/active-directory-b2c-setup-weibo-app/select-directory.png)
 
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.

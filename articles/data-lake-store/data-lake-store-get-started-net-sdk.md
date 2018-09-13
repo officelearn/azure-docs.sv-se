@@ -1,24 +1,23 @@
 ---
-title: ".NET SDK: Kontohanteringsåtgärder i Azure Data Lake Store | Microsoft Docs"
-description: "Använd Azure Data Lake Store .NET SDK för att utföra kontohanteringsåtgärder i Data Lake Store"
+title: '.NET SDK: Kontohanteringsåtgärder i Azure Data Lake Store | Microsoft Docs'
+description: Använd Azure Data Lake Store .NET SDK för att utföra kontohanteringsåtgärder i Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/30/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cb44fb1cbc279f12f970237f1498a570a63544bd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: ee3c528345232090227c413aebaebe7cc265bc76
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648228"
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Kontohanteringsåtgärder i Azure Data Lake Store med .NET SDK
 > [!div class="op_single_selector"]
@@ -32,7 +31,7 @@ I den här artikeln får du lära dig att utföra kontohanteringsåtgärder i Da
 
 Anvisningar för att utföra datahanteringsåtgärder i Data Lake Store med .NET SDK finns i [Filsystemsåtgärder i Data Lake Store med .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **Visual Studio 2013, 2015 eller 2017**. Anvisningarna nedan använder Visual Studio 2017.
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -42,7 +41,7 @@ Anvisningar för att utföra datahanteringsåtgärder i Data Lake Store med .NET
 2. Klicka på **Nytt** i **Arkiv**-menyn och klicka sedan på **Projekt**.
 3. Från **Nytt projekt** anger eller väljer du följande värden:
 
-   | Egenskap | Värde |
+   | Egenskap  | Värde |
    | --- | --- |
    | Kategori |Mallar/Visual C#/Windows |
    | Mall |Konsolprogram |
@@ -142,7 +141,7 @@ Följande kodavsnitt tar bort Data Lake Store-kontot du skapade tidigare.
     // Delete Data Lake Store account
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Filsystemsåtgärder på Data Lake Store med hjälp av .NET SDK](data-lake-store-data-operations-net-sdk.md)
 * [Data Lake Store .NET SDK-referens](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa en Docker-avbildning för hantering av modellen i Azure Machine Learning | Microsoft Docs
+title: Skapa en Docker-avbildning för modellhantering i Azure Machine Learning | Microsoft Docs
 description: Den här artikeln beskriver stegen för att skapa en Docker-avbildning för webbtjänsten.
 services: machine-learning
 author: chhavib
@@ -8,50 +8,50 @@ manager: hjerez
 editor: jasonwhowell
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 233ae50246619c3e503e42081c3b4de88090f411
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c0f51e47038737d6aa743be718ad6b28c161c766
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835040"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649395"
 ---
-# <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning modellen Management konto API-referens
+# <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning Model Management konto API-referens
 
-Information om hur du konfigurerar distributionsmiljön finns [modellen Management kontoinställning](deployment-setup-configuration.md).
+Information om hur du konfigurerar distributionsmiljön finns i [kontoinställning för modellhantering](deployment-setup-configuration.md).
 
-Azure Machine Learning modellen Management konto API implementerar följande åtgärder:
+Azure Machine Learning Model Management konto API implementerar följande åtgärder:
 
-- Modellregistreringen
+- Modellen
 - Skapa en manifest
-- Skapa en docker bild
-- Skapa en Web service
+- Skapa en docker-avbildning
+- Skapa webbtjänst
 
-Du kan använda den här avbildningen för att skapa en webbtjänst antingen lokalt eller på en fjärransluten Azure Container Service-kluster eller en annan Docker-stödd miljö önskat.
+Du kan använda den här bilden för att skapa en webbtjänst antingen lokalt eller på ett fjärranslutet Azure Container Service-kluster eller en annan Docker-stöd valfri miljö.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Kontrollera att du har gått igenom följande steg i den [installera och skapa Quickstart](../service/quickstart-installation.md) dokumentet.
+Kontrollera att du har gått igenom de installationssteg som beskrivs i den [installera snabbstarten och skapa](../service/quickstart-installation.md) dokumentet.
 
-Följande krävs innan du går vidare:
-1. Modell kontoetablering
+Följande krävs innan du fortsätter:
+1. Modellera kontoetablering
 2. Skapa en miljö för att distribuera och hantera modeller
 3. En Machine Learning-modell
 
 ### <a name="azure-ad-token"></a>Azure AD-token
-När du använder Azure CLI, logga in med hjälp av `az login`. CLI använder Azure Active Directory (Azure AD)-token från filen .azure. Om du vill använda API: erna har du följande alternativ.
+När du använder Azure CLI kan logga in med hjälp av `az login`. CLI använder din Azure Active Directory (Azure AD)-token från .azure-filen. Om du vill använda API: erna har du följande alternativ.
 
 ##### <a name="acquire-the-azure-ad-token-manually"></a>Hämta Azure AD-token manuellt
-Du kan använda `az login` och hämta senast token från filen .azure på arbetskatalogen.
+Du kan använda `az login` och hämta senast åtkomsttoken från .azure-fil i din arbetskatalog.
 
-##### <a name="acquire-the-azure-ad-token-programmatically"></a>Hämta Azure AD-token programmässigt
+##### <a name="acquire-the-azure-ad-token-programmatically"></a>Hämta Azure AD-token via programmering
 ```
 az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroupName> --role Contributor --years <length of time> --name <MyservicePrincipalContributor>
 ```
-När du har skapat tjänstens huvudnamn spara utdata. Nu kan du använda som för att hämta en token från Azure AD:
+Spara utdata när du har skapat tjänstens huvudnamn. Du kan nu använda som för att hämta en token från Azure AD:
 
 ```cs
  private static async Task<string> AcquireTokenAsync(string clientId, string password, string authority, string resource)
@@ -62,18 +62,18 @@ När du har skapat tjänstens huvudnamn spara utdata. Nu kan du använda som fö
         return token.AccessToken;
 }
 ```
-Token placeras i ett authorization-huvud för API-anrop.
+Token placeras i en auktoriseringsrubrik för API-anrop.
 
 
 ## <a name="register-a-model"></a>Registrera en modell
 
-Registreringssteget modellen registrerar din modell för Machine Learning med Azure modellen Management-kontot som du skapade. Denna registrering aktiverar spårning modeller och versioner som är tilldelade vid tiden för registrering. Användaren anger namnet på modellen. Efterföljande registrering av modeller med samma namn skapas en ny version och -ID.
+Registreringssteget modellen registrerar din Machine Learning-modell med Azure modellhanteringskontot som du skapade. Denna registrering kan spåra modeller och deras versioner som är tilldelade vid tidpunkten för registrering. Användaren anger namnet på modellen. Efterföljande registrering av modeller med samma namn som genererar en ny version och -ID.
 
 ### <a name="request"></a>Förfrågan
 
 | Metod | Förfrågans URI |
 |------------|------------|
-| POST |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modeller 
+| POST |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modeller 
  |
 ### <a name="description"></a>Beskrivning
 Registrerar en modell.
@@ -81,40 +81,40 @@ Registrerar en modell.
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
-| modell | brödtext | -Nyttolast som används för att registrera en modell. | Ja | [Modellen](#model) |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
+| modell | brödtext | Nyttolasten som används för att registrera en modell. | Ja | [Modellen](#model) |
 
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | OKEJ. Modellregistreringen lyckades. | [Modellen](#model) |
+| 200 | OKEJ. Modell-registreringen har slutförts. | [Modellen](#model) |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-models-in-an-account"></a>Fråga efter listan över modeller i ett konto
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modeller 
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modeller 
  |
 ### <a name="description"></a>Beskrivning
-Frågar i listan över modeller på ett konto. Du kan filtrera resultatlistan av taggen och namn. Om inget filter skickas anges i fråga alla modeller i kontot. Den returnerade listan sidbrytning är och antalet objekt i varje sida är en valfri parameter.
+Frågar listan över modeller i ett konto. Du kan filtrera resultatlistan efter tagg och namn. Om inget filter skickas anges i fråga alla modeller i kontot. Den returnerade listan sidnumrerade och antalet objekt i varje sida är en valfri parameter.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
 | namn | DocumentDB | Objektnamnet. | Nej | sträng |
-| tagg | DocumentDB | Modellen tagg. | Nej | sträng |
-| antal | DocumentDB | Antal objekt som ska hämtas på en sida. | Nej | sträng |
+| tagg | DocumentDB | Modeller tagg. | Nej | sträng |
+| count | DocumentDB | Antal objekt som ska hämtas på en sida. | Nej | sträng |
 | $skipToken | DocumentDB | Fortsättningstoken att hämta nästa sida. | Nej | sträng |
 
 ### <a name="responses"></a>Svar
@@ -123,25 +123,25 @@ Frågar i listan över modeller på ett konto. Du kan filtrera resultatlistan av
 | 200 | Lyckades. | [PaginatedModelList](#paginatedmodellist) |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse) |
 
-## <a name="get-model-details"></a>Hämta modellinformation om
+## <a name="get-model-details"></a>Hämta information om modellen
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /models/ {id}  
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /models/ {id}  
  |
 
 ### <a name="description"></a>Beskrivning
-Hämtar en modell med ID: t.
+Hämtar en modell av ID.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
 | id | sökväg | Objekt-ID. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
@@ -149,53 +149,53 @@ Hämtar en modell med ID: t.
 | 200 | Lyckades. | [Modellen](#model) |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse) |
 
-## <a name="register-a-manifest-with-the-registered-model-and-all-dependencies"></a>Registrera ett manifest med registrerad modell och alla beroenden
+## <a name="register-a-manifest-with-the-registered-model-and-all-dependencies"></a>Registrera ett manifest med den registrerade modellen och alla beroenden
 
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| POST |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / visar | 
+| POST |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifest | 
 
 ### <a name="description"></a>Beskrivning
-Registrerar ett manifest med registrerad modell och dess beroenden.
+Registrerar ett manifest med den registrerade modellen och alla dess beroenden.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
-| manifestRequest | brödtext | -Nyttolast som används för att registrera ett manifest. | Ja | [Manifestet](#manifest) |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
+| manifestRequest | brödtext | Nyttolasten som används för att registrera ett manifest. | Ja | [Manifest](#manifest) |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | Manifestet registreringen har lyckats. | [Manifestet](#manifest) |
+| 200 | Manifest registreringen har lyckats. | [Manifest](#manifest) |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse) |
 
-## <a name="query-the-list-of-manifests-in-an-account"></a>Fråga efter listan över manifesten i ett konto
+## <a name="query-the-list-of-manifests-in-an-account"></a>Fråga listan med manifest i ett konto
 
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / visar | 
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifest | 
 
 ### <a name="description"></a>Beskrivning
-Söka i manifesten i ett konto. Du kan filtrera resultatlistan av modell-ID och manifest namn. Om inget filter skickas visar frågan i manifesten i kontot. Den returnerade listan sidbrytning är och antalet objekt i varje sida är en valfri parameter.
+Söka i manifesten i ett konto. Du kan filtrera resultatlistan efter modell-ID och manifestnamn. Om inget filter skickas anges i fråga alla manifesten i kontot. Den returnerade listan sidnumrerade och antalet objekt i varje sida är en valfri parameter.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
-| %{ModelID/ | DocumentDB | Modell-ID. | Nej | sträng |
-| ManifestName | DocumentDB | Manifestfilens namn. | Nej | sträng |
-| antal | DocumentDB | Antal objekt som ska hämtas på en sida. | Nej | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
+| modelId | DocumentDB | Modell-ID. | Nej | sträng |
+| manifestName | DocumentDB | Manifestnamn. | Nej | sträng |
+| count | DocumentDB | Antal objekt som ska hämtas på en sida. | Nej | sträng |
 | $skipToken | DocumentDB | Fortsättningstoken att hämta nästa sida. | Nej | sträng |
 
 ### <a name="responses"></a>Svar
@@ -204,12 +204,12 @@ Söka i manifesten i ett konto. Du kan filtrera resultatlistan av modell-ID och 
 | 200 | Lyckades. | [PaginatedManifestList](#paginatedmanifestlist) |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse) |
 
-## <a name="get-manifest-details"></a>Hämta information om manifest
+## <a name="get-manifest-details"></a>Få manifest information
 
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /manifests/ {id} | 
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /manifests/ {id} | 
 
 ### <a name="description"></a>Beskrivning
 Hämtar manifestet efter-ID.
@@ -217,17 +217,17 @@ Hämtar manifestet efter-ID.
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
 | id | sökväg | Objekt-ID. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | Lyckades. | [Manifestet](#manifest) |
+| 200 | Lyckades. | [Manifest](#manifest) |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse) |
 
 ## <a name="create-an-image"></a>Skapa en avbildning
@@ -235,48 +235,48 @@ Hämtar manifestet efter-ID.
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| POST |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / bilder | 
+| POST |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / avbildningar | 
 
 ### <a name="description"></a>Beskrivning
-Skapar en avbildning som en Docker-avbildning i Azure Container registret.
+Skapar en avbildning som en Docker-avbildning i Azure Container Registry.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
-| imageRequest | brödtext | -Nyttolast som används för att skapa en avbildning. | Ja | [imageRequest](#imagerequest) |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
+| imageRequest | brödtext | Nyttolasten som används för att skapa en avbildning. | Ja | [ImageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Sidhuvuden | Schema |
 |--------------------|--------------------|--------------------|--------------------|
-| 202 | Asynkrona åtgärden-URL: en. GET-anrop visas statusen för aktiviteten skapa avbildningen. | Platsen igen |
+| 202 | Asynkrona åtgärden plats-URL. Ett GET-anrop visar status för aktiviteten i avbildningen. | Åtgärden-plats |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse) |
 
-## <a name="query-the-list-of-images-in-an-account"></a>Fråga efter listan över bilder i ett konto
+## <a name="query-the-list-of-images-in-an-account"></a>Fråga efter listan över avbildningar i ett konto
 
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / bilder | 
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / avbildningar | 
 
 ### <a name="description"></a>Beskrivning
-Frågar listan över bilder i ett konto. Du kan filtrera resultatlistan av manifestet ID och namn. Om inget filter skickas visar frågan alla bilder i kontot. Den returnerade listan sidbrytning är och antalet objekt i varje sida är en valfri parameter.
+Frågar listan över avbildningar i ett konto. Du kan filtrera resultatlistan av manifest-ID och namn. Om inget filter skickas anges i fråga alla avbildningar i kontot. Den returnerade listan sidnumrerade och antalet objekt i varje sida är en valfri parameter.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
-| Manifest | DocumentDB | Manifest-ID. | Nej | sträng |
-| ManifestName | DocumentDB | Manifestfilens namn. | Nej | sträng |
-| antal | DocumentDB | Antal objekt som ska hämtas på en sida. | Nej | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
+| Manifest-ID | DocumentDB | Manifest-ID. | Nej | sträng |
+| manifestName | DocumentDB | Manifestnamn. | Nej | sträng |
+| count | DocumentDB | Antal objekt som ska hämtas på en sida. | Nej | sträng |
 | $skipToken | DocumentDB | Fortsättningstoken att hämta nästa sida. | Nej | sträng |
 
 ### <a name="responses"></a>Svar
@@ -290,20 +290,20 @@ Frågar listan över bilder i ett konto. Du kan filtrera resultatlistan av manif
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /images/ {id} | 
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /images/ {id} | 
 
 ### <a name="description"></a>Beskrivning
-Hämtar en avbildning med ID: t.
+Hämtar en bild av ID.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
 | id | sökväg | Bild-ID. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
@@ -317,7 +317,7 @@ Hämtar en avbildning med ID: t.
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| POST |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} eller-tjänster | 
+| POST |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / services | 
 
 ### <a name="description"></a>Beskrivning
 Skapar en tjänst från en avbildning.
@@ -325,46 +325,46 @@ Skapar en tjänst från en avbildning.
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
-| serviceRequest | brödtext | -Nyttolast som används för att skapa en tjänst. | Ja | [ServiceCreateRequest](#servicecreaterequest) |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
+| serviceRequest | brödtext | Nyttolasten som används för att skapa en tjänst. | Ja | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Sidhuvuden | Schema |
 |--------------------|--------------------|--------------------|--------------------|
-| 202 | Asynkrona åtgärden-URL: en. GET-anrop visas statusen för aktiviteten skapa tjänst. | Platsen igen |
+| 202 | Asynkrona åtgärden plats-URL. Ett GET-anrop visar status för aktiviteten i tjänsten. | Åtgärden-plats |
 | 409 | Det finns redan en tjänst med det angivna namnet. |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse) |
 
-## <a name="query-the-list-of-services-in-an-account"></a>Fråga efter listan över tjänster i ett konto
+## <a name="query-the-list-of-services-in-an-account"></a>Fråga i listan över tjänster i ett konto
 
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} eller-tjänster | 
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / services | 
 
 ### <a name="description"></a>Beskrivning
-Frågar listan över tjänster på ett konto. Du kan filtrera resultatet av modellen namn/ID, manifestet namn-ID, avbildnings-ID, namn eller Machine Learning beräkning resurs-ID. Om inget filter skickas visar frågan alla tjänster i kontot. Den returnerade listan sidbrytning är och antalet objekt i varje sida är en valfri parameter.
+Frågar i listan över tjänster i ett konto. Du kan filtrera resultatlistan av modellen namn/ID, manifest namn-ID, avbildnings-ID, namn eller resurs-ID. för beräkning av Machine Learning Om inget filter skickas anges i fråga alla tjänster i kontot. Den returnerade listan sidnumrerade och antalet objekt i varje sida är en valfri parameter.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
 | Tjänstnamn | DocumentDB | Tjänstnamn. | Nej | sträng |
-| %{ModelID/ | DocumentDB | Modellnamnet. | Nej | sträng |
+| modelId | DocumentDB | Modellnamn. | Nej | sträng |
 | %{ModelName/ | DocumentDB | Modell-ID. | Nej | sträng |
-| Manifest | DocumentDB | Manifest-ID. | Nej | sträng |
-| ManifestName | DocumentDB | Manifestfilens namn. | Nej | sträng |
+| Manifest-ID | DocumentDB | Manifest-ID. | Nej | sträng |
+| manifestName | DocumentDB | Manifestnamn. | Nej | sträng |
 | imageId | DocumentDB | Bild-ID. | Nej | sträng |
 | computeResourceId | DocumentDB | Machine Learning beräkning resurs-ID. | Nej | sträng |
-| antal | DocumentDB | Antal objekt som ska hämtas på en sida. | Nej | sträng |
+| count | DocumentDB | Antal objekt som ska hämtas på en sida. | Nej | sträng |
 | $skipToken | DocumentDB | Fortsättningstoken att hämta nästa sida. | Nej | sträng |
 
 ### <a name="responses"></a>Svar
@@ -373,25 +373,25 @@ Frågar listan över tjänster på ett konto. Du kan filtrera resultatet av mode
 | 200 | Lyckades. | [PaginatedServiceList](#paginatedservicelist) |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse) |
 
-## <a name="get-service-details"></a>Hämta information om tjänst
+## <a name="get-service-details"></a>Hämta tjänstinformation
 
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
 
 ### <a name="description"></a>Beskrivning
-Hämtar en tjänst med ID: t.
+Hämtar en tjänst efter-ID.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
 | id | sökväg | Objekt-ID. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
@@ -404,7 +404,7 @@ Hämtar en tjänst med ID: t.
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| PUT |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| PUT |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
 
 ### <a name="description"></a>Beskrivning
 Uppdaterar en befintlig tjänst.
@@ -412,18 +412,18 @@ Uppdaterar en befintlig tjänst.
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
 | id | sökväg | Objekt-ID. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
-| serviceUpdateRequest | brödtext | -Nyttolast som används för att uppdatera en befintlig tjänst. | Ja |  [serviceUpdateRequest](#serviceupdaterequest) |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
+| serviceUpdateRequest | brödtext | Nyttolasten som används för att uppdatera en befintlig tjänst. | Ja |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Sidhuvuden | Schema |
 |--------------------|--------------------|--------------------|--------------------|
-| 202 | Asynkrona åtgärden-URL: en. GET-anrop visas statusen för aktiviteten update-tjänst. | Platsen igen |
+| 202 | Asynkrona åtgärden plats-URL. Ett GET-anrop visar status för aktivitet för update-tjänsten. | Åtgärden-plats |
 | 404 | Tjänsten med angivet ID finns inte. |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse)
 
@@ -432,7 +432,7 @@ Uppdaterar en befintlig tjänst.
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| DELETE |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| DELETE |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
 
 ### <a name="description"></a>Beskrivning
 Tar bort en tjänst.
@@ -440,12 +440,12 @@ Tar bort en tjänst.
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
 | id | sökväg | Objekt-ID. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
@@ -459,7 +459,7 @@ Tar bort en tjänst.
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / nycklar | 
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / nycklar | 
 
 ### <a name="description"></a>Beskrivning
 Hämtar för tjänsten.
@@ -467,12 +467,12 @@ Hämtar för tjänsten.
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
-| id | sökväg | Tjänst-ID. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
+| id | sökväg | Service-ID. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
@@ -485,7 +485,7 @@ Hämtar för tjänsten.
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| POST |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / regenerateKeys | 
+| POST |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / regenerateKeys | 
 
 ### <a name="description"></a>Beskrivning
 Återskapar för tjänsten och returnerar dem.
@@ -493,13 +493,13 @@ Hämtar för tjänsten.
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
-| id | sökväg | Tjänst-ID. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
-| regenerateKeyRequest | brödtext | -Nyttolast som används för att uppdatera en befintlig tjänst. | Ja | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
+| id | sökväg | Service-ID. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
+| regenerateKeyRequest | brödtext | Nyttolasten som används för att uppdatera en befintlig tjänst. | Ja | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
@@ -507,25 +507,25 @@ Hämtar för tjänsten.
 | 200 | Lyckades. | [AuthKeys](#authkeys)
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse)
 
-## <a name="query-the-list-of-deployments-in-an-account"></a>Fråga efter listan över distributioner på ett konto
+## <a name="query-the-list-of-deployments-in-an-account"></a>Fråga i listan över distributioner i ett konto
 
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / distributioner | 
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / distributioner | 
 
 ### <a name="description"></a>Beskrivning
-Frågar i listan över distributioner på ett konto. Du kan filtrera resultatlistan av tjänst-ID som returneras av distributioner som har skapats för tjänsten. Om inget filter skickas visar frågan alla distributioner i kontot.
+Frågar i listan över distributioner i ett konto. Du kan filtrera resultatlistan efter tjänst-ID, som returnerar bara de distributioner som har skapats för en viss tjänst. Om inget filter skickas anges i fråga alla distributioner i kontot.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
-| serviceId | DocumentDB | Tjänst-ID. | Nej | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
+| serviceId | DocumentDB | Service-ID. | Nej | sträng |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
@@ -533,25 +533,25 @@ Frågar i listan över distributioner på ett konto. Du kan filtrera resultatlis
 | 200 | Lyckades. | [DeploymentList](#deploymentlist) |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse)
 
-## <a name="get-deployment-details"></a>Hämta distributionsinformation om
+## <a name="get-deployment-details"></a>Hämta information om distribution
 
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /deployments/ {id} | 
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /deployments/ {id} | 
 
 ### <a name="description"></a>Beskrivning
-Hämtar för distributionen med ID: t.
+Hämtar distributionen av ID.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
 | id | sökväg | Distributions-ID. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
@@ -559,25 +559,25 @@ Hämtar för distributionen med ID: t.
 | 200 | Lyckades. | [Distribution](#deployment) |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse)
 
-## <a name="get-operation-details"></a>Hämta åtgärdsinformation om
+## <a name="get-operation-details"></a>Få åtgärdsinformation
 
 ### <a name="request"></a>Förfrågan
 | Metod | Förfrågans URI |
 |------------|------------|
-| HÄMTA |  /API /subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /operations/ {id} | 
+| HÄMTA |  / API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /operations/ {id} | 
 
 ### <a name="description"></a>Beskrivning
-Hämtar Åtgärdsstatus asynkrona efter åtgärden-ID.
+Hämtar Åtgärdsstatus async efter åtgärden-ID.
 
 ### <a name="parameters"></a>Parametrar
 | Namn | Belägen i | Beskrivning | Krävs | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | sökväg | Azure prenumerations-ID. | Ja | sträng |
-| resourceGroupName | sökväg | Namnet på resursgruppen där modellen hanteringskontot finns. | Ja | sträng |
-| Kontonamn | sökväg | Namnet på kontot för hantering av modellen. | Ja | sträng |
+| subscriptionId | sökväg | Azure-prenumerations-ID. | Ja | sträng |
+| resourceGroupName | sökväg | Namnet på resursgruppen där modellhanteringskontot finns. | Ja | sträng |
+| Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
 | id | sökväg | Åtgärds-ID. | Ja | sträng |
-| API-version | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
-| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara ungefär ”ägar XXXXXX”. | Ja | sträng |
+| API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
+| Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
 
 ### <a name="responses"></a>Svar
 | Kod | Beskrivning | Schema |
@@ -592,38 +592,38 @@ Hämtar Åtgärdsstatus asynkrona efter åtgärden-ID.
 
 <a name="asset"></a>
 ### <a name="asset"></a>Tillgång
-Tillgångsinformation-objekt som behövs under skapande av Docker-bild.
+Objektet tillgången som behövs när Docker-avbildning skapas.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**ID**  <br>*Valfria*|Tillgångsinformation-ID.|sträng|
-|**mimeType**  <br>*Valfria*|MIME-typ av modellinnehåll. Mer information om MIME-typ, finns det [lista över IANA medietyper](https://www.iana.org/assignments/media-types/media-types.xhtml).|sträng|
-|**Packa upp**  <br>*Valfria*|Anger när vi behöver packa upp innehållet när Docker avbildningen skapas.|boolesk|
-|**URL: en**  <br>*Valfria*|Tillgångsinformation-URL: en.|sträng|
+|**ID**  <br>*Valfritt*|Plats-ID.|sträng|
+|**mimeType**  <br>*Valfritt*|MIME-typ av modellinnehåll. Mer information om MIME-typen finns i den [lista över medietyper IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|sträng|
+|**Packa upp**  <br>*Valfritt*|Anger när vi behöver packa upp innehållet när Docker-avbildning skapas.|boolesk|
+|**URL: en**  <br>*Valfritt*|Tillgången plats-URL.|sträng|
 
 
 <a name="asyncoperationstate"></a>
 ### <a name="asyncoperationstate"></a>AsyncOperationState
 Det asynkrona åtgärden tillståndet.
 
-*Typen*: uppräkning (NotStarted, körs, avbrott, lyckades, misslyckades)
+*Typ*: uppräkning (Ej startad, körs, Cancelled, lyckades, misslyckades)
 
 
 <a name="asyncoperationstatus"></a>
 ### <a name="asyncoperationstatus"></a>AsyncOperationStatus
-Åtgärdsstatus för.
+Åtgärdsstatus.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**createdTime**  <br>*Valfria*  <br>*Skrivskyddad*|Asynkrona åtgärden Skapandetid (UTC).|sträng (tid)|
-|**endTime**  <br>*Valfria*  <br>*Skrivskyddad*|Asynkrona åtgärden slutfördes (UTC).|sträng (tid)|
-|**Fel**  <br>*Valfria*||[ErrorResponse](#errorresponse)|
-|**ID**  <br>*Valfria*|Asynkrona åtgärds-ID.|sträng|
-|**Åtgärdstyp**  <br>*Valfria*|Asynkrona åtgärdstyp.|Uppräkning (bild, Service)|
-|**resourceLocation**  <br>*Valfria*|Resursen skapas eller uppdateras av den asynkron åtgärden.|sträng|
-|**Tillstånd**  <br>*Valfria*||[AsyncOperationState](#asyncoperationstate)|
+|**createdTime**  <br>*Valfritt*  <br>*skrivskyddad*|Asynkrona åtgärden Skapandetid (UTC).|sträng (datum / tid)|
+|**endTime**  <br>*Valfritt*  <br>*skrivskyddad*|Sluttid för asynkron åtgärd (UTC).|sträng (datum / tid)|
+|**Fel**  <br>*Valfritt*||[ErrorResponse](#errorresponse)|
+|**ID**  <br>*Valfritt*|Async-åtgärds-ID.|sträng|
+|**Åtgärdstyp**  <br>*Valfritt*|Async åtgärdstyp.|Uppräkning (bild, Service)|
+|**resourceLocation**  <br>*Valfritt*|Resursen skapas eller uppdateras med den asynkron åtgärden.|sträng|
+|**tillstånd**  <br>*Valfritt*||[AsyncOperationState](#asyncoperationstate)|
 
 
 <a name="authkeys"></a>
@@ -633,22 +633,22 @@ Autentiseringsnycklar för en tjänst.
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**primaryKey**  <br>*Valfria*|Primärnyckel.|sträng|
-|**sekundär nyckel**  <br>*Valfria*|Sekundärnyckeln.|sträng|
+|**primaryKey**  <br>*Valfritt*|Primär nyckel.|sträng|
+|**sekundär nyckel**  <br>*Valfritt*|Sekundär nyckel.|sträng|
 
 
 <a name="autoscaler"></a>
-### <a name="autoscaler"></a>AutoScaler
-Inställningar för autoscaler.
+### <a name="autoscaler"></a>Autoskalningen
+Inställningar för autoskalningen.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**autoscaleEnabled**  <br>*Valfria*|Aktivera eller inaktivera autoscaler.|boolesk|
-|**maxReplicas**  <br>*Valfria*|Maximalt antal baljor repliker att skala upp till.  <br>**Minimivärdet**: `1`|heltal|
-|**minReplicas**  <br>*Valfria*|Minsta antal baljor repliker att skala ned till.  <br>**Minimivärdet**: `0`|heltal|
-|**refreshPeriodInSeconds**  <br>*Valfria*|Uppdateringstiden för autoskalning utlösare.  <br>**Minimivärdet**: `1`|heltal|
-|**targetUtilization**  <br>*Valfria*|Utnyttjandeprocent som utlöser autoskalning.  <br>**Minimivärdet**: `0`  <br>**Maximivärdet**: `100`|heltal|
+|**autoscaleEnabled**  <br>*Valfritt*|Aktivera eller inaktivera autoskalningen.|boolesk|
+|**maxReplicas**  <br>*Valfritt*|Högsta antalet poddrepliker att skala upp till.  <br>**Minimivärdet**: `1`|heltal|
+|**minReplicas**  <br>*Valfritt*|Minsta antalet poddrepliker att skala ned till.  <br>**Minimivärdet**: `0`|heltal|
+|**refreshPeriodInSeconds**  <br>*Valfritt*|Uppdateringstid för automatisk skalning utlösare.  <br>**Minimivärdet**: `1`|heltal|
+|**targetUtilization**  <br>*Valfritt*|Utnyttjandeprocent som utlöser automatisk skalning.  <br>**Minimivärdet**: `0`  <br>**Maxvärde**: `100`|heltal|
 
 
 <a name="computeresource"></a>
@@ -658,19 +658,19 @@ Machine Learning beräkningsresursen.
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**ID**  <br>*Valfria*|Resurs-ID.|sträng|
-|**typ**  <br>*Valfria*|Typ av resurs.|Uppräkning (kluster)|
+|**ID**  <br>*Valfritt*|Resurs-ID.|sträng|
+|**typ**  <br>*Valfritt*|Typ av resurs.|Uppräkning (kluster)|
 
 
 <a name="containerresourcereservation"></a>
 ### <a name="containerresourcereservation"></a>ContainerResourceReservation
-Konfigurationen för reservera resurser för en behållare i klustret.
+Konfiguration för att reservera resurser för en behållare i klustret.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**CPU**  <br>*Valfria*|Anger CPU-reservation. Format för Kubernetes: se [betydelse CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|sträng|
-|**Minne**  <br>*Valfria*|Anger minnet reservation. Format för Kubernetes: se [betydelse minne](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|sträng|
+|**CPU**  <br>*Valfritt*|Anger CPU-reservation. Format för Kubernetes: se [betydelsen av CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|sträng|
+|**Minne**  <br>*Valfritt*|Anger minnesreservation. Format för Kubernetes: se [innebörden av minne](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|sträng|
 
 
 <a name="deployment"></a>
@@ -680,43 +680,43 @@ En instans av en Azure Machine Learning-distribution.
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**CreatedAt**  <br>*Valfria*  <br>*Skrivskyddad*|Skapa tidpunkten för distribution (UTC).|sträng (tid)|
-|**expiredAt**  <br>*Valfria*  <br>*Skrivskyddad*|Distributionen har upphört att gälla tid (UTC).|sträng (tid)|
-|**ID**  <br>*Valfria*|Distributions-ID.|sträng|
-|**imageId**  <br>*Valfria*|Avbildnings-ID som är associerade med den här distributionen.|sträng|
-|**Tjänstnamn**  <br>*Valfria*|Tjänstnamn.|sträng|
-|**status**  <br>*Valfria*|Aktuell distributionsstatus.|sträng|
+|**createdAt**  <br>*Valfritt*  <br>*skrivskyddad*|Distribution Skapandetid (UTC).|sträng (datum / tid)|
+|**expiredAt**  <br>*Valfritt*  <br>*skrivskyddad*|Distributionen har upphört att gälla tid (UTC).|sträng (datum / tid)|
+|**ID**  <br>*Valfritt*|Distributions-ID.|sträng|
+|**imageId**  <br>*Valfritt*|Avbildnings-ID som är associerade med den här distributionen.|sträng|
+|**Tjänstnamn**  <br>*Valfritt*|Tjänstnamn.|sträng|
+|**Status**  <br>*Valfritt*|Aktuell distributionsstatus.|sträng|
 
 
 <a name="deploymentlist"></a>
 ### <a name="deploymentlist"></a>DeploymentList
 En matris med objekt.
 
-*Typen*: <[distribution](#deployment)> matris
+*Typ*: <[distribution](#deployment)> matris
 
 
 <a name="errordetail"></a>
 ### <a name="errordetail"></a>ErrorDetail
-Modellen felinformation för Management-tjänsten.
+Modell felinformation för Management-tjänsten.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**Koden**  <br>*Krävs*|Felkod.|sträng|
-|**Meddelande**  <br>*Krävs*|Felmeddelande.|sträng|
+|**Kod**  <br>*Krävs*|Felkod.|sträng|
+|**meddelande**  <br>*Krävs*|Felmeddelande.|sträng|
 
 
 <a name="errorresponse"></a>
 ### <a name="errorresponse"></a>ErrorResponse
-Modellen Management service felobjekt.
+Modellhantering service felobjekt.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**Koden**  <br>*Krävs*|Felkod.|sträng|
-|**Information**  <br>*Valfria*|Matris med felobjekt.|<[ErrorDetail](#errordetail)> matris|
-|**Meddelande**  <br>*Krävs*|Felmeddelande.|sträng|
-|**statusCode**  <br>*Valfria*|HTTP-statuskod.|heltal|
+|**Kod**  <br>*Krävs*|Felkod.|sträng|
+|**Information om**  <br>*Valfritt*|Matris med objekt för fel.|<[ErrorDetail](#errordetail)> matris|
+|**meddelande**  <br>*Krävs*|Felmeddelande.|sträng|
+|**statusCode**  <br>*Valfritt*|HTTP-statuskod.|heltal|
 
 
 <a name="image"></a>
@@ -726,31 +726,31 @@ Azure Machine Learning-bild.
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**computeResourceId**  <br>*Valfria*|ID för miljön som skapats i Machine Learning beräkningsresurser.|sträng|
-|**createdTime**  <br>*Valfria*|Bild skapelsetid (UTC).|sträng (tid)|
-|**creationState**  <br>*Valfria*||[AsyncOperationState](#asyncoperationstate)|
-|**Beskrivning**  <br>*Valfria*|Bild beskrivningstext.|sträng|
-|**Fel**  <br>*Valfria*||[ErrorResponse](#errorresponse)|
-|**ID**  <br>*Valfria*|Bild-ID.|sträng|
-|**imageBuildLogUri**  <br>*Valfria*|URI för de uppladdade loggarna från image build.|sträng|
-|**imageLocation**  <br>*Valfria*|Azure Container registret plats sträng för den skapade avbildningen.|sträng|
-|**ImageType**  <br>*Valfria*||[ImageType](#imagetype)|
-|**Manifestet**  <br>*Valfria*||[Manifestet](#manifest)|
-|**Namn**  <br>*Valfria*|Avbildningens namn.|sträng|
-|**Version**  <br>*Valfria*|Bildversion som anges av modellen Management-tjänsten.|heltal|
+|**computeResourceId**  <br>*Valfritt*|ID för den miljö som skapats i Machine Learning beräkningsresursen.|sträng|
+|**createdTime**  <br>*Valfritt*|Bild Skapandetid (UTC).|sträng (datum / tid)|
+|**creationState**  <br>*Valfritt*||[AsyncOperationState](#asyncoperationstate)|
+|**Beskrivning**  <br>*Valfritt*|Beskrivningstext för avbildningen.|sträng|
+|**Fel**  <br>*Valfritt*||[ErrorResponse](#errorresponse)|
+|**ID**  <br>*Valfritt*|Bild-ID.|sträng|
+|**imageBuildLogUri**  <br>*Valfritt*|URI för överförda loggar från avbildningen versionen.|sträng|
+|**imageLocation**  <br>*Valfritt*|Azure Container Registry plats sträng för den skapa avbildningen.|sträng|
+|**ImageType**  <br>*Valfritt*||[ImageType](#imagetype)|
+|**Manifest**  <br>*Valfritt*||[Manifest](#manifest)|
+|**Namn**  <br>*Valfritt*|Avbildningens namn.|sträng|
+|**Version**  <br>*Valfritt*|Avbildningsversion som angetts av tjänsten modellhantering.|heltal|
 
 
 <a name="imagerequest"></a>
 ### <a name="imagerequest"></a>imageRequest
-En begäran om att skapa en Azure Machine Learning-avbildning.
+En begäran att skapa en Azure Machine Learning-avbildning.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**computeResourceId**  <br>*Krävs*|ID för miljön som skapats i Machine Learning beräkningsresurser.|sträng|
-|**Beskrivning**  <br>*Valfria*|Bild beskrivningstext.|sträng|
+|**computeResourceId**  <br>*Krävs*|ID för den miljö som skapats i Machine Learning beräkningsresursen.|sträng|
+|**Beskrivning**  <br>*Valfritt*|Beskrivningstext för avbildningen.|sträng|
 |**ImageType**  <br>*Krävs*||[ImageType](#imagetype)|
-|**Manifest**  <br>*Krävs*|ID för manifestet som avbildningen ska skapas.|sträng|
+|**Manifest-ID**  <br>*Krävs*|ID för manifestet som avbildningen ska skapas.|sträng|
 |**Namn**  <br>*Krävs*|Avbildningens namn.|sträng|
 
 
@@ -758,7 +758,7 @@ En begäran om att skapa en Azure Machine Learning-avbildning.
 ### <a name="imagetype"></a>Bildtyp
 Anger vilken typ av avbildningen.
 
-*Typen*: uppräkning (Docker)
+*Typ*: uppräkning (Docker)
 
 
 <a name="manifest"></a>
@@ -768,17 +768,17 @@ Azure Machine Learning-manifestet.
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**Tillgångar**  <br>*Krävs*|Lista över tillgångar.|<[Tillgångsinformation](#asset)> matris|
-|**createdTime**  <br>*Valfria*  <br>*Skrivskyddad*|Manifestet skapelsetid (UTC).|sträng (tid)|
-|**Beskrivning**  <br>*Valfria*|Manifest beskrivningstexten.|sträng|
-|**driverProgram**  <br>*Krävs*|Driver-program i manifestet.|sträng|
-|**ID**  <br>*Valfria*|Manifest-ID.|sträng|
-|**modelIds**  <br>*Valfria*|Lista över modell-ID för de registrerade modellerna. Begäran att misslyckas om någon av ingår inte registrerats.|<string> matris|
-|**Modelltypen**  <br>*Valfria*|Anger att modeller redan är registrerade med hanteringstjänsten för modellen.|Uppräkning (registrerad)|
-|**Namn**  <br>*Krävs*|Manifestfilens namn.|sträng|
-|**TargetRuntime**  <br>*Krävs*||[TargetRuntime](#targetruntime)|
-|**Version**  <br>*Valfria*  <br>*Skrivskyddad*|ManifestVersion som tilldelats av modellen Management-tjänsten.|heltal|
-|**webserviceType**  <br>*Valfria*|Anger den önskade typen av webbtjänsten som skapas från manifestet.|Uppräkning (realtid)|
+|**Tillgångar**  <br>*Krävs*|Lista över tillgångar.|<[Tillgången](#asset)> matris|
+|**createdTime**  <br>*Valfritt*  <br>*skrivskyddad*|Manifest Skapandetid (UTC).|sträng (datum / tid)|
+|**Beskrivning**  <br>*Valfritt*|Manifest beskrivningstext.|sträng|
+|**driverProgram**  <br>*Krävs*|Driver-program för manifestet.|sträng|
+|**ID**  <br>*Valfritt*|Manifest-ID.|sträng|
+|**modelIds**  <br>*Valfritt*|Lista över modell-ID: N för de registrerade modellerna. Begäran misslyckas om någon av de inkluderade modellerna inte är registrerad.|<string> Matris|
+|**modelType**  <br>*Valfritt*|Anger att modeller är redan registrerad med tjänsten modellhantering.|Uppräkning (registrerad)|
+|**Namn**  <br>*Krävs*|Manifestnamn.|sträng|
+|**targetRuntime**  <br>*Krävs*||[TargetRuntime](#targetruntime)|
+|**Version**  <br>*Valfritt*  <br>*skrivskyddad*|Tilldelats av tjänsten modellhantering version av klustermanifestet.|heltal|
+|**webserviceType**  <br>*Valfritt*|Anger den önskade typen av webbtjänsten som skapas från manifestet.|Uppräkning (realtid)|
 
 
 <a name="model"></a>
@@ -788,26 +788,26 @@ En instans av en Azure Machine Learning-modell.
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**CreatedAt**  <br>*Valfria*  <br>*Skrivskyddad*|Modellen skapelsetid (UTC).|sträng (tid)|
-|**Beskrivning**  <br>*Valfria*|Modellen beskrivningstexten.|sträng|
-|**ID**  <br>*Valfria*  <br>*Skrivskyddad*|Modell-ID.|sträng|
-|**mimeType**  <br>*Krävs*|MIME-typ av modellinnehåll. Mer information om MIME-typ, finns det [lista över IANA medietyper](https://www.iana.org/assignments/media-types/media-types.xhtml).|sträng|
-|**Namn**  <br>*Krävs*|Modellnamnet.|sträng|
-|**tagg**  <br>*Valfria*|Modellen tagglista.|<string> matris|
-|**Packa upp**  <br>*Valfria*|Anger om vi behöver packa upp modellen när Docker avbildningen skapas.|boolesk|
-|**URL: en**  <br>*Krävs*|URL till modellen. Vanligtvis placera vi en signatur för delad åtkomst-URL här.|sträng|
-|**Version**  <br>*Valfria*  <br>*Skrivskyddad*|Modellversion som tilldelats av modellen Management-tjänsten.|heltal|
+|**createdAt**  <br>*Valfritt*  <br>*skrivskyddad*|Modellen Skapandetid (UTC).|sträng (datum / tid)|
+|**Beskrivning**  <br>*Valfritt*|Beskrivningstext för modellen.|sträng|
+|**ID**  <br>*Valfritt*  <br>*skrivskyddad*|Modell-ID.|sträng|
+|**mimeType**  <br>*Krävs*|MIME-typ av modellinnehåll. Mer information om MIME-typen finns i den [lista över medietyper IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|sträng|
+|**Namn**  <br>*Krävs*|Modellnamn.|sträng|
+|**tagg**  <br>*Valfritt*|Tagglista för modellen.|<string> Matris|
+|**Packa upp**  <br>*Valfritt*|Anger om vi behöver packa upp modellen när Docker-avbildning skapas.|boolesk|
+|**URL: en**  <br>*Krävs*|URL för modellen. Vanligtvis placerar vi här du en URL för signatur för delad åtkomst.|sträng|
+|**Version**  <br>*Valfritt*  <br>*skrivskyddad*|Modellversion som tilldelats av tjänsten modellhantering.|heltal|
 
 
 <a name="modeldatacollection"></a>
 ### <a name="modeldatacollection"></a>ModelDataCollection
-Modellen samling informationen.
+Modellen data samlingsinformation.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**eventHubEnabled**  <br>*Valfria*|Aktivera en händelsehubb för en tjänst.|boolesk|
-|**storageEnabled**  <br>*Valfria*|Aktivera lagring för en tjänst.|boolesk|
+|**eventHubEnabled**  <br>*Valfritt*|Aktivera en händelsehubb för en tjänst.|boolesk|
+|**storageEnabled**  <br>*Valfritt*|Aktivera lagring för en tjänst.|boolesk|
 
 
 <a name="paginatedimagelist"></a>
@@ -817,30 +817,30 @@ En sidnumrerade lista över avbildningar.
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**nextLink**  <br>*Valfria*|Fortsättning länk (absolut URI) till nästa sida i resultat i listan.|sträng|
-|**värde**  <br>*Valfria*|Matris med modellobjekt.|<[Bild](#image)> matris|
+|**nextLink**  <br>*Valfritt*|Fortsättning länk (absolut URI) till nästa sida i resultatet i listan.|sträng|
+|**värde**  <br>*Valfritt*|Matris med modellobjekt.|<[Bild](#image)> matris|
 
 
 <a name="paginatedmanifestlist"></a>
 ### <a name="paginatedmanifestlist"></a>PaginatedManifestList
-En sidnumrerade lista över manifest.
+En sidnumrerade listan med manifest.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**nextLink**  <br>*Valfria*|Fortsättning länk (absolut URI) till nästa sida i resultat i listan.|sträng|
-|**värde**  <br>*Valfria*|Matris med manifest-objekt.|<[Manifest](#manifest)> matris|
+|**nextLink**  <br>*Valfritt*|Fortsättning länk (absolut URI) till nästa sida i resultatet i listan.|sträng|
+|**värde**  <br>*Valfritt*|Matris med manifest objekt.|<[Manifest](#manifest)> matris|
 
 
 <a name="paginatedmodellist"></a>
 ### <a name="paginatedmodellist"></a>PaginatedModelList
-En sidnumrerade listan över modeller.
+En sidnumrerade lista över modeller.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**nextLink**  <br>*Valfria*|Fortsättning länk (absolut URI) till nästa sida i resultat i listan.|sträng|
-|**värde**  <br>*Valfria*|Matris med modellobjekt.|<[Modellen](#model)> matris|
+|**nextLink**  <br>*Valfritt*|Fortsättning länk (absolut URI) till nästa sida i resultatet i listan.|sträng|
+|**värde**  <br>*Valfritt*|Matris med modellobjekt.|<[Modellen](#model)> matris|
 
 
 <a name="paginatedservicelist"></a>
@@ -850,8 +850,8 @@ En sidnumrerade lista över tjänster.
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**nextLink**  <br>*Valfria*|Fortsättning länk (absolut URI) till nästa sida i resultat i listan.|sträng|
-|**värde**  <br>*Valfria*|Matris med service-objekt.|<[ServiceResponse](#serviceresponse)> matris|
+|**nextLink**  <br>*Valfritt*|Fortsättning länk (absolut URI) till nästa sida i resultatet i listan.|sträng|
+|**värde**  <br>*Valfritt*|Matris med-tjänstobjekt.|<[ServiceResponse](#serviceresponse)> matris|
 
 
 <a name="servicecreaterequest"></a>
@@ -861,25 +861,25 @@ En begäran att skapa en tjänst.
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**appInsightsEnabled**  <br>*Valfria*|Aktivera application insights för en tjänst.|boolesk|
-|**AutoScaler**  <br>*Valfria*||[AutoScaler](#autoscaler)|
+|**appInsightsEnabled**  <br>*Valfritt*|Aktivera application insights för en tjänst.|boolesk|
+|**Autoskalningen**  <br>*Valfritt*||[Autoskalningen](#autoscaler)|
 |**ComputeResource**  <br>*Krävs*||[ComputeResource](#computeresource)|
-|**ContainerResourceReservation**  <br>*Valfria*||[ContainerResourceReservation](#containerresourcereservation)|
-|**DataCollection**  <br>*Valfria*||[ModelDataCollection](#modeldatacollection)|
+|**ContainerResourceReservation**  <br>*Valfritt*||[ContainerResourceReservation](#containerresourcereservation)|
+|**dataCollection**  <br>*Valfritt*||[ModelDataCollection](#modeldatacollection)|
 |**imageId**  <br>*Krävs*|Bild för att skapa tjänsten.|sträng|
-|**maxConcurrentRequestsPerContainer**  <br>*Valfria*|Maximalt antal samtidiga begäranden.  <br>**Minimivärdet**: `1`|heltal|
+|**maxConcurrentRequestsPerContainer**  <br>*Valfritt*|Maximalt antal samtidiga begäranden.  <br>**Minimivärdet**: `1`|heltal|
 |**Namn**  <br>*Krävs*|Tjänstnamn.|sträng|
-|**numReplicas**  <br>*Valfria*|Antal baljor repliker som körs när som helst. Kan inte anges om Autoscaler är aktiverad.  <br>**Minimivärdet**: `0`|heltal|
+|**numReplicas**  <br>*Valfritt*|Antalet poddrepliker som körs när som helst. Kan inte anges om Autoskalningen är aktiverad.  <br>**Minimivärdet**: `0`|heltal|
 
 
 <a name="serviceregeneratekeyrequest"></a>
 ### <a name="serviceregeneratekeyrequest"></a>ServiceRegenerateKeyRequest
-En begäran om att återskapa en nyckel för en tjänst.
+En begäran att återskapa en nyckel för en tjänst.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**KeyType**  <br>*Valfria*|Anger vilken nyckel att generera om.|Uppräkning (primära, sekundära)|
+|**KeyType**  <br>*Valfritt*|Anger vilken nyckel som ska återskapas.|Uppräkning (primär, sekundär)|
 
 
 <a name="serviceresponse"></a>
@@ -889,48 +889,48 @@ Detaljerad status för tjänsten.
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**CreatedAt**  <br>*Valfria*|En tjänst Skapandetid (UTC).|sträng (tid)|
-|**ID**  <br>*Valfria*|Tjänst-ID.|sträng|
-|**Bild**  <br>*Valfria*||[Avbildning](#image)|
-|**Manifestet**  <br>*Valfria*||[Manifestet](#manifest)|
-|**modeller**  <br>*Valfria*|Listan över modeller.|<[Modellen](#model)> matris|
-|**Namn**  <br>*Valfria*|Tjänstnamn.|sträng|
-|**scoringUri**  <br>*Valfria*|URI för poängsättning av tjänsten.|sträng|
-|**Tillstånd**  <br>*Valfria*||[AsyncOperationState](#asyncoperationstate)|
-|**updatedAt**  <br>*Valfria*|Senaste Uppdateringstid (UTC).|sträng (tid)|
-|**appInsightsEnabled**  <br>*Valfria*|Aktivera application insights för en tjänst.|boolesk|
-|**AutoScaler**  <br>*Valfria*||[AutoScaler](#autoscaler)|
+|**createdAt**  <br>*Valfritt*|Tjänsten Skapandetid (UTC).|sträng (datum / tid)|
+|**ID**  <br>*Valfritt*|Service-ID.|sträng|
+|**bild**  <br>*Valfritt*||[Avbildning](#image)|
+|**Manifest**  <br>*Valfritt*||[Manifest](#manifest)|
+|**modeller**  <br>*Valfritt*|Listan över modeller.|<[Modellen](#model)> matris|
+|**Namn**  <br>*Valfritt*|Tjänstnamn.|sträng|
+|**scoringUri**  <br>*Valfritt*|URI för bedömning av tjänsten.|sträng|
+|**tillstånd**  <br>*Valfritt*||[AsyncOperationState](#asyncoperationstate)|
+|**updatedAt**  <br>*Valfritt*|Senaste Uppdateringstid (UTC).|sträng (datum / tid)|
+|**appInsightsEnabled**  <br>*Valfritt*|Aktivera application insights för en tjänst.|boolesk|
+|**Autoskalningen**  <br>*Valfritt*||[Autoskalningen](#autoscaler)|
 |**ComputeResource**  <br>*Krävs*||[ComputeResource](#computeresource)|
-|**ContainerResourceReservation**  <br>*Valfria*||[ContainerResourceReservation](#containerresourcereservation)|
-|**DataCollection**  <br>*Valfria*||[ModelDataCollection](#modeldatacollection)|
-|**maxConcurrentRequestsPerContainer**  <br>*Valfria*|Maximalt antal samtidiga begäranden.  <br>**Minimivärdet**: `1`|heltal|
-|**numReplicas**  <br>*Valfria*|Antal baljor repliker som körs när som helst. Kan inte anges om Autoscaler är aktiverad.  <br>**Minimivärdet**: `0`|heltal|
-|**Fel**  <br>*Valfria*||[ErrorResponse](#errorresponse)|
+|**ContainerResourceReservation**  <br>*Valfritt*||[ContainerResourceReservation](#containerresourcereservation)|
+|**dataCollection**  <br>*Valfritt*||[ModelDataCollection](#modeldatacollection)|
+|**maxConcurrentRequestsPerContainer**  <br>*Valfritt*|Maximalt antal samtidiga begäranden.  <br>**Minimivärdet**: `1`|heltal|
+|**numReplicas**  <br>*Valfritt*|Antalet poddrepliker som körs när som helst. Kan inte anges om Autoskalningen är aktiverad.  <br>**Minimivärdet**: `0`|heltal|
+|**Fel**  <br>*Valfritt*||[ErrorResponse](#errorresponse)|
 
 
 <a name="serviceupdaterequest"></a>
 ### <a name="serviceupdaterequest"></a>ServiceUpdateRequest
-En begäran om att uppdatera en tjänst.
+En begäran att uppdatera en tjänst.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**appInsightsEnabled**  <br>*Valfria*|Aktivera application insights för en tjänst.|boolesk|
-|**AutoScaler**  <br>*Valfria*||[AutoScaler](#autoscaler)|
-|**ContainerResourceReservation**  <br>*Valfria*||[ContainerResourceReservation](#containerresourcereservation)|
-|**DataCollection**  <br>*Valfria*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*Valfria*|Bild för att skapa tjänsten.|sträng|
-|**maxConcurrentRequestsPerContainer**  <br>*Valfria*|Maximalt antal samtidiga begäranden.  <br>**Minimivärdet**: `1`|heltal|
-|**numReplicas**  <br>*Valfria*|Antal baljor repliker som körs när som helst. Kan inte anges om Autoscaler är aktiverad.  <br>**Minimivärdet**: `0`|heltal|
+|**appInsightsEnabled**  <br>*Valfritt*|Aktivera application insights för en tjänst.|boolesk|
+|**Autoskalningen**  <br>*Valfritt*||[Autoskalningen](#autoscaler)|
+|**ContainerResourceReservation**  <br>*Valfritt*||[ContainerResourceReservation](#containerresourcereservation)|
+|**dataCollection**  <br>*Valfritt*||[ModelDataCollection](#modeldatacollection)|
+|**imageId**  <br>*Valfritt*|Bild för att skapa tjänsten.|sträng|
+|**maxConcurrentRequestsPerContainer**  <br>*Valfritt*|Maximalt antal samtidiga begäranden.  <br>**Minimivärdet**: `1`|heltal|
+|**numReplicas**  <br>*Valfritt*|Antalet poddrepliker som körs när som helst. Kan inte anges om Autoskalningen är aktiverad.  <br>**Minimivärdet**: `0`|heltal|
 
 
 <a name="targetruntime"></a>
 ### <a name="targetruntime"></a>TargetRuntime
-Typ av mål för körning.
+Typ av mål-runtime.
 
 
 |Namn|Beskrivning|Schema|
 |---|---|---|
-|**Egenskaper**  <br>*Krävs*||< sträng, sträng > karta|
-|**runtimeType**  <br>*Krävs*|Anger körningsmiljön.|Uppräkning (SparkPython, Python)|
+|**Egenskaper**  <br>*Krävs*||< string, string > karta|
+|**runtimeType**  <br>*Krävs*|Anger körningen.|Uppräkning (SparkPython, Python)|
 

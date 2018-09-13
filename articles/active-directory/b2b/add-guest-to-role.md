@@ -1,35 +1,35 @@
 ---
-title: Lägg till en Azure Active Directory B2B-samarbete användare till en roll | Microsoft Docs
+title: Lägg till en Azure Active Directory B2B-användare till en roll | Microsoft Docs
 description: Lägg till en gästanvändare till en roll i Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 91abc2ef4d893c57816ca3b6552f19f07c2f588a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 47615309d71ac6bf4352e30284f23fbbfdd6d4be
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260171"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646724"
 ---
-# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Bevilja behörigheter till användare från partnerorganisationer i Azure Active Directory-klient
+# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Bevilja behörigheter till användare från partnerorganisationer i din Azure Active Directory-klient
 
-Azure Active Directory (AD Azure) B2B-samarbete användare läggs till som gästanvändare i katalogen och gästbehörigheter i katalogen begränsas som standard. Ditt företag kanske måste vissa gästanvändare att fylla högre behörighet roller i din organisation. Gästanvändare kan läggas till några roller som du önskar, baserat på din organisations behov för att stödja definiera roller för högre behörighet.
+Azure Active Directory (Azure AD) B2B-samarbete användare läggs till som gästanvändare i katalogen och gästbehörigheter i katalogen begränsas som standard. Ditt företag kanske måste vissa gästanvändare rätt att fylla högre behörighetsroller i din organisation. För att definiera roller för högre behörighet måste kan gästanvändare läggas till alla roller som du önskar, baserat på organisationens behov.
 
-## <a name="default-role"></a>standardroll
+## <a name="default-role"></a>Standardroll
 
 ![standardroll](./media/add-guest-to-role/default-role.png)
 
-## <a name="global-administrator-role"></a>Rollen Global administratör
+## <a name="global-administrator-role"></a>Rollen som global administratör
 
-![rollen Global administratör](./media/add-guest-to-role/global-admin-role.png)
+![rollen som global administratör](./media/add-guest-to-role/global-admin-role.png)
 
-## <a name="limited-administrator-role"></a>Begränsad administratörsroll
+## <a name="limited-administrator-role"></a>Begränsad administratör
 
 ![begränsad administratörsroll](./media/add-guest-to-role/limited-admin-role.png)
 

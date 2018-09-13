@@ -1,6 +1,6 @@
 ---
-title: Datamodell för Azure-program insikter telemetri - händelse telemetri | Microsoft Docs
-description: Application Insights datamodellen för händelsen telemetri
+title: Datamodell för Azure Application Insights telemetri – Händelsetelemetri | Microsoft Docs
+description: Application Insights-datamodell för händelsetelemetri
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -9,24 +9,26 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 4f6b5c35b65b4aff2dbe8dafbb2eb07d75c2382a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 777c52276ca767ee1fb4d05666850350c02c1e00
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647207"
 ---
-# <a name="event-telemetry-application-insights-data-model"></a>Händelsen telemetri: Application Insights-datamodell
+# <a name="event-telemetry-application-insights-data-model"></a>Händelsetelemetri: Application Insights-datamodell
 
-Du kan skapa händelse telemetri objekt (i [Programinsikter](app-insights-overview.md)) som representerar en händelse som påträffats i programmet. Vanligtvis är en användarinteraktion, såsom knappen Klicka eller ordna utcheckningen. Det kan också vara livscykel händelse som initiering eller konfiguration uppdatera. 
+Du kan skapa event telemetri objekt (i [Application Insights](app-insights-overview.md)) som representerar en händelse som inträffade i ditt program. Det är vanligtvis någon interaktion från användaren som knapp klickar du på eller beställa checka ut. Det kan också vara livscykel händelse som initieras eller konfiguration update. 
 
-Semantiskt, händelser kan eller inte kan korreleras till begäranden. Men om korrekt, är händelse telemetri viktigare än förfrågningar eller spår. Händelser som representerar företag telemetri och bör vara ett ämne att separera, mindre aggressiv [provtagning](app-insights-api-filtering-sampling.md).
+Semantiskt, händelser kan eller inte kan korreleras till begäranden. Men om använt korrekt är händelsetelemetri viktigare än begäranden eller spårningar. Händelser som representerar telemetri och bör vara ett ämne att separera, mindre aggressiva [sampling](app-insights-api-filtering-sampling.md).
 
 ## <a name="name"></a>Namn
 
-Händelsenamn. Begränsa ditt program för att tillåta korrekt gruppering och användbara mätvärden, så att den genererar ett litet antal separat händelsenamn. Till exempel inte använda ett separat namn för varje genererade instans av en händelse.
+Händelsenamn. Begränsa ditt program för att tillåta korrekt gruppering och användbara mätvärden, så att det genererar ett litet antal separat händelsenamn. Till exempel inte använda ett separat namn för varje genererad instans av en händelse.
 
 Maxlängd: 512 tecken
 
@@ -40,6 +42,6 @@ Maxlängd: 512 tecken
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [datamodellen](application-insights-data-model.md) för Application Insights typer och modell.
-- [Skriva anpassade händelsen telemetri](app-insights-api-custom-events-metrics.md#trackevent)
-- Checka ut [plattformar](app-insights-platforms.md) stöds av Application Insights.
+- Se [datamodellen](application-insights-data-model.md) för Application Insights och modellen.
+- [Skriva anpassad händelsetelemetri](app-insights-api-custom-events-metrics.md#trackevent)
+- Kolla in [plattformar](app-insights-platforms.md) stöds av Application Insights.

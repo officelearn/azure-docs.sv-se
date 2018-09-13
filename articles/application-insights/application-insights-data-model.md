@@ -1,58 +1,60 @@
 ---
-title: Azure Application Insights telemetri datamodellen | Microsoft Docs
-description: Insikter modellen programdata
+title: Datamodell för Azure Application Insights telemetri | Microsoft Docs
+description: Översikt över Application Insights data model
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
+ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: b14eea46e773a4b92ba20cd3121cd258f86307c9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: aaff60e847e0e9908a4cd9c07cb6cd47630c5e3a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647708"
 ---
-# <a name="application-insights-telemetry-data-model"></a>Application Insights telemetri datamodellen
+# <a name="application-insights-telemetry-data-model"></a>Datamodell för Application Insights-telemetri
 
-[Azure Application Insights](app-insights-overview.md) skickar telemetri från ditt webbprogram till Azure-portalen så att du kan analysera prestanda och användning av programmet. Telemetri modellen är standardiserade så att det är möjligt att skapa språkoberoende övervakning och plattform. 
+[Azure Application Insights](app-insights-overview.md) skickar telemetri från din webbapp till Azure-portalen så att du kan analysera prestanda och användning av ditt program. Telemetri modellen är standardiserat så att det är möjligt att skapa plattform och språkoberoende övervakning. 
 
-Data som samlas in av Application Insights modeller detta mönster för körning av vanliga program:
+Data som samlas in av Application Insights-modeller det här mönstret för körning av vanliga program:
 
-![Application Insights programmodell](./media/application-insights-data-model/application-insights-data-model.png)
+![Application Insights-Programmodellen](./media/application-insights-data-model/application-insights-data-model.png)
 
-Följande typer av telemetri för att övervaka körning av din app. Följande tre typer vanligtvis automatiskt samlas in av Application Insights SDK från web application framework:
+Följande typer av telemetri används för att övervaka körning av din app. Följande tre typer är vanligtvis automatiskt som samlas in av Application Insights SDK från web application framework:
 
-* [**Begäran** ](application-insights-data-model-request-telemetry.md) - genererade att logga en begäran tas emot av din app. Till exempel Application Insights web SDK genererar automatiskt en begärandeobjekt telemetri för varje HTTP-begäran som tar emot ditt webbprogram. 
+* [**Begäran** ](application-insights-data-model-request-telemetry.md) - genererade att logga en begäran tas emot av din app. Till exempel Application Insights web SDK genererar automatiskt ett begärandetelemetriobjekt för varje HTTP-begäran som tar emot din webbapp. 
 
-    En **åtgärden** är trådarna i körningen som bearbetar en begäran. Du kan också [skriva kod](app-insights-api-custom-events-metrics.md#trackrequest) bearbetar data att övervaka andra typer av åtgärden, som en ”väcka” på en webbplats jobbet eller fungera som regelbundet.  Varje åtgärd har ett ID. Detta ID kan användas för att [grupp](application-insights-correlation.md) all telemetri som uppstår när din app bearbetar begäran. Varje åtgärd antingen lyckas eller misslyckas och har en tidsperiod.
-* [**Undantag** ](application-insights-data-model-exception-telemetry.md) -representerar vanligen ett undantag som gör att åtgärden misslyckades.
-* [**Beroende** ](application-insights-data-model-dependency-telemetry.md) -representerar ett anrop från appen till en extern tjänst eller lagring som en REST API eller SQL. I ASP.NET, beroendeanrop till SQL definieras av `System.Data`. Anrop till HTTP-slutpunkter definieras av `System.Net`. 
+    En **åtgärden** är trådar för körning som bearbetar en begäran. Du kan också [skriva kod](app-insights-api-custom-events-metrics.md#trackrequest) att övervaka andra typer av åtgärden, som en ”aktivera” i ett webb-jobb eller fungera som regelbundet bearbetar data.  Varje åtgärd har ett ID. Detta ID som kan användas för att [grupp](application-insights-correlation.md) all telemetri som uppstår när din app är behandlingen av begäran. Varje åtgärd antingen lyckas eller misslyckas och har en tidsperiod.
+* [**Undantag** ](application-insights-data-model-exception-telemetry.md) -representerar vanligen ett undantag som orsakar en åtgärd misslyckas.
+* [**Beroende** ](application-insights-data-model-dependency-telemetry.md) -representerar ett anrop från din app till en extern tjänst eller lagringsenheter, till exempel en REST API eller SQL. I ASP.NET, beroendeanrop till SQL definieras av `System.Data`. Anrop till HTTP-slutpunkter definieras av `System.Net`. 
 
-Application Insights innehåller tre ytterligare datatyper för anpassad telemetri:
+Application Insights tillhandahåller tre ytterligare datatyper för anpassad telemetri:
 
-* [Spåra](application-insights-data-model-trace-telemetry.md) – användas antingen direkt eller via en adapter för att implementera diagnostikloggning med hjälp av ett ramverk för instrumentation som är bekant, som `Log4Net` eller `System.Diagnostics`.
-* [Händelsen](application-insights-data-model-event-telemetry.md) - brukar användas för att avbilda användarinteraktion med din tjänst för att analysera användningsmönster.
-* [Måttet](application-insights-data-model-metric-telemetry.md) – används för att rapporten periodiska skalära mätningar.
+* [Spårningen](application-insights-data-model-trace-telemetry.md) – används antingen direkt eller via en adapter för att implementera diagnostikloggning med hjälp av ett ramverk för instrumentation som är bekant, till exempel `Log4Net` eller `System.Diagnostics`.
+* [Händelsen](application-insights-data-model-event-telemetry.md) – vanligtvis används för att avbilda användarinteraktion med din tjänst, att analysera användningsmönster.
+* [Mått](application-insights-data-model-metric-telemetry.md) – används för att rapporten periodiska skalära mätningar.
 
-Varje telemetri-objekt kan definiera den [omständighetsinformation](application-insights-data-model-context.md) som programmets version eller användaren sessions-id. Kontexten är en uppsättning strikt typkontroll fält som avblockeras vissa scenarier. När programversion har initierats korrekt kan Application Insights identifiera nya mönster i programmets beteende som samverkar med omdistributionen. Sessions-id kan användas för att beräkna avbrottet eller ett problem inverkan på användarna. Räknar antalet distinkta av session-ID-värden för vissa misslyckades beroende, fel spårningen eller kritiskt undantag ger en god förståelse av konsekvenser.
+Varje telemetriobjekt kan definiera den [kontextinformation](application-insights-data-model-context.md) som programmet version eller användare sessions-id. Kontexten är en uppsättning starkt typifierad fält som häver blockeringen för vissa scenarier. När programversion har initierats korrekt, kan Application Insights identifiera nya mönster i programmets beteende med omdistributionen. Sessions-id kan användas för att beräkna avbrottet eller ett problem inverkan på användarna. Det gick inte att beräkna Distinkt antal för sessions-id-värden för vissa beroende, fel spårningen eller kritiskt undantag ger en god förståelse av skillnad.
 
-Programmodell insikter telemetri definierar ett sätt att [korrelera](application-insights-correlation.md) telemetri till åtgärden som den är en del. En begäran kan ringa en SQL-databas och registreras diagnostik information. Du kan ange telemetri objekt som binder till begärandetelemetri korrelation kontext.
+Programmodell insikter telemetri definierar ett sätt att [korrelera](application-insights-correlation.md) telemetri till åtgärden som den är en del. En begäran kan göra en SQL Database-anrop och registreras diagnostik information. Du kan ange Korrelations-kontext för nödvändiga objekt för telemetri att koppla dem till begärandetelemetri.
 
 ## <a name="schema-improvements"></a>Förbättringar av schemat
 
-Application Insights-datamodell är ett enkelt och grundläggande men kraftfullt sätt att modellera programmets telemetri. Vi strävar efter att hålla modellen enkel och smidig som stöder viktiga scenarier och tillåta för att utöka schemat för avancerad användning.
+Application Insights-datamodellen är ett enkelt och grundläggande men kraftfullt sätt att utforma din programtelemetri. Vi strävar efter att hålla modellen enkel och smidig för viktiga scenarier och tillåta för att utöka schemat för avancerad användning.
 
-Rapportera problem med data modell eller schemat och förslag använder GitHub [ApplicationInsights hem](https://github.com/Microsoft/ApplicationInsights-Home/labels/schema) databasen.
+Rapportera data modell eller schemat problem och förslag använder GitHub [ApplicationInsights hem](https://github.com/Microsoft/ApplicationInsights-Home/labels/schema) lagringsplats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skriv anpassad telemetri](app-insights-api-custom-events-metrics.md)
+- [Skriva anpassad telemetri](app-insights-api-custom-events-metrics.md)
 - Lär dig hur du [utöka och filtrera telemetri](app-insights-api-filtering-sampling.md).
-- Använd [provtagning](app-insights-sampling.md) att minimera telemetri som baseras på datamodellen.
-- Checka ut [plattformar](app-insights-platforms.md) stöds av Application Insights.
+- Använd [sampling](app-insights-sampling.md) att minimera mängden telemetri som baseras på datamodellen.
+- Kolla in [plattformar](app-insights-platforms.md) stöds av Application Insights.

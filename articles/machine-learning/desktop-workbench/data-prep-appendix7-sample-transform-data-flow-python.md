@@ -1,37 +1,37 @@
 ---
-title: Exempel transformationer möjligt med Azure Machine Learning förberedelse av Data för transformeringen dataflöde | Microsoft Docs
-description: Det här dokumentet innehåller en uppsättning exempel på Transformera data flödet transformeringar möjligt med Azure Machine Learning förberedelse av data
+title: Exempel transformera dataflöde transformationer som är möjligt med Azure Machine Learning databearbetning | Microsoft Docs
+description: Det här dokumentet innehåller en uppsättning exempel på transformeringen dataflödestransformeringar möjligt med Azure Machine Learning förberedelse av data
 services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 655e9d41911fbb008470cf58b2538407933787bd
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ca780b51973a960caec3b9b7a80c8ba5621b5a0b
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832082"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649839"
 ---
-# <a name="sample-of-custom-data-flow-transforms-python"></a>Exempel på anpassade data flödet transformeringar (Python) 
-Transformering i menyn heter **transformera dataflöde (skript)**. Innan du läser den här bilagan läsa [Python utökningsbarhet översikt](data-prep-python-extensibility-overview.md).
+# <a name="sample-of-custom-data-flow-transforms-python"></a>Exempel på anpassade dataflödestransformeringar (Python) 
+Namnet på transformering i menyn är **transformera dataflöde (skript)**. Innan du läser den här bilagan läsa [Python extensibility översikt](data-prep-python-extensibility-overview.md).
 
-## <a name="transform-frame"></a>Transformera ram
+## <a name="transform-frame"></a>Omvandla ram
 ### <a name="create-a-new-column-dynamically"></a>Skapa en ny kolumn dynamiskt 
-Skapar en kolumn dynamiskt (**city2**) och synkroniserar flera olika versioner av San Francisco till en från kolumnen befintliga ort.
+Skapar en kolumn dynamiskt (**stad2**) och synkroniserar flera olika versioner av San Francisco till någon från den befintliga kolumnen stad.
 ```python
     df.loc[(df['city'] == 'San Francisco') | (df['city'] == 'SF') | (df['city'] == 'S.F.') | (df['city'] == 'SAN FRANCISCO'), 'city2'] = 'San Francisco'
 ```
 
-### <a name="add-new-aggregates"></a>Lägga till nya mängder
-Skapar en ny ram med första och sista-mängder som beräknats för resultatkolumnen. Dessa är grupperade efter den **risk_category** kolumn.
+### <a name="add-new-aggregates"></a>Lägg till nya aggregeringar
+Skapar en ny ram med de första och sista aggregeringar som beräknas för resultatkolumnen. Dessa är grupperade efter den **risk_category** kolumn.
 ```python
     df = df.groupby(['risk_category'])['Score'].agg(['first','last'])
 ```
@@ -43,9 +43,9 @@ Formulerar om data för att uppfylla en formel för att minska avvikare i en kol
 ```
 
 ## <a name="transform-data-flow"></a>Transformera dataflöde
-### <a name="fill-down"></a>Autofyll 
+### <a name="fill-down"></a>Fyll nedåt 
 
-Autofyll kräver två transformeringar. Vi utgår från data som ser ut som i följande tabell:
+Fyll nedåt kräver två transformeringar. Det förutsätter att data som ser ut som i följande tabell:
 
 |Status         |Ort       |
 |--------------|-----------|
@@ -58,19 +58,19 @@ Autofyll kräver två transformeringar. Vi utgår från data som ser ut som i f�
 |              |San José   |
 |Texas         |Dallas     |
 |              |SAN Antonio|
-|              |Houston    |
+|              |Houston (USA)    |
 
 1. Skapa en ”Lägg till kolumn (skript)” transformering med följande kod:
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
 
-2. Skapa en ”transformeringen dataflöde (skript)” transformering som innehåller följande kod:
+2. Skapa en transformering i ”transformera dataflöde (skript)” som innehåller följande kod:
 ```python
     df = df.fillna( method='pad')
 ```
 
-Data är nu ser ut som i följande tabell:
+Data ut så här i följande tabell:
 
 |Status         |newState         |Ort       |
 |--------------|--------------|-----------|
@@ -83,10 +83,10 @@ Data är nu ser ut som i följande tabell:
 |              |Kalifornien    |San José   |
 |Texas         |Texas         |Dallas     |
 |              |Texas         |SAN Antonio|
-|              |Texas         |Houston    |
+|              |Texas         |Houston (USA)    |
 
 
-### <a name="min-max-normalization"></a>Min max normalisering
+### <a name="min-max-normalization"></a>Min – max normalisering
 ```python
     df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
 ```

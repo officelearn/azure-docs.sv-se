@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure Programgateway - Azure CLI 1.0 | Microsoft Docs
+title: Skapa ett Azure Application Gateway – Azure CLI 1.0 | Microsoft Docs
 description: Lär dig hur du skapar en Programgateway med hjälp av Azure CLI 1.0 i Resource Manager
 services: application-gateway
 documentationcenter: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 3d67e896da5e616e443fc4e1edd9aaafb0f0e2f9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648984"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Skapa en Programgateway med hjälp av Azure CLI
 
@@ -33,31 +34,31 @@ ms.lasthandoff: 05/04/2018
 > 
 > 
 
-Azure Application Gateway är en Layer 7-belastningsutjämnare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Programgateway innehåller följande funktioner för leverans av program: HTTP läsa in belastningsutjämning, cookie-baserad session tillhörighet och Secure Sockets Layer (SSL)-avlastning, anpassade hälsoavsökningar och stöd för flera platser.
+Azure Application Gateway är en Layer 7-lastbalanserare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Application gateway tillhandahåller de följande funktionerna för programleverans: HTTP läsa in belastningsutjämning, cookie-baserad sessionstillhörighet och Secure Sockets Layer (SSL) avlastning, anpassade hälsoavsökningar och stöd för flera platser.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Förutsättning: Installera Azure CLI
 
 Om du vill utföra stegen i den här artikeln, måste du [installera Azure-kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)](../xplat-cli-install.md) och du behöver [logga in på Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
-> Om du inte har ett Azure-konto behöver du en. Registrera dig för en [kostnadsfri utvärderingsversion här](../active-directory/sign-up-organization.md).
+> Om du inte har ett Azure-konto, behöver du en. Registrera dig för en [kostnadsfri utvärderingsversion här](../active-directory/fundamentals/sign-up-organization.md).
 
 ## <a name="scenario"></a>Scenario
 
-Lär dig hur du skapar en Programgateway med Azure-portalen i det här scenariot.
+I det här scenariot kan du lära dig hur du skapar en Programgateway med hjälp av Azure portal.
 
-Det här scenariot kommer:
+Det här scenariot kommer att:
 
-* Skapa en medelhög Programgateway med två instanser.
-* Skapa ett virtuellt nätverk med namnet ContosoVNET med en 10.0.0.0/16 reserverade CIDR-blocket.
-* Skapa ett undernät som kallas subnet01 som använder 10.0.0.0/28 som sitt CIDR-block.
+* Skapa en medelstor Programgateway med två instanser.
+* Skapa ett virtuellt nätverk med namnet ContosoVNET med det reserverade CIDR-blocket 10.0.0.0/16.
+* Skapa ett undernät med namnet subnet01 som använder 10.0.0.0/28 som dess CIDR-block.
 
 > [!NOTE]
-> Ytterligare konfiguration för Programgateway, inklusive anpassade hälsa avsökningar, backend-adresser för poolen och ytterligare regler konfigureras när programgatewayen har konfigurerats och inte under första distributionen.
+> Ytterligare konfiguration av application gateway, inklusive anpassade hälsotillstånd avsökningar, adresser för backend-poolen och ytterligare regler konfigureras när application gateway har konfigurerats och inte under den inledande distributionen.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Azure Application Gateway kräver sin egen undernät. När du skapar ett virtuellt nätverk, se till att du lämnar tillräckligt med adressutrymme för att du har flera undernät. När du distribuerar en Programgateway till ett undernät kan bara ytterligare programgatewayer som ska läggas till undernätet.
+Azure Application Gateway kräver ett eget undernät. När du skapar ett virtuellt nätverk kan du se till att lämna tillräckligt med adressutrymme för att du har flera undernät. När du distribuerar en application gateway till ett undernät kan kan bara ytterligare programgatewayer läggas till i undernätet.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -67,19 +68,19 @@ Azure Application Gateway kräver sin egen undernät. När du skapar ett virtuel
 azure login
 ```
 
-När du skriver i föregående exempel, har en kod angetts. Navigera till https://aka.ms/devicelogin i en webbläsare för att fortsätta inloggningen.
+När du skriver i föregående exempel finns en kod. Gå till https://aka.ms/devicelogin i en webbläsare för att fortsätta inloggningen.
 
-![cmd visar enhet inloggning][1]
+![cmd som visar inloggning på enhet][1]
 
-Ange den kod som du fick i webbläsaren. Du omdirigeras till en inloggningssida.
+Ange koden som du fick i webbläsaren. Du omdirigeras till en inloggningssida.
 
 ![webbläsare för att ange koden][2]
 
-När du har angett koden du är inloggad, Stäng webbläsaren för att fortsätta scenariot.
+När koden har skrivits in du är inloggad, Stäng webbläsaren att fortsätta med scenariot.
 
-![loggat in][3]
+![har loggat in][3]
 
-## <a name="switch-to-resource-manager-mode"></a>Växla till läget Resource Manager
+## <a name="switch-to-resource-manager-mode"></a>Växla till Resource Manager-läge
 
 ```azurecli-interactive
 azure config mode arm
@@ -87,7 +88,7 @@ azure config mode arm
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
-Innan du skapar programgatewayen, skapas en resursgrupp för programgatewayen. Nedan visas kommandot.
+Innan du skapar programgatewayen skapas en resursgrupp för application gateway. Nedan visas kommandot.
 
 ```azurecli-interactive
 azure group create \
@@ -97,7 +98,7 @@ azure group create \
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-När resursgruppen har skapats, skapas ett virtuellt nätverk för programgatewayen.  I följande exempel var adressutrymmet som 10.0.0.0/16 som definierats i föregående scenariot anteckningar.
+När resursgruppen skapas, skapas ett virtuellt nätverk för application gateway.  I följande exempel var adressutrymmet 10.0.0.0/16 enligt definitionen i den föregående scenario-informationen.
 
 ```azurecli-interactive
 azure network vnet create \
@@ -109,7 +110,7 @@ azure network vnet create \
 
 ## <a name="create-a-subnet"></a>Skapa ett undernät
 
-När det virtuella nätverket har skapats läggs ett undernät för Programgateway.  Om du planerar att använda Programgateway med en webbapp som finns i samma virtuella nätverk som programgatewayen bör du lämna tillräckligt med utrymme för ett annat undernät.
+När det virtuella nätverket skapas, läggs ett undernät för application gateway.  Om du planerar att använda programgatewayen med en webbapp som finns i samma virtuella nätverk som application gateway, måste du lämna tillräckligt med utrymme för ett annat undernät.
 
 ```azurecli-interactive
 azure network vnet subnet create \
@@ -121,7 +122,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-När det virtuella nätverk och undernät skapas, är kraven för Programgateway fullständiga. Dessutom ett tidigare exporterade PFX-certifikat och lösenord för certifikatet som krävs för följande steg: IP-adresser som används för backend är IP-adresser för backend-servern. Dessa värden kan vara privata IP-adresser i det virtuella nätverket, offentliga IP-adresser eller fullständigt kvalificerat domännamn för backend-servrar.
+När det virtuella nätverk och undernät har skapats, är krav för application gateway klar. Dessutom ett tidigare exporterade PFX-certifikat och lösenord för certifikatet måste anges för följande steg: IP-adresser som används för serverdelen är IP-adresser för backend-servern. Dessa värden kan vara antingen privata IP-adresser i det virtuella nätverket, offentliga IP-adresser eller fullständigt kvalificerat domännamn för backend-servrarna.
 
 ```azurecli-interactive
 azure network application-gateway create \
@@ -143,16 +144,16 @@ azure network application-gateway create \
 ```
 
 > [!NOTE]
-> En lista över parametrar som kan tillhandahållas vid skapandet kör följande kommando: **azure-nätverk Programgateway skapa--hjälpa**.
+> En lista över parametrar som kan anges när du skapar kör du följande kommando: **azure network application-gateway create--hjälpa**.
 
-Det här exemplet skapar en basic-Programgateway med standardinställningarna för lyssnare, serverdelspool, serverdelens http-inställningar och regler. Du kan ändra dessa inställningar efter distributionen när etableringen har lyckats.
-Om du redan har ditt webbprogram som definierats med serverdelspoolen i föregående steg, skapas en gång, börjar belastningsutjämning.
+Det här exemplet skapar en basic-Programgateway med standardinställningarna för lyssnare, serverdelspoolen, serverdelens http-inställningar och regler. Du kan ändra dessa inställningar så att de passar din distribution när etableringen är klar.
+Om du redan har ditt webbprogram som definierats med backend-pool i föregående steg skapade, börjar Utjämning av nätverksbelastning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du skapar anpassade hälsoavsökningar genom att besöka [skapa en anpassad hälsoavsökningen](application-gateway-create-probe-portal.md)
+Lär dig hur du skapar anpassade hälsoavsökningar genom att besöka [skapa en anpassad hälsoavsökning](application-gateway-create-probe-portal.md)
 
-Lär dig hur du konfigurerar SSL-avlastning och ta kostsamma SSL-dekryptering av webbservrar genom att besöka [Konfigurera SSL-avlastning](application-gateway-ssl-arm.md)
+Lär dig hur du konfigurerar SSL-avlastning och ta kostsamma SSL-dekryptering åt dina webbservrar genom att besöka [Konfigurera SSL-avlastning](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

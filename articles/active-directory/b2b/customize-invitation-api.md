@@ -6,23 +6,23 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: e53bac5bca199fe08d53f232416a1c6432148f34
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: a41eadaecc203f9371da3eee05367a4f77747253
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260177"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647165"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samarbete API och anpassning
 
-Vi har fått många kunder berätta för oss att de vill anpassa inbjudan processen på ett sätt som passar bäst för deras organisationer. Du kan göra precis som med vårt API. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Vi har haft många kunder berätta för oss att de vill anpassa inbjudningsprocessen på ett sätt som passar bäst för deras organisationer. Med vårt API kan du göra just detta. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Funktionerna i inbjudan API
-API: et finns följande funktioner:
+API: et erbjuder följande funktioner:
 
 1. Bjud in en extern användare med *alla* e-postadress.
 
@@ -31,7 +31,7 @@ API: et finns följande funktioner:
     "invitedUserEmailAddress": "gsamoogle@gmail.com"
     ```
 
-2. Anpassa där du vill att användarna ska hamna när de accepterar deras inbjudan.
+2. Anpassa där du vill att användarna ska få när de har accepterat sin inbjudan.
 
     ```
     "inviteRedirectUrl": "https://myapps.microsoft.com/"
@@ -43,23 +43,23 @@ API: et finns följande funktioner:
     "sendInvitationMessage": true
     ```
 
-  ett meddelande som mottagaren som du kan anpassa
+  med ett meddelande till den mottagare som du kan anpassa
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
     ```
 
-4. Och välj att skicka en kopia: personer som du vill behålla i loop om att din bjuda in deltagare i den här.
+4. Och väljer att skicka en kopia: personer som du vill behålla uppdaterad om dina bjuda in den här medarbetare.
 
-5. Eller helt anpassa din inbjudan och onboarding arbetsflöde genom att välja att inte skicka meddelanden via Azure AD.
+5. Eller helt anpassa dina inbjudan och onboarding arbetsflöde genom att välja att inte skicka meddelanden via Azure AD.
 
     ```
     "sendInvitationMessage": false
     ```
 
-  I så fall måste få du tillbaka en inlösning URL från API: et som du kan bädda in i en postmall för e-, Snabbmeddelanden eller andra distributionsmetod du väljer.
+  I det här fallet, du kan få en inlösen URL från API: et som du kan bädda in i en e-postmall, Snabbmeddelanden eller andra distributionsmetod du väljer.
 
-6. Om du är administratör kan välja du dessutom att bjuda in användare som medlem.
+6. Slutligen, om du är administratör kan du bjuda in användaren som medlem.
 
     ```
     "invitedUserType": "Member"
@@ -67,19 +67,19 @@ API: et finns följande funktioner:
 
 
 ## <a name="authorization-model"></a>Auktoriseringsmodellen
-API: et kan köras i följande tillstånd lägen:
+API: et kan köras i följande lägen för auktorisering:
 
-### <a name="app--user-mode"></a>Appen + användarläge
-I detta läge gäller den som använder API: N måste ha behörighet att skapa B2B inbjudningar.
+### <a name="app--user-mode"></a>App- + användarläge
+I det här läget kan den använder API-behov har behörigheter att skapa B2B inbjudningar.
 
-### <a name="app-only-mode"></a>Appen läge
-Appen måste User.Invite.All omfång för inbjudan ska lyckas i appen endast sammanhang.
+### <a name="app-only-mode"></a>Endast appläge
+Appen måste i appen endast sammanhanget User.Invite.All omfånget för inbjudan ska lyckas.
 
-För mer information, se: https://graph.microsoft.io/docs/authorization/permission_scopes
+Mer information finns: https://graph.microsoft.io/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
-Nu är det möjligt att använda PowerShell för att lägga till och bjuda in externa användare till en organisation enkelt. Skapa en inbjudan med hjälp av cmdlet:
+Nu är det möjligt att använda PowerShell för att lägga till och bjuda in extern användare till en organisation enkelt. Skapa en inbjudan med hjälp av cmdleten:
 
 ```
 New-AzureADMSInvitation
@@ -92,12 +92,12 @@ Du kan använda följande alternativ:
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-Du kan också kontrollera ut inbjudan API-referens i [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Du kan också besöka våra API-referens för inbjudan i [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-- [Elementen i e-postinbjudan B2B-samarbete](invitation-email-elements.md)
-- [B2B-samarbete inbjudan inlösning](redemption-experience.md)
-- [Lägg till B2B-samarbete användare utan inbjudan](add-user-without-invite.md)
+- [Element i e-postinbjudan B2B-samarbete](invitation-email-elements.md)
+- [B2B-samarbete inlösning av inbjudan](redemption-experience.md)
+- [Lägga till B2B-samarbete användare utan inbjudan](add-user-without-invite.md)
 

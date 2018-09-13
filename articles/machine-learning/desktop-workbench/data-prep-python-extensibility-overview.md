@@ -1,38 +1,38 @@
 ---
-title: Använda Python utökningsbarhet med Azure Machine Learning Data förberedelser | Microsoft Docs
-description: Det här dokumentet innehåller en översikt och detaljerad exempel på hur du använder Python-kod för att utöka funktionerna i förberedelse av data
+title: Använda Python extensibility med Azure Machine Learning-Dataförberedelser | Microsoft Docs
+description: Det här dokumentet innehåller en översikt och några detaljerade exempel på hur du använder Python-kod för att utöka funktionerna i förberedelse av data
 services: machine-learning
 author: euangMS
 ms.author: euang
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
-ms.openlocfilehash: e91d3e4bfb1cba6f45b0106b3fabe5bef7e0e079
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a713f5fcde31e0e25de080a65b71209011ef551d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831432"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649599"
 ---
-# <a name="data-preparations-python-extensions"></a>Datatillägg för förberedelser Python
-Förberedelser för Azure Machine Learning Data innehåller utökningsbarhet på flera nivåer som ett sätt att fylla i funktionen glapp mellan inbyggda funktioner. I det här dokumentet beskriver vi utökningsbarhet via Python-skriptet. 
+# <a name="data-preparations-python-extensions"></a>Data förberedelser Python-tillägg
+Som ett sätt att fylla i funktionen glapp mellan de inbyggda funktionerna för innehåller Azure Machine Learning-Dataförberedelser utökningsbarhet på flera nivåer. I det här dokumentet beskriver vi utökningsbarhet via Python-skriptet. 
 
 ## <a name="custom-code-steps"></a>Anpassad kod steg 
-Data förberedelser har följande anpassade steg där användare kan skriva kod:
+Dataförberedelser har följande anpassade steg där användare kan skriva kod:
 
 * Lägg till kolumn
 * Avancerat filter
 * Transformera dataflöde
-* Transformera Partition
+* Omvandla Partition
 
 ## <a name="code-block-types"></a>Typer av kod block 
-Vi stöder två typer av kod block för var och en av de här stegen. Vi stöder först ett bare Python-uttryck som körs eftersom. Vi stöder andra, en Python-modulen där vi kallar en särskild funktion med en känd signatur i den kod som du anger.
+Vi stöder två typer av kod block för var och en av de här stegen. Först måste stöder vi ett utan Python-uttryck som körs eftersom. Vi stöder dessutom en Python-modul där vi anropar en särskild funktion med en känd signatur i den kod som du anger.
 
-Du kan till exempel lägga till en ny kolumn som beräknar en logg för en annan kolumn i följande två sätt:
+Du kan till exempel lägga till en ny kolumn som beräknar en logg för en annan kolumn på följande två sätt:
 
 Uttryck 
 
@@ -48,12 +48,12 @@ def newvalue(row):
 ```
 
 
-Lägg till kolumn transformeringen i Modulläge förväntar att söka efter en funktion som kallas `newvalue` som accepterar en rad variabel och returnerar värdet för kolumnen. Den här modulen kan innehålla av Python-kod med andra funktioner, importerar och så vidare.
+Lägg till kolumn transformering i Modulläge förväntar sig att hitta en funktion som kallas `newvalue` som accepterar en rad-variabel och returnerar värdet för kolumnen. Den här modulen kan innehålla alla antalet Python-kod med andra funktioner, import osv.
 
-Information om varje tillägg punkt beskrivs i följande avsnitt. 
+Information om varje tilläggspunkt beskrivs i följande avsnitt. 
 
 ## <a name="imports"></a>Import 
-Om du använder blocktyp uttryck, du kan fortfarande lägga till **importera** instruktioner i din kod. Alla måste grupperas på översta raderna i din kod.
+Om du använder block Uttryckstyp, du kan fortfarande lägga till **importera** -uttryck för att din kod. Alla måste grupperas på de översta raderna i din kod.
 
 Korrigera 
 
@@ -73,10 +73,10 @@ import numpy
 ```
  
  
-Om du använder block modultypen, du kan följa alla normala Python-regler för att använda den **importera** instruktionen. 
+Om du använder block Modultyp, kan du följa alla normala Python-regler för att använda den **importera** instruktionen. 
 
 ## <a name="default-imports"></a>Standard-import
-Följande importer är alltid inkluderade och kan användas i din kod. Du behöver inte importera dem på nytt. 
+Följande importer är alltid ingår och kan användas i din kod. Du behöver inte importera dem på nytt. 
 
 ```python
 import math  
@@ -90,12 +90,12 @@ import scipy as sp
   
 
 ## <a name="install-new-packages"></a>Installera nya paket
-Om du vill använda ett paket som inte är installerad som standard måste du först installera i miljöer som använder Data förberedelser. Den här installationen måste göras både på den lokala datorn och på eventuella beräknings-mål som du vill köra på.
+Om du vill använda ett paket som inte är installerad som standard måste du först installera den i miljöer som Dataförberedelser använder. Den här installationen måste göras både på den lokala datorn och på alla beräkningsmål som du vill köra.
 
-Om du vill installera dina paket i ett beräknings-mål som du behöver ändra filen conda_dependencies.yml finns i mappen aml_config under roten för ditt projekt.
+Om du vill installera dina paket i ett beräkningsmål som du behöver ändra filen conda_dependencies.yml finns i mappen aml_config under roten för ditt projekt.
 
 ### <a name="windows"></a>Windows 
-Hitta app-specifik installation av Python och dess skriptkatalogen för att hitta en plats i Windows. Standardplatsen är:  
+Hitta appspecifika installationen av Python och dess katalogen för skript för att hitta platsen på Windows. Standardplatsen är:  
 
 `C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
@@ -108,7 +108,7 @@ eller
 `pip install <libraryname> `
 
 ### <a name="mac"></a>Mac 
-Hitta app-specifik installation av Python och dess skriptkatalogen för att hitta platsen på en Mac. Standardplatsen är: 
+Hitta appspecifika installationen av Python och dess katalogen för skript för att hitta platsen på en Mac-dator. Standardplatsen är: 
 
 `/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
@@ -121,7 +121,7 @@ eller
 `./pip install <libraryname>`
 
 ## <a name="use-custom-modules"></a>Använda anpassade moduler
-I transformera dataflöde (skript), skriver du följande Python-kod
+I transformera dataflöde (skript), skriver du följande kod för Python
 
 ```python
 import sys
@@ -131,7 +131,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-I Lägg till kolumn (skript), och ange koden Block = modulen och skriva följande kod för Python
+I Lägg till kolumn (skript), ange koden blocktyp = modulen och Skriv följande kod för Python
 
 ```python 
 import sys
@@ -142,11 +142,11 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-För att köra en olika peka kontexter (lokal, Docker, Spark), absolut sökväg på rätt plats. Du kanske vill använda ”os.getcwd() + relativePath” för att hitta den.
+För körning av olika peka kontexter (lokal, Docker, Spark), absolut sökväg till rätt plats. Du kanske vill använda ”os.getcwd() + relativePath” för att hitta den.
 
 
 ## <a name="column-data"></a>Kolumndata 
-Kolumndata kan nås från en rad med hjälp av punktnotation eller nyckel / värde-notation. Kolumnnamn som innehåller blanksteg eller specialtecken kan inte nås med hjälp av punktnotation. Den `row` variabeln ska alltid vara definierat i båda lägena av Python-tillägg (modul och uttryck). 
+Kolumndata kan nås från en rad med hjälp av punktnotation eller nyckel / värde-notation. Kolumnnamn med blanksteg eller specialtecken kan inte nås med hjälp av punktnotation. Den `row` variabeln ska alltid definieras i båda lägena för Python-tillägg (modulen och uttryck). 
 
 Exempel 
 
@@ -157,10 +157,10 @@ Exempel
 
 ## <a name="add-column"></a>Lägg till kolumn 
 ### <a name="purpose"></a>Syfte
-Lägg till kolumn tillägget punkten kan du skriva Python för att beräkna en ny kolumn. Koden du skriver har åtkomst till den fullständiga raden. Det måste returnera ett nytt kolumnvärde för varje rad. 
+Lägg till kolumn tilläggspunkt kan du skriva Python för att beräkna en ny kolumn. Koden du skriver har åtkomst till den fullständiga raden. Det måste returnera ett nytt kolumnvärde för varje rad. 
 
 ### <a name="how-to-use"></a>Hur du ska använda detta
-Du kan lägga till tillägget nu med hjälp av Lägg till kolumn (skript)-block. Det är tillgängligt på den översta **transformationer** menyn, såväl som på den **kolumnen** snabbmenyn. 
+Du kan lägga till den här tilläggspunkt med hjälp av Lägg till kolumn (skript)-block. Det är tillgängligt på den översta **transformationer** menyn även som på den **kolumnen** snabbmenyn. 
 
 ### <a name="syntax"></a>Syntax
 Uttryck
@@ -179,7 +179,7 @@ def newvalue(row):
 
 ## <a name="advanced-filter"></a>Avancerat filter
 ### <a name="purpose"></a>Syfte 
-Avancerade Filter tillägget punkten kan du skriva ett anpassat filter. Du har åtkomst till hela raden och din kod måste returnera True (inklusive raden) eller FALSKT (exkludera raden). 
+Tilläggspunkt Avancerat Filter kan du skriva ett anpassat filter. Du har åtkomst till hela raden och din kod måste returnera True (ta med raden) eller FALSKT (Uteslut raden). 
 
 ### <a name="how-to-use"></a>Hur du ska använda detta
 Du kan lägga till tillägget nu genom att använda avancerade Filter (skript)-block. Det är tillgängligt på den översta **transformationer** menyn. 
@@ -202,15 +202,15 @@ def includerow(row):
 
 ## <a name="transform-dataflow"></a>Transformera dataflöde
 ### <a name="purpose"></a>Syfte 
-Transformera dataflöde tillägget punkten kan du omvandla helt dataflödet. Du har åtkomst till en Pandas dataframe som innehåller alla kolumner och rader som du bearbeta. Din kod måste returnera en Pandas dataframe med de nya data. 
+Tilläggspunkt transformera dataflöde kan du helt Omforma dataflödet. Du har åtkomst till en Pandas-dataframe som innehåller alla kolumner och rader som du bearbetning. Din kod måste returnera en Pandas-dataframe med nya data. 
 
 >[!NOTE]
->I Python är alla data som ska läsas in i minnet i en Pandas dataframe om det här filtillägget används. 
+>I Python är alla data som ska läsas in i minnet i en Pandas-dataframe om det här tillägget används. 
 >
->Alla data samlas till en enda arbetsnod i Spark. Om data är väldigt stor kan en arbetare kör slut på minne. Använd noggrant.
+>I Spark, alla data som samlas in till en enskild worker-nod. Om data är mycket stora, kan en worker slut på minne. Använd noggrant.
 
 ### <a name="how-to-use"></a>Hur du ska använda detta 
-Du kan lägga till tillägget nu med hjälp av den transformera (skript) dataströmsblocket. Det är tillgängligt på den översta **transformationer** menyn. 
+Du kan lägga till den här tilläggspunkt med hjälp av blocket transformera dataflöde (skript). Det är tillgängligt på den översta **transformationer** menyn. 
 ### <a name="syntax"></a>Syntax 
 
 Uttryck
@@ -231,16 +231,16 @@ def transform(df):
 ```
   
 
-## <a name="transform-partition"></a>Transformera Partition  
+## <a name="transform-partition"></a>Omvandla Partition  
 ### <a name="purpose"></a>Syfte 
-Transformera Partition tillägget punkten kan du omvandla en partition av dataflödet. Du har åtkomst till en Pandas dataframe som innehåller alla kolumner och rader för den aktuella partitionen. Din kod måste returnera en Pandas dataframe med de nya data. 
+Omvandla Partition tilläggspunkt låter dig omvandla en partition av dataflödet. Du har åtkomst till en Pandas-dataframe som innehåller alla kolumner och rader för den partitionen. Din kod måste returnera en Pandas-dataframe med nya data. 
 
 >[!NOTE]
->I Python, kan du få en enda partition eller flera partitioner, beroende på storleken på dina data. I Spark arbetar med en dataframe som innehåller data för en partition på en viss arbetsnoden. I båda fallen kan du anta att du har åtkomst till hela datauppsättningen. 
+>I Python, kan du få med en enda partition eller flera partitioner, beroende på storleken på dina data. I Spark arbetar med en dataram som innehåller data för en partition på en viss arbetsnod. I båda fallen kan du anta att du har åtkomst till hela datauppsättningen. 
 
 
 ### <a name="how-to-use"></a>Hur du ska använda detta
-Du kan lägga till tillägget nu med hjälp av blocket transformera Partition (skript). Det är tillgängligt på den översta **transformationer** menyn. 
+Du kan lägga till den här tilläggspunkt med hjälp av blocket transformera Partition (skript). Det är tillgängligt på den översta **transformationer** menyn. 
 
 ### <a name="syntax"></a>Syntax 
 
@@ -265,10 +265,10 @@ def transform(df, index):
 
 
 ## <a name="datapreperror"></a>DataPrepError  
-### <a name="error-values"></a>Felvärdena  
-Begreppet felvärdena finns i Data förberedelser. 
+### <a name="error-values"></a>Felvärden  
+Begreppet felvärden finns i Dataförberedelser. 
 
-Det är möjligt att det uppstår felvärden i anpassad Python-kod. De är instanser av en Python-klass som heter `DataPrepError`. Den här klassen packar ett Python-undantag och har några egenskaper. Egenskaperna innehåller information om felet som uppstod när det ursprungliga värdet bearbetades, samt det ursprungliga värdet. 
+Det är möjligt att stöta på felvärden i anpassad Python-kod. De är instanser av en Python-klass som heter `DataPrepError`. Den här klassen omsluter en Python-undantag och har några egenskaper. Egenskaperna innehåller information om fel som uppstod när det ursprungliga värdet bearbetades, samt det ursprungliga värdet. 
 
 
 ### <a name="datapreperror-class-definition"></a>DataPrepError klassdefinitionen
@@ -277,7 +277,7 @@ class DataPrepError(Exception):
     def __bool__(self): 
         return False 
 ``` 
-Skapandet av en DataPrepError inom ramen för Data förberedelser Python vanligtvis ser ut så här: 
+Skapandet av en DataPrepError inom ramen för Data förberedelser Python ser vanligtvis ut så här: 
 ```python 
 DataPrepError({ 
    'message':'Cannot convert to numeric value', 
@@ -287,7 +287,7 @@ DataPrepError({
 }) 
 ``` 
 #### <a name="how-to-use"></a>Hur du ska använda detta 
-Det är möjligt när Python körs på ett tillägg peka generera DataPrepErrors som returnerar värden med hjälp av metoden tidigare skapas. Det är mycket troligt att DataPrepErrors uppstår när data bearbetas en gång för tillägget. Anpassad Python-kod måste nu att hantera en DataPrepError som en giltig datatyp.
+Det är möjligt när Python körs på en tilläggspunkt för att skapa DataPrepErrors som returnerar värden med metoden för skapande av tidigare. Det är mycket mer troligt att DataPrepErrors uppstår när data har bearbetats på en tilläggspunkt. Anpassad Python-koden måste nu att hantera en DataPrepError som en giltig datatyp.
 
 #### <a name="syntax"></a>Syntax 
 Uttryck 

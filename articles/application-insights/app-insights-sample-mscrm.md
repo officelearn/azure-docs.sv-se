@@ -1,6 +1,6 @@
 ---
 title: Microsoft Dynamics CRM och Azure Application Insights | Microsoft Docs
-description: Hämta telemetri från Microsoft Dynamics CRM Online med hjälp av Application Insights. Genomgång av installationen, som hämtar data, visualisering och export.
+description: Hämta telemetri från Microsoft Dynamics CRM Online med hjälp av Application Insights. Genomgång av installationsprogrammet hämtar data, visualisering och export.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,40 +10,42 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: mbullwin; mazhar
-ms.openlocfilehash: 0080217f718d8df9b62c7bc305fbc1365477cc4d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: mazhar
+ms.author: mbullwin
+ms.openlocfilehash: 5c3d41b648f59c8eb428f75a2673e847d19f04eb
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649233"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Genomgång: Aktivera telemetri för Microsoft Dynamics CRM Online med hjälp av Application Insights
-Den här artikeln visar hur du hämtar telemetridata från [Microsoft Dynamics CRM Online](https://www.dynamics.com/) med [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Vi går genom processen att lägga till Application Insights skript i ditt program, data och datavisualisering.
+Den här artikeln visar hur du hämtar telemetridata från [Microsoft Dynamics CRM Online](https://www.dynamics.com/) med [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Vi går genom processen att lägga till Application Insights-skriptet till ditt program, samla in data och datavisualisering.
 
 > [!NOTE]
-> [Bläddra i exempellösning](https://dynamicsandappinsights.codeplex.com/).
+> [Bläddra exempellösningen](https://dynamicsandappinsights.codeplex.com/).
 > 
 > 
 
 ## <a name="add-application-insights-to-new-or-existing-crm-online-instance"></a>Lägg till Application Insights i nya eller befintliga CRM Online-instans
-Om du vill övervaka programmet, du lägger till en Application Insights SDK ditt program. SDK skickar telemetri för den [Application Insights-portalen](https://portal.azure.com), där du kan använda våra kraftfulla analys och diagnosverktyg eller exportera data till lagring.
+Om du vill övervaka programmet du lägga till en Application Insights SDK till ditt program. SDK: N skickar telemetri till den [Application Insights-portalen](https://portal.azure.com), där du kan använda våra kraftfulla analys- och diagnostikverktyg eller exportera data till lagring.
 
 ### <a name="create-an-application-insights-resource-in-azure"></a>Skapa en Application Insights-resurs i Azure
 1. Hämta [ett konto i Microsoft Azure](http://azure.com/pricing). 
-2. Logga in på den [Azure-portalen](https://portal.azure.com) och lägga till en ny Application Insights-resurs. Detta är där dina data bearbetas och visas.
+2. Logga in på den [Azure-portalen](https://portal.azure.com) och Lägg till en ny Application Insights-resurs. Det här är där dina data bearbetas och visas.
 
-    ![Klicka på +, Developer Services Application Insights.](./media/app-insights-sample-mscrm/01.png)
+    ![Klicka på +, Utvecklartjänster, Application Insights.](./media/app-insights-sample-mscrm/01.png)
 
     Välj ASP.NET som programtypen.
-3. Öppna sidan komma igång och ”övervaka och diagnostisera på klientsidan”.
+3. Öppna sidan komma igång och öppna ”övervaka och diagnostisera klientsidan”.
 
-    ![Kodstycke för infogning i din webbsida](./media/app-insights-sample-mscrm/03.png)
+    ![Kodfragmentet för infogning i din webbsida](./media/app-insights-sample-mscrm/03.png)
 
-**Håll teckentabellen öppen** medan du gör nästa steg i ett nytt webbläsarfönster. Du behöver koden snart. 
+**Håll teckentabellen öppen** medan du utför nästa steg i ett annat webbläsarfönster. Du måste koden snart. 
 
-### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Skapa en webbresurs JavaScript i Microsoft Dynamics CRM
+### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Skapa en webbresurs i JavaScript i Microsoft Dynamics CRM
 1. Öppna din CRM Online-instans och logga in med administratörsbehörighet.
 2. Öppna Microsoft Dynamics CRM-inställningar, anpassningar, anpassa systemet
 
@@ -53,35 +55,35 @@ Om du vill övervaka programmet, du lägger till en Application Insights SDK dit
 
 1. Skapa en JavaScript-resurs.
 
-    ![Dialogrutan Ny webbresurs](./media/app-insights-sample-mscrm/07.png)
+    ![Dialogrutan Ny webbresursen](./media/app-insights-sample-mscrm/07.png)
 
-    Ge det ett namn, Välj **skript (JScript)** och öppna textredigeraren.
+    Ge den ett namn, Välj **skript (JScript)** och öppna textredigeraren.
 
-    ![Öppna textredigeraren för](./media/app-insights-sample-mscrm/00004.png)
-2. Kopiera koden från Application Insights. När du kopierar, se till att ignorera skripttaggar. Se nedan skärmbild:
+    ![Öppna textredigeraren](./media/app-insights-sample-mscrm/00004.png)
+2. Kopiera koden från Application Insights. När du kopierar, se till att ignorera skript-taggar. Se skärmbilden nedan:
 
-    ![Ange din instrumentation nyckel](./media/app-insights-sample-mscrm/000005.png)
+    ![Ange instrumenteringsnyckeln](./media/app-insights-sample-mscrm/000005.png)
 
-    Koden innehåller nyckeln instrumentation som identifierar din Application insights-resurs.
+    Koden innehåller instrumenteringsnyckeln som identifierar din Application insights-resurs.
 3. Spara och publicera.
 
     ![Spara och publicera](./media/app-insights-sample-mscrm/00006.png)
 
-### <a name="instrument-forms"></a>Betalningsinstrument formulär
+### <a name="instrument-forms"></a>Instrument formulär
 1. Öppna formuläret konto i Microsoft CRM Online
 
-    ![Kontoformuläret](./media/app-insights-sample-mscrm/00007.png)
+    ![Formuläret](./media/app-insights-sample-mscrm/00007.png)
 2. Öppna formuläret egenskaper
 
     ![Egenskaper för formulär](./media/app-insights-sample-mscrm/00008.png)
-3. Lägg till JavaScript-webbresurs som du skapade
+3. Lägg till JavaScript-webbresursen som du skapade
 
     ![Menyn Lägg till](./media/app-insights-sample-mscrm/13.png)
 
 4. Spara och publicera dina formuläranpassningar.
 
-## <a name="metrics-captured"></a>Mått som har hämtats
-Du har nu konfigurerat telemetriinsamling för formuläret. När den används kan data skickas till Application Insights-resurs.
+## <a name="metrics-captured"></a>Mått som avbildas
+Du har nu konfigurerat telemetriinsamlingen för formuläret. När den används kan data skickas till Application Insights-resursen.
 
 Här följer exempel på de data som visas.
 
@@ -92,33 +94,33 @@ Här följer exempel på de data som visas.
 
 Webbläsarundantag:
 
-![Webbläsaren undantag diagram](./media/app-insights-sample-mscrm/17.png)
+![Webbläsaren diagrammet med serverundantag](./media/app-insights-sample-mscrm/17.png)
 
-Klicka på diagrammet om du vill ha mer information:
+Klicka på diagrammet för att få mer information:
 
-![Listan över undantag](./media/app-insights-sample-mscrm/18.png)
+![Undantagslista](./media/app-insights-sample-mscrm/18.png)
 
 #### <a name="usage"></a>Användning
 ![Användare, sessioner och sidvyer](./media/app-insights-sample-mscrm/19.png)
 
 ![Sessionen diagram](./media/app-insights-sample-mscrm/20.png)
 
-![Webbläsarversioner](./media/app-insights-sample-mscrm/21.png)
+![Versioner av webbläsaren](./media/app-insights-sample-mscrm/21.png)
 
 #### <a name="browsers"></a>Webbläsare
-![Uppdelning av sidinläsningstiden](./media/app-insights-sample-mscrm/22.png)
+![Analys av inläsningstid](./media/app-insights-sample-mscrm/22.png)
 
-![Antal sessioner efter webbläsarversion](./media/app-insights-sample-mscrm/23.png)
+![Antal sessioner per webbläsarversion](./media/app-insights-sample-mscrm/23.png)
 
 #### <a name="geolocation"></a>Geoplats
-![Sessionsantal efter land](./media/app-insights-sample-mscrm/24.png)
+![Sessionsantal per land](./media/app-insights-sample-mscrm/24.png)
 
 ![Sessioner och användare per land](./media/app-insights-sample-mscrm/25.png)
 
-#### <a name="inside-page-view-request"></a>Inuti vyn begäran
+#### <a name="inside-page-view-request"></a>Inuti sidan Visa förfrågan
 ![Sidan Visa sammanfattning](./media/app-insights-sample-mscrm/26.png)
 
-![Söka på sidan Visa händelser](./media/app-insights-sample-mscrm/27.png)
+![Sök på sidvisningshändelser](./media/app-insights-sample-mscrm/27.png)
 
 ![Liknande sidvisningar](./media/app-insights-sample-mscrm/28.png)
 
@@ -132,10 +134,10 @@ Klicka på diagrammet om du vill ha mer information:
 ## <a name="power-bi"></a>Power BI
 Du kan göra djupare analys om du [exportera data till Microsoft Power BI](app-insights-export-power-bi.md).
 
-## <a name="sample-microsoft-dynamics-crm-solution"></a>Exempel Microsoft Dynamics CRM-lösning
+## <a name="sample-microsoft-dynamics-crm-solution"></a>Exempellösningen Microsoft Dynamics CRM
 [Här är exempellösningen implementeras i Microsoft Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
 
 ## <a name="learn-more"></a>Läs mer
 * [Vad är Application Insights?](app-insights-overview.md)
 * [Application Insights för webbsidor](app-insights-javascript.md)
-* [Fler exempel och genomgång](app-insights-code-samples.md)
+* [Fler exempel och genomgångar](app-insights-code-samples.md)

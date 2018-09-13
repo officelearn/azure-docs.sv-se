@@ -1,54 +1,55 @@
 ---
-title: Azure Application Insights skorstenar
-description: "Lär dig hur du kan använda skorstenar för att identifiera hur kunder interagerar med programmet."
+title: Azure Application Insights Trattar
+description: Lär dig hur du kan använda Trattar för att identifiera hur kunder interagerar med programmet.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: bbb25af888f34737f6a61cf43890ff248c4cc4de
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 527f9d4a6086f92dcba8a342162b955431b8b315
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646721"
 ---
-# <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Identifiera hur kunder använder ditt program med Application Insights skorstenar
+# <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Upptäck hur kunder använder ditt program med Application Insights Trattar
 
-Förstå customer experience är av yttersta vikt för företaget. Om ditt program innefattar flera faser, som du behöver veta om de flesta kunder fortskrider genom hela processen, eller om de avslutar processen vid något tillfälle. Förlopp i en serie steg i ett webbprogram kallas en *Trattens*. Du kan använda Azure Application Insights skorstenar och få insikter om dina användare och övervaka stegvisa konvertering priser. 
+Förstå kundupplevelsen är av stor betydelse för din verksamhet. Om ditt program omfattar flera faser, som du behöver veta om de flesta kunder fortskrider genom hela processen, eller om de avsluta processen vid en viss tidpunkt. Förlopp i en serie steg i ett webbprogram som kallas en *tratt*. Du kan använda Azure Application Insights Trattar insikter om dina användare och övervaka stegvisa konverteringstakten. 
 
-## <a name="create-your-funnel"></a>Skapa din tratten
-Innan du skapar din Trattens besluta om du vill att besvara frågan. Exempelvis kan du ändå vill veta hur många användare som visar sidan, visa en kund-profil och skapa en biljett. Ägarna av Fabrikam Fiber företaget vill veta procentandelen kunder som att skapar en kund-biljett i det här exemplet.
+## <a name="create-your-funnel"></a>Skapa din tratt
+Innan du skapar din tratt besluta om du vill att besvara frågan. Exempelvis kan du ändå vill veta hur många användare visar sidan, visa en kundprofil och skapa en biljett. I det här exemplet ägarna av Fabrikam-Fiber-företag som vill veta procentandelen av kunder som har skapar ett ärende för kunden.
 
-Här är de steg som de vidtar för att skapa deras tratten.
+Här är de steg som de vidta för att skapa sina tratten.
 
-1. Välj i verktyget Application Insights skorstenar **ny**.
-1. Från den **tidsintervall** nedrullningsbara menyn och väljer **senaste 90 dagarna**. Välj antingen **min skorstenar** eller **delade skorstenar**.
-1. Från den **steg 1** listrutan, Välj **Index**. 
+1. Välj i Application Insights tratt-verktyget **New**.
+1. Från den **tidsintervall** nedrullningsbara menyn och välj **senaste 90 dagarna**. Välj antingen **Mina trattar** eller **delade trattar**.
+1. Från den **steg 1** listrutan, väljer **Index**. 
 1. Från den **steg 2** väljer **kunden**.
 1. Från den **steg3** väljer **skapa**.
-1. Lägg till ett namn i tratten och välj **spara**.
+1. Lägg till ett namn till tratten och välj **spara**.
 
-Följande skärmbild visar ett exempel på vilken typ av data skorstenar verktyget genererar. Fabrikam-ägare kan se det under de senaste 90 dagarna 54.3 procent av sina kunder som besökt sidan skapas en kund-biljett. De kan också se att 2,700 kunderna kommer i index från startsidan. Detta kan tyda på ett problem med uppdateringen.
+Följande skärmbild visar ett exempel på vilken typ av data tratt-verktyget genererar. Fabrikam-ägare kan se att under de senaste 90 dagarna, 54.3 procent av sina kunder som har gjort Besök startsidan skapas en kund-biljett. De kan också se att 2,700 kundernas Kom till indexet på startsidan. Detta kan indikera ett problem med uppdateringen.
 
 
-![Skärmbild av skorstenar verktyget med data](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Skärmbild av tratt-verktyget med data](./media/app-insights-understand-usage-patterns/funnel1.png)
 
-### <a name="funnels-features"></a>Skorstenar funktioner
-Föregående skärmbild innehåller fem markerade områden. Dessa är skorstenar funktioner. I följande lista beskrivs mer om varje motsvarande område i skärmbilden:
-1. Om din app samplas visas en banderoll prover. Om du markerar banderollen öppnas fönstret en kontext som förklarar hur du inaktiverar provtagning. 
-2. Du kan exportera din Trattens till [Power BI](app-insights-export-power-bi.md).
-3. Välj ett steg om du vill visa mer information till höger. 
-4. Historiska konvertering diagrammet visar konvertering priser under de senaste 90 dagarna. 
-5. Förstå dina användare bättre genom att öppna verktyget användare. Du kan använda filter i varje steg. 
+### <a name="funnels-features"></a>Trattar funktioner
+Föregående skärmbild innehåller fem markerade områden. Det här är funktionerna i Trattar. I följande lista innehåller mer information om varje motsvarande område i skärmbilden:
+1. Om din app samplas visas en banderoll för sampling. Om du väljer banderollen öppnas en kontextfönster förklarar hur du inaktiverar sampling. 
+2. Du kan exportera din tratten [Power BI](app-insights-export-power-bi.md).
+3. Välj ett steg för att se mer information till höger. 
+4. Historisk konvertering diagrammet visar valutaomvandling under de senaste 90 dagarna. 
+5. Förstå användarna bättre genom att gå till användare-verktyget. Du kan använda filter i varje steg. 
 
 ## <a name="next-steps"></a>Nästa steg
-  * [Översikt över användning](app-insights-usage-overview.md)
+  * [Användningsöversikten](app-insights-usage-overview.md)
   * [Användare, sessioner och händelser](app-insights-usage-segmentation.md)
   * [Kvarhållning](app-insights-usage-retention.md)
   * [Arbetsböcker](app-insights-usage-workbooks.md)

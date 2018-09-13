@@ -1,27 +1,27 @@
 ---
-title: Azure Machine Learning modellen Management kommandoradsgränssnittet referens | Microsoft Docs
-description: Azure Machine Learning modellen Management kommandoradsgränssnittet referens.
+title: Referens för Azure Machine Learning-modellhantering-kommandoradsgränssnittet | Microsoft Docs
+description: Referens för Azure Machine Learning-modellhantering kommandoradsgränssnittet.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 540f22e38201ec488d8e2c1d7494bc83d7b83a7e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9e69f2e71cce6d689669838785ce992fbbcfa940
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831929"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650658"
 ---
-# <a name="model-management-command-line-interface-reference"></a>Referens för modellen management-kommandoradsgränssnittet
+# <a name="model-management-command-line-interface-reference"></a>Referens för objektmodell management kommandoradsgränssnittet
 
-## <a name="base-cli-concepts"></a>Grundläggande CLI-begrepp:
+## <a name="base-cli-concepts"></a>Grundläggande begrepp för CLI:
 
     account : Manage model management accounts. 
     env     : Manage compute environments.
@@ -30,8 +30,8 @@ ms.locfileid: "34831929"
     model   : Manage operationalization models.
     service : Manage operationalized services.
 
-## <a name="account-commands"></a>Kontot kommandon
-Ett konto för hantering av modellen krävs för att använda de tjänster som gör att du kan distribuera och hantera modeller. Använd `az ml account modelmanagement -h` att se i följande lista:
+## <a name="account-commands"></a>Kommandon
+Ett modellhanteringskonto krävs för att använda tjänsterna, där du kan distribuera och hantera modeller. Använd `az ml account modelmanagement -h` att se listan nedan:
 
     create: Create a Model Management Account.
     delete: Delete a specified Model Management Account.
@@ -40,9 +40,9 @@ Ett konto för hantering av modellen krävs för att använda de tjänster som g
     show  : Show a Model Management Account.
     update: Update an existing Model Management Account.
 
-**Skapa modellen Management-konto**
+**Skapa Modellhanteringskonto**
 
-Skapa ett konto för hantering av modellen för fakturering med följande kommando:
+Skapa ett modellhanteringskonto för fakturering med följande kommando:
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -58,7 +58,7 @@ Lokala argument:
     --tags -t                     : Tags for the model management account.  Default: {}.
     -v                            : Verbosity flag.
 
-## <a name="environment-commands"></a>Miljö kommandon
+## <a name="environment-commands"></a>Miljö-kommandon
 
     cluster        : Switch the current execution context to 'cluster'.
     delete         : Delete an MLCRP-provisioned resource.
@@ -70,15 +70,15 @@ Lokala argument:
     show           : Show an MLC resource; if resource_group or cluster_name are not provided, shows
                      the active MLC env.
 
-**Konfigurera en miljö för distribution**
+**Konfigurera miljön för distribution**
 
-Installationskommandot måste du ha deltagare åtkomst till prenumerationen. Om du inte har det, behöver du som minst deltagarbehörighet för resursgruppen som du distribuerar till. Om du vill göra det senare måste du ange resursgruppens namn som en del av installationskommandot med flaggan `-g`. 
+Installationskommandot kräver att du har deltagarbehörighet för prenumerationen. Om du inte har det, behöver du som minst deltagarbehörighet för resursgruppen som du distribuerar till. Om du vill göra det senare måste du ange resursgruppens namn som en del av installationskommandot med flaggan `-g`. 
 
-Det finns två alternativ för distributionen: *lokala* och *klustret*. Ange den `--cluster` (eller `-c`) flaggan gör Klusterdistribution som etablerar en ACS-kluster. Grundläggande inställningar syntax är följande:
+Det finns två alternativ för distribution: *lokala* och *kluster*. Ange den `--cluster` (eller `-c`) flaggan gör det möjligt för distribution av kluster som etablerar ett ACS-kluster. Grundinställning syntax är följande:
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-Det här kommandot initierar din Azure maskininlärning miljö med en storage-konto och ACR registret App Insights-tjänsten som skapats i din prenumeration. Som standard har i miljön initierats för lokala distributioner endast (ingen ACS) om någon flagga har angetts. Om du behöver skala tjänst anger du den `--cluster` (eller `-c`) flagga för att skapa en ACS-kluster.
+Det här kommandot initierar din Azure machine learning-miljö med ett lagringskonto, ACR-registret och App Insights-tjänsten som skapats i din prenumeration. Som standard initieras miljön för lokala distributioner endast (inga ACS) om ingen flagga har angetts. Om du vill skala tjänst kan du ange den `--cluster` (eller `-c`) flagga för att skapa ett ACS-kluster.
 
 Information om kommandot:
 
@@ -98,7 +98,7 @@ Information om kommandot:
     --storage -s                   : ARM ID of storage account to associate with this environment.
     --yes -y                       : Flag to answer 'yes' to any prompts. Command fails if user is not logged in.
 
-Globala argument
+Global argument
 ```
     --debug                        : Increase logging verbosity to show all debug logs.
     --help -h                      : Show this help message and exit.
@@ -114,7 +114,7 @@ Globala argument
 
 **Registrera en modell**
 
-Kommandot för att registrera modellen.
+Kommando för att registrera modellen.
 
 `az ml model register --model [path to model file] --name [model name]`
 
@@ -126,7 +126,7 @@ Information om kommandot:
     --tag -t             : Tags for the model. Multiple tags can be specified with additional -t arguments.
     -v                   : Verbosity flag.
 
-Globala argument
+Global argument
 
     --debug              : Increase logging verbosity to show all debug logs.
     --help -h            : Show this help message and exit.
@@ -135,7 +135,7 @@ Globala argument
                            examples.
     --verbose            : Increase logging verbosity. Use --debug for full debug logs.
 
-## <a name="manifest-commands"></a>Manifestet kommandon
+## <a name="manifest-commands"></a>Manifest-kommandon
 
     create: Create an Operationalization Manifest. This command has two different
             sets of required arguments, depending on if you want to use previously registered
@@ -162,7 +162,7 @@ Information om kommandot:
     -p                           : A pip requirements.txt file needed by the code file.
     -v                           : Verbosity flag.
 
-Registrerad modell argument
+Registrerade modellen argument
 
     --model-id -i                : [Required] Id of previously registered model to add to manifest.
                                    Multiple models can be specified with additional -i arguments.
@@ -172,7 +172,7 @@ Avregistrera modellen argument
     --model-file -m              : [Required] Model file to register. If used, must be combined with
                                    model name.
 
-Globala argument
+Global argument
 
     --debug                      : Increase logging verbosity to show all debug logs.
     --help -h                    : Show this help message and exit.
@@ -197,7 +197,7 @@ Du kan skapa en avbildning med alternativet för att ha skapat manifestet innan.
 
 `az ml image create -n [image name] --manifest-id [the manifest ID]`
 
-Men du kan skapa manifestet och bild med ett enda kommando. 
+Eller du kan skapa manifestet och bild med ett enda kommando. 
 
 `az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
 
@@ -208,11 +208,11 @@ Information om kommandot:
     --image-type              : The image type to create. Defaults to "Docker".
     -v                        : Verbosity flag.
 
-Registrerade manifestet argument
+Registrerade Manifest argument
 
     --manifest-id             : [Required] Id of previously registered manifest to use in image creation.
 
-Avregistrera manifestet argument
+Avregistrera Manifest argument
 
     --conda-file -c           : Path to Conda Environment file.
     --dependency -d           : Files and directories required by the service. Multiple dependencies can
@@ -225,7 +225,7 @@ Avregistrera manifestet argument
 
 
 ## <a name="service-commands"></a>Tjänsten kommandon
-Följande kommandon stöds för tjänsten. Använd alternativet -h om du vill visa parametrar för varje kommando. Till exempel använda `az ml service create realtime -h` att se Skapa information om kommandot.
+Följande kommandon stöds för tjänsten. Använd alternativet -h parametrarna för varje kommando visas. Till exempel använda `az ml service create realtime -h` att se Skapa information om kommandot.
 
     create
     delete
@@ -243,7 +243,7 @@ Om du vill skapa en tjänst med en tidigare skapad avbildning, använder du föl
 
 `az ml service create realtime --image-id [image to deploy] -n [service name]`
 
-Om du vill skapa en tjänst använder manifestet och bild med ett enda kommando du följande kommando:
+För att skapa en tjänst, använder manifest och avbildning med ett enda kommando du följande kommando:
 
 `az ml service create realtime --model-file [path to model file(s)] -f [path to model scoring file, e.g. score.py] -n [service name] -r [run time included in the image, e.g. spark-py]`
 
@@ -264,11 +264,11 @@ Information om kommandon:
     -v                                : Verbosity flag.
     -z                                : Number of replicas for a Kubernetes service.  Default: 1.
 
-Registrerade avbildningen argument
+Registrerade bild argument
 
     --image-id                        : [Required] Image to deploy to the service.
 
-Avregistrera avbildningen argument
+Avregistrera bild argument
 
     --conda-file -c                   : Path to Conda Environment file.
     --image-type                      : The image type to create. Defaults to "Docker".
@@ -280,7 +280,7 @@ Avregistrera avbildningen argument
     -r                                : [Required] Runtime of the web service. Valid runtimes are python|spark-py.
     -s                                : Input and output schema of the web service.
 
-Globala argument
+Global argument
 
     --debug                           : Increase logging verbosity to show all debug logs.
     --help -h                         : Show this help message and exit.
@@ -289,13 +289,13 @@ Globala argument
     --verbose                         : Increase logging verbosity. Use --debug for full debug logs.
 
 
-Tänk på den `-d` flagga för att bifoga beroenden: Om du skickar namnet på en katalog som inte redan är paketerade (zip, tar osv.), katalogen automatiskt hämtar tar'ed och skickas tillsammans sedan automatiskt avskiljs maskinvara på andra sidan. 
+Tänk på den `-d` flagga för att bifoga beroenden: Om du skickar namnet på en katalog som inte redan paketeras (zip, tar osv.), katalogen automatiskt hämtar tar'ed och skickas tillsammans sedan automatiskt avskiljs maskinvara på andra sidan. 
 
-Om du skickar i en katalog som redan är paketerade katalogen behandlas som en fil och skickas vidare som är. Det är separata automatiskt. du förväntas hantera som i koden.
+Om du skickar i en katalog som redan har paketerats är katalogen behandlas som en fil och skickas med skick. Det är separata automatiskt. du förväntas hantera som i din kod.
 
-**Hämta information om tjänst**
+**Hämta tjänstinformation**
 
-Hämta information om tjänsten inklusive URL, användning (inklusive exempeldata om ett schema har skapats).
+Få information om tjänsten, inklusive URL: en, användning (inklusive exempeldata om ett schema har skapats).
 
 `az ml service show realtime --name [service name]`
 
@@ -305,7 +305,7 @@ Information om kommandot:
     --name -n  : Webservice name.
     -v         : Verbosity flag.
 
-Globala argument
+Global argument
 
     --debug    : Increase logging verbosity to show all debug logs.
     --help -h  : Show this help message and exit.
@@ -313,7 +313,7 @@ Globala argument
     --query    : JMESPath query string. See http://jmespath.org/ for more information and examples.
     --verbose  : Increase logging verbosity. Use --debug for full debug logs.
 
-**Tjänsten körs**
+**Köra tjänsten**
 
 `az ml service run realtime -n [service name] -d [input_data]`
 
@@ -323,7 +323,7 @@ Information om kommandot:
     --name -n  : Webservice name.
     -v         : Verbosity flag.
 
-Globala argument
+Global argument
 
     --debug    : Increase logging verbosity to show all debug logs.
     --help -h  : Show this help message and exit.
@@ -335,11 +335,11 @@ Kommando
 
     az ml service run realtime
 
-Argument--id -i: [krävs] tjänst-id att poängsätta mot.
--d: data som ska användas för att anropa webbtjänsten.
+Argumenty--id -i: [krävs] tjänst-id kan bedöma mot.
+-d: data som ska använda för att anropa webbtjänsten.
 -v: detaljnivå flaggan.
 
-Globala argument
+Global argument
 
     --debug    : Increase logging verbosity to show all debug logs.
     --help -h  : Show this help message and exit.

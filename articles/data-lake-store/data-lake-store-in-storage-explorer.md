@@ -8,19 +8,18 @@ author: jejiang
 manager: DJ
 editor: Jenny Jiang
 ms.assetid: ''
-ms.service: Data Lake Store
+ms.service: data-lake-store
 ms.custom: Azure Data Lake Store
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: f44518bd6167bc1da207e3c301eabefc014a5749
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649977"
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Hantera Azure Data Lake Store-resurser i Storage Explorer
 
@@ -28,7 +27,7 @@ ms.lasthandoff: 04/28/2018
 
 En annan fördel är att du inte behöver ha prenumerationsbehörighet för att hantera Data Lake Store-data. I Storage Explorer kan du koppla Data Lake Store-sökvägen till noden **Lokal och Ansluten** så länge någon beviljar behörigheten.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra stegen i den här artikeln:
 
 *   En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial).

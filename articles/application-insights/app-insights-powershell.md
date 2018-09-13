@@ -1,6 +1,6 @@
 ---
 title: Automatisera Azure Application Insights med PowerShell | Microsoft Docs
-description: Automatisera skapar resursen, aviseringen och tillgänglighet tester i PowerShell med en Azure Resource Manager-mall.
+description: Automatisera skapande resurs, avisering och tillgänglighet tester i PowerShell med hjälp av en Azure Resource Manager-mall.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,30 +10,31 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: d6bc4f69386cc8a9119aa852693456f6465f59ce
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: cfed1636bf27279b8a391559d3e88b823036f703
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648313"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Skapa Application Insights-resurser med hjälp av PowerShell
-Den här artikeln visar hur du automatisera skapandet och uppdatering av [Programinsikter](app-insights-overview.md) resurser automatiskt med Azure Resource Manager. Du kan till exempel göra det som en del av en build-process. Tillsammans med grundläggande Application Insights-resursen kan du skapa [tillgänglighet webbtester](app-insights-monitor-web-app-availability.md), Ställ in [aviseringar](app-insights-alerts.md), ange den [priser schemat](app-insights-pricing.md), och skapa andra Azure-resurser .
+Den här artikeln visar hur du automatiskt skapa och uppdatera [Application Insights](app-insights-overview.md) resurser automatiskt med hjälp av Azure Resource Manager. Du kan till exempel göra det som en del av en build-process. Tillsammans med grundläggande Application Insights-resursen kan du skapa [webbtester för tillgänglighet](app-insights-monitor-web-app-availability.md), Ställ in [aviseringar](app-insights-alerts.md), ange den [priser schema](app-insights-pricing.md), och skapa andra Azure-resurser .
 
-Nyckeln till att skapa dessa resurser är JSON-mallar för [Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md). I kort sagt kan proceduren är: hämta JSON-definitioner av befintliga resurser. parameterstyra vissa värden, till exempel namn. och kör sedan mallen när du vill skapa en ny resurs. Du kan även paketera flera resurser tillsammans, för att skapa dem i ett går alla - till exempel en app Övervakare med tillgänglighetstester, aviseringar och lagring för löpande export. Det finns vissa detaljerad och nyansrik till vissa av parameterizations som beskrivs här.
+Nyckeln till att skapa dessa resurser är JSON-mallar för [Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md). Kortfattat, proceduren är: ladda ned JSON-definitioner av befintliga resurser. Parameterisera vissa värden, till exempel namn. och kör sedan mallen när du vill skapa en ny resurs. Du kan paketera flera resurser tillsammans, skapa dem på en go - exempel: en app Övervakare med tillgänglighetstester, aviseringar och lagring för löpande export. Det finns vissa nyanser till vissa av parameterizations som beskrivs här.
 
-## <a name="one-time-setup"></a>Enstaka installationen
-Om du inte har använt PowerShell med din Azure-prenumeration innan du:
+## <a name="one-time-setup"></a>Konfigurationen gång
+Om du inte har använt PowerShell med Azure-prenumerationen innan du:
 
-Installera Azure Powershell-modulen på datorn där du vill köra skript:
+Installera Azure Powershell-modulen på datorn där du vill köra skripten:
 
 1. Installera [Microsoft Web Platform Installer (v5 eller högre)](http://www.microsoft.com/web/downloads/platform.aspx).
-2. Använd den för att installera Microsoft Azure Powershell.
+2. Du kan använda den för att installera Microsoft Azure Powershell.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Skapa en Azure Resource Manager-mall
-Skapa en ny fil i JSON - vi anropa den `template1.json` i det här exemplet. Kopiera innehållet till den:
+Skapa en ny .json-fil – vi kan kalla den `template1.json` i det här exemplet. Kopiera det här innehållet till den:
 
 ```JSON
     {
@@ -165,14 +166,14 @@ Skapa en ny fil i JSON - vi anropa den `template1.json` i det här exemplet. Kop
 
     ``` 
    
-   * `-ResourceGroupName` är gruppen som du vill skapa nya resurser.
-   * `-TemplateFile` måste inträffa innan anpassade parametrar.
+   * `-ResourceGroupName` är gruppen där du vill skapa nya resurser.
+   * `-TemplateFile` måste slutföras innan de anpassade parametrarna.
    * `-appName` Namnet på resursen som ska skapas.
 
-Du kan lägga till andra parametrar - hittar du beskrivningar i avsnittet parametrar i mallen.
+Du kan lägga till andra parametrar – hittar du deras beskrivningar i avsnittet parametrar i mallen.
 
-## <a name="to-get-the-instrumentation-key"></a>Att hämta nyckeln instrumentation
-När du skapar en resurs för programmet, vill du instrumentation nyckeln: 
+## <a name="to-get-the-instrumentation-key"></a>Att hämta instrumenteringsnyckeln
+När du har skapat en resurs för en du instrumenteringsnyckeln: 
 
 ```PS
     $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
@@ -182,11 +183,11 @@ När du skapar en resurs för programmet, vill du instrumentation nyckeln:
 
 
 <a id="price"></a>
-## <a name="set-the-price-plan"></a>Ange pris planen
+## <a name="set-the-price-plan"></a>Ange prisplan
 
 Du kan ange den [prisplan](app-insights-pricing.md).
 
-Skapa en resurs i appen med pris företagsplan, med den här mallen ovan:
+Skapa en app-resurs med pris företagsplanen, med hjälp av mallen ovan:
 
 ```PS
         New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
@@ -200,16 +201,16 @@ Skapa en resurs i appen med pris företagsplan, med den här mallen ovan:
 |1|Basic|
 |2|Enterprise|
 
-* Om du endast vill använda baspris standardplanen kan du utelämna CurrentBillingFeatures resursen från mallen.
-* Om du vill ändra pris planen när komponenten resursen har skapats kan du använda en mall som utesluter resursen ”microsoft.insights/components”. Dessutom utelämna den `dependsOn` noden från resursen för fakturering. 
+* Om du endast vill använda standard Basic-prisplan kan du utelämna CurrentBillingFeatures resursen från mallen.
+* Om du vill ändra prisplanen när komponenten resursen har skapats kan du använda en mall som utesluter ”microsoft.insights/components”-resurs. Dessutom utelämna den `dependsOn` nod från fakturering resursen. 
 
-Kontrollera uppdaterade priset planen genom att titta på den **användnings- och uppskattade kostnaderna sidan** bladet i webbläsaren. **Uppdatera webbläsaren vyn** så att du kan se det aktuella tillståndet.
+Kontrollera de uppdaterade prisplanen genom att titta på den **användning och uppskattade kostnader** bladet i webbläsaren. **Uppdatera visningen av webbläsaren** att kontrollera att du ser det aktuella tillståndet.
 
 
 
-## <a name="add-a-metric-alert"></a>Lägg till ett mått varning
+## <a name="add-a-metric-alert"></a>Lägg till en måttavisering
 
-Koppla koden så här om du vill konfigurera en avisering om mått samtidigt som din app resurs till mallfilen:
+Om du vill konfigurera en metrisk varning samtidigt som din app-resurs, sammanfoga kod som denna i mallfilen:
 
 ```JSON
 {
@@ -275,16 +276,16 @@ När du anropar mallen kan du lägga till den här parametern:
 
     `-responseTime 2`
 
-Du kan självklart parameterstyra andra fält. 
+Du kan naturligtvis Parameterisera andra fält. 
 
-Om du vill ta reda på namn och konfigurationsinformation för andra Varningsregler kan manuellt skapa en regel och kontrollera sedan i [Azure Resource Manager](https://resources.azure.com/). 
+Om du vill ta reda på namn och information om konfiguration av andra Varningsregler, skapa en regel manuellt och sedan granska den i [Azure Resource Manager](https://resources.azure.com/). 
 
 
 ## <a name="add-an-availability-test"></a>Lägg till ett tillgänglighetstest
 
-Det här exemplet är för en ping-testet (att testa en enstaka sida).  
+Det här exemplet är för ett Pingtest (att testa en enda sida).  
 
-**Det finns två delar** i ett tillgänglighetstest: testet sig själv och den avisering som meddelar dig om fel.
+**Det finns två delar** i ett tillgänglighetstest: testning själv och den avisering som meddelar dig om fel.
 
 Sammanfoga följande kod till mallfilen som skapar appen.
 
@@ -383,41 +384,41 @@ Sammanfoga följande kod till mallfilen som skapar appen.
 }
 ```
 
-Identifiera koderna för andra test platser eller automatisera skapandet av mer komplexa webbtester, skapa ett exempel manuellt och sedan parameterstyra koden från [Azure Resource Manager](https://resources.azure.com/).
+Identifiera koder för andra testplatser eller för att automatisera skapandet av webbtester för mer komplexa, skapa ett exempel manuellt och sedan Parameterisera koden från [Azure Resource Manager](https://resources.azure.com/).
 
-## <a name="add-more-resources"></a>Lägg till fler resurser
+## <a name="add-more-resources"></a>Lägga till fler resurser
 
-Om du vill automatisera skapandet av någon annan resurs av något slag, skapa ett exempel manuellt kopiera och parameterstyra dess kod från [Azure Resource Manager](https://resources.azure.com/). 
+Om du vill automatisera skapandet av någon annan resurs av något slag, skapa ett exempel manuellt, och kopierar samt Parameterisera koden från [Azure Resource Manager](https://resources.azure.com/). 
 
-1. Öppna [Azure Resource Manager](https://resources.azure.com/). Bläddra nedåt i `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`, program-resurs. 
+1. Öppna [med Azure Resource Manager](https://resources.azure.com/). Gå nedåt via `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`, till din programresurs. 
    
-    ![Navigering i Azure Resursläsaren](./media/app-insights-powershell/01.png)
+    ![Navigering i Azure Resource Explorer](./media/app-insights-powershell/01.png)
    
-    *Komponenter* är de grundläggande Application Insights-resurserna för att visa program. Det finns olika resurser för associerade Varningsregler och tillgänglighetstester för webbprogram.
-2. Kopiera JSON av komponenten till lämplig plats i `template1.json`.
-3. Ta bort dessa egenskaper:
+    *Komponenter* är de grundläggande Application Insights-resurserna för att visa program. Det finns separata resurser för den associerade Varningsregler och webbtester för tillgänglighet.
+2. Kopiera JSON för komponenten till lämplig plats i `template1.json`.
+3. Ta bort de här egenskaperna:
    
    * `id`
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. Öppna avsnitten webtests och alertrules och kopiera JSON för enskilda objekt i mallen. (Inte kopiera från webtests eller alertrules noder: Gå till posterna under dem.)
+4. Öppna avsnitten webbtester och alertrules och kopiera JSON för enskilda objekt i mallen. (Inte kopiera från webbtester eller alertrules noder: Gå till objekt därunder.)
    
-    Varje webbtest har en associerad aviseringsregel, så du måste kopiera båda.
+    Varje webbtest har en associerad aviseringsregel så du måste kopiera båda.
    
-    Du kan även inkludera aviseringar på mått. [Tjänstmåttets namn](app-insights-powershell-alerts.md#metric-names).
-5. Infoga raden i varje resurs:
+    Du kan även inkludera aviseringar i mått. [Tjänstmåttets namn](app-insights-powershell-alerts.md#metric-names).
+5. Infoga den här raden i varje resurs:
    
     `"apiVersion": "2015-05-01",`
 
-### <a name="parameterize-the-template"></a>Parameterstyra mallen
-Nu har du ersätta de specifika namn med parametrar. Att [parameterstyra en mall](../azure-resource-manager/resource-group-authoring-templates.md), du kan skriva uttryck med en [uppsättning Hjälpfunktioner](../azure-resource-manager/resource-group-template-functions.md). 
+### <a name="parameterize-the-template"></a>Parameterisera mallen
+Nu har du ersätta specifika namn med parametrar. Att [Parameterisera en mall](../azure-resource-manager/resource-group-authoring-templates.md), du kan skriva uttryck med hjälp av en [uppsättning Hjälpfunktioner](../azure-resource-manager/resource-group-template-functions.md). 
 
-Du kan inte parameterstyra bara en del av en sträng, så Använd `concat()` att skapa strängar.
+Du kan inte Parameterisera bara en del av en sträng, så Använd `concat()` att skapa strängar.
 
-Här följer exempel på ersättningar som du vill se. Det finns flera förekomster av varje ersättning. Du kan behöva andra i mallen. Dessa exempel används parametrar och variabler som vi har definierat överst i mallen.
+Här följer exempel på med ändringar som du vill se. Det finns flera förekomster av varje ersättningen. Du kanske behöver andra i din mall. De här exemplen använder parametrar och variabler som vi definierade överst i mallen.
 
-| hitta | Ersätt med |
+| find | Ersätt med |
 | --- | --- |
 | `"hidden-link:/subscriptions/.../components/MyAppName"` |`"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"` |
 | `"/subscriptions/.../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |
@@ -429,12 +430,12 @@ Här följer exempel på ersättningar som du vill se. Det finns flera förekoms
 | `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Ta bort Guid och -Id. |
 
 ### <a name="set-dependencies-between-the-resources"></a>Ange beroenden mellan resurser
-Azure bör ställa in resurser i strikt ordning. Lägg till beroende rader om du vill kontrollera en installationen har slutförts innan nästa börjar:
+Azure bör ställa in resurserna i strikt ordning. För att säkerställa en installationen är klar innan nästa påbörjas, lägger du till beroende rader:
 
-* Testa resurs i tillgänglighet:
+* Testa resurs i tillgängligheten:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
-* I aviseringen resursen för ett tillgänglighetstest:
+* I aviseringen resurs för ett tillgänglighetstest:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
 
@@ -443,10 +444,10 @@ Azure bör ställa in resurser i strikt ordning. Lägg till beroende rader om du
 ## <a name="next-steps"></a>Nästa steg
 Andra automation-artiklar:
 
-* [Skapa en resurs för Application Insights](app-insights-powershell-script-create-resource.md) -snabb metod utan att använda en mall.
-* [Konfigurera aviseringar](app-insights-powershell-alerts.md)
+* [Skapa en Application Insights-resurs](app-insights-powershell-script-create-resource.md) -snabb metod utan att använda en mall.
+* [Ställa in aviseringar](app-insights-powershell-alerts.md)
 * [Skapa webbtester](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Skicka Azure Diagnostics-data till Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Distribuera till Azure från GitHub](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
-* [Skapa versionen anteckningar](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Skapa Versionsanteckningar](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

@@ -1,6 +1,6 @@
 ---
-title: Identifiering i Azure Application Insights för smartkort | Microsoft Docs
-description: Application Insights utför automatisk djupgående analys av din app telemetri och varnar dig om potentiella problem.
+title: Smart identifiering i Azure Application Insights | Microsoft Docs
+description: Application Insights utför automatisk djupanalys av apptelemetrin och varnar dig om potentiella problem.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -10,56 +10,57 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 38a7c5be98440a717eb54092bf7ce0d412619017
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: f2261334c25de4429060ed502e70aae50f3b707f
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649374"
 ---
 # <a name="smart-detection-in-application-insights"></a>Smart identifiering i Application Insights
- Smart identifiering varnar automatiskt dig för eventuella prestandaproblem i ditt webbprogram. Proaktiv analys av telemetri som appen skickar till utförs [Programinsikter](app-insights-overview.md). Om det finns en plötslig ökning av fel eller onormala mönster i klient- eller prestanda, får du en avisering. Den här funktionen krävs ingen konfiguration. Den fungerar om programmet skickar tillräckligt med telemetri.
+ Smart identifiering varnar automatiskt dig om potentiella prestandaproblem i ditt webbprogram. Den utför proaktiv analys av telemetrin som appen skickar till [Application Insights](app-insights-overview.md). Om det finns en plötslig i Felfrekvens eller onormala mönster i klient- eller prestanda, får du en avisering. Ingen konfiguration krävs för den här funktionen. Det fungerar om ditt program skickar så mycket telemetri.
 
-Du kan komma åt varningar Smart av både från e-postmeddelanden som du tar emot och från bladet Smart identifiering.
+Du kan komma åt Smart identifiering aviseringar både från e-postmeddelanden som du får och från bladet Smart identifiering.
 
-## <a name="review-your-smart-detections"></a>Granska din Smart identifieringar
+## <a name="review-your-smart-detections"></a>Granska dina smarta identifieringar
 Du kan identifiera identifieringar på två sätt:
 
 * **Du får ett e-postmeddelande** från Application Insights. Här är ett typexempel:
   
     ![E-postavisering](./media/app-insights-proactive-diagnostics/03.png)
   
-    Klicka på ett stort för att öppna detalj i portalen.
-* **Panelen Smart identifiering** på din app översikt bladet visar antalet nya aviseringar. Klicka på panelen om du vill se en lista över senaste aviseringarna.
+    Klicka på en stor knapp för att öppna detalj i portalen.
+* **Smart identifiering panelen** på appens översikt bladet visar antalet nya varningar. Klicka på panelen om du vill se en lista över de senaste aviseringarna.
 
 ![Visa senaste identifieringar](./media/app-insights-proactive-diagnostics/04.png)
 
-Välj en avisering om du vill visa information.
+Välj en avisering om du vill visa dess information.
 
 ## <a name="what-problems-are-detected"></a>Vilka problem har identifierats?
 Det finns tre typer av identifiering:
 
-* [Smartkort identifiering - fel avvikelser](app-insights-proactive-failure-diagnostics.md). Vi använder maskininlärning att ange förväntat antal misslyckade begäranden för din app korrelerar med belastning och andra faktorer. Om fel går utanför det förväntade kuvertet kan skicka vi en avisering.
-* [Smartkort identifiering - Prestandaavvikelser](app-insights-proactive-performance-diagnostics.md). Du får meddelanden om svarstid för en åtgärd eller beroende varaktighet långsammare jämfört med tidigare baslinje eller om vi identifiera ett avvikande mönster i svarstid eller sidinläsningstiden.   
-* [Smartkort identifiering - problem med Azure Cloud Service](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Du får aviseringar om din app finns i Azure Cloud Services och en rollinstans har startfel, ofta återvinning eller runtime kraschar.
+* [Smart identifiering – Felavvikelser](app-insights-proactive-failure-diagnostics.md). Vi använder maskininlärning att ange förväntade frekvensen för misslyckade begäranden för din app, korrelera med belastning och andra faktorer. Om misslyckade går utanför det förväntade kuvertet kan skicka vi en avisering.
+* [Smart identifiering – Prestandaavvikelser](app-insights-proactive-performance-diagnostics.md). Du får meddelanden om svarstid för en åtgärd eller beroende varaktighet långsammare jämfört med historisk baslinje eller om vi identifierar ett avvikande mönster i svarstid eller sidinläsningstiden.   
+* [Smart identifiering – Azure Cloud Service problem](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Du får aviseringar om din app finns i Azure Cloud Services och en rollinstans har startfel, vanligt återkommande återanvändning eller runtime-krascher.
 
-(Hjälplänkar i varje meddelande ta dig till artiklarna.)
+(Hjälplänkar i varje meddelande tar dig till artiklarna.)
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Nästa steg
-Dessa verktyg för Nätverksdiagnostik hjälpa dig att inspektera telemetri från din app:
+Dessa diagnostiska verktyg hjälper dig att inspektera telemetrin från din app:
 
-* [Mått explorer](app-insights-metrics-explorer.md)
-* [Sök explorer](app-insights-diagnostic-search.md)
-* [Analytics - frågespråket kraftfulla](app-insights-analytics-tour.md)
+* [Metric explorer](app-insights-metrics-explorer.md)
+* [Sökutforskaren](app-insights-diagnostic-search.md)
+* [Analytics – kraftfullt frågespråk](app-insights-analytics-tour.md)
 
 Smart identifiering är helt automatisk. Men kanske du vill ställa in några fler aviseringar?
 
-* [Manuellt konfigurerade mått aviseringar](app-insights-alerts.md)
-* [Tillgänglighetstester för webbprogram](app-insights-monitor-web-app-availability.md) 
+* [Manuellt konfigurerade måttaviseringar](app-insights-alerts.md)
+* [Webbtester för tillgänglighet](app-insights-monitor-web-app-availability.md) 
 

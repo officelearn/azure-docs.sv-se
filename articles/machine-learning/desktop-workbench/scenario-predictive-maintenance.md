@@ -1,142 +1,142 @@
 ---
-title: Förutsägande Underhåll för verkliga scenarier | Microsoft Docs
-description: Förutsägande Underhåll för verkliga scenarier med hjälp av PySpark
+title: Förebyggande underhåll för verkliga scenarier | Microsoft Docs
+description: Förebyggande underhåll för verkliga scenarier med hjälp av PySpark
 services: machine-learning
 author: ehrlinger
 ms.author: jehrling
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: f3f24a9b269205dd77ec3301b2650ee7a03f435b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a5531ae256a263f1c34496819ac435ce67156b49
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832704"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649335"
 ---
-# <a name="predictive-maintenance-for-real-world-scenarios"></a>Förutsägande Underhåll för verkliga scenarier
+# <a name="predictive-maintenance-for-real-world-scenarios"></a>Förebyggande underhåll för verkliga scenarier
 
-Följderna av oplanerade avbrott för utrustning kan vara skadliga för alla företag. Det är viktigt att behålla fältet utrustning kör för maximal användning och prestanda och för att minimera kostsamma, oplanerade driftavbrott. Tidig identifiering av problem kan hjälpa allokera begränsad Underhåll resurser på ett kostnadseffektivt sätt och förbättra kvaliteten och ange kedjan processer. 
+Följderna av oplanerade avbrott för utrustning kan vara skadliga för alla företag. Det är viktigt att hålla fältet utrustning som kör maximerar användning och prestanda och minimera dyra, oplanerade driftstopp. Tidig identifiering av problem kan allokera begränsad Underhåll resurser på ett kostnadseffektivt sätt och förbättra kvaliteten och ange kedja processer. 
 
-Det här scenariot utforskar en relativt [storskaliga simulerade datauppsättning](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) funktion om du vill gå igenom ett förutsägande Underhåll datavetenskap projekt från datapåfyllning, ingenjörer och modellskapandet modellen operationalization och distribution. Koden för hela processen skrivs i Jupyter-anteckningsbok med PySpark i Azure Machine Learning-arbetsstationen. Den slutliga modellen distribueras med hjälp av Azure Machine Learning modellen Management för att kommentera realtid utrustning fel.   
+Det här scenariot utforskar en relativt [storskaliga simulerad datamängd](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) om du vill gå igenom en förebyggande underhåll datavetenskapsprojekt från datainmatning, funktioner, modellskapandet och driftsättning av modellen, och distribution. Koden för hela processen är skriven i Jupyter-anteckningsbok med PySpark i Azure Machine Learning Workbench. Den slutliga modellen distribueras med hjälp av Azure Machine Learning-modellhantering för att göra i realtid utrustning fel förutsägelser.   
 
-### <a name="cortana-intelligence-gallery-github-repository"></a>Cortana Intelligence Gallery GitHub-lagringsplatsen
+### <a name="cortana-intelligence-gallery-github-repository"></a>Cortana Intelligence-galleriet GitHub-lagringsplats
 
-Cortana Intelligence Gallery PM genomgång är en offentlig GitHub-lagringsplats ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) där du kan rapportera problem och bidrag.
+Cortana Intelligence-galleriet för PM-självstudiekursen är en offentlig GitHub-lagringsplats ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) där du kan rapportera problem och göra bidrag.
 
 
-## <a name="use-case-overview"></a>Använd case-översikt
+## <a name="use-case-overview"></a>Översikt över användningsfall
 
-Ett större problem som företag i tillgångsinformation frekventa branscher inför är betydande kostnader som är associerade med fördröjningar på grund av mekanisk problem. De flesta företag är intresserad av att förutsäga när dessa problem kan uppstå till att hindra dem innan de inträffar. Målet är att minska kostnaderna genom att minska driftstopp och eventuellt ökar säkerheten. 
+Ett stort problem som företag inom tillgången omfattande är betydande kostnader som är associerade med fördröjningar på grund av mekanisk problem. De flesta företag är intresserade att förutsäga när dessa problem kan uppstå att proaktivt förhindra dem innan de inträffar. Målet är att minska kostnaderna genom att minska driftstopp och eventuellt ökar säkerhet. 
 
-Det här scenariot tar idéer från den [förutsägande Underhåll playbook](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) att demonstrera hur du skapar en förutsägelsemodell för en simulerad datauppsättning. Exempeldata härleds från vanliga element som observerats vid många förutsägande Underhåll användningsområden.
+Det här scenariot tar idéer från den [förebyggande underhåll spelbok](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) att demonstrera hur du skapar en förutsägelsemodell för en simulerad datamängd. Exempeldata härleds från vanliga element som observerats i många användningsområden för förebyggande underhåll.
 
-Problem i verksamheten för den här simulerade data är att förutsäga problem som orsakas av fel. Företag frågan är ”*vad är sannolikheten att en dator stängs av på grund av fel på en komponent?*” Det här problemet formateras som ett klassificeringsproblem med flera klassen (flera komponenter per dator). En maskininlärningsalgoritmen används för att skapa förutsägelsemodellen. Modellen har tränats på historiska data som samlas in från datorer. I det här scenariot genomgår användaren olika steg för att implementera modellen i Machine Learning arbetsstationsmiljö.
+Affärsproblem för den här simulerade data är att förutsäga problem som orsakas av komponentfel. Företag frågan är ”*vad är sannolikheten att en virtuell dator stängs av på grund av fel på en komponent?*” Det här problemet formateras som ett klassificeringsproblem med flera (flera komponenter per dator). En maskininlärningsalgoritm används för att skapa förutsägande modell. Modellen tränas historiska data som samlas in från datorer. I det här scenariot går användaren igenom olika steg för att implementera modellen i Machine Learning Workbench-miljö.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns).
-* En installerad kopia av [Azure Machine Learning arbetsstationen](../service/overview-what-is-azure-ml.md). Följ den [Quickstart installationsguiden](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta.
-* Azure Machine Learning Operationalization kräver en lokal distributionsmiljö och en [konto i Azure Machine Learning modellen Management](model-management-overview.md).
+* En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga).
+* En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Följ den [Snabbstart installationsguide](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta.
+* Azure Machine Learning Operationalization kräver en lokal distribution-miljö och en [Azure Machine Learning-modellhantering konto](model-management-overview.md).
 
-Det här exemplet körs på en Machine Learning arbetsstationen beräknings-kontext. Men rekommenderar vi att du kör exemplet med minst 16 GB minne. Det här scenariot har skapats och testat på en Windows 10-dator som kör en fjärransluten DS4_V2 standard [Data vetenskap virtuell dator (DSVM) för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+Det här exemplet körs på alla kontexter för beräkning av Machine Learning Workbench. Vi rekommenderar dock att du kör exemplet med minst 16 GB minne. Det här scenariot har skapats och testats på en Windows 10-dator som kör en fjärransluten DS4_V2 standard [Data Science Virtual Machine (DSVM) för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
-Modellen operationalization gjordes med hjälp av version 0.1.0a22 av Azure Machine Learning CLI.
+Modellen driftsättning gjordes med hjälp av version 0.1.0a22 av Azure Machine Learning CLI.
 
-## <a name="create-a-new-workbench-project"></a>Skapa ett nytt projekt arbetsstationen
+## <a name="create-a-new-workbench-project"></a>Skapa ett nytt Workbench-projekt
 
-Skapa ett nytt projekt genom att använda det här exemplet som en mall:
+Skapa ett nytt projekt med hjälp av det här exemplet som en mall:
 1.  Öppna Machine Learning Workbench.
 2.  På den **projekt** väljer **+**, och välj sedan **nytt projekt**.
 3.  I den **Skapa nytt projekt** rutan, fyller du i informationen för det nya projektet.
-4.  I den **Sök projektmallar** sökrutan, Skriv ”förutsägande underhåll” och välj den **förutsägande Underhåll** mall.
+4.  I den **Sök efter projektmallar** sökrutan skriver du ”förebyggande underhåll” och väljer den **förebyggande underhåll** mall.
 5.  Välj **Skapa**.
 
-## <a name="prepare-the-notebook-server-computation-target"></a>Förbereda anteckningsboken server beräkning mål
+## <a name="prepare-the-notebook-server-computation-target"></a>Förbered notebook server beräkning mål
 
-Att köra på den lokala datorn från Machine Learning-arbetsstationen **filen** -menyn väljer du antingen **öppnar du kommandotolken** eller **öppna PowerShell CLI**. Gränssnittet CLI får du åtkomst till Azure-tjänster med hjälp av den `az` kommandon. Först logga in på ditt Azure-konto med kommandot:
+Att köra på den lokala datorn från Machine Learning Workbench **filen** menyn väljer du antingen **öppna Kommandotolken** eller **öppna PowerShell CLI**. CLI-gränssnittet kan du komma åt dina Azure-tjänster med hjälp av den `az` kommandon. Logga först in på Azure-kontot med kommandot:
 
 ```
 az login
 ``` 
 
-Det här kommandot ger en autentiseringsnyckel ska användas med https:\\aka.ms\devicelogin URL. CLI väntar tills enheten inloggningen åtgärden returnerar och ger vissa anslutningsinformationen. Nästa, om du har en lokal [Docker](https://www.docker.com/get-docker) installation, Förbered lokala beräknings-miljö med kommandot:
+Det här kommandot ger en autentiseringsnyckel ska användas med https:\\aka.ms\devicelogin URL: en. CLI väntar tills enheten inloggningen åtgärden returnerar och vissa anslutningsinformation. Nästa, om du har en lokal [Docker](https://www.docker.com/get-docker) installation, förbereda lokala compute-miljö med kommandot:
 
 ```
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-Det är bättre att köra på en [DSVM för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) för minne och diskutrymme. När DSVM har konfigurerats, Förbered fjärr Docker-miljö med följande två kommandon:
+Det är bättre att köra en [DSVM för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) för minne och krav. När DSVM har konfigurerats kan du förbereda den fjärranslutna Docker-miljön med följande två kommandon:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]
 ```
 
-När du är ansluten till den fjärranslutna dockerbehållare Förbered DSVM Docker beräknings-miljö med kommandot: 
+När du är ansluten till den fjärranslutna Docker-behållaren, förbereda beräkningsmiljö DSVM Docker med kommandot: 
 
 ```
 az ml experiment prepare --target [Connection_Name] --run-configuration [Connection_Name]
 ```
 
-Med Docker-beräkning miljön förberedd, öppnar du Jupyter-anteckningsbok servern från Azure Machine Learning arbetsstationen **anteckningsböcker** fliken eller starta en webbläsare-baserad server med kommandot: 
+Med Docker beräkningsmiljö som förberetts, öppna Jupyter notebook-server från Azure Machine Learning Workbench **anteckningsböcker** fliken eller starta en webbläsare-baserad server med kommandot: 
 
 ```
 az ml notebook start
 ```
 
-Exempel-anteckningsböcker som lagras i katalogen kod. De bärbara datorerna är konfigurerade att köras efter varandra startar på den första (Code\1_data_ingestion.ipynb)-anteckningsboken. När du öppnar varje bärbar dator, uppmanas du att välja kernel för beräkning. Välj [projekt_namn] _Template [Connection_Name] kernel ska köras på den tidigare konfigurerade DSVM.
+Exempel-anteckningsböcker lagras i katalogen kod. De bärbara datorerna är inställda som körs sekventiellt, från och med den första (Code\1_data_ingestion.ipynb)-anteckningsboken. När du öppnar varje bärbar dator, uppmanas du att välja beräknings-kernel. Välj [projekt_namn] _namn [Connection_Name] kernel ska köras på den tidigare konfigurerade DSVM.
 
-## <a name="data-description"></a>Beskrivning av data
+## <a name="data-description"></a>Databeskrivning
 
-Den [simulerade data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) består av fem filer med kommaavgränsade värden (CSV). Använd följande länkar för att få detaljerade beskrivningar om datauppsättningar.
+Den [simulerade data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) består av fem filer med kommaavgränsade värden (.csv). Använd följande länkar för att få detaljerade beskrivningar om datauppsättningarna.
 
-* [Datorer](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): funktioner som skilja mellan varje dator, till exempel ålder och modell.
-* [Fel](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): felloggen innehåller hårt fel som utlöses när datorn är fortfarande fungerar. Dessa fel inte anses vara fel, även om de kan vara förutsägande i en framtida felhändelse. Datum / tid-värden för felen avrundas till närmaste timme eftersom telemetridata samlas in i en frekvens som per timme.
-* [Underhåll](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): Underhåll loggen innehåller både planerade och oplanerade Underhåll poster. Schemalagt underhåll motsvarar en regelbunden kontroll av komponenter. Oplanerat Underhåll kan uppstå när mekaniskt fel eller andra prestandaförsämring. Datum / tid-värden för underhåll avrundas till närmaste timme eftersom telemetridata samlas in i en frekvens som per timme.
-* [Telemetri](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): telemetridata består av tid serien mått från flera sensorer inom varje dator. Data loggas av sensor medelvärden under varje period för en timme.
-* [Fel](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): fel som motsvarar komponenten ersättningar i loggen för underhåll. Varje post innehåller maskin-ID, komponenttyp och Ersättningsdatum och tid. Dessa poster används för att skapa etiketter som modellen försöker förutsäga för maskininlärning.
+* [Datorer](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): funktioner som skilja varje dator, till exempel ålder och modell.
+* [Fel](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): felloggen innehåller bakåtkompatibla fel som kan uppkomma medan datorn fortfarande fungerar. De här felen beaktas inte fel, men de kan vara prediktiva för en framtida felhändelse. Datum / tid-värdena för fel som avrundas till närmaste timme eftersom dessa data som samlas in till ett timpris.
+* [Underhåll](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): Underhåll loggen innehåller både planerade och oplanerade Underhåll poster. Schemalagt underhåll motsvarar en regelbunden kontroll av komponenter. Oplanerat Underhåll kan uppstå från mekanisk fel eller andra prestandaförsämring. Datum / tid-värdena för underhåll avrundas till närmaste timme eftersom dessa data som samlas in till ett timpris.
+* [Telemetri](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): telemetridata som består av time series mått från flera sensorer på varje dator. Data loggas som medelvärdet sensorvärdena över varje intervall med en timme.
+* [Fel](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): fel som motsvarar komponenten ersättningar i loggen för underhåll. Varje post innehåller maskin-ID, komponenttyp och av Ersättningsdatum och tid. Dessa poster används för att skapa de machine learning-etiketter som du försöker förutse modellen.
 
-För att hämta rådata datauppsättningar från GitHub-lagringsplatsen och skapa PySpark datauppsättningar för den här analysen, finns det [Datapåfyllning](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) Jupyter-anteckningsbok scenariot i mappen kod.
+Ladda ner raw datauppsättningar från GitHub-lagringsplatsen och skapa PySpark-datauppsättningar för den här analysen genom att se den [datainmatning](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) Jupyter Notebook-scenario i mappen kod.
 
 ## <a name="scenario-structure"></a>Scenario-struktur
-Innehållet i scenariot är tillgängligt på den [GitHub-lagringsplatsen](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance). 
+Innehållet för scenariot finns på den [GitHub-lagringsplatsen](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance). 
 
-Den [viktigt](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/README.md) fil ger en översikt över arbetsflödet från förbereder data, skapa en modell och distribuera en lösning för produktion. Varje steg i arbetsflödet kapslas in i en Jupyter-anteckningsbok i den [kod](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) mapp i databasen.   
+Den [Readme](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/README.md) filen beskriver arbetsflödet från förbereda data, skapa en modell och sedan distribuera en lösning för produktion. Varje steg i arbetsflödet är inkapslad i en Jupyter-anteckningsbok i den [kod](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) mapp i databasen.   
 
-[Code\1_data_ingestion.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): anteckningsboken hämtar de fem inkommande CSV-filerna och har vissa preliminär Datarensning och visualisering. Anteckningsboken konverterar varje datamängd till PySpark-format och lagrar den i ett Azure blob-behållaren för användning i funktionen Engineering anteckningsboken.
+[Code\1_data_ingestion.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): den här anteckningsboken hämtar de fem inkommande CSV-filerna och har vissa preliminär Datarensning och visualisering. Anteckningsboken konverterar varje datauppsättning till PySpark-format och lagrar den i en Azure blob-behållare för användning i funktionen Engineering anteckningsboken.
 
-[Code\2_feature_engineering.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): modell-funktionerna är uppbyggda från rådata datauppsättningen från Azure Blob storage med hjälp av en serie normaltid-metod för telemetri, fel och underhåll data. Fel-relaterade komponenten ersättningar används för att skapa modelletiketter som beskriver vilka komponenten inte kunde. Märkt funktionsdata sparas i en Azure blob för modellen byggnad anteckningsboken.
+[Code\2_feature_engineering.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): modellfunktioner skapas från rådata datauppsättningen från Azure Blob storage med hjälp av en serie normaltid-metod för telemetri, fel och underhåll data. Fel-relaterade komponenten ersättningar används för att konstruera modelletiketter som beskriver vilken komponent misslyckades. Taggade funktionsdata sparas i en Azure-blob för anteckningsboken för att bygga modellen.
 
-[Code\3_model_building.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): I modellen byggnad anteckningsboken använder märkt data funktionsuppsättningen och delar upp data i tåg och dev datauppsättningar längs datum-och tidsstämpel. Den bärbara datorn har konfigurerats som ett experiment med pyspark.ml.classification modeller. Av att träningsinformationen är vectorized. Användaren kan experimentera med antingen en **DecisionTreeClassifier** eller **RandomForestClassifier** att manipulera justeringsmodeller för att hitta det bästa utför modellen. Prestanda bestäms genom att utvärdera mätningsstatistik dev datauppsättningen. Statistiken loggas i Machine Learning arbetsstationen runtime skärmen för spårning. Vid varje körning sparar anteckningsboken resulterande modellen till den lokala disken med Jupyter-anteckningsbok kernel. 
+[Code\3_model_building.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): The modell att skapa anteckningsboken använder märkta data funktionsuppsättningen och delar upp data i träna upp och dev datauppsättningar med datum-och tidsstämpel. Anteckningsboken har ställts in som ett experiment med pyspark.ml.classification modeller. Träningsdata vectorized. Du kan experimentera med antingen en **DecisionTreeClassifier** eller **RandomForestClassifier** att manipulera hyperparametrar för att hitta den bästa modellen. Prestanda påverkas genom att utvärdera mätningsstatistik på dev-datauppsättning. Statistiken loggas i Machine Learning Workbench runtime skärmen för spårning. Vid varje körning sparar anteckningsboken resulterande modellen till den lokala disken med Jupyter notebook kernel. 
 
-[Code\4_operationalization.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): anteckningsboken använder den senaste modellen som sparas på den lokala disken (Jupyter-anteckningsbok kernel) att skapa komponenter för att distribuera modellen till en Azure-webbtjänst. Fullständig operativa tillgångar komprimerad till filen o16n.zip som lagras i en annan Azure blob-behållaren. Den komprimerade filen innehåller:
+[Code\4_operationalization.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): den här anteckningsboken använder den senaste modellen som sparas på den lokala disken (Jupyter notebook kernel) att skapa komponenter för att distribuera modellen till en Azure-webbtjänst. Fullständig operativa tillgångar komprimeras till filen o16n.zip som lagras i en annan Azure-blob-behållare. Den komprimerade filen innehåller:
 
-* **service_schema.JSON**: definitionsfilen schemat för distributionen. 
+* **service_schema.JSON**: definitionsfilen för schemat för distributionen. 
 * **pdmscore.PY**: den **init()** och **run()** funktioner som krävs av Azure-webbtjänsten.
 * **pdmrfull.Model**: katalogen model definition.
     
-Anteckningsboken testar funktioner med modelldefinitionen av innan du paketerar operationalization tillgångar för distribution. Instruktioner för distribution ingår i slutet av den bärbara datorn.
+Anteckningsboken testar funktioner med modelldefinitionen av innan paketering driftsättning tillgångar för distribution. Instruktioner för distributionen ingår i slutet av anteckningsboken.
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Det här scenariot ger en översikt över skapar en lösning för slutpunkt till slutpunkt förutsägande Underhåll genom att använda PySpark i Jupyter-anteckningsbok-miljön i Machine Learning-arbetsstationen. Det här exemplet beskrivs också modellen distribution via Machine Learning modellen Management-miljö för att göra realtid utrustning fel förutsägelser.
+Det här scenariot ger en översikt över att skapa en lösning för förebyggande underhåll för slutpunkt till slutpunkt med hjälp av PySpark i Jupyter-anteckningsbok miljön i Machine Learning Workbench. Det här scenariot beskriver även modelldistribution genom Machine Learning-modellhantering-miljö för att göra i realtid utrustning fel förutsägelser.
 
 ## <a name="references"></a>Referenser
 
-Följande referens ger exempel på andra förutsägande Underhåll användningsfall för olika plattformar:
+Följande referens ger exempel på andra förebyggande underhåll användningsfall för olika plattformar:
 
-* [Förutsägande Underhåll Lösningsmall](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
-* [Guide för Hotmodellering i förutsägande Underhåll](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
-* [Förutsägande Underhåll Modeling Guide med SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
-* [Förutsägande Underhåll Modeling guiden Python-anteckningsbok](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
-* [Förutsägande Underhåll med hjälp av PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
-* [Djup learning för förebyggande underhåll](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance)
+* [Lösningsmallen för förebyggande underhåll](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
+* [Guide för Hotmodellering i förebyggande underhåll](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
+* [Förutsägande Underhåll modellering Guide med hjälp av SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
+* [Förutsägande modellering Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
+* [Förebyggande underhåll med hjälp av PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [Djupinlärning för förutsägande Underhåll](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Andra scenarier är tillgängliga i Machine Learning-arbetsstationen som visar ytterligare funktioner i produkten. 
+Andra scenarier är tillgängliga i Machine Learning Workbench som visar hur du ytterligare funktioner i produkten. 

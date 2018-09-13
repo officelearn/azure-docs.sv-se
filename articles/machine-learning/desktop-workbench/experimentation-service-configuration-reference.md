@@ -1,42 +1,42 @@
 ---
-title: Azure Machine Learning experiment Service configuration-filer
-description: Det här dokumentet beskriver konfigurationsinställningarna för Azure ML experiment Service.
+title: Azure Machine Learning Experimentation Service configuration-filer
+description: Det här dokumentet beskriver konfigurationsinställningarna för Azure ML-experimentering.
 services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 1a4b6b803687b2c433ad94a54f076f23fe63c350
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 43bee297b917143c9014b28049c6dfa28727b757
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831320"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650373"
 ---
-# <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning experiment Service configuration-filer
+# <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning Experimentation Service configuration-filer
 
-När du kör ett skript i Azure Machine Learning (Azure ML) arbetsstationen beteendet för körningen styrs av filer i den **aml_config** mapp. Denna mapp är under mappen projektroten. Det är viktigt att förstå innehållet i filerna för att uppnå önskat utfall för din körning optimalt.
+När du kör ett skript i Azure Machine Learning (Azure ML) Workbench beteendet för körningen styrs av filer i den **aml_config** mapp. Den här mappen är under mappen projektroten. Det är viktigt att förstå innehållet i filerna för att uppnå önskat utfall för din körning optimalt.
 
-Följande är relevanta filer under den här mappen:
+Följande är de relevanta filerna under den här mappen:
 - conda_dependencies.yml
 - spark_dependencies.yml
-- Beräkna med filer
-    - \<Beräkna målnamn > .compute
+- Compute-filer
+    - \<Compute målnamn > .compute
 - Kör konfigurationsfiler
-    - \<Kör Konfigurationsnamnet > .runconfig
+    - \<Kör namn > .runconfig
 
 >[!NOTE]
->Du normalt har en beräkning målfilen och kör konfigurationsfilen för varje compute-mål som du skapar. Du kan dock skapa dessa filer oberoende och har flera kör konfigurationsfiler som pekar på samma mål för beräkning.
+>Du kan vanligtvis har en målfil för beräkning och kör konfigurationsfil för varje beräkningsmål som du skapar. Du kan dock skapar de här filerna oberoende av varandra och har flera kör konfigurationsfiler som pekar på samma beräkningsmål.
 
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
-Den här filen är en [conda miljö filen](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) som anger Python körtidsversion och paket som är beroende av din kod. När Azure ML-arbetsstationen kör ett skript i ett dockerbehållare eller HDInsight-kluster, skapas en [conda miljö](https://conda.io/docs/using/envs.html) för skriptet ska köras på. 
+Den här filen är en [conda miljöfil](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) som anger Python runtime-versionen och paket som är beroende av din kod. När Azure ML Workbench kör ett skript i en Docker-behållare eller ett HDInsight-kluster, skapas en [conda miljö](https://conda.io/docs/using/envs.html) för skriptet ska köras på. 
 
-Ange Python-paket som behöver för ditt skript för körning i den här filen. Azure ML experiment tjänsten skapar conda miljö enligt din lista över beroenden. Paket som anges här måste kunna nås av motorn för körning via kanaler som:
+I den här filen anger du Python-paket som krävs för ditt skript för körning. Azure ML-experimentering skapar conda-miljö enligt din lista över beroenden. De paket som anges här måste kunna nås av motorn för körning via kanaler som:
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
@@ -45,7 +45,7 @@ Ange Python-paket som behöver för ditt skript för körning i den här filen. 
 * andra kan nås av motorn för körning
 
 >[!NOTE]
->När du kör på HDInsight-kluster, skapar en conda miljö för dina specifika kör Azure ML-arbetsstationen. Detta gör att olika användare ska köras på olika python-miljöer i samma kluster.  
+>När du kör på HDInsight-kluster kan skapar Azure ML Workbench en conda-miljö för din specifika körning. På så sätt kan olika användare ska köras på olika python-miljöer i samma kluster.  
 
 Här är ett exempel på en typisk **conda_dependencies.yml** fil.
 ```yaml
@@ -70,13 +70,13 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure ML-arbetsstationen använder samma conda miljö utan att återskapa den så länge som den **conda_dependencies.yml** är densamma. Den återskapas miljön ändrar dina beroenden.
+Azure ML Workbench använder samma conda-miljö utan att återskapa den så länge som den **conda_dependencies.yml** förblir densamma. Den återskapas miljön ändrar dina beroenden.
 
 >[!NOTE]
->Om du riktar körning mot _lokala_ compute sammanhang **conda_dependencies.yml** filen **inte** används. Paketberoenden för din lokala Azure ML-arbetsstationen Python-miljö måste installeras manuellt.
+>Om du anpassar körning mot _lokala_ beräkningskontext, **conda_dependencies.yml** filen är **inte** används. Paketberoenden för den lokala Azure ML Workbench Python-miljön måste installeras manuellt.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-Den här filen anger namnet på Spark-programmet när du skickar ett PySpark-skript och Spark-paket som behöver installeras. Du kan också ange en offentlig Maven databas samt Spark-paket som finns i dessa Maven-databaser.
+Den här filen anger namnet på Spark-programmet när du skickar in ett PySpark-skript och Spark-paket som måste installeras. Du kan också ange en offentlig Maven-lagringsplats som Spark-paket som finns i dessa Maven-databaser.
 
 Här är ett exempel:
 
@@ -105,13 +105,13 @@ packages:
 ```
 
 >[!NOTE]
->Klustret justera parametrar, till exempel worker storlek och kärnor ska gå till avsnittet ”configuration” i filen spark_dependecies.yml 
+>Klustret justering parametrar, t.ex arbetsstorlek och kärnor bör ingå i ”configuration”-avsnittet i spark_dependecies.yml 
 
 >[!NOTE]
->Om du kör skriptet i Python-miljö, *spark_dependencies.yml* ignoreras. Den används endast om du kör mot Spark (antingen i Docker eller HDInsight-kluster).
+>Om du kör skriptet i Python-miljön *spark_dependencies.yml* filen ignoreras. Den används endast om du kör mot Spark (antingen på Docker eller HDInsight-kluster).
 
-## <a name="run-configuration"></a>Kör konfigurationen
-Om du vill ange en specifik kör konfiguration, behöver du en .compute-fil och en .runconfig-fil. Dessa skapas vanligtvis med kommandot CLI. Du kan också klona avslutas viktiga, byta namn på dem och redigera dem.
+## <a name="run-configuration"></a>Köra konfiguration
+Om du vill ange en specifik kör konfiguration, behöver du en .compute-fil och en .runconfig-fil. Dessa skapas vanligtvis med en CLI-kommando. Du kan också klona avslutar sådana, byta namn på dem och redigera dem.
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -121,43 +121,43 @@ $ az ml computetarget attach remotedocker -n <compute target name> -a <IP addres
 $ az ml computetarget attach cluster -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> 
 ```
 
-Detta kommando skapar ett par filer baserat på den angivna beräkning måltypen. Anta att du namngivna beräknings-målet _foo_. Det här kommandot genererar _foo.compute_ och _foo.runconfig_ i din **aml_config** mapp.
+Det här kommandot skapar ett par baserat på den angivna måltypen för beräkning. Anta att du har gett din beräkningsmål _foo_. Det här kommandot genererar _foo.compute_ och _foo.runconfig_ i din **aml_config** mapp.
 
 >[!NOTE]
-> _lokala_ eller _docker_ namn för kör konfigurationsfilerna är valfri. Azure ML-arbetsstationen lägger till dessa två kör konfigurationer när du skapar ett tomt projekt för din bekvämlighet. Du kan byta namn på ”<run configuration name>.runconfig” filer som medföljer projektmallen eller skapa nya med vilket namn som helst.
+> _lokala_ eller _docker_ namn för kör konfigurationsfilerna är valfri. Azure ML Workbench lägger till dessa två kör konfigurationer när du skapar ett tomt projekt för din bekvämlighet. Du kan byta namn på ”<run configuration name>.runconfig” som medföljer projektmallen eller skapa nya med vilket namn som helst.
 
-### <a name="compute-target-namecompute"></a>\<Beräkna målnamn > .compute
-_\<Beräkna målnamn > .compute_ filen anger information om anslutning och konfiguration för beräknings-målet. Det är en lista över namn / värde-par. Följande är inställningarna som stöds:
+### <a name="compute-target-namecompute"></a>\<Compute målnamn > .compute
+_\<Compute målnamn > .compute_ filen anger information om anslutning och konfiguration för beräkningsmål. Det är en lista över namn / värde-par. Följande är inställningarna som stöds:
 
-**typen**: typ av beräknings-miljö. Värden som stöds är:
+**typ**: typ av compute-miljö. Värden som stöds är:
   - lokal
-  - Fjärråtkomst
+  - fjärråtkomst
   - Docker
   - remotedocker
   - kluster
 
-**baseDockerImage**: den Docker-bild som används för att köra skriptet Python/PySpark. Standardvärdet är _microsoft/mmlspark:plus-0.7.91_. Vi stöder också en bild: _microsoft/mmlspark:plus-gpu-0.7.91_, vilket ger dig GPU åtkomst till värddatorn (om GPU finns).
+**baseDockerImage**: The Docker-avbildning som används för att köra Python/PySpark-skript. Standardvärdet är _microsoft/mmlspark:plus-0.7.91_. Vi har också stöd för en annan bild: _microsoft/mmlspark:plus-gpu-0.7.91_, vilket ger du GPU åtkomst till värddatorn (om GPU finns).
 
-**adressen**: IP-adress eller FQDN (fullständigt kvalificerade domännamn) på den virtuella datorn eller HDInsight-kluster huvudnod.
+**adress**: IP-adress eller FQDN (fullständigt kvalificerade domännamn) för den virtuella datorn eller HDInsight-kluster huvudnoden.
 
-**användarnamnet**: SSH användarnamnet för åtkomst till den virtuella datorn eller HDInsight-huvudnod.
+**användarnamn**: SSH användarnamn för att komma åt den virtuella datorn eller HDInsight-huvudnoden.
 
-**lösenordet**: det krypterade lösenordet för SSH-anslutning.
+**lösenord**: det krypterade lösenordet för SSH-anslutning.
 
-**sharedVolumes**: flagga för att signalera att motorn för körning ska använda Docker delad volym funktionen att leverera projektfiler fram och tillbaka. Med den här flaggan aktiverat kan snabba upp körningen eftersom Docker kan komma åt projekt direkt utan att behöva kopiera dem. Det är bäst att ange _FALSKT_ om Docker-motorn körs på Windows eftersom volymen delning för Docker i Windows kan vara flaky. Ange det till _SANT_ om den körs på macOS- eller Linux.
+**sharedVolumes**: flagga för att skicka en signal som motorn för körning ska använda Docker delad volym-funktionen för att leverera projektfilerna fram och tillbaka. Med den här flaggan aktiveras kan snabba upp körningen eftersom Docker kan komma åt projekt direkt utan att behöva kopiera dem. Det är bäst att ange _FALSKT_ om Docker-motorn körs på Windows eftersom volymen delning för Docker på Windows kan vara flaky. Ange den till _SANT_ om den körs på macOS eller Linux.
 
-**nvidiaDocker**: den här flaggan när _SANT_, talar om tjänsten Azure ML försök att använda _nvidia docker_ kommandot, till skillnad från vanliga _docker_kommandot för att starta Docker-bild. Den _nvidia docker_ motorn kan dockerbehållare åtkomst GPU maskinvara. Inställningen är obligatorisk om du vill köra GPU Docker-behållare. Har stöd för Linux-värd _nvidia docker_. Till exempel Linux-baserade DSVM i Azure levereras med _nvidia docker_. _NVIDIA docker_ från och med nu stöds inte i Windows.
+**nvidiaDocker**: den här flaggan när _SANT_, talar om för tjänsten Azure ML-experimentering att använda _nvidia docker_ kommandot, till skillnad från vanliga _docker_kommandot för att starta Docker-avbildningen. Den _nvidia docker_ motorn kan Docker-behållare till åtkomst GPU maskinvara. Inställningen krävs om du vill köra GPU-körning i Docker-behållare. Har stöd för Linux-värd _nvidia docker_. Till exempel Linux-baserade dsvm: er i Azure levereras med _nvidia docker_. _NVIDIA docker_ från och med nu stöds inte i Windows.
 
-**nativeSharedDirectory**: den här egenskapen anger baskatalogen (till exempel: _~/.azureml/share/_) där filer kan sparas för att delas mellan körs på samma mål för beräkning. Om den här inställningen används när körs på en dockerbehållare med _sharedVolumes_ måste anges till true. Annars misslyckas körning.
+**nativeSharedDirectory**: den här egenskapen anger den grundläggande katalogen (till exempel: _~/.azureml/share/_) där filer kan sparas för att delas mellan körs på samma beräkningsmål. Om den här inställningen används när du kör i en Docker-behållare _sharedVolumes_ måste anges till true. I annat fall går inte att köra.
 
-**userManagedEnvironment**: den här egenskapen anger om det här målet för beräkning är hanteras av användaren direkt eller via experiment-tjänsten.  
+**userManagedEnvironment**: den här egenskapen anger om den här beräkningsmål är hanteras av användaren direkt eller via experimentering.  
 
-**pythonLocation**: den här egenskapen anger platsen för python-körning som ska användas på beräknings-målet för att köra programmet för användaren. 
+**pythonLocation**: den här egenskapen anger platsen för python-körning som ska användas på beräkningsmål för att köra användarens program. 
 
-### <a name="run-configuration-namerunconfig"></a>\<Kör Konfigurationsnamnet > .runconfig
-_\<Kör Konfigurationsnamnet > .runconfig_ anger Azure ML experimentera körningsbeteende. Du kan konfigurera körningsbeteende, till exempel spårning som kör tidigare eller vad compute mål för att använda tillsammans med många andra. Namnen på de kör konfigurationsfilerna används för att fylla i körningen kontexten listrutan i Azure ML-arbetsstationen skrivbordsprogram.
+### <a name="run-configuration-namerunconfig"></a>\<Kör namn > .runconfig
+_\<Kör namn > .runconfig_ anger den Azure ML experimentera körningsbeteende. Du kan konfigurera körningsbeteende, till exempel spåra historiken för körning eller vad beräkningsmål som ska användas tillsammans med många andra. Namnen på de kör konfigurationsfilerna används för att fylla i listrutan på kontexten körning i Azure ML Workbench skrivbordsprogram.
 
-**ArgumentVector**: det här avsnittet anger skriptet ska köras som en del av den här körning och parametrar för skriptet. Om du har följande kodavsnitt i till exempel din ”<run configuration name>.runconfig” fil 
+**ArgumentVector**: det här avsnittet anger skript som ska köras som en del av den här körningen och parametrar för skriptet. Exempel: Om du har följande kodavsnitt i din ”<run configuration name>.runconfig” fil 
 
 ```
  "ArgumentVector":[
@@ -166,35 +166,35 @@ _\<Kör Konfigurationsnamnet > .runconfig_ anger Azure ML experimentera körning
   - "-v" 
  ] 
 ```
-_”az ml experiment skicka foo.runconfig”_ automatiskt kör kommandot med _myscript.py_ filen skickar i 234 som en parameter och anger--verbose-flaggan.
+_”az ml-experiment skicka foo.runconfig”_ automatiskt kör kommandot med _myscript.py_ filen skicka 234 som en parameter och uppsättningar--utförlig flaggan.
 
-**Målet**: den här parametern är namnet på den _.compute_ filen som den _runconfig_ filen referenser. Det vanligtvis pekar på _foo.compute_ filen men du kan redigera den att peka till en annan beräknings-mål.
+**Target**: den här parametern är namnet på den _.compute_ filen som den _runconfig_ filen referenser. Den allmänt pekar på _foo.compute_ filen men du kan redigera den så att den pekar till en annan beräkningsmål.
 
-**Miljövariabler**: det här avsnittet kan du ange miljövariabler som en del av deras körs. Användaren kan ange miljövariablerna med hjälp av namn / värde-par i följande format:
+**Miljövariabler**: det här avsnittet kan du ställa in miljövariabler som en del av deras körs. Användaren kan ange miljövariablerna med hjälp av namn / värde-par i följande format:
 ```
 EnvironmentVariables:
   "EXAMPLE_ENV_VAR1": "Example Value1"
   "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-De här miljövariablerna kan nås i användarens kod. Till exempel skrivs Python-kod miljövariabel som heter ”EXAMPLE_ENV_VAR”
+Dessa miljövariabler kan nås i användarens kod. Exempelvis kan den här Python-koden skriver ut miljövariabeln med namnet ”EXAMPLE_ENV_VAR”
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```
 
-**Framework**: den här egenskapen anger om Azure ML-arbetsstationen ska starta ett Spark-session för att köra skriptet. Standardvärdet är _PySpark_. Ange det till _Python_ om du inte kör PySpark-kod, som kan hjälpa dig att starta jobbet snabbare med lägre kostnader.
+**Framework**: den här egenskapen anger om Azure ML Workbench ska starta en Spark-session för att köra skriptet. Standardvärdet är _PySpark_. Ange den till _Python_ om du inte kör PySpark-kod som kan hjälpa att starta jobbet snabbare med lägre kostnader.
 
-**CondaDependenciesFile**: den här egenskapen pekar på den fil som anger conda miljö beroenden i den *aml_config* mapp. Om värdet _null_, pekar på standardvärdet **conda_dependencies.yml** fil.
+**CondaDependenciesFile**: den här egenskapen pekar på den fil som anger conda-beroenden för miljön i den *aml_config* mapp. Om inställd _null_, den standardikonen **conda_dependencies.yml** fil.
 
-**SparkDependenciesFile**: den här egenskapen pekar på den fil som anger Spark-beroenden i den **aml_config** mapp. Den är inställd på _null_ som standard och den pekar till standardvärdet **spark_dependencies.yml** fil.
+**SparkDependenciesFile**: den här egenskapen pekar på den fil som anger Spark-beroenden i den **aml_config** mapp. Det är inställt på _null_ som standard och det indikerar standardikonen **spark_dependencies.yml** fil.
 
-**PrepareEnvironment**: den här egenskapen har värdet _SANT_, talar om tjänsten undersökningar för att förbereda miljön conda baserat på conda beroenden som angetts som en del av din första gången. Den här egenskapen är effektivt endast när du kör mot en Docker-miljö. Den här inställningen har ingen effekt om du kör mot en _lokala_ miljö. 
+**PrepareEnvironment**: den här egenskapen har värdet _SANT_, talar du om tjänsten experimentering förbereda conda-miljön utifrån conda-beroenden som anges som del av din första körning. Den här egenskapen gäller bara när du kör mot Docker-miljö. Den här inställningen har ingen effekt om du kör mot ett _lokala_ miljö. 
 
-**TrackedRun**: den här flaggan signalerar tjänsten experiment om att spåra körs i Azure ML-arbetsstationen kör historik infrastruktur eller inte. Standardvärdet är _SANT_. 
+**TrackedRun**: den här flaggan signalerar tjänsten experimentering om att spåra körningen i Azure ML Workbench kör historik infrastruktur eller inte. Standardvärdet är _SANT_. 
 
-**UseSampling**: _UseSampling_ anger om de aktiva provdatauppsättningar för datakällor som används för körning. Om värdet _FALSKT_, datakällor mata in och använda fullständig data läses från datalagret. Om värdet _SANT_, aktiva exempel används. Användarna kan använda den **DataSourceSettings** att ange vilka specifika provdatauppsättningar ska användas om de vill åsidosätta active exemplet. 
+**UseSampling**: _UseSampling_ anger om aktiva exemplen på datauppsättningar för datakällor som används för körningen. Om inställd _FALSKT_, datakällor mata in och använda den fullständiga data läses från datalagret. Om inställd _SANT_, aktiva exempel används. Användare kan använda den **DataSourceSettings** att ange vilka specifika exempel på datauppsättningar ska användas om de vill åsidosätta active exemplet. 
 
-**DataSourceSettings**: konfigurationsavsnittet anger inställningarna för datakälla. I det här avsnittet anger användaren vilka befintliga data exemplet för en viss datakälla används som en del av körningen. 
+**DataSourceSettings**: den här konfigurationen anger inställningar för datakälla. I det här avsnittet anger användaren vilka befintliga data-exemplet för en viss datakälla används som en del av körningen. 
 
 Följande Konfigurationsinställningen anger det exemplet med namnet ”MySample” används för datakällan med namnet ”MyDataSource”
 ```
@@ -204,18 +204,18 @@ DataSourceSettings:
     Sample: MySample
 ```
 
-**DataSourceSubstitutions**: datakälla ersättningar kan användas när användaren vill växla från en datakälla till en annan utan att ändra koden. Användare kan till exempel växla från en provtagning ned, lokal fil till den ursprungliga, större datamängd som lagras i Azure Blob genom att ändra referens för datakälla. När en ersättning används körs Azure ML-arbetsstationen dina datakällor och data förberedelse paket som refererar till datakällan substitute.
+**DataSourceSubstitutions**: Data källan ersättningar kan användas när du vill växla från en datakälla till en annan utan att ändra sin kod. Användare kan till exempel växla från en samplas ned, lokal fil till den ursprungliga, större datamängd som lagras i Azure Blob genom att ändra datakällreferensen. När du använder en ersättning, körs Azure ML Workbench dina datakällor och paket för förberedelse av data genom att referera till datakällan ersättning.
 
-I följande exempel ersätter ”mylocal.datasource”-referenser i Azure ML-datakällor och paket för förberedelse av data med ”myremote.dsource”. 
+I följande exempel ersätter ”mylocal.datasource” referenserna i Azure ML-datakällor och paket för förberedelse av data med ”myremote.dsource”. 
  
 ```
 DataSourceSubstitutions:
     mylocal.dsource: myremote.dsource
 ```
 
-Baserat på ovanstående ersättningen läser följande kodexempel nu från ”myremote.dsource” i stället för ”mylocal.dsource” utan användare ändra sina kod.
+Baserat på ersättningen ovan kan läser följande kodexempel nu från ”myremote.dsource” i stället för ”mylocal.dsource” utan att användarna ändrar sin kod.
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om [experiment tjänstkonfiguration](experimentation-service-configuration.md).
+Läs mer om [Experimentation Service configuration](experimentation-service-configuration.md).

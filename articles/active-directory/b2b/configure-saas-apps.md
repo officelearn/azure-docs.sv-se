@@ -1,107 +1,107 @@
 ---
 title: Konfigurera SaaS-appar för B2B-samarbete i Azure Active Directory | Microsoft Docs
-description: Koden och PowerShell-exempel för Azure Active Directory B2B-samarbete
+description: Kod och PowerShell-exempel för Azure Active Directory B2B-samarbete
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f0f291216a3031d50d304c02b97786f23d1a6267
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 409cce16d256c408aaa245b97d17171669a2cf41
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267535"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647270"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurera SaaS-appar för B2B-samarbete
 
-Azure Active Directory (AD Azure) B2B-samarbete fungerar med de flesta appar som integreras med Azure AD. I det här avsnittet går vi igenom instruktioner för att konfigurera vissa populära SaaS-appar för användning med Azure AD B2B.
+Azure Active Directory (Azure AD) B2B-samarbete fungerar med de flesta appar som integreras med Azure AD. I det här avsnittet ska går vi igenom anvisningarna för att konfigurera vissa populära SaaS-appar för användning med Azure AD B2B.
 
-Innan du tittar på app-specifik anvisningarna är här några tumregel:
+Innan du tittar på app-specifika anvisningar, är här några tumregel:
 
-* För de flesta appar måste användaren ske manuellt. Det vill säga skapas användare manuellt i appen även.
+* För de flesta appar måste användare ske manuellt. Det vill säga måste användare skapas manuellt i appen även.
 
-* För appar som har stöd för automatisk installation, till exempel Dropbox, skapas separat inbjudningar från apparna. Användare måste vara säker på att du accepterar varje inbjudan.
+* För appar som stöder automatisk installation, till exempel Dropbox, skapas separat inbjudningar från apparna. Användarna måste vara noga med att godkänna varje inbjudan.
 
-* I användarattributen för att åtgärda eventuella problem med felaktig användarprofil-disk (UPD) i gästanvändare, alltid ange **användar-ID** till **user.mail**.
+* I användarattribut för att lösa eventuella problem med felaktig användarprofil-disk (UPD) i gästanvändare, alltid ange **användaridentifierare** till **user.mail**.
 
 
-## <a name="dropbox-business"></a>Dropbox företag
+## <a name="dropbox-business"></a>Dropbox-företag
 
-Om du vill att användarna ska logga in med sina organisation, måste du manuellt konfigurera Dropbox företag om du vill använda Azure AD som en identitetsleverantör Security Assertion Markup Language (SAML). Om Dropbox företag inte har konfigurerats för att göra det, kan inte fråga eller annars tillåter användare att logga in med Azure AD.
+Om du vill att användarna ska logga in med deras organisation, måste du manuellt konfigurera Dropbox företag för att använda Azure AD som en identitetsprovider för Security Assertion Markup Language (SAML). Om Dropbox företag inte har konfigurerats för att göra det, kan inte fråga eller annars tillåter användare att logga in med Azure AD.
 
-1. Om du vill lägga till Dropbox Business-app till Azure AD, Välj **företagsprogram** i den vänstra rutan, och klicka sedan på **Lägg till**.
+1. Om du vill lägga till Dropbox Business-app till Azure AD, Välj **företagsprogram** i den vänstra rutan och klicka sedan på **Lägg till**.
 
-  ![Knappen ”Lägg till” på sidan Enterprise program](media/configure-saas-apps/add-dropbox.png)
+  ![Knappen ”Lägg till” på sidan för Enterprise-program](media/configure-saas-apps/add-dropbox.png)
 
-2. I den **lägga till ett program** fönstret Ange **dropbox** i sökrutan och väljer sedan **Dropbox för företag** i resultatlistan.
+2. I den **lägga till ett program** fönstret, ange **dropbox** i sökrutan och välj sedan **Dropbox for Business** i resultatlistan.
 
-  ![Sök efter ”dropbox” på Lägg till en program-sida](media/configure-saas-apps/add-app-dialog.png)
+  ![Sök efter ”dropbox” på bladet Lägg till en sida för programmet](media/configure-saas-apps/add-app-dialog.png)
 
-3. På den **enkel inloggning** väljer **enkel inloggning** i den vänstra rutan och ange sedan **user.mail** i den **användar-ID** rutan. (Det är angivet som UPN som standard.)
+3. På den **enkel inloggning** väljer **enkel inloggning** i den vänstra rutan och sedan ange **user.mail** i den **användaridentifierare** box. (Den är inställd som UPN som standard.)
 
   ![Konfigurera enkel inloggning för appen](media/configure-saas-apps/configure-app-sso.png)
 
-4. För att hämta certifikatet som ska användas för Dropbox-konfiguration, markera **konfigurera DropBox**, och välj sedan **SAML logga på tjänst-URL för enkel** i listan.
+4. För att hämta certifikatet som ska användas för konfiguration av Dropbox, Välj **konfigurera DropBox**, och välj sedan **SAML enkel inloggning på tjänstens URL** i listan.
 
-  ![Hämta certifikatet för Dropbox-konfiguration](media/configure-saas-apps/download-certificate.png)
+  ![Nedladdningen av certifikatet för Dropbox-konfiguration](media/configure-saas-apps/download-certificate.png)
 
-5. Logga in till Dropbox med den inloggnings-URL från den **enkel inloggning** sidan.
+5. Logga in på Dropbox med inloggnings-URL: en från den **enkel inloggning** sidan.
 
-  ![Sidan för Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
+  ![Inloggningssidan för Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
 
-6. Välj på menyn **administratörskonsolen**.
+6. På menyn, Välj **administratörskonsolen**.
 
-  ![Länken ”Admin Console” på Dropbox-menyn](media/configure-saas-apps/dropbox-menu.png)
+  ![Länken ”administratörskonsolen” på menyn Dropbox](media/configure-saas-apps/dropbox-menu.png)
 
-7. I den **autentisering** dialogrutan **mer**, ladda upp certifikatet och sedan, i den **logga in URL: en** ange SAML enkel inloggning URL: en.
+7. I den **autentisering** dialogrutan **mer**, ladda upp certifikatet och klicka sedan på **loggar du in URL: en** anger SAML enkel inloggnings-URL: en.
 
-  ![Länken ”Mer” i dialogrutan minimerade autentisering](media/configure-saas-apps/dropbox-auth-01.png)
+  ![”Mer”-länken i dialogrutan för komprimerad autentisering](media/configure-saas-apps/dropbox-auth-01.png)
 
-  ![I ”logga in URL: en” i dialogrutan för utökade autentisering](media/configure-saas-apps/paste-single-sign-on-URL.png)
+  ![Den ”logga in URL: en” i dialogrutan för utökade autentisering](media/configure-saas-apps/paste-single-sign-on-URL.png)
 
-8. Om du vill konfigurera automatisk användarinställningar i Azure portal, Välj **etablering** i den vänstra rutan, Välj **automatisk** i den **etablering läge** och välj sedan **auktorisera**.
+8. Om du vill konfigurera automatisk användarinställningar i Azure portal, Välj **etablering** i den vänstra rutan väljer **automatisk** i den **etablering läge** och sedan väljer  **Auktorisera**.
 
-  ![Konfigurera automatisk användaretablering i Azure-portalen](media/configure-saas-apps/set-up-automatic-provisioning.png)
+  ![Konfigurera automatisk användaretablering i Azure portal](media/configure-saas-apps/set-up-automatic-provisioning.png)
 
-När gästen eller medlem användare har ställts in i appen Dropbox, får de en separat inbjudan från Dropbox. Om du vill använda Dropbox enkel inloggning acceptera inbjudna vill inbjudan genom att klicka på en länk i den.
+När användare Gäst eller medlem har lagts upp i Dropbox-app, får de en separat inbjudan från Dropbox. Om du vill använda Dropbox enkel inloggning, tacka inbjudna Ja till inbjudan genom att klicka på en länk i den.
 
 ## <a name="box"></a>Box
-Du kan låta användare autentisera rutan gästanvändare med sina Azure AD-kontot med hjälp av federation som baseras på SAML-protokoll. Den här metoden Överför metadata till Box.com.
+Du kan låta användare autentisera Box gästanvändare med sina Azure AD-konto med hjälp av federation som baseras på SAML-protokoll. I den här proceduren måste överföra du metadata till Box.com.
 
 1. Lägg till Box-app från enterprise-appar.
 
 2. Konfigurera enkel inloggning i följande ordning:
 
-  ![Konfigurera rutan enkel inloggning](media/configure-saas-apps/configure-box-sso.png)
+  ![Konfigurera Box enkel inloggning](media/configure-saas-apps/configure-box-sso.png)
 
- a. I den **inloggning URL** kontrollerar du att den inloggnings-URL är inställd på rätt sätt för rutan i Azure-portalen. Denna URL är Webbadressen till din Box.com-klient. Det bör följa en namngivningskonvention *https://.box.com*.  
+ a. I den **inloggnings-URL** ser du till att inloggnings-URL: en har angetts på rätt sätt för Box i Azure-portalen. Denna URL är Webbadressen till din Box.com-klient. Den bör följa namngivningskonventionen *https://.box.com*.  
  Den **identifierare** gäller inte för den här appen, men den fortfarande visas som ett obligatoriskt fält.
 
- b. I den **användar-ID** ange **user.mail** (för enkel inloggning för gästkonton).
+ b. I den **användaridentifierare** anger **user.mail** (för enkel inloggning för gästkonton).
 
  c. Under **SAML-signeringscertifikat**, klickar du på **Skapa nytt certifikat**.
 
- d. Om du vill börja konfigurera din Box.com klient om du vill använda Azure AD som en identitetsleverantör och hämta metadatafilen och spara den på din lokala enhet.
+ d. Om du vill börja konfigurera din Box.com-klient för att använda Azure AD som identitetsprovider och hämta för metadatafilen och spara den på den lokala enheten.
 
- e. Vidarebefordra metadatafil till rutan supportteam, som konfigurerar enkel inloggning för dig.
+ e. Vidarebefordra metadatafilen rutan supportteam, som konfigurerar enkel inloggning för dig.
 
 3. Azure AD automatisk användarinställningar, i den vänstra rutan, Välj **etablering**, och välj sedan **auktorisera**.
 
-  ![Verifiera Azure AD för att ansluta till rutan](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
+  ![Auktorisera Azure AD för att ansluta till Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
-Som Dropbox inbjudna lösa rutan inbjudna vill sina inbjudan från Box-app.
+T.ex. Dropbox inbjudna Box inbjudna måste lösa in sin inbjudan från Box-app.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artiklar om Azure AD B2B-samarbete:
+Se följande artiklar på Azure AD B2B-samarbete:
 
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
 - [Dynamiska grupper och B2B-samarbete](use-dynamic-groups.md)
-- [B2B-samarbete användaranspråk mappning](claims-mapping.md)
+- [B2B-samarbete mappning av användaranspråk](claims-mapping.md)
 - [Extern delning av Office 365](o365-external-user.md)
 

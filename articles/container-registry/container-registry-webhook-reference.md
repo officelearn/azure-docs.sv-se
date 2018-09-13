@@ -1,6 +1,6 @@
 ---
-title: Azure Container registret webhook-Schemareferens
-description: Webhook begäran JSON-nyttolast referens för Azure-behållare registernyckeln.
+title: Schemareferens i Azure Container Registry webhook
+description: Webhook-begäran JSON-nyttolast referens för Azure Container Registry.
 services: container-registry
 author: mmacy
 manager: jeconnoc
@@ -8,19 +8,20 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 87fe978416c29b50abeef0e0a6624d7440dd87ef
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646760"
 ---
-# <a name="azure-container-registry-webhook-reference"></a>Azure Container webhook register
+# <a name="azure-container-registry-webhook-reference"></a>Referens för Azure Container Registry-webhook
 
-Du kan [konfigurerar webhooks](container-registry-webhook.md) för behållaren registret som genererar händelser när vissa åtgärder utförs mot den. Du kan till exempel aktivera webhooks som aktiveras på behållaren avbildningen `push` och `delete` åtgärder. När en webhook utlöses skickar Azure Container registret en HTTP eller HTTPS-begäran som innehåller information om händelsen till en slutpunkt som du anger. Slutpunkten kan bearbeta webhook och fungerar därför.
+Du kan [konfigurerar webhooks](container-registry-webhook.md) för ditt behållarregister som genererar händelser när vissa åtgärder som utförs mot den. Du kan till exempel aktivera webhooks som utlösts av behållaravbildning `push` och `delete` åtgärder. När en webhook har utlösts skickar en HTTP eller HTTPS-begäran som innehåller information om händelsen till en slutpunkt som du anger i Azure Container Registry. Slutpunkten kan sedan bearbeta webhooken och agera utifrån dessa.
 
-Följande avsnitt innehåller information om schemat för webhook-begäranden som genereras av händelser som stöds. Händelse-avsnitt innehåller nyttolast-schemat för händelsetypen, en exempel-nyttolasten i begäran och en eller flera exempel på kommandon som ska utlösa webhooken.
+Följande avsnitt beskriver schemat för webhook-begäranden som genereras av händelser som stöds. Händelse-avsnitt innehåller nyttolast-schemat för händelsetypen, en exempel-nyttolasten för begäran och en eller flera exempel på kommandon som ska utlösa webhooken.
 
-Information om hur du konfigurerar webhooks för din Azure-behållaren registernyckeln finns [med Azure Container registret webhooks](container-registry-webhook.md).
+Information om hur du konfigurerar webhooks för Azure container registry finns i [med hjälp av Azure Container Registry-webhookar](container-registry-webhook.md).
 
 ## <a name="webhook-requests"></a>Webhook-begäranden
 
@@ -30,45 +31,45 @@ En utlösta webhook gör ett HTTP `POST` begäran till URL-slutpunkt som du anga
 
 ### <a name="http-headers"></a>HTTP-huvuden
 
-Webhook-förfrågningar innehålla en `Content-Type` av `application/json` om du inte har angett en `Content-Type` anpassad rubrik för din webhooken.
+Webhook-begäran innehålla en `Content-Type` av `application/json` om du inte har angett en `Content-Type` anpassat sidhuvud för din webhook.
 
-Inga andra huvuden läggs till begäran utöver dessa anpassade huvuden som du har angett för webhooken.
+Inga andra rubriker läggs till i begäran utöver dessa anpassade sidhuvuden som du har angett för webhook.
 
 ## <a name="push-event"></a>Push-händelse
 
-Webhook utlöses när en avbildning av behållare skickas till en databas.
+Webhook-utlöst när en behållaravbildning skickas till en databas.
 
 ### <a name="push-event-payload"></a>Push-händelsenyttolast
 
 |Element|Typ|Beskrivning|
 |-------------|----------|-----------|
-|`id`|Sträng|ID för webhook-händelsen.|
+|`id`|Sträng|ID för webhook-händelse.|
 |`timestamp`|DateTime|Den tid då händelsen webhook utlöstes.|
-|`action`|Sträng|Åtgärden som utlöste webhook-händelsen.|
-|[mål](#target)|Komplex typ|Mål för den händelse som utlöste webhook-händelsen.|
-|[Begäran](#request)|Komplex typ|Den begäran som skapade webhook-händelsen.|
+|`action`|Sträng|Den åtgärd som utlöste händelsen webhook.|
+|[Mål](#target)|Komplex typ|Mål för den händelse som utlöste händelsen webhook.|
+|[Begäran](#request)|Komplex typ|Den begäran som genereras av webhook-händelse.|
 
 ### <a name="target"></a>mål
 
 |Element|Typ|Beskrivning|
 |------------------|----------|-----------|
-|`mediaType`|Sträng|Det refererade objektet MIME-typ.|
-|`size`|Int32|Antal byte av innehållet. Samma som fältlängden.|
-|`digest`|Sträng|Sammanfattningen av innehåll, som definieras i registernyckeln V2 http-API-specifikationen.|
-|`length`|Int32|Antal byte av innehållet. Samma som fältet storlek.|
-|`repository`|Sträng|Databasens namn.|
-|`tag`|Sträng|Taggnamnet avbildningen.|
+|`mediaType`|Sträng|MIME-typ för det refererade objektet.|
+|`size`|Int32|Antal byte av innehållet. Samma som fältet längd.|
+|`digest`|Sträng|Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen.|
+|`length`|Int32|Antal byte av innehållet. Samma som fältet.|
+|`repository`|Sträng|Namnet på lagringsplatsen.|
+|`tag`|Sträng|Taggnamnet bild.|
 
-### <a name="request"></a>Begäran
+### <a name="request"></a>begäran
 
 |Element|Typ|Beskrivning|
 |------------------|----------|-----------|
 |`id`|Sträng|ID för begäran som initierade händelsen.|
-|`host`|Sträng|Externa värdnamnet för register-instans som anges av värden HTTP-huvudet på inkommande begäranden.|
-|`method`|Sträng|Metoden begäran som skapade händelsen.|
-|`useragent`|Sträng|Användaren agent huvudet i begäran.|
+|`host`|Sträng|Externt tillgängliga värdnamnet för registry-instans som den anges av HTTP-rubriken på inkommande begäranden.|
+|`method`|Sträng|Metoden för begäran som genererade händelsen.|
+|`useragent`|Sträng|Användaren agent huvudet för begäran.|
 
-### <a name="payload-example-push-event"></a>Nyttolasten exempel: push-händelse
+### <a name="payload-example-push-event"></a>Nyttolast-exempel: push-händelse
 
 ```JSON
 {
@@ -92,44 +93,44 @@ Webhook utlöses när en avbildning av behållare skickas till en databas.
 }
 ```
 
-Exempel [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) kommando som utlöser den **push** händelse webhook:
+Exempel [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) kommando som utlöser den **push** händelse-webhook:
 
 ```bash
 docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-## <a name="delete-event"></a>Ta bort händelser
+## <a name="delete-event"></a>Ta bort händelse
 
-Webhook utlöses när en databas eller manifestet tas bort. Aktiveras inte när en tagg har tagits bort.
+Webhook-utlöst när lagringsplats eller manifest tas bort. Utlöses inte när en tagg har tagits bort.
 
 ### <a name="delete-event-payload"></a>Ta bort händelsenyttolast
 
 |Element|Typ|Beskrivning|
 |-------------|----------|-----------|
-|`id`|Sträng|ID för webhook-händelsen.|
+|`id`|Sträng|ID för webhook-händelse.|
 |`timestamp`|DateTime|Den tid då händelsen webhook utlöstes.|
-|`action`|Sträng|Åtgärden som utlöste webhook-händelsen.|
-|[mål](#delete_target)|Komplex typ|Mål för den händelse som utlöste webhook-händelsen.|
-|[Begäran](#delete_request)|Komplex typ|Den begäran som skapade webhook-händelsen.|
+|`action`|Sträng|Den åtgärd som utlöste händelsen webhook.|
+|[Mål](#delete_target)|Komplex typ|Mål för den händelse som utlöste händelsen webhook.|
+|[Begäran](#delete_request)|Komplex typ|Den begäran som genereras av webhook-händelse.|
 
-### <a name="delete_target"></a> mål
+### <a name="delete_target"></a> Mål
 
 |Element|Typ|Beskrivning|
 |------------------|----------|-----------|
-|`mediaType`|Sträng|Det refererade objektet MIME-typ.|
-|`digest`|Sträng|Sammanfattningen av innehåll, som definieras i registernyckeln V2 http-API-specifikationen.|
-|`repository`|Sträng|Databasens namn.|
+|`mediaType`|Sträng|MIME-typ för det refererade objektet.|
+|`digest`|Sträng|Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen.|
+|`repository`|Sträng|Namnet på lagringsplatsen.|
 
 ### <a name="delete_request"></a> Begäran
 
 |Element|Typ|Beskrivning|
 |------------------|----------|-----------|
 |`id`|Sträng|ID för begäran som initierade händelsen.|
-|`host`|Sträng|Externa värdnamnet för register-instans som anges av värden HTTP-huvudet på inkommande begäranden.|
-|`method`|Sträng|Metoden begäran som skapade händelsen.|
-|`useragent`|Sträng|Användaren agent huvudet i begäran.|
+|`host`|Sträng|Externt tillgängliga värdnamnet för registry-instans som den anges av HTTP-rubriken på inkommande begäranden.|
+|`method`|Sträng|Metoden för begäran som genererade händelsen.|
+|`useragent`|Sträng|Användaren agent huvudet för begäran.|
 
-### <a name="payload-example-delete-event"></a>Nyttolasten exempel: ta bort händelser
+### <a name="payload-example-delete-event"></a>Nyttolasten exemplet: ta bort händelse
 
 ```JSON
 {
@@ -150,7 +151,7 @@ Webhook utlöses när en databas eller manifestet tas bort. Aktiveras inte när 
   }
 ```
 
-Exempel [Azure CLI 2.0](/cli/azure/acr) kommandon för att utlösa en **ta bort** händelse webhook:
+Exempel [Azure CLI](/cli/azure/acr) kommandon som utlösaren en **ta bort** händelse-webhook:
 
 ```azurecli
 # Delete repository
@@ -162,4 +163,4 @@ az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --m
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Med hjälp av Azure-behållare registret webhooks](container-registry-webhook.md)
+[Med Azure Container Registry-webhookar](container-registry-webhook.md)

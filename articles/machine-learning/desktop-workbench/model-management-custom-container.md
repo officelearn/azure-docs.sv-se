@@ -1,31 +1,31 @@
 ---
-title: Anpassa den behållare bild som används för att distribuera Azure ML-modell | Microsoft Docs
-description: Den här artikeln beskriver hur du anpassar en behållare avbildning för Azure Machine Learning-modeller
+title: Anpassa den Behållaravbildning som används för att distribuera Azure ML-modeller | Microsoft Docs
+description: Den här artikeln beskriver hur du anpassar en behållaravbildning för Azure Machine Learning-modeller
 services: machine-learning
 author: tedway
 ms.author: tedway
 manager: mwinkle
 ms.reviewer: mldocs, raymondl
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
-ms.openlocfilehash: 715b4c1f02622b015e4118ac38edd9fe6a051ed7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7879cf1891e071da1a0ad3ddfc30f90fc7be8ca5
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834717"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649989"
 ---
-# <a name="customize-the-container-image-used-for-azure-ml-models"></a>Anpassa den behållare bild som används för Azure ML-modeller
+# <a name="customize-the-container-image-used-for-azure-ml-models"></a>Anpassa den behållaravbildning som används för Azure ML-modeller
 
-Den här artikeln beskriver hur du anpassar en behållare avbildning för Azure Machine Learning-modeller.  Azure ML-arbetsstationen använder behållare för distribution av machine learning-modeller. Modeller distribueras tillsammans med deras beroenden och Azure ML bygger en bild från modellen, beroenden och associerade filer.
+Den här artikeln beskriver hur du anpassar en behållaravbildning för Azure Machine Learning-modeller.  Azure ML Workbench använder behållare för att distribuera machine learning-modeller. Modeller som distribueras tillsammans med deras beroenden och Azure ML bygger en bild från modellen, beroenden och tillhörande filer.
 
-## <a name="how-to-customize-the-docker-image"></a>Hur du anpassar Docker-bild
-Anpassa Docker-avbildningen som Azure ML distribuerar med:
+## <a name="how-to-customize-the-docker-image"></a>Hur du anpassar Docker-avbildningen
+Anpassa Azure ML distribuerar med hjälp av Docker-avbildningen:
 
-1. En `dependencies.yml` fil: hantera beroenden som kan installeras från [PyPi]( https://pypi.python.org/pypi), du kan använda den `conda_dependencies.yml` filen från projektet arbetsstationen eller skapa egna. Det här är en rekommenderad metod för att installera Python-beroenden som kan installeras med pip.
+1. En `dependencies.yml` fil: att hantera beroenden som kan installeras från [PyPi]( https://pypi.python.org/pypi), du kan använda den `conda_dependencies.yml` filen från Workbench-projekt, eller skapa egna. Detta är det rekommenderas att-metoden för att installera Python-beroenden som är pip-installation.
 
    Exempel CLI-kommando:
    ```azurecli
@@ -45,18 +45,18 @@ Anpassa Docker-avbildningen som Azure ML distribuerar med:
         - matplotlib
    ```
         
-2. En Docker steg fil: med det här alternativet kan du anpassa den distribuerade avbildningen genom att installera beroenden som inte kan installeras från PyPi. 
+2. Docker steg fil: med det här alternativet kan du anpassa den distribuerade avbildningen genom att installera beroenden som inte kan installeras från PyPi. 
 
-   Filen bör innehålla Docker installationssteg som en DockerFile. Följande kommandon är tillåtna i filen: 
+   Filen ska innehålla Docker installationsstegen som en DockerFile. Följande kommandon är tillåtna i filen: 
 
-    KÖR EXPONERA ENV, %D{ARG/, ETIKETT,
+    KÖRA, EXPONERA ENV, ARG, ETIKETT,
 
    Exempel CLI-kommando:
    ```azurecli
    az ml image create -n <my Image Name> --manifest-id <my Manifest ID> --docker-file <myDockerStepsFileName> 
    ```
 
-   Bild, manifestet och tjänsten kommandon accepterar flaggan docker-fil.
+   Bild, Manifest och tjänsten kommandona accepterar flaggan docker-filen.
 
    Docker steg exempelfil:
    ```docker
@@ -67,7 +67,7 @@ Anpassa Docker-avbildningen som Azure ML distribuerar med:
    ```
 
 > [!NOTE]
-> Basavbildningen för Azure ML-behållare är Ubuntu och kan inte ändras. Om du anger en annan basavbildning, kommer att ignoreras.
+> Basavbildningen för Azure ML-behållare är Ubuntu och kan inte ändras. Om du anger en annan basavbildning kommer att ignoreras.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har anpassat behållaren avbildningen måste distribuera du den till ett kluster för storskalig användning.  Mer information om hur du skapar ett kluster för web service-distributionen finns [modellen Management Configuration](deployment-setup-configuration.md). 
+Nu när du har anpassat en behållaravbildning kan distribuera du det till ett kluster för storskalig användning.  Mer information om hur du konfigurerar ett kluster för distribution av webbtjänster finns i [Administrationskonfiguration för modellen](deployment-setup-configuration.md). 

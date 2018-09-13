@@ -1,6 +1,6 @@
 ---
-title: Hantera en arbetsyta i Machine Learning | Microsoft Docs
-description: Hantera åtkomst till Azure Machine Learning arbetsytor och distribuera och hantera ml – API-tjänster
+title: Hantera en Machine Learning-arbetsyta | Microsoft Docs
+description: Hantera åtkomst till Azure Machine Learning-arbetsytor och distribuera och hantera ML API-webbtjänster
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,43 +15,43 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 8c8e65d5fd7efd1f9212b76e1a72b91a0ea07272
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6e1febfff211dd92f8990d1880562e64382de5f0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835074"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649266"
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Hantera en Azure Machine Learning-arbetsyta
 
 > [!NOTE]
-> Information om hur du hanterar webbtjänster i Machine Learning-webbtjänster portal finns [hantera en webbtjänst med hjälp av Azure Machine Learning-webbtjänster portal](manage-new-webservice.md).
+> Information om hur du hanterar webbtjänster i Machine Learning Web Services-portalen finns i [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md).
 > 
 > 
 
-Du kan hantera Machine Learning arbetsytor i Azure-portalen.
+Du kan hantera Machine Learning-arbetsytor i Azure-portalen.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-Hantera en arbetsyta i Azure-portalen:
+Hantera en arbetsyta i Azure portal:
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett administratörskonto för Azure-prenumeration.
-2. Ange ”dator learning arbetsytor” i sökrutan överst på sidan och välj sedan **Machine Learning arbetsytor**.
+2. Ange ”machine learning-arbetsytor” i sökrutan överst på sidan och välj sedan **Machine Learning-arbetsytor**.
 3. Klicka på arbetsytan som du vill hantera.
 
-Förutom standard resursinformation för hantering och alternativ som är tillgängliga kan du:
+Förutom standard resource management information och alternativ som är tillgängliga kan du:
 
-- Visa **egenskaper** – den här sidan visar arbetsytan och resursen och du kan ändra gruppen prenumeration och resurs som den här arbetsytan är kopplad till.
-- **Omsynkronisering Lagringsnycklar** -arbetsytan underhåller nycklar till lagringskontot. Om lagringskontot ändras nycklar och du kan klicka på **omsynkronisering nycklar** att synkronisera nycklar med arbetsytan.
+- Visa **egenskaper** – den här sidan visas information om arbetsytan och resursen och du kan ändra gruppen prenumeration och resursgrupp som den här arbetsytan är kopplad till.
+- **Synkronisera om Lagringsnycklar** -arbetsytan har nycklar till lagringskontot. Om lagringskontot ändras nycklar så kan du klicka på **omsynkronisering av nycklar** och synkronisera nycklarna med arbetsytan.
 
-Använd portalen Machine Learning-webbtjänster för att hantera de webbtjänster som är associerade med den här arbetsytan. Se [hantera en webbtjänst med hjälp av Azure Machine Learning-webbtjänster portal](manage-new-webservice.md) fullständig information.
+Hantera webbtjänster som är associerade med den här arbetsytan med Machine Learning Web Services-portalen. Se [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md) fullständig information.
 
 > [!NOTE]
-> Om du vill distribuera eller hantera nya webbtjänster måste du tilldelas rollen deltagare eller administratör på den prenumeration som webbtjänsten har distribuerats. Om du bjuda in en annan användare till en machine learning-arbetsytan måste du tilldela dem en roll för deltagare eller administratör för prenumerationen innan de kan distribuera eller hantera webbtjänster. 
+> Om du vill distribuera och hantera nya webbtjänster måste du vara tilldelad rollen deltagare / administratör för prenumerationen där webbtjänsten har distribuerats. Om du bjuder in en annan användare till en machine learning-arbetsytan måste du tilldela dem till rollen deltagare / administratör för prenumerationen innan de kan distribuera eller hantera webbtjänster. 
 > 
->Mer information om inställningen åtkomstbehörighet finns [visa åtkomst-tilldelningar för användare och grupper i Azure portal](../../role-based-access-control/role-assignments-users.md).
+>Läs mer på inställningen åtkomstbehörigheter [hantera åtkomst med RBAC och Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [distribuera Machine Learning med Azure Resource Manager-mallar](deploy-with-resource-manager-template.md). 
+* Läs mer om [distribuera Machine Learning med Azure Resource Manager-mallar](deploy-with-resource-manager-template.md). 

@@ -1,6 +1,6 @@
 ---
 title: Energi begäran tidsserier prognoser | Microsoft Docs
-description: Så här använder maskininlärning att förutsäga energi begäran tidsserier i Azure Machine Learning-arbetsstationen.
+description: Så här använder maskininlärning att skapa prognoser för energi begäran tidsserier i Azure Machine Learning Workbench.
 services: machine-learning
 documentationcenter: ''
 author: anta
@@ -9,78 +9,78 @@ editor: anta
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 19e62364599ec9f1d0571e6f6e35205b0bb93b4b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3f32c9048c4b2002e7672b46a4f39e86ffa7b98e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832541"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647617"
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Energi begäran tidsserier prognoser
 
 
-Tid serien prognoser är att förutsäga framtida värden i en tid sorterade sekvens av observationer. Det är ett vanligt problem och har program i många branscher. Till exempel behöver retail företag att förutsäga framtida produktförsäljning så att de effektivt kan ordna sina ange kedjor att uppfylla begäran. På liknande sätt behöver paketet leverans företag att beräkna behovet av sina tjänster så att de kan planera arbetsstyrka krav och leveransvägar i förväg. I många fall vara finansiella risker stämmer prognoser betydande. Därför prognoser är ofta en kritisk verksamhet.
+Tidsserier är uppgiften att förutsäga framtida värden i en tidsordnad sekvens med observationer. Det är ett vanligt problem och om du har program inom många branscher. Detaljhandel företag behöver till exempel att skapa prognoser för framtida produktförsäljning så att de effektivt kan ordna sina leveranskedjor att möta efterfrågan. På samma sätt behöver paketet leverans företag att uppskatta behovet av sina tjänster så att de kan planera krav för anställda och leveransvägar förbereds i förväg. I många fall kan finansiella risker för felaktiga prognoser vara betydande. Prognoser är därför ofta en kritisk business-aktivitet.
 
-Det här exemplet visar hur tiden serien prognoser kan utföras genom att använda tekniker för machine learning. Vägleds du genom alla steg i modellering processen inklusive:
+Detta exempel visar hur tidsserier kan utföras genom att använda machine learning-teknik. Vägleds du genom varje steg på modellering processen, inklusive:
 - Förberedelse av data att rensa och formatera data.
-- Skapa funktioner för maskininlärning modeller från rådata serien tidsdata;
+- Skapa funktioner för de machine learning-modeller från rådata tidsseriedata;
 - Utbildning olika machine learning-modeller.
-- Utvärdera modellerna genom att jämföra deras prestanda på hålls out testdata; och
-- Operationalizing bästa modellen, vilket gör det tillgängligt via en webbtjänst för att generera prognoser på begäran.
+- Modellutvärdering genom att jämföra deras prestanda på en datauppsättning som lagras utanför test; och,
+- Operationalisera modellen med bäst, vilket gör det tillgängligt via en webbtjänst för att skapa prognoser för efterfrågan.
 
-Azure Machine Learning arbetsstationen underlättar modelleringsprocessen vid varje steg: 
-- Exemplet visar hur Jupyter-anteckningsbok miljö - tillgängliga direkt från via arbetsstationen - ser utvecklar enklare Python-kod. Modellen utvecklingsprocessen förklaras till andra tydligare med markdown anteckningar och diagram. Dessa datorer kan visas, redigeras och köras direkt från arbetsstationen.
-- Tränade modeller kan beständiga och överföras till blob storage. Detta hjälper data forskare att hålla reda på tränade modellobjekt och kontrollera de sparade hämtningsbart strängfält vid behov.
-- Mått kan loggas vid körning av Python-skriptet, aktiverar data forskare att registrera modellen prestanda resultat.
-- Arbetsstationen producerar anpassningsbara tabeller av loggade mätvärden, vilket gör att data forskare enkelt kan jämföra prestandamått för modellen. Diagram visas automatiskt så att den bäst prestanda modellen enkelt kan identifieras.
-- Slutligen visar exemplet hur en tränad modell kan vara operationalized genom att distribuera den i en webbtjänst i realtid.
+Azure Machine Learning Workbench hjälper till med modelleringsprocessen vid varje steg: 
+- Exemplet visar hur Jupyter notebook miljö - tillgängliga direkt från via Workbench - ser utveckla Python-koden enklare. Process för utveckling av modellen kan förklaras för andra som använder tydligare markdown anteckningar och diagram. Dessa anteckningsböcker kan visas, redigeras och körs direkt från Workbench.
+- Tränade modeller kan sparas och överförts till blob storage. Detta hjälper dataexpert för att hålla reda på objekt utbildningsmodeller och se till att de är balanserade och hämtningsbara när det behövs.
+- Mått kan loggas vid körning av ett Python-skript som aktiverar dataexpert för att ha koll på modellen prestanda poäng.
+- Workbench producerar anpassningsbara tabeller loggade mått så att datavetare enkelt kan jämföra prestandamått för modellen. Diagram visas automatiskt så att den bästa modellen kan lätt identifieras.
+- Slutligen visar exemplet hur du kan operationaliserat en tränad modell genom att distribuera den i en webbtjänst i realtid.
 
 ## <a name="link-to-the-gallery-github-repository"></a>Länka till galleriet GitHub-lagringsplatsen
-Offentliga GitHub-lagringsplatsen för den här verkligt scenario innehåller alla material, inklusive kodexempel som behövs för det här exemplet:
+Offentliga GitHub-lagringsplatsen för den här verkligt scenario innehåller allt material, inklusive kodexempel som behövs för det här exemplet:
 
 [https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting](https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting)
 
 
-## <a name="use-case-overview"></a>Använd case-översikt
+## <a name="use-case-overview"></a>Översikt över användningsfall
 
-Det här scenariot fokuserar på energiförbrukning prognoser där målet är att förutsäga framtida belastningen på ett energi rutnät. Det är en åtgärd för affärskritiska för företag inom energi som operatorer behöver en bra balans mellan energiförbrukningen i ett rutnät och energi som angetts för den. För mycket ström som har angetts i rutnätet kan resultera i skräp av energi eller tekniska fel. Men om för lite power anges det kan leda till strömavbrott, lämnar kunder utan power. Rutnätet operatorer tar normalt, kortsiktig beslut att hantera energiförsörjning i rutnätet och Tänk utjämna belastningen. Ett kortsiktigt rättvisande prognos av energiförbrukning är därför viktigt för operatorn för att göra dessa beslut med förtroende.
+Det här scenariot fokuserar på efterfrågan på energi prognoser där målet är att förutsäga framtida belastningen på ett elnät. Det är en affärskritisk åtgärd för företag inom energisektorn som operatörer måste vara en bra balans mellan energi som förbrukas i ett rutnät och energi som angetts för den. För mycket ström som angetts för rutnätet kan leda till slöseri med energi eller tekniska fel. Men om för lite power anges kan leda till strömavbrott, lämna kunder utan power. Normalt kan grid operatörer ta kortsiktig beslut att hantera energitillförseln i rutnätet och Tänk saldo belastningen. En korrekt kortsiktig prognoser för efterfrågan på energi är därför viktigt för operatorn som ska ta de här besluten med tillförsikt.
 
-Det här scenariot beskrivs konstruktion av machine learning energiförbrukning prognoser lösning. Lösningen har installerats på en offentlig datamängd från den [New York oberoende System operatorn (NYISO)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument), som fungerar power rutnätet för New York tillstånd. Dataset innehåller varje timme power begäran data för New York City under en period på fem år. En ytterligare datamängd som innehåller varje timme väder i New York City under samma period hämtades från [darksky.net](https://darksky.net).
+Det här scenariot beskriver konstruktion av machine learning-lösning för prognostisering att efterfrågan på energi. Lösningen har tränats på en offentlig datauppsättning från den [New York oberoende System operatorn (NYISO)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument), vilket fungerar power rutnätet för New York tillstånd. Datauppsättningen innehåller per timme power data om efterfrågan för New York City under en period på fem år. En ytterligare datauppsättning som innehåller varje timme väderförhållanden i New York City under samma tidsperiod har kopplats från [darksky.net](https://darksky.net).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns).
-- En installerad kopia av [Azure Machine Learning arbetsstationen](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta.
-- Det här exemplet förutsätter att du använder Azure ML-arbetsstationen på Windows 10 med [Docker-motorn](https://www.docker.com/) har installerats lokalt. Om du använder macOS är instruktionerna i stort sett desamma.
-- Azure Machine Learning Operationalization som installerats med en lokal distributionsmiljö ställer in och ett konto för hantering av modellen skapats enligt beskrivningen i det här [guiden](./model-management-configuration.md).
-- Det här exemplet kräver att du uppdaterar Pandas installationen till version 0.20.3 eller senare och installera matplotlib. Klicka på *öppnar du kommandotolken* från den *filen* -menyn i arbetsstationen och kör följande kommandon för att installera dessa beroenden:
+- En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga).
+- En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta.
+- Det här exemplet förutsätter att du använder Azure ML Workbench på Windows 10 med [Docker-motorn](https://www.docker.com/) installerats lokalt. Om du använder macOS är instruktionerna i stort sett desamma.
+- Azure Machine Learning Operationalization installeras med en lokal distribution-miljö ställer in och ett konto för modellhantering skapats enligt beskrivningen i det här [guide](./model-management-configuration.md).
+- Det här exemplet kräver att du uppdaterar Pandas-installationen till version 0.20.3 eller senare och installera matplotlib. Klicka på *öppna Kommandotolken* från den *filen* menyn i Workbench och kör följande kommandon för att installera dessa beroenden:
 
     ```
     conda install "pandas>=0.21.1"
     ```
     
-## <a name="create-a-new-workbench-project"></a>Skapa ett nytt projekt arbetsstationen
+## <a name="create-a-new-workbench-project"></a>Skapa ett nytt Workbench-projekt
 
-Skapa ett nytt projekt med det här exemplet som mall:
-1.  Öppna Azure Machine Learning-arbetsstationen
+Skapa ett nytt projekt med hjälp av det här exemplet som en mall:
+1.  Öppna Azure Machine Learning Workbench
 2.  På den **projekt** klickar du på den **+** och markera **nytt projekt**
 3.  I den **Skapa nytt projekt** rutan, fyller du i informationen för det nya projektet
-4.  I den **Sök projektmallar** sökrutan, Skriv ”energi begäran tid serien prognoser” och välj mallen
+4.  I den **Sök efter projektmallar** sökrutan skriver du ”energi begäran tidsserier” och väljer mallen
 5.  Klicka på **Skapa**
 
 
-## <a name="data-description"></a>Beskrivning av data
+## <a name="data-description"></a>Databeskrivning
 
-Två datauppsättningar som tillhandahålls med det här exemplet och hämtas med hjälp av den `1-data-preparation.ipynb` anteckningsboken: `nyc_demand.csv` och `nyc_weather.csv`.
+Två datauppsättningar tillhandahålls med det här exemplet och hämtas med hjälp av den `1-data-preparation.ipynb` anteckningsboken: `nyc_demand.csv` och `nyc_weather.csv`.
 
-**nyc_demand.csv** innehåller varje timme energi begäran värden för New York City år 2012 2017. Data har följande enkel struktur:
+**nyc_demand.csv** innehåller per timme energi begäran värden för New York City i år 2012 2017. Data har följande enkel struktur:
 
 | Tidsstämpel | begäran |
 | --- | --- |
@@ -89,11 +89,11 @@ Två datauppsättningar som tillhandahålls med det här exemplet och hämtas me
 | 2012-01-01 02:00:00 | 4542.6 |
 | 2012-01-01 03:00:00 | 4357.7 |
 
-Begäran värdena i megawattimmar (MWh). Nedan visas ett diagram över energiförbrukning under en period för 7 dagar i juli 2017:
+Begäran-värden är i megawattimmar (MWh). Nedan visas ett diagram över efterfrågan på energi under en period på 7 dagar i juli 2017:
 
-![Energiförbrukning](./media/scenario-time-series-forecasting/energy_demand.png  "energiförbrukning")
+![Efterfrågan på energi](./media/scenario-time-series-forecasting/energy_demand.png  "efterfrågan på energi")
 
-**nyc_weather.csv** innehåller varje timme väder värden för New York City års 2012 2017:
+**nyc_weather.csv** innehåller per timme väder värden för New York City år 2012-2017:
 
 | Tidsstämpel | precip | Temp
 | --- | --- | --- |
@@ -102,95 +102,95 @@ Begäran värdena i megawattimmar (MWh). Nedan visas ett diagram över energifö
 | 2012-01-01 02:00:00 | 0.05 | 45.04 |
 | 2012-01-01 03:00:00 | 0.02 | 45.03 |
 
-*precip* är ett procentmått av utfällning. *Temp* har varit skala (temperatur) värden så att alla värden ligger inom intervallet [0, 100].
+*precip* är ett procentmått av andelen nederbörd. *Temp* (temperaturvärden) har tagits skala så att alla värden som faller inom intervallet [0, 100].
 
 ## <a name="scenario-structure"></a>Scenario-struktur
 
-När du öppnar det här projektet för första gången i Azure Machine Learning arbetsstationen, navigera till den *filer* fönstret till vänster. Följande kodfiler tillhandahålls med det här exemplet:
-- `1-data-preparation.ipynb` -Jupyter-anteckningsbok hämtar och bearbetar data för att förbereda för förutsägelsemodellering. Det här är den första bärbara dator du vill köra.
-- `2-linear-regression.ipynb` -anteckningsboken tränar en linjär regressionsmodell för utbildning-data.
-- `3-ridge.ipynb` -tränar en upphöjning regressionsmodell.
-- `4-ridge-poly2.ipynb` -tränar en upphöjning regressionsmodell polynom funktionerna i vilken grad 2.
-- `5-mlp.ipynb` -tränar en flera lager perceptron neurala nätverket.
-- `6-dtree.ipynb` -tränar en modell för beslut trädet.
-- `7-gbm.ipynb` -tränar en modell för toning förstärkta datorn.
-- `8-evaluate-model.py` -skriptet läser in en tränad modell och används för att göra förutsägelser på en hålls out testdata. Den ger mått för utvärdering av modellen så att prestanda för olika modeller kan jämföras.
-- `9-forecast-output-exploration.ipynb` -anteckningsboken producerar visualiseringar av prognoser som genererats av modeller för maskininlärning.
-- `10-deploy-model.ipynb` -anteckningsboken visar hur du kan operationalized utbildade prognosmodellen i en webbtjänst i realtid.
-- `evaluate-all-models.py` -Det här skriptet utvärderar alla tränade modeller. Det ger ett alternativ till att köra `8-evaluate-model.py` för varje tränat modellen individuellt.
+När du öppnar det här projektet för första gången i Azure Machine Learning Workbench, navigera till den *filer* fönstret till vänster. Följande kodfiler tillhandahålls med det här exemplet:
+- `1-data-preparation.ipynb` -den här Jupyter-anteckningsbok hämtar och bearbetar dessa data för att förbereda den för modellering. Det här är den första anteckningsboken som du vill köra.
+- `2-linear-regression.ipynb` – den här anteckningsboken träna en linjär regressionsmodell på träningsdata.
+- `3-ridge.ipynb` – Träna en regressionsmodell för upphöjning.
+- `4-ridge-poly2.ipynb` – Träna en upphöjning regressionsmodell på polynom funktioner i grad 2.
+- `5-mlp.ipynb` – Träna ett flera lager perceptron neurala nätverk.
+- `6-dtree.ipynb` – Träna en modell för trädet beslut.
+- `7-gbm.ipynb` – Träna en toning bättre modell.
+- `8-evaluate-model.py` – Det här skriptet läser in en tränad modell och används för att göra förutsägelser kring en hålls ut test-datauppsättning. Den genererar modellen utvärderingsmått så att prestanda för olika modeller kan jämföras.
+- `9-forecast-output-exploration.ipynb` – den här anteckningsboken producerar visualiseringar av de prognoser som genererats av machine learning-modeller.
+- `10-deploy-model.ipynb` – den här anteckningsboken visar hur du kan operationaliserat en tränad prognosmodell i en webbtjänst i realtid.
+- `evaluate-all-models.py` – Det här skriptet utvärderar alla anpassade modeller. Det är ett alternativ till körs `8-evaluate-model.py` modellera individuellt för varje tränas.
 
 ### <a name="1-data-preparation-and-cleaning"></a>1. Förberedelse av data och rensning
 
-Om du vill börja köra exemplet, klicka först på `1-data-preparation.ipynb` vill öppna anteckningsboken i förhandsgranskningsläge. Klicka på ***starta anteckningsboken Server*** att starta en Jupyter-anteckningsbok server och Python kernel på din dator. Du kan antingen köra anteckningsböcker från arbetsstationen eller använda webbläsaren genom att gå till [ http://localhost:8888 ](http://localhost:8888). Observera att du måste ändra kerneln och *projekt_namn lokala*. Du kan göra detta från den *Kernel* -menyn i den bärbara datorn under *ändra kernel*. Tryck på ***SKIFT + RETUR*** kör kod i enskilda anteckningsboken celler, eller klicka på *kör alla* i den *Cell* menyn för att köra anteckningsboken.
+Om du vill börja köra exemplet, först klicka på `1-data-preparation.ipynb` att öppna anteckningsboken i förhandsgranskningsläge. Klicka på ***starta Anteckningsboksserver*** att starta en Jupyter notebook-server och kernel-Python på din dator. Du kan antingen köra anteckningsböcker från arbetsstationen eller du kan använda webbläsaren genom att gå till [ http://localhost:8888 ](http://localhost:8888). Observera att du måste ändra kerneln *projekt_namn lokal*. Du kan göra detta från den *Kernel* menyn i anteckningsboken under *ändra kernel*. Tryck på ***SKIFT + RETUR*** att köra koden i enskilda notebook celler eller klicka på *kör alla* i den *Cell* menyn för att köra anteckningsboken.
 
-Anteckningsboken först hämtar data från en behållare för blob storage finns i Azure. Data lagras på din dator i den `AZUREML_NATIVE_SHARE_DIRECTORY`. Den här platsen är tillgänglig från alla anteckningsböcker eller skript som du kör från arbetsstationen så är en bra plats att lagra data och tränade modeller.
+Anteckningsboken först ned data från ett blob storage-behållare som körs på Azure. Data lagras sedan på datorn i den `AZUREML_NATIVE_SHARE_DIRECTORY`. Den här platsen är tillgänglig från alla anteckningsböcker eller skript som du kör från Workbench så är en bra plats att lagra data och tränade modeller.
 
-När data har hämtats, rensar anteckningsboken data genom att fylla luckor i tidsserien och fylla värden som saknas genom interpolerade. Rensa tid series-data på det här sättet maximerar mängden data som är tillgängliga för att träna modeller.
+När data har hämtats, rensar anteckningsboken data genom att fylla luckor i tidsserien och fylla värden som saknas genom interpolation. Rensning av time series-data på det här sättet maximerar mängden data som är tillgängliga för att träna modeller.
 
-Flera modell-funktioner har skapats från rensade rådata. Dessa funktioner kan kategoriseras i två grupper:
+Flera modellfunktioner skapas från rensade rådata. Dessa funktioner kan grupperas i två grupper:
 
-- **Tid som drivs funktioner** härleds från den *tidsstämpel* variabeln t.ex. *månad*, *dayofweek* och *timme*.
-- **Lagged funktioner** är flyttat tidsvärden av de faktiska begäran eller temperatur värdena. Dessa funktioner syftar till att avbilda villkorlig beroenden mellan på varandra följande tidsperioder i modellen.
+- **Tid driven funktioner** härleds från den *tidsstämpel* variabeln t.ex. *månad*, *dayofweek* och *timme*.
+- **Lagged funktioner** är beräkningsarbete tidsvärden för de faktiska värdena för begäran eller temperatur. De här funktionerna syftar till att samla in villkorlig beroenden mellan på varandra följande tidsperioder i modellen.
 
-Resultatet av funktionen kan sedan användas när du utvecklar prognosmodeller.
+Den resulterande datauppsättningen i funktionen kan sedan användas när du utvecklar prognosmodeller.
 
-### <a name="2-model-development"></a>2. Modell-utveckling
+### <a name="2-model-development"></a>2. Modeller
 
-En första sätt att modellera kan vara en enkel linjär regressionsmodell. Den `2-linear-regression.ipynb` anteckningsboken visar hur du tränar en linjär regression prognosmodell för framtida energiförbrukning. I synnerhet modellen kommer utbildas att förutsäga energiförbrukning en timme (*t + 1*) i den aktuella tidsperioden (*t*). Vi kan dock använda den här 'steg' modellen rekursivt vid test för att generera prognoser för framtida tidsperioder, *t + n*.
+En första modellering-metod kan vara en enkel linjär regressionsmodell. Den `2-linear-regression.ipynb` notebook visar hur du tränar en linjär regression prognosmodell för efterfrågan på energi för framtida. I synnerhet modellen kommer utbildas i att förutse efterfrågan på energi en timme (*t + 1*) före den aktuella tidsperioden (*t*). Vi kan dock använda den här ”steg”-modellen rekursivt vid test för att skapa prognoser för framtida perioder, *t + n*.
 
-För att träna en modell, skapas en förutsägbar pipeline som omfattar tre steg:
+För att träna en modell, skapas en förutsägande pipeline som innebär att tre steg:
 
-- **En Dataomvandling**: format som krävs för indata kan variera beroende på maskininlärningsalgoritmen. I det här fallet kräver linjär regressionsmodell kategoriska variabler som ska vara ett hot kodad.
-- **En mellan validering rutinen**: ofta en maskininlärningsmodell har en eller flera justeringsmodeller som behöver justeras genom försök. Mellan verifiering kan användas för att hitta den optimala uppsättningen av parametervärden. Modellen är flera gånger tränas och utvärderas på olika vikningar för dataset. De lämpligaste parametrarna är de som uppnår modellen bästa prestanda när ett genomsnitt över mellan validering vikningar. Den här processen beskrivs i detalj i `2-linear-regression.ipynb`.
-- **Den slutliga modell**: modellen har tränats på hela datauppsättningen med hjälp av den bästa för justeringsmodeller.
+- **En Dataomvandling**: format som krävs för indata kan variera beroende på maskininlärningsalgoritmen. I det här fallet kräver den linjära regressionsmodellen kategoriska variabler en frekvent kodas.
+- **En mellan verifiering rutinen**: ofta en maskininlärningsmodell har en eller flera hyperparametrar som behöver justeras via experimentering. Mellan verifiering kan användas för att hitta den optimala uppsättningen av parametervärden. Modellen är flera gånger tränas och utvärderas på olika vikningar av datauppsättningen. De lämpligaste parametrarna är de som uppnår bästa modellprestanda när ett genomsnitt över mellan verifiering vikningar. Den här processen beskrivs i detalj i `2-linear-regression.ipynb`.
+- **Utbildning för den slutliga modellen**: tränas på hela datauppsättningen, använda bästa uppsättningar av hyperparametrar.
 
-Det finns ett antal 6 olika modeller i anteckningsböcker numrerade 2-7. Varje anteckningsbok tränar en annan modell och lagrar den i den `AZUREML_NATIVE_SHARE_DIRECTORY` plats. När du har tränat alla modeller som utvecklats för det här scenariot, vi utvärdera och jämför dem som beskrivs i nästa avsnitt.
+Vi har inkluderat en serie med 6 olika modeller i anteckningsböcker numrerade 2-7. Varje anteckningsbok träna en annan modell och lagrar den i den `AZUREML_NATIVE_SHARE_DIRECTORY` plats. När du har tränats alla modeller som har utvecklats för det här scenariot, vi utvärdera och jämför dem som beskrivs i nästa avsnitt.
 
-### <a name="3-model-evaluation-and-comparison"></a>3. Modellen utvärdering och jämförelse
+### <a name="3-model-evaluation-and-comparison"></a>3. Modeller utvärdering och jämförelse
 
-Vi kan använda en tränad modell för att göra prognoser för framtida tidsperioder. Det är bäst att utvärdera dessa modeller på en hålls out testdata. Genom att utvärdera olika modeller på samma överblivna datamängd vi ganska jämför deras prestanda och identifiera bästa modellen. I det här scenariot gäller vi den tränade modell rekursivt prognos flera tid steg i framtiden. I synnerhet vi generera prognoser för upp till sex timmar *t + 6* i den aktuella timman *t*. Dessa förutsägelser utvärderas mot den faktiska efterfrågan observerats för varje tidsperiod.
+Vi kan använda en tränad modell för att göra prognoser för framtida tidsperioder. Det är bäst att utvärdera dessa modeller på en datauppsättning som lagras utanför test. Genom att utvärdera de olika modellerna på samma överblivna datauppsättningen vi ganska jämför deras prestanda och identifiera den bästa modellen. I det här scenariot gäller vi den tränade modellen rekursivt prognos flera tid steg i framtiden. I synnerhet vi skapa prognoser för upp till sex timmar, *t + 6* före den aktuella timman *t*. De här förutsägelserna utvärderas mot den faktiska efterfrågan som observerats för varje tidsperiod.
 
-Om du vill utvärdera en modell, öppna den `8-evaluate-model.py` skript från den *filer* rutan i arbetsstationen. Kontrollera att *kör konfiguration* är inställd på **lokala** och skriv sedan modellnamnet i den *argument* fältet. Modellnamnet måste matcha exakt den *modellnamn* variabeln har angetts i början av den bärbara datorn där modellen har tränats. Ange till exempel ”linear_regression” om du vill utvärdera utbildade linjär regressionsmodell. Du kan också när alla modeller har tränats, du kan utvärdera dem med ett kommando genom att köra `evaluate-all-models.py`. Öppna en kommandotolk från arbetsstationen för att köra skriptet och kör följande kommando:
+Om du vill utvärdera en modell, öppna den `8-evaluate-model.py` skript från den *filer* fönstret i Workbench. Kontrollerar du att *kör konfiguration* är inställd på **lokala** och skriv sedan modellnamnet i den *argument* fält. Modellnamnet måste exakt matcha de *modellnamn* variabeln värdet i början av anteckningsboken modellen tränas. Ange till exempel ”linear_regression” för att utvärdera tränade linjär regression-modellen. Du kan också när alla modeller har tränats, du kan utvärdera dem med ett kommando genom att köra `evaluate-all-models.py`. Öppna en kommandotolk från Workbench för att köra skriptet och kör följande kommando:
 
 ```
 python evaluate-all-models.py
 ```
 Den `8-evaluate-model.py` skriptet utför följande åtgärder:
 
-- Läser in en tränad modell pipeline från disken
-- Gör förutsägelser mot testdatauppsättningen
+- Läser in en tränad pipeline från disk
+- Förutsägelser mot testdatauppsättningen
 - Beräknar modellen prestandamått och loggar dem
-- Sparar testet dataset förutsägelser till `AZUREML_NATIVE_SHARE_DIRECTORY` senare kontroll och analys
-- Sparar den tränade modellen pipelinen till den *matar ut* mapp.
+- Sparar testet datauppsättning förutsägelser till `AZUREML_NATIVE_SHARE_DIRECTORY` för senare granskning och analys
+- Sparar tränade modellen att pipelinen den *matar ut* mapp.
 
 > [!Note]
-> Spara modellen till den *matar ut* mappen kopieras automatiskt model-objektet i Azure Blob Storage-konto som är associerade med kontot experiment. Det innebär att du alltid kommer att kunna hämta sparade model-objektet från blob, även om du ändrar datorn eller compute-kontexten.
+> Spara modellen till den *matar ut* mappen kopieras automatiskt model-objektet till Azure Blob Storage-konto som är associerade med ditt experimenteringskonto. Det innebär att du alltid kommer att kunna hämta sparade model-objektet från bloben, även om du ändrar datorn eller beräkningskontexten.
 
-Navigera till den *Körningshistorik* rutan och klicka på `8-evaluate-model.py`. Diagram som visar flera prestandamått för modellen visas:
+Navigera till den *Körningshistorik* fönstret och klicka på `8-evaluate-model.py`. Diagram som visar flera prestandamått för modellen visas:
 
-- **MIG**: innebär fel prognosens. Detta kan tolkas som genomsnittliga bias prognosens.
-- **Största tillåtna**: [innebär procentandel fel](https://en.wikipedia.org/wiki/Mean_percentage_error) (ME uttryckt i procent av den faktiska begäran)
-- **MUS**: [medelvärdet av kvadratfel](https://en.wikipedia.org/wiki/Mean_squared_error)
-- **RMSE**: roten medelvärdet kvadrat fel (kvadratroten av mus)
-- **MAPE**: [innebär absolut procentandel fel](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
-- **sMAPE**: [symmetriska medelvärde absolut procentandel fel](https://en.wikipedia.org/wiki/Symmetric_mean_absolute_percentage_error)
-- **MAPE_base**: MAPE för en baslinje prognos där förutsägelser är lika med det senaste kända begärd-värdet.
-- **MdRAE**: Median relativa absoluta fel. Fel vid en prognos median förhållandet mellan prognosen felet till i baslinjen. Ett värde mindre än 1 innebär prognosen presterar bättre än baslinjen.
+- **MIG**: innebära fel av prognosen. Detta kan tolkas som genomsnittliga Basförskjutning för prognosen.
+- **Största tillåtna fel**: [innebära procentandel fel](https://en.wikipedia.org/wiki/Mean_percentage_error) (ME uttryckt i procent av den faktiska efterfrågan)
+- **MSE**: [innebära kvadratfel](https://en.wikipedia.org/wiki/Mean_squared_error)
+- **RMSE**: rot medelvärdet cirkels fel (kvadratroten ur MSE)
+- **MAPE**: [innebära absolut procentandel fel](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
+- **sMAPE**: [symmetriska mean absolut procentandel fel](https://en.wikipedia.org/wiki/Symmetric_mean_absolute_percentage_error)
+- **MAPE_base**: MAPE för en baslinje Prognostisera där förutsägelser är lika med det senaste kända begäran-värdet.
+- **MdRAE**: Median relativa absoluta fel. Median förhållandet mellan prognoser felet till i baslinjen Prognostisera fel. Ett värde mindre än 1 innebär prognosen fungerar bättre än baslinjen.
 
-Alla mätvärden ovan avser den *t + 1* prognos. Förutom mätvärdena som ovan visas också en uppsättning motsvarande mått med den *_horizon* suffix. Detta är måttet som ett genomsnitt över alla perioder prognosen mellan period *t + 1* period *t + 6*.
+Alla mått ovan avser den *t + 1* prognos. Förutom ovanstående mått, visas också en uppsättning motsvarande mått med den *_horizon* suffix. Det här är måttet genomsnitt av alla punkter i prognoser intervallet från period *t + 1* till period *t + 6*.
 
-Om mått visas i diagramområdet, klickar du på kugghjulet symbolen i det övre högra hörnet. Kontrollera att modellen prestandamått som du är intresserad av kontrolleras. Mätvärdena visas också i en tabell under diagrammen. Igen och den här tabellen är anpassningsbara klickar på växeln symbolen. Sortera tabellen efter ett prestanda mått för att identifiera bästa modellen. Om du vill se hur prognosen prestandan varierar från period *t + 1* till *t + 6*, klickar du på posten för modellen i tabellen. Diagram som visar MAPE, största tillåtna fel och MdRAE mått över prognosen perioden visas *visualiseringar*.
+Om mått inte visas i diagramområdet, klicka på kugghjulet i det övre högra hörnet. Se till att modellen prestandamått som du är intresserad av att kontrolleras. Mått visas också i en tabell under diagrammen. Igen, den här tabellen kan anpassas vara att klicka på kugghjulet. Sortera tabellen efter ett prestandamått för att identifiera den bästa modellen. Om du är intresserad av att se hur prognoser prestanda varierar från period *t + 1* till *t + 6*, klickar du på posten för modellen i tabellen. Diagram som visar MAPE största tillåtna fel och MdRAE mått över prognoser perioden visas *visualiseringar*.
 
-När du utvärderar prognosmodellen modeller, kan det vara användbart att visualisera förutsägelser för utdata. Detta hjälper data forskare att avgöra om prognosen producerade visas realistiska. Det kan också hjälpa för att identifiera problem i prognosen om till exempel prognosen utför dåligt i vissa tidsperioder. Den `9-forecast-output-exploration.ipynb` anteckningsboken genererar visualiseringar av prognoser genereras för testdatauppsättningen.
+När du utvärderar prognosmodellen modeller, kan det vara väldigt användbar för att visualisera utdata förutsägelser. Detta hjälper dataexpert för att avgöra om prognosen produceras visas realistisk. Det kan också bidra till att identifiera problem i prognosen om till exempel prognosen utför dåligt i vissa tidsperioder. Den `9-forecast-output-exploration.ipynb` anteckningsbok skapas med visualiseringar av de prognoser som genererats för test-datauppsättning.
 
 ### <a name="4-deployment"></a>4. Distribution
 
-Vara kan operationalized bästa modellen genom att distribuera den som en webbtjänst i realtid. Den här webbtjänsten kan sedan anropas för att generera prognoser på begäran när nya data blir tillgänglig. I det här scenariot behöver en ny prognos skapas varje timme för att förutsäga efterfrågan på energi under den kommande timmen. Om du vill utföra den här uppgiften en webbtjänst kan distribueras som en matris av funktionerna för en given timme tidsperiod som indata och returnerar den förväntade efterfrågan som utdata.
+Den bästa modellen kan ska operationaliseras genom att distribuera den som en webbtjänst i realtid. Den här webbtjänsten kan sedan anropas för att skapa prognoser för efterfrågan när nya data blir tillgängliga. I det här scenariot måste en ny prognos genereras varje timme för att förutse efterfrågan på energi efterföljande timma. Om du vill utföra den här uppgiften, en webbtjänst kan distribueras som tar en matris med funktioner för en viss timme lång tid som indata och returnerar den förväntade begäran som utdata.
 
-I det här exemplet har en webbtjänst distribuerats till en Windows 10-dator. Se till att du har slutfört nödvändiga steg för lokala distribution som anges i detta [Kom igång med](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md) för Operationalization CLI. När du har konfigurerat din lokala miljö och modellen hanteringskontot kör den `10-deploy-model.ipynb` anteckningsboken för att distribuera webbtjänsten.
+I det här exemplet distribueras en webbtjänst till en Windows 10-dator. Se till att du har slutfört nödvändiga steg för lokal distribution som anges i det här [Kom igång med](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md) för driftsättning CLI. När du har konfigurerat din lokala miljö och konto för modellhantering kan köra den `10-deploy-model.ipynb` anteckningsboken för att distribuera webbtjänsten.
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Det här exemplet visar hur du skapar en slutpunkt till slutpunkt tidsserier prognoser lösning för Prognosticering energiförbrukning. Många av de principer som utforskade i det här exemplet kan utökas till andra prognosmodellen scenarier och branscher.
+Detta exempel visar hur du skapar en slutpunkt till slutpunkt tidsserier lösning för prognostisering av efterfrågan på energi för prognostisering. Många av de principer som utforskat i det här exemplet kan utökas till andra prognosmodellen scenarier och branscher.
 
-Det här scenariot visar hur Azure Machine Learning arbetsstationen kan hjälpa en data-forskare få verkliga lösningar med användbara funktioner, till exempel Jupyter-anteckningsbok miljö och mått loggningsfunktioner. Exemplet visar även hur läsaren på hur en modell kan operationalized och distribueras via Azure Machine Learning Operationalization CLI. Distribution kan kan web service API utvecklare eller data tekniker att integrera prognosmodellen i en bredare data pipeline.
+Det här scenariot visar hur Azure Machine Learning Workbench kan hjälpa någon dataexpert för utveckling av verkliga lösningar med användbara funktioner, till exempel Jupyter notebook-miljön och mått loggningsfunktioner. Exemplet visar också läsaren på hur en modell kan ska operationaliseras och distribueras med Azure Machine Learning Operationalization CLI. När distribuerats kan den webbtjänst-API utvecklare eller dataingenjörer att integrera en bredare datapipeline i prognosmodellen.

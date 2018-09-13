@@ -1,6 +1,6 @@
 ---
-title: "Övervaka din Node.js-tjänster med Azure Application Insights | Microsoft Docs"
-description: "Övervaka prestanda- och diagnostiseringsproblem i Node.js-tjänster med Application Insights."
+title: Övervaka din Node.js-tjänster med Azure Application Insights | Microsoft Docs
+description: Övervaka prestanda- och diagnostiseringsproblem i Node.js-tjänster med Application Insights.
 services: application-insights
 documentationcenter: nodejs
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b8e35a953c936949af0d496345f537ad85fc359
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: 28be3a1734639ac175e4d18d9e9f21b83b9a7e7c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647144"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
@@ -35,7 +36,7 @@ Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare 
 
 Utför följande uppgifter för att konfigurera övervakning för en app eller tjänst.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar du en kostnadsfritt][azure-free-offer]. Om din organisation redan har en Azure-prenumeration kan en administratör följa [de här instruktionerna][add-aad-user] för att lägga till dig.
 

@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9de6ca48db98d7691310199b90bf7414f07547fd
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: HT
+ms.openlocfilehash: 0d9001834a33675dc4aab8d78282fb2987419ec3
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649275"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Övervaka prestanda för Azure-webbappar
 På [Azure Portal](https://portal.azure.com) kan du konfigurera övervakning av programprestanda för dina [Azure-webbappar](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumenterar din app så att den skickar telemetri om sina aktiviteter till Application Insights-tjänsten, där informationen lagras och analyseras. Där kan du använda diagram med mätvärden och sökverktyg för att diagnostisera problem, förbättra prestanda och utvärdera användningen.
@@ -48,7 +49,6 @@ Om du redan kör en webbapp i Azure har du redan tillgång till viss övervaknin
     Nyckel: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
     
     Värde:`true`
-
    * **Spara** inställningarna och **starta om** din app.
 3. **Övervaka din app**.  [Utforska data](#explore-the-data).
 

@@ -1,6 +1,6 @@
 ---
-title: PowerShell-skript för att skapa en resurs för Application Insights | Microsoft Docs
-description: Automatisera skapandet av Application Insights-resurser.
+title: PowerShell-skript för att skapa en Application Insights-resurs | Microsoft Docs
+description: Automatisera genereringen av Application Insights-resurser.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -10,31 +10,32 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: d06b44246b694c0d2a83503ecd1ae0cedfadd9ec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c6ef869bd211b156ba17d2aa8f384d15269b6d59
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646739"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>PowerShell-skript för att skapa en Application Insights-resurs
 
 
-När du vill övervaka ett nytt program- eller en ny version av ett program - med [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), du ställer in en ny resurs i Microsoft Azure. Den här resursen är där telemetridata från din app analyseras och visas. 
+När du vill övervaka ett nytt program- eller en ny version av ett program – med [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), du har konfigurerat en ny resurs i Microsoft Azure. Den här resursen är där telemetridata från din app analyseras och visas. 
 
 Du kan automatisera skapandet av en ny resurs med hjälp av PowerShell.
 
-Till exempel om du utvecklar en app för mobila enheter, är förmodligen, när som helst, kommer att flera publicerade versioner av appen används av dina kunder. Du vill inte hämta telemetri resultaten från olika versioner upp. Om du vill skapa din build-processen för att skapa en ny resurs för varje version.
+Till exempel om du utvecklar en app för mobila enheter, är det troligt att, när som helst, det är flera publicerade versioner av din app används av dina kunder. Du vill inte få telemetri-resultat från olika versioner upp. Du får den utvecklingsprocessen för att skapa en ny resurs för varje version.
 
 > [!NOTE]
-> Om du vill skapa en uppsättning resurser på samma gång bör [att skapa resurser med hjälp av en Azure-mall](app-insights-powershell.md).
+> Om du vill skapa en uppsättning resurser på samma gång kan du överväga att [skapa resurser med hjälp av en Azure-mall](app-insights-powershell.md).
 > 
 > 
 
 ## <a name="script-to-create-an-application-insights-resource"></a>Skript för att skapa en Application Insights-resurs
-Visa relevanta cmdlet-specifikationer:
+Se relevanta cmdlet-specifikationer:
 
 * [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
 * [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
@@ -99,9 +100,9 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
 ```
 
 ## <a name="what-to-do-with-the-ikey"></a>Vad du gör med iKey
-Varje resurs identifieras av dess instrumentation nyckel (iKey). IKey är en utdata från skriptet för att skapa resursen. Skapa skriptet bör ge iKey till Application Insights SDK inbäddade i appen.
+Varje resurs identifieras av dess instrumentationsnyckeln (iKey). Nyckeln är en resurs skapas skriptets utdata. Build-skriptet bör ge iKey till Application Insights SDK inbäddade i appen.
 
-Det finns två sätt att tillhandahålla iKey till SDK:
+Det finns två sätt att tillgängliggöra iKey till SDK:
 
 * I [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md): 
   * `<instrumentationkey>`*ikey*`</instrumentationkey>`
@@ -111,6 +112,6 @@ Det finns två sätt att tillhandahålla iKey till SDK:
 
 ## <a name="see-also"></a>Se också
 * [Skapa Application Insights och testa webbresurser från mallar](app-insights-powershell.md)
-* [Konfigurera övervakning av Azure diagnostics med PowerShell](app-insights-powershell-azure-diagnostics.md) 
-* [Ange aviseringar med hjälp av PowerShell](app-insights-powershell-alerts.md)
+* [Konfigurera övervakning av Azure-diagnostik med PowerShell](app-insights-powershell-azure-diagnostics.md) 
+* [Ställ in aviseringar med hjälp av PowerShell](app-insights-powershell-alerts.md)
 

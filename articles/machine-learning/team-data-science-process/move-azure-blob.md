@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 40ec20765bf7874f245d3e37800b0b38dcda475d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
-ms.translationtype: HT
+ms.openlocfilehash: 854c671d4db6cdca2b019ed9adb0475e588281b1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838055"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35622559"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Flytta data till och från Azure Blob Storage
 [!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
@@ -29,25 +29,25 @@ ms.locfileid: "34838055"
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-Vilken metod som passar bäst för dig beror på ditt scenario. Den [scenarier för avancerade analyser i Azure Machine Learning](plan-sample-scenarios.md) artikeln hjälper dig att avgöra de resurser du behöver för en mängd olika datavetenskap arbetsflöden som används i avancerade analyser.
+Vilken metod som passar bäst för dig beror på ditt scenario. Den [scenarier för avancerade analyser i Azure Machine Learning](plan-sample-scenarios.md) artikeln hjälper dig att avgöra de resurser du behöver för en mängd olika data science arbetsflöden som används i processen för avancerad analys.
 
 > [!NOTE]
-> En fullständig introduktion till Azure blob storage finns i [grunderna i Azure Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) och [Azure Blob-tjänsten](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> En fullständig introduktion till Azure blob storage finns [grunderna i Azure Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) och [Azure Blob-tjänsten](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
 Alternativt kan du använda [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) till: 
 
-* Skapa och schemalägga en pipeline som hämtar data från Azure blob storage. 
-* Överför den till en publicerad Azure Machine Learning-webbtjänst 
-* förutsägelseanalyser-resultat och 
-* Överför resultat till lagring. 
+* Skapa och schemalägga en pipeline som hämtar data från Azure blob storage 
+* Skicka den till en publicerad Azure Machine Learning-webbtjänst 
+* ta emot resultaten förutsägelseanalys och 
+* Överför resultatet till lagring. 
 
-Mer information finns i [skapa förutsägande pipelines med hjälp av Azure Data Factory och Azure Machine Learning](../../data-factory/v1/data-factory-azure-ml-batch-execution-activity.md).
+Mer information finns i [skapa förutsägande pipelines med Azure Data Factory och Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
-Det här dokumentet förutsätter att du har en Azure-prenumeration, ett lagringskonto och motsvarande lagringsnyckel för det kontot. Innan du laddar upp/hämtar data, måste du känna till din Azure storage-konto och nyckel.
+Det här dokumentet förutsätter att du har en Azure-prenumeration, ett lagringskonto och motsvarande lagringskontots åtkomstnyckel för kontot. Innan du laddar upp/ned data, vet du ditt Azure storage-konto och kontonyckeln.
 
-* Om du vill konfigurera en Azure-prenumeration finns [kostnadsfri utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
-* Anvisningar om hur du skapar ett lagringskonto och för att hämta konto och viktig information, se [om Azure storage-konton](../../storage/common/storage-create-storage-account.md).
+* Om du vill konfigurera en Azure-prenumeration, se [kostnadsfri utvärderingsmånad](https://azure.microsoft.com/pricing/free-trial/).
+* Mer information om hur du skapar ett lagringskonto och för att hämta konto och viktig information, se [om Azure storage-konton](../../storage/common/storage-create-storage-account.md).
 

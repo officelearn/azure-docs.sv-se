@@ -1,6 +1,6 @@
 ---
-title: Kryptera ditt innehåll med lagringskryptering med AMS REST API
-description: 'Lär dig mer om att kryptera innehållet med lagringskryptering med AMS REST API: er.'
+title: Kryptera ditt innehåll med lagringskryptering med hjälp av AMS REST API
+description: 'Lär dig mer om att kryptera ditt innehåll med lagringskryptering med hjälp av AMS REST API: er.'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 06/17/2018
 ms.author: juliako
-ms.openlocfilehash: 2fd4c91a8151067c0e9cc9000c158e48cb2cd8a5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12c7559f0fab2cda9a97c2edf3e3206448b787c7
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790470"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35755877"
 ---
-# <a name="encrypting-your-content-with-storage-encryption"></a>Kryptera din innehåll med lagringskryptering
+# <a name="encrypting-your-content-with-storage-encryption"></a>Kryptera ditt innehåll med lagringskryptering
 
-Vi rekommenderar starkt att kryptera innehållet lokalt med hjälp av AES 256 bitarskryptering och överföra den till Azure Storage där den lagras krypterat i vila.
+Vi rekommenderar starkt att kryptera innehållet lokalt med hjälp av AES-256-bitarskryptering och överföra den till Azure Storage var den lagras krypterat i vila.
 
-Den här artikeln ger en översikt över AMS lagringskryptering och visar hur du överför innehållet lagringskrypterad:
+Den här artikeln ger en översikt över AMS lagringskryptering och visar hur du överför innehållet storage krypteras:
 
 * Skapa en innehållsnyckel.
 * Skapa en tillgång. Ange AssetCreationOption till StorageEncryption när du skapar tillgången.
@@ -36,34 +36,46 @@ Den här artikeln ger en översikt över AMS lagringskryptering och visar hur du
 
 ## <a name="considerations"></a>Överväganden 
 
-Om du vill leverera en krypterad tillgång lagring måste du konfigurera den tillgångsleveransprincip. Innan din tillgång kan strömmas strömmande server tar du bort krypteringen lagring och strömmar ditt innehåll med hjälp av angivna leveransprincipen. Mer information finns i [konfigurerar principerna för Tillgångsleverans](media-services-rest-configure-asset-delivery-policy.md).
+Om du vill att leverera en krypterad tillgång för lagring, måste du konfigurera den tillgångsleveransprincip. Innan du kan strömma din tillgång, kommer servern för strömning tar bort lagringskryptering och strömmar ditt innehåll med den angivna principen. Mer information finns i [konfigurera Tillgångsleveransprinciper](media-services-rest-configure-asset-delivery-policy.md).
 
-Vid åtkomst till entiteter i Media Services måste du ange specifika namn på huvudfält och värden i HTTP-begäranden. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md). 
+Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md). 
+
+### <a name="storage-side-encryption"></a>Kryptering för lagring på serversidan
+
+|Krypteringsalternativet|Beskrivning|Media Services v2|Media Services v3|
+|---|---|---|---|
+|Media Services-Lagringskryptering|AES-256-kryptering, viktiga hanteras av Media Services|Stöd för<sup>(1)</sup>|Stöds inte<sup>(2)</sup>|
+|[Kryptering av lagringstjänst för vilande Data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Kryptering på serversidan som erbjuds av Azure Storage, nyckel hanteras av Azure eller av kunden|Stöds|Stöds|
+|[Storage Client Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client side encryption som erbjuds av Azure storage, nyckel som hanteras av kunden i Key Vault|Stöds inte|Stöds inte|
+
+<sup>1</sup> medan Media Services har stöd för hantering av innehållet i klartext/utan någon form av kryptering, göra så rekommenderas inte.
+
+<sup>2</sup> i Media Services v3 lagringskryptering (AES-256-kryptering) är bara stöds för bakåtkompatibilitet när dina tillgångar skapades med Media Services v2. Vilket innebär att v3 fungerar med befintliga lagring krypteras tillgångar, men tillåter inte skapandet av nya.
 
 ## <a name="connect-to-media-services"></a>Ansluta till Media Services
 
-Information om hur du ansluter till AMS API: et finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="storage-encryption-overview"></a>Översikt över kryptering
-Lagringskryptering AMS gäller **AES CTR** läge kryptering hela filen.  AES-CTR läge är ett blockchiffer som kan kryptera godtycklig längddata utan behov av utfyllnad. Den fungerar genom att kryptera en räknare block med AES-algoritmen och XOR-ing utdata från AES med data för att kryptera eller dekryptera.  Räknaren-block som används har skapats genom att kopiera värdet för InitializationVector till byte 0 till 7 för räknarvärdet och byte 8 och 15 räknarens värde är angivet till noll. Blockets 16 byte räknaren används byte 8 och 15 (det vill säga minst viktiga byte) som en enkel 64-bitars osignerat heltal som ökar med ett för varje efterföljande datablock bearbetas och sparas i nätverket byte-ordning. Om den här heltal når det högsta värdet (0xFFFFFFFF), återställer ökar den räknaren block till noll (byte 8 och 15) utan att påverka andra 64 bitar för räknaren (det vill säga byte 0 till 7).   För att upprätthålla säkerheten på AES CTR läge kryptering InitializationVector värdet för en viss nyckelidentifierare för varje innehållsnyckeln vara unikt för varje fil och filer bör vara mindre än 2 ^ 64 block i längd.  Det här unika värdet är att säkerställa att ett värde för prestandaräknaren återanvänds aldrig med en viss nyckel. Mer information om CTR läge finns [wiki-sida](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (wiki-artikeln använder termen ”temporärt ID” i stället för ”InitializationVector”).
+## <a name="storage-encryption-overview"></a>Översikt över Storage-kryptering
+Lagringskryptering AMS gäller **AES-CTR** läge kryptering hela filen.  AES-CTR läge är ett blockchiffer som kan kryptera godtycklig längddata utan behov av utfyllnad. Den fungerar genom att kryptera en räknare block med AES-algoritmen och sedan XOR-ing utdata från AES med data för att kryptera eller dekryptera.  Räknaren blocket används skapas genom att kopiera värdet för InitializationVector till byte 0 till 7 räknarvärdet och byte 8 – 15 räknarvärdet är inställda på noll. Räknare för 16 byte-blockets används byte 8 – 15 (det vill säga de minst viktiga byte) som en enkel 64-bitars heltal utan tecken som ökas med ett för varje efterföljande datablock bearbetas och sparas i nätverksbyteordning. Om den här heltal når det högsta värdet (0xFFFFFFFF) kan återställer öka den räknaren block till noll (byte 8 – 15) utan att påverka andra 64 bitar för räknaren (det vill säga byte 0-7).   För att upprätthålla säkerheten för kryptering för AES-CTR läge InitializationVector värdet för en viss nyckelidentifierare för varje innehållsnyckeln vara unikt för varje fil och filer bör vara mindre än 2 ^ 64 block i längd.  Det här unika värdet är att säkerställa att ett värde för prestandaräknaren aldrig återanvänds med en viss nyckel. Mer information om CTR läge finns i [wiki-sida](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (wiki-artikeln använder termen ”Nonce” i stället för ”InitializationVector”).
 
-Använd **Lagringskryptering** för att kryptera innehållet lokalt med hjälp av AES 256-bitars kryptering och överföra den till Azure Storage där den lagras krypterat i vila. Tillgångar som skyddas med lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. När du vill skydda filer mediet hög kvalitet med stark kryptering i vila på disk är det primära användningsfallet för kryptering.
+Använd **Lagringskryptering** för att kryptera innehållet lokalt med hjälp av AES-256-bitars kryptering och överföra den till Azure Storage var den lagras krypterat i vila. Tillgångar som skyddas med lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. I första hand för lagringskryptering är när du vill skydda din högkvalitativa inkommande mediefiler med stark kryptering i vila på disk.
 
-För att kunna leverera en krypterad tillgång för lagring, måste du konfigurera den tillgångsleveransprincip så Media Services vet hur du vill leverera ditt innehåll. Innan din tillgång kan strömmas strömmande server tar du bort krypteringen lagring och strömmar ditt innehåll med hjälp av angivna leveransprincipen (till exempel AES, vanliga kryptering eller Ingen kryptering).
+För att kunna leverera en krypterad tillgång för lagring, måste du konfigurera den tillgångsleveransprincip så att Media Services vet hur du vill leverera ditt innehåll. Innan du kan strömma din tillgång, kommer servern för strömning tar bort lagringskryptering och strömmar ditt innehåll med den angivna leveransprincipen (exempelvis AES, gemensam kryptering eller Ingen kryptering).
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Skapa ContentKeys som används för kryptering
-Krypterade tillgångar är kopplade till Storage krypteringsnycklar. Skapa innehållsnyckeln som ska användas för kryptering innan du skapar tillgångsfiler. Det här avsnittet beskriver hur du skapar en innehållsnyckel.
+Krypterade tillgångar är associerade med Storage krypteringsnycklar. Skapa innehållsnyckeln som ska användas för kryptering innan du skapar resursfiler. Det här avsnittet beskriver hur du skapar en innehållsnyckel.
 
-Följande är allmänna steg för att generera innehåll nycklar som associeras med resurser som du vill ska vara krypterad. 
+Nedan följer allmänna steg för att generera nycklar som du associerar med resurser som du vill ska vara krypterad. 
 
-1. Generera slumpmässigt en 32-byte AES-nyckel för kryptering. 
+1. Lagringskryptering, slumpmässigt Generera en 32-bytes AES-nyckel. 
    
-    AES-nyckel 32-byte är innehållsnyckeln för tillgången, vilket innebär att alla filer som hör till som tillgången måste använda samma innehållsnyckeln under dekrypteringen. 
-2. Anropa den [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) och [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metoder för att få rätt X.509-certifikat som ska användas för att kryptera din innehållsnyckeln.
-3. Kryptera din innehållsnyckeln med den offentliga nyckeln för X.509-certifikatet. 
+    32 byte-AES-nyckel är innehållsnyckeln för tillgången, vilket innebär att alla filer som hör till det tillgången behovet att använda samma innehållsnyckeln under dekrypteringen. 
+2. Anropa den [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) och [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metoder för att få rätt X.509-certifikat som ska användas för att kryptera innehållsnyckeln.
+3. Kryptera innehållsnyckeln med den offentliga nyckeln för X.509-certifikat. 
    
-   Media Services .NET SDK använder RSA med OAEP vid krypteringen.  Du kan se en .NET-exempel i den [EncryptSymmetricKeyData funktionen](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Skapa ett kontrollsummevärde beräknas med hjälp av nyckelidentifierare och innehållsnyckeln. I följande exempel .NET beräknar kontrollsumma använder GUID-del av Nyckelidentifieraren och avmarkera innehållsnyckeln.
+   Media Services .NET SDK använder RSA med OAEP när du gör krypteringen.  Du kan se ett .NET-exempel i den [EncryptSymmetricKeyData funktionen](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4. Skapa ett kontrollsummevärde beräknas med hjälp av nyckelidentifierare och innehållsnyckeln. I följande exempel för .NET beräknar kontrollsumma med hjälp av GUID-del av Nyckelidentifieraren och rensa innehållsnyckeln.
 
     ```csharp
             public static string CalculateChecksum(byte[] contentKey, Guid keyId)
@@ -93,22 +105,22 @@ Följande är allmänna steg för att generera innehåll nycklar som associeras 
             }
     ```
 
-5. Skapa innehållsnyckel med den **EncryptedContentKey** (konverteras till base64-kodad sträng) **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, och **kontrollsumma** värden som du har fått i föregående steg.
+5. Skapa innehållsnyckel med den **EncryptedContentKey** (omvandlat till base64-kodad sträng), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, och **kontrollsumma** värden som du har fått i föregående steg.
 
     Följande egenskaper ska tas med i begärandetexten för storage kryptering.
 
-    Egenskapen för brödtext i begäran    | Beskrivning
+    Brödtext egenskap för ansökan    | Beskrivning
     ---|---
-    Id | ContentKey Id genereras med följande format ”nb:kid:UUID:<NEW GUID>”.
-    ContentKeyType | Viktiga innehållstypen är ett heltal som definierar nyckeln. Värdet är 1 för storage krypteringsformat.
-    EncryptedContentKey | Vi skapa ett nytt innehåll nyckelvärde som är en 256-bitars (32 byte)-värde. Nyckeln är krypterad med storage kryptering X.509-certifikatet som vi hämta från Microsoft Azure Media Services genom att köra en HTTP GET-begäran för GetProtectionKeyId och GetProtectionKey metoder. Ett exempel finns i följande .NET-kod: den **EncryptSymmetricKeyData** metod som definieras [här](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-    ProtectionKeyId | Detta är skydd nyckel-id för storage kryptering X.509-certifikatet som användes för att kryptera våra innehållsnyckeln.
-    ProtectionKeyType | Detta är krypteringstyp för skydd nyckeln som används för att kryptera innehållsnyckeln. Det här värdet är StorageEncryption(1) i vårt exempel.
-    Kontrollsumma |Den beräknade kontrollsumman MD5 för innehållsnyckeln. Det beräknas genom att kryptera innehållet Id med innehållsnyckeln. Koden visar hur du beräkna kontrollsumman.
+    Id | ContentKey-ID: T genereras med följande format ”, nb:kid:UUID:<NEW GUID>”.
+    ContentKeyType | Viktiga innehållstypen är ett heltal som definierar nyckeln. Formatet på storage kryptering är värdet 1.
+    EncryptedContentKey | Vi skapar ett nytt innehåll nyckelvärde som är en 256-bitars (32 byte)-värde. Nyckeln är krypterad med storage kryptering X.509-certifikatet som vi hämtar från Microsoft Azure Media Services genom att köra en HTTP GET-begäran för GetProtectionKeyId och GetProtectionKey metoder. Till exempel finns i följande kod i .NET: den **EncryptSymmetricKeyData** metod som definieras [här](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    ProtectionKeyId | Det här är skyddet nyckel ID för storage kryptering X.509-certifikatet som används för att kryptera vår innehållsnyckeln.
+    ProtectionKeyType | Det här är krypteringstyp för protection-nyckel som används för att kryptera innehållsnyckeln. Det här värdet är StorageEncryption(1) i vårt exempel.
+    Kontrollsumma |Den beräknade kontrollsumman MD5 för innehållsnyckeln. Det beräknas genom att kryptera innehålls-ID med innehållsnyckeln. Exempelkoden visar hur du beräknar kontrollsumma.
 
 
 ### <a name="retrieve-the-protectionkeyid"></a>Hämta ProtectionKeyId
-I följande exempel visas hur du hämtar ProtectionKeyId, en certifikat-tumavtrycket för certifikatet måste du använda när du krypterar din innehållsnyckeln. Gör detta steg för att se till att du redan har rätt certifikat på din dator.
+I följande exempel visar hur du hämtar ProtectionKeyId, en certifikatets tumavtryck för certifikatet måste du använda när du krypterar innehållsnyckeln. Utför det här steget för att se till att du redan har rätt certifikat på din dator.
 
 Begäran:
 
@@ -139,7 +151,7 @@ Svar:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
 ### <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Hämta ProtectionKey för ProtectionKeyId
-I följande exempel visas hur du hämtar X.509-certifikatet med ProtectionKeyId du fick i föregående steg.
+I följande exempel visar hur du hämtar X.509-certifikatet med hjälp av ProtectionKeyId du fick i föregående steg.
 
 Begäran:
 
@@ -173,11 +185,11 @@ Svar:
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
 ### <a name="create-the-content-key"></a>Skapa innehållsnyckeln
-När du har hämtats X.509-certifikat och används den offentliga nyckeln för att kryptera din innehållsnyckeln, skapar du en **ContentKey** entiteten och ange egenskapen värden i enlighet med detta.
+När du har hämtats X.509-certifikat och används den offentliga nyckeln för att kryptera innehållsnyckeln, skapar du en **ContentKey** entitets- och Ställ in dess egenskap värden i enlighet med detta.
 
-Ett av de värden som du måste ange när skapa innehållet nyckeln är typen. När du använder lagringskryptering ska värdet anges till '1'. 
+En av de värden som du måste anges när du skapar du innehållet nyckeln är typen. När du använder lagringskryptering ska värdet anges till '1'. 
 
-I följande exempel visas hur du skapar en **ContentKey** med en **ContentKeyType** för lagringskryptering (”1”) och **ProtectionKeyType** värdet ”0” anger att skydd nyckeln Id är tumavtrycket för X.509-certifikatet.  
+I följande exempel visas hur du skapar en **ContentKey** med en **ContentKeyType** för lagringskryptering (”1”) och **ProtectionKeyType** inställd på ”0” som indikerar att protection-nyckel-ID är tumavtrycket för X.509-certifikatet.  
 
 Förfrågan
 
@@ -245,7 +257,7 @@ I följande exempel visas hur du skapar en tillgång.
 
 **HTTP-svar**
 
-Om det lyckas, returneras följande svar:
+Om detta lyckas, returneras följande svar:
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -273,8 +285,8 @@ Om det lyckas, returneras följande svar:
        "StorageAccountName":"storagetestaccount001"
     }
 
-## <a name="associate-the-contentkey-with-an-asset"></a>Koppla ContentKey till en tillgång
-När du har skapat ContentKey, associera den med din tillgång med hjälp av $links-åtgärd som visas i följande exempel:
+## <a name="associate-the-contentkey-with-an-asset"></a>Associera ContentKey med en tillgång
+När du har skapat ContentKey, associera den med din tillgången med hjälp av $links-åtgärd som du ser i följande exempel:
 
 Begäran:
 
@@ -295,11 +307,11 @@ Svar:
     HTTP/1.1 204 No Content 
 
 ## <a name="create-an-assetfile"></a>Skapa en AssetFile
-Den [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entiteten representerar en video eller ljud-fil som lagras i en blob-behållare. En resursfil är alltid associerat med en tillgång och en tillgång kan innehålla en eller många tillgångsfiler. Media Services Encoder uppgiften misslyckas om objekttypen tillgången filen inte är associerad med en digital fil i en blob-behållaren.
+Den [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entitet representerar en video- eller ljudinnehåll fil som lagras i en blob-behållare. En resursfil är alltid kopplad till en tillgång och en tillgång kan innehålla en eller flera tillgångsfiler. Media Services Encoder aktiviteten misslyckas om ett objekt för tillgången-filen inte är associerad med en digital fil i en blobbehållare.
 
-Den **AssetFile** instansen och den faktiska mediefilen är två distinkta objekt. AssetFile-instans innehåller metadata om filen media när mediefilen innehåller faktiskt medieinnehåll.
+Den **AssetFile** instans och den faktiska mediefilen finns två olika objekt. AssetFile-instans innehåller metadata om filen media medan mediefilen innehåller faktiskt medieinnehåll.
 
-När du har överfört din digitala media-fil till en blobbbehållare, ska du använda den **sammanfoga** HTTP-begäran om uppdatering av AssetFile med information om din mediefilen (visas inte i den här artikeln). 
+När du har överfört din digitala media-fil till en blobbehållare, ska du använda den **sammanfoga** HTTP-förfrågan att uppdatera AssetFile med information om din mediefil (visas inte i den här artikeln). 
 
 **HTTP-begäran**
 

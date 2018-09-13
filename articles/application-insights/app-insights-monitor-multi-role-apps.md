@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights stöd för flera komponenter, mikrotjänster och behållare | Microsoft Docs
-description: Övervakning av appar som består av flera komponenter eller roller för prestanda och användning.
+title: Azure Application Insights-stöd för flera komponenter, mikrotjänster och behållare | Microsoft Docs
+description: Övervaka appar som består av flera komponenter eller roller för prestanda och användning.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,77 +9,78 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 191913500daf7f1ab20f92c7e951f58598d5d14e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647721"
 ---
-# <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Övervaka flera komponenten program med Application Insights (förhandsversion)
+# <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Övervaka program med flera komponenter med Application Insights (förhandsversion)
 
-Du kan övervaka appar som består av flera server-komponenter, roller eller -tjänster med [Azure Application Insights](app-insights-overview.md). Hälsotillståndet för komponenterna och relationer mellan dem visas på en enda programavbildningen. Du kan spåra enskilda åtgärder med hjälp av flera komponenter med automatisk HTTP korrelation. Behållaren diagnostik integrering och samverkar med programtelemetri. Använda en enda Application Insights-resurs för alla komponenter i ditt program. 
+Du kan övervaka appar som består av flera komponenter, roller eller tjänster med [Azure Application Insights](app-insights-overview.md). Hälsotillståndet för komponenterna och relationer mellan dem visas på en enda programavbildning. Du kan spåra enskilda åtgärder via flera komponenter med automatisk HTTP korrelation. Behållardiagnostik integrering och med programtelemetri. Använda en enda Application Insights-resurs för alla komponenter i ditt program. 
 
-![Flera komponenten programavbildningen](./media/app-insights-monitor-multi-role-apps/app-map.png)
+![Flera komponenter programavbildning](./media/app-insights-monitor-multi-role-apps/app-map.png)
 
-Vi använder här ”komponent” betyder någon fungerande del av ett omfattande program. Till exempel en typisk affärsprogram kan bestå av klientkod som körs i webbläsare som kommunicerar med en eller flera web app-tjänster, som i sin tur använder tillbaka avsluta tjänster. Server-komponenter kan vara lokalt på i molnet, eller kanske Azure webb- och arbetsroller roller eller kan köras i behållare, till exempel Docker eller Service Fabric. 
+Vi använder här ”component” avses någon fungerande del av en stor tillämpning. Till exempel ett typiskt affärsprogram kan bestå av klientkod som körs i webbläsare, pratar till en eller flera web app services, som i sin tur använda tillbaka sluta tjänster. Server-komponenter kan vara hanteras lokalt på i molnet, eller kan vara Azure webb- och worker-roller eller kan köras i behållare, till exempel Docker eller Service Fabric. 
 
 ### <a name="sharing-a-single-application-insights-resource"></a>Dela en enda Application Insights-resurs 
 
-Med viktiga tekniken är att skicka telemetri från varje komponent i ditt program till samma Application Insights-resurs, men använda den `cloud_RoleName` egenskapen att skilja komponenter vid behov. Application Insights SDK lägger till den `cloud_RoleName` egenskapen telemetri komponenter genererar. Till exempel SDK kommer att lägga till en webbplatsens namn eller tjänstnamnet som rollen ska den `cloud_RoleName` egenskapen. Du kan åsidosätta detta värde med en telemetryinitializer. Kartan program använder den `cloud_RoleName` egenskapen för att identifiera komponenterna på kartan.
+Viktiga tekniken här innebär att skicka telemetri från alla komponenter i din app för samma Application Insights-resursen, men använda den `cloud_RoleName` egenskapen att skilja mellan komponenter vid behov. Application Insights SDK lägger till den `cloud_RoleName` egenskapen telemetri-komponenter genererar. Till exempel SDK kommer att lägga till en webbplatsens namn eller tjänstnamnet som rollen ska den `cloud_RoleName` egenskapen. Du kan åsidosätta det här värdet med en telemetryinitializer. Programkartan använder den `cloud_RoleName` egenskapen att identifiera komponenterna på kartan.
 
-Mer information om hur Åsidosätt den `cloud_RoleName` egenskapen Se [lägga till egenskaper: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
+För mer information om hur åsidosätter den `cloud_RoleName` egenskapen Se [Lägg till egenskaper: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
-I vissa fall kan detta kanske inte är rätt och du kanske föredrar att använda separata resurser för olika grupper av komponenter. Du kan behöva använda olika resurser för hantering eller fakturering. Med hjälp av separata resurser innebär att du inte ser alla komponenter som visas på en enda programavbildningen; och att du kan inte fråga på komponenter i [Analytics](app-insights-analytics.md). Du måste ange olika resurser.
+I vissa fall kan det kanske inte är lämplig och kanske du föredrar att använda separata resurser för olika grupper av komponenter. Du kan behöva använda olika resurser för hantering och fakturering. Med hjälp av separata resurser innebär att du inte ser alla komponenter som visas på en enda programavbildning; och att du kan inte fråga för komponenter i [Analytics](app-insights-analytics.md). Du måste också konfigurera separata resurser.
 
-Med den begränsning antar vi i resten av det här dokumentet som du vill skicka data från flera komponenter till en Application Insights-resurs.
+Med den teamindela förutsätter vi i resten av det här dokumentet som du vill skicka data från flera komponenter till en Application Insights-resurs.
 
-## <a name="configure-multi-component-applications"></a>Konfigurera flera komponenten program
+## <a name="configure-multi-component-applications"></a>Konfigurera program med flera komponenter
 
-För att få flera komponenten programavbildningen måste att uppnå dessa mål:
+Om du vill ha flera komponenter programavbildning behöver att åstadkomma detta:
 
 * **Installera den senaste förhandsversionen** Application Insights-paketet i varje komponent i programmet. 
 * **Dela en enda Application Insights-resurs** för alla komponenter i ditt program.
-* **Aktivera sammansatta programavbildningen** i bladet förhandsgranskningar.
+* **Aktivera sammansatt Programkarta** på bladet förhandsgranskningar.
 
 Konfigurera varje komponent i ditt program med en lämplig metod för typen. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
 
-### <a name="1-install-the-latest-pre-release-package"></a>1 Installera det senaste förhandsversionen paketet
+### <a name="1-install-the-latest-pre-release-package"></a>1. Installera det senaste förhandsversionen-paketet
 
 Uppdatera eller installera Application Insights-paket i projektet för varje serverkomponent. Om du använder Visual Studio:
 
-1. Högerklicka på projektet och välj **hantera NuGet-paket**. 
+1. Högerklicka på ett projekt och välj **hantera NuGet-paket**. 
 2. Välj **inkludera förhandsversion**.
-3. Om Application Insights visas paketen i uppdateringar, markera dem. 
+3. Om Application Insights-paket visas i uppdateringar kan du välja dem. 
 
-    Annars kan söka efter och installera lämplig paketet:
+    Annars kan söka efter och installera lämpligt paket:
     
     * Microsoft.ApplicationInsights.WindowsServer
-    * Microsoft.ApplicationInsights.ServiceFabric - komponenter som körs som gäst körbara filer och Docker-behållare som kör ett i Service Fabric-program
-    * Microsoft.ApplicationInsights.ServiceFabric.Native - för tillförlitlig tjänster i ServiceFabric program
+    * Microsoft.ApplicationInsights.ServiceFabric - för komponenter som körs som körbara gäster och Docker-behållare som kör ett i Service Fabric-program
+    * Microsoft.ApplicationInsights.ServiceFabric.Native - för reliable services i Service fabric-program
     * Microsoft.ApplicationInsights.Kubernetes för komponenter som körs i Docker på Kubernetes
 
-### <a name="2-share-a-single-application-insights-resource"></a>2 Dela en enda Application Insights-resurs
+### <a name="2-share-a-single-application-insights-resource"></a>2. Dela en enda Application Insights-resurs
 
-* Högerklicka på ett projekt i Visual Studio och välj **konfigurera Application Insights**, eller **Programinsikter > Konfigurera**. Använd guiden Skapa Application Insights-resurs för det första projektet. Välj samma resurs för efterföljande projekt.
-* Om det finns inga Application Insights-menyn, konfigurera manuellt:
+* Högerklicka på ett projekt i Visual Studio och välj **konfigurera Application Insights**, eller **Application Insights > Konfigurera**. Använd guiden för det första projektet är för att skapa en Application Insights-resurs. För efterföljande projekt, väljer du samma resurs.
+* Om det finns inga Application Insights-menyn, konfigurerar du manuellt:
 
    1. I [Azure-portalen](https://portal,azure.com), öppna Application Insights-resurs som du redan har skapats för en annan komponent.
-   2. I bladet översikt, öppna Essentials nedrullningsbara fliken och kopiera den **Instrumentation nyckel.**
+   2. I fliken översiktsbladet, öppna Essentials listrutan och kopiera den **Instrumenteringsnyckeln.**
    3. Öppna ApplicationInsights.config och infoga i projektet: `<InstrumentationKey>your copied key</InstrumentationKey>`
 
-![Kopiera nyckeln instrumentation till .config-filen](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
+![Kopiera instrumenteringsnyckeln till .config-filen](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### <a name="3-enable-composite-application-map"></a>3 Aktivera sammansatta programavbildningen
+### <a name="3-enable-composite-application-map"></a>3. Aktivera sammansatt Programkarta
 
-Öppna resursen för ditt program i Azure-portalen. Klicka på förhandsgranskning för att öppna bladet förhandsgranskningar under rubriken konfigurera underordnade. I bladet förhandsgranskningar aktivera *sammansatta programavbildningen*.
+Öppna resursen för ditt program i Azure-portalen. Under rubriken konfigurera underordnade, klickar du på förhandsversioner för att öppna bladet förhandsversioner. På bladet förhandsgranskningar aktivera *sammansatt Programkarta*.
 
-### <a name="4-enable-docker-metrics-optional"></a>4. Aktivera Docker mätvärden (valfritt) 
+### <a name="4-enable-docker-metrics-optional"></a>4. Aktivera mätvärden för Docker (valfritt) 
 
-Om en komponent som körs i en Docker som finns på en Windows Azure-dator, kan du samla in ytterligare mått från behållaren. Infoga det i ditt [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics.md) konfigurationsfil:
+Om en komponent som körs i Docker finns på en Windows Azure-dator kan du samla in ytterligare mått från behållaren. Infoga detta i din [Azure-diagnostik](../monitoring-and-diagnostics/azure-diagnostics.md) konfigurationsfil:
 
 ```
 "DiagnosticMonitorConfiguration": {
@@ -105,26 +106,26 @@ Om en komponent som körs i en Docker som finns på en Windows Azure-dator, kan 
 
 ```
 
-## <a name="use-cloudrolename-to-separate-components"></a>Använd cloud_RoleName för att avgränsa komponenter
+## <a name="use-cloudrolename-to-separate-components"></a>Använd cloud_RoleName mellan komponenter
 
-Den `cloud_RoleName` bifogas till all telemetri. Komponenten - roll eller tjänst - kommer telemetrin identifieras. (Det är inte samma som cloud_RoleInstance som separerar identiska roller som körs parallellt på flera serverprocesser eller datorer.)
+Den `cloud_RoleName` bifogas till all telemetri. Den identifierar den komponent - roll eller tjänst - som samlas in telemetri. (Det är inte samma som cloud_RoleInstance som avgränsar identiska roller som körs parallellt på flera serverprocesser eller datorer.)
 
-Du kan filtrera eller segmentera dina telemetri som använder den här egenskapen i portalen. Fel-bladet är filtrerad och visar bara information från tjänsten frontwebbservern filtrera fel från CRM API-serverdel i det här exemplet:
+Du kan filtrera eller dela din telemetri med hjälp av den här egenskapen i portalen. I det här exemplet filtreras bladet fel för att visa bara information från tjänsten frontwebbservern filtrering ut fel från CRM-API-serverdelen:
 
-![Mått diagram åtskilda med rollen Molnnamn](./media/app-insights-monitor-multi-role-apps/cloud-role-name.png)
+![Måttdiagram uppdelat efter Molnrollnamn](./media/app-insights-monitor-multi-role-apps/cloud-role-name.png)
 
 ## <a name="trace-operations-between-components"></a>Spåra åtgärder mellan komponenter
 
-Du kan spåra från en komponent till en annan, anrop under bearbetning av en enskild åtgärd.
+Du kan spåra från en komponent till en annan, anrop som görs vid bearbetning av en enskild åtgärd.
 
 
 ![Visa telemetri för åtgärden](./media/app-insights-monitor-multi-role-apps/show-telemetry-for-operation.png)
 
-Klicka här för att en korrelerade lista över telemetri för den här åtgärden på frontwebbservern och backend-API:
+Klicka vidare till en korrelerad telemetri för den här åtgärden-lista över frontwebbservern och serverdels-API:
 
-![Söka i komponenter](./media/app-insights-monitor-multi-role-apps/search-across-components.png)
+![Sök bland komponenter](./media/app-insights-monitor-multi-role-apps/search-across-components.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Separata telemetri från utveckling, Test och produktion](app-insights-separate-resources.md)
+* [Separata telemetri från utveckling, testning och produktion](app-insights-separate-resources.md)

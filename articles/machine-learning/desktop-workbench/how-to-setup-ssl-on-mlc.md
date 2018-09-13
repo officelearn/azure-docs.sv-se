@@ -1,57 +1,57 @@
 ---
-title: Aktivera SSL på ett kluster i Azure Machine Learning beräkna (MLC) | Microsoft Docs
-description: Instruktioner för hur du konfigurerar SSL för poäng anrop i ett kluster i Azure Machine Learning beräkna (MLC)
+title: Aktivera SSL på ett kluster i Azure Machine Learning Compute (MLC) | Microsoft Docs
+description: Instruktioner för hur du konfigurerar SSL för poängsättningsanrop på ett kluster i Azure Machine Learning Compute (MLC)
 services: machine-learning
 author: SerinaKaye
 ms.author: serinak
 manager: hjerez
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: 14f8dd29b7d4185d01529631333de045ad23cdd0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 982a6807ccaf393c3aea42f39f7e60bb7e0d3ac3
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831473"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649152"
 ---
-# <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Aktivera SSL på ett kluster i Azure Machine Learning beräkna (MLC) 
+# <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Aktivera SSL på ett kluster i Azure Machine Learning Compute (MLC) 
 
-Dessa instruktioner kan du konfigurera SSL för poäng anrop på ett kluster med Machine Learning beräkna (MLC). 
+De här instruktionerna kan du konfigurera SSL för poängsättningsanrop på en Machine Learning Compute (MLC)-kluster. 
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-1. Besluta om en CNAME-post (DNS-namn) ska användas när realtid bedömningsprofil-anrop.
+1. Besluta om en CNAME-post (DNS-namn) ska användas när i realtid bedömnings anrop.
 
-2. Skapa en *lösenord utan* certifikat med den CNAME-post.
+2. Skapa en *lösenord är kostnadsfria* certifikatet med den CNAME.
 
-3. Om certifikatet inte PEM-format, konvertera den till PEM med hjälp av verktyg som *openssl*.
+3. Om certifikatet inte redan finns i PEM-format, konvertera den till PEM med verktyg som *openssl*.
 
-Du har två filer när du har slutfört krav:
+När du har slutfört förutsättningarna har du två filer:
 
-* En fil för certifikat, till exempel `cert.pem`. Kontrollera att filen har fullständig certifikatkedjan.
-* En fil för nyckeln, t.ex. `key.pem`
+* En fil för certifikatet, till exempel `cert.pem`. Kontrollera att filen har fullständig certifikatkedjan.
+* En fil för nyckeln, till exempel `key.pem`
 
 
 
-## <a name="set-up-an-ssl-certificate-on-a-new-acs-cluster"></a>Ställ in ett SSL-certifikat på ett nytt ACS-kluster
+## <a name="set-up-an-ssl-certificate-on-a-new-acs-cluster"></a>Konfigurera ett SSL-certifikat på ett nytt ACS-kluster
 
-Med hjälp av Azure Machine Learning CLI kör du följande kommando med den `-c` växel för att skapa en ACS-kluster med ett SSL-certifikat kopplade:
+Med hjälp av Azure Machine Learning CLI kör du följande kommando med den `-c` växel för att skapa ett ACS-kluster med ett SSL-certifikat som är ansluten:
 
 ```
 az ml env create -c -g <resource group name> -n <cluster name> --cert-cname <CNAME> --cert-pem <path to cert.pem file> --key-pem <path to key.pem file>
 ```
 
 
-## <a name="set-up-an-ssl-certificate-on-an-existing-acs-cluster"></a>Ställ in ett SSL-certifikat på ett befintligt ACS-kluster
+## <a name="set-up-an-ssl-certificate-on-an-existing-acs-cluster"></a>Konfigurera ett SSL-certifikat i ett befintligt ACS-kluster
 
-Om du utvecklar ett kluster som har skapats utan SSL, kan du lägga till ett certifikat med hjälp av Azure PowerShell-cmdlets.
+Om du arbetar med ett kluster som har skapats utan SSL, kan du lägga till ett certifikat med hjälp av Azure PowerShell-cmdlets.
 
-Du måste ange den nyckeln och certifikatet i raw PEM-format. Dessa kan läsas in i PowerShell variabler:
+Du måste ange den nyckeln och certifikatet i obearbetat PEM-format. Dessa kan läsas in i PowerShell variabler:
 
 ```
 $keyValueInPemFormat = [IO.File]::ReadAllText('<path to key.pem file>')
@@ -65,15 +65,15 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>Mappa CNAME och IP-adress
 
-Skapa en mappning mellan CNAME som du valde i krav och IP-adressen för den realtid frontend (FE). För att identifiera IP-adressen för FE, kör du kommandot nedan. Utdata visar ett fält med namnet ”publicIpAddress” som innehåller IP-adressen i realtid frontend klustret. Läser du anvisningarna för din DNS-leverantör för att ställa in en post från FQDN som används i CNAME-post till den offentliga IP-adressen.
+Skapa en mappning mellan CNAME-post som du valde i krav och IP-adressen för den i realtid frontend (FE). För att identifiera IP-adressen för FE, kör du kommandot nedan. Utdata visar ett fält med namnet ”publicIpAddress” som innehåller IP-adressen för klientdelen i realtid klustret. Se anvisningarna för din DNS-leverantör för att ställa in en post från den fullständiga domännamn som används i CNAME-post till den offentliga IP-adressen.
 
 
 
 ## <a name="auto-detection-of-a-certificate"></a>Automatisk identifiering av ett certifikat 
 
-När du skapar en realtid webbprogram med hjälp av ”`az ml service create realtime`” kommandot Azure Machine Learning identifieras SSL på klustret och konfigurerar automatiskt bedömningsprofil URL med det angivna certifikatet. 
+När du skapar ett webbprogram i realtid med den ”`az ml service create realtime`” kommandot Azure Machine Learning upptäcker automatiskt SSL på klustret och konfigurerar en bedömnings-URL med det angivna certifikatet automatiskt. 
 
-Kör följande kommando för att se certifikatstatus för. Observera ”https” prefixet för poängberäkningen URI och CNAME i värdnamnet. 
+Kör följande kommando om du vill se certifikatstatus för. Lägg märke till ”https”-prefixet för bedömning URI: N och CNAME i värdnamnet. 
 
 ``` 
 az ml service show realtime -n <service name>

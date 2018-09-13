@@ -1,8 +1,8 @@
 ---
-title: "Hur gör jag... i Azure Application Insights | Microsoft Docs"
-description: "Vanliga frågor och svar i Application Insights."
+title: Hur kan jag... i Azure Application Insights | Microsoft Docs
+description: Vanliga frågor och svar i Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
@@ -10,35 +10,36 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: a32127f14c93012b5ace11ff982824f9ecba7d94
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 235089cc0f0c8f84fe27edbbb97f65b8310fccba
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647740"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hur kan jag ... i Application Insights?
 ## <a name="get-an-email-when-"></a>Få ett e-postmeddelande när...
 ### <a name="email-if-my-site-goes-down"></a>E-post om min plats kraschar
 Ange en [tillgänglighet webbtest](app-insights-monitor-web-app-availability.md).
 
-### <a name="email-if-my-site-is-overloaded"></a>E-post om min plats är överbelastad.
+### <a name="email-if-my-site-is-overloaded"></a>E-post om min webbplats är överbelastad
 Ange en [avisering](app-insights-alerts.md) på **serversvarstid**. Ett tröskelvärde mellan 1 och 2 sekunder ska fungera.
 
 ![](./media/app-insights-how-do-i/030-server.png)
 
-Din app kan också visa loggar belastning genom att returnera felkoder. Ange en varning på **misslyckade begäranden**.
+Din app kan också visa loggar belastning genom att returnera felkoder. Ställa in dataaviseringar på **misslyckade förfrågningar**.
 
-Om du vill ange en varning på **undantag**, du kan behöva göra [vissa ytterligare inställningar](app-insights-asp-net-exceptions.md) för att se data.
+Om du vill ställa in dataaviseringar på **serverundantagen**, du kan behöva göra [vissa ytterligare inställningar](app-insights-asp-net-exceptions.md) om du vill se data.
 
-### <a name="email-on-exceptions"></a>E-post på undantag
+### <a name="email-on-exceptions"></a>Skicka e-postmeddelande undantag
 1. [Konfigurera undantagsövervakning](app-insights-asp-net-exceptions.md)
-2. [Ställ in en varning](app-insights-alerts.md) undantaget räkna mått
+2. [Ställa in en avisering](app-insights-alerts.md) på undantaget antal mått
 
 ### <a name="email-on-an-event-in-my-app"></a>E-post på en händelse i min app
-Anta att du vill få ett e-postmeddelande när en viss händelse inträffar. Application Insights inte ger den här funktionen direkt, men den kan [skicka en avisering när en måttet överskrider ett tröskelvärde](app-insights-alerts.md).
+Anta att du vill få ett e-postmeddelande när en viss händelse inträffar. Application Insights ger inte den här funktionen direkt, men det kan [skicka en avisering när ett mått överskrider ett tröskelvärde](app-insights-alerts.md).
 
 Aviseringar kan ställas in på [anpassade mått](app-insights-api-custom-events-metrics.md#trackmetric), men inte anpassade händelser. Skriva kod för att öka ett mått när händelsen inträffar:
 
@@ -50,28 +51,28 @@ Eller:
     measurements ["Alarm"] = 10;
     telemetry.TrackEvent("status", null, measurements);
 
-Du måste skicka ett lågt värde när du funderar på att aviseringen ska ha avslutat eftersom aviseringar har två tillstånd:
+Eftersom aviseringar har två tillstånd, som du behöver skicka ett lågt värde när du ska välja vilken avisering du vill ha tagit slut:
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Skapa ett diagram i [mått explorer](app-insights-metrics-explorer.md) att se din larm:
+Skapa ett diagram i [metric explorer](app-insights-metrics-explorer.md) att se din larm:
 
 ![](./media/app-insights-how-do-i/010-alarm.png)
 
-Ange en avisering eller om måttet går över ett mid värde under en kort period:
+Nu ska du ställa in en avisering utlöses när måttet mer än ett mid värde under en kort period:
 
 ![](./media/app-insights-how-do-i/020-threshold.png)
 
-Ange ett genomsnitt perioden som minst.
+Ange genomsnittsperioden till minst.
 
 Du får e-postmeddelanden när måttet går över såväl under tröskeln.
 
-Vissa saker att tänka på:
+Några saker att tänka på:
 
-* En avisering har två lägen (”varning” och ”felfri”). Tillståndet utvärderas bara när ett mått tas emot.
-* Ett e-postmeddelande skickas endast när tillståndet ändras. Detta är varför du behöver skicka både hög och låg-värde mått.
-* Om du vill utvärdera aviseringen tas medelvärdet av mottagna värden över föregående period. Detta sker varje gång ett mått tas emot, så e-postmeddelanden skickas oftare än den angivna perioden.
-* Eftersom e-postmeddelanden skickas både ”varning” och ”felfri”, kanske du vill överväga nytt tänker din one-shot händelse som ett villkor för två tillstånd. Till exempel i stället för en ”jobbet har slutförts” händelsen har en ”jobb pågår” villkor, där du får e-post i början och slutet av ett jobb.
+* En avisering har två tillstånd (”varning” och ”felfri”). Tillståndet utvärderas bara när ett mått tas emot.
+* Ett e-postmeddelande skickas bara när tillståndet ändras. Det här är varför du behöver skicka både hög och låg / värde-mått.
+* Om du vill utvärdera aviseringen tas medelvärdet av de mottagna värdena under föregående period. Detta sker varje gång ett mått tas emot, så e-postmeddelanden kan skickas oftare än den angivna perioden.
+* Eftersom e-postmeddelanden skickas både ”varning” och ”felfri”, kan du tänka på nytt har du funderingar one-shot evenemanget som ett villkor för två tillstånd. Till exempel i stället för en ”jobb slutfört”-händelse, har en ”jobb pågår” villkor, där du får e-postmeddelanden i början och slutet av ett jobb.
 
 ### <a name="set-up-alerts-automatically"></a>Ställa in aviseringar automatiskt
 [Använd PowerShell för att skapa nya aviseringar](app-insights-alerts.md#automation)
@@ -82,32 +83,32 @@ Vissa saker att tänka på:
 
 ## <a name="separate-telemetry-from-different-versions"></a>Separata telemetri från olika versioner
 
-* Flera roller i en app: använda en enda Application Insights-resurs och filtrera på cloud_Rolename. [Läs mer](app-insights-monitor-multi-role-apps.md)
-* Avgränsa utveckling och test-versioner: olika Application Insights-resurser. Hämta instrumentation nycklarna från web.config. [Läs mer](app-insights-separate-resources.md)
-* Rapportering skapa versioner: lägga till en egenskap med ett telemetri initieraren. [Läs mer](app-insights-separate-resources.md)
+* Flera roller i en app: använda en enda Application Insights-resurs och filtrerar på cloud_Rolename. [Läs mer](app-insights-monitor-multi-role-apps.md)
+* Att avgränsa utveckling, testning och versioner: använda olika Application Insights-resurser. Hämta instrumenteringsnycklar från web.config. [Läs mer](app-insights-separate-resources.md)
+* Rapportering skapa versioner: lägga till en egenskap med hjälp av en telemetri-initierare. [Läs mer](app-insights-separate-resources.md)
 
-## <a name="monitor-backend-servers-and-desktop-apps"></a>Övervaka backend-servrar och -program
-[Modulen för Windows Server SDK](app-insights-windows-desktop.md).
+## <a name="monitor-backend-servers-and-desktop-apps"></a>Övervaka backend-servrar och skrivbordsappar
+[Använda Windows Server SDK-modulen](app-insights-windows-desktop.md).
 
 ## <a name="visualize-data"></a>Visualisera data
-#### <a name="dashboard-with-metrics-from-multiple-apps"></a>Instrumentpanel med mått för flera appar
-* I [mått Explorer](app-insights-metrics-explorer.md), anpassa ditt diagram och spara den som en favorit. Fäst det på Azure instrumentpanelen.
+#### <a name="dashboard-with-metrics-from-multiple-apps"></a>Instrumentpanel med mått från flera appar
+* I [Metric Explorer](app-insights-metrics-explorer.md), anpassa ditt diagram och spara den som en favorit. Fästa den på instrumentpanelen i Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Instrumentpanel med data från andra källor och Application Insights
 * [Exportera telemetri till Power BI](app-insights-export-power-bi.md).
 
 Eller
 
-* Använda SharePoint som instrumentpanelen visar data i SharePoint-webbdelar. [Använd den löpande exporten och Stream Analytics för att exportera till SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Använda PowerView för att undersöka databasen och skapa en SharePoint-webbdel för PowerView.
+* Använd SharePoint som din instrumentpanel som visar data i SharePoint-webbdelar. [Använd löpande export och Stream Analytics för att exportera till SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Använder PowerView för att undersöka databasen och skapa en SharePoint-webbdel för PowerView.
 
 <a name="search-specific-users"></a>
 
-### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrera ut anonyma och autentiserade användare
-Om dina användare loggar in, kan du ange den [autentiserat användar-id](app-insights-api-custom-events-metrics.md#authenticated-users). (Det inte sker automatiskt.)
+### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrera bort anonym eller autentiserade användare
+Om användarna måste logga in, kan du ange den [autentiserad användar-id](app-insights-api-custom-events-metrics.md#authenticated-users). (Det inte sker automatiskt.)
 
-Sedan kan du:
+Du kan sedan:
 
-* Söka på särskilda användar-ID
+* Söker i specifika användar-ID
 
 ![](./media/app-insights-how-do-i/110-search.png)
 
@@ -119,23 +120,23 @@ Sedan kan du:
 Skapa en [filter](app-insights-api-filtering-sampling.md#filtering). På så sätt kan du ändra eller filtrera telemetri innan den skickas från din app till Application Insights.
 
 ## <a name="list-specific-users-and-their-usage"></a>Lista över specifika användare och deras användning
-Om du bara vill [Sök efter specifika användare](#search-specific-users), du kan ange den [autentiserat användar-id](app-insights-api-custom-events-metrics.md#authenticated-users).
+Om du bara vill [Sök efter specifika användare](#search-specific-users), du kan ange den [autentiserad användar-id](app-insights-api-custom-events-metrics.md#authenticated-users).
 
-Om du vill ha en lista över användare med data, till exempel vilka sidor du de titta på eller hur ofta de loggar in, har du två alternativ:
+Om du vill ha en lista över användare med data, till exempel vilka sidor du de tittar på eller hur ofta de loggar in, har du två alternativ:
 
-* [Ange autentiserat användar-id](app-insights-api-custom-events-metrics.md#authenticated-users), [exportera till en databas](app-insights-code-sample-export-sql-stream-analytics.md) och använda lämpliga verktyg för att analysera dina användardata.
-* Om du har mindre antal användare kan skicka anpassade händelser eller statistik, och använda data av intresse som måttnamnet värde eller händelse och ange användar-id som en egenskap. Ersätt standard JavaScript trackPageView anropet för att analysera sidvisningar. Använd en telemetri initieraren att lägga till användar-id all telemetri för server för att analysera serversidan telemetri. Därefter kan du filtrera och segment mått och sökningar på det användar-id.
+* [Ställ in autentiserat användar-id](app-insights-api-custom-events-metrics.md#authenticated-users), [exportera till en databas](app-insights-code-sample-export-sql-stream-analytics.md) och använda lämpliga verktyg för att analysera dina användardata.
+* Om du har bara ett litet antal användare kan skicka anpassade händelser eller mått, med hjälp av data av intresse som måttnamnet värde eller händelse och ange användar-id som en egenskap. Ersätt anropet flyttat trackPageView standard JavaScript för att analysera sidvisningar. Använd en telemetri-initierare att lägga till användar-id i all telemetri för att analysera telemetri på serversidan. Därefter kan du filtrera och segmentera mått och sökningar på användar-id.
 
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Minska trafiken från min app till Application Insights
 * I [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), inaktivera alla moduler som du inte behöver dessa prestandaräknaren insamlaren.
-* Använd [provtagning och filtrering](app-insights-api-filtering-sampling.md) på SDK.
-* Begränsa antalet Ajax-anrop som rapporterats för alla sidor i dina webbsidor. Skriptet kodutdrag efter `instrumentationKey:...` , infoga: `,maxAjaxCallsPerView:3` (eller ett lämpligt antal).
-* Om du använder [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric), compute aggregering av batchar av måttvärden innan du skickar resultatet. Det finns en överlagring av TrackMetric() som tillhandahåller för som.
+* Använd [Sampling och filtrering](app-insights-api-filtering-sampling.md) på SDK.
+* Begränsa antalet Ajax-anrop som rapporteras för alla sidor i dina webbsidor. I kodfragmentet skript efter `instrumentationKey:...` , infoga: `,maxAjaxCallsPerView:3` (eller ett lämpligt antal).
+* Om du använder [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric), compute sammanställningen av batchar med måttvärden innan du skickar resultatet. Det finns en överlagring för TrackMetric() som tillhandahåller för som.
 
-Lär dig mer om [priser och kvoter](app-insights-pricing.md).
+Läs mer om [priser och kvoter](app-insights-pricing.md).
 
 ## <a name="disable-telemetry"></a>Inaktivera telemetri
-Att **dynamiskt stoppa och starta** insamling och vidarebefordran av telemetri från servern:
+Att **dynamiskt stoppa och starta** insamling och överföring av telemetri från servern:
 
 ```
 
@@ -146,18 +147,18 @@ Att **dynamiskt stoppa och starta** insamling och vidarebefordran av telemetri f
 
 
 
-Att **inaktivera valda standard insamlare** – till exempel prestandaräknare, HTTP-begäranden eller beroenden - ta bort eller kommentera ut relevanta rader i [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). Du kan göra detta, till exempel om du vill skicka TrackRequest data.
+Att **inaktivera valda standard insamlare** – till exempel prestandaräknare, HTTP-begäranden eller beroenden - ta bort eller kommentera ut de relevanta raderna i [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). Du kan göra detta, till exempel om du vill skicka dina egna TrackRequest data.
 
-## <a name="view-system-performance-counters"></a>Visa prestandaräknare för system
-Bland de mätvärden som du kan visa i metrics explorer är en uppsättning system prestandaräknare. Det finns en fördefinierad bladet med titeln **servrar** som visar flera.
+## <a name="view-system-performance-counters"></a>Visa systemprestandaräknare
+Bland de mått som du kan visa i metrics explorer är en uppsättning system prestandaräknare. Det finns en fördefinierad bladet med rubriken **servrar** som visar flera stycken.
 
 ![Öppna Application Insights-resursen och klicka på servrar](./media/app-insights-how-do-i/121-servers.png)
 
 ### <a name="if-you-see-no-performance-counter-data"></a>Om du ser inga prestandaräknardata
-* **IIS-servern** på din egen dator eller på en virtuell dator. [Installera statusövervakaren](app-insights-monitor-performance-live-website-now.md).
-* **Webbplatsen för Azure** -vi stöder inte prestandaräknare ännu. Det finns flera mått som du kan få som en del av Kontrollpanelen webbplatsen för Azure.
-* **UNIX-server** - [installera collectd](app-insights-java-collectd.md)
+* **IIS-server** på din egen dator eller på en virtuell dator. [Installera Status Monitor](app-insights-monitor-performance-live-website-now.md).
+* **Azure-webbplats** -vi stöder inte prestandaräknare ännu. Det finns flera mått som du kan hämta som en del av Azure-webbplats på Kontrollpanelen.
+* **UNIX-server** - [installera insamlade](app-insights-java-collectd.md)
 
-### <a name="to-display-more-performance-counters"></a>Visa mer prestandaräknare
-* Första, [lägga till ett nytt diagram](app-insights-metrics-explorer.md) och se om räknaren finns i grundläggande som vi erbjuder.
-* Om inte, [lägga till räknaren uppsättningen som samlas in av prestandaräknarmodulen](app-insights-performance-counters.md).
+### <a name="to-display-more-performance-counters"></a>Visa fler prestandaräknare
+* Först [lägga till ett nytt diagram](app-insights-metrics-explorer.md) och se om räknaren finns i den grundläggande uppsättningen som vi erbjuder.
+* Om inte, [lägga till räknaren i uppsättningen som samlas in av modulen för prestandaräknare](app-insights-performance-counters.md).

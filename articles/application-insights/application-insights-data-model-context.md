@@ -1,6 +1,6 @@
 ---
-title: Datamodell för Azure-program insikter telemetri - telemetri kontexten | Microsoft Docs
-description: Application Insights telemetri kontexten datamodellen
+title: Datamodell för Azure Application Insights telemetri – telemetri kontext | Microsoft Docs
+description: Datamodell för Application Insights telemetri kontext
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -9,111 +9,113 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: sergkanz; mbullwin
-ms.openlocfilehash: f6654dc869b6c1a3f91ee8dee44dcdbf4bdfc5fd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: b6cfae20f09b19a57cf411777e78abb1dbbf0484
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35649647"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Telemetri kontext: Application Insights-datamodell
 
-Varje telemetri-objekt kan ha ett starkt typifierad kontexten fält. Samtliga fält gör det möjligt för ett specifikt scenario för övervakning. Använda samlingen med anpassade egenskaper för att lagra anpassade eller programspecifika relevant information.
+Varje telemetriobjekt kan ha en starkt typifierad kontext-fält. Varje fält gör det möjligt för ett specifikt scenario för övervakning. Använda anpassade egenskaper-samlingen för att lagra anpassade eller programspecifika kontextinformation.
 
 
 ## <a name="application-version"></a>Programversion
 
-Information i fälten programmet kontext är alltid om programmet som skickar telemetrin. Programversion används för att analysera trend ändringar i programmets beteende och dess korrelation till distributioner.
+Informationen i fälten programmet kontext är alltid om programmet som skickar telemetri. Programversion används för att analysera trend ändringar i programmets beteende och dess korrelation i distributionerna.
 
 Maxlängd: 1024
 
 
 ## <a name="client-ip-address"></a>Klientens IP-adress
 
-IP-adressen för klientenheten. IPv4 och IPv6 stöds. När telemetri som skickas från en tjänst, är plats-kontexten om användaren som initierade igen i tjänsten. Application Insights extrahera informationen geografiska plats från klientens IP-Adressen och sedan trunkera den. Så att klientens IP-Adressen ensamt kan inte användas som slutanvändaren identifierbar information. 
+IP-adressen för klientenheten. IPv4 och IPv6 stöds. När telemetri skickas från en tjänst, är plats-kontexten om användaren som initierade åtgärden i tjänsten. Application Insights extrahera geografiska information från klientens IP-Adressen och sedan trunkera den. Så att klientens IP-adress ensamt kan inte användas som slutanvändaren identifierbar information. 
 
 Maxlängd: 46
 
 
 ## <a name="device-type"></a>Enhetstyp
 
-Det här fältet har ursprungligen används för att ange vilken typ av enhet som används av slutanvändaren av programmet. Idag används huvudsakligen för att skilja JavaScript telemetri med typ av enhet ange webbläsare om du från serversidan telemetri med enheten ”dator”.
+Det här fältet har ursprungligen används för att ange vilken typ av enhet med hjälp av slutanvändaren av programmet. Idag används främst för att skilja JavaScript telemetri med typ av enhet ange webbläsare om du från serversidan telemetri med enheten ”dator”.
 
 Maxlängd: 64
 
 
-## <a name="operation-id"></a>Åtgärds-id
+## <a name="operation-id"></a>Åtgärds-ID
 
-En unik identifierare för rot-åtgärden. Den här identifieraren kan gruppen telemetri över flera komponenter. Se [telemetri korrelation](application-insights-correlation.md) mer information. Åtgärds-id skapas av en begäran eller vyn sida. All telemetri anger det här fältet till värdet för vyn som innehåller begäran eller sidan. 
+En unik identifierare för rotåtgärden. Den här identifieraren kan gruppen telemetri över flera komponenter. Se [telemetrikorrelation](application-insights-correlation.md) information. Åtgärds-id skapas av en begäran eller en Sidvisning. All telemetri anger det här fältet till värdet för den som innehåller förfrågan eller sidvisning. 
 
 Maxlängd: 128
 
 
 ## <a name="parent-operation-id"></a>Överordnad åtgärds-ID
 
-Unik identifierare för telemetri objektets omedelbart överordnade objekt. Se [telemetri korrelation](application-insights-correlation.md) mer information.
+Den unika identifieraren för telemetri-objektets omedelbart överordnade objekt. Se [telemetrikorrelation](application-insights-correlation.md) information.
 
 Maxlängd: 128
 
 
 ## <a name="operation-name"></a>Åtgärdsnamn
 
-Namnet (gruppering) av åtgärden. Åtgärdsnamnet har skapats med en begäran eller vyn sida. Alla andra objekt i telemetri ange fältet till värdet för vyn som innehåller begäran eller sidan. Åtgärdsnamnet används för att söka efter alla objekt som telemetri för en grupp av åtgärder (till exempel ' GET-Home/Index'). Den här kontexten egenskapen används för att besvara frågor som ”vad är vanliga undantag på den här sidan”.
+Namn (grupp) för åtgärden. Åtgärdens namn skapas av en begäran eller en Sidvisning. Alla andra objekt i telemetrin ange fältet till värdet för den som innehåller förfrågan eller sidvisning. Åtgärdens namn används för att söka efter alla objekt på telemetri för en grupp av åtgärder (till exempel ”GET Home/Index”). Den här Kontextegenskapen används för att besvara frågor som ”vad är de vanliga undantag på den här sidan”.
 
 Maxlängd: 1024
 
 
-## <a name="synthetic-source-of-the-operation"></a>Syntetiska källan för åtgärden
+## <a name="synthetic-source-of-the-operation"></a>Syntetisk källan för åtgärden
 
-Namnet på syntetiska källa. Vissa telemetri från programmet kan representera syntetisk trafik. Det kan vara web crawler indexering webbplats, tillgänglighetstester för webbplatsen eller spår från diagnostik bibliotek som Application Insights SDK sig själv.
+Namnet på syntetiska källa. Telemetri från programmet kan representera syntetisk trafik. Det kan vara web crawler indexering webbplats, tillgänglighetstester för platsen och spårningar från diagnostik-bibliotek som Application Insights SDK själva.
 
 Maxlängd: 1024
 
 
-## <a name="session-id"></a>Sessions-id
+## <a name="session-id"></a>Sessions-ID
 
-Sessions-ID - instans av användarinteraktion med appen. Information i fälten session kontext är alltid om slutanvändaren. När telemetri som skickas från en tjänst, är sessionskontexten om användaren som initierade igen i tjänsten.
+Sessions-ID - instansen av användarens interaktion med appen. Informationen i fälten session kontext är alltid om användaren. När telemetri skickas från en tjänst är sessionskontexten om användaren som initierade åtgärden i tjänsten.
 
 Maxlängd: 64
 
 
 ## <a name="anonymous-user-id"></a>Anonym användar-id
 
-Id för anonyma användare. Representerar slutanvändaren av programmet. När telemetri som skickas från en tjänst, är användarkontexten om användaren som initierade igen i tjänsten.
+Anonym användar-id. Representerar slutanvändaren av programmet. När telemetri skickas från en tjänst, är användarkontexten om användaren som initierade åtgärden i tjänsten.
 
-[Provtagning](app-insights-sampling.md) är en av metoderna för att minska mängden insamlade telemetri. Sampling algoritmen försöker antingen exempel in eller ut all korrelerad telemetri. Anonym användar-id används för provtagning poäng generation. Så att anonyma användar-id måste vara ett tillräckligt slumpmässiga värde. 
+[Sampling](app-insights-sampling.md) är en av tekniker för att minska mängden insamlade telemetri. Samplingsalgoritmen försöker antingen exemplet in eller ut korrelerad telemetri. Anonym användar-id används för sampling poäng generation. Anonym användar-id bör vara ett tillräckligt slumpmässigt värde. 
 
-Använder anonym användar-id för att lagra användarnamnet är ett missbruk av fältet. Använd autentiserad användar-id.
+Använder anonym användar-id för att lagra användarnamn är ett missbruk av fältet. Använd autentiserad användar-id.
 
 Maxlängd: 128
 
 
 ## <a name="authenticated-user-id"></a>Autentiserat användar-id
 
-Autentiserat användar-id. Motsatsen till anonyma användar-id i det här fältet motsvarar användaren med ett eget namn. Eftersom dess PII-information den har inte samlats in som standard av de flesta SDK.
+Id för autentiserad användare. Motsatsen till anonym användar-id i det här fältet motsvarar användaren med ett eget namn. Sedan dess PII-information är det inte in som standard av de flesta SDK.
 
 Maxlängd: 1024
 
 
 ## <a name="account-id"></a>Konto-ID
 
-I program med flera klienter är konto-ID eller namnet som användaren fungerar med. Exempel kanske prenumerations-ID för Azure-portalen eller blogg bloggar plattform.
+I program för flera innehavare är detta konto-ID eller namnet som användaren fungerar med. Exempel kanske prenumerations-ID för Azure-portalen eller blogg namn bloggplattform.
 
 Maxlängd: 1024
 
 
-## <a name="cloud-role"></a>Molnet roll
+## <a name="cloud-role"></a>Molnroll
 
-Namnet på rollen som programmet tillhör. Mappar direkt till rollnamn i azure. Kan också användas för att skilja micro tjänster som ingår i ett enda program.
+Namnet på rollen programmet är en del av. Mappar direkt till rollnamn i azure. Kan också användas för att skilja mikrotjänster som ingår i ett enda program.
 
 Maxlängd: 256
 
 
-## <a name="cloud-role-instance"></a>Molnet rollinstans
+## <a name="cloud-role-instance"></a>Instans av molntjänstroll (klassisk)
 
-Namnet på den instans där programmet körs. Datornamnet för lokal instansnamn för Azure.
+Namnet på den instans där programmet körs. Namnet på den dator på plats, instansnamn för Azure.
 
 Maxlängd: 256
 
@@ -127,7 +129,7 @@ Maxlängd: 64
 
 ## <a name="internal-node-name"></a>Internt: Nodnamnet
 
-Det här fältet motsvarar den nodnamn som används för fakturering. Används för att åsidosätta standard identifieringen av noder.
+Det här fältet representerar namnet på noden som används för faktureringsändamål. Du kan använda den för att åsidosätta standard identifiering av noder.
 
 Maxlängd: 256
 
@@ -135,5 +137,5 @@ Maxlängd: 256
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [utöka och filtrera telemetri](app-insights-api-filtering-sampling.md).
-- Se [datamodellen](application-insights-data-model.md) för Application Insights typer och modell.
-- Kolla standard kontexten egenskapssamlingen [configuration](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
+- Se [datamodellen](application-insights-data-model.md) för Application Insights och modellen.
+- Kolla in standard kontext egenskapssamlingen [configuration](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).

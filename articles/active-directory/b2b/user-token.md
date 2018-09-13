@@ -6,20 +6,20 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: efbadf877a38f1ab553e1c376e3084d00f606a31
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: ff28943ba4f7b0eda5733783a14d1cc2f025f01b
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260225"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647249"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Förstå användartoken i Azure AD B2B-samarbete
 
-Om du vill veta hur token som ser ut för en B2B-samarbete användare kan ägar-token information och token innehåll för ett Azure Active Directory (AD Azure) Gäst- och Microsoft-konto gäst i resurs-klient (för tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Om du vill visa innehållet i JSON-Webbtoken (JWT), Använd [ https://jwt.io/ ](https://jwt.io/) eller [ https://jwt.ms/ ](https://jwt.ms/).
+Om du vill veta hur token som ser ut för en användare för B2B-samarbete, är här de ägar-tokeninformation och token innehåll för en Azure Active Directory (Azure AD)-Gäst och Microsoft-konto gäst i resurs-klient (för tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). Om du vill se innehållet JSON Web Token (JWT), Använd [ https://jwt.io/ ](https://jwt.io/) eller [ https://jwt.ms/ ](https://jwt.ms/).
 
 ## <a name="azure-ad-guest-token"></a>Azure AD-gäst-token
 ```
@@ -35,5 +35,5 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ilk0dWVLMm9hSU
 
 * [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
 * [Egenskaper för användare av B2B-samarbete](user-properties.md)
-* [B2B-samarbete användaranspråk mappning](claims-mapping.md)
+* [B2B-samarbete mappning av användaranspråk](claims-mapping.md)
 

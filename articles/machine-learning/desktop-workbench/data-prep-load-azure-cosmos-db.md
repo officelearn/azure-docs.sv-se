@@ -1,31 +1,31 @@
 ---
-title: Ansluta till Azure Cosmos DB som en datakälla i Azure Machine Learning-arbetsstationen | Microsoft Docs
-description: Det här dokumentet innehåller ett exempel på hur du ansluter till Azure Cosmos DB via Azure Machine Learning arbetsstationen
+title: Ansluta till Azure Cosmos DB som en datakälla i Azure Machine Learning Workbench | Microsoft Docs
+description: Det här dokumentet innehåller ett exempel på hur du ansluter till Azure Cosmos DB via Azure Machine Learning Workbench
 services: machine-learning
 author: cforbe
 ms.author: cforbe
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 20e23f41310b90c62eacb7279ea3da0eec376683
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2d9562582a94b7c7aac5b972a7ef57b84eb9aa9e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830698"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650634"
 ---
-# <a name="connecting-to-azure-cosmos-db-as-a-data-source"></a>Ansluter till Azure Cosmos DB som en datakälla
-Den här artikeln innehåller en python exemplet kan du ansluta till Cosmos-DB i Azure Machine Learning-arbetsstationen.
+# <a name="connecting-to-azure-cosmos-db-as-a-data-source"></a>Ansluta till Azure Cosmos DB som en datakälla
+Den här artikeln innehåller ett python exemplet kan du ansluta till Cosmos DB i Azure Machine Learning Workbench.
 
-## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Läs in Azure Cosmos DB data till förberedelse av data
+## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Läser in Azure Cosmos DB-data i förberedelse av data
 
-Skapa ett nytt skript-baserad dataflöde och sedan använda följande skript för att läsa in data från Azure Cosmos DB. 
+Skapa ett nytt skriptbaserade dataflöde och sedan använda följande skript för att läsa in data från Azure Cosmos DB. 
 
 ```python
 import pydocumentdb
@@ -54,5 +54,5 @@ docs = client.ReadDocuments(coll['_self'])
 df = pd.DataFrame(list(docs))
 ```
 
-## <a name="other-data-source-connections"></a>Andra anslutningar till datakällor
-Andra exempel läsa [exempel ytterligare data datakällanslutningar](data-prep-appendix8-sample-source-connections-python.md)
+## <a name="other-data-source-connections"></a>Andra anslutningar till datakälla
+Andra exempel läsa [anslutningar till exempel ytterligare datakällor data](data-prep-appendix8-sample-source-connections-python.md)

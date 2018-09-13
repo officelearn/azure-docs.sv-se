@@ -1,41 +1,42 @@
 ---
-title: Filtrera Azure Application Insights telemetri i Java-webbappen | Microsoft Docs
-description: "Minska telemetri trafiken genom att filtrera bort händelser som du inte behöver övervaka."
+title: Filtrera Azure Application Insights telemetry i Java-webbappen | Microsoft Docs
+description: Minska telemetritrafik genom att filtrera bort händelser som du inte behöver övervaka.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: f9e061c010667bc18ac54e6546cc25339e9c0e3e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8ea431b3ab1836626fc6c7551f3bee24e4a3db86
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646802"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrera telemetri i Java-webbappen
 
-Filter ger dig ett sätt att välja telemetrin som din [Java-webbapp skickar till Application Insights](app-insights-java-get-started.md). Det finns vissa out box-filter som du kan använda och du kan också skriva egna anpassade filter.
+Filter är ett sätt att välja telemetrin som dina [Java-webbapp skickar till Application Insights](app-insights-java-get-started.md). Det finns vissa out-of the box-filter som du kan använda och du kan också skriva egna anpassade filter.
 
-Out box-filtren är:
+Out-of the box-filtren är:
 
 * Spåra allvarlighetsgrad
 * Specifika URL: er, nyckelord eller svarskoder
 * Snabba svar – det vill säga begäran som din app svarat på snabbt
-* Namn på specifika händelser
+* Specifika händelsenamn
 
 > [!NOTE]
-> Filter skeva mätvärden för din app. Du kan till exempel bestämma att, för att kunna diagnostisera långsamt svar du anger ett filter för att ta bort snabba svarstider. Men du måste vara medveten om att de genomsnittliga svarstider som rapporterats av Application Insights blir långsammare än true hastighet och antal begäranden som ska vara mindre än antalet verkliga.
-> Om detta är ett problem kan använda [provtagning](app-insights-sampling.md) i stället.
+> Filter förskjuta mått för din app. Du kan till exempel bestämma att, för att kunna diagnostisera långsamma svar du anger ett filter för att ta bort snabba svarstider. Men du måste vara medveten om att de genomsnittliga svarstider som rapporterats av Application Insights blir långsammare än SANT hastighet och antal begäranden ska vara mindre än antalet verkliga.
+> Om det är ett problem kan använda [Sampling](app-insights-sampling.md) i stället.
 
 ## <a name="setting-filters"></a>Ange filter
 
-ApplicationInsights.xml, lägga till en `TelemetryProcessors` avsnitt som det här exemplet:
+I ApplicationInsights.xml, lägger du till en `TelemetryProcessors` avsnittet som i följande exempel:
 
 
 ```XML
@@ -88,11 +89,11 @@ ApplicationInsights.xml, lägga till en `TelemetryProcessors` avsnitt som det h�
 
 
 
-[Kontrollera en fullständig uppsättning inbyggda processorer](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
+[Granska den fullständiga uppsättningen inbyggda processorer](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
 
 ## <a name="built-in-filters"></a>Inbyggda filter
 
-### <a name="metric-telemetry-filter"></a>Mått telemetri filter
+### <a name="metric-telemetry-filter"></a>Metrisk telemetri-filter
 
 ```XML
 
@@ -101,10 +102,10 @@ ApplicationInsights.xml, lägga till en `TelemetryProcessors` avsnitt som det h�
            </Processor>
 ```
 
-* `NotNeeded`– Kommaavgränsad lista över anpassade mått namn.
+* `NotNeeded` – Kommaavgränsad lista över anpassade mått namn.
 
 
-### <a name="page-view-telemetry-filter"></a>Sidan Visa telemetri filter
+### <a name="page-view-telemetry-filter"></a>Sidvystelemetri filter
 
 ```XML
 
@@ -115,12 +116,12 @@ ApplicationInsights.xml, lägga till en `TelemetryProcessors` avsnitt som det h�
            </Processor>
 ```
 
-* `DurationThresholdInMS`-Varaktighet refererar till den tid det tar att läsa in sidan. Om detta anges rapporteras inte sidor som lästs in snabbare än den angivna tiden.
-* `NotNeededNames`– Kommaavgränsad lista över namnen.
-* `NotNeededUrls`– Kommaavgränsad lista över URL-fragment. Till exempel `"home"` filtrerar ut alla sidor som har ”hem” i Webbadressen.
+* `DurationThresholdInMS` -Varaktighet refererar till den tid det tar att läsa in sidan. Om inställningen anges rapporteras inte sidor som läses in snabbare än den angivna tiden.
+* `NotNeededNames` – Kommaavgränsad lista över namn på sidan.
+* `NotNeededUrls` – Kommaavgränsad lista över URL: en fragment. Till exempel `"home"` filtrerar ut alla sidor som har ”home” i Webbadressen.
 
 
-### <a name="request-telemetry-filter"></a>Begära telemetri Filter
+### <a name="request-telemetry-filter"></a>Begär telemetri Filter
 
 
 ```XML
@@ -134,11 +135,11 @@ ApplicationInsights.xml, lägga till en `TelemetryProcessors` avsnitt som det h�
 
 
 
-### <a name="synthetic-source-filter"></a>Syntetiska källfiltret
+### <a name="synthetic-source-filter"></a>Syntetisk källfilter
 
-Filtrerar ut all telemetri som värden i egenskapen SyntheticSource. Dessa inkluderar begäranden från robotar, spindlar och tillgänglighetstester.
+Filtrerar ut all telemetri som har värden i egenskapen SyntheticSource. Dessa inkluderar begäranden från robotar, spindlar och tillgänglighetstester.
 
-Filtrera bort telemetri för syntetiska begäranden:
+Filtrera bort telemetri för alla syntetiska förfrågningar:
 
 
 ```XML
@@ -156,11 +157,11 @@ Filtrera bort telemetri för särskilda syntetiska källor:
            </Processor>
 ```
 
-* `NotNeeded`– Kommaavgränsad lista över syntetisk datakällor.
+* `NotNeeded` – Kommaavgränsad lista med syntetiska namn på.
 
 ### <a name="telemetry-event-filter"></a>Händelsefilter för telemetri
 
-Anpassade händelser (loggat med [trackevent ()](app-insights-api-custom-events-metrics.md#trackevent)).
+Anpassade händelser (inloggad med [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -171,12 +172,12 @@ Anpassade händelser (loggat med [trackevent ()](app-insights-api-custom-events-
 ```
 
 
-* `NotNeededNames`– Kommaavgränsad lista över händelsenamn.
+* `NotNeededNames` – Kommaavgränsad lista över händelsenamn.
 
 
 ### <a name="trace-telemetry-filter"></a>Spåra telemetri filter
 
-Filter logga spår (loggat med [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) eller en [loggning framework insamlaren](app-insights-java-trace-logs.md)).
+Filter loggspårningar (inloggad med [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) eller en [loggning framework insamlaren](app-insights-java-trace-logs.md)).
 
 ```XML
 
@@ -185,20 +186,20 @@ Filter logga spår (loggat med [TrackTrace()](app-insights-api-custom-events-met
            </Processor>
 ```
 
-* `FromSeverityLevel`Giltiga värden är:
- *  INAKTIVERA - filtrera bort alla spårningar
- *  TRACE - ingen filtrering. Spårningsnivån som motsvarar
- *  INFO - filtrera bort spårningsnivå
- *  Varna - Filter i SPÅRNINGEN och information
- *  FEL - filtrera bort Varna, INFO, SPÅRNING
- *  KRITISK - filtrera bort alla utom kritiska
+* `FromSeverityLevel` Giltiga värden är:
+ *  RABATT - filtrera bort alla spårningar
+ *  SPÅRNINGEN – ingen filtrering. är lika med spårningsnivå
+ *  INFO - Filter ut spårningsnivå
+ *  WARN - Filter ut SPÅRNINGS- och information
+ *  FEL - Filter ut Varna, INFO, SPÅRNING
+ *  KRITISK - filter ut alla utom kritiska
 
 
 ## <a name="custom-filters"></a>Anpassade filter
 
-### <a name="1-code-your-filter"></a>1. Code filtret
+### <a name="1-code-your-filter"></a>1. Koda ditt filter
 
-I koden, skapar du en klass som implementerar `TelemetryProcessor`:
+I din kod, skapar du en klass som implementerar `TelemetryProcessor`:
 
 ```Java
 
@@ -235,7 +236,7 @@ I koden, skapar du en klass som implementerar `TelemetryProcessor`:
 ```
 
 
-### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Anropa filtret i konfigurationsfilen
+### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Anropa filter i konfigurationsfilen
 
 I ApplicationInsights.xml:
 
@@ -258,8 +259,8 @@ I ApplicationInsights.xml:
 
 *Mina filter fungerar inte.*
 
-* Kontrollera att du har angett giltiga parametervärden. Till exempel måste varaktighet vara heltal. Ogiltiga värden kommer att orsaka filtret som ska ignoreras. Om ditt filter genererar ett undantag från en konstruktor eller set-metod, kommer att ignoreras.
+* Kontrollera att du har angett giltiga parametervärden. Varaktigheter bör till exempel vara heltal. Ogiltiga värden kommer filtret som ska ignoreras. Om ditt filter genererar ett undantag från en konstruktor eller set-metod, kommer att ignoreras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Provtagning](app-insights-sampling.md) -Överväg provtagning som ett alternativ som inte skeva din mått.
+* [Sampling](app-insights-sampling.md) -Överväg sampling som ett alternativ som inte förskjuta dina mått.

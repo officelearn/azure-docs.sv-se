@@ -1,6 +1,6 @@
 ---
 title: Kom igång med Azure Application Insights med Java i Eclipse | Microsoft docs
-description: Använda plugin-programmet Eclipse för att lägga till prestanda och övervakning av programanvändning till din Java-webbplats med Application Insights
+description: Använd plugin-programmet Eclipse för att lägga till prestanda och övervakning av programanvändning till din Java-webbplats med Application Insights
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -10,44 +10,44 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ebcfe02eb8d969af26f5121bda85e4610302e838
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795568"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647593"
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Kom igång med Application Insights med Java i Eclipse
-Application Insights SDK skickar telemetri från ditt webbprogram för Java så att du kan analysera användnings- och prestandadata. Plugin-program för Application Insights Eclipse installeras automatiskt SDK i projektet så att du får slut på rutan telemetri plus en API som du kan använda för att skriva en anpassad telemetri.   
+Application Insights SDK skickar telemetri från ditt Java-webbprogram, så att du kan analysera användning och prestanda. Plugin-programmet för Application Insights Eclipse installerar automatiskt SDK: N i projektet, så att du får viktiga box telemetri, plus ett API som du kan använda för att skriva anpassad telemetri.   
 
 ## <a name="prerequisites"></a>Förutsättningar
-För närvarande pluginprogrammet fungerar för Maven-projekt och dynamiskt webbprojekt i Eclipse.
+För närvarande att plugin-programmet fungerar för Maven-projekt och dynamiskt webbprojekt i Eclipse.
 ([Lägg till Application Insights till andra typer av Java-projekt][java].)
 
 Du behöver:
 
 * JRE 1.7 eller 1.8
 * En prenumeration på [Microsoft Azure](https://azure.microsoft.com/).
-* [Solförmörkelse IDE för Java EE-utvecklare](http://www.eclipse.org/downloads/), Indigo eller senare.
-* Windows 7 eller senare och Windows Server 2008 eller senare
+* [Eclipse IDE för Java EE-utvecklare](http://www.eclipse.org/downloads/), Indigo eller senare.
+* Windows 7 eller senare, eller Windows Server 2008 eller senare
 
-Om du föredrar att källan framework försök den [konfigurera en källan Start initieraren app om du vill använda Application Insights-guiden](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
+Om du föredrar Spring-ramverket, testa [Guiden konfigurera en Spring Boot-startapp att använda Application Insights](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## <a name="install-the-sdk-on-eclipse-one-time"></a>Installera SDK på Eclipse (en gång)
-Du behöver bara göra detta en gång per dator. Det här steget installerar en verktygslåda som sedan kan lägga till SDK i varje dynamiskt webbprojekt.
+Du behöver bara göra detta en gång per dator. Det här steget installerar ett verktyg som sedan kan lägga till SDK: N till varje dynamiskt webbprojekt.
 
 1. Klicka på Hjälp, installera ny programvara i Eclipse.
 
     ![Hjälp, installera ny programvara](./media/app-insights-java-eclipse/0-plugin.png)
-2. SDK är i http://dl.microsoft.com/eclipse, under Azure Toolkit.
+2. SDK: N finns i http://dl.microsoft.com/eclipse, under Azure Toolkit.
 3. Avmarkera **kontakta alla update platser...**
 
-    ![För Application Insights SDK, rensar kontakta uppdatera alla platser](./media/app-insights-java-eclipse/1-plugin.png)
+    ![Rensa kontakta alla update platser för Application Insights SDK](./media/app-insights-java-eclipse/1-plugin.png)
 
-Följ stegen för varje Java-projekt.
+Följ de återstående stegen för varje Java-projekt.
 
 ## <a name="create-an-application-insights-resource-in-azure"></a>Skapa en Application Insights-resurs i Azure
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -60,49 +60,49 @@ Följ stegen för varje Java-projekt.
     ![I den nya resursöversikten klickar du på Egenskaper och kopierar instrumenteringsnyckeln.](./media/app-insights-java-eclipse/03-key.png)  
 
 ## <a name="add-application-insights-to-your-project"></a>Lägg till Application Insights i projektet
-1. Lägg till Application Insights från snabbmenyn för webbprojektet Java.
+1. Lägg till Application Insights från snabbmenyn för din Java-webbprojekt.
 
     ![I den nya resursöversikten klickar du på Egenskaper och kopierar instrumenteringsnyckeln.](./media/app-insights-java-eclipse/02-context-menu.png)
-2. Klistra in nyckeln instrumentation som du har fått från Azure-portalen.
+2. Klistra in instrumenteringsnyckeln som du fick från Azure-portalen.
 
     ![I den nya resursöversikten klickar du på Egenskaper och kopierar instrumenteringsnyckeln.](./media/app-insights-java-eclipse/03-ikey.png)
 
-Nyckeln skickas tillsammans med alla element på telemetri och talar om Application Insights för att visa den i din resurs.
+Nyckeln skickas tillsammans med alla objekt i telemetrin och uppmanar Application Insights att visa den i din resurs.
 
 ## <a name="run-the-application-and-see-metrics"></a>Kör programmet och se mått
 Kör ditt program.
 
-Gå tillbaka till Application Insights-resurs i Microsoft Azure.
+Gå tillbaka till Application Insights-resursen i Microsoft Azure.
 
 Data om HTTP-begäranden visas på översiktsbladet. (Om informationen inte visas väntar du några sekunder och klickar på Uppdatera.)
 
-![Svaret från servern och begäran antal fel ](./media/app-insights-java-eclipse/5-results.png)
+![Serversvar, antalet förfrågningar och fel ](./media/app-insights-java-eclipse/5-results.png)
 
 Klicka dig vidare i diagrammet om du vill visa mer detaljerade mätvärden.
 
-![Begär antal efter namn](./media/app-insights-java-eclipse/6-barchart.png)
+![Antalet begäranden efter namn](./media/app-insights-java-eclipse/6-barchart.png)
 
 [Lär dig mer om mätvärden.][metrics]
 
-Och när du visar egenskaperna för en begäran, du kan se de telemetriska händelser som är kopplade till den, till exempel begäranden och undantag.
+Och när du visar egenskaperna för en begäran, kan du se telemetrihändelserna som är associerade med den, till exempel begäranden och undantag.
 
 ![Alla spårningar för den här begäran](./media/app-insights-java-eclipse/7-instance.png)
 
 ## <a name="client-side-telemetry"></a>Telemetri för klientsidan
-Klicka på Hämta koden för att övervaka webbplatser från Snabbstart-bladet:
+Klicka på Hämta kod för att övervaka webbplatser från Snabbstart-bladet:
 
 ![På översiktsbladet för appen väljer du Snabbstart, Hämta kod för att övervaka webbplatser. Kopiera skriptet.](./media/app-insights-java-eclipse/02-monitor-web-page.png)
 
-Infoga kodstycket i toppen av HTML-filer.
+Sätt in kodfragmentet i toppen av HTML-filer.
 
 #### <a name="view-client-side-data"></a>Visa data för klientsidan
-Öppna din uppdaterade webbsidor och använder dem. Vänta en minut eller två, och sedan tillbaka till Application Insights och öppna bladet användning. (Översikt över-bladet rulla nedåt och klicka på användning.)
+Öppna dina uppdaterade webbsidor och använda dem för. Vänta en minut eller två, och sedan tillbaka till Application Insights och öppna bladet användning. (Från översiktsbladet Bläddra nedåt och klicka på användning.)
 
-Sidan Visa, användare och session mått visas i bladet användning:
+Sidan Visa, användaren och session mått visas på bladet användning:
 
 ![Sessioner, användare och sidvyer](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
-[Mer information om hur du konfigurerar telemetri för klientsidan.][usage]
+[Läs mer om hur du konfigurerar telemetri på klientsidan.][usage]
 
 ## <a name="publish-your-application"></a>Publicera programmet
 Publicera appen på servern, låt användarna använda den och se hur telemetrin visas på portalen.
@@ -126,16 +126,16 @@ Ohanterade undantag samlas in automatiskt:
 
 Om du vill samla in data om andra undantag kan du välja mellan två alternativ:
 
-* [Infoga anrop till TrackException i koden](app-insights-api-custom-events-metrics.md#trackexception).
+* [Infoga anrop till TrackException i din kod](app-insights-api-custom-events-metrics.md#trackexception).
 * [Installera Java-agenten på servern](app-insights-java-agent.md). Du anger de metoder som du vill övervaka.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Övervaka metodanrop och externa beroenden
 [Installera Java-agenten](app-insights-java-agent.md) om du vill logga angivna interna metoder och anrop som görs via JDBC, med tidsinställningsdata.
 
 ## <a name="performance-counters"></a>Prestandaräknare
-Bläddra nedåt på Översikt-bladet och klicka på **servrar** panelen. Ser du ett antal prestandaräknare.
+På bladet för översikt över rulla nedåt och klicka på den **servrar** panelen. Du ser ett utbud av prestandaräknare.
 
-![Rulla klickar du på panelen servrar](./media/app-insights-java-eclipse/11-perf-counters.png)
+![Rulla ned till klickar du på panelen servrar](./media/app-insights-java-eclipse/11-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Anpassa samlingen med prestandaräknare
 Om du vill inaktivera datainsamlingen från standarduppsättningen med prestandaräknare lägger du till följande kod under rotnoden i filen ApplicationInsights.xml:
@@ -196,7 +196,7 @@ Dina prestandaräknare visas som anpassade mått i [Metrics Explorer][metrics].
 * [Installera collectd med Application Insights-plugin-programmet](app-insights-java-collectd.md) om du vill samla in en mängd olika system- och nätverksdata.
 
 ## <a name="availability-web-tests"></a>Webbtester för tillgänglighet
-Application Insights kan testa din webbplats med jämna mellanrum för att kontrollera att tjänsten är tillgänglig och att den svarar. [Att ställa in][availability], rulla ned till på tillgänglighet.
+Application Insights kan testa din webbplats med jämna mellanrum för att kontrollera att tjänsten är tillgänglig och att den svarar. [Du ställer in][availability], rulla nedåt och klicka på tillgänglighet.
 
 ![Rulla ned, klicka på Tillgänglighet och sedan på Lägg till webbtest.](./media/app-insights-java-eclipse/31-config-web-test.png)
 
@@ -207,27 +207,27 @@ Du kan visa diagram över svarstider, samt få e-postaviseringar om platsen kras
 [Läs mer om webbtester för tillgänglighet.][availability]
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
-Om du använder Logback eller Log4J (version 1.2 eller v2.0) för spårning, kan du ha spårloggarna skickas automatiskt till Application Insights där du kan utforska och söka i dem.
+Om du använder Logback eller Log4J (version 1.2 eller v2.0) för att analysera och du kan ha spårningsloggarna skickas automatiskt till Application Insights kan du utforska och söka i dem.
 
 [Mer information om diagnostikloggar][javalogs]
 
 ## <a name="custom-telemetry"></a>Anpassad telemetri
-Infoga några rader med kod i ditt webbprogram för Java ta reda på vad användarna gör med den eller för att diagnostisera problem.
+Infoga några rader med kod i ditt Java-webbprogram att ta reda på vad användarna gör med den eller för att diagnostisera problem.
 
-Du kan infoga kod både webbsida JavaScript och Java serversidan.
+Du kan infoga kod både på webbsida JavaScript och på serversidan Java.
 
 [Lär dig mer om anpassad telemetri][track]
 
 ## <a name="next-steps"></a>Nästa steg
 #### <a name="detect-and-diagnose-issues"></a>Identifiera och diagnostisera problem
-* [Lägg till webbplats klienten telemetri] [ usage] att hämta prestanda telemetri från webbklienten.
+* [Lägg till telemetri för webbklienten] [ usage] att få prestandatelemetri från webbklienten.
 * [Konfigurera webbtester][availability] för att se till att ditt program är aktivt och effektivt.
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem.
 * [Fånga in spårningar Log4J eller Logback][javalogs]
 
 #### <a name="track-usage"></a>Spåra användning
-* [Lägg till webbplats klienten telemetri] [ usage] till övervakaren sidvisningar och grundläggande mått.
-* [Spåra anpassade händelser och mått](app-insights-web-track-usage.md) att lära dig hur programmet används, både på klienten och servern.
+* [Lägg till telemetri för webbklienten] [ usage] vill övervaka sidvisningar och grundläggande användarmått.
+* [Spåra anpassade händelser och mått](app-insights-web-track-usage.md) och lär dig hur ditt program används, både på klienten och servern.
 
 <!--Link references-->
 

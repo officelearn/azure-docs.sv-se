@@ -1,6 +1,6 @@
 ---
-title: Aktivera Azure CLI för Azure-stacken användare | Microsoft Docs
-description: Lär dig hur du använder plattformsoberoende kommandoradsgränssnittet (CLI) för att hantera och distribuera resurser i Azure-stacken
+title: Aktivera Azure CLI för Azure Stack-användare | Microsoft Docs
+description: Lär dig hur du använder plattformsoberoende kommandoradsgränssnittet (CLI) för att hantera och distribuera resurser i Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,30 +12,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/11/2018
 ms.author: mabrigg
-ms.openlocfilehash: d0103d211608514848da7d789d32d37d8385f33f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 09c551ea7196ae20a60a5dd34c1cda889ff5df46
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247864"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648981"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Aktivera Azure CLI för Azure Stack-användare
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Det inte finns några Azure Stack operator-specifika aktiviteter som du kan utföra med hjälp av Azure CLI. Men innan användarna kan hantera resurser via CLI, Azure Stack operatorer måste ange dem med följande:
+Du kan ange Certifikatutfärdarens rotcertifikat för användare av Azure Stack så att de kan använda Azure CLI på sina datorer för utveckling. Användarna behöver certifikatet som ska hantera resurser via CLI.
 
-* **Azure-stacken Certifikatutfärdarens rotcertifikat** krävs om du använder CLI från en arbetsstation utanför Azure-stacken Development Kit.  
+* **Azure Stack Certifikatutfärdarens rotcertifikat** krävs om du använder CLI från en dator utanför Azure Stack Development Kit.  
 
-* **Virtuella datorn alias slutpunkten** ger ett alias som ”UbuntuLTS” eller ”Win2012Datacenter”, som refererar till en avbildningens utgivare, erbjudande, SKU och version som en parameter när du distribuerar virtuella datorer.  
+* **Virtuella datorns alias slutpunkt** innehåller ett alias, t.ex. ”UbuntuLTS” eller ”Win2012Datacenter” som refererar till en avbildningens utgivare, erbjudande, SKU och version som en parameter när du distribuerar virtuella datorer.  
 
 I följande avsnitt beskrivs hur du hämtar dessa värden.
 
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Exportera Azure Stack Certifikatutfärdarens rotcertifikat
+## <a name="export-the-azure-stack-ca-root-certificate"></a>Exportera rotcertifikatet för Azure Stack
 
-Azure-stacken Certifikatutfärdarens rotcertifikat är tillgänglig på development kit och på en virtuell klientdator som körs i kit utvecklingsmiljön. Om du vill exportera rotcertifikatet för Azure-stacken i PEM-format, logga in på ditt development kit eller klient virtuella datorn och kör följande skript:
+Du hittar Azure Stack Certifikatutfärdarens rotcertifikat på i development kit och på en virtuell klientdator som kör i kit utvecklingsmiljö. Om du vill exportera rotcertifikatet för Azure Stack i PEM-format, logga in på din development kit eller virtuell klientdator och kör följande skript:
 
 ```powershell
 $label = "AzureStackSelfSignedRootCert"
@@ -54,17 +54,17 @@ Write-Host "Converting certificate to PEM format"
 certutil -encode root.cer root.pem
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Ställ in alias virtuell datorslutpunkt
+## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Konfigurera virtuella datorns alias-slutpunkt
 
-Azure Stack-operatörer bör ställa in en offentligt tillgänglig slutpunkt som är värd för en virtuell dator alias-fil. Virtuella Aliasfilen är en JSON-fil som innehåller ett eget namn för en bild. Det här namnet anges senare när en virtuell dator distribueras som en parameter av Azure CLI.  
+Azure Stack-operatörer bör ställa in en offentligt tillgänglig slutpunkt som är värd för en virtuell dator alias-fil. Alias VHD-filen är en JSON-fil som innehåller ett eget namn för en bild. Det namnet anges därefter när en virtuell dator distribueras som en parameter för Azure CLI.  
 
-Innan du lägger till en post till en aliasfil, kontrollerar du att du [hämta bilder från Azure Marketplace](azure-stack-download-azure-marketplace-item.md), eller ha [publicerade en egen anpassad avbildning](azure-stack-add-vm-image.md). Om du publicerar en anpassad avbildning anteckna utgivare, erbjudande, SKU och version informationen som du angav vid publicering. Om det är en avbildning från marketplace, du kan visa informationen med hjälp av den ```Get-AzureVMImage``` cmdlet.  
+Innan du lägger till en post till en aliasfil, kontrollerar du att du [hämta avbildningar från Azure Marketplace](azure-stack-download-azure-marketplace-item.md), eller så har [publicerat en egen anpassad bild](azure-stack-add-vm-image.md). Om du publicerar en anpassad avbildning anteckna utgivare, erbjudande, SKU och version informationen som du angav under publiceringen. Om det är en avbildning från marketplace kan du visa informationen med hjälp av den ```Get-AzureVMImage``` cmdlet.  
 
-En [alias exempelfilen](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) med många vanliga avbildningen alias är tillgänglig. Du kan använda som som en startpunkt. Värd för den här filen i ett utrymme där CLI-klienter kan nå. Ett sätt som är värd för filen i en blob storage-konto och dela URL: en med dina användare:
+En [alias-exempelfilen](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) med många vanliga avbildning alias är tillgänglig. Du kan använda som som en startpunkt. Vara värd för den här filen i ett utrymme där din CLI-klienter kan nå den. Ett sätt är att vara värd för filen i ett blob storage-konto och dela URL: en med dina användare:
 
-1. Hämta den [exempelfilen](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) från GitHub.
-2. Skapa ett nytt lagringskonto i Azure-stacken. När det är klart kan du skapa en ny blobbbehållare. Ange åtkomstprincip för till ”offentliga”.  
-3. Överför JSON-filen till den nya behållaren. När det är klart, kan du visa Webbadressen till blob genom att välja blobbnamnet och sedan välja URL: en från blob-egenskaper.
+1. Ladda ned den [exempelfilen](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) från GitHub.
+2. Skapa ett nytt lagringskonto i Azure Stack. När det är klart kan du skapa en ny blobbehållare. Skapa princip för åtkomst till ”offentliga”.  
+3. Ladda upp JSON-filen till den nya behållaren. När det är klart kan du visa blobens URL genom att välja blobnamnet och sedan välja URL: en från blobegenskaper.
 
 ## <a name="next-steps"></a>Nästa steg
 

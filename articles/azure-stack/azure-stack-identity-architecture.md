@@ -3,7 +3,7 @@ title: Identitetsarkitektur för Azure Stack | Microsoft Docs
 description: Läs mer om identitetsarkitektur som du kan använda med Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: PatAltimore
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/01/2018
-ms.author: brenduns
+ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: bf69c71a8b361e4a147263bc60324573c710818f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: f2d843b343fa830adf41352ae692ea98bed52ecc
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412704"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713654"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Identitetsarkitektur för Azure Stack
 Innan du väljer en identitetsprovider som ska användas med Azure Stack, Förstå viktiga skillnader mellan alternativen i Azure Active Directory (Azure AD) och Active Directory Federation Services (AD FS). 

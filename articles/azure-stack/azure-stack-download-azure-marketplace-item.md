@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 290b3daf73e323b3f5a7e1ef81299e72bf1c5f1d
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: MT
+ms.openlocfilehash: ddb1fcd91ff0c0018bcab9988a5ab063b882cf36
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024808"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714675"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure Stack
 
@@ -66,7 +66,7 @@ Azure Stack-distributioner måste ha Internetanslutning och vara [registrerad me
 
     När nedladdningen är klar kan du distribuera det nya marketplace-objektet som ett Azure Stack-operatör eller användare.
 
-5. Om du vill distribuera hämtade objektet, Välj **+ ny**, och sedan söka bland olika kategorier av nya marknadsplats-objektet. Sedan väljer du objektet för att starta distributionsprocessen. Processen varierar för olika marketplace-objekt. 
+5. Om du vill distribuera hämtade objektet, Välj **+ skapa en resurs**, och sedan söka bland olika kategorier av nya marknadsplats-objektet. Sedan väljer du objektet för att starta distributionsprocessen. Processen varierar för olika marketplace-objekt. 
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>Frånkopplad eller en delvis ansluten scenario
 

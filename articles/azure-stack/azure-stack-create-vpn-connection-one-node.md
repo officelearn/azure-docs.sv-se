@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6225a12b50ebb7bf0a0cb9244153800ba734d93a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a219f44cb27bb6ebe4e17079ad487457ae8852f0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006911"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718125"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Skapa en plats-till-plats VPN-anslutning mellan två virtuella nätverk i olika miljöer i Azure Stack Development Kit
 ## <a name="overview"></a>Översikt
@@ -92,10 +92,7 @@ En tjänstadministratör kan logga in som en klient att testa de planer, erbjuda
 
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Skapa ett undernät för det virtuella nätverket och den virtuella datorn
 1. Använda ett klientkonto för att logga in på användarportalen.
-2. Välj i användarportalen, **New**.
-
-    ![Skapa nytt virtuellt nätverk](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
-
+2. Välj i användarportalen, **+ skapa en resurs**.
 3. Gå till **Marketplace**, och välj sedan **nätverk**.
 4. Välj **virtuellt nätverk**.
 5. För **namn**, **adressutrymme**, **undernätsnamn**, och **undernätsadressintervall**, använder de värden som visas tidigare i nätverket konfigurationstabell med en.
@@ -118,7 +115,7 @@ En tjänstadministratör kan logga in som en klient att testa de planer, erbjuda
 6. Välj **OK** att skapa gateway-undernätet.
 
 ### <a name="create-the-virtual-network-gateway"></a>Skapa den virtuella nätverksgatewayen
-1. I Azure-portalen väljer du **New**. 
+1. I Azure-portalen väljer du **+ skapa en resurs**. 
 2. Gå till **Marketplace**, och välj sedan **nätverk**.
 3. Listan med nätverksresurser, väljer **virtuell nätverksgateway**.
 4. I **namn**, ange **GW1**.
@@ -140,7 +137,7 @@ Ett sätt att tänka detta mer allmänt är att den lokala gateway-nätverksresu
 
 ### <a name="create-the-local-network-gateway-resource"></a>Skapa gateway-resursen lokalt nätverk
 1. Logga in på den fysiska Azure Stack-datorn för POC1.
-2. Välj i användarportalen, **New**.
+2. Välj i användarportalen, **+ skapa en resurs**.
 3. Gå till **Marketplace**, och välj sedan **nätverk**.
 4. Välj i listan över resurser **lokal nätverksgateway**.
 5. I **namn**, ange **POC2-GW**.
@@ -149,7 +146,7 @@ Ett sätt att tänka detta mer allmänt är att den lokala gateway-nätverksresu
 8. Kontrollera att din **prenumeration**, **resursgrupp**, och **plats** är korrekta och välj sedan **skapa**.
 
 ### <a name="create-the-connection"></a>Skapa anslutningen
-1. Välj i användarportalen, **New**.
+1. Välj i användarportalen, **+ skapa en resurs**.
 2. Gå till **Marketplace**, och välj sedan **nätverk**.
 3. Välj i listan över resurser **anslutning**.
 4. På den **grunderna** inställningsbladet för den **anslutningstypen**väljer **plats-till-plats (IPSec)**.
@@ -163,7 +160,7 @@ Ett sätt att tänka detta mer allmänt är att den lokala gateway-nätverksresu
 ### <a name="create-a-vm"></a>Skapa en virtuell dator
 För att validera data som överförs via VPN-anslutningen, måste de virtuella datorerna att skicka och ta emot data i varje Azure Stack Development Kit. Skapa en virtuell dator i POC1 nu och sedan placera den i VM-undernätet i det virtuella nätverket.
 
-1. I Azure-portalen väljer du **New**.
+1. I Azure-portalen väljer du **+ skapa en resurs**.
 2. Gå till **Marketplace**, och välj sedan **Compute**.
 3. I listan över avbildningar av virtuella datorer, väljer du den **Windows Server 2016 Datacenter utvärdering** bild.
 4. På den **grunderna** bladet i **namn**, ange **VM01**.
@@ -185,7 +182,7 @@ En tjänstadministratör kan logga in som en klient att testa de planer, erbjuda
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Skapa ett undernät för det virtuella nätverket och den virtuella datorn
 
 1. Logga in med ett klientkonto.
-2. Välj i användarportalen, **New**.
+2. Välj i användarportalen, **+ skapa en resurs**.
 3. Gå till **Marketplace**, och välj sedan **nätverk**.
 4. Välj **virtuellt nätverk**.
 5. Använd informationen som visas tidigare i tabellen network configuration för att identifiera värdena för POC2 **namn**, **adressutrymme**, **undernätsnamn**, och **Undernätsadressintervall**.
@@ -205,7 +202,7 @@ En tjänstadministratör kan logga in som en klient att testa de planer, erbjuda
 6. Välj **OK** att skapa gateway-undernätet.
 
 ### <a name="create-the-virtual-network-gateway"></a>Skapa den virtuella nätverksgatewayen
-1. I Azure-portalen väljer du **New**.  
+1. I Azure-portalen väljer du **+ skapa en resurs**.  
 2. Gå till **Marketplace**, och välj sedan **nätverk**.
 3. Listan med nätverksresurser, väljer **virtuell nätverksgateway**.
 4. I **namn**, ange **GW2**.
@@ -218,7 +215,7 @@ En tjänstadministratör kan logga in som en klient att testa de planer, erbjuda
 
 ### <a name="create-the-local-network-gateway-resource"></a>Skapa gateway-resursen lokalt nätverk
 
-1. Välj i användarportalen POC2 **New**. 
+1. Välj i användarportalen POC2 **+ skapa en resurs**. 
 4. Gå till **Marketplace**, och välj sedan **nätverk**.
 5. Välj i listan över resurser **lokal nätverksgateway**.
 6. I **namn**, ange **POC1-GW**.
@@ -227,7 +224,7 @@ En tjänstadministratör kan logga in som en klient att testa de planer, erbjuda
 9. Kontrollera att din **prenumeration**, **resursgrupp**, och **plats** är korrekta och välj sedan **skapa**.
 
 ## <a name="create-the-connection"></a>Skapa anslutningen
-1. Välj i användarportalen, **New**. 
+1. Välj i användarportalen, **+ skapa en resurs**. 
 2. Gå till **Marketplace**, och välj sedan **nätverk**.
 3. Välj i listan över resurser **anslutning**.
 4. På den **grundläggande** inställningsbladet för den **anslutningstypen**, Välj **plats-till-plats (IPSec)**.
@@ -241,7 +238,7 @@ En tjänstadministratör kan logga in som en klient att testa de planer, erbjuda
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 Skapa en virtuell dator i POC2 nu och placera den på VM-undernätet i det virtuella nätverket.
 
-1. I Azure-portalen väljer du **New**.
+1. I Azure-portalen väljer du **+ skapa en resurs**.
 2. Gå till **Marketplace**, och välj sedan **Compute**.
 3. I listan över avbildningar av virtuella datorer, väljer du den **Windows Server 2016 Datacenter utvärdering** bild.
 4. På den **grunderna** bladet för **namn**, ange **VM02**.

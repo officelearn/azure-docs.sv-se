@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 7277aeb97409815e2e218da8f233cd836bccc72b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e4e3fdbdd3bc9eb982f993a9be60ba0812c68a9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022424"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713754"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>Snabbstart: skapa en Windows server-dator med Azure Stack-portalen
 
@@ -36,7 +36,7 @@ Logga in på Azure Stack-portalen. Adressen för Azure Stack portal beror på vi
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-1. Klicka på **nya** > **Compute** > **Windows Server 2016 Datacenter – betalning som du-användning** > **skapa**. Om du inte ser **Windows Server 2016 Datacenter – betalning som du-användning** post, kontakta din Azure Stack-operator. Be att de lägger till det till marketplace som beskrivs i den [Lägg till Windows Server 2016 VM-avbildning till Azure Stack marketplace](../azure-stack-add-default-image.md) artikeln.
+1. Klicka på **+ skapa en resurs** > **Compute** > **Windows Server 2016 Datacenter – betalning som du-användning**  >   **Skapa**. Om du inte ser **Windows Server 2016 Datacenter – betalning som du-användning** post, kontakta din Azure Stack-operator. Be att de lägger till det till marketplace som beskrivs i den [Lägg till Windows Server 2016 VM-avbildning till Azure Stack marketplace](../azure-stack-add-default-image.md) artikeln.
 
     ![Steg för att skapa en Windows-dator i portalen](media/azure-stack-quick-windows-portal/image01.png)
 2. Under **grunderna**, ange ett **namn**, **användarnamn**, och **lösenord**. Välj en **prenumeration**. Skapa en **resursgrupp**, eller välj en befintlig en, Välj en **plats**, och klicka sedan på **OK**.

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 09b9126125006fb70f5e2560f04b815b4a874405
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d106d9f79498678f08142f952e09c5125c6e5d6c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027307"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721525"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Självstudie: tillgängliggör virtuella datorer för Azure Stack-användare
 
@@ -46,11 +46,11 @@ Mer information finns i [viktiga funktioner och koncept i Azure Stack](azure-sta
 
 Erbjudanden är grupper med en eller flera planer som leverantörer presenterar för användarna att köpa eller prenumerera på. Processen för att skapa ett erbjudande har flera steg. Först uppmanas du att skapa erbjudandet, och sedan en plan och slutligen kvoter.
 
-1. [Logga in](azure-stack-connect-azure-stack.md) på portalen som en administratör för moln och sedan väljer **New** > **erbjuder + planer** > **erbjuder**.
+1. [Logga in](azure-stack-connect-azure-stack.md) på portalen som en administratör för moln och sedan väljer **+ skapa en resurs** > **erbjuder + planer** > **erbjuder**.
 
    ![Nytt erbjudande](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-1. I **nytt erbjudande**, ange en **visningsnamn** och **resursnamn**, och sedan väljer du en ny eller befintlig **resursgrupp**. Visningsnamnet är erbjudandets egna namn. Endast molnoperator kan se resursnamnet. Det är det namn som administratörer använder för att arbeta med erbjudandet som en Azure Resource Manager-resurs.
+1. I **nytt erbjudande**, ange en **visningsnamn** och **resursnamn**, och sedan väljer du en ny eller befintlig **resursgrupp**. Visningsnamnet är erbjudandets egna namn. Endast molnoperator kan se resursnamnet som det namn som administratörer använder för att arbeta med erbjudandet som en Azure Resource Manager-resurs.
 
    ![Visningsnamn](media/azure-stack-tutorial-tenant-vm/image02.png)
 
@@ -58,7 +58,7 @@ Erbjudanden är grupper med en eller flera planer som leverantörer presenterar 
 
    ![Lägg till en plan](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-1. I den **ny Plan** avsnittet, Fyll i **visningsnamn** och **resursnamn**. Visningsnamnet är planens eget namn som användarna ser. Endast molnoperator kan se resursnamnet. Det är det namn som molnoperatörer använder för att arbeta med planen som en Azure Resource Manager-resurs.
+1. I den **ny plan** avsnittet, Fyll i **visningsnamn** och **resursnamn**. Visningsnamnet är planens eget namn som användarna ser. Endast molnoperator kan se resursnamnet som det namn som molnoperatörer använder för att arbeta med planen som en Azure Resource Manager-resurs.
 
    ![Planera visningsnamn](media/azure-stack-tutorial-tenant-vm/image04.png)
 
@@ -112,11 +112,11 @@ Nu när du har skapat ett erbjudande kan testa du den. Du ska logga in som en an
    - För ett integrerat system URL: en varierar beroende på region och externa domännamn för din operatör och ska vara i formatet https://portal.&lt; *region*&gt;.&lt; *FQDN*&gt;.
    - Om du använder Azure Stack Development Kit är Portaladress https://portal.local.azurestack.external.
 
-   ![Skaffa en prenumeration](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Skaffa en prenumeration](media/azure-stack-tutorial-tenant-vm/image10.png)
 
    b. I **skaffa en prenumeration**, ange ett namn för prenumerationen i den **visningsnamn** fält. Välj **erbjuder**, och väljer sedan en av dina erbjudanden i den **Välj ett erbjudande** lista. Välj **Skapa**.
 
-   ![Skapa ett erbjudande](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![Skapa ett erbjudande](media/azure-stack-tutorial-tenant-vm/image11.png)
 
    c. Om du vill visa prenumerationen, Välj **alla tjänster**, och sedan under den **Allmänt** kategori väljer **prenumerationer**. Välj din nya prenumeration för att se vilka tjänster som ingår i prenumerationen.
 
@@ -131,7 +131,7 @@ Nu när du har skapat ett erbjudande kan testa du den. Du ska logga in som en an
       - För ett integrerat system URL: en varierar beroende på region och externa domännamn för din operatör och ska vara i formatet https://portal.&lt; *region*&gt;.&lt; *FQDN*&gt;.
    - Om du använder Azure Stack Development Kit är Portaladress https://portal.local.azurestack.external.
 
-   b.  På instrumentpanelen, väljer **New** > **Compute** > **Windows Server 2016 Datacenter utvärdering**, och välj sedan **skapa**.
+   b.  På instrumentpanelen, väljer **+ skapa en resurs** > **Compute** > **Windows Server 2016 Datacenter utvärdering**, och välj sedan **Skapa**.
 
    c. I **grunderna**, ange följande information:
       - Ange en **namn**
@@ -151,14 +151,11 @@ Nu när du har skapat ett erbjudande kan testa du den. Du ska logga in som en an
 
    h. Välj **OK** i **inställningar** att spara nätverkskonfigurationen.
 
-   ![Skapa det virtuella nätverket](media/azure-stack-provision-vm/image04.png)
-
-   i. I **sammanfattning**väljer **OK** att skapa den virtuella datorn.  
+      i. I **sammanfattning**väljer **OK** att skapa den virtuella datorn.  
 
    j. Om du vill se den nya virtuella datorn, **alla resurser**. Sök efter den virtuella datorn och välja det från sökresultaten.
 
-   ![Alla resurser](media/azure-stack-provision-vm/image06.png)
-
+   
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:

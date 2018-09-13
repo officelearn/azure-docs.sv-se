@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: efemmano
-ms.openlocfilehash: 66a89c3cb14dd642ae993cbf3c45885635f59759
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 7b26afa99e9ab14db83aee5c0487c1c405243962
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139551"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719774"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Skapa ett erbjudande i Azure Stack
 
 [Erbjuder](azure-stack-key-features.md) är grupper med en eller flera planer som leverantörer presenterar för användare att köpa eller prenumerera på. Det här dokumentet visar hur du skapar ett erbjudande som innehåller den [plan som du skapade](azure-stack-create-plan.md). Det här erbjudandet ger prenumeranter möjligheten att konfigurera virtuella datorer.
 
-1. Logga in på portalen för Azure Stack-administratör (https://adminportal.local.azurestack.external) och välj **New** > **Klienterbjudanden och planer** > **erbjuder**.
+1. Logga in på portalen för Azure Stack-administratör (https://adminportal.local.azurestack.external) och välj **+ skapa en resurs** > **Klienterbjudanden och planer** > **erbjuder**.
 
    ![Skapa ett erbjudande](media/azure-stack-create-offer/image01.png)
   

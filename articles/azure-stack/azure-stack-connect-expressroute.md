@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: db9f19154668fa33bb94e59a4da6735b1a6d3d49
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139716"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720505"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Ansluta Azure Stack till Azure med Azure ExpressRoute
 
@@ -98,7 +98,7 @@ Använd följande procedurer för att skapa de nödvändiga nätverksresurserna 
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Skapa ett undernät för det virtuella nätverket och den virtuella datorn
 
 1. Logga in på användarportalen med ett användarkonto (klient).
-1. I portalen, väljer **New**.
+1. I portalen, väljer **+ skapa en resurs**.
 
 1. Under **Azure Marketplace**väljer **nätverk**.
 
@@ -131,7 +131,7 @@ Använd följande procedurer för att skapa de nödvändiga nätverksresurserna 
 
 #### <a name="create-the-virtual-network-gateway"></a>Skapa den virtuella nätverksgatewayen
 
-1. Välj i användarportalen för Azure Stack **New**.
+1. Välj i användarportalen för Azure Stack **+ skapa en resurs**.
 1. Under **Azure Marketplace**väljer **nätverk**.
 1. Välj **Virtuell nätverksgateway** från listan med nätverksresurser.
 1. I den **namn** anger **GW1**.
@@ -146,7 +146,7 @@ Använd följande procedurer för att skapa de nödvändiga nätverksresurserna 
 
 Lokala gateway-resurs identifierar en fjärrgateway i den andra änden av VPN-anslutningen. I det här exemplet är fjärransluten änden av anslutningen LAN-undergränssnittet för ExpressRoute-routern. För klient 1, som visas i *bild 2*, fjärradressen är 10.60.3.255.
 
-1. Logga in på användarportalen för Azure Stack med ditt konto och välj **New**.
+1. Logga in på användarportalen för Azure Stack med ditt konto och välj **+ skapa en resurs**.
 1. Under **Azure Marketplace**väljer **nätverk**.
 1. Välj **lokal nätverksgateway** från listan med resurser.
 1. I den **namn** anger **ER-Router-GW**.
@@ -163,7 +163,7 @@ Lokala gateway-resurs identifierar en fjärrgateway i den andra änden av VPN-an
 
 #### <a name="create-the-connection"></a>Skapa anslutningen
 
-1. Välj i användarportalen för Azure Stack **New**.
+1. Välj i användarportalen för Azure Stack **+ skapa en resurs**.
 1. Under **Azure Marketplace**väljer **nätverk**.
 1. Välj **Anslutning** i listan över resurser.
 1. Under **grunderna**, Välj **plats-till-plats (IPSec)** som den **anslutningstypen**.
@@ -187,7 +187,7 @@ Du kan hämta gatewayens offentliga IP-adressen när du har skapat den virtuella
 
 Testa trafik via VPN-anslutningen, behöver du virtuella datorer för att skicka och ta emot data i Azure Stack virtuella nätverk. Skapa en virtuell dator och distribuera den till VM-undernät för det virtuella nätverket.
 
-1. Välj i användarportalen för Azure Stack **New**.
+1. Välj i användarportalen för Azure Stack **+ skapa en resurs**.
 1. Under **Azure Marketplace**väljer **Compute**.
 1. I listan över avbildningar av virtuella datorer, väljer du den **Windows Server 2016 Datacenter utvärdering** bild.
 

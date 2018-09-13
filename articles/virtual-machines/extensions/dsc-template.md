@@ -2,10 +2,8 @@
 title: Desired State Configuration-tillägget med Azure Resource Manager-mallar
 description: Läs mer om malldefinitionen för Resource Manager-för tillägget Desired State Configuration (DSC) i Azure.
 services: virtual-machines-windows
-documentationcenter: ''
 author: DCtheGeek
 manager: carmonm
-editor: ''
 tags: azure-resource-manager
 keywords: DSC
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
@@ -14,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 05/02/2018
+ms.date: 09/11/2018
 ms.author: dacoulte
-ms.openlocfilehash: 1dcbc8e0221689a6ece7e061d4b1a2632986ae84
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 83163e97454b8f3639ea3b9005ff4105f408e765
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224382"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715150"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-tillägget med Azure Resource Manager-mallar
 
-Den här artikeln beskrivs Azure Resource Manager-mallen för den [Desired State Configuration (DSC)-tilläggshanterare](dsc-overview.md).
+Den här artikeln beskrivs Azure Resource Manager-mallen för den [Desired State Configuration (DSC)-tilläggshanterare](dsc-overview.md). Många av exempel som använder **RegistrationURL** (ingår som en sträng) och **RegistrationKey** (tillhandahålls som en [PSCredential](/dotnet/api/system.management.automation.pscredential)) att publicera med Azure Automation. Mer information om hur du hämtar dessa värden finns i [konfigurera datorer för hantering av Azure Automation State Configuration - säker registrering](/azure/automation/automation-dsc-onboarding#secure-registration).
 
 > [!NOTE]
 > Du kan stöta på något annat schema exempel. Ändringen i schemat utfördes i oktober 2016-versionen. Mer information finns i [uppdateringen från ett tidigare format](#update-from-a-previous-format).
@@ -34,13 +32,13 @@ Den här artikeln beskrivs Azure Resource Manager-mallen för den [Desired State
 
 Följande kodfragment används i den **Resource** avsnitt i mallen.
 DSC-tillägget ärver standard tilläggsegenskaper.
-Mer information finns i [VirtualMachineExtension klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Mer information finns i [VirtualMachineExtension klass](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet).
 
 ```json
 {
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-    "apiVersion": "2017-12-01",
+    "apiVersion": "2018-04-01",
     "location": "[resourceGroup().location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -51,26 +49,17 @@ Mer information finns i [VirtualMachineExtension klass](https://docs.microsoft.c
         "typeHandlerVersion": "2.76",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "protectedSettings": {
-                "Items": {
-                    "registrationKeyPrivate": "registrationKey"
-                }
+            "configurationArguments": {
+                "RegistrationUrl" : "registrationUrl",
+                "NodeConfigurationName" : "nodeConfigurationName"
             },
-            "publicSettings": {
-                "configurationArguments": [{
-                        "Name": "RegistrationKey",
-                        "Value": {
-                            "UserName": "PLACEHOLDER_DONOTUSE",
-                            "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                        }
-                    },
-                    {
-                        "RegistrationUrl": "registrationUrl"
-                    },
-                    {
-                        "NodeConfigurationName": "nodeConfigurationName"
+            "protectedSettings": {
+                "configurationArguments": {
+                    "RegistrationKey": {
+                        "userName": "NOT_USED",
+                        "Password": "registrationKey"
                     }
-                ]
+                }
             }
         }
     }
@@ -87,44 +76,37 @@ Mer information finns i [VirtualMachineScaleSetExtension klass](/dotnet/api/micr
 
 ```json
 "extensionProfile": {
-    "extensions": [{
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-        "apiVersion": "2017-12-01",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.Powershell",
-            "type": "DSC",
-            "typeHandlerVersion": "2.76",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "protectedSettings": {
-                    "Items": {
-                        "registrationKeyPrivate": "registrationKey"
+    "extensions": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+            "apiVersion": "2018-04-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.76",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "configurationArguments": {
+                        "RegistrationUrl" : "registrationUrl",
+                        "NodeConfigurationName" : "nodeConfigurationName"
                     }
                 },
-                "publicSettings": {
-                    "configurationArguments": [{
-                            "Name": "RegistrationKey",
-                            "Value": {
-                                "UserName": "PLACEHOLDER_DONOTUSE",
-                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                            },
-                        },
-                        {
-                            "RegistrationUrl": "registrationUrl"
-                        },
-                        {
-                            "NodeConfigurationName": "nodeConfigurationName"
+                "protectedSettings": {
+                    "configurationArguments": {
+                        "RegistrationKey": {
+                            "userName": "NOT_USED",
+                            "Password": "registrationKey"
                         }
-                    ]
+                    }
                 }
-            },
+            }
         }
-    }]
+    ]
 }
 ```
 
@@ -178,17 +160,17 @@ En lista över de argument som är tillgängliga för standard-konfigurationsskr
 
 | Egenskapsnamn | Typ | Beskrivning |
 | --- | --- | --- |
-| settings.wmfVersion |sträng |Anger vilken version av Windows Management Framework (WMF) och som ska installeras på den virtuella datorn. Denna egenskap anges till **senaste** installerar den senaste versionen av WMF. För närvarande endast möjliga värden för den här egenskapen är **4.0**, **5.0**, **5.0PP**, och **senaste**. Dessa möjliga värden är föremål för uppdateringar. Standardvärdet är **senaste**. |
+| settings.wmfVersion |sträng |Anger vilken version av Windows Management Framework (WMF) och som ska installeras på den virtuella datorn. Denna egenskap anges till **senaste** installerar den senaste versionen av WMF. För närvarande endast möjliga värden för den här egenskapen är **4.0**, **5.0**, **5.1**, och **senaste**. Dessa möjliga värden är föremål för uppdateringar. Standardvärdet är **senaste**. |
 | settings.configuration.url |sträng |Anger den URL: en plats där du kan hämta DSC-konfiguration .zip-filen. Om den URL som kräver en SAS-token för åtkomst, ange den **protectedSettings.configurationUrlSasToken** egenskapen till värdet för din SAS-token. Den här egenskapen krävs om **settings.configuration.script** eller **settings.configuration.function** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ange plats Configuration Manager (LCM) metadata och argument måste anges. |
-| Settings.Configuration.Script |sträng |Anger namnet på det skript som innehåller definitionen av DSC-konfiguration. Det här skriptet måste vara i rotmappen på .zip-filen som laddas ned från den URL som anges av den **configuration.url** egenskapen. Den här egenskapen krävs om **settings.configuration.url** eller **settings.configuration.script** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ställa in MGM metadata och argument måste anges. |
-| settings.configuration.function |sträng |Anger namnet på din DSC-konfiguration. Den konfiguration som heter måste ingå i skriptet som **configuration.script** definierar. Den här egenskapen krävs om **settings.configuration.url** eller **settings.configuration.function** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ställa in MGM metadata och argument måste anges. |
+| Settings.Configuration.Script |sträng |Anger namnet på det skript som innehåller definitionen av DSC-konfiguration. Det här skriptet måste vara i rotmappen på .zip-filen som laddas ned från den URL som anges av den **settings.configuration.url** egenskapen. Den här egenskapen krävs om **settings.configuration.url** eller **settings.configuration.script** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ställa in MGM metadata och argument måste anges. |
+| settings.configuration.function |sträng |Anger namnet på din DSC-konfiguration. Den konfiguration som heter måste ingå i skriptet som **settings.configuration.script** definierar. Den här egenskapen krävs om **settings.configuration.url** eller **settings.configuration.function** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ställa in MGM metadata och argument måste anges. |
 | settings.configurationArguments |Samling |Definierar de parametrar som du vill skicka till DSC-konfiguration. Den här egenskapen är inte krypterad. |
 | settings.configurationData.url |sträng |Anger den URL som du vill ladda ned konfigurationsdatafilen (.psd1) från att använda som indata för DSC-konfiguration. Om den URL som kräver en SAS-token för åtkomst, ange den **protectedSettings.configurationDataUrlSasToken** egenskapen till värdet för din SAS-token. |
-| settings.privacy.dataEnabled |sträng |Aktiverar eller inaktiverar telemetriinsamling. Endast möjliga värden för den här egenskapen är **aktivera**, **inaktivera**, **''**, eller **$null**. Lämna den här egenskapen tom eller null kan telemetri. Standardvärdet är **''**. Mer information finns i [Azure DSC-tillägg-datainsamling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.privacy.dataCollection |sträng |Aktiverar eller inaktiverar telemetriinsamling. Endast möjliga värden för den här egenskapen är **aktivera**, **inaktivera**, **''**, eller **$null**. Lämna den här egenskapen tom eller null kan telemetri. Standardvärdet är **''**. Mer information finns i [Azure DSC-tillägg-datainsamling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
 | settings.advancedOptions.downloadMappings |Samling |Definierar alternativa platser som ska hämta WMF från. Mer information finns i [Azure DSC-tillägget 2.8 och mappa nedladdningar av beroenden för tillägg till din egen plats](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Samling |Definierar de parametrar som du vill skicka till DSC-konfiguration. Den här egenskapen är krypterad. |
-| protectedSettings.configurationUrlSasToken |sträng |Anger SAS-token för att få åtkomst till URL: en som **configuration.url** definierar. Den här egenskapen är krypterad. |
-| protectedSettings.configurationDataUrlSasToken |sträng |Anger SAS-token för att få åtkomst till URL: en som **configurationData.url** definierar. Den här egenskapen är krypterad. |
+| protectedSettings.configurationUrlSasToken |sträng |Anger SAS-token för att få åtkomst till URL: en som **settings.configuration.url** definierar. Den här egenskapen är krypterad. |
+| protectedSettings.configurationDataUrlSasToken |sträng |Anger SAS-token för att få åtkomst till URL: en som **settings.configurationData.url** definierar. Den här egenskapen är krypterad. |
 
 ## <a name="default-configuration-script"></a>Standard konfigurationsskript
 
@@ -197,7 +179,7 @@ Du kan använda konfigurationsskript för DSC-tillägget standard för att konfi
 
 | Egenskapsnamn | Typ | Beskrivning |
 | --- | --- | --- |
-| settings.configurationArguments.RegistrationKey |SecureString |Obligatorisk egenskap. Anger den nyckel som används för en nod för att registrera med Azure Automation-tjänsten som lösenord för ett objekt för PowerShell-autentiseringsuppgift. Det här värdet kan identifieras automatiskt med hjälp av den **listnycklar** metoden mot Automation-kontot. Värdet bör skyddas som en skyddad. |
+| protectedSettings.configurationArguments.RegistrationKey |PSCredential |Obligatorisk egenskap. Anger den nyckel som används för en nod för att registrera med Azure Automation-tjänsten som lösenord för ett objekt för PowerShell-autentiseringsuppgift. Det här värdet kan identifieras automatiskt med hjälp av den **listnycklar** metoden mot Automation-kontot.  Se den [exempel](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments.RegistrationUrl |sträng |Obligatorisk egenskap. Anger URL till slutpunkten för automatisering där noden försöker registrera. Det här värdet kan identifieras automatiskt med hjälp av den **referens** metoden mot Automation-kontot. |
 | settings.configurationArguments.NodeConfigurationName |sträng |Obligatorisk egenskap. Anger nodkonfigurationen i Automation-kontot ska tilldelas noden. |
 | settings.configurationArguments.ConfigurationMode |sträng |Anger läget för LCM. Giltiga alternativ är **ApplyOnly**, **ApplyandMonitor**, och **ApplyandAutoCorrect**.  Standardvärdet är **ApplyandMonitor**. |
@@ -207,7 +189,7 @@ Du kan använda konfigurationsskript för DSC-tillägget standard för att konfi
 | settings.configurationArguments.ActionAfterReboot | sträng | Anger vad som händer när en omstart när du använder en konfiguration. Giltiga alternativ är **ContinueConfiguration** och **StopConfiguration**. Standardvärdet är **ContinueConfiguration**. |
 | settings.configurationArguments.AllowModuleOverwrite | boolesk | Anger om LCM skriver över befintliga moduler på noden. Standardvärdet är **FALSKT**. |
 
-## <a name="settings-vs-protectedsettings"></a>Jämfört med inställningar ProtectedSettings
+## <a name="settings-vs-protectedsettings"></a>inställningar för kontra protectedSettings
 
 Alla inställningar sparas i en textfil i inställningar på den virtuella datorn.
 Egenskaper som visas under **inställningar** är offentliga egenskaper.
@@ -220,8 +202,8 @@ Om konfigurationen behöver autentiseringsuppgifter, kan du ange autentiseringsu
 "protectedSettings": {
     "configurationArguments": {
         "parameterOfTypePSCredential1": {
-            "userName": "UsernameValue1",
-            "password": "PasswordValue1"
+               "userName": "UsernameValue1",
+               "password": "PasswordValue1"
         }
     }
 }
@@ -235,21 +217,15 @@ Konfiguration av argumenten skickas till standard-konfigurationsskript att stäl
 
 ```json
 "settings": {
-    "configurationArguments": {
-        {
-            "Name": "RegistrationKey",
-            "Value": {
-                "UserName": "PLACEHOLDER_DONOTUSE",
-                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-            },
-        },
-        "RegistrationUrl": "[parameters('registrationUrl1')]",
-        "NodeConfigurationName": "nodeConfigurationNameValue1"
-    }
+    "RegistrationUrl" : "[parameters('registrationUrl1')]",
+    "NodeConfigurationName" : "nodeConfigurationNameValue1"
 },
 "protectedSettings": {
-    "Items": {
-        "registrationKeyPrivate": "[parameters('registrationKey1')]"
+    "configurationArguments": {
+        "RegistrationKey": {
+            "userName": "NOT_USED",
+            "Password": "registrationKey"
+        }
     }
 }
 ```
@@ -276,9 +252,28 @@ Följande kod instruerar den virtuella datorn ska ladda ned rätt fil och kör s
 }
 ```
 
+## <a name="example-using-referenced-azure-automation-registration-values"></a>Exempel med hjälp av refererar till Azure Automation-registreringsvärden
+
+I följande exempel hämtas den **RegistrationUrl** och **RegistrationKey** genom att referera till egenskaper för Azure Automation-kontot och använda den **listnycklar** metod för att Hämta den primärnyckeln (0).  I det här exemplet parametrarna **automationAccountName** och **NodeConfigName** har angetts i mallen.
+
+```json
+"settings": {
+    "RegistrationUrl" : "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+    "NodeConfigurationName" : "[parameters('NodeConfigName')]"
+},
+"protectedSettings": {
+    "configurationArguments": {
+        "RegistrationKey": {
+            "userName": "NOT_USED",
+            "Password": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-01-15').Keys[0].value]"
+        }
+    }
+}
+```
+
 ## <a name="update-from-a-previous-format"></a>Uppdatera från ett tidigare format
 
-Alla inställningar i ett tidigare format av tillägget (och som har de offentliga egenskaperna **ModulesUrl**, **ConfigurationFunction**, **SasToken**, eller  **Egenskaper för**) anpassar sig automatiskt till det aktuella formatet av tillägget.
+Alla inställningar i ett tidigare format av tillägget (och som har de offentliga egenskaperna **ModulesUrl**, **ModuleSource**, **ModuleVersion**,  **ConfigurationFunction**, **SasToken**, eller **egenskaper**) anpassar sig automatiskt till det aktuella formatet av tillägget.
 De körs på samma sätt som de gjorde före.
 
 Följande schema visar vilka tidigare inställningar schemat kan se ut:
@@ -313,25 +308,25 @@ Följande schema visar vilka tidigare inställningar schemat kan se ut:
 
 Här är hur det tidigare formatet anpassas till det aktuella formatet:
 
-| Egenskapsnamn | Tidigare schemat motsvarande |
+| Aktuella egenskapsnamn | Tidigare schemat motsvarande |
 | --- | --- |
 | settings.wmfVersion |inställningar. WMFVersion |
 | settings.configuration.url |settings.ModulesUrl |
 | Settings.Configuration.Script |Första delen av inställningar. ConfigurationFunction (innan \\ \\) |
 | settings.configuration.function |Andra delen av inställningar. ConfigurationFunction (när \\ \\) |
+| Settings.Configuration.Module.Name | inställningar. ModuleSource |
+| Settings.Configuration.Module.version | inställningar. ModuleVersion |
 | settings.configurationArguments |inställningar. Egenskaper |
 | settings.configurationData.url |protectedSettings.DataBlobUri (utan SAS-token) |
-| settings.privacy.dataEnabled |inställningar. Privacy.DataEnabled |
+| settings.privacy.dataCollection |inställningar. Privacy.dataCollection |
 | settings.advancedOptions.downloadMappings |inställningar. AdvancedOptions.DownloadMappings |
 | protectedSettings.configurationArguments |protectedSettings.Properties |
 | protectedSettings.configurationUrlSasToken |inställningar. SasToken |
 | protectedSettings.configurationDataUrlSasToken |SAS-token från protectedSettings.DataBlobUri |
 
-## <a name="troubleshooting---error-code-1100"></a>Felsökning – felkoden 1100
+## <a name="troubleshooting"></a>Felsökning
 
-Felkoden 1100 tyder på problem med användarinformation till DSC-tillägget.
-Texten i de här felen varierar och kan ändras.
-Här är några av de fel som kan uppstå och hur du kan åtgärda dem.
+Här följer några av de fel som kan uppstå och hur du kan åtgärda dem.
 
 ### <a name="invalid-values"></a>Ogiltiga värden
 
@@ -354,13 +349,30 @@ Mer information finns i tabellen i [information](#details).
 **Lösningen**: Kontrollera alla dina angivna URL: er.
 Se till att alla URL: er matcha till giltiga platser att tillägget har åtkomst till på fjärrdatorn.
 
+### <a name="invalid-registrationkey-type"></a>Ogiltig RegistrationKey-typ
+
+”Ogiltig typ för parametern RegistrationKey av typen PSCredential”.
+
+**Problemet**: den *RegistrationKey* värde i protectedSettings.configurationArguments kan inte anges som en annan typ än en PSCredential.
+
+**Lösningen**: ändra inmatningen protectedSettings.configurationArguments för RegistrationKey till en PSCredential-typ i följande format:
+
+```json
+"configurationArguments": {
+    "RegistrationKey": {
+        "userName": "NOT_USED",
+        "Password": "RegistrationKey"
+    }
+}
+```
+
 ### <a name="invalid-configurationargument-type"></a>Ogiltig ConfigurationArgument-typ
 
 ”Ogiltigt configurationArguments typ {0}”
 
-**Problemet**: den *ConfigurationArguments* egenskapen kan inte matchas till en **hash-tabell** objekt.
+**Problemet**: den *ConfigurationArguments* egenskapen kan inte matchas till en **Hash-tabell** objekt.
 
-**Lösningen**: Kontrollera din *ConfigurationArguments* egenskapen en **hash-tabell**.
+**Lösningen**: Kontrollera din *ConfigurationArguments* egenskapen en **Hash-tabell**.
 Följ det format som anges i föregående exempel. Bevaka citattecken och kommatecken klammerparenteser.
 
 ### <a name="duplicate-configurationarguments"></a>Duplicera ConfigurationArguments
@@ -373,17 +385,17 @@ Följ det format som anges i föregående exempel. Bevaka citattecken och kommat
 
 ### <a name="missing-properties"></a>Saknade egenskaper
 
-”Configuration.function kräver att configuration.url eller configuration.module har angetts”
+”inställningar. Configuration.Function kräver att settings.configuration.url eller settings.configuration.module har angetts ”
 
-”Configuration.url kräver att configuration.script anges”
+”inställningar. Configuration.URL kräver att settings.configuration.script anges ”
 
-”Configuration.script kräver att configuration.url anges”
+”inställningar. Configuration.Script kräver att settings.configuration.url anges ”
 
-”Configuration.url kräver att configuration.function anges”
+”inställningar. Configuration.URL kräver att settings.configuration.function anges ”
 
-”ConfigurationUrlSasToken kräver att configuration.url anges”
+”protectedSettings.ConfigurationUrlSasToken kräver att settings.configuration.url anges”
 
-”ConfigurationDataUrlSasToken kräver att configurationData.url anges”
+”protectedSettings.ConfigurationDataUrlSasToken kräver att settings.configurationData.url anges”
 
 **Problemet**: en definierad egenskap behöver en annan egenskap som saknas.
 

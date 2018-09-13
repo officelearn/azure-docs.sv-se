@@ -1,6 +1,6 @@
 ---
-title: Transkription riktlinjer för tal-utbildning
-description: Lär dig hur du förbereder att anpassa akustiska och språkmodeller och rösttyper för Speech-tjänsten.
+title: Transkription riktlinjer för Speech Service-utbildning
+description: Lär dig hur du förbereder text anpassa- och språkdata och språkmodeller rösttyper för Speech-tjänsten.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
@@ -9,42 +9,42 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: db324b6c5444955debdc6a3e09906a0de47ff819
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41987620"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721831"
 ---
-# <a name="transcription-guidelines-for-using-speech-service"></a>Transkription riktlinjer för att använda Speech service
+# <a name="transcription-guidelines-for-using-the-speech-service"></a>Transkription riktlinjer för att använda Speech-tjänsten
 
-Anpassa **tal till Text** eller **Text till tal**, måste du ange text tillsammans med tal. Varje rad i texten motsvarar en enda uttryck. Texten bör matcha tal som exakt som möjligt. Texten kallas en *avskrift*, och du måste skapa den i ett visst format.
+Anpassa **tal till Text** eller **Text till tal**, måste du ange text tillsammans med tal. Varje rad i texten motsvarar en enda uttryck. Texten måste matcha tal så nära som möjligt. Texten kallas en *avskrift*, och du måste skapa den i ett visst format.
 
-Med taltjänsten normaliserar indata för att bevara text. 
+Med Taltjänsten normaliserar indata för att bevara text. 
 
 Den här artikeln beskrivs båda typerna av normalizations. Riktlinjerna kan variera för olika språk.
 
-## <a name="us-english-en-us"></a>Amerikansk engelska (en-US)
+## <a name="us-english-en-us"></a>Amerikansk engelska (en-us)
 
 Textdata ska skrivas en uttryck per rad, i oformaterad text, med hjälp av endast ASCII-teckenuppsättningen.
 
-Undvik att använda utökade (Latin-1) eller Unicode skiljetecken. Dessa tecken kan ingå oavsiktligt när du förbereder data i ett ordbehandlingsprogram eller skrapning data från webbsidor. Ersätt följande tecken med lämpliga ASCII-ändringar. Exempel:
+Undvik att använda utökade (Latin-1) eller Unicode skiljetecken. Dessa tecken kan ingå oavsiktligt när du förbereder data i ett ordbehandlingsprogram eller skrapa data från webbsidor. Ersätt tecknen med lämpliga ASCII-ändringar. Exempel:
 
 | Tecken för att undvika | Ersättning |
 |----- | ----- |
-| ”Hello world” (öppnar och stänger dubbla citattecken) | ”Hello world” (dubbla citattecken) |
+| ”Hello world” (inledande och avslutande citattecken) | ”Hello world” (dubbla citattecken) |
 | Johns dag (enkelt citattecken) | Johns dag (apostrof) |
 | Det var bra – Nej, det var bra! (tankstreck) | Det var bra--inte, det var bra! (bindestreck) |
 
 ### <a name="text-normalization-rules-for-english"></a>Text normalisering regler för engelska
 
-Speech-tjänsten utför följande normalisering regler.
+Speech-tjänsten utför följande normalisering regler:
 
-*   Lägre skiftläge all text
-*   Ta bort alla skiljetecken utom word-internt apostrofer
-*   Expansion av talen i talat formulär, inklusive kronor
+* Med gemener för all text
+* Ta bort alla skiljetecken utom word-internt apostrofer
+* Utöka siffror till talat formulär, inklusive kronor
 
-Här följer några exempel
+Här följer några exempel:
 
 | Originaltexten | Efter normalisering |
 |----- | ----- |
@@ -57,13 +57,13 @@ Här följer några exempel
 | Pi är ungefär 3,14 | Pi är cirka tre punkt en fyra |
 | Det kostar $3,14 | Det kostar tre fjorton |
 
-Gäller följande normalisering för text-avskrifter.
+Gäller följande normalisering för text-avskrifter:
 
-*   Förkortningar ska skrivas ut i ord
-*   Inte är standard numeriska strängar (till exempel vissa datum eller redovisning formulär) ska skrivas ut i ord
-*   Vara bör transkriberas ord med icke-alfabetiska tecken eller blandade alfanumeriska tecken som förkortning
-*   Lämna förkortningar uttalas ord vara orört. Till exempel polärdiagram laserskrivare, RAM, NATO.
-*   Skriva förkortningar uttalas separat siffror, bokstäver avgränsade med blanksteg. Till exempel IBM, CPU, FBI: S, TBD, NaN. 
+* Förkortningar ska skrivas ut i orden.
+* Inte är standard numeriska strängar (till exempel vissa datum eller redovisning formulär) ska skrivas ut i orden.
+* Vara bör transkriberas ord med icke-alfabetiska tecken eller blandade alfanumeriska tecken som uttalas.
+* Lämna förkortningar som är uttalas ord vara orört (till exempel ”webbplats”, ”laserskrivare”, ”RAM” eller ”NATO”).
+* Skriva förkortningar som uttalas som separata bokstäver med bokstäver som är avgränsade med blanksteg (till exempel ”IBM”, ”processor”, ”FBI: S”, ”TBD” eller ”NaN”). 
 
 Här följer några exempel:
 
@@ -80,27 +80,27 @@ Här följer några exempel:
 | spela upp OU812 genom Van Halen | spela upp O U 8 1 2 av Van Halen |
 | UTF-8 med BOM | U T F 8 med BOM |
 
-## <a name="chinese-zh-cn"></a>Kinesiska (zh-CN)
+## <a name="chinese-zh-cn"></a>Kinesiska (zh-cn)
 
-Textdata som överförs till Custom Speech Service ska använda UTF-8-kodning med byte-ordningsmarkering markör. Filen ska skrivas en uttryck per rad.
+Textdata som har överförts till Custom Speech Service ska använda UTF-8-kodning med en byte-ordningsmarkering markör. Filen ska skrivas en uttryck per rad.
 
-Undvik att använda halv bredd skiljetecken. Dessa tecken kan ingå oavsiktligt när du förbereder data i ett ordbehandlingsprogram eller skrapning data från webbsidor. Ersätt dem med lämpliga ändringar i full bredd. Exempel:
+Undvik att använda halv bredd skiljetecken. Dessa tecken kan ingå oavsiktligt när du förbereder data i ett ordbehandlingsprogram eller skrapa data från webbsidor. Ersätt dem med lämpliga ändringar i full bredd. Exempel:
 
 | Tecken för att undvika | Ersättning |
 |----- | ----- |
-| ”你好” (öppna och stänga dubbla citattecken) | ”你好” (dubbla citattecken) |
+| ”你好” (inledande och avslutande citattecken) | ”你好” (dubbla citattecken) |
 | 需要什么帮助? (frågetecken) | 需要什么帮助? |
 
 ### <a name="text-normalization-rules-for-chinese"></a>Text normalisering regler för kinesiska
 
-Speech-tjänsten utför följande normalisering regler.
+Speech-tjänsten utför följande normalisering regler:
 
-*   Ta bort alla skiljetecken
-*   Expandera siffror i talat formulär
-*   Konvertera full bredd bokstäver till halv bredd bokstäver
-*   Övre skiftläge alla engelska ord
+* Ta bort alla skiljetecken
+* Expandera siffror i talat formulär
+* Konvertera full bredd bokstäver till halv bredd bokstäver
+* Med versaler för alla svenska ord
 
-Här följer några exempel.
+Här följer några exempel:
 
 | Originaltexten | Efter normalisering |
 |----- | ----- |
@@ -112,12 +112,12 @@ Här följer några exempel.
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
-Gäller följande normalisering texten innan du importerar den.
+Innan du importerar texten bör du använda följande normalisering för den:
 
-*   Förkortningar ska skrivas ut i ord (som i talat formulär)
-*   Skriva ut numeriska strängar i talat form.
+* Förkortningar ska skrivas ut i ord (som i talat formulär).
+* Skriva ut numeriska strängar i talat form.
 
-Här följer några exempel.
+Här följer några exempel:
 
 | Originaltexten | Efter normalisering |
 |----- | ----- |
@@ -126,22 +126,22 @@ Här följer några exempel.
 
 ## <a name="other-languages"></a>Andra språk
 
-Textdata som överförs till den **tal till Text** -tjänsten måste använda UTF-8-kodning med byte-ordningsmarkering markör. Filen ska skrivas en uttryck per rad.
+Textdata som överförs till den **tal till Text** -tjänsten måste använda UTF-8-kodning med en byte-ordningsmarkering markör. Filen ska skrivas en uttryck per rad.
 
 > [!NOTE]
-> De här exemplen använder tyska. Dessa riktlinjer gäller dock för alla språk som inte är engelska (USA) eller kinesiska.
+> I följande exempel används tyska. Riktlinjerna gäller dock för alla språk som inte är engelska (USA) eller kinesiska.
 
 ### <a name="text-normalization-rules-for-german"></a>Text normalisering regler för tyska
 
-Speech-tjänsten utför följande normalisering regler.
+Speech-tjänsten utför följande normalisering regler:
 
-*   Lägre skiftläge all text
-*   Ta bort alla skiljetecken, inklusive olika typer av citattecken (”test”, 'test', ”test” eller «testa» är ok)
-*   Tar bort rader med specialtecken från set-¢ ¤ ¥... § © ª ¬® ° + ² µ × ÿ Ø¬¬
-*   Expansion av talen i word-formulär, inklusive dollar eller euro belopp
-*   Umlauts accepteras endast för en, o u; andra kommer att ersättas av ”e” eller tas bort
+* Med gemener för all text
+* Ta bort alla skiljetecken, inklusive olika typer av citattecken (”test”, 'test', ”test” och «testa» är OK)
+* Tar bort rader med specialtecken från set-¢ ¤ ¥... § © ª ¬® ° + ² µ × ÿ Ø¬¬
+* Utöka siffror till ordform, inklusive dollar eller Euro tillsammans
+* Acceptera umlauts endast för en, o och. andra kommer att ersättas av ”e” eller tas bort
 
-Här följer några exempel
+Här följer några exempel:
 
 | Originaltexten | Efter normalisering |
 |----- | ----- |
@@ -149,25 +149,25 @@ Här följer några exempel
 | ¡Eine Frage! | eine frage |
 | WIR haben | WIR haben |
 
-Gäller följande normalisering texten innan du importerar den.
+Innan du importerar texten bör du använda följande normalisering för den:
 
-*   Decimaltecknet ska vara ”,” och inte ””.
-*   Tidsavgränsare mellan många timmar och minuter som ska vara ”:” och inte ””.: 12:00 Uhr
-*   Förkortningar exempelvis certifikatutfärdare. ersätts inte. Vi rekommenderar att du använder den fullständiga formen.
-*   De fyra huvudsakliga matematiska operatörerna tas bort: +, -, \*, /. Vi rekommenderar att ersätta dem med deras literal form: plus minus skadlig geteilt.
-*   Detsamma gäller för jämförelseoperatorer (=, <>,) - gleich kleiner sensorn, grösser sensorn
-*   Använd delar, till exempel 3 och 4 i word-format (till exempel ”drei viertel” i stället för ¾)
-*   Ersätt € symbolen med ordform ”Europa”
+* Punkter ska vara ”,” och inte ””.
+* Tidsavgränsare mellan många timmar och minuter som ska vara ”:” och inte ””. (exempel: 12:00 Uhr).
+* Förkortningar, till exempel ”ca”. ersätts inte. Vi rekommenderar att du använder den fullständiga formen.
+* De fyra huvudsakliga matematiska operatörerna (+, -, \*, och /) tas bort. Vi rekommenderar att ersätta dem med deras literal form: ”plus”, ”minus”, ”skadlig” och ”geteilt”.
+* Samma sak gäller jämförelseoperatorer (=, <, och >). Vi rekommenderar att ersätta dem med ”gleich” ”, kleiner sensorn”, och ”grösser sensorn”.
+* Använd delar, till exempel 3 och 4 i word-format (till exempel ”drei viertel” i stället för ¾).
+* Ersätt € symbolen med ordform ”Euro”.
 
-Här följer några exempel.
+Här följer några exempel:
 
 | Originaltexten | Efter användarens normalisering | När du har system normalisering
 |--------  | ----- | -------- |
-| ES ist 12.23Uhr | ES ist 12:23Uhr | ES ist zwölf uhr drei und zwanzig uhr |
+| ES ist 12.23 Uhr | ES ist 12:23 Uhr | ES ist zwölf uhr drei und zwanzig uhr |
 | {12,45} | {12,45} | zwölf komma vier fünf ||
 | 2 + 3 – 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Få en kostnadsfri prenumeration Speech Service](https://azure.microsoft.com/try/cognitive-services/)
 - [Känna igen tal i C#](quickstart-csharp-dotnet-windows.md)

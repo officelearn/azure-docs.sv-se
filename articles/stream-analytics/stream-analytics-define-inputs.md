@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 9fa71c221b276e2173694e2c1e86673e52677e63
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2da388ef2fc0df8b08658900fe91ecc9d440fd3a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389831"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579300"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-data som indata till Stream Analytics
 
@@ -29,7 +29,7 @@ Dessa indata resurser kan finnas i samma Azure-prenumeration som Stream Analytic
 Stream Analytics stöder komprimering för alla stream inkommande datakällor. Referenstyper stöds för tillfället är: None, GZip, och Deflate-komprimering. Stöd för komprimering är inte tillgängligt för referensdata. Om Indataformatet är Avro-data som är komprimerade, hanteras den transparent. Du behöver inte ange Komprimeringstypen med Avro-serialisering. 
 
 ## <a name="create-edit-or-test-inputs"></a>Skapa, redigera eller testa indata
-Du kan använda den [Azure-portalen](https://portal.azure.com) till [Skapa ny indata](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) och visa eller redigera befintliga indata på ditt direktuppspelningsjobb. Du kan också testa inkommande anslutningar och [testfrågor](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-manage-job#test-your-query) från exempeldata. När du skriver en fråga visas indata i FROM-satsen. Du kan hämta listan över tillgängliga indata från den **fråga** i portalen. Om du vill använda flera inmatningar kan du `JOIN` dem eller skriva flera `SELECT` frågor.
+Du kan använda den [Azure-portalen](https://portal.azure.com) till [Skapa ny indata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) och visa eller redigera befintliga indata på ditt direktuppspelningsjobb. Du kan också testa inkommande anslutningar och [testfrågor](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) från exempeldata. När du skriver en fråga visas indata i FROM-satsen. Du kan hämta listan över tillgängliga indata från den **fråga** i portalen. Om du vill använda flera inmatningar kan du `JOIN` dem eller skriva flera `SELECT` frågor.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Strömma data med Event Hubs

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 59c2f865ae5e056b0fabb360712f6eb622943145
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128457"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574631"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integration runtime i Azure Data Factory  
 **Integreringskörningen** är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla olika funktioner för dataintegrering i olika nätverksmiljöer. Det finns tre typer av integration Runtime som erbjuds av Data Factory:
@@ -87,7 +87,7 @@ Standardvärdet för samtidiga jobb anges gränsen baserat på storleken på dat
 
 Du skala ut genom att öka antalet noder. När du ökar antalet noder, är samtidiga jobb gränsen summan av gränsvärdena för samtidiga jobb av alla tillgängliga noder.  Till exempel om en nod kan du köra upp till tolv samtidiga jobb, kan lägger till tre fler liknande noder du köra upp till 48 samtidiga jobb (4 x 12). Vi rekommenderar att du ökar gräns för samtidiga jobb bara när du ser låg Resursanvändning med standardvärdena på varje nod.
 
-Du kan åsidosätta beräknade standardvärdet i Azure-portalen. Välj Skapa > anslutningar > Integreringskörningar > Redigera > noder > ändra värdet för samtidiga jobb per nod. Du kan också använda PowerShell [uppdatering azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) kommando.
+Du kan åsidosätta beräknade standardvärdet i Azure-portalen. Välj Skapa > anslutningar > Integreringskörningar > Redigera > noder > ändra värdet för samtidiga jobb per nod. Du kan också använda PowerShell [uppdatering azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) kommando.
   
 ### <a name="status-per-node"></a>Status (per nod)
 Följande tabell innehåller olika statusar en lokal integration runtime-noden:

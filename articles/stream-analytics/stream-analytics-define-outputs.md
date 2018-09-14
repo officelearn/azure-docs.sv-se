@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d717737bc2b15e57ae32faffaece96f78a7cc013
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701022"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577828"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data. 
@@ -299,7 +299,7 @@ I följande tabell sammanfattas partition-stöd och antalet skrivare för utdata
 | Azure Data Lake Store | Ja | Använd {date} och {time}-token i prefixmönster för sögväg. Välj datumformat, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ, MM-DD-ÅÅÅÅ. HH används för tidsformatet. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). | 
 | Azure SQL Database | Nej | Ingen | Ej tillämpligt. | 
 | Azure Blob Storage | Ja | Använd {date} och {time}-token från dina event fält i mönstret för sökvägen. Välj datumformat, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ, MM-DD-ÅÅÅÅ. HH används för tidsformatet. Som en del av den [förhandsversion](https://aka.ms/ASAPreview), blob-utdata kan partitioneras av en enda anpassad händelseattribut {fieldname} eller {datetime:\<specificerare >}. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). | 
-| Azure händelsehubb | Ja | Ja | Varierar beroende på partitionen justering.</br> När utdata utdata Event Hub partitionsnyckel justeras lika med överordnad (föregående) frågesteg, antalet skrivare är samma antalet händelsehubbspartitioner. Varje skrivare använder Eventhub's [EventHubSender klass](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) att skicka händelser till en specifik partition. </br> När utdata Event Hub partitionsnyckel inte är justerad med överordnad (föregående) frågesteg, antalet skrivare är samma som antalet partitioner i det föregående steget. Varje skrivare använder EventHubClient [SendBatchAsync klass](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) att skicka händelser till utdata-partitionerna. |
+| Azure händelsehubb | Ja | Ja | Varierar beroende på partitionen justering.</br> När utdata utdata Event Hub partitionsnyckel justeras lika med överordnad (föregående) frågesteg, antalet skrivare är samma antalet händelsehubbspartitioner. Varje skrivare använder Eventhub's [EventHubSender klass](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) att skicka händelser till en specifik partition. </br> När utdata Event Hub partitionsnyckel inte är justerad med överordnad (föregående) frågesteg, antalet skrivare är samma som antalet partitioner i det föregående steget. Varje skrivare använder EventHubClient [SendBatchAsync klass](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) att skicka händelser till utdata-partitionerna. |
 | Power BI | Nej | Ingen | Ej tillämpligt. | 
 | Azure Table Storage | Ja | Alla utdatakolumn.  | Följer inkommande partitionering för [fullständigt parallelliseras frågor](stream-analytics-scale-jobs.md). | 
 | Azure Service Bus-ämne | Ja | Valt automatiskt. Antalet partitioner är baserad på den [Service Bus-SKU och storlek](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltalsvärde som unikt för varje partition.| Samma som antalet partitioner i avsnittet om utdata.  |

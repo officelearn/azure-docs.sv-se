@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1ec4a6033fad643c75cdf9f7ebc5cdb1f4bab9c3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 559859e1f844cae37b0baaf48b0ad7c5cc2d4b0a
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717156"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542460"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett virtuellt nätverk för Azure SQL Database Managed Instance
 
@@ -101,7 +101,7 @@ Det enklaste sättet att skapa och konfigurera ett virtuellt nätverk är att an
 
 3. Konfigurera nätverksmiljön. Du kan konfigurera parametrar för din nätverksmiljö på följande format:
 
-![Konfigurera azure-nätverk](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+![Konfigurera azure-nätverk](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
 Du kan ändra namnen på VNet och undernät och justera IP-adressintervall som är kopplade till dina nätverksresurser. När du trycker på ”Köp”-knappen, kommer det här formuläret Skapa och konfigurera din miljö. Om du inte behöver två undernät kan du ta bort standardvärdet. 
 

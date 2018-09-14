@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f272ac7ee6432b43d0c9a72daf620a46e52366f8
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 99329dd812ad47cf98845ba794bc108d26d85352
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399057"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543711"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -53,14 +53,14 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
 
    ![Lösning för virtuell dator lägger du till sidan](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-1. På den **lägga till lösning** väljer **arbetsytan**. Välj en Log Analytics-arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot. Om du inte har en arbetsyta, väljer **Skapa ny arbetsyta**. På den **OMS-arbetsyta** utför följande steg:
-   - Ange ett namn för den nya **OMS-arbetsytan**.
+1. På den **lägga till lösning** väljer **arbetsytan**. Välj en Log Analytics-arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot. Om du inte har en arbetsyta, väljer **Skapa ny arbetsyta**. På den **Log Analytics-arbetsytan** utför följande steg:
+   - Ange ett namn för den nya **Log Analytics-arbetsytan**.
    - Välj en **prenumeration** att länka till genom att välja från listrutan om standardvalet inte är lämpligt.
    - För **resursgrupp**, du kan skapa en ny resursgrupp eller välj en befintlig.
    - Välj en **Plats**. För närvarande endast tillgängliga regionerna är **Australien, sydöstra**, **centrala**, **centrala Indien**, **USA, östra**, **Östra japan**, **Sydostasien**, **Storbritannien, södra**, och **Västeuropa**.
    - Välj en **Prisnivå**. Välj den **Per GB (fristående)** alternativet. Log Analytics har uppdaterat [priser](https://azure.microsoft.com/pricing/details/log-analytics/) och Per GB-nivån är det enda alternativet.
 
-1. När du har angett informationen som krävs på den **OMS-arbetsyta** klickar du på **skapa**. Du kan spåra förloppet under **meddelanden** från menyn som tillbaka till den **lägga till lösning** sidan när du är klar.
+1. När du har angett informationen som krävs på den **Log Analytics-arbetsyta** klickar du på **skapa**. Du kan spåra förloppet under **meddelanden** från menyn som tillbaka till den **lägga till lösning** sidan när du är klar.
 1. På den **lägga till lösning** väljer **Automation-konto**. Om du skapar en ny Log Analytics-arbetsyta kan du skapa ett nytt Automation-konto som ska associeras med den eller välja ett befintligt Automation-konto som inte är redan länkad till en arbetsyta för Log Analystics. Välj ett befintligt Automation-konto eller klicka på **skapa ett Automation-konto**, och på den **Lägg till Automation-konto** anger du följande information:
    - I fältet **namn** anger du namnet på Automation-kontot.
 

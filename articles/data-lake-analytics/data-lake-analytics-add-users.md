@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 0386406f5fc81a007d55bd5358e7a6b333f63b04
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f48dc07e27c6cb01a842f1f6d720ed6476028ef7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048341"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542320"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Om du lägger till en användare i Azure portal
 
@@ -31,12 +31,12 @@ ms.locfileid: "43048341"
 Ge ”R-X” eller ”RWX” på mappar som innehåller indata och utdata.
 
 
-## <a name="optionally-add-the-user-to-the-azure-data-lake-store-role-reader-role"></a>Du kan också lägga till användaren till rollen Azure Data Lake Store **läsare** roll.
-1.  Hitta din Azure Data Lake Store-konto.
+## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Du kan också lägga till användaren till rollen Azure Data Lake Storage Gen1 **läsare** roll.
+1.  Hitta din Azure Data Lake Storage Gen1-konto.
 2.  Klicka på **användare**.
 3. Klicka på **Lägg till**.
 4.  Välj en Azure RBAC-roll att tilldela den här gruppen.
-5.  Tilldela rollen läsare. Den här rollen har den minsta uppsättningen behörigheter som krävs för att bläddra/hantera data som lagras i ADLS. Tilldela rollen om gruppen inte är avsedd för att hantera Azure-tjänster.
+5.  Tilldela rollen läsare. Den här rollen har den minsta uppsättningen behörigheter som krävs för att bläddra/hantera data som lagras i ADLSGen1. Tilldela rollen om gruppen inte är avsedd för att hantera Azure-tjänster.
 6.  Ange namnet på gruppen.
 7.  Klicka på **OK**.
 

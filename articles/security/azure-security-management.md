@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 21ad417b9b3b8d0354333962c4e811d0eebba4e9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: efab734cc7d6facf82f622b95c12a1a27e99c5f7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159341"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575940"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
@@ -225,7 +225,7 @@ Följande resurser med allmän information om Azure och relaterade Microsoft-tj�
 
 * [Skydda privilegierad åtkomst](https://technet.microsoft.com/library/mt631194.aspx) – Hämta teknisk information för att designa och skapa en säker administrativ dator för hantering av Azure
 * [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure) – Lär dig mer om de funktioner i Azure-plattformen som skyddar Azure-strukturen och de arbetsbelastningar som körs på Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/en-us/security/dn440717.aspx) – här kan du rapportera säkerhetsproblem i Microsoft, inklusive problem med Azure, eller mejla till [secure@microsoft.com](mailto:secure@microsoft.com)
+* [Microsoft Security Response Center](https://technet.microsoft.com/security/dn440717.aspx) – här kan du rapportera säkerhetsproblem i Microsoft, inklusive problem med Azure, eller mejla till [secure@microsoft.com](mailto:secure@microsoft.com)
 * [Azure-säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – håll koll på det senaste inom Azure-säkerhet
 
 <!--Image references-->

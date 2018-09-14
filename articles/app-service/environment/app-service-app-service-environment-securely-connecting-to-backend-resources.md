@@ -1,6 +1,6 @@
 ---
-title: Ansluta på ett säkert sätt till Serverdelsresurser från en Apptjänst-miljö
-description: Läs mer om hur du ansluter på ett säkert sätt till serverdelsresurser från en Apptjänst-miljö.
+title: Ansluta säkert till Serverdelsresurser från en App Service Environment
+description: Läs mer om hur du ansluter på ett säkert sätt till serverdelsresurser från en App Service Environment.
 services: app-service
 documentationcenter: ''
 author: stefsch
@@ -14,87 +14,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 2fb13a4dac923a19dc12910cb1b78e909b93abe1
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 1732e6778febac60a25da74c330cb3d3da94154d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317579"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580064"
 ---
-# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Ansluta på ett säkert sätt till Serverdelsresurser från en Apptjänst-miljö
+# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Ansluta säkert till Serverdelsresurser från en App Service Environment
 ## <a name="overview"></a>Översikt
-Eftersom en Apptjänst-miljö skapas alltid i **antingen** ett virtuellt nätverk i Azure Resource Manager **eller** klassiska distributionsmodellen [virtuellt nätverk] [ virtualnetwork], utgående anslutningar från en Apptjänst-miljö till andra serverdelsresurser kan flöda uteslutande över det virtuella nätverket.  Med en ändring görs i juni 2016 distribueras ASEs också till virtuella nätverk som använder offentliga-adressintervall eller RFC1918 adressutrymmen (d.v.s. privata adresser).  
+Eftersom en App Service Environment skapas alltid i **antingen** ett Azure Resource Manager-nätverk **eller** en klassisk distributionsmodell [virtuellt nätverk] [ virtualnetwork], utgående anslutningar från en App Service-miljö till andra backend-resurser kan flöda exklusivt över det virtuella nätverket.  Med en ny ändring som gjorts i juni 2016 kan ase-miljöer också distribueras till virtuella nätverk som använder offentliga adressintervall eller RFC1918 adressutrymmen (d.v.s. privata adresser).  
 
-Det kan exempelvis vara en SQL-Server som körs på ett kluster med virtuella datorer med port 1433 låst.  Slutpunkten kan vara ACLd att endast tillåta åtkomst från andra resurser på samma virtuella nätverk.  
+Exempelvis kan finnas det en SQL-Server som körs på ett kluster med virtuella datorer med port 1433 som är låsta.  Slutpunkten kan vara ACLd att endast tillåta åtkomst från andra resurser på samma virtuella nätverk.  
 
-Ett annat exempel är känsliga slutpunkter kan köra lokalt och vara ansluten till Azure via antingen [plats-till-plats] [ SiteToSite] eller [Azure ExpressRoute] [ ExpressRoute] anslutningar.  Därför kommer bara resurser i virtuella nätverk som är ansluten till plats-till-plats eller ExpressRoute tunnlar att kunna komma åt lokala slutpunkter.
+Ett annat exempel är känsliga slutpunkter kan köra lokalt och vara ansluten till Azure via antingen [plats-till-plats] [ SiteToSite] eller [Azure ExpressRoute] [ ExpressRoute] anslutningar.  Endast resurser i virtuella nätverk som är ansluten till plats-till-plats eller ExpressRoute-tunnlar kommer därför att kunna få åtkomst till lokala slutpunkter.
 
-Appar som körs på en Apptjänst-miljö kommer att kunna ansluta säkert till olika servrar och resurser för alla dessa scenarier.  Utgående trafik från appar som körs i en Apptjänst-miljö till privata slutpunkter i samma virtuella nätverk (eller anslutna till samma virtuella nätverk), kommer endast flödet över det virtuella nätverket.  Utgående trafik till privata slutpunkter flödar inte över offentligt Internet.
+Appar som körs på en App Service Environment kommer att kunna ansluta säkert till olika servrar och resurser för alla dessa scenarier.  Utgående trafik från appar som körs i en App Service Environment till privata slutpunkter i samma virtuella nätverk (eller anslutna till samma virtuella nätverk), kommer endast flöde över det virtuella nätverket.  Utgående trafik till privata slutpunkter flödar inte via det offentliga Internet.
 
-Ett villkor som gäller för utgående trafik från en Apptjänst-miljö till slutpunkter inom ett virtuellt nätverk.  Apptjänstmiljöer kan inte nå slutpunkter av virtuella datorer finns i den **samma** undernät som Apptjänst-miljön.  Det får normalt inte vara ett problem så länge Apptjänstmiljöer distribueras i ett undernät som reserverats för exklusiv användning av endast Apptjänst-miljön.
+Ett villkor som gäller för utgående trafik från en App Service Environment till slutpunkterna inom ett virtuellt nätverk.  App Service-miljöer kan inte nå slutpunkter av virtuella datorer som finns i den **samma** undernät som App Service Environment.  Det får normalt inte vara ett problem så länge som App Service-miljöer har distribuerats i ett undernät som reserverats för exklusiv användning av bara App Service Environment.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Utgående anslutning och DNS-krav
-För en Apptjänstmiljö ska fungera korrekt, kräver den utgående åtkomst till olika slutpunkter. En fullständig lista över de externa slutpunkter som används av en ASE finns i avsnittet ”krävs nätverksanslutning” i den [nätverkskonfigurationen för ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) artikel.
+För en App Service Environment ska fungera korrekt, kräver den utgående åtkomst till olika slutpunkter. En fullständig lista över externa slutpunkter som används av en ASE är i avsnittet ”krävs nätverksanslutning” i den [nätverkskonfiguration för ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) artikeln.
 
-Apptjänstmiljöer kräver ett giltigt DNS-infrastruktur konfigurerad för det virtuella nätverket.  Om DNS-konfigurationen har ändrats efter en Apptjänst-miljö har skapats av någon anledning, kan utvecklare tvinga en Apptjänst-miljö för den nya DNS-konfigurationen.  Utlöser en rullande miljö omstart med hjälp av ikonen för ”starta om” som finns längst upp på bladet hantering av Apptjänst-miljö i portalen kommer miljö för att hämta den nya DNS-konfigurationen.
+App Service kräver en giltig DNS-infrastruktur som konfigurerats för det virtuella nätverket.  Om DNS-konfigurationen har ändrats efter en App Service Environment har skapats av någon anledning, kan utvecklare tvinga en App Service Environment att den använder den nya DNS-konfigurationen.  Utlösa en löpande miljö omstart med hjälp av ”Restart”-ikonen längst upp på bladet för hantering i App Service Environment i portalen kommer miljön att den använder den nya DNS-konfigurationen.
 
-Vi rekommenderar också att alla anpassade DNS-servrar för det virtuella nätverket konfigureras i förväg innan du skapar en Apptjänst-miljö.  Om DNS-konfiguration för ett virtuellt nätverk har ändrats medan en Apptjänst-miljö skapas, vilket leder till att Apptjänstmiljö skapa processen misslyckas.  I en liknande vein om en anpassad DNS-server finns på den andra änden av en VPN-gateway och DNS-servern är felaktig eller inte tillgänglig, misslyckas Apptjänst-miljö skapas också.
+Vi rekommenderar också att eventuella anpassade DNS-servrar på det virtuella nätverket konfigureras förbereds i förväg innan du skapar en App Service Environment.  Om DNS-konfiguration för ett virtuellt nätverk ändras medan en App Service Environment skapas, som resulterar i App Service Environment skapas processen misslyckas.  I en liknande vein om en anpassad DNS-server finns på den andra änden av en VPN-gateway och DNS-servern är inte kan nås eller otillgängliga misslyckas process för att skapa App Service Environment också.
 
-## <a name="connecting-to-a-sql-server"></a>Ansluter till en SQLServer
-En vanlig SQL Server-konfiguration har en slutpunkt som lyssnade på port 1433:
+## <a name="connecting-to-a-sql-server"></a>Ansluta till en SQLServer
+En vanlig SQL Server-konfiguration har en slutpunkt som lyssnar på port 1433:
 
-![Slutpunkten för SQL Server][SqlServerEndpoint]
+![SQL Server-slutpunkt][SqlServerEndpoint]
 
-Det finns två tillvägagångssätt för att begränsa trafik till den här slutpunkten:
+Det finns två metoder för att begränsa trafik till den här slutpunkten:
 
-* [Network Access Control List] [ NetworkAccessControlLists] (Network ACL: er)
+* [Network Access Control List] [ NetworkAccessControlLists] (nätverks-ACL: er)
 * [Nätverkssäkerhetsgrupper][NetworkSecurityGroups]
 
-## <a name="restricting-access-with-a-network-acl"></a>Begränsa åtkomst till ett nätverk ACL
-Port 1433 kan skyddas med hjälp av en lista över åtkomstkontroll.  I exemplet nedan whitelists klienten adresserar kommer från inuti ett virtuellt nätverk och blockerar åtkomst till alla andra klienter.
+## <a name="restricting-access-with-a-network-acl"></a>Begränsa åtkomst med ett nätverk ACL
+Port 1433 kan skyddas med hjälp av en access control list.  I exemplet nedan vitlistor klienten adresser kommer från i ett virtuellt nätverk och blockerar åtkomsten till alla andra klienter.
 
-![Exempel på nätverket Access Control][NetworkAccessControlListExample]
+![Exempel på nätverket åtkomstkontroll listan][NetworkAccessControlListExample]
 
-Alla program som körs i Apptjänst-miljö i samma virtuella nätverk som SQL-servern kommer att kunna ansluta till SQL Server-instans använder den **VNet interna** IP-adress för den virtuella datorn för SQL Server.  
+Alla program som körs i App Service Environment i samma virtuella nätverk som SQL Server kommer att kunna ansluta till SQL Server-instans med den **VNet interna** IP-adress för SQL Server-dator.  
 
-Anslutningssträngen exemplet nedan refererar till SQL Server med dess privata IP-adress.
+Exempel anslutningssträngen nedan refererar till SQL-servern med dess privata IP-adress.
 
     Server=tcp:10.0.1.6;Database=MyDatabase;User ID=MyUser;Password=PasswordHere;provider=System.Data.SqlClient
 
-Även om den virtuella datorn har en offentlig slutpunkt, avvisas anslutningsförsök med hjälp av den offentliga IP-adressen på grund av nätverkets ACL. 
+Även om den virtuella datorn har en offentlig slutpunkt, kommer anslutningsförsök med hjälp av den offentliga IP-adressen att avvisas på grund av nätverket ACL. 
 
 ## <a name="restricting-access-with-a-network-security-group"></a>Begränsa åtkomst med en Nätverkssäkerhetsgrupp
-Det är en alternativ metod för att skydda åtkomsten med en nätverkssäkerhetsgrupp.  Nätverkssäkerhetsgrupper kan användas till enskilda virtuella datorer eller till ett undernät som innehåller virtuella datorer.
+En annan metod för att skydda åtkomsten är med en nätverkssäkerhetsgrupp.  Nätverkssäkerhetsgrupper kan användas till enskilda virtuella datorer eller till ett undernät som innehåller virtuella datorer.
 
 Först måste en nätverkssäkerhetsgrupp skapas:
 
     New-AzureNetworkSecurityGroup -Name "testNSGexample" -Location "South Central US" -Label "Example network security group for an app service environment"
 
-Begränsa åtkomsten till endast VNet intern trafik är mycket enkelt med en nätverkssäkerhetsgrupp.  Standardregler i en nätverkssäkerhetsgrupp Tillåt endast åtkomst från andra klienter i nätverk i samma virtuella nätverk.
+Begränsa åtkomsten till endast VNet intern trafik är väldigt enkelt med en nätverkssäkerhetsgrupp.  Standardreglerna i en grupp kan du endast tillåta åtkomst från andra klienter i nätverk i samma virtuella nätverk.
 
-Detta innebär att låsa åtkomsten till SQL Server är så enkelt som att tillämpa en nätverkssäkerhetsgrupp med dess standardregler på antingen virtuella datorer som kör SQL Server eller undernät som innehåller de virtuella datorerna.
+Därför låsa åtkomsten till SQL Server är lika enkelt som att använda en nätverkssäkerhetsgrupp med dess standardregler för antingen virtuella datorer som kör SQL Server eller undernätet som innehåller de virtuella datorerna.
 
-Exemplet nedan gäller en nätverkssäkerhetsgrupp som innehåller undernätet:
+Exemplet nedan gäller en nätverkssäkerhetsgrupp för undernätet som innehåller:
 
     Get-AzureNetworkSecurityGroup -Name "testNSGExample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-1'
 
-Slutresultatet är en uppsättning säkerhetsregler som blockerar extern åtkomst samtidigt VNet intern åtkomst:
+Slutresultatet är en uppsättning säkerhetsregler som blockera åtkomst till externa, samtidigt som VNet intern åtkomst:
 
-![Standard Nätverkssäkerhetsregler][DefaultNetworkSecurityRules]
+![Standardsäkerhetsregler för nätverk][DefaultNetworkSecurityRules]
 
 ## <a name="getting-started"></a>Komma igång
-Kom igång med Apptjänstmiljöer finns [introduktion till Apptjänst-miljö][IntroToAppServiceEnvironment]
+Kom igång med App Service-miljöer, se [introduktion till App Service Environment][IntroToAppServiceEnvironment]
 
-Mer information kring styra inkommande trafik till din Apptjänst-miljö finns [styra inkommande trafik till en Apptjänst-miljö][ControlInboundASE]
+Mer information kring hur du styr inkommande trafik till App Service Environment finns i [Kontrollera inkommande trafik till en App Service Environment][ControlInboundASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [ControlInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
-[SiteToSite]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site
+[SiteToSite]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/

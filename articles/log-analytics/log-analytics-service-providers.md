@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: na
-ms.openlocfilehash: 7898af1a8d516fa74deef5614b5373f1dbd22f5a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ec35cece8da8eaaa89b11a35b0fc1e55d0cdfee8
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378610"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573499"
 ---
 # <a name="log-analytics-for-service-providers"></a>Logganalys för tjänsteleverantörer
 Log Analytics kan leverantörer av hanterade tjänster (MSP), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur. 
@@ -31,16 +31,16 @@ För partner och leverantörer som är en del av den [Cloud Solution Provider (C
 
 ## <a name="architectures-for-service-providers"></a>Arkitekturer för tjänsteleverantörer
 
-Log Analytics-arbetsytor är en metod för administratören att styra flödet och isolering av loggarna och skapa en log-arkitektur som åtgärdar specifika affärsbehov. [Den här artikeln](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) beskriver allmänna överväganden kring arbetsytehantering. Leverantörer av tjänster har ytterligare överväganden.
+Log Analytics-arbetsytor är en metod för administratören att styra flödet och isolering av loggarna och skapa en log-arkitektur som åtgärdar specifika affärsbehov. [Den här artikeln](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) beskriver allmänna överväganden kring arbetsytehantering. Leverantörer av tjänster har ytterligare överväganden.
 
 Det finns tre möjliga arkitekturer för tjänsteleverantörer om Log Analytics-arbetsytor:
 
 ### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. Distribuerade - lagras loggar i arbetsytor i kundens klient 
 
-I den här arkitekturen med en arbetsyta i kundens klient som används för alla loggar kundens. Service provider-administratörer beviljas åtkomst till arbetsytan genom att använda [gästanvändare i Azure Active Directory (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). Providern tjänstadministratörer måste växla till sina kunders katalog i Azure-portalen för att kunna komma åt dessa arbetsytor.
+I den här arkitekturen med en arbetsyta i kundens klient som används för alla loggar kundens. Service provider-administratörer beviljas åtkomst till arbetsytan genom att använda [gästanvändare i Azure Active Directory (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). Providern tjänstadministratörer måste växla till sina kunders katalog i Azure-portalen för att kunna komma åt dessa arbetsytor.
 
 Fördelarna med den här arkitekturen är:
-* Kunden kan hantera åtkomst till loggar med sina egna [rollbaserad åtkomst](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+* Kunden kan hantera åtkomst till loggar med sina egna [rollbaserad åtkomst](https://docs.microsoft.com/azure/role-based-access-control/overview).
 * Varje kund kan ha olika inställningar för arbetsytan, till exempel kvarhållning och data tak som skall.
 * Isolering mellan kunder, föreskrifter och efterlevnad.
 * Kostnad för varje arbetsyta kommer att finnas i kundens prenumeration.
@@ -74,7 +74,7 @@ Den tredje arkitekturen blanda mellan de två alternativen. Den är baserad på 
 
 Det finns två alternativ för att implementera den centrala platsen i Log Analytics:
 
-1. Central arbetsyta: tjänstleverantören kan skapa en arbetsyta i dess klient och använda ett skript som använder den [fråge-API](https://dev.loganalytics.io/) med den [Data samling API: et](log-analytics-data-collector-api.md) att flytta data från olika arbetsytor till den här central plats. Ett annat alternativ än ett skript, är att använda [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
+1. Central arbetsyta: tjänstleverantören kan skapa en arbetsyta i dess klient och använda ett skript som använder den [fråge-API](https://dev.loganalytics.io/) med den [Data samling API: et](log-analytics-data-collector-api.md) att flytta data från olika arbetsytor till den här central plats. Ett annat alternativ än ett skript, är att använda [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 2. Power BI som en central plats: Power BI kan fungera som den centrala platsen när olika arbetsytor exporterar data till den med hjälp av integrering mellan Log Analytics och [Power BI](log-analytics-powerbi.md). 
 

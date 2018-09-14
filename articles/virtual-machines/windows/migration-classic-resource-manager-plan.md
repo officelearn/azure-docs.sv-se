@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 7d9d0857a56d135d7fbe8e1f4735380aac1691e0
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6d84c83efa194543ed10aaed82362021b7053476
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238173"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576212"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Även om Azure Resource Manager erbjuder många fantastiska funktioner, är det viktigt att planera migreringen att göra det för att gå smidigt. Ägna tid om hur du planerar säkerställer att det inte uppstår problem vid körning av migreringsaktiviteter.
@@ -218,7 +218,7 @@ Kom ihåg varför du startat den här från klassisk till Azure Resource Manager
 * [En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Använd PowerShell för att migrera IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Använd CLI för att migrera IaaS-resurser från klassisk till Azure Resource Manager](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [VPN-Gateway migrering från klassisk till Resource Manager](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration)
+* [VPN-Gateway migrering från klassisk till Resource Manager](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration)
 * [Migrera ExpressRoute-kretsar och tillhörande virtuella nätverk från klassiskt till Resource Manager-distributionsmodellen](https://docs.microsoft.com/azure/expressroute/expressroute-migration-classic-resource-manager)
 * [Community-verktyg för att hjälpa till med migrering av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Granska de vanligaste migreringsfelen](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

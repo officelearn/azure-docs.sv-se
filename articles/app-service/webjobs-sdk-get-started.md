@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577313"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580451"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -102,7 +102,7 @@ Den `JobHost` objektet är körningsbehållare för functions: den lyssnar efter
 
 ## <a name="enable-console-logging"></a>Aktivera loggning för konsolen
 
-Det finns flera alternativ för att logga in WebJobs-SDK-projektet. Den som vi rekommenderar är den [loggningsramverk som har utvecklats specifikt för ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). Det här ramverket erbjuder bättre prestanda och mer flexibilitet vid lagringsmedia och filtrering. 
+Det finns flera alternativ för att logga in WebJobs-SDK-projektet. Den som vi rekommenderar är den [loggningsramverk som har utvecklats specifikt för ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging). Det här ramverket erbjuder bättre prestanda och mer flexibilitet vid lagringsmedia och filtrering. 
 
 I det här avsnittet ska ställa du in loggning i konsolen som använder det nya ramverket.
 

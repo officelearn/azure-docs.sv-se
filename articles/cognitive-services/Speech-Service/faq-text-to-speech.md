@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 330acf3e1258951f0129a1ba47f03c5140c30adf
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2068bcb796b660847d0ea9b1126e64a9003ca871
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719060"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576858"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Vanliga och frågor svar om text till tal
 
@@ -28,11 +28,11 @@ Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan 
 
 **F: var börjar jag om jag vill använda en standard voice-modell?**
 
-**En**: mer än 80 standard röst modeller i över 45 språk är tillgängliga via HTTP-begäranden. Hämta först en [prenumerationsnyckel](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started). REST-anrop till predeployed voice-modeller finns det [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**En**: mer än 80 standard röst modeller i över 45 språk är tillgängliga via HTTP-begäranden. Hämta först en [prenumerationsnyckel](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). REST-anrop till predeployed voice-modeller finns det [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 **F: Jag vill använda en modell för röstmeddelanden finns om API: et samma som det som används för att få en standard?**
 
-**En**: när en anpassad voice-modell skapas och distribueras, du får en unik slutpunkt för din modell. Om du vill använda röst för att tala i dina appar, måste du ange slutpunkten i HTTP-förfrågningar. På samma sätt som är tillgänglig i REST-API för Text till tal-tjänsten är tillgänglig för din anpassade slutpunkt. Lär dig hur du [skapar och använder din anpassade slutpunkt](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**En**: när en anpassad voice-modell skapas och distribueras, du får en unik slutpunkt för din modell. Om du vill använda röst för att tala i dina appar, måste du ange slutpunkten i HTTP-förfrågningar. På samma sätt som är tillgänglig i REST-API för Text till tal-tjänsten är tillgänglig för din anpassade slutpunkt. Lär dig hur du [skapar och använder din anpassade slutpunkt](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
 **F: Jag behöver förbereda träningsdata att skapa anpassade röst modeller på egen hand?**
 
@@ -40,7 +40,7 @@ Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan 
 
 En samling taldata krävs för att skapa en modell i röstmeddelanden. Den här samlingen består av en uppsättning ljudfiler av tal inspelningar och en textfil för utskrift av varje ljudfil. Resultatet av din digitala röst beroende kraftigt kvaliteten på dina utbildningsdata. Det är viktigt att inspelningarna görs i en tyst rum med hög kvalitet, stående mikrofon för att skapa en bra rösten. En konsekvent volym talar hastighet och talar försäljningsargument och även konsekvens i lättfattliga maner, ovanor tal är behövs för att skapa en fantastisk digital röst. Vi rekommenderar starkt att spela in rösterna i en inspelning studio.
 
-Vi inte för närvarande kan stödja online inspelning eller några rekommendationer för inspelning studio. Format-krav, se [hur du förbereder inspelningar och betyg](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+Vi inte för närvarande kan stödja online inspelning eller några rekommendationer för inspelning studio. Format-krav, se [hur du förbereder inspelningar och betyg](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
 
 **F: vilka skript ska jag använda för att registrera taldata för anpassade ton?**
 

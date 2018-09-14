@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 42090b8b55becc5e703e0e7180d0cbec0d48a3f4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ff96b9a63e7340788ef2474ce9934145c184e1e1
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381776"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542777"
 ---
 # <a name="date-claims-transformations"></a>Datum anspråk omvandlingar
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller exempel för att använda anspråk datumtransforme
 
 Kontrollerar att ett datum och tid anspråk (strängdatatypen) är större än ett andra datum och tid Anspråkstypen (sträng data) och utlöser ett undantag.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | leftOperand | sträng | Typ första anspråk som ska vara större än det andra anspråket. |
 | InputClaim | rightOperand | sträng | Typ av andra anspråk, vilket ska vara mindre än det första anspråket. |
@@ -88,9 +88,9 @@ Den tekniska profilen självkontrollerad anropar verifieringen **inloggning utan
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
-Konverterar en **datum** ClaimType till en **DateTime** ClaimTpye. Anspråkstransformering konverterar en tid-format och lägger till 12:00:00 AM i datumet.
+Konverterar en **datum** ClaimType till en **DateTime** ClaimType. Anspråkstransformering konverterar en tid-format och lägger till 12:00:00 AM i datumet.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | datum | ClaimType som ska konverteras. |
 | outputClaim | outputClaim | Datum/tid | ClaimType som skapas när den här ClaimsTransformation har anropats. |
@@ -119,7 +119,7 @@ Exemplet nedan visar konvertering av anspråket `dateOfBirth` (datum datatyp) ti
 
 Hämta den aktuella UTC-datum och tid och lägga till värdet i en ClaimType.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | outputClaim | CURRENTDATETIMEN | Datum/tid | ClaimType som skapas när den här ClaimsTransformation har anropats. |
 
@@ -140,7 +140,7 @@ Hämta den aktuella UTC-datum och tid och lägga till värdet i en ClaimType.
 
 Avgöra om ett datum/tid är större, mindre eller lika med en annan. Resultatet är ett nytt booleskt ClaimType booleskt värde med ett värde för SANT eller FALSKT.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | Datum/tid | Den första datum/tid att jämföra. Null-värde genereras ett undantag. |
 | InputClaim | secondDateTime | Datum/tid | Den andra datum/tid att slutföra. Null-värde behandlar som aktuella datetTime. |

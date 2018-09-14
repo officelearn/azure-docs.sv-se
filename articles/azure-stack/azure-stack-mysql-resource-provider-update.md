@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fb9f022f0af821d81e5b61b99ecb52b7f7151b5f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5ea865a6a0f3f671d92d9ef3bf60cd8cfe90bddb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391563"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578908"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Uppdatera MySQL-resursprovider 
 
@@ -62,6 +62,9 @@ $domain = "AzureStack"
 # For integrated systems, use the IP address of one of the ERCS virtual machines 
 $privilegedEndpoint = "AzS-ERCS01" 
 
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
+
 # Point to the directory where the resource provider installation files were extracted. 
 $tempDir = 'C:\TEMP\MYSQLRP' 
 
@@ -87,6 +90,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 -VMLocalCredential $vmLocalAdminCreds ` 
 -CloudAdminCredential $cloudAdminCreds ` 
 -PrivilegedEndpoint $privilegedEndpoint ` 
+-AzureEnvironment $AzureEnvironment `
 -DefaultSSLCertificatePassword $PfxPass ` 
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
@@ -101,7 +105,7 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte, eller om någon para
 | **AzCredential** | Autentiseringsuppgifter för Azure Stack-tjänstadministratörskonto. Använda samma autentiseringsuppgifter som du använde för att distribuera Azure Stack. | _Krävs_ | 
 | **VMLocalCredential** |Autentiseringsuppgifterna för det lokala administratörskontot för SQL-resursprovider VM. | _Krävs_ | 
 | **PrivilegedEndpoint** | IP-adressen eller DNS-namnet på den privilegierade slutpunkten. |  _Krävs_ | 
-| **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast om den inte är AD FS. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast för Azure AD-distributioner. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure AD, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Din .pfx-certifikatfil måste placeras i den här katalogen samt. | _Valfritt_ (_obligatoriska_ för flera noder) | 
 | **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat. | _Krävs_ | 
 | **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 | 

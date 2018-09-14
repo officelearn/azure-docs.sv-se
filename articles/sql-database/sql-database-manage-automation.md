@@ -9,12 +9,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 43476cfcae2035c3b8e94b4a5e264a0c8ff424e0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0636a4daf06e4d476935773e65cd388f94d99986
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715456"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578268"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Hantera Azure SQL-databaser med Azure Automation
 Den här guiden innehåller en introduktion till Azure Automation-tjänsten och hur den kan användas för att förenkla hanteringen av din Azure SQL-databaser.
@@ -27,7 +27,7 @@ Azure Automation tillhandahåller en mycket pålitlig och mycket tillgänglig mo
 Minska driftsomkostnader och frigör IT / DevOps-personal att fokusera på arbete som lägger till företag värde genom att flytta din molnhanteringsuppgifter att köras automatiskt av Azure Automation.
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Hur kan Azure Automation till att hantera Azure SQL-databaser?
-Azure SQL Database kan hanteras i Azure Automation med hjälp av den [Azure SQL Database PowerShell-cmdletar](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) som är tillgängliga i den [Azure PowerShell-verktyg](/powershell/azure/overview). Azure Automation har dessa Azure SQL Database PowerShell-cmdletar som är tillgängliga direkt, så att du kan utföra alla dina SQL DB-hanteringsuppgifter i tjänsten. Du kan också koppla dessa cmdletar i Azure Automation med cmdlets för andra Azure-tjänster, att automatisera avancerade uppgifter över Azure-tjänster och system med 3 part.
+Azure SQL Database kan hanteras i Azure Automation med hjälp av den [Azure SQL Database PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) som är tillgängliga i den [Azure PowerShell-verktyg](/powershell/azure/overview). Azure Automation har dessa Azure SQL Database PowerShell-cmdletar som är tillgängliga direkt, så att du kan utföra alla dina SQL DB-hanteringsuppgifter i tjänsten. Du kan också koppla dessa cmdletar i Azure Automation med cmdlets för andra Azure-tjänster, att automatisera avancerade uppgifter över Azure-tjänster och system med 3 part.
 
 Azure Automation har också möjlighet att kommunicera med SQL-servrar direkt, genom att utfärda SQL-kommandon med hjälp av PowerShell.
 

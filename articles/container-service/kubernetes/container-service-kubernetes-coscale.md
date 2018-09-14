@@ -1,6 +1,6 @@
 ---
-title: Övervaka ett Azure Kubernetes kluster med CoScale
-description: Övervaka ett Kubernetes kluster i Azure Container Service med hjälp av CoScale
+title: Övervaka ett Azure Kubernetes-kluster med CoScale
+description: Övervaka ett Kubernetes-kluster i Azure Container Service med CoScale
 services: container-service
 author: fryckbos
 manager: jeconnoc
@@ -9,45 +9,46 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 16580307193bbb7eb9b401eb1b14356e8589d6e2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e9896a34e835646e17328482c07d8031c624e858
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544038"
 ---
-# <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>Övervaka ett Azure Container Service Kubernetes kluster med CoScale
+# <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>Övervaka ett Azure Container Service Kubernetes-kluster med CoScale
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-I den här artikeln vi hur du distribuerar den [CoScale](https://www.coscale.com/) agenten ska övervaka alla noder och behållare i Kubernetes klustret i Azure Container Service. Du behöver ett konto med CoScale för den här konfigurationen. 
+I den här artikeln visar vi dig hur du distribuerar den [CoScale](https://www.coscale.com/) agent för att övervaka alla noderna och behållarna i ett Kubernetes-kluster i Azure Container Service. Du behöver ett konto med CoScale för den här konfigurationen. 
 
 
 ## <a name="about-coscale"></a>Om CoScale 
 
-CoScale är en övervakning plattform som samlar in mätvärden och -händelser från alla behållare i flera orchestration-plattformar. CoScale ger fullständig stack övervakning för Kubernetes miljöer. Den innehåller visualiseringar och analytics för alla lager i stacken: OS, Kubernetes, Docker och program som körs på din behållare. CoScale erbjuder flera inbyggda övervakning instrumentpaneler och har inbyggda avvikelseidentifiering att operatörer och utvecklare att snabbt hitta problem infrastruktur och program.
+CoScale är en övervakningsplattform som samlar in mått och händelser från alla behållare i flera orchestration-plattformar. CoScale erbjuder fullständig övervakning för Kubernetes-miljöer. Det ger visualiseringar och analysverktyg för alla lager i stacken: OS, Kubernetes, Docker och program som körs i dina behållare. CoScale erbjuder flera inbyggda övervakning instrumentpaneler och har inbyggd avvikelseidentifiering att tillåta operatorer och utvecklare att snabbt hitta problem med infrastruktur och program.
 
 ![CoScale UI](./media/container-service-kubernetes-coscale/coscale.png)
 
-Som det visas i den här artikeln, kan du installera agenter på ett Kubernetes kluster som kör CoScale som ett SaaS-lösningen. Om du vill behålla dina data på plats är CoScale också tillgängligt för lokal installation.
+I den här artikeln visas kan du installera agenter på ett Kubernetes-kluster för att köra CoScale som en SaaS-lösning. Om du vill behålla dina data på plats är CoScale också tillgängliga för en lokal installation.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste först [skapa ett konto för CoScale](https://www.coscale.com/free-trial).
+Du måste först [skapa ett konto med CoScale](https://www.coscale.com/free-trial).
 
-Den här genomgången förutsätter att du har [skapas ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
+Den här genomgången förutsätter att du har [skapade ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
 
-Det förutsätts även att du har den `az` Azure CLI och `kubectl` verktygen som installeras.
+Den förutsätter också att du har den `az` Azure CLI och `kubectl` tools har installerats.
 
-Du kan testa om du har den `az` installerat genom att köra verktyget:
+Du kan testa om du har den `az` verktyget installerat genom att köra:
 
 ```azurecli
 az --version
 ```
 
-Om du inte har den `az` verktyget är installerat, det finns instruktioner [här](/cli/azure/install-azure-cli).
+Om du inte har den `az` verktyget installerat, det finns anvisningar [här](/cli/azure/install-azure-cli).
 
-Du kan testa om du har den `kubectl` installerat genom att köra verktyget:
+Du kan testa om du har den `kubectl` verktyget installerat genom att köra:
 
 ```bash
 kubectl version
@@ -59,26 +60,26 @@ Om du inte har `kubectl` installerat, kan du köra:
 az acs kubernetes install-cli
 ```
 
-## <a name="installing-the-coscale-agent-with-a-daemonset"></a>Installera agenten CoScale med en DaemonSet
-[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) Kubernetes för att köra en instans av en behållare på varje värd i klustret.
+## <a name="installing-the-coscale-agent-with-a-daemonset"></a>Installera agenten CoScale med ett DaemonSet
+[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) som används av Kubernetes för att köra en instans av en behållare på varje värd i klustret.
 Det är perfekt för att köra övervakningsagenter, till exempel CoScale agenten.
 
-När du loggar in på CoScale går du till den [agent sidan](https://app.coscale.com/) installera CoScale agenter på klustret med hjälp av en DaemonSet. CoScale Användargränssnittet innehåller interaktiv konfigurationssteg för att skapa en agent och börja övervaka fullständig Kubernetes klustret.
+När du loggar in på CoScale går du till den [agent-sidan](https://app.coscale.com/) att installera CoScale agenter i klustret med hjälp av ett DaemonSet. Gränssnittet för CoScale ger guidad konfigurationssteg för att skapa en agent och börja övervaka fullständig Kubernetes-klustret.
 
 ![CoScale agentkonfiguration](./media/container-service-kubernetes-coscale/installation.png)
 
-Kör det angivna kommandot för att starta agenten på klustret:
+Om du vill starta agenten på klustret, kör du det angivna kommandot:
 
-![Starta CoScale-agent](./media/container-service-kubernetes-coscale/agent_script.png)
+![Starta agenten CoScale](./media/container-service-kubernetes-coscale/agent_script.png)
 
-Klart! När agenterna är igång kan bör du se data i konsolen på några minuter. Besök den [agent sidan](https://app.coscale.com/) om du vill visa en sammanfattning av klustret, utföra ytterligare konfigurationssteg och se instrumentpaneler som den **Kubernetes kluster översikt**.
+Klart! När agenterna är igång kan bör du se data i konsolen på några få minuter. Gå till den [agent-sidan](https://app.coscale.com/) för att visa en sammanfattning av ditt kluster, utföra ytterligare konfigurationssteg och se instrumentpaneler som den **Kubernetes-kluster översikt**.
 
-![Översikt över kluster Kubernetes](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
+![Översikt över Kubernetes-kluster](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 
-CoScale-agenten distribueras automatiskt på nya datorer i klustret. Agentuppdateringar automatiskt när en ny version släpps.
+CoScale-agenten distribueras automatiskt på nya datorer i klustret. Agentuppdateringar automatiskt när en ny version har släppts.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Finns det [CoScale dokumentationen](http://docs.coscale.com/) och [blogg](https://www.coscale.com/blog) för mer information om CoScale övervakningslösningar. 
+Se den [CoScale dokumentation](http://docs.coscale.com/) och [blogg](https://www.coscale.com/blog) för mer information om CoScale övervakningslösningar. 
 

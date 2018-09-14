@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/16/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6b58c95b918d820e207e801e62e7897c2ee366
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246161"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544285"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -349,9 +349,8 @@ Du förnyar certifikatet genom att göra följande:
 
     ![Förnya certifikat för Kör som-konto](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. Medan certifikatet förnyas kan du följa förloppet under **Meddelanden** på menyn.
+1. Medan certifikatet förnyas kan du följa förloppet under **Meddelanden** på menyn. 
 
-Om du är det går inte att förnya kör som-certifikat
 ## <a name="limiting-run-as-account-permissions"></a>Begränsar behörigheterna kör som-konto
 
 Om du vill styra inriktning för automation mot resurser i Azure Automation beviljas kör som-kontot som standard rättigheter som deltagare i prenumeration. Om du vill begränsa vad RunAs tjänstens huvudnamn kan göra kan du ta bort kontot från deltagarrollen för prenumerationen och lägga till den som deltagare till resursgrupper som du vill ange.

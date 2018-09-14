@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 52730ae24f4917ab593914c390df798f7f58dbde
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056491"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541912"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Säkerhetsscenarier för Service Fabric-kluster
 Ett Azure Service Fabric-kluster är en resurs som du äger. Det är ditt ansvar att skydda dina kluster för att förhindra att obehöriga användare från att ansluta till dem. Ett säkert kluster är särskilt viktigt när du kör produktionsarbetsbelastningar i klustret. Även om det är möjligt att skapa ett oskyddat kluster om klustret exponerar hanteringsslutpunkter till det offentliga internet, kan anonyma användare ansluta till den. Oskyddade kluster stöds inte för produktionsarbetsbelastningar. 
@@ -92,6 +92,7 @@ Några viktiga saker att tänka på:
 * Du kan skapa certifikat för kluster som kör produktionsarbetsbelastningar med en korrekt konfigurerad Windows Server-certifikat eller en från en godkänd [certifikatutfärdare (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
 * Aldrig använda någon tillfälliga eller testa certifikat som du skapar med hjälp av verktyg som MakeCert.exe i en produktionsmiljö.
 * Du kan använda ett självsignerat certifikat, men endast i ett testkluster. Använd inte ett självsignerat certifikat i produktion.
+* När du genererar tumavtrycket för certifikatet, måste du generera ett SHA1-tumavtryck. SHA1 är vad som används när du konfigurerar certifikattumavtryck för klienten och kluster.
 
 ### <a name="cluster-and-server-certificate-required"></a>Klustret och server-certifikat (krävs)
 Dessa certifikat (en primär och eventuellt en sekundär) krävs för att skydda ett kluster och förhindra obehörig åtkomst till den. Dessa certifikat autentisering med klustret och server.

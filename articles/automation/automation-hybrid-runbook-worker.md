@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e834a1cfa7eba3c1ff12523982e6704c73ef8078
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 92ebd399cea88440e0f76ee1f34cb5930d3121d9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488516"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578692"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker
 
@@ -97,7 +97,7 @@ Om du vill ta bort en grupp, måste du först ta bort Hybrid Runbook Worker frå
 
 För att Hybrid Runbook Worker att ansluta till och registrera med Log Analytics, måste den ha åtkomst till portnumret och URL: erna som beskrivs i det här avsnittet. Den här åtkomsten är dessutom den [portar och URL: er som krävs för Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) att ansluta till Log Analytics. 
 
-Se till att lämpliga resurser är tillgängliga om du använder en proxyserver för kommunikation mellan agenten och Log Analytics-tjänsten. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst. Om du använder OMS-gatewayen som en proxy, se till att den är konfigurerad för hybrid Worker-arbeten. Anvisningar för hur du gör detta finns i [konfigurera OMS-gatewayen för Automation Hybrid Worker-arbeten](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+Se till att lämpliga resurser är tillgängliga om du använder en proxyserver för kommunikation mellan agenten och Log Analytics-tjänsten. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst. Om du använder OMS-gatewayen som en proxy, se till att den är konfigurerad för hybrid Worker-arbeten. Anvisningar för hur du gör detta finns i [konfigurera OMS-gatewayen för Automation Hybrid Worker-arbeten](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 
 Följande port och URL: er krävs för att Hybrid Runbook Worker-rollen ska kommunicera med Automation:
 
@@ -114,7 +114,7 @@ Om du har ett Automation-konto som har definierats för en viss region kan begr�
 | --- | --- |
 | Västra centrala USA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Södra centrala USA |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| Östra USA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
+| USA, östra 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Centrala Kanada |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | Västra Europa |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
 | Norra Europa |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |

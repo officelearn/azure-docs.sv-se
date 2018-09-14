@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9f7fb5009468dccae50190ee40a53d11040d0348
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903755"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578318"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafikanalys
 
@@ -58,7 +58,7 @@ Så här kontrollerar roller som är tilldelade till en användare för en prenu
 
 3. Om du vill visa alla roller som har tilldelats en angiven användare använda **Get-AzureRmRoleAssignment - SignInName [användarens e-postadress] - IncludeClassicAdministrators**. 
 
-Om du inte ser några utdata, kontakta administratören för respektive prenumeration för att få åtkomst till kommandon. Mer information finns i [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+Om du inte ser några utdata, kontakta administratören för respektive prenumeration för att få åtkomst till kommandon. Mer information finns i [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Där Azure är regioner trafikanalys som är tillgängliga?
@@ -196,7 +196,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Trafikanalys mäts. Den Avläsning av programvara baseras på bearbetningen av loggdata för flödet av tjänsten och lagra den resulterande förbättrad loggar i Log Analytics-arbetsytan. 
 
-Till exempel enligt den [prisavtal](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), överväger USA, västra centrala regionen, om flödesloggarna data som lagras i ett lagringskonto som bearbetas av trafikanalys är 10 GB och förbättrad loggar som matas in i Log Analytics-arbetsyta är 1 GB används tillämpliga kostnader är: 10 x 2.3$ + 1 x 2.76$ = 25.76$
+Till exempel enligt den [prisavtal](https://azure.microsoft.com/pricing/details/network-watcher/), överväger USA, västra centrala regionen, om flödesloggarna data som lagras i ett lagringskonto som bearbetas av trafikanalys är 10 GB och förbättrad loggar som matas in i Log Analytics-arbetsyta är 1 GB används tillämpliga kostnader är: 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Hur kan navigera genom att använda tangentbordet i kartvyn geo?
 

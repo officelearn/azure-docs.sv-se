@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: c598fdae40b4552e1d4dc29b8558d82d0830160a
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 229624f4070c931b6ad892533aad269af49c738b
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841853"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544202"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
 
@@ -52,16 +52,18 @@ Den här artikeln visar hur du skapar en Video Indexer-konto som är länkad til
 
 ## <a name="connect-to-azure"></a>Anslut till Azure
 
-1. Logga in på [ https://www.videoindexer.ai/ ](https://www.videoindexer.ai/) och klicka på den **Anslut till Azure** knappen:
+1. Bläddra till den [Video Indexer](https://www.videoindexer.ai/) och logga in.
+
+2. Klicka på den **Anslut till Azure** knappen:
 
     ![Ansluta till Azure](./media/create-account/connect-to-azure.png)
 
-2. När listan över prenumerationer visas väljer du den prenumeration som du vill använda. 
+3. När listan över prenumerationer visas väljer du den prenumeration som du vill använda. 
 
     ![ansluta Video Indexer till Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-3. Välj en Azure-region från platser som stöds: västra USA 2, Norra Europa eller Asien.
-4. Under **Azure Media Services-konto**, Välj något av följande alternativ:
+4. Välj en Azure-region från platser som stöds: västra USA 2, Norra Europa eller Asien.
+5. Under **Azure Media Services-konto**, Välj något av följande alternativ:
 
     * Om du vill skapa ett nytt Media Services-konto, Välj **Skapa ny resursgrupp**. Ange ett namn för resursgruppen.
 
@@ -85,13 +87,13 @@ Den här artikeln visar hur du skapar en Video Indexer-konto som är länkad til
         |Program-ID:t|Det program-ID för Azure AD med behörigheter för det angivna Media Services-kontot. Mer information finns i [Använd tjänstobjektautentisering](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
         |Programnyckel|Mer information finns i [Använd tjänstobjektautentisering](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
-5. När du är klar väljer **Connect**. Den här åtgärden kan ta några minuter. 
+6. När du är klar väljer **Connect**. Den här åtgärden kan ta några minuter. 
 
     När du är ansluten till Azure, visas det nya Video Indexer-kontot i kontolistan:
 
     ![nytt konto](./media/create-account/new-account.png)
 
-6. Bläddra till ditt nya konto: 
+7. Bläddra till ditt nya konto: 
 
     ![Video Indexer-konto](./media/create-account/vi-account.png)
 

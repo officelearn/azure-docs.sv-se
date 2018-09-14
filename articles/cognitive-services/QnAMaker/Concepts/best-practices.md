@@ -1,46 +1,47 @@
 ---
-title: Metodtips kognitiva - frågor och svar om Maker - Azure-tjänster | Microsoft Docs
-description: Använd följande rekommenderade metoder att förbättra kunskapsbasen och ge bättre resultat till ditt program/chatt bot slutanvändare.
+title: Metodtips – QnA Maker
+titlesuffix: Azure Cognitive Services
+description: Använda dessa bästa metoder för att förbättra din kunskapsbas och ge bättre resultat för din robot program/chatt slutanvändare.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: 7a85ebbc3892a90e98e73a73425c1f8ec1de0b35
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: c82c117d149da39fba7b9a243aebb3e127540881
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355926"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542940"
 ---
 # <a name="best-practices"></a>Bästa praxis
-Den [kunskapsbas utvecklingslivscykeln](../Concepts/development-lifecycle-knowledge-base.md) hjälper dig om hur du hanterar KB slutpunkt till slutpunkt. Använd följande rekommenderade metoder att förbättra kunskapsbasen och ge bättre resultat till ditt program/chatt bot slutanvändare.
+Den [kunskapsbas för säkerhetsutveckling](../Concepts/development-lifecycle-knowledge-base.md) guidar dig om hur du hanterar du KB slutpunkt till slutpunkt. Använda dessa bästa metoder för att förbättra din kunskapsbas och ge bättre resultat för din robot program/chatt slutanvändare.
 
 ## <a name="extraction"></a>Extrahering
-Frågor och svar om Maker är kontinuerligt förbättra algoritmer som extraherar QnAs från innehåll och expandera fil- och HTML-sida-format som stöds. Följ den [riktlinjer](../Concepts/data-sources-supported.md) för extrahering baserat på vilken typ av dokument du extraherar från. 
+QnA Maker är kontinuerligt förbättra de algoritmer som extraherar kunskapsbaser från innehåll och expandera listan över fil- och HTML-sida-format som stöds. Följ den [riktlinjer](../Concepts/data-sources-supported.md) för extrahering baserat på vilken typ av dokument du extraherar från. 
 
-Vanliga frågor och svar sidor ska i allmänhet vara fristående och inte kombinerat med annan information. Produkthandböcker bör ha Rensa rubriker och helst en indexsida. 
+Vanliga frågor och svar sidor ska i allmänhet vara fristående och inte kombinerade med annan information. Produkthandböcker bör ha tydliga rubriker och helst en indexsida. 
 
-## <a name="rankingmatching"></a>Rangordning/matchande
-Kontrollera att du gör på bästa sätt funktionerna rangordning för frågor och svar om Maker stöder. Då ökar sannolikheten för en viss användarfrågan besvaras med ett lämpligt svar.
+## <a name="rankingmatching"></a>Rangordning/matchar
+Kontrollera att du gör på bästa sätt rangordning-funktioner som har stöd för QnA Maker. Detta kommer att förbättra sannolikheten för en viss användarfrågan besvaras med ett lämpligt svar.
 
-### <a name="add-alternate-questions"></a>Lägg till alternativa frågor
-[Alternativa frågor](../How-To/edit-knowledge-base.md) öka sannolikheten för en matchning med en användarfråga. Alternativa frågor är användbara när det finns flera sätt där samma fråga kan du bli uppmanad. Detta kan inkludera ändringar i den mening-strukturen (till exempel *”är tillgängliga parkering”?* jämfört med *”har du bil park”?* ) eller ändringar i word-format och slang (till exempel *”Hej”* jämfört med *”Yo”*, *”det Hey”!* ).
+### <a name="add-alternate-questions"></a>Lägga till alternativa frågor
+[Alternativa frågor](../How-To/edit-knowledge-base.md) förbättra sannolikheten för en matchning med en användarfråga. Alternativa frågor är användbara när det finns flera sätt samma fråga kan bli ombedd. Detta kan omfatta ändringar i strukturen för mening (till exempel *”är tillgängliga parkering”?* jämfört med *”har du bil park”?* ) eller ändringar i word-format och slang (till exempel *”Hi”* jämfört med *”Yo”*, *”Hey, det”!* ).
 
-### <a name="use-metadata-filters"></a>Använd filter för filmetadata
-[Metadata](../How-To/edit-knowledge-base.md) lägger till möjligheten att begränsa resultaten av en användarfråga baserat på filter. Kunskapsbasen svaret kan variera beroende på metadata-taggen även om frågan är samma. Till exempel *”där är parkering finns”* kan ha olika svar om grenen restaurang finns olika - metadata är *plats: Seattle* jämfört med *plats: Redmond*.)
+### <a name="use-metadata-filters"></a>Använda filter för filmetadata
+[Metadata](../How-To/edit-knowledge-base.md) lägger till möjligheten att begränsa resultatet av en användarfråga baserat på filter. Kunskapsbas-svar kan variera beroende på metadatataggen, även om frågan är samma. Till exempel *”var är parkering finns”* kan ha olika svar om grenen restaurang finns olika – det vill säga metadata är *plats: Seattle* jämfört med *plats: Redmond*.)
 
-### <a name="use-synonyms"></a>Använd synonymer
-Det finns vissa stöd för synonymer på engelska, använda [word eller](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) att lägga till synonymer nyckelord som kan ha olika form (exempel: *köpa* -> *köpa*  eller *netbanking* -> *net bank*. Synonymer bör läggas på frågor och svar om Maker-tjänstnivå och delas av alla knowledge baser i tjänsten.
+### <a name="use-synonyms"></a>Använda synonymer
+Även om det finns vissa stöd för synonymer i på engelska, [word förändras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) att lägga till synonymer i nyckelord som tar olika format (exempel: *köpa* -> *köpa*  eller *netbanking* -> *net bank*. Synonymer bör läggas på QnA Maker-tjänstnivå och delas av alla kunskapsbaser i tjänsten.
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Använd distinkta ord för att skilja frågor
-Frågor och svar om Maker matchar och rang algoritmer som matchar en användarfråga med en fråga i knowledge base fungerar bäst om varje fråga adresser olika behov. Upprepning av samma ord mellan frågor minskar sannolikheten för att det är fel väljs för en viss användarfråga med orden.
+QnA Maker matchning och rangordning algoritmer som matchar en användarfråga med en fråga i kunskapsbasen fungerar bäst om varje fråga adresser olika behov. Upprepning av samma ord ange mellan frågor minskar risken för att rätt svar väljs för en viss användarfråga med orden.
 
 ## <a name="collaborate"></a>Samarbeta
-Frågor och svar om Maker tillåter användare att [samarbeta](../How-to/collaborate-knowledge-base.md) på en knowledge base. Användare behöver åtkomst till Azure frågor och svar om Maker resursgruppen för att komma åt knowledge baser. Vissa organisationer vilja flytta ut kunskapsbas redigering och underhåll och fortfarande att kunna skydda åtkomst till sina Azure-resurser. Den här modellen editor godkännare kan åstadkommas genom att ställa in två identiska [frågor och svar om Maker services](../How-to/set-up-qnamaker-service-azure.md) i olika prenumerationer och utse en för testning av redigera cykeln. När testet är klart, knowledge base-innehåll kan överföras med en [importera exportera](../Tutorials/migrate-knowledge-base.md) processer till tjänsten frågor och svar om Maker till godkännaren slutligen publiceras i knowledge base och uppdatera slutpunkten.
+QnA Maker kan användarna [samarbeta](../How-to/collaborate-knowledge-base.md) på en kunskapsbas. Användare behöver komma åt Azure QnA Maker resursgruppen för att komma åt kunskapsbaser. Vissa organisationer vilja indrivningen kunskapsbas redigering och underhåll och fortfarande kunna skydda åtkomsten till deras Azure-resurser. Den här redigeraren godkännaren-modellen kan åstadkommas genom att ställa in två identiska [QnA Maker services](../How-to/set-up-qnamaker-service-azure.md) i olika prenumerationer och utser en för testning av redigera cykeln. När testningen är klar, innehållet i kunskapsbasen kan överföras med en [import / export-](../Tutorials/migrate-knowledge-base.md) bearbeta till QnA Maker-tjänsten till godkännaren slutligen publicera kunskapsbasen och uppdatera slutpunkten.
 
 ## <a name="next-steps"></a>Nästa steg
 

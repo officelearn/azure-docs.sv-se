@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441450"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576875"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Skapa en loggavisering med en Resource Manager-mall
 Den här artikeln visar hur du kan hantera [loggaviseringar](monitor-alerts-unified-log.md) programmässigt i skala, i Azure med hjälp av [Azure Resource Manager-mall](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) och [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). För närvarande Azure Alerts stöder loggaviseringar på frågor från [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) och [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
@@ -35,12 +35,12 @@ Log Analytics avisering REST API är RESTful och kan nås via Azure Resource Man
 Läs mer om [skapa och hantera Varningsregler i Log Analytics med REST API](../log-analytics/log-analytics-api-alerts.md), inklusive exempel för att komma åt API: et från Powershell.
 
 ## <a name="managing-log-alert-on-application-insights"></a>Hantera log avisering i Application Insights
-Aviseringar för Azure Application Insights finns som en del av de nya Azure-aviseringarna under Azure Monitor. Därför det körs under Azure Monitor-API som [schemalagda Frågeregler](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) grupp för REST-åtgärden.
+Aviseringar för Azure Application Insights finns som en del av de nya Azure-aviseringarna under Azure Monitor. Därför det körs under Azure Monitor-API som [schemalagda Frågeregler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) grupp för REST-åtgärden.
 
 ### <a name="using-azure-resource-manager-template"></a>Med hjälp av Azure Resource Manager-mall
-Log avisering för Application Insights-resurser har en typ av `Microsoft.Insights/scheduledQueryRules/`. Mer information om den här resurstypen finns [Azure Monitor - schemalagda fråga regler API-referens](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+Log avisering för Application Insights-resurser har en typ av `Microsoft.Insights/scheduledQueryRules/`. Mer information om den här resurstypen finns [Azure Monitor - schemalagda fråga regler API-referens](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-Följande är strukturen för [schemalagda Frågeregler skapa](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) baserat resursmall med exempeldatauppsättning som variabler.
+Följande är strukturen för [schemalagda Frågeregler skapa](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) baserat resursmall med exempeldatauppsättning som variabler.
 
 ```json
 {
@@ -113,7 +113,7 @@ Följande är strukturen för [schemalagda Frågeregler skapa](https://docs.micr
 }
 ```
 > [!IMPORTANT]
-> Taggfältet med dolda-länk till målresursen är obligatoriskt i användning av [schemalagda Frågeregler ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) API-anrop eller resurs-mallen. 
+> Taggfältet med dolda-länk till målresursen är obligatoriskt i användning av [schemalagda Frågeregler ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API-anrop eller resurs-mallen. 
 
 Exempel-json ovan kan sparas som (exempelvis) sampleScheduledQueryRule.json i den här genomgången och kan distribueras med hjälp av [Azure Resource Manager i Azure-portalen](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

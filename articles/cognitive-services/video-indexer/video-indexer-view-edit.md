@@ -6,20 +6,20 @@ documentationcenter: ''
 author: juliako
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 797c09d72402cfc1ee2524e7792cc1310a53fb1e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 11bd61387bfe6fe07cd41806f165eed9575622b4
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399485"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540918"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Visa och redigera Video Indexer-insikter
 
 Det här avsnittet visar hur du visa och redigera Video Indexer insikter om en video.
 
-1. Logga in på din [Video Indexer](https://api-portal.videoindexer.ai/) konto.
+1. Bläddra till den [Video Indexer](https://www.videoindexer.ai/) och logga in.
 2. Hitta en video som du vill skapa dina Video Indexer insikter. Mer information finns i [hitta speciella ögonblick i videor](video-indexer-search.md).
 3. Tryck på **spela upp**.
 

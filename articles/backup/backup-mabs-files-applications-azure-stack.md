@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617123"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579227"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Säkerhetskopiera filer på Azure Stack
 Du kan använda Azure Backup för att skydda (eller säkerhetskopiera) filer och program på Azure Stack. Om du vill säkerhetskopiera filer och program, installera Microsoft Azure Backup Server som en virtuell dator som körs på Azure Stack. Du kan skydda filer på någon Azure Stack-server i samma virtuella nätverk. När du har installerat Azure Backup Server, lägga till Azure-diskar för att öka den lokala lagringen tillgänglig för kortsiktig säkerhetskopierade data. Azure Backup Server använder Azure storage för långsiktig kvarhållning.
@@ -49,7 +49,7 @@ Den här artikeln beskriver inte installera Azure Backup Server i Azure Stack-mi
 
     ![Öppnar guiden Ny Skyddsgrupp](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft rekommenderar att placera alla data som kommer att dela en skyddsprincip i en skyddsgrupp. Fullständig information om planering och distribution skyddsgrupper finns i System Center DPM-artikeln [distribuera Skyddsgrupper](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft rekommenderar att placera alla data som kommer att dela en skyddsprincip i en skyddsgrupp. Fullständig information om planering och distribution skyddsgrupper finns i System Center DPM-artikeln [distribuera Skyddsgrupper](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
 4. I den **Välj Dataskyddsmetod** skärmen, Skriv ett namn för skyddsgruppen. Markera kryssrutan för **jag vill ha kortvarigt skydd med:** och **jag vill ha ett onlineskydd**. Klicka på **Nästa**.
 
@@ -135,5 +135,5 @@ Om du vill visa Azure Backup Server entiteter i Azure-portalen, kan du följa f�
 
 ## <a name="see-also"></a>Se också
 Information om hur du använder Azure Backup Server för att skydda andra arbetsbelastningar finns i följande artiklar:
-- [Säkerhetskopiera SharePoint-servergrupp](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [Säkerhetskopiera SQLServer](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [Säkerhetskopiera SharePoint-servergrupp](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Säkerhetskopiera SQLServer](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

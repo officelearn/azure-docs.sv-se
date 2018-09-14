@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2018
+ms.date: 09/12/2018
 ms.author: bwren
-ms.openlocfilehash: 0e513cc4f6a7d5d030ded807870de9eb0fdc0ed8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 97cf5c06372d416037b875078809aebb7e633456
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972644"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542845"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tid för inmatning av data i Log Analytics
 Azure Log Analytics är en hög skala tjänst som hanterar tusentals kunder skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om den tid det tar innan data blir tillgängliga i Log Analytics när den har samlats in. Den här artikeln beskrivs de olika faktorer som påverkar den här fördröjningen.
 
 ## <a name="typical-latency"></a>Typisk svarstid
-Svarstid refererar till den tid som data skapas på den övervakade datorn och den tid som det blir tillgängliga för analys i Log Analytics. Typisk svarstid mata in data i Log Analytics är mellan 3 och 10 minuter, med 95% av data som matas in i mindre än 7 minuter. Specifika svarstiden för specifika data varierar beroende på en mängd olika faktorer som beskrivs nedan.
+Svarstid refererar till den tid som data skapas på den övervakade datorn och den tid som det blir tillgängliga för analys i Log Analytics. Typisk svarstid mata in data i Log Analytics är mellan 2 och 5 minuter. Specifika svarstiden för specifika data varierar beroende på en mängd olika faktorer som beskrivs nedan.
 
 ## <a name="sla-for-log-analytics"></a>SERVICEAVTALET för Log Analytics
 Den [Log Analytics serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) är en juridiskt bindande avtal som definierar när Microsoft återbetalningar kunder när tjänsten inte uppfyller dess mål. Detta är inte baserad på vanliga prestanda för systemet, men dess värsta fall som-konton för potentiella kritiska situationer.
@@ -60,7 +60,7 @@ Vissa lösningar samlar inte in data från en agent och använder en samling-met
 I dokumentationen för varje lösning att fastställa dess insamlingsfrekvens.
 
 ### <a name="pipeline-process-time"></a>Pipeline-bearbetningstid
-När loggposter är matas in i Log Analytics-pipeline, har de skrivits till ett tillfälligt lagringsutrymme så klientisolering och se till att data inte förloras. Den här processen lägger vanligtvis 5 till 15 sekunder. Vissa lösningar implementerar tyngre algoritmer för att samla in data och slutsatser som strömmar data i. Till exempel aggregerar prestanda nätverksövervakning inkommande data över 3 minuters intervall, ett effektivt sätt att lägga till 3-minuters fördröjning.
+När loggposter är matas in i Log Analytics-pipeline, har de skrivits till ett tillfälligt lagringsutrymme så klientisolering och se till att data inte förloras. Den här processen lägger vanligtvis 5 till 15 sekunder. Vissa lösningar implementerar tyngre algoritmer för att samla in data och slutsatser som strömmar data i. Till exempel aggregerar prestanda nätverksövervakning inkommande data över 3 minuters intervall, ett effektivt sätt att lägga till 3-minuters fördröjning. En annan process som lägger till svarstiden är den process som hanterar anpassade loggar. Den här processen kan i vissa fall kan lägga till några minuter med svarstider till loggar som samlas in från filer av agenten.
 
 ### <a name="new-custom-data-types-provisioning"></a>Den nya anpassade datatyper etablering
 När en ny typ av anpassade data har skapats från en [anpassad logg](../log-analytics/log-analytics-data-sources-custom-logs.md) eller [Data Collector API](../log-analytics/log-analytics-data-collector-api.md), systemet skapar en dedikerad lagringsbehållare. Det här är en enstaka kostnader som uppstår bara på de första tecknen på den här datatypen.

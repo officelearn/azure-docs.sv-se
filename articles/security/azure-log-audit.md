@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a499f609e517d880b3a942ac6dc3eb0dc10b69e7
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 93b0a7e382c27cab5f050166ec8fa89fc7cf6b96
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057297"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576110"
 ---
 # <a name="azure-logging-and-auditing"></a>Loggning och granskning i Azure
 
@@ -45,7 +45,7 @@ I följande tabell visas de viktigaste typerna av loggar som är tillgängliga i
 |[Aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Kontrollplanet händelser i Azure Resource Manager-resurser|   Ger insikt i de åtgärder som utförts på resurser i din prenumeration.|    REST API, [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Azure-diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Frekventa data om användningen av Azure Resource Manager-resurser i prenumerationen|    Innehåller information om åtgärder som utförts av din resurs själva.| Azure Monitor [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Azure AD-rapportering](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Loggar och rapporter | Rapporter inloggning användaraktiviteter och information om användare och grupphantering systemaktivitet.|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Virtuella datorer och molntjänster](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows händelseloggtjänst och Linux Syslog|    Samlar in systemdata och loggningsdata på de virtuella datorerna och överför dessa data till ett lagringskonto om du föredrar.|   Windows (med hjälp av Windows Azure Diagnostics [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] lagring) och Linux i Azure Monitor|
+|[Virtuella datorer och molntjänster](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows händelseloggtjänst och Linux Syslog|  Samlar in systemdata och loggningsdata på de virtuella datorerna och överför dessa data till ett lagringskonto om du föredrar.|   Windows (med hjälp av Windows Azure Diagnostics [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] lagring) och Linux i Azure Monitor|
 |[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Med loggningen i Storage, tillhandahåller mätvärden för ett lagringskonto|Ger information om spåra förfrågningar, analyserar användningstrender och diagnostisera problem med ditt lagringskonto.|   REST API eller [klientbibliotek](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Flödesloggar för Nätverkssäkerhetsgruppen (NSG)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-format, visar utgående och inkommande flöden på basis av per regel|Visar information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp.|[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Loggar, undantag och anpassad diagnostik|   Innehåller en programprestandaövervakning (APM) tjänst för webbutvecklare på flera plattformar.| REST-API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|

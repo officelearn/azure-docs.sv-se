@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 412872e607f62f710e013d88822cddc59255992e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859960"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576501"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenarier som stöds för stora HANA-instanser
 Det här dokumentet beskriver scenarierna som stöds med arkitektur information för HANA stora instanser (HLI).
@@ -198,7 +198,7 @@ Följande monteringspunkter är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
-- Volymens storlek distribution bygger på databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
+- Volymens storlek distribution bygger på databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
 
 ## <a name="3-single-node-with-dr-normal"></a>3. Enskild nod med DR (Normal)
  
@@ -235,9 +235,9 @@ Följande monteringspunkter är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
-- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
+- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
 - Vid DR: volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
-- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information.
+- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information.
 - Startvolym för **SKU-typ som jag klassen** replikeras till DR-nod.
 
 
@@ -284,9 +284,9 @@ Följande monteringspunkter är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
-- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
+- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
 - Vid DR: volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
-- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
+- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
 - Vid DR: data, logbackups, log, klusterdelade volymer för QA (markerade som ”QA instansinstallation”) är konfigurerade för installationen av QA-instans.
 - Startvolym för **SKU-typ som jag klassen** replikeras till DR-nod.
 
@@ -335,7 +335,7 @@ Följande monteringspunkter är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
-- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
+- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
 - STONITH: En uppstår har konfigurerats för STONITH-installationen. Men är en användning av STONITH valfritt.
 
 
@@ -391,11 +391,11 @@ Följande monteringspunkter är förkonfigurerade:
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
-- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
+- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
 - STONITH: En uppstår har konfigurerats för STONITH-installationen. Men är en användning av STONITH valfritt.
 - Vid DR: **krävs två uppsättningar lagringsvolymer** för primära och sekundära noden replikering.
 - Vid DR: volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
-- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
+- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
 - Vid DR: data, logbackups, log, klusterdelade volymer för QA (markerade som ”QA instansinstallation”) är konfigurerade för installationen av QA-instans.
 - Startvolym för **SKU-typ som jag klassen** replikeras till DR-nod.
 
@@ -559,10 +559,10 @@ Följande monteringspunkter är förkonfigurerade:
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
 -  Vid DR: volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
-- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
+- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
 - Startvolym för **SKU-typ som jag klassen** replikeras till DR-nod.
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Se [infrastruktur och anslutningsmöjlighet](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) för HLI
-- Se [hög tillgänglighet och katastrofåterställning recovery](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) för HLI
+- Se [infrastruktur och anslutningsmöjlighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) för HLI
+- Se [hög tillgänglighet och katastrofåterställning recovery](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) för HLI

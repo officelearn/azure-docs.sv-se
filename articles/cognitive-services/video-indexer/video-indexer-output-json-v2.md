@@ -7,14 +7,14 @@ author: juliako
 manager: cfowler
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 43cc02417fad8a2fa46bd309235951393cd55b8a
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14e308f04450999fcec91a7882a22868c8c824ce
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41987973"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579011"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Granska Video Indexer-utdata som genereras av v2 API
 
@@ -23,7 +23,7 @@ ms.locfileid: "41987973"
 
 När du anropar den **hämta Video Index** API och svarsstatusen är OK, du får detaljerad JSON-utdata som svarsinnehållet. JSON-innehållet innehåller information om de angivna videoinsikter. Insikterna som inkluderar dimensioner som: avskrifter, ocrs, ansikten, ämnen, block, osv. Dimensionerna har instanser av tidsintervall som visar när varje dimension som visades i videon.  
 
-Du kan också visuellt undersöka videons sammanfattade insikter genom att trycka på den **spela upp** knappen för videon i Video Indexer-portalen. Mer information finns i [visa och redigera videoinsikter](video-indexer-view-edit.md).
+Du kan också visuellt undersöka videons sammanfattade insikter genom att trycka på den **spela upp** knappen på videon på den [Video Indexer](https://www.videoindexer.ai/) webbplats. Mer information finns i [visa och redigera videoinsikter](video-indexer-view-edit.md).
 
 ![Insikter](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
@@ -82,7 +82,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |privacyMode|Din analys på detaljnivå kan ha ett av följande lägen: **privata**, **offentliga**. **Offentliga** -videon är synlig för alla i ditt konto och vem som helst som har en länk till videon. **Privata** -videon är synlig för alla i ditt konto.|
 |varaktighet|Innehåller en varaktighet som beskriver den tid som en insikt inträffade. Varaktighet är i sekunder.|
 |thumbnailVideoId|ID för videon som miniatyren togs.
-|thumbnailId|Videons miniatyr-ID. Att hämta det faktiska miniatyr anropet Get-miniatyr (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) och skickar den thumbnailVideoId och thumbnailId.|
+|thumbnailId|Videons miniatyr-ID. Anropa Get-miniatyrbilden för att få den faktiska miniatyrbilden (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) och skickar den thumbnailVideoId och thumbnailId.|
 |ansikten|Kan innehålla noll eller flera ansikten. Mer information finns i [ansikten](#faces).|
 |nyckelord|Kan innehålla noll eller flera nyckelord. Mer information finns i [nyckelord](#keywords).|
 |sentiment|Kan innehålla noll eller flera sentiment. Mer information finns i [sentiment](#sentiments).|
@@ -90,6 +90,8 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |etiketter| Kan innehålla noll eller fler etiketter. Detaljerad information finns i [etiketter](#labels).|
 |varumärken| Kan innehålla noll eller flera varumärken. Mer information finns i [varumärken](#brands).|
 |statistik | Mer information finns i [statistik](#statistics).|
+|känslor| Kan innehålla noll eller flera känslor. Mer information finns i [känslor](#emotions).|
+|ämnen|Kan innehålla noll eller flera avsnitt. Den [ämnen](#topics) dimension.|
 
 ## <a name="videos"></a>videor
 
@@ -165,6 +167,8 @@ Ett ansikte kan ha ett ID, ett namn, en miniatyrbild, andra metadata och en list
 |sentiment|Den [sentiment](#sentiments) dimension.|
 |visualContentModeration|Den [visualContentModeration](#visualcontentmoderation) dimension.|
 |textualConentModeration|Den [textualConentModeration](#textualconentmoderation) dimension.|
+|känslor| Den [känslor](#emotions) dimension.|
+|ämnen|Den [ämnen](#topics) dimension.|
 
 Exempel:
 
@@ -320,7 +324,6 @@ Exempel:
     ]
 }
 ] 
-
 ```
 
 #### <a name="faces"></a>ansikten
@@ -444,7 +447,7 @@ Exempel:
           "id": 0,
           "instances": [
             {
-          "thumbnailId": "00000000-0000-0000-0000-000000000000",
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
               "start": "00: 00: 00.1670000",
               "end": "00: 00: 00.2000000"
             }
@@ -453,7 +456,7 @@ Exempel:
       ],
       "instances": [
         {
-       "thumbnailId": "00000000-0000-0000-0000-000000000000",   
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
           "start": "00: 00: 00.2000000",
           "end": "00: 00: 05.0330000"
         }
@@ -466,7 +469,7 @@ Exempel:
           "id": 1,
           "instances": [
             {
-          "thumbnailId": "00000000-0000-0000-0000-000000000000",        
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
               "start": "00: 00: 05.2670000",
               "end": "00: 00: 05.3000000"
             }
@@ -667,10 +670,144 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 |bannedWordsCount |Antal otillåtna orden.|
 |bannedWordsRatio |Förhållandet från totala antalet ord.|
 
+#### <a name="emotions"></a>känslor
+
+Video Indexer identifierar känslor baserat på tal- och ljud tips. Identifierade känslor kan vara: nu ett, sorg, ilska eller behöva betala.
+
+|Namn|Beskrivning|
+|---|---|
+|id|Känslo-ID.|
+|typ|Känslo-och som har identifierats utifrån tal- och ljud. Känslo kan vara: nu ett, sorg, ilska eller behöva betala.|
+|instanser|En lista över tidsintervall där den här känslor visades.|
+
+```json
+"emotions": [{
+    "id": 0,
+    "type": "Fear",
+    "instances": [{
+      "adjustedStart": "0:00:39.47",
+      "adjustedEnd": "0:00:45.56",
+      "start": "0:00:39.47",
+      "end": "0:00:45.56"
+    },
+    {
+      "adjustedStart": "0:07:19.57",
+      "adjustedEnd": "0:07:23.25",
+      "start": "0:07:19.57",
+      "end": "0:07:23.25"
+    }]
+  },
+  {
+    "id": 1,
+    "type": "Anger",
+    "instances": [{
+      "adjustedStart": "0:03:55.99",
+      "adjustedEnd": "0:04:05.06",
+      "start": "0:03:55.99",
+      "end": "0:04:05.06"
+    },
+    {
+      "adjustedStart": "0:04:56.5",
+      "adjustedEnd": "0:05:04.35",
+      "start": "0:04:56.5",
+      "end": "0:05:04.35"
+    }]
+  },
+  {
+    "id": 2,
+    "type": "Joy",
+    "instances": [{
+      "adjustedStart": "0:12:23.68",
+      "adjustedEnd": "0:12:34.76",
+      "start": "0:12:23.68",
+      "end": "0:12:34.76"
+    },
+    {
+      "adjustedStart": "0:12:46.73",
+      "adjustedEnd": "0:12:52.8",
+      "start": "0:12:46.73",
+      "end": "0:12:52.8"
+    },
+    {
+      "adjustedStart": "0:30:11.29",
+      "adjustedEnd": "0:30:16.43",
+      "start": "0:30:11.29",
+      "end": "0:30:16.43"
+    },
+    {
+      "adjustedStart": "0:41:37.23",
+      "adjustedEnd": "0:41:39.85",
+      "start": "0:41:37.23",
+      "end": "0:41:39.85"
+    }]
+  },
+  {
+    "id": 3,
+    "type": "Sad",
+    "instances": [{
+      "adjustedStart": "0:13:38.67",
+      "adjustedEnd": "0:13:41.3",
+      "start": "0:13:38.67",
+      "end": "0:13:41.3"
+    },
+    {
+      "adjustedStart": "0:28:08.88",
+      "adjustedEnd": "0:28:18.16",
+      "start": "0:28:08.88",
+      "end": "0:28:18.16"
+    }]
+  }
+],
+```
+
+#### <a name="topics"></a>ämnen
+
+Video Indexer gör inferens av viktigaste avsnitten från avskrifter. Om det är möjligt på servernivå 1 [IPTC](https://iptc.org/standards/media-topics/) taxonomi ingår. 
+
+|Namn|Beskrivning|
+|---|---|
+|id|Avsnittet-ID.|
+|namn|Avsnittet namnet, till exempel: ”Pharmaceuticals”.|
+|Tjänsten|Spår återger ämnen-hierarkin. Till exempel ”: hälsa och välbefinnande / medicin och healthcare / Pharmaceuticals”.|
+|förtroende|Förtroendepoäng i intervallet [0,1]. Är högre tryggare.|
+|Språk|Språket som används i avsnittet.|
+|iptcName|IPTC media koda namn, om identifieras.|
+|instanser |Video Indexer för närvarande inte indexera ett ämne därför att tidsintervall, så att hela videon används som intervall.|
+
+```json
+"topics": [{
+    "id": 0,
+    "name": "INTERNATIONAL RELATIONS",
+    "referenceId": "POLITICS AND GOVERNMENT/FOREIGN POLICY/INTERNATIONAL RELATIONS",
+    "referenceType": "VideoIndexer",
+    "confidence": 1,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}, {
+    "id": 1,
+    "name": "Politics and Government",
+    "referenceType": "VideoIndexer",
+    "iptcName": "Politics",
+    "confidence": 0.9041,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}]
+. . .
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-[API för Videoindexering](https://api-portal.videoindexer.ai)
+[Video Indexer Developer-portalen](https://api-portal.videoindexer.ai)
 
 Information om hur du bäddar in widgetar i ditt program finns i [bädda in Video Indexer widgetar i dina program](video-indexer-embed-widgets.md). 
 

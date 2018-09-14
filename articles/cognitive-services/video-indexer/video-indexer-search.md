@@ -7,20 +7,20 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 1cffa067d8028adab4dbcc82c529f77d980ce6be
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 72f110c0c98e6fb6ee5fca684fdc74c6986e032c
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397552"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541414"
 ---
 # <a name="find-exact-moments-within-videos"></a>Hitta exakta ögonblick i videor
 
 Det här avsnittet visar sökalternativ som hjälper dig att hitta speciella ögonblick i videor.
 
-1. Logga in på din [Video Indexer](https://api-portal.videoindexer.ai/) konto.
+1. Bläddra till den [Video Indexer](https://www.videoindexer.ai/) och logga in.
 2. Söka bland alla videor i ditt konto.
 
     I följande exempel sökte vi efter alla videor som skapats av Channel 9 med Scott Hanselman.

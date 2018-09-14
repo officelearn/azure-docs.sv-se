@@ -1,49 +1,50 @@
 ---
-title: Språk - frågor och svar om Maker - Azure kognitiva tjänster som stöds | Microsoft Docs
-description: Lär dig mer om vilka språk som stöds för frågor och svar om Maker.
+title: Språk som stöds – QnA Maker
+titlesuffix: Azure Cognitive Services
+description: Språk för en kunskapsbas påverkar QnA Maker möjligheten att automatiskt extrahera frågor och svar från källor samt relevans resultatets QnA Maker ger svar på användarfrågor.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: b210f59129a962046787b27d003c2872a54f6c8e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ee04733064ec4e3d131b800fe1f18b27e5127fe8
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354939"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45572948"
 ---
 # <a name="supported-languages"></a>Språk som stöds
 
-Språk för en kunskapsbas påverkar frågor och svar om Maker möjlighet att automatiskt extrahera frågor och svar från [källor](../Concepts/data-sources-supported.md), samt för resultaten frågor och svar om Maker ger svar på användarfrågor.
+Språk för en kunskapsbas påverkar QnA Maker möjligheten att automatiskt extrahera frågor och svar från [källor](../Concepts/data-sources-supported.md), samt relevans resultatets QnA Maker ger svar på användarfrågor.
 
 ## <a name="auto-extraction"></a>Automatisk extrahering
-Frågor och svar om Maker stöder fråga/svar extrahering i sidan alla språk, men effektivitet uppackningen är mycket högre för följande språk som frågor och svar om Maker använder nyckelord för att identifiera frågor.
+QnA Maker stöder extrahering av fråga/svar i alla på sidan, men effektiviteten i extraheringen är mycket högre för följande språk som QnA Maker använder nyckelord för att identifiera frågor.
 
 |Språk som stöds| Nationella inställningar|
 |-----|----|
 |Svenska|SV-*|
 |Franska|fr-*|
 |Italienska|IT-*|
-|Tyska|Tyskland-*|
-|Spanska|ES-*|
+|Tyska|Tyskland – *|
+|Spanska|ES – *|
 
 ## <a name="query-matching-and-relevance"></a>Fråga matchar och relevans
-Frågor och svar om Maker beror på [språkanalys](https://docs.microsoft.com/en-us/rest/api/searchservice/language-support) i Azure search för att tillhandahålla resultat. Särskilda nytt rangordnings funktioner är tillgängliga för SV-* språk som möjliggör bättre betydelse.
+QnA Maker beror på [språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support) i Azure search för att tillhandahålla resultat. Särskilda igen rangordna funktioner är tillgängliga för En-* språk som gör bättre relevant.
 
-Frågor och svar om Maker automatiskt identifierar språket i kunskapsbasen vid skapandet och anger analyzer därefter. Du kan skapa knowledge baser på följande språk. Läs [detta](../How-To/language-knowledge-base.md) för mer information om hur frågor och svar om Maker hanterar språk.
+QnA Maker upptäcker automatiskt språket i kunskapsbasen när du skapar och ställer in analysatorn därefter. Du kan skapa kunskapsbaser på följande språk. Läs [detta](../How-To/language-knowledge-base.md) för mer information om hur QnA Maker hanterar språk.
 
 
 > [!Tip]
-> Språkanalys, när, kan inte ändras. Dessutom språk analyzer gäller för alla knowledge grunderna i en [frågor och svar om Maker tjänsten](../How-To/set-up-qnamaker-service-azure.md). Om du planerar att ha kunskap databaser på olika språk, bör du skapa dem under separata frågor och svar om Maker tjänster.
+> Språkanalysverktyg, ställa in en gång, kan inte ändras. Dessutom språkanalysverktyg gäller för alla kunskapsbaser i en [QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md). Om du planerar att ha kunskapsbaser på olika språk, bör du skapa dem under separata QnA Maker-tjänster.
 
 |Språk som stöds|
 |-----|
 |Arabiska|
-|Armeniska|,
+|Armeniska|, 
 Bengali|
 |Baskiska|
 |Bulgariska|

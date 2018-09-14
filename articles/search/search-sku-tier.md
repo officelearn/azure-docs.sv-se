@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: f7cf471a69395cef0aef7d5dd2e3c77218bf97a3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715288"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576128"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
@@ -104,7 +104,7 @@ Under förutsättning att exemplet är både representant och tio procent av hel
 
 Vissa kunder föredrar att börja med dedikerade resurser som kan hantera större sampling och bearbetningstider och sedan utveckla realistisk uppskattningar av index antal, storlek och ställa frågor till volymer under utvecklingen. Inledningsvis är en tjänst etableras baserat på en gissning bästa uppskattning och som utvecklingsprojektet utvecklas team kännedom vanligtvis om den befintliga tjänsten är över eller under kapacitet för planerade produktionsarbetsbelastningar. 
 
-1. [Granska tjänstbegränsningar på varje nivå](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits) att avgöra om antalet index som du kan ha stöd för lägre nivåer. I den **grundläggande**-**S1**- **S2** nivåer, index-gränserna är 15-50-200 respektive.
+1. [Granska tjänstbegränsningar på varje nivå](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) att avgöra om antalet index som du kan ha stöd för lägre nivåer. I den **grundläggande**-**S1**- **S2** nivåer, index-gränserna är 15-50-200 respektive.
 
 1. [Skapa en tjänst på en faktureringsbara nivå](search-create-service-portal.md):
 

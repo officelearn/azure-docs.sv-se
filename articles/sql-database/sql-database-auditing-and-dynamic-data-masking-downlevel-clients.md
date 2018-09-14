@@ -1,6 +1,6 @@
 ---
-title: Tabell granskning TDS-omdirigering och IP-slutpunkter för Azure SQL Database | Microsoft Docs
-description: Läs mer om granskning, TDS-omdirigering och IP-slutpunkt ändringar när du implementerar tabell granskning i Azure SQL Database.
+title: Tabellen granskning, TDS-omdirigering och IP-slutpunkter för Azure SQL Database | Microsoft Docs
+description: Läs mer om granskning, TDS-omdirigering och IP-slutpunkten ändringar när du implementerar tabellgranskning i Azure SQL Database.
 services: sql-database
 author: giladm
 manager: craigg
@@ -9,43 +9,44 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: b615e9ff67788c2f02c2fa0c33e0de3331e77885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+ms.openlocfilehash: 9fcb070f41d699cef3ef11ba9b8feb6cdfd83ae5
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645638"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541225"
 ---
-# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Stöd för SQL Database - klientversioner och IP-slutpunkt ändras för granskning av tabell
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Stöd för SQL Database - klientversioner och IP för Tabellgranskning
 
 > [!IMPORTANT]
-> Det här dokumentet gäller endast granskning för tabellen, vilket är **nu föråldrade**.<br>
-> Använd den nya [Blobbgranskning](sql-database-auditing.md) -metoden som **inte** kräver äldre klienten anslutning sträng ändringar. Ytterligare information om Blobbgranskning finns i [Kom igång med SQL database auditing](sql-database-auditing.md).
+> Det här dokumentet gäller enbart för Tabellgranskning som är **nu föråldrade**.<br>
+> Använd den nya [Blobbgranskning](sql-database-auditing.md) metod, som **inte** kräver ändringar för äldre klienten anslutning sträng. Ytterligare information om Blobgranskning finns i [Kom igång med SQL-databasgranskning](sql-database-auditing.md).
 
-[Databasen granskning](sql-database-auditing.md) fungerar automatiskt med SQL-klienter som stöder TDS-omdirigering. Observera att omdirigering av inte gäller när du använder metoden Blobbgranskning.
+[Databasen granskning](sql-database-auditing.md) fungerar automatiskt med SQL-klienter som stöder TDS-omdirigering. Observera att omdirigering inte gäller när du använder metoden Blobbgranskning.
 
 ## <a id="subheading-1"></a>Stöd för äldre klienter
-Alla klienter som implementerar TDS 7.4 bör också stöd för omdirigering. Undantag till detta inkluderar JDBC 4.0 där funktionen för omdirigering av stöds inte fullt ut och Tedious för Node.JS i vilka omdirigering har inte implementerats.
+Alla klienter som implementerar TDS 7.4 bör också stöd för omdirigering. Undantag till detta inkluderar JDBC 4.0 där funktionen omdirigering stöds inte fullt ut och Tedious för Node.JS i vilka omdirigering har inte implementerats.
 
-För ”äldre klienter”, ska d.v.s. vilka stöd TDS 7.3 och nedanför - serverns FQDN i anslutningen versionssträng ändras:
+För ”äldre klienter”, ska d.v.s. vilka support TDS 7.3 och under - serverns FQDN i anslutningen versionssträng ändras:
 
 Ursprungliga serverns FQDN i anslutningssträngen: <*servernamn*>. database.windows.net
 
 Ändrade serverns FQDN i anslutningssträngen: <*servernamn*> .database. **säker**. windows.net
 
-Innehåller en lista över ”klientversioner”:
+En lista över ”klientversioner” innehåller:
 
 * .NET 4.0 och nedan.
 * ODBC-10.0 och nedan.
 * JDBC (medan JDBC stöder TDS 7.4, funktion för TDS-omdirigering fullständigt stöds inte)
-* Tråkigt (för Node.JS)
+* Tedious (för Node.JS)
 
-**Kommentar:** servern ovan FDQN ändring kan vara användbara också för att tillämpa en princip för SQL Server-nivå granskning utan behov av en konfiguration steg i varje databas (tillfällig lösning).
+**Kommentar:** den ovannämnda servern FDQN ändring kan vara användbart också för att tillämpa en princip för granskning för SQL Server-nivå utan behov av en konfiguration steg i varje databas (tillfällig lösning).
 
-## <a id="subheading-2"></a>IP-slutpunkt ändras när du aktiverar granskning
-Observera att när du aktiverar granskning av tabellen ändrar IP-slutpunkten för din databas. Om du har strikt brandväggsinställningar, uppdatera dessa brandväggsinställningar därefter.
+## <a id="subheading-2"></a>IP-slutpunkten ändras när du aktiverar granskning
+Observera att när du aktiverar Tabellgranskning, ändrar IP-slutpunkten för din databas. Om du har strikta brandväggsinställningar kan uppdatera dessa brandväggsinställningar därefter.
 
-Nya IP-slutpunkten för databasen beror på området:
+Den nya databas IP-slutpunkten beror på området:
 
 | Databasen Region | Möjliga IP-slutpunkter |
 | --- | --- |
@@ -57,7 +58,7 @@ Nya IP-slutpunkten för databasen beror på området:
 | Centrala USA |104.43.255.70, 40.83.14.7, 23.99.128.244, 40.83.15.176 |
 | USA, centrala – EUAP |52.180.178.16, 52.180.176.190 |
 | Östasien |23.99.125.133, 13.75.40.42, 23.97.71.138, 13.94.43.245 |
-| Östra USA 2 |104.209.141.31, 104.208.238.177, 191.237.131.51, 104.208.235.50 |
+| USA, östra 2 |104.209.141.31, 104.208.238.177, 191.237.131.51, 104.208.235.50 |
 | Östra USA |23.96.107.223, 104.41.150.122, 23.96.38.170, 104.41.146.44 |
 | USA, västra – EUAP |52.225.190.86, 52.225.191.187 |
 | Indien, centrala |104.211.98.219, 104.211.103.71 |

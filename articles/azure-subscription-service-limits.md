@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: 6a514abf9c34335e1665ca0fd221d2399fddd039
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: d179acae2053b2365c010c33cc061d29559be0cf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390834"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577691"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker flera av plattformen.
@@ -52,6 +52,7 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Säkerhetskopiering](#backup-limits)
@@ -78,7 +79,6 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobila tjänster](#mobile-services-limits)
-* [Övervaka](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Nätverk](#networking-limits)
 * [Network Watcher](#network-watcher-limits)

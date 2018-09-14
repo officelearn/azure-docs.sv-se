@@ -9,28 +9,20 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: juliako
-ms.openlocfilehash: 224c8b05027f51fb99c8d58be34c3604032c0f77
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 67bbb7046d71b904dfdcaad0e44024e8f30ac288
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399503"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543717"
 ---
 # <a name="video-indexer-concepts"></a>Video Indexer-begrepp
  
-Det här avsnittet beskrivs några koncept för tjänsten Video Indexer.
+Den här artikeln beskriver några koncept för tjänsten Video Indexer.
     
 ## <a name="summarized-insights"></a>Sammanfattande insikter
 
-Sammanfattande insights innehåller en sammansatt vy av data: ytor, nyckelord, sentiment. I stället för att gå över var och en av tusentals tidsintervall och kontrollera vilka ansiktena är i den, till exempel sammanfattade insights innehåller alla ansikten och för vart och ett tidsintervall som det visas i och % av tiden visas.
-
-## <a name="topicskeywords"></a>Avsnitt om/nyckelord
-
-Avsnitt om/nyckelord är i listan över viktiga fraser som Video Indexer extraherar i texten. Exempelvis en video med Scott Guthrie kan innehålla följande avsnitt/nyckelord: säkerhet, Azure, Microsoft Cloud, intäkter.
-
-## <a name="sentiments"></a>sentiment
-
-När Video Indexer analyserar avskrifter, identifierar sentiment samt. Exempel: ”det här är en väldigt spännande händelse” är en positiv attityd.
+Sammanfattande insights innehåller en sammansatt vy av data: ytor, ämnen, känslor. I stället för att gå över var och en av tusentals tidsintervall och kontrollera vilka ansiktena är i den, till exempel sammanfattade insights innehåller alla ansikten och för vart och ett tidsintervall som det visas i och % av tiden visas.
 
 ## <a name="time-range-vs-adjusted-time-range"></a>tidsintervallet jämfört med justerade tidsintervall
 

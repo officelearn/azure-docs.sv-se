@@ -1,35 +1,35 @@
 ---
-title: Få analyser på din knowledge base - kognitiva Microsoft-tjänster | Microsoft Docs
-titleSuffix: Azure
-description: Få analyser på kunskapsbasen
+title: Analys av knowledgebase
+titleSuffix: Azure Cognitive Services
+description: QnA Maker lagrar alla chattloggarna och annan telemetri om du har aktiverat App Insights under genereringen av QnA Maker-tjänsten. Kör Exempelfrågor för att få din chattloggarna från App Insights.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: 1588d0c5a8eaf4e161b5319c9f33a772dc56b247
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 28dd34cc49d0004dd434a54d53f3f27f7c7d80e7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354000"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542710"
 ---
-# <a name="get-analytics-on-your-knowledge-base"></a>Få analyser på kunskapsbasen
+# <a name="get-analytics-on-your-knowledge-base"></a>Få analyser om din kunskapsbas
 
-Frågor och svar om Maker lagrar alla chatt loggar och andra telemetri om du har aktiverat App Insights under den [skapa frågor och svar om Maker-tjänstens](./set-up-qnamaker-service-azure.md). Kör Exempelfrågor för att hämta chatt-loggar från appen insikter.
+QnA Maker lagrar alla chattloggarna och annan telemetri om du har aktiverat App Insights under den [skapandet av QnA Maker-tjänsten](./set-up-qnamaker-service-azure.md). Kör Exempelfrågor för att få din chattloggarna från App Insights.
 
 1. Gå till din App Insights-resurs.
 
-    ![Välj din application insights-resurs](../media/qnamaker-how-to-analytics-kb/resources-created.png)
+    ![Välj application insights-resurs](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Välj **Analytics**. En ny öppnas där du kan fråga frågor och svar om Maker telemetri.
+2. Välj **Analytics**. En ny fönster öppnas där du kan fråga QnA Maker telemetri.
 
     ![Välj Analytics](../media/qnamaker-how-to-analytics-kb/analytics.png)
 
-3. Klistra in i följande fråga och köra den.
+3. Klistra in följande fråga och kör den.
 
     ```query
         requests
@@ -48,9 +48,9 @@ Frågor och svar om Maker lagrar alla chatt loggar och andra telemetri om du har
 
     ![Kör frågan](../media/qnamaker-how-to-analytics-kb/run-query.png)
 
-## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Köra frågor för andra analytics på frågor och svar om Maker kunskapsbasen
+## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Köra frågor för andra analyser i kunskapsbasen QnA Maker
 
-### <a name="total-90-day-traffic"></a>Totalt antal 90 dagars trafik
+### <a name="total-90-day-traffic"></a>Total trafik för 90 dagar
 
 ```query
     //Total Traffic
@@ -73,7 +73,7 @@ Frågor och svar om Maker lagrar alla chatt loggar och andra telemetri om du har
     | summarize ChatCount=count() by KbId
 ```
 
-### <a name="user-traffic"></a>Användartrafik
+### <a name="user-traffic"></a>Trafik för användare
 
 ```query
     //User Traffic

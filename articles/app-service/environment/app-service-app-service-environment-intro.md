@@ -1,6 +1,6 @@
 ---
-title: Introduktion till App Service miljö v1
-description: Mer information om funktionen Apptjänstmiljö v1 som tillhandahåller säker, ansluten till VNet, dedikerad skalningsenheter för att köra alla dina appar.
+title: Introduktion till App Service Environment version 1
+description: Läs mer om App Service Environment v1-funktion som ger säker, anslutna till virtuella nätverk och dedikerade skalningsenheter för att köra alla dina appar.
 services: app-service
 documentationcenter: ''
 author: stefsch
@@ -14,73 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: ca30818b015e95594d3b2c9861d98f24174c0aea
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a2efb3177a97aa362a269ab3a00239a0d391f026
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318171"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574699"
 ---
-# <a name="introduction-to-app-service-environment-v1"></a>Introduktion till App Service miljö v1
+# <a name="introduction-to-app-service-environment-v1"></a>Introduktion till App Service Environment version 1
 
 > [!NOTE]
-> Den här artikeln handlar om Apptjänstmiljö v1.  Det finns en nyare version av Apptjänst-miljön som är enklare att använda och körs på mer kraftfulla infrastruktur. Mer information om den nya versionen start med den [introduktion till Apptjänst-miljön](intro.md).
+> Den här artikeln handlar om App Service Environment v1.  Det finns en nyare version av App Service Environment som är enklare att använda och körs på kraftfullare infrastruktur. Mer information om den nya versionen början med den [introduktion till App Service Environment](intro.md).
 > 
 
 ## <a name="overview"></a>Översikt
-En Apptjänst-miljö är en [Premium] [ PremiumTier] service plan möjlighet att [Azure App Service](../app-service-web-overview.md) som ger en helt isolerad och dedikerad miljö för säker körning Azure Apptjänst-appar i hög skala, inklusive Webbappar, Mobilappar och API Apps.  
+En App Service Environment är en [Premium] [ PremiumTier] tjänsten Prenumerationsalternativ av [Azure App Service](../app-service-web-overview.md) som ger en helt isolerad och dedikerad miljö för säker körning av Azure App Service-appar med hög skalbarhet, inklusive Web Apps, Mobile Apps och API Apps.  
 
-Apptjänstmiljöer är perfekt för programarbetsbelastningar som kräver:
+App Service-miljöer är perfekt för programarbetsbelastningar som kräver:
 
 * Mycket hög skala
 * Isolering och säker nätverksåtkomst
 
-Kunder kan skapa flera Apptjänstmiljöer inom en enda Azure region, samt över flera Azure-regioner.  Detta gör Apptjänstmiljöer idealiskt för vågrätt skalning statuslösa programnivåerna stöd för hög RPS arbetsbelastningar.
+Kunder kan skapa flera App Service-miljöer inom en enda Azure-region, samt mellan flera Azure-regioner.  Detta gör App Service-miljöer perfekta för vågrätt skalning tillstånd utan programnivåer med stöd höga RPS-arbetsbelastningar.
 
-Apptjänstmiljöer är isolerad för att endast en enskild kund program som körs och alltid har distribuerats till ett virtuellt nätverk.  Kunder har detaljerad kontroll över både inkommande och utgående nätverkstrafik och program kan upprätta säkra höghastighetsanslutning över virtuella nätverk till lokala företagsresurser.
+App Service-miljöer är isolerade i endast en enda kunds program som körs och de distribueras alltid till ett virtuellt nätverk.  Kunderna har detaljerad kontroll över både inkommande och utgående programnätverkstrafik och programmen kan upprätta säkra höghastighetsanslutningar över virtuella nätverk till lokala företagsresurser.
 
-En översikt över hur Apptjänstmiljöer Aktivera hög skala och säker nätverksåtkomst, finns det [AzureCon ingående] [ AzureConDeepDive] på Apptjänstmiljöer!
+En översikt över hur App Service-miljöer Aktivera hög skala och säker nätverksåtkomst, finns i den [AzureCon Deep Dive] [ AzureConDeepDive] på App Service-miljöer!
 
-En djupdykning i vågrätt skalning med flera Apptjänstmiljöer finns i artikeln på hur du konfigurerar en [geodistribuerad app storleken][GeodistributedAppFootprint].
+En djupdykning i vågrätt skala med flera App Service-miljöer finns i artikeln om hur du konfigurerar en [geo appfotavtryck][GeodistributedAppFootprint].
 
-Om du vill se hur säkerhetsarkitekturen som visas i AzureCon ingående har konfigurerats, finns i artikeln om hur du implementerar en [lager säkerhetsarkitekturen](app-service-app-service-environment-layered-security.md) med Apptjänstmiljöer.
+Om du vill se hur säkerhetsarkitekturen som visades i AzureCon Deep Dive har konfigurerats, kan du läsa artikeln om att implementera en [lager Säkerhetsarkitektur](app-service-app-service-environment-layered-security.md) med App Service-miljöer.
 
-Appar som körs på Apptjänstmiljöer kan behörighet gated av överordnad enheter, till exempel web application brandväggar (Brandvägg).  Artikel om [konfigurera en Brandvägg för Apptjänstmiljöer](app-service-app-service-environment-web-application-firewall.md) omfattar det här scenariot. 
+Appar som körs på App Service-miljöer kan ha sin egen åtkomst begränsad av överordnade enheter, till exempel brandväggar för webbprogram (WAF).  Artikeln om [konfigurering av en WAF för App Service-miljöer](app-service-app-service-environment-web-application-firewall.md) täcker det här scenariot. 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="dedicated-compute-resources"></a>Dedikerad beräkningsresurser
-Alla beräkningsresurser i en Apptjänst-miljö är avsedda enbart för en enda prenumeration och en Apptjänst-miljö kan konfigureras med upp till 50 (50)-beräkningsresurser för exklusiv användning av ett program.
+Alla beräkningsresurser i en App Service Environment är strikt reserverad för en enda prenumeration och en App Service Environment kan konfigureras med upp till 50 (50)-beräkningsresurser för exklusiv användning av ett enda program.
 
-En Apptjänst-miljö består av en resurspool för frontend beräkning, samt en till tre worker beräkning resurspooler. 
+En App Service Environment består av en resurspool för klientdelen beräkning, samt en till tre worker beräkning resurspooler. 
 
-Frontend poolen innehåller beräkningsresurser som är ansvarig för SSL-avslutning som också automatisk belastningsbalansering av app-förfrågningar inom en Apptjänst-miljö. 
+-Adresspoolen på klientsidan innehåller beräkningsresurser som är ansvarig för SSL-avslutning som även automatisk belastningsutjämning av appförfrågningar i en App Service Environment. 
 
-Varje arbetspool innehåller beräkningsresurser som allokeras till [Apptjänstplaner][AppServicePlan], som i sin tur innehåller en eller flera appar i Azure App Service.  Eftersom det kan vara upp till tre olika arbetarpooler i en Apptjänst-miljö, har du möjlighet att välja olika beräkningsresurser för varje worker-pool.  
+Varje arbetarpool innehåller beräkningsresurser som allokeras till [App Service-planer][AppServicePlan], vilket i sin tur innehåller en eller flera Azure App Service-appar.  Eftersom det kan vara upp till tre olika arbetarpooler i en App Service Environment, har du flexibiliteten att välja olika beräkningsresurser för varje arbetarpool.  
 
-T.ex, kan detta du skapa en arbetspool med mindre kraftfulla beräkningsresurser för Apptjänstplaner avsett för utveckling eller testning appar.  En andra (eller även tredje) arbetspool kan använda mer kraftfulla beräkningsresurser som är avsedd för Apptjänstplaner produktion program som körs.
+Till exempel kan det här du skapa en arbetarpool med mindre kraftfulla beräkningsresurser för App Service-planer avsedd för utveckling eller testning appar.  En andra (eller även tredje) arbetarpool kan använda mer kraftfulla beräkningsresurser som är avsedd för App Service-planer körning av produktionsappar.
 
-Mer information om mängden beräkningsresurser som är tillgängliga på frontend- och arbetsroller lagringspooler finns [så här konfigurerar du en Apptjänst-miljö][HowToConfigureanAppServiceEnvironment].  
+Mer information om hur många beräkningsresurser som är tillgängliga för klient- och worker-pooler finns i [så här konfigurerar du en App Service Environment][HowToConfigureanAppServiceEnvironment].  
 
-Mer information om tillgängliga beräknings resurs storlekar som stöds i en Apptjänst-miljö finns i [priser för Apptjänst] [ AppServicePricing] sidan och granska de tillgängliga alternativen för Apptjänstmiljöer i den Premium-prisnivån.
+Mer information om tillgängliga beräknings-resource-storlekar som stöds i en App Service Environment finns den [priser för Apptjänst] [ AppServicePricing] sidan och granska de tillgängliga alternativen för App Service Environment i den Premium-prisnivån.
 
 ## <a name="virtual-network-support"></a>Stöd för virtuella nätverk
-En Apptjänst-miljö kan skapas i **antingen** ett virtuellt nätverk i Azure Resource Manager **eller** klassisk distribution modellen virtuella nätverk ([mer information om virtuella nätverk] [MoreInfoOnVirtualNetworks]).  Eftersom en Apptjänst-miljö finns alltid i ett virtuellt nätverk och mer exakt inom ett undernät i ett virtuellt nätverk, kan du utnyttja säkerhetsfunktionerna i virtuella nätverk för att styra både inkommande och utgående nätverkskommunikation.  
+Du kan skapa en App Service Environment i **antingen** ett Azure Resource Manager-nätverk **eller** ett virtuellt nätverk för klassisk distribution-modellen ([mer information om virtuella nätverk] [MoreInfoOnVirtualNetworks]).  Eftersom en App Service Environment finns alltid i ett virtuellt nätverk och mer exakt i ett undernät till ett virtuellt nätverk kan du utnyttja säkerhetsfunktionerna i virtuella nätverk för att styra både inkommande och utgående nätverkskommunikation.  
 
-En Apptjänst-miljö kan vara antingen mot med en offentlig IP-adress eller intern med endast en Azure interna belastningen belastningsutjämnare (ILB)-adress mot Internet.
+En App Service Environment kan vara antingen Internetuppkopplad med en offentlig IP-adress eller intern med bara en Azure intern belastningsutjämnaren (ILB)-adress som riktas mot.
 
-Du kan använda [nätverkssäkerhetsgrupper] [ NetworkSecurityGroups] att begränsa inkommande nätverkskommunikationen till undernätet där det finns en Apptjänst-miljö.  På så sätt kan du köra bakom överordnade enheter och tjänster som web application brandväggar och nätverksprovider för SaaS-appar.
+Du kan använda [nätverkssäkerhetsgrupper] [ NetworkSecurityGroups] att begränsa inkommande kommunikation till undernätet där en App Service Environment finns.  På så sätt kan du köra appar bakom överordnade enheter och tjänster, till exempel brandväggar för webbprogram och SaaS-nätverksleverantörer.
 
-Apparna måste ofta även komma åt företagsresurser, t.ex. interna databaser och webbtjänster.  En vanlig metod är att göra dessa slutpunkter som är tillgänglig endast för interna nätverkstrafik som går inom ett virtuellt Azure-nätverk.  När en Apptjänst-miljö är ansluten till samma virtuella nätverk som interna tjänster, appar som körs i miljön kan komma åt dem, inklusive slutpunkter kan nås via [plats-till-plats] [ SiteToSite] och [Azure ExpressRoute] [ ExpressRoute] anslutningar.
+Apparna måste ofta även komma åt företagsresurser, t.ex. interna databaser och webbtjänster.  En vanlig metod är att göra de här slutpunkterna tillgänglig endast för intern nätverkstrafik som går i ett Azure-nätverk.  När en App Service Environment är ansluten till samma virtuella nätverk som interna tjänster, appar som körs i miljön kan komma åt dem, inklusive slutpunkter kan nås via [plats-till-plats] [ SiteToSite] och [Azure ExpressRoute] [ ExpressRoute] anslutningar.
 
-För mer information om hur Apptjänstmiljöer fungerar med virtuella nätverk och lokala nätverk finns i följande artiklar på [nätverksarkitektur][NetworkArchitectureOverview], [styra inkommande Trafik][ControllingInboundTraffic], och [säker anslutning till serverdelar][SecurelyConnectingToBackends]. 
+För mer information om hur App Service-miljöer fungerar med virtuella nätverk och lokala nätverk finns i följande artiklar på [nätverksarkitektur][NetworkArchitectureOverview], [styra inkommande Trafik][ControllingInboundTraffic], och [på ett säkert sätt ansluta till serverdelar][SecurelyConnectingToBackends]. 
 
 ## <a name="getting-started"></a>Komma igång
-Kom igång med Apptjänstmiljöer finns [hur att skapa en Apptjänst-miljö][HowToCreateAnAppServiceEnvironment]
+Kom igång med App Service-miljöer, se [hur du skapar en App Service Environment][HowToCreateAnAppServiceEnvironment]
 
-En översikt över nätverksarkitektur Apptjänst-miljö finns i [arkitektur, översikt] [ NetworkArchitectureOverview] artikel.
+En översikt över nätverksarkitekturen i App Service Environment finns i den [översikt över nätverksarkitekturen] [ NetworkArchitectureOverview] artikeln.
 
-Mer information om hur du använder en Apptjänst-miljö med ExpressRoute finns i följande artikel på [Express Route och Apptjänstmiljöer][NetworkConfigDetailsForExpressRoute].
+Mer information om hur du använder en App Service Environment med ExpressRoute, finns i följande artikel på [Expressroute och Apptjänstmiljöer][NetworkConfigDetailsForExpressRoute].
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
@@ -93,7 +93,7 @@ Mer information om hur du använder en Apptjänst-miljö med ExpressRoute finns 
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
 [GeodistributedAppFootprint]:  app-service-app-service-environment-geo-distributed-scale.md
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[SiteToSite]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site
+[SiteToSite]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]:  app-service-web-configure-an-app-service-environment.md
 [ControllingInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md

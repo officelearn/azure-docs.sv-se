@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3eca9e416a18e7389a6ce45cccd3cc99707e9806
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ffc2a9fb7b0ed516645c833f87c9ef5c95ca20ff
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070442"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580760"
 ---
 # <a name="register-in-dev-center"></a>Registrera i Dev Center  
 För att kontrollera att du inte är inloggad på ett konto för personliga webbläsaren kan öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession.  
@@ -108,11 +108,11 @@ Följ stegen nedan för att skicka in ett supportärende om du har problem med r
 > Utgivaren som publicerar i Transact listtyp: VM, Azure-appar: lösningsmallar och hanterade appar.  
 
 *   **Varför är Dev Center-konto som krävs?**
-> Dev Center-konto är en nödvändig för att Microsoft ska fakturera kunden på utgivarens räkning för Transact listtyp. Dev Center-konto registrering kan Microsoft verifiera eventuella juridiska krav, skatte- och bankinformation för ditt företag. Att lära dig mer genom att klicka [här.](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#register-in-dev-center)
+> Dev Center-konto är en nödvändig för att Microsoft ska fakturera kunden på utgivarens räkning för Transact listtyp. Dev Center-konto registrering kan Microsoft verifiera eventuella juridiska krav, skatte- och bankinformation för ditt företag. Att lära dig mer genom att klicka [här.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
 
 *   **Hur kommer jag igång med Dev Center registrering?**
 > Kontrollera att ditt företag inte redan har ett Dev Center-konto som har registrerats för att förhindra dubbletter. Du måste vara inloggad med Microsoft-konto som du vill associera med ditt utvecklarkonto. Om du inte redan har ett Microsoft-konto, kan du skapa ett nytt konto [här.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exempel: contoso_marketplace@live.com) för att logga in och registrera, gå till https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>Läs mer om registreringsprocessen klickar du på [här.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center)</br>
+<br>Läs mer om registreringsprocessen klickar du på [här.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 *   **Ska jag välja ”person” eller ”företagets” kontotyp?**
 > Du måste välja företagskonto vid registrering av ditt Dev Center-konto om du vill publicera en transact-erbjudandet på Marketplace.
@@ -143,7 +143,7 @@ Följ stegen nedan för att skicka in ett supportärende om du har problem med r
 > Tilldela ett tillfälligt företagsnamn, kontakta supporten på [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) och uppger din affärsdokument för registrering.
 
 *   **Hur lägger jag till min skatte- och payout information?**
-> Du kommer inte att kunna publicera transact erbjudanden utan att slutföra skatte- och bank informationen i Dev Center-konto.  Mer information om att lägga till kontoinformation finns [så Lägg till bank-och skatt.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
+> Du kommer inte att kunna publicera transact erbjudanden utan att slutföra skatte- och bank informationen i Dev Center-konto.  Mer information om att lägga till kontoinformation finns [så Lägg till bank-och skatt.](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
 
 *   **Kan jag ändra inloggningskonto Dev Center Microsoft?**
 > Nej. När du har skapat ett Dev Center kan inte Ägarkontot ändras. Du skulle behöva börja om med en helt ny Dev Center-konto med önskat Microsoft-konto.

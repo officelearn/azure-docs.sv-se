@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 9b2c5fa38d0ad21a374d3e5acee8534aeb9c0384
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306988"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580556"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
 Uppgradera Azure SQL Data Warehouse till senaste generationen i Azure maskin- och storage-arkitektur.
@@ -34,7 +34,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 > [!NOTE]
-> Om ditt befintliga Compute Optimized Gen1 nivån data warehouse inte är i en region där Compute Optimized Gen2-nivån är tillgänglig, kan du [geo-återställning](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) via PowerShell till en region som stöds.
+> Om ditt befintliga Compute Optimized Gen1 nivån data warehouse inte är i en region där Compute Optimized Gen2-nivån är tillgänglig, kan du [geo-återställning](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) via PowerShell till en region som stöds.
 > 
 >
 

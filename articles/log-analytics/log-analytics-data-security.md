@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 4cf04ceeb8650b2978389cefb561ae31e88bc853
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: af8c0b6a4aa0c3b6e25f92dc450faa22a01ee374
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282445"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579192"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics-datasäkerhet
 Det här dokumentet är avsedd att ge specifik information från Azure Log Analytics för att komplettera informationen på [Azure Trust Center](../security/security-microsoft-trust-center.md).  
@@ -51,9 +51,9 @@ Vi rekommenderar inte uttryckligen ställa in din agent att bara använda TLS 1.
 |Plattform/språk | Support | Mer information |
 | --- | --- | --- |
 |Linux | Linux-distributioner tenderar att förlita dig på [OpenSSL](https://www.openssl.org) för stöd för TSL 1.2.  | Kontrollera den [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) att bekräfta din version av OpenSSL stöds.|
-| Windows 8.0-10 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012-2016 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men inte är aktiverad som standard. | Se den [registerinställningar för Transport Layer Security (TLS)](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) för information om hur du aktiverar.  |
+| Windows 8.0-10 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012-2016 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men inte är aktiverad som standard. | Se den [registerinställningar för Transport Layer Security (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) för information om hur du aktiverar.  |
 | Windows Server 2008 SP2 | Stöd för TLS 1.2 kräver en uppdatering. | Se [Update för att lägga till stöd för TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
 
 ## <a name="data-segregation"></a>dataavgränsning
@@ -86,7 +86,7 @@ I följande tabell visas exempel på datatyper:
 | Status |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fysisk säkerhet
-Log Analytics-tjänsten hanteras av Microsoft-Personal och alla aktiviteter loggas och kan granskas. Log Analytics körs som en Azure-tjänst och uppfyller alla krav för Azure-efterlevnad och säkerhet. Du kan visa information om den fysiska säkerheten för Azure-tillgångar på sidan 18 i den [översikt över Microsoft Azure Security](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysiska åtkomsträttigheter för att skydda områden ändras inom en arbetsdag för alla som inte längre har ansvar för Log Analytics-tjänsten, inklusive överföring och avslut. Du kan läsa om den globala fysiska infrastrukturen som vi använder på [Microsofts Datacenters](https://azure.microsoft.com/en-us/global-infrastructure/).
+Log Analytics-tjänsten hanteras av Microsoft-Personal och alla aktiviteter loggas och kan granskas. Log Analytics körs som en Azure-tjänst och uppfyller alla krav för Azure-efterlevnad och säkerhet. Du kan visa information om den fysiska säkerheten för Azure-tillgångar på sidan 18 i den [översikt över Microsoft Azure Security](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysiska åtkomsträttigheter för att skydda områden ändras inom en arbetsdag för alla som inte längre har ansvar för Log Analytics-tjänsten, inklusive överföring och avslut. Du kan läsa om den globala fysiska infrastrukturen som vi använder på [Microsofts Datacenters](https://azure.microsoft.com/global-infrastructure/).
 
 ## <a name="incident-management"></a>incidenthantering
 Log Analytics har en incidenthanteringsprocess som följer alla Microsoft-tjänster. Sammanfattningsvis, vi:

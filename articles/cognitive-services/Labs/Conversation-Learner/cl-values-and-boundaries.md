@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c0ad9f71665e503fe794c68200b90a8474750823
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b048509f38356b19d52507f4dfb5bfa61122f9f6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173633"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576433"
 ---
 # <a name="default-values-and-boundaries"></a>Standardvärden och gränser
 
@@ -35,8 +35,8 @@ Redigera API max HTTP-anrop per månad | 5M
 Redigerar API, max HTTP-anrop per sekund | 25
 Sessionen API, max HTTP-anrop per månad | 500 000
 Sessionen API, max HTTP-anrop per sekund | 10
-Maxantal egna (icke-programmässiga) entiteter per modell | Se [LUIS gränser doc](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries); i praktiken faktiska antalet kan vara något mindre
-Maxantal färdiga entiteter per modell | Se [LUIS gränser dokument](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)
+Maxantal egna (icke-programmässiga) entiteter per modell | Se [LUIS gränser doc](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries); i praktiken faktiska antalet kan vara något mindre
+Maxantal färdiga entiteter per modell | Se [LUIS gränser dokument](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)
 Maxantal entiteter (i totalt) per modell | 100
 Maxantal åtgärder per modell | 32
 Maxantal träna dialogrutor per modell | 1000

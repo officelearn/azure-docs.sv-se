@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Amazon enkla lagringstjänsten med Azure Data Factory | Microsoft Docs
-description: Läs mer om hur du kopierar data från Amazon enkla Storage-tjänst (S3) till stöds sink datalager med hjälp av Azure Data Factory.
+title: Kopiera data från Amazon Simple Storage Service med Azure Data Factory | Microsoft Docs
+description: Läs mer om hur du kopierar data från Amazon Simple Storage Service (S3) till datalager för mottagare som stöds med hjälp av Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -8,56 +8,59 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 09/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 3635e8bf1d9ba4061da5b8f416a3b755f7064000
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: bdbf0b74b6e851e0dd84ff5d9aafb84d878d8ea2
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045644"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542082"
 ---
-# <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon enkla lagringstjänsten med Azure Data Factory
+# <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon Simple Storage Service med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Aktuell version](connector-amazon-simple-storage-service.md)
 
-Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Amazon S3. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Amazon S3. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data Amazon S3 till alla stöds sink-datalagret. En lista över datalager som stöds som datakällor eller sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data Amazon S3 till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Mer specifikt stöder den här Amazon S3-anslutningen kopierar filer som-är eller parsning filer med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
+Mer specifikt den här Amazon S3-anslutningsappen stöder kopiera filer som-är eller parsningsfilerna med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-Om du vill kopiera data från Amazon S3, kontrollera att du har beviljats följande behörigheter:
+För att kopiera data från Amazon S3, kontrollera att du har beviljats följande behörigheter:
 
-- `s3:GetObject` och `s3:GetObjectVersion` för Amazon S3 objekt åtgärder.
-- `s3:ListBucket` eller `s3:GetBucketLocation` för Amazon S3 Bucket-åtgärder. Om du använder guiden Data Factory kopiera `s3:ListAllMyBuckets` krävs också.
+- `s3:GetObject` och `s3:GetObjectVersion` för Amazon S3-objektet.
+- `s3:ListBucket` eller `s3:GetBucketLocation` för Amazon S3-Bucket åtgärder. 
 
-Mer information om en fullständig lista över Amazon S3 behörigheter finns [att ange behörigheter i en princip](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+>[!NOTE]
+>När du använder Data Factory-Gränssnittet för redigering, `s3:ListAllMyBuckets` behörighet krävs också för, till exempel Testa anslutning och bläddra/navigera filsökvägar. Om du inte vill bevilja den här behörigheten kan du hoppa över Testa anslutning i sidan för att skapa den länkade tjänsten och speicify sökvägen direkt i inställningarna för datauppsättningen.
+
+Mer information om en fullständig lista över Amazon S3-behörigheter finns i [att ange behörigheter i en princip](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter för Amazon S3.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Amazon S3.
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för Amazon S3 länkade tjänsten:
+Följande egenskaper har stöd för Amazon S3 länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type måste anges till **AmazonS3**. | Ja |
+| typ | Type-egenskapen måste anges till **AmazonS3**. | Ja |
 | accessKeyId | ID för den hemliga åtkomstnyckeln. |Ja |
-| secretAccessKey | Hemlig själva åtkomstnyckeln. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
+| secretAccessKey | Den hemliga åtkomstnyckeln själva. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!NOTE]
->Den här anslutningen kräver åtkomstnycklar för IAM-konto för att kopiera data från Amazon S3. [Tillfällig säkerhets-ID](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) stöds inte.
+>Den här anslutningen kräver åtkomstnycklarna för IAM-konto för att kopiera data från Amazon S3. [Tillfällig autentiseringsuppgift](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) stöds inte.
 >
 
 Här är ett exempel:
@@ -84,22 +87,22 @@ Här är ett exempel:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av Amazon S3 dataset.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av Amazon S3-datamängd.
 
-Ange typegenskapen för dataset för att kopiera data från Amazon S3, **AmazonS3Object**. Följande egenskaper stöds:
+För att kopiera data från Amazon S3, ange typegenskapen på datauppsättningen till **AmazonS3Object**. Följande egenskaper stöds:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för dataset måste anges till: **AmazonS3Object** |Ja |
-| bucketName | S3-Bucketnamn. Wildcard-filter stöds inte. |Ja |
-| key | Den **namn eller jokertecken-filtret** S3 objekt nyckel under en angiven bucket. Gäller bara när ”prefixet”-egenskap har inte angetts. <br/><br/>Wildcard-filtret har endast stöd för filen Namndelen men som inte finns i mappen. Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>-Exempel 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Exempel 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Använd `^` att undanta om din faktiska filnamnet innehåller jokertecken eller den här escape-tecken i. |Nej |
-| prefix | Prefix för nyckeln S3 objekt. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när ”key”-egenskap inte har angetts. |Nej |
-| version | Versionen av objektet S3 om S3 versionshantering är aktiverad. |Nej |
-| Format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill att parsa eller generera filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
-| komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **AmazonS3Object** |Ja |
+| bucketName | S3-Bucketnamn. Jokerteckenfilter stöds inte. |Ja |
+| key | Den **namn eller jokertecken-filtret** för S3 Objektnyckel under en angiven bucket. Gäller endast när egenskapen ”prefixet” inte har angetts. <br/><br/>Jokerteckenfiltret har endast stöd för Namndelen för filen men inte mappdelen. Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>– Exempel 1: `"key": "rootfolder/subfolder/*.csv"`<br/>– Exempel 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Använd `^` att undvika om din faktiska filnamnet har jokertecken eller den här escape-tecken i. |Nej |
+| prefix | Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när egenskapen ”nyckeln” inte har angetts. |Nej |
+| version | Versionen av S3-objektet, om S3 versionshantering är aktiverad. |Nej |
+| Format | Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia).<br/><br/>Om du vill parsa eller generera filer med ett visst format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-Format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binär kopia scenario) |
+| Komprimering | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 
 >[!TIP]
->Kopiera alla filer i en mapp genom att ange **bucketName** för bucket och **prefix** för mappen.<br>Om du vill kopiera en enstaka fil med ett angivet namn, ange **bucketName** för bucket och **nyckeln** för en del plus filen mappnamn.<br>Om du vill kopiera en delmängd av filer på en mapp, ange **bucketName** för bucket och **nyckeln** för mappen del plus jokertecken-filtret.
+>Kopiera alla filer i en mapp genom att ange **bucketName** för bucket och **prefix** för mappdelen.<br>Om du vill kopiera en enstaka fil med ett givet namn, ange **bucketName** för bucket och **nyckel** för en del plus filen mappnamn.<br>Om du vill kopiera en delmängd av filerna under en mapp, anger **bucketName** för bucket och **nyckel** för mappen del plus jokertecken-filtret.
 
 **Exempel: med prefix**
 
@@ -160,16 +163,16 @@ Ange typegenskapen för dataset för att kopiera data från Amazon S3, **AmazonS
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Amazon S3 källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Amazon S3-källan.
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 som källa
 
-Om du vill kopiera data från Amazon S3, anger du datakällan i kopieringsaktiviteten till **FileSystemSource** (som omfattar Amazon S3). Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
+För att kopiera data från Amazon S3, ange typ av datakälla i kopieringsaktiviteten till **FileSystemSource** (som innehåller Amazon S3). Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **FileSystemSource** |Ja |
-| rekursiva | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. Obs när rekursiv är inställd på true och mottagare är filbaserad lagring, tom mapp/underåtgärder-folder kommer inte att kopieras/skapas på mottagare.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
+| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **FileSystemSource** |Ja |
+| rekursiv | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. Obs när rekursiv har angetts till true och mottagare är filbaserade store, tom mapp/underanvändningsfall-folder kan inte kopieras/skapas vid mottagare.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
 
 **Exempel:**
 
@@ -203,4 +206,4 @@ Om du vill kopiera data från Amazon S3, anger du datakällan i kopieringsaktivi
 ]
 ```
 ## <a name="next-steps"></a>Nästa steg
-En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

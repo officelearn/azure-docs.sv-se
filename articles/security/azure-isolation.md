@@ -1,6 +1,6 @@
 ---
-title: Isolera i det offentliga Azure-molnet | Microsoft Docs
-description: Läs mer om molnbaserad databearbetning tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise.
+title: Isolering i det offentliga Azure-molnet | Microsoft Docs
+description: Läs mer om molnbaserad databehandling tjänster som omfattar ett brett urval av beräkningsinstanser och tjänster som kan skalas upp och ned automatiskt för att uppfylla behoven i ditt program eller enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,122 +14,122 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018422"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579865"
 ---
-# <a name="isolation-in-the-azure-public-cloud"></a>Isolera i det offentliga Azure-molnet
+# <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 ##  <a name="introduction"></a>Introduktion
 ### <a name="overview"></a>Översikt
-För att hjälpa Azure aktuella och potentiella kunder förstå och använda olika säkerhetsrelaterade funktioner tillgängliga i och omgivande Azure-plattformen Microsoft har utvecklat en serie faktablad, säkerhet översikter, bästa praxis och Checklistor.
-Avsnitten intervallet vad gäller bredd och djup och uppdateras regelbundet. Det här dokumentet är en del av serien som sammanfattas i följande avsnitt som abstrakt.
+För att hjälpa Azure aktuella och potentiella kunder förstå och använda olika säkerhetsrelaterade funktioner som ingår i och med Azure-plattformen Microsoft har utvecklat en serie White Paper-faktablad, Security översikter, bästa praxis och Checklistor.
+Ämnena variera beroende på bredden och djupet och uppdateras regelbundet. Det här dokumentet är en del av serien som sammanfattas i följande abstrakta avsnittet.
 
 ### <a name="azure-platform"></a>Azure-plattformen
-Azure är en öppen och flexibla molntjänstplattform som stöder bredaste valet av operativsystem, programmeringsspråk, ramverk, verktyg, databaser, och enheter. Du kan till exempel:
-- Kör Linux behållare med Docker-integration.
+Azure är en öppen och flexibel molntjänstplattform som har stöd för det bredaste urvalet av operativsystem, programmeringsspråk, ramverk, verktyg, databaser och enheter. Du kan till exempel:
+- Kör Linux-behållare med Docker-integrering
 - Skapa appar med JavaScript, Python, .NET, PHP, Java och Node.js; och
-- Build-servrar för iOS, Android och Windows enheter.
+- Bygg serverdelar för iOS, Android och Windows enheter.
 
-Microsoft Azure stöder att samma tekniker miljontals utvecklare och IT-proffs redan förlitar sig på och litar på.
+Microsoft Azure har stöd för samma teknik som miljontals utvecklare och IT-proffs redan använder och litar på.
 
-När du bygger på, eller migrera IT tillgångar, en offentlig molntjänstleverantör, måste den organisationens förmåga att skydda dina program och data med tjänster och de kontroller som de tillhandahåller för att hantera säkerheten för din molnbaserade tillgångar.
+När du bygger på, eller migrerar IT-tillgångar till en offentlig molntjänstleverantör du lita på den organisationens förmåga att skydda dina program och data med tjänsterna och de kontroller som de tillhandahåller för att hantera säkerheten för dina molnbaserade tillgångar.
 
-Allt i Azures infrastruktur, från anläggning till tillämpningar, är utformat för att fungera som värd för miljoner kunder samtidigt, och den tillhandahåller en säker grund som företaget kan använda sig av för att möta de interna säkerhetsbehoven. Dessutom erbjuder Azure dig en mängd olika konfigurerbara säkerhetsalternativ samt möjligheten att kontrollera dem, så att du kan anpassa säkerheten för att uppfylla de specifika behoven hos dina distributioner. Det här dokumentet hjälper dig att möta dessa krav.
+Allt i Azures infrastruktur, från anläggning till tillämpningar, är utformat för att fungera som värd för miljoner kunder samtidigt, och den tillhandahåller en säker grund som företaget kan använda sig av för att möta de interna säkerhetsbehoven. Dessutom erbjuder Azure dig en mängd olika konfigurerbara säkerhetsalternativ samt möjligheten att kontrollera dem, så att du kan anpassa säkerheten för att uppfylla de specifika behoven hos dina distributioner. Det här dokumentet hjälper dig att uppfylla dessa krav.
 
 ### <a name="abstract"></a>Abstrakt
 
-Microsoft Azure kan du köra program och virtuella maskiner (VMs) på delad fysisk infrastruktur. En av särskilda ekonomiska motiveringen till program som körs i en molnmiljö är möjligheten att distribuera kostnaderna för delade resurser mellan flera kunder. Det här tillvägagångssättet för flera innehavare ökar effektiviteten genom multiplexering resurser mellan olika kunder låg kostnad. Tyvärr introducerar även risken för delning av fysiska servrar och andra infrastrukturresurser för för att köra känsliga program och virtuella datorer som kan höra till en skadlig och potentiellt skadliga användare.
+Microsoft Azure kan du köra program och virtuella datorer (VM) på delade fysiska infrastrukturen. En av särskilda ekonomiska motiveringarna i program som körs i en molnmiljö är möjligheten att distribuera kostnaden för delade resurser mellan flera kunder. Det här tillvägagångssättet för flera innehavare förbättrar effektiviteten av multiplexering resurser mellan olika kunder med låg kostnad. Tyvärr introducerar det också risken med att dela fysiska servrar och andra resurser i infrastrukturen att köra dina känsliga program och virtuella datorer som kan höra till en skadlig och potentiellt skadliga användare.
 
-Den här artikeln beskrivs hur Microsoft Azure tillhandahåller isolering mot skadliga såväl som icke-skadliga användare och fungerar som en guide för att bygga om molnlösningar genom att erbjuda olika alternativ för isolering arkitekter. Faktabladet fokuserar på tekniken av Azure-plattformen och kunden vända säkerhetskontroller och försöker inte adressen SLA: er, prissättning modeller och DevOps överväganden.
+Den här artikeln beskrivs hur Microsoft Azure ger isolering mot både skadlig och icke-skadliga användare och fungerar som en vägledning för att skapa molnlösningar genom att erbjuda olika alternativ för isolering arkitekter. Detta white paper fokuserar på teknik av Azure-plattformen och kundinriktad säkerhetskontroller och försöker inte adress serviceavtal, modeller och DevOps-överväganden.
 
 ## <a name="tenant-level-isolation"></a>Nivån Klientisolering
-En av de främsta fördelarna med cloud computing är konceptet för en delad infrastruktur som är vanliga i ett stort antal kunder samtidigt, vilket leder till stordriftsfördelar. Detta kallas för flera innehavare. Microsoft arbetar kontinuerligt för att se till att arkitekturen med flera innehavare för Microsoft Cloud Azure stöder säkerhet, sekretess, sekretess, integritet och tillgänglighet standarder.
+En av de främsta fördelarna med molnbaserad databehandling är konceptet med en delad infrastruktur som är vanliga i ett stort antal kunder samtidigt, vilket leder till stordriftsfördelar. Detta kallas för flera innehavare. Microsoft arbetar kontinuerligt för att säkerställa att arkitekturen med flera innehavare av Microsoft Cloud Azure har stöd för säkerhet, sekretess, sekretess, integritet och tillgänglighet standarder.
 
-På en arbetsplats i molnet kan en klientorganisation definieras som en klient eller organisation som äger och hanterar en specifik instans av molntjänsten. Med identitetsplattformen som tillhandahålls av Microsoft Azure är en klient helt enkelt en dedikerad instans av Azure Active Directory (AD Azure) som din organisation tilldelas och äger när den registrerar sig för en Microsoft-molntjänst.
+På en arbetsplats i molnet kan en klientorganisation definieras som en klient eller organisation som äger och hanterar en specifik instans av molntjänsten. Med identitetsplattformen som tillhandahålls av Microsoft Azure, är en klient helt enkelt en dedikerad instans av Azure Active Directory (Azure AD) som din organisation tilldelas och äger när den registrerar sig för en Microsoft-molntjänst.
 
 Varje Azure AD-katalog är separat och åtskild från andra Azure AD-kataloger. Precis som ett företags kontorsbyggnad är en säker resurs som är specifik för din organisation har även Azure AD-katalogen utformats för att vara en säker tillgång för exklusiv användning av din organisation. Azure AD-arkitekturen håller isär kunddata och identitetsinformation. Det innebär att användare och administratörer av en Azure AD-katalog inte oavsiktligt eller illvilligt kan komma åt data i en annan katalog.
 
 ### <a name="azure-tenancy"></a>Azure innehavare
-Azure innehavare (Azure-prenumeration) refererar till en relation med ”kund/billing” och en unik [klient](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) i [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Nivån klientisolering i Microsoft Azure uppnås med hjälp av Azure Active Directory och [rollbaserad kontroller](https://docs.microsoft.com/azure/role-based-access-control/overview) erbjuds av den. Varje Azure-prenumeration är associerad med en katalog i Azure Active Directory (AD).
+Azure innehavare (Azure-prenumeration) refererar till en relation med ”kund/billing” och ett unikt [klient](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) i [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Nivån klientisolering i Microsoft Azure uppnås med hjälp av Azure Active Directory och [rollbaserade kontroller](https://docs.microsoft.com/azure/role-based-access-control/overview) erbjuds av den. Varje Azure-prenumeration är associerad med en katalog i Azure Active Directory (AD).
 
-Användare, grupper och program från katalogen kan hantera resurser i Azure-prenumerationen. Du kan tilldela behörigheter med Azure-portalen, Azure kommandoradsverktyg och Azure Management-API: er. En Azure AD-klient är logiskt isolerade med säkerhetsgränser så att ingen kund kan komma åt eller kompromettera samtidigt hyresgäster medvetet eller av misstag. Azure AD som körs på ”bare metal”-servrar isolerade i ett separat nätverkssegment där värdnivå paketfilter och Windows-brandväggen blockerar oönskade anslutningar och trafik.
+Användare, grupper och program från katalogen kan hantera resurser i Azure-prenumeration. Du kan tilldela behörigheter med Azure-portalen, Azure kommandoradsverktyg och Azure Management API: er. En Azure AD-klient är logiskt isolerad med hjälp av säkerhetsgränser så att ingen kund kan komma åt eller kompromettera delad klienter oavsiktligt eller illvilligt. Azure AD som körs på ”bare metal”-servrar som är isolerade i en fördelad nätverkssegment där filtrering av nätverkspaket värdnivå och Windows-brandväggen blockerar oönskad anslutningar och trafik.
 
-- Åtkomst till data i Azure AD kräver användarautentisering via en säkerhetstokentjänst (STS). Information om användarens existens aktiverat läge och rollen används av systemets tillstånd för att avgöra om den begärda åtkomsten till mål-klienten har behörighet för den här användaren i den här sessionen.
+- Åtkomst till data i Azure AD kräver användarautentisering via en säkerhetstokentjänst (STS). Information om användarens förekomsten, aktiverade tillstånd och rollen används av auktorisering systemet för att avgöra om den begärda åtkomsten till Målklienten har behörighet för den här användaren i den här sessionen.
 
 ![Azure innehavare](./media/azure-isolation/azure-isolation-fig1.png)
 
 
 - Klienter är diskreta behållare och det finns ingen relation mellan dessa.
 
-- Ingen åtkomst över innehavare om innehavaradministration beviljar via federation eller etablering användarkonton från andra klienter.
+- Ingen åtkomst mellan klienter, såvida inte klientorganisationens administratör beviljar via federation eller etablera användarkonton från andra klienter.
 
-- Fysisk åtkomst till servrar som ingår i Azure AD-tjänsten och direkt åtkomst till Azure AD backend-system är begränsad.
+- Fysisk åtkomst till servrar som utgör Azure AD-tjänsten och direktåtkomst till Azure Active Directorys backend-system är begränsad.
 
-- Azure AD-användare har ingen åtkomst till fysiska tillgångar eller platser och är därför inte möjligt att kringgå de logiska RBAC principkontroller anges efter.
+- Azure AD-användare har ingen åtkomst till fysiska tillgångar eller platser och är därför inte möjligt för dem att kringgå de logiska RBAC principkontroller anges efter.
 
-För diagnostik- och behov av underhåll, krävs en funktionsmodell som använder en just-in-time-privilegium höjning system och användas. Azure AD Privileged Identity Management (PIM) introducerar konceptet för en berättigad-administratör. [Berättigad administratörer](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) ska vara användare som behöver privilegierad åtkomst till då och då, men inte varje dag. Rollen är inaktiv tills användaren behöver åtkomst, och sedan de slutföra aktiveringsprocessen och bli administratör active för en förinställd tidsperiod.
+För diagnostik- och underhållsbehov en driftsmodell som använder ett system för höjning av just-in-time-privilegier krävs och används. Azure AD Privileged Identity Management (PIM) introduceras konceptet berättigad administratör. [Berättigade administratörer](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) ska vara användare som behöver privilegierad åtkomst då och då, men inte varje dag. Rollen är inaktiv tills användaren behöver åtkomst. Därefter slutför användaren en aktiveringsprocess och blir aktiv administratör under en förinställd tidsperiod.
 
 ![Azure AD Privileged Identity Management](./media/azure-isolation/azure-isolation-fig2.png)
 
-Azure Active Directory är värd för varje innehavare i sin egen skyddade behållaren med principer och behörigheter till och i behållare enbart ägs och hanteras av klienten.
+Azure Active Directory är värd för varje klient i en egen skyddad behållare med principer och behörigheter till och inom behållaren enbart ägs och hanteras av klienten.
 
-Begreppet klient behållare är djupt ingrained i katalogtjänsten på alla skikt från portaler ända till beständig lagring.
+Begreppet klient behållare är djupt förankrade i katalogtjänsten på alla nivåer från portaler hela vägen till beständig lagring.
 
-Även om metadata från flera Azure Active Directory-klienter finns på samma fysiska disk, finns det ingen relation mellan behållare än vad som definieras av katalogtjänsten, som i sin tur styrs av klientorganisationsadministratören.
+Även om metadata från flera Azure Active Directory-klienter finns på samma fysiska disk, finns det ingen relation mellan behållare än det som definieras av katalogtjänsten, vilket i sin tur styrs av klientadministratören.
 
 ### <a name="azure-role-based-access-control-rbac"></a>Azure rollbaserad åtkomstkontroll (RBAC)
-[Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) hjälper dig att dela olika komponenter som är tillgängliga i en Azure-prenumeration genom att tillhandahålla detaljerad åtkomsthantering för Azure. Azure RBAC gör att du kan särskilja uppgifter i din organisation och bevilja åtkomst baserat på vad användarna behöver för att utföra sitt arbete. Istället för att ge alla obegränsad behörighet i Azure-prenumeration eller resurser, kan du tillåta endast vissa åtgärder.
+[Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) hjälper dig att dela olika komponenter som är tillgängliga i en Azure-prenumeration genom att tillhandahålla detaljerad åtkomsthantering för Azure. RBAC i Azure kan du särskilja uppgifter inom din organisation och bevilja åtkomst baserat på vad användare behöver utföra sitt arbete. Istället för att ge alla obegränsad behörighet i Azure-prenumeration eller resurser kan du tillåta enbart vissa åtgärder.
 
-Azure RBAC har tre grundläggande roller som gäller för alla typer av resurser:
+RBAC i Azure har tre grundläggande roller som gäller för alla typer av resurser:
 
-- **Ägare** har fullständig åtkomst till alla resurser som bland annat att delegera åtkomst till andra.
+- **Ägare** har fullständig åtkomst till alla resurser inklusive rätten att delegera åtkomst till andra.
 
 - **Deltagare** kan skapa och hantera alla typer av Azure-resurser, men det går inte att bevilja åtkomst till andra.
 
-- **Läsaren** kan visa befintliga Azure-resurser.
+- **Läsare** kan visa befintliga Azure-resurser.
 
 ![Azures rollbaserade åtkomstkontroll](./media/azure-isolation/azure-isolation-fig3.png)
 
-Resten av rollerna i Azure RBAC kan hanteringen av specifika Azure-resurser. Till exempel tillåter virtuella deltagarrollen användaren att skapa och hantera virtuella datorer. Det ger dem åtkomst till Azure-nätverk eller undernät som den virtuella datorn ansluter till.
+Resten av RBAC-roller i Azure kan hanteringen av specifika Azure-resurser. Exempelvis kan gör rollen virtuell Datordeltagare att användaren att skapa och hantera virtuella datorer. Det ger dem åtkomst till Azure-nätverk eller undernät som den virtuella datorn ansluter till.
 
-[Inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) lista roller i Azure. Det anger åtgärder och scope som varje inbyggd roll som ger användare. Om du behöver för att definiera egna roller för ännu mer kontroll, se hur du skapar [anpassade roller i Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+[RBAC inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) listar rollerna som är tillgängliga i Azure. Den anger drift- och omfång som varje inbyggd roll som ger användare. Om du vill definiera egna roller för ännu mer kontroll, se hur du skapar [anpassade roller i Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
-Vissa funktioner för Azure Active Directory är:
-- Azure AD aktiverar enkel inloggning för SaaS-program, oavsett var de finns. Vissa program federeras med Azure AD och andra använder enkel inloggning med lösenord. Federerade program kan också använda användaretablering och [lösenordsvalv](https://www.techopedia.com/definition/31415/password-vault).
+Vissa andra funktioner för Azure Active Directory är:
+- Azure AD kan SSO till SaaS-program, oavsett var de finns. Vissa program federeras med Azure AD och andra använder enkel inloggning med lösenord. Federerade program kan också använda etableringen av användare och [lösenordsvalv](https://www.techopedia.com/definition/31415/password-vault).
 
 - Åtkomst till data i [Azure Storage](https://azure.microsoft.com/services/storage/) styrs via autentisering. Varje lagringskonto har en primär nyckel ([lagringskontonyckel](https://docs.microsoft.com/azure/storage/storage-create-storage-account), eller SAK) och en sekundär hemlig nyckel (signatur för delad åtkomst, eller SAS).
 
-- Azure AD innehåller identitet som en tjänst via federation med hjälp av [Active Directory Federation Services](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-azure-adfs), synkronisering och replikering med lokala kataloger.
+- Azure AD erbjuder identitet som en tjänst via federering med hjälp av [Active Directory Federation Services](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-azure-adfs), synkronisering och replikering med lokala kataloger.
 
-- [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) är tjänsten multifaktorautentisering som kräver att användare att verifiera inloggningar med hjälp av en mobilapp, telefonsamtal eller SMS. Den kan användas med Azure AD för att säkra lokala resurser med Azure Multi-Factor Authentication-servern, och anpassade program och kataloger med hjälp av SDK.
+- [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) är Multi-Factor authentication-tjänst som användare måste bekräfta inloggningar med hjälp av en mobilapp, telefonsamtal eller SMS. Det kan användas med Azure AD för att skydda lokala resurser med Azure Multi-Factor Authentication-servern och även med anpassade program och kataloger med hjälp av SDK.
 
-- [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) kan du ansluta virtuella datorer i Azure Active Directory-domän utan att distribuera domänkontrollanter. Du kan logga in på dessa virtuella datorer med företagets Active Directory-autentiseringsuppgifter och administrera domänanslutna virtuella datorer med hjälp av Grupprincip för att genomdriva baslinjer för säkerhet på alla dina virtuella Azure-datorer.
+- [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) kan du ansluta virtuella Azure-datorer till en Active Directory-domän utan att distribuera domänkontrollanter. Du kan logga in på dessa virtuella datorer med dina autentiseringsuppgifter för företagets Active Directory och administrera domänanslutna virtuella datorer med hjälp av Grupprincip för att upprätthålla säkerheten på alla virtuella datorer i Azure.
 
-- [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) ger en hög tillgänglighet globala identity management-tjänst för konsumentinriktade program som kan skalas till flera hundra miljoner identiteter. Den kan integreras över mobila plattformar och webbaserade plattformar. Dina användare kan logga in på alla program via anpassningsbara upplevelser genom att använda sina befintliga sociala konton eller genom att skapa autentiseringsuppgifter.
+- [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) är en tjänst för konsumentinriktade program med hög tillgänglighet globala Identitetshantering som kan skalas till hundratals miljoner identiteter. Den kan integreras över mobila plattformar och webbaserade plattformar. Konsumenterna kan logga in på alla dina program via anpassningsbara upplevelser med sina befintliga sociala konton eller genom att skapa autentiseringsuppgifter.
 
-### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolering från Microsoft administratörer & Databorttagning
-Microsoft tar starkt åtgärder för att skydda dina data från oönskad åtkomst eller använda av obehöriga. Dessa operativa processer och kontroller backas upp av den [Online Services-villkoren](http://aka.ms/Online-Services-Terms), som erbjuder avtal åtaganden som styr åtkomsten till dina data.
+### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolering från Microsoft-administratörer & Databorttagning
+Microsoft tar stark åtgärder för att skydda dina data från oönskad åtkomst eller använda av obehöriga personer. Dessa driftrutiner och säkerhetskontroller backas upp av den [villkoren för Online Services](http://aka.ms/Online-Services-Terms), som erbjuder avtalsenliga åtaganden som styr åtkomsten till dina data.
 
--   Microsoft-tekniker har inte åtkomst till dina data i molnet. I stället ges de tillgång under hantering av tillsyn, bara när det behövs. Att åtkomsten är noggrant kontrolleras loggas och återkallas när den inte längre behövs.
+-   Microsoft-tekniker har inte åtkomst till dina data i molnet. I stället ges de åtkomst till under hantering av tillsyn, vid behov. Att åtkomsten är noggrant kontrolleras loggas och återkallas när den inte längre behövs.
 
--   Microsoft kan anlita andra företag att tillhandahålla begränsade tjänster i dess ställe. Underleverantörer kan komma åt kundens data endast för att leverera tjänsterna som vi har anlitat dem att tillhandahålla och de är förbjudna att använda informationen i något annat syfte. Dessutom är de enligt avtal bundna konfidentiell information för våra kunder.
+-   Microsoft kan anlita andra företag som tillhandahåller begränsade tjänster för vår räkning. Underleverantörer som har åtkomst till kunddata endast för att leverera tjänsterna som vi har anlitat dem för att tillhandahålla och de är förbjudna att använda den i något annat syfte. Dessutom är de avtalsenligt bundna att underhålla konfidentialiteten för våra kunder.
 
-Företagstjänster med granskad certifieringar, till exempel ISO/IEC 27001 kontrolleras regelbundet av Microsoft och auktoriserad audit företag, som utför exempel granskningar intyga den åtkomsten endast för legitima affärsändamål. Du kan alltid komma åt dina egna kunddata när som helst och av någon anledning.
+Företagstjänster med granskad certifieringar, till exempel ISO/IEC 27001 kontrolleras regelbundet av Microsoft och utomstående revisionsbyråer, vilket gör stickprov för att intyga att åtkomsten endast för legitima affärsändamål. Du kan alltid komma åt din egen kundinformation när som helst och av någon anledning.
 
-Om du tar bort alla data som Microsoft Azure tar bort data, inklusive eventuella cachelagrade eller säkerhetskopiering kopior. Borttagningen sker för omfattas tjänster inom 90 dagar efter slutet av kvarhållningsperioden. (I omfånget tjänster definieras i avsnittet databearbetning villkoren i vår [Online Services-villkoren](http://aka.ms/Online-Services-Terms).)
+Om du tar bort alla data som Microsoft Azure tar bort data, inklusive alla cachelagrade eller sekundära kopior. För omfattade tjänster som borttagningen utförs inom 90 dagar efter slutet av kvarhållningsperioden. (Omfattade tjänster definieras under bearbetning av villkoren i vår [villkoren för Online Services](http://aka.ms/Online-Services-Terms).)
 
-Om en diskenhet som används för lagring av drabbas av ett maskinvarufel, är det på ett säkert sätt [raderas eller förstörs](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) innan Microsoft skickar tillbaka det till tillverkare för ersättning eller reparation. Skrivs över data på enheten för att säkerställa att data inte kan återställas på något sätt.
+Om en diskenhet som används för lagring av drabbas av ett maskinvarufel, är det säkert [raderas eller förstörs](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) innan Microsoft tillbaka det till tillverkaren för ersättning eller reparation. Data på enheten över för att säkerställa att data inte kan återställas på något sätt.
 
 ## <a name="compute-isolation"></a>Compute-isolering
-Microsoft Azure tillhandahåller olika molnbaserade databehandling tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise. Dessa beräkningar instans och tjänsten erbjuder isolering på flera nivåer för att skydda data utan att kompromissa flexibilitet i konfigurationen som kunder kräver.
+Microsoft Azure tillhandahåller olika molnbaserad databehandling tjänster som omfattar ett brett urval av beräkningsinstanser och tjänster som kan skalas upp och ned automatiskt för att uppfylla behoven i ditt program eller enterprise. Dessa instanser och tjänsten erbjuder isolering på flera nivåer för att skydda data utan att offra flexibilitet i konfigurationen som kunderna kräver.
 
-### <a name="isolated-virtual-machine-sizes"></a>Isolerade virtuella Datorstorlekar
-Azure Compute erbjuder virtuella storlekar som är isolerad till en specifik maskinvara och dedikerad till en enskild kund.  Dessa storlekar för virtuella datorer som passar bäst för arbetsbelastningar som kräver en hög grad av isolerade från andra kunder för arbetsbelastningar som involverar element som efterlevnad och regelkrav.  Kunder kan också välja att dela upp resurser av dessa isolerade virtuella datorer med hjälp av ytterligare [Azure stöd för kapslade virtuella datorer](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).
+### <a name="isolated-virtual-machine-sizes"></a>Storlekar isolerade virtuella datorer
+Azure Compute ger VM-storlekar som isoleras till en specifik maskinvarutyp och dedikerad till en enda kund.  Dessa VM-storlekar passar bäst för arbetsbelastningar som kräver en hög grad av isolering från andra kunder för arbetsbelastningar som innehåller element som efterlevnad och regelkrav.  Kunder kan också välja att dela upp resurser på dessa isolerade virtuella datorer med hjälp av ytterligare [Azure-stöd för kapslade virtuella datorer](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
-Använda en isolerad storlek garanterar att den virtuella datorn endast en körs på den specifika serverinstansen.  De aktuella isolerade virtuella inkluderar:
+Använda en isolerad storlek garanterar att din virtuella dator är den enda som körs på den specifika serverinstansen.  De aktuella isolerade VM-erbjudandena omfattar:
 * Standard_E64is_v3
 * Standard_E64i_v3
 * Standard_M128ms
@@ -138,58 +138,58 @@ Använda en isolerad storlek garanterar att den virtuella datorn endast en körs
 * Standard_DS15_v2
 * Standard_D15_v2
 
-Du kan lära dig mer om varje isolerat storlek [här](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory).
+Du kan läsa mer om varje isolerade storlek som är tillgängliga [här](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
-### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V & rot OS-isolering mellan rot VM & gäst-VM
-Azures beräkningsplattform baseras på datorn virtualisering, vilket innebär att alla kunden koden körs i en virtuell dator för Hyper-V. Det finns en Hypervisor som körs direkt via maskinvaran och delar en nod i variabelnummer av gäst virtuella maskiner (VMs) på varje nod i Azure (eller slutpunkter i nätverket).
-
-
-![Hyper-V & rot OS-isolering mellan rot VM & gäst-VM](./media/azure-isolation/azure-isolation-fig4.jpg)
+### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V- och Root OS-isolering mellan rotens virtuella dator & virtuella gästdatorer
+Azures plattform för databearbetning baseras på datorn virtualisering – vilket innebär att alla kund körs på en Hyper-V virtuell dator. Det finns ett hypervisor-program som körs direkt via maskinvaran och delar upp en nod i ett variabelnummer av gäst-datorer (VM) på varje Azure-nod (eller nätverksslutpunkten).
 
 
-Varje nod har också en särskild rot VM, som körs på värd-OS. En kritisk gräns är isolering för rot-VM från gäst-VM och Gäst-VM från varandra, hanteras av hypervisor-programmet och roten OS. Länkning av hypervisor-program/root OS utnyttjar Microsofts åren av operativsystemet säkerhet erfarenhet och nyare learning från Microsoft Hyper-V att ge starkt isolering av gäst-VM.
+![Hyper-V- och Root OS-isolering mellan rotens virtuella dator & virtuella gästdatorer](./media/azure-isolation/azure-isolation-fig4.jpg)
 
-Azure-plattformen använder en virtualiserad miljö. Användarinstanser fungerar som fristående virtuella datorer som inte har åtkomst till en fysisk värd-server och denna isolering tillämpas med behörighetsnivåer för fysisk processor (ring-0/ring-3).
 
-Ring 0 är den mest privilegierade och 3 är den minst privilegierade. Gästoperativsystemet som körs i en mindre privilegierad Ring 1 och program körs i den lägsta möjliga Ring 3. Den här virtualiseringen av fysiska resurser leder till en tydlig uppdelning mellan gästoperativsystem och hypervisor, vilket resulterar i ytterligare säkerhetsuppdelning mellan dessa två.
+Varje nod har även en särskild rot-dator som kör Värdoperativsystem. En kritisk gräns är isoleringen av rotens virtuella dator från virtuella gästdatorerna och virtuella gästdatorerna från varandra, hanteras av hypervisor-programmet och roten OS. Hypervisor-program/root OS-kopplingen använder Microsofts årtionden av operativsystemets säkerhet genom och nyare learning från Microsofts Hyper-V för stark isolering av virtuella gästdatorer.
 
-Azure hypervisor-programmet fungerar som en micro kernel och överför alla maskinvara förfrågningar från virtuella gästdatorer till värden för bearbetning med hjälp av ett delat minne gränssnitt som heter VMBus. Detta förhindrar att användare erhåller rååtkomsten läs/skriv/kör till systemet och minskar risken med att dela systemresurser.
+Azure-plattformen använder en virtualiserad miljö. Användarinstanser fungerar som fristående virtuella datorer som inte har åtkomst till en fysisk värdserver och denna isolering tvingas med behörighetsnivåer för fysisk processor (ring-0/ring-3).
 
-### <a name="advanced-vm-placement-algorithm--protection-from-side-channel-attacks"></a>Avancerade VM placeringsalgoritmen och skydd mot attacker, kanal på klientsidan
-Mellan VM angrepp består av två steg: att placera en angriparen-kontrollerade virtuell dator på samma värddator som en drabbade virtuella datorer och brott mot isoleringsgräns att stjäla känslig drabbade information eller påverka prestandan för greed eller vandalism. Microsoft Azure ger skydd på båda dessa steg med hjälp av en avancerad VM placeringsalgoritmen och skydd mot alla kända sida kanal attacker, inklusive störningar granne virtuella datorer.
+Ring 0 är den mest privilegierade och 3 är den minst privilegierade. Gästoperativsystemet körs i en mindre privilegierad Ring 1 och program som körs i minst Privilegierade Ring 3. Den här virtualiseringen av fysiska resurser leder till en tydlig uppdelning mellan gästoperativsystem och hypervisor, vilket resulterar i ytterligare säkerhetsuppdelning mellan dessa två.
+
+Azure hypervisor-programmet fungerar som en mikrokernel och skickar alla maskinvaruförfrågningar från virtuella gästdatorer till värden för bearbetning med hjälp av ett delat Minnesgränssnitt som kallas VMBus. Detta förhindrar att användare erhåller rååtkomsten läs/skriv/kör till systemet och minskar risken med att dela systemresurser.
+
+### <a name="advanced-vm-placement-algorithm--protection-from-side-channel-attacks"></a>Avancerade VM placeringsalgoritmen och skydd från sida kanal attacker
+Alla mellan VM-attack omfattar två steg: placera en angripare-kontrollerade virtuell dator på samma värddator som en av drabbade virtuella datorer och tränga in isoleringsgräns att stjäla känslig drabbade information eller påverka prestandan för greed eller vandalism. Microsoft Azure tillhandahåller skydd på båda dessa steg med hjälp av en avancerad algoritm för placering av VM och bättre skydd mot alla kända sida kanal attacker inklusive resursfördelningen virtuella datorer.
 
 ### <a name="the-azure-fabric-controller"></a>Azure-Infrastrukturkontrollanten
-Azure-Infrastrukturkontrollanten ansvarar för att fördela infrastrukturresurser för att arbetsbelastningar-klient och den hanterar enkelriktad kommunikation mellan värden och virtuella datorer. VM att placera algoritmen för Azure-infrastrukturkontrollanten är mycket avancerade och nästan omöjligt att förutsäga som fysisk värdnivå.
+Azure-Infrastrukturkontrollanten ansvarar för att fördela infrastrukturresurser till klientarbetsbelastningar och den hanterar enkelriktad kommunikation från värden till virtuella datorer. Virtuella datorer att placera algoritmen för Azure-infrastrukturkontrollanten är sofistikerade och nästan omöjligt att förutsäga som fysisk värdnivå.
 
 ![Azure-Infrastrukturkontrollanten](./media/azure-isolation/azure-isolation-fig5.png)
 
-Hypervisor-programmet i Azure tvingar minne och processen åtskillnad mellan virtuella datorer och den dirigerar nätverkstrafik på ett säkert sätt till innehavare för gäst-OS. Detta eliminerar möjligheten att och sidan kanal attack på VM-nivå.
+Azure-hypervisorn tillämpar minnes- och processuppdelning mellan virtuella datorer och den dirigerar nätverkstrafik på ett säkert sätt till gästoperativsystemens klienter. Detta eliminerar risken för och sida kanal attack på VM-nivå.
 
-I Azure, roten VM är speciell: ett strikt operativsystem kallas roten OS som är värd för en fabric-agent (MI) körs. FAs används i sin tur att hantera gästagenter (GA) gästen OS på kundens virtuella datorer. FAs också hantera lagringsnoder.
+I Azure, rotens virtuella dator är speciell: den kör en förstärkt operativsystem kallas roten OS som är värd för en fabric-agent (FA). FAs används i sin tur att hantera gästagenterna (GA) i gästoperativsystem på kundens virtuella datorer. FAs också hantera lagringsnoder.
 
-Insamling av Azure hypervisor rot OS/MI eller kundens virtuella datorer/GAs omfattar en beräkningsnod. FAs hanteras av en fabric-controller (FC) som finns utanför beräkning och lagring noder (beräkning och lagring klustren hanteras av separata FCs). Om en kund uppdaterar sina programkonfigurationsfilen medan den körs, i FC som kommunicerar med MI som sedan kontaktar GAs, som meddelar tillämpningen av konfigurationsändringen. I händelse av ett maskinvarufel i FC automatiskt hitta tillgänglig maskinvara och starta om den virtuella datorn det.
+Insamling av Azure-hypervisorn rot OS/FA eller kundens virtuella datorer/GAs består av en beräkningsnod. FAs hanteras av en infrastrukturkontrollanten (FC), som finns utanför beräknings- och noder (beräknings- och kluster hanteras av separata FCs). Om en kund uppdaterar sina programkonfigurationsfilen medan den körs, i FC som kommunicerar med FA, som sedan kontaktar GAs, som meddelar tillämpningen av konfigurationsändringen. I händelse av ett maskinvarufel i FC automatiskt hitta tillgänglig maskinvara och starta om den virtuella datorn det.
 
 ![Azure-Infrastrukturkontrollanten](./media/azure-isolation/azure-isolation-fig6.jpg)
 
-Kommunikation från en Fabric-domänkontrollant till en agent är enkelriktad. Agenten implementerar en SSL-skyddad tjänst som bara svarar på förfrågningar från styrenheten. Det går inte att initiera anslutningar till styrenheten eller andra Privilegierade interna noder. FC behandlar alla svar som om de vore inte är betrodd.
+Kommunikation från en Infrastrukturkontrollanten till en agent är enkelriktade. Agenten implementerar en SSL-skyddad-tjänst som bara svarar på förfrågningar från styrenheten. Det kan inte initiera anslutningar till kontrollanten eller andra Privilegierade interna noder. FC behandlar alla svar som om de vore inte är betrodd.
 
 
-![Fabric-styrenhet](./media/azure-isolation/azure-isolation-fig7.png)
+![Infrastrukturkontrollant](./media/azure-isolation/azure-isolation-fig7.png)
 
-Isolering sträcker sig från den Virtuella roten från gäst-VM och Gäst-VM från varandra. Compute-noderna är också isolerade från lagringsnoder för bättre skydd.
-
-
-Hypervisor-programmet och värden OS ange nätverkspaket - filter för att garantera att den inte är betrodd virtuella datorer inte kan skapa falska trafik eller ta emot trafik som inte är adresserad till dem, dirigera trafik till skyddade infrastruktur slutpunkter eller skicka och ta emot olämpliga broadcast-trafik.
+Isolering sträcker sig från den roten virtuella datorn från virtuella Gästdatorerna och de virtuella Gästdatorerna från varandra. Compute-noderna är också isolerad från storage-noder för bättre skydd.
 
 
-### <a name="additional-rules-configured-by-fabric-controller-agent-to-isolate-vm"></a>Ytterligare regler som konfigurerats av Fabric-styrenhet agenten att isolera VM
-Som standard blockeras all trafik när en virtuell dator skapas och fabric controller agenten konfigurerar sedan paketfilter för att lägga till regler och undantag som tillåter auktoriserade trafik.
+Hypervisor-programmet och värden OS tillhandahåller nätverkspaket - filter för att garantera att den inte är betrodd virtuella datorer inte kan generera falsk trafik eller ta emot trafik som inte är adresserad till dem, dirigera trafik till skyddade infrastrukturslutpunkter eller skicka och ta emot olämplig sändningstrafik.
+
+
+### <a name="additional-rules-configured-by-fabric-controller-agent-to-isolate-vm"></a>Ytterligare regler som konfigurerats av Agent för Infrastrukturkontrollanten att isolera virtuella datorer
+Som standard blockeras all trafik när en virtuell dator skapas och sedan konfigurerar infrastrukturkontrollantens agent paketfiltret för att lägga till regler och undantag och tillåta auktoriserad trafik.
 
 Det finns två typer av regler som är programmerade:
 
--   **Datorn konfiguration eller infrastruktur regler:** som standard all kommunikation är blockerad. Det finns undantag så att en virtuell dator skickar och tar emot DHCP och DNS-trafik. Virtuella datorer kan skicka trafik till ”offentliga” internet och skicka trafik till andra virtuella datorer i samma virtuella Azure-nätverk och Aktiveringsservern OS. De virtuella datorerna lista över tillåtna utgående mål innehåller inte Azure router undernät, hantering av Azure och andra Microsoft-egenskaper.
+-   **Datorn konfiguration eller infrastruktur regler:** som standard all kommunikation blockerad. Det finns undantag så att en virtuell dator att skicka och ta emot DHCP- och DNS-trafik. Virtuella datorer kan även skicka trafik till internet ”offentliga” och skicka trafik till andra virtuella datorer i samma Azure Virtual Network och Aktiveringsservern OS. De virtuella datorerna innehåller för tillåtna utgående mål inte Azure-routerundernät, Azure-hantering och andra Microsoft-egenskaper.
 
--   **Konfigurationsfilen för rollen:** detta definierar den inkommande åtkomstkontrollistor (ACL) baserat på klientens modell.
+-   **Konfigurationsfilen för rollen:** detta definierar den inkommande åtkomstkontrollistor (ACL) baserat på klientens tjänstmodellen.
 
 ### <a name="vlan-isolation"></a>VLAN-isolering
 Det finns tre VLAN i varje kluster:
@@ -197,32 +197,32 @@ Det finns tre VLAN i varje kluster:
 ![VLAN-isolering](./media/azure-isolation/azure-isolation-fig8.jpg)
 
 
--   Det huvudsakliga VLANET – anslutningar obetrodda kunden noder
+-   Det huvudsakliga VLANET – sammanbinder obetrodda kunden noder
 
 -   FC-VLAN – innehåller betrodda FCs och ge support för system
 
--   Enheten VLAN – innehåller betrott nätverk och andra infrastruktur-enheter
+-   Enheten VLAN – innehåller betrott nätverk och andra enheter för infrastruktur
 
-Kommunikation tillåts från FC VLAN huvudsakliga VLAN, men kan inte initieras från det huvudsakliga VLANET till FC VLAN. Kommunikationen är också blockeras från det huvudsakliga VLANET till enheten VLAN. Detta säkerställer att även om en nod som kör Kundkod äventyras, kan den angrepp noder i FC eller VLAN-enhet.
+Kommunikation tillåts från FC-VLAN huvudsakliga VLAN, men det går inte att initiera från det huvudsakliga VLANET till FC-VLAN. Kommunikation blockeras även från det huvudsakliga VLANET till enheten VLAN. Detta säkerställer att även om en nod som kör Kundkod äventyras, inte kan den angrepp noder på FC eller VLAN-enhet.
 
-## <a name="storage-isolation"></a>Isolering av lagring
+## <a name="storage-isolation"></a>Storage-isolering
 ### <a name="logical-isolation-between-compute-and-storage"></a>Logisk isolering mellan beräkning och lagring
-Som en del av dess grundläggande design separerar Microsoft Azure VM-baserad beräkning från lagringsplatsen. Den här separationen kan beräkning och lagring kan skalas för sig., vilket gör det enklare att tillhandahålla flera innehavare och isolering.
+Som en del av dess grundläggande design separerar Microsoft Azure VM-baserad beräkning från storage. Den här separationen kan beräkning och lagring skalas oberoende av varandra, vilket gör det enklare att ge flera innehavare och isolering.
 
-Därför kör Azure Storage på separata maskinvara med ingen nätverksanslutning till Azure Compute utom logiskt. [Detta](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) innebär att när en virtuell disk skapas inte tilldelat diskutrymme för den totala kapaciteten. I stället skapas en tabell som mappar adresser på den virtuella disken till områden på den fysiska disken och tabellen är tom från början. **Första gången en kund skriver data på den virtuella disken allokeras utrymmet på den fysiska disken och en pekare till den placeras i tabellen.**
+Därför kan körs Azure Storage på separata maskinvara med ingen nätverksanslutning till Azure Compute utom logiskt. [Detta](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) innebär att när en virtuell disk skapas, inte tilldelat diskutrymme för sin hela kapacitet. Istället skapas en tabell som mappar adresser på den virtuella disken till delar på den fysiska disken och tabellen är tom från början. **Första gången en kund skriver data på den virtuella disken allokeras utrymmet på den fysiska disken och en pekare till den placeras i tabellen.**
 ### <a name="isolation-using-storage-access-control"></a>Åtkomstkontroll för isolering med lagring
-**Åtkomstkontroll i Azure Storage** har en enkel modellen för åtkomstkontroll. Varje Azure-prenumeration kan skapa en eller flera Lagringskonton. Varje Lagringskonto har en hemlig nyckel som används för att styra åtkomsten till alla data i detta Lagringskonto.
+**Åtkomstkontroll i Azure Storage** har en enkel modell för åtkomstkontroll. Varje Azure-prenumeration kan skapa en eller flera Lagringskonton. Varje Lagringskonto har en hemlig nyckel som används för att styra åtkomsten till alla data i det Lagringskontot.
 
 ![Åtkomstkontroll för isolering med lagring](./media/azure-isolation/azure-isolation-fig9.png)
 
-**Åtkomst till Azure Storage-data (inklusive tabeller)** kan styras via en [SAS (signatur för delad åtkomst)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) token, vilket ger begränsad åtkomst. SAS har skapats via en fråga mall (URL) som signerats med den [SAK (Lagringskontonyckel)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Som [signerade URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) kan ges till en annan process (som delegerats), vilket kan sedan fylla i information om frågan och begära storage-tjänst. En SAS kan du bevilja tidsbaserade åtkomst till klienter utan att avslöja storage-konto hemlig nyckel.
+**Åtkomst till Azure Storage-data (inklusive tabeller)** kan styras via en [SAS (Shared Access Signature)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) token, vilket ger begränsad åtkomst. SAS har skapats via en fråga-mall (URL) som signeras med den [SAK (Lagringskontonyckel)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Som [signerade URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) kan ges till en annan process (som delegerats), som kan sedan fylla i informationen om frågan och kontrollera begäran av storage-tjänsten. En SAS kan du bevilja tidsbaserad åtkomst till klienter utan att avslöja lagringskontots hemlig nyckel.
 
-SAS innebär att vi ger en klient begränsade behörigheter till objekt i vår lagringskonto för en angiven tidsperiod och med en angiven uppsättning behörigheter. Vi kan bevilja dessa begränsade behörigheter utan att behöva dela åtkomstnycklarna för ditt konto.
+SAS innebär att vi kan ge en klient begränsad behörighet till objekt i vår storage-konto under en viss tidsperiod och med en angiven uppsättning behörigheter. Vi kan ge dessa begränsade behörigheter utan att behöva dela åtkomstnycklarna för kontot.
 
-### <a name="ip-level-storage-isolation"></a>IP-nivån lagring isolering
-Du kan fastställa brandväggar och definiera ett intervall med IP-adresser för dina betrodda klienter. Med ett IP-adressintervall endast klienter som har en IP-adress inom det angivna intervallet kan ansluta till [Azure Storage](https://docs.microsoft.com/azure/storage/storage-security-guide).
+### <a name="ip-level-storage-isolation"></a>IP-lagring på blocknivå isolering
+Du kan fastställa brandväggar och definiera ett IP-adressintervall för dina betrodda klienter. Med ett IP-adressintervall, endast klienter som har en IP-adress inom det angivna intervallet kan ansluta till [Azure Storage](https://docs.microsoft.com/azure/storage/storage-security-guide).
 
-IP-storage-data kan skyddas från obehöriga användare via ett nätverk mekanism som används för att allokera en dedikerad eller dedikerade tunnel av trafik till IP-lagring.
+IP-lagringsdata kan skyddas från obehöriga användare via en mekanism för nätverk som används för att allokera en dedikerad eller dedikerade tunnel för trafik till IP-lagring.
 
 ### <a name="encryption"></a>Kryptering
 Azure erbjuder följande typer av kryptering för att skydda data:
@@ -231,79 +231,79 @@ Azure erbjuder följande typer av kryptering för att skydda data:
 -   Vilande kryptering
 
 #### <a name="encryption-in-transit"></a>Kryptering under överföring
-Kryptering under överföring är en mekanism för att skydda data när de skickas över nätverk. Du kan skydda data med hjälp av med Azure Storage:
+Kryptering under överföring är en mekanism för att skydda data när de skickas över nätverk. Med Azure Storage kan skydda du data med hjälp av:
 
 -   [Kryptering på transportnivå](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), till exempel HTTPS när du överför data till eller från Azure Storage.
 
--   [Tråd kryptering](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), till exempel SMB 3.0-kryptering för Azure-filresurser.
+-   [Koppla kryptering](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), till exempel SMB 3.0-kryptering för Azure-filresurser.
 
--   [Kryptering på klientsidan](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), att kryptera data innan det överförs till lagringskontot och att dekryptera data efter överföringen slut på minne.
+-   [Client side encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), att kryptera data innan den överförs till storage och att dekryptera data efter överföringen slut på minne.
 
 #### <a name="encryption-at-rest"></a>Kryptering i vila
-I många organisationer [datakryptering i viloläge](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) är ett obligatoriskt steg mot data sekretess-, efterlevnads- och suveränitet. Det finns tre Azure-funktioner som tillhandahåller kryptering av data som är ”i vila”:
+Många organisationer [datakryptering i viloläge](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) är ett obligatoriskt steg för sekretess, efterlevnad och datasuveränitet. Det finns tre Azure-funktioner som tillhandahåller kryptering av data som är ”i vila”:
 
--   [Lagringstjänstens kryptering](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) kan du begära att lagringstjänsten automatiskt kryptera data när du skriver till Azure Storage.
+-   [Kryptering av lagringstjänst](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) kan du begära att lagringstjänsten automatiskt kryptera data när du skriver den till Azure Storage.
 
--   [Kryptering på klientsidan](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) innehåller också en funktion till kryptering i vila.
+-   [Client side Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) tillhandahåller även funktionen för kryptering i vila.
 
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) kan du kryptera OS-diskar och datadiskar som används av en virtuell IaaS-dator.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) för virtuella datorer (VM) hjälper dig att organisationens säkerhets- och efterlevnadskrav genom att kryptera dina Virtuella diskar (inklusive start- och datadiskar) med nycklar och principer som du styr i [Azure nyckel Valvet](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) för virtuella datorer (VMs) hjälper dig att uppfylla organisationens säkerhet och krav på efterlevnad genom att kryptera dina Virtuella datordiskar (inklusive start- och datadiskar) med nycklar och principer som du styr i [Azure Key Valvet](https://azure.microsoft.com/services/key-vault/).
 
-Disk Encryption lösningen för Windows är baserad på [Microsoft BitLocker-diskkryptering](https://technet.microsoft.com/library/cc732774.aspx), och Linux-lösning baserad på [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+Disk Encryption-lösningen för Windows är baserad på [Microsoft BitLocker-diskkryptering](https://technet.microsoft.com/library/cc732774.aspx), och Linux-lösningen baseras på [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
-Lösningen stöder följande scenarion för virtuella IaaS-datorer när de är aktiverade i Microsoft Azure:
+Lösningen stöder följande scenarier för virtuella IaaS-datorer när de är aktiverade i Microsoft Azure:
 -   Integrering med Azure Key Vault
 
--   Standardnivån VMs: A, D, DS, G, GS och så vidare, serien IaaS-VM
+-   Standard-nivån virtuella datorer: A, D, DS, G, GS och så vidare, serien virtuella IaaS-datorer
 
--   Aktivera kryptering på Windows och Linux virtuella IaaS-datorer
+-   Aktivera kryptering på Windows och Linux IaaS-datorer
 
--   Om du inaktiverar kryptering på Operativsystemet och enheter för Windows IaaS-VM
+-   Inaktivera kryptering på operativsystem och enheter för Windows virtuella IaaS-datorer
 
--   Om du inaktiverar kryptering på dataenheter för Linux virtuella IaaS-datorer
+-   Inaktivering av kryptering på enheter för virtuella Linux IaaS-datorer
 
--   Aktivera kryptering på virtuella IaaS-datorer som kör windowsklient-OS
+-   Aktivera kryptering på den virtuella IaaS-datorer som kör Windows-klientoperativsystem
 
 -   Aktivera kryptering på volymer med monteringssökvägar
 
--   Aktivera kryptering på den virtuella Linux-datorer som är konfigurerade med disk-striping (RAID) med hjälp av [mdadm](https://en.wikipedia.org/wiki/Mdadm)
+-   Aktivera kryptering på virtuella Linux-datorer som är konfigurerade med disk-striping (RAID) med hjälp av [mdadm](https://en.wikipedia.org/wiki/Mdadm)
 
--   Aktivera kryptering på den virtuella Linux-datorer med hjälp av [LVM (logisk volymhanterare)](https://msdn.microsoft.com/library/windows/desktop/bb540532) för datadiskar
+-   Aktivera kryptering på virtuella Linux-datorer med hjälp av [LVM (Logical Volume Manager)](https://msdn.microsoft.com/library/windows/desktop/bb540532) för datadiskar
 
--   Aktivera kryptering på virtuella Windows-datorer som har konfigurerats med hjälp av lagringsutrymmen
+-   Aktivera kryptering på Windows virtuella datorer som konfigureras med hjälp av lagringsutrymmen
 
 -   Alla offentliga Azure-regioner som stöds
 
-Lösningen stöder inte följande scenarier, funktioner och tekniken i versionen:
+Lösningen stöder inte följande scenarier, funktioner och -teknik i version:
 
--   Grundnivån IaaS-VM
+-   Basic-nivån virtuella IaaS-datorer
 
--   Om du inaktiverar kryptering på en OS-enhet för Linux virtuella IaaS-datorer
+-   Inaktivering av kryptering på en OS-enhet för virtuella Linux IaaS-datorer
 
 -   Virtuella IaaS-datorer som skapas med hjälp av klassiska metod för skapande av virtuell dator
 
 -   Integrering med din lokala nyckelhanteringstjänst
 
--   Azure Files (delade filsystem), Network File System (NFS), dynamiska volymer och virtuella Windows-datorer som är konfigurerade med programvarubaserad RAID-system
+-   Azure Files (delade filsystem), Network File System (NFS), dynamiska volymer och Windows-datorer som är konfigurerade med programvarubaserade RAID-system
 
 ## <a name="sql-azure-database-isolation"></a>SQL Azure Database isolering
-SQL Database är en relationsdatabastjänst i Microsoft Cloud som är baserad på den marknadsledande Microsoft SQL Server-motorn och som kan hantera verksamhetskritiska arbetsbelastningar. SQL-databas erbjuder förutsägbar data isolering på kontot, geography / region och baserade på nätverk – allt detta med nästan obefintlig administration.
+SQL Database är en relationsdatabastjänst i Microsoft Cloud som är baserad på den marknadsledande Microsoft SQL Server-motorn och som kan hantera verksamhetskritiska arbetsbelastningar. SQL Database erbjuder förutsägbar isolering på kontonivå, geografi / region och baserade på nätverk – allt med nästan obefintlig administration.
 
-### <a name="sql-azure-application-model"></a>SQL Azure programmodell
+### <a name="sql-azure-application-model"></a>Modell för SQL Azure-program
 
-[Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) databasen är en molnbaserad relationsdatabstjänst bygger på SQL Server-teknik. Det ger en hög tillgänglighet, skalbar, flera innehavare databastjänst hos Microsoft i molnet.
+[Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) databasen är en molnbaserad relationsdatabastjänst byggd på SQL Server-teknik. Det ger en tjänst med mycket tillgänglig, skalbar och flera innehavare av Microsoft i molnet.
 
-Ett program ur SQL Azure tillhandahåller följande hierarki: varje nivå har en-till-många inneslutning av nivåer nedan.
+Från perspektivet för en SQL Azure erbjuder följande hierarki: varje nivå har en-till-många inneslutning av undernivåer.
 
-![SQL Azure programmodell](./media/azure-isolation/azure-isolation-fig10.png)
+![Modell för SQL Azure-program](./media/azure-isolation/azure-isolation-fig10.png)
 
-Konto och prenumeration är Microsoft Azure-plattformen begrepp att associera fakturering och hantering.
+Är Microsoft Azure-plattformen begrepp att associera hantering av fakturor och -konto och prenumeration.
 
-Logiska servrar och databaser är SQL Azure-specifika begrepp och hanteras med hjälp av SQL Azure angivna OData- och TSQL-gränssnitt eller via SQL Azure-portalen som integrerat i Azure-portalen.
+Logiska servrar och databaser finns SQL Azure-specifika begrepp och hanteras med hjälp av SQL Azure, förutsatt att OData- och TSQL-gränssnitt eller via SQL Azure-portalen som integreras i Azure-portalen.
 
-SQL Azure-servrarna är inte fysiska eller Virtuella instanser, i stället de är samlingar av databaser, delning och hantering av säkerhetsprinciper som lagras i så kallade ”logiska master” databas.
+SQL Azure-servrar inte är fysiska eller Virtuella datorinstanser, i stället de är samlingar av databaser, delning av principer för hantering och säkerhet, som lagras i så kallade ”logiska master” databas.
 
 ![SQL Azure](./media/azure-isolation/azure-isolation-fig11.png)
 
@@ -313,52 +313,52 @@ Logiska master-databaser är:
 
 -   Brandväggsregler
 
-Fakturerings- och användning-relaterad information för SQL Azure databaser från samma logiska server inte är säkert att vara på samma fysiska instansen i SQL Azure-klustret i stället program måste ange namnet på mål-databasen när du ansluter.
+Fakturerings- och användningsrelaterade information för SQL Azure-databaser från samma logiska server inte garanteras att finnas på samma fysiska instans i SQL Azure-kluster i stället program måste ange namnet på mål-databasen när du ansluter.
 
-Ur customer skapas en logisk server i en grafisk geo region medan det faktiska skapandet av servern sker i ett kluster i regionen.
+Från ett kundperspektiv skapas en logisk server i en geo-grafiska region medan det faktiska skapandet av servern sker i ett kluster i regionen.
 
 ### <a name="isolation-through-network-topology"></a>Isolering via nätverkets topologi
 
-När en logisk server skapas och DNS-namnet registreras i DNS-namn pekar på den så kallade ”Gateway” adressen i specifika datacenter där servern gjordes.
+När en logisk server skapas och dess DNS-namn har registrerats, DNS-namnet pekar på den så kallade ”Gateway VIP”-adressen i specifika datacenter där servern placerades.
 
-Vi har en samling tillståndslös gateway tjänster bakom VIP (virtuell IP-adress). I allmänhet delta gateways när samordning behövs mellan flera datakällor (master-databasen, användardatabas osv.). Gateway-tjänster implementera följande:
--   **Proxy för TDS-anslutningen.** Detta inkluderar att hitta användardatabas i backend-klustret, implementera inloggningssekvensen och vidarebefordran TDS-paket till serverdelen och tillbaka.
+Vi har en samling av tillståndslösa gateway-tjänsterna bakom VIP (virtuell IP-adress). I allmänhet delta gatewayer när det finns samordning krävs mellan flera datakällor (master-databasen, användardatabas osv.). Gateway-tjänster implementerar följande:
+-   **Proxy är TDS-anslutning.** Detta inkluderar hitta användardatabas i backend-klustret, implementera inloggningssekvensen och sedan vidarebefordra TDS-paket till serverdelen och tillbaka.
 
--   **Databashantering av.** Detta inkluderar att implementera en samling av arbetsflöden för CREATE/ALTER/DROP databasoperationer. Databasåtgärderna kan anropas av kontroll TDS-paket eller explicit OData APIs.
+-   **Databashantering.** Detta inkluderar att implementera en samling av arbetsflöden för CREATE/ALTER/DROP databasoperationer. Databasåtgärderna kan anropas av kontroll TDS-paket eller explicit OData APIs.
 
--   CREATE/ALTER/DROP inloggning åtgärder
+-   CREATE/ALTER/DROP inloggning/användaråtgärder
 
 -   Logisk server hanteringsåtgärder via OData-API
 
 ![Isolering via nätverkets topologi](./media/azure-isolation/azure-isolation-fig12.png)
 
-Nivån bakom gateway kallas ”backend”. Detta är där alla data som lagras på ett sätt som hög tillgänglighet. Varje datadel sägs tillhör en ”partition” eller ”redundansenhet”, var och en av dem har minst tre repliker. Replikerna lagras och replikeras av SQL Server-motorn och hanteras av ett system för växling vid fel kallas ofta för ”infrastruktur”.
+Nivån bakom gateway kallas ”backend”. Det här är alla data ska lagras på ett sätt som med hög tillgänglighet. Varje datadel anses tillhöra en ”partition” eller ”redundansenheten”, var och en av de behöver minst tre repliker. Replikerna lagras och replikeras av SQL Server-motorn och hanteras av ett system för växling vid fel kallas ofta ”infrastruktur”.
 
-I allmänhet kommunicerar backend-systemet inte utgående till andra system som en säkerhetsåtgärd. Detta är reserverat på datorer i skiktet frontend (gateway). Skiktdatorer gateway har begränsad behörighet på backend-datorer för att minimera risken för angrepp som en mekanism för skydd på djupet.
+I allmänhet backend-system inte kommunicera utgående till andra system som en säkerhetsåtgärd. Detta är reserverat till system i klientdelen (gateway)-nivå. Datorer för gateway-nivån har begränsad behörighet på backend-Server-datorer för att minimera risken för angrepp som en mekanism för skydd på djupet.
 
-### <a name="isolation-by-machine-function-and-access"></a>Isolering av datorn funktion och åtkomst
-SQL Azure (består av tjänster som körs på en annan dator funktioner. SQL Azure är uppdelat i ”backend” moln databasen och ”frontend” (Gateway och hantering) miljöer med den allmänna principen trafik endast växla till backend- och inte ut. Frontend-miljö kan kommunicera med omvärlden av andra tjänster och i allmänhet endast har begränsad behörighet i serverdelen (tillräckligt för att anropa startpunkter som behövs för att anropa).
+### <a name="isolation-by-machine-function-and-access"></a>Isolering av dator-funktion och åtkomst
+SQL Azure (består av tjänster som körs på en annan dator funktioner. SQL Azure är uppdelad i ”serverdel” Molndatabas och ”front-end” (Gateway/hantering) miljöer med den allmänna principen trafik endast växla till backend-server och inte ut. Frontend-miljö kan kommunicera med omvärlden av andra tjänster och generellt sett endast har begränsad behörighet i backend-server (tillräckligt för att anropa startpunkter som behövs för att anropa).
 
 ## <a name="networking-isolation"></a>Isolering av nätverk
-Azure-distribution har flera lager för isolering av nätverk. Följande diagram visar olika lager i nätverksisolering som Azure tillhandahåller till kunder. Dessa lager är både intern i själva Azure-plattformen och kunddefinierade funktioner. Inkommande från Internet, Azure DDoS ger isolering mot storskaliga attacker mot Azure. Nästa säkerhetslager isolering är kunddefinierade offentliga IP-adresser (slutpunkter) som används för att avgöra vilken trafik kan passera Molntjänsten till det virtuella nätverket. Interna Azure virtuell nätverksisolering garanterar fullständig isolering från andra nätverk och att trafiken endast flödar via konfigurerade användaren sökvägar och metoder. Dessa sökvägar och metoder är nästa säkerhetslager där NSG: er, UDR och virtuella nätverksenheter kan användas för att skapa isoleringsgränser för att skydda application-distributioner i det skyddade nätverket.
+Azure-distribution har flera lager av isolering av nätverk. Följande diagram visar olika lager i Azure ger kunderna isolering av nätverk. Dessa lager är både inbyggd i själva Azure-plattformen och kunddefinierad funktioner. Inkommande från Internet, Azure DDoS ger isolering mot storskaliga attacker mot Azure. Nästa lager av isolering är kunddefinierad offentliga IP-adresser (slutpunkter), som används för att avgöra vilken trafik kan passera Molntjänsten till det virtuella nätverket. Intern Azure virtuell nätverksisolering säkerställer fullständig isolering från alla andra nätverk och att det bara flödar trafiken genom Användarkonfigurerad sökvägar och metoder. Dessa sökvägar och metoder är nästa lager där NSG: er, UDR och virtuella nätverksenheter kan användas för att skapa isoleringsgränser för att skydda programdistributioner i skyddat nätverk.
 
 ![Isolering av nätverk](./media/azure-isolation/azure-isolation-fig13.png)
 
-**Trafik isolering:** A [virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) är isoleringsgräns trafik på Azure-plattformen. Virtuella datorer (VM) i ett virtuellt nätverk kan inte kommunicera direkt med virtuella datorer i ett annat virtuellt nätverk, även om båda virtuella nätverken skapas av samma kund. Isolering är en kritisk egenskap som garanterar kundens virtuella datorer och kommunikation förblir privat inom ett virtuellt nätverk.
+**Trafik isolering:** A [virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) är gränsen för isolering av trafik på Azure-plattformen. Virtuella datorer (VM) i ett virtuellt nätverk kan inte kommunicera direkt till virtuella datorer i ett annat virtuellt nätverk, även om båda virtuella nätverken har skapats av samma kund. Isolering är en viktig egenskap som ser till kundens virtuella datorer och kommunikation förblir privata inom ett virtuellt nätverk.
 
-[Undernät](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) ger ett ytterligare lager med isolering med i det virtuella nätverket baserat på IP-intervall. IP-adresser i det virtuella nätverket, du kan dela ett virtuellt nätverk i flera undernät av organisations- och säkerhetsskäl. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverkssäkerhetsgrupp (NSG: er)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) att tillåta eller neka trafik till en VM-instans som är baserat på konfigurerad i åtkomstkontrollistan (ACL) för NSG-regler. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
+[Undernät](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) erbjuder ett extra lager av isolering med i virtuella nätverk som baseras på IP-intervall. IP-adresser i det virtuella nätverket, du kan dela upp ett virtuellt nätverk i flera undernät av organisations- och säkerhetsskäl. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverkssäkerhetsgrupp (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) att tillåta eller neka nätverkstrafik till en VM-instans som är baserat på regler som konfigurerats i åtkomstkontrollistan (ACL) för NSG. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Isolering av nätverk som alternativ för datorer i Windows Azure-nätverk](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
+- [Isolering av nätverk som alternativ för virtuella datorer i Windows Azure-nätverk](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
 
-Detta inkluderar det klassiska frontend och backend-scenario där datorer i ett visst backend-nätverk eller undernätverk kanske bara tillåter vissa klienter eller andra datorer att ansluta till en viss slutpunkt baserat på en godkänd lista över IP-adresser.
+Detta inkluderar klassiska frontend och backend-scenariot där datorer i ett visst backend-nätverk eller undernätverk kan endast vissa klienter eller andra datorer att ansluta till en viss slutpunkt som baseras på en godkänd lista över IP-adresser.
 
 - [Compute-isolering](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
-Microsoft Azure tillhandahåller en olika molnbaserade databehandling tjänster som omfattar ett brett urval av compute-instanser och tjänster som kan skalas upp och ned automatiskt så att den passar ditt program-eller enterprise.
+Microsoft Azure tillhandahåller en olika molnbaserad databehandling tjänster som omfattar ett brett urval av beräkningsinstanser och tjänster som kan skalas upp och ned automatiskt för att uppfylla behoven i ditt program eller enterprise.
 
-- [Isolering av lagring](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
+- [Storage-isolering](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
-Microsoft Azure separerar kunden VM-baserad beräkning från lagringsplatsen. Den här separationen kan beräkning och lagring kan skalas för sig., vilket gör det enklare att tillhandahålla flera innehavare och isolering. Därför kör Azure Storage på separata maskinvara med ingen nätverksanslutning till Azure Compute utom logiskt. Alla förfrågningar kör via HTTP eller HTTPS enligt kundens val.
+Microsoft Azure separerar kund VM-baserad beräkning från storage. Den här separationen kan beräkning och lagring skalas oberoende av varandra, vilket gör det enklare att ge flera innehavare och isolering. Därför kan körs Azure Storage på separata maskinvara med ingen nätverksanslutning till Azure Compute utom logiskt. Alla förfrågningar som körs via HTTP eller HTTPS baserat på kundens val.
 

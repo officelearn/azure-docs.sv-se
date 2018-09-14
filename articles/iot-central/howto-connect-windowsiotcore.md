@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 517de578e2a3c6350bbb18d756a8740ceb6f1d23
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189012"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576382"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
 
@@ -66,7 +66,7 @@ För att distribuera klientprogrammet från föregående steg till din Windows 1
 * Spara anslutningssträngen i en textfil med namnet connection.string.iothub på skrivbordet.
 * Kopiera filen till enhetens dokumentmapp: `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
-När du har gjort det, måste du öppna den [Windows Device Portal](https://docs.microsoft.com/en-us/windows/iot-core/manage-your-device/deviceportal) genom att skriva i http://[device-IP-address]:8080 i alla webbläsare.
+När du har gjort det, måste du öppna den [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) genom att skriva i http://[device-IP-address]:8080 i alla webbläsare.
 
 Från det och, som visas i om nedan, bör du:
 1. Expandera noden ”appar” till vänster.

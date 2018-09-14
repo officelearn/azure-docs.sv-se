@@ -1,68 +1,68 @@
 ---
-title: Uppgradera tjänsten frågor och svar om Maker - kognitiva Microsoft-tjänster | Microsoft Docs
-titleSuffix: Azure
-description: Så här uppgraderar du frågor och svar om Maker-tjänsten
+title: Uppgradera din QnA Maker-tjänsten – QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Du kan välja att uppgradera enskilda komponenter i QnA Maker-stacken efter att.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: e8d3713d6729c4e30da9a64a382e9d5a647dfefd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6d8940389e72ee3924c036e8d4833a20464d628e
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354045"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543283"
 ---
-# <a name="upgrade-your-qna-maker-service"></a>Uppgradera tjänsten frågor och svar om Maker
-Du kan välja att uppgradera enskilda komponenter i frågor och svar om Maker stacken efter att. Visa information om den beroende komponenter och val av SKU [här](https://aka.ms/qnamaker-docs-capacity).
+# <a name="upgrade-your-qna-maker-service"></a>Uppgradera din QnA Maker-tjänst
+Du kan välja att uppgradera enskilda komponenter i QnA Maker-stacken efter att. Se information om beroende komponenter och SKU-markering [här](https://aka.ms/qnamaker-docs-capacity).
 
-## <a name="upgrade-qna-maker-management-sku"></a>Uppgradera frågor och svar om Maker Management SKU
-Så här uppgraderar du frågor och svar om Maker management SKU:
-1. Gå till din frågor och svar om Maker resurs i Azure-portalen och välj **prisnivå**.
+## <a name="upgrade-qna-maker-management-sku"></a>Uppgradera QnA Maker Management SKU
+Så här uppgraderar du QnA Maker management SKU:
+1. Gå till QnA Maker-resursen i Azure-portalen och välj **prisnivå**.
 
-    ![Frågor och svar om Maker resurs](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
+    ![QnA Maker-resurs](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
 
 2. Välj lämplig SKU och tryck på **Välj**.
 
-    ![Skapa frågor och svar om prissättning](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
+    ![Priser för QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
 ## <a name="upgrade-app-service"></a>Uppgradera App service
 Du kan [skala upp](https://docs.microsoft.com/azure/app-service/web-sites-scale) eller skala ned App service.
 
-1. Gå till App service-resurs i Azure-portalen och välj **skala upp** eller **skala** alternativ efter behov.
+1. Gå till service-appresursen i Azure-portalen och välj **skala upp** eller **Nedskalning** alternativ efter behov.
 
-    ![Frågor och svar om Maker app service skala](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
+    ![QnA Maker app service-skala](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-## <a name="upgrade-azure-search-service"></a>Uppgradera Azure Search-tjänsten
-För närvarande det går inte att utföra en plats för i uppgraderingen av Azure söka SKU. Dock skapa en ny Azure search-resurs med önskad SKU: N, återställa data till den nya resursen och länka det till frågor och svar om Maker stacken.
+## <a name="upgrade-azure-search-service"></a>Uppgradera Azure Search-tjänst
+För närvarande går det inte att utföra en på plats uppgradering av Azure Sök SKU. Dock skapa en ny resurs i Azure search med önskad SKU, återställa data till den nya resursen och sedan länka det till QnA Maker-stacken.
 
-1. Skapa en ny Azure search-resurs i Azure-portalen och välja önskad SKU: N.
+1. Skapa en ny resurs i Azure search i Azure-portalen och välj önskad SKU: N.
 
-    ![Frågor och svar om Maker Azure search-resurs](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
+    ![QnA Maker Azure search-resurs](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
 
-2. Återställa index från din ursprungliga Azure search-resursen till en ny. Se exempelkoden återställningsverktyg [här](https://github.com/pchoudhari/QnAMakerBackupRestore).
+2. Återställa index från din ursprungliga Azure search-resurs till en ny. Se kodproverna återställningsverktyg [här](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-3. När data har återställts, gå till din nya Azure search resurs, Välj **nycklar**, och notera den **namn** och **administrationsnyckeln**.
+3. När data har återställts, går du till nya Azure search-resursen, väljer **nycklar**, och Skriv ned den **namn** och **administratörsnyckel**.
 
-    ![Frågor och svar om Maker Azure search-nycklar](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-keys.png)
+    ![QnA Maker Azure search-nycklar](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-keys.png)
 
-4. Länka den nya Azure search-resursen till stacken frågor och svar om Maker genom att gå till frågor och svar om Maker App service.
+4. Om du vill länka den nya Azure search-resursen till QnA Maker-stacken, går du till QnA Maker App service.
 
-    ![Frågor och svar om Maker apptjänst](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource-list-appservice.png)
+    ![QnA Maker appservice](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource-list-appservice.png)
 
 5. Välj **programinställningar** och Ersätt den **AzureSearchName** och **AzureSearchAdminKey** fält från steg 3.
 
-    ![Frågor och svar om Maker apptjänst inställning](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-settings.png)
+    ![QnA Maker appservice inställningen](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-settings.png)
 
-6. Starta om appen.
+6. Starta om App service.
 
-    ![Frågor och svar om Maker apptjänst omstart](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
+    ![QnA Maker appservice omstart](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använda frågor och svar om Maker API](../Quickstarts/csharp.md)
+> [Använd API för QnA Maker](../Quickstarts/csharp.md)

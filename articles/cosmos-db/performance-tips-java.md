@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 0a2bd840c4e93755988cf1638a6c0bdcb6b6207d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d8d05335b62d292bf61dbd3f3d565093b21f9253
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696388"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574852"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Prestandatips för Azure Cosmos DB och Java
 
@@ -36,8 +36,8 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
     Hur en klient ansluter till Azure Cosmos DB har stor betydelse för prestanda, särskilt när det gäller observerade klientens svarstid. Det finns en nyckeln är konfigurerad inställning är tillgänglig för att konfigurera klienten [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) – den [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode).  Det finns två tillgängliga ConnectionModes:
 
-   1. [Gateway (standard)](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_mode)
-   2. [DirectHttps](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_mode)
+   1. [Gateway (standard)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode)
+   2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode)
 
     Gateway-läge stöds på alla SDK-plattformar och är konfigurerad standard.  Om programmet körs inifrån ett företagsnätverk med strikta brandväggsbegränsningar, är Gateway det bästa valet eftersom det använder HTTPS-standardport och en enda slutpunkt. Prestanda-Nackdelen är dock att Gateway-läge innebär att en ytterligare ett hopp varje gång som data har lästs eller skrivits till Azure Cosmos DB. Därför erbjuder bättre prestanda på grund av färre nätverkssteg i DirectHttps läge. 
 

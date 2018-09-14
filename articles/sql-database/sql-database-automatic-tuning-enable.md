@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 9ebc3a8cb01d93fc6cec5d208c5a10020413cec2
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d825ddd75bfc829aa82bab4cede0381dda2d36da
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631103"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575318"
 ---
 # <a name="enable-automatic-tuning"></a>Aktivera automatisk inställning
 
@@ -86,7 +86,7 @@ Om du vill konfigurera enskilda alternativen för automatisk justering via T-SQL
    
 Ställa in ett justeringsalternativ för enskilda på, åsidosätter inställningar som databasen ärvt och aktivera ett justeringsalternativ. Ange värdet till OFF, kommer också åsidosätter inställningar som databasen ärvt och inaktiverar alternativet justering. Alternativ för automatisk justering, som standard anges ärver konfigurationen från automatisk justering inställningen databasnivå.  
 
-Hitta mer om datorns T-SQL-alternativ för att konfigurera automatisk justering, se [ALTER DATABASE SET-alternativ (Transact-SQL) för SQL Database-logisk server](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
+Hitta mer om datorns T-SQL-alternativ för att konfigurera automatisk justering, se [ALTER DATABASE SET-alternativ (Transact-SQL) för SQL Database-logisk server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
 
 ## <a name="disabled-by-the-system"></a>Inaktiverad av systemet
 Automatisk justering övervakar alla de åtgärder som utförs på databasen och i vissa fall kan bestämma att automatisk justering inte kan fungerar korrekt på databasen. I det här fallet inaktiveras inställning av alternativet av systemet. I de flesta fall inträffar detta eftersom Query Store inte är aktiverat eller är i skrivskyddat läge på en viss databas.

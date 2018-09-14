@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 361905b4c1e0c9e596cb7cf1cd5a730268d81bd0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413417"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575226"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azure driftsäkerhet
 [Azure driftsäkerhet](https://docs.microsoft.com/azure/security/azure-operational-security) refererar till de tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Microsoft Azure. Det är ett ramverk som innehåller den kunskap som en mängd funktioner som är unika för Microsoft. Funktionerna omfattar Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-program och djup medvetenhet om hotlandskapet.
@@ -68,7 +68,7 @@ Azure AD innehåller också en komplett uppsättning [identitetshanteringsfunkti
 Med Azure Active Directory, alla program som du publicerar för dina partner och kunder (företag eller konsumenter) får samma identitet och åtkomst till funktioner för hantering. På så sätt kan du avsevärt minska dina driftskostnader.
 
 ## <a name="azure-security-center"></a>Azure Security Center
-[Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i (och kontroll över) säkerheten för dina Azure-resurser. Det ger integrerad säkerhet övervaka och hantera principer för dina prenumerationer. Det hjälper dig att identifiera hot som kan annars oupptäckta och de fungerar med ett vittomfattande ekosystem med säkerhetslösningar.
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i (och kontroll över) säkerheten för dina Azure-resurser. Det ger integrerad säkerhet övervaka och hantera principer för dina prenumerationer. Det hjälper dig att identifiera hot som kan annars oupptäckta och de fungerar med ett vittomfattande ekosystem med säkerhetslösningar.
 
 [Skydda data i virtuella datorer (VM)](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine) i Azure genom att ge bättre inblick i den virtuella datorns säkerhetsinställningar och övervakning för hot. Security Center kan övervaka dina virtuella datorer för:
 

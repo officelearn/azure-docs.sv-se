@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 104ef98aac3e34e30a86854a0d759cf11106b55b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414709"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575326"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Marketplace-konsulttjänster
 Konsulttjänster på Azure Marketplace ger Microsoft-partner målet vid anslutning av kunder med stöd för och utöka deras användning av Azure-tjänster. Azure Marketplace har stöd för lista över consulting Tjänsterbjudanden från System Integrator (SI) partner av Microsoft. 
@@ -73,7 +73,7 @@ Mer information finns i [uppnådda via Microsoft Partner Network](https://partne
 Lanseringen av Azure Marketplace-konsulttjänster hamnar live i specifika georegionen. Första gången programmet startas blir: USA, Kanada, Storbritannien och Australien. Kataloger för andra länder kommer Driftsätt efter ett beskrivande tal och övertygande valet av Tjänsterbjudanden har skickats av partners och godkänts av Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Hur du registrera dig för konsulttjänster på Azure Marketplace
-Starta genom att registrera din konsulttjänster med [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Utgivare kan hänvisa till [blir utgivare på Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), en fullständig kontroll lista över kraven för enhetsregistrering. 
+Starta genom att registrera din konsulttjänster med [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Utgivare kan hänvisa till [blir utgivare på Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), en fullständig kontroll lista över kraven för enhetsregistrering. 
 
 **Vilka att förvänta sig efter registreringen** The Onboarding-teamet kontaktar i 1 – 3 arbetsdagar med en e-post som innehåller din inloggningsinformation för Cloud Partner Portal (CPP). [Cloud Partner Portal](https://cloudpartner.azure.com) är erbjudandet lista portalen där utgivare kan skicka registreringsinformationen och bidrag. 
 
@@ -93,7 +93,7 @@ Före registrering, du kan börja samla in och förbereda innehållet som hjälp
 |Konfigurera för nya erbjudanden  |
 |---------|
 |Erbjud namn (200 tecken) och en beskrivning (2 000 tecken)    |
-|Uppnådda     |
+|Kompetenser     |
 |Tillgänglighet för land/region     |
 |Varaktigheten för kundengagemang     |
 |Tillämpliga branscher, kategorier och sökord     |
@@ -150,7 +150,7 @@ När du granskar erbjuder beskrivningar och erbjuder sammanfattningar gäller te
 |**Konceptbevis**    |    Tydliggör vilka tekniska ändringar, tekniska artefakter eller andra artefakter som en kund kan förvänta sig som resultat av samarbetet     | Optimera ditt erbjudande sammanfattning med dina viktigaste sökmotoroptimering nyckelord        |
 |**Workshop**    |   Innehåller en detaljerad agenda daglig, veckovis eller månadsvis beroende på den valda varaktigheten för ditt erbjudande. Förklara vad learning-mål eller andra leveransfiler är av din workshop     |   Optimera ditt erbjudande sammanfattning med dina viktigaste sökmotor optimering nyckelord      |
 
-I partnerportalen i molnet, kan du lägga till formateringen på din registrering med hjälp av [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Det här är en enkel designspråk som hjälper dig att lägga till polska i din registrering. 
+I partnerportalen i molnet, kan du lägga till formateringen på din registrering med hjälp av [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). Det här är en enkel designspråk som hjälper dig att lägga till polska i din registrering. 
 
 **Exemplet Markdown-anteckningar**
 *   Lägg till * i början och slutet av kopiera block - med inget utrymme för att skapa kursiv stil (Ex: *innehåll*)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: a85cd5287f6947ec17dc19291a70d6dd081e1827
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035868"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578505"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa din publiceringsalternativ
 Publiceringsalternativ som du väljer för ditt erbjudande kopplat direkt till både marketplace GTM-fördelar och krav för berättigande. Ännu viktigare är definierar valet av publicera alternativet och erbjudandetypen i Cloud Partner Portal hur användare kommer att interagera med ditt erbjudande i marketplace.
@@ -80,7 +80,7 @@ Innan du kan skapa ett erbjudande, måste du välja en typ av erbjudande. Typ av
 
 En typ av erbjudande kan konfigureras på olika sätt i Cloud Partner Portal att aktivera olika publiceringsalternativ anrop till åtgärden, etablering och priser. Publicering alternativet och konfigurationen av typ av erbjudande också justera erbjudandet behörighet och tekniska krav. 
 
-Se till att granska storefront och erbjuder krav för berättigande av typen i den här [Publiceringsguiden](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide) och tekniska publicera krav innan du skapar ditt erbjudande.
+Se till att granska storefront och erbjuder krav för berättigande av typen i den här [Publiceringsguiden](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) och tekniska publicera krav innan du skapar ditt erbjudande.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: dde8881fc446eef0dd6ca0735e5e23a5a19328fa
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627924"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578384"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream, Azure-diagnostikloggar till en händelsehubb
-**[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md) ** kan strömmas i nära realtid för program med hjälp av alternativet inbyggda ”exportera till Event Hubs” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i en diagnostikinställning via Azure PowerShell-cmdletar eller Azure CLI 2.0.
+**[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för program med hjälp av alternativet inbyggda ”exportera till Event Hubs” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i en diagnostikinställning via Azure PowerShell-cmdletar eller Azure CLI 2.0.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Vad du kan göra med diagnostikloggar och Event Hubs
 Här är några sätt som du kan använda den strömmande kapaciteten för diagnostikloggar:
@@ -41,7 +41,7 @@ Här är några sätt som du kan använda den strömmande kapaciteten för diagn
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Kunna strömma diagnostikloggar
 
-Du kan aktivera strömning av diagnostikloggar programmässigt, via portalen, eller med hjälp av den [Azure Monitor REST API: er](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Oavsett hur du skapar en diagnostikinställning där du anger ett namnområde för Event Hubs och loggkategorier och mått som du vill skicka namnområdet. En händelsehubb skapas i namnområdet för varje loggkategori som du aktiverar. En diagnostik **loggkategori** är en typ av logg som en resurs kan samla in.
+Du kan aktivera strömning av diagnostikloggar programmässigt, via portalen, eller med hjälp av den [Azure Monitor REST API: er](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Oavsett hur du skapar en diagnostikinställning där du anger ett namnområde för Event Hubs och loggkategorier och mått som du vill skicka namnområdet. En händelsehubb skapas i namnområdet för varje loggkategori som du aktiverar. En diagnostik **loggkategori** är en typ av logg som en resurs kan samla in.
 
 > [!WARNING]
 > Aktivera och strömma diagnostikloggar från beräkningsresurser (till exempel virtuella datorer eller Service Fabric) [kräver en annan uppsättning steg](../event-hubs/event-hubs-streaming-azure-diags-data.md).
@@ -93,7 +93,7 @@ Event Hub auktorisering regel-ID är en sträng med det här formatet: `{Event H
 
 ### <a name="via-azure-cli-20"></a>Via Azure CLI 2.0
 
-Strömning den [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), du kan använda den [az monitor diagnostic-settings skapa](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) kommando.
+Strömning den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), du kan använda den [az monitor diagnostic-settings skapa](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) kommando.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

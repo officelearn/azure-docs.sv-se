@@ -14,16 +14,16 @@ ms.component: report-monitor
 ms.date: 05/23/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 385106065322cae9b8e29f66bfd6920d4ebb52f8
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 5fe16ecb2725cf306b5b57c9d45d8601581a3ece
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42058156"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578911"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Åtgärda användare som flaggats för risk i Azure Active Directory-portalen
 
-Med hjälp av säkerhetsrapporterna i Azure Active Directory (Azure AD) kan du bedöma risken för att användarkonton i din miljö har komprometterats. En [användare som har flaggats för risk](../identity-protection/overview.md#users-flagged-for-risk) indikerar att ett användarkonto kan ha komprometterats.
+Med hjälp av säkerhetsrapporterna i Azure Active Directory (Azure AD) kan du bedöma risken för att användarkonton i din miljö har komprometterats. En användare som flaggats för risk är en indikator för ett användarkonto som kan ha komprometterats.
 
 Det är viktigt för Microsoft att hålla dina miljöer säkra. Som en del av detta åtagande övervakar Microsoft kontinuerligt för att hitta aktiviteter som är ovanliga eller som följer kända angreppsmönster. 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric händelse aggregeringen med Linux Azure-diagnostik | Microsoft Docs
-description: Läs mer om sammanställa och samlar in händelser med hjälp av LAD för övervakning och diagnostik av Azure Service Fabric-kluster.
+title: Azure Service Fabric händelse aggregering med Linux Azure-diagnostik | Microsoft Docs
+description: Läs mer om sammanställa och samla in händelser med hjälp av LAD för övervakning och diagnostik för Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: a8f58569618482ba94b0895b7e3149d77ef2f4fa
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: c7eb98eb2dbff05e67b6a60c413932ba51fdfdf7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849855"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573764"
 ---
-# <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Aggregering av händelse och med Azure-diagnostik för Linux
+# <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Händelsen aggregering och samling med Linux Azure-diagnostik
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 > * [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
 >
 >
 
-När du kör ett Azure Service Fabric-kluster, är det en bra idé att samla in loggar från alla noder i en central plats. Med loggarna på en central plats hjälper dig att analysera och felsöka problem i klustret eller problem i program och tjänster som körs i klustret.
+När du kör ett Azure Service Fabric-kluster, är det en bra idé att samla in loggar från alla noder i en central plats. Med loggarna på en central plats hjälper dig att analysera och felsöka problem i ditt kluster eller problem i program och tjänster som körs i klustret.
 
-Ett sätt att överföra och samla in loggar är att använda Linux Azure Diagnostics (LAD)-tillägget, som överför loggar till Azure Storage och har även möjlighet att skicka loggar till Azure Application Insights eller Händelsehubbar. Du kan också använda en extern process för att läsa händelser från lagring och placera dem i en analys plattform produkt som [logganalys](../log-analytics/log-analytics-service-fabric.md) eller en annan lösning för parsning av loggen.
+Ett sätt att överföra och samla in loggar är att använda Linux Azure Diagnostics (LAD)-tillägget, som laddar upp loggar till Azure Storage och har också möjlighet att skicka loggarna till Azure Application Insights eller Event Hubs. Du kan också använda en extern process för att läsa händelser från storage och placera dem i en plattform produkten analys som [Log Analytics](../log-analytics/log-analytics-service-fabric.md) eller en annan lösning för parsning av loggen.
 
-## <a name="log-and-event-sources"></a>Loggen och händelsen källor
+## <a name="log-and-event-sources"></a>Logg- och händelsedata källor
 
-### <a name="service-fabric-platform-events"></a>Service Fabric-plattformen händelser
-Service Fabric avger några out box loggar via [LTTng](http://lttng.org), inklusive operativa händelser eller runtime-händelser. Dessa loggar lagras på den plats som anger klustrets Resource Manager-mall. Om du vill hämta eller ange information om lagringskonto, söka efter taggen **AzureTableWinFabETWQueryable** och leta efter **StoreConnectionString**.
+### <a name="service-fabric-platform-events"></a>Service Fabric-plattformshändelser
+Service Fabric genererar ett par out-of the box loggar via [LTTng](http://lttng.org), inklusive operativa händelser eller runtime-händelser. Dessa loggar lagras på den plats som anger klustrets Resource Manager-mall. Om du vill hämta eller ange uppgifterna för lagringskontot, Sök efter taggen **AzureTableWinFabETWQueryable** och leta efter **StoreConnectionString**.
 
 ### <a name="application-events"></a>Programhändelser
- Händelser som orsakat från program och tjänsterna kod som anges av du när instrumentering din programvara. Du kan använda alla loggning lösningar som skriver textbaserade loggfiler – till exempel LTTng. Mer information finns i dokumentationen för LTTng på spårning i tillämpningsprogrammet.
+ Händelser som sänts ut från dina program och tjänster kod som angetts av dig när arrangera din programvara. Du kan använda valfri lösning för loggning som skriver textbaserade loggfiler, till exempel LTTng. Mer information finns i dokumentationen för LTTng på spårning av ditt program.
 
-[Övervaka och diagnostisera tjänster i en inställning för lokal dator development](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
+[Övervaka och diagnostisera tjänster i en inställning för utveckling av lokala dator](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 
-## <a name="deploy-the-diagnostics-extension"></a>Distribuera diagnostik-tillägget
-Det första steget i att samla in loggar är att distribuera diagnostik tillägg på var och en av de virtuella datorerna i Service Fabric-klustret. Diagnostik-tillägget samlar in loggar på varje virtuell dator och överför dem till lagringskontot som du anger. 
+## <a name="deploy-the-diagnostics-extension"></a>Distribuera Diagnostics-tillägg
+Det första steget i att samla in loggar är att distribuera diagnostiktillägget på var och en av de virtuella datorerna i Service Fabric-klustret. Diagnostiktillägget samlar in loggar på varje virtuell dator och överför dem till det lagringskonto som du anger. 
 
-Om du vill distribuera diagnostik-tillägg till de virtuella datorerna i klustret som en del av klustret har skapats, ange **diagnostik** till **på**. När du skapar klustret kan du inte ändra den här inställningen med hjälp av portalen så du behöver göra nödvändiga ändringar i Resource Manager-mallen.
+Om du vill distribuera Diagnostics-tillägg till de virtuella datorerna i klustret som en del av klustret har skapats, ange **diagnostik** till **på**. När du har skapat klustret kan ändra du inte den här inställningen med hjälp av portalen så att du har att göra ändringarna i Resource Manager-mallen.
 
-Detta konfigurerar LAD agenten för att övervaka angivna loggfilerna. När en ny rad läggs till filen, skapas en syslog-post som skickas till lagring (tabellen) som du angav.
+Den här koden konfigurerar LAD agenten för att övervaka angivna loggfiler. När en ny rad läggs till i filen, skapas en syslog-post som skickas till lagringsutrymmet (tabell) som du har angett.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-1. För att förstå vilka händelser som du bör undersöka vid felsökning av problem i detalj, se [LTTng dokumentationen](http://lttng.org/docs) och [med LAD](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-linux).
-2. [Konfigurera agenten logganalys](service-fabric-diagnostics-event-analysis-oms.md) för att samla in mått kan övervaka behållare som har distribuerats på klustret och visualisera dina loggar 
+1. Mer i detalj om vilka händelser som ska undersökas vid felsökning av problem i [LTTng dokumentation](http://lttng.org/docs) och [med LAD](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+2. [Konfigurera Log Analytics-agenten](service-fabric-diagnostics-event-analysis-oms.md) för att samla in mått, övervaka behållare som distribueras i klustret och visualisera dina loggar 

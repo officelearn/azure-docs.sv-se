@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 07a5c378ddf73f245104f64e1dae945525a1e01a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381439"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543147"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk verifieringsprofil i en anpassad princip för Azure Active Directory B2C
 
@@ -50,11 +50,11 @@ Den **ValidationTechnicalProfiles** elementet innehåller följande element:
 
 Den **ValidationTechnicalProfile** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Tjänsten | Ja | En identifierare för en tekniska profilen som redan har definierats i principen eller överordnad principen. |
-|ContinueOnError|Nej| Som anger om verifiering av alla efterföljande verifiering tekniska profiler ska fortsätta om den här tekniska profilen validaiton genererar ett fel. Möjliga värden: `ture` eller `false` (standard bearbetning av ytterligare verifiering profiler stoppas och ett fel returneras). 
-|ContinueOnSuccess | Nej | Som anger om verifiering av alla efterföljande verifiering profiler ska fortsätta om den här tekniska profilen verifiering lyckas. Möjliga värden: `ture` eller `false`. Standardvärdet är `true`, vilket innebär att bearbetningen av ytterligare verifiering profiler kommer att fortsätta. |
+|ContinueOnError|Nej| Som anger om verifiering av alla efterföljande verifiering tekniska profiler ska fortsätta om den här tekniska profilen validaiton genererar ett fel. Möjliga värden: `true` eller `false` (standard bearbetning av ytterligare verifiering profiler stoppas och ett fel returneras). 
+|ContinueOnSuccess | Nej | Som anger om verifiering av alla efterföljande verifiering profiler ska fortsätta om den här tekniska profilen verifiering lyckas. Möjliga värden: `true` eller `false`. Standardvärdet är `true`, vilket innebär att bearbetningen av ytterligare verifiering profiler kommer att fortsätta. |
 
 Den **ValidationTechnicalProfile** elementet innehåller följande element:
 
@@ -64,7 +64,7 @@ Den **ValidationTechnicalProfile** elementet innehåller följande element:
 
 Den **Förhandsvillkoret** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Typ | Ja | Typ av kontroll eller fråga för att utföra för villkor. Antingen `ClaimsExist` anges för att se till att åtgärder ska utföras om de angivna anspråk finns i användarens aktuella anspråksuppsättningen, eller `ClaimEquals` har angetts som åtgärder ska utföras om det angivna anspråket finns och dess värde är lika med den angivet värde. |
 | ExecuteActionsIf | Ja | Anger om åtgärderna som i villkor som ska utföras om testet är true eller false. | 

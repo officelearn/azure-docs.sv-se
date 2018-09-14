@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0960f569f2a582d9712473081f66205272cfe31a
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ca089672cf645af58952205dada66aa96ba0b65d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117422"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578251"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business en på Azure-datorer
 Det här dokumentet innehåller riktlinjer för att distribuera SAP Business One på Azure Virtual Machines. Dokumentationen är inte en ersättning för dokumentationen för installation av ett företag för SAP. Dokumentationen bör omfatta grundläggande riktlinjer för planering och distribution för Azure-infrastrukturen att köra Business One program på.
@@ -30,7 +30,7 @@ Företag som har stöd för två olika databaser:
 - SQLServer – Se [SAP Obs! #928839 - versionen planera för Microsoft SQL Server](https://launchpad.support.sap.com/#/notes/928839)
 - SAP HANA - för exakta SAP Business One stöd matrix för SAP HANA, Kolla in den [SAP produkten tillgänglighet matris](https://support.sap.com/pam)
 
-Om SQL Server, grundläggande distributionsöverväganden enligt beskrivningen i den [DBMS i Azure Virtual Machines-distribution för SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms-guide) gäller. för SAP HANA nämns överväganden i det här dokumentet.
+Om SQL Server, grundläggande distributionsöverväganden enligt beskrivningen i den [DBMS i Azure Virtual Machines-distribution för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide) gäller. för SAP HANA nämns överväganden i det här dokumentet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda den här guiden behöver du grundläggande kunskaper om följande Azure-komponenterna:
@@ -41,7 +41,7 @@ Om du vill använda den här guiden behöver du grundläggande kunskaper om föl
 - [Azure-nätverk och virtuella nätverk med CLI ](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Hantera Azure-diskar med Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
-Även om du är intresserad av företag en, dokumentet [Azure Virtual Machines planering och implementering av SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide) kan vara en bra informationskälla.
+Även om du är intresserad av företag en, dokumentet [Azure Virtual Machines planering och implementering av SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) kan vara en bra informationskälla.
 
 Antas att du som distribuerar SAP Business One-instans är:
 
@@ -89,23 +89,23 @@ I princip är det alltid bäst att använda de senaste versionerna för operativ
 I nästa kapitel delar den delen för att distribuera SAP i infrastrukturen.
 
 ### <a name="azure-network-infrastructure"></a>Azure nätverksinfrastruktur
-Nätverkets infrastruktur du behöver distribuera i Azure beror på om du distribuerar ett enda Business One system själv. Eller om du är en värd som är värd för dussintals Business One system för kunder. Det finns också kanske små förändringar i designen på om hur du ansluter till Azure. Gå igenom olika möjligheter, en design där du har en VPN-anslutning till Azure och där du utökar Active Directory via [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design) eller [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) till Azure.
+Nätverkets infrastruktur du behöver distribuera i Azure beror på om du distribuerar ett enda Business One system själv. Eller om du är en värd som är värd för dussintals Business One system för kunder. Det finns också kanske små förändringar i designen på om hur du ansluter till Azure. Gå igenom olika möjligheter, en design där du har en VPN-anslutning till Azure och där du utökar Active Directory via [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design) eller [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) till Azure.
 
 ![Enkel nätverkskonfiguration med Business One](./media/business-one-azure/simple-network-with-VPN.PNG)
 
 Förenklad konfiguration visas introducerar flera instanser av säkerhet som gör att kontrollen och gränsen routning. Det börjar med 
 
 - Router/brandväggen på den lokala kunden.
-- Nästa instans är den [Azure Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) som du kan använda för att införa regler för Routning och säkerhet för den virtuella Azure-nätverket som du kör en SAP Business-konfiguration i.
+- Nästa instans är den [Azure Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview) som du kan använda för att införa regler för Routning och säkerhet för den virtuella Azure-nätverket som du kör en SAP Business-konfiguration i.
 - För att undvika att användare av Business One-klienten även kan se den server som kör Business One-server som körs i databasen, måste du avgränsa den virtuella datorn som är värd för företag en klient och en företagsservern i två olika undernät inom det virtuella nätverket.
 - Använder du Azure-Nätverkssäkerhetsgrupper som är tilldelade till de två olika undernäten igen för att kunna begränsa åtkomsten till den företagsservern.
 
-En mer avancerad version av en konfiguration för Azure-nätverk baserat på Azure [beskrivs bästa praxis för arkitekturen NAV och ekrar](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). För arkitekturmönstret för NAV och ekrar ändrar första förenklad konfiguration till en så här:
+En mer avancerad version av en konfiguration för Azure-nätverk baserat på Azure [beskrivs bästa praxis för arkitekturen NAV och ekrar](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). För arkitekturmönstret för NAV och ekrar ändrar första förenklad konfiguration till en så här:
 
 
 ![NAV och ekrar konfigurationen med verksamheten en](./media/business-one-azure/hub-spoke-network-with-VPN.PNG)
 
-I de fall där användarna ansluter via internet utan någon privat anslutning till Azure, utformningen av nätverket i Azure bör ligga i linje med de principer som beskrivs i Azure-Referensarkitektur för [DMZ mellan Azure och Internet](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+I de fall där användarna ansluter via internet utan någon privat anslutning till Azure, utformningen av nätverket i Azure bör ligga i linje med de principer som beskrivs i Azure-Referensarkitektur för [DMZ mellan Azure och Internet](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ### <a name="business-one-database-server"></a>En databasserver för företag
 För databastyp är SQL Server och SAP HANA tillgängliga. Oberoende av DBMS, bör du läsa dokumentet [överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) att få en allmän förståelse för DBMS distributioner i virtuella azure-datorer och den relaterade nätverk och lagring ämnen.
@@ -151,7 +151,7 @@ SAP HANA säkerhetskopierar och återställer strategier, bör du läsa dokument
 ### <a name="business-one-client-server"></a>Företag ett klient-server
 Överväganden för lagring är inte det viktigaste här för dessa komponenter. dock du har en tillförlitlig plattform. Därför bör du använda Azure Premium Storage för den här virtuella datorn, även för en bas-VHD. Ändra storlek på den virtuella datorn med de data som anges i [SAP Business en maskinvara Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). För Azure måste du fokusera och beräkna med de krav som anges i kapitel 2.4 i dokumentet. När du beräknar kraven, måste du jämföra dem med följande dokument för att hitta den perfekta Virtuellt åt dig:
 
-- [Storlekar för Windows-datorer i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)
+- [Storlekar för Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 - [SAP-kommentar #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Jämför antalet processorer och minne som krävs som de som beskrivs av Microsoft. Tänk också nätverkets dataflöde på när du väljer de virtuella datorerna.

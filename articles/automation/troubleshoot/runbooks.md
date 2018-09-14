@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 1954393c9fe544c33919c8f9fb8ee04e430e7639
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059930"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542573"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -216,17 +216,19 @@ Det här felet kan orsakas av följande orsaker:
 
 1. Minnesgräns. Det finns dokumenterade begränsningar för hur mycket minne som allokerats till en Sandbox [Automation tjänstbegränsningar](../../azure-subscription-service-limits.md#automation-limits) så att ett jobb kan misslyckas den om den använder mer än 400 MB minne.
 
-2. Modulen inkompatibel. Detta kan inträffa om modulberoenden inte är rätt och om inte din runbook vanligtvis returnerar ett ”kommando inte hittas” eller ”det går inte att binda parametern” meddelande.
+1. Nätverket Sockets. Azure sandbox-miljöer är begränsade till 1000 samtidiga nätverk sockets enligt beskrivningen i [Automation tjänstbegränsningar](../../azure-subscription-service-limits.md#automation-limits).
+
+1. Modulen inkompatibel. Detta kan inträffa om modulberoenden inte är rätt och om inte din runbook vanligtvis returnerar ett ”kommando inte hittas” eller ”det går inte att binda parametern” meddelande.
 
 #### <a name="resolution"></a>Lösning
 
 Någon av följande lösningar problemet på:
 
-* Föreslagna metoder för att fungera inom minnesgränsen är att dela upp arbetsbelastningen mellan flera runbooks, inte bearbeta så mycket data i minnet, inte att skriva onödiga utdata från runbooks, eller överväga hur många kontrollpunkter som du skriver till PowerShell-arbetsflöde runbooks.  
+* Föreslagna metoder för att fungera inom minnesgränsen är att dela upp arbetsbelastningen mellan flera runbooks, inte bearbeta så mycket data i minnet, inte att skriva onödiga utdata från runbooks, eller överväga hur många kontrollpunkter som du skriver till PowerShell-arbetsflöde runbooks. Du kan använda metoden clear som `$myVar.clear()` att rensa variabel och Använd `[GC]::Collect()` för att köra skräpinsamling omedelbart, detta minskar minnesavtrycket som krävs för din runbook under körning.
 
 * Uppdatera din Azure-moduler genom att följa stegen [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](../automation-update-azure-modules.md).  
 
-* En annan lösning är att köra runbook på en [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker-arbeten begränsas inte av den [rättmätiga del](../automation-runbook-execution.md#fair-share) begränsar att Azure sandbox-miljöer är.
+* En annan lösning är att köra runbook på en [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker-arbeten begränsas inte av minne och nätverk gränserna som Azure sandbox-miljöer.
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook misslyckas på grund av avserialiserat objekt
 

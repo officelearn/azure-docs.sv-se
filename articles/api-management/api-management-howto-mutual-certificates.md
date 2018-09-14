@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 2b0db6f9a1e9cd660ce1b1e7af3e7e1c85815c16
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5983e6236d1aee80b2cc5b83b65dd2f7945039a1
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045256"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579980"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Hur du skyddar backend-tjänster med hjälp av klienten autentisering i Azure API Management
 
 API Management kan du skyddar åtkomsten till backend-tjänst i ett API med hjälp av klientcertifikat. Den här guiden visar hur du hanterar certifikat i Azure API Management-tjänstinstans i Azure-portalen. Den förklarar också hur du konfigurerar ett API om du vill använda ett certifikat för att få åtkomst till en backend tjänst.
 
-Information om hur du hanterar certifikat med hjälp av API Management REST API finns i <a href="https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API-certifikat entitet</a>.
+Information om hur du hanterar certifikat med hjälp av API Management REST API finns i <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API-certifikat entitet</a>.
 
 ## <a name="prerequisites"> </a>Nödvändiga komponenter
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0408b26e687dd31c408dbccc68f56e8198016c8f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 17c67cc07f2bbdee3d71e69068cca6cbcfe3a104
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664796"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579827"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Distribuera molnbaserade Azure Multi-Factor Authentication
 
@@ -30,7 +30,7 @@ Innan du börjar bör du kontrollera att du har följande krav:
 
 **Aktiverad av villkorliga åtkomstprinciper** -den här metoden beskrivs i den här artikeln. Det är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Aktivera med hjälp av endast princip för villkorlig åtkomst fungerar för Azure MFA i molnet och är en premiumfunktion i Azure AD.
 
-Aktiveras med Azure AD Identity Protection - används den här metoden Azure AD Identity Protection risken för att kräva tvåstegsverifiering endast utifrån inloggningsrisk för alla molnprogram. Den här metoden kräver Azure Active Directory P2 licensiering. Mer information om den här metoden finns i [Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins).
+Aktiveras med Azure AD Identity Protection - används den här metoden Azure AD Identity Protection risken för att kräva tvåstegsverifiering endast utifrån inloggningsrisk för alla molnprogram. Den här metoden kräver Azure Active Directory P2 licensiering. Mer information om den här metoden finns i [så här konfigurerar du principen för användarrisk](../identity-protection/howto-user-risk-policy.md).
 
 Aktiverat genom att ändra användarens tillstånd - detta är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både Azure MFA i molnet och Azure MFA-servern. Med den här metoden kräver att användare utför en tvåstegsverifiering **varje gång** de logga in och åsidosätter principer för villkorlig åtkomst. Mer information om den här metoden finns i [kräva tvåstegsverifiering för en användare](howto-mfa-userstates.md).
 

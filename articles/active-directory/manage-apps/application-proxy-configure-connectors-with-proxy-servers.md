@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2017
+ms.date: 09/12/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 7f9d74ce60d2a433f6bb63be4f131ac430452036
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e67428116c66c05d83efbb217d7ec81f75124051
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363422"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540853"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -77,7 +77,7 @@ Till följd av med endast utgående trafik, finns inget behov att konfigurera in
 
 Om WPAD är aktiverad i miljön och korrekt konfigurerad, identifierar anslutningen automatiskt utgående proxyserver och försök att använda den. Du kan uttryckligen Konfigurera anslutningen att gå via en utgående proxy.
 
-Du gör detta genom att redigera filen C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config och lägga till den *system.net* avsnittet som visas i det här kodexemplet. Ändra *proxyserver:8080* att återspegla din lokala Proxyservernamn eller IP-adress och den port som lyssnar på.
+Du gör detta genom att redigera filen C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config och lägga till den *system.net* avsnittet som visas i det här kodexemplet. Ändra *proxyserver:8080* att återspegla din lokala Proxyservernamn eller IP-adress och den port som lyssnar på. Värdet måste innehålla prefixet http:// även om du använder en IP-adress.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

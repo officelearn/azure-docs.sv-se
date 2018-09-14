@@ -1,50 +1,72 @@
 ---
-title: Hantera gruppegenskaper i Azure AD | Microsoft Docs
-description: Redigera egenskaperna och andra konfigurationsinställningar för en grupp i Azure Active Directory
+title: Så här redigerar du din gruppinformation med Azure Active Directory | Microsoft Docs
+description: Så här redigerar du en grupp information med hjälp av Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 08/01/2017
+ms.topic: conceptual
+ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 50d9443197df35ac032c87317966551da1612c41
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: HT
+ms.openlocfilehash: 0bac740a5da9c1e57ea1755c58579463da4a883a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860440"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580454"
 ---
-# <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Hantera inställningarna för en grupp i Azure Active Directory
-Den här artikeln förklarar hur du ändrar inställningarna för en grupp i Azure Active Directory (AD Azure).
+# <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>Så här: redigera gruppinformation med hjälp av Azure Active Directory
 
-## <a name="how-do-i-find-and-change-the-settings"></a>Hur gör jag för att hitta och ändra inställningarna?
-1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör för katalogen.
-2. Välj **Alla tjänster**, ange **Användare och grupper** i textrutan och tryck på **Retur**.
+Med Azure Active Directory kan redigera du inställningarna för en grupp, inklusive uppdatera dess namn, beskrivning eller Medlemskapstyp.
 
-   ![Öppna bladet Användare och grupper](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
-3. På bladet **Användare och grupper** väljer du **Alla grupper**.
+## <a name="to-edit-your-group-settings"></a>Så här redigerar du gruppinställningarna för
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som Global administratör för katalogen.
 
-   ![Öppna bladet Alla grupper](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
-4. Välj en grupp på bladet **Användare och grupper – alla grupper**.
-5. Välj **Egenskaper** på bladet **Grupp – *gruppnamn***.
+2. Välj **Azure Active Directory**, och välj sedan **grupper**.
 
-   ![Öppna bladet Egenskaper](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
-6. När du har ändrat egenskaperna för gruppen väljer du **Spara**.    
+    Den **grupper – alla grupper** visas, som visar alla aktiva grupperna.
 
-   ![Spara egenskapsändringar](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
+3. Från den **grupper – alla grupper** anger så mycket av namnet som du kan göra i den **Search** box. För den här artikeln, vi söker efter den **MDM princip – västra** grupp.
+
+    Sökresultatet visas den **Search** rutan uppdateras när du skriver fler tecken.
+
+    ![Sidan alla grupper med söktext i sökrutan](media/active-directory-groups-settings-azure-portal/search-for-specific-group.png)
+
+4. Välj gruppen som **MDM princip – västra**, och välj sedan **egenskaper** från den **hantera** området.
+
+    ![Översikt översiktssidan med numret och medlemmar och medlemmen alternativet markerat](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+
+5. Uppdatera den **allmänna inställningar** information efter behov, inklusive:
+
+    ![För egenskapsinställningar för en grupp](media/active-directory-groups-settings-azure-portal/group-properties-settings.png)
+
+    - **Gruppnamn.** Redigera det befintliga gruppnamnet.
+    
+    - **Beskrivning av gruppen.** Redigera befintliga Gruppbeskrivning.
+
+    - **Typ av grupp.** Du kan inte ändra typ av grupp när det har skapats. Ändra den **grupptyp**, måste du ta bort gruppen och skapa en ny.
+    
+    - **Typ av medlemskap.** Ändra medlemskap. Mer information om de olika typerna av tillgängliga medlemskap finns [så här: skapa en basgrupp och lägga till medlemmar med hjälp av Azure Active Directory-portalen](active-directory-groups-create-azure-portal.md)
+    
+    - **Objekt-ID.** Du kan inte ändra objekt-ID, men du kan kopiera och använda det i din PowerShell-kommandon för gruppen. Mer information om hur du använder PowerShell-cmdlets finns i [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-v2-cmdlets.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
-* [Visa befintliga grupper](active-directory-groups-view-azure-portal.md)
-* [Skapa en ny grupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md)
-* [Hantera medlemmar i en grupp](active-directory-groups-members-azure-portal.md)
-* [Hantera medlemskap i en grupp](active-directory-groups-membership-azure-portal.md)
-* [Hantera dynamiska regler för användare i en grupp](../users-groups-roles/groups-dynamic-membership.md)
+- [Visa dina grupper och medlemmar](active-directory-groups-view-azure-portal.md)
+
+- [Skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md)
+
+- [Lägga till eller ta bort medlemmar från en grupp](active-directory-groups-members-azure-portal.md)
+
+- [Hantera dynamiska regler för användare i en grupp](../users-groups-roles/groups-create-rule.md)
+
+- [Hantera medlemskap i en grupp](active-directory-groups-membership-azure-portal.md)
+
+- [Hantera åtkomst till resurser med hjälp av grupper](active-directory-manage-groups.md)
+
+- [Koppla eller lägga till en Azure-prenumeration i Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

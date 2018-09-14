@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: eb290dffd7bdd86b9776d4f30b6fd09a2a952a46
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: db2f3086da41e990e6f87d8086d6e8defa447532
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720029"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543454"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos DB med Azure Data Factory
 
@@ -41,7 +41,7 @@ Mer specifikt stöder den här Azure Cosmos DB-anslutningen:
 Data Factory kan integreras med [Cosmos DB bulk executor biblioteket](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) att ge bästa möjliga prestanda skrivning till Cosmos DB.
 
 >[!TIP]
->Titta på [videon](https://www.youtube.com/watch?v=5-SRNiC_qOU&t=760s) som vägleder genom att kopiera data från Azure Blob storage till Cosmos DB och beskriver överväganden för att föra in data till Cosmos DB i allmänhet för prestandajustering.
+>Titta på [videon](https://youtu.be/5-SRNiC_qOU) som vägleder genom att kopiera data från Azure Blob storage till Cosmos DB och beskriver överväganden för att föra in data till Cosmos DB i allmänhet för prestandajustering.
 
 ## <a name="getting-started"></a>Komma igång
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 02d402b7de82631ce459c60cb42e5335c7e7cfe3
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5c2a37f3753292c6db847a4a9152bd4506f8fa5e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003308"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580505"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection spelbok
 
@@ -115,7 +115,7 @@ Det här avsnittet innehåller steg för att testa användarrisk och inloggnings
 
 ### <a name="user-risk-security-policy"></a>Riskprincip
 
-Mer information finns i [riskprincip](overview.md#user-risk-security-policy).
+Mer information finns i [så här konfigurerar du principen för användarrisk](howto-user-risk-policy.md).
 
 ![Användarrisk](./media/playbook/02.png "Spelbok")
 
@@ -140,7 +140,7 @@ Mer information finns i [riskprincip](overview.md#user-risk-security-policy).
 
 ### <a name="sign-in-risk-security-policy"></a>Säkerhetsprincip för inloggningsrisk
 
-Mer information finns i [riskprincip](overview.md#user-risk-security-policy).
+Mer information finns i [så här konfigurerar du principen för inloggningsrisk](howto-sign-in-risk-policy.md).
 
 ![Inloggningsrisk](./media/playbook/01.png "Spelbok")
 

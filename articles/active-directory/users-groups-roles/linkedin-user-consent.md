@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: b6b7f6f51e848223adcf618ebbc47df08e7ea7ef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c9728b63545450fe9160c3e4a79bace254ccc533
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392267"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543853"
 ---
 # <a name="user-consent-and-linkedin-account-connections-data-sharing"></a>Användarens medgivande och delning av LinkedIn konto anslutningar data
 
@@ -31,7 +31,7 @@ Om du vill se LinkedIn-information i Microsoft-appar och tjänster, måste anvä
 
 Åtkomst till LinkedIn-information i Microsoft-appar och tjänster gör det enklare för användarna att ansluta, engagera och skapa professionella relationer med kollegor, kunder och partner i och utanför organisationen. Nya användare kan få igång snabbare genom att ansluta med kollegor, mer information om dem och enkel åtkomst till mer information. Här är ett exempel på hur LinkedIn-information visas på kortet profil i Microsoft-appar:
 
-![Aktivera LinkedIn-kontoanslutningar](./media/linkedin-user-consent/display-example-02.png)
+![Aktivera LinkedIn-kontoanslutningar](./media/linkedin-user-consent/display-example.png)
 
 ## <a name="enable-and-announce-linkedin-account-connections"></a>Aktivera och meddela LinkedIn-kontoanslutningar
 

@@ -7,20 +7,20 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 161a47f72a0f8038a515c09f25ec2a8e8a520547
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a713a85a3301b211f922268d6afc4d047bd12023
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390848"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541708"
 ---
 # <a name="create-highlights-from-existing-videos"></a>Skapa höjdpunkter från befintliga videor
 
 Det här avsnittet visar hur du skapar och publicerar videoinsikter baserat på vissa andra video.
 
-1. Logga in på din [Video Indexer](https://api-portal.videoindexer.ai/) konto.
+1. Bläddra till den [Video Indexer](https://www.videoindexer.ai/) och logga in.
 2. Hitta en video som du vill skapa din videoinsikter.
 3. Tryck på **spela upp**.
 

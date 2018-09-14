@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62a7bb9bf63e8ebf97f9aeb5b08bf08ef06da43b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ddc27d9f5124000601a57b4ecd72c3d6021c109f
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782798"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542641"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -88,9 +88,9 @@ Windows-agenter måste konfigureras för att kommunicera med en WSUS-server elle
 
 #### <a name="linux"></a>Linux
 
-För Linux, måste datorn ha åtkomst till en uppdateringslagringsplats. Uppdatera databasen kan vara privat eller offentlig. TLS 1.1 eller TLS 1.2 krävs för att interagera med hantering av uppdateringar. En Operations Management Suite (OMS)-Agent för Linux som är konfigurerad för att rapportera till flera Log Analytics-arbetsytor stöds inte med den här lösningen.
+För Linux, måste datorn ha åtkomst till en uppdateringslagringsplats. Uppdatera databasen kan vara privat eller offentlig. TLS 1.1 eller TLS 1.2 krävs för att interagera med hantering av uppdateringar. En Log Analytics-agenten för Linux som är konfigurerad för att rapportera till flera Log Analytics-arbetsytor stöds inte med den här lösningen.
 
-Information om hur du installerar OMS-agenten för Linux och hämta den senaste versionen finns i [Operations Management Suite-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux). Information om hur du installerar OMS-agenten för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agent.md).
+Information om hur du installerar Log Analytics-agenten för Linux och hämta den senaste versionen finns i [Operations Management Suite-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux). Information om hur du installerar Log Analytics-agenten för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -147,7 +147,7 @@ Du kan granska följande information för att verifiera agentanslutning med Log 
 Om agenten inte kan kommunicera med Log Analytics och agenten är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver, kontrollerar du att den brandväggen eller proxyservern har konfigurerats korrekt. Läs hur du kontrollerar att den brandväggen eller proxyservern har konfigurerats korrekt i [nätverkskonfiguration för Windows-agenten](../log-analytics/log-analytics-agent-windows.md) eller [nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Om Linux-system har konfigurerats för att kommunicera med en proxyserver eller OMS-Gateway och är onboarding den här lösningen, uppdatera den *proxy.conf* behörigheter som ska tilldelas den gruppen omiuser läsbehörighet för filen med hjälp av följande kommandon:
+> Om dina Linux-system har konfigurerats för att kommunicera med en proxy eller Log Analytics-Gateway och är onboarding den här lösningen, uppdatera den *proxy.conf* behörigheter som ska tilldelas den gruppen omiuser läsbehörighet för filen med hjälp av den följande kommandon:
 >
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`

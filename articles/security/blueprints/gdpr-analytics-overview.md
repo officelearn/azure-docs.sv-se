@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: a2dadbd0b9e68b07ed098b8ffc338d09531b1e50
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b4f40dfced7060dd01df7410d07ac5b7cfdf3176
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715388"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580709"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Azure-säkerhet och efterlevnad skiss: analys för GDPR
 
@@ -70,13 +70,13 @@ Den här lösningen använder följande Azure-tjänster. Mer information om dist
 Följande avsnitt beskriver elementen distribution och implementering.
 
 **Azure Event Grid**
-[Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview) kan kunderna enkelt skapa program med händelsebaserade arkitekturer. Användarna välja Azure-resursen de vill prenumerera på och ge händelsehanterare eller webhook en slutpunkt för att skicka händelsen till. Kunder kan skydda webhook slutpunkter genom att lägga till frågeparametrar webhook-URL när du skapar en händelseprenumeration. Azure Event Grid har endast stöd för HTTPS webhook-slutpunkter. Azure Event Grid kan kunderna styra för olika användare att utföra olika hanteringsåtgärder, till exempel listan händelseprenumerationer, skapa nya och generera nycklar. Event Grid använder rollbaserad åtkomstkontroll (RBAC).
+[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) kan kunderna enkelt skapa program med händelsebaserade arkitekturer. Användarna välja Azure-resursen de vill prenumerera på och ge händelsehanterare eller webhook en slutpunkt för att skicka händelsen till. Kunder kan skydda webhook slutpunkter genom att lägga till frågeparametrar webhook-URL när du skapar en händelseprenumeration. Azure Event Grid har endast stöd för HTTPS webhook-slutpunkter. Azure Event Grid kan kunderna styra för olika användare att utföra olika hanteringsåtgärder, till exempel listan händelseprenumerationer, skapa nya och generera nycklar. Event Grid använder rollbaserad åtkomstkontroll (RBAC).
 
 **Azure Functions**
-[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) är en server utan beräkningstjänst som gör det möjligt för användarna att köra kod på begäran utan att behöva installera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser.
+[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) är en server utan beräkningstjänst som gör det möjligt för användarna att köra kod på begäran utan att behöva installera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser.
 
 **Azure Machine Learning**
-[Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/preview/) är en datavetenskapsteknik som gör att datorer kan använda befintliga data till att prognostisera framtida beteenden, resultat och trender.
+[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) är en datavetenskapsteknik som gör att datorer kan använda befintliga data till att prognostisera framtida beteenden, resultat och trender.
 
 **Azure Data Catalog**: [Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) gör datakällor enkelt identifiera och förstå hur av de användare som hanterar data. Gemensamma datakällor kan registrerats, taggade och söks igenom efter personliga data. Dina data blir kvar i där, men en kopia av deras metadata läggs till i Data Catalog tillsammans med en referens till datakällans plats. Dessa metadata indexeras också för att det ska bli enkelt att identifiera alla datakällor och för att användare som identifierar dem ska förstå dem.
 
@@ -88,7 +88,7 @@ Denna Referensarkitektur definierar ett privat virtuellt nätverk med ett adress
   - En NSG för arbetsbelastning
 
 Var och en av NSG: erna har specifika portar och protokoll som är öppna så att lösningen fungerar på ett säkert sätt och korrekt. Dessutom kan är följande konfigurationer aktiverade för varje NSG:
-  - [Diagnostiska loggar och händelser](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log) är aktiverade och lagras i ett lagringskonto
+  - [Diagnostiska loggar och händelser](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) är aktiverade och lagras i ett lagringskonto
   - OMS Log Analytics är ansluten till den [NSG-diagnostik](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Undernät**: varje undernät som är associerad med dess motsvarande NSG.
@@ -134,7 +134,7 @@ Följande tekniker ger funktioner för att hantera åtkomst till personliga data
 - Diagnostikloggar för Key Vault har aktiverats med en period av minst 365 dagar.
 - Tillåtna kryptografiska åtgärder för nycklar är begränsade till de som krävs.
 
-**Säkerhetsaviseringar**: [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) ger kunder möjlighet att övervaka trafik, samla in loggar och analysera datakällor för hot. Dessutom kommer Azure Security Center åt befintliga konfiguration av Azure-tjänster att tillhandahålla konfiguration och rekommendationer för tjänster för att förbättra säkerhet och skydda personliga data. Azure Security Center innehåller en [hot intelligence-rapporten](https://docs.microsoft.com/en-us/azure/security-center/security-center-threat-report) för varje identifierad hot mot hjälpa incidenter team undersöka och åtgärda hot.
+**Säkerhetsaviseringar**: [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) ger kunder möjlighet att övervaka trafik, samla in loggar och analysera datakällor för hot. Dessutom kommer Azure Security Center åt befintliga konfiguration av Azure-tjänster att tillhandahålla konfiguration och rekommendationer för tjänster för att förbättra säkerhet och skydda personliga data. Azure Security Center innehåller en [hot intelligence-rapporten](https://docs.microsoft.com/azure/security-center/security-center-threat-report) för varje identifierad hot mot hjälpa incidenter team undersöka och åtgärda hot.
 
 ### <a name="logging-and-auditing"></a>Loggning och granskning
 
@@ -152,13 +152,13 @@ Dessutom ingår följande OMS-lösningar som en del av den här arkitekturen:
 -   [Hantering av uppdateringar](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): uppdateringshanteringslösningen kan kundhantering av säkerhetsuppdateringar för operativsystemet, inklusive statusen för tillgängliga uppdateringar och processen för att installera nödvändiga uppdateringar.
 -   [Agenthälsa](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The agenthälsolösningen rapporterar hur många agenter distribueras och deras geografisk fördelning, samt hur många agenter som inte svarar och antalet agenter som skickar driftdata.
 -   [Azure-aktivitetsloggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics-lösning som hjälper till med analys av Azure-aktivitetsloggar för alla Azure-prenumerationer för en kund.
--   [Ändringsspårning](https://docs.microsoft.com/en-us/azure/automation/automation-change-tracking): The Change Tracking solution gör att kunder enkelt kan identifiera ändringar i miljön.
+-   [Ändringsspårning](https://docs.microsoft.com/azure/automation/automation-change-tracking): The Change Tracking solution gör att kunder enkelt kan identifiera ändringar i miljön.
 
 **Azure Monitor**
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) hjälper kunder att spåra prestanda, upprätthålla säkerhet och identifiera trender genom att organisationer kan granska, skapa aviseringar och arkivera data, inklusive spårning API anropar i kunders Azure-resurser.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) hjälper kunder att spåra prestanda, upprätthålla säkerhet och identifiera trender genom att organisationer kan granska, skapa aviseringar och arkivera data, inklusive spårning API anropar i kunders Azure-resurser.
 
 **Application Insights**
-[Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) är en utökningsbar tjänst Application Performance Management (APM) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka live-webbprogram. Den identifierar prestandaavvikelser och inkluderar kraftfulla analysverktyg för att diagnostisera problem och förstå vad användare faktiskt gör med appen. Det är utformat för att hjälpa användare att kontinuerligt förbättra prestanda och användbarhet.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/) är en utökningsbar tjänst Application Performance Management (APM) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka live-webbprogram. Den identifierar prestandaavvikelser och inkluderar kraftfulla analysverktyg för att diagnostisera problem och förstå vad användare faktiskt gör med appen. Det är utformat för att hjälpa användare att kontinuerligt förbättra prestanda och användbarhet.
 
 ## <a name="threat-model"></a>Hotmodell
 
@@ -176,17 +176,17 @@ Den [Azure säkerhet och efterlevnad skissen - GDPR Data Analytics implementerin
 ### <a name="vpn-and-expressroute"></a>VPN och ExpressRoute
 En säker VPN-tunnel eller [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) måste konfigureras för att upprätta en anslutning till resurser som har distribuerats som en del av dessa data analytics referensarkitekturen. Genom på lämpligt sätt att konfigurera en VPN eller ExpressRoute, kan kunderna lägga till ett lager säkerhet för data under överföring.
 
-Genom att implementera en säker VPN-tunnel med Azure kan du skapa en virtuell privat anslutning mellan ett lokalt nätverk och Azure Virtual Network. Den här anslutningen sker via Internet och kan kunderna på ett säkert sätt ”tunnel” informationen i en krypterad anslutning mellan kundens nätverk och Azure. Plats-till-plats-VPN är en säker, mogen teknik som har distribuerats av företag av alla storlekar för flera decennier. Den [IPSec-tunnelläge](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) används i det här alternativet som en krypteringsmekanism.
+Genom att implementera en säker VPN-tunnel med Azure kan du skapa en virtuell privat anslutning mellan ett lokalt nätverk och Azure Virtual Network. Den här anslutningen sker via Internet och kan kunderna på ett säkert sätt ”tunnel” informationen i en krypterad anslutning mellan kundens nätverk och Azure. Plats-till-plats-VPN är en säker, mogen teknik som har distribuerats av företag av alla storlekar för flera decennier. Den [IPSec-tunnelläge](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) används i det här alternativet som en krypteringsmekanism.
 
 Eftersom trafik i VPN-tunneln passerar via Internet med en plats-till-plats-VPN, erbjuder Microsoft alternativ för en annan ännu mer säker anslutning. Azure ExpressRoute är en dedikerad WAN länk mellan Azure och en lokal plats eller en värdbaserade Exchange-provider. När ExpressRoute-anslutningar inte går via Internet, är dessa anslutningar mer tillförlitlighet, snabbare hastigheter, kortare svarstider och högre säkerhet än vanliga anslutningar via Internet. Dessutom eftersom detta är en direkt anslutning av kundens telekommunikation providern kan data följer inte med dig via Internet och därför visas inte för den.
 
-Bästa praxis för att implementera ett säkert hybridnätverk som utökar ett lokalt nätverk till Azure [tillgängliga](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+Bästa praxis för att implementera ett säkert hybridnätverk som utökar ett lokalt nätverk till Azure [tillgängliga](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 ### <a name="extract-transform-load-etl-process"></a>Process för extrahering, transformering och laddning (ETL)
-[PolyBase](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide) kan läsa in data i Azure SQL Database utan att behöva en separat ETL eller importera verktyget. PolyBase kan åtkomst till data via T-SQL-frågor. Microsofts business intelligence och analys stack, samt från tredje part-verktyg som är kompatibla med SQL Server kan användas med PolyBase.
+[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) kan läsa in data i Azure SQL Database utan att behöva en separat ETL eller importera verktyget. PolyBase kan åtkomst till data via T-SQL-frågor. Microsofts business intelligence och analys stack, samt från tredje part-verktyg som är kompatibla med SQL Server kan användas med PolyBase.
 
 ### <a name="azure-active-directory-setup"></a>Konfigurationen av Azure Active Directory
-[Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) är nödvändig för att hantera distributionen och etablering åtkomst till personal som interagerar med miljön. En befintlig Windows Server Active Directory kan integreras med AAD i [fyra klick](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Kunder kan också koppla distribuerade Active Directory-infrastruktur (domänkontrollanter) till en befintlig AAD genom att göra den distribuerade Active Directory-infrastrukturen en underdomän till en AAD-skog.
+[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) är nödvändig för att hantera distributionen och etablering åtkomst till personal som interagerar med miljön. En befintlig Windows Server Active Directory kan integreras med AAD i [fyra klick](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Kunder kan också koppla distribuerade Active Directory-infrastruktur (domänkontrollanter) till en befintlig AAD genom att göra den distribuerade Active Directory-infrastrukturen en underdomän till en AAD-skog.
 
 ## <a name="disclaimer"></a>Ansvarsfriskrivning
 

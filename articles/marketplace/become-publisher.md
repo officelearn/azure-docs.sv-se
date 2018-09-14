@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7aadb7b89cf1b338a257846882e34ff796df74b2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666392"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580726"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -28,11 +28,11 @@ Den här artikeln beskriver registrera som en cloud marketplace-utgivare. Beroen
 
 |  | Registreringssteget | Varaktighet | Information |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Registrera i Microsoft Partner Network | 15 min | [Registrera i Microsoft Partner Network](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Skapa ett Microsoft-konto <ul>(krävs för Azure Marketplace transact erbjudanden; rekommenderas för andra)</ul> | 15 min | [Skapa ett Microsoft-ID](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Skicka formuläret av marketplace-registrering | 15 min | [Skicka nomineringsformuläret marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
-| 4 |  Logga in på partnerportalen i molnet | 1 – 3 dagar | [Logga in på partnerportalen i molnet](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
-| 5 | Registrera dig i Microsoft Developer Center (Dev Center) (för Azure Marketplace transact erbjudanden) | 5 – 10 dagar | [Registrera i Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
+| 1 | Registrera i Microsoft Partner Network | 15 min | [Registrera i Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | Skapa ett Microsoft-konto <ul>(krävs för Azure Marketplace transact erbjudanden; rekommenderas för andra)</ul> | 15 min | [Skapa ett Microsoft-ID](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | Skicka formuläret av marketplace-registrering | 15 min | [Skicka nomineringsformuläret marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 4 |  Logga in på partnerportalen i molnet | 1 – 3 dagar | [Logga in på partnerportalen i molnet](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
+| 5 | Registrera dig i Microsoft Developer Center (Dev Center) (för Azure Marketplace transact erbjudanden) | 5 – 10 dagar | [Registrera i Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Registrera i Microsoft Partner Network  
@@ -54,9 +54,9 @@ En Microsoft-konto, t.ex. *@outlook.com eller @live.com*, används för att få 
 [! [Viktigt] Tänk på att ett Microsoft-konto som är associerade med din e-postadress inte tillåter att du kan få åtkomst till portalen.
 
 >[!Note]
->Om du redan har ett Microsoft-konto kan du läsa den [riktlinjer för att skapa ett Microsoft-ID för att hantera en marketplace](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) att avgöra om den kan användas för marketplace-publicering. 
+>Om du redan har ett Microsoft-konto kan du läsa den [riktlinjer för att skapa ett Microsoft-ID för att hantera en marketplace](https://review.docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) att avgöra om den kan användas för marketplace-publicering. 
 
->Användare med en Azure Active Directory federated företagskonto bör läsa [i den här artikeln](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) innan du försöker skapa eller använda din befintliga Account.
+>Användare med en Azure Active Directory federated företagskonto bör läsa [i den här artikeln](https://review.docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) innan du försöker skapa eller använda din befintliga Account.
 
 *   Hjälp med att skapa eller hantera ditt Microsoft-konto, finns det [hjälpsidor för support på Microsoft-konto](https://support.microsoft.com/en-us/products/microsoft-account?category=manage-account).
 
@@ -100,12 +100,12 @@ När du har slutfört den [Dev Center](https://developer.microsoft.com/en-us/sto
 >För att avstå från registrering-avgift $99 Developer Center, fylla i registreringsformuläret för marketplace och du får ett e-postmeddelande som innehåller din kampanjkoden. 
 
 >[!Important]
->Verifiera att din organisation inte redan har ett Dev Center-konto för att undvika dubbla konton innan du skapar ett Microsoft Dev Center-konto. Mer information finns i [registrera i Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center) avsnittet.
+>Verifiera att din organisation inte redan har ett Dev Center-konto för att undvika dubbla konton innan du skapar ett Microsoft Dev Center-konto. Mer information finns i [registrera i Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) avsnittet.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om molnmarknadsplatsen: [jämföra AppSource och Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
-*   [Bestäm vilken lista för din lösning](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
+* Lär dig mer om molnmarknadsplatsen: [jämföra AppSource och Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+*   [Bestäm vilken lista för din lösning](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  
 ---  

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: dec2abdf68b3a38706549b4b655e33bc7abca1a3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7633d00c24a18763d414b1a2595073753d651a50
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452679"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579028"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
 
@@ -57,7 +57,7 @@ Det finns fyra olika sätt att samla in loggar och mått för Azure-tjänster:
 | Virtuella datorer        | Microsoft.Compute/virtualMachines       | Anknytning   | Anknytning <br> Diagnostik  | |
 | Skalningsuppsättningar för virtuella datorer | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostik | |
 | Server webbgrupper        | Microsoft.Web/serverfarms               |             | Diagnostik | |
-| Webbplatser               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostik | [Azure Web Apps-analys (förhandsversion)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
+| Webbplatser               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostik | [Azure Web Apps-analys (förhandsversion)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]

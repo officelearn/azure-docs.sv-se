@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 8b6c8220bd009505f683ce888558e612aebdc0b3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6eb2452507c3adcb8532a0dd2e50ad701e35cd7f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048112"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579241"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Schemalägga U-SQL-jobb med hjälp av SQL Server Integration Services (SSIS)
 
@@ -63,7 +63,7 @@ I designvyn för SSIS-paket, lägger du till en **systemaktivitet för Azure Dat
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>Konfigurera systemaktivitet för Azure Data Lake Store-fil
 
 1. Ange **åtgärden** till **CopyFromADLS**.
-2. Konfigurera **AzureDataLakeConnection**, Lär dig mer om [Anslutningshanteraren för Azure Data Lake Store](https://docs.microsoft.com/en-us/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
+2. Konfigurera **AzureDataLakeConnection**, Lär dig mer om [Anslutningshanteraren för Azure Data Lake Store](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
 3. Ange **AzureDataLakeDirectory**. Pekar till den mapp som lagrar dina U-SQL-skript. Använda relativ sökväg som är relativ till rotmappen för Azure Data Lake Store-konto.
 4. Ange **mål** till en mapp som cachelagrar U-SQL-skript som laddas ned. Den här mappsökväg används i Foreach-Loop behållare för jobbinlämningar för U-SQL. 
 
@@ -106,7 +106,7 @@ I designvyn för SSIS-paket, lägger du till en **systemaktivitet för Azure Dat
 
 3. Ange **AzureDataLakeAnalyticsConnection** till Azure Data Lake Analytics-kontot som du vill skicka jobb till. Läs mer om [Anslutningshanteraren för Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 
-4. Ange andra jobbkonfigurationer. [Läs mer](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
+4. Ange andra jobbkonfigurationer. [Läs mer](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
 
 5. Använd **uttryck** dynamiskt ange jobbnamn för U-SQL:
 
@@ -119,7 +119,7 @@ I designvyn för SSIS-paket, lägger du till en **systemaktivitet för Azure Dat
 
 Du kan använda U-SQL-filer i Azure Blob Storage med hjälp av **Azure Blob hämta uppgift** i Azure Feature Pack. Den här metoden kan du använda skripten i molnet.
 
-Stegen är liknande med [Scnario 2: Använd U-SQL-filer i Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Ändra systemaktivitet för Azure Data Lake Store-filen till Azure Blob Download uppgift. [Läs mer om Azure Blob hämta uppgift](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+Stegen är liknande med [Scnario 2: Använd U-SQL-filer i Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Ändra systemaktivitet för Azure Data Lake Store-filen till Azure Blob Download uppgift. [Läs mer om Azure Blob hämta uppgift](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 Kontrollflödet är som nedan.
 
@@ -164,11 +164,11 @@ I vissa fall kan du dynamiskt ange variabelvärdet U-SQL i U-SQL-skript. **Param
 - Ställ in indata och utdata filen sökvägsvariabler dynamiskt baserat på aktuellt datum och tid.
 - Ange parametern för lagrade procedurer.
 
-[Mer information om hur du ställer in parametrarna för U-SQL-skriptet](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
+[Mer information om hur du ställer in parametrarna för U-SQL-skriptet](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Köra SSIS-paket i Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [Azure Feature Pack för Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
-- [Schemalägga U-SQL-jobb med Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-data-lake-analytics)
+- [Schemalägga U-SQL-jobb med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
 

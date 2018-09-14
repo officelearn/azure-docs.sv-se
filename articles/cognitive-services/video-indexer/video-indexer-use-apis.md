@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 73359955861b88f2bc5ca297c32fa78c2632148c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bd0f9e01257bec2d39ef0c8e13b68c4a7a13637d
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449508"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542943"
 ---
 # <a name="use-azure-video-indexer-api"></a>Använda Azure API för Videoindexering
 
@@ -23,23 +23,20 @@ ms.locfileid: "39449508"
 
 Video Indexer konsoliderar olika ljud- och artificiell intelligens (AI)-tekniker som erbjuds av Microsoft i en integrerad tjänst, vilket förenklar utvecklingen. API: erna är utformade för att aktivera som utvecklare kan fokusera på förbrukar Media AI tekniker utan att oroa dig över skalning, global räckvidd, tillgänglighet och tillförlitlighet för molnplattform. Du kan använda API: et för att överföra dina filer, hämta detaljerad information i video och få URL: er i widgetar insikt och spelare om du vill bädda in dem i ditt program och andra uppgifter.
 
-När du skapar en Video Indexer-konto, kan du välja ett kostnadsfritt konto (där du får ett visst antal kostnadsfria indexering minuter) eller ett betalt alternativ (där du inte begränsas av kvoten). Video Indexer ger upp till 600 minuter för kostnadsfria indexering för webbplatsen användare och upp till 2 400 minuters kostnadsfria indexering för API-användare med kostnadsfri utvärderingsversion. Med betald alternativet kan du skapa en Video Indexer-konto som är [är ansluten till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras som Media-konto som är relaterade kostnader. 
+När du skapar en Video Indexer-konto, kan du välja ett kostnadsfritt konto (där du får ett visst antal kostnadsfria indexering minuter) eller ett betalt alternativ (där du inte begränsas av kvoten). Video Indexer ger upp till 600 minuter för kostnadsfria indexering för webbplatsen användare och upp till 2 400 minuters kostnadsfria indexering för API-användare med kostnadsfri utvärderingsversion. Med betald alternativet kan du skapa en Video Indexer-konto som är [är ansluten till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter indexerade samt relaterade kostnader för Azure Media Services-konto. 
 
-Den här artikeln visar hur utvecklare kan dra nytta av den [Video Indexer API](https://api-portal.videoindexer.ai/). En mer detaljerad översikt över tjänsten Video Indexer finns det [översikt](video-indexer-overview.md) artikeln.
+Den här artikeln visar hur utvecklare kan dra nytta av den [Video Indexer API](https://api-portal.videoindexer.ai/).
 
 ## <a name="subscribe-to-the-api"></a>Prenumerera på API: et
 
-1. Logga in.
-
-    Om du vill börja utveckla med Video Indexer, måste du första logga In på den [Video Indexer](https://api-portal.videoindexer.ai/) portal. 
+1. Logga in på [Video Indexer Utvecklarportalen](https://api-portal.videoindexer.ai/).
     
-    ![Registrera dig](./media/video-indexer-use-apis/video-indexer-api01.png)
+    ![Logga in](./media/video-indexer-use-apis/video-indexer-api01.png)
 
     > [!Important]
     > * Du måste använda samma provider som du använde när du registrerat dig för Video Indexer.
     > * Personliga Google och Microsoft (outlook/live) konton kan bara användas för utvärderingskonton. Konton som är ansluten till Azure kräver Azure AD.
     > * Det kan vara endast en aktiv konto per e-postmeddelande. Om en användare som försöker logga in med user@gmail.com för LinkedIn och efter det med user@gmail.com för Google en senare version visar en felsida, om användaren redan finns.
-
 
 2. Prenumerera på.
 
@@ -91,15 +88,15 @@ De värden som beskrivs i tabellen nedan gäller. Den **Param värde** värdet s
 
 Konto-ID-parametern krävs i alla operativa API-anrop. Konto-ID är ett GUID som kan hämtas på något av följande sätt:
 
-* Använda Video Indexer-portal för att hämta konto-ID:
+* Använd den **Video Indexer webbplats** att hämta konto-ID:
 
-    1. Logga in på [videoindexer](https://www.videoindexer.ai/).
+    1. Bläddra till den [Video Indexer](https://www.videoindexer.ai/) och logga in.
     2. Bläddra till den **inställningar** sidan.
     3. Kopiera konto-ID.
 
         ![Konto-ID](./media/video-indexer-use-apis/account-id.png)
 
-* Använd API för att programmässigt få konto-ID.
+* Använd **Utvecklarportalen för Video Indexer** att programmässigt få konto-ID.
 
     Använd den [hämta konton](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
     
@@ -225,7 +222,5 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="next-steps"></a>Nästa steg
 
 [Granska information om utdata JSON](video-indexer-output-json.md).
-
-## <a name="see-also"></a>Se också
 
 [Video Indexer-översikt](video-indexer-overview.md)

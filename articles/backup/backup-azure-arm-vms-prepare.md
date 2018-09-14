@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: dc9d7b924f51fb3a4e9662dfa7ad4b9557b481bc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80987408e65785afba1df2d2f6b6fc9981fd2dbf
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347009"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542828"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -215,8 +215,8 @@ Följande videoklipp går du igenom steg för steg-procedur för att konfigurera
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-> [!WARNING]
-> Tjänsttaggar för lagring är bara tillgängliga i vissa regioner och är i förhandsversion. En lista över regioner finns i [Tjänsttaggar för lagring](../virtual-network/security-overview.md#service-tags).
+> [!NOTE]
+> En lista över tjänsttaggar för lagring och regioner finns i [Tjänsttaggar för lagring](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Använda en HTTP-proxy för VM-säkerhetskopieringar
 När du säkerhetskopierar en virtuell dator, skickar kommandon för hantering av ögonblicksbild tillägget på den virtuella datorn till Azure Storage med hjälp av en HTTPS-API. Dirigera säkerhetskopieringstillägget-trafik via HTTP-proxy, eftersom det är den enda komponenten som konfigurerats för åtkomst till det offentliga internet.

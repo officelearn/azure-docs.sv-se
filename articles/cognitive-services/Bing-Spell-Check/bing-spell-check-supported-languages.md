@@ -1,6 +1,6 @@
 ---
-title: Språk som stöds i Bing stavningskontroll kontrollera API (Microsoft kognitiva tjänster i Azure) | Microsoft Docs
-description: 'Lista över allmänt tillgänglig och förhandsgranska språk stöd för Bing stavningskontroll kontrollera-API: et.'
+title: Språk som stöds i stavningskontroll i Bing (Microsoft Cognitive Services på Azure) | Microsoft Docs
+description: Lista över allmänt tillgängliga och förhandsversion språk stöder för stavningskontroll i Bing-åtgärder.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -9,18 +9,18 @@ ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: nolachar
-ms.openlocfilehash: 7cab8e0471151cd2ae7c2e31406f2460fdff6a0b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a62980f563c8fad525696aca73f8c036382fa820
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050394"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573798"
 ---
 # <a name="supported-language-list-and-status"></a>Lista över språk som stöds och status
 
-Dessa språk som stöds av Bing stavningskontroll kontrollera API (i `spell` läge). 
+Dessa språk som stöds av den stavningskontroll i Bing (endast i `spell` läge). 
 
-Observera att du arbetar med ett annat språk än `en-US`, `mkt` ska anges och antingen `Accept-Language` eller `setLang` ska anges som det beskrivs i [stavningskontroll kontrollera API v7-referens](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+Tänk på att du arbetar med ett annat språk än `en-US`, `mkt` ska anges och antingen `Accept-Language` eller `setLang` ska anges som det beskrivs i [Stavningskontrolls-API v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|
@@ -67,5 +67,5 @@ Observera att du arbetar med ett annat språk än `en-US`, `mkt` ska anges och a
 
 ## <a name="see-also"></a>Se också
 
-- [Kognitiva dokumentationssidan för tjänster](https://docs.microsoft.com/azure/cognitive-services/)
-- [Kognitiva produktsidan för tjänster](https://azure.microsoft.com/services/cognitive-services/)
+- [Dokumentationssida om Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
+- [Produktsida om Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

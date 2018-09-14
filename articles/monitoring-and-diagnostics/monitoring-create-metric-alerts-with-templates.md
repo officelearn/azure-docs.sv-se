@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 7289259214f90507c5b9cf527f19f0cf7026798c
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: be0ec31a05c0c1454e1af58b4a9c4ca959acbecf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391461"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577168"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
 Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) konfigurera [nyare måttaviseringar](monitoring-near-real-time-metric-alerts.md) i Azure Monitor. Resource Manager-mallar kan du programmässigt ställa in aviseringar på ett konsekvent och reproducerbara sätt i alla dina miljöer. Nyare måttaviseringar finns för närvarande på [den här uppsättningen resurstyper](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
@@ -184,7 +184,7 @@ Spara json nedanför som simplemetricalert.json i den här genomgången.
 }
 ```
 
-En förklaring av schemat och egenskaper för en varningsregel [finns här](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
+En förklaring av schemat och egenskaper för en varningsregel [finns här](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
 
 Du kan ange värden för parametrarna på kommandoraden eller via en parameterfil. En parameter-exempelfil finns nedan. 
 

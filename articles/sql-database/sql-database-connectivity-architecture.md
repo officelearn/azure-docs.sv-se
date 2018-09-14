@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 6f160965f11f94c39e823724b192169c3712974d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493680"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575394"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-arkitektur 
 
@@ -51,7 +51,7 @@ Om du ansluter från platser utanför Azure, dina anslutningar har en princip f�
 ![Översikt över arkitekturen](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> När du använder Tjänsteslutpunkter med Azure SQL Database principen är **Proxy** som standard. Tillåt utgående anslutningar till Azure SQL Database Gateway IP-adresser som anges i listan nedan om du vill aktivera anslutningen från i det virtuella nätverket. När du använder Tjänsteslutpunkter vi rekommenderar starkt att ändra anslutningsprincipen till **omdirigera** för att förbättra prestanda. Om du ändrar din anslutningsprincip till **omdirigera** det inte blir tillräckliga för att tillåta utgående på din NSG till Azure-SQLDB-gateway IP-adresser som anges nedan, måste du tillåta utgående trafik till alla SQLDB IP-adresser för Azure. Detta kan åstadkommas med hjälp av Tjänsttaggar för NSG (Nätverkssäkerhetsgrupper). Mer information finns i [Tjänsttaggar](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+> När du använder Tjänsteslutpunkter med Azure SQL Database principen är **Proxy** som standard. Tillåt utgående anslutningar till Azure SQL Database Gateway IP-adresser som anges i listan nedan om du vill aktivera anslutningen från i det virtuella nätverket. När du använder Tjänsteslutpunkter vi rekommenderar starkt att ändra anslutningsprincipen till **omdirigera** för att förbättra prestanda. Om du ändrar din anslutningsprincip till **omdirigera** det inte blir tillräckliga för att tillåta utgående på din NSG till Azure-SQLDB-gateway IP-adresser som anges nedan, måste du tillåta utgående trafik till alla SQLDB IP-adresser för Azure. Detta kan åstadkommas med hjälp av Tjänsttaggar för NSG (Nätverkssäkerhetsgrupper). Mer information finns i [Tjänsttaggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database gateway IP-adresser
 

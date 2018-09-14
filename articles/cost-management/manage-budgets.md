@@ -1,6 +1,6 @@
 ---
-title: Hantera budgetar i Azure kostnaden Management | Microsoft Docs
-description: Den här artikeln hjälper dig att skapa och hantera budgetar i hantering av kostnaden.
+title: Hantera budgetar i Azure Cost Management | Microsoft Docs
+description: Den här artikeln hjälper dig att skapa och hantera budgetar i Cost Management.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -10,78 +10,78 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9d6bf29909393846ec17a1bcc210fb989efd7f99
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 106e8f082d148ed9a8c58313177be81ee074a2c3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938440"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578471"
 ---
 # <a name="manage-budgets"></a>Hantera budgetar
 
-Ställa in budgetar och budget-baserade aviseringar bidra till att förbättra din moln-styrning och ansvar. Den här artikeln hjälper dig att snabbt skapa budgetar och börja hantera dem i hantering av kostnaden.
+Inställningen upp budgetar och budget-baserade aviseringar bidra till att förbättra din cloud styrning och ansvar. Den här artikeln hjälper dig att snabbt skapa budgetar och börja hantera dem i Cost Management.
 
-När du har ett Enterprise- eller MSP-konto, kan du använda din hierarkiska kostnaden entitet struktur för att tilldela olika affärsenheter eller avdelningar kostnaden entiteter månatliga budget kvoter. Du kan använda budget hanteringsfunktioner, som sedan tillämpas på dina utgifter i hela moln när du har ett Premium-konto. Alla budgetar tilldelas manuellt.
+När du har ett Enterprise- eller MSP-konto, kan du använda dina hierarkiska kostnadsstrukturen för entiteten ska tilldelas olika affärsenheter, avdelningar eller andra kostnadsenhet månatliga budget kvoter. När du har ett Premium-konto, kan du använda funktionen budget för hantering, som sedan appliceras till hela cloud-utgifter. Alla budgetar tilldelas manuellt.
 
-Baserat på tilldelade budgetar, kan du ange tröskelvärdet aviseringar baserat på procentandelen av din budget som används och definiera allvarlighetsgrad för varje tröskelvärde.
+Baserat på tilldelade budgetar kan du ange tröskelvärde för aviseringar baserat på procentandelen av din budget som förbrukas och definiera allvarlighetsgraden för varje tröskelvärde.
 
-Budget rapporterna visar tilldelade budget. Användare kan visa när deras utgifter är över, under eller i par med deras förbrukning över tid. När du väljer **Visa/dölj fält** längst upp i en Budgetrapport, kan du visa kostnad, budget, ackumulerade kostnaden eller totala budget.
+Budgetrapporter visar tilldelade budgeten. Användare kan visa när deras utgifter är över, under eller översättningsminnen med deras användning över tid. När du väljer **Visa/dölj fält** högst upp på rapportsidan budget du kan visa kostnaden, budget, ackumulerade kostnaden eller total budget.
 
 ## <a name="create-budgets"></a>Skapa budgetar
 
-När du skapar en budget du anger för räkenskapsåret och den gäller för en specifik enhet.
+När du skapar en budget kan du ställa in den för räkenskapsåret och den gäller för en specifik enhet.
 
-Skapa en budget och tilldela den till en enhet:
+Skapa en budget och tilldela den till en entitet:
 
-1. Gå till **kostnader** &gt; **Kostnadshanteringen** &gt; **Budget**.
-2. På sidan Budget hantering under **entiteter**, Välj den entitet som du vill skapa budget.
-3. Välj år där du vill skapa budget under budget.
-4. Ange ett Budgetvärde för för varje månad. När du är klar klickar du på **spara**.
-I det här exemplet anges månatliga budgeten för juni 2018 till $135,000. Den totala budgeten för år är $1,615,000.00.
+1. Gå till **kostnader** &gt; **kostnadshantering** &gt; **Budget**.
+2. På sidan Budgetstyrning under **entiteter**, väljer du den entitet som där du vill skapa budgeten.
+3. I året, väljer du det året där du vill skapa budgeten.
+4. Ange ett Budgetvärde för varje månad. När du är klar klickar du på **spara**.
+I det här exemplet anges månatliga budgeten för juni 2018 till $135,000. Den totala budgeten för året är $1,615,000.00.
 ![Skapa en budget](./media/manage-budgets/set-budget.png)
 
 
-Importera en fil för den årliga budgeten:
+Importera en fil för årlig budget:
 
-1. Under **åtgärder**väljer **exportera** att ladda ned en tom CSV-mall för att användas som en bas för budget.
+1. Under **åtgärder**väljer **exportera** att ladda ned en tom CSV-mall som ska användas som din bas för budgeten.
 2. Fyll i CSV-filen med din budgetposter och spara den lokalt.
-3. Under **åtgärder**väljer **importera**.
-4. Välj den sparade filen och klicka sedan på **OK**.
+3. Under **åtgärder**väljer **Import**.
+4. Välj din sparade fil och klicka sedan på **OK**.
 
 Exportera din färdiga budget som en CSV-fil under **åtgärder**väljer **exportera** att hämta filen.
 
 ## <a name="view-budget-in-reports"></a>Visa budget i rapporter
 
-När du är klar, visas din budget i de flesta kostnadsrapporter under **kostnader** &gt; **kostnaden Analysis** och kostnaden jämfört. Rapporten budget över tid. Du kan även schemalägga rapporter utifrån budget tröskelvärden med **åtgärder**.
+När du är klar visas din budget i de flesta kostnadsrapporter under **kostnader** &gt; **kostnadsanalys** och i Cost vs. Rapport med budget över tid. Du kan även schemalägga rapporter baserade på budgetgränser med **åtgärder**.
 
-Här är ett exempel på rapporten kostnaden. Den visar den totala budget och kostnaden av arbetsbelastning och användning typer sedan början på året.
+Här är ett exempel på Cost Analysis-rapport. Den visar den totala budget och kostnad per arbetsbelastning och användning typer sedan i början av året.
 
-![Exempel kostnaden analysrapporten med budget](./media/manage-budgets/cost-analysis-budget-example.png)
+![Exemplet Cost Analysis-rapporten med budget](./media/manage-budgets/cost-analysis-budget-example.png)
 
-I det här exemplet förutsätter att det aktuella datumet infaller 22 juni. Kostnaden för juni 2018 är $71,611.28 jämfört med $135,000 månatliga budget. Kostnaden är mycket lägre än månatliga budget eftersom det fortfarande åtta dagar i utgifter före utgången av månaden.
+I det här exemplet antar vi att det aktuella datumet infaller den 22 juni. Kostnaden för juni 2018 är $71,611.28 jämfört med $135,000 månatliga budget. Kostnaden är mycket lägre än den månatliga budgeten eftersom det fortfarande finns åtta dagar ägna innan slutet av månaden.
 
-Ett annat sätt att visa rapporten är att titta på ackumulerade kostnaden jämfört din budget. Se ackumulerade kostnaderna under **Visa/dölj fält**väljer **ackumulerade kostnaden** och **totalbudget**. Här är ett exempel som visar den ackumulerade kostnaden sedan början på året.
+Ett annat sätt att visa rapporten är att titta på ackumulerade kostnaden vs din budget. Se ackumulerade kostnaderna under **Visa/dölj fält**väljer **ackumulerade kostnaden** och **Total Budget**. Här är ett exempel som visar den ackumulerade kostnaden sedan i början av året.
 
 ![Ackumulerade budget](./media/manage-budgets/accumulated-budget.png)
 
-Senare kanske i framtiden ackumulerade kostnaden överskrider din budget. Kan du enkelt se att om du ändrar diagramvy till den _rad_ typen.
+Någon gång kanske i framtiden den ackumulerade kostnaden överskrider din budget. Du kan se att enklare om du ändrar diagramvy till den _rad_ typen.
 
-![Budget som visas i linjediagram](./media/manage-budgets/budget-line.png)
+![Budget visas i linjediagram](./media/manage-budgets/budget-line.png)
 
 ## <a name="create-budget-alerts-for-a-filter"></a>Skapa budget aviseringar för ett filter
 
-I det förra exemplet ser du att den ackumulerade kostnaden närmat sig budget. Du kan skapa automatiska budget aviseringar så att du får ett meddelande när utgifter metoder eller överskrider din budget. Det är i princip en schemalagd rapport med ett tröskelvärde. Budget tröskelvärde mått är:
+I exemplet ovan ser du att den ackumulerade kostnaden närmat sig budgeten. Du kan skapa automatiska budget aviseringar så att du meddelas när utgifter metoder eller överskrider din budget. Det är i princip en schemalagd rapport med ett tröskelvärde. Budget tröskelvärde för mått är:
 
-- Återstående kostnad kontra budget – ange ett tröskelvärde för valuta värde
-- Kostnad procentandel kontra budget – ange ett värde för procenttröskel
+- Återstående kostnaden jämfört med budget – ange ett värde tröskelvärde för valuta
+- Kostnad procent jämfört med budget – ange ett värde tröskelvärdet i procent
 
 Nu ska vi titta på ett exempel.
 
-I kostnaden vs. Budget över tid rapporten klickar du på **åtgärder** och välj sedan **schemalägga rapport**. Välj ett tröskelvärde mått på fliken tröskelvärdet. Till exempel **kostnaden procentandel kontra budget**. Välj en typ av avisering och ange ett procentvärde budget. Om du vill få meddelanden bara en gång, väljer **antal på varandra följande aviseringar** och skriv sedan _1_. Klicka på **Spara**.
+I Cost vs. Budget över tid rapporten, klickar du på **åtgärder** och välj sedan **Schemalägg rapport**. Välj ett tröskelvärde för mått på fliken tröskelvärdet. Till exempel **kostnadsbudget procent jämfört med**. Välj en typ av avisering och ange ett procentvärde av budgeten. Om du vill bli informerad bara en gång, väljer **antalet på varandra följande aviseringar** och skriv sedan _1_. Klicka på **Spara**.
 
-![Budget avisering](./media/manage-budgets/budget-alert.png)
+![Budgetavisering](./media/manage-budgets/budget-alert.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte har redan slutförts första självstudierna för hantering av kostnader, läsa den på [granska användning och kostnader](https://docs.microsoft.com/en-us/azure/cost-management/tutorial-review-usage).
-- Lär dig mer om den [rapporterna i kostnaden Management](use-reports.md).
+- Om du inte har redan slutfört första självstudierna om Cost Management kan du läsa den på [granska användning och kostnader](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage).
+- Läs mer om den [rapporter som är tillgängliga i Cost Management](use-reports.md).

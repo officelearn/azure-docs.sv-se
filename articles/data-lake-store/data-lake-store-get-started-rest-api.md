@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 5b31188eb5618d0ec5ac1f89c590913e4e284d9f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1b8b680736c49c0036600bf4337da6952cf38afb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337837"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573647"
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>Kontohanteringsåtgärder i Azure Data Lake Store med hjälp av REST API
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Du kan använda två sätt för att autentisera med Azure Active Directory.
 
 
 ## <a name="create-a-data-lake-store-account"></a>Skapa ett Data Lake Store-konto
-Den här åtgärden är baserad på det REST API-anrop som definierats [här](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/create).
+Den här åtgärden är baserad på det REST API-anrop som definierats [här](https://docs.microsoft.com/rest/api/datalakestore/accounts/create).
 
 Använd följande cURL-kommando. Ersätt **\<yourstorename>** med ditt Data Lake Store-namn.
 
@@ -59,7 +59,7 @@ I kommandot ovan ersätter du \<`REDACTED`\> med den autentiseringstoken som hä
     }    
 
 ## <a name="delete-a-data-lake-store-account"></a>Ta bort ett Data Lake Store-konto
-Den här åtgärden är baserad på det REST API-anrop som definierats [här](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/delete).
+Den här åtgärden är baserad på det REST API-anrop som definierats [här](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete).
 
 Använd kommandot cURL för att ta bort ett Data Lake Store-konto. Ersätt **\<yourstorename>** med ditt Data Lake Store-namn.
 

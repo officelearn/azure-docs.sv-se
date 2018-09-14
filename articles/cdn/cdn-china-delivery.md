@@ -1,6 +1,6 @@
 ---
 title: Kina leverans av innehåll med Azure CDN | Microsoft Docs
-description: Lär dig mer om hur du använder Azure innehåll innehållsleveransnätverk (CDN) för att leverera innehåll till användare i Kina.
+description: Lär dig mer om att använda Azure CDN Content Delivery Network () för att leverera innehåll till användare i Kina.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -15,34 +15,34 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 59788f301bb501103babd55a2ac37102932f4dcf
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 12a29e5af287c5cc68c3bd9d7069534ff16c496f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260230"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573237"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Kina leverans av innehåll med Azure CDN
 
-Azure innehåll innehållsleveransnätverk (CDN) globala kan hantera innehåll till användare i Kina med punkt förekomst (POP) platser nära Kina eller någon POP som ger bästa prestanda på begäranden med ursprung i Kina. Om Kina är en betydande marknad för dina kunder och de behöver snabb prestanda, bör du att använda Azure CDN Kina i stället.
+Azure CDN Content Delivery Network () globala kan fungera innehåll till användare i Kina med point of presence (POP) platser nära Kina eller någon POP som ger bästa prestanda till begäranden från Kina. Om Kina har en betydande marknad för dina kunder och de behöver snabba prestanda, tänka på att använda Azure CDN Kina i stället.
 
-Azure CDN Kina skiljer sig från Azure CDN globala att den levererar innehåll från POP i Kina via en med ett antal lokala providers. På grund av kinesiska efterlevnad och förordning, måste du registrera en separat prenumeration om du vill använda Azure CDN Kina och dina webbplatser måste ha en ICP-licens. Portal och API-funktioner för att aktivera och hantera innehåll leveransen är identiska mellan Azure CDN globala och Azure CDN Kina.
+Azure CDN Kina skiljer sig från Azure CDN globala eftersom den levererar innehåll från POP: erna i Kina seglen med ett antal lokala providers. På grund av kinesiska efterlevnad och förordning, måste du registrera en separat prenumeration om du vill använda Azure CDN Kina och dina webbplatser måste ha en ICP-licens. Portal och API-upplevelse för att aktivera och hantera innehåll leveransen är identiskt för Azure CDN globala och Azure CDN i Kina.
 
-## <a name="comparison-of-azure-cdn-global-and-azure-cdn-china"></a>Jämförelse mellan Azure CDN globala och Azure CDN Kina
+## <a name="comparison-of-azure-cdn-global-and-azure-cdn-china"></a>Jämförelse av Azure CDN globala och Azure CDN Kina
 
 Azure CDN globala och Azure CDN Kina har följande funktioner:
 
-- Azure CDN globala:
+- Global Azure CDN:
 
      - Portal: https://portal.azure.com  
 
-     - Utför leverans av innehåll utanför Kina
+     - Utför innehållsleverans utanför Kina
 
-     - Fyra prisnivåer: Microsoft standard, Verizon standard, premium Verizon och Akamai standard
+     - Fyra prisnivåer: Microsoft standard, Verizon standard, premium Verizon och Akamai-standarden
 
-     - [Dokumentation](https://docs.microsoft.com/en-us/azure/cdn/)
+     - [Dokumentation](https://docs.microsoft.com/azure/cdn/)
 
-- Azure CDN Kina:
+- Azure CDN i Kina:
 
      - Portal: https://portal.azure.cn
 
@@ -55,15 +55,15 @@ Azure CDN globala och Azure CDN Kina har följande funktioner:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CDN Kina finns:
+Mer information om Azure CDN i Kina finns:
 
 - [Content Delivery Network-funktioner](https://www.azure.cn/en-us/home/features/cdn/)
 
 - [Översikt över Azure Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-overview)
 
-- [Använd Azure Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
+- [Använda Azure Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
 
-- [Azure-tjänstetillgänglighet i Kina](https://docs.microsoft.com/en-us/azure/china/china-get-started-service-availability)
+- [Tillgänglighet för Azure-tjänsten i Kina](https://docs.microsoft.com/azure/china/china-get-started-service-availability)
 
 
 

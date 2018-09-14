@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 07/13/2018
-ms.openlocfilehash: 60eecf134f067d68326fc23ade8ed2a5a7ae7ac4
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9bdda67f08b9fbee20bdcc11186b97a3d942b778
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070354"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580675"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Skapa och distribuera prognosmodellen modeller med Azure Machine Learning
 
@@ -106,7 +106,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Läs in data och utforska
 
-Det här kodstycket visar hur vanliga börjar med en rå datauppsättning i det här fallet den [data från Dominicks finare livsmedel](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Du kan också använda funktionen bekvämlighet [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Det här kodstycket visar hur vanliga börjar med en rå datauppsättning i det här fallet den [data från Dominicks finare livsmedel](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Du kan också använda funktionen bekvämlighet [load_dominicks_oj_data](https://docs.microsoft.com/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -123,7 +123,7 @@ whole_df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>lagra</th>
+      <th>Store</th>
       <th>varumärke</th>
       <th>vecka</th>
       <th>logmove</th>
@@ -279,7 +279,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>lagra</th>
+      <th>Store</th>
       <th>varumärke</th>
       <th>WeekLastDay</th>
       <th>Antal</th>
@@ -337,7 +337,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 Data innehåller cirka 250 olika kombinationer av lagring och en dataram varumärke. Varje kombination definierar en egen tidsserier med försäljning. 
 
-Du kan använda den [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) klassen för att modellera bekvämt flera serier i en enda struktur med den _grain_. Grain anges av den `store` och `brand` kolumner.
+Du kan använda den [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) klassen för att modellera bekvämt flera serier i en enda struktur med den _grain_. Grain anges av den `store` och `brand` kolumner.
 
 Skillnaden mellan _grain_ och _grupp_ är att grain alltid är fysiskt betydelse i den verkliga världen, medan grupp inte behöver vara. Intern paketet functions använder gruppen för att skapa en enkel modell från flera tidsserier om du tror att den här grupperingen hjälper till att förbättra modellprestanda. Som standard grupp anges så att det motsvarar grain och en enda modell har skapats för varje grain. 
 
@@ -369,7 +369,7 @@ whole_tsdf[['Quantity']].head()
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>lagra</th>
+      <th>Store</th>
       <th>varumärke</th>
       <th></th>
     </tr>
@@ -434,7 +434,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>lagra</th>
+      <th>Store</th>
       <th>varumärke</th>
       <th></th>
     </tr>
@@ -499,7 +499,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-Den [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) funktionen genererar en omfattande rapport med tidsram för data i serien. Rapporten innehåller både en beskrivning av allmänna data samt statistik som är specifika för time series-data. 
+Den [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) funktionen genererar en omfattande rapport med tidsram för data i serien. Rapporten innehåller både en beskrivning av allmänna data samt statistik som är specifika för time series-data. 
 
 
 ```python
@@ -731,7 +731,7 @@ whole_tsdf.head()
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>lagra</th>
+      <th>Store</th>
       <th>varumärke</th>
       <th></th>
       <th></th>
@@ -886,14 +886,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Förbearbeta data och sedan imputera värden som saknas
 
-Börja med att dela data i träningsmängden och en testning med den [last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) verktygsfunktionen. Den resulterande testning set innehåller de senast 40 observationerna för varje tidsserie. 
+Börja med att dela data i träningsmängden och en testning med den [last_n_periods_split](https://docs.microsoft.com/python/api/ftk.ts_utils?view=azure-ml-py-latest) verktygsfunktionen. Den resulterande testning set innehåller de senast 40 observationerna för varje tidsserie. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Grundläggande time series modeller kräver sammanhängande tidsserier. Kontrollera om serien är Normal, vilket innebär att de har ett index för tid som samplas med jämna mellanrum, med hjälp av den [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) funktion.
+Grundläggande time series modeller kräver sammanhängande tidsserier. Kontrollera om serien är Normal, vilket innebär att de har ett index för tid som samplas med jämna mellanrum, med hjälp av den [check_regularity_by_grain](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) funktion.
 
 
 ```python
@@ -968,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Du kan se att de flesta av serien (213 av 249) är oregelbunden. En [uppräkning transformeringen](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) krävs för att fylla i saknade värden och antal. Det finns många alternativ för uppräkning, använder följande exempelkod linjär interpolation.
+Du kan se att de flesta av serien (213 av 249) är oregelbunden. En [uppräkning transformeringen](https://docs.microsoft.com/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) krävs för att fylla i saknade värden och antal. Det finns många alternativ för uppräkning, använder följande exempelkod linjär interpolation.
 
 
 ```python
@@ -1034,7 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Kombinera flera modeller
 
-Den [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator kan du kombinera flera estimators och anpassa/förutsäga på dem med hjälp av en rad med kod.
+Den [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator kan du kombinera flera estimators och anpassa/förutsäga på dem med hjälp av en rad med kod.
 
 
 ```python
@@ -1248,7 +1248,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-Den [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) funktionen omsluter sklearn regression estimators så att de kan vara tränats på TimeSeriesDataFrame. Den omslutna prognosmodell också placerar varje grupp i det här fallet arkivet i samma modell. Prognosmodell kan lära dig en modell för en grupp i serie som bedömdes som liknande och kan delas tillsammans. En modell för en grupp av serien använder ofta data från längre serie för att förbättra prognoser för kort-serien. Du kan ersätta dessa modeller för alla andra modeller i biblioteket som har stöd för regression. 
+Den [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) funktionen omsluter sklearn regression estimators så att de kan vara tränats på TimeSeriesDataFrame. Den omslutna prognosmodell också placerar varje grupp i det här fallet arkivet i samma modell. Prognosmodell kan lära dig en modell för en grupp i serie som bedömdes som liknande och kan delas tillsammans. En modell för en grupp av serien använder ofta data från längre serie för att förbättra prognoser för kort-serien. Du kan ersätta dessa modeller för alla andra modeller i biblioteket som har stöd för regression. 
 
 
 ```python
@@ -1372,7 +1372,7 @@ I figuren nedan visas representerar varje ruta data från en tidpunkt. Blå ruto
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
 **Parametern oinskränkt**  
-Den [TSGridSearchCV](https://docs.microsoft.com/en-us/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) klassen söker efter angivna parametervärden omfattande och använder `RollingOriginValidator` att utvärdera prestanda för parametern för att hitta de lämpligaste parametrarna.
+Den [TSGridSearchCV](https://docs.microsoft.com/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) klassen söker efter angivna parametervärden omfattande och använder `RollingOriginValidator` att utvärdera prestanda för parametern för att hitta de lämpligaste parametrarna.
 
 
 ```python
@@ -1424,7 +1424,7 @@ best_of_forecaster_prediction.head()
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>lagra</th>
+      <th>Store</th>
       <th>varumärke</th>
       <th>ForecastOriginTime</th>
       <th>%{ModelName/</th>

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921439"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574411"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av Mobilitetstjänsten i replikering från Azure till Azure
 
@@ -79,8 +79,8 @@ Om knappen reparera inte är tillgängligt finns i felmeddelandet visas under ru
 
  - **Fel**: det kör som-konto har inte behörighet att få åtkomst till recovery services-resursen.
 
-    **Rekommenderad åtgärd**: ta bort och sedan [återskapa kör som-kontot](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account) eller se till att Automation kör som kontots Azure Active Directory-program har åtkomst till recovery services-resursen.
+    **Rekommenderad åtgärd**: ta bort och sedan [återskapa kör som-kontot](https://docs.microsoft.com/azure/automation/automation-create-runas-account) eller se till att Automation kör som kontots Azure Active Directory-program har åtkomst till recovery services-resursen.
 
 - **Fel**: Det gick inte att hitta kör som-konto. En av dessa har tagits bort eller inte skapats – Azure Active Directory-program, tjänstens huvudnamn, roll, Automation-certifikattillgång, Automation-anslutningstillgång, eller tumavtrycket är inte identiskt för certifikat och anslutning. 
 
-    **Rekommenderad åtgärd**: ta bort och [återskapa kör som-kontot](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+    **Rekommenderad åtgärd**: ta bort och [återskapa kör som-kontot](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

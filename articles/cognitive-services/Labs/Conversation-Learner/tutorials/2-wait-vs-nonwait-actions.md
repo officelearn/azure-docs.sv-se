@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f349dab23b9156d3a5656e8275533ebe6a82cdf9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173092"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540941"
 ---
 # <a name="wait-and-non-wait-actions"></a>Vänta och icke-wait-åtgärder
 
@@ -33,7 +33,7 @@ Den här självstudien krävs att Allmänt självstudiekursen bot körs
 ## <a name="details"></a>Information
 
 - Vänta åtgärd: när systemet har en ”vänta”-åtgärd, den slutar att vidta åtgärder och vänta på användarindata.
-- Icke-wait-åtgärden: när systemet tar en ”icke-wait”-åtgärd kan det omedelbart ska välja en annan åtgärd (utan att vänta tills användaren inpu först).
+- Icke-wait-åtgärden: när systemet tar en ”icke-wait”-åtgärd kan det omedelbart ska välja en annan åtgärd (utan att vänta på användarindata först).
 
 ## <a name="steps"></a>Steg
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 83e1fbfeee75534757dcb3c0275ca881e1eea517
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0bcb6262201b3399ca4d759bb306a570bea33b00
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298003"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578777"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Så här distribuerar du en robot som Konversationsdeltagare
 
@@ -94,7 +94,7 @@ Roboten nu körs lokalt.  Du kan komma åt den med emulatorn Bot Framework.
 
 Publicera din liknar på samma sätt som du skulle publicera andra bot Konversationsdeltagare robot. På hög nivå, ladda upp din kod till en värdbaserad webbplats, anger du lämplig konfigurationsvärden och sedan registrera roboten med olika kanaler. Detaljerade anvisningar finns i den här videon visar hur du publicerar din bot med Azure Bot Service.
 
-När roboten har distribuerats och kör du kan ansluta olika kanaler till den, till exempel Facebook, Teams, Skype osv med hjälp av en registrering med Azure Bot-kanal. Dokumentation om den går du till avsnittet: https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart-registration
+När roboten har distribuerats och kör du kan ansluta olika kanaler till den, till exempel Facebook, Teams, Skype osv med hjälp av en registrering med Azure Bot-kanal. Dokumentation om den går du till avsnittet: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 Nedan finns stegvisa instruktioner för att distribuera en konversation Learner robot till Azure.  Dessa instruktioner förutsätter att din bot-källan är tillgänglig från en molnbaserad källa, till exempel Azure DevOps Services, GitHub, BitBucket eller OneDrive och konfigurerar din robot för kontinuerlig distribution.
 

@@ -7,41 +7,45 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: b8de9e8d73ba899fb7f3036d871c5d30daf101de
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6ee87b6d7c89745472bf6000de66f682cbf2cca9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049363"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544123"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
-Video Indexer stöder bädda in två typer av widgetar i ditt program: **kognitiva insikter** och **Player**. 
+Den här artikeln visar hur du kan bädda in Video Indexer widgetar i dina program. Video Indexer stöder bädda in två typer av widgetar i ditt program: **kognitiva insikter** och **Player**. 
+## <a name="widget-types"></a>Widget-typer
 
-* En **kognitiva insikter** widget innehåller alla visuella insikter som extraherades från videon indexering processen. 
-    Widgeten insights har stöd för följande valfria URL-parametrar:
+### <a name="cognitive-insights-widget"></a>Kognitiva insikter widget
 
-    |Namn|Definition|Beskrivning|
-    |---|---|---|
-    |widgetar|Strängar avgränsade med kommatecken|Låter dig styra de insikter som du vill rendera. <br/>Exempel: **widgetar = personer, varumärken** renderas endast personer och varumärken användargränssnittet insikter<br/>Tillgängliga alternativ: personer, nyckelord, kommentarer, varumärken, Sentiment, avskrift, Sök | 
-* En **Player** widget gör det möjligt att strömma videon med anpassningsbar bithastighet.
+En **kognitiva insikter** widget innehåller alla visuella insikter som extraherades från videon indexering processen. Widgeten insights har stöd för följande valfria URL-parametrar:
 
-    Widgeten spelare har stöd för följande valfria URL-parametrar:
+|Namn|Definition|Beskrivning|
+|---|---|---|
+|widgetar|Strängar avgränsade med kommatecken|Låter dig styra de insikter som du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderas endast personer och varumärken Användargränssnittet insikter<br/>Tillgängliga alternativ: personer, nyckelord, kommentarer, varumärken, sentiment, avskrift, sökning.<br/>inte stöds via URL-version = 2<br/><br/>**Obs:** den **widgetar** URL param stöds inte om **version = 2** används. |
+|version|Versioner av den **kognitiva insikter** widget|För att få de senaste insikterna widget uppdateringar kan du lägga till `?version=2` fråga param att bädda in URL: en. Till exempel, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> För att få den äldre versionen kan bara ta bort den `version=2` från URL: en.
 
-    |Namn|Definition|Beskrivning|
-    |---|---|---|
-    |T|Sekunder från början|Gör player början spela upp från angiven tid peka.<br/>Exempel: t = 60|
-    |undertexter|Språkkod|Hämtar beskrivning i det angivna språket under widgeten läser in för att vara tillgängliga i menyn bildtexter.<br/>Exempel: bildtexter = en-Us|
-    |showCaptions|Ett booleskt värde|Gör spelaren läsa in med bildtexter som redan har aktiverats.<br/>Exempel: showCaptions = true|
-    |typ||Aktiverar ett ljudspelare skal (video del tas bort).<br/>Exempel: Skriv = ljud|
-    |spela upp automatiskt|Ett booleskt värde|Bestäm om spelaren ska spela upp videon vid har lästs in (standard är SANT).<br/>Exempel: spela upp automatiskt = false|
-    |Språk|Språkkod|Kontrollen spelaren styr lokalisering (standard är en-US)<br/>Exempel: språk = de-DE|
+### <a name="player-widget"></a>Player-widget
+
+En **Player** widget gör det möjligt att strömma videon med anpassningsbar bithastighet. Widgeten spelare har stöd för följande valfria URL-parametrar:
+
+|Namn|Definition|Beskrivning|
+|---|---|---|
+|T|Sekunder från början|Gör player början spela upp från angiven tid peka.<br/>Exempel: t = 60|
+|undertexter|Språkkod|Hämtar beskrivning i det angivna språket under widgeten läser in för att vara tillgängliga i menyn bildtexter.<br/>Exempel: bildtexter = en-US|
+|showCaptions|Ett booleskt värde|Gör spelaren läsa in med bildtexter som redan har aktiverats.<br/>Exempel: showCaptions = true|
+|typ||Aktiverar ett ljudspelare skal (video del tas bort).<br/>Exempel: Skriv = ljud|
+|spela upp automatiskt|Ett booleskt värde|Anger om spelaren ska spela upp videon vid har lästs in (standard är SANT).<br/>Exempel: spela upp automatiskt = false|
+|Språk|Språkkod|Styr player-språk (standard är en-US)<br/>Exempel: språk = de-DE|
 
 ## <a name="embedding-public-content"></a>Bädda in offentligt innehåll
 
-1. Logga in på din [Video Indexer](https://api-portal.videoindexer.ai/) konto. 
+1. Bläddra till den [Video Indexer](https://www.videoindexer.ai/) och logga in.
 2. Klicka på knappen ”Bädda in” som visas under videon.
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
@@ -60,9 +64,9 @@ Du kan hämta bädda in koder från bädda in popup-fönster (som visas i föreg
 
 Om du vill bädda in en **privata** video och du måste utföra en åtkomst-token i den **iframe**'s **src** attribut:
 
-     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<VideoId>/?accessToken=<accessToken>
+     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
     
-Använd den [ **hämta insikter Widget** ](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API för att hämta widgetinnehåll kognitiva insikter eller Använd [ **hämta Video åtkomsttoken** ](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) och lägga till den som en fråga param till url som visas ovan. Ange URL: en som den **iframe**'s **src** värde.
+Använd den [ **hämta insikter Widget** ](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API för att få widgetinnehåll kognitiva insikter eller Använd [ **hämta Video åtkomsttoken** ](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) och lägga till den som en fråga param till URL som visas ovan. Ange URL: en som den **iframe**'s **src** värde.
 
 Om du vill tillhandahålla redigering insikter funktioner (t.ex. Vi har i vårt webbprogram) i din inbäddade widget måste du skicka en åtkomst-token med redigeringsbehörigheter. Använd [ **hämta insikter Widget** ](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) eller [ **hämta Video åtkomsttoken** ](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) med **& allowEdit = true**. 
 
@@ -216,24 +220,24 @@ Du kan välja vilka typer av insikter som du vill genom att ange dem som ett vä
 
 Möjliga värden är: personer, nyckelord, sentiment, avskrift, sökning.
 
-Till exempel om du vill bädda in en widget som innehåller endast personer och Sök efter insikter iframe bädda in URL: en ut så här: https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?widgets=people, Sök
+Till exempel om du vill bädda in en widget som innehåller endast personer och Sök efter insikter iframe bädda in URL: en ut så här: https://www.videoindexer.ai/embed/insights/ <accountId> / <videoId>/? widgetar = personer, Sök
 
-Rubriken på fönstret iframe kan också anpassas genom att tillhandahålla **& Rubrik =** <YourTitle> till iframe-url. (Det anpassar html \<title > värde).
-Till exempel om du vill ge din iframe-fönstret rubriken ”MyInsights” URL: en ut så här: https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?title=MyInsights. Observera att det här alternativet gäller endast i fall när du behöver att öppna insikterna i ett nytt fönster.
+Rubriken på fönstret iframe kan också anpassas genom att tillhandahålla **& Rubrik =** <YourTitle> till iframe-URL. (Det anpassar html \<title > värde).
+Till exempel om du vill ge din iframe-fönstret rubriken ”MyInsights” URL: en ut så här: https://www.videoindexer.ai/embed/insights/ <accountId> / <videoId>/? rubrik = MyInsights. Observera att det här alternativet gäller endast i fall när du behöver att öppna insikterna i ett nytt fönster.
 
 ### <a name="player-widget"></a>Player-widget
 Om du bäddar in Video Indexer player kan du välja storleken på spelaren genom att ange storleken på iframe.
 
-Till exempel:
+Exempel:
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
+    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
 
 Som standard Video Indexer player kommer har Autogenererad dold textning baserat på avskrifter av videon som har extraherats från videon med källspråk som valdes när videon har överförts.
 
 Om du vill bädda in med ett annat språk kan du lägga till **& undertexter = < språk | ”alla” | ”false” >** till URL: en för inbäddade spelare eller put ”alla” som värde om du vill ha alla tillgängliga språk bildtexter.
-Om du vill att undertexter som ska visas som standard kan du skicka **& showCaptions = true**
+Om du vill undertexter som ska visas som standard, kan du skicka **& showCaptions = true**
 
-Bädda in URL: en sedan ser ut så här: https://www.videoindexer.ai/embed/player/9a296c6ec3/?captions=italian. Om du vill inaktivera undertexter kan du skicka ”false” som värde för parametern för bildtexter.
+Bädda in URL: en sedan ser ut så här: https://www.videoindexer.ai/embed/player/ <accountId> / <videoId>/? undertexter = italienska. Om du vill inaktivera undertexter kan du skicka ”false” som värde för parametern för bildtexter.
 
 Automatisk play – som standard spelaren börjar spelas upp videon. Du kan välja att skicka & automatisk uppspelning = false om du vill bädda in URL: en ovan.
 

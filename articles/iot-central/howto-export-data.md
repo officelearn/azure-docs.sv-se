@@ -8,12 +8,12 @@ ms.date: 07/3/2018
 ms.topic: article
 ms.prod: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 3ca2bc56c03e5bbabbd9b2f17edc621bdd94b02f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 5defbf7021936e3cc77250ccc453cb3887c77617
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622491"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576450"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportera dina data i Azure IoT Central
 
@@ -33,7 +33,7 @@ Den här artikeln beskriver hur du använder funktionen löpande export i Azure 
 
 ### <a name="measurements"></a>Mått
 
-De mått som enheterna skickar exporteras till ditt storage-konto en gång per minut. Data har alla nya meddelanden som tas emot av IoT Central från alla enheter under den tiden. De exporterade AVRO-filerna använder samma format som meddelandefiler som exporteras av [IoT Hub meddelanderoutning](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) till Blob storage.
+De mått som enheterna skickar exporteras till ditt storage-konto en gång per minut. Data har alla nya meddelanden som tas emot av IoT Central från alla enheter under den tiden. De exporterade AVRO-filerna använder samma format som meddelandefiler som exporteras av [IoT Hub meddelanderoutning](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) till Blob storage.
 
 > [!NOTE]
 > De enheter som skickar mått som representeras av enhets-ID (se nedan). Exportera ögonblicksbilder för enheten för att hämta namnen på enheterna. Korrelera varje meddelande-post med hjälp av den **connectionDeviceId** som överensstämmer med enhets-ID.

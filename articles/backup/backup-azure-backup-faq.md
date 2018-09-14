@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: aa26106460f305568fcb2dd1b84fbc54370e5f39
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493876"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543585"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Frågor om Azure Backup-tjänsten
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-komponenterna. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -41,6 +41,9 @@ Nej. Valvet skapas på prenumerationsnivå och kan inte tilldelas till en annan 
 
 ### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>Kan jag migrera säkerhetskopierade data till ett annat valv? <br/>
 Nej. Säkerhetskopierade data lagras i ett valv kan inte flyttas till ett annat valv.
+
+### <a name="can-i-change-from-grs-to-lrs-after-a-backup-br"></a>Kan jag ändra från GRS till LRS när du har en säkerhetskopia? <br/>
+Nej. Recovery Services-valvet kan bara ändra lagringsalternativ innan eventuella säkerhetskopior som har lagrats. 
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Recovery Services-valv är baserade på resurshanteraren. Backup-valv stöds fortfarande? <br/>
 Säkerhetskopieringsvalv har konverterats till Recovery Services-valv. Om du inte har konverterat Backup-valv till ett Recovery Services-valv, har Backup-valvet konverterats till ett Recovery Services-valv för dig. 

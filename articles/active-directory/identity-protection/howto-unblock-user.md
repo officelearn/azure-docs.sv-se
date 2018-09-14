@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 1bfc70680ecef2ee4fe162f81aac71430c773740
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c5f251f2de938d4441672c8aa1a6dbc6bd616155
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005086"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575499"
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection - så avblockera användare
 Med Azure Active Directory Identity Protection kan konfigurera du principer för att blockera användare om de angivna villkoren är uppfyllda. Vanligtvis en blockerad användare kontakter supportavdelningen att bli avblockerad. Den här artikeln beskrivs de steg som du kan utföra för att låsa upp en blockerad användare.
@@ -52,8 +52,8 @@ För att låsa upp en misstänkt inloggning, har du följande alternativ:
 ## <a name="unblocking-accounts-at-risk"></a>Avblockera konton i risk
 För att låsa upp ett konto i fara, har du följande alternativ:
 
-1. **Återställ lösenord** – du kan återställa användarens lösenord. Mer information finns i [manuell säker lösenordsåterställning](overview.md#manual-secure-password-reset).
-2. **Stäng alla riskhändelser** – användaren risk principen blockerar en användare om den konfigurerade användaren risknivå för blockering av åtkomst har uppnåtts. Du kan minska en användare är risknivå manuellt stänger rapporterade riskhändelser. Mer information finns i [stänga riskhändelser manuellt](overview.md#closing-risk-events-manually).
+1. **Återställ lösenord** – du kan återställa användarens lösenord. 
+2. **Stäng alla riskhändelser** – användaren risk principen blockerar en användare om den konfigurerade användaren risknivå för blockering av åtkomst har uppnåtts. Du kan minska en användare är risknivå manuellt stänger rapporterade riskhändelser. 
 3. **Undanta från principen** – om du tror att den aktuella konfigurationen av din inloggningsprincip orsakar problem för specifika användare, du kan undanta användare från den. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 4. **Inaktivera principen** – om du tycker att din principkonfiguration orsakar problem för alla användare kan du inaktivera principen. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

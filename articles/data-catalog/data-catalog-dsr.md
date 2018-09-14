@@ -8,12 +8,12 @@ ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 0f7ee285e77b9e54e2ff720f10f0d24c5b764014
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7b3f403ac479e0a6a8a4ae46c2a5ab448bd8ecc2
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042947"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544138"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Datakällor som stöds i Azure Data Catalog
 
@@ -369,7 +369,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td></td>
+      <td>Endast äldre samlingar från Azure DocumentDB och SQL API-samlingar i Azure Cosmos DB är kompatibla. Nyare Cosmos DB API: er stöds inte ännu. Välj Azure DocumentDB i listan datakälla.</td>
     </tr>
     <tr>
       <td>Allmän ODBC-tabell</td>
@@ -534,32 +534,6 @@ Om du vill se en särskild datakälla som stöds, föreslå den (eller röst sup
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Container</td>
-      <td>Virtual cluster</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream, stream set, view</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
         
       </td>
     </tr>

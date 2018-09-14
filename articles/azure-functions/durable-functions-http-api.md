@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 29fd4e62c13852e23e15f89ab6b4e2976fc42b25
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c6d7268a8501c602354d21edc5a0feaae9b1a0b2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377148"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575482"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure Functions)
 
@@ -41,7 +41,7 @@ Den här funktionen exempel genererar följande JSON-data som svar. Datatypen f�
 
 | Fält             |Beskrivning                           |
 |-------------------|--------------------------------------|
-| ID                |ID för orchestration-instans. |
+| id                |ID för orchestration-instans. |
 | statusQueryGetUri |Status för Webbadressen till orchestration-instans. |
 | sendEventPostUri  |”Rera händelse” Webbadressen till orchestration-instans. |
 | terminatePostUri  |”Avsluta” Webbadressen till orchestration-instans. |
@@ -86,7 +86,7 @@ Alla HTTP APIs som implementeras av tillägget Gör följande parametrar. Dataty
 
 | Parameter  | Parametertyp  | Beskrivning |
 |------------|-----------------|-------------|
-| instanceId | Webbadress             | ID för orchestration-instans. |
+| instanceId | URL             | ID för orchestration-instans. |
 | taskHub    | Frågesträng    | Namnet på den [uppgift hub](durable-functions-task-hubs.md). Om inte anges, antas hubbnamnet för den aktuella funktionsapp uppgift. |
 | anslutning | Frågesträng    | Den **namn** av anslutningssträngen för lagringskontot. Om inte anges, antas standardanslutningssträngen för funktionsappen. |
 | systemKey  | Frågesträng    | Auktoriseringsnyckeln som krävs för att anropa API: et. |
@@ -101,7 +101,7 @@ Följande avsnitt beskriver den specifika HTTP APIs stöds av tillägget och inn
 
 Hämtar status för en angiven orchestration-instans.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 För Functions 1.0 är format för förfrågan på följande sätt:
 
@@ -198,7 +198,7 @@ Den **HTTP 202** svaret innehåller också en **plats** svarshuvud som refererar
 
 Du kan också fråga status för alla instanser. Ta bort den `instanceId` i 'Hämta status för instans-begäran. Parametrarna är samma som ”Get-instans status”. 
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 För Functions 1.0 är format för förfrågan på följande sätt:
 
@@ -266,14 +266,14 @@ Här är ett exempel på svar-nyttolaster som inkluderar orkestreringsstatus (fo
 ```
 
 > [!NOTE]
-> Den här åtgärden kan vara väldigt kostsamt när det gäller Azure Storage i/o, om det finns många rader i tabellen instanser. Mer information om instansen tabellen finns i den [prestanda och skalning i varaktiga funktioner (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table) dokumentation.
+> Den här åtgärden kan vara väldigt kostsamt när det gäller Azure Storage i/o, om det finns många rader i tabellen instanser. Mer information om instansen tabellen finns i den [prestanda och skalning i varaktiga funktioner (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) dokumentation.
 > 
 
 ### <a name="raise-event"></a>Generera händelser
 
 Skickar en händelse-meddelande till en orchestration-instans som körs.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 För Functions 1.0 är format för förfrågan på följande sätt:
 
@@ -291,7 +291,7 @@ Parametrar för detta API innehåller en standarduppsättning som tidigare nämn
 
 | Fält       | Parametertyp  | Data tType | Beskrivning |
 |-------------|-----------------|-----------|-------------|
-| EventName   | Webbadress             | sträng    | Namnet på den händelse som orchestration målinstansen väntar på. |
+| EventName   | URL             | sträng    | Namnet på den händelse som orchestration målinstansen väntar på. |
 | {innehåll}   | Begära innehåll | JSON      | JSON-formaterad händelsenyttolast. |
 
 #### <a name="response"></a>Svar
@@ -319,7 +319,7 @@ Svar för detta API innehåller inte något innehåll.
 
 Avbryter en orchestration-instans som körs.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 För Functions 1.0 är format för förfrågan på följande sätt:
 
@@ -359,7 +359,7 @@ Svar för detta API innehåller inte något innehåll.
 
 Återställer en misslyckad orchestration-instans till ett körningsläge genom att spela upp de senaste misslyckade åtgärderna.
 
-#### <a name="request"></a>Begäran
+#### <a name="request"></a>Förfrågan
 
 För Functions 1.0 är format för förfrågan på följande sätt:
 

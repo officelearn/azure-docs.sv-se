@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 9cb2b0bdb036b26fbd355ff4bd84885b7e15507d
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248149"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541981"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -50,7 +50,7 @@ Uppdateringshantering stöds på följande operativsystem:
 
 Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.
 
-Den här lösningen stöder inte en Operations Management Suite (OMS)-Agent för Linux som är konfigurerad för att rapportera till flera Azure Log Analytics-arbetsytor.
+Den här lösningen stöder inte en Log Analytics-agenten för Linux som är konfigurerad för att rapportera till flera Azure Log Analytics-arbetsytor.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Aktivera uppdateringshantering för virtuella Azure-datorer
 
@@ -127,7 +127,7 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
 
 - **Namn på**: Ange ett unikt namn som identifierar uppdateringsdistributionen.
 - **Operativsystemet**: Välj **Windows** eller **Linux**.
-- **Datorer som ska uppdateras**: Välj en sparad sökning importerat gruppen, eller välj datorer att välja de datorer som du vill uppdatera. Om du väljer **datorer**, beredskap för datorn visas i den **uppdatera AGENTBEREDSKAP** kolumn. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen. Läs om de olika metoderna för att skapa datorgrupper i Log Analytics i [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+- **Datorer som ska uppdateras**: Välj en sparad sökning importerat gruppen, eller välj datorer att välja de datorer som du vill uppdatera. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen. Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Nya rutan för distribution av uppdatering](./media/manage-update-multi/update-select-computers.png)
 

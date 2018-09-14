@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 26ee1c8f02a0a4e5aa5048a7a02929c448106ffd
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 253598373512b1508482235be028b12163a85a9a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024966"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580692"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter-integrering – publicera slutpunkter
 
@@ -32,9 +32,8 @@ En uppsättning infrastruktur virtuella IP-adresser krävs för Azure Stack publ
 
 Intern infrastruktur för virtuella IP-adresser inte visas eftersom de inte krävs för att publicera Azure Stack.
 
-> [!NOTE]
+> [!Note]  
 > Användaren virtuella IP-adresser är dynamiska, definieras av användare själva med ingen kontroll av Azure Stack-operatör.
-
 
 |Slutpunkt (VIP)|DNS vara värd för en post|Protokoll|Portar|
 |---------|---------|---------|---------|
@@ -66,6 +65,8 @@ Intern infrastruktur för virtuella IP-adresser inte visas eftersom de inte krä
 
 Azure Stack stöder endast transparent proxy-servrar. I en distribution där en transparent proxy överordnade länkar till en traditionell proxyserver måste du tillåta följande portar och URL: er för utgående kommunikation:
 
+> [!Note]  
+> Azure Stack stöder inte användning av Express Route för att nå Azure-tjänster som anges i tabellen nedan.
 
 |Syfte|URL|Protokoll|Portar|
 |---------|---------|---------|---------|

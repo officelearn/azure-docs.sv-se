@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: e1964b7f46259e54c65aeb46aa795713922c3504
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 129d02bea6fe3668a308da0ab2a46ca8b59928e7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114620"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542252"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 Den här artikeln beskriver strukturen för en Azure Resource Manager-mall. Den anger de olika avsnitten i en mall och egenskaperna som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mall](resource-manager-create-first-template.md).
@@ -33,7 +33,7 @@ I sin enklaste struktur har en mall följande element:
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
-    "functions": {  },
+    "functions": [  ],
     "resources": [  ],
     "outputs": {  }
 }
@@ -313,4 +313,4 @@ Du kan överskrida vissa begränsningar för mallen med hjälp av en kapslad mal
 * Om du vill visa kompletta mallar för många olika typer av lösningar kan du se [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
 * Mer information om de funktioner du kan använda från inom en mall finns i [Azure Resource Manager-Mallfunktioner](resource-group-template-functions.md).
 * Om du vill kombinera flera mallar under distributionen, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
-* Rekommendationer om hur du skapar Resource Manager-mallar som du kan använda global Azure, Azure suveräna moln och Azure Stack finns i [utveckla Azure Resource Manager-mallar för molnet konsekvens](templates-cloud-consistency.md).
+* Rekommendationer om hur du skapar Resource Manager-mallar som du kan använda i globala Azure, nationella Azure-moln och Azure Stack finns på sidan om att [utveckla Azure Resource Manager-mallar för molnkonsekvens](templates-cloud-consistency.md).

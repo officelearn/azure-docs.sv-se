@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 24dc50a6c78769877bdc07b9521a9d2e33837937
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715666"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579623"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Skapa ett Microsoft Developer-konto
 Den här artikeln vägleder dig genom de nödvändiga kontoskapandet och registreringen ska bli en godkänd Microsoft Developer för Azure Marketplace.
@@ -38,7 +38,7 @@ Adressen som utgör användarnamnet bör finnas i din domän och skötas av ditt
 När du skapar ett företag kan du följa dessa riktlinjer om mer än en person ska kunna komma åt kontot genom att logga in med det Microsoft-konto som öppnats kontot.
 
 > [!Important]
-> Viktigt att du tillåter flera användare åtkomst till ditt Dev Center-konto, vi rekommenderar att du använder Azure Active Directory för att tilldela roller till enskilda användare som kan komma åt kontot genom att logga in med sina person autentiseringsuppgifter för Azure AD. Mer information finns i [hantera kontoanvändare](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Viktigt att du tillåter flera användare åtkomst till ditt Dev Center-konto, vi rekommenderar att du använder Azure Active Directory för att tilldela roller till enskilda användare som kan komma åt kontot genom att logga in med sina person autentiseringsuppgifter för Azure AD. Mer information finns i [hantera kontoanvändare](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Skapa ditt Microsoft-konto med hjälp av en e-postadress som hör till ditt företags domän, men inte till enskilda användare – till exempel windowsapps@fabrikam.com.
 * Begränsa åtkomsten till Microsoft-konto till det minsta möjliga antalet utvecklare.
@@ -50,7 +50,7 @@ När du skapar ett företag kan du följa dessa riktlinjer om mer än en person 
 
 Developer-konto ska nås främst från betrodda datorer. Detta är viktigt eftersom det finns en gräns för hur många koder som genererats per konto per vecka. Dessutom kan de flesta sömlös inloggning.
 
-Mer information om ytterligare developer-konto riktlinjer och säkerhet, klickar du på [här](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Mer information om ytterligare developer-konto riktlinjer och säkerhet, klickar du på [här](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Instruktioner
 1. Öppna en ny Chrome Incognito eller Internet Explorer InPrivate-webbläsarsession för att säkerställa att du inte är inloggad till ett befintligt konto.

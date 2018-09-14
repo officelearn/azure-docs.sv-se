@@ -8,18 +8,18 @@ ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/10/2018
 ms.author: giladm
-ms.openlocfilehash: a69142ebabc4af8b8543dc5dd276b99130620470
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: aca01e67339d5f6d003021cb17f1787093b79eda
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714980"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543970"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL databasdata identifiering och klassificering
 Dataidentifiering och klassificering (för närvarande i förhandsversion) ger avancerade funktioner i Azure SQL-databas för **identifierar**, **klassificera**, **märkning**  &  **skyddar** känslig data i dina databaser.
-Identifiera och klassificera dina mest känsliga data (business, ekonomi, hälsovård, personligt identifierbar information, etc.) kan spela upp en central roll i din organisations information protection datasekretesstandarder. Det kan fungera som en infrastruktur för:
+Identifiera och klassificera dina mest känsliga data (business- och finansiella institutioner vård, personligt identifierbar information (PII) och så vidare.) kan spela upp en central roll i din organisations information protection datasekretesstandarder. Det kan fungera som en infrastruktur för:
 * Hjälper uppfylla data sekretesstandarder och efterlevnadskrav.
 * Olika säkerhetsscenarier, till exempel övervakning (granskning) och Varna vid avvikande åtkomsten till känsliga data.
 * Kontrollera åtkomst till och Härdning av säkerheten för databaser som innehåller mycket känsliga data.
@@ -42,6 +42,17 @@ I följande avsnitt beskrivs stegen för att identifiera, klassificera och märk
 Klassificeringen innehåller två metadata-attribut:
 * Etiketter – huvudsakliga klassificering-attribut används för att definiera Känslighetsnivån för de data som lagras i kolumnen.  
 * Typer av information – ange ytterligare granularitet i vilken typ av data som lagras i kolumnen.
+
+## <a name="define-and-customize-your-classification-taxonomy"></a>Definiera och anpassa din klassificering taxonomi
+
+SQL Dataidentifiering och klassificering levereras med en inbyggd uppsättning känslighet etiketter och en inbyggd uppsättning informationstyper och identifiering av logik. Nu har du möjlighet att anpassa den här taxonomi och definiera en uppsättning och rangordning klassificering konstruktioner specifikt för din miljö.
+
+Definitions- och anpassning av klassificering-taxonomi görs på en central plats för din hela Azure-klient. Att platsen är i [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), som en del av din säkerhetsprincip. Endast användare med administratörsbehörighet på klienten rot-hanteringsgrupp kan utföra den här uppgiften.
+
+Som en del av Information Protection-principhantering, kan du definiera anpassade etiketter, rangordnas dem och koppla dem till en vald uppsättning informationstyper. Du kan också lägga till dina egna anpassade informationstyper och konfigurerar dem med sträng mönster som läggs till identifiering av logiken för att identifiera den här typen av data i dina databaser.
+Läs mer om att anpassa och hantera din princip i den [instruktionsguide för Information Protection-principen](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+
+När du har definierat principen klienttäckande kan du fortsätta med klassificeringen av enskilda databaser med hjälp av en anpassad princip.
 
 ## <a name="classify-your-sql-database"></a>Klassificera din SQL-databas
 

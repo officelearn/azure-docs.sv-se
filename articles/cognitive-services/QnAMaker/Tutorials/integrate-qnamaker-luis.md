@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: 18eae69867dc9774f63b11c762b22df4595bdce6
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: b923e7c39ccd96bd9b158c98507f961ea2dc3e02
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781755"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576773"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integrera QnA Maker och LUIS för att distribuera din kunskapsbas
 När kunskapsbasen QnA Maker växer stora, blir det svårt att underhålla den som en enda monolitisk ange och det finns en behöver delas upp i knowledge base i mindre logiska segment.
@@ -29,14 +29,14 @@ Det är enkelt att skapa flera kunskapsbaser i QnA Maker, behöver du vissa logi
 I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan från en LUIS-modell och sedan använda den för att dirigera till rätt kunskapsbas för QnA Maker.
 
 ## <a name="prerequisites"></a>Förutsättningar
-- Logga in på den [LUIS](https://www.luis.ai/) portal och [skapa en app](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
-- [Lägg till avsikter](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) enligt ditt scenario.
-- [Träna](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) och [publicera](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) LUIS-appen.
+- Logga in på den [LUIS](https://www.luis.ai/) portal och [skapa en app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
+- [Lägg till avsikter](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) enligt ditt scenario.
+- [Träna](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) och [publicera](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) LUIS-appen.
 - Logga in på [QnA Maker](https://qnamaker.ai) och [skapa](https://www.qnamaker.ai/Create) kunskapsbaser enligt ditt scenario.
 - Testa och publicera kunskapsbaser.
 
 ## <a name="qna-maker--luis-bot"></a>QnA Maker + LUIS-Bot
-1. Först skapa en Web App-robot med LUIS-mall, koppla den till LUIS-app som du skapade ovan och ändra avsikter. Se detaljerade steg [här](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
+1. Först skapa en Web App-robot med LUIS-mall, koppla den till LUIS-app som du skapade ovan och ändra avsikter. Se detaljerade steg [här](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
 
 2. Lägga till beroenden överst i filen med de andra beroendena:
 

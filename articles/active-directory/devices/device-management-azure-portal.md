@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7aa7cd2e5b1cf1346a5a7b1f82ec9c7933dd1112
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041433"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542488"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Så här hanterar du enheter med hjälp av Azure-portalen
 
 
-Med enhetshantering i Azure Active Directory (AD Azure), kan du se till att dina användare kommer åt dina resurser från enheter som uppfyller dina krav för säkerhet och efterlevnad. 
+Med enhetshanteringen i Azure Active Directory (Azure AD) kan du se till att användarna har tillgång till dina resurser från enheter som uppfyller dina krav för säkerhet och kompatibilitet. 
 
 Den här artikeln:
 
@@ -123,7 +123,7 @@ Som administratör kan hantera du registrerade eller domänanslutna enheter. Det
 
 ### <a name="manage-an-intune-device"></a>Hantera en Intune-enhet
 
-Om du är Intune-administratör kan du hantera enheter som har markerats som **Microsoft Intune**. En administratör kan se ytterligare enheter 
+Om du är Intune-administratör kan du hantera enheter som har markerats som **Microsoft Intune**. 
 
 ![Hantera en Intune-enhet](./media/device-management-azure-portal/31.png)
 
@@ -251,7 +251,7 @@ Förutom filter, kan du söka efter specifika poster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Introduktion till hantering av enheter i Azure Active Directory](overview.md)
+* [Introduktion till enhetshantering i Azure Active Directory](overview.md)
 
 
 

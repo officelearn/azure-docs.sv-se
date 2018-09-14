@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: e6127ce37e2aba4c0c68bcc0a1712501c0b92ff0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: cb8f88721495376ba1bf31ac5781e4037cc3d16a
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715116"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544268"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -75,6 +75,8 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 - <!-- 1697698  | IS, ASDK --> *Snabbstartsguider* i användaren portalens instrumentpanel nu länken till artiklarna i onlinedokumentationen för Azure Stack.
 
 - <!-- 2515955   | IS ,ASDK--> *Alla tjänster* ersätter *fler tjänster* i Azure Stack administratörs- och portaler. Du kan nu använda *alla tjänster* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler.
+
+- <!-- TBD | IS, ASDK --> *+ Skapa en resurs* ersätter *+ ny* i Azure Stack administratörs- och portaler.  Du kan nu använda *+ skapa en resurs* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler.  
 
 - <!--  TBD – IS, ASDK --> *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken.  
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 3cf5a32d95b028664f29b82b14e2294d58ae9925
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664452"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580017"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -33,7 +33,7 @@ Artikeln beskriver några av parametrarna att du kan ange för API: et ändra pr
 ## <a name="uploading-considerations"></a>Ladda upp överväganden
     
 - När du laddade upp videon baserat på URL: en (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare)
-- Alternativet byte-matrisen är begränsat till 4GB och timeout efter 30 min
+- Alternativet byte-matrisen är begränsat till 2GB och timeout efter 30 min
 - URL: en som anges i den `videoURL` param måste kodas
 
 ## <a name="configurations-and-params"></a>Konfigurationer och parametrar

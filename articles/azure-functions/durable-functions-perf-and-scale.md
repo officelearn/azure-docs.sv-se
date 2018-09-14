@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 52582a6fe3f6c8ccc22c57268e20a94139be9e6f
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 669a436293ddf6f13760db5e6802aaae82ddd74b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094866"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577521"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i varaktiga funktioner (Azure Functions)
 
@@ -27,13 +27,13 @@ Du måste förstå några av information om den underliggande providern i Azure 
 
 Den **historik** tabell är en Azure Storage-tabell som innehåller historik över händelser för alla orchestration-instanser i en uppgift-hubb. Namnet på den här tabellen är i formatet *TaskHubName*historik. Eftersom instanserna körs, läggs nya rader i tabellen. Partitionsnyckeln för den här tabellen har härletts från instans-ID för dirigering. Ett instans-ID är slumpmässig i de flesta fall, vilket säkerställer optimala distribution av interna partitioner i Azure Storage.
 
-När en orchestration-instans måste köras, laddas lämplig raderna i tabellen Historik i minnet. Dessa *Händelsehistorik* sedan återupprepas i Funktionskoden orchestrator för att få tillbaka den till dess tidigare med kontrollpunkt tillstånd. Användning av körningshistorik att återskapa tillstånd på så vis påverkas av den [mönstret för händelsekällor](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing).
+När en orchestration-instans måste köras, laddas lämplig raderna i tabellen Historik i minnet. Dessa *Händelsehistorik* sedan återupprepas i Funktionskoden orchestrator för att få tillbaka den till dess tidigare med kontrollpunkt tillstånd. Användning av körningshistorik att återskapa tillstånd på så vis påverkas av den [mönstret för händelsekällor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Instanser tabell
 
 Den **instanser** tabellen är en annan Azure Storage-tabell som innehåller status för alla orchestration-instanser i en uppgift-hubb. Då instanser skapas, läggs nya rader i tabellen. Partitionsnyckeln för den här tabellen är orchestration instans-ID och Radnyckeln är en fast konstant. Det finns en rad per orchestration-instans.
 
-Den här tabellen används för att uppfylla instans frågebegäranden från den [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API samt de [frågan om HTTP-API](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-http-api#get-instance-status). Den förblir konsekvent med innehållet i den **historik** beskrivits i tabellen. Användning av en separat Azure Storage-tabell för att effektivt uppfyller instans frågeåtgärder på så vis påverkas av den [mönster Command and Query Responsibility uppdelning (CQRS)](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs).
+Den här tabellen används för att uppfylla instans frågebegäranden från den [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API samt de [frågan om HTTP-API](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). Den förblir konsekvent med innehållet i den **historik** beskrivits i tabellen. Användning av en separat Azure Storage-tabell för att effektivt uppfyller instans frågeåtgärder på så vis påverkas av den [mönster Command and Query Responsibility uppdelning (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Intern Kölängd utlösare
 

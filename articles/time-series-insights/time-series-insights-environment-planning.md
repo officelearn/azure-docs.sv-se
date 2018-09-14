@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 2c06463d95467543a426079addf981aa42d53eb6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c98a90aa44166d6453612f9b73287966851df6ce
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630644"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578165"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planera Azure Time Series Insights-miljön
 
@@ -101,11 +101,11 @@ Time Series Insights ger hög tillgänglighet (HA) med hjälp av uppsägningar p
 
 Time Series Insights har inte inbyggda haveriberedskap (BCDR).  Kunder som behöver BCDR kan dock fortfarande att implementera en strategi. Skapa en andra Time Series Insights-miljö i en Azure backup-region och skicka händelser till den här sekundära miljön från den primära händelsekälla utnyttjar en andra dedikerad konsumentgrupp och den händelsekälla BCDR riktlinjer.  
 
-1.  Skapa miljö i andra region.  Mer om hur du skapar en Time Series Insights-miljö [här](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started).
-2.  Skapa en andra dedikerad konsumentgrupp för din händelsekälla och ansluta den händelsekällan till den nya miljön.  Glöm inte att ange den andra, dedikerad konsumentgruppen.  Du kan läsa mer om detta genom att göra något [dokumentation för IoT Hub](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) eller [dokumentation för Event hubs](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+1.  Skapa miljö i andra region.  Mer om hur du skapar en Time Series Insights-miljö [här](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+2.  Skapa en andra dedikerad konsumentgrupp för din händelsekälla och ansluta den händelsekällan till den nya miljön.  Glöm inte att ange den andra, dedikerad konsumentgruppen.  Du kan läsa mer om detta genom att göra något [dokumentation för IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) eller [dokumentation för Event hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
 3.  Om din primära region skulle gå nedåt under en katastrofåterställning incident, växla över aktiviteter i säkerhetskopiering Time Series Insights-miljön.  
 
-Om du vill veta mer om IoT Hub BCDR-principer kan gå [här](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr).  Om du vill veta mer om Event hub BCDR-principer kan gå [här](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr).  
+Om du vill veta mer om IoT Hub BCDR-principer kan gå [här](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  Om du vill veta mer om Event hub BCDR-principer kan gå [här](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
 
 ## <a name="next-steps"></a>Nästa steg
 - [Hur du lägger till en Event Hub-händelsekälla](time-series-insights-how-to-add-an-event-source-eventhub.md)

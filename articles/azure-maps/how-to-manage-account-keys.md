@@ -3,17 +3,17 @@ title: Så här hanterar du ditt Azure Maps-konto och dina nycklar | Microsoft D
 description: Du kan använda Azure-portalen för att hantera ditt Azure Maps-konto och hantera dina åtkomstnycklar.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f5596f4c9bc827852c730d18856753e87de3c59c
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054973"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541627"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Så här hanterar du ditt Azure Maps-konto och dina nycklar
 
@@ -23,31 +23,33 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-a-new-account"></a>Skapa ett nytt konto
 
-1. Logga in på [Azure-portalen](http://portal.azure.com).
+1. Logga in på [Azure Portal](http://portal.azure.com).
 
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
+2. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
-2. Sök efter och välj **Maps**, klicka sedan på **skapa**.
+3. Sök efter och välj **Maps**, klicka sedan på **skapa**.
 
-3. Ange information för ditt nya konto. 
+4. Ange information för ditt nya konto.
 
 ![Ange information i portalen](./media/how-to-manage-account-keys/new-account-portal.png)
 
 ## <a name="manage-keys-on-the-account-page"></a>Hantera nycklar på sidan
 
-När du skapar ett konto kan få du två slumpmässigt genererat nycklar. Du kan använda nycklarna för att autentisera mot Maps-API: er när du vill hämta kartdata eller skapa en ny JavaScript map-instans. 
+När du skapar ett konto kan få du två slumpmässigt genererat nycklar. Du kan använda nycklarna för att autentisera mot Maps-API: er när du vill hämta kartdata eller skapa en ny JavaScript map-instans.
 
 Du hittar nycklarna i Azure-portalen. Gå till ditt konto och välj sedan **nycklar** på menyn.
 
 ![Hantera nycklar i portalen](./media/how-to-manage-account-keys/account-keys-portal.png)
 
-Från den här sidan kan du kopiera dina nycklar eller skapa nya. 
+Från den här sidan kan du kopiera dina nycklar eller skapa nya.
 
 ## <a name="delete-an-account"></a>Ta bort ett konto
 
 Du kan ta bort ett konto från Azure-portalen. Gå till översiktssidan för kontot och välj **ta bort**.
 
 ![Ta bort ditt konto i portalen](./media/how-to-manage-account-keys/account-delete-portal.png)
+
+Därefter visas en bekräftelsesida. Du kan bekräfta borttagningen av ditt konto genom att skriva dess namn.
 
 ## <a name="next-steps"></a>Nästa steg
 

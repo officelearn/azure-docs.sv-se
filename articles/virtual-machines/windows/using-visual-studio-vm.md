@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.prod: vs-devops-alm
-ms.date: 03/02/2018
+ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 47de019b15fd2182c7667f7a99a6ad00a81180a1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 934f9a7eb626c94ed35a17a5b385b850fbbbe537
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716238"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542658"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar på Azure
 Med Visual Studio på en förkonfigurerad Azure-dator (VM) är ett snabbt, enkelt sätt att gå från inget till en upp-igång-utvecklingsmiljö. Systemavbildningar med olika konfigurationer för Visual Studio finns i den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).

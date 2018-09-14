@@ -12,12 +12,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 667636aac49d2622ba1a6b45d7c8af61b9609c55
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "35622219"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579225"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Klassificering av avbildning med hjälp av Azure Machine Learning Workbench
 
@@ -95,7 +95,7 @@ Utför de här stegen skapar projektstruktur som visas nedan. Projektkatalogen �
 
 ## <a name="data-description"></a>Databeskrivning
 
-Den här självstudien använder som kör exempel en övre brödtext kläder struktur datauppsättning som består av upp till 428 avbildningar. Varje avbildning kommenteras som en av tre olika strukturer (prickad, stripe, leopard). Vi behöll antalet bilder små så att den här självstudien kan utföras snabbt. Koden är väl testad och fungerar med tiotusentals bilder eller mer. Alla avbildningar har skrapats med bildsökning i Bing och hand kommenteras som förklaras i [del 3](#using-a-custom-dataset). Bilden visas URL: er med deras respektive attribut i den */resources/fashionTextureUrls.tsv* fil.
+Den här självstudien använder som kör exempel en övre brödtext kläder struktur datauppsättning som består av upp till 428 avbildningar. Varje avbildning kommenteras som en av tre olika strukturer (prickad, stripe, leopard). Vi behöll antalet bilder små så att den här självstudien kan utföras snabbt. Koden är väl testad och fungerar med tiotusentals bilder eller mer. Alla avbildningar har hand kommenteras som förklaras i [del 3](#using-a-custom-dataset). Bilden visas URL: er med deras respektive attribut i den */resources/fashionTextureUrls.tsv* fil.
 
 Skriptet `0_downloadData.py` laddar ned alla avbildningar till den *DATA_DIR/bilder/fashionTexture/* directory. Vissa av de 428 URL: er är sannolikt bruten. Detta är inte ett problem och innebär bara att vi har något lägre avbildningar för träning och testning. Alla skript som angetts i det här exemplet måste köras lokalt, och inte på t.ex. en docker remote-miljö.
 
@@ -263,11 +263,11 @@ Några av de mest lovande vägar för förbättringar är:
 
 ## <a name="part-3---custom-dataset"></a>Del 3 – anpassad datauppsättning
 
-I del 1 och 2 får vi tränas och utvärderas en modell för klassificering av avbildning med hjälp av angiven text för övre kläder strukturer avbildningar. Nu visar vi hur du använder en anpassad datauppsättning för användaren i stället. Eller, om det är inte tillgänglig, hur att generera och anteckna, till exempel en datauppsättning med Bing söka i avbildningen.
+I del 1 och 2 får vi tränas och utvärderas en modell för klassificering av avbildning med hjälp av angiven text för övre kläder strukturer avbildningar. Nu visar vi hur du använder en anpassad datauppsättning för användaren i stället. 
 
 ### <a name="using-a-custom-dataset"></a>Med hjälp av en anpassad datauppsättning
 
-Först ska vi ta en titt på mappstrukturen för kläder struktur data. Observera hur alla avbildningar för olika attribut är i respektive undermappar *prickad*, * leopard, och *stripe* på *DATA_DIR/bilder/fashionTexture/*. Observera också hur mappen Avbildningsnamnet också sker i den `PARAMETERS.py` fil:
+Först ska vi ta en titt på mappstrukturen för kläder struktur data. Observera hur alla avbildningar för olika attribut är i respektive undermappar *prickad*, *leopard*, och *stripe* på *DATA_DIR/bilder / fashionTexture /*. Observera också hur mappen Avbildningsnamnet också sker i den `PARAMETERS.py` fil:
 ```python
 datasetName = "fashionTexture"
 ```
@@ -280,14 +280,23 @@ Det är viktigt att varje avbildning kan tilldelas till exakt ett attribut. Till
 
 ### <a name="image-scraping-and-annotation"></a>Bild skrapning och anteckning
 
-Kan vara svårt att samla in tillräckligt många kommenterade avbildningar träning och testning. Ett sätt att lösa problemet är att skrapa bilder från Internet. Se exempelvis nedan bildsökning i Bing resultatet för frågan *t-shirt stripe används*. Som förväntat, de flesta avbildningar verkligen stripe t-shirts. Några fel eller är tvetydig avbildningar (t.ex kolumn 1, rad 1; eller kolumn 3, rad 2) kan identifieras och svårt att ta bort:
+Kan vara svårt att samla in tillräckligt många kommenterade avbildningar träning och testning. Ett sätt att lösa problemet är att skrapa bilder från Internet.
+
+> [!IMPORTANT] 
+> Kontrollera att du inte bryter mot upphovsrätt för alla avbildningar som du använder. 
+
+<!--
+For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
+-->
 
 Flera frågor ska användas för att generera en stor och skilda datauppsättning. Till exempel 7\*3 = 21 frågor kan syntetiseras automatiskt med alla kombinationer av kläder {BLUS, hoodie, tröja, tröja, skjorta, t-shirt, innehav} och {stripe, prickad, leopard}-attribut. Sedan hämtar upp 50 bilder per fråga skulle leda till högst 21 * 50 = 1050 avbildningar.
 
-I stället för att manuellt hämta avbildningar från bildsökning i Bing, är det mycket enklare att i stället använda den [Cognitive Services bildsökning i Bing](https://www.microsoft.com/cognitive-services/bing-image-search-api) som returnerar en uppsättning webbadresser till bilder får en frågesträng.
+<!--
+Rather than manually downloading images from Bing Image Search, it is much easier to instead use the [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api) which returns a set of image URLs given a query string.
+-->
 
 Vissa av de hämta avbildningarna är exakt eller nära dubbletter (till exempel skiljer sig bara bild lösning eller jpg artefakter). Dessa dubbletter ska tas bort så att träning och testning delningen inte innehåller samma avbildningar. Tar bort duplicerade bilder kan uppnås med hjälp av en hash-baserade metod, som fungerar i två steg: (i) först hash-sträng beräknas för alla avbildningar. (ii) i ett andra steg över avbildningarna hålls endast dessa avbildningar med en hash-sträng som ännu inte har påträffats. Alla andra avbildningar tas bort. Vi hittade den `dhash` metoden i Python-bibliotek `imagehash` och beskrivs i det här [blogg](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) att utföra, med parametern `hash_size` inställd på 16. Det är OK att felaktigt ta bort vissa icke-dubblett-avbildningar, så länge som flesta verkliga dubbletterna komma bort.
 

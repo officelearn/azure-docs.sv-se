@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: eda3e95c1bd8fb7eef97ee9db10c217c2885198f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970891"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576705"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
 
@@ -310,7 +310,7 @@ Azure Backup Server delar kod med Data Protection Manager. Du hittar referenser 
 
 ## <a name="add-backup-storage"></a>Lägga till lagring av säkerhetskopior
 
-Den första säkerhetskopian sparas på lagring som är anslutna till Azure Backup Server-datorn. Läs mer om att lägga till diskar i [lägga till Modern Backup storage](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
+Den första säkerhetskopian sparas på lagring som är anslutna till Azure Backup Server-datorn. Läs mer om att lägga till diskar i [lägga till Modern Backup storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > Du måste lägga till lagring av säkerhetskopior, även om du planerar att skicka data till Azure. I Azure Backup Server-arkitektur Recovery Services-valv innehåller den *andra* kopia av data medan den lokala lagringen innehåller säkerhetskopian första (och obligatoriska).
@@ -328,10 +328,10 @@ När du vet för Azure anslutningen och den Azure-prenumerationen kan kan du anv
 | Tillstånd för anslutning | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
 | Ansluten |Active |Behörig |Behörig |Behörig |Behörig |
-| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
+| Ansluten |Har upphört |Stoppad |Stoppad |Behörig |Behörig |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppat och Azure återställningspunkter tas bort |Stoppad |
 | Förlorad anslutning > 15 dagar |Active |Stoppad |Stoppad |Behörig |Behörig |
-| Förlorad anslutning > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
+| Förlorad anslutning > 15 dagar |Har upphört |Stoppad |Stoppad |Behörig |Behörig |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppat och Azure återställningspunkter tas bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställa från förlust av anslutning
@@ -360,10 +360,10 @@ Du kan även gå till [Azure Backup relaterade vanliga frågor och svar](backup-
 
 ## <a name="next-steps"></a>Nästa steg
 
-I artikeln [förbereda din miljö för DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), innehåller information om Azure Backup Server-konfigurationer som stöds.
+I artikeln [förbereda din miljö för DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), innehåller information om Azure Backup Server-konfigurationer som stöds.
 
 Du kan använda följande artiklar för att få en djupare förståelse för skydd av arbetsbelastningar med Microsoft Azure Backup Server.
 
-- [SQL Server-säkerhetskopiering](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
-- [SharePoint server-säkerhetskopiering](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [SQL Server-säkerhetskopiering](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint server-säkerhetskopiering](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Alternativ server-säkerhetskopiering](backup-azure-alternate-dpm-server.md)

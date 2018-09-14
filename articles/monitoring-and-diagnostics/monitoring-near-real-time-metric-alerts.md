@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 4d51b099532d3052acc190231ec4be17765a427e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 019f245a7cc1feedcbd520c336f53a60ed1e9ddc
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971031"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579097"
 ---
-# <a name="introduction"></a>Introduktion
+# <a name="supported-resources-for-newer-azure-monitor-metric-alerts"></a>Stöds resurser för nyare måttaviseringar i Azure Monitor
 Azure Monitor nu stöder en [nya måttaviseringstypen](monitoring-overview-unified-alerts.md) som har betydande fördelar över den äldre [klassiska måttaviseringar](insights-alerts-portal.md). Mått är tillgängliga för [lång lista med Azure-tjänster](monitoring-supported-metrics.md). En (växande) delmängd av resurstyperna som har stöd för nyare aviseringar. Den här artikeln innehåller dessa användare. 
 
 Du kan också använda nyare måttaviseringar på den populära Log Analytics loggar extraherade som mått som en del av mått från loggar (förhandsversion)  

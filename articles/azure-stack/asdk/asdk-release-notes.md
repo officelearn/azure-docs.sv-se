@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/12/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 1d3e4724820f7109eb9b695fe06d221a2796c26f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c9b93b5e7877d853a2f27678af61774171c01cb
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722219"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543340"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Viktig information om Azure Stack Development Kit  
 Den här artikeln innehåller information om förbättringar, korrigeringar och kända problem i Azure Stack Development Kit. Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -65,7 +65,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
 - <!-- 2515955   | IS ,ASDK--> *Alla tjänster* ersätter *fler tjänster* i Azure Stack administratörs- och portaler. Du kan nu använda *alla tjänster* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler.
 
-- <!-- TBD | IS, ASDK --> **+ Skapa en resurs** ersätter **+ ny** i Azure Stack administratörs- och portaler.  Du kan nu använda *+ skapa en resurs* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler. 
+- <!-- TBD | IS, ASDK --> *+ Skapa en resurs* ersätter *+ ny* i Azure Stack administratörs- och portaler.  Du kan nu använda *+ skapa en resurs* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler. 
 
 - <!--  TBD – IS, ASDK --> *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](.\.\azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken. 
 

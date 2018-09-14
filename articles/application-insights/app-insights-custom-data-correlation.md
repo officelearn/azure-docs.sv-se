@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 31e37efc1aad3d355bdd8391535f317ec137f5d7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6d19c64c74a01a012bac3d867e2d65393ae21cd3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40162140"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577779"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Korrelera Application Insights-data med anpassade datakällor
 
@@ -51,7 +51,7 @@ Att börja skicka data till Log Analytics. Det finns flera alternativ:
 
 ## <a name="correlating-data"></a>Korrelera data
 
-Application Insights är baserad på plattformen Log Analytics-data. Därför kan vi använda [mellan resurser kopplingar](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search) att korrelera data som vi matas in i Log Analytics med vår Application Insights-data.
+Application Insights är baserad på plattformen Log Analytics-data. Därför kan vi använda [mellan resurser kopplingar](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) att korrelera data som vi matas in i Log Analytics med vår Application Insights-data.
 
 Exempelvis kan vi mata in vår lab inventerings- och platser till en tabell med namnet ”LabLocations_CL” i en Log Analytics-arbetsyta som kallas ”myLA”. Om vi ville sedan granska våra förfrågningar som spåras i Application Insights-app som kallas ”myAI” och korrelera datornamnen som betjänas begäranden för dessa datorer som lagras i tabellen tidigare nämnda anpassade, kan vi köra följande fråga från den Application Insights eller Log Analytics-kontext:
 
@@ -66,4 +66,4 @@ app('myAI').requests
 ## <a name="next-steps"></a>Nästa steg
 
 - Kolla in den [Data Collector API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) referens.
-- Mer information om [mellan resurser kopplingar](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search).
+- Mer information om [mellan resurser kopplingar](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).

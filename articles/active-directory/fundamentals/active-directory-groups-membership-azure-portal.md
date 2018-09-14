@@ -1,56 +1,84 @@
 ---
-title: Hantera de grupper som din grupp tillhör i Azure AD | Microsoft Docs
-description: Grupper kan innehålla andra grupper i Azure Active Directory. Här ser du hur du hanterar dessa medlemskap.
+title: Lägga till eller ta bort en grupp från någon annan grupp i Azure Active Directory | Microsoft Docs
+description: Lär dig mer om att lägga till eller ta bort en grupp från någon annan grupp med Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 10/10/2017
+ms.topic: conceptual
+ms.date: 08/28/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 8a71677ae3ceb5617f0a817a8eff438d5e3f2774
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: HT
+ms.openlocfilehash: c28fe5ef226fac993fde221b16bfa875ba4845ca
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860443"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579776"
 ---
-# <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Hantera vilka grupper som en grupp hör till i din Azure Active Directory-klientorganisation
-Grupper kan innehålla andra grupper i Azure Active Directory. Här ser du hur du hanterar dessa medlemskap.
+# <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Så här: lägga till eller ta bort en grupp från någon annan grupp med Azure Active Directory
+Den här artikeln hjälper dig att lägga till och ta bort en grupp från någon annan grupp med Azure Active Directory.
 
-## <a name="how-do-i-find-the-groups-of-which-my-group-is-a-member"></a>Hur gör jag för att hitta de grupper som min grupp är medlem i?
-1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör för katalogen.
-2. Välj **Användare och grupper**.
+>[!Note]
+>Om du försöker ta bort den överordnade gruppen kan se [uppdatera eller ta bort en grupp och dess medlemmar](active-directory-groups-delete-group.md).
 
-   ![Bild – Öppna användare och grupper](./media/active-directory-groups-membership-azure-portal/search-user-management.png)
-1. Välj **Alla grupper**.
+## <a name="add-a-group-as-a-member-to-another-group"></a>Lägga till en grupp som en medlem till en annan grupp
+Du kan lägga till en befintlig grupp till en annan befintlig grupp, skapar en medlem i gruppen (Undergrupp) och en överordnad grupp. Medlem-grupp ärver de attribut och egenskaperna för den överordnade gruppen, sparar du konfigurationen.
 
-   ![Bild – Välja grupper](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
-1. Välj en grupp.
-2. Välj **Gruppmedlemskap**.
+### <a name="to-add-a-group-as-a-member-to-another-group"></a>Lägg till en grupp som en medlem till en annan grupp
 
-   ![Bild – Öppna gruppmedlemskap](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
-1. Om du vill lägga till en grupp som medlem i en annan grupp väljer du kommandot **Lägg till** på bladet **Grupp – gruppmedlemskap**.
-2. Välj en grupp på bladet **Välj grupp** och välj sedan knappen **Välj** längst ned på bladet. Du kan bara lägga till en grupp till en grupp i taget. Rutan **Användare** filtrerar visningen baserat på matchningen av din inmatning till någon del av ett användar- eller enhetsnamn. Jokertecken accepteras inte i den rutan.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som Global administratör för katalogen.
 
-   ![Lägga till ett gruppmedlemskap](./media/active-directory-groups-membership-azure-portal/add-group-membership.png)
-8. Om du vill ta bort en grupp som medlem i en annan grupp väljer du gruppen på bladet **Grupp – gruppmedlemskap**.
-9. Välj kommandot **Ta bort** och bekräfta valet.
+2. Välj **Azure Active Directory**, och välj sedan **grupper**.
 
-   ![kommando för att ta bort medlemskap](./media/active-directory-groups-membership-azure-portal/remove-group-membership.png)
-10. När du har ändrat gruppmedlemskapen för din grupp väljer du **Spara**.
+3. På den **grupper – alla grupper** , söka efter och välj den grupp som är för att bli medlem i en annan grupp. I den här övningen ska du använda den **MDM princip – västra** grupp.
+
+    >[!Note]
+    >Du kan lägga till din grupp som en medlem till endast en grupp i taget. Dessutom kan den **Välj grupp** box filtrerar visningen baserat på matchning av ditt bidrag till någon del av ett namn för användaren eller enheten. Dock stöds jokertecken inte.
+
+    ![Grupper – alla gruppsidan med MDM-principen – västra grupp vald](media/active-directory-groups-membership-azure-portal/group-all-groups-screen.png)
+
+4. På den **gruppmedlemskap för MDM - Väst - princip** väljer **gruppmedlemskap**väljer **Lägg till**, leta upp den grupp du vill att din grupp att vara medlem i och välj sedan  **Välj**. I den här övningen ska du använda den **MDM princip – alla org** grupp.
+
+    Den **MDM princip – västra** är nu medlem av den **MDM princip – alla org** grupp, ärver alla egenskaper och konfiguration av MDM-principen - gruppen med alla org.
+
+    ![Skapa en gruppmedlemskap genom att lägga till gruppen till en annan grupp](media/active-directory-groups-membership-azure-portal/add-group-membership.png)
+
+5. Granska den **gruppmedlemskap för MDM - Väst - princip** och se relationen mellan gruppen och medlemmen.
+
+    ![MDM - Väst - gruppmedlemskap sidan som visar den överordnade gruppen](media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
+
+6. För en mer detaljerad vy av relationen mellan gruppen och medlemmen, väljer du gruppnamnet (**MDM princip – alla org**) och ta en titt på de **MDM princip – västra** sidan information.
+
+    ![Sidan med medlemskap som visar både medlemmen och gruppinformation](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
+
+## <a name="remove-a-member-group-from-another-group"></a>Ta bort en grupp från någon annan grupp
+Du kan ta bort en befintlig grupp från någon annan grupp. Men ta bort medlemskapet tar också bort alla ärvda attribut och egenskaper för dina användare.
+
+### <a name="to-remove-a-member-group-from-another-group"></a>Att ta bort en medlem från en annan grupp
+1. På den **grupper – alla grupper** , söka efter och välj den grupp som ska tas bort som medlem i någon annan grupp. I den här övningen använder vi igen den **MDM princip – västra** grupp.
+
+2. På den **MDM princip – västra översikt** väljer **gruppmedlemskap**.
+
+    ![Princip för MDM – västra översiktssidan](media/active-directory-groups-membership-azure-portal/group-membership-overview.png)
+
+3. Välj den **MDM princip – alla org** gruppen från den **gruppmedlemskap för MDM - Väst - princip** och välj sedan **ta bort** från den **MDM princip – västra** sidan information.
+
+    ![Sidan med medlemskap som visar både medlemmen och gruppinformation](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
+
 
 ## <a name="additional-information"></a>Ytterligare information
 Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
-* [Visa befintliga grupper](active-directory-groups-view-azure-portal.md)
-* [Skapa en ny grupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md)
-* [Hantera inställningar för en grupp](active-directory-groups-settings-azure-portal.md)
-* [Hantera medlemmar i en grupp](active-directory-groups-members-azure-portal.md)
-* [Hantera dynamiska regler för användare i en grupp](../users-groups-roles/groups-dynamic-membership.md)
+- [Visa dina grupper och medlemmar](active-directory-groups-view-azure-portal.md)
+
+- [Skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md)
+
+- [Lägg till eller ta bort medlemmar från en grupp](active-directory-groups-members-azure-portal.md)
+
+- [Redigera din gruppinställningar](active-directory-groups-settings-azure-portal.md)
+
+- [Tilldela licenser till användare gruppvis](../users-groups-roles/licensing-groups-assign.md)

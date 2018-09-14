@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 8cfa0e2a5aa1d7f560fe84f4eda18349f5d1d8b4
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4aeb37d656dcb5ebca1a48253c418186dfca0a7a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991528"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575431"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå periodiska konfiguration av säkerhetskopiering i Azure Service Fabric
 
@@ -182,19 +182,19 @@ Principer för säkerhetskopiering kan inaktiveras när det finns inget behov av
 ## <a name="suspend--resume-backup"></a>Pausa och återuppta säkerhetskopiering
 Vissa situationen begära tillfälligt uppehåll i regelbunden säkerhetskopiering av data. I sådana fall, beroende på krav, inaktivera backup API kan användas på en _programmet_, _Service_, eller _Partition_. Regelbunden säkerhetskopiering inaktiveringen är transitiva över underträd med programmets hierarkin från det datum då den används. 
 
-* När inaktiveringen används på en _programmet_ med [pausa programmet Säkerhetskopiering](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API och sedan alla tjänster och partitioner under det här programmet är pausat för regelbunden säkerhetskopiering av data.
+* När inaktiveringen används på en _programmet_ med [pausa programmet Säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API och sedan alla tjänster och partitioner under det här programmet är pausat för regelbunden säkerhetskopiering av data.
 
-* När inaktiveringen används på en _Service_ med [pausa tjänsten Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendservicebackup) API och sedan alla partitioner under den här tjänsten pausas för regelbunden säkerhetskopiering av data.
+* När inaktiveringen används på en _Service_ med [pausa tjänsten Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) API och sedan alla partitioner under den här tjänsten pausas för regelbunden säkerhetskopiering av data.
 
-* När inaktiveringen används på en _Partition_ med [pausa Partition säkerhetskopiering](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API, kommer dess pausar partitioner under den här tjänsten pausas för regelbunden säkerhetskopiering av data.
+* När inaktiveringen används på en _Partition_ med [pausa Partition säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API, kommer dess pausar partitioner under den här tjänsten pausas för regelbunden säkerhetskopiering av data.
 
 När behovet av inaktiveringen är klar kan sedan säkerhetskopieringen periodiska data återställas med hjälp av respektive återuppta säkerhetskopiering API. Regelbunden säkerhetskopiering måste det köras på samma _programmet_, _service_, eller _partition_ där det pausades.
 
-* Om inaktivering har tillämpats på en _programmet_, och sedan återupptas med [återuppta programmet Säkerhetskopiering](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API. 
+* Om inaktivering har tillämpats på en _programmet_, och sedan återupptas med [återuppta programmet Säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API. 
 
-* Om inaktivering har tillämpats på en _Service_, och sedan återupptas med [återuppta tjänsten säkerhetskopiering](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
+* Om inaktivering har tillämpats på en _Service_, och sedan återupptas med [återuppta tjänsten säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
 
-* Om inaktivering har tillämpats på en _Partition_, och sedan återupptas med [återuppta Partition säkerhetskopiering](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
+* Om inaktivering har tillämpats på en _Partition_, och sedan återupptas med [återuppta Partition säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
 ## <a name="auto-restore-on-data-loss"></a>Automatisk återställning på dataförlust
 Tjänsten partitionen kan förlora data på grund av oväntade fel. Disk för två av tre repliker för en partition (inklusive den primära repliken) hämtar skadad eller rensas.
@@ -202,7 +202,7 @@ Tjänsten partitionen kan förlora data på grund av oväntade fel. Disk för tv
 När Service Fabric upptäcker att partitionen är i förlust av data, den anropar `OnDataLossAsync` gränssnitt metoden på partitionen och förväntar sig partition att vidta nödvändiga åtgärder för att starta från data går förlorade. I så fall, om den effektiva säkerhetskopieringsprincipen på partitionen har `AutoRestoreOnDataLoss` -flaggan inställd på `true` och sedan återställningen aktiveras automatiskt med senaste tillgängliga säkerhetskopian för den här partitionen.
 
 ## <a name="get-backup-configuration"></a>Hämta konfiguration av säkerhetskopiering
-Separat API: er är tillgängliga för att hämta information om konfiguration av säkerhetskopiering på en _programmet_, _service_, och _partition_ omfång. [Hämta programinformation säkerhetskopiering Configuration](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [hämta konfigurationsinformation för tjänsten Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), och [hämta konfigurationsinformation för Partition Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) är dessa API: er respektive. Dessa API: er returnera huvudsakligen gäller principen för säkerhetskopiering, omfång som principen för säkerhetskopiering är tillämpad och säkerhetskopiering inaktivering information. Följande är en kort beskrivning av resultaten som returneras av dessa API: er.
+Separat API: er är tillgängliga för att hämta information om konfiguration av säkerhetskopiering på en _programmet_, _service_, och _partition_ omfång. [Hämta programinformation säkerhetskopiering Configuration](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [hämta konfigurationsinformation för tjänsten Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), och [hämta konfigurationsinformation för Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) är dessa API: er respektive. Dessa API: er returnera huvudsakligen gäller principen för säkerhetskopiering, omfång som principen för säkerhetskopiering är tillämpad och säkerhetskopiering inaktivering information. Följande är en kort beskrivning av resultaten som returneras av dessa API: er.
 
 - Konfiguration av säkerhetskopiering programinformation: innehåller information om säkerhetskopieringspolicyn som tillämpas på programmet och alla över ridden principer på tjänster och partitioner som hör till programmet. Den innehåller även inaktivering information för programmet och den services och partitioner.
 
@@ -218,11 +218,11 @@ Dessa API: er har också stöd för sidbrytning av resultaten när _MaxResults_ 
 
 Följande är kort information om stöds varianter.
 
-- [Hämta lista över program Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): returnerar en lista över säkerhetskopior som är tillgängliga för varje partition som hör till angivna Service Fabric-program.
+- [Hämta lista över program Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): returnerar en lista över säkerhetskopior som är tillgängliga för varje partition som hör till angivna Service Fabric-program.
 
-- [Hämta Service Backup List](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackuplist): returnerar en lista över säkerhetskopior som är tillgängliga för varje partition som hör till angivna Service Fabric-tjänst.
+- [Hämta Service Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): returnerar en lista över säkerhetskopior som är tillgängliga för varje partition som hör till angivna Service Fabric-tjänst.
  
-- [Hämta Backup Partitionslista](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): returnerar en lista över säkerhetskopior som är tillgängliga för den angivna partitionen.
+- [Hämta Backup Partitionslista](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): returnerar en lista över säkerhetskopior som är tillgängliga för den angivna partitionen.
 
 ## <a name="next-steps"></a>Nästa steg
 - [REST API-referens för Backup restore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

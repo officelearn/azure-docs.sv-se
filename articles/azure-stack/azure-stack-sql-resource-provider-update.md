@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 3517114d5bc267aa32cea49161d0d34156a2ed1e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 84306d832464249d614942d85a1069ad42dd2eba
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390917"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578131"
 ---
 # <a name="update-the-sql-resource-provider"></a>Uppdatera SQL-resursprovider
 
@@ -38,8 +38,8 @@ Uppdatera resursprovidern med den *UpdateSQLProvider.ps1* skript. Det här skrip
 
 Den *UpdateSQLProvider.ps1* skriptet skapar en ny virtuell dator (VM) med den senaste resource provider koden.
 
->[!NOTE]
->Vi rekommenderar att du hämtar den senaste Windows Server 2016 Core-avbildningen från Marketplace-hantering. Om du vill installera en uppdatering kan du placera en **enda** MSU-paketet i lokala beroendesökvägen. Skriptet misslyckas om det finns fler än en MSU-fil i den här platsen.
+> [!NOTE]
+> Vi rekommenderar att du hämtar den senaste Windows Server 2016 Core-avbildningen från Marketplace-hantering. Om du vill installera en uppdatering kan du placera en **enda** MSU-paketet i lokala beroendesökvägen. Skriptet misslyckas om det finns fler än en MSU-fil i den här platsen.
 
 Efter den *UpdateSQLProvider.ps1* skriptet skapar en ny virtuell dator, skriptet migreras följande inställningar från den gamla VM-providern:
 
@@ -49,9 +49,9 @@ Efter den *UpdateSQLProvider.ps1* skriptet skapar en ny virtuell dator, skriptet
 
 ### <a name="update-script-powershell-example"></a>Uppdatera exempel på PowerShell-skript
 
-<a name="you-can-edit-and-run-the-following-script-from-an-elevated-powershell-ise"></a>Du kan redigera och kör följande skript från en upphöjd PowerShell ISE. 
--  
-- Kom ihåg att ändra kontoinformation och lösenord som behövs för din miljö.
+Du kan redigera och kör följande skript från en upphöjd PowerShell ISE. 
+
+Kom ihåg att ändra kontoinformation och lösenord som behövs för din miljö.
 
 > [!NOTE]
 > Den här uppdateringen gäller endast för integrerade Azure Stack-systemen.
@@ -66,6 +66,9 @@ $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -92,6 +95,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
+  -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
   -DependencyFilesLocalPath $tempDir\cert `
 
@@ -107,7 +111,7 @@ Du kan ange följande parametrar från kommandoraden när du kör skriptet. Om d
 | **AzCredential** | Autentiseringsuppgifter för administratörskontot för Azure Stack-tjänsten. Använd samma autentiseringsuppgifter som du använde för att distribuera Azure Stack. | _Krävs_ |
 | **VMLocalCredential** | Autentiseringsuppgifterna för det lokala administratörskontot för SQL-resursprovider VM. | _Krävs_ |
 | **PrivilegedEndpoint** | IP-adressen eller DNS-namnet på den privilegierade slutpunkten. |  _Krävs_ |
-| **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast om den inte är AD FS. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast för Azure AD-distributioner. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure AD, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | I den här katalogen måste du också placera din .pfx-certifikatfil. | _Valfritt för enskild nod, men obligatoriskt för flera noder_ |
 | **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat. | _Krävs_ |
 | **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 |

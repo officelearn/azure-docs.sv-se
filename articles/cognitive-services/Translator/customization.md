@@ -1,6 +1,6 @@
 ---
-title: Microsoft Translator Text API översättning anpassning | Microsoft Docs
-description: Använd Microsoft översättare Hub för att skapa egna maskinöversättning system som använder din önskade terminologi och format.
+title: Anpassning av översättning av Microsoft Translator-API för textöversättning | Microsoft Docs
+description: Använd Microsoft Translator Hub för att skapa dina egna maskinöversättning system med hjälp av dina önskade terminologi och stil.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
@@ -9,56 +9,56 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1db22a414c41f338c4e7fd6ce9dc7ac739fa9237
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9c7083ed0147b221d3d400afe83bb3bd6b6db86e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354966"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574031"
 ---
-# <a name="customize-your-text-translations"></a>Anpassa din textöversättningar
+# <a name="customize-your-text-translations"></a>Anpassa dina textöversättningar
 
-Microsoft anpassad konverterare förhandsversionen ingår i tjänsten Microsoft Translator, som gör att användare kan anpassa Microsoft Translator avancerade neural maskinöversättning när översätta text med Microsoft översättare Text-API (endast version 3). 
+Förhandsversionen av Microsoft anpassad Translator är en funktion i tjänsten Microsoft Translator, vilket gör att användare kan anpassa Microsoft Translator avancerade neural maskinöversättning översätta text med hjälp av Microsoft Translator Text API (endast version 3). 
 
-Funktionen kan också användas för att anpassa tal översättning när det används med [kognitiva Services tal preview](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/).
+Funktionen kan också användas för att anpassa talöversättning när det används med [Cognitive Services tal förhandsversion](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
-## <a name="custom-translator"></a>Anpassade konverterare
-Du kan skapa neural översättning system som förstår de termer som används i din egen företag och industrin med anpassad konverterare. Anpassade översättning systemet sedan integreras i befintliga program, arbetsflöden och webbplatser. 
+## <a name="custom-translator"></a>Anpassade Translator
+Med anpassade Translator, kan du skapa neural översättningssystem som förstår de termer som används i din egen verksamhet och branschen. Den anpassade översättningssystemet sedan integreras i befintliga program, arbetsflöden och webbplatser. 
 
 ### <a name="how-does-it-work"></a>Hur fungerar det?
-Använd tidigare översatta dokument (foldrar, webbsidor, dokumentation o.s.v.) att skapa en översättning system som motsvarar din domän-specifika termer och format, bättre än ett allmänt översättning system. Användarna kan ladda upp TMX, XLIFF, TXT, DOCX och XLSX-dokument.  
+Använd dina tidigare översatta dokument (bipacksedlar, webbsidor, dokumentation, osv.) att skapa en översättningssystemet som återspeglar ditt domänspecifika terminologi och stil, bättre än en allmän översättningssystemet. Användarna kan ladda upp TMX, XLIFF, TXT, DOCX och XLSX dokument.  
 
-Systemet kan också användas med data som är parallell på dokumentnivå men ännu inte har justerats på nivån meningen. Om användarna har åtkomst till versioner av samma innehåll på flera olika språk, men i separata dokument kommer anpassad konverterare att kunna matcha automatiskt meningar mellan dokument.  Systemet kan också använda enspråkig data på ena eller båda språk för att komplettera parallella utbildning data för att förbättra översättningar. 
+Systemet kan också användas med data som är parallella på dokumentnivå men ännu inte är justerade på nivån mening. Om användarna har åtkomst till versioner av samma innehåll i flera språk, men i separata dokument kommer anpassad Translator att kunna matcha automatiskt meningar för dokument.  Systemet kan också använda enspråkig data på ena eller båda språk för att komplettera parallell utbildning-data för att förbättra översättningarna. 
 
-Anpassade systemet är sedan tillgängliga via en vanlig anrop till Microsoft översättare Text-API med parametern kategori.
+Anpassat system är sedan tillgängligt via ett reguljärt anrop till Microsoft Translator Text API med hjälp av parametern kategori.
 
-Angivna rätt typ och utbildning datamängden det är inte ovanligt kan förvänta sig vinster mellan 5 och 10 eller ännu mer BLEU pekar på översättningen genom att använda anpassade konverterare.
+Beroende på rätt typ och mängden utbildningsdata som det är inte ovanligt att förvänta sig vinster mellan 5 och 10 eller ännu mer BLEU pekar på översättningen med hjälp av anpassade Translator.
 
-Mer information om de olika typer av anpassningar baserat på tillgängliga data finns i den [användarhandboken för anpassad konverterare](http://aka.ms/CustomTranslatorDocs).
+Mer information om de olika nivåerna på anpassning som är baserad på tillgänglig data finns i den [användarhandboken för anpassad Translator](http://aka.ms/CustomTranslatorDocs).
 
 
-## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
+## <a name="microsoft-translator-hub"></a>Microsoft Translator-Hub
 
-Äldre Microsoft översättare Hub kan användas för att översätta statistiska maskinöversättning. [Läs mer](https://www.microsoft.com/en-us/translator/hub.aspx) 
+Äldre Microsoft Translator Hub kan användas för att översätta statistiska maskinöversättning. [Läs mer](https://www.microsoft.com/en-us/translator/hub.aspx) 
 
-## <a name="custom-translator-versus-hub"></a>Anpassade konverterare jämfört med nav
+## <a name="custom-translator-versus-hub"></a>Anpassade Translator jämfört med Hub
 
-|   | **Hubb** | **Anpassade konverterare**|
+|   | **Hubb** | **Anpassade Translator**|
 |:-----|:----:|:----:|
 |Anpassning av funktionsstatus   | Allmän tillgänglighet  | Förhandsversion |
-| API-Textversion  | Endast v2   | Endast v3 |
+| API för textöversättning version  | Endast v2   | Endast v3 |
 | SMT anpassning | Ja   | Nej | 
 | NMT anpassning | Nej    | Ja |
-| Ny enhetlig tal services anpassning | Nej    | Ja | 
+| Nya enhetliga Speech services anpassning | Nej    | Ja | 
 | [Ingen spårning](http://www.aka.ms/notrace) | Ja   | Ja | 
 
 ## <a name="collaborative-translations-framework"></a>Samarbetsfunktioner översättningar Framework
 
 > [!NOTE]
-> Från och med den 1 februari 2018 är AddTranslation() och AddTranslationArray() inte längre tillgängliga för användning med API-V2.0 översättare Text. Dessa metoder misslyckas och ingenting kommer att skrivas. Översättare Text API V3.0 har inte stöd för dessa metoder.
+> Från och med den 1 februari 2018 AddTranslation() och AddTranslationArray() är inte längre tillgängliga för användning med Translator Text API V2.0. De här metoderna misslyckas och inget ska skrivas. Translator Text API V3.0 har inte stöd för dessa metoder.
 
->Liknande funktionalitet är tillgänglig i översättare hubb API. Se [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger). 
+>Liknande funktionalitet är tillgänglig i hubben Translator-API. Se [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger). 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Konfigurera en anpassad version av operativsystemet med hjälp av anpassade översättare](http://aka.ms/CustomTranslatorDocs)
+> [Konfigurera ett anpassat språksystem med hjälp av anpassade Translator](http://aka.ms/CustomTranslatorDocs)

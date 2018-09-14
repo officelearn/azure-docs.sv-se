@@ -6,25 +6,25 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 07/20/2018
+ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5732f6986750dfee49084e2744052bb54e3a8139
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 1c3df6aa8b4080cbd70b53a994f743fb82d896b5
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382575"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542371"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C-moduler för Azure IoT Edge
 
 Du kan aktivera din affärslogik-moduler för Azure IoT Edge. Den här artikeln visar hur du använder Visual Studio Code (VS Code) som det viktigaste verktyget för att utveckla och felsöka C-moduler.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här artikeln förutsätter att du använder en dator eller virtuell dator som kör Windows eller Linux som din utvecklingsdator. Och du simulera IoT Edge-enhet på utvecklingsdatorn.
+Den här artikeln förutsätter att du använder en dator eller virtuell dator som kör Windows eller Linux som din utvecklingsdator. Och du simulera IoT Edge-enhet på utvecklingsdatorn med IoT Edge security daemon.
 
 > [!NOTE]
-> Den här felsökning artikeln visar hur du ansluter en process i en modul-behållare och felsöka med VS Code. Du kan bara felsöka C-moduler i Linux amd64-behållare. Om du inte är bekant med felsökning funktionerna i Visual Studio Code, Läs om [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
+> Den här felsökning artikeln visar hur du ansluter en process i en modul-behållare och felsöka med VS Code. Du kan bara felsöka C-moduler i Linux amd64-behållare. Om du inte är bekant med felsökning funktionerna i Visual Studio Code, Läs om [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
 
 Eftersom den här artikeln används Visual Studio Code som det huvudsakliga utvecklingsverktyg, installera VS Code. Lägg sedan till tillägg som behövs:
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -37,7 +37,7 @@ Om du vill skapa en modul, behöver du Docker för att skapa modulen avbildninge
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) eller [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet. 
 
-Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edge-enhet. Om du vill använda din dator som en IoT Edge-enhet följer du stegen i snabbstarten för [Windows](quickstart.md) eller [Linux](quickstart-linux.md). 
+Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edge-enhet. Om du vill använda din dator som en IoT Edge-enhet följer du stegen i snabbstarten för [Linux](quickstart-linux.md). 
 
 ## <a name="create-a-new-solution-template"></a>Skapa en ny lösningsmall
 
@@ -97,7 +97,7 @@ Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Anvä
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
-2. Ange i kommandopaletten VS Code och kör kommandot **Edge: skapa IoT Edge-lösningen**.
+2. Ange i kommandopaletten VS Code och kör kommandot **Azure IoT Edge: Build and Push IoT Edge-lösningen**.
 3. Välj den `deployment.template.json` -filen för din lösning från kommandopaletten. 
 4. I Azure IoT Hub Device Explorer högerklickar du på en IoT Edge-enhets-ID. Välj sedan **skapa distribution för enskild enhet**. 
 5. Öppna din lösning **config** mapp. Välj sedan den `deployment.json` filen. Välj **Välj Edge-distribution Manifest**. 

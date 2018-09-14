@@ -1,43 +1,43 @@
 ---
-title: Skapa en business continuty plan för frågor och svar om Maker tjänsten - kognitiva Microsoft-tjänster | Microsoft Docs
-titleSuffix: Azure
-description: Så här skapar du en kontinuitetsplan för frågor och svar om Maker tjänsten
+title: Affärskontinuitetsplan – QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Det primära syftet med affärskontinuitetsplan är att skapa en flexibel kunskapsbas-slutpunkt, vilket skulle se till att inget driftstopp för roboten eller ett program som använder den.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: ca6e54b8a8ca8b38e8ef6b1a148f8b2c54bd43da
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c65ef07f3644004c6e453f6a19035115df9d5764
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353985"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573985"
 ---
-# <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Skapa en kontinuitetsplan för frågor och svar om Maker tjänsten
+# <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Skapa en kontinuitetsplan för QnA Maker-tjänsten
 
-Huvudsyftet med kontinuitetsplan är att skapa en flexibel knowledge base-slutpunkt som skulle se till att ingen stillestånd för Bot eller ett program som använder den.
+Det primära syftet med affärskontinuitetsplan är att skapa en flexibel kunskapsbas-slutpunkt, vilket skulle se till att inget driftstopp för roboten eller ett program som använder den.
 
-![Frågor och svar om Maker bcp plan](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+![QnA Maker bcp-plan](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
 
-Övergripande idé är som visas ovan följande:
+Tanken på hög nivå är som visas ovan följande:
 
-1. Ställa in två parallell [frågor och svar om Maker services](../How-To/set-up-qnamaker-service-azure.md) i [Azure länkas regioner](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
+1. Konfigurera två parallella [QnA Maker tjänster](../How-To/set-up-qnamaker-service-azure.md) i [parade Azure-regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-2. Synkronisera de primära och sekundära Azure search-index. Använda github-exemplet [här](https://github.com/pchoudhari/QnAMakerBackupRestore) att se hur du säkerhetskopiering återställning Azure index.
+2. Synkronisera primära och sekundära Azure search-index. Använd github-exempel [här](https://github.com/pchoudhari/QnAMakerBackupRestore) att se hur du säkerhetskopiering – återställning av Azure-index.
 
-3. Säkerhetskopiera Application Insights med [löpande export](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-telemetry).
+3. Säkerhetskopiera en Application Insights med hjälp av [löpande export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry).
 
-4. När primära och sekundära platser har konfigurerats kan du använda [trafikhanterarprofil](https://docs.microsoft.com/en-us/azure/traffic-manager/) att konfigurera två slutpunkter och konfigurera en routningsmetod.
+4. När de primära och sekundära stackarna har ställts in, använder [trafikhantering](https://docs.microsoft.com/azure/traffic-manager/) att konfigurera två slutpunkter och konfigurera en routningsmetod.
 
-5. Du behöver skapa ett SSL-certifikat för din traffic manager-slutpunkt. [Binda SSL-certifikatet](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-ssl) i App-tjänster.
+5. Du skulle behöva skapa ett SSL-certifikat för din traffic manager-slutpunkt. [Binda SSL-certifikatet](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl) i din App services.
 
-6. Använd slutligen traffic manager-slutpunkt i Bot eller App.
+6. Använd slutligen traffic manager-slutpunkt i din robot eller App.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Välj kapacitet för frågor och svar om Maker distributionen](../Tutorials/choosing-capacity-qnamaker-deployment.md)
+> [Välj kapacitet för QnA Maker-distribution](../Tutorials/choosing-capacity-qnamaker-deployment.md)

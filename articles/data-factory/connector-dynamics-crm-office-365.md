@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: e4ebddc35b402d7a8997d899ce97577e93a27b84
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444868"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574682"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -279,7 +279,7 @@ För att kopiera data till Dynamics, ange Mottagartyp i kopieringsaktiviteten ti
 >[!NOTE]
 >Standardvärdet för mottagaren ”**writeBatchSize**” och Kopieringsaktivitet ”**[parallelCopies](copy-activity-performance.md#parallel-copy)**” för Dynamics-mottagaren är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
 
-För Dynamics 365 online, det finns en gräns på [2 samtidiga batch-anrop per organisation](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Om den gränsen överskrids, genereras ett ”servern är upptagen” fel innan den första begäran någonsin har körts. Att hålla ”writeBatchSize” mindre än eller lika med 10 skulle undvika sådan begränsning för samtidiga anrop.
+För Dynamics 365 online, det finns en gräns på [2 samtidiga batch-anrop per organisation](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Om den gränsen överskrids, genereras ett ”servern är upptagen” fel innan den första begäran någonsin har körts. Att hålla ”writeBatchSize” mindre än eller lika med 10 skulle undvika sådan begränsning för samtidiga anrop.
 
 Optimal kombination av ”**writeBatchSize**” och ”**parallelCopies**” beror på schemat för entiteten t.ex. antalet kolumner, Radstorleken, antal plugin-program/arbetsflöden/arbetsflödesaktiviteter ansluten Dessa anrop, osv. Standardinställningen för 10 writeBatchSize * 10 parallelCopies är rekommendationen enligt Dynamics-tjänsten, som skulle fungera för de flesta Dynamics-entiteter inte kan dock vara bästa prestanda. Du kan finjustera prestanda genom att justera kombinationen i din inställningarna för kopieringsaktiviteten.
 

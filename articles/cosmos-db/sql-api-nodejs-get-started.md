@@ -12,22 +12,23 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/14/2017
 ms.author: sngun
-ms.openlocfilehash: 8eba0f70141fe28a478e842523023a22c2db50fe
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 16225e666df59da654e993c4d0618a97288471ac
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628757"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698272"
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js-självstudie: Använd SQL API i Azure Cosmos DB för att skapa ett Node.js-konsolprogram
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js för MongoDB](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js – v2.0, förhandsversion](sql-api-nodejs-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
+> * [Async Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
+> 
 
 
 Välkommen till självstudiekursen om Node.js för Azure Cosmos DB Node.js SDK! När du har genomfört den här självstudiekursen har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser.

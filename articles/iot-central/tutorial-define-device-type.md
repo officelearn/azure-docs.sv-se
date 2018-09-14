@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918128"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702552"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Självstudie: Definiera en ny enhetstyp i Azure IoT Central-programmet
 
@@ -280,22 +280,22 @@ Du använder *inställningar* för att göra så att en operatör kan skicka kon
 
 ## <a name="use-properties--device-properties"></a>Använda egenskaper och enhetsegenskaper
 
-Du använder *egenskaper* för att lagra information om enheten i programmet. I det här avsnittet ska du lägga till enhetsegenskaper i enhetsmallen **Ansluten luftkonditioneringsenhet** för att lagra enhetens serienummer och version av den inbyggda programvaran. Observera att båda dessa är skrivskyddade egenskaper som rapporteras av enheten – du kan inte tilldela värden till dem. Exempel på egenskaper som du kan använda och tilldela värden är enhetens plats, information om ägarskap och enhetens senaste servicedatum/servicetid.
+Du använder *egenskaper* för att lagra information om enheten i programmet. I det här avsnittet ska du lägga till molnegenskaper i enhetsmallen **Ansluten luftkonditioneringsenhet** för att lagra enhetens plats och senaste servicedatum. Observera att båda dessa är redigerbara egenskaper för enheten. Det finns även skrivskyddade egenskaper som rapporteras av enheten som inte kan ändras, till exempel enhetens serienummer och version av inbyggd programvara.
  
 1. Gå till sidan **Egenskaper** för enhetsmallen **Ansluten luftkonditioneringsenhet**:
 
     ![Förbereda för att lägga till en egenskap](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    Du kan skapa olika typer av enhetsegenskaper, till exempel nummer eller text. Om du vill lägga till en egenskap för serienummer i enhetsmallen väljer du **Text**.
+    Du kan skapa olika typer av enhetsegenskaper, till exempel nummer eller text. Om du vill lägga till en platsegenskap i enhetsmallen väljer du **Location**.
 
-2. För att konfigurera egenskapen serienummer använder du informationen i följande tabell:
+2. För att konfigurera platsegenskapen använder du informationen i följande tabell:
 
     | Fält                | Värde                |
     | -------------------- | -------------------- |
-    | Visningsnamn         | Serienummer        |
-    | Fältnamn           | serieNummer         |
-    | Initialt värde        | cac00001             |
-    | Beskrivning          | Enhetens serienummer |
+    | Visningsnamn         | Plats             |
+    | Fältnamn           | location             |
+    | Initialt värde        | Seattle, WA          |
+    | Beskrivning          | Enhetsplats      |
 
     Låt standardvärdena stå kvar i de andra fälten.
 
@@ -303,16 +303,16 @@ Du använder *egenskaper* för att lagra information om enheten i programmet. I 
 
     Välj **Spara**.
 
-3. Om du vill lägga till en version av den inbyggda programvaran i enhetsegenskaperna för din enhetsmall väljer du **Text**.
+3. Om du vill lägga till en egenskap för senaste servicedatum i enhetsmallen väljer du **Datum**.
 
-4. För att konfigurera enhetsegenskapen för versionen av den inbyggda programvaran använder du informationen i följande tabell:
+4. För att konfigurera egenskapen för senaste servicedatum använder du informationen i följande tabell:
 
     | Fält                | Värde                   |
     | -------------------- | ----------------------- |
-    | Visningsnamn         | Version av inbyggd programvara        |
-    | Fältnamn           | versionInbyggdProgramvara         |
-    | Initialt värde        | 0,1                     |
-    | Beskrivning          | Enhetens version av inbyggd programvara |
+    | Visningsnamn         | Senaste servicedatum       |
+    | Fältnamn           | serviceDate             |
+    | Initialt värde        | 1/1/2018                |
+    | Beskrivning          | Senaste service           |
 
     ![Konfigurera enhetsegenskaperna](./media/tutorial-define-device-type/configureproperties2.png)
 

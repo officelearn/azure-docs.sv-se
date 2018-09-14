@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 2b393a5b60ba534fba8115ab3ef0f35a26ad3ed4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143508"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300361"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
@@ -176,7 +176,11 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
 
 1. Öppna filen **deployment.template.json** i Visual Studio Code-utforskaren. 
 2. Leta upp avsnittet **moduleContent.$edgeAgent.properties.desired.modules**. Två moduler bör listas: **tempSensor**, som genererar simulerade data, och din **sqlFunction**-modul.
-3. Lägg till följande kod för att deklarera en tredje modul:
+3. Om du använder Windows-containrar ändrar du avsnittet **sqlFunction.settings.image**.
+    ```json
+    "image": "${MODULES.sqlFunction.windows-amd64}"
+    ```
+4. Lägg till följande kod för att deklarera en tredje modul. Lägg till ett kommatecken efter avsnittet sqlFunction och infoga:
 
    ```json
    "sql": {
@@ -191,16 +195,18 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
    }
    ```
 
-4. Uppdatera parametrarna **sql.settings** för din IoT Edge-enhet med följande kod (beroende på operativsystem):
+   Här är ett exempel ifall du är osäker på hur du lägger till ett JSON-element. ![Lägga till en SQL Server-container](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-   * Windows:
+5. Beroende på typen av Docker-containrar på din IoT Edge-enhet uppdaterar du **sql.settings**-parametrarna med följande kod:
+
+   * Windows-containrar:
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux:
+   * Linux-containrar:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
@@ -210,28 +216,20 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
    >[!Tip]
    >Varje gång du skapar en SQL Server-container i en produktionsmiljö bör du [ändra standardlösenord för systemadministratören](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
-5. Spara filen **deployment.template.json**. 
+6. Spara filen **deployment.template.json**.
 
 ## <a name="build-your-iot-edge-solution"></a>Skapa din IoT Edge-lösning
 
 I föregående avsnitt skapade du en lösning med en modul och lade sedan till en annan till distributionsmanifestet. Nu måste du skapa lösningen, skapa containeravbildningar för modulerna och push-överföra avbildningarna till ditt containerregister. 
 
-1. I filen deployment.template.json ger du IoT Edge-körningen autentiseringsuppgifterna för registret så att den kan komma åt modulbilderna. Leta upp avsnittet **moduleContent.$edgeAgent.properties.desired.runtime.settings**. 
-2. Infoga följande JSON-kod efter **loggingOptions**:
+1. I .env-filen ger du IoT Edge-körningen autentiseringsuppgifterna för registret så att den kan komma åt modulavbildningarna. Leta upp avsnitten **CONTAINER_REGISTRY_USERNAME** och **CONTAINER_REGISTRY_PASSWORD** och infoga dina autentiseringsuppgifter efter lika med-symbolen: 
 
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
-
-3. Infoga autentiseringsuppgifterna för registret i fälten för **användarnamn**, **lösenord** och **adress**. Använd värdena som du kopierade när du skapade Azure Container Registry i början av den här självstudien.
-4. Spara filen **deployment.template.json**.
-5. Logga in ditt containerregister i Visual Studio Code så att du kan push-överföra avbildningarna till registret. Använd samma autentiseringsuppgifter som du just lade till i distributionsmanifestet. Ange följande kommando i den integrerade terminalen: 
+2. Spara .env-filen.
+3. Logga in på ditt containerregister i Visual Studio Code så att du kan push-överföra avbildningarna till registret. Använd samma autentiseringsuppgifter som du lade till i .env-filen. Ange följande kommando i den integrerade terminalen:
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -243,7 +241,7 @@ I föregående avsnitt skapade du en lösning med en modul och lade sedan till e
     Login Succeeded
     ```
 
-6. Högerklicka på filen **deployment.template.json** och välj **Skapa IoT Edge-lösning** i VS Code-utforskaren. 
+4. I VS Code-utforskaren högerklickar du på filen **deployment.template.json** och väljer **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning). 
 
 ## <a name="deploy-the-solution-to-a-device"></a>Distribuera lösningen till en enhet
 
@@ -287,7 +285,7 @@ Det här avsnittet hjälper dig att konfigurera SQL-databasen för lagring av te
    * Windows-container:
 
       ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
       ```
 
    * Linux-container: 

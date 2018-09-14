@@ -1,43 +1,39 @@
 ---
-title: Anropet och svar - C# Snabbstartsguide för Azure kognitiva tjänster, Bing Web Sök API | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Bing webb-API för sökning i kognitiva Microsoft-tjänster i Azure.
+title: 'Snabbstart: Använda C# för att anropa API för webbsökning i Bing'
+description: I den här snabbstarten lär du dig att göra ditt första anrop API för webbsökning i Bing med C# och att ta emot ett JSON-svar.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 05ac1ec2bed4eb5ce658ba44688afcf50d18b41f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: 9db551f89a3b7834119fe85a22e4cdc8d0402252
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352434"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888516"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-c"></a>Anropet och svar: första Bing webbsökning frågan i C#
+# <a name="quickstart-use-c-to-call-the-bing-web-search-api"></a>Snabbstart: Använda C# för att anropa API för webbsökning i Bing  
 
-Bing Web Sök API ger en upplevelse som påminner om Bing.com/Search genom att returnera sökresultat som Bing avgör är relevanta för användarens fråga. Resultaten kan inkludera webbsidor, bilder, videor, nyheter och enheter, tillsammans med relaterade sökfrågor, stavfel, tidszoner, Enhetskonvertering, översättningar och beräkningar. Typerna av du får resultat baserat på deras relevans och nivån för Bing Search API: er som du prenumererar på.
+Använd den här snabbstarten för att göra ditt första anrop till API för webbsökning i Bing och få ett JSON-svar.  
 
-Den här artikeln innehåller ett enkelt konsolprogram som utför en sökning Bing webb-API-fråga och visar returneras oformaterade sökresultatet, som är i JSON-format. När det här programmet är skrivna i C#, är API: et en RESTful webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-Exempel används .NET Core-klasser och körs på Windows med hjälp av .NET CLR eller i Linux eller macOS med [Mono](http://www.mono-project.com/).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Här följer några saker som du behöver innan du kör den här snabbstarten:
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) ska skicka koden körs på Windows. (Ledigt Community Edition fungerar).
+* Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* Linux/macOS: [Mono](http://www.mono-project.com/)  
+* En prenumerationsnyckel
 
-Du måste ha en [kognitiva Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API: er för Bing Search**. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) är tillräcklig för den här snabbstarten. Du måste åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumeration nyckel från instrumentpanelen i Azure.
+I det här exempelprogrammet används endast .NET Core-klasser.
 
-## <a name="running-the-application"></a>Köra programmet
+## <a name="create-a-project-and-declare-dependencies"></a>Skapa ett projekt och deklarera beroenden
 
-Följ dessa steg om du vill köra det här programmet.
-
-1. Skapa en ny konsol lösning i Visual Studio.
-2. Ersätt `Program.cs` med den angivna koden.
-3. Ersätt den `accessKey` värde med en giltig snabbtangent för din prenumeration.
-4. Kör programmet.
+Skapa ett nytt projekt i Visual Studio eller Mono. Använd sedan den här koden för att importera nödvändiga namnrymder och typer.
 
 ```csharp
 using System;
@@ -45,170 +41,202 @@ using System.Text;
 using System.Net;
 using System.IO;
 using System.Collections.Generic;
+```
 
+## <a name="declare-a-namespace-and-class-for-your-program"></a>Deklarera en namnrymd och en klass för programmet
+
+I den här snabbstarten lägger vi det mesta av koden i klassen `Program`. Börja med att skapa namnområdet `BingSearchApiQuickstart` och klassen `Program` i projektet.  
+
+```csharp
 namespace BingSearchApisQuickstart
 {
-
     class Program
     {
-        // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
-
-        // Replace the accessKey string value with your valid access key.
-        const string accessKey = "enter key here";
-
-        // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-        // search APIs.  In the future, regional endpoints may be available.  If you
-        // encounter unexpected authorization errors, double-check this value against
-        // the endpoint for your Bing Web search instance in your Azure dashboard.
-        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";
-
-        const string searchTerm = "Microsoft Cognitive Services";
-
-        // Used to return search results including relevant headers
-        struct SearchResult
-        {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
-        }
-
-        static void Main()
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-            if (accessKey.Length == 32)
-            {
-                Console.WriteLine("Searching the Web for: " + searchTerm);
-    
-                SearchResult result = BingWebSearch(searchTerm);
-    
-                Console.WriteLine("\nRelevant HTTP Headers:\n");
-                foreach (var header in result.relevantHeaders)
-                    Console.WriteLine(header.Key + ": " + header.Value);
-    
-                Console.WriteLine("\nJSON Response:\n");
-                Console.WriteLine(JsonPrettyPrint(result.jsonResult));
-            }
-            else
-            {
-                Console.WriteLine("Invalid Bing Search API subscription key!");
-                Console.WriteLine("Please paste yours into the source code.");
-            }
-    
-            Console.Write("\nPress Enter to exit ");
-            Console.ReadLine();
-        }
-
-        /// <summary>
-        /// Performs a Bing Web search and return the results as a SearchResult.
-        /// </summary>
-        static SearchResult BingWebSearch(string searchQuery)
-        {
-            // Construct the URI of the search request
-            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
-
-            // Perform the Web request and get the response
-            WebRequest request = HttpWebRequest.Create(uriQuery);
-            request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
-            string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-            // Create result object for return
-            var searchResult = new SearchResult()
-            {
-                jsonResult = json,
-                relevantHeaders = new Dictionary<String, String>()
-            };
-
-            // Extract Bing HTTP headers
-            foreach (String header in response.Headers)
-            {
-                if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-                    searchResult.relevantHeaders[header] = response.Headers[header];
-            }
-
-            return searchResult;
-        }
-
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            char last = ' ';
-            int offset = 0;
-            int indentLength = 2;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\\':
-                        if (quote && last != '\\') ignore = true;
-                        break;
-                }
-
-                if (quote)
-                {
-                    sb.Append(ch);
-                    if (last == '\\' && ignore) ignore = false;
-                }
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (quote || ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-                last = ch;
-            }
-
-            return sb.ToString().Trim();
-        }
+        // The code in the following sections goes here.
     }
 }
 ```
 
-## <a name="json-response"></a>JSON-svar
+## <a name="define-variables"></a>Definiera variabler
 
-En exempelsvar följer. Om du vill begränsa storleken på JSON endast ett enskilt resultat visas och andra delar av svaret har trunkerats. 
+Några variabler måste anges innan vi kan fortsätta. Bekräfta att `uriBase` är giltigt och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`.
+
+```csharp
+// Enter a valid subscription key.
+const string accessKey = "enter key here";
+/*
+ * If you encounter unexpected authorization errors, double-check this value
+ * against the endpoint for your Bing Web search instance in your Azure
+ * dashboard.
+ */
+const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";
+const string searchTerm = "Microsoft Cognitive Services";
+```
+
+## <a name="declare-the-main-method"></a>Deklarera Main-metoden
+
+`Main()` krävs och det är den första metoden som anropas när programmet startas. I det här programmet verifierar huvudmetoden `accessKey`, gör en begäran och skriver ut svaret.
+
+Tänk på att `main()` är beroende av metoder som skapas i de avsnitt som följer.
+
+```csharp
+static void Main()
+{
+    Console.OutputEncoding = System.Text.Encoding.UTF8;
+    if (accessKey.Length == 32)
+    {
+        Console.WriteLine("Searching the Web for: " + searchTerm);
+        SearchResult result = BingWebSearch(searchTerm);
+        Console.WriteLine("\nRelevant HTTP Headers:\n");
+        foreach (var header in result.relevantHeaders)
+            Console.WriteLine(header.Key + ": " + header.Value);
+
+        Console.WriteLine("\nJSON Response:\n");
+        Console.WriteLine(JsonPrettyPrint(result.jsonResult));
+    }
+    else
+    {
+        Console.WriteLine("Invalid Bing Search API subscription key!");
+        Console.WriteLine("Please paste yours into the source code.");
+    }
+    Console.Write("\nPress Enter to exit ");
+    Console.ReadLine();
+}
+```
+
+## <a name="create-a-struct-for-search-results"></a>Skapa en struct för sökresultat
+
+Den här structen returnerar sökresultat med relevanta rubriker. Den anropas när du gör en begäran till API för webbsökning i Bing för att skapa ett resultatobjekt.
+
+```csharp
+// Returns search results with headers.
+struct SearchResult
+{
+    public String jsonResult;
+    public Dictionary<String, String> relevantHeaders;
+}
+```
+
+## <a name="construct-a-request"></a>Skapa en begäran
+
+Använd den här koden för att konstruera sökfrågan, utföra GET-begäran och hantera svaret.
+
+```csharp
+/// <summary>
+/// Makes a request to the Bing Web Search API and returns data as a SearchResult.
+/// </summary>
+static SearchResult BingWebSearch(string searchQuery)
+{
+    // Construct the search request URI.
+    var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
+
+    // Perform request and get a response.
+    WebRequest request = HttpWebRequest.Create(uriQuery);
+    request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
+    HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
+    string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+    // Create a result object.
+    var searchResult = new SearchResult()
+    {
+        jsonResult = json,
+        relevantHeaders = new Dictionary<String, String>()
+    };
+
+    // Extract Bing HTTP headers.
+    foreach (String header in response.Headers)
+    {
+        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
+            searchResult.relevantHeaders[header] = response.Headers[header];
+    }
+    return searchResult;
+}
+```
+
+## <a name="format-the-response"></a>Formatera svaret
+
+Den här metoden formaterar JSON-svaret, främst vad gäller indentering och att lägga till radbrytningar.
+
+```csharp
+/// <summary>
+/// Formats the JSON string by adding line breaks and indents.
+/// </summary>
+/// <param name="json">The raw JSON string.</param>
+/// <returns>The formatted JSON string.</returns>
+static string JsonPrettyPrint(string json)
+{
+    if (string.IsNullOrEmpty(json))
+        return string.Empty;
+
+    json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+
+    StringBuilder sb = new StringBuilder();
+    bool quote = false;
+    bool ignore = false;
+    char last = ' ';
+    int offset = 0;
+    int indentLength = 2;
+
+    foreach (char ch in json)
+    {
+        switch (ch)
+        {
+            case '"':
+                if (!ignore) quote = !quote;
+                break;
+            case '\\':
+                if (quote && last != '\\') ignore = true;
+                break;
+        }
+
+        if (quote)
+        {
+            sb.Append(ch);
+            if (last == '\\' && ignore) ignore = false;
+        }
+        else
+        {
+            switch (ch)
+            {
+                case '{':
+                    case '[':
+                        sb.Append(ch);
+                        sb.Append(Environment.NewLine);
+                        sb.Append(new string(' ', ++offset * indentLength));
+                        break;
+                    case ']':
+                    case '}':
+                        sb.Append(Environment.NewLine);
+                        sb.Append(new string(' ', --offset * indentLength));
+                        sb.Append(ch);
+                        break;
+                    case ',':
+                        sb.Append(ch);
+                        sb.Append(Environment.NewLine);
+                        sb.Append(new string(' ', offset * indentLength));
+                        break;
+                    case ':':
+                        sb.Append(ch);
+                        sb.Append(' ');
+                        break;
+                    default:
+                        if (quote || ch != ' ') sb.Append(ch);
+                        break;
+            }
+        }
+        last = ch;
+    }
+    return sb.ToString().Trim();
+}
+```
+
+## <a name="put-it-all-together"></a>Färdigställa allt
+
+Det sista steget är att köra koden! Om du vill jämföra din kod med vår [finns exempelkoden på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingWebSearchv7.cs).
+
+## <a name="sample-response"></a>Exempelsvar
+
+Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.  
 
 ```json
 {
@@ -335,11 +363,6 @@ En exempelsvar följer. Om du vill begränsa storleken på JSON endast ett enski
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Webbprogram för Bing search sida app självstudiekursen](../tutorial-bing-web-search-single-page-app.md)
+> [Självstudie om app på en sida för Bing-webbsökning](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också 
-
-[Översikt över Bing webbsökning](../overview.md)  
-[Prova](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Hämta en kostnadsfri utvärderingsversion snabbtangent](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web Sök API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

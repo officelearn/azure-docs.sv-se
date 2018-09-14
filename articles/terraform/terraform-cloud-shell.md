@@ -1,35 +1,37 @@
 ---
-title: Använda Terraform med Azure-molnet Shell
-description: Använd Terraform med Azure Cloud Shell för att förenkla autentisering och konfigureras.
-keywords: terraform, devops, scale set, virtual machine, network, storage, modules
-ms.service: virtual-machines-linux
-author: dcaro
-ms.author: dcaro
+title: Använd Terraform med Azure Cloud Shell
+description: Använd Terraform med Azure Cloud Shell för att förenkla autentisering och mallkonfiguration.
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, skalningsuppsättning, virtuell dator, nätverk, lagring, moduler
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/19/2017
-ms.topic: article
-ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 107a6dd82465ce1455a3c2922c8f9cba6b73dd64
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29121533"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667970"
 ---
-# <a name="terraform-cloud-shell-development"></a>Terraform moln Shell-utveckling 
+# <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell-utveckling 
 
-Terraform passar utmärkt från en kommandorad för Bash, till exempel macOS Terminal eller Bash på Windows- eller Linux. Kör ditt Terraform konfigurationer i Bash upplevelse av den [Azure Cloud Shell](/azure/cloud-shell/overview) har vissa unika fördelar påskynda utvecklingen.
+Terraform fungerar bra från en kommandorad för Bash, till exempel Terminal på macOS eller Bash på Windows eller Linux. Om du kör dina Terraform-konfigurationer i Bash på [Azure Cloud Shell](/azure/cloud-shell/overview) så får du vissa unika fördelar för att påskynda utvecklingen.
 
-Den här artikeln begrepp täcker molnet Shell funktioner som hjälper dig skriva Terraform skript som distribuerar till Azure.
+Den här begreppsartikeln handlar om Cloud Shell-funktioner som hjälper dig skriva Terraform-skript som distribueras till Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="automatic-credential-configuration"></a>Automatisk behörighetskonfigurationen
+## <a name="automatic-credential-configuration"></a>Automatisk konfiguration av autentiseringsuppgifter
 
-Terraform är installerat och omedelbart tillgängliga i molnet Shell. Terraform skript autentisera med Azure när inloggad till molnet Shell att hantera infrastrukturen utan någon ytterligare konfiguration. Automatisk autentisering kringgår behovet av att manuellt skapa en Active Directory-tjänstens huvudnamn och konfigurera Azure Terraform providern variabler.
+Terraform är installerat och direkt tillgängligt i Cloud Shell. Terraform-skript autentiseras med Azure när du har loggat in på Cloud Shell för att hantera infrastruktur utan ytterligare konfiguration. Med automatisk autentisering kringgås behovet av att manuellt skapa ett huvudnamn för Active Directory-tjänsten och konfigurera Azure Terraform-providervariablerna.
 
 
-## <a name="using-modules-and-providers"></a>Med hjälp av moduler och Providers
+## <a name="using-modules-and-providers"></a>Använda moduler och providrar
 
-Azure Terraform moduler kräver autentiseringsuppgifter för att komma åt och ändra till resurserna i din Azure-prenumeration. När du arbetar i molnet-gränssnittet, lägger du till följande kod för att använda Azure Terraform moduler i molnet Shell-skript:
+Azure Terraform-moduler kräver autentiseringsuppgifter för att komma åt och ändra resurserna i din Azure-prenumeration. När du arbetar i Cloud Shell lägger du till följande kod i dina skript för att använda Azure Terraform-moduler i Cloud Shell:
 
 ```tf
 # Configure the Microsoft Azure Provider
@@ -37,16 +39,16 @@ provider "azurerm" {
 }
 ```
 
-Molnet Shell skickar värden som krävs den `azurerm` -providern via miljövariabler när något av de `terraform` CLI-kommandona.
+Cloud Shell skickar värden som krävs för `azurerm`-providern via miljövariabler när du använder något CLI-kommando för `terraform`.
 
-## <a name="other-cloud-shell-developer-tools"></a>Andra molntjänster Shell utvecklingsverktygen
+## <a name="other-cloud-shell-developer-tools"></a>Andra utvecklingsverktyg för Cloud Shell
 
-Filer och shell tillstånd finns kvar i Azure Storage mellan moln Shell-sessioner. Använd [Azure Lagringsutforskaren](/azure/vs-azure-tools-storage-manage-with-storage-explorer) att kopiera och överföra filer till molnet Shell från den lokala datorn.
+Filer och shelltillstånd finns kvar i Azure Storage mellan Cloud Shell-sessioner. Använd [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) för att kopiera och ladda upp filer till Cloud Shell från din lokala dator.
 
-Azure CLI 2.0 finns i molnet-gränssnittet och är ett bra verktyg för att testa konfigurationer och kontroll av ditt arbete när en `terraform apply` eller `terraform destroy` har slutförts.
+Azure CLI 2.0 är tillgängligt i Cloud Shell och är ett bra verktyg för att testa konfigurationer och kontrollera ditt arbete när `terraform apply` eller `terraform destroy` har slutförts.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa en mindre VM-kluster med hjälp av modulen registret](terraform-create-vm-cluster-module.md)
-[skapa en mindre VM-kluster med hjälp av anpassade LISTAN](terraform-create-vm-cluster-with-infrastructure.md)
+[Skapa ett litet VM-kluster med modulregistret](terraform-create-vm-cluster-module.md)
+[Skapa ett litet VM-kluster med anpassat HCL](terraform-create-vm-cluster-with-infrastructure.md)

@@ -1,117 +1,79 @@
 ---
-title: Självstudie om hur du lägger till yttranden till en LUIS-app med hjälp av Ruby | Microsoft Docs
-description: I den här självstudien lär du dig att anropa en LUIS-app med hjälp av Ruby.
+title: 'Snabbstart: Ändra modell och träna LUIS-app med Ruby – Azure Cognitive Services | Microsoft Docs'
+description: I den här Ruby-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 7a470fd551a58978e6f2be0450a2e2a6cd471fc4
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: 4df6352c140328b93044fd2340fb7c46d44e1b04
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266064"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43771804"
 ---
-# <a name="tutorial-add-utterances-to-app-using-ruby"></a>Självstudie: Lägga till yttranden till en app med Ruby 
-I den här självstudien skriver du ett program för att lägga till ett yttrande till en avsikt med hjälp av redigerings-API:er i Ruby.
+# <a name="quickstart-change-model-using-ruby"></a>Snabbstart: Ändra modell med hjälp av Ruby
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Skapa Visual Studio-konsolprojekt 
-> * Lägg till metod för att anropa LUIS API för att lägga till yttrande och träna appen
-> * Lägg till JSON-fil med exempelyttranden för BookFlight-avsikt
-> * Kör konsol och visa träningsstatus för yttranden
-
-Mer information finns i den tekniska dokumentationen för API:erna för [lägga till exempelyttrande till avsikt](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [träna](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) och [träningsstatus](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46).
-
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [Ruby](http://rubyinstaller.org/) 
-* Din **[LUIS-redigeringsnyckel](luis-concept-keys.md#authoring-key)**. Du hittar den här nyckeln under kontoinställningarna på [LUIS-webbplatsen](luis-reference-regions.md).
-* Ditt befintliga [**LUIS-program-ID**](./luis-get-started-create-app.md). Program-ID visas på programmets instrumentpanel. LUIS-programmet med de avsikter och entiteter som används i filen `utterances.json` måste finnas innan koden i `add-utterances.rb` körs. Koden i den här artikeln skapar inte avsikterna och entiteterna. Den lägger bara till yttrandena för befintliga avsikter och entiteter. 
-* Den **versions-ID** i programmet som tar emot yttrandena. Standard-ID är ”0.1”
-* Skapa en ny fil med namnet `add-utterances.rb` i projektet i VSCode.
+* [Visual Studio Code](https://code.visualstudio.com/)
 
-> [!NOTE] 
-> Den fullständiga `add-utterances.cs`-filen och en `utterances.json`-exempelfil finns tillgängliga från [**LUIS-Samples**-Github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/ruby/).
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
+## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 
-## <a name="write-the-ruby-code"></a>Skriva Ruby-koden
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
-Lägg till beroendena till filen.
+## <a name="create-quickstart-code"></a>Kod för att skapa snabbstart 
 
-   [!code-ruby[Ruby and LUIS Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=1-28 "Ruby and LUIS Dependencies")]
+Lägg till beroendena till filen med namnet `add-utterances.rb`.
+
+   [!code-ruby[Ruby and LUIS Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=1-21 "Ruby and LUIS Dependencies")]
 
 Lägg till GET-begäran som används för träningsstatus.
 
-   [!code-ruby[SendGet](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=30-40 "SendGet")]
+   [!code-ruby[SendGet](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=23-33 "SendGet")]
 
 Lägg till POST-begäran som används för att skapa yttranden eller starta träning. 
 
-   [!code-ruby[SendPost](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=42-54 "SendPost")]
+   [!code-ruby[SendPost](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=35-47 "SendPost")]
 
 Lägg till `AddUtterances`-funktionen.
 
-   [!code-ruby[AddUtterances method](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=56-61 "AddUtterances method")]
+   [!code-ruby[AddUtterances method](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=49-54 "AddUtterances method")]
 
 
 Lägg till `Train`-funktionen. 
 
-   [!code-ruby[Train](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=63-69 "Train")]
+   [!code-ruby[Train](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=56-62 "Train")]
 
 Lägg till `Status`-funktionen.
 
-   [!code-ruby[Status](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=71-75 "Status")]
+   [!code-ruby[Status](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=64-68 "Status")]
 
 För att hantera argument lägger du till huvudkoden.
 
-   [!code-ruby[Main code](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=77-93 "Main code")]
+   [!code-ruby[Main code](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=70-72 "Main code")]
 
-## <a name="specify-utterances-to-add"></a>Ange yttranden att lägga till
-Skapa och redigera filen `utterances.json` för att ange den **matris med yttranden** som du vill lägga till LUIS-appen. Avsikten och entiteterna **måste** redan finnas i LUIS-appen.
-
-> [!NOTE]
-> LUIS-programmet med de avsikter och entiteter som används i filen `utterances.json` måste finnas innan koden i `add-utterances.rb` körs. Koden i den här artikeln skapar inte avsikterna och entiteterna. Den lägger bara till yttrandena för befintliga avsikter och entiteter.
-
-Fältet `text` innehåller texten för yttrandet. Fältet `intentName` måste motsvara namnet på en avsikt i LUIS-appen. Fältet `entityLabels` är obligatoriskt. Om du inte vill märka några entiteter anger du en tom lista såsom det visas i följande exempel:
-
-Om listan entityLabels inte är tom måste `startCharIndex` och `endCharIndex` märka den entitet som anges i fältet `entityName`. Båda index är nollbaserade antal; alltså refererar 6 i det översta exemplet till ”S” i Seattle och inte till blanksteget före versalt S.
-
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
-
-## <a name="add-an-utterance-from-the-command-line"></a>Lägg till ett yttrande från kommandoraden
+## <a name="run-code"></a>Köra koden
 
 Kör programmet från en kommandorad med Ruby.
 
-Om `add-utterances.rb` anropas med endast utterance.json som ett argument läggs LUIS till i de nya yttrandena, men det tränas inte.
-````
-> ruby add-utterances.rb ./utterances.json
-````
+### <a name="add-an-utterance-from-the-command-line"></a>Lägg till ett yttrande från kommandoraden
+
+När du anropar `add-utterances.rb` läggs yttrandena till, träning utförs och träningsstatus hämtas.
+
+```CMD
+> ruby add-utterances.rb 
+```
 
 Det här resultatet visar resultatet av anrop av API för att lägga till yttranden. Fältet `response` är i det här formatet för de yttranden som lades till. `hasError` är falskt, vilket indikerar att yttrandet lades till.  
 
@@ -134,35 +96,7 @@ Det här resultatet visar resultatet av anrop av API för att lägga till yttran
     ]
 ```
 
-## <a name="add-an-utterance-and-train-from-the-command-line"></a>Lägg till ett yttrande och träna från kommandoraden
-Anropa add-utterance med argumentet `-train` för att skicka en begäran om att träna.
-
-````
-> ruby add-utterances.rb ./utterances.json -train
-````
-
-> [!NOTE]
-> Duplicerade yttranden läggs inte till igen, men de orsakar heller inte något fel. `response` innehåller ID för det ursprungliga yttrandet.
-
-Nedan visas resultatet av en lyckad begäran om att träna:
-```json
-{
-    "request": null,
-    "response": {
-        "statusId": 9,
-        "status": "Queued"
-    }
-}
-```
-
-När begäran om att träna har placerats i kö kan det ta en stund att slutföra träningen.
-
-## <a name="get-training-status-from-the-command-line"></a>Hämta träningsstatus från kommandoraden
-Anropa exemplet med argumentet `-status` för att kontrollera träningsstatus.
-
-````
-> ruby add-utterances.rb ./utterances.json -status
-````
+Nästa svar visar träning i kö. Sedan visar nästa svar status för varje avsikt. 
 
 ```
 Requested training status.
@@ -261,10 +195,8 @@ Requested training status.
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När du är klar med självstudien tar du bort Visual Studio och konsolprogrammet om du inte längre behöver dem.
+När du är klar med snabbstarten tar du bort alla filer som skapas i den här snabbstarten. 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
 > [Skapa en LUIS-app programmässigt](luis-tutorial-node-import-utterances-csv.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

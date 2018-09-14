@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591575"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343870"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Självstudiekurs: Aktivera autentisering av app med en enda sida med konton med hjälp av Azure Active Directory B2C
 
@@ -24,24 +24,24 @@ Den här självstudien lär dig använda Azure Active Directory (Azure AD) B2C f
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Registrera en exempelensides-applikation i Azure AD B2C-klienten.
+> * Registrera ett exempel på en ensidesapp i Azure AD B2C-katalogen.
 > * Skapa principer för registrering av användare, inloggning, redigering av profil och återställning av lösenord.
-> * Konfigurera exempelprogrammet så att det använder din Azure AD B2C-klientorganisation.
+> * Konfigurera exempelprogrammet så att det använder din Azure AD B2C-katalog.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Skapa en egen [Azure AD B2C-klientorganisation](active-directory-b2c-get-started.md)
+* Skapa en egen [Azure AD B2C-katalog](active-directory-b2c-get-started.md)
 * Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med arbetsbelastningen **ASP.NET och webbutveckling**.
 * [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) eller senare
 * Installera [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="register-single-page-app"></a>Registrera ensidesapp
 
-Program måste [registreras](../active-directory/develop/developer-glossary.md#application-registration) i klientorganisationen innan de kan ta emot [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) från Azure Active Directory. Programregistrering skapar ett [program-ID](../active-directory/develop/developer-glossary.md#application-id-client-id) för appen i din klientorganisation. 
+Program måste [registreras](../active-directory/develop/developer-glossary.md#application-registration) i katalogen innan de kan ta emot [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) från Azure Active Directory. Programregistrering skapar ett [program-ID](../active-directory/develop/developer-glossary.md#application-id-client-id) för appen i din katalog. 
 
-Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
+Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-katalogen.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -49,7 +49,7 @@ Logga in på [Azure Portal](https://portal.azure.com/) som global administratör
 
 2. I B2C-inställningarna klickar du på **Program** och sedan på **Lägg till**. 
 
-    Registrera exempelwebbappen i klientorganisationen med följande inställningar:
+    Registrera exempelwebbappen i katalogen med följande inställningar:
     
     ![Lägg till en ny app](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
@@ -63,7 +63,7 @@ Logga in på [Azure Portal](https://portal.azure.com/) som global administratör
     
 3. Klicka på **Skapa** för att registrera din app.
 
-Registrerade appar visas i programlistan för Azure AD B2C-klientorganisationen. Välj din ensidesapp i listan. Den registrerade ensidesappens egenskapsfönster visas.
+Registrerade appar visas i programlistan för Azure AD B2C-katalogen. Välj din ensidesapp i listan. Den registrerade ensidesappens egenskapsfönster visas.
 
 ![Egenskaper för ensidesapp](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
@@ -127,25 +127,25 @@ Om du vill kunna aktivera lösenordsåterställning i programmet måste du skapa
 
 ## <a name="update-single-page-app-code"></a>Uppdatera kod för ensidesapp
 
-När du nu registrerat en app och skapat principer måste du konfigurera appen så att den använder din Azure AD B2C-klientorganisation. I den här självstudien får konfigurera en SPA JavaScript-app som du kan ladda ned från GitHub. 
+När du nu registrerat en app och skapat principer måste du konfigurera appen så att den använder din Azure AD B2C-katalog. I den här självstudien får konfigurera en SPA JavaScript-app som du kan ladda ned från GitHub. 
 
 [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) eller klona exempelwebbappen från GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-Exempelappen visar hur en ensidesapp kan använda Azure AD B2C för användarens registrering och inloggning, och anropa ett skyddat webb-API. Appen måste ändras så den använder appregistreringen i din klientorganisation. 
+Exempelappen visar hur en ensidesapp kan använda Azure AD B2C för användarens registrering och inloggning, och anropa ett skyddat webb-API. Appen måste ändras så den använder appregistreringen i din katalog. 
 
 Så här ändrar du appinställningarna:
 
 1. Öppna filen `index.html` i exemplet för ensidesappen i Node.js.
-2. Konfigurera exemplet med registreringsinformation för Azure AD B2C-klientorganisationen. Ändra följande rader med kod:
+2. Konfigurera exemplet med registreringsinformation för Azure AD B2C-katalogen. Ändra följande rader med kod (se till att ersätta värdena med namnen på dina kataloger och API:er):
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
+    // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
@@ -185,20 +185,20 @@ Exempelappen har stöd för registrering av användare, inloggning, redigering a
 
     ![Arbetsflöde för registrering](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Klicka på **Skapa** och skapa ett lokalt konto i Azure AD B2C-klientorganisationen.
+4. Klicka på **Skapa** och skapa ett lokalt konto i Azure AD B2C-katalogen.
 
 Användaren kan nu använda e-postadressen och logga in och använda SPA-appen.
 
 > [!NOTE]
-> Efter inloggningen visar appen ett fel som handlar om ”otillräckliga behörigheter”. Du får felmeddelandet eftersom du försöker komma åt en resurs från demoklientorganisationen. Eftersom ditt åtkomst-token endast är giltigt för din Azure AD-klientorganisation är API-anropet obehörigt. Fortsätt med nästa självstudiekurs och skapa ett skyddat webb-API för din klientorganisation. 
+> Efter inloggningen visar appen ett fel som handlar om ”otillräckliga behörigheter”. Du får felmeddelandet eftersom du försöker komma åt en resurs från demokatalogen. Eftersom ditt åtkomst-token endast är giltigt för din Azure AD-katalog är API-anropet obehörigt. Fortsätt med nästa självstudiekurs och skapa ett skyddat webb-API för din katalog. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra självstudier för Azure AD B2C. När den inte längre behövs kan du ta bort [Azure AD B2C-klientorganisationen](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Du kan använda Azure AD B2C-katalogen om du vill prova andra självstudier för Azure AD B2C. När den inte längre behövs kan du ta bort [Azure AD B2C-katalogen](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att skapa en Azure AD B2C-klientorganisation, att skapa principer och uppdatera exempelensidesappen så den använder din Azure AD B2C-klientorganisation. Fortsätt till nästa självstudie och lär dig registrera, konfigurera och anropa en skyddad webb-API från en skrivbordsapp.
+I den här självstudien lärde du dig att skapa en Azure AD B2C-katalog, att skapa principer och uppdatera exempelensidesappen så den använder din Azure AD B2C-katalogen. Fortsätt till nästa självstudie och lär dig registrera, konfigurera och anropa ett skyddat webb-API från en skrivbordsapp.
 
 > [!div class="nextstepaction"]
 > 

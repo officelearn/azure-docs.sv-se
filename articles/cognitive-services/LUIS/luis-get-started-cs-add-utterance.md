@@ -1,59 +1,58 @@
 ---
-title: Självstudie om hur du lägger till yttranden till en LUIS-app med hjälp av C# | Microsoft Docs
-description: I den här självstudien lär du dig att anropa en LUIS-app med hjälp av C#.
+title: 'Snabbstart: Ändra modell och träna LUIS-app med C# – Azure Cognitive Services | Microsoft Docs'
+description: I den här C#-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 02/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: d9b3ca46cc635d961edadf3e3555f9656b6b5a1d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: fee0f9009e7ce6cef839010f68ae3487067152b9
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264251"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43771860"
 ---
-# <a name="tutorial-add-utterances-to-a-luis-app-using-c"></a>Självstudie: Lägga till yttranden till en LUIS-app med C# 
-I den här självstudien skriver du ett program för att lägga till ett yttrande till en avsikt med hjälp av redigerings-API:er i C#.
+# <a name="quickstart-change-model-using-c"></a>Snabbstart: Ändra modell med hjälp av C#
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Skapa Visual Studio-konsolprojekt 
-> * Lägg till metod för att anropa LUIS API för att lägga till yttrande och träna appen
-> * Lägg till JSON-fil med exempelyttranden för BookFlight-avsikt
-> * Kör konsol och visa träningsstatus för yttranden
-
-Mer information finns i den tekniska dokumentationen för API:erna för [lägga till exempelyttrande till avsikt](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [träna](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) och [träningsstatus](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46).
-
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/). 
-* Din **[LUIS-redigeringsnyckel](luis-concept-keys.md#authoring-key)**. Du hittar den här nyckeln under kontoinställningarna på [LUIS-webbplatsen](luis-reference-regions.md).
-* Ditt befintliga [**LUIS-program-ID**](./luis-get-started-create-app.md). Program-ID visas på programmets instrumentpanel. LUIS-programmet med de avsikter och entiteter som används i filen `utterances.json` måste finnas innan den här koden körs. Koden i den här artikeln skapar inte avsikterna och entiteterna. Den lägger till yttrandena för befintliga avsikter och entiteter. 
-* Den **versions-ID** i programmet som tar emot yttrandena. Standard-ID är ”0.1”
-* Skapa en ny fil med namnet `add-utterances.cs` i projektet i VSCode.
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+* Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
+* Programmeringsspråket C# installerat.
+* NuGet-paketen [JsonFormatterPlus](https://www.nuget.org/packages/JsonFormatterPlus) och [CommandLine](https://www.nuget.org/packages/CommandLineParser/)
 
-> [!NOTE] 
-> Den fullständiga C#-lösningen inklusive en `utterances.json`-exempelfil finns tillgängliga från [**LUIS-Samples**-Github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/csharp/).
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
-## <a name="create-the-project-in-visual-studio"></a>Skapa projektet i Visual Studio
+## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
+
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
+
+## <a name="create-quickstart-code"></a>Kod för att skapa snabbstart 
 
 I Visual Studio skapar du en ny **Windows Classic Desktop Console**-app med hjälp av .Net Framework. 
 
 ![Visual Studio-projekttyp](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
-## <a name="add-the-systemweb-dependency"></a>Lägga till System.Web-beroendet
+### <a name="add-the-systemweb-dependency"></a>Lägga till System.Web-beroendet
 
-I Visual Studio-projektet behöver projektet **System.Web**. I Solution Explorer högerklickar du på **Referenser** och väljer **Lägg till referens**.
+Visual Studio-projektet behöver **System.Web**. I Solution Explorer högerklickar du på **Referenser** och väljer **Lägg till referens**.
 
 ![Lägga till System.web-referens](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
-## <a name="write-the-c-code"></a>Skriva C#-koden
+### <a name="add-other-dependencies"></a>Lägg till andra beroenden
+
+Visual Studio-projektet behöver **JsonFormatterPlus** och **CommandLineParser**. I Solution Explorer högerklickar du på **Referenser** i väljer **Manage NuGet Packages...** (Hantera NuGet-paket...). Sök efter och lägg till vart och ett av de två paketen. 
+
+![Lägga till beroenden från tredje part](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
+
+
+### <a name="write-the-c-code"></a>Skriva C#-koden
 **Program.cs**-filen ska vara:
 
 ```CSharp
@@ -72,246 +71,73 @@ namespace ConsoleApp3
         }
     }
 }
-
 ```
 
-Lägg till System.IO- och System.Net.Http-beroendena.
+Lägg till beroendena.
 
-   [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=1-6 "Add the dependencies")]
+   [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
 
 Lägg till LUIS-ID:n och strängarna till klassen **Program**.
 
-   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=12-30&dedent=8 "Add the LUIS IDs and strings")]
+   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=19-30&dedent=8 "Add the LUIS IDs and strings")]
 
-Lägg till metoden JsonPrettyPrint.
+Lägg till klassen för att hantera kommandoradsparametrar till klassen **Program**.
 
-   [!code-csharp[Add the JsonPrettyPrint method](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=32-92 "Add the JsonPrettyPrint method")]
+   [!code-csharp[Add class to manage command line parameters.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=32-46 "Add class to manage command-line parameters.")]
 
-Lägg till den GET-begäran som används för att skapa yttranden eller starta träning. 
+Lägg till GET-begärandemetoden till klassen **Program**.
 
-   [!code-csharp[SendGet](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=93-103 "SendGet")]
-
-
-Lägg till den POST-begäran som används för att skapa yttranden eller starta träning. 
-
-   [!code-csharp[SendPost](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=104-115 "SendPost")]
-
-Lägg till `AddUtterances`-funktionen.
-
-   [!code-csharp[AddUtterances method](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=116-125 "AddUtterances method")]
+   [!code-csharp[Add the GET request.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=49-59 "Add the GET request.")]
 
 
-Lägg till `Train`-funktionen. 
+Lägg till POST-begärandemetoden till klassen **Program**. 
 
-   [!code-csharp[Train](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=126-136 "Train")]
+   [!code-csharp[Add the POST request.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=60-76 "Add the POST request.")]
 
-Lägg till `Status`-funktionen.
+Lägg till metoden för exempelyttranden från fil till klassen **Program**.
 
-   [!code-csharp[Status](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=137-143 "Status")]
+   [!code-csharp[Add example utterances from file.
+](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.
+")]
 
-För att hantera argument lägger du till huvudkoden.
+När ändringarna har tillämpats på modellen tränar du modellen. Lägg till metoden till klassen **Program**.
 
-   [!code-csharp[Main code](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=144-172 "Main code")]
+   [!code-csharp[After the changes are applied to the model, train the model.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=87-96 "After the changes are applied to the model, train the model.")]
 
-## <a name="specify-utterances-to-add"></a>Ange yttranden att lägga till
-Skapa och redigera filen `utterances.json` för att ange den **matris med yttranden** som du vill lägga till LUIS-appen. Avsikten och entiteterna **måste** redan finnas i LUIS-appen.
+Träningen slutförs kanske inte omedelbart. Kontrollera status för att verifiera att träningen är klar. Lägg till metoden till klassen **Program**.
 
-> [!NOTE]
-> LUIS-programmet med de avsikter och entiteter som används i filen `utterances.json` måste finnas innan koden i `add-utterances.cs` körs. Koden i den här artikeln skapar inte avsikterna och entiteterna. Den lägger bara till yttrandena för befintliga avsikter och entiteter.
+   [!code-csharp[Training may not complete immediately, check status to verify training is complete.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=97-103 "Training may not complete immediately, check status to verify training is complete.")]
 
-Fältet `text` innehåller texten för yttrandet. Fältet `intentName` måste motsvara namnet på en avsikt i LUIS-appen. Fältet `entityLabels` är obligatoriskt. Om du inte vill märka några entiteter anger du en tom lista såsom det visas i följande exempel:
+För att hantera kommandoradsargumenten lägger du till huvudkoden. Lägg till metoden till klassen **Program**.
 
-Om listan entityLabels inte är tom måste `startCharIndex` och `endCharIndex` märka den entitet som anges i fältet `entityName`. Båda index är nollbaserade antal; alltså refererar 6 i det översta exemplet till ”S” i Seattle och inte till blanksteget före versalt S.
+   [!code-csharp[To manage command line arguments, add the main code.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=104-137 "To manage command-line arguments, add the main code.")]
 
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
+### <a name="copy-utterancesjson-to-output-directory"></a>Kopiera utterances.json till utdatakatalogen
 
-## <a name="mark-the-json-file-as-content"></a>Märk JSON-filen som innehåll
 I Solution Explorer högerklickar du på `utterances.json` och väljer **Egenskaper**. I fönstret Properties (Egenskaper) märker du **Build Action** (Skapandeåtgärd) för `Content` och **Copy to Output Directory** (Kopiera till utdatakatalog) för `Copy Always`.  
 
 ![Märk JSON-filen som innehåll](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
-## <a name="add-an-utterance-from-the-command-line"></a>Lägg till ett yttrande från kommandoraden
+## <a name="build-code"></a>Kompilera koden
 
-Kompilera och köra programmet från en kommandorad med C# från katalogen /bin/Debug. Kontrollera att filen utterances.json också finns i den här katalogen.
+Kompilera koden i Visual Studio. 
 
-Om add-utterances.cs anropas med endast utterance.json som ett argument läggs LUIS till i de nya yttrandena, men det tränas inte.
-````
-ConsoleApp\bin\Debug> ConsoleApp1.exe utterances.json
-````
+## <a name="run-code"></a>Köra koden
 
-Den här kommandoraden visar resultatet av anrop av API för att lägga till yttranden. Fältet `response` är i det här formatet för de yttranden som lades till. `hasError` är falskt, vilket indikerar att yttrandet lades till.  
+I projektets katalog /bin/Debug kör du programmet från en kommandorad. 
 
-```json
-    "response": [
-        {
-            "value": {
-                "UtteranceText": "go to seattle",
-                "ExampleId": -5123383
-            },
-            "hasError": false
-        },
-        {
-            "value": {
-                "UtteranceText": "book a flight",
-                "ExampleId": -169157
-            },
-            "hasError": false
-        }
-    ]
+```CMD
+ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 ```
 
-## <a name="add-an-utterance-and-train-from-the-command-line"></a>Lägg till ett yttrande och träna från kommandoraden
-Anropa add-utterance med argumentet `-train` för att skicka en begäran om att träna. 
+Den här kommandoraden visar resultatet av anrop av API för att lägga till yttranden. 
 
-````
-ConsoleApp\bin\Debug> ConsoleApp1.exe -train utterances.json
-````
-
-> [!NOTE]
-> Duplicerade yttranden läggs inte till igen, men de orsakar heller inte något fel. `response` innehåller ID för det ursprungliga yttrandet.
-
-Följande JSON visar resultatet av en lyckad begäran om att träna:
-
-```json
-{
-    "request": null,
-    "response": {
-        "statusId": 9,
-        "status": "Queued"
-    }
-}
-```
-
-När begäran om att träna har placerats i kö kan det ta en stund att slutföra träningen.
-
-## <a name="get-training-status-from-the-command-line"></a>Hämta träningsstatus från kommandoraden
-Anropa appen med argumentet `-status` för att kontrollera träningsstatus och visa statusinformation.
-
-````
-ConsoleApp\bin\Debug> ConsoleApp1.exe -status
-````
-
-```
-Requested training status.
-[
-   {
-      "modelId": "eb2f117c-e10a-463e-90ea-1a0176660acc",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "c1bdfbfc-e110-402e-b0cc-2af4112289fb",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "863023ec-2c96-4d68-9c44-34c1cbde8bc9",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "82702162-73ba-4ae9-a6f6-517b5244c555",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "37121f4c-4853-467f-a9f3-6dfc8cad2763",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "de421482-753e-42f5-a765-ad0a60f50d69",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "80f58a45-86f2-4e18-be3d-b60a2c88312e",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "c9eb9772-3b18-4d5f-a1e6-e0c31f91b390",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "2afec2ff-7c01-4423-bb0e-e5f6935afae8",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "95a81c87-0d7b-4251-8e07-f28d180886a1",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   }
-]
-```
+[!include[Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När du är klar med självstudien tar du bort Visual Studio och konsolprogrammet om du inte längre behöver dem. 
+När du är klar med snabbstarten tar du bort alla filer som skapas i den här snabbstarten. 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
 > [Skapa en LUIS-app programmässigt](luis-tutorial-node-import-utterances-csv.md) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

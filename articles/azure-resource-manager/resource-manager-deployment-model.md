@@ -13,14 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2fd128ce04ac883396948e6114582dd15288390a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 704bbe5cc566833ef1279e84f0fab9f363dfaa11
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359748"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841639"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager jämfört med klassisk distribution: Förstå distributionsmodeller och dina resursers tillstånd
+
+> [!NOTE]
+> Informationen i den här artikeln används bara när du migrerar från den klassiska distributionen till Azure Resource Manager-distributionen.
+
 Artikeln beskriver både Azure Resource Manager och de klassiska distributionsmodellerna. Resource Manager och de klassiska distributionsmodellerna är två olika sätt att distribuera och hantera dina Azure-lösningar. Du arbetar med dem via två olika API-uppsättningar och de distribuerade resurserna kan innehålla viktiga skillnader. De två modellerna är inte kompatibla med varandra. Den här artikeln beskriver dessa skillnader.
 
 Microsoft rekommenderar att du använder Resource Manager för alla nya resurser, för att förenkla distributionen och hanteringen av resurser. Om möjligt rekommenderar Microsoft att du distribuerar om befintliga resurser via Resource Manager.
@@ -30,7 +34,7 @@ Om du är nybörjare i Resource Manager kan du läsa den terminologi som definie
 ## <a name="history-of-the-deployment-models"></a>Historik för distributionsmodellerna
 Azure levererade ursprungligen bara den klassiska distributionsmodellen. I den modellen var varje resurs fristående och det gick inte att gruppera relaterade resurser. I stället var du tvungen att manuellt spåra vilka resurser som fanns i din lösning eller ditt program och sedan komma ihåg att hantera dem på ett samordnat sätt. Om du ville distribuera en lösning var du tvungen att skapa varje resurs individuellt via portalen, eller skapa ett skript som distribuerade alla resurser i rätt ordning. Om du ville ta bort en lösning var du tvungen att ta bort varje resurs separat. Det gick inte att tillämpa och uppdatera principerna för åtkomstkontroll för relaterade resurser på ett enkelt sätt. Slutligen kunde du inte tillämpa taggar på resurser för att märka dem med villkor som hjälpte dig att övervaka dina resurser och hantera faktureringen.
 
-2014 introducerade Azure Resource Manager som lade till konceptet med en resursgrupp. En resursgrupp är en behållare för resurser som har en gemensam livscykel. Resource Manager-distributionsmodellen ger många fördelar:
+2014 introducerade Azure Resource Manager som lade till konceptet med en resursgrupp. En resursgrupp är en container för resurser som har en gemensam livscykel. Resource Manager-distributionsmodellen ger många fördelar:
 
 * Du kan distribuera, hantera och övervaka alla tjänster för din lösning som en grupp i stället för att hantera tjänsterna separat.
 * Du kan distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras på ett konsekvent sätt.
@@ -88,7 +92,7 @@ Observera följande relationer mellan resurserna:
 * Den virtuella datorn refererar till ett specifikt nätverkskort som definierats i Network-resursprovidern (krävs) och en tillgänglighetsuppsättning som definierats i Compute-resursprovidern (valfritt).
 * Nätverkskortet refererar till den virtuella datorns tilldelade IP-adress (krävs), undernätet i det virtuella nätverket för den virtuella datorn (krävs) och en nätverkssäkerhetsgrupp (valfritt).
 * Undernätet inom ett virtuellt nätverk refererar till en nätverkssäkerhetsgrupp (valfritt).
-* Belastningsutjämnarens instans refererar till serverdelspoolen av IP-adresser som innehåller nätverkskortet för en virtuell dator (valfritt) och refererar till en offentlig eller privat IP-adress för belastningsutjämnaren (valfritt).
+* Lastbalanserarens instans refererar till serverdelspoolen av IP-adresser som innehåller nätverkskortet för en virtuell dator (valfritt) och refererar till en offentlig eller privat IP-adress för lastbalanseraren (valfritt).
 
 Här följer komponenterna och deras relationer för klassisk distribution:
 
@@ -96,24 +100,24 @@ Här följer komponenterna och deras relationer för klassisk distribution:
 
 Den klassiska lösningen för att vara värd för en virtuell dator innehåller:
 
-* En obligatorisk molntjänst som fungerar som behållare för värden för den virtuella datorvärden (beräkning). Virtuella datorer tillhandahålls automatiskt med ett nätverkskort och en IP-adress som tilldelats av Azure. Molntjänsten innehåller dessutom en instans för extern instans för belastningsutjämnaren, en offentlig IP-adress och standardslutpunkter som tillåter fjärrskrivbord och PowerShell-fjärrtrafik för Windows-baserade virtuella datorer och SSH-trafik (Secure Shell) för Linux-baserade virtuella datorer.
+* En obligatorisk molntjänst som fungerar som en container för värden för den virtuella datorvärden (beräkning). Virtuella datorer tillhandahålls automatiskt med ett nätverkskort och en IP-adress som tilldelats av Azure. Molntjänsten innehåller dessutom en instans för extern instans för lastbalanseraren, en offentlig IP-adress och standardslutpunkter som tillåter fjärrskrivbord och PowerShell-fjärrtrafik för Windows-baserade virtuella datorer och SSH-trafik (Secure Shell) för Linux-baserade virtuella datorer.
 * Ett obligatoriskt lagringskonto som lagrar de virtuella hårddiskarna för en virtuell dator, inklusive operativsystem, tillfälliga och extra datadiskar (lagring).
-* Ett valfritt virtuellt nätverk som fungerar som en extra behållare där du kan skapa en undernätsstruktur och tilldela undernätet där den virtuella datorn finns (nätverk).
+* Ett valfritt virtuellt nätverk som fungerar som en extra container där du kan skapa en undernätsstruktur och tilldela undernätet där den virtuella datorn finns (nätverk).
 
 I följande tabell beskrivs ändringar i hur Compute-, Network- och Storage-resursproviders samverkar:
 
 | Objekt | Klassisk | Resource Manager |
 | --- | --- | --- |
-| Molntjänst för Virtual Machines |Molntjänst var en behållare för virtuella datorer som krävde tillgänglighet från plattformen och belastningsutjämning. |Molntjänst är inte längre ett objekt som krävs för att skapa en virtuell dator med den nya modellen. |
+| Molntjänst för Virtual Machines |Molntjänst var en container för virtuella datorer som krävde tillgänglighet från plattformen och belastningsutjämning. |Molntjänst är inte längre ett objekt som krävs för att skapa en virtuell dator med den nya modellen. |
 | Virtuella nätverk |Ett virtuellt nätverk är valfritt för den virtuella datorn. Om det ingår kan det virtuella nätverket inte distribueras med Resource Manager. |En virtuell dator kräver ett virtuellt nätverk som har distribuerats med Resource Manager. |
 | Lagringskonton |Den virtuella datorn kräver ett lagringskonto som lagrar de virtuella hårddiskarna för operativsystem, tillfälliga och extra datadiskar (lagring). |Den virtuella datorn kräver ett lagringskonto för att kunna lagra diskarna i bloblagring. |
 | Tillgänglighetsuppsättningar |Tillgänglighet till plattformen indikerades genom att konfigurera samma "AvailabilitySetName" på Virtual Machines. Det maximala antalet feldomäner var 2. |Tillgänglighetsuppsättning är en resurs som exponeras av Microsoft.Compute-providern. Virtuella datorer som kräver hög tillgänglighet måste inkluderas i tillgänglighetsuppsättningen. Det maximala antalet feldomäner är nu 3. |
 | Tillhörighetsgrupper |Tillhörighetsgrupper krävdes för virtuella nätverk. Men med introduktionen av regionala virtuella nätverk, krävs det inte längre. |Lite enklare sagt så existerar inte konceptet tillhörighetsgrupper i de API:er som exponeras via Azure Resource Manager. |
-| Belastningsutjämning |Skapandet av en molntjänst ger en implicit belastningsutjämnare för de virtuella datorer som distribueras. |Load Balancer är en resurs som exponeras av Microsoft.Network-providern. Det primära nätverksgränssnittet för Virtual Machines som måste belastningsutjämnas ska referera till belastningsutjämnaren. Belastningsutjämnare kan vara interna eller externa. Belastningsutjämnarens instans refererar till serverdelspoolen med IP-adresser som innehåller nätverkskortet för en virtuell dator (valfritt) och refererar till en offentlig eller privat IP-adress för belastningsutjämnaren (valfritt). |
-| Virtuell IP-adress |Cloud Services får en standard-VIP (virtuell IP-adress) när en virtuell dator läggs till i en molntjänst. Den virtuella IP-adressen är den adress som är associerad med den implicita belastningsutjämnaren. |En offentlig IP-adress är en resurs som exponeras av Microsoft.Network-providern. Den offentliga IP-adressen kan vara statisk (reserverad) eller dynamisk. Dynamiska offentliga IP-adresser kan tilldelas till en belastningsutjämnare. Offentliga IP-adresser kan skyddas med hjälp av säkerhetsgrupper. |
+| Belastningsutjämning |Skapandet av en molntjänst ger en implicit lastbalanserare för de virtuella datorer som distribueras. |Load Balancer är en resurs som exponeras av Microsoft.Network-providern. Det primära nätverksgränssnittet för Virtual Machines som måste lastbalanseras ska referera till lastbalanseraren. Lastbalanserare kan vara interna eller externa. Lastbalanserarens instans refererar till serverdelspoolen med IP-adresser som innehåller nätverkskortet för en virtuell dator (valfritt) och refererar till en offentlig eller privat IP-adress för lastbalanseraren (valfritt). |
+| Virtuell IP-adress |Cloud Services får en standard-VIP (virtuell IP-adress) när en virtuell dator läggs till i en molntjänst. Den virtuella IP-adressen är den adress som är associerad med den implicita lastbalanseraren. |En offentlig IP-adress är en resurs som exponeras av Microsoft.Network-providern. Den offentliga IP-adressen kan vara statisk (reserverad) eller dynamisk. Dynamiska offentliga IP-adresser kan tilldelas till en lastbalanserare. Offentliga IP-adresser kan skyddas med hjälp av säkerhetsgrupper. |
 | Reserverad IP-adress |Du kan reservera en IP-adress i Azure och koppla den till en molntjänst för att kontrollera att IP-adressen är fäst. |En offentlig IP-adress kan skapas i statiskt läge och har då samma funktion som en reserverad IP-adress. |
 | Offentlig IP-adress (PIP) per VM |Offentliga IP-adresser kan också associeras direkt till en virtuell dator. |En offentlig IP-adress är en resurs som exponeras av Microsoft.Network-providern. Den offentliga IP-adressen kan vara statisk (reserverad) eller dynamisk. |
-| Slutpunkter |Inkommande slutpunkter behöver konfigureras på en virtuell dator för att öppna upp anslutningar på vissa portar. Ett vanligt sätt att ansluta till virtuella datorer är genom att konfigurera inkommande slutpunkter. |Inkommande NAT-regler kan konfigureras på belastningsutjämnare för att uppnå samma funktion som vid aktivering av inkommande slutpunkter på specifika portar för att ansluta till VM:ar. |
+| Slutpunkter |Inkommande slutpunkter behöver konfigureras på en virtuell dator för att öppna upp anslutningar på vissa portar. Ett vanligt sätt att ansluta till virtuella datorer är genom att konfigurera inkommande slutpunkter. |Inkommande NAT-regler kan konfigureras på lastbalanserare för att uppnå samma funktion som vid aktivering av inkommande slutpunkter på specifika portar för att ansluta till VM:ar. |
 | DNS-namn |En molntjänst får ett implicit, globalt-unikt DNS-namn. Till exempel: `mycoffeeshop.cloudapp.net`. |DNS-namn är valfria parametrar som kan anges för en offentlig IP-adressresurs. FQDN har följande format – `<domainlabel>.<region>.cloudapp.azure.com`. |
 | Nätverksgränssnitt |Primära och sekundära nätverksgränssnitt och dess egenskaper har definierats som nätverkskonfigurationen för en virtuell dator. |Nätverksgränssnittet är en resurs som exponeras av Microsoft.Network-providern. Livscykeln för nätverksgränssnittet är inte kopplat till en virtuell dator. Det refererar till den virtuella datorns tilldelade IP-adress (krävs), undernätet i det virtuella nätverket för den virtuella datorn (krävs) och en nätverkssäkerhetsgrupp (valfritt). |
 

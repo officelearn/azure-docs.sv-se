@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186238"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702535"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Skapa ett Stream Analytics-jobb för att analysera telefonsamtalsdata och visualisera resultat i en Power BI-instrumentpanel
  
@@ -61,7 +61,7 @@ Innan Stream Analytics kan analysera dataströmmen med bedrägliga samtal ska du
    ![Skapa namnområde för en händelsehubb](media/stream-analytics-manage-job/create-ehns.png)
 
 5. När namnområdet har distribuerats klart går du till **Alla resurser** > sök upp ”myEventHubNS” i listan över Azure-resurser > välj för att öppna den.  
-6. Sedan väljer du **+Event Hub** > **Namn** händelsehubben ”MyEventHub”. Du kan använda ett annat namn. Använd standardalternativen för återstående inställningar, välj **Skapa** och vänta på att distributionen genomförs.
+6. Sedan väljer du **+Event Hub** > **Namn** händelsehubben "MyEventHub". Du kan använda ett annat namn. Använd standardalternativen för återstående inställningar, välj **Skapa** och vänta på att distributionen genomförs.
 
    ![Skapa händelsehubb](media/stream-analytics-manage-job/create-eh.png)
 
@@ -69,7 +69,7 @@ Innan Stream Analytics kan analysera dataströmmen med bedrägliga samtal ska du
 
 Innan ett program kan skicka data till Azure Event Hubs måste händelsen ha en princip som tillåter lämplig åtkomst. Åtkomstprincipen producerar en anslutningssträng som inkluderar auktoriseringsinformation.
 
-1. Gå till **Event Hubs** som du skapade i föregående steg som är ”MyEventHub” > välj **Policyer för delad åtkomst** från händelsehubbfönstret > välj **+Lägg till**.  
+1. Gå till **Event Hubs** som du skapade i föregående steg som är "MyEventHub" > välj **Policyer för delad åtkomst** från händelsehubbfönstret > välj **+Lägg till**.  
 2. Ställ in principnamnet på **Mypolicy** > och välj **Hantera** > välj **Skapa**.  
 
    ![Skapa händelsehubb med delade åtkomstprinciper](media/stream-analytics-manage-job/create-ehpolicy.png)
@@ -240,7 +240,7 @@ Du kan testa en fråga från frågeredigeraren, och du behöver exempeldata för
 
 2. Välj **Nu** som starttid för jobbutdata och välj **Start**. Jobbet startar efter några minuter och du kan visa dess status i meddelandefältet.  
 
-3. När jobbet har genomförts går du till [Powerbi.com](https://powerbi.com/) och loggar in med ditt arbets- eller skolkonto. Om Stream Analytics-jobbfrågan genererar resultat ser du att datauppsättningen redan är skapad. Gå till fliken **Datauppsättningar** kan du visa en datauppsättning med namnet ”ASAdataset”.  
+3. När jobbet har genomförts går du till [Powerbi.com](https://powerbi.com/) och loggar in med ditt arbets- eller skolkonto. Om Stream Analytics-jobbfrågan genererar resultat ser du att datauppsättningen redan är skapad. Gå till fliken **Datauppsättningar** kan du visa en datauppsättning med namnet "ASAdataset".  
 
 4. Från arbetsytan väljer du **+Skapa**. Skapa en ny instrumentpanel och ge den namnet Bedrägliga samtal. Du kommer att lägga till två paneler till instrumentpanelen. En panel används för at visa antalet bedrägliga samtal för en viss instans och den andra har en linjediagramvisualisering.  
 

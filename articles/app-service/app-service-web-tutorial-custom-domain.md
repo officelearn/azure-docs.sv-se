@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5c0aa042f97e10f90787b1cdf8e03cd6d849441e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461647"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664895"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Självstudie: Mappa ett befintligt anpassat DNS-namn till Azure Web Apps
 
@@ -29,7 +29,7 @@ Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och 
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Mappa en underdomän (till exempel `www.contoso.com`) med hjälp av en CNAME-post
@@ -37,8 +37,6 @@ I den här guiden får du lära dig hur man:
 > * Mappa en domän med jokertecken (till exempel `*.contoso.com`) med hjälp av en CNAME-post
 > * Omdirigera standard-URL:en till en anpassad katalog
 > * Automatisera domänmappning med skript
-
-Om du vill migrera en live-webbplats och dess DNS-domännamn till App Service kan du läsa [Migrera ett aktivt DNS-namn till Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -90,7 +88,7 @@ Om App Service-planen inte är på nivån **F1** stänger du sidan **Skala upp**
 
 Välj någon av betalnivåerna (**D1**, **B1**, **B2**, **B3** eller en nivå i kategorin **Produktion**). Klicka på **Visa ytterligare alternativ** om du vill se fler alternativ.
 
-Klicka på **Använd**.
+Klicka på **Verkställ**.
 
 ![Kontrollera prisnivå](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -304,6 +302,10 @@ Om du får ett HTTP 404-fel (Hittades inte) när du går till URL:en för den an
 - Webbläsarklienten har cachat din domäns gamla IP-adress. Rensa cachen och testa DNS-matchningen på nytt. På en Windows-dator rensar du cachen med `ipconfig /flushdns`.
 
 <a name="virtualdir"></a>
+
+## <a name="migrate-an-active-domain"></a>Migrera en aktiv domän
+
+Om du vill migrera en live-webbplats och dess DNS-domännamn till App Service utan avbrott kan du läsa [Migrera ett aktivt DNS-namn till Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="redirect-to-a-custom-directory"></a>Omdirigera till en anpassad katalog
 

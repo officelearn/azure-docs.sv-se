@@ -12,20 +12,22 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: be8b99f8cf291d2e09187344aa458420db92364e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d433eeb7d63282868b8919ee8c53283080bf8b59
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237655"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701066"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Komma igång med SQL API:et och .NET Core
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js för MongoDB](mongodb-samples.md)
+> * [Java](sql-api-java-get-started.md)
+> * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md)  
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Välkommen till självstudiekursen för SQL API för Azure Cosmos DB för att komma igång med .NET Core! När du har genomfört den här självstudiekursen har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser.
@@ -181,7 +183,7 @@ private void WriteToConsoleAndPromptToContinue(string format, params object[] ar
 }
 ```
 
-Azure Cosmos DB-[databasen](sql-api-resources.md#databases) kan skapas med metoden [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) i **DocumentClient**-klassen. En databas är en logisk behållare för JSON-dokumentlagring, partitionerad över samlingarna.
+Azure Cosmos DB-[databasen](sql-api-resources.md#databases) kan skapas med metoden [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) i **DocumentClient**-klassen. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.
 
 Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under den skapade klienten. Då skapas en databas med namnet *FamilyDB*.
 
@@ -202,7 +204,7 @@ Grattis! Du har skapat en Azure Cosmos DB-databas.
 > [!WARNING]
 > **CreateDocumentCollectionAsync** skapar en ny samling med reserverat dataflöde, vilket påverkar priset. Mer information finns på vår [sida med priser](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-Du kan skapa en [samling](sql-api-resources.md#collections) med metoden [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) för klassen **DocumentClient**. En samling är en behållare för JSON-dokument och associerad JavaScript-applogik.
+Du kan skapa en [samling](sql-api-resources.md#collections) med metoden [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) för klassen **DocumentClient**. En samling är en container för JSON-dokument och associerad JavaScript-applogik.
 
 Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under koden som skapade databasen. Då skapas en dokumentsamling som heter *FamilyCollection_oa*.
 

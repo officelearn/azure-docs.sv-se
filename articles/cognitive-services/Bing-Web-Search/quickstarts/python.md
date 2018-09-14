@@ -1,60 +1,54 @@
 ---
-title: Anropet och svar - Python Snabbstartsguide för Azure kognitiva tjänster, Bing Web Sök API | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Bing webb-API för sökning i kognitiva Microsoft-tjänster i Azure.
+title: 'Snabbstart: Använda Python för att anropa API för webbsökning i Bing'
+description: I den här snabbstarten lär du dig att göra ditt första anrop API för webbsökning i Bing med Python och att ta emot ett JSON-svar.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 8d4df9db60c7a74a5b9e53d4622528c0054b4f19
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: cd53a323a07617284e82004a6b3feed57b6e15e2
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352437"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888615"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-python"></a>Anropet och svar: första Bing webbsökning frågan i Python
+# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Python för att anropa API för webbsökning i Bing  
 
-Bing Web Sök API ger en upplevelse som liknar Bing.com/Search genom att returnera sökresultat som Bing avgör är relevanta för användarens fråga. Resultaten kan inkludera webbsidor, bilder, videor, nyheter och enheter, tillsammans med relaterade sökfrågor, stavfel, tidszoner, Enhetskonvertering, översättningar och beräkningar. Typerna av du får resultat baserat på deras relevans och nivån för Bing Search API: er som du prenumererar på.
+Använd den här snabbstarten för att göra ditt första anrop till API för webbsökning i Bing och få ett JSON-svar på mindre än 10 minuter.  
 
-Referera till den [API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) teknisk information om API: erna.
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-Du kan köra det här exemplet som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org) genom att klicka på Starta Binder badge: 
+Det här exemplet körs som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Klicka på aktivitetsikonen för att starta Binder:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
+## <a name="define-variables"></a>Definiera variabler
 
-## <a name="prerequisites"></a>Förutsättningar
-Du måste ha en [kognitiva Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API: er för Bing Search**. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) är tillräcklig för den här snabbstarten. Du måste åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumeration nyckel från instrumentpanelen i Azure.
-
-## <a name="running-the-walkthrough"></a>Kör den här genomgången
-
-Ange `subscription_key` till API-nyckel för Bing-API-tjänsten.
-
+Ersätt värdet `subscription_key` med en giltig prenumerationsnyckel från ditt Azure-konto.
 
 ```python
-subscription_key = None
+subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-Därefter kontrollerar du att den `search_url` slutpunkten är korrekt. När detta skrivs används endast en slutpunkt för Bing search API: er. Om du stöter på fel auktorisering, kontrollera det här värdet mot Bing search slutpunkten i instrumentpanelen i Azure.
-
+Deklarera slutpunkten för API för webbsökning i Bing. Om du får auktoriseringsfel kontrollerar du detta värde mot slutpunkten för Bing-sökmotorn i Azure-instrumentpanelen.
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
 ```
 
-Ange `search_term` frågan Bing för kognitiva Microsoft-tjänster.
-
+Du kan anpassa sökfrågan genom att ersätta värdet för `search_term`.
 
 ```python
-search_term = "Microsoft Cognitive Services"
+search_term = "Azure Cognitive Services"
 ```
 
-Följande blockera använder den `requests` bibliotek i Python att anropa till API: er för Bing-sökningen och returnerar resultatet som ett JSON-objekt. Observera att vi skicka in API-nyckel via den `headers` ordlista och sökningen term via den `params` ordlistan. Om du vill se en fullständig lista över alternativ som kan användas för att filtrera sökresultaten avser den [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) dokumentation.
+## <a name="make-a-request"></a>Skapa en begäran
 
+Det här blocket använder `requests`-biblioteket för att anropa API för webbsökning i Bing och returnerar resultatet som ett JSON-objekt. API-nyckeln skickas i `headers`-ordlistan, och söktermen samt frågeparametrarna skickas i `params`-ordlistan. Se dokumentationen till [API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) för en fullständig lista över alternativ och parametrar.
 
 ```python
 import requests
@@ -66,8 +60,9 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-Den `search_results` objektet innehåller sökresultaten tillsammans med omfattande metadata, till exempel relaterade frågor och sidor. Följande rader med kod Formatera översta sidor som returneras av frågan.
+## <a name="format-and-display-the-response"></a>Formatera och visa svaret
 
+`search_results`-objektet innehåller sökresultaten och metadata såsom relaterade frågor och sidor. Den här koden använder `IPython.display`-biblioteket för att formatera och visa svaret i webbläsaren.
 
 ```python
 from IPython.display import HTML
@@ -80,14 +75,13 @@ rows = "\n".join(["""<tr>
 HTML("<table>{0}</table>".format(rows))
 ```
 
+## <a name="sample-code-on-github"></a>Exempelkod på GitHub
+
+Om du vill köra den här koden lokalt [finns det fullständiga exemplet på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
+
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Webbprogram för Bing search sida app självstudiekursen](../tutorial-bing-web-search-single-page-app.md)
+> [Självstudie om app på en sida för Bing-webbsökning](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också 
-
-[Översikt över Bing webbsökning](../overview.md)  
-[Prova](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Hämta en kostnadsfri utvärderingsversion åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-[Bing Web Sök API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

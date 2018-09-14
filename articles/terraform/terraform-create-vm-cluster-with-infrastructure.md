@@ -1,50 +1,50 @@
 ---
-title: Skapa ett VM-kluster med Terraform och LISTAN
-description: Använda Terraform och HashiCorp konfiguration språk (LISTAN) för att skapa en virtuell Linux-kluster med en belastningsutjämnare i Azure
-keywords: terraform, devops, virtuella datorer, nätverk, moduler
+title: Skapa ett VM-kluster med Terraform och HCL
+description: Använd Terraform och HashiCorp Configuration Language (HCL) för att skapa ett Linux VM-kluster med en belastningsutjämnare i Azure
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, virtuell dator, nätverk, moduler
 author: tomarcher
-manager: routlaw
-ms.service: virtual-machines-linux
-ms.custom: devops
-ms.topic: article
-ms.date: 11/13/2017
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 2435d694e6a1671a234d02f90860e5cafe98c2df
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 11/13/2017
+ms.openlocfilehash: fffaf275a98791885b87ee8ffdc275e911b26341
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
-ms.locfileid: "24518808"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667608"
 ---
-# <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Skapa ett VM-kluster med Terraform och LISTAN
+# <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Skapa ett VM-kluster med Terraform och HCL
 
-Den här kursen visar hur du skapar ett litet beräkning med den [HashiCorp Configuration språk](https://www.terraform.io/docs/configuration/syntax.html) (LISTAN). Konfigurationen skapar en belastningsutjämnare, två virtuella Linux-datorer i en [tillgänglighetsuppsättning](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), och alla nödvändiga nätverksresurser.
+I den här självstudien visas hur du skapar ett litet beräkningskluster med [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). Konfigurationen skapar en belastningsutjämnare, två virtuella Linux-datorer i en [tillgänglighetsuppsättning](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) och alla nödvändiga nätverksresurser.
 
-I den här kursen har du:
+I den här kursen för du göra följande:
 
 > [!div class="checklist"]
 > * Konfigurera Azure-autentisering
-> * Skapa en konfigurationsfil för Terraform
+> * Skapa en Terraform-konfigurationsfil
 > * Initiera Terraform
-> * Skapa en plan för körning av Terraform
-> * Tillämpa åtgärdsplan Terraform
+> * Skapa en Terraform-körningsplan
+> * Använd Terraform-körningsplanen
 
 ## <a name="1-set-up-azure-authentication"></a>1. Konfigurera Azure-autentisering
 
 > [!NOTE]
-> Om du [använda Terraform miljövariabler](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), eller köra den här kursen i den [Azure Cloud Shell](terraform-cloud-shell.md), hoppa över det här avsnittet.
+> Om du [använder Terraform-miljövariabler](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), eller kör den här självstudiekursen i [Azure Cloud Shell](terraform-cloud-shell.md) kan du hoppa över det här avsnittet.
 
-I det här avsnittet Skapa en Azure tjänstens huvudnamn, och två Terraform configuration-filer som innehåller autentiseringsuppgifter från säkerhetsobjektet.
+I det här avsnittet skapar du ett huvudnamn för Azure-tjänsten och två Terraform-konfigurationsfiler som innehåller autentiseringsuppgifterna från säkerhetsobjektetet.
 
-1. [Konfigurera en Azure AD-tjänstens huvudnamn](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) att aktivera Terraform etablera resurser i Azure. När du skapar objektet anteckna värdena för prenumerations-ID, klient, appId och lösenord.
+1. [Konfigurera ett huvudnamn för Azure AD-tjänsten](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) för att se till att Terraform kan tillhandahålla resurser till Azure. När du skapar huvudnamnet antecknar du värdena för prenumerations-ID, klient, appId och lösenord.
 
 2. Öppna en kommandotolk.
 
-3. Skapa en tom katalog som ska lagra Terraform filer.
+3. Skapa en tom katalog där du vill lagra dina Terraform-filer.
 
-4. Skapa en ny fil som innehåller variabler-deklarationer. Du kan kalla filen något annat med en `.tf` tillägg.
+4. Skapa en ny fil som innehåller dina variabeldeklarationer. Du kan kalla den här filen vad du vill med tillägget `.tf`.
 
-5. Kopiera följande kod i filen variabeldeklarationen:
+5. Kopiera följande kod till din variabeldeklarationsfil:
 
   ```tf
   variable subscription_id {}
@@ -60,9 +60,9 @@ I det här avsnittet Skapa en Azure tjänstens huvudnamn, och två Terraform con
   }
   ```
 
-6. Skapa en ny fil som innehåller värden för Terraform-variabler. Det är vanligt att namnge filen Terraform variabeln `terraform.tfvars` som Terraform laddas automatiskt en fil med namnet `terraform.tfvars` (eller ett mönster för `*.auto.tfvars`) om det finns i den aktuella katalogen. 
+6. Skapa en ny fil som innehåller värden för dina Terraform-variabler. Det är vanligt att ge Terraform-variabelfilen namnet `terraform.tfvars` eftersom Terraform automatiskt läser in en fil som heter `terraform.tfvars` (eller enligt mönstret `*.auto.tfvars`) om den finns i den aktuella katalogen. 
 
-7. Kopiera följande kod i filen variabler. Ersätt platshållarna på följande sätt: för `subscription_id`, Använd Azure prenumerations-ID du angav när du kör `az account set`. För `tenant_id`, använda den `tenant` värdet som returneras från `az ad sp create-for-rbac`. För `client_id`, använda den `appId` värdet som returneras från `az ad sp create-for-rbac`. För `client_secret`, använda den `password` värdet som returneras från `az ad sp create-for-rbac`.
+7. Kopiera följande kod till din variabelfil. Se till att ersätta platshållarna på följande sätt: för `subscription_id` använder du ID:t för Azure-prenumeration som du angav när du körde `az account set`. För `tenant_id` använder du värdet `tenant` som returneras från `az ad sp create-for-rbac`. För `client_id` använder du värdet `appId` som returneras från `az ad sp create-for-rbac`. För `client_secret` använder du värdet `password` som returneras från `az ad sp create-for-rbac`.
 
   ```tf
   subscription_id = "<azure-subscription-id>"
@@ -71,13 +71,13 @@ I det här avsnittet Skapa en Azure tjänstens huvudnamn, och två Terraform con
   client_secret = "<password-returned-from-creating-a-service-principal>"
   ```
 
-## <a name="2-create-a-terraform-configuration-file"></a>2. Skapa en konfigurationsfil för Terraform
+## <a name="2-create-a-terraform-configuration-file"></a>2. Skapa en Terraform-konfigurationsfil
 
-I det här avsnittet skapar du en fil som innehåller definitioner för resursen för din infrastruktur.
+I det här avsnittet skapar du en fil som innehåller resursdefinitionerna för din infrastruktur.
 
 1. Skapa en ny fil med namnet `main.tf`. 
 
-2. Kopiera följande exempel resursdefinitionerna till den nyligen skapade `main.tf` fil: 
+2. Kopiera följande exempel på resursdefinitioner till den nyligen skapade filen `main.tf`: 
 
   ```tf
   resource "azurerm_resource_group" "test" {
@@ -220,62 +220,62 @@ I det här avsnittet skapar du en fil som innehåller definitioner för resursen
 
 ## <a name="3-initialize-terraform"></a>3. Initiera Terraform 
 
-Den [terraform init kommandot](https://www.terraform.io/docs/commands/init.html) används för att initiera en katalog som innehåller Terraform konfigurationsfiler - filer som du skapade i föregående avsnitt. Du bör alltid köra den `terraform init` kommandot efter en ny Terraform konfiguration. 
+[Kommandot terraform init](https://www.terraform.io/docs/commands/init.html) används för att initiera en katalog som innehåller Terraform-konfigurationsfilerna – filerna som du skapade med föregående avsnitt. Det är en bra idé att alltid köra kommandot `terraform init` när du har skrivit en ny Terraform-konfiguration. 
 
 > [!TIP]
-> Den `terraform init` kommandot är idempotent vilket innebär att den kan anropas flera gånger när producerar samma resultat. Om du arbetar i en miljö med samarbete och du tror konfigurationsfilerna kan ha ändrats, det därför alltid en bra idé att anropa den `terraform init` kommandot innan körs eller använda en plan.
+> Kommandot `terraform init` är idempotent, vilket innebär att det kan anropas upprepade gånger och ge samma resultat. Om du arbetar i en samarbetsmiljö och du tror att konfigurationsfilerna kan ha ändrats, är det därför alltid en bra idé att anropa kommandot `terraform init` innan du kör eller tillämpar en plan.
 
-Om du vill initiera Terraform, kör du följande kommando:
+Initiera Terraform genom att köra följande kommando:
 
   ```cmd
   terraform init
   ```
 
-  ![Initierar Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-init.png)
+  ![Initiering av Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-init.png)
 
-## <a name="4-create-a-terraform-execution-plan"></a>4. Skapa en plan för körning av Terraform
+## <a name="4-create-a-terraform-execution-plan"></a>4. Skapa en Terraform-körningsplan
 
-Den [terraform plan kommandot](https://www.terraform.io/docs/commands/plan.html) används för att skapa en Körningsplan. Om du vill generera en åtgärdsplan Terraform aggregerar alla de `.tf` filer i den aktuella katalogen. 
+Kommandot [terraform plan](https://www.terraform.io/docs/commands/plan.html) används för att skapa en körningsplan. Terraform samlar alla `.tf`-filer i den aktuella katalogen för att skapa en körningsplan. 
 
-Om du arbetar samarbeta där konfigurationen kan ändra mellan när du skapar körningsplanen och tidpunkten du tillämpa körningsplanen bör du använda den [terraform plan kommando-out-parameter](https://www.terraform.io/docs/commands/plan.html#out-path)spara körningsplanen i en fil. Annars, om du arbetar i en enda person miljö kan du utelämna den `-out` parameter.
+Om du arbetar i en samarbetsmiljö där konfigurationen kan ändras mellan tidpunkten då du skapar körningsplanen och tidpunkten då du använder körningsplanen bör du använda [parametern -out för kommandot terraform plan](https://www.terraform.io/docs/commands/plan.html#out-path) för att spara körningsplanen i en fil. Om du arbetar i en miljö med en enda person kan du utesluta parametern `-out`.
 
-Om namnet på filen Terraform variabler inte är `terraform.tfvars` och inte följer den `*.auto.tfvars` mönster, måste du ange namn på filen med den [terraform plan kommando - var filen parametern](https://www.terraform.io/docs/commands/plan.html#var-file-foo) när du kör `terraform plan`kommando.
+Om namnet på Terraform-variabelfilen inte är `terraform.tfvars` och den inte följer mönstret `*.auto.tfvars`, måste du ange filnamnet med [parametern -var-file för kommandot terraform plan](https://www.terraform.io/docs/commands/plan.html#var-file-foo) när du kör kommandot `terraform plan`.
 
-Vid bearbetning av `terraform plan` kommandot Terraform utför en uppdatering och avgör vilka åtgärder som krävs för att uppnå det tillstånd som anges i konfigurationsfilerna.
+Vid bearbetning av kommandot `terraform plan` utför Terraform en uppdatering och avgör vilka åtgärder som krävs för att uppnå det önskade tillstånd som anges i konfigurationsfilerna.
 
-Om du inte behöver spara din åtgärdsplan kör du följande kommando:
+Om du inte behöver spara din körningsplan kör du följande kommando:
 
   ```cmd
   terraform plan
   ```
 
-Om du måste spara din Körningsplan, kör du följande kommando (ersätter den &lt;sökväg > med önskad Utdatasökvägen):
+Om du vill spara din körningsplan kör du följande kommando (ersätt platshållaren &lt;path> med önskad sökväg för utdata):
 
   ```cmd
   terraform plan -out=<path>
   ```
 
-![Skapa en plan för körning av Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
+![Skapa en plan för Terraform-körning](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
-## <a name="5-apply-the-terraform-execution-plan"></a>5. Tillämpa åtgärdsplan Terraform
+## <a name="5-apply-the-terraform-execution-plan"></a>5. Använd Terraform-körningsplanen
 
-Det sista steget i den här kursen är att använda den [terraform gäller kommandot](https://www.terraform.io/docs/commands/apply.html) att tillämpa en uppsättning åtgärder som genererats av den `terraform plan` kommando.
+Det sista steget i den här självstudien är att använda [terraform-kommandot apply](https://www.terraform.io/docs/commands/apply.html) för att tillämpa uppsättningen åtgärder som skapats av kommandot `terraform plan`.
 
-Om du vill tillämpa den senaste körningsplanen, kör du följande kommando:
+Kör följande kommando om du vill tillämpa den senaste körningsplanen:
 
   ```cmd
   terraform apply
   ```
 
-Om du vill tillämpa en tidigare sparade åtgärdsplan kör du följande kommando (ersätter den &lt;sökväg > med den sökväg som innehåller den sparade åtgärdsplan):
+Om du vill tillämpa en tidigare sparad körningsplan kör du följande kommando (ersätt platshållaren &lt;path> med sökvägen som innehåller den sparade körningsplanen):
 
   ```cmd
   terraform apply <path>
   ```
 
-![Tillämpa en plan för körning av Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
+![Tillämpa en Terraform-körningsplan](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Bläddra i listan över [Azure Terraform moduler](https://registry.terraform.io/modules/Azure)
-- Skapa en [virtuella skaluppsättning med Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+- Bläddra i listan över [Azure Terraform-moduler](https://registry.terraform.io/modules/Azure)
+- Skapa en [VM-skalningsuppsättning för med Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: c675f37e50f5b8a259048d9a92fcdbe5b947068c
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 593b7ac636b92db5c72cfad8f73fc2c418639358
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797625"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700220"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin-diagram
-Azure Cosmos DB stöder [Apache Tinkerpops](http://tinkerpop.apache.org) diagrambläddringsspråk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), vilket är en Graph API för att skapa diagramentiteter och utföra diagramfrågeåtgärder. Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 
+Azure Cosmos DB stöder [Apache Tinkerpops](http://tinkerpop.apache.org) diagrambläddringsspråk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), vilket är en Gremlin-API för att skapa diagramentiteter och utföra diagramfrågeåtgärder. Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 
 
 Azure Cosmos DB ger dig företagsklara funktioner diagramdatabaser. Det inkluderar global distribution, oberoende skalning av lagring och dataflöde, förutsägbara svarstider i ensiffriga millisekunder, automatisk indexering, serviceavtal, lästillgänglighet för databaskonton som sträcker sig över två eller flera Azure-regioner. Eftersom Azure Cosmos DB stöder TinkerPop/Gremlin, kan du enkelt migrera program som skrivits med en annan daigramdatabas utan att behöva göra kodändringar. Dessutom tack vare stöd för Gremlin, integreras Azure Cosmos DB smidigt med TinkerPop-aktiverade ramverk för analys som [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-I den här artikeln ger vi en snabb genomgång av Gremlin och räknar upp de Gremlin-funktioner och steg som stöds av Graph API:t.
+I den här artikeln ger vi en snabb genomgång av Gremlin och räknar upp de Gremlin-funktioner och steg som stöds av Gremlin-API:et.
 
 ## <a name="gremlin-by-example"></a>Gremlin efter exempel
 Nu ska vi använda ett exempeldiagram för att förstå hur frågor kan uttryckas i Gremlin. Följande bild visar ett affärsprogram som hanterar data om användare, intressen och enheter i form av ett diagram.  

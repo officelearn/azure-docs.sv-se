@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 68a431418292cd5b1aaff376c4e20a95d0e20c57
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624317"
+documentType: LandingData
+title: Dokumentation om nyhetssökning i Bing
+metadata:
+  title: Dokumentation om nyhetssökning i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs
+  description: Lär dig att använda API för nyhetssökning i Bing för att hämta nyheter från webben som är relevanta för användarfrågor. Självstudier visar hur du skapar appar som använder tjänsten.
+  services: cognitive-services
+  author: mikedodaro
+  manager: rosh
+  ms.service: bing-video-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/02/2017
+  ms.author: v-gedod
+abstract:
+  description: API för nyhetssökning i Bing har funktioner som liknar Bing genom att returnera listor med nyhetsartiklar som Bing bedömer som relevanta för användarens fråga.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: 'Kom igång med API för nyhetssökning i Bing genom att skapa en fråga och visa JSON-svaret:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      href: csharp
+      text: C&#35;
+    - image:
+        src: media/index/logo_java.svg
+      href: java
+      text: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      href: nodejs
+      text: Node.js
+    - image:
+        src: media/index/logo_php.svg
+      href: php
+      text: PHP
+    - image:
+        src: media/index/logo_python.svg
+      href: python
+      text: Python
+    - image:
+        src: media/index/logo_ruby.svg
+      href: ruby
+      text: Ruby
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: 'Utveckla program med hjälp av API för nyhetssökning i Bing:'
+  - type: paragraph
+    text: <a href="tutorial-bing-news-search-single-page-app">Enkelsidig webbapp</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">Källkod</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API:er
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference">API för nyhetssökning i Bing v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference">API för nyhetssökning i Bing v5</a></p>
+    - title: SDK:er
+      html: <p><a href="sdk.md">Bing-sökning SDK</a></p>

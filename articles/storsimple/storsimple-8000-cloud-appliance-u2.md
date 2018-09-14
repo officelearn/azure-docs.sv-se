@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852344"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665013"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuera och hantera en StorSimple Cloud Appliance-installation i Azure (Uppdatering 3 eller senare)
 
@@ -199,7 +199,7 @@ Du behöver en intern eller privat IP-adress för molninstallationen för att de
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>Arbeta med StorSimple-molninstallationen
 
-Nu när du har skapat och konfigurerat StorSimple-molninstallationen är det dags att börja arbeta med den. Du kan arbeta med volymbehållare, volymer och säkerhetskopieringspolicyer i en molninstallation på samma sätt som på en fysisk StorSimple-enhet. Den enda skillnaden är att du måste vara noga med att välja molninstallationen från enhetslistan. Stegvisa anvisningar som beskriver de olika hanteringsaktiviteterna för molninstallationen finns i [Use the StorSimple Device Manager service to manage a cloud appliance](storsimple-8000-manager-service-administration.md) (Hantera en molninstallation med hjälp av StorSimple Device Manager-tjänsten).
+Nu när du har skapat och konfigurerat StorSimple-molninstallationen är det dags att börja arbeta med den. Du kan arbeta med volymcontainer, volymer och säkerhetskopieringspolicyer i en molninstallation på samma sätt som på en fysisk StorSimple-enhet. Den enda skillnaden är att du måste vara noga med att välja molninstallationen från enhetslistan. Stegvisa anvisningar som beskriver de olika hanteringsaktiviteterna för molninstallationen finns i [Use the StorSimple Device Manager service to manage a cloud appliance](storsimple-8000-manager-service-administration.md) (Hantera en molninstallation med hjälp av StorSimple Device Manager-tjänsten).
 
 I följande avsnitt beskrivs några av de skillnader som du kommer att upptäcka när du arbetar med molninstallationen.
 
@@ -242,13 +242,13 @@ Det enklaste sättet att starta, stoppa och starta om en molninstallation är vi
 Om du bestämmer dig för att börja om med molninstallationen inaktiverar du den och tar bort den och skapar sedan en ny.
 
 ## <a name="fail-over-to-the-cloud-appliance"></a>Växla över till molninstallationen
-Haveriberedskap är ett av de scenarier som StorSimple Cloud Appliance utvecklades för. Under dessa scenarier kan det hända att den fysiska StorSimple-enheten eller hela datacentret inte tillgängliga. Som tur är kan du använda molninstallationen för att återställa åtgärder på en annan plats. Under en katastrofåterställning byter volymbehållarna från källenheten ägarskap och överförs till molninstallationen.
+Haveriberedskap är ett av de scenarier som StorSimple Cloud Appliance utvecklades för. Under dessa scenarier kan det hända att den fysiska StorSimple-enheten eller hela datacentret inte tillgängliga. Som tur är kan du använda molninstallationen för att återställa åtgärder på en annan plats. Under en katastrofåterställning byter volymcontainrarna från källenheten ägarskap och överförs till molninstallationen.
 
 Följande krav måste vara uppfyllda för att katastrofåterställningen ska lyckas:
 
 * Molninstallationen har skapats och konfigurerats.
-* Alla volymer i volymbehållaren är offline.
-* Den volymbehållare som du redundansväxlar har en tillhörande ögonblicksbild av molndata.
+* Alla volymer i volymcontainern är offline.
+* Den volymcontainer som du redundansväxlar har en tillhörande ögonblicksbild av molndata.
 
 > [!NOTE]
 > * När du använder en molninstallation som en sekundär enhet för katastrofåterställning är det viktigt att komma ihåg att 8010 har 30 TB standardlagring, och 8020 64 TB Premium Storage. 8020-molninstallationer med högre kapacitet kan passa bättre i ett katastrofåterställningsscenario.
@@ -265,7 +265,7 @@ Om du vill stoppa alla kostnader måste du ta bort molninstallationen. Om du vil
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Felsöka problem med Internetanslutning
 Om det inte finns någon Internetanslutning när molninstallationen skapas, så misslyckas åtgärden. Du kan felsöka problem med Internetanslutningen genom att utföra följande steg i Azure Portal:
 
-1. [Skapa en virtuell dator med Windows Server 2012 i Azure](/articles/virtual-machines/windows/quick-create-portal.md). Den virtuella datorn måste använda samma lagringskonto, virtuella nätverk och undernät som används av molninstallationen. Om det finns en befintlig Windows Server-värd i Azure som använder samma lagringskonto, virtuella nätverk och undernät, kan du även använda den för att felsöka Internetanslutningen.
+1. [Skapa en virtuell Windows-dator i Azure-portalen](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). Den virtuella datorn måste använda samma lagringskonto, virtuella nätverk och undernät som används av molninstallationen. Om det finns en befintlig Windows Server-värd i Azure som använder samma lagringskonto, virtuella nätverk och undernät, kan du även använda den för att felsöka Internetanslutningen.
 2. Logga in via fjärrinloggning på den virtuella datorn som skapades i föregående steg.
 3. Öppna ett kommandofönster i den virtuella datorn (Win + R och skriv sedan `cmd`).
 4. Kör följande cmd i prompten.

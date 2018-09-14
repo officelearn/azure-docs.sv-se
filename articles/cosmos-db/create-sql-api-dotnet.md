@@ -12,14 +12,24 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 clicktale: true
-ms.openlocfilehash: 19da0591d61e55cc34a7a0cc17ed13b197cdabab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 672156d6c301fc26f8e4da5f78523f1fe30bac6f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652064"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698136"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Snabbstart: Skapa en .NET-webbapp med Azure Cosmos DB med SQL API:t och Azure-portalen
+
+> [!div class="op_single_selector"]
+> * [.NET](create-sql-api-dotnet.md)
+> * [Java](create-sql-api-java.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Node.js- v2](create-sql-api-nodejs-preview.md)
+> * [Python](create-sql-api-python.md)
+> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+>  
+> 
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
@@ -121,9 +131,13 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
     `<add key="endpoint" value="FILLME" />`
 
-4. Kopiera sedan värdet för primärnyckeln från portalen och gör det till värdet för authKey i web.config. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
+4. Kopiera sedan värdet för primärnyckeln från portalen och gör det till värdet för authKey i web.config. 
 
     `<add key="authKey" value="FILLME" />`
+    
+5. Uppdatera sedan databasvärdet för att matcha namnet på den databas som du skapade tidigare. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
+
+    `<add key="database" value="Tasks" />`    
     
 ## <a name="run-the-web-app"></a>Kör webbappen
 1. I Visual Studio högerklickar du på projektet i **Solution Explorer** och därefter på **Hantera NuGet-paket**. 

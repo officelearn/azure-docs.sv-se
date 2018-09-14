@@ -1,27 +1,34 @@
 ---
 title: Azure Stack Ethereum blockchain-lösningsmallen
-description: Använd mallar för anpassad lösning för att distribuera och konfigurera ett konsortienätverk Ethereum blockchain på Azure Stack
+description: Självstudie som använder en anpassad lösningsmallar för att distribuera och konfigurera ett konsortienätverk Ethereum blockchain på Azure Stack
 services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/12/2018
-ms.topic: article
+ms.date: 09/13/2018
+ms.topic: tutorial
 ms.service: azure-stack
-ms.reviewer: coborn
+ms.reviewer: seyadava
+ms.custom: mvc
 manager: femila
-ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b21a9ca58fc29a3da62ea08e81e628368fe5385f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721998"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580777"
 ---
-# <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blockchain-lösningsmallar
+# <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>Självstudier: Använd Azure Stack Ethereum blockchain-lösningsmallen
 
 Ethereum-lösningsmallen är utformad för att göra det enklare och snabbare att distribuera och konfigurera ett flera medlem Ethereum blockchain konsortienätverk med minimal kunskap om Azure och Ethereum.
 
 Med en handfull användarindata och en enda musklick distribution via portalen för Azure Stack-klient, kan varje medlem etablera sina nätverk fotavtryck. Varje medlem nätverk fotavtryck består av en uppsättning noder för Utjämning av nätverksbelastning transaktion med som ett program eller en användare kan interagera om du vill skicka transaktioner, en uppsättning utvinning noder till poster transaktioner och en virtuell nätverksinstallation (NVA). Ett efterföljande anslutning steg ansluter nva: erna för att skapa en fullständigt konfigurerad flera medlem blockchain-nätverk.
+
+Om du vill ställa in, kommer du att:
+
+> [!div class="checklist"]
+> * Välj en distributionsarkitektur
+> * Distribuera en fristående, consortium ledare eller medlem konsortienätverk
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -198,5 +205,13 @@ När distributionen är klar, tar det några minuter för ledare och medlem att 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om Ethereum- och Azure i [Blockkedjeteknik och Blockkedjeprogram | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/).
-- Läs mer om blockchain scenarier på Azure, [Ethereum proof of work consortium lösningsmallen](../blockchain-workbench/ethereum-deployment-guide.md).
+I den här självstudiekursen lärde du dig att:
+
+> [!div class="checklist"]
+> * Välj en distributionsarkitektur
+> * Distribuera en fristående, consortium ledare eller medlem konsortienätverk
+
+Mer information om Ethereum- och Azure finns:
+
+> [!div class="nextstepaction"]
+> [Blockkedjeteknik och Blockkedjeprogram](https://azure.microsoft.com/solutions/blockchain/)

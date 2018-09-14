@@ -1,5 +1,5 @@
 ---
-title: Skapa en Node.js-app i Azure Cosmos DB med Graph API | Microsoft Docs
+title: Skapa en Node.js-app i Azure Cosmos DB med Gremlin API | Microsoft Docs
 description: Presenterar ett Node.js-kodexempel som du kan använda för att ansluta till och ställa frågor mot Azure Cosmos DB
 services: cosmos-db
 author: luisbosquez
@@ -11,18 +11,27 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 84c92b1c0b2977ca15b82a0884870d78d895a761
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5f7e2a30ee4ea069e8c08187312f09e33a5a921a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543780"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700044"
 ---
-# <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Skapa en Node.js-app med Graph API
+# <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB: Skapa en Node.js-app med Gremlin API
+
+> [!div class="op_single_selector"]
+> * [Gremlin-konsol](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
 
 Azure Cosmos DB är Microsofts globalt distribuerade databas för flera modeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här snabbstarten demonstrerar hur du skapar ett Azure Cosmos DB [Graph API](graph-introduction.md)-konto, en databas och en graf med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin Node.js](https://www.npmjs.com/package/gremlin) (öppen källkod).
+Den här snabbstarten demonstrerar hur du skapar ett Azure Cosmos DB [Gremlin API](graph-introduction.md)-konto, en databas och en graf med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin Node.js](https://www.npmjs.com/package/gremlin) (öppen källkod).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -42,7 +51,7 @@ Innan du kan köra det här exemplet måste du uppfylla följande krav:
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi klona en Graph API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
+Nu ska vi klona en Gremlin-API-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
 1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 
@@ -148,7 +157,7 @@ Följande kodfragment är alla hämtade från filen app.js.
 
    ![Bladet ”Nycklar” i Azure-portalen](./media/create-graph-nodejs/keys.png)
 
-4. Ange databasens namn och grafvärdet (behållaren) för config.database och config.collection. 
+4. Ange databasens namn och grafvärdet (containern) för config.database och config.collection. 
 
 Här är ett exempel på hur din färdiga config.js-fil ska se ut:
 
@@ -182,7 +191,7 @@ De data som genereras av exempelappen visas i nästa ruta på fliken **Diagram**
 
 Prova att slutföra `g.V()` med `.has('firstName', 'Thomas')` för att testa filtret. Observera att värdet är skiftlägeskänsligt.
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

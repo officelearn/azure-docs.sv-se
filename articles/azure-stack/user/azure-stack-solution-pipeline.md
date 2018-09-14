@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ad40f3efc123d313b2fd759889b0aa2621b3d7aa
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300843"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542509"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudie: distribuera appar till Azure och Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudie: Distribuera appar till Azure och Azure Stack
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
@@ -81,7 +81,7 @@ Den här självstudien förutsätter att du har några grundläggande kunskaper 
  * Skapa [Plan/erbjudanden](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) i Azure Stack.
  * Skapa en [klient prenumeration](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) i Azure Stack.
  * Skapa en Webbapp i klientprenumeration. Anteckna den nya Web App-URL för att använda senare.
- * Distribuera Azure DevOps Services-dator i klientprenumeration.
+ * Distribuera en Windows Server 2012-dator i klientprenumeration. Du använder den här servern som build-servern och att köra Azure DevOps-tjänster.
 * Ange en Windows Server 2016-avbildning med .NET 3.5 för en virtuell dator (VM). Den här virtuella datorn kommer att skapas på Azure Stack som en privat skapandeagent.
 
 ### <a name="developer-tool-requirements"></a>Krav för Developer-verktyget

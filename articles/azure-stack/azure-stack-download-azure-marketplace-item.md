@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 09/13/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: ddb1fcd91ff0c0018bcab9988a5ab063b882cf36
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: e396fc82754188ea655c70b44d4bf937a3c3163c
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714675"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544219"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure Stack
 
@@ -148,9 +148,9 @@ Det finns två delar i det här scenariot:
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Importera nedladdningen och publicera Azure Stack Marketplace
 1. Filer för avbildningar av virtuella datorer eller mallar för lösningar som du har [tidigare hämtade](#use-the-marketplace-syndication-tool-to-download-marketplace-items) måste vara tillgängliga lokalt till Azure Stack-miljön.  
 
-2. Du kan använda administrationsportalen för att överföra marketplace objekt paketet (.azpkg-fil) till Azure Stack Blob storage. Överföring av paketet gör dem tillgängliga för Azure Stack så att du senare kan publicera objektet Azure Stack Marketplace.
+2. Du kan använda administrationsportalen för att överföra marketplace objekt paketet (.azpkg-fil) och den virtuella hårddiskavbildningen (VHD-fil) till Azure Stack Blob storage. Ladda upp av paketet och diskfiler gör dem tillgängliga för Azure Stack så att du kan senare publicera objektet i Azure Stack Marketplace.
 
-   Ladda upp måste du ha ett lagringskonto med en offentligt tillgänglig behållare (se kraven för det här scenariot)   
+   Ladda upp måste du ha ett lagringskonto med en offentligt tillgänglig behållare (se kraven för det här scenariot).  
    1. I Azure Stack-administratörsportalen, går du till **alla tjänster** och sedan under den **DATA + lagring** kategori, väljer **lagringskonton**.  
    
    2. Välj ett lagringskonto från din prenumeration och sedan under **BLOBTJÄNSTEN**väljer **behållare**.  
@@ -159,7 +159,7 @@ Det finns två delar i det här scenariot:
    3. Markera den behållare som du vill använda och välj sedan **överför** att öppna den **ladda upp blob** fönstret.  
       ![Behållare](media/azure-stack-download-azure-marketplace-item/container.png)  
    
-   4. Bläddra till de filer som du vill läsa in till lagring och välj sedan i fönstret ladda upp blob **överför**.  
+   4. Bläddra till paketet och disk-filer att läsa in till lagring och välj sedan i fönstret ladda upp blob **överför**.  
       ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
 
    5. Filer som du överför visas i fönstret behållare. Välj en fil och kopiera Webbadressen från den **Blobegenskaper** fönstret. Du ska använda den här URL: en i nästa steg när du importerar marketplace-objekt till Azure Stack.  I följande bild, behållaren är *test blobblagring* och filen *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Filen URL: en är *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
@@ -169,7 +169,7 @@ Det finns två delar i det här scenariot:
 
    Du kan hämta den *publisher*, *erbjuder*, och *sku* värdena för avbildningen från textfilen som hämtar filen AZPKG. Filen lagras på målplatsen. Den *version* värde är den version som anges när du laddar ned objektet från Azure i föregående procedur. 
  
-   I följande exempelskript används värdena för den Windows Server 2016 Datacenter - Server Core-VM. Ersätt *URI_path* med sökvägen till blob-lagringsplats för objektet.
+   I följande exempelskript används värdena för den Windows Server 2016 Datacenter - Server Core-VM. Värdet för *- Osuri* är ett exempel på sökväg till blob-lagringsplats för objektet.
 
    ```PowerShell  
    Add-AzsPlatformimage `
@@ -178,7 +178,7 @@ Det finns två delar i det här scenariot:
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
-    -OsUri "URI_path"  
+    -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
    **Om lösningsmallar:** vissa mallar kan innehålla en liten 3 MB. VHD-fil med namnet **fixed3.vhd**. Du behöver inte importera den till Azure Stack. Fixed3.VHD.  Den här filen som ingår i vissa lösningsmallar att uppfylla publishing krav för Azure Marketplace.
 
@@ -198,7 +198,7 @@ Det finns två delar i det här scenariot:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. När du har publicerat ett galleriobjekt det genom att gå till **alla tjänster**. Sedan under den **Allmänt** kategori, väljer **Marketplace**.  Om din nedladdning är en lösningsmall, kontrollera att du lägger till alla beroende VHD-avbildning för den lösningsmallen.  
+5. När du har publicerat ett galleriobjekt är det nu tillgänglig för användning. För att bekräfta att galleriobjektet har publicerats, gå till **alla tjänster**, och sedan under den **Allmänt** kategori, väljer **Marketplace**.  Om din nedladdning är en lösningsmall, kontrollera att du lägger till alla beroende VHD-avbildning för den lösningsmallen.  
   ![Visa marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

@@ -11,21 +11,22 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 87654132a6ad01ad5e100da09ca6426af46f94b3
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 17c856918b1c128ab5ece6ee45b9525ad0be900e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41918553"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700019"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Skapa ett webbprogram i Java med Azure Cosmos DB och SQL API
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js – v2.0, förhandsversion](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 Den här självstudiekursen om webbprogram i Java beskriver hur du kan använda tjänsten [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) för att lagra och komma åt data från ett Java-program i Azure App Service Web Apps. I den här artikeln lär du dig att:

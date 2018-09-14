@@ -1,0 +1,76 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: a13532f0dbd687dacffda938e6fbfe5506f60ff8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624368"
+documentType: LandingData
+title: Dokumentation för API för stavningskontroll i Bing
+metadata:
+  document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
+  title: Dokumentation om API för stavningskontroll i Bing – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  description: Lär dig att använda API för stavningskontroll i Bing för att få ändringsförslag för textdokument. Självstudier visar hur du skapar appar som använder API:et.
+  services: cognitive-services
+  author: noellelacharite
+  manager: nolachar
+  ms.service: cognitive-services
+  ms.component: bing-spell-check
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/09/2018
+  ms.author: nolachar
+abstract:
+  description: Med API för Bing-stavningskontroll kan du utföra kontextbaserad kontroll av grammatik och stavning. Bing har utvecklat en webbaserad stavningskontroll som använder maskininlärning och statistisk maskinöversättning för att dynamiskt lära upp en ständigt växande och mycket sammanhangsberoende algoritm. Stavningskontrollen baseras på en omfattande samling webbsökningar och dokument. Lär dig hur du analyserar innehåll på olika sätt med våra snabbstarter, självstudier och exempel.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: 'Kom igång med API för stavningskontroll i Bing genom att skapa en fråga och visa JSON-svaret:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      text: C&#35;
+      href: quickstarts/csharp
+    - image:
+        src: media/index/logo_java.svg
+      text: Java
+      href: quickstarts/java
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: quickstarts/nodejs
+    - image:
+        src: media/index/logo_php.svg
+      text: PHP
+      href: quickstarts/php
+    - image:
+        src: media/index/logo_python.svg
+      text: Python
+      href: quickstarts/python
+    - image:
+        src: media/index/logo_ruby.svg
+      text: Ruby
+      href: quickstarts/ruby
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: 'Lär dig att utveckla program med hjälp av API för stavningskontroll i Bing:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorials/spellcheck.md">Enkelsidig webbapp</a>
+    - html: <a href="tutorials/spellcheck-source.md">Enkelsidig webbapp (källkod)</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference">API-referens för stavningskontroll i Bing v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference">API för stavningskontroll i Bing v5</a> (gammal version)</p>
+    - title: Kodexempel
+      html: <p><a href="sdk.md">Översikt över SDK-exempel</a></p>

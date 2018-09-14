@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 879dd4e9b20a57257dd7b93fddb54168d6bceb33
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624397"
+documentType: LandingData
+title: Dokumentation om Translator Speech API
+metadata:
+  title: Dokumentation om Translator Speech – självstudier, API-referens
+  titleSuffix: Cognitive Services
+  description: Lär dig hur du använder Translator Speech API för tal till tal- och tal till text-översättning på flera språk. Självstudierna visar hur du skriver kod som använder översättningstjänsten.
+  services: cognitive-services
+  author: Jann-Skotdal
+  manager: Chris.Wendt
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 3/5/2018
+  ms.author: v-jansko
+abstract:
+  description: Microsoft Translator Speech API, som ingår i API-samlingen Microsoft Cognitive Services, är en molnbaserad maskinöversättningstjänst med tal till tal- och tal till text-översättning. Tjänsten är baserad på REST-teknik (branschstandard) och kan användas för att lägga till talöversättning, heltäckande och i realtid, till program, verktyg och lösningar som kräver talöversättning på flera språk oberoende av måloperativsystem och utvecklingsspråk. Listan med språk som stöds finns i <a href="languages.md">Språk som stöds</a>.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: 'Kom igång med Translator Speech API genom att göra en översättningsbegäran och visa svaret:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    - image:
+        src: media/index/logo_python.svg
+    rows:
+    - title: Talöversättning med API
+      values:
+      - href: quickstarts/csharp
+      - href: quickstarts/java
+      - href: quickstarts/nodejs
+      - href: quickstarts/python
+      - href: quickstarts/php
+      - href: quickstarts/ruby
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: 'Lär dig att utveckla program med hjälp av Translator Speech API:'
+  - type: paragraph
+    text: <a href="tutorial-translator-speech-csharp.md">Translator Speech App </a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API
+      html: <p><a href="https://aka.ms/translator-speech-api">API-referens</a></p>

@@ -1,96 +1,55 @@
 ---
-title: Självstudie om hur du lägger till yttranden till en LUIS-app med hjälp av Python | Microsoft Docs
-description: I den här självstudien lär du dig att anropa en LUIS-app med hjälp av Python.
+title: 'Snabbstart: Ändra modell och träna LUIS-app med Python – Azure Cognitive Services | Microsoft Docs'
+description: I den här Node.js-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 3e1ca2ea874b6b39ac8a1b1eaa94fe9ff1894ea3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: acc57a33b24a31159eb6a8f063212899540f7f6b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264309"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43771849"
 ---
-# <a name="tutorial-add-utterances-to-app-using-python"></a>Självstudie: Lägga till yttranden till en app med Python
-I den här självstudien skriver du ett program för att lägga till ett yttrande till en avsikt med hjälp av redigerings-API:er i Python.
+# <a name="quickstart-change-model-using-python"></a>Snabbstart: Ändra modell med hjälp av Python
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Skapa Visual Studio-konsolprojekt 
-> * Lägg till metod för att anropa LUIS API för att lägga till yttrande och träna appen
-> * Lägg till JSON-fil med exempelyttranden för BookFlight-avsikt
-> * Kör konsol och visa träningsstatus för yttranden
-
-Mer information finns i den tekniska dokumentationen för API:erna för [lägga till exempelyttrande till avsikt](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), [träna](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) och [träningsstatus](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46).
-
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [Python 3.6](https://www.python.org/downloads/) eller senare.
-* **(Rekommenderas)** [Visual Studio Code](https://code.visualstudio.com/) för IntelliSense och felsökning.
-* Din **[LUIS-redigeringsnyckel](luis-concept-keys.md#authoring-key)**. Du hittar den här nyckeln under kontoinställningarna på [LUIS-webbplatsen](luis-reference-regions.md).
-* Ditt befintliga [**LUIS-program-ID**](./luis-get-started-create-app.md). Program-ID visas på programmets instrumentpanel. LUIS-programmet med de avsikter och entiteter som används i filen `utterances.json` måste finnas innan koden i `add-utterances.js` körs. Koden i den här artikeln skapar inte avsikterna och entiteterna. Den lägger bara till yttrandena för befintliga avsikter och entiteter. 
-* Den **versions-ID** i programmet som tar emot yttrandena. Standard-ID är ”0.1”
-* Skapa en ny fil med namnet `add-utterances-3-6.py` i projektet i VSCode.
+* [Visual Studio Code](https://code.visualstudio.com/)
 
-> [!NOTE] 
-> Den fullständiga `add-utterances-3-6.py`-filen finns tillgänglig från [**LUIS-Samples**-Github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/authoring-api-samples/python).
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
+## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 
-## <a name="write-the-python-code"></a>Skriva Python-koden
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
-1. Kopiera följande kodfragment:
+## <a name="create-quickstart-code"></a>Kod för att skapa snabbstart
 
-   [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/authoring-api-samples/python/add-utterances-3-6.py)]
+1. Kopiera följande kodavsnitt till en fil med namnet `add-utterances-3-6.py`:
 
-## <a name="specify-utterances-to-add"></a>Ange yttranden att lägga till
-Skapa och redigera filen `utterances.json` för att ange den **matris med yttranden** som du vill lägga till LUIS-appen. Avsikten och entiteterna **måste** redan finnas i LUIS-appen.
+   [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/quickstarts/change-model/python/3.x/add-utterances-3-6.py)]
 
-> [!NOTE]
-> LUIS-programmet med de avsikter och entiteter som används i filen `utterances.json` måste finnas innan koden i `add-utterances.js` körs. Koden i den här artikeln skapar inte avsikterna och entiteterna. Den lägger bara till yttrandena för befintliga avsikter och entiteter.
-
-Fältet `text` innehåller texten för yttrandet. Fältet `intentName` måste motsvara namnet på en avsikt i LUIS-appen. Fältet `entityLabels` är obligatoriskt. Om du inte vill märka några entiteter anger du en tom lista såsom det visas i följande exempel:
-
-Om listan entityLabels inte är tom måste `startCharIndex` och `endCharIndex` märka den entitet som anges i fältet `entityName`. Båda index är nollbaserade antal; alltså refererar 6 i det översta exemplet till ”S” i Seattle och inte till blanksteget före versalt S.
-
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
-
-## <a name="add-an-utterance-from-the-command-line"></a>Lägg till ett yttrande från kommandoraden
-
+## <a name="run-code"></a>Kör kod
 Kör programmet från en kommandorad med Python 3.6.
+
+### <a name="add-utterances-from-the-command-line"></a>Lägg till yttranden från kommandoraden
 
 Om add-utterance anropas utan argument läggs ett yttrande till i appen, men det tränas inte.
 
-````
+```CMD
 > python add-utterances-3-6.py
-````
+```
 
-Det här exemplet skapar en fil med den `results.json` som innehåller resultatet av anrop av API för att lägga till yttranden. Fältet `response` är i det här formatet för de yttranden som lades till. `hasError` är falskt, vilket indikerar att yttrandet lades till.  
+Följande svar returneras när yttrandena läggs till i modellen.  
 
 ```json
     "response": [
@@ -111,19 +70,8 @@ Det här exemplet skapar en fil med den `results.json` som innehåller resultate
     ]
 ```
 
-## <a name="add-an-utterance-and-train-from-the-command-line"></a>Lägg till ett yttrande och träna från kommandoraden
-Anropa add-utterance med argumentet `-train` för att skicka en begäran om att träna, och begär sedan träningsstatus. Statusen placeras i kö omedelbart efter att träningen börjar. Statusinformation skrivs till en fil.
-
-````
-> python add-utterances-3-6.py -train
-````
-
-> [!NOTE]
-> Duplicerade yttranden läggs inte till igen, men de orsakar heller inte något fel. `response` innehåller ID för det ursprungliga yttrandet.
-
-När du anropar exemplet med argumentet `-train` skapas en `training-results.json`-fil som indikerar att begäran om att träna LUIS-appen placerades i kö. 
-
 Nedan visas resultatet av en lyckad begäran om att träna:
+
 ```json
 {
     "request": null,
@@ -134,20 +82,105 @@ Nedan visas resultatet av en lyckad begäran om att träna:
 }
 ```
 
-När begäran om att träna har placerats i kö kan det ta en stund att slutföra träningen.
+```JSON
+Requested training status.
+[
+   {
+      "modelId": "eb2f117c-e10a-463e-90ea-1a0176660acc",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "c1bdfbfc-e110-402e-b0cc-2af4112289fb",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "863023ec-2c96-4d68-9c44-34c1cbde8bc9",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "82702162-73ba-4ae9-a6f6-517b5244c555",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "37121f4c-4853-467f-a9f3-6dfc8cad2763",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "de421482-753e-42f5-a765-ad0a60f50d69",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "80f58a45-86f2-4e18-be3d-b60a2c88312e",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "c9eb9772-3b18-4d5f-a1e6-e0c31f91b390",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "2afec2ff-7c01-4423-bb0e-e5f6935afae8",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   },
+   {
+      "modelId": "95a81c87-0d7b-4251-8e07-f28d180886a1",
+      "details": {
+         "statusId": 0,
+         "status": "Success",
+         "exampleCount": 33,
+         "trainingDateTime": "2017-11-20T18:09:11Z"
+      }
+   }
+]
+```
 
-## <a name="get-training-status-from-the-command-line"></a>Hämta träningsstatus från kommandoraden
-Anropa exemplet med argumentet `-status` för att kontrollera träningsstatus och skriva statusinformation till en fil.
-
-````
-> python add-utterances-3-6.py -status
-````
 ## <a name="clean-up-resources"></a>Rensa resurser
-När du är klar med självstudien tar du bort Visual Studio och konsolprogrammet om du inte längre behöver dem. 
+När du är klar med snabbstarten tar du bort alla filer som skapas i den här snabbstarten. 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
 > [Skapa en LUIS-app programmässigt](luis-tutorial-node-import-utterances-csv.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-

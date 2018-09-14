@@ -1,39 +1,39 @@
 ---
-title: Använd Terraform moduler för att skapa ett VM-kluster i Azure
-description: Lär dig hur du använder Terraform moduler för att skapa en virtuell Windows-kluster i Azure
-keywords: terraform, devops, virtuella datorer, nätverk, moduler
-author: rloutlaw
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.workload: infrastructure
+title: Skapa ett kluster med virtuella datorer i Azure med Terraform-moduler
+description: Lär dig hur du använder Terraform-moduler för att skapa ett kluster med virtuella Windows-datorer i Azure
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, virtuell dator, nätverk, moduler
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/19/2017
-ms.custom: devops
-ms.author: routlaw
-ms.openlocfilehash: e33aef252413eeb243b03543f171d5f1e2385b48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 03c09e190fce9cbbd98cea3565dd2437f79dadf1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29952225"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666641"
 ---
-# <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Skapa ett VM-kluster med Terraform med hjälp av modulen registret
+# <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Skapa ett kluster med virtuella datorer med modulregistret
 
-Den här artikeln vägleder dig genom att skapa ett litet VM-kluster med Terraform [Azure compute modulen](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). I den här självstudiekursen får du lära du dig att: 
+Den här artikeln ger dig instruktioner för att skapa ett litet kluster med virtuella datorer med Terraform-modulen [Azure Compute](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). I den här självstudiekursen får du lära du dig att: 
 
 > [!div class="checklist"]
 > * Konfigurera autentisering med Azure
-> * Skapa mall för Terraform
+> * Skapa Terraform-mallen
 > * Visualisera ändringarna med planen
-> * Tillämpa konfigurationen för att skapa virtuella datorns kluster
+> * Tillämpa konfigurationen för att skapa klustret med virtuella datorer
 
-Mer information om Terraform finns i [Terraform dokumentationen](https://www.terraform.io/docs/index.html).
+Mer information om Terraform finns i [Terraform-dokumentationen](https://www.terraform.io/docs/index.html).
 
 ## <a name="set-up-authentication-with-azure"></a>Konfigurera autentisering med Azure
 
 > [!TIP]
-> Om du [använda Terraform miljövariabler](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) eller köra den här kursen i den [Azure Cloud Shell](/azure/cloud-shell/overview), hoppa över detta steg.
+> Om du [använder Terraform-miljövariabler](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), eller kör den här självstudiekursen i [Azure Cloud Shell](/azure/cloud-shell/overview) kan du hoppa över det här steget.
 
- Granska [Terraform installera och konfigurera åtkomst till Azure](/azure/virtual-machines/linux/terraform-install-configure) att skapa en Azure-tjänstens huvudnamn. Använd den här tjänstens huvudnamn för att fylla i en ny fil `azureProviderAndCreds.tf` i en tom katalog med följande kod:
+ Läs [Installera Terraform och konfigurera åtkomst till Azure](/azure/virtual-machines/linux/terraform-install-configure) för att skapa ett huvudnamn för Azure-tjänsten. Använd tjänstens huvudnamn för att fylla i följande kod i en ny fil `azureProviderAndCreds.tf` i en tom katalog:
 
 ```tf
 variable subscription_id {}
@@ -51,7 +51,7 @@ provider "azurerm" {
 
 ## <a name="create-the-template"></a>Skapa mallen
 
-Skapa en ny mall för Terraform med namnet `main.tf` med följande kod:
+Skapa en ny Terraform-mall som heter `main.tf` med följande kod:
 
 ```tf
 module mycompute {
@@ -85,24 +85,24 @@ output "vm_private_ips" {
 }
 ```
 
-Kör `terraform init` i konfigurationskatalogen. Med en Terraform version av minst 0.10.6 visar följande utdata:
+Kör `terraform init` i konfigurationskatalogen. Om du använder version 0.10.6 eller senare av Terraform visas följande utdata:
 
 ![Terraform Init](media/terraformInitWithModules.png)
 
 ## <a name="visualize-the-changes-with-plan"></a>Visualisera ändringarna med planen
 
-Kör `terraform plan` att förhandsgranska den virtuella infrastrukturen som skapas av mallen.
+Kör `terraform plan` för att förhandsgranska infrastrukturen med virtuella datorer som skapas av mallen.
 
 ![Terraform Plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
 
-## <a name="create-the-virtual-machines-with-apply"></a>Skapa virtuella datorer med Verkställ
+## <a name="create-the-virtual-machines-with-apply"></a>Skapa de virtuella datorerna med Apply
 
-Kör `terraform apply` att etablera de virtuella datorerna på Azure.
+Kör `terraform apply` för etablera de virtuella datorerna på Azure.
 
-![Tillämpa Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
+![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Bläddra i listan över [Azure Terraform moduler](https://registry.terraform.io/modules/Azure)
-- Skapa en [virtuella skaluppsättning med Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+- Bläddra i listan över [Azure Terraform-moduler](https://registry.terraform.io/modules/Azure)
+- Skapa en [VM-skalningsuppsättning för med Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

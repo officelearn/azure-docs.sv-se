@@ -1,118 +1,81 @@
 ---
-title: Självstudie om hur du lägger till yttranden till en LUIS-app med hjälp av PHP | Microsoft Docs
-description: I den här självstudien lär du dig att anropa en LUIS-app med hjälp av PHP.
+title: 'Snabbstart: Ändra modell och träna LUIS-app med PHP – Azure Cognitive Services | Microsoft Docs'
+description: I den här PHP-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 59150b7ed6782c28f243041be2ed6aa17e69cc01
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: ae2d3624cb3f8314a613af356730fb1d8b5d4b29
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263788"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43771832"
 ---
-# <a name="tutorial-add-utterances-to-app-using-php"></a>Självstudie: Lägga till yttranden till en app med PHP 
-I den här självstudien skriver du ett program för att lägga till ett yttrande till en avsikt med hjälp av redigerings-API:er i PHP.
+# <a name="quickstart-change-model-using-php"></a>Snabbstart: Ändra modell med hjälp av PHP 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Skapa Visual Studio-konsolprojekt 
-> * Lägg till metod för att anropa LUIS API för att lägga till yttrande och träna appen
-> * Lägg till JSON-fil med exempelyttranden för BookFlight-avsikt
-> * Kör konsol och visa träningsstatus för yttranden
-
-Mer information finns i den tekniska dokumentationen för API:erna för [lägga till exempelyttrande till avsikt](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [träna](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) och [träningsstatus](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46).
-
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * Senaste [**PHP**](http://php.net/).
 * Kontrollera att openssl är tillgängligt som ett beroende för PHP.  
-* Din **[LUIS-redigeringsnyckel](luis-concept-keys.md#authoring-key)**. Du hittar den här nyckeln under kontoinställningarna på [LUIS-webbplatsen](luis-reference-regions.md).
-* Ditt befintliga [**LUIS-program-ID**](./luis-get-started-create-app.md). Program-ID visas på programmets instrumentpanel. LUIS-programmet med de avsikter och entiteter som används i filen `utterances.json` måste finnas innan koden i `add-utterances.php` körs. Koden i den här artikeln skapar inte avsikterna och entiteterna. Den lägger bara till yttrandena för befintliga avsikter och entiteter. 
-* Den **versions-ID** i programmet som tar emot yttrandena. Standard-ID är ”0.1”
-* Skapa en ny fil med namnet `add-utterances.php` i projektet i VSCode.
 
-> [!NOTE] 
-> Den fullständiga `add-utterances.cs`-filen och en `utterances.json`-exempelfil finns tillgängliga från [**LUIS-Samples**-Github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/php/).
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
+## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 
-## <a name="write-the-php-code"></a>Skriva PHP-koden
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
-Lägg till beroendena till filen.
+## <a name="create-quickstart-code"></a>Kod för att skapa snabbstart 
 
-   [!code-php[PHP and LUIS Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=10-29 "PHP and LUIS Dependencies")]
+Lägg till beroendena till filen med namnet `add-utterances.php`.
+
+   [!code-php[PHP and LUIS Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=1-22 "PHP and LUIS Dependencies")]
 
 Lägg till GET-begäran som används för träningsstatus.
 
-   [!code-php[SendGet](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=31-50 "SendGet")]
+   [!code-php[SendGet](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=24-43 "SendGet")]
 
 Lägg till POST-begäran som används för att skapa yttranden eller starta träning. 
 
-   [!code-php[SendPost](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=52-72 "SendPost")]
+   [!code-php[SendPost](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=45-65 "SendPost")]
 
 Lägg till `AddUtterances`-funktionen.
 
-   [!code-php[AddUtterances method](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=74-79 "AddUtterances method")]
+   [!code-php[AddUtterances method](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=67-72 "AddUtterances method")]
 
 
 Lägg till `Train`-funktionen. 
 
-   [!code-php[Train](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=81-88 "Train")]
+   [!code-php[Train](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=74-81 "Train")]
 
 Lägg till `Status`-funktionen.
 
-   [!code-php[Status](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=90-94 "Status")]
+   [!code-php[Status](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=83-87 "Status")]
 
 För att hantera kommandoradsargumenten lägger du till huvudkodblocket.
 
-   [!code-php[Main code](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=96-120 "Main code")]
+   [!code-php[Main code](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=89-93 "Main code")]
 
-## <a name="specify-utterances-to-add"></a>Ange yttranden att lägga till
-Skapa och redigera filen `utterances.json` för att ange den **matris med yttranden** som du vill lägga till LUIS-appen. Avsikten och entiteterna **måste** redan finnas i LUIS-appen.
-
-> [!NOTE]
-> LUIS-programmet med de avsikter och entiteter som används i filen `utterances.json` måste finnas innan koden i `add-utterances.php` körs. Koden i den här artikeln skapar inte avsikterna och entiteterna. Den lägger bara till yttrandena för befintliga avsikter och entiteter.
-
-Fältet `text` innehåller texten för yttrandet. Fältet `intentName` måste motsvara namnet på en avsikt i LUIS-appen. Fältet `entityLabels` är obligatoriskt. Om du inte vill märka några entiteter anger du en tom lista såsom det visas i följande exempel:
-
-Om listan entityLabels inte är tom måste `startCharIndex` och `endCharIndex` märka den entitet som anges i fältet `entityName`. Båda index är nollbaserade antal; alltså refererar 6 i det översta exemplet till ”S” i Seattle och inte till blanksteget före versalt S.
-
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
-
-## <a name="add-an-utterance-from-the-command-line"></a>Lägg till ett yttrande från kommandoraden
+## <a name="run-code"></a>Köra koden
 
 Kör programmet från en kommandorad med PHP.
 
-Om `add-utterances.php` anropas med endast utterance.json som ett argument läggs LUIS till i de nya yttrandena, men det tränas inte.
-````
-> php add-utterances.php ./utterances.json
-````
+### <a name="add-an-utterance-from-the-command-line"></a>Lägg till ett yttrande från kommandoraden
+
+Kör programmet från en kommandorad med PHP.
+
+När du anropar `add-utterances.php` läggs yttrandena till, träning utförs och träningsstatus hämtas.
+
+```CMD
+> php add-utterances.php 
+```
 
 Följande JSON returneras från API-anropet för att lägga till yttranden. Fältet `response` är i det här formatet för de yttranden som lades till. `hasError` är falskt, vilket indikerar att yttrandet lades till.  
 
@@ -135,17 +98,8 @@ Följande JSON returneras från API-anropet för att lägga till yttranden. Fäl
     ]
 ```
 
-## <a name="add-an-utterance-and-train-from-the-command-line"></a>Lägg till ett yttrande och träna från kommandoraden
-Anropa `add-utterance.php` med argumentet `-train` för att skicka en begäran om att träna. 
-
-````
-> php add-utterances.php ./utterances.json -train
-````
-
-> [!NOTE]
-> Duplicerade yttranden läggs inte till igen, men de orsakar heller inte något fel. `response` innehåller ID för det ursprungliga yttrandet.
-
 Nedan visas resultatet av en lyckad begäran om att träna:
+
 ```json
 {
     "request": null,
@@ -156,16 +110,8 @@ Nedan visas resultatet av en lyckad begäran om att träna:
 }
 ```
 
-När begäran om att träna har placerats i kö kan det ta en stund att slutföra träningen.
 
-## <a name="get-training-status-from-the-command-line"></a>Hämta träningsstatus från kommandoraden
-Anropa appen med argumentet `-status` för att kontrollera träningsstatus och visa statusinformation.
-
-````
-> php add-utterances.php -status
-````
-
-```
+```JSON
 Requested training status.
 [
    {
@@ -262,10 +208,9 @@ Requested training status.
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När du är klar med självstudien tar du bort Visual Studio och konsolprogrammet om du inte längre behöver dem. 
+
+När du är klar med snabbstarten tar du bort alla filer som skapas i den här snabbstarten. 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
 > [Skapa en LUIS-app programmässigt](luis-tutorial-node-import-utterances-csv.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

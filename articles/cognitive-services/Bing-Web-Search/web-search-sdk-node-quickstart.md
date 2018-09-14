@@ -1,45 +1,85 @@
 ---
-title: 'Snabbstart: Använd Bing-webbsökning SDK för Node.js'
-description: Konfigurera för webbsökning SDK-konsolprogram.
-titleSuffix: Azure cognitive services
+title: 'Snabbstart: Använda SDK för Webbsökning i Bing för Node.js'
+description: Lär dig hur du använder SDK för Webbsökning i Bing för Node.js.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: v-gedod, erhopf
-ms.openlocfilehash: e25c295fc0fc144110325d3c494a513ea35aeb05
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
-ms.translationtype: MT
+ms.author: erhopf
+ms.openlocfilehash: 7c3003ab4ba40a9d0212e7c94b6dd3bfbc8f0ca2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888598"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186639"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Snabbstart: Använd Bing-webbsökning SDK för Node.js
+# <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Snabbstart: Använda SDK för Webbsökning i Bing för Node.js
 
-Bing Web Search SDK innehåller funktionen för REST-API för webbfrågor och parsa resultat.
+SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i Node.js-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
-Den [källkoden för noden Bing Web Search SDK-exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/webSearch.js) finns på GitHub.
+Vill du se koden på en gång? [Exemplen med SDK för Webbsökning i Bing för Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) finns på GitHub.
 
-## <a name="application-dependencies"></a>Programberoenden
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-Om du vill konfigurera ett konsolprogram med Bing Web Search SDK kör `npm install azure-cognitiveservices-websearch` i din utvecklingsmiljö.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="web-search-client"></a>Sök webbklienten
-Hämta en [Cognitive Services prenumerationsnyckel](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Skapa en instans av den `CognitiveServicesCredentials`:
-```
+Här följer några saker som du behöver innan du kör den här snabbstarten:
+
+* [Node.js 6](https://nodejs.org/en/download/) eller senare
+* En prenumerationsnyckel  
+
+## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
+
+Vi börjar med att konfigurera utvecklingsmiljön för Node.js-projektet.
+
+1. Skapa en ny katalog för projektet:
+
+    ```console
+    mkdir YOUR_PROJECT
+    ```
+
+2. Skapa en ny paketfil:
+
+    ```console
+    cd YOUR_PROJECT
+    npm init
+    ```
+
+3. Nu installerar vi några Azure-moduler och lägger till dem i `package.json`:
+
+    ```console
+    npm install --save azure-cognitiveservices-websearch
+    npm install --save ms-rest-azure
+    ```
+
+## <a name="create-a-project-and-declare-required-modules"></a>Skapa ett projekt och deklarera nödvändiga moduler
+
+I samma katalog som din `package.json` skapar du ett nytt Node.js-projekt med hjälp av valfri IDE eller redigeringsprogram. Till exempel: `sample.js`.
+
+Kopiera den här koden till projektet. Den läser in de moduler som installerades i föregående avsnitt.
+
+```javascript
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
-```
-Sedan kan skapa en instans av klienten:
-```
 const WebSearchAPIClient = require('azure-cognitiveservices-websearch');
+```
+
+## <a name="instantiate-the-client"></a>Instansiera klienten
+
+Den här koden instansierar en klient och använder modulen `azure-cognitiveservices-websearch`. Se till att du anger en giltig prenumerationsnyckel för ditt Azure-konto innan du fortsätter.
+
+```javascript
+let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 let webSearchApiClient = new WebSearchAPIClient(credentials);
 ```
-Sök efter resultat:
-```
+
+## <a name="make-a-request-and-print-the-results"></a>Göra en begäran och skriva ut resultatet
+
+Använd klienten för att skicka en sökfråga till Webbsökning i Bing. Om svaret innehåller resultat för något av objekten `properties`-matrisen skrivs `result.value` ut till konsolen.
+
+```javascript
 webSearchApiClient.web.search('seahawks').then((result) => {
     let properties = ["images", "webPages", "news", "videos"];
     for (let i = 0; i < properties.length; i++) {
@@ -52,18 +92,21 @@ webSearchApiClient.web.search('seahawks').then((result) => {
 }).catch((err) => {
     throw err;
 })
-
 ```
-Koden skriver ut `result.value` objekt till konsolen utan parsning text.  I resultaten, om sådant per kategori, inkluderas:
-- _typ: 'ImageObject'
-- _typ: 'NewsArticle'
-- _typ: ”webbsida”
-- _typ: 'VideoObjectElementType'
 
-<!-- Remove until this can be replaced with a sanitized version.
-![Video results](media/web-search-sdk-node-results.png)
--->
+## <a name="run-the-program"></a>Köra programmet
+
+Det sista steget är att köra programmet!
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du är klar med det här projektet bör du ta bort din prenumerationsnyckel från programmets kod.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Cognitive services SDK för Node.js-exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+> [!div class="nextstepaction"]
+> [Exempel med Cognitive Services SDK för Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+
+## <a name="see-also"></a>Se även
+
+* [Azure Node SDK-referens](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-websearch/)

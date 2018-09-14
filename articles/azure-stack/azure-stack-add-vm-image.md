@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022772"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575821"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure Stack
 
@@ -75,7 +75,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>Lägga till en VM-avbildning i Marketplace med hjälp av PowerShell
 
 > [!Note]  
-> När du lägger till en bild som det ska bara är tillgänglig för Azure Resource Manager-baserade mallar och PowerShell-distributioner. Att göra en avbildning som är tillgängliga för en användarna som ett marketplace-objekt, publicera i marketplace-objekt med hjälp av stegen i artikeln [skapa och publicera ett Marketplace-objekt](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
+> När du lägger till en bild som det ska bara är tillgänglig för Azure Resource Manager-baserade mallar och PowerShell-distributioner. Att göra en avbildning som är tillgängliga för en användarna som ett marketplace-objekt, publicera i marketplace-objekt med hjälp av stegen i artikeln [skapa och publicera ett Marketplace-objekt](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
 
 1. [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md).  
 

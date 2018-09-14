@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier Azure Cosmos DB: CrSkapa, fråga och passera i Apache TinkerPops Gremlin-konsol | Microsoft Docs'
-description: En Azure Cosmos DB-snabbstart för att skapa hörn, gränser och frågor med Azure Cosmos DB Graph API.
+description: En Azure Cosmos DB-snabbstart för att skapa hörn, gränser och frågor med Azure Cosmos DB Gremlin API.
 services: cosmos-db
 author: luisbosquez
 manager: kfile
@@ -10,18 +10,27 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 6f6a622c2b9faf6117a8212000e1e632df3526b2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 905873a695635ba80de258cbf458c8dd3e18d443
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634138"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700346"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Skapa, ställ frågor och bläddra i grafen i Gremlin-konsolen
 
+> [!div class="op_single_selector"]
+> * [Gremlin-konsol](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
+
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här snabbstarten visar hur du kan skapa ett Azure Cosmos DB [Graph API](graph-introduction.md)-konto, databas och graf (behållare) med Azure Portal och sedan använda [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) från [Apache TinkerPop](http://tinkerpop.apache.org) för att arbeta med graf-API-data. I den här självstudien får du skapa och fråga hörn och gränser, uppdatera en hörnegenskap, fråga kanter, bläddra i grafen och släppa ett hörn.
+Den här snabbstarten visar hur du kan skapa ett Azure Cosmos DB [Gremlin API](graph-introduction.md)-konto, databas och graf (container) med Azure Portal och sedan använda [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) från [Apache TinkerPop](http://tinkerpop.apache.org) för att arbeta med Gremlin API-data. I den här självstudien får du skapa och fråga hörn och gränser, uppdatera en hörnegenskap, fråga kanter, bläddra i grafen och släppa ett hörn.
 
 ![Azure Cosmos DB från konsolen Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -299,9 +308,9 @@ Indata:
 :> g.V().drop()
 ```
 
-Grattis! Du har slutfört den här självstudien om Azure Cosmos DB: Graph API!
+Grattis! Du har slutfört den här självstudien om Azure Cosmos DB: Gremlin API!
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

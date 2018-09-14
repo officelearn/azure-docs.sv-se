@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 034e708b79bbdf15d7fa628f388402998f49c0d9
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3c1bff98debf426fc02dbd4518c0bb798d7ba96d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161514"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576031"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Hur du utlöser komplexa åtgärder med Azure Monitor-aviseringar
 
@@ -129,7 +129,7 @@ Processen påminner om du vill att logikappen att utföra olika åtgärder.
 
 14. Överst på den **Logic Apps Designer**väljer **spara** att spara din logikapp.
 
-15. Öppna din befintliga åtgärdsgrupp och Lägg till en åtgärd för att referera till logikappen. Om du har en befintlig åtgärdsgrupp [skapa och hantera åtgärdsgrupper i Azure-portalen](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) att skapa en. Glöm inte att spara dina ändringar.
+15. Öppna din befintliga åtgärdsgrupp och Lägg till en åtgärd för att referera till logikappen. Om du har en befintlig åtgärdsgrupp [skapa och hantera åtgärdsgrupper i Azure-portalen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) att skapa en. Glöm inte att spara dina ändringar.
 
     ![Uppdatera åtgärdsgruppen](media/monitoring-action-groups/update-action-group.png "uppdatera åtgärdsgruppen")
 

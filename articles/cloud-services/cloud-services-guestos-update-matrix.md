@@ -3,7 +3,7 @@ title: Lär dig mer om de senaste Azure-Gästoperativsystemversioner | Microsoft
 description: Den senaste versionen nyheterna och SDK-kompatibilitet för Gästoperativsystemet för Azure Cloud Services.
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: RichardScheel
 manager: timlt
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2018
-ms.author: raiye
-ms.openlocfilehash: 2ee31e0a2d563ddf2aa63498b4ca280e4da26754
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.date: 9/12/2018
+ms.author: RichardScheel
+ms.openlocfilehash: 8d49742e90e09a8836309db165b07074645df00a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524866"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576178"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsöversikten
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgraderingsväg innan en gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* gäst-OS uppdateras enligt beskrivningen i [Azure Guest OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -36,13 +36,16 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 >
 
 > [!IMPORTANT]
-> Från och med November distributionen, kommer endast de senaste 2 versionerna av gäst-OS stöds som är tillgänglig i Azure-portalen.
+> Endast de senaste 2 versionerna av gäst-OS kommer stöds som är tillgänglig i Azure-portalen.
 >
 >
 
 Osäker på om hur du uppdaterar din gäst-OS? Kontrollera [detta] [ cloud updates] ut.
 
 ## <a name="news-updates"></a>Nyheter
+
+###### <a name="september-12-2018"></a>**Den 12 september 2018**
+Gäst-OS augusti har publicerat.
 
 ###### <a name="august-3-2018"></a>**Den 3 augusti 2018**
 Gäst-OS juli har publicerat.
@@ -86,23 +89,22 @@ Oktober Gästoperativsystem har publicerat.
 .NET framework installerat: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2 eller senare
 
 > [!NOTE]
-> Datum med en * kan komma att ändras.
->
 > RDP-lösenord för OS-familj 5 måste vara minst 10 tecken.
 >
 
-| Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Förfallodatum |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-5.21_201807-02 |Den 3 augusti 2018 |Post 5.23 |TBD |
-| WA-GUEST-OS-5.20_201806-01 |3 juli 2018 |Post 5.22 |TBD |
-|~~WA-GUEST-OS-5.19_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |TBD |
-|~~WA-GUEST-OS-5.18_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |TBD |
-|~~WA-GUEST-OS-5.17_201803-01~~ |6 april 2018 |Den 1 juni 2018|TBD |
-|~~WA-GUEST-OS-5.16_201802-01~~ |Den 12 mars 2018 |Den 4 maj 2018 |TBD |
-|~~WA-GUEST-OS-5.15_201801-01~~ |Den 4 januari 2018 |6 april 2018 |TBD |
-|~~WA-GUEST-OS-5.14_201712-01~~ |Den 4 januari 2018 |Den 12 mars 2018 |TBD |
-|~~WA-GUEST-OS-5.13_201711-01~~ |14 december 2017 |Den 4 januari 2018|TBD |
-|~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |Den 4 januari 2018 |TBD |
+| Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
+| --- | --- | --- |
+| WA-GUEST-OS-5.22_201808-01 |Den 12 september 2018 |Post 5,24 |
+| WA-GUEST-OS-5.21_201807-02 |Den 3 augusti 2018 |Post 5.23 |
+|~~WA-GUEST-OS-5.20_201806-01~~ |3 juli 2018 |Den 12 september 2018 |
+|~~WA-GUEST-OS-5.19_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |
+|~~WA-GUEST-OS-5.18_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |
+|~~WA-GUEST-OS-5.17_201803-01~~ |6 april 2018 |Den 1 juni 2018|
+|~~WA-GUEST-OS-5.16_201802-01~~ |Den 12 mars 2018 |Den 4 maj 2018 |
+|~~WA-GUEST-OS-5.15_201801-01~~ |Den 4 januari 2018 |6 april 2018 |
+|~~WA-GUEST-OS-5.14_201712-01~~ |Den 4 januari 2018 |Den 12 mars 2018 |
+|~~WA-GUEST-OS-5.13_201711-01~~ |14 december 2017 |Den 4 januari 2018|
+|~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |Den 4 januari 2018 |
 
 
 ## <a name="family-4-releases"></a>Gästoperativsystemfamilj 4 versioner
@@ -110,23 +112,19 @@ Oktober Gästoperativsystem har publicerat.
 
 .NET framework installerat: 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> Datum med en * kan komma att ändras
->
->
-
-| Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Förfallodatum |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-4.56_201807-02 |Den 3 augusti 2018 |Post 4.58 |TBD |
-| WA-GUEST-OS-4.55_201806-01 |3 juli 2018 |Post 4.57 |TBD |
-|~~WA-GUEST-OS-4.54_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |TBD |
-|~~WA-GUEST-OS-4.53_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |TBD |
-|~~WA-GUEST-OS-4.52_201803-01~~ |6 april 2018 |Den 1 juni 2018 |TBD |
-|~~WA-GUEST-OS-4.51_201802-01~~ |Den 12 mars 2018 |Den 4 maj 2018 |TBD |
-|~~WA-GUEST-OS-4.50_201801-01~~ |Den 4 januari 2018 |6 april 2018 |TBD |
-|~~WA-GUEST-OS-4.49_201712-01~~ |Den 4 januari 2018 |Den 12 mars 2018 |TBD |
-|~~WA-GUEST-OS-4.48_201711-01~~ |14 december 2017 |Den 4 januari 2018 |TBD |
-|~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |Den 4 januari 2018 |TBD |
+| Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
+| --- | --- | --- |
+| WA-GUEST-OS-4.57_201808-01 |Den 12 september 2018 |Post 4.59 |
+| WA-GUEST-OS-4.56_201807-02 |Den 3 augusti 2018 |Post 4.58 |
+|~~WA-GUEST-OS-4.55_201806-01~~ |3 juli 2018 |Den 12 september 2018 |
+|~~WA-GUEST-OS-4.54_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |
+|~~WA-GUEST-OS-4.53_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |
+|~~WA-GUEST-OS-4.52_201803-01~~ |6 april 2018 |Den 1 juni 2018 |
+|~~WA-GUEST-OS-4.51_201802-01~~ |Den 12 mars 2018 |Den 4 maj 2018 |
+|~~WA-GUEST-OS-4.50_201801-01~~ |Den 4 januari 2018 |6 april 2018 |
+|~~WA-GUEST-OS-4.49_201712-01~~ |Den 4 januari 2018 |Den 12 mars 2018 |
+|~~WA-GUEST-OS-4.48_201711-01~~ |14 december 2017 |Den 4 januari 2018 |
+|~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |Den 4 januari 2018 |
 
 
 ## <a name="family-3-releases"></a>Familj 3 versioner
@@ -134,23 +132,19 @@ Oktober Gästoperativsystem har publicerat.
 
 .NET framework installerat: 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> Datum med en * kan komma att ändras
->
->
-
-| Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Förfallodatum |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-3.63_201807-02 |Den 3 augusti 2018 |Post 3.65 |TBD |
-| WA-GUEST-OS-3.62_201806-01 |3 juli 2018 |Post 3.64 |TBD |
-|~~WA-GUEST-OS-3.61_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |TBD |
-|~~WA-GUEST-OS-3.60_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |TBD |
-|~~WA-GUEST-OS-3.59_201803-01~~ |6 april 2018 |Den 1 juni 2018 |TBD |
-|~~WA-GUEST-OS-3.58_201802-01~~ |19 mars 2018 |Den 4 maj 2018 |TBD |
-|~~WA-GUEST-OS-3.57_201801-01~~ |Den 29 januari 2018 |6 april 2018 |TBD |
-|~~WA-GUEST-OS-3.56_201712-01~~ |Den 4 januari 2018 |19 mars 2018 |TBD |
-|~~WA-GUEST-OS-3.55_201711-01~~ |14 december 2017 |Den 29 januari 2018 |TBD |
-|~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |Den 4 januari 2018 |TBD |
+| Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
+| --- | --- | --- |
+| WA-GUEST-OS-3.64_201808-01 |Den 12 september 2018 |Post 3.66 |
+| WA-GUEST-OS-3.63_201807-02 |Den 3 augusti 2018 |Post 3.65 |
+|~~WA-GUEST-OS-3.62_201806-01~~ |3 juli 2018 |Den 12 september 2018 |
+|~~WA-GUEST-OS-3.61_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |
+|~~WA-GUEST-OS-3.60_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |
+|~~WA-GUEST-OS-3.59_201803-01~~ |6 april 2018 |Den 1 juni 2018 |
+|~~WA-GUEST-OS-3.58_201802-01~~ |19 mars 2018 |Den 4 maj 2018 |
+|~~WA-GUEST-OS-3.57_201801-01~~ |Den 29 januari 2018 |6 april 2018 |
+|~~WA-GUEST-OS-3.56_201712-01~~ |Den 4 januari 2018 |19 mars 2018 |
+|~~WA-GUEST-OS-3.55_201711-01~~ |14 december 2017 |Den 29 januari 2018 |
+|~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |Den 4 januari 2018 |
 
 
 ## <a name="family-2-releases"></a>Familj 2 versioner
@@ -158,25 +152,21 @@ Oktober Gästoperativsystem har publicerat.
 
 .NET framework installerat: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> Datum med en * kan komma att ändras
->
->
-
-| Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Förfallodatum |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-2.76_201807-02 |Den 3 augusti 2018 |Post 2.78 |TBD |
-| WA-GUEST-OS-2.75_201806-01 |3 juli 2018 |Post 2,77 |TBD |
-|~~WA-GUEST-OS-2.74_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018|TBD |
-|~~WA-GUEST-OS-2.73_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |TBD |
-|~~WA-GUEST-OS-2.72_201803-01~~ |6 april 2018 |Den 1 juni 2018 |TBD |
-|~~WA-GUEST-OS-2.71_201802-01~~ |Den 12 mars 2018 |Den 4 maj 2018 |TBD |
-|~~WA-GUEST-OS-2.70_201801-01~~ |Den 29 januari 2018 |6 april 2018 |TBD |
-|~~WA-GUEST-OS-2.69_201712-01~~ |Den 4 januari 2018 |Den 12 mars 2018 |TBD |
-|~~WA-GUEST-OS-2.68_201711-01~~ |14 december 2017 |Den 29 januari 2018 |TBD |
-|~~WA-GUEST-OS-2.67_201710-02~~ |8 november 2017 |Den 4 januari 2018 |TBD |
-|~~WA-GUEST-OS-2.66_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
-|~~WA-GUEST-OS-2.65_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
+| Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
+| --- | --- | --- |
+| WA-GUEST-OS-2.77_201808-01 |Den 12 september 2018 |Post 2.79 |
+| WA-GUEST-OS-2.76_201807-02 |Den 3 augusti 2018 |Post 2.78 |
+|~~WA-GUEST-OS-2.75_201806-01~~ |3 juli 2018 |Den 12 september 2018 |
+|~~WA-GUEST-OS-2.74_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018|
+|~~WA-GUEST-OS-2.73_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |
+|~~WA-GUEST-OS-2.72_201803-01~~ |6 april 2018 |Den 1 juni 2018 |
+|~~WA-GUEST-OS-2.71_201802-01~~ |Den 12 mars 2018 |Den 4 maj 2018 |
+|~~WA-GUEST-OS-2.70_201801-01~~ |Den 29 januari 2018 |6 april 2018 |
+|~~WA-GUEST-OS-2.69_201712-01~~ |Den 4 januari 2018 |Den 12 mars 2018 |
+|~~WA-GUEST-OS-2.68_201711-01~~ |14 december 2017 |Den 29 januari 2018 |
+|~~WA-GUEST-OS-2.67_201710-02~~ |8 november 2017 |Den 4 januari 2018 |
+|~~WA-GUEST-OS-2.66_201709-01~~ |6 oktober 2017 |14 december 2017 |
+|~~WA-GUEST-OS-2.65_201708-01~~ |24 augusti 2017 |14 december 2017 |
 
 
 ## <a name="msrc-patch-updates"></a>MSRC patch-uppdateringar
@@ -221,7 +211,7 @@ I exemplet nedan 2 är familjen, 12 är versionen och ”rel2” är versionen.
 Konfigurationssträngen för ett Gästoperativsystem har samma information inbäddat i sig, tillsammans med ett datum som visar vilka MSRC-korrigeringar ansågs för uppdateringen. I det här exemplet ansågs MSRC korrigeringar produceras för Windows Server 2008 R2 upp till och med augusti 2012 ska ingå. Endast de korrigeringar som gäller specifikt för den versionen av Windows Server ingår. Till exempel om en MSRC korrigeringsfilen avser Microsoft Office, tas den inte med eftersom den här produkten inte är en del av Windows Server-basavbildningen.
 
 ## <a name="guest-os-system-update-process"></a>Uppdateringsprocessen för gäst-OS-System
-Den här sidan innehåller information om kommande versioner för gästoperativsystem. Kunder har angett att de vill veta när en version beror på att deras molntjänstroller startas om de är inställd på ”automatisk” uppdatering. Gäst-OS-versioner sker vanligtvis minst fem (5) dagar efter MSRC uppdatering som körs på den andra tisdagen varje månad. Nya versioner innehåller alla relevanta MSRC-korrigeringar för varje gästoperativsystemfamilj.
+Den här sidan innehåller information om kommande versioner för gästoperativsystem. Kunder har angett att de vill veta när en version beror på att deras molntjänstroller startas om de är inställd på ”automatisk” uppdatering. Gäst-OS-versioner inträffar normalt 2 – 3 veckor efter MSRC uppdatering som körs på den andra tisdagen varje månad. Nya versioner innehåller alla relevanta MSRC-korrigeringar för varje gästoperativsystemfamilj.
 
 Microsoft Azure lanserar ständigt uppdateringar. Gäst-OS är bara en sådan uppdatering i pipelinen. En version som kan påverkas av många faktorer för många för att visa här. Dessutom körs Azure på hundratals med tusentals datorer. Det innebär att det är omöjligt att ge ett exakt datum och tid när dina roller startas om. Vi arbetar på en plan för att begränsa eller tid omstarter.
 

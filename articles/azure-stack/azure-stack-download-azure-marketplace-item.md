@@ -3,7 +3,7 @@ title: Hämta marketplace-objekt från Azure | Microsoft Docs
 description: Operatorn molnet kan hämta marketplace-objekt från Azure till min Azure Stack-distribution.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/13/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: e396fc82754188ea655c70b44d4bf937a3c3163c
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: abcf71f81d89f8b6a8c7b9523dd67592b8808baa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544219"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630295"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure Stack
 

@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 010efdf0fbfabb92b7465e37cb678a64810c8979
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 80d73620d11312a386a406d9a49d9223295b42f3
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025256"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631386"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise-strategier för en LUIS-app
 Granska dessa design-strategier för din enterprise-app.
@@ -51,9 +51,7 @@ Använd den [Dispatch] [ dispatch-tool] kommandoradsverktyg, finns i [BotBuilder
 
 ![Bild av dispatch-arkitektur](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-Den överordnade domänen som anges i LUIS som en **V Dispatch** app. 
-
-![Skärmbild av LUIS applistan med LUIS-app som skapats av dispatch-verktyget](./media/luis-concept-enterprise/dispatch.png)
+Den överordnade domänen som anges i LUIS med en version med namnet `Dispatch` i applistan. 
 
 Chattrobot för den tar emot uttryck och sedan skickar till överordnat LUIS-app för förutsägelse. Främsta förväntade avsikten från överordnade appen anger vilka underordnade LUIS-app kallas därefter. Chattrobot skickar uttryck i appen underordnade för en mer specifik förutsägelse.
 
@@ -67,4 +65,4 @@ En dispatch-programmet har 500 dispatch-källor, motsvarar 500 intentioner som m
 * Lär dig hur du [testa en batch](luis-how-to-batch-test.md)
 
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool

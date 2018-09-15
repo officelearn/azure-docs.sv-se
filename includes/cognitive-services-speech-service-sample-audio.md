@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: ab7fc2e70896285f57020a66b35291b3e2966d85
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 2f18f8641d63b954543a489c97d4930ecbce3be8
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143875"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45637091"
 ---
 > [!NOTE]
-> Behöver du en exempel-ljud? Högerklicka på det här [WAV filen](https://raw.githubusercontent.com/Azure-Samples/Cognitive-Speech-STT-Android/95b698b584bce01d7cfa7faa15fb254482b6402e/samples/SpeechRecoExample/assets/whatstheweatherlike.wav) och välj **Spara mål som**.
+> Behöver du vissa exempel ljud? Högerklicka på [WAV filen](https://raw.githubusercontent.com/Azure-Samples/Cognitive-Speech-STT-Android/95b698b584bce01d7cfa7faa15fb254482b6402e/samples/SpeechRecoExample/assets/whatstheweatherlike.wav) och välj **Spara mål som**.

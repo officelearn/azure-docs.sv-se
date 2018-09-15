@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: be3d0d32e60e23b2b2d7d414d2297b86dec62f1d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: eee9998280f2105fee5144b520bc8000b086f941
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576841"
+ms.locfileid: "45603945"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GEO-redundant lagring (GRS): tvärregional replikering för Azure Storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -41,7 +41,7 @@ Några saker att tänka på när du använder RA-GRS:
    * Tiden Microsoft kräver för att avgöra om data kan återställas när den primära platsen eller om en redundansväxling är nödvändigt.
    * Tid att utföra redundans för storage-konto genom att ändra de primära DNS-posterna så att den pekar till den sekundära platsen.
 
-   Microsoft ansvarar för att bevara dina data på allvar. Om det finns några risken för att återställa data i den primära regionen, Microsoft fördröjning växling vid fel och fokusera på att återställa dina data. En framtida version av tjänsten kan du utlösa redundans på kontonivå så att du kan styra RTO själv.
+   Microsoft ansvarar för att bevara dina data på allvar. Om det finns några risken för att återställa data i den primära regionen, Microsoft fördröjning växling vid fel och fokusera på att återställa dina data. 
 
 ## <a name="paired-regions"></a>Länkade regioner 
 När du skapar ett lagringskonto, väljer du den primära regionen för kontot. Den kopplade sekundära regionen fastställs baserat på den primära regionen och kan inte ändras. Uppdaterad information om regioner som stöds av Azure finns i [företag affärskontinuitet och haveriberedskap recovery (BCDR): parade Azure-regioner](../../best-practices-availability-paired-regions.md).

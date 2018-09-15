@@ -1,20 +1,21 @@
 ---
-title: Yttranden i LUIS-appar i Azure | Microsoft Docs
-description: Lägg till yttranden i Language Understanding Intelligent Service (LUIS)-appar.
+title: Yttranden i LUIS-appar
+titleSuffix: Azure Cognitive Services
+description: Yttranden indata från användaren som appen behöver att tolka. Samla in fraser som du tror att användare ska ange. Inkludera yttranden som betyda samma sak, men är konstruerade på olika sätt i word längd och word placering.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6f962d0aaf631051c841be29d2854a89bf58ac25
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c455296348e3b4378a2912fa5388098b206b3ea4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224423"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632321"
 ---
 # <a name="utterances-in-luis"></a>Yttranden i LUIS
 
@@ -35,12 +36,14 @@ När du väljer yttranden, Tänk på att vad du tycker är en vanlig term eller 
 Du kommer märka att även om du gör för att skapa olika mening mönster kan du fortfarande upprepas vissa ordförråd.
 
 Utföra dessa exempel yttranden:
-```
-how do I get a computer?
-Where do I get a computer?
-I want to get a computer, how do I go about it?
-When can I have a computer? 
-```
+
+|Exempel på yttranden|
+|--|
+|hur får jag en dator?|
+|Var hittar jag en dator?|
+|Jag vill ha en dator, hur går jag om den?|
+|När kan jag har en dator?| 
+
 Här, core termen är ”dator” inte variera. De kan säga stationär dator, bärbar dator, arbetsstation eller även bara datorn. LUIS härleder smart synonymer från kontext, men när du skapar uttryck för träning, är det fortfarande är bättre att variera dem.
 
 ## <a name="example-utterances-in-each-intent"></a>Exempel yttranden i varje avsikt

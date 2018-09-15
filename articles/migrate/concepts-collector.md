@@ -4,15 +4,15 @@ description: Översikt över insamlingsprogrammet och hur du konfigurerar den.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/14/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: dae6cc9a55049e2b44291eb105288b33a1db9e7b
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6822bd149d5542d577fa18db3c9f50007ae48d35
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325540"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605070"
 ---
 # <a name="collector-appliance"></a>Insamlingsprogrammet
 
@@ -30,12 +30,17 @@ Du kan skapa insamlaren genom att följa stegen här – [så här skapar du VM-
 
 Det finns två metoder som du identifiera din lokala miljö:
 
-a. **Enstaka identifiering:** insamlaren för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. I den här modellen Azure Migrate samlar in genomsnittlig räknare (jämfört med högsta counter) för varje mått, [Läs mer] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) om prestandaräknarna som samlats in av Azure Migrate. Eftersom det är en enstaka identifiering är installationen i det här fallet inte kontinuerligt ansluten i projektet. Därför återspeglas inte ändringar i den lokala miljön i Azure Migrate när identifieringen är klar. Om du vill att ändras för att återspegla som du behöver göra en ny identifiering av samma miljö att samma projekt.
+a. **Enstaka identifiering:** insamlaren för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. I den här modellen Azure Migrate samlar in genomsnittlig räknaren (jämfört med högsta counter) för varje mått. Eftersom det är en enstaka identifiering är installationen i det här fallet inte kontinuerligt ansluten i projektet. Därför återspeglas inte ändringar i den lokala miljön i Azure Migrate när identifieringen är klar. Om du vill att ändras för att återspegla som du behöver göra en ny identifiering av samma miljö att samma projekt.
+
+> [!NOTE]
+> Den här metoden måste du ange inställningar för statistik i vCenter Server på nivå 3 och vänta minst en dag innan du startar identifieringen att samla in nödvändiga prestandavärden.
 
 b. **Kontinuerlig identifiering:** insamlingsprogrammet för den här modellen är kontinuerligt anslutna till Azure Migrate-projektet. Kontinuerligt Profileringen den lokala miljön för att samla in användningsdata i realtid på var 20: e sekund. Installationen sedan samlar upp exempel 20 sekunder och skapar en enskild datapunkt för varje kvart genom att välja det maximala värdet som skickas till Azure. Den här modellen är inte beroende av statistikinställningarna för vCenter Server för insamling av prestandadata. Du kan stoppa kontinuerlig Profileringen när som helst av programmet.
 
 > [!NOTE]
-> Funktionen för identifiering av kontinuerlig genomgår förhandsgranskning.
+> Funktionen för identifiering av kontinuerlig genomgår förhandsgranskning. Om du inte har vCenter serverstatistik inställningar är inställda på nivå 3, rekommenderar vi att du använder den här metoden.
+
+[Läs mer] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) om prestandaräknarna som samlats in av Azure Migrate.
 
 ## <a name="collector-communication-diagram"></a>Insamlaren kommunikation diagram
 

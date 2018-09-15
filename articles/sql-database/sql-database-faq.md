@@ -9,12 +9,12 @@ ms.custom: reference
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: carlrab
-ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 218bd9031193d4987fdc1e0ae2bf302bdb028673
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286340"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604509"
 ---
 # <a name="sql-database-faq"></a>Vanliga frågor om SQL Database
 
@@ -71,7 +71,7 @@ SQL-databaskunder har följande rättigheter som är associerade med Azure Hybri
 Beräkningskostnaden Visar total beräknings-kapacitet som tillhandahålls för programmet. På tjänstnivån affärskritisk allokera vi automatiskt minst 3 Alwayson-repliker. För att återspegla den här ytterligare tilldelning av beräkningsresurser är vCore priset ungefär 2.7 x högre upp i affärskritisk. Av samma anledning visar högre lagringspris per GB i nivån affärskritisk hög i/o och låg fördröjning av SSD-lagring. På samma gång skiljer kostnaden för lagring av säkerhetskopior sig inte eftersom i båda fallen använder vi en klass standardlagring.
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>Hur betalar jag för lagring – baserat på vad jag konfigurera förskott eller om databasen använder?
-Olika typer av lagring faktureras på olika sätt. För lagring av data debiteras du för den etablerade lagring baserat på den maximala storleken för databas eller pool du väljer. Kostnaden ändras inte om inte du minska eller öka den högsta. Lagringsenhet för säkerhetskopior är associerad till automatiska säkerhetskopior av din instans. När du ökar din kvarhållningsperiod för lagringsenhet för säkerhetskopiering ökar lagringsenheten för säkerhetskopiering som förbrukas av instansen. Det tillkommer ingen ytterligare avgift för lagringsenhet för säkerhetskopior för upp till 100 procent av ditt totala etablerade serverutrymme. Ytterligare förbrukning av lagringsenhet för säkerhetskopior debiteras i GB per månad. Om du till exempel har en databaslagringsstorlek på 100 GB får du 100 GB säkerhetskopiering utan extra kostnad. Men om säkerhetskopieringen är på 110 GB får du betala för de extra 10 GB.
+Olika typer av lagring faktureras på olika sätt. För lagring av data debiteras du för den etablerade lagring baserat på den maximala storleken för databas eller pool du väljer. Kostnaden ändras inte om inte du minska eller öka den högsta. Lagringsenhet för säkerhetskopior är associerad till automatiska säkerhetskopior av din instans och allokeras dynamiskt. När du ökar din kvarhållningsperiod för lagringsenhet för säkerhetskopiering ökar lagringsenheten för säkerhetskopiering som förbrukas av instansen. Det tillkommer ingen ytterligare avgift för lagringsenhet för säkerhetskopior för upp till 100 procent av ditt totala etablerade serverutrymme. Ytterligare förbrukning av lagringsenhet för säkerhetskopior debiteras i GB per månad. Om du till exempel har en databaslagringsstorlek på 100 GB får du 100 GB säkerhetskopiering utan extra kostnad. Men om säkerhetskopieringen är på 110 GB får du betala för de extra 10 GB. 
 
 Du debiteras för lagring av säkerhetskopior för en enkel databas, på en proportionell beräkning för den lagring som har tilldelats till säkerhetskopior av databasen minus på databasens storlek. Du debiteras för lagring av säkerhetskopior för en elastisk pool, på en proportionell beräkning för den lagring som har tilldelats till säkerhetskopior av databasen på alla databaser i poolen minus den maximala datastorleken för den elastiska poolen. Varje ökning av databasens storlek eller elastisk pool eller ökning av transaktioner, kräver mer lagringsutrymme och därför ökar din faktura för lagring av säkerhetskopior.  Om du ökar den maximala datastorleken kan den här nya är dras av från Faktureras säkerhetskopieringslagring storlek.
 

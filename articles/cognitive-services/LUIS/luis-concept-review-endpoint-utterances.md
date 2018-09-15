@@ -1,23 +1,24 @@
 ---
-title: Granska endpoint yttranden att använda aktiv inlärning i Språkförståelse (LUIS) – Azure | Microsoft Docs
-description: Använda funktionen aktiv inlärning med namnet ”granska endpoint yttranden' att förbättra prestanda förutsägelser snabbare.
+title: Granska endpoint yttranden att använda aktiv inlärning i Språkförståelse (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Aktiv inlärning är en av tre strategier för att förbättra förutsägelsefunktionen och enklast. Med aktiv inlärning, din granska endpoint yttranden för rätt avsikt och entiteten. LUIS väljer endpoint yttranden som det är osäker på.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 05b3404d318359c6966df44bfab9baff3ded980f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6a19f29254b468f94a7d922c2bc74362a8178b7d
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222621"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629307"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Aktivera aktiv inlärning genom att granska endpoint yttranden
-Aktiv inlärning är en av tre strategier för att förbättra förutsägelsefunktionen och enklast. 
+Aktiv inlärning är en av tre strategier för att förbättra förutsägelsefunktionen och enklast. Med aktiv inlärning, din granska endpoint yttranden för rätt avsikt och entiteten. LUIS väljer endpoint yttranden som det är osäker på.
 
 ## <a name="what-is-active-learning"></a>Vad är aktiv inlärning
 Aktiv inlärning är en tvåstegsprocess. Först väljer LUIS yttranden som tas emot i appens slutpunkten som behöver verifiering. Det andra steget utförs av appägare eller deltagare för att verifiera de valda yttranden för [granska](luis-how-to-review-endoint-utt.md), inklusive rätt avsikten och alla entiteter i avsikten. När du har granskat talade, träna och publicera appen igen. 
@@ -26,7 +27,7 @@ Aktiv inlärning är en tvåstegsprocess. Först väljer LUIS yttranden som tas 
 LUIS lägger till yttranden granska listan när upp aktiveringen syftet har en låg poäng eller övre två avsikter är för Stäng. 
 
 ## <a name="single-pool-for-utterances-per-app"></a>Enda pool för yttranden per app
-Den **granska endpoint yttranden** listan inte ändras beroende på vilken version. Det finns en enda pool med yttranden att granska, oavsett vilken version uttryck som du aktivt redigerar eller vilken version av appen har publicerats på slutpunkten. 
+Den **granska endpoint yttranden** listan inte ändras beroende på vilken version. Det finns en enstaka pool med yttranden att granska, oavsett versionen av de yttranden du aktivt redigerar eller versionen av den app som publicerades på slutpunkten. 
 
 ## <a name="where-are-the-utterances-from"></a>Var finns yttranden från
 Slutpunkten yttranden är hämtade från slutanvändarens frågor på programmets HTTP-slutpunkt. Om din app publiceras inte eller har inte tagits emot träffar ännu kan har du inte yttranden att granska. Om ingen slutpunkt träffar tas emot för en specifik avsikt eller enhet som har du inte yttranden att granska som de. 

@@ -1,42 +1,29 @@
 ---
-title: Självstudie med pattern.any entitet för att förbättra LUIS förutsägelser – Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: I den här självstudien använder du entiteten pattern.any för att förbättra LUIS avsikt och entiteten förutsägelser.
+title: 'Självstudiekurs 5: Pattern.any entitet för Fritextfält'
+titleSuffix: Azure Cognitive Services
+description: Använd entiteten pattern.any för att extrahera data från yttranden där talade är välutformat och där slutet av data kan förväxlas enkelt med återstående ord av uttryck.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: dce75710137f4d4160cb2f55f856066c7c93ac78
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157862"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628995"
 ---
-# <a name="tutorial-improve-app-with-patternany-entity"></a>Självstudie: Förbättra app med pattern.any entitet
+# <a name="tutorial-5-extract-free-form-data"></a>Självstudie: 5. Extrahera fri form-data
 
-I den här självstudien använder du entiteten pattern.any för att öka avsikt och entiteten förutsägelse.  
+I den här självstudien använder du entiteten pattern.any för att extrahera data från yttranden där talade är välutformat och där slutet av data kan förväxlas enkelt med återstående ord av uttryck. 
 
-> [!div class="checklist"]
-* Se när och hur du använder pattern.any
-* Skapa mönster som använder pattern.any
-* Så här verifierar du förutsägelse förbättringar
+Entiteten pattern.any kan du söka efter fritt format data där formulering entitetens gör det svårt att fastställa slutet av entiteten från resten av uttryck. 
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har personalapp från den [mönstret roller](luis-tutorial-pattern-roles.md) självstudien [importera](luis-how-to-start-new-app.md#import-new-app) JSON-koden i en ny app i den [LUIS](luis-reference-regions.md#luis-website) webbplats. App att importera finns i den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub-lagringsplatsen.
-
-Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `patt-any`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
-
-## <a name="the-purpose-of-patternany"></a>Syftet med pattern.any
-Entiteten pattern.any kan du hitta fri formulärdata där formulering entitetens gör det svårt att fastställa slutet av entiteten från resten av uttryck. 
-
-Den här personalapp hjälper anställda att hitta företagets formulär. Formulär har lagts till i den [reguljärt uttryck självstudien](luis-quickstart-intents-regex-entity.md). Formulärnamn från självstudien används ett reguljärt uttryck för att extrahera ett formulärnamn på som var välutformat, till exempel skapa namn i fetstil i tabellen nedan uttryck:
+Den här personalapp hjälper anställda att hitta företagets formulär. 
 
 |Yttrande|
 |--|
@@ -54,11 +41,38 @@ Yttranden med egna formulärnamnet se ut:
 |Vem som skapade **”begär flytt från medarbetare som är ny i företagets 2018 version 5”**?|
 |**Begära flytt från medarbetare som är ny i företagets 2018 version 5** publiceras på franska?|
 
-Varierande längd innehåller fraser som kan förvirra LUIS om var entiteten slutar. Med hjälp av en Pattern.any entitet i arbetsprofilen kan du ange början och slutet av formulärnamnet så LUIS korrekt extraherar formulärnamnet.
+Varierande längd innehåller ord som kan förvirra LUIS om var entiteten slutar. Med hjälp av en Pattern.any entitet i arbetsprofilen kan du ange början och slutet av formulärnamnet så LUIS korrekt extraherar formulärnamnet.
 
-**Medan mönster kan du ge färre exempel yttranden, om entiteterna inte identifieras, matchar inte mönstret.**
+|Exempelmall för uttryck|
+|--|
+|Där är {FormName} [?]|
+|Som skapats {FormName} [?]|
+|{FormName} har publicerats på franska [?]|
 
-## <a name="add-example-utterances-to-the-existing-intent-findform"></a>Lägg till exempel yttranden till befintliga avsikt FindForm 
+**I den här självstudien får du lära dig hur du:**
+
+> [!div class="checklist"]
+> * Använd befintliga självstudieappen
+> * Lägg till exempel yttranden till befintlig entitet
+> * Skapa Pattern.any entitet
+> * Skapa mönster
+> * Träna
+> * Nya mönster
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Använd befintlig app
+Fortsätt med den app som skapats i den sista självstudien med namnet **ska**. 
+
+Om du inte har appen ska från den tidigare självstudiekursen, använder du följande steg:
+
+1.  Hämta och spara [app JSON-fil](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+
+2. Importera JSON till en ny app.
+
+3. Från den **hantera** avsnittet på den **versioner** fliken klona versionen och ge den namnet `patt-any`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används som en del av URL: en väg, får inte namnet innehålla några tecken som inte är giltiga i en URL.
+
+## <a name="add-example-utterances"></a>Lägg till exempel yttranden 
 Ta bort entiteten fördefinierade keyPhrase om det är svårt att skapa och kategorisera FormName entiteten. 
 
 1. Välj **skapa** från det övre navigeringsfältet väljer **avsikter** i vänstra navigeringsfönstret.
@@ -128,6 +142,8 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+
+Den här självstudien exempel yttranden till en befintlig avsikt och därefter skapas en ny Pattern.any för formulärnamnet. Självstudien skapas ett mönster för befintliga syftet med den nya exempel yttranden och entiteten. Interaktiv testning visade att mönstret och avsikten var förutse eftersom entiteten hittades. 
 
 > [!div class="nextstepaction"]
 > [Lär dig hur du använder roller med ett mönster](luis-tutorial-pattern-roles.md)

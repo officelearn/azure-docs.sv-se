@@ -1,62 +1,88 @@
 ---
-title: Lägg till eller ta bort användare i Azure Active Directory | Microsoft Docs
-description: Beskriver hur du lägger till nya användare eller tar bort befintliga användare i Azure Active Directory
+title: Lägga till eller ta bort användare i Azure Active Directory | Microsoft Docs
+description: Lär dig mer om att lägga till nya användare eller ta bort befintliga användare med Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: e6e21ea09909a3bd92a21e15428af347e3f20b93
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+ms.openlocfilehash: 533c02f842918c5c27aaaf421a4f828022de6b8f
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767468"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604982"
 ---
-# <a name="quickstart-add-new-users-to-azure-active-directory"></a>Snabbstart: Lägga till nya användare i Azure Active Directory
-Den här artikeln beskriver hur du tar bort eller lägger till användare i din organisation till organisationens Azure Active Directory-klientorganisation (Azure AD) med hjälp av Azure-portalen eller genom att synkronisera dina lokala Windows Server AD-användarkontodata. 
+# <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Så här: lägga till eller ta bort användare som använder Azure Active Directory
+Lägga till nya användare eller ta bort befintliga användare från din Azure Active Directory (Azure AD)-klient med hjälp av Azure AD.
 
-## <a name="add-cloud-based-users"></a>Lägga till molnbaserade användare
-1. Logga in på [Azure Active Directory-administratörscentret](https://aad.portal.azure.com) med ett konto som är en global administratör för katalogen.
-2. Välj **Azure Active Directory** och sedan **Användare och grupper**.
-3. På **Användare och grupper** väljer du **Alla användare** och sedan **Ny användare**.
-   ![Välja kommandot Lägg till](./media/add-users-azure-active-directory/add-user.png)
-4. Ange information för användaren, till exempel **Namn** och **Användarnamn**. Domännamndelen av användarnamnet måste vara antingen det initiala standarddomännamnet ”[domännamn].onmicrosoft.com” eller ett verifierat icke-federerat [domännamn](add-custom-domain.md) såsom ”contoso.com”.
-5. Kopiera eller anteckna det genererade användarlösenordet på annat sätt så att du kan ge det till användaren när den här processen är klar.
-6. Du kan också öppna och fylla i informationen i **Profil**, **Grupper** eller **Katalogroll** för användaren. Mer information om användar- och administratörsroller finns i [Tilldela administratörsroller i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
-7. På **Användare** väljer du **Skapa**.
-8. Distribuera det genererade lösenordet på ett säkert sätt till den nya användaren så att användaren kan logga in.
+## <a name="add-a-new-user"></a>Lägg till en ny användare
+Du kan skapa en ny användare med Azure Active Directory.
 
-> [!TIP]
-> Du kan också synkronisera användarkontodata från en lokal Windows Server AD. Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering till alla resurser, oavsett plats. Vi kallar den här för Hybrid Identity (hybrididentitet). [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) kan användas för att integrera dina lokala kataloger med Azure Active Directory för hybrididentitetsscenarier. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD. 
+### <a name="to-add-a-new-user"></a>Lägga till en ny användare
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) som en Global administratör eller Användaradministratör för katalogen.
 
-## <a name="delete-users-from-azure-ad"></a>Ta bort användare från Azure AD
-1. Logga in på [Azure Active Directory-administratörscentret](https://aad.portal.azure.com) med ett konto som är en global administratör för katalogen.
-2. Välj **Användare och grupper**.
-3. På bladet **Användare och grupper** väljer du den användare i listan som ska tas bort. 
-4. På bladet för den valda användaren väljer du **Översikt** och sedan **Ta bort** i kommandofältet.
-   ![Välja kommandot Lägg till](./media/add-users-azure-active-directory/delete-user.png)
+2. Välj **Azure Active Directory**väljer **användare**, och välj sedan **ny användare**.
 
+    ![Användare - sidan för alla användare med nya användaren markerat](media/add-users-azure-active-directory/new-user-all-users-blade.png)
 
-### <a name="learn-more"></a>Läs mer 
-* [Lägga till gästanvändare från annan katalog](../b2b/what-is-b2b.md) 
-* [Tilldela en användare till en roll i din Azure AD](active-directory-users-assign-role-azure-portal.md)
-* [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
-* [Återställa en borttagen användare](active-directory-users-restore.md)
+3. På den **användaren** fyller du i informationen som krävs.
 
+    ![Lägg till ny användare, användarsidan med användarinformation](media/add-users-azure-active-directory/new-user-user-blade.png)
 
+    - **Namn (krävs).** Första och sista namnet på den nya användaren. Till exempel Mary Parker.
+
+    - **Användarnamn (krävs).** Användarnamn för den nya användaren. Till exempel mary@contoso.com. 
+    
+        Domändelen av användarnamnet måste använda antingen det initiala standarddomännamnet, <_domännamn_>. onmicrosoft.com eller ett anpassat domännamn, till exempel contoso.com. Läs mer om hur du skapar ett anpassat domännamn, [lägga till ett anpassat domännamn i Azure Active Directory](add-custom-domain.md).
+
+    - **Profil.** Alternativt kan du lägga till mer information om användaren. Du kan också lägga till användarinformation vid ett senare tillfälle. Läs mer om att lägga till användarinformation [lägga till eller ändra information om användarprofiler](active-directory-users-profile-azure-portal.md).
+
+    - **Grupper.** Du kan också kan du lägga till användaren till en eller flera befintliga grupper. Du kan också lägga till användaren till grupper vid ett senare tillfälle. Mer information om att lägga till användare till grupper finns i [hur du skapar en grundläggande grupp och Lägg till medlemmar](active-directory-groups-create-azure-portal.md).
+
+    - **Katalogroll.** Alternativt kan du lägga till användaren till en directory-roll. Du kan tilldela användare till global administratör, eller till en eller flera av de andra administratörsroller i Azure AD. Mer information om hur du tilldelar roller finns i [tilldela roller till användare](active-directory-users-assign-role-azure-portal.md).
+
+4. Kopiera det automatiskt genererade lösenordet som angavs i den **lösenord** box. Du behöver ge det här lösenordet till användaren för första inloggningsprocess.
+
+5. Välj **Skapa**.
+
+    Användaren skapas och läggs till din Azure AD-klient.
+
+## <a name="add-a-new-user-within-a-hybrid-environment"></a>Lägg till en ny användare i en hybridmiljö
+Om du har en miljö med både Azure Active Directory (moln) och Windows Server Active Directory (lokalt), kan du lägga till nya användare genom att synkronisera befintliga konto användardata. Mer information om hybridmiljöer och användare finns i [integrerar dina lokala kataloger med Azure Active Directory](../connect/active-directory-aadconnect.md).
+
+## <a name="delete-a-user"></a>Ta bort en användare
+Du kan ta bort en befintlig användare med Azure Active Directory.
+
+### <a name="to-delete-a-user"></a>Ta bort en användare
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+
+2. Välj **Azure Active Directory**väljer **användare**, och sök sedan efter och välj den användare som du vill ta bort från Azure AD-klienten. Till exempel _Mary Parker_.
+
+3. Välj **ta bort användaren**.
+
+    ![Användare - sidan för alla användare med ta bort användaren markerat](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
+
+    Användaren tas bort och inte längre visas på den **användare – alla användare** sidan. Användaren visas på den **borttagna användare** för de närmaste 30 dagarna och kan återställas under den tiden. Mer information om hur du återställer en användare finns i [återställa eller ta bort en nyligen borttagna användare permanent](active-directory-users-restore.md).
+
+    >[!Note]
+    >Du måste använda Windows Server Active Directory för att uppdatera identitet, kontaktinformation eller jobbinformation för användare vars auktoritetskälla är Windows Server Active Directory. När du har slutfört uppdateringen måste du vänta tills nästa synkroniseringscykel ska slutföras innan ändringarna visas.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten har du lärt dig hur du lägger till nya användare till Azure AD Premium. 
+När du har lagt till användarna, kan du utföra följande basic-processer:
 
-Du kan använda följande länk för att skapa en ny användare i Azure AD från Azure-portalen.
+- [Lägga till eller ändra profilinformation](active-directory-users-profile-azure-portal.md)
 
->[!div class="nextstepaction"]
->[Lägga till användare i Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/)
+- [Tilldela roller till användare](active-directory-users-assign-role-azure-portal.md)
+
+- [Skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md)
+
+- [Arbeta med dynamiska grupper och användare](../users-groups-roles/groups-create-rule.md)
+
+Eller du kan utföra andra hanteringsuppgifter för användaren, till exempel [att lägga till gästanvändare från en annan katalog](../b2b/what-is-b2b.md) eller [återställa en borttagen användare](active-directory-users-restore.md). Läs mer om andra tillgängliga åtgärder, [Azure Active Directory management supportdokumentation](../users-groups-roles/index.yml).

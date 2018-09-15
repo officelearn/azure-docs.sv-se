@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: eb2b26333647d464a3a18cd07bf1576251fb3830
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: a2daf75e5a75a4fb0be06986903a2f4f9be8adf0
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715411"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634854"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -483,7 +483,7 @@ Ange följande parametrar för mallen i Azure-portalen:
   * **Administratörens användarnamn** och **adminlösenord**: ett användarnamn och lösenord.
     En ny användare skapas för att logga in till den virtuella datorn.
   * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas eller ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är ansluten till ditt lokala nätverk, Välj **befintliga**.
-  * **Undernät-ID**: ID för undernätet som de virtuella datorerna ska ansluta till. Välj undernät för ditt virtuella privata nätverk (VPN) eller Azure ExpressRoute virtuellt nätverk för att ansluta den virtuella datorn till ditt lokala nätverk. ID: T ser oftast ut så här: /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuellt nätverksnamn > /subnets/&lt;undernätets namn >
+  * **Undernät-ID**: Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har en undernätet som definierades när den virtuella datorn ska tilldelas att namnge ID för det specifika undernätet. ID: T ser oftast ut så här: /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuellt nätverksnamn > /subnets/&lt;undernätets namn >
 
 1. **Allmänna villkor**:  
     Granska och Godkänn de juridiska villkoren.
@@ -614,9 +614,7 @@ Ange följande parametrar för mallen i Azure-portalen:
 
     En ny användare skapas för att logga in till den virtuella datorn.
   * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas eller ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är ansluten till ditt lokala nätverk, Välj **befintliga**.
-  * **Undernät-ID**: ID för det undernät som de virtuella datorerna ska ansluta till. Välj undernät för ditt VPN eller ExpressRoute virtuellt nätverk för att ansluta den virtuella datorn till ditt lokala nätverk. ID: T ser oftast ut så här:
-
-    /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuellt nätverksnamn > /subnets/&lt;undernätets namn >
+  * **Undernät-ID**: Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har en undernätet som definierades när den virtuella datorn ska tilldelas att namnge ID för det specifika undernätet. ID: T ser oftast ut så här: /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuellt nätverksnamn > /subnets/&lt;undernätets namn >
 
 1. **Allmänna villkor**:  
     Granska och Godkänn de juridiska villkoren.
@@ -697,9 +695,7 @@ Ange följande parametrar för mallen i Azure-portalen:
   * **VHD-URI för operativsystemdisk** (endast mall ohanterad disk): den URI för den privata OS-disken, till exempel https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
   * **Managed Disk-Id på operativsystemdisk** (endast mall hanterade diskar): Id för hanterad Disk OS-disken /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **Nytt eller befintligt undernät**: bestämmer om skapas ett nytt virtuellt nätverk och undernät eller ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är ansluten till ditt lokala nätverk, Välj **befintliga**.
-  * **Undernät-ID**: ID för det undernät som de virtuella datorerna ska ansluta till. Välj undernät för virtuellt nätverk VPN eller Azure ExpressRoute för att ansluta den virtuella datorn till ditt lokala nätverk. ID: T ser oftast ut så här:
-
-    /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuellt nätverksnamn > /subnets/&lt;undernätets namn >
+  * **Undernät-ID**: Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har en undernätet som definierades när den virtuella datorn ska tilldelas att namnge ID för det specifika undernätet. ID: T ser oftast ut så här: /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuellt nätverksnamn > /subnets/&lt;undernätets namn >
 
 1. **Allmänna villkor**:  
     Granska och Godkänn de juridiska villkoren.
@@ -835,7 +831,7 @@ Vilka steg du utför för att konfigurera proxyn i Windows skiljer sig från hur
 Proxyinställningar måste ställas in korrekt för det lokala systemkontot för åtkomst till Internet. Om proxyinställningarna inte har angetts av en Grupprincip kan du konfigurera inställningarna för det lokala systemkontot.
 
 1. Gå till **starta**, ange **gpedit.msc**, och välj sedan **RETUR**.
-1. Välj **Datorkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >  ** Internet Explorer**. Se till att inställningen **Kontrollera proxy inställningar per dator (snarare än per användare)** är inaktiverad eller inte konfigurerad.
+1. Välj **Datorkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >   **Internet Explorer**. Se till att inställningen **Kontrollera proxy inställningar per dator (snarare än per användare)** är inaktiverad eller inte konfigurerad.
 1. I **Kontrollpanelen**går du till **nätverks- och delningscenter** > **Internetalternativ**.
 1. På den **anslutningar** fliken den **LAN-inställningar** knappen.
 1. Rensa den **automatisk identifiering av inställningar** markerar du kryssrutan.

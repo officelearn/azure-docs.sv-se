@@ -1,44 +1,59 @@
 ---
-title: Självstudien skapa en sammansatt entitet för att extrahera komplexa data – Azure | Microsoft Docs
-description: Lär dig hur du skapar en sammansatt entitet i din LUIS-app för att extrahera olika typer av entitetsdata.
+title: 'Självstudiekurs 6: Extrahera sammansatta data med LUIS sammansatta entitet'
+titleSuffix: Azure Cognitive Services
+description: Lägg till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 17a8110624975d8053ad69c5bf30477e6d715ee8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 192be1561559ac17ae98ae24ee92b292f38313a9
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159834"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629142"
 ---
-# <a name="tutorial-6-add-composite-entity"></a>Självstudie: 6. Lägg till sammansatta entitet 
-I den här självstudien lägger du till en sammansatt entitet för att bifoga extraherade data i en innehållande entiteten.
+# <a name="tutorial-6-group-and-extract-related-data"></a>Självstudiekurs 6: Gruppera och extrahera relaterade data
+I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
 
-I den här guiden får du lära dig att:
+Syftet med den sammansatta entiteten är att gruppera relaterade entiteter i en överordnad kategori. Informationen finns som separata entiteter innan en sammansatta skapas. Det liknar hierarkisk entitet men kan innehålla olika typer av enheter. 
+
+Sammansatta entiteten är ett bra alternativ för den här typen av data eftersom data:
+
+* Är relaterade till varandra. 
+* Använda en mängd olika typer av enheter.
+* Måste vara grupperade och bearbetas av klientapp som en enhet med information.
+
+**I den här självstudien får du lära dig hur du:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Förstå sammansatta entiteter 
-> * Lägg till sammansatta entitet för att extrahera data
-> * Träna och publicera app
-> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
+> * Använd befintliga självstudieappen
+> * Lägg till sammansatt entitet 
+> * Träna
+> * Publicera
+> * Hämta avsikter och entiteter från slutpunkten
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om [hierarchical entity](luis-quickstart-intent-and-hier-entity.md) (hierarkisk entitet) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json)-GitHub-lagringsplatsen.
+## <a name="use-existing-app"></a>Använd befintlig app
+Fortsätt med den app som skapats i den sista självstudien med namnet **ska**. 
 
-Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `composite`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen.  
+Om du inte har appen ska från den tidigare självstudiekursen, använder du följande steg:
 
-## <a name="composite-entity-is-a-logical-grouping"></a>Sammansatt entitet är en logisk gruppering 
-Syftet med den sammansatta entiteten är att gruppera relaterade entiteter i en överordnad kategori. Informationen finns som separata entiteter innan en sammansatta skapas. Det liknar hierarkisk entiteten, men kan innehålla flera typer av enheter. 
+1.  Hämta och spara [app JSON-fil](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
 
- Skapa en sammansatt entitet när separata entiteter kan grupperas logiskt och den här logisk gruppering kan vara bra att klientprogrammet. 
+2. Importera JSON till en ny app.
+
+3. Från den **hantera** avsnittet på den **versioner** fliken klona versionen och ge den namnet `composite`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används som en del av URL: en väg, får inte namnet innehålla några tecken som inte är giltiga i en URL.
+
+
+## <a name="composite-entity"></a>Sammansatt entitet
+Skapa en sammansatt entitet när separata entiteter kan grupperas logiskt och den här logisk gruppering kan vara bra att klientprogrammet. 
 
 I den här appen medarbetarnamn har definierats i den **medarbetare** listan entitet och omfattar namn, e-postadress, företagets anknytningsnumret, mobiltelefonnummer och USA Federal skatte-ID. 
 
@@ -51,12 +66,38 @@ Exempel yttranden i den **MoveEmployee** avsikt inkluderar:
 |Flytta John W. Smith ska kunna a-2345|
 |flytta x12345 till h-1234 imorgon|
  
-Begäran om att flytta bör minst omfatta medarbetaren (med några synonymen) och den slutgiltiga kontorsbyggnad och platsen. Begäran kan även innehålla den ursprungliga office samt ett datum som flytten som ska hända. 
+Begäran om att flytta bör ta medarbetaren (med några synonymen) och den slutgiltiga kontorsbyggnad och platsen. Begäran kan även innehålla den ursprungliga office samt ett datum som flytten som ska hända. 
 
-Extraherade data från slutpunkten bör innehålla den här informationen och returnera den på i en `RequestEmployeeMove` sammansatt entitet. 
+Extraherade data från slutpunkten bör innehålla den här informationen och returnera den i den `RequestEmployeeMove` sammansatt entitet:
 
-## <a name="create-composite-entity"></a>Skapa sammansatta entitet
-1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
+```JSON
+"compositeEntities": [
+  {
+    "parentType": "RequestEmployeeMove",
+    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+    "children": [
+      {
+        "type": "builtin.datetimeV2.datetime",
+        "value": "march 3 2 p.m"
+      },
+      {
+        "type": "Locations::Destination",
+        "value": "z - 2345"
+      },
+      {
+        "type": "Employee",
+        "value": "jill jones"
+      },
+      {
+        "type": "Locations::Origin",
+        "value": "a - 1234"
+      }
+    ]
+  }
+]
+```
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. På den **avsikter** väljer **MoveEmployee** avsikt. 
 
@@ -75,17 +116,23 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
     [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
-6. Välj sedan det senaste entitet omedelbart `datetimeV2` i uttryck. En grön stapel dras under de valda ord som anger en sammansatt entitet. I popup-menyn, anger du sammansatta namn `RequestEmployeeMove` därefter **skapa nya sammansatta** på popup-menyn. 
+6. Välj sedan det senaste entitet omedelbart `datetimeV2` i uttryck. En grön stapel dras under de valda ord som anger en sammansatt entitet. I popup-menyn, anger du sammansatta namn `RequestEmployeeMove` och sedan anger du väljer. 
 
     [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja senaste entitet i sammansatt och skapa entiteten markerat")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. I **vilken typ av enhet vill du skapa?**, nästan alla fält som krävs finns i listan. Endast den ursprungliga platsen saknas. Välj **lägga till en underordnad entitet**väljer **Locations::Origin** från listan över befintliga entiteter, Välj **klar**. 
 
+    Observera att färdiga entitet, number, har lagts till i den sammansatta entiteten. Om du hade en fördefinierade entitet visas mellan första och sista token på en sammansatt entitet innehålla sammansatta entiteten de fördefinierade entiteterna. Om det inte ingår förskapade entiteter, sammansatta entiteten är inte korrekt förutse utan varje enskilt element.
+
     ![Skärmbild av LUIS på 'MoveEmployee' avsikt att lägga till en annan entitet i popup-fönster](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
 8. Välj på förstoringsglaset i verktygsfältet för att ta bort filtret. 
 
+9. Ta bort ordet `tomorrow` från filtret så att du kan se alla exempel yttranden igen. 
+
 ## <a name="label-example-utterances-with-composite-entity"></a>Etikett exempel yttranden med sammansatta entitet
+
+
 1. Välj vänster-entitet som ska vara i sammansatt i varje exempel-uttryck. Välj sedan **omsluta i sammansatt entitet**.
 
     [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Skärmbild av LUIS på 'MoveEmployee' avsikt att välja första entiteten i sammansatta markerat")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
@@ -98,15 +145,15 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
 
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Skärmbild av LUIS på MoveEmployee om du med alla yttranden som är märkt")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
-## <a name="train-the-luis-app"></a>Träna LUIS-appen
+## <a name="train"></a>Träna
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
+## <a name="publish"></a>Publicera
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint"></a>Fråga slutpunkten 
+## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikt och entiteter från slutpunkten 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -247,7 +294,7 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
         },
         {
           "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "requestemployeemove",
+          "type": "RequestEmployeeMove",
           "startIndex": 5,
           "endIndex": 54,
           "score": 0.4027723
@@ -255,7 +302,7 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
       ],
       "compositeEntities": [
         {
-          "parentType": "requestemployeemove",
+          "parentType": "RequestEmployeeMove",
           "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
           "children": [
             {
@@ -276,28 +323,19 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
             }
           ]
         }
-      ],
-      "sentimentAnalysis": {
-        "label": "neutral",
-        "score": 0.5
-      }
+      ]
     }
     ```
 
   Den här uttryck returnerar en matris med sammansatta entiteter. Varje entitet är angiven typ och värde. Du hittar mer precision för varje underordnad entitet genom att använda en kombination av typen och värdet från sammansatta matris-objektet för att hitta motsvarande objekt i matrisen entiteter.  
-
-## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
-Den här appen har identifierat en fråga avsikt för naturligt språk och returnerade de extraherade data som en namngiven grupp. 
-
-Din chattrobot har nu tillräcklig information för att fastställa den primära åtgärden och relaterade detaljer i uttryck. 
-
-## <a name="where-is-this-luis-data-used"></a>Var används dessa LUIS-data? 
-LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+
+Den här självstudiekursen skapades en sammansatt entitet för att kapsla in befintliga entiteter. På så sätt kan klientprogram för att hitta en grupp av relaterade data i olika datatyper fortsätta konversationen. Ett klientprogram för den här personalapp kan be vilken dag och tid flytten måste börja och sluta. Det kan också fråga om andra logistik av movesuch som en fysisk telefon. 
+
 > [!div class="nextstepaction"] 
 > [Lär dig hur du lägger till en enkel enhet med en fras-lista](luis-quickstart-primary-and-secondary-data.md)  

@@ -1,24 +1,24 @@
 ---
-title: Lär dig hur mönster öka förutsägelsefunktionen | Microsoft Docs
-titleSuffix: Azure
-description: Lär dig mer om designmönster för att öka avsikt förutsägelse poäng och hitta entiteter.
+title: Lär dig hur mönster ökar prognosens noggrannhet
+titleSuffix: Azure Cognitive Services
+description: Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika. Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0a61ec4407a23e8cc515c2343a92bd77460d424b
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225225"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631420"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
-Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika. LUIS kan ha en hög exakthet i förutsägelsen genom att tillhandahålla ett mönster i uttryck. 
+Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika.  Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Mönster lösa låg avsikt förtroende
 Överväg en personalapp som rapporterar om Organisationsschema i förhållande till en medarbetare. Baserat på en medarbetares namn och relationen, returnerar LUIS anställda som ingår. Överväg att en anställd, Tom, med en chef namn Alice och ett team med underordnade med namnet: Michael och Rebecca Carl.
@@ -60,25 +60,25 @@ Entiteter i mönster omges av klammerparenteser, `{}`. Mönster kan innehålla e
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntaxen för att lägga till en entitet i en mall för mönstret
 Om du vill lägga till en entitet i mallen mönstret omger entitetsnamn med klammerparenteser, till exempel `Who does {Employee} manage?`. 
 
-```
-Who does {Employee} manage?
-```
+|Mönstret med entitet|
+|--|
+|`Who does {Employee} manage?`|
 
 ### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Syntaxen för att lägga till en enhet och en roll i en mall för mönstret
 En entitet roll är angiven som `{entity:role}` med enhetens namn följt av ett kolon och sedan namnet på rollen. Om du vill lägga till en entitet med en roll i mallen mönstret omger enhetsnamnet och rollnamn med klammerparenteser, till exempel `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
-```
-Book a ticket from {Location:Origin} to {Location:Destination}
-```
+|Mönstret med entiteten roller|
+|--|
+|`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Syntaxen för att lägga till en pattern.any mönster för mallen
 Entiteten Pattern.any kan du lägga till en entitet med varierande längd i mönstret. Så länge som mallen mönster följs kan pattern.any vara valfri längd. 
 
 Att lägga till en **Pattern.any** entiteten i mallen mönstret omger Pattern.any entiteten med klammerparenteser, till exempel `How much does {Booktitle} cost and what format is it available in?`.  
 
-```
-How much does {Booktitle} cost and what format is it available in?
-```
+|Mönstret med Pattern.any entitet|
+|--|
+|`How much does {Booktitle} cost and what format is it available in?`|
 
 |Bok rubriker i mönstret|
 |--|
@@ -107,9 +107,9 @@ I den föregående tabellen gäller uttryck `email about the man from La Mancha`
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Syntaxen för att markera valfri text i en mall-uttryck
 Markera valfri text i uttryck som använder syntax för reguljära uttryck hakparentes, `[]`. Valfri text kan kapsla hakparenteser upp till två hakparenteser.
 
-```
-[find] email about {subject} [from {person}]
-```
+|Mönstret med valfri text|
+|--|
+|`[find] email about {subject} [from {person}]`|
 
 Skiljetecken som `.`, `!`, och `?` kan ignoreras med hakparenteser. För att ignorera dessa märken måste varje mark vara i ett separat. Valfria syntax stöd för närvarande inte ignorerar ett objekt i en lista över flera objekt.
 

@@ -4,17 +4,17 @@ description: Förklaring och exempel på de vanligaste uppgifterna i Azure Autom
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9a18855d11c0b367b7d58ffb0f4c62e752c05b89
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: fc1c870d06d6bf4a0db941b261e9aebd317fdcb1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004240"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634375"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Komma igång med Azure Automation State Configuration
 
@@ -123,7 +123,7 @@ När du har startat en sammanställning kan du visa den i den **Kompileringsjobb
 
 ## <a name="viewing-node-configurations"></a>Visa nodkonfigurationer
 
-Slutförande av en kompileringsjobbet skapar en eller flera nya nodkonfigurationer. En nodkonfiguration är en MOF-dokument som har distribuerats till pull-servern och redo att hämtas och tillämpas av en eller flera noder. Du kan visa nodkonfigurationer i ditt Automation-konto i den **tillståndskonfiguration (DSC)** sidan. En nodkonfiguration har ett namn med formatet *ConfigurationName*.* Nodnamn*.
+Slutförande av en kompileringsjobbet skapar en eller flera nya nodkonfigurationer. En nodkonfiguration är en MOF-dokument som har distribuerats till pull-servern och redo att hämtas och tillämpas av en eller flera noder. Du kan visa nodkonfigurationer i ditt Automation-konto i den **tillståndskonfiguration (DSC)** sidan. En nodkonfiguration har ett namn med formatet *ConfigurationName*. *Nodnamn*.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Till vänster, klicka på **alla resurser** och sedan namnet på ditt Automation-konto.

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Identity Protection - hur du avblockerar användare | Microsoft Docs
+title: Hur du avblockerar användare med Azure Active Directory Identity Protection | Microsoft Docs
 description: Lär dig hur avblockera användare som har blockerats av en Azure Active Directory Identity Protection-princip.
 services: active-directory
 keywords: Azure active directory identity protection kan avblockera användare
@@ -13,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 09/13/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: c5f251f2de938d4441672c8aa1a6dbc6bd616155
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.reviewer: raluthra
+ms.openlocfilehash: f8bf983033407bbf597af15f18f28ecf33b7558f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575499"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631692"
 ---
-# <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection - så avblockera användare
+# <a name="how-to-unblock-users"></a>Så här: Avblockera användare
+
 Med Azure Active Directory Identity Protection kan konfigurera du principer för att blockera användare om de angivna villkoren är uppfyllda. Vanligtvis en blockerad användare kontakter supportavdelningen att bli avblockerad. Den här artikeln beskrivs de steg som du kan utföra för att låsa upp en blockerad användare.
 
 ## <a name="determine-the-reason-for-blocking"></a>Ta reda på varför för blockering

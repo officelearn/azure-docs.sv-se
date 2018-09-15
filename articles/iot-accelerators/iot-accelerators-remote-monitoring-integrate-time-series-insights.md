@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 6d41b4347eac29144743a22cb83e508cdab9b164
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: ba6d79661a2c07ba3eef1f16a117992a858830b5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45552444"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605937"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrera Azure Time Series Insights med fjärrövervakning
 
@@ -22,7 +22,7 @@ Azure Time Series Insights är en fullständigt hanterad tjänst för analys, la
 Lösningsacceleratorn för fjärrövervakning tillhandahåller nu automatisk distribution och integrering med Time Series Insights. I den här anvisningen att lära dig hur du konfigurerar Time Series Insights för en befintlig fjärrövervakning lösning som inte redan innehåller Time Series Insights.
 
 > [!NOTE]
-> Time Series Insights finns inte ännu i Azure Kina-molnet. Nya distributioner i Azure Kina-molnet fortsätta att använda Cosmos DB för lagring av alla.
+> Time Series Insights är inte tillgänglig för tillfället i Azure i Kina-molnet. Nya fjärrövervakning solution accelerator distributioner i Azure i Kina-molnet använder Cosmos DB för lagring av alla.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

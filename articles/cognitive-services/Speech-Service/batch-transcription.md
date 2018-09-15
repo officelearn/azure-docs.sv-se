@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 02af95859bcbdc3dd9fdd6d6354cae9cdf99eae8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: fcc57ea7729f8a907fd39fe346270cc52c148f07
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717955"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605597"
 ---
 # <a name="batch-transcription"></a>Batch-transkription
 
@@ -59,21 +59,21 @@ Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar B
 
 ## <a name="authorization-token"></a>Autentiseringstoken
 
-Som med alla funktioner i enhetliga Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com). Följ dessa enkla steg 6.
+Som med alla funktioner i enhetliga Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com) följande vår [Get-Started guide](get-started.md). Om du planerar att hämta avskrifter från våra basmodeller sedan det här är allt du behöver göra. 
 
-1. En nyckel för prenumerationen har skapats i Azure följande vår [Get-Started guide](get-started.md) 
+Om du planerar att anpassa och använda en anpassad modell måste du lägga till den här nyckeln subscritpion i portal för anpassat tal på följande sätt:
 
-2. Logga in på [Custom Speech](https://customspeech.ai).
+1. Logga in på [Custom Speech](https://customspeech.ai).
 
-3. Välj **Prenumerationer**.
+2. Välj **Prenumerationer**.
 
-4. Välj **ansluta befintliga prenumeration**.
+3. Välj **ansluta befintliga prenumeration**.
 
-5. Lägg till prenumerationsnyckeln och ett alias i vyn som visas
+4. Lägg till prenumerationsnyckeln och ett alias i vyn som visas
 
     ![Skärmbild för anpassat tal prenumerationssidan](media/stt/Subscriptions.jpg)
 
-6. Kopiera och klistra in nyckeln i klientkoden i följande exempel.
+5. Kopiera och klistra in nyckeln i klientkoden i följande exempel.
 
 > [!NOTE]
 > Om du planerar att använda en anpassad modell behöver du ID för den modellen för. Observera att detta inte är slutpunkts-ID som du hittar i vyn information om slutpunkten. Det är det modell-ID som du kan hämta när du väljer information om den modellen.
@@ -101,7 +101,7 @@ När du har fått en token måste du ange SAS-URI som pekar på filen kräver av
    static async Task TranscribeAsync()
         { 
             private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
-            private const string HostName = "cris.ai";
+            private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
             // Creating a Batch transcription API Client

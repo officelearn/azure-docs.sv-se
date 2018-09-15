@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 0813/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c35fdb391f3ec3f0af3a7c916cb22cb58c90dd64
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051246"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604677"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server 
 
@@ -267,7 +267,7 @@ Externa tabeller som refererar till filer i HDFS- eller Azure blob storage stöd
 
 ### <a name="replication"></a>Replikering 
  
-Replikering stöds på hanterad instans. Information om replikering finns i [SQL Server-replikering](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Replikering är tillgänglig i offentlig förhandsversion på hanterad instans. Information om replikering finns i [SQL Server-replikering](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>ÅTERSTÄLLA instruktionen 
  
@@ -335,23 +335,24 @@ Information om återställning instruktioner finns i [ÅTERSTÄLLA instruktioner
 - `sp_attach_db`, `sp_attach_single_file_db`, och `sp_detach_db` stöds inte. Se [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), och [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` stöds inte. Se [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### <a name="sql-server-agent"></a>SQL Server Agent 
- 
+### <a name="sql-server-agent"></a>SQL Server Agent
+
 - Inställningar för SQL Agent är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i hanterade instanser.  
-- Jobb – endast T-SQL-jobb stegen är för närvarande stöds (fler steg läggs allmänt tillgängliga förhandsversionen).
- - SSIS stöds inte ännu. 
- - Replikering stöds inte ännu  
-  - Transaktionsloggen läsare stöds inte ännu.  
-  - Ögonblicksbilder stöds inte ännu.  
-  - Distributören stöds inte ännu.  
-  - Koppling stöds inte.  
+- Jobb – T-SQL-jobb steg stöds för närvarande
+- Andra typer av jobb som steg för inte närvarande stöds (flera steg typer kommer att läggas till under den offentliga förhandsversionen).
+  - Replikeringsjobb stöds inte, inklusive:
+    - Transaktionsloggen läsare.  
+    - Ögonblicksbild.
+    - Distributören.  
+    - Slå ihop.  
+  - SSIS stöds inte ännu. 
   - Kön läsare stöds inte.  
- - Kommandogränssnitt (shell) stöds inte ännu. 
+  - Kommandogränssnitt (shell) stöds inte ännu. 
   - Hanterad instans kan inte komma åt externa resurser (till exempel nätverksresurser via robocopy).  
- - PowerShell stöds inte ännu.
- - Analysis Services stöds inte.  
+  - PowerShell stöds inte ännu.
+  - Analysis Services stöds inte.  
 - Meddelanden stöds delvis.
- - E-postmeddelande stöds, kräver att du konfigurerar en Database Mail-profil. Det kan vara endast en database mail-profilen och den måste anropas `AzureManagedInstance_dbmail_profile` i offentlig förhandsversion (tillfällig begränsning).  
+- E-postmeddelande stöds, kräver att du konfigurerar en Database Mail-profil. Det kan vara endast en database mail-profilen och den måste anropas `AzureManagedInstance_dbmail_profile` i offentlig förhandsversion (tillfällig begränsning).  
  - Personsökare stöds inte.  
  - NetSend stöds inte. 
  - Aviseringar stöds inte ännu inte.

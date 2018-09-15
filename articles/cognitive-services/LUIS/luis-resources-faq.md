@@ -1,20 +1,21 @@
 ---
-title: Vanliga frågor och svar om Språkförståelse (LUIS) i Azure | Microsoft Docs
-description: Få svar på vanliga frågor och svar om Språkförståelse (LUIS)
+title: Vanliga frågor och svar - Språkförståelse (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Den här artikeln innehåller svar på vanliga frågor och svar om Språkförståelse (LUIS).
 author: diberry
 manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a266055c7685dca87d985775584a9ea7a4bda883
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c338f874f426eef047f29e958877368c61db7e62
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128528"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630265"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding vanliga frågor och svar
 
@@ -63,7 +64,7 @@ Cortana färdiga appar tagits bort 2017. De stöds inte längre.
 LUIS [tokenizes](luis-glossary.md#token) i uttryck baserat på den [kultur](luis-supported-languages.md#tokenization). Både det ursprungliga värdet och principfilerna värdet är tillgängliga för [dataextrahering](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Hur jag för att skapa och tilldela en LUIS slutpunktsnyckeln?
-[Skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md#create-luis-endpoint-key) i Azure för dina [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nivå. [Tilldela nyckeln](luis-how-to-manage-keys.md#assign-endpoint-key) på den **[publicera](luis-how-to-publish-app.md)** sidan. Det finns inga motsvarande API: et för den här åtgärden. Du måste ändra HTTP-begäran till slutpunkten till [använder den nya slutpunktsnyckeln](luis-concept-keys.md#use-endpoint-key-in-query).
+[Skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md#create-luis-endpoint-key) i Azure för dina [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nivå. [Tilldela nyckeln](luis-how-to-manage-keys.md#assign-endpoint-key) på den **[nycklar och slutpunkter](luis-how-to-manage-keys.md)** sidan. Det finns inga motsvarande API: et för den här åtgärden. Du måste ändra HTTP-begäran till slutpunkten till [använder den nya slutpunktsnyckeln](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Hur tolkar LUIS poäng? 
 Systemet bör använda högsta bedömnings avsikten oavsett dess värde. Till exempel en poäng under 0,5 (mindre än 50%) inte nödvändigtvis att LUIS har låg förtroende. Tillhandahåller mer utbildningsdata för kan du öka poängen för den mest sannolika avsikten.
@@ -115,13 +116,18 @@ Se [förutsägelse skillnaderna mellan kopior av samma app](luis-concept-predict
 ## <a name="app-publishing"></a>Publicering av appar
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Vad är klient-ID i fönstret ”Lägg till en nyckel till din app”?
-I Azure representerar en klient klient eller organisation som är associerat med en tjänst. Hitta ditt klient-ID i Azure-portalen i den **katalog-ID** box genom att välja **Azure Active Directory** > **hantera**  >  **Egenskaper**.
+I Azure representerar en klient klient eller organisation som är associerad med en tjänst. Hitta ditt klient-ID i Azure-portalen i den **katalog-ID** box genom att välja **Azure Active Directory** > **hantera**  >  **Egenskaper**.
 
 ![Klient-ID i Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
-### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Varför är det mer endpoint-nycklar på min app publicera sidan än jag tilldelade till appen? 
-Varje LUIS-app har nyckeln redigering/starter. LUIS endpoint nycklar som skapades under tidsramen för allmän tillgänglighet är synliga på sidan med publicera oavsett om du har lagt till dem i appen. Detta gjordes för att underlätta GA-migrering. Alla nya LUIS endpoint nycklar visas inte på publiceringssidan. 
+<a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+
+
+### <a name="why-are-there-more-endpoint-keys-assigned-to-my-app-than-i-assigned"></a>Varför finns det fler endpoint-nycklar som tilldelats min app än jag har tilldelat? 
+Varje LUIS-app har redigering/starter-nyckel i listan över slutpunkten bekvämlighets skull. Den här nyckeln kan bara ett par endpoint träffar så att du kan testa LUIS.  
+
+Om din app fanns innan LUIS var allmänt tillgänglig (GA), tilldelas LUIS endpoint nycklar i din prenumeration automatiskt. Detta gjordes för att underlätta GA-migrering. Alla nya LUIS endpoint nycklar i Azure-portalen är _inte_ automatiskt tilldela det till LUIS. 
 
 ## <a name="app-management"></a>Apphantering
 

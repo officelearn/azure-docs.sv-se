@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d6d68842b5e519201f7990a9c361710115de7fea
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ec149b0f100ae3e170f39911eafc399f24509dfa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022958"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630400"
 ---
 # <a name="entities-in-luis"></a>Entiteter i LUIS
 
@@ -46,10 +46,10 @@ Om word val eller word placering är samma, men inte betyda samma sak, du inte m
 
 Följande uttryck, ordet `fair` är en homografiska. Det har stavats samma, men har en annan betydelse:
 
-```
-What kind of county fairs are happening in the Seattle area this summer?
-Is the current rating for the Seattle review fair?
-```
+|Yttrande|
+|--|
+|Vilken typ av region mässor sker i Seattle-området den här sommaren?|
+|Är den aktuella klassificeringen för Seattle-granskning fair?|
 
 Om du vill att en händelse entitet för att hitta alla händelsedata kan etikettera ordet `fair` i den första uttryck, men inte i andra.
 

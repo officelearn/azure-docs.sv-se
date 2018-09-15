@@ -1,6 +1,6 @@
 ---
-title: Lägg till entiteter i LUIS-appar | Microsoft Docs
-titleSuffix: Azure
+title: Lägg till entiteter i LUIS-appar
+titleSuffix: Azure Cognitive Services
 description: Lägg till entiteter (viktiga data i ditt programs domän) i appar för Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e97f9a5391799849983bd98db5400e0a842627b7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3fe76afca2eb8b14641589e4e29fc20b5d3de7fa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224134"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632297"
 ---
 # <a name="manage-entities"></a>Hantera entiteter
 När du har identifierat appens [avsikter](luis-concept-intent.md), måste du [märka exempel yttranden](luis-concept-utterance.md) med [entiteter](luis-concept-entity-types.md). Entiteter är viktiga delar av ett kommando eller en fråga och kan vara viktiga för din klientapp att utföra sitt uppdrag. 
@@ -31,9 +31,7 @@ Färdiga entiteter har definierats i den [identifierare fulltext](https://github
  
 2. På den **entiteter** väljer **hantera förskapade entiteter**.
 
-    ![Skärmbild för att lägga till färdiga entiteten på sidan för entiteter](./media/add-entities/manage-prebuilt-entities-button.png)
-
-3. I **Lägg till eller ta bort fördefinierade entiteter** dialogrutan den **nummer** och **datetimeV2** förskapade entiteter. Välj sedan **klar**.
+3. I **Lägg till eller ta bort fördefinierade entiteter** dialogrutan den **nummer** och **datetimeV2** förskapade entiteter. Välj sedan **Done** (Klar).
 
     ![Skärmbild av Lägg till fördefinierade entitet dialogrutan](./media/add-entities/list-of-prebuilt-entities.png)
 
@@ -43,8 +41,6 @@ Färdiga entiteter har definierats i den [identifierare fulltext](https://github
 En enkel enhet är en allmän entitet som beskriver ett enda koncept. 
 
 1. I din app från den **skapa** avsnittet och klicka sedan på **entiteter** i den vänstra panelen och välj sedan **Skapa ny entitet**.
-
-    ![Skärmbild av entiteter sida med ny entitet knappen Skapa markerat](./media/add-entities/create-new-entity-button.png)
 
 2. I popup-rutan, skriver `Airline` i den **entitetsnamn** väljer **enkel** från den **entitetstypen** och sedan välja **klar**.
 
@@ -57,7 +53,7 @@ Ett reguljärt uttryck entiteten används för att hämta data från uttryck bas
 
 1. I din app, väljer **entiteter** vänstra navigeringsfönstret och välj sedan **Skapa ny entitet**.
 
-2. I popup-fönstret i dialogrutan som visas, skriver du in `AirFrance Flight` i den **entitetsnamn** väljer **reguljärt uttryck** från den **entitetstypen** listan, ange det reguljära uttrycket `AFR[0-9]{3,4}`, och välj sedan **klar**. 
+2. I popup-rutan, ange `AirFrance Flight` i den **entitetsnamn** väljer **reguljärt uttryck** från den **entitetstypen** listan, ange det reguljära uttrycket `AFR[0-9]{3,4}`, och välj sedan **klar**. 
 
     Den här AirFrance flygning reguljärt uttryck förväntar sig tre tecken bokstavligen `AFR`, sedan 3 eller 4 siffror. Siffrorna kan vara ett tal mellan 0 och 9. Det reguljära uttrycket som matchar AirFrance linjenummer: ”AFR101”, ”ARF1302” och ”AFR5006”. Se [Dataextrahering](luis-concept-data-extraction.md) mer information om hur du extraherar entiteten från slutpunkten JSON frågesvaret.
 

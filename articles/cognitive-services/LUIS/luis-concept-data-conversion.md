@@ -8,17 +8,17 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e1d0e0a0205190846612d727fbf34404e33c3ad4
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 58f08c13bd10ae96a3490a15d765df82df8ed021
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027086"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631556"
 ---
 # <a name="data-conversion-concepts-in-luis"></a>Begrepp för konvertering i LUIS
-LUIS är ett sätt att konvertera yttranden från talat yttranden till text yttranden innan förutsägelse. 
+LUIS använder Cognitive Services tal-tjänsten för att konvertera yttranden från talat yttranden till text yttranden innan förutsägelse. 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>Tal till avsikt konvertering begrepp
 Konvertera tal till text i LUIS kan du skicka talat yttranden till en slutpunkt och ta emot svar LUIS förutsägelse. Processen är en integrering av den [tal](https://docs.microsoft.com/azure/cognitive-services/Speech) tjänst med LUIS. 

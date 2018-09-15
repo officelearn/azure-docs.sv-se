@@ -1,56 +1,57 @@
 ---
-title: Vanliga frågor om textanalys API - kognitiva Azure-tjänster | Microsoft Docs
-description: Få svar på vanliga frågor om Microsoft kognitiva Services Text Analytics API på Azure.
+title: Vanliga frågor och svar om API för textanalys
+titleSuffix: Azure Cognitive Services
+description: Få svar på vanliga frågor om API för textanalys.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bf82899b4317f0f5ce0f6ca5096dccef7cddd931
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa1c5b048c3ef339d01a3a63fd1d565b888ffbbb
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355173"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603404"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Vanliga frågor (FAQ) om textanalys API
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Vanliga frågor (och svar FAQ) om tjänsten Text Analytics Cognitive
 
- Få svar på vanliga frågor om begrepp och koden scenarion Text Analytics-API: et för Microsoft kognitiva Services på Azure.
+ Hitta svar på vanliga frågor om koncept, kod och scenarier som är relaterat till Textanalys för Microsoft Cognitive Services på Azure.
 
-## <a name="can-text-analytics-identify-sarcasm"></a>Textanalys kan identifiera sarcasm?
+## <a name="can-text-analytics-identify-sarcasm"></a>Textanalys kan identifiera sarkasm?
 
-Analys är för positiv negativ sentiment i stället för sinnesstämning identifiering.
+Analysen är för positiv negativ attityd i stället för stämning identifiering.
 
-Det finns alltid viss mån inexaktheter i sentiment analys, men modellen är mest användbart när det finns ingen dolda betydelse eller underordnad text till innehållet. Irony, sarcasm, humor och innehåll på samma sätt nuanced förlitar sig på kulturell kontext och normer att förmedla avsikt. Den här typen av innehåll är bland de svåraste att analysera. Största skillnaden mellan en viss poäng som produceras av analyzer och en subjektiv bedömning av en mänskliga är vanligtvis för innehåll med nuanced betydelse.
+Det finns alltid en viss grad av inexaktheter i attitydanalys, men modellen är mest användbara när det finns inga dolda betydelse eller underordnad text till innehållet. Irony, sarkasm, humor och på samma sätt nyanserade innehåll beroende kontexten kulturella och normer att förmedla avsikt. Den här typen av innehåll är ett av de mest utmanande att analysera. Största skillnaden mellan ett visst poängintervall som produceras av analysatorn och en subjektiv bedömning av en människa är vanligtvis för innehåll med nyanserade betydelse.
 
 ## <a name="can-i-add-my-own-training-data-or-models"></a>Kan jag använda min egen träningsdata eller modeller?
 
-Nej, modeller är pretrained. Endast åtgärder på överförda data bedömningen viktiga frasen extrahering och identifiera språk. Vi värd inte anpassade modeller. Om du vill skapa och vara värd för anpassade machine learning-modeller bör du den [maskin learning funktioner i Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+Nej, modellerna är tränats. De enda åtgärderna som är tillgängliga på överförda data bedömning, extrahering av diskussionsämne och språkidentifiering. Vi hantera inte anpassade modeller. Om du vill skapa och vara värd för anpassade machine learning-modeller, Överväg att den [machine learning-funktioner i Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
 
 ## <a name="can-i-request-additional-languages"></a>Kan jag begära ytterligare språk?
 
-Sentiment analys och viktiga frasen extrahering är tillgängliga för en [Välj antal språk](text-analytics-supported-languages.md). Bearbetning av naturligt språk är komplex och kräver betydande test innan nya funktioner kan släppas. Därför undvika före meddelar support så att ingen tar ett beroende på funktioner som behöver mer tid att mogna. 
+Attitydanalys och extrahering av diskussionsämne är tillgängliga för en [Välj antal språk](text-analytics-supported-languages.md). Bearbetning av naturligt språk är komplex och kräver omfattande testning innan nya funktioner kan släppas. Därför undvika förväg presenterar support så att ingen får ett beroende på funktioner som behöver mer tid att mogna. 
 
-För att hjälpa oss att prioritera vilka språk som ska fungera på nästa, rösta för specifika språk på [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
+För att hjälpa oss att prioritera vilka språk som ska fungera på nästa, rösta för vissa språk på [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
-## <a name="why-does-key-phrase-extraction-return-some-words-but-not-others"></a>Varför viktiga frasen extrahering returnera några ord men inte andra?
+## <a name="why-does-key-phrase-extraction-return-some-words-but-not-others"></a>Varför extrahering av diskussionsämne tillbaka vissa ord, men inte för andra?
 
-Viktiga frasen extrahering eliminerar irrelevanta ord och fristående adjektiv. Adjektiv och substantiv kombinationer, till exempel ”spektakulära vyer” eller ”dimmig väder” returneras tillsammans.
+Extrahering av diskussionsämne eliminerar ord som inte behövs och fristående adjektiv. Adjektiv-substantiv kombinationer, till exempel ”fantastiskt vyer” eller ”dimmig väder” returneras tillsammans.
 
-I allmänhet består utdata av substantiv och objekt i meningarna. Utdata visas i prioritetsordning, med den första frasen är de viktigaste. Vikten mäts av antalet gånger som en viss konceptet nämns eller relationen elementet till andra element i texten.
+Utdata består normalt av substantiv och objekt i meningen. Utdata visas i prioritetsordning, med första frasen är de viktigaste. Vikten mäts efter hur många gånger ett visst koncept nämns eller relationen av elementets för andra element i texten.
 
 ## <a name="why-does-output-vary-given-identical-inputs"></a>Varför utdata varierar, beroende på identiska indata?
 
-Förbättringar av modeller och algoritmer meddelas om ändringen är större eller tyst slipstream i tjänsten när uppdateringen är mindre. Över tiden, kan det hända att samma text inkommande resultat i en annan sentiment poäng eller viktiga frasen utdata. Detta är ett normalt och avsiktlig följd av att använda utbildningsresurser för hanterad dator i molnet.
+Förbättringar av modeller och algoritmer tillkännages om ändringen är större eller tyst slipstream i tjänsten om uppdateringen är mindre. Med tiden kan kan det hända att samma text input resultat i en annan sentimentresultatet eller diskussionsämne utdata. Det här är ett normalt och avsiktlig följd av att använda hanterade machine learning-resurser i molnet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Är en fråga om en funktion eller funktionalitet som saknas? Överväg att begära eller röstning för den vår [UserVoice-webbplatsen](https://cognitive.uservoice.com/forums/555922-text-analytics).
+Är en fråga om en funktion eller funktionalitet som saknas? Överväg att begära eller röstat vår [UserVoice-webbplats](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
 ## <a name="see-also"></a>Se också
 
- [StackOverflow: Textanalys API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Kognitiva tjänster](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: API för textanalys](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

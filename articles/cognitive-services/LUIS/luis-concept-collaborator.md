@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fd4955cb2d7ea76e8d0fd6c60027740b64bd8b24
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ac1c3b4ac49cd8934316eb5653af8f5af2cf801a
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026255"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630162"
 ---
 # <a name="collaborating"></a>Samarbeta
 
@@ -30,6 +30,11 @@ Se [Azure Active Directory-klientanvändare](luis-how-to-collaborate.md#azure-ac
 
 ## <a name="luis-app-owner"></a>LUIS appägare
 Kontot som skapar en app är ägaren. Varje app har en enda ägare. Ägaren anges på app  **[inställningar](luis-how-to-collaborate.md)**. Det här är det konto som kan ta bort appen. Detta är också det konto som tar emot e-post när slutpunkten kvoten är nådd 75% av den månatliga begränsningen. 
+
+## <a name="authorization-roles"></a>Auktoriseringsroller
+LUIS stöder inte olika roller för ägare och medarbetare med ett undantag. Ägaren är det enda kontot som kan ta bort appen.
+
+Om du är intresserad av att kontrollera åtkomst till modellen kan du överväga att uppdelning modellen i mindre LUIS-appar, där varje mindre app har en mer begränsad uppsättning medarbetare. Använd [Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) så att en förälder LUIS-app för att hantera samordning mellan överordnade och underordnade appar.
 
 ## <a name="transfer-ownership"></a>Överför ägarskap
 LUIS ger inte överlåtelse av äganderätt, men alla medarbetare kan exportera en app och sedan skapa en app genom att importera den. Tänk på den nya appen har ett annat App-ID. Ny krävs för appen ska vara utbildade, publiceras och den nya slutpunkten som används.

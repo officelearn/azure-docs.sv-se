@@ -1,51 +1,27 @@
 ---
-title: Använd batch testning för att förbättra LUIS förutsägelser | Microsoft Docs
-titleSuffix: Azure
-description: Läsa in batch test, granska resultaten och förbättra LUIS förutsägelser med ändringar.
+title: 'Självstudie 2: Batch-test med 1000 yttranden '
+titleSuffix: Azure Cognitive Services
+description: Den här kursen visar hur du använder batch testning för att hitta uttryck förutsägelse problem i din app och korrigera detta.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 5abaeaee87d54e82df29e75b89c83522b8746730
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1f1055b84a83d71931ebd0ca11b5bcd1bd16ad02
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158253"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630995"
 ---
-# <a name="improve-app-with-batch-test"></a>Förbättra app med batch-test
+# <a name="tutorial--2-batch-test-data-sets"></a>Självstudie: # 2. Datauppsättningar för batch-test
 
-Den här självstudien visar hur du använder batch testning för att hitta uttryck förutsägelse problem.  
-
-I den här guiden får du lära dig att:
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-* Skapa en batchfil för testning 
-* Köra ett batch-test
-* Granskningsresultat
-* Åtgärda fel 
-* Testa om batch
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Innan du börjar
-
-Om du inte har personalapp från den [granska endpoint yttranden](luis-tutorial-review-endpoint-utterances.md) självstudien [importera](luis-how-to-start-new-app.md#import-new-app) JSON-koden i en ny app i den [LUIS](luis-reference-regions.md#luis-website) webbplats. Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json)-GitHub-lagringsplatsen.
-
-Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `batchtest`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
-
-Träna appen.
-
-## <a name="purpose-of-batch-testing"></a>Syftet med batch-testning
+Den här kursen visar hur du använder batch testning för att hitta uttryck förutsägelse problem i din app och korrigera detta.  
 
 Batch-testning kan du kontrollera aktiva tränas modellens tillstånd med en känd uppsättning av taggade yttranden och entiteter. I JSON-formaterade kommandofilen, Lägg till talade och ange etiketter för entiteten som du behöver förutse inuti uttryck. 
-
-<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> När du använder en app än den här självstudien måste du kontrollera att du är *inte* med hjälp av exempel talade redan lagts till i en avsikt. Kontrollera din batch test yttranden mot exempel-yttranden [exportera](luis-how-to-start-new-app.md#export-app) appen. Jämför den appen exempel uttrycks till batch test yttranden. 
 
 Krav för att testa batch:
 
@@ -53,13 +29,42 @@ Krav för att testa batch:
 * Inga dubbletter. 
 * Entitetstyper tillåts: endast bearbetas-lärt dig enheter enkla, hierarkisk (överordnade endast), och komposita. Batch testning är endast användbart för bearbetning-lärt dig avsikter och entiteter.
 
-## <a name="create-a-batch-file-with-utterances"></a>Skapa en batchfil med yttranden
+När du använder en app än den här självstudien gör *inte* använder exemplet talade redan lagts till i en avsikt. 
 
-1. Skapa `HumanResources-jobs-batch.json` i en textredigerare som [VSCode](https://code.visualstudio.com/). 
+**I den här självstudien får du lära dig hur du:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Använd befintliga självstudieappen
+> * Skapa en batchfil för testning 
+> * Köra ett batch-test
+> * Granskningsresultat
+> * Åtgärda fel 
+> * Testa om batch
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Använd befintlig app
+
+Fortsätt med den app som skapats i den sista självstudien med namnet **ska**. 
+
+Om du inte har appen ska från den tidigare självstudiekursen, använder du följande steg:
+
+1.  Hämta och spara [app JSON-fil](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+
+2. Importera JSON till en ny app.
+
+3. Från den **hantera** avsnittet på den **versioner** fliken klona versionen och ge den namnet `batchtest`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används som en del av URL: en väg, får inte namnet innehålla några tecken som inte är giltiga i en URL. 
+
+4. Träna appen.
+
+## <a name="batch-file"></a>Kommandofil
+
+1. Skapa `HumanResources-jobs-batch.json` i en textredigerare eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) den. 
 
 2. Lägg till yttranden med i JSON-formaterade kommandofilen, den **avsikt** du vill att förväntade i testet. 
 
-   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>Kör om gruppen
 
@@ -73,13 +78,13 @@ Krav för att testa batch:
 
     [![Skärmbild av LUIS-app med importera datauppsättningen markerat](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. Välj system sökvägen till den `HumanResources-jobs-batch.json` filen.
+4. Välj plats för filen för den `HumanResources-jobs-batch.json` filen.
 
 5. Namnge datauppsättningen `intents only` och välj **klar**.
 
     ![Välj fil](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
-6. Klicka på knappen **Kör**. Vänta tills testet är klart.
+6. Klicka på knappen **Kör**. 
 
 7. Välj **se resultat**.
 
@@ -109,7 +114,7 @@ Observera att båda avsikter har samma antal fel. En felaktig förutsägelse i e
 
 Tidpunkt för talade motsvarande upp den **falsklarm** avsnittet är `Can I apply for any database jobs with this resume?` och `Can I apply for any database jobs with this resume?`. För den första uttryck ordet `resume` har endast används i **ApplyForJob**. För andra uttryck, ordet `apply` har endast används i den **ApplyForJob** avsikt.
 
-## <a name="fix-the-app-based-on-batch-results"></a>Åtgärda appen baserat på batch-resultat
+## <a name="fix-the-app"></a>Åtgärda appen
 
 Målet med det här avsnittet är att låta alla talade korrekt förutse för **GetJobInformation** genom att åtgärda appen. 
 
@@ -119,7 +124,7 @@ Du kanske också undrar om att ta bort yttranden från **ApplyForJob** tills ant
 
 Första korrigeringen är att lägga till fler yttranden till **GetJobInformation**. Andra korrigeringen är att minska vikten av ord som till exempel `resume` och `apply` mot den **ApplyForJob** avsikt. 
 
-### <a name="add-more-utterances-to-getjobinformation"></a>Lägg till mer yttranden till **GetJobInformation**
+### <a name="add-more-utterances"></a>Lägg till mer yttranden
 
 1. Stänga panelen batch test genom att välja den **testa** knappen i övre navigeringsfönstret. 
 
@@ -149,7 +154,7 @@ Första korrigeringen är att lägga till fler yttranden till **GetJobInformatio
 
 4. Träna appen genom att välja **träna** i det övre högra navigeringsfältet.
 
-## <a name="verify-the-fix-worked"></a>Verifiera korrigeringen fungerade
+## <a name="verify-the-new-model"></a>Kontrollera den nya modellen
 
 För att verifiera att yttranden i batch-testet är korrekt förutse, kör du batch-testet igen.
 
@@ -171,12 +176,12 @@ När du först skriva och testa batch-filer, är det bäst att börja med ett pa
 
 Värdet för en **jobbet** entiteten i test-uttryck är vanligtvis en eller två ord med några exempel som flera ord. Om _egna_ personalapp har vanligtvis jobbet namnen på många ord, exempel yttranden som är märkt med **jobbet** entitet i den här appen inte skulle fungera bra.
 
-1. Skapa `HumanResources-entities-batch.json` i en textredigerare som [VSCode](https://code.visualstudio.com/). Eller ladda ned [filen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) från LUIS-Samples Github-lagringsplatsen.
+1. Skapa `HumanResources-entities-batch.json` i en textredigerare som [VSCode](https://code.visualstudio.com/) eller [hämta](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) den.
 
 
 2. I JSON-formaterade batch-filen lägger du till en matris med objekt som innehåller yttranden med den **avsikt** du vill att förväntade i test samt platserna för alla entiteter i uttryck. Eftersom en entitet är tokenbaserad kan du se till att starta och stoppa varje entitet på ett tecken. Inte börja eller sluta uttryck på ett blanksteg. Detta orsakar ett fel under importen för batch-fil.  
 
-   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
 
 ## <a name="run-the-batch-with-entities"></a>Kör om gruppen med entiteter
@@ -222,15 +227,13 @@ Dessa uppgifter finns kvar för dig att göra.
 
 Att lägga till en [mönstret](luis-concept-patterns.md) innan entiteten korrekt förväntas inte kommer att åtgärda problemet. Det beror på att mönstret inte matcha tills alla entiteter i mönstret identifieras. 
 
-## <a name="what-has-this-tutorial-accomplished"></a>Vad har den här självstudien åstadkommit?
-
-Förutsägelsefunktionen app har ökat genom att söka efter fel i batchen och åtgärda modellen. 
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+
+I självstudiekursen används ett batch-test för att hitta problem med den aktuella modellen. Modellen har åtgärdats och testas med batchfil för att verifiera ändringen var korrekt.
 
 > [!div class="nextstepaction"]
 > [Lär dig mer om mönster](luis-tutorial-pattern.md)

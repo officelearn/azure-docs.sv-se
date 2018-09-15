@@ -5,22 +5,52 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a9ff23e5182c8cb7c91ad93e368f61f258c84f8
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 15d68e4da6dd03751300f87ea5830c2db0470b60
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841600"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604866"
 ---
-# <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelandeleverans och försök igen 
+# <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelandeleverans och försök igen
 
 Den här artikeln beskriver hur Azure Event Grid hanterar händelser när leveransen inte är bekräftas.
 
-Event Grid förser varaktiga. Du får varje meddelande minst en gång för varje prenumeration. Händelser skickas direkt till registrerade webhooken till varje prenumeration. Om en webhook inte bekräfta mottagandet av en händelse inom 60 sekunder det första försökets leverans, försöker Event Grid leverans av händelsen. 
+Event Grid förser varaktiga. Du får varje meddelande minst en gång för varje prenumeration. Händelser skickas direkt till den registrerade slutpunkten för varje prenumeration. Om en slutpunkt inte bekräfta mottagandet av en händelse, försöker Event Grid leverans av händelsen.
 
 För närvarande skickar Event Grid varje händelse individuellt till prenumeranter. Prenumeranten tar emot en matris med en enda händelse.
+
+## <a name="retry-intervals-and-duration"></a>Intervall för återförsök och varaktighet
+
+Event Grid använder en exponentiell backoff återförsöksprincipen för händelseleverans. Om en slutpunkt som inte svarar eller returnerar en felkod, försöker Event Grid leverans enligt följande schema:
+
+1. 10 sekunder
+2. 30 sekunder
+3. 1 minut
+4. 5 minuter
+5. 10 minuter
+6. 30 minuter
+7. 1 timme
+
+Event Grid lägger till en liten slumpmässig i alla återförsöksinterval. Efter en timme görs händelseleverans en gång i timmen.
+
+Som standard Event Grid upphör att gälla alla händelser som inte levereras inom 24 timmar. Du kan [anpassa återförsöksprincipen](manage-event-delivery.md) när du skapar en händelseprenumeration. Ange det maximala antalet leveransförsök (standardvärdet är 30) och händelsen time to live (standardvärdet är 1 440 minuter).
+
+## <a name="dead-letter-events"></a>Förlorade händelser
+
+När Event Grid inte kan skicka en händelse, kan den skicka händelsen inte har levererats till ett lagringskonto. Den här processen kallas dead-lettering. Som standard Aktivera inte Event Grid dead-lettering. Du måste ange ett lagringskonto för att lagra felande händelser när du skapar händelseprenumerationen för att aktivera den. Du hämtar händelser från det här lagringskontot för att lösa leveranser.
+
+Event Grid skickar en händelse till förlorade plats när det har försökt alla dess nya försök. Om Event Grid tar emot en 400 (felaktig begäran) eller 413 (begär enhet är stor) svarskod, skickas händelsen direkt till slutpunkten för obeställbara meddelanden. Dessa svarskoder visar leverans av händelsen kommer aldrig att lyckas.
+
+Det finns en fördröjning på fem minuter mellan det senaste försöket att leverera en händelse och när de skickas till platsen för obeställbara meddelanden. Den här fördröjningen är avsedd att minska de antal åtgärderna som Blob storage. Om den förlorade platsen är inte tillgängligt i fyra timmar, har händelsen släppts.
+
+Innan du anger platsen för förlorade måste du ha ett lagringskonto med en behållare. Du kan ange slutpunkten för den här behållaren när du skapar händelseprenumerationen. Slutpunkten är i formatet: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+
+Du kanske vill meddelas när en händelse har skickats till platsen för obeställbara meddelanden. Du använder Event Grid för att svara på händelser som inte har [skapa en händelseprenumeration](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) för förlorade blob-lagringen. Varje gång förlorade blobblagringen tar emot en felande händelse Event Grid meddelar din hanterare. Hanteraren svarar med åtgärder som du vill dra för att stämma av händelser som inte har levererats.
+
+Ett exempel på hur du konfigurerar en plats för obeställbara meddelanden, finns i [död enhetsbokstaven och återförsöksprinciper](manage-event-delivery.md).
 
 ## <a name="message-delivery-status"></a>Leveransstatus för meddelande
 
@@ -48,31 +78,7 @@ Följande HTTP-svarskoder tyda på att en händelse leveransförsök misslyckade
 - 503 Tjänsten är inte tillgänglig
 - 504 Gateway-timeout
 
-Om du har [konfigurerat en slutpunkt för förlorade](manage-event-delivery.md) och Event Grid tar emot antingen en svarskod 400 eller 413, Event Grid omedelbart skickas händelsen till slutpunkten för obeställbara meddelanden. I annat fall försöker Event Grid alla fel.
-
-## <a name="retry-intervals-and-duration"></a>Intervall för återförsök och varaktighet
-
-Event Grid använder en exponentiell backoff återförsöksprincipen för händelseleverans. Om din webhook inte svarar eller returnerar en felkod, försöker Event Grid leverans enligt följande schema:
-
-1. 10 sekunder
-2. 30 sekunder
-3. 1 minut
-4. 5 minuter
-5. 10 minuter
-6. 30 minuter
-7. 1 timme
-
-Event Grid lägger till en liten slumpmässig i alla återförsöksinterval. Efter en timme görs händelseleverans en gång i timmen.
-
-Som standard Event Grid upphör att gälla alla händelser som inte levereras inom 24 timmar. Du kan [anpassa återförsöksprincipen](manage-event-delivery.md) när du skapar en händelseprenumeration. Ange det maximala antalet leveransförsök (standardvärdet är 30) och händelsen time to live (standardvärdet är 1 440 minuter).
-
-## <a name="dead-letter-events"></a>Förlorade händelser
-
-När Event Grid inte kan skicka en händelse, kan den skicka händelsen inte har levererats till ett lagringskonto. Den här processen kallas dead-lettering. Om du vill se händelser som inte har kan du hämta dem från förlorade plats. Mer information finns i [död enhetsbokstaven och återförsöksprinciper](manage-event-delivery.md).
-
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du vill visa status för händelsen leveranser, se [övervaka Event Grid meddelandeleverans](monitor-event-delivery.md).
-* Om du vill anpassa Leveransalternativ för händelsen, se [hantera Event Grid leveransinställningar](manage-event-delivery.md).
-* En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+* Om du vill anpassa Leveransalternativ för händelsen, se [död enhetsbokstaven och återförsöksprinciper](manage-event-delivery.md).

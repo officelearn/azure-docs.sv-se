@@ -1,44 +1,68 @@
 ---
-title: Tilldela administratörsroller till en användare i Azure Active Directory | Microsoft Docs
-description: Så ändrar du användares administrativa information i Azure Active Directory
+title: Så här tilldelar du directory-roller till användare med Azure Active Directory | Microsoft Docs
+description: Så här tilldelar du directory-roller till användare med Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 06/25/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: ec30f1507bfa45c29709a7f4b7dc1e91aa25ca57
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+ms.openlocfilehash: 02eb55509a3708517dff4c14640826a3a21f1df0
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440756"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603727"
 ---
-# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller till en användare i Azure Active Directory
-Den här artikeln beskriver hur du tilldelar administratörsroller till en användare i Azure Active Directory (AD Azure). Information om hur du lägger till nya användare i din organisation finns i [Lägga till nya användare i Azure Active Directory](../add-users-azure-active-directory.md). Tillagda användare har inte administratörsbehörighet som standard, men du kan tilldela roller till dem när som helst.
+# <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>Så här: tilldela roller och administratörer till användare med Azure Active Directory
+Om en användare i din organisation behöver behörighet att hantera resurser i Azure Active Directory (AD Azure), måste du tilldela användaren en lämplig roll i Azure AD, beroende på vilka åtgärder som användaren behöver behörighet att utföra.
 
-## <a name="assign-a-role-to-a-user"></a>Tilldela en roll till en användare
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör eller en administratör med privilegierad roll för katalogen.
+Mer information om tillgängliga roller finns i [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Mer information om att lägga till användare finns i [lägga till nya användare till Azure Active Directory](add-users-azure-active-directory.md).
 
-2. Välj **Azure Active Directory**, välj **Users** (Användare) och välj sedan en specifik användare i listan.
+## <a name="assign-roles"></a>Tilldela roller
+Ett vanligt sätt att tilldela en användare med Azure AD-roller finns på den **katalogroll** för en användare.
 
-    ![Öppna användarhantering](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
+Du kan också tilldela roller med hjälp av Privileged Identity Management (PIM). Mer information om hur du använder PIM finns [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
-3. För den valda användaren väljer du **Directory role** (Katalogroll), **Add role**, (Lägg till roll) och sedan lämpliga administratörsroller i listan **Directory roles** (Katalogroll), till exempel **Conditional access administrator** (Administratör med villkorlig åtkomst). Mer information om administrativa roller finns i [Tilldela administratörsroller i Azure AD](../users-groups-roles/directory-assign-admin-roles.md). 
+### <a name="to-assign-a-role-to-a-user"></a>Tilldela en roll till en användare
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
 
-    ![Tilldela en användare till en roll](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
+2. Välj **Azure Active Directory**väljer **användare**, och sök sedan efter och välj den användare som kom rolltilldelningen. Till exempel _Alain Charon_.
 
-1. Tryck på **Select** (Välj) för att spara.
+3. På den **Alain Charon - profil** väljer **katalogroll**.
+
+    Den **Alain Charon - katalogroll** visas.
+
+4. Välj **Lägg till rollen**, Välj roll att tilldela Alain (till exempel _programadministratör_), och välj sedan **Välj**.
+
+    ![Katalogsidan för roller, som visar den valda rollen](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
+
+    En administratör för program som har tilldelats Alain Charon och den visas på den **Alain Charon - katalogroll** sidan.
+
+## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
+Om du vill ta bort rolltilldelningen från en användare kan du också göra det från den **Alain Charon - katalogroll** sidan.
+
+### <a name="to-remove-a-role-assignment-from-a-user"></a>Ta bort en rolltilldelning från en användare
+
+1. Välj **Azure Active Directory**väljer **användare**, och sök sedan efter och välj den användare som kom rolltilldelningen har tagits bort. Till exempel _Alain Charon_.
+
+2. Välj **katalogroll**väljer **programadministratör**, och välj sedan **ta bort rollen**.
+
+    ![Katalogsidan för roller, som visar den valda rollen och alternativet Ta bort](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
+
+    En administratör för programmet tas bort från Alain Charon och den inte längre visas på den **Alain Charon - katalogroll** sidan.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Snabbstart: Lägg till eller ta bort användare i Azure Active Directory](add-users-azure-active-directory.md)
-* [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
-* [Lägga till gästanvändare från annan katalog](../b2b/what-is-b2b.md) 
-* [Tilldela en användare till en roll i din Azure AD](active-directory-users-assign-role-azure-portal.md)
-* [Återställa en borttagen användare](active-directory-users-restore.md)
+- [Lägga till eller ta bort användare](add-users-azure-active-directory.md)
+
+- [Lägga till eller ändra profilinformation](active-directory-users-profile-azure-portal.md)
+
+- [Lägga till gästanvändare från annan katalog](../b2b/what-is-b2b.md)
+
+Eller du kan utföra andra uppgifter för användare, till exempel tilldela ombud, med hjälp av principer och dela användarkonton. Läs mer om andra tillgängliga åtgärder, [Azure Active Directory management supportdokumentation](../users-groups-roles/index.yml).
+
+

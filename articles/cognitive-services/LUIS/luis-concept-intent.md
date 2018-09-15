@@ -1,20 +1,21 @@
 ---
-title: Förstå avsikter i LUIS-appar i Azure | Microsoft Docs
-description: Beskriver vilka avsikter som Language Understanding Intelligent Service (LUIS)-appar.
+title: Förstå avsikter i LUIS-appar
+titleSuffix: Azure Cognitive Services
+description: Ett intent som representerar en aktivitet eller åtgärd du vill utföra. Det är en syfte eller målet som uttrycks i en användares uttryck. Definiera en uppsättning avsikter som motsvarar för åtgärder som användare vill dra i ditt program.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 456f28191161c9a2fac223bf2a31e62e54ae28ae
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fcc14d2a7273a586386dc4da1f218d50d8aa9aef
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225796"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629720"
 ---
 # <a name="intents-in-luis"></a>Avsikter i LUIS
 
@@ -24,7 +25,7 @@ Definiera en uppsättning avsikter som motsvarar för åtgärder som användare 
 
 Resor appavsikter   |   Exempel på yttranden   | 
 ------|------|
- BookFlight     |   ”Boka mig en rör sig till Rio nästa vecka” <br/> ”Tar dig mig till Rio på 24th” <br/> ”Jag behöver en plan biljett nästa söndag till Rio de Janeiro”    |
+ BookFlight (Boka flyg)     |   ”Boka mig en rör sig till Rio nästa vecka” <br/> ”Tar dig mig till Rio på 24th” <br/> ”Jag behöver en plan biljett nästa söndag till Rio de Janeiro”    |
  Hälsning     |   ”Hej” <br/>”Hello” <br/>”God morgon”  |
  CheckWeather | ”Vad är vädret som i Boston”? <br/> ”Visa prognosen för den här helgen” |
  Ingen         | ”Hämta mig ett cookie-recept”<br>”Lakers vinna”? |

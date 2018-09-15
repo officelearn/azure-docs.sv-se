@@ -1,25 +1,26 @@
 ---
-title: Lägg till avsikter i LUIS program | Microsoft Docs
-description: Använd Språkförståelse (LUIS) för att lägga till avsikter att appar förstå användarförfrågningar och reagera på dem korrekt.
+title: Lägg till avsikter i LUIS-program
+titleSuffix: Azure Cognitive Services
+description: Lägg till avsikter att LUIS-app för att identifiera grupper av frågor eller kommandon som har samma avsikt.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 687cbad9d1e493e07fc5f813fdd7c52dee3b97d4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225894"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634633"
 ---
 # <a name="manage-intents"></a>Hantera avsikter 
 Lägg till [avsikter](luis-concept-intent.md) till din LUIS-app för att identifiera grupper av frågor eller kommandon som har samma avsikt. 
 
-Du lägger till och hantera dina avsikter från den **avsikter** sidan är tillgänglig från **avsikter** på LUISS vänstra panelen. 
+Avsikter hanteras från den **skapa** avsnitt i det övre verktygsfältet. Du lägger till och hantera dina avsikter från den **avsikter** sidan är tillgänglig i den vänstra panelen. 
 
 Följande procedur visar hur du lägger till ”Bookflight” avsikten i appen TravelAgent.
 
@@ -28,7 +29,6 @@ Följande procedur visar hur du lägger till ”Bookflight” avsikten i appen T
 1. Öppna din app (till exempel TravelAgent) genom att klicka på namnet på **Mina appar** , och klicka sedan på **avsikter** på den vänstra panelen. 
 2. På den **avsikter** klickar du på **skapa nya avsikt**.
 
-    ![Avsikter lista](./media/luis-how-to-add-intents/IntentsList.png)
 3. I den **skapa nya avsikt** skriver avsikten namn ”BookFlight” och klickar på **klar**.
 
     ![Lägg till avsikt](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -105,7 +105,7 @@ Ta bort flera uttryck:
 2. Välj **klar** i den **ta bort yttranden?** standardarbetsytan i dialogrutan.
 
 ## <a name="search-in-utterances-on-intent-page"></a>Sök i yttranden på avsikt sida
-Du kan söka efter uttryck som innehåller text (ord eller fraser) i en avsikt. Till exempel märker du ett fel som innebär att ett visst ord och du vill hitta alla exempel som innehåller viss ordet. 
+Du kan söka efter uttryck som innehåller text (ord eller fraser) i det syftet uttryck lista. Till exempel märker du ett fel som innebär att ett visst ord och du vill hitta alla exempel som innehåller viss ordet. 
 
 1. Välj förstoringsglasikonen i verktygsfältet.
 

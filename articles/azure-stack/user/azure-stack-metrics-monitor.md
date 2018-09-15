@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/14/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3d856f4fad845dfdd4d9a30fa176a4c0bfbc875b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b6196ec434d00a6fbc6714095fa4182ede98ce91
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024350"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633443"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Hur du använder övervakningsdata från Azure Stack
 
@@ -35,7 +35,7 @@ Du kan hitta övervakningsdata i en enda plats med Azure Monitor-pipeline, preci
 | Storage-mått | Mått | Azure Storage | Storage-tabell:<br>Lagringsanalys |
 | Aktivitetslogg | Händelser | Alla Azure-tjänster | REST-API:<br>Azure Monitor händelse-API |
 | Compute-loggarna för gästoperativsystemet (till exempel IIS, ETW, Syslog-poster) | Händelser | Windows och Linux-datorer | Storage-tabell eller blob:<br>Windows eller Linux Azure-diagnostik <br>Händelsehubb:<br>Windows Azure Diagnostics |
-| Storage-loggar | Händelser | Azure Storage | Storage-tabell:<br>Lagringsanalys<br>`Vita: how about hybrid OMS/AppInsights, shall we mention?` |
+| Storage-loggar | Händelser | Azure Storage | Storage-tabell:<br>Lagringsanalys |
 
 ## <a name="next-steps"></a>Nästa steg
 

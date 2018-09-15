@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: vanto
-ms.openlocfilehash: d8f8a823f19ff233d05d09c126cf2524a0aa532e
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 5149b4cbd1e86bfca3ad7d628d129a08aff60a98
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542201"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604321"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Alltid krypterad: Skydda känsliga data i SQL Database och lagra krypteringsnycklarna i Azure Key Vault
 
@@ -595,7 +595,9 @@ Du kan se att de krypterade kolumnerna inte innehåller några data i klartext.
 
    ![Nytt konsolprogram](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-Om du vill använda SSMS på dataåtkomst klartext, kan du lägga till den *kolumnen krypteringsinställning = aktiverat* parameter för anslutningen.
+Om du vill använda SSMS på dataåtkomst klartext, måste du först kontrollera att användaren har rätt behörighet till Azure Key Vault: *hämta*, *unwrapKey*, och *Kontrollera*. Detaljerad information finns i [skapa- och huvudnycklarna för Store kolumnen (Always Encrypted)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+
+Lägg sedan till den *kolumnen krypteringsinställning = aktiverat* parametern under anslutningen.
 
 1. I SSMS högerklickar du på din server i **Object Explorer** och välj **Disconnect**.
 2. Klicka på **Connect** > **Database Engine** att öppna den **Anslut till Server** och klicka på **alternativ**.

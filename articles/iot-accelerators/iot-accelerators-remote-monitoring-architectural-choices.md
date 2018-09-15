@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 709886e77819adca961a44f65fe6402dd7d20d53
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 09c5981701ffdee5f2e5dba47cc98c91d5df7526
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716307"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603914"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Fjärråtkomst övervakning arkitektoniska val
 
@@ -43,7 +43,7 @@ Stream använder bearbetning av lösningen för fjärrövervakning Azure Stream 
 För lagring använder lösningsacceleratorn för fjärrövervakning både Azure Time Series Insights och Azure Cosmos DB. Azure Time Series Insights lagrar meddelanden som skickas via IoT Hub från dina anslutna enheter. Solution accelerator använder Azure Cosmos DB för alla andra lagringsenheter, till exempel kall lagring, definitioner av regler, larm och konfigurationsinställningar. Azure Cosmos DB är den rekommendera Allmänt varma storage-lösningen för IoT-program även om lösningar, till exempel Azure Time Series Insights och Azure Data Lake är lämpliga för många användningsområden. Med Azure Time Series Insights kan du få djupare insikter om dina time series-sensordata genom att upptäcka trender och avvikelser, där du kan utföra rotorsaksanalyser och undvika kostsamma avbrott. 
 
 > [!NOTE]
-> Azure Time Series Insights för lösningsacceleratorn för fjärrövervakning är för närvarande i förhandsversion och är endast tillgänglig i [Välj regioner](https://azure.microsoft.com/global-infrastructure/services/). Om du distribuerar lösningsacceleratorn för fjärrövervakning utanför dessa regioner, är Cosmos DB standardalternativet för lagring.
+> Time Series Insights är inte tillgänglig för tillfället i Azure i Kina-molnet. Nya fjärrövervakning solution accelerator distributioner i Azure i Kina-molnet använder Cosmos DB för lagring av alla.
 
 ### <a name="business-integration"></a>Business-integrering
 Business-integrering i lösningen för fjärrövervakning är begränsad till generering av larm som är placerade i varma lagring. Ytterligare kan integrering med business utföras genom att integrera lösningen med Azure Logic Apps.

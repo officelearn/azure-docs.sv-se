@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Log Analytics-sidan i Azure portal | Microsoft Docs
-description: Den här artikeln innehåller en självstudie för att skriva frågor med Log Analytics-sidan.
+title: Kom igång med Log Analytics i Azure portal | Microsoft Docs
+description: Den här artikeln innehåller en självstudie för att använda Log Analytics i Azure-portalen för att skriva frågor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,14 +15,16 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 2c35d71d127903a67dce2280b2d0ab335079b480
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059686"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604475"
 ---
-# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Kom igång med Log Analytics-sidan i Azure portal
+# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Kom igång med Log Analytics i Azure portal
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 I den här självstudien kommer du lära dig hur du använder Log Analytics-sidan i Azure-portalen (för närvarande i förhandsversion) att skriva Log Analytics-frågor. Det får du lära dig hur du:
 
@@ -45,7 +47,7 @@ Sidan Log Analytics är ett webbverktyg som används för att skriva och köra A
 ## <a name="basic-queries"></a>Grundläggande frågor
 Frågor kan användas för att söka villkoren, identifiera trender, analysera mönster och ger många andra insikter utifrån dina data. Börja med en grundläggande fråga:
 
-```OQL
+```KQL
 Event | search "error"
 ```
 
@@ -55,7 +57,7 @@ Frågor kan börja med antingen ett tabellnamn eller en **search** kommando. Exe
 
 Ett annat sätt att skriva samma frågan är:
 
-```OQL
+```KQL
 search in (Event) "error"
 ```
 
@@ -79,7 +81,7 @@ I varje tabell ordnas data i kolumner med olika datatyper som anges av ikonerna 
 ## <a name="filter-the-results"></a>Filtrera resultaten
 Börja med att hämta allt den _händelse_ tabell.
 
-```OQL
+```KQL
 Event
 ```
 
@@ -133,7 +135,7 @@ Om frågan uttryckligen innehåller ett filter för _TimeGenerated_tidpunkten v�
 ## <a name="charts"></a>Diagram
 Förutom att returnera resultat i en tabell, kan frågeresultat presenteras i visual format. Använd följande fråga som ett exempel:
 
-```OQL
+```KQL
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

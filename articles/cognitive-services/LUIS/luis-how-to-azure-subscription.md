@@ -1,5 +1,6 @@
 ---
-title: Hantera Azure-slutpunkt-prenumeration | Microsoft Docs
+title: Slutpunkten prenumerationshantering i LUIS
+titleSuffix: Azure Cognitive Services
 description: I den här artikeln skapar du en avgiftsbelagd slutpunktsnyckeln för din LUIS-konto för att tillhandahålla obegränsad trafik till din slutpunkt efter en betalningsplan.
 services: cognitive-services
 author: diberry
@@ -7,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: dcee5ce7ce103db734cf4b63c26944945efed0ea
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223287"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630910"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Hantera Azure-slutpunkt prenumerationsnycklar
 
@@ -26,7 +27,7 @@ Testning och prototyper endast kan du använda den kostnadsfria nivån av (F0). 
 <a name="create-luis-service"></a>
 ## <a name="create-luis-endpoint-key"></a>Skapa LUIS-slutpunktsnyckel
 
-1. Logga in på  **[Microsoft Azure](https://ms.portal.azure.com/)** 
+1. Logga in på  **[Microsoft Azure](https://ms.portal.azure.com/)**. 
 2. Klicka på gröna **+** logga i det övre vänstra panelen och Sök efter ”THOMAS” i marketplace, och sedan klicka på **Language Understanding** och följ de **skapa upplevelse**  att skapa en LUIS-prenumerationskonto. 
 
     ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
@@ -40,8 +41,7 @@ Testning och prototyper endast kan du använda den kostnadsfria nivån av (F0). 
     ![Azure-nycklar](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Logga in på din region [LUIS](luis-reference-regions.md) webbplats och [lägga till nya LUIS slutpunktsnyckeln](luis-how-to-manage-keys.md#assign-endpoint-key). 
-    > * Du måste komma ihåg namnet på Azure-tjänsten som du skapade för att välja den på regionen [LUIS](luis-reference-regions.md) publicera sidan.  
+    > Logga in på din region [LUIS](luis-reference-regions.md) webbplats och [och tilldela nya LUIS slutpunktsnyckeln](luis-how-to-manage-keys.md#assign-endpoint-key). Du behöver namnet på LUIS-prenumeration från steg 3.
 
 ## <a name="change-luis-pricing-tier"></a>Ändra LUIS-prisnivå
 

@@ -1,5 +1,6 @@
 ---
-title: Ordlista för den API tjänst för Språkförståelse (LUIS) | Microsoft Docs
+title: Ordlista för den API tjänst för Språkförståelse (LUIS)
+titleSuffix: Azure Cognitive Services
 description: Ordlistan beskrivs de termer som du kan stöta på när du arbetar med LUIS API Service.
 services: cognitive-services
 author: diberry
@@ -7,16 +8,17 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3f99e58a38bbe9ecc87165b5e6fa24a5a49e5e4a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a66eb42ac03b96757a0363c9dd442adc5ca75023
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390066"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634378"
 ---
 # <a name="glossary"></a>Ordlista
+Den Språkförståelse (LUIS) ordlista förklarar villkor som du kan stöta på när du arbetar med LUIS API Service.
 
 ## <a name="active-version"></a>Aktiva versionen
 
@@ -72,7 +74,7 @@ I kontexten LUIS en **domän** är en del av kunskaper. Din domän är specifik 
 
 ## <a name="endpoint"></a>Slutpunkt
 
-Den [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL: en är där du kan skicka LUIS frågor efter den [LUIS-app](#luis-app) har skapats och publicerats. Slutpunkts-URL innehåller regionen för den publicerade appen samt app-ID. Du hittar slutpunkten på den **[publicera](luis-how-to-publish-app.md)** sidan för din app, i tabellen resurser och nycklar eller du kan hämta slutpunkts-URL från den [hämta Appinfo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+Den [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL: en är där du kan skicka LUIS frågor efter den [LUIS-app](#luis-app) har skapats och publicerats. Slutpunkts-URL innehåller regionen för den publicerade appen samt app-ID. Du hittar slutpunkten på den **[nycklar och slutpunkter](/luis-how-to-manage-keys.md)** i din app, eller du kan hämta slutpunkts-URL från den [hämta Appinfo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Det ser ut som en exempel-slutpunkt:
 
@@ -167,7 +169,7 @@ Tal promotor kan ditt taltjänsten vara förbereder sig med LUIS-modellen.
 
 ## <a name="spelling-correction"></a>Stavningskontroll
 
-På sidan Publicera aktivera [Bing-stavningskontroll](luis-how-to-publish-app.md#enable-bing-spell-checker) att korrigera felstavade ord. i yttranden innan förutsägelse. 
+Aktivera Bing-stavningskontroll att korrigera felstavade ord. i yttranden innan förutsägelse. 
 
 ## <a name="starter-key"></a>Starter-nyckel
 
@@ -175,7 +177,7 @@ Samma som [programmässiga nyckeln](#programmatic-key), omdöpt till redigering 
 
 ## <a name="subscription-key"></a>Prenumerationsnyckel
 
-Prenumerationsnyckeln är den **endpoint** nyckel som är associerad med tjänsten LUIS [du skapade i Azure](luis-how-to-azure-subscription.md). Den här nyckeln är inte den [redigering nyckeln](#programmatic-key). Om du har en slutpunktsnyckel kan användas för alla begäranden om slutpunkten i stället för nyckeln för redigering. Du kan se din aktuella slutpunktsnyckeln i slutpunkts-URL längst ned i [ **publicera appen** sidan](luis-how-to-publish-app.md) i [LUIS](luis-reference-regions.md) webbplats. Det är värdet för **prenumerationsnyckel** namn/värde-par. 
+Prenumerationsnyckeln är den **endpoint** nyckel som är associerad med tjänsten LUIS [du skapade i Azure](luis-how-to-azure-subscription.md). Den här nyckeln är inte den [redigering nyckeln](#programmatic-key). Om du har en slutpunktsnyckel kan användas för alla begäranden om slutpunkten i stället för nyckeln för redigering. Du kan se din aktuella slutpunktsnyckeln i slutpunkts-URL längst ned i [ **nycklar och slutpunkter** sidan](luis-how-to-manage-keys.md) i [LUIS](luis-reference-regions.md) webbplats. Det är värdet för **prenumerationsnyckel** namn/värde-par. 
 
 ## <a name="test"></a>Test
 

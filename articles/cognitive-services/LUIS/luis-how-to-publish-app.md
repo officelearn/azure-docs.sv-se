@@ -1,157 +1,68 @@
 ---
-title: Publicera din LUIS-app | Microsoft Docs
-description: När du skapa och testa din app med hjälp av Språkförståelse (LUIS) kan du publicera den som en webbtjänst på Azure.
+title: Publicera din LUIS-app till slutpunkten för förutsägelse
+titleSuffix: Azure Cognitive Services
+description: När du är klar att skapa och testa active LUIS-appen blir tillgänglig för klientprogrammet genom att publicera den till slutpunkten.
 services: cognitive-services
-titleSuffix: Azure
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a653d854901f5dc84b957c316c4174610af4be30
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d495ab2696c31ce2a7fb13373d76f5d34a3f845f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43130567"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628632"
 ---
 # <a name="publish-your-trained-app"></a>Publicera din tränade app
-När du är klar att skapa och testa LUIS-appen kan du publicera den. När appen publiceras på publiceringssidan visar alla tillhörande HTTP [slutpunkter](luis-glossary.md#endpoint). De här slutpunkterna per [region](luis-reference-regions.md) och per [nyckel](luis-how-to-manage-keys.md), integreras sedan i alla klienten, chattrobot eller backend-program. 
 
-Du kan alltid [testa](luis-interactive-test.md) din app innan du publicerar den. 
+När du är klar att skapa och testa active LUIS-appen blir tillgänglig för klientprogrammet genom att publicera den till slutpunkten. 
 
-## <a name="production-and-staging-slots"></a>Produktions- och mellanlagringsplatser
-Du kan publicera din app till den **mellanlagringsplats** eller **produktionsplatsen**. Detta kan du ha två olika versioner med publicerade slutpunkter eller samma version på två olika slutpunkter med hjälp av två platser för publicering. 
+<a name="publish-your-trained-app-to-an-http-endpoint"></a>
 
-<!-- TBD: what is the technical difference? log files, endpoint quota? -->
+## <a name="publishing"></a>Publicering
 
-## <a name="settings-configuration-requires-publishing-model"></a>Inställningar för konfigurationen kräver publishing modell
-Publicera till slutpunkten efter att ändringarna av följande inställningar. 
+Om du vill publicera till slutpunkten, Välj **publicera** i övre högra panelen. 
 
-## <a name="external-services-settings"></a>Inställningar för externa tjänster
-Inkludera externa tjänstinställningar **[Attitydanalys](#enable-sentiment-analysis)** och  **[tal väcker](#enable-speech-priming)**.
+![Övre, högra navigeringsfältet](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
-### <a name="enable-sentiment-analysis"></a>Aktivera attitydanalys
-I den **externa tjänster inställningar**, **aktivera Attitydanalys** kryssrutan kan LUIS för att integrera med [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/) att tillhandahålla känsla och nyckelfraser analys. Du behöver inte ange en nyckel för textanalys och det är kostnadsfritt faktureringen för den här tjänsten på Azure-kontot. När du markerar den här inställningen får är det beständiga. 
+Välj rätt plats när popup-fönstret visas: mellanlagring eller produktion. Detta kan du ha två olika versioner med publicerade slutpunkter eller samma version på två olika slutpunkter med hjälp av två platser för publicering. 
+
+Appen har publicerats i alla regioner som associeras med LUIS-resurser som har lagts till i LUIS-portalen. Till exempel för en app som skapats på [www.luis.ai](https://www.luis.ai), om du skapar en LUIS-resurs i **westus** och lägga till den i appen som en resurs, appen publiceras i den regionen. Mer information om LUIS regioner finns i [regioner](luis-reference-regions.md).
+ 
+![Publicering av popup-fönster](./media/luis-how-to-publish-app/publish-pop-up.png)
+
+När din app har publicerats visas ett meddelande om grönt överst i webbläsaren. Grön meddelandefältet innehåller också en länk till slutpunkterna. 
+
+![Publicering av popup-fönster](./media/luis-how-to-publish-app/publish-success.png)
+
+Välj länken om du behöver slutpunkts-URL. Du kan också få URL: er för slutpunkten genom att välja **hantera** i den översta menyn och markera **nycklar och slutpunkter** på den vänstra menyn. 
+
+## <a name="configuring-publish-settings"></a>Konfigurera inställningar för publicering
+
+Konfigurera Publiceringsinställningar genom att välja **hantera** direkt i övre navigeringsfältet och välja **Publiceringsinställningar**. 
+
+![Publiceringsinställningar](./media/luis-how-to-publish-app/publish-settings.png)
+
+### <a name="publish-after-enabling-sentiment-analysis"></a>Publicera när du har aktiverat attitydanalys
+
+<a name="enable-sentiment-analysis"></a>
+
+Attitydanalys kan LUIS för att integrera med [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/) att tillhandahålla känsla och nyckeln frasen analyser. 
+
+Du behöver inte ange en nyckel för textanalys och det är kostnadsfritt faktureringen för den här tjänsten på Azure-kontot. När du markerar den här inställningen får är det beständiga. 
 
 Åsiktsdata är ett värde mellan 1 och 0 som anger vilka positiva (närmare 1) eller ett negativt (närmare 0) känsla av data.
 
 Läs mer om JSON-svar för slutpunkt med attitydanalys [attitydanalys](luis-concept-data-extraction.md#sentiment-analysis)
 
-### <a name="enable-speech-priming"></a>Aktivera tal promotor 
-I den **externa tjänster inställningar**, **aktivera tal väcker** kryssrutan låter dig ha en enda slutpunkt för att få en talat uttryck från en chattrobot eller LUIS-anropa program och ta emot en LUIS förutsägelse svar. Tal-promotor använder Cognitive service [Taligenkänning](../Speech-Service/rest-apis.md). 
 
-![Bild av tal promotor bekräftelsedialogrutan](./media/luis-how-to-publish-app/speech-prime-modal.png)
-
-Publicera din app när den här funktionen är aktiverad. När du publicerar din LUIS-app, skickas din appmodell till din egen tal-tjänst att Preparera Speech-tjänsten. Modellinformationen om är **inte** används utanför din egen tjänst. 
-
-För att slutföra användningen av tal promotor, du behöver följande information för att använda i den [tal SDK](../speech-service/speech-sdk-reference.md):
-* En LUIS-slutpunktsnyckeln.
-* LUIS-app-ID.
-* En slutpunkt-domän, kallas ”värdnamnet” i tal SDK, till exempel ”westus.api.cognitive.microsoft.com”, där den första underdomänen är den region där appen har publicerats.
-
-Mer information finns i den [tal till avsikt](http://aka.ms/speechsdk) exemplet.
-
-När LUIS-appen har tagits bort eller Speech-tjänsten tas bort, tas dina modelldata. 
-
-## <a name="endpoint-url-settings"></a>Slutpunkten URL-inställningar
-Slutpunktsinställningarna URL tjänster inkluderar **[tidszon](#set-timezone-offset)** Förskjutning,  **[alla förutse avsikt poäng](#include-all-predicted-intent-scores)**, och  **[ Bing-stavningskontroll](#enable-bing-spell-checker)**.
-
-### <a name="set-timezone-offset"></a>Ange tidszonen förskjutning 
-En del av valet fack är tidszonen valet. Den här inställningen för tidszon kan LUIS för att [alter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) helst fördefinierade datetimeV2 värden under förutsägelse så att den returnerade entitetsdata är giltigt enligt den valda tidszonen. 
-
-### <a name="include-all-predicted-intent-scores"></a>Inkludera alla avsikt förutsägelsepoängen
-Den **inkludera alla förutse avsikt poäng** kryssrutan tillåter frågesvaret slutpunkten att inkludera förutsägelse poängen för varje avsikt. 
-
-Den här inställningen kan din chattrobot eller LUIS-anropa program kan besluta programmässiga baserat på poäng för returnerade avsikter. I allmänhet är de främsta två avsikterna mest intressanta. Om den översta poängen är avsiktlig, din chattrobot kan du ställa en fråga för uppföljning som gör en slutgiltig val mellan avsikt ingen och andra flest poäng avsikten ingen. 
-
-Avsikter och deras resultat är också inkluderat endpoint-loggarna. Du kan [exportera](luis-how-to-start-new-app.md#export-app) dessa loggar och analysera poängen. 
-
-```
-{
-  "query": "book a flight to Cairo",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.5223427
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.5223427
-    },
-    {
-      "intent": "BookFlight",
-      "score": 0.372391433
-    }
-  ],
-  "entities": []
-}
-```
-
-### <a name="enable-bing-spell-checker"></a>Aktivera Bing-stavningskontroll 
-I den **slutpunkts-url-inställningar**, **Aktivera Bing-stavningskontroll** kryssrutan kan LUIS för att korrigera felstavade ord. innan förutsägelse. Skapa en  **[stavningskontroll i Bing nyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. När nyckeln har skapats läggs två parametrar för frågesträng till slutpunkts-URL på publiceringssidan. 
-
-Lägg till den **stavningskontroll = true** Frågeparametern och **bing-stavningskontroll-kontroll-subscription-key = {YOUR_BING_KEY_HERE}** . Ersätt den `{YOUR_BING_KEY_HERE}` med din nyckel för Bing stavningskontroll för installation.
-
-```JSON
-{
-  "query": "Book a flite to London?",
-  "alteredQuery": "Book a flight to London?",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.780123
-  },
-  "entities": []
-}
-```
-
-## <a name="publish-your-trained-app-to-an-http-endpoint"></a>Publicera din tränade app till en HTTP-slutpunkt
-Öppna din app genom att klicka på namnet på den **Mina appar** , och klicka sedan på **publicera** i den övre panelen. 
-
-![Publicera sidan-](./media/luis-how-to-publish-app/publish-to-production.png)
- 
-När din app har publicerats visas ett meddelande om grönt överst i webbläsaren. 
-
-* Välj om du vill publicera till **produktion** eller **mellanlagring** genom att välja från den nedrullningsbara menyn under **väljer fack**. 
-
-## <a name="assign-key"></a>Tilldela nyckel
-
-Om du vill använda en nyckel än den kostnadsfria Starter_Key visas, klickar du på den **Lägg till nyckel** knappen. Den här åtgärden öppnar en dialogruta där du kan välja en befintlig slutpunkt-nyckel för att tilldela till appen. Mer information om hur du skapar och lägger till slutpunkten nycklar till LUIS-appen finns i [hantera nycklarna](luis-how-to-manage-keys.md).
-
-Använd alternativknapparna för att växla regioner om du vill visa slutpunkter och nycklar som är associerade med andra regioner. Varje rad i den **resurser och nycklar** tabell Azure-resurser som är associerade med ditt konto och slutpunkt-nycklar som är associerade med den här resursen.
-
-## <a name="endpoint-url-construction"></a>Slutpunkten URL-konstruktion
-Slutpunkts-URL som motsvarar den Azure-region som är associerade med slutpunktsnyckeln.
-
-Den här tabellen visar bekvämt publishing konfigurationen i URL-slutpunkten med val av väg och frågesträngsvärden. Om du konstruerar din slutpunkt-URL: er för LUIS-anropa programmet, kontrollera att dessa samma vägar och frågesträngen värden har angetts för slutpunkten används – om du vill ange.
-
-URL-flödet har konstruerats med regionen och app-ID. Om du publicerar i andra regioner eller med andra appar kan slutpunkts-URL skapas genom att ändra de region och app-ID-värdena. 
-
-* Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera). När publiceringen har slutförts kan du använda visade slutpunkts-URL för att komma åt LUIS-appen. 
-
-### <a name="optional-query-string-parameters"></a>Valfria parametrar för frågesträngen
-Följande frågesträngparametrarna kan användas med slutpunkts-URL:
-
-<!-- TBD: what about speech priming? -->
-
-|Frågesträng|Typ|Exempelvärde|Syfte|
-|--|--|--|--|
-|utförlig|boolesk|true|Inkludera [samtliga avsikt värden](#include-all-predicted-intent-scores) för uttryck|
-|timezoneOffset|Antal (enhet är minuter)|60|Ange [tidszon offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) för [datetimeV2 fördefinierade entiteter](luis-reference-prebuilt-datetimev2.md)|
-|Stavningskontroll|boolesk|true|[stavningskontroll](#enable-bing-spell-checker) av uttryck--används tillsammans med bing-stavningskontroll-kontroll-subscription-key frågesträngparametern|
-|Bing-stavningskontroll-kontroll-subscription-key|prenumerations-ID||används tillsammans med parametern för frågesträngen stavningskontroll|
-|Mellanlagring|boolesk|false|Välj mellanlagring eller produktion slutpunkt|
-|log|boolesk|true|Lägg till frågor och resultat för att logga in|
-
-
-## <a name="test-your-published-endpoint-in-a-browser"></a>Testa publicerade slutpunkten i en webbläsare
-Testa publicerade slutpunkten genom att välja URL: en i den **Endpoint** kolumn. Standardwebbläsaren öppnas med genererade URL: en. Ange URL-parametern ”& q” att testa frågan. Lägg exempelvis till `&q=Book me a flight to Boston on May 4` till URL: en och tryck på RETUR. Webbläsaren visar JSON-svar för HTTP-slutpunkten. 
-
-![JSON-svar från en publicerade HTTP-slutpunkt](./media/luis-how-to-publish-app/luis-publish-app-json-response.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se [hantera nycklar](./luis-how-to-manage-keys.md) att lägga till nycklar LUIS-appen och lär dig mer om hur nycklar mappas till områden.
+* Se [hantera nycklar](./luis-how-to-manage-keys.md) nyckel till LUIS och hur du ställer in Bing-stavningskontroll nyckel att lägga till nycklar till Azure-prenumeration och inkluderas alla avsikter i resultaten.
 * Se [träna och testa din app](luis-interactive-test.md) anvisningar om hur du testar din publicerade app i test-konsolen.
+

@@ -15,24 +15,26 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 4f2d49233a6eb92f567d4265210fcab394aa6461
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 661ff7c07ba2bb17eb5830b38bb39e1c3e80bb55
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190348"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45602916"
 ---
 # <a name="advanced-aggregations-in-log-analytics-queries"></a>Avancerade aggregeringar i Log Analytics-frågor
 
 > [!NOTE]
 > Bör du genomföra [aggregeringar i Log Analytics-frågor](./aggregations.md) innan du slutför den här lektionen.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 Den här artikeln beskriver några av de mer avancerade aggregering alternativen som är tillgängliga för Log Analytics-frågor.
 
 ## <a name="generating-lists-and-sets"></a>Skapa listor och uppsättningar
 Du kan använda `makelist` att pivotera data av ordningen värden i en viss kolumn. Du kanske vill utforska de vanligaste spelas upp ordning händelser på dina datorer. Du kan i princip pivotera data av ordningen EventIDs på varje dator. 
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -48,7 +50,7 @@ Event
 
 Det är också användbart för att skapa en lista över bara distinkta värden. Detta kallas en _ange_ och kan genereras med `makeset`:
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -65,7 +67,7 @@ Som `makelist`, `makeset` också fungerar med sorterade data och genererar matri
 ## <a name="expanding-lists"></a>Utöka listor
 Inverterade driften av `makelist` eller `makeset` är `mvexpand`, vilket utökar en lista med värden att avgränsa rader. Det kan expandera över valfritt antal dynamiska kolumner, såväl JSON-matris. Du kan exempelvis kontrollera den *pulsslag* tabellen för lösningar som skickar data från datorer som har skickat ett pulsslag under den senaste timmen:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, Solutions
@@ -95,7 +97,7 @@ Pulsslag | där TimeGenerated > ago(1) | Dator-projekt, dela (lösningar, ””
 
 Du kan sedan använda `makelist` igen objekt tillsammans att gruppera och nu se en lista över datorer per lösning:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, split(Solutions, ",")
@@ -113,7 +115,7 @@ Heartbeat
 ## <a name="handling-missing-bins"></a>Hantering av lagerplatser som saknas
 En användbar tillämpning av `mvexpand` uppstår ofta behovet av att fylla standardvärdena i för saknas lagerplatser. Anta exempelvis att du letar efter drifttiden för en viss dator genom att utforska dess pulsslag. Vill du också se orsaken pulsslag som finns i den _kategori_ kolumn. Normalt använder vi ett enkelt summerar instruktionen på följande sätt:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
@@ -129,7 +131,7 @@ Heartbeat
 
 I den här resulterar dock en bucket som är associerade med ”2017-06-06T19:00:00Z” saknar eftersom det inte finns några heartbeat-data för den timmen. Använd den `make-series` funktionen för att tilldela ett standardvärde till tom buckets. Detta genererar en rad för varje kategori med två extra matris kolumner, en för värden och en matchande tid buckets:
 
-```OQL
+```KQL
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
@@ -141,7 +143,7 @@ Heartbeat
 
 Det tredje elementet i den *count_* matrisen är 0 som förväntat och det finns en matchande tidsstämpeln för ”2017-06-06T19:00:00.0000000Z” i den _TimeGenerated_ matris. Den här matrisformat är svåra att läsa om. Använd `mvexpand` Expandera matriserna och producerar utdata som genereras av samma format `summarize`:
 
-```OQL
+```KQL
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 | mvexpand TimeGenerated, count_
@@ -163,7 +165,7 @@ Heartbeat
 Ett vanligt scenario är att välja namnen på vissa specifika entiteter som baseras på en uppsättning villkor och sedan filtrera en annan datauppsättning till den uppsättningen entiteter. Du kan till exempel söka efter datorer som saknar uppdateringar och identifiera IP-adresser som de här datorerna som påpekas att:
 
 
-```OQL
+```KQL
 let ComputersNeedingUpdate = toscalar(
     Update
     | summarize makeset(Computer)

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9b04f6bc2158f88b54bb4ed086c2f74b5a28eedd
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346346"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605223"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Grant B2B-användare i Azure AD åtkomst till dina lokala program
 
@@ -63,7 +63,7 @@ I följande diagram ger en översikt över hur Azure AD-programproxy och generer
 Du kan hantera de lokala B2B användarobjekt via principer för hantering av livscykeln. Exempel:
 
 - Du kan konfigurera principer för multifaktorautentisering (MFA) för gästanvändaren så att MFA används under Application Proxy-autentisering. Mer information finns i [villkorlig åtkomst för användare i B2B-samarbetet](conditional-access.md).
-- Alla sponsring, åtkomstgranskningar, konto kontroller och annat som utförs på molnet B2B användaren gäller för lokala användare. Till exempel om molnet användaren tas bort via principer för hantering av livscykeln för raderas lokal användare också av MIM Sync eller Azure AD Connect sync. Mer information finns i [hantera gäståtkomst med Azure AD åtkomst går igenom](../active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md).
+- Alla sponsring, åtkomstgranskningar, konto kontroller och annat som utförs på molnet B2B användaren gäller för lokala användare. Till exempel om molnet användaren tas bort via principer för hantering av livscykeln för raderas lokal användare också av MIM Sync eller Azure AD Connect sync. Mer information finns i [hantera gäståtkomst med Azure AD åtkomst går igenom](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>Skapa användarobjekt för B2B-gäst via MIM (förhandsversion)
 

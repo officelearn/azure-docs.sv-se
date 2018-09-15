@@ -1,20 +1,21 @@
 ---
-title: Förstå din LUIS nycklar – Azure | Microsoft Docs
-description: Använd Språkförståelse (LUIS) för att skapa din app och fråga din endpoing.
+title: Förstå dina LUIS-nycklar
+titleSuffix: Azure Cognitive Services
+description: LUIS använder två nycklar, redigering och slutpunkt. Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen, behöver du skapa slutpunktsnyckeln, tilldela den till din LUIS-app och använder den med slutpunkt-frågan.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b40ca74999be1821ffa329224ff419646591960e
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3049d073c691fca69844f68e8d70234c331ae152
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225184"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629173"
 ---
 # <a name="keys-in-luis"></a>Nycklar i LUIS
 LUIS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#endpoint-key). Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen kan du behöva [skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [tilldela den](luis-how-to-manage-keys.md#assign-endpoint-key) till din LUIS-app och [använder den med slutpunkt-frågan](#use-endpoint-key-in-query). 
@@ -35,15 +36,15 @@ För att hitta nyckeln redigering, logga in på [LUIS](luis-reference-regions.md
 
 ![Redigera nyckel](./media/luis-concept-keys/programatic-key.png)
 
-När du vill göra **produktion endpoint frågor**, skapa en Azure [LUIS prenumeration](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
+När du vill göra **produktion endpoint frågor**, skapa Azure [LUIS prenumeration](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
 
 > [!CAUTION]
 > För att underlätta för många av exempel som använder den redigering nyckeln eftersom det innehåller några endpoint-anrop i dess [kvot](luis-boundaries.md#key-limits).  
 
 ## <a name="endpoint-key"></a>Slutpunktsnyckel
- När du behöver **produktion endpoint frågor**, skapa en [LUIS nyckeln](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) i Azure-portalen. Kom ihåg att namnet används för att skapa nyckeln, du behöver den när du lägger till nyckeln till appen...
+ När du behöver **produktion endpoint frågor**, skapa en [LUIS nyckeln](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) i Azure-portalen. Kom ihåg att namnet används för att skapa nyckeln, du behöver den när du lägger till nyckeln till appen.
 
-När LUIS prenumerationsprocessen är klar, [Lägg till nyckel](luis-how-to-manage-keys.md#assign-endpoint-key) till appen i den **publicera** sidan. 
+När LUIS prenumerationsprocessen är klar, [tilldela nyckeln](luis-how-to-manage-keys.md#assign-endpoint-key) till appen. 
 
 Slutpunktsnyckeln kan en kvot på slutpunkten träffar baserat på vilken plan för användning som du angav när du skapar nyckeln. Se [priser för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) information om priser.
 
@@ -73,6 +74,10 @@ Publicera regioner skiljer sig från redigering regioner. Kontrollera att du ska
 
 ## <a name="key-limit-errors"></a>Gräns för fel
 Om du överskrider din per sekund kvot du får ett HTTP 429-fel. Om du överskrider din per månad kvot du får felmeddelandet HTTP 403. Åtgärda felen genom att hämta en LUIS [endpoint](#endpoint-key) nyckel, [tilldela](luis-how-to-manage-keys.md#assign-endpoint-key) nyckeln till appen på den **publicera** för den [LUIS](luis-reference-regions.md#luis-website) webbplats.
+
+## <a name="automating-assignment-of-the-endpoint-key"></a>Automatisera tilldelningen av slutpunktsnyckeln
+
+För att kunna tilldela slutpunktsnyckeln till en LUIS-app, måste du använda webbplatsen LUIS för rätt redigering och publicering [regioner](luis-reference-regions.md). Det finns **inga** automatiserad metod för att göra detta, oavsett mekanism som med ett Azure resource manager-skript, Azure CLI, programmässiga SDK eller API: erna.
 
 ## <a name="next-steps"></a>Nästa steg
 

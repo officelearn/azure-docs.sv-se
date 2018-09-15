@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: b8b51ed8cbaaaaaa463dd1ed841e6d5193fec40a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 3dc80c97a43c35295deacefc37a76471912c9b42
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301923"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603999"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -129,7 +129,7 @@ Följande artiklar och scenarier tillhandahåller uppgiftsspecifika vägledning 
 - [Distribuera certifikat till virtuella datorer från Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) – ett molnprogram som körs på en virtuell dator på Azure-behov ett certifikat. Hur du får det här certifikatet i den här virtuella datorn i dag?
 - [Hur du ställer in Key Vault med heltäckande nyckelrotation och granskning](key-vault-key-rotation-log-monitoring.md) – det här visar vi hur du ställer in nyckelrotation och granskning med Azure Key Vault.
 - [Distribuera Azure Web App-certifikat via Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) innehåller stegvisa instruktioner för distribution av certifikat som lagras i Key Vault som en del av [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) erbjuder.
-- [Bevilja behörighet till många program för att komma åt ett nyckelvalv](key-vault-group-permissions-for-apps.md) kontrollprinciper för Key Vault har endast stöd för 16 poster. Du kan dock skapa en Azure Active Directory-säkerhetsgrupp. Lägg till alla associerade huvudnamn i den här säkerhetsgruppen och bevilja åtkomst till den här säkerhetsgruppen till Key Vault.
+- [Bevilja behörighet till många program för att komma åt ett nyckelvalv](key-vault-group-permissions-for-apps.md) kontrollprinciper för Key Vault har stöd för upp till 1024 poster. Du kan dock skapa en Azure Active Directory-säkerhetsgrupp. Lägg till alla associerade huvudnamn i den här säkerhetsgruppen och bevilja åtkomst till den här säkerhetsgruppen till Key Vault.
 - För att integrera och använda Nyckelvalv med Azure mer uppgiftsspecifika vägledning finns i [Ryan Jones Azure Resource Manager-mallexempel för Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Hur du använder Key Vault mjuk borttagning med CLI](key-vault-soft-delete-cli.md) vägleder dig genom användning och livscykeln för ett nyckelvalv och olika nyckelvalvobjekt med aktivera mjuk borttagning.
 - [Hur du använder Key Vault mjuk borttagning med PowerShell](key-vault-soft-delete-powershell.md) vägleder dig genom användning och livscykeln för ett nyckelvalv och olika nyckelvalvobjekt med aktivera mjuk borttagning.

@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 09/13/2018
 ms.author: magoedte; bwren
 ms.component: na
-ms.openlocfilehash: 386aad94461fa3f2ceafb7564342797eefa2f086
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 996502ffe5a31fcfa1b73dab9a041c336c4ea98f
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061135"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45602639"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Visa och analysera data i Log Analytics
 Det finns två alternativ som är tillgängliga i Azure-portalen för att analysera data som lagras i Log analytics och för att skapa frågor för ad hoc-analyser. Frågor som du skapar med hjälp av dessa portaler kan användas för andra funktioner, till exempel aviseringar och instrumentpaneler.
 
-## <a name="log-analytics-page-preview"></a>Sidan för log Analytics (förhandsversion)
-Öppna sidan Log Analytics från **loggar (förhandsversion)** i Log Analytics-menyn. Det här är en ny upplevelse för att arbeta med loggdata och skapa frågor. Du kan få en introduktion till den här portalen och granska dess funktioner på [Kom igång med Log Analytics-sidan i Azure-portalen](query-language/get-started-analytics-portal.md).
+## <a name="log-analytics-page"></a>Sidan för log Analytics
+Öppna sidan Log Analytics från **loggar** i Log Analytics-menyn. Det här är en ny upplevelse för att arbeta med loggdata och skapa frågor. Du kan få en introduktion till den här portalen och granska dess funktioner på [Kom igång med Log Analytics-sidan i Azure-portalen](query-language/get-started-analytics-portal.md).
 
 Sidan Log Analytics innehåller följande förbättringar över den [loggsökning](#log-search) upplevelse.
 
@@ -55,8 +55,8 @@ Din webbläsare kräver åtkomst till följande adresser för åtkomst till Log 
 | docs.loganalytics.io   | Dynamisk | 80,443 |
 
 
-## <a name="log-search"></a>Loggsökning
-Öppna sidan Log search från **loggar** i Log Analytics-menyn eller från **Log Analytics** i Azure Monitor-menyn. Detta är lämpligt för att analysera loggdata med hjälp av grundläggande frågor. Det finns flera funktioner för redigering frågor utan fullständiga kunskaper om frågespråket.  Du kan få en sammanfattning av dessa funktioner i [skapa loggsökningar i Azure Log Analytics med hjälp av Loggsökning](log-analytics-log-search-log-search-portal.md). 
+## <a name="log-search-classic"></a>Loggsökning (klassisk)
+Öppna sidan Log search från **loggar (klassisk)** i Log Analytics-menyn eller från **Log Analytics** i Azure Monitor-menyn. Detta är lämpligt för att analysera loggdata med hjälp av grundläggande frågor. Det finns flera funktioner för redigering frågor utan fullständiga kunskaper om frågespråket.  Du kan få en sammanfattning av dessa funktioner i [skapa loggsökningar i Azure Log Analytics med hjälp av Loggsökning](log-analytics-log-search-log-search-portal.md). 
 
 
 ![Logga söksidan](media/log-analytics-log-search-portals/log-search-portal.png)

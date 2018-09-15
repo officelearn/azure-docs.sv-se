@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 1fd5905b8ea3f87fe6cfc2a830b73b8120a717dd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c18faa94f207b98400fece366a23a68c3d7bc58c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341485"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633188"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure Database for MySQL
 I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegier support, manipulering av instruktionen stöd och funktionella begränsningar i databastjänsten. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) gäller för MySQL-databasmotorn.
@@ -72,7 +72,7 @@ När anslutningar överskrider gränsen, kan följande felmeddelande visas:
 - Minska lagringsstorlek server stöds inte.
 
 ### <a name="server-version-upgrades"></a>Server-versionsuppgraderingar
-- Automatisk migrering mellan större database engine-versioner stöds för närvarande inte.
+- Automatisk migrering mellan större database engine-versioner stöds för närvarande inte. Om du vill uppgradera till nästa huvudversion kan ta en [dumpa och Återställ](./concepts-migrate-dump-restore.md) den till en server som har skapats med ny version.
 
 ### <a name="point-in-time-restore"></a>Återställning till tidpunkt
 - När du använder funktionen PITR, skapas den nya servern med samma konfiguration som den är baserad på-servern.

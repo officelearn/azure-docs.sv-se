@@ -1,80 +1,70 @@
 ---
-title: Självstudier med mönstret roller för att förbättra LUIS förutsägelser – Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: I den här självstudien använder du mönstret roller för sammanhangsmässigt relaterade entiteter för att förbättra LUIS förutsägelser.
+title: 'Självstudie 4: Mönstret roller för kontexten relaterade data'
+titleSuffix: Azure Cognitive Services
+description: Använda ett mönster för att extrahera data från en mall för välutformat-uttryck. Mall-uttryck används en enkel enhet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 6f3e7c9db7bbdb6bc24d123208355fc7a1d8e7e8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f3ddbad350ed42823ca95136ae2a507c46c3c763
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161942"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634548"
 ---
-# <a name="tutorial-improve-app-with-pattern-roles"></a>Självstudie: Förbättra appen med mönstret roller
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Självstudie: 4. Extrahera sammanhangsmässigt relaterade mönster
 
-I de här självstudierna att använda en enkel enhet med roller som kombineras med mönster för att öka avsikt och entiteten förutsägelse.  När du använder mönster, behövs färre exempel yttranden för avsikten.
+I den här självstudien använder du ett mönster för att extrahera data från en mall för välutformat-uttryck. Mall-uttryck används en enkel enhet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.  När du använder mönster, behövs färre exempel yttranden för avsikten.
 
-> [!div class="checklist"]
-* Förstå mönstret roller
-* Använd enkel enhet med roller 
-* Skapa mönster för uttryck med hjälp av enkel enhet med roller
-* Så här verifierar du mönstret förutsägelse förbättringar
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har personalapp från den [mönstret](luis-tutorial-pattern.md) självstudien [importera](luis-how-to-start-new-app.md#import-new-app) JSON-koden i en ny app i den [LUIS](luis-reference-regions.md#luis-website) webbplats. App att importera finns i den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub-lagringsplatsen.
-
-Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `roles`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
-
-## <a name="the-purpose-of-roles"></a>Syftet med roller
 Syftet med roller är att extrahera sammanhangsmässigt relaterade entiteter i ett uttryck. I uttryck, `Move new employee Robert Williams from Sacramento and San Francisco`, ursprung stad och mål stad värden är relaterade till varandra och Använd vanliga språk för att ange varje plats. 
 
-När du använder mönster, alla entiteter i mönstret måste identifieras _innan_ mönstret matchar uttryck. 
 
-När du skapar ett mönster är det första steget att välja den mönstret som används. Genom att välja avsikten om mönstret matchar rätt avsikten alltid returneras med ett högt värde (vanligtvis 99 100%). 
-
-### <a name="compare-hierarchical-entity-to-simple-entity-with-roles"></a>Jämför hierarkisk entiteten till enkel enhet med roller
-
-I den [hierarkiska självstudien](luis-quickstart-intent-and-hier-entity.md), **MoveEmployee** avsikt upptäckte när du ska flytta en befintlig medarbetare från en kontorsbyggnad och till en annan. Exempel yttranden hade ursprung- och målplatserna men använde inte roller. I stället har ursprung och målet underordnade till den hierarkiska entiteten. 
-
-I den här självstudien identifierar appen personalfrågor yttranden om att flytta nya anställda från en stad till en annan. Dessa två typer av uttryck är liknande men löst till olika LUIS-funktioner.
-
-|Självstudier|Exempel-uttryck|Original och beskrivning platser|
-|--|--|--|
-|[Hierarkiska (inga roller)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones från **a-2349** till **b-1298**|a-2349, b-1298|
-|Den här självstudien (med roller)|Flytta Bengt Patterson från **Yuma** till **Denver**.|Yuma Denver|
-
-Du kan inte använda hierarkisk entiteten i mönstret eftersom endast hierarkisk föräldrar används i ett mönster. För att returnera de namngivna platserna av original och beskrivning, muse du använda ett mönster.
-
-### <a name="simple-entity-for-new-employee-name"></a>Enkel enhet för den nya medarbetarnamn
 Namnet på den nya medarbetaren Billy Patterson ingår inte i listan entiteten **medarbetare** ännu. Namnet på nya medarbetaren extraheras först för att skicka namnet till ett externt system att skapa autentiseringsuppgifter för företaget. När företagets autentiseringsuppgifter skapas, anställd autentiseringsuppgifterna läggs till i listan entiteten **medarbetare**.
 
-Den **medarbetare** listan skapades i den [lista självstudien](luis-quickstart-intent-and-list-entity.md).
-
-Den **NewEmployee** entiteten är en enkel enhet utan roller. 
-
-### <a name="simple-entity-with-roles-for-relocation-cities"></a>Enkel enhet med roller för dataflytt städer
 Ny medarbetare och familj måste flyttas från den nuvarande ort till en stad där det fiktiva företaget finns. Eftersom en ny medarbetare kan komma från någon annan stad, måste platserna som ska identifieras. En fast lista, till exempel en lista över entitet fungerar inte eftersom endast orter i listan skulle extraheras.
 
-De roll som är associerade med original och beskrivning städer måste vara unikt för alla entiteter. Ett enkelt sätt att kontrollera att rollerna som är unika är att koppla dem till den innehållande entiteten via en namnstrategin. Den **NewEmployeeRelocation** entiteten är en enkel enhet med två roller: **NewEmployeeReloOrigin** och **NewEmployeeReloDestination**.
+De roll som är associerade med original och beskrivning städer måste vara unikt för alla entiteter. Ett enkelt sätt att kontrollera att rollerna som är unika är att koppla dem till den innehållande entiteten via en namnstrategin. Den **NewEmployeeRelocation** entiteten är en enkel enhet med två roller: **NewEmployeeReloOrigin** och **NewEmployeeReloDestination**. Relo är kort för dataflytt.
 
-### <a name="simple-entities-need-enough-examples-to-be-detected"></a>Enkla enheter behöver tillräckligt med exempel ska identifieras
 Eftersom exempel uttryck `Move new employee Robert Williams from Sacramento and San Francisco` har endast datorn lärt dig entiteter, är det viktigt att tillhandahålla tillräckligt med exempel yttranden med intentionen så att entiteterna som har identifierats.  
 
 **Medan mönster kan du ge färre exempel yttranden, om entiteterna inte identifieras, matchar inte mönstret.**
 
 Om du har problem med enkel enhet identifiering eftersom det är ett namn, till exempel en stad kan du överväga att lägga till en fras lista med liknande värden. Detta hjälper att identifiera namnet på staden genom att ge LUIS en ytterligare signal om den typ av ord eller fraser. Fras listor att endast mönstret genom att hjälpa med entiteten identifiering, vilket är nödvändigt för att mönstret ska matcha. 
 
+**I den här självstudien får du lära dig hur du:**
+
+> [!div class="checklist"]
+> * Använd befintliga självstudieappen
+> * Skapa nya entiteter
+> * Skapa ny avsikt
+> * Träna
+> * Publicera
+> * Hämta avsikter och entiteter från slutpunkten
+> * Skapa mönster med roller
+> * Skapa frasen lista över städer
+> * Hämta avsikter och entiteter från slutpunkten
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Använd befintlig app
+Fortsätt med den app som skapats i den sista självstudien med namnet **ska**. 
+
+Om du inte har appen ska från den tidigare självstudiekursen, använder du följande steg:
+
+1.  Hämta och spara [app JSON-fil](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+
+2. Importera JSON till en ny app.
+
+3. Från den **hantera** avsnittet på den **versioner** fliken klona versionen och ge den namnet `roles`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används som en del av URL: en väg, får inte namnet innehålla några tecken som inte är giltiga i en URL.
+
 ## <a name="create-new-entities"></a>Skapa nya entiteter
-1. Välj **skapa** på den översta menyn.
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **entiteter** i det vänstra navigeringsfönstret. 
 
@@ -124,15 +114,15 @@ Märkning entiteter i de här stegen kan vara enklare om entiteten fördefiniera
 
     Om du har tagit bort entiteten keyPhrase lägga tillbaka det i appen nu.
 
-## <a name="train-the-luis-app"></a>Träna LUIS-appen
+## <a name="train"></a>Träna
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
+## <a name="publish"></a>Publicera
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-without-pattern"></a>Fråga slutpunkt utan mönster
+## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikt och entiteter från slutpunkten
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -224,9 +214,12 @@ Märkning entiteter i de här stegen kan vara enklare om entiteten fördefiniera
 
 Avsiktshantering förutsägelse poängen är endast 50%. Om klientprogrammet kräver en hög siffra, måste det kan åtgärdas. Entiteter har inte förväntad antingen.
 
+En av platserna som har extraherats men den andra platsen var inte. 
+
 Mönster hjälper förutsägelse poäng, men entiteterna måste att korrekt förutse innan mönstret matchar uttryck. 
 
-## <a name="add-a-pattern-that-uses-roles"></a>Lägg till ett mönster som använder roller
+## <a name="pattern-with-roles"></a>Mönstret med roller
+
 1. Välj **skapa** i det övre navigeringsfältet.
 
 2. Välj **mönster** i det vänstra navigeringsfönstret.
@@ -237,8 +230,8 @@ Mönster hjälper förutsägelse poäng, men entiteterna måste att korrekt för
 
     Om du träna, publicera och fråga slutpunkten kan du bli besviken att se att entiteterna inte hittas, så mönstret matchade därför förutsägelsen inte förbättra. Det här är en följd av finns inte tillräckligt med exempel yttranden med märkta entiteter. I stället för att lägga till fler exempel, lägger du till en fras lista för att åtgärda problemet.
 
-## <a name="create-a-phrase-list-for-cities"></a>Skapa en fras-lista för städer
-Städer, som t.ex. namn på personer är svårt att de kan vara en blandning av ord och skiljetecken. Men städerna region och världen är kända, så LUIS måste en fras över städer att börja lära dig. 
+## <a name="cities-phrase-list"></a>Städer frasen lista
+Städer, som t.ex. namn på personer är svårt att de kan vara en blandning av ord och skiljetecken. Städerna region och världen är kända så LUIS måste en fras över städer att börja lära dig. 
 
 1. Välj **frasen lista** från den **förbättra apprestanda** avsnitt i den vänstra menyn. 
 
@@ -255,16 +248,13 @@ Städer, som t.ex. namn på personer är svårt att de kan vara en blandning av 
     |Miami|
     |Dallas|
 
-    Lägg inte till varje stad i världen eller även varje stad i regionen. LUIS måste kunna generalisera vilken stad är i listan. 
-
-    Se till att välja **dessa värden är utbytbara** valda. Den här inställningen innebär att orden i listan på behandlas som synonymer. Detta är exakt hur de ska hanteras på mönstret.
-
-    Kom ihåg [senast](luis-quickstart-primary-and-secondary-data.md) självstudieserien skapat en fras lista var också att öka entitet identifiering av en enkel enhet.  
+    Lägg inte till varje stad i världen eller även varje stad i regionen. LUIS måste kunna generalisera vilken stad är i listan. Se till att välja **dessa värden är utbytbara** valda. Den här inställningen innebär att orden i listan på behandlas som synonymer. 
 
 3. Träna och publicera appen.
 
-## <a name="query-endpoint-for-pattern"></a>Fråga slutpunkt för mönstret
-1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunktens URL i adressfältet. 
+## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikt och entiteter från slutpunkten
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Gå till slutet av URL:en i adressen och ange `Move wayne berry from miami to mount vernon`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
@@ -380,11 +370,24 @@ Städer, som t.ex. namn på personer är svårt att de kan vara en blandning av 
 
 Avsiktshantering poängen är nu mycket högre och role-namn är en del av svaret för entiteten.
 
+## <a name="hierarchical-entities-versus-roles"></a>Hierarkisk entiteter jämfört med roller
+
+I den [hierarkiska självstudien](luis-quickstart-intent-and-hier-entity.md), **MoveEmployee** avsikt upptäckte när du ska flytta en befintlig medarbetare från en kontorsbyggnad och till en annan. Exempel yttranden hade ursprung- och målplatserna men använde inte roller. I stället har ursprung och målet underordnade till den hierarkiska entiteten. 
+
+I den här självstudien identifierar appen personalfrågor yttranden om att flytta nya anställda från en stad till en annan. Dessa två typer av uttryck är samma men löst till olika LUIS-funktioner.
+
+|Självstudier|Exempel-uttryck|Original och beskrivning platser|
+|--|--|--|
+|[Hierarkiska (inga roller)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones från **a-2349** till **b-1298**|a-2349, b-1298|
+|Den här självstudien (med roller)|Flytta Bengt Patterson från **Yuma** till **Denver**.|Yuma Denver|
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+
+Den här självstudien lagt till en entitet med roller och syftet med exempel yttranden. Första slutpunkten förutsägelser med entiteten korrekt förutse avsikt men med ett låga förtroenderesultat. Endast en av de två entiteterna upptäcktes. Därefter självstudien lagt till ett mönster som används för rollerna entiteten och en fras lista för att öka värdet för stadsnamn i talade. Andra slutpunkten förutsägelsen returnerade en hög exakthet poäng och hitta båda rollerna för entiteten. 
 
 > [!div class="nextstepaction"]
 > [Läs om bästa praxis för LUIS-appar](luis-concept-best-practices.md)

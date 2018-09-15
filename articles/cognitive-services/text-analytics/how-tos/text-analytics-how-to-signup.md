@@ -1,22 +1,23 @@
 ---
-title: Registrera dig för API för textanalys (Microsoft Cognitive Services på Azure) | Microsoft Docs
+title: Registrera dig för API för textanalys
+titleSuffix: Azure Cognitive Services
 description: Instruktioner för att registrera sig för att använda textanalys och arbeta inom gränserna.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: get-started-article
-ms.date: 3/07/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: dfa5ba138a2e0db75dfc097ca2430fe9c82e826f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
-ms.translationtype: HT
+ms.openlocfilehash: a369d6028cc2957113de01dab0371ad5305a0c68
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623257"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605544"
 ---
-# <a name="how-to-sign-up-for-text-analytics-api"></a>Så registrerar du dig för API för textanalys
+# <a name="how-to-sign-up-for-the-text-analytics-api"></a>Hur du registrerar dig för API för textanalys
 
 Textanalysresurser är tillgängliga dygnet runt i molnet. Innan du kan ladda upp ditt innehåll för analys måste du registrera dig för att hämta en åtkomstnyckel. Varje anrop till API:et kräver en åtkomstnyckel för begäran.
 
@@ -51,7 +52,7 @@ Mer information finns på [prissättningssidan](https://azure.microsoft.com/pric
 ### <a name="what-constitutes-a-transaction-in-the-text-analytics-api"></a>Vad består en transaktion av i API:et för textanalys?
 En kommentar till ett dokument räknas som en transaktion. Batch-poängsättningsanrop tar även hänsyn till antalet dokument som ska poängsättas i transaktionen. Så om till exempel 1 000 dokument skickas för sentimentanalys i ett enda API-anrop räknas det som 1 000 transaktioner.
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

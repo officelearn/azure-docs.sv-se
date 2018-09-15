@@ -8,21 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5b8703c218790549a0cf5a319345132a0eca66ce
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 45890b4bd474c010b2b086be0405b79d340aeebd
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025197"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603167"
 ---
-# <a name="how-to-use-the-azure-maps-map-control"></a>Så här använder du Kartkontroll för Azure Maps
-Kartkontroll klientens Javascript-biblioteket kan du återge kartor och inbäddade Azure Maps-funktioner till din webbplats eller mobila program. 
+# <a name="use-the-azure-maps-map-control"></a>Använda Kartkontrollen Azure Maps
+
+Kartkontroll klientens Javascript-biblioteket kan du återge kartor och inbäddade Azure Maps-funktioner till din webbplats eller mobila program.
 
 ## <a name="create-a-new-map-in-a-web-page"></a>Skapa en ny karta på en webbsida
 
 Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bibliotek för Kartkontrollen.
 
-1. Skapa en ny fil och ge den namnet MapSearch.html.
+1. Skapa en ny fil och ge den namnet **MapSearch.html**.
 
 2. Lägg till Azure Maps formatmall och skript källa referenser till den `<head>` elementet i filen:
 
@@ -30,17 +31,19 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
     <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
     ```
-    
-3. För att göra en ny karta i webbläsaren, lägger du till en **#map** refererar till i den `<style>` element.
+
+3. För att göra en ny karta i webbläsaren, lägger du till en **#map** refererar till i den `<style>` element:
 
     ```html
-    #map {
-                width: 100%;
-                height: 100%;
-            }
-    ``` 
-    
-4. Definiera ett nytt avsnitt i html-text och skapa ett skript för att initiera kartkontrollen. Använd din egen nyckel för Azure Maps-konto i skriptet. Om du vill skapa ett konto eller hitta din nyckel finns i [så här hanterar du ditt Azure Maps-konto och dina nycklar](how-to-manage-account-keys.md)
+    <style>
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    ```
+
+4. Definiera ett nytt avsnitt i html-text och skapa ett skript för att initiera kartkontrollen. Använd din egen nyckel för Azure Maps-konto i skriptet. Om du vill skapa ett konto eller hitta din nyckel finns i [så här hanterar du ditt Azure Maps-konto och dina nycklar](how-to-manage-account-keys.md).
 
     ```html
     <div id="map">
@@ -54,12 +57,17 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
         </script>
     </div>
     ```
-    
+
 5. Öppna filen i din webbläsare och visa renderade kartan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln visade hur du skapar en grundläggande karta med din Azure Maps-nyckel. Flera kodexempel för att lägga till i dina kartor, finns i följande artiklar: 
+Lär dig hur du skapar en karta med ett fullständigt exempel:
 
-* [Skapa en karta](map-create.md)
-* [Välj kartan format](choose-map-style.md)
+> [!div class="nextstepaction"]
+> [Skapa en karta](map-create.md)
+
+Lär dig mer om att redigera en karta:
+
+> [!div class="nextstepaction"]
+> [Välj kartan format](choose-map-style.md)

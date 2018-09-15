@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: ea72e4ac778e52d4f6e4f5597d38a1de59ba43fc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: 193aa8f87a90eb7bbf1e2c49132ad480881d41fe
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348947"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633477"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption för virtuella IaaS-datorer 
 Microsoft Azure är förbundet till att säkerställa ditt datasekretess, datasuveränitet och gör att du kan styra dina Azure-värdbaserade data via ett utbud av avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar och kontroll och granskning åtkomst av data. Den här kontrollen innehåller Azure-kunder flexibilitet att välja den lösning som bäst uppfyller sina affärsbehov. Den här artikeln ger en introduktion till en tekniklösning, ”Azure Disk Encryption för Windows och Linux IaaS-VM”, för att skydda och skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. 
@@ -78,7 +78,10 @@ Lösningen stöder inte följande scenarier, funktioner och -teknik:
 * Virtuella IaaS-datorer som skapas med hjälp av klassiska metod för skapande av virtuell dator
 * Aktivera kryptering på anpassade avbildningar för virtuella Linux IaaS-datorer kund
 * Integrering med din lokala nyckelhanteringstjänst
-* Azure Files (delade filsystem), Network File System (NFS), dynamiska volymer och Windows-datorer som är konfigurerade med programvarubaserade RAID-system
+* Azure Files (delade filsystem)
+* Network File System (NFS)
+* Dynamiska volymer
+* Windows-datorer som är konfigurerade med programvarubaserade RAID-system
 
 ## <a name="encryption-features"></a>Krypteringsfunktioner
 När du aktiverar och distribuera Azure Disk Encryption för virtuella Azure IaaS-datorer, aktiveras följande funktioner, beroende på konfigurationen som tillhandahålls:

@@ -1,10 +1,10 @@
 ---
-title: Azure DSC-tillägget för Linux | Microsoft Docs
+title: Azure DSC-tillägget för Linux
 description: Installerar OMI och DSC-paket för att tillåta en virtuell Linux-dator som ska konfigureras med hjälp av Desired State Configuration.
 services: virtual-machines-linux
 documentationcenter: ''
-author: balukambala
-manager: jeconnoc
+author: bobbytreed
+manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: roiyz
-ms.openlocfilehash: 4a057b88d8d511965d694aaf4494f79bba88e47a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.author: robreed
+ms.openlocfilehash: 70280676453bd146102ca331daae038b947aab58
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412655"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632865"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft.OSTCExtensions.DSCForLinux)
 

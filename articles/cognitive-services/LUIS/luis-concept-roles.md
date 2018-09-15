@@ -1,20 +1,21 @@
 ---
-title: Förstå hur roller som används i mönstret-baserade enheter – Azure | Microsoft Docs
-description: Lär dig hur en roll ska användas i en mönsterbaserad entitet för att ge ett namn till en sammanhangsberoende entitet.
+title: Förstå hur roller som används i mönstret-baserade enheter
+titleSuffix: Azure Cognitive Services
+description: Roller är namngivna, sammanhangsberoende undertyper för en entitet som används i ett mönster. Till exempel i uttryck-köp en biljett från New York till London både New York och London är städer men var och en har en annan betydelse i meningen. New York är ursprung stad och London är målet stad.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d2692cdce9da7428bd7b30c4feaf7347792618f5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: aabd3a22498e0e33993d715e7a5882dde7aacf37
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222711"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632491"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Entiteten roller i mönster är sammanhangsberoende undertyper
 Roller är namngivna, sammanhangsberoende undertyper för en entitet som används bara i [mönster](luis-concept-patterns.md).
@@ -31,9 +32,10 @@ Roller namnge ett dessa skillnader:
 ## <a name="how-are-roles-used-in-patterns"></a>Hur används roller i mönster?
 I ett mönster mall uttryck används roller inom uttryck: 
 
-```
-buy a ticket from {Location:origin} to {Location:destination}
-```
+|Mönstret med entiteten roller|
+|--|
+|`buy a ticket from {Location:origin} to {Location:destination}`|
+
 
 ## <a name="role-syntax-in-patterns"></a>Roll-syntax i mönster
 Entitets- och rollen omges inom parentes, `{}`. Entiteten och rollen avgränsas med ett kolon. 

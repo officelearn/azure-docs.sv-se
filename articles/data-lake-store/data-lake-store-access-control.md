@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 0810aff364f8a015e93d7513b13ac7dcb5379556
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 335c3fe4e27ce6025ad889cc7958a32223dc85f8
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544106"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629941"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -40,18 +40,6 @@ Både åtkomst-ACL:er och standard-ACL:er har samma struktur.
 > Att ändra standard-ACL på ett överordnat objekt påverkar inte åtkomst-ACL eller standard-ACL för underordnade objekt som redan finns.
 >
 >
-
-## <a name="users-and-identities"></a>Användare och identiteter
-
-Alla filer och mappar har olika behörigheter för dessa identiteter:
-
-* Ägande användare
-* Ägande grupp
-* Namngivna användare
-* Namngivna grupper
-* Alla andra användare
-
-Identiteten för användare och grupper är Azure Active Directory (Azure AD)-identiteter. Så om inget annat anges kan en ”användare” i samband med Data Lake Storage Gen1: antingen Azure AD-användare eller en Azure AD-säkerhetsgrupp.
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -100,7 +88,19 @@ Nedan följer några vanliga scenarier för att förstå vilka behörigheter som
 >
 
 
-## <a name="the-super-user"></a>Superanvändaren
+## <a name="users-and-identities"></a>Användare och identiteter
+
+Alla filer och mappar har olika behörigheter för dessa identiteter:
+
+* Ägande användare
+* Ägande grupp
+* Namngivna användare
+* Namngivna grupper
+* Alla andra användare
+
+Identiteten för användare och grupper är Azure Active Directory (Azure AD)-identiteter. Så om inget annat anges kan en ”användare” i samband med Data Lake Storage Gen1: antingen Azure AD-användare eller en Azure AD-säkerhetsgrupp.
+
+### <a name="the-super-user"></a>Superanvändaren
 
 En superanvändare har mest behörighet av alla användare i Data Lake Storage Gen1-konto. En superanvändare:
 
@@ -115,7 +115,7 @@ Om du vill skapa en anpassad rollbaserad åtkomstkontroll(RBAC)-roll som har sup
 - Microsoft.Authorization/roleAssignments/write
 
 
-## <a name="the-owning-user"></a>Ägande användare
+### <a name="the-owning-user"></a>Ägande användare
 
 Användaren som skapade objektet är automatiskt ägande användare för objektet. En ägande användare kan:
 
@@ -127,7 +127,7 @@ Användaren som skapade objektet är automatiskt ägande användare för objekte
 >
 >
 
-## <a name="the-owning-group"></a>Ägande grupp
+### <a name="the-owning-group"></a>Ägande grupp
 
 **Bakgrund**
 
@@ -234,7 +234,7 @@ Följande pseudocode visar hur umask används när du skapar ACL: er för ett un
 ```
 def set_default_acls_for_new_child(parent, child):
     child.acls = []
-    foreach entry in parent.acls :
+    for entry in parent.acls :
         new_entry = None
         if (entry.type == OWNING_USER) :
             new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))

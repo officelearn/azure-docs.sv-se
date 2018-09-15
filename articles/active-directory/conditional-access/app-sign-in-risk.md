@@ -2,7 +2,7 @@
 title: Snabbstart – blockera åtkomst när en risk för session har identifierats med villkorlig åtkomst i Azure Active Directory | Microsoft Docs
 description: I den här snabbstarten får du lära dig hur du kan konfigurera en princip för villkorlig åtkomst för Azure Active Directory (Azure AD) för att blockera inloggningar baserat på sessionen risker.
 services: active-directory
-keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2bd52486a78ca103e0070d94ea423c069f845587
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 65f740e23b68727bdffa4a966518b1581fb5b0a6
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627516"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604373"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabbstart: Blockera åtkomst när en risk för session har identifierats med villkorlig åtkomst i Azure Active Directory  
 
@@ -46,7 +46,7 @@ Om du vill slutföra scenariot i den här självstudien behöver du:
 
 - **Tor Browser** – [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) är utformat för att bevara sekretessen online. Identity Protection identifierar en inloggning från en Tor Browser som **inloggningar från anonyma IP-adresser**, som har en Medelrisk-nivå. Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](../reports-monitoring/concept-risk-events.md).  
 
-- **Ett testkonto kallas Alain Charon** – om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **Ett testkonto kallas Alain Charon** – om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## <a name="test-your-sign-in"></a>Testa din inloggning 
@@ -70,7 +70,7 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som kr
 |---     | --- |
 | Användare och grupper | Alain Charon  |
 | Molnappar | Alla molnappar |
-| Inloggningsrisk | Medelhög |
+| Inloggningsrisk | Medel |
 | Bevilja | Blockera åtkomst |
  
 
@@ -93,11 +93,11 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som kr
  
 4. På den **villkorlig åtkomst** , i verktygsfältet högst upp, klickar du på **Lägg till**.
 
-    ![namn](./media/app-sign-in-risk/108.png)
+    ![Namn](./media/app-sign-in-risk/108.png)
 
 5. På den **New** sidan den **namn** textrutan typ **blockera åtkomst för medelstora risknivå**.
 
-    ![namn](./media/app-sign-in-risk/104.png)
+    ![Namn](./media/app-sign-in-risk/104.png)
 
 6. I den **tilldelning** klickar du på **användare och grupper**.
 
@@ -199,18 +199,18 @@ I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad in
 
 Om du vill testa din princip, försöker logga in på din [Azure-portalen](https://portal.azure.com) som **Alan Charon** med Tor Browser. Dina inloggningsförsök ska blockeras av din princip för villkorlig åtkomst.
 
-![Multifaktorautentisering](./media/app-sign-in-risk/118.png)
+![Multi-Factor Authentication](./media/app-sign-in-risk/118.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När den inte längre behövs kan du ta bort testanvändaren, Tor Browser och principen för villkorlig åtkomst:
 
-- Om du inte vet hur du tar bort en Azure AD-användare kan se [ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Om du inte vet hur du tar bort en Azure AD-användare kan se [ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - Välj din princip för att ta bort principen, och klicka sedan på **ta bort** i verktygsfältet för snabb åtkomst.
 
-    ![Multifaktorautentisering](./media/app-sign-in-risk/33.png)
+    ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)
 
 - Anvisningar för att ta bort Tor Browser finns i [avinstallerar](https://tb-manual.torproject.org/en-US/uninstalling.html).
 

@@ -1,5 +1,5 @@
 ---
-title: Begrepp för ändring i LUIS - förståelse för språk
+title: Begrepp för ändring i LUIS - Språkförståelse
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur data kan ändras innan förutsägelser i Språkförståelse (LUIS)
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2949f7afa5d04d9f7ea738ad6f7b9333bfaf958f
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f3caac697bad0bdb1401e85ac032fe167c25e112
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023025"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631267"
 ---
 # <a name="data-alterations"></a>Ändringar av data
-LUIS innehåller olika sätt att manipulera uttryck före eller under förutsägelser. 
+LUIS innehåller olika sätt att manipulera uttryck före eller under förutsägelser. Dessa inkluderar åtgärda stavning och åtgärda problem med tidszonen för prebuild datetimeV2. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Rätta stavfel i uttryck
 LUIS använder [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) att rätta stavfel i uttryck. LUIS måste den nyckel som associeras med den tjänsten. Skapa nyckeln och sedan lägga till nyckeln som en frågesträngsparameter på den [endpoint](https://aka.ms/luis-endpoint-apis). 
@@ -48,6 +48,9 @@ När [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/ser
 }
 ```
  
+### <a name="whitelist-words"></a>Lista över tillåtna ord
+Stavningskontroll i Bing API som används i LUIS inte stöder en vitlista av ord som ska förbises vid stavningskontroll kontrollera förändras. Om du vill lista för tillåten ord eller förkortningar bearbeta uttryck i klientprogrammet med en lista för tillåten innan du skickar uttryck till LUIS för avsiktlig förutsägelse.
+
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Ändra tidszonen för fördefinierade datetimeV2 entitet
 När en LUIS-app använder fördefinierade datetimeV2 entiteten, kan ett datetime-värde returneras i svaret förutsägelse. Tidszonen för begäran används för att fastställa rätt datum/tid att returnera. Om förfrågan kommer från en bot eller ett annat centraliserad program innan du kommer till LUIS, korrigera tidszonen LUIS använder. 
 

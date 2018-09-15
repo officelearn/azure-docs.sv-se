@@ -9,15 +9,17 @@ ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
-ms.openlocfilehash: bf98562224c2da770541f731ba93ec2e5dc1718d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 42982e3fa0a854109a6b887640604498ac68847c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041328"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632267"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Kör U-SQL och Felsök lokalt i Visual Studio Code
-Den här artikeln beskriver hur du kör U-SQL-jobb på en lokal utvecklingsdator påskynda tidiga faser av kodning eller felsöka kod lokalt i Visual Studio Code. Information om Azure Data Lake-verktyg för Visual Studio Code finns [Använd Azure Data Lake Tools för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md). 
+Den här artikeln beskriver hur du kör U-SQL-jobb på en lokal utvecklingsdator påskynda tidiga faser av kodning eller felsöka kod lokalt i Visual Studio Code. Information om Azure Data Lake-verktyg för Visual Studio Code finns [Använd Azure Data Lake Tools för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+
+Endast Windows-installationer av Azure Data Lake Tools för Visual Studio stöder åtgärden för att köra U-SQL lokalt och felsöka U-SQL lokalt. Installationer på macOS och Linux-baserade operativsystem stöder inte den här funktionen.
 
 ## <a name="set-up-the-u-sql-local-run-environment"></a>Konfigurera den lokala körningsmiljön U-SQL
 

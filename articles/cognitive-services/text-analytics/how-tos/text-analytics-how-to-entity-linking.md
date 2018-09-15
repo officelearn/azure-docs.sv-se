@@ -1,43 +1,44 @@
 ---
-title: Anvisningar använda entiteten länkar i Text Analytics REST-API (Microsoft kognitiva tjänster i Azure) | Microsoft Docs
-description: Lär dig att identifiera och lösa enheter med hjälp av REST-API Text Analytics i kognitiva Microsoft-tjänster i Azure i den här genomgången självstudiekursen.
+title: Använda entitetslänkning med API för textanalys
+titleSuffix: Azure Cognitive Services
+description: Lär dig att identifiera och lösa entiteter med hjälp av den REST API för textanalys.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
-ms.date: 5/02/2018
+ms.date: 09/12/2018
 ms.author: ashmaka
-ms.openlocfilehash: 55bec1a0223b70749a97a30e2da92ef15128038c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ad2168806f9ddd124faf66cdb5a0f51ed13dfadc
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352713"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604747"
 ---
-# <a name="how-to-identify-linked-entities-in-text-analytics-preview"></a>Så här identifierar du länkade entiteter i textanalys (förhandsgranskning)
+# <a name="how-to-identify-linked-entities-in-text-analytics-preview"></a>Så här identifierar du länkade entiteter i Text Analytics (förhandsversion)
 
-Den [entitet länka API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) tar Ostrukturerade text och för varje JSON-dokument returnerar en lista över skiljas åt entiteter med länkar till mer information på webben (Wikipedia och Bing). 
+Den [API för Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) tar ostrukturerad text och för varje JSON-dokument, returnerar du en lista över skiljas åt entiteter med länkar till mer information på webben (Wikipedia och Bing). 
 
-## <a name="entity-linking-vs-named-entity-recognition"></a>Entiteten länka vs. Igenkänning av namngiven enhet
+## <a name="entity-linking-vs-named-entity-recognition"></a>Entity Linking vs. Igenkänning av namngiven enhet
 
-Vid bearbetning av naturligt språk kan begreppen entitet länkning och namngiven enhet recognition (NER) enkelt blandas ihop. I av förhandsversionen av Text Analytics `entities` slutpunkt, bara entitetstyper länkning stöds.
+I bearbetning av naturligt språk, kan du enkelt ihop begreppen entitetslänkning och igenkänning av namngivna entiteter (NER). I förhandsversionen av Text Analytics `entities` slutpunkt, bara för entitetslänkning stöds.
 
-Enheten länkning har möjlighet att identifiera och undvika tvetydigheten identiteten för en entitet som påträffats i texten (t.ex. avgöra om ”Mars” används som planeten eller latinska krigsguden). Den här processen kräver förekomsten av en knowledge base som identifieras entiteter är länkade – Wikipedia används som kunskapsbas för den `entities` endpoint Text Analytics.
+Entitetslänkning är möjligheten att identifiera och disambiguate identiteten för en entitet som påträffats i texten (t.ex. avgöra om ”Mars” används som arrangemang eller latinska krigsguden). Den här processen kräver förekomsten av en knowledge base som känns igen entiteter är länkade – Wikipedia används som kunskapsbas för den `entities` endpoint textanalys.
 
-### <a name="language-support"></a>Språkstöd
+### <a name="language-support"></a>Stöd för språk
 
-Entitet som länkar i olika språk kräver att en motsvarande knowledge base på varje språk. För entiteten i textanalys, innebär detta att varje språk som stöds av den `entities` slutpunkten ska kopplas till den motsvarande Wikipedia Kristi på det språket. Eftersom storleken på corpora varierar mellan olika språk, förväntas det att entiteten länka funktioners återkallning varierar.
+Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskapsbas på varje språk. För entitetslänkning i Text Analytics, det innebär att alla språk som stöds av den `entities` endpoint länkar till motsvarande Wikipedia-Kristi på det språket. Eftersom storleken på korpus varierar mellan olika språk, förväntas varierar även funktionens återkallande för entitetslänkning.
 
 
 ## <a name="preparation"></a>Förberedelse
 
-Du måste ha JSON-dokument i det här formatet: id, text, språk
+Du måste ha JSON-dokument i det här formatet: id-, text-, språk
 
-Språk som stöds för närvarande finns [listan](../text-analytics-supported-languages.md).
+Språk som stöds för närvarande finns i [listan](../text-analytics-supported-languages.md).
 
-Storlek måste vara under 5 000 tecken per dokument och du kan ha upp till 1 000 objekt (ID) per samling. Samlingen skickas i meddelandetexten i begäran. I följande exempel är en illustration av innehåll som du kan skicka till entiteten länkande slutet.
+Dokumentstorlek måste vara under 5 000 tecken per dokument och du kan ha upp till 1 000 objekt (ID) per samling. Samlingen har skickats i brödtexten i begäran. I följande exempel är en illustration av innehåll som du kan skicka till länkramverk entitetsänden.
 
 ```
 {"documents": [{"id": "1",
@@ -52,34 +53,34 @@ Storlek måste vara under 5 000 tecken per dokument och du kan ha upp till 1 000
 }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Steg 1: Struktur begäran
+## <a name="step-1-structure-the-request"></a>Steg 1: Strukturera begäran
 
-Information om begäran definition finns i [hur du anropar API: et för Text Analytics](text-analytics-how-to-call-api.md). Följande punkter räknas av praktiska skäl:
+Information om begäran-definition finns i [hur du anropar API för textanalys](text-analytics-how-to-call-api.md). Följande punkter har omarbetats för att underlätta:
 
-+ Skapa en **POST** begäran. Granska API-dokumentationen för denna begäran: [entitet länka API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ Skapa en **POST** begäran. Läs API-dokumentationen för denna begäran: [API för Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Ange HTTP-slutpunkten för viktiga frasen extrahering. Det måste innehålla den `/entities` resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/entities`
++ Ange HTTP-slutpunkt för extrahering av diskussionsämne. Det måste innehålla den `/entities` resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/entities`
 
-+ Ange ett huvud med snabbtangenten för Text Analytics-åtgärder. Mer information finns i [hur du hittar slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
++ Ange en rubrik för begäran att inkludera åtkomstnyckeln för Text Analytics-åtgärder. Mer information finns i [hur du hittar slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
 
-+ Ange samlingen JSON-dokument du förberedd för den här analysen i frågans brödtext
++ Ange JSON-dokument samlingen som du har förberett för den här analysen i begärandetexten,
 
 > [!Tip]
-> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna den **API-testet konsolen** i den [dokumentationen](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) struktur en begäran och skicka den till tjänsten.
+> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna den **API testkonsolen** i den [dokumentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) att strukturera en begäran och skicka den till tjänsten.
 
 ## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
 
-Analys utförs vid mottagning av begäran. Tjänsten accepterar upp till 100 begäranden per minut. Varje begäran kan vara upp till 1 MB.
+Analysen utförs vid mottagning av begäran. Tjänsten accepterar upp till 100 begäranden per minut. Varje begäran kan vara högst 1 MB.
 
 Kom ihåg att tjänsten är tillståndslösa. Inga data lagras i ditt konto. Resultaten returneras omedelbart i svaret.
 
 ## <a name="step-3-view-results"></a>Steg 3: Visa resultat
 
-Alla POST-förfrågningar returnera en JSON-formaterad svar med ID: N och egenskaper identifierades.
+Alla POST-förfrågningar returnerar en JSON-formaterad svar med ID: N och identifierade egenskaper.
 
-Utdata returneras direkt. Du kan strömma resultaten till ett program som accepterar JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör att du kan sortera, söka och manipulera data.
+Utdata returneras direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör att du kan sortera, söka och manipulera data.
 
-Ett exempel på utdata för entiteten länka visas nästa:
+Ett exempel på utdata för entitetslänkning visas nästa:
 
 ```
 {
@@ -141,25 +142,25 @@ Ett exempel på utdata för entiteten länka visas nästa:
 }
 ```
 
-När det är tillgängligt, innehåller svaret Wikipedia ID, Wikipedia URL och Bing-ID för varje identifierad entitet. Dessa kan användas för att ytterligare förbättra ditt program med information om länkade entiteten.
+När det är tillgängligt, innehåller svaret Wikipedia-ID, Wikipedias URL och Bing-ID för varje identifierad entitet. Dessa kan användas för att förbättra ditt program med information om den länkade entiteten.
 
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln får du har lärt dig begrepp och arbetsflöde för entiteten länkning med hjälp av Text Analytics i kognitiva Services. Sammanfattningsvis:
+I den här artikeln beskrivs begrepp och arbetsflöde för entitetslänkning med textanalys i Cognitive Services. Sammanfattningsvis:
 
-+ [API för länkning av entiteten](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) är tillgänglig för markerade språk.
-+ JSON-dokument i begärandetexten innehåller ett id, text och språk-kod.
-+ POST-begäran är att en `/entities` slutpunkten, med hjälp av en anpassad [åtkomst till nyckeln och en slutpunkt](text-analytics-how-to-access-key.md) som är giltig för prenumerationen.
-+ Svarsutdata som består av länkade entiteter (inklusive förtroende poäng, förskjutningar och webblänkar, för varje dokument ID) kan användas i alla program
++ [API för Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) är tillgänglig för valda språken.
++ JSON-dokument i begärandetexten innehålla ett id, text och språk-kod.
++ POST-begäran är att en `/entities` slutpunkten, med hjälp av en personligt anpassad [åtkomst till nyckeln och en slutpunkt](text-analytics-how-to-access-key.md) som är giltig för prenumerationen.
++ Svarsutdata som består av länkade entiteter (inklusive säker poäng, förskjutningar och webblänkar, för varje dokument ID) kan användas i alla program
 
 ## <a name="see-also"></a>Se också 
 
- [Översikt över text Analytics](../overview.md)  
+ [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)</br>
- [Text Analytics produktsidan](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Text Analytics produktsida](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Textanalys API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [API för textanalys](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)

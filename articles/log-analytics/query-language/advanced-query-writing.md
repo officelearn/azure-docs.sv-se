@@ -15,22 +15,24 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 72c151fec0637822411f8cac44f4e13a8df96445
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f7594b7d1eb7d41508be435cdd0a6203433727c1
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190367"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603064"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Skriva avancerade frågor i Log Analytics
 
 > [!NOTE]
 > Bör du genomföra [Kom igång med Analytics-portalen](get-started-analytics-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 ## <a name="reusing-code-with-let"></a>Återanvända kod med låter
 Använd `let` att tilldela resultaten till en variabel och referera till det senare i frågan:
 
-```OQL
+```KQL
 // get all events that have level 2 (indicates warning level)
 let warning_events=
 Event
@@ -42,7 +44,7 @@ warning_events
 
 Du kan också tilldela variabler konstanta värden. Det ger stöd för en metod för att ställa in parametrar för de fält som du behöver ändra varje gång du kör frågan. Ändra de här parametrarna efter behov. Till exempel för att beräkna ledigt utrymme och ledigt minne (i percentiler) under en viss tidsperiod:
 
-```OQL
+```KQL
 let startDate = datetime(2018-08-01T12:55:02);
 let endDate = datetime(2018-08-02T13:21:35);
 let FreeDiskSpace =
@@ -63,7 +65,7 @@ Detta gör det enkelt att ändra på början av sluttid nästa gång du kör fr�
 ### <a name="local-functions-and-parameters"></a>Lokala funktioner och parametrar
 Använd `let` -uttryck för att skapa funktioner som kan användas i samma fråga. Till exempel definiera en funktion som tar ett datetime-fält (i UTC-format) och konverterar den till ett standardformat i USA. 
 
-```OQL
+```KQL
 let utc_to_us_date_format = (t:datetime)
 {
   strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
@@ -78,7 +80,7 @@ Event
 ## <a name="functions"></a>Functions
 Du kan spara en fråga med ett funktionsalias så att den kan refereras av andra frågor. Till exempel returnerar följande standard fråga alla saknade säkerhetsuppdateringar som rapporteras i den sista dagen:
 
-```OQL
+```KQL
 Update
 | where TimeGenerated > ago(1d) 
 | where Classification == "Security Updates" 
@@ -87,7 +89,7 @@ Update
 
 Du kan spara den här frågan som en funktion och ge den ett alias som _security_updates_last_day_. Du kan sedan använda den i en annan fråga för att söka efter SQL-relaterade nödvändiga säkerhetsuppdateringar:
 
-```OQL
+```KQL
 security_updates_last_day | where Title contains "SQL"
 ```
 
@@ -100,7 +102,7 @@ Om du vill spara en fråga som en funktion, Välj den **spara** knappen i portal
 ## <a name="print"></a>Skriva ut
 `print` Returnerar en tabell med en enda kolumn och en enskild rad som visar resultatet av en beräkning. Det här används ofta i fall där du behöver en enkel calcuation. Till exempel vill hitta den aktuella tiden i PST och lägga till en kolumn med EST:
 
-```OQL
+```KQL
 print nowPst = now()-8h
 | extend nowEst = nowPst+3h
 ```
@@ -108,7 +110,7 @@ print nowPst = now()-8h
 ## <a name="datatable"></a>DataTable
 `datatable` När du vill definiera en uppsättning data. Du anger ett schema och en uppsättning värden och sedan skicka tabellen i alla andra element i fråga. Till exempel för att skapa en tabell med RAM-användning och beräkna sina medelvärdet per timme:
 
-```OQL
+```KQL
 datatable (TimeGenerated: datetime, usage_percent: double)
 [
   "2018-06-02T15:15:46.3418323Z", 15.5,
@@ -125,7 +127,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 
 DataTable konstruktioner är också mycket användbara när du skapar en uppslagstabell. Till exempel för att mappa tabelldata, till exempel händelse-ID från den _SecurityEvent_ tabellen för att händelsetyper visas någon annanstans, skapa en uppslagstabell med händelsetyper genom att använda `datatable` och delta i denna datatable med  _SecurityEvent_ data:
 
-```OQL
+```KQL
 let eventCodes = datatable (EventID: int, EventType:string)
 [
     4625, "Account activity",

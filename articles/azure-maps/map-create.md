@@ -3,18 +3,18 @@ title: Skapa en karta med Azure Maps | Microsoft Docs
 description: Så här skapar du en Javascript-karta
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c5d48e2e7316f33a565fc61a769a29c00834eed5
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 0e292bfd38402d5a36be217746fd352ce4627177
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343377"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633324"
 ---
 # <a name="create-a-map"></a>Skapa en karta
 
@@ -42,21 +42,23 @@ I koden ovan, en [Kartobjekt](https://docs.microsoft.com/javascript/api/azure-ma
 
 I koden ovan, en [Kartobjekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) skapas `new atlas.Map()`. Egenskaper för kartan, till exempel angränsande ruta är en del av [CameraBoundsOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest). CameraBoundsOptions kan definieras [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) funktion i klassen kartan.
 
-## <a name="try-out-the-code"></a>Prova att använda koden 
+## <a name="try-out-the-code"></a>Prova att använda koden
 
-Ta en titt på exempelkoden ovan. Du kan redigera JavaScript-koden på fliken JS till vänster och se kartan visa ändringarna på fliken resultatet till höger. Du kan också klicka på knappen ”Redigera på CodePen” och redigera koden i CodePen. 
+Ta en titt på exempelkoden ovan. Du kan redigera JavaScript-koden på fliken JS till vänster och se kartan visa ändringarna på fliken resultatet till höger. Du kan också klicka på knappen ”Redigera på CodePen” och redigera koden i CodePen.
 
 <a id="relatedReference"></a>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om de klasser och metoder som används i den här artikeln: 
-* [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera)
-    * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
-    
-Flera kodexempel för att lägga till i dina kartor, finns i följande artiklar: 
-* [Välj kartan format](choose-map-style.md)
-* [Lägg till karta kontroller](map-add-controls.md)
-    
+Läs mer om de klasser och metoder som används i den här artikeln:
 
+> [!div class="nextstepaction"]
+> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Se kodexempel för att lägga till funktioner i din app:
+
+> [!div class="nextstepaction"]
+> [Välj kartan format](choose-map-style.md)
+
+> [!div class="nextstepaction"]
+> [Lägg till karta kontroller](map-add-controls.md)

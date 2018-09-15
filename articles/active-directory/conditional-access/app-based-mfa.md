@@ -2,7 +2,7 @@
 title: Snabbstart – kräva multifaktorautentisering (MFA) för specifika appar med villkorlig åtkomst i Azure Active Directory | Microsoft Docs
 description: I den här snabbstarten får du lära dig hur du kan koppla din autentiseringskrav för typ av används molnapp med villkorlig åtkomst i Azure Active Directory (AD Azure).
 services: active-directory
-keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eee4d73042232aabd995a749b7848306be0ef655
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f27ced5c67c5124d0792c5ce3884c88473fba056
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628264"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604203"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snabbstart: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory 
 
@@ -42,7 +42,7 @@ För att slutföra scenariot i den här snabbstarten behöver du:
 
 - **Åtkomst till en Azure AD Premium-versionen** -villkorlig åtkomst i Azure AD är en Azure AD Premium-funktion. 
 
-- **Ett testkonto kallas Isabella Simonsen** – om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **Ett testkonto kallas Isabella Simonsen** – om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## <a name="test-your-sign-in"></a>Testa din inloggning
@@ -95,7 +95,7 @@ Ange i din princip:
 
 5. På den **New** sidan den **namn** textrutan typ **kräver MFA för Azure portalåtkomst**.
 
-    ![namn](./media/app-based-mfa/05.png)
+    ![Namn](./media/app-based-mfa/05.png)
 
 6. I den **tilldelning** klickar du på **användare och grupper**.
 
@@ -202,18 +202,18 @@ I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad in
 
 Om du vill testa din princip, försöker logga in på din [Azure-portalen](https://portal.azure.com) med hjälp av din **Isabella Simonsen** testa konto. Du bör se en dialogruta som du måste ange ditt konto för ytterligare säkerhetsverifiering.
 
-![Multifaktorautentisering](./media/app-based-mfa/22.png)
+![Multi-Factor Authentication](./media/app-based-mfa/22.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När den inte längre behövs kan du ta bort testanvändaren och principen för villkorlig åtkomst:
 
-- Om du inte vet hur du tar bort en Azure AD-användare kan se [ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Om du inte vet hur du tar bort en Azure AD-användare kan se [ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - Välj din princip för att ta bort principen, och klicka sedan på **ta bort** i verktygsfältet för snabb åtkomst.
 
-    ![Multifaktorautentisering](./media/app-based-mfa/33.png)
+    ![Multi-Factor Authentication](./media/app-based-mfa/33.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

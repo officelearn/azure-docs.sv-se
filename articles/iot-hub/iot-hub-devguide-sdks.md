@@ -6,22 +6,24 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/12/2018
+ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: b57a448459101150363d595910cefcde991f1f92
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: f5d493628df68e0afbe05137b0d7386d6c40f7d4
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721828"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605750"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Förstå och använda Azure IoT Hub SDK: er
 
-Det finns två typer av software development Kit (SDK) för att arbeta med IoT Hub:
+Det finns tre kategorier av software development Kit (SDK) för att arbeta med IoT Hub:
 
 * **SDK: er för enhetens** hjälper dig att skapa appar som körs på dina IoT-enheter med hjälp av enhetsklienten eller modulen klienten. De här apparna skicka telemetri till din IoT-hubb och du kan också ta emot meddelanden, jobb, metod eller uppdateringar för enhetstvilling från IoT hub.  Du kan också använda modulen klienten för att skapa [moduler](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) för [Azure IoT Edge-körningen](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge).
 
 * **Tjänst-SDK: er** gör det möjligt att hantera din IoT-hubb och du kan också skicka meddelanden, schemalägga jobb, anropa direktmetoder eller skickar uppdateringar för önskad egenskap till din IoT-enheter eller moduler.
+
+* **Device Provisioning SDKs** gör det möjligt att etablera enheter till IoT-hubben med hjälp av den [Device Provisioning-tjänsten](../iot-dps/about-iot-dps.md).
 
 Lär dig mer om fördelarna med att utveckla med Azure IoT SDK: er [här][lnk-benefits-blog].
 
@@ -107,7 +109,29 @@ Azure IoT Hub service SDK för iOS:
 > [!NOTE]
 > Finns i readme-filerna i GitHub-lagringsplatser för information om att använda språk och plattformsspecifika pakethanterare för att installera binärfilerna och beroenden på utvecklingsdatorn.
 
+## <a name="device-provisioning-sdks"></a>SDK: er för enhetsetablering
 
+Den **Microsoft Azure etablering SDK: er** gör det möjligt att etablera enheter till IoT-hubben med hjälp av den [Device Provisioning-tjänsten](../iot-dps/about-iot-dps.md).
+
+Azure etablerar enheten och tjänsten SDK: er för C#:
+* [Etablering enhetsklienten SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/device)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/service)
+
+Azure etablerar enheten och tjänsten SDK: er för Java:
+* [Etablering enhetsklienten SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning-device-client)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning/provisioning-service-client)
+
+Azure etablerar enheten och tjänsten SDK: er för Node.js:
+* [Etablering enhetsklienten SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service)
+
+Azure etablerar enheten och tjänsten SDK: er för Python:
+* [Etablering enhetsklienten SDK](https://github.com/Azure/azure-iot-sdk-python/blob/master/provisioning_device_client)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client)
+
+Azure Provisioning-tjänst och enhet SDK för C:
+* [Etablering enhetsklienten SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning/service)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 09/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 3600e83d18f8cabd03c46af2ef47445c588cbdb5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7f24dad3cfefd5ecb0b1c78f4a2b242c99a01239
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38548294"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Självstudier: Azure Active Directory-integrering med AppDynamics
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av AppDynamics i Azure AD, som du behöver läg
 
 **Utför följande steg för att lägga till AppDynamics från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -112,7 +112,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.saas.appdynamics.com`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
 
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.saas.appdynamics.com/controller`
 
@@ -189,6 +189,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 ### <a name="creating-an-appdynamics-test-user"></a>Skapa en testanvändare AppDynamics
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i AppDynamics. AppDynamics stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt AppDynamics om det inte finns ännu.
+
 >[!Note]
 >Om du vill skapa en användare manuellt kan du kontakta [AppDynamics klienten supportteamet](https://www.appdynamics.com/support/).
 

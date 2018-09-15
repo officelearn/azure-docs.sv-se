@@ -1,26 +1,24 @@
 ---
-title: Använd tal C# SDK med LUIS - Azure | Microsoft Docs
-titleSuffix: Azure
-description: Använd tal C# SDK-exempel för att tala i mikrofonen och få LUIS avsikt och entiteter förutsägelser som returneras.
+title: Använd tal C# SDK med LUIS
+titleSuffix: Azure Cognitive Services
+description: Med taltjänsten kan du använda en enskild begäran att ta emot ljud och returnera LUIS förutsägelse JSON-objekt. I den här artikeln får du hämta och använda ett C#-projekt i Visual Studio ska säga ett uttryck i en mikrofon och ta emot information om LUIS förutsägelse. Projektet använder tal NuGet-paketet, som redan ingår som en referens.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8eff6ff3d0263708158f2fea82380e88ba4638ad
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124404"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633635"
 ---
 # <a name="integrate-speech-service"></a>Integrera Speech service
-Den [taltjänst](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran att ta emot ljud och returnera LUIS förutsägelse JSON-objekt.
-
-I den här artikeln får du hämta och använda ett C#-projekt i Visual Studio ska säga ett uttryck i en mikrofon och ta emot information om LUIS förutsägelse. Projektet använder tal [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketet, som redan ingår som en referens. 
+Den [taltjänst](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran att ta emot ljud och returnera LUIS förutsägelse JSON-objekt. I den här artikeln får du hämta och använda ett C#-projekt i Visual Studio ska säga ett uttryck i en mikrofon och ta emot information om LUIS förutsägelse. Projektet använder tal [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketet, som redan ingår som en referens. 
 
 I den här artikeln behöver du en kostnadsfri [LUIS] [ LUIS] webbplats-konto för att kunna importera programmet.
 
@@ -32,12 +30,13 @@ Avsikter och yttranden för den här artikeln kommer från den personal LUIS-app
 
 Den här appen har avsikter, entiteter och yttranden som rör personal-domänen. Exempel yttranden är:
 
-```
-Who is John Smith's manager?
-Who does John Smith manage?
-Where is Form 123456?
-Do I have any paid time off?
-```
+|Exempel på yttranden|
+|--|
+|Vem är John Smith manager?|
+|Vem som hanterar John Smith?|
+|Var är formuläret 123456?|
+|Måste jag helst betald?|
+
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Lägg till KeyPhrase fördefinierade entitet
 När du har importerat appen, Välj **entiteter**, sedan **hantera förskapade entiteter**. Lägg till den **KeyPhrase** entitet. Entiteten KeyPhrase extraherar viktiga föremålet från uttryck.
@@ -45,19 +44,18 @@ När du har importerat appen, Välj **entiteter**, sedan **hantera förskapade e
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
 1. I det övre, högra navigeringsfältet, väljer du den **träna** knappen för att träna LUIS-app.
 
-2. Välj **publicera** att gå till publiceringssidan. 
+2. Välj **hantera** uppe till höger fält, Välj **nycklar och slutpunkter** i det vänstra navigeringsfönstret. 
 
-3. Längst ned på den **publicera** lägger du till LUIS-nyckel som skapas i den [skapa LUIS slutpunktsnyckeln](#create-luis-endpoint-key) avsnittet.
+3. På den **nycklar och slutpunkter** sidan bör du tilldela LUIS-nyckel som skapas i den [skapa LUIS slutpunktsnyckeln](#create-luis-endpoint-key) avsnittet.
 
-4. Publicera LUIS-app genom att välja den **publicera** till höger i publicera-platsen. 
-
-  På den **publicera** sidan, samla in app-ID, publicera region och prenumerations-ID för LUIS-nyckel som skapas i den [skapa LUIS slutpunktsnyckeln](#create-luis-endpoint-key) avsnittet. Du behöver ändra koden för att använda de här värdena senare i den här artikeln. 
-
-  Dessa värden ingår i slutpunkts-URL längst ned på den **publicera** för den nyckel som du skapade. 
+  Samla in app-ID på den här sidan, publicera region och prenumerations-ID för den LUIS-nyckeln som skapats i den [skapa LUIS slutpunktsnyckeln](#create-luis-endpoint-key) avsnittet. Du behöver ändra koden för att använda de här värdena senare i den här artikeln. 
   
   Gör **inte** använder den kostnadsfria starter-nyckeln för den här övningen. Endast en **Språkförståelse** nyckeln som skapats i Azure-portalen kommer att fungera i den här övningen. 
 
   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? prenumerationsnyckel =**LUISKEY**& q =
+
+
+4. Publicera LUIS-app genom att välja den **publicera** knappen i övre högra fältet. 
 
 ## <a name="audio-device"></a>Ljudenhet
 Den här artikeln används enheten på datorn. Det kan vara ett headset med mikrofon eller en inbyggd ljudenhet. Kontrollera ljud inkommande nivåer för att se om du bör tala högre än vanligt om du vill att ditt tal som identifieras av enheten. 

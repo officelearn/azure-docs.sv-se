@@ -1,5 +1,5 @@
 ---
-title: Skapa en ny app med LUIS | Microsoft Docs
+title: Skapa en ny app med LUIS
 description: Skapa och hantera dina program på webbsidan för Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
@@ -7,84 +7,98 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3adeecd4a4e2040a92689b7c92be9630c9a0d93b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: efea082ac6f2f0ac2aef491a4f5f3f0c7e1652cc
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225422"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634926"
 ---
 # <a name="create-an-app"></a>Skapa en app
-Du kan skapa en ny app på olika sätt: 
+Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i den [LUIS](https://www.luis.ai) portal, eller via LUIS redigering [API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+
+## <a name="using-the-luis-portal"></a>Med LUIS-portalen
+Du kan skapa en ny app i portalen LUIS på flera olika sätt:
 
 * [Starta](#create-new-app) med en tom app och skapa avsikter och yttranden entiteter.
 * [Starta](#create-new-app) med en tom app och lägga till en [fördefinierade domän](luis-how-to-use-prebuilt-domains.md).
 * [Importera en LUIS-app](#import-new-app) från en JSON-fil som innehåller redan avsikter och yttranden entiteter.
 
-## <a name="what-is-an-app"></a>Vad är en app
-Appen innehåller [versioner](luis-how-to-manage-versions.md) av din modell samt andra [medarbetare](luis-how-to-collaborate.md) för appen. När du skapar appen, väljer du kulturen ([språk](luis-supported-languages.md)) som **kan inte ändras senare**. 
+## <a name="using-the-authoring-apis"></a>Med redigering API: er
+Du kan skapa en ny app med redigering API: er på ett par olika sätt:
 
-Standardversionen av en ny app är ”0.1”. 
+* [Starta](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) med en tom app och skapa avsikter och yttranden entiteter.
+* [Starta](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5) med en fördefinierade domän.  
 
-Du kan skapa och hantera dina program på **Mina appar** sidan. Du kan alltid komma åt den här sidan genom att välja **Mina appar** på det övre navigeringsfältet för den [LUIS](luis-reference-regions.md) webbplats. 
 
-[![](media/luis-create-new-app/apps-list.png "Skärmbild av listan över appar")](media/luis-create-new-app/apps-list.png#lightbox)
+<a name="export-app"></a>
+<a name="import-new-app"></a>
+<a name="delete-app"></a>
+ 
 
-## <a name="create-new-app"></a>Skapa ny app
+## <a name="create-new-app-in-luis"></a>Skapa ny app i LUIS
 
 1. På **Mina appar** väljer **skapar en ny app**.
+
+    ![Lista över LUIS-appar](./media/luis-create-new-app/apps-list.png)
+
+
 2. Namnge ditt program ”TravelAgent” i dialogrutan.
 
     ![Skapa ny app dialog](./media/luis-create-new-app/create-app.png)
 
 3. Välj ditt program kulturen (TravelAgent appen, Välj engelska), och välj sedan **klar**. 
 
-    >[!NOTE]
-    >Kulturen kan inte ändras när programmet har skapats. 
+    > [!NOTE]
+    > Kulturen kan inte ändras när appen har skapats. 
 
-## <a name="import-new-app"></a>Importera ny app
-Du kan ange namn (högst 50 tecken), version (högst 10 tecken) och beskrivning av en app i JSON-filen. Exempel på JSON-filer för programmet finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
+    
 
-1. På **Mina appar** väljer **importera ny app**.
-2. I den **importera ny app** dialogrutan Välj JSON-fil som definierar LUIS-app.
+<!--
 
-    ![Importera en ny app-dialogruta](./media/luis-create-new-app/import-app.png)
+## Import new app
+You can set the name (50 char max), version (10 char max), and description of an app in the JSON file. Examples of application JSON files are available at [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
 
-## <a name="export-app"></a>Exportera app
-1. På **Mina appar** väljer du de tre punkterna (***...*** ) i slutet av appraden.
+1. On **My Apps** page, select **Import new app**.
+2. In the **Import new app** dialog, select the JSON file defining the LUIS app.
 
-    [![](media/luis-create-new-app/apps-list.png "Skärmbild av standardarbetsytan i dialogrutan för per app-åtgärder")](media/luis-create-new-app/three-dots.png#lightbox)
+    ![Import a new app dialog](./media/luis-create-new-app/import-app.png)
 
-2. Välj **Export app** på menyn. 
+## Export app
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row.
 
-## <a name="rename-app"></a>Byt namn på appen
+    [![](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
 
-1. På **Mina appar** väljer du de tre punkterna (***...*** ) i slutet av appraden. 
-2. Välj **Byt namn på** på menyn.
-3. Ange det nya namnet på appen och välj **klar**.
+2. Select **Export app** from the menu. 
 
-## <a name="delete-app"></a>Ta bort app
+## Rename app
+
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
+2. Select **Rename** from the menu.
+3. Enter the new name of the app and select **Done**.
+
+## Delete app
 
 > [!CAUTION]
-> Du tar bort appen för alla medarbetare och ägare. [Exportera](#export-app) appen innan den tas bort. 
+> You are deleting the app for all collaborators and the owner. [Export](#export-app) the app before deleting it. 
 
-1. På **Mina appar** väljer du de tre punkterna (***...*** ) i slutet av appraden. 
-2. Välj **ta bort** på menyn.
-3. Välj **Ok** i bekräftelsefönstret.
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
+2. Select **Delete** from the menu.
+3. Select **Ok** in the confirmation window.
 
-## <a name="export-endpoint-logs"></a>Exportloggar slutpunkt
-Loggarna innehåller frågan, UTC-tid och LUIS JSON-svar.
+## Export endpoint logs
+The logs contain the Query, UTC time, and LUIS JSON response.
 
-1. På **Mina appar** väljer du de tre punkterna (***...*** ) i slutet av appraden. 
-2. Välj **Exportloggar endpoint** på menyn.
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
+2. Select **Export endpoint logs** from the menu.
 
 ```
 Query,UTC DateTime,Response
 text i'm driving and will be 30 minutes late to the meeting,02/13/2018 15:18:43,"{""query"":""text I'm driving and will be 30 minutes late to the meeting"",""intents"":[{""intent"":""None"",""score"":0.111048922},{""intent"":""SendMessage"",""score"":0.987501}],""entities"":[{""entity"":""i ' m driving and will be 30 minutes late to the meeting"",""type"":""Message"",""startIndex"":5,""endIndex"":58,""score"":0.162995353}]}"
 ```
-
+-->
 ## <a name="next-steps"></a>Nästa steg
 
 Din första uppgift i appen är att [Lägg till avsikter](luis-how-to-add-intents.md).

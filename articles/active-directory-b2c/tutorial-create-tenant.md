@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc48cd3eb40d93c26a68caf843a89f7bbfb46c6c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: d5831d868bec940c4e38f62e70e456ae84903ada
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236901"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604918"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Självstudier: Skapa en Azure Active Directory B2C-klient
 
@@ -49,17 +49,13 @@ Börja hantera din nya klient genom att klicka på ordet **här** står det **Kl
 
 Du måste länka din Azure AD B2C-klientorganisation till din Azure-prenumeration för att aktivera alla funktioner och betala för användningsavgifter. Om du inte länkar din klient till din prenumeration kan fungerar dina program inte korrekt.
 
-1. Kontrollera att du använder den katalog som innehåller den prenumeration som du vill koppla till den nya klienten genom att växla mellan katalogen i det övre högra hörnet i Azure Portal.
+Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient. 
 
-    ![Växla kataloger](./media/tutorial-create-tenant/switch-directories.png)
+![Växla till Azure AD B2C-klientorganisationen](./media/tutorial-create-tenant/switch-directories.png)
 
-    Och sedan välja den katalog som innehåller din prenumeration.
-
-    ![Välj katalog](./media/tutorial-create-tenant/select-directory.png)
-
-2. Välj **skapa en resurs** i det övre vänstra hörnet i Azure Portal.
-3. I sökrutan ovanför listan över resurser i Azure Marketplace, Sök efter och välj **Active Directory B2C**, och klicka sedan på **skapa**.
-4. Välj **länka en befintlig Azure AD B2C-Klientorganisation till min Azure-prenumeration**, Välj den klient som du har skapat, Välj din prenumeration, anger *myContosoTenantRG* resursgruppens namn, godkänner den plats och klicka sedan på **skapa**.
+1. Välj **skapa en resurs** i det övre vänstra hörnet i Azure Portal.
+2. I sökrutan ovanför listan över resurser i Azure Marketplace, Sök efter och välj **Active Directory B2C**, och klicka sedan på **skapa**.
+3. Välj **länka en befintlig Azure AD B2C-Klientorganisation till min Azure-prenumeration**, Välj den klient som du har skapat, Välj din prenumeration, anger *myContosoTenantRG* resursgruppens namn, godkänner den plats och klicka sedan på **skapa**.
 
 ## <a name="next-steps"></a>Nästa steg
 

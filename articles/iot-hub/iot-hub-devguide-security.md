@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 227723ecea1401247f0df87bccfe058fb2273647
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 4e9a5808a718909b21698b551f516a238e3934b0
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145357"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605784"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -42,8 +42,8 @@ Du kan bevilja [behörigheter](#iot-hub-permissions) på följande sätt:
   | iothubowner | Alla behörigheter |
   | tjänst | **ServiceConnect** behörigheter |
   | enhet | **DeviceConnect** behörigheter |
-  | RegistryRead | **RegistryRead** behörigheter |
-  | RegistryReadWrite | **RegistryRead** och **RegistryWrite** behörigheter |
+  | registryRead | **RegistryRead** behörigheter |
+  | registryReadWrite | **RegistryRead** och **RegistryWrite** behörigheter |
 
 * **Per enhet säkerhetsreferenser**. Varje IoT-hubb innehåller ett [identitetsregistret][lnk-identity-registry]. Du kan konfigurera säkerhetsreferenser som beviljar för varje enhet i den här identitetsregister **DeviceConnect** behörigheter som är begränsade till slutpunkter i motsvarande enhet.
 
@@ -328,7 +328,7 @@ Till exempel en tjänst som genererar med hjälp av skapats i förväg delad åt
 
 ```nodejs
 var endpoint ="myhub.azure-devices.net/devices";
-var policyName = 'device';
+var policyName = 'registryRead';
 var policyKey = '...';
 
 var token = generateSasToken(endpoint, policyKey, policyName, 60);
@@ -431,8 +431,8 @@ I följande tabell visas de behörigheter som du kan använda för att styra åt
 
 | Behörighet | Anteckningar |
 | --- | --- |
-| **RegistryRead** |Ger läsåtkomst till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry]. <br/>Den här behörigheten används av backend-molntjänster. |
-| **RegistryReadWrite** |Ger Läs- och skrivåtkomst till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry]. <br/>Den här behörigheten används av backend-molntjänster. |
+| **registryRead** |Ger läsåtkomst till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry]. <br/>Den här behörigheten används av backend-molntjänster. |
+| **registryReadWrite** |Ger Läs- och skrivåtkomst till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry]. <br/>Den här behörigheten används av backend-molntjänster. |
 | **ServiceConnect** |Beviljar åtkomst till tjänsten webbservergrupper kommunikation och övervaka slutpunkter i molnet. <br/>Ger behörighet att ta emot meddelanden från enheten till molnet, skicka meddelanden från moln till enhet och hämta motsvarande leverans bekräftelser. <br/>Ger behörighet att hämta leverans bekräftelser för filen laddas upp. <br/>Ger behörighet till åtkomst twins att uppdatera taggar och önskade egenskaper, rapporterade egenskaper att hämta och köra frågor. <br/>Den här behörigheten används av backend-molntjänster. |
 | **DeviceConnect** |Beviljar åtkomst till enheten-slutpunkter. <br/>Ger behörighet att skicka meddelanden från enheten till molnet och ta emot meddelanden från molnet till enheten. <br/>Ger behörighet att utföra ladda upp filer från en enhet. <br/>Ger behörighet att ta emot enhetsmeddelanden enhetstvillingens egenskapen och uppdatera enhetstvillingen rapporterade egenskaper. <br/>Ger behörighet att utföra fil laddas upp. <br/>Den här behörigheten används av enheter. |
 

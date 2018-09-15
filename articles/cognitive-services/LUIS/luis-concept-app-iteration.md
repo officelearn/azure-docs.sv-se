@@ -1,21 +1,21 @@
 ---
-title: Förstå LUIS iterativ apputformning – Language Understanding
-description: LUIS lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor.  LUIS appar kräver design iterationer för att träna LUIS för att få den bästa Extraheringen av data.
+title: Iterativ appdesign i Språkförståelse (LUIS)
 titleSuffix: Azure Cognitive Services
+description: LUIS lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor.  LUIS appar kräver design iterationer för att träna LUIS för att få den bästa Extraheringen av data.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 7c267d53c9057ac05427ff14a7e3c25d56ab1f62
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5eba6867bdf6ca6ca362bcd6bb3ab747780d1a5e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025435"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634242"
 ---
 # <a name="authoring-cycle"></a>Redigeringscykel
 LUIS lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor. 
@@ -33,15 +33,12 @@ Modellen innehåller avsikt, entiteter.
 LUIS måste exempel yttranden i avsikter. Exemplen behöver tillräckligt med variant av word valmöjligheter och ordföljden för att kunna avgöra vilken avsikt uttryck som är avsedd för. Varje exempel-uttryck måste ha alla nödvändiga data som är märkt som entiteter. 
 
 Du instruera LUIS för att ignorera yttranden som inte är relevanta för din app domän genom att tilldela uttryck till den **ingen** avsikt. Du behöver inte ange några ord eller fraser som du inte behöver dras ut från ett uttryck ska förses med. Det finns ingen etikett efter ord eller fraser att ignorera. 
-<!--
-## Not just yet
-Do not add features such as a [phrase list](luis-concept-feature.md) feature in your first cycle. Phrase lists are phrases that would be specific to your app's subject area.  
--->
+
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
-När du har 10 – 15 olika yttranden i varje syftet med de nödvändiga entiteter som är märkt kan du träna THOMAS och sedan publicera för att få dina slutpunkter. Se till att skapa din app och publicera dina appar så att den är tillgänglig i den [endpoint regioner](luis-reference-regions.md) du behöver. 
+När du har 10 – 15 olika yttranden i varje syftet med de nödvändiga entiteter som är märkt, träna och publicera. Använd länken från publicera lyckade meddelande, för att hämta dina slutpunkter. Se till att skapa din app och publicera dina appar så att den är tillgänglig i den [endpoint regioner](luis-reference-regions.md) du behöver. 
 
 ## <a name="https-endpoint-testing"></a>Testa HTTPS-slutpunkt
-Du kan testa LUIS-appen från HTTPS-slutpunkt som visas på den **[publicera](luis-how-to-publish-app.md)** sidan. Testa från slutpunkten kan LUIS för att välja yttranden med låg exakthet för granskning.  
+Du kan testa LUIS-appen från HTTPS-slutpunkten. Testa från slutpunkten kan LUIS för att välja yttranden med låg exakthet för granskning.  
 
 ## <a name="recycle"></a>Papperskorgen
 När du är klar med en cykel av redigeringen av kan börja du igen. Börja med att slutpunkten yttranden LUIS markeras med låg exakthet. Kontrollera dessa yttranden för både avsikten och entiteten. När du har läst yttranden, får granska listan vara tomt.  

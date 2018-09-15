@@ -1,24 +1,25 @@
 ---
-title: Hantera dina nycklar för slutpunkten i LUIS | Microsoft Docs
-description: Använda Språkförståelse (LUIS) för att hantera din programmatisk API, slutpunkt och externa nycklar.
-titleSuffix: Azure
+title: Hantera nycklar för redigering och CDN-slutpunkt i LUIS
+titleSuffix: Azure Cognitive Services
+description: När du har skapat en LUIS-slutpunktsnyckeln i Azure-portalen, tilldela nyckeln till LUIS-app och få rätt slutpunkts-URL. Använd den här slutpunkts-URL för att få LUIS förutsägelser.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 127c09a022f5efb95ab6a5ec2db0de633b437a54
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6d3f487fd64744fa390291d7e23d95cd9632cd23
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223046"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634940"
 ---
-# <a name="manage-your-luis-endpoint-keys"></a>Hantera dina LUIS endpoint-nycklar
-En nyckel kan du skapa och publicera LUIS-appen eller fråga din slutpunkt. 
+# <a name="add-an-azure-luis-resource-to-app"></a>Lägg till en Azure-LUIS-resurs i appen
+
+När du har skapat en LUIS-resurs i Azure portal tilldelar resursen LUIS-app och få rätt slutpunkts-URL. Använd den här slutpunkts-URL för att få LUIS förutsägelser.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -27,48 +28,95 @@ En nyckel kan du skapa och publicera LUIS-appen eller fråga din slutpunkt.
 <a name="api-usage-of-ocp-apim-subscription-key" ></a>
 <a name="key-limits" ></a>
 <a name="key-limit-errors" ></a>
-## <a name="key-concepts"></a>Viktiga begrepp
-Se [nycklar i LUIS](luis-concept-keys.md) att förstå LUIS redigering och slutpunkt viktiga begrepp.
-
+<a name="key-concepts"></a>
+<a name="authoring-key"></a>
 <a name="create-and-use-an-endpoint-key"></a>
-## <a name="assign-endpoint-key"></a>Tilldela slutpunktsnyckel
-På den **publicera app** sidan, det finns redan en nyckel i den **resurser och nycklar** tabell. Det här är nyckeln redigering (Start). 
+<a name="assign-endpoint-key"></a>
+
+## <a name="assign-resource"></a>Tilldela resurs
 
 1. Skapa en LUIS-nyckel på den [Azure-portalen](https://portal.azure.com). Ytterligare instruktioner finns i [skapar en slutpunktsnyckel med hjälp av Azure](luis-how-to-azure-subscription.md).
  
-2. För att lägga till LUIS-nyckeln som skapades i föregående steg klickar du på den **Lägg till nyckel** knappen för att öppna den **tilldela en nyckel till appen** dialogrutan. 
+2. Välj **hantera** i den övre högra menyn och markera **nycklar och slutpunkter**.
 
-    ![Tilldela en nyckel till din app](./media/luis-manage-keys/assign-key.png)
-3. Välj en klient i dialogrutan. 
- 
-    > [!Note]
-    > En klient representerar i Azure, Azure Active Directory ID av klienten eller organisation som är associerad med en tjänst. Om du tidigare har registrerat sig för en Azure-prenumeration med ditt individuella Microsoft Account, har du redan en klient! När du loggar in på Azure Portal, loggas du automatiskt att [din standard-klientorganisation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant). Du kan använda den här klienten men du kanske vill skapa ett administratörskonto för din organisation.
+    [ ![Sidan nycklar och slutpunkter](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
 
-4. Välj den Azure-prenumeration som är associerade med Azure LUIS-nyckel som du vill lägga till.
+3. För att lägga till LUIS, välja **Tilldela resurs +**.
 
-5. Välj Azure LUIS-konto. Region för kontot visas inom parentes. 
+    ![Tilldela en resurs till din app](./media/luis-manage-keys/assign-key.png)
 
-    ![Välj nyckeln](./media/luis-manage-keys/assign-key-filled-out.png)
+4. Välj en klient i dialogrutan som är associerade med den e-postadress som du loggar in med LUIS-webbplatsen.  
 
-6. När du har tilldelat den här slutpunktsnyckeln använda den i alla endpoint-frågor. 
+5. Välj den **prenumerationsnamn** som är associerade med Azure-resursen du vill lägga till.
+
+6. Välj den **LUIS resursnamn**. 
+
+7. Välj **Tilldela resurs**. 
+
+8. Hitta den nya raden i tabellen och kopiera slutpunkts-URL. Det är korrekt konstruerat för att göra en HTTP GET-begäran till LUIS-slutpunkten för en förutsägelse. 
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
 <a name="publishing-to-europe"></a>
 <a name="publishing-to-australia"></a>
 
+## <a name="unassign-resource"></a>Ta bort resurs
+När du frigör slutpunktsnyckeln bort den inte från Azure. Det är bara avlänkas från LUIS. 
+
+När en slutpunktsnyckeln otilldelade, eller inte har tilldelats appen, ett begärande till slutpunkten URL returnerar ett fel: `401 This application cannot be accessed with the current subscription`. 
+
+## <a name="include-all-predicted-intent-scores"></a>Inkludera alla avsikt förutsägelsepoängen
+Den **inkludera alla förutse avsikt poäng** kryssrutan tillåter frågesvaret slutpunkten att inkludera förutsägelse poängen för varje avsikt. 
+
+Den här inställningen kan din chattrobot eller LUIS-anropa program kan besluta programmässiga baserat på poäng för returnerade avsikter. I allmänhet är de främsta två avsikterna mest intressanta. Om den översta poängen är avsiktlig, din chattrobot kan du ställa en fråga för uppföljning som gör en slutgiltig val mellan avsikt ingen och andra flest poäng avsikten ingen. 
+
+Avsikter och deras resultat är också inkluderat endpoint-loggarna. Du kan [exportera](luis-how-to-start-new-app.md#export-app) dessa loggar och analysera poängen. 
+
+```JSON
+{
+  "query": "book a flight to Cairo",
+  "topScoringIntent": {
+    "intent": "None",
+    "score": 0.5223427
+  },
+  "intents": [
+    {
+      "intent": "None",
+      "score": 0.5223427
+    },
+    {
+      "intent": "BookFlight",
+      "score": 0.372391433
+    }
+  ],
+  "entities": []
+}
+```
+
+## <a name="enable-bing-spell-checker"></a>Aktivera Bing-stavningskontroll 
+I den **slutpunkts-url-inställningar**, **Bing-stavningskontroll** växlingen möjliggör LUIS för att korrigera felstavade ord. innan förutsägelse. Skapa en  **[stavningskontroll i Bing nyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
+
+Lägg till den **stavningskontroll = true** Frågeparametern och **bing-stavningskontroll-kontroll-subscription-key = {YOUR_BING_KEY_HERE}** . Ersätt den `{YOUR_BING_KEY_HERE}` med din nyckel för Bing stavningskontroll för installation.
+
+```JSON
+{
+  "query": "Book a flite to London?",
+  "alteredQuery": "Book a flight to London?",
+  "topScoringIntent": {
+    "intent": "BookFlight",
+    "score": 0.780123
+  },
+  "entities": []
+}
+```
+
+
 ## <a name="publishing-regions"></a>Publicera regioner
-Läs mer om hur du publicerar [regioner](luis-reference-regions.md) inklusive publicering i [Europa](luis-reference-regions.md#publishing-to-europe), och [Australien](luis-reference-regions.md#publishing-to-australia). Publicera regioner skiljer sig från redigering regioner. Kontrollera att du skapar en app i redigering region motsvarande att publicera region som du vill.
 
-## <a name="unassign-key"></a>Ta bort tilldelning av nyckel
-
-* I den **listan över resurser och nycklar**, klicka på Papperskorgen bredvid den entitet som du vill ta bort. Klicka sedan på **OK** i bekräftelsemeddelandet att bekräfta borttagningen.
- 
-    ![Ta bort entiteten](./media/luis-manage-keys/unassign-key.png)
-
-> [!NOTE]
-> Tar bort LUIS-nyckel tar det inte bort från Azure-prenumerationen.
+Läs mer om hur du publicerar [regioner](luis-reference-regions.md) inklusive publicering i [Europa](luis-reference-regions.md#publishing-to-europe), och [Australien](luis-reference-regions.md#publishing-to-australia). Publicera regioner skiljer sig från redigering regioner. Skapa en app i regionen redigering som motsvarar regionen publicerar du vill använda för frågan slutpunkten.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Använd din nyckel för att publicera din app i den **publicera app** sidan. Mer information om publicering finns i [publicera app](luis-how-to-publish-app.md).
+
+Se [nycklar i LUIS](luis-concept-keys.md) att förstå LUIS redigering och slutpunkt viktiga begrepp.

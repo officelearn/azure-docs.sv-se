@@ -9,24 +9,24 @@ ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: 38e2ebd95c86135d4ad33ad26f512c6db46355a2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 550a57b1dc90256fb2d94e270aba2f79f7b0d370
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051866"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603081"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Kom igång med kognitiva funktioner för U-SQL
 
 ## <a name="overview"></a>Översikt
 Kognitiva funktioner för U-SQL att utvecklare kan använda put intelligence i deras stordata-program. 
 
-Följande kognitiva funktioner är tillgängliga:
-* Avbildning: Spåra ansikten [exempel](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Avbildning: Identifiera känslor [exempel](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
-* Avbildning: Identifiera objekt (taggar) [exempel](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
-* Avbildning: OCR (optisk teckenläsning) [exempel](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Text: Nyckeln diskussionsämne & Attitydanalys [exempel](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
+I följande exempel som använder kognitiva funktioner är tillgängliga:
+* Avbildning: [spåra ansikten](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Avbildning: [identifiera känslor](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Avbildning: [identifiera objekt (taggar)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Avbildning: [OCR (optisk teckenläsning)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Text: [nyckeln diskussionsämne & Attitydanalys](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
 ## <a name="registering-cognitive-extensions-in-u-sql"></a>Registrera kognitiva tillägg i U-SQL
 Innan du kan följa stegen i den här artikeln för att registrera kognitiva tillägg i U-SQL: [registrerar kognitiva tillägg i U-SQL](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/cognitive-capabilities-in-u-sql#registeringExtensions).

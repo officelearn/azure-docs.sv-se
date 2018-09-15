@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ecf56f3172ebeab54757d7cbd164b92ca1470ce5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: e494c2bc90f6db1f3a850fccff88efdf26f43012
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051178"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604255"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-utskalning
 
@@ -30,6 +30,8 @@ Oavsett hur många frågerepliker som du har i en frågepool fördelas bearbetni
 Vid utskalning, läggs nya frågerepliker till frågepoolen inkrementellt. Det kan ta upp till fem minuter för nya fråga repliken resurser som ska ingå i frågepoolen. är du redo att ta emot klientanslutningar och frågor. När alla nya frågerepliker är igång och körs, att nya klientanslutningar finns belastningsutjämnas mellan alla poolresurser för frågan. Befintliga klientanslutningar ändras inte från de för närvarande är anslutna till resursen.  När skalning i avslutas de befintliga klientanslutningar i en poolresurs för frågan som tas bort från frågepoolen. De återansluts till en återstående fråga poolresurs när skalan i åtgärden har slutförts, vilket kan ta upp till fem minuter.
 
 Vid bearbetning av modeller, när bearbetningen är avslutad, måste du utföra en synkronisering mellan bearbetningsservern och fråga replikerna. Det är viktigt att konfigurera en synkroniseringsåtgärd vid slutförande av bearbetningsåtgärder vid automatisering av bearbetningsåtgärder. Synkronisering kan utföras manuellt i portalen eller med hjälp av PowerShell eller REST API. 
+
+### <a name="separate-processing-from-query-pool"></a>Separata bearbetning från frågepool
 
 Du kan välja att dela din bearbetningsservern från frågepoolen för maximal prestanda för såväl bearbetning frågeåtgärder. När separerade kan tilldelas befintliga och nya klientanslutningar till frågerepliker i poolen fråga. Om bearbetningsåtgärder bara tar upp en kort tidsperiod, kan du avgränsa din bearbetningsservern från frågepoolen endast för den tid det tar att utföra åtgärder för bearbetning och synkronisering och Lägg sedan tillbaka till frågepoolen. 
 
@@ -53,7 +55,7 @@ Antal frågerepliker som du kan konfigurera begränsas av den region som din ser
 
 1. I portalen klickar du på **skalbar**. Använd skjutreglaget för att välja antalet fråga replikservern. Antal repliker som du väljer är ett tillägg till din befintliga server.
 
-2. I **separera bearbetningsservern från frågepoolen**, Välj Ja om du vill undanta dina bearbetningsservern från frågeservrar.
+2. I **separera bearbetningsservern från frågepoolen**, Välj Ja om du vill undanta dina bearbetningsservern från frågeservrar. Klientanslutningar med hjälp av standard-anslutningssträngen (utan: rw) omdirigeras till repliker i frågepoolen. 
 
    ![Skala ut skjutreglaget](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
@@ -99,6 +101,13 @@ För slutanvändaren klientanslutningar som Power BI Desktop, Excel och anpassad
 SSMS SSDT och anslutningssträngar i PowerShell, Azure-funktionsappar och AMO, använder du **hanteringsservernamnet**. Hanteringsserverns namn innehåller en särskild `:rw` kvalificerare (skrivskyddad). Bearbetningsåtgärder för alla inträffar på hanteringsservern.
 
 ![Servernamn](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="troubleshoot"></a>Felsöka
+
+**Problem:** användare får fel **servern hittades inte ”\<namnet på servern >' instansen i anslutningsläge” skrivskyddad ”.**
+
+**Lösning:** när du väljer den **separera bearbetningsservern från frågepoolen** alternativet klientanslutningar med hjälp av standard-anslutningssträngen (utan: rw) omdirigeras till frågerepliker för poolen. Om repliker i frågepoolen inte är ännu online eftersom synkronisering inte har ännu har slutförts, kan omdirigerad klientanslutningar misslyckas. Om du vill förhindra att misslyckade anslutningar, Välj att inte separera bearbetningsservern från frågepoolen tills en skalbar och synkronisering åtgärd har slutförts. Du kan använda minne och QPU mått för att övervaka synkroniseringsstatus för.
+
 
 ## <a name="related-information"></a>Relaterad information
 

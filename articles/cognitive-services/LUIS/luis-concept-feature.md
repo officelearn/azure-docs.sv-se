@@ -1,20 +1,21 @@
 ---
-title: Förstå funktionerna i LUIS-appar i Azure | Microsoft Docs
-description: Läs mer om funktioner som förbättrar prestandan för en LUIS-app. Bland funktionerna finns frasen listor och mönster för att identifiera reguljära uttryck.
+title: Funktioner i LUIS-appar i Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
+description: Lägga till funktioner till en språkmodell ge tips om hur du identifierar indata som du vill märka eller klassificera. Funktionerna bidrar LUIS kunna identifiera både avsikter och entiteter.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8d3f006f27d1d728f89458deba27e1c1a63b6de5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 906e63c94666d2e24b486f5ae34f99133408c4dc
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224936"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628717"
 ---
 # <a name="phrase-list-features-in-luis"></a>Fras funktioner i LUIS
 

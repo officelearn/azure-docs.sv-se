@@ -15,24 +15,26 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 359e5e671287c4d330deeb2d3573877d9ee5d1c5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: acf51056a084abc08bda2d7f73b561f442f57784
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190336"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605545"
 ---
 # <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Skapar diagram och diagram från Log Analytics-frågor
 
 > [!NOTE]
 > Bör du genomföra [avancerade aggregeringar i Log Analytics-frågor](advanced-aggregations.md) innan du slutför den här lektionen.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 Den här artikeln beskrivs olika visualiseringar i Azure Log Analytics för att visa dina data på olika sätt.
 
 ## <a name="charting-the-results"></a>Diagram resultaten
 Starta genom att granska hur många datorer som finns under den senaste timmen per operativsystem:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(1h)
 | summarize count(Computer) by OSType  
@@ -50,7 +52,7 @@ Välj för att få en bättre vy **diagram**, och välj den **cirkel** alternati
 ## <a name="timecharts"></a>Timecharts
 Visa medelvärde, 50: e och 95: e percentilerna för processortid i lagerplatser 1 timme. Frågan genererar flera serier och sedan kan du välja vilka serien för att visa i diagrammet tid:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -65,7 +67,7 @@ Välj den **rad** diagrammets Visningsalternativ:
 
 Med hjälp av en referensrad kan du lätt att identifiera om måttet överskrider ett visst tröskelvärde. Utöka datauppsättningen med en konstant kolumn för att lägga till en rad i ett diagram:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -78,7 +80,7 @@ Perf
 ## <a name="multiple-dimensions"></a>Flera dimensioner
 Flera uttryck i den `by` -satsen för `summarize` skapa flera rader i resultatet, en för varje kombination av värden.
 
-```OQL
+```KQL
 SecurityEvent
 | where TimeGenerated > ago(1d)
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)

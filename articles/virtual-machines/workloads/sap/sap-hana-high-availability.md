@@ -1,6 +1,6 @@
 ---
-title: Konfigurera SAP HANA-Systemreplikering på virtuella Azure-datorer (VM) | Microsoft Docs
-description: Skapa hög tillgänglighet för SAP HANA på Azure virtual machines (VM).
+title: Hög tillgänglighet för SAP HANA på Azure virtuella datorer på SUSE Linux Enterprise Server | Microsoft Docs
+description: Hög tillgänglighet för SAP HANA på Azure virtuella datorer på SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 7a0797d79da95db77174a3e067a1e84276f286a5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: dfcb5c7c0b487b8379d89a9b285bae1ca1a9c774
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055428"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634531"
 ---
-# <a name="high-availability-of-sap-hana-on-azure-virtual-machines"></a>Hög tillgänglighet för SAP HANA på Azure virtual machines
+# <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på SUSE Linux Enterprise Server
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -110,7 +110,7 @@ Om du vill distribuera mallen genom att följa dessa steg:
     - **Systemets tillgänglighet**: Välj **HA**.
     - **Administratören Username och administratörslösenord**: skapas en ny användare som kan användas för att logga in på datorn.
     - **Nytt eller befintligt undernät**: Anger om ett nytt virtuellt nätverk och undernät ska skapas eller ett befintligt undernät som används. Om du redan har ett virtuellt nätverk som är ansluten till ditt lokala nätverk, Välj **befintliga**.
-    - **Undernät-ID**: ID för det undernät som de virtuella datorerna ska anslutas. Välj undernätet för det virtuella nätverket för VPN eller Azure ExpressRoute för att ansluta den virtuella datorn till ditt lokala nätverk. ID: T vanligtvis ser ut som **/subscriptions/\<prenumerations-ID > /resourceGroups/\<resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/\<virtuellt nätverksnamn > /subnets/ \<undernätets namn >**.
+    - **Undernät-ID**: Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har en undernätet som definierades när den virtuella datorn ska tilldelas att namnge ID för det specifika undernätet. ID: T vanligtvis ser ut som **/subscriptions/\<prenumerations-ID > /resourceGroups/\<resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/\<virtuellt nätverksnamn > /subnets/ \<undernätets namn >**.
 
 ### <a name="manual-deployment"></a>Manuell distribution
 
@@ -969,7 +969,7 @@ Obs: Följande testerna är utformade för att köras i följd och beror på Avs
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker identifierar stoppad HANA-instans och markera resursen som misslyckad på noden hn1-db-1. Kör följande kommando för att rensa felaktigt tillstånd. Pacemaker bör sedan automatiskt HANA-instansen startas om.
+   Pacemaker identifierar stoppad HANA-instans och markera resursen som misslyckad på noden hn1-db-1. Pacemaker bör automatiskt starta om den HANA-instansen. Kör följande kommando för att rensa felaktigt tillstånd.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1

@@ -323,34 +323,8 @@
 
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
 
-## Åtkomstgranskningar
-### [Översikt över åtkomstgranskningar](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [Slutför en åtkomstgranskning](active-directory-azure-ad-controls-complete-access-review.md)
-### [Skapa en åtkomstgranskning](active-directory-azure-ad-controls-create-access-review.md)
-### [Så här utför du en åtkomstgranskning](active-directory-azure-ad-controls-perform-access-review.md)
-### [Så här granskar du din åtkomst](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [Gäståtkomst med åtkomstgranskningar](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [Hantera användaråtkomst med granskningar](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [Hantera program och kontroller](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [Hämta resultat för åtkomstgranskning](active-directory-azure-ad-controls-retrieve-access-review.md)
-
-## [Användningsvillkor](active-directory-tou.md)
-
 ## Skydda dina identiteter
 
-### Azure AD Identity Protection
-#### [Översikt](identity-protection/overview.md)
-#### [Aktivera](identity-protection/enable.md)
-#### [Hitta sårbarheter](identity-protection/vulnerabilities.md)
-#### [Riskhändelser](active-directory-identity-protection-risk-events.md)
-#### [Meddelanden](identity-protection/notifications.md)
-#### [Inloggning](identity-protection/flows.md)
-#### [Simulera riskhändelser](identity-protection/playbook.md)
-#### [Avblockera användare](identity-protection/howto-unblock-user.md)
-#### [Blockera åtkomst när en sessionsrisk identifieras](identity-protection/quickstart-sign-in-risk-policy.md)
-#### [Vanliga frågor och svar](identity-protection/faqs.md)
-#### [Ordlista](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [Distribuera AD FS i Azure](active-directory-aadconnect-azure-adfs.md)

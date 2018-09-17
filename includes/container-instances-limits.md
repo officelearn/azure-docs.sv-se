@@ -1,13 +1,13 @@
 | Resurs | Standardgräns |
 | --- | :--- |
-| Containergrupper per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) | 20<sup>1</sup> |
+| Containergrupper per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
 | Antal containrar per containergrupp | 60 |
 | Antal volymer per containergrupp | 20 |
 | Portar per IP-adress | 5 |
-| Skapade containrar per timme |60<sup>1</sup> |
-| Skapade containrar per 5 minuter | 20<sup>1</sup> |
-| Borttagna containrar per timme | 150<sup>1</sup> |
-| Borttagna containrar per 5 minuter | 50<sup>1</sup> |
+| Skapade containrar per timme |300<sup>1</sup> |
+| Skapade containrar per 5 minuter | 100<sup>1</sup> |
+| Borttagna containrar per timme | 300<sup>1</sup> |
+| Borttagna containrar per 5 minuter | 100<sup>1</sup> |
 | Flera containrar per containergrupp | Linux endast<sup>2</sup> |
 | Azure Files-volymer | Linux endast<sup>2</sup> |
 | GitRepo-volymer | Linux endast<sup>2</sup> |

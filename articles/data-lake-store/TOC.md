@@ -3,14 +3,14 @@
 
 # Översikt
 ## [Översikt över Data Lake Storage Gen1](data-lake-store-overview.md)
-## [Jämför Data Lake Storage Gen1 med Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Data Lake Storage Gen1 för bearbetning av stordata](data-lake-store-data-scenarios.md)
-## [Program med öppen källkod som fungerar med Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+## [Jämför med Azure Storage](data-lake-store-comparison-with-blob-storage.md)
+## [Bearbeta stordata](data-lake-store-data-scenarios.md)
+## [Arbeta med program med öppen källkod](data-lake-store-compatible-oss-other-applications.md)
 ## [Bästa praxis](data-lake-store-best-practices.md)
 
 # Kom igång
-## [Använda portalen](data-lake-store-get-started-portal.md)
-## [Använda PowerShell](data-lake-store-get-started-powershell.md)
+## [Använda Azure Portal](data-lake-store-get-started-portal.md)
+## [Använda Azure PowerShell](data-lake-store-get-started-powershell.md)
 ## [Använda Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 
 

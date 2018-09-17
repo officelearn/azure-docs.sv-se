@@ -83,6 +83,7 @@
 
 ## [Hantera grupper och medlemmar](fundamentals/active-directory-manage-groups.md)
 ### [Hantera grupper](fundamentals/active-directory-groups-create-azure-portal.md)
+### [Ta bort en grupp och dess medlemmar](fundamentals/active-directory-groups-delete-group.md)
 ### [Hantera gruppinställningar](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Hantera rapporter](reports-monitoring/overview-reports.md)
 ### [Inloggningsaktiviteter](reports-monitoring/concept-sign-ins.md)
@@ -346,6 +347,7 @@
 #### [Inloggning](identity-protection/flows.md)
 #### [Simulera riskhändelser](identity-protection/playbook.md)
 #### [Avblockera användare](identity-protection/howto-unblock-user.md)
+#### [Blockera åtkomst när en sessionsrisk identifieras](identity-protection/quickstart-sign-in-risk-policy.md)
 #### [Vanliga frågor och svar](identity-protection/faqs.md)
 #### [Ordlista](identity-protection/glossary.md)
 #### [Microsoft Graph](identity-protection/graph-get-started.md)

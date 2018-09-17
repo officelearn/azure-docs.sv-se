@@ -54,6 +54,19 @@
 ## [Distributionsguide för SAP IDES i Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver på virtuella Azure Linux-datorer](suse-quickstart.md)
 ## [Planera och implementera SAP NetWeaver på Azure](planning-guide.md)
+## [Distributionsguide för SAP NetWeaver](deployment-guide.md)
+## [SAP LaMa-anslutning för Azure](lama-installation.md)
+## DBMS-distributionsguider för SAP-arbetsbelastning
+### [DBMS-distribution för SAP-arbetsbelastning på vanliga Azure Virtual Machines](dbms_guide_general.md)
+### [DBMS-distribution för SAP-arbetsbelastning för SQL Server på Azure Virtual Machines](dbms_guide_sqlserver.md)
+### [DBMS-distribution för SAP-arbetsbelastning för Oracle på Azure Virtual Machines](dbms_guide_oracle.md)
+### [DBMS-distribution för SAP-arbetsbelastning för IBM DB2 på Azure Virtual Machines](dbms_guide_ibm.md)
+### [DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines](dbms_guide_sapase.md)
+### [Distribution av SAP MaxDB, liveCache och innehållsserver på Azure](dbms_guide_maxdb.md)
+### SAP HANA-tillgänglighet i Azure Virtual Machines
+### [Tillgänglighetsöversikt för SAP HANA på Azure](sap-hana-availability-overview.md)
+### [Tillgänglighet för SAP HANA på Azure inom en Azure-region](sap-hana-availability-one-region.md)
+### [Tillgänglighet för SAP HANA på Azure i flera Azure-regioner](sap-hana-availability-across-regions.md)
 ## Hög tillgänglighet på Windows och Linux
 ### [Översikt](sap-high-availability-guide-start.md)
 ### Arkitektur med hög tillgänglighet
@@ -74,21 +87,7 @@
 ### SAP – flera säkerhetsidentifierare
 #### [Windows med delad disk för (A)SCS-instans](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [Windows med SOFS-filresurs för (A)SCS-instans](sap-ascs-ha-multi-sid-wsfc-file-share.md)
-## [Distributionsguide för SAP NetWeaver](deployment-guide.md)
-## DBMS-distributionsguider för SAP-arbetsbelastning
-### [DBMS-distribution för SAP-arbetsbelastning på vanliga Azure Virtual Machines](dbms_guide_general.md)
-### [DBMS-distribution för SAP-arbetsbelastning för SQL Server på Azure Virtual Machines](dbms_guide_sqlserver.md)
-### [DBMS-distribution för SAP-arbetsbelastning för Oracle på Azure Virtual Machines](dbms_guide_oracle.md)
-### [DBMS-distribution för SAP-arbetsbelastning för IBM DB2 på Azure Virtual Machines](dbms_guide_ibm.md)
-### [DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines](dbms_guide_sapase.md)
-### [Distribution av SAP MaxDB, liveCache och innehållsserver på Azure](dbms_guide_maxdb.md)
-### [Användarguide för SAP HANA på Azure](hana-vm-operations.md)
-#### SAP HANA-tillgänglighet i Azure Virtual Machines
-##### [Tillgänglighetsöversikt för SAP HANA på Azure](sap-hana-availability-overview.md)
-##### [Tillgänglighet för SAP HANA på Azure inom en Azure-region](sap-hana-availability-one-region.md)
-##### [Tillgänglighet för SAP HANA på Azure i flera Azure-regioner](sap-hana-availability-across-regions.md)
-## [Haveriberedskap för Azure Site Recovery för SAP](../../../site-recovery/site-recovery-workload.md#protect-sap)
-## [SAP LaMa-anslutning för Azure](lama-installation.md)
+##  [Haveriberedskap för Azure Site Recovery för SAP](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # AAD SAP-identitetsintegrering och enkel inloggning
 ## [Integrering med SAP-moln](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [AAD-integrering med identitetsautentisering på SAP-molnplattform](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
@@ -97,5 +96,10 @@
 ## [AAD-integrering med SAP Business ByDesign](../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [AAD-integrering med SAP HANA DBMS](../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ##[SAP Fiori Launchpad SAML, enkel inloggning med Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad)
+# Integrering av Azure-tjänster till SAP
+## [Använda SAP HANA i Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-sap-hana)
+## [DirectQuery och SAP HANA](https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana)
+## [Använda SAP BW-anslutningsappen i Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-sap-bw-connector)
+## [Azure Data Factory erbjuder dataintegrering för SAP HANA och Business Warehouse](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)

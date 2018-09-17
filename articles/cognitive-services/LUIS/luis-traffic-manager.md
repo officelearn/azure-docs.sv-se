@@ -1,20 +1,21 @@
 ---
-title: Använd Microsoft Azure Traffic Manager för att öka kvoten för slutpunkten i Språkförståelse (LUIS) – Azure | Microsoft Docs
-description: Använd Microsoft Azure Traffic Manager för sprida endpoint kvot över flera prenumerationer i Språkförståelse (LUIS) att öka kvoten för slutpunkt
+title: Använd Microsoft Azure Traffic Manager för att öka kvoten för slutpunkten i Språkförståelse (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Språkförståelse (LUIS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver en enda nyckel kvot. Detta görs genom att skapa flera nycklar för LUIS och lägga till dem i LUIS-programmet på den **publicera** sidan i den **resurser och nycklar** avsnittet.
 author: diberry
 manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 909c32452db216f79633b94c31f39350b7a6ee20
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 69e9ad14dd2efaecd587140f6d49550e6daf5e5c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248636"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634954"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Använd Microsoft Azure Traffic Manager för att hantera endpoint kvot över nycklar
 Språkförståelse (LUIS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver en enda nyckel kvot. Detta görs genom att skapa flera nycklar för LUIS och lägga till dem i LUIS-programmet på den **publicera** sidan i den **resurser och nycklar** avsnittet. 
@@ -44,9 +45,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Skärmbild av Azure-portalen med två LUIS-nycklar i luis trafikhantering resursgrupp](./media/traffic-manager/luis-keys.png)
 
-2. I den [LUIS] [ LUIS] webbplats, på den **publicera** sidan Lägg till nycklar till appen och publicera appen. 
-
-    ![Skärmbild av LUIS-portalen med två LUIS-nycklar på publiceringssidan](./media/traffic-manager/luis-keys-in-luis.png)
+2. I den [LUIS] [ LUIS] webbplats, i den **hantera** avsnittet på den **nycklar och slutpunkter** sidan, tilldela nycklar till appen och publicera appen genom att att välja den **publicera** knappen i övre högra menyn. 
 
     Exempel-URL: en i den **endpoint** kolumnen använder en GET-begäran med slutpunktsnyckeln som en frågeparameter. Kopiera URL: er för de två nya nycklar-slutpunkt. De används som en del av Traffic Manager konfigurationen senare i den här artikeln.
 
@@ -350,7 +349,7 @@ dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
 
 Lyckat svar med LUIS-slutpunkten är:
 
-```cmd
+```json
 [
     {
         value: 'westus.api.cognitive.microsoft.com', 

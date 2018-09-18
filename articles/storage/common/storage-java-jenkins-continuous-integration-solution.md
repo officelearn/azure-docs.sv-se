@@ -8,12 +8,12 @@ services: devops
 custom: jenkins
 ms.date: 07/31/2018
 ms.component: common
-ms.openlocfilehash: 549150abc630cd247927b4ba7042d0bdf0e8b88a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b7ac5c277b45ae5c005a284d5c38e55099c11e33
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524397"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735570"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Använda Azure Storage med en lösning för kontinuerlig integrering av Jenkins
 
@@ -48,7 +48,7 @@ Fördelar med att använda Blob service som värd för din smidig utveckling byg
      
       När en typisk Jenkins CI-lösning skulle ställas in att köras som en tjänst som körs på Jenkins-war på kommandoraden räcker för den här självstudiekursen.
 * Ett Azure-konto. Du kan registrera dig för ett Azure-konto på <http://www.azure.com>.
-* Ett Azure-lagringskonto. Om du inte redan har ett lagringskonto kan du skapa en med hjälp av stegen i [skapa ett Lagringskonto](../common/storage-create-storage-account.md#create-a-storage-account).
+* Ett Azure-lagringskonto. Om du inte redan har ett lagringskonto kan du skapa en med hjälp av stegen i [skapa ett Lagringskonto](../common/storage-quickstart-create-account.md).
 * Liknar processen med Jenkins CI-lösning rekommenderas men krävs inte, eftersom följande innehåll kommer att använda ett grundläggande exempel för att visa de steg som krävs när du använder Blob service som databas för Jenkins CI skapa artefakter.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Hur du använder Blob-tjänsten med Jenkins CI
@@ -57,7 +57,7 @@ Om du vill använda Blob-tjänsten med Jenkins, måste du installera plugin-prog
 ## <a name="how-to-install-the-azure-storage-plugin"></a>Så här installerar du Azure Storage-plugin-programmet
 1. Jenkins-instrumentpanelen väljer **hantera Jenkins**.
 2. I den **hantera Jenkins** väljer **hantera plugin-program**.
-3. Välj den **tillgänglig** fliken.
+3. Välj fliken **Tillgängliga**.
 4. I den **artefakt Uppladdare** avsnittet, kontrollera **Microsoft Azure Storage-plugin-programmet**.
 5. Välj antingen **installera utan omstart** eller **ladda ned nu och installera efter omstart**.
 6. Starta om Jenkins.
@@ -140,9 +140,9 @@ Det här avsnittet innehåller en översikt över tjänstkomponenter Blob.
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av plugin-programmet Jenkins
+## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av Jenkins-plugin-programmet
 
-Om du stöter på buggar med Jenkins plugin-program kan du rapportera problemet i den [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
+Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problemet i [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Uppfyll Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)

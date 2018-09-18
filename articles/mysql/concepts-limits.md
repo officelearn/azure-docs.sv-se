@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: c18faa94f207b98400fece366a23a68c3d7bc58c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633188"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982886"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure Database for MySQL
 I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegier support, manipulering av instruktionen stöd och funktionella begränsningar i databastjänsten. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) gäller för MySQL-databasmotorn.
@@ -80,9 +80,6 @@ När anslutningar överskrider gränsen, kan följande felmeddelande visas:
 
 ### <a name="vnet-service-endpoints"></a>VNet-tjänstslutpunkter
 - Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.
-
-### <a name="subscription-management"></a>Prenumerationshantering
-- Dynamiskt flytta förinställda servrar i prenumerationen och resursgruppen stöds för närvarande inte.
 
 ## <a name="current-known-issues"></a>Aktuella kända problem
 - MySQL-serverinstans visar fel serverversionen när anslutningen har upprättats. För att få rätt server instans Motorversion kan använda den `select version();` kommando.

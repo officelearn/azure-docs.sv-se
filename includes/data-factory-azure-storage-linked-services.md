@@ -6,7 +6,7 @@ Den **länkad Azure Storage-tjänst** kan du länka ett Azure storage-konto till
 | typ |Type-egenskapen måste anges till: **AzureStorage** |Ja |
 | connectionString |Ange information som behövs för att ansluta till Azure storage för connectionString-egenskapen. |Ja |
 
-Se följande artikel för steg för att visa/kopiera kontonyckeln för Azure Storage: [visa, kopiera, och återskapa åtkomstnycklar](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
+Se följande avsnitt innehåller steg för att visa/kopiera kontonyckeln för Azure Storage: [åtkomstnycklar](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **Exempel:**  
 

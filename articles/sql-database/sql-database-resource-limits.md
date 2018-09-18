@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 3b05f553e591de2660e9842f316de0cb6f80c852
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 5d070c1d65ea15450589e1b590eaf926c10e749f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061707"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736197"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Översikt över Azure SQL Database-resursgränser 
 
@@ -47,7 +47,7 @@ Den här artikeln innehåller en översikt över Azure SQL Database-resursen beg
 När beräkning databasanvändning (mätt av dtu: er och edtu: er eller v-kärnor) blir hög svarstid ökar och kan även timeout. Under dessa förhållanden frågor köas av tjänsten och tillhandahålls resurser för körning som resurs bli ledig.
 När den påträffar hög beräknings-användning, är minskning alternativen:
 
-- Ökning av prestandanivån för databasen eller elastisk pool för att tillhandahålla databasen med mer beräkningsresurser. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
+- Öka beräkningsstorleken för databas eller elastisk pool att tillhandahålla databasen med fler beräkningsresurser. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
 - Optimera frågor för att minska resursanvändningen för varje fråga. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Storage
@@ -62,10 +62,10 @@ När den påträffar hög användningen är minskning alternativen:
 
 ### <a name="sessions-and-workers-requests"></a>Sessioner och arbetare (begäranden) 
 
-Det maximala antalet sessioner och arbetare bestäms av tjänstnivå och prestandanivå servicenivå (dtu: er och edtu: er). Nya begäranden avvisas när sessionen eller arbetare har nått och klienterna får ett felmeddelande. Antalet anslutningar som är tillgängliga kan styras av programmet, är antalet samtidiga arbetare ofta svårare att beräkna och styr. Detta gäller särskilt under belastningsperioder när databasen resource har nått och arbetare växer på grund av längre körning av frågor. 
+Det maximala antalet sessioner och arbetare bestäms av tjänstnivån och beräkna storleken (dtu: er och edtu: er). Nya begäranden avvisas när sessionen eller arbetare har nått och klienterna får ett felmeddelande. Antalet anslutningar som är tillgängliga kan styras av programmet, är antalet samtidiga arbetare ofta svårare att beräkna och styr. Detta gäller särskilt under belastningsperioder när databasen resource har nått och arbetare växer på grund av längre körning av frågor. 
 
 När den påträffar hög användning för sessionen eller arbete, är minskning alternativen:
-- Öka servicenivå för tjänstenivå eller prestandanivå för databasen eller den elastiska poolen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
+- Öka tjänsten nivå eller beräkna storleken på databasen eller den elastiska poolen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
 - Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker användningen är på grund av konkurrens om beräkningsresurser. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="next-steps"></a>Nästa steg

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42061480"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982988"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -59,7 +59,7 @@ Du kan visa en sammanfattande status för alla runbookjobb eller visa detaljer o
 
 Till höger om det valda Automation-kontot kan du se en sammanfattning av alla runbookjobb för ett valt Automation-konto under **Jobbstatistik** panelen.
 
-![Jobbstatistik panel](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+![Jobbstatistik panel](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 Den här panelen visar antal och grafisk representation av jobbet har statusen för alla jobb som körs.
 

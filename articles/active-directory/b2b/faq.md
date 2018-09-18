@@ -4,18 +4,18 @@ description: Få svar på vanliga frågor och svar om Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: reference
 ms.date: 05/11/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 1ff2332e2867f99492d3da254282498d1627a5bf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b4407ac6b7a0d9fdbf52b84fb94223c32868f0c5
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059902"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983860"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
@@ -55,7 +55,7 @@ Absolut. Mer information finns i [att lägga till gästanvändare till en roll](
 Om en användare har tilldelats rollen begränsad administratör eller global administratör, behöver inte användare i B2B-samarbetet någon åtkomst till Azure-portalen. B2B-samarbete användare som har tilldelats rollen begränsad administratör eller global administratör kan dock åtkomst till portalen. Även om en gästanvändare som inte tilldelats någon av dessa administrativa roller har åtkomst till portalen, kanske användaren kan komma åt vissa delar av upplevelsen. Gästrollen har vissa behörigheter i katalogen.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Kan jag blockera åtkomst till Azure-portalen för gästanvändare?
-Ja! När du konfigurerar den här principen kan vara noga med att undvika att av misstag blockerar åtkomsten till medlemmar och administratörer.
+Visst! När du konfigurerar den här principen kan vara noga med att undvika att av misstag blockerar åtkomsten till medlemmar och administratörer.
 Att blockera en gästanvändare åtkomst till den [Azure-portalen](https://portal.azure.com), använda en princip för villkorlig åtkomst i Windows Azure klassiska modellen API:
 1. Ändra den **alla användare** gruppen så att den innehåller bara medlemmar.
   ![ändra grupp-skärmbild](media/faq/modify-all-users-group.png)

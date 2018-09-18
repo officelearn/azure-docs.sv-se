@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 03/30/2018
+ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 3219f8e61a0aa469775a972e6b240eb2069c2cd9
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b7e18d943bea179cb6163d7f91a0761311ecf38e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929975"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985251"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inklusive diagram dem i portalen, få åtkomst till dem via REST API eller frågor till dem med PowerShell eller CLI. Nedan visas en fullständig lista över alla mått som är tillgänglig med Azure Monitor mått pipeline. Andra mått kan finnas i portalen eller med äldre API: er. Listan nedan innehåller endast mått som är tillgängliga med hjälp av konsoliderade pipelinen för Azure Monitor-mått. Fråga efter och komma åt de här måtten Använd den [2018-01-01 api-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -27,7 +27,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |qpu_metric|QPU|Antal|Medel|QPU. Intervall 0-100 för S1, 0-200 för S2 och 0-400 för S4|ServerResourceType|
 |memory_metric|Minne|Byte|Medel|Minne. Intervall 0 – 25 GB för S1, 0 – 50 GB för S2 och 0-100 GB för S4|ServerResourceType|
@@ -75,7 +75,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |TotalRequests|Totalt antal Gateway-begäranden|Antal|Totalt|Antal gateway-begäranden|Plats, värdnamn|
 |SuccessfulRequests|Lyckade Gateway-begäranden|Antal|Totalt|Antal lyckade gateway-begäranden|Plats, värdnamn|
@@ -83,17 +83,17 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |FailedRequests|Misslyckade Gatewaybegäranden|Antal|Totalt|Antalet fel i gateway-begäranden|Plats, värdnamn|
 |OtherRequests|Andra Gateway-begäranden|Antal|Totalt|Antal andra gateway-begäranden|Plats, värdnamn|
 |Varaktighet|Varaktighet för Gateway-begäranden|Millisekunder|Medel|Övergripande varaktighet av Gateway-begäranden i millisekunder|Plats, värdnamn|
-|Kapacitet|Kapacitet (förhandsversion)|Procent|Medel|Utnyttjande mått för ApiManagement-tjänsten|Plats|
+|Kapacitet|Kapacitet|Procent|Medel|Utnyttjande mått för ApiManagement-tjänsten|Plats|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |TotalJob|Totalt antal jobb|Antal|Totalt|Det totala antalet jobb|Runbook, Status|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |CoreCount|Antal dedikerade kärnor|Antal|Totalt|Totalt antal reserverade kärnor i batch-konto|Inga dimensioner|
 |TotalNodeCount|Dedikerad Nodantal|Antal|Totalt|Totalt antal dedikerade noder i batch-konto|Inga dimensioner|
@@ -119,34 +119,44 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |PoolResizeCompleteEvent|Pool Resize fullständig händelser|Antal|Totalt|Totalt antal poolen ändrar storlek som har slutförts|Inga dimensioner|
 |PoolDeleteStartEvent|Pool ta bort Start händelser|Antal|Totalt|Totalt antal borttagningar för poolen som har startat|Inga dimensioner|
 |PoolDeleteCompleteEvent|Pool ta bort klar händelser|Antal|Totalt|Totalt antal borttagningar för poolen som har slutförts|Inga dimensioner|
+|JobDeleteCompleteEvent|Jobbet Ta bort klar händelser|Antal|Totalt|Totalt antal jobb som har tagits bort.|Inga dimensioner|
+|JobDeleteStartEvent|Jobbet Ta bort Start händelser|Antal|Totalt|Totalt antal jobb som har begärts att tas bort.|Inga dimensioner|
+|JobDisableCompleteEvent|Jobbet inaktivera fullständig händelser|Antal|Totalt|Totalt antal jobb som har har inaktiverats.|Inga dimensioner|
+|JobDisableStartEvent|Jobbet inaktivera Start-händelser|Antal|Totalt|Totalt antal jobb som har begärt att inaktiveras.|Inga dimensioner|
+|JobStartEvent|Jobbet Start händelser|Antal|Totalt|Totalt antal jobb som har har startats.|Inga dimensioner|
+|JobTerminateCompleteEvent|Jobbet Avsluta fullständig händelser|Antal|Totalt|Antal jobb som har har avslutats.|Inga dimensioner|
+|JobTerminateStartEvent|Jobbet Avsluta Start-händelser|Antal|Totalt|Totalt antal jobb som har begärt att avslutas.|Inga dimensioner|
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|connectedclients|Anslutna klienter|Antal|Maximal||Inga dimensioner|
-|totalcommandsprocessed|Totalt antal åtgärder|Antal|Totalt||Inga dimensioner|
-|cachehits|Cacheträffar|Antal|Totalt||Inga dimensioner|
-|cachemisses|Cachemissar|Antal|Totalt||Inga dimensioner|
-|getcommands|Hämtar|Antal|Totalt||Inga dimensioner|
-|setcommands|Uppsättningar|Antal|Totalt||Inga dimensioner|
-|operationsPerSecond|Åtgärder Per sekund|Antal|Totalt||Inga dimensioner|
-|evictedkeys|Avlägsnade nycklar|Antal|Totalt||Inga dimensioner|
-|totalkeys|Totalt antal nycklar|Antal|Maximal||Inga dimensioner|
-|expiredkeys|Utgångna nycklar|Antal|Totalt||Inga dimensioner|
-|usedmemory|Använt minne|Byte|Maximal||Inga dimensioner|
-|usedmemoryRss|Använt minne RSS|Byte|Maximal||Inga dimensioner|
-|serverLoad|Serverbelastning|Procent|Maximal||Inga dimensioner|
-|cacheWrite|Cacheskrivning|BytesPerSecond|Maximal||Inga dimensioner|
-|cacheRead|Cacheläsning|BytesPerSecond|Maximal||Inga dimensioner|
-|percentProcessorTime|Processor|Procent|Maximal||Inga dimensioner|
+|connectedclients|Anslutna klienter|Antal|Maximal||ShardId|
+|totalcommandsprocessed|Totalt antal åtgärder|Antal|Totalt||ShardId|
+|cachehits|Cacheträffar|Antal|Totalt||ShardId|
+|cachemisses|Cachemissar|Antal|Totalt||ShardId|
+|getcommands|Hämtar|Antal|Totalt||ShardId|
+|setcommands|Uppsättningar|Antal|Totalt||ShardId|
+|operationsPerSecond|Åtgärder Per sekund|Antal|Maximal||ShardId|
+|evictedkeys|Avlägsnade nycklar|Antal|Totalt||ShardId|
+|totalkeys|Totalt antal nycklar|Antal|Maximal||ShardId|
+|expiredkeys|Utgångna nycklar|Antal|Totalt||ShardId|
+|usedmemory|Använt minne|Byte|Maximal||ShardId|
+|usedmemorypercentage|Procentandelen använt minne|Procent|Maximal||ShardId|
+|usedmemoryRss|Använt minne RSS|Byte|Maximal||ShardId|
+|serverLoad|Serverbelastning|Procent|Maximal||ShardId|
+|cacheWrite|Cacheskrivning|BytesPerSecond|Maximal||ShardId|
+|cacheRead|Cacheläsning|BytesPerSecond|Maximal||ShardId|
+|percentProcessorTime|Processor|Procent|Maximal||ShardId|
+|cacheLatency|Cachelagra svarstid mikrosekunder (förhandsversion)|Antal|Medel||ShardId SampleType|
+|fel|Fel|Antal|Maximal||ShardId, ErrorType|
 |connectedclients0|Anslutna klienter (fragment 0)|Antal|Maximal||Inga dimensioner|
 |totalcommandsprocessed0|Totalt antal åtgärder (fragment 0)|Antal|Totalt||Inga dimensioner|
 |cachehits0|Cacheträffar (fragment 0)|Antal|Totalt||Inga dimensioner|
 |cachemisses0|Cachemissar (fragment 0)|Antal|Totalt||Inga dimensioner|
 |getcommands0|Hämtar (fragment 0)|Antal|Totalt||Inga dimensioner|
 |setcommands0|Uppsättningar (Shard 0)|Antal|Totalt||Inga dimensioner|
-|operationsPerSecond0|Åtgärder Per sekund (fragment 0)|Antal|Totalt||Inga dimensioner|
+|operationsPerSecond0|Åtgärder Per sekund (fragment 0)|Antal|Maximal||Inga dimensioner|
 |evictedkeys0|Avlägsnade nycklar (fragment 0)|Antal|Totalt||Inga dimensioner|
 |totalkeys0|Totalt antal nycklar (fragment 0)|Antal|Maximal||Inga dimensioner|
 |expiredkeys0|Utgångna nycklar (fragment 0)|Antal|Totalt||Inga dimensioner|
@@ -162,7 +172,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |cachemisses1|Cachemissar (Shard 1)|Antal|Totalt||Inga dimensioner|
 |getcommands1|Hämtar (Shard 1)|Antal|Totalt||Inga dimensioner|
 |setcommands1|Uppsättningar (Shard 1)|Antal|Totalt||Inga dimensioner|
-|operationsPerSecond1|Åtgärder Per sekund (Shard 1)|Antal|Totalt||Inga dimensioner|
+|operationsPerSecond1|Åtgärder Per sekund (Shard 1)|Antal|Maximal||Inga dimensioner|
 |evictedkeys1|Avlägsnade nycklar (Shard 1)|Antal|Totalt||Inga dimensioner|
 |totalkeys1|Totalt antal nycklar (Shard 1)|Antal|Maximal||Inga dimensioner|
 |expiredkeys1|Utgångna nycklar (Shard 1)|Antal|Totalt||Inga dimensioner|
@@ -178,7 +188,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |cachemisses2|Cachemissar (fragment 2)|Antal|Totalt||Inga dimensioner|
 |getcommands2|Hämtar (fragment 2)|Antal|Totalt||Inga dimensioner|
 |setcommands2|Uppsättningar (fragment 2)|Antal|Totalt||Inga dimensioner|
-|operationsPerSecond2|Åtgärder Per sekund (fragment 2)|Antal|Totalt||Inga dimensioner|
+|operationsPerSecond2|Åtgärder Per sekund (fragment 2)|Antal|Maximal||Inga dimensioner|
 |evictedkeys2|Avlägsnade nycklar (fragment 2)|Antal|Totalt||Inga dimensioner|
 |totalkeys2|Totalt antal nycklar (fragment 2)|Antal|Maximal||Inga dimensioner|
 |expiredkeys2|Utgångna nycklar (fragment 2)|Antal|Totalt||Inga dimensioner|
@@ -194,7 +204,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |cachemisses3|Cachemissar (fragment 3)|Antal|Totalt||Inga dimensioner|
 |getcommands3|Hämtar (fragment 3)|Antal|Totalt||Inga dimensioner|
 |setcommands3|Uppsättningar (fragment 3)|Antal|Totalt||Inga dimensioner|
-|operationsPerSecond3|Åtgärder Per sekund (fragment 3)|Antal|Totalt||Inga dimensioner|
+|operationsPerSecond3|Åtgärder Per sekund (fragment 3)|Antal|Maximal||Inga dimensioner|
 |evictedkeys3|Avlägsnade nycklar (fragment 3)|Antal|Totalt||Inga dimensioner|
 |totalkeys3|Totalt antal nycklar (fragment 3)|Antal|Maximal||Inga dimensioner|
 |expiredkeys3|Utgångna nycklar (fragment 3)|Antal|Totalt||Inga dimensioner|
@@ -210,7 +220,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |cachemisses4|Cachemissar (fragment 4)|Antal|Totalt||Inga dimensioner|
 |getcommands4|Hämtar (fragment 4)|Antal|Totalt||Inga dimensioner|
 |setcommands4|Uppsättningar (fragment 4)|Antal|Totalt||Inga dimensioner|
-|operationsPerSecond4|Åtgärder Per sekund (fragment 4)|Antal|Totalt||Inga dimensioner|
+|operationsPerSecond4|Åtgärder Per sekund (fragment 4)|Antal|Maximal||Inga dimensioner|
 |evictedkeys4|Avlägsnade nycklar (fragment 4)|Antal|Totalt||Inga dimensioner|
 |totalkeys4|Totalt antal nycklar (fragment 4)|Antal|Maximal||Inga dimensioner|
 |expiredkeys4|Utgångna nycklar (fragment 4)|Antal|Totalt||Inga dimensioner|
@@ -226,7 +236,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |cachemisses5|Cachemissar (fragment 5)|Antal|Totalt||Inga dimensioner|
 |getcommands5|Hämtar (fragment 5)|Antal|Totalt||Inga dimensioner|
 |setcommands5|Uppsättningar (fragment 5)|Antal|Totalt||Inga dimensioner|
-|operationsPerSecond5|Åtgärder Per sekund (fragment 5)|Antal|Totalt||Inga dimensioner|
+|operationsPerSecond5|Åtgärder Per sekund (fragment 5)|Antal|Maximal||Inga dimensioner|
 |evictedkeys5|Avlägsnade nycklar (fragment 5)|Antal|Totalt||Inga dimensioner|
 |totalkeys5|Totalt antal nycklar (fragment 5)|Antal|Maximal||Inga dimensioner|
 |expiredkeys5|Utgångna nycklar (fragment 5)|Antal|Totalt||Inga dimensioner|
@@ -242,7 +252,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |cachemisses6|Cachemissar (fragment 6)|Antal|Totalt||Inga dimensioner|
 |getcommands6|Hämtar (fragment 6)|Antal|Totalt||Inga dimensioner|
 |setcommands6|Uppsättningar (Shard 6)|Antal|Totalt||Inga dimensioner|
-|operationsPerSecond6|Åtgärder Per sekund (fragment 6)|Antal|Totalt||Inga dimensioner|
+|operationsPerSecond6|Åtgärder Per sekund (fragment 6)|Antal|Maximal||Inga dimensioner|
 |evictedkeys6|Avlägsnade nycklar (fragment 6)|Antal|Totalt||Inga dimensioner|
 |totalkeys6|Totalt antal nycklar (fragment 6)|Antal|Maximal||Inga dimensioner|
 |expiredkeys6|Utgångna nycklar (fragment 6)|Antal|Totalt||Inga dimensioner|
@@ -258,7 +268,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |cachemisses7|Cachemissar (Shard 7)|Antal|Totalt||Inga dimensioner|
 |getcommands7|Hämtar (Shard 7)|Antal|Totalt||Inga dimensioner|
 |setcommands7|Uppsättningar (Shard 7)|Antal|Totalt||Inga dimensioner|
-|operationsPerSecond7|Åtgärder Per sekund (Shard 7)|Antal|Totalt||Inga dimensioner|
+|operationsPerSecond7|Åtgärder Per sekund (Shard 7)|Antal|Maximal||Inga dimensioner|
 |evictedkeys7|Avlägsnade nycklar (Shard 7)|Antal|Totalt||Inga dimensioner|
 |totalkeys7|Totalt antal nycklar (Shard 7)|Antal|Maximal||Inga dimensioner|
 |expiredkeys7|Utgångna nycklar (Shard 7)|Antal|Totalt||Inga dimensioner|
@@ -274,7 +284,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |cachemisses8|Cachemissar (fragment 8)|Antal|Totalt||Inga dimensioner|
 |getcommands8|Hämtar (fragment 8)|Antal|Totalt||Inga dimensioner|
 |setcommands8|Uppsättningar (fragment 8)|Antal|Totalt||Inga dimensioner|
-|operationsPerSecond8|Åtgärder Per sekund (fragment 8)|Antal|Totalt||Inga dimensioner|
+|operationsPerSecond8|Åtgärder Per sekund (fragment 8)|Antal|Maximal||Inga dimensioner|
 |evictedkeys8|Avlägsnade nycklar (fragment 8)|Antal|Totalt||Inga dimensioner|
 |totalkeys8|Totalt antal nycklar (fragment 8)|Antal|Maximal||Inga dimensioner|
 |expiredkeys8|Utgångna nycklar (fragment 8)|Antal|Totalt||Inga dimensioner|
@@ -290,7 +300,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |cachemisses9|Cachemissar (fragment 9)|Antal|Totalt||Inga dimensioner|
 |getcommands9|Hämtar (fragment 9)|Antal|Totalt||Inga dimensioner|
 |setcommands9|Uppsättningar (fragment 9)|Antal|Totalt||Inga dimensioner|
-|operationsPerSecond9|Åtgärder Per sekund (fragment 9)|Antal|Totalt||Inga dimensioner|
+|operationsPerSecond9|Åtgärder Per sekund (fragment 9)|Antal|Maximal||Inga dimensioner|
 |evictedkeys9|Avlägsnade nycklar (fragment 9)|Antal|Totalt||Inga dimensioner|
 |totalkeys9|Totalt antal nycklar (fragment 9)|Antal|Maximal||Inga dimensioner|
 |expiredkeys9|Utgångna nycklar (fragment 9)|Antal|Totalt||Inga dimensioner|
@@ -303,7 +313,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Procent CPU|Procent CPU|Procent|Medel|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer.|Inga dimensioner|
 |Nätverk in|Nätverk in|Byte|Totalt|Antal byte som mottagits i alla nätverksgränssnitt av virtuella datorer (inkommande trafik).|Inga dimensioner|
@@ -315,19 +325,19 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|Procent CPU|Procent CPU|Procent|Medel|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer.|Inga dimensioner|
-|Nätverk in|Nätverk in|Byte|Totalt|Antal byte som mottagits i alla nätverksgränssnitt av virtuella datorer (inkommande trafik).|Inga dimensioner|
-|Nätverk ut|Nätverk ut|Byte|Totalt|Antal byte som skickats ut i alla nätverksgränssnitt av virtuella datorer (utgående trafik).|Inga dimensioner|
-|Lästa byte på disk/sek|Diskläsning|BytesPerSecond|Medel|Genomsnittligt antal byte lästa från disk under övervakningsperioden.|Inga dimensioner|
-|Skrivna byte på disk/sek|Diskskrivning|BytesPerSecond|Medel|Genomsnittligt antal byte som skrivits till disk under övervakningsperioden.|Inga dimensioner|
-|Läsåtgärder på disk/sek|Läsåtgärder på disk/sek|CountPerSecond|Medel|Lästa IOPS på disk.|Inga dimensioner|
-|Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Skrivna IOPS på disk.|Inga dimensioner|
+|Procent CPU|Procent CPU|Procent|Medel|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer.|RoleInstanceId|
+|Nätverk in|Nätverk in|Byte|Totalt|Antal byte som mottagits i alla nätverksgränssnitt av virtuella datorer (inkommande trafik).|RoleInstanceId|
+|Nätverk ut|Nätverk ut|Byte|Totalt|Antal byte som skickats ut i alla nätverksgränssnitt av virtuella datorer (utgående trafik).|RoleInstanceId|
+|Lästa byte på disk/sek|Diskläsning|BytesPerSecond|Medel|Genomsnittligt antal byte lästa från disk under övervakningsperioden.|RoleInstanceId|
+|Skrivna byte på disk/sek|Diskskrivning|BytesPerSecond|Medel|Genomsnittligt antal byte som skrivits till disk under övervakningsperioden.|RoleInstanceId|
+|Läsåtgärder på disk/sek|Läsåtgärder på disk/sek|CountPerSecond|Medel|Lästa IOPS på disk.|RoleInstanceId|
+|Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Skrivna IOPS på disk.|RoleInstanceId|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |TotalCalls|Totala anrop|Antal|Totalt|Totalt antal anrop.|Inga dimensioner|
 |SuccessfulCalls|Utförda anrop|Antal|Totalt|Antal utförda anrop.|Inga dimensioner|
@@ -340,11 +350,12 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |Svarstid|Svarstid|Millisekunder|Medel|Svarstid i millisekunder.|Inga dimensioner|
 |CharactersTranslated|Översatta tecken|Antal|Totalt|Totalt antal tecken i inkommande textbegäran.|Inga dimensioner|
 |SpeechSessionDuration|Varaktighet för talsession|Sekunder|Totalt|Total varaktighet för talsession i sekunder.|Inga dimensioner|
-|TotalTransactions|Totalt antal transaktioner|Antal|Totalt|Totalt antal transaktioner|Inga dimensioner|
+|TotalTransactions|Totalt antal transaktioner|Antal|Totalt|Totalt antal transaktioner.|Inga dimensioner|
+|TotalTokenCalls|Tokenanrop totalt|Antal|Totalt|Totalt antal tokenanrop.|Inga dimensioner|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Procent CPU|Procent CPU|Procent|Medel|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer|Inga dimensioner|
 |Nätverk in|Nätverk in|Byte|Totalt|Antal byte som mottagits i alla nätverksgränssnitt av virtuella datorer (inkommande trafik)|Inga dimensioner|
@@ -368,7 +379,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Procent CPU|Procent CPU|Procent|Medel|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer|Inga dimensioner|
 |Nätverk in|Nätverk in|Byte|Totalt|Antal byte som mottagits i alla nätverksgränssnitt av virtuella datorer (inkommande trafik)|Inga dimensioner|
@@ -392,7 +403,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Procent CPU|Procent CPU|Procent|Medel|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer|Inga dimensioner|
 |Nätverk in|Nätverk in|Byte|Totalt|Antal byte som mottagits i alla nätverksgränssnitt av virtuella datorer (inkommande trafik)|Inga dimensioner|
@@ -416,14 +427,16 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |CpuUsage|CPU-användning|Antal|Medel|CPU-användning på alla kärnor i millicores.|containerName|
 |MemoryUsage|Minnesanvändning|Byte|Medel|Total minnesanvändning i byte.|containerName|
+|NetworkBytesReceivedPerSecond|Mottagna nätverksbyte Per sekund|Byte|Medel|Nätverksbyte per sekund.|Inga dimensioner|
+|NetworkBytesTransmittedPerSecond|Nätverks-byte skickas Per sekund|Byte|Medel|Nätverks-byte skickas per sekund.|Inga dimensioner|
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |kube_node_status_allocatable_cpu_cores|Totala antalet tillgängliga cpu-kärnor i ett hanterat kluster|Antal|Totalt|Totala antalet tillgängliga cpu-kärnor i ett hanterat kluster|Inga dimensioner|
 |kube_node_status_allocatable_memory_bytes|Totala mängden tillgängligt minne i ett hanterat kluster|Byte|Totalt|Totala mängden tillgängligt minne i ett hanterat kluster|Inga dimensioner|
@@ -433,7 +446,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |DCIApiCalls|Customer Insights API-anrop|Antal|Totalt||Inga dimensioner|
 |DCIMappingImportOperationSuccessfulLines|Mappning av Import åtgärden lyckas rader|Antal|Totalt||Inga dimensioner|
@@ -468,14 +481,14 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |FailedRuns|Misslyckade körningar|Antal|Totalt||pipelineName, activityName, windowEnd, windowStart|
 |SuccessfulRuns|Lyckade körningar|Antal|Totalt||pipelineName, activityName, windowEnd, windowStart|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |PipelineFailedRuns|Det gick inte mått för pipeline-körningar|Antal|Totalt||FailureType namn|
 |PipelineSucceededRuns|Lyckades mått för pipeline-körningar|Antal|Totalt||FailureType namn|
@@ -488,7 +501,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |JobEndedSuccess|Lyckade jobb|Antal|Totalt|Antal genomförda jobb.|Inga dimensioner|
 |JobEndedFailure|Misslyckade jobb|Antal|Totalt|Totalt antal misslyckade jobb.|Inga dimensioner|
@@ -499,7 +512,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |TotalStorage|Totalt lagringsutrymme|Byte|Maximal|Totala mängden data som lagras i kontot.|Inga dimensioner|
 |DataWritten|Skrivna data|Byte|Totalt|Totala mängden data som skrivs till kontot.|Inga dimensioner|
@@ -509,7 +522,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
 |memory_percent|Minne|Procent|Medel|Minne|Inga dimensioner|
@@ -520,12 +533,15 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |serverlog_storage_percent|Procent för lagring av Server-loggen|Procent|Medel|Procent för lagring av Server-loggen|Inga dimensioner|
 |serverlog_storage_usage|Server logglagring som används|Byte|Medel|Server logglagring som används|Inga dimensioner|
 |serverlog_storage_limit|Log storage gränsen|Byte|Medel|Log storage gränsen|Inga dimensioner|
-|active_connections|Totalt antal aktiva anslutningar|Antal|Medel|Totalt antal aktiva anslutningar|Inga dimensioner|
-|connections_failed|Totalt antal misslyckade anslutningar|Antal|Totalt|Totalt antal misslyckade anslutningar|Inga dimensioner|
+|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Inga dimensioner|
+|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga dimensioner|
+|seconds_behind_master|Replikeringsfördröjning i sekunder|Antal|Medel|Replikeringsfördröjning i sekunder|Inga dimensioner|
+|network_bytes_egress|Nätverk ut|Byte|Totalt|Nätverk ut över aktiva anslutningar|Inga dimensioner|
+|network_bytes_ingress|Nätverk in|Byte|Totalt|Nätverk i över aktiva anslutningar|Inga dimensioner|
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
 |memory_percent|Minne|Procent|Medel|Minne|Inga dimensioner|
@@ -536,37 +552,39 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |serverlog_storage_percent|Procent för lagring av Server-loggen|Procent|Medel|Procent för lagring av Server-loggen|Inga dimensioner|
 |serverlog_storage_usage|Server logglagring som används|Byte|Medel|Server logglagring som används|Inga dimensioner|
 |serverlog_storage_limit|Log storage gränsen|Byte|Medel|Log storage gränsen|Inga dimensioner|
-|active_connections|Totalt antal aktiva anslutningar|Antal|Totalt|Totalt antal aktiva anslutningar|Inga dimensioner|
-|connections_failed|Totalt antal misslyckade anslutningar|Antal|Totalt|Totalt antal misslyckade anslutningar|Inga dimensioner|
+|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Inga dimensioner|
+|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga dimensioner|
+|network_bytes_egress|Nätverk ut|Byte|Totalt|Nätverk ut över aktiva anslutningar|Inga dimensioner|
+|network_bytes_ingress|Nätverk in|Byte|Totalt|Nätverk i över aktiva anslutningar|Inga dimensioner|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|Telemetri message send försök|Antal|Totalt|Antal meddelanden för enhet till moln-telemetri försökte skickas till din IoT-hubb|Inga dimensioner|
 |d2c.telemetry.Ingress.Success|Telemetrimeddelanden som skickas|Antal|Totalt|Antal telemetrimeddelanden från enheten till molnet har skickats till din IoT hub|Inga dimensioner|
 |c2d.commands.egress.Complete.Success|Kommandon har slutförts|Antal|Totalt|Antal moln till enhet kommandon har slutförts av enheten|Inga dimensioner|
 |c2d.commands.egress.abandon.success|Kommandon övergivna|Antal|Totalt|Antal moln till enhet kommandon som avbrutits av enheten|Inga dimensioner|
 |c2d.commands.egress.Reject.Success|Kommandon som avvisats|Antal|Totalt|Antal moln till enhet kommandon som avvisats av enheten|Inga dimensioner|
-|devices.totalDevices|Totalt antal enheter|Antal|Totalt|Antalet enheter som registrerats till din IoT hub|Inga dimensioner|
-|devices.connectedDevices.allProtocol|Anslutna enheter|Antal|Totalt|Antalet enheter som är anslutna till din IoT hub|Inga dimensioner|
-|d2c.telemetry.egress.Success|Telemetrimeddelanden levereras|Antal|Totalt|Antal gånger som meddelanden har skrivits till slutpunkter (totalt)|Inga dimensioner|
-|d2c.telemetry.egress.dropped|Utelämnade meddelanden|Antal|Totalt|Antal meddelanden som tas bort eftersom leverans slutpunkten var döda|Inga dimensioner|
-|d2c.telemetry.egress.orphaned|Överblivna meddelanden|Antal|Totalt|Antal meddelanden som inte matchar några vägar inklusive återställningsplats vägen|Inga dimensioner|
-|d2c.telemetry.egress.invalid|Ogiltig meddelanden|Antal|Totalt|Antal meddelanden som inte levereras på grund av inkompatibilitet med slutpunkten|Inga dimensioner|
-|d2c.telemetry.egress.fallback|Meddelanden som matchar återställningsplats villkor|Antal|Totalt|Antal meddelanden som skrivs till slutpunkten för återställningsplats|Inga dimensioner|
-|d2c.endpoints.egress.eventHubs|Skicka meddelanden till Event Hub-slutpunkter|Antal|Totalt|Antal gånger som meddelanden har skrivits till Event Hub-slutpunkter|Inga dimensioner|
-|d2c.endpoints.latency.eventHubs|Meddelandet svarstid för Event Hub-slutpunkter|Millisekunder|Medel|Genomsnittlig svarstid mellan inkommande meddelande till IoT hub och meddelandet inkommande till en Event Hub-slutpunkt, i millisekunder|Inga dimensioner|
-|d2c.endpoints.egress.serviceBusQueues|Skicka meddelanden till Service Bus-kö slutpunkter|Antal|Totalt|Antal gånger som meddelanden har skrivits till Service Bus-kö slutpunkter|Inga dimensioner|
-|d2c.endpoints.latency.serviceBusQueues|Meddelandet svarstid för Service Bus-kö slutpunkter|Millisekunder|Medel|Genomsnittlig svarstid mellan inkommande meddelande till IoT hub och inkommande meddelande i en Service Bus-kö-slutpunkt, i millisekunder|Inga dimensioner|
-|d2c.endpoints.egress.serviceBusTopics|Skicka meddelanden till Service Bus-ämne slutpunkter|Antal|Totalt|Antal gånger som meddelanden har skrivits till Service Bus-ämne slutpunkter|Inga dimensioner|
-|d2c.endpoints.latency.serviceBusTopics|Meddelandet svarstid för Service Bus-ämne slutpunkter|Millisekunder|Medel|Genomsnittlig svarstid mellan inkommande meddelande till IoT hub och inkommande meddelande i en Service Bus-ämne slutpunkt, i millisekunder|Inga dimensioner|
-|d2c.endpoints.egress.builtIn.events|Meddelanden som levereras till den inbyggda slutpunkten (meddelanden/händelser)|Antal|Totalt|Antal gånger som meddelanden har skrivits till den inbyggda slutpunkten (meddelanden/händelser)|Inga dimensioner|
-|d2c.endpoints.latency.builtIn.events|Meddelandet svarstiden för den inbyggda slutpunkten (meddelanden/händelser)|Millisekunder|Medel|Genomsnittlig svarstid mellan inkommande meddelande till IoT hub och meddelandet ingående i den inbyggda slutpunkten (meddelanden/händelser), i millisekunder |Inga dimensioner|
-|d2c.endpoints.egress.Storage|Meddelanden som levereras till storage-slutpunkter|Antal|Totalt|Antal gånger som meddelanden har skrivits till storage-slutpunkter|Inga dimensioner|
-|d2c.endpoints.latency.Storage|Meddelandet svarstid för storage-slutpunkter|Millisekunder|Medel|Genomsnittlig svarstid mellan inkommande meddelande till IoT hub och meddelandet inkommande till en slutpunkt för lagring, i millisekunder|Inga dimensioner|
-|d2c.endpoints.egress.Storage.bytes|Data som skrivs till storage|Byte|Totalt|Mängden data i byte som skrivs till storage-slutpunkter|Inga dimensioner|
-|d2c.endpoints.egress.Storage.BLOBs|Blobar som skrivs till storage|Antal|Totalt|Antal blobbar som skrivs till storage-slutpunkter|Inga dimensioner|
+|devices.totalDevices|Totalt antal enheter (inaktuell)|Antal|Totalt|Antalet enheter som registrerats till din IoT hub|Inga dimensioner|
+|devices.connectedDevices.allProtocol|Anslutna enheter (inaktuell) |Antal|Totalt|Antalet enheter som är anslutna till din IoT hub|Inga dimensioner|
+|d2c.telemetry.egress.Success|Routning: telemetrimeddelanden som levereras|Antal|Totalt|Antal gånger som meddelanden levereras till alla slutpunkter med hjälp av IoT Hub routning. Om ett meddelande skickas till flera slutpunkter, ökar detta värde med ett för varje lyckad leverans. Om ett meddelande skickas till samma slutpunkt flera gånger, ökar detta värde med ett för varje lyckad leverans.|Inga dimensioner|
+|d2c.telemetry.egress.dropped|Routning: telemetrimeddelanden som tas bort |Antal|Totalt|Antal gånger som meddelanden har tagits bort av IoT Hub routning på grund av döda slutpunkter. Det här värdet räknas inte meddelanden som levereras till återställningsplats väg som utelämnade meddelanden inte levereras det.|Inga dimensioner|
+|d2c.telemetry.egress.orphaned|Routning: telemetrimeddelanden som överblivna |Antal|Totalt|Antal gånger som meddelanden frånkopplade genom IoT Hub routning eftersom de inte matchar några regler för routning (inklusive återställningsplats regeln). |Inga dimensioner|
+|d2c.telemetry.egress.invalid|Routning: telemetrimeddelanden inkompatibla|Antal|Totalt|Antal gånger som IoT Hub routning inte kunde skicka meddelanden på grund av inkompatibilitet med slutpunkten. Det här värdet inkluderar inte återförsök.|Inga dimensioner|
+|d2c.telemetry.egress.fallback|Routning: skicka meddelanden till återställningsplats|Antal|Totalt|Antal gånger som IoT Hub routning levererade meddelanden till slutpunkten som är associerade med återställningsplats vägen.|Inga dimensioner|
+|d2c.endpoints.egress.eventHubs|Routning: skicka meddelanden till Event Hub|Antal|Totalt|Antal gånger som IoT Hub routning har levererade meddelanden till Event Hub-slutpunkter.|Inga dimensioner|
+|d2c.endpoints.latency.eventHubs|Routning: meddelande svarstiden för Event Hub|Millisekunder|Medel|Genomsnittlig svarstid (millisekunder) mellan inkommande meddelande till IoT Hub och meddelandet inkommande till en Event Hub-slutpunkt.|Inga dimensioner|
+|d2c.endpoints.egress.serviceBusQueues|Routning: skicka meddelanden till Service Bus-kö|Antal|Totalt|Antal gånger som IoT Hub routning har levererade meddelanden till Service Bus-kö-slutpunkter.|Inga dimensioner|
+|d2c.endpoints.latency.serviceBusQueues|Routning: meddelande svarstid för Service Bus-kö|Millisekunder|Medel|Genomsnittlig svarstid (millisekunder) mellan inkommande meddelande till IoT Hub och telemetri meddelande inkommande i en slutpunkt för Service Bus-kö.|Inga dimensioner|
+|d2c.endpoints.egress.serviceBusTopics|Routning: skicka meddelanden till Service Bus-ämne|Antal|Totalt|Antal gånger som IoT Hub routning har levererade meddelanden till Service Bus-ämnet slutpunkter.|Inga dimensioner|
+|d2c.endpoints.latency.serviceBusTopics|Routning: meddelande svarstid för Service Bus-ämne|Millisekunder|Medel|Genomsnittlig svarstid (millisekunder) mellan inkommande meddelande till IoT Hub och telemetri meddelande inkommande i en slutpunkt för Service Bus-ämne.|Inga dimensioner|
+|d2c.endpoints.egress.builtIn.events|Routning: skicka meddelanden till meddelanden/händelser|Antal|Totalt|Antal gånger som IoT Hub routning har levererade meddelanden till den inbyggda slutpunkten (meddelanden/händelser).|Inga dimensioner|
+|d2c.endpoints.latency.builtIn.events|Routning: meddelande svarstiden för meddelanden/händelser|Millisekunder|Medel|Genomsnittlig svarstid (millisekunder) mellan inkommande meddelande till IoT Hub och telemetri meddelande ingående i den inbyggda slutpunkten (meddelanden/händelser).|Inga dimensioner|
+|d2c.endpoints.egress.Storage|Routning: skicka meddelanden till storage|Antal|Totalt|Antal gånger som IoT Hub routning har levererade meddelanden till storage-slutpunkter.|Inga dimensioner|
+|d2c.endpoints.latency.Storage|Routning: meddelande svarstid för lagring|Millisekunder|Medel|Genomsnittlig svarstid (millisekunder) mellan inkommande meddelande till IoT Hub och telemetri meddelande inkommande till en slutpunkt för lagring.|Inga dimensioner|
+|d2c.endpoints.egress.Storage.bytes|Routning: data som levereras till storage|Byte|Totalt|Hur mycket data (byte) IoT Hub routning levereras till storage-slutpunkter.|Inga dimensioner|
+|d2c.endpoints.egress.Storage.BLOBs|Routning: blobar som levereras till storage|Antal|Totalt|Antal gånger som IoT Hub routning levereras BLOB storage-slutpunkter.|Inga dimensioner|
 |d2c.Twin.Read.Success|Lyckad twin läser från enheter|Antal|Totalt|Antal för alla lyckade enhet-initierad tvilling läser.|Inga dimensioner|
 |d2c.Twin.Read.failure|Det gick inte twin läsningar från enheter|Antal|Totalt|Det gick inte att enheten-initierad twin läsningar uppräkning av alla.|Inga dimensioner|
 |d2c.Twin.Read.size|Svarsstorlek för tvilling läser från enheter|Byte|Medel|Genomsnitt, min och max för alla lyckade enhet-initierad twin läsningar.|Inga dimensioner|
@@ -600,11 +618,15 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |jobs.Failed|Misslyckade jobb|Antal|Totalt|Totalt antal alla misslyckade jobb.|Inga dimensioner|
 |d2c.telemetry.ingress.sendThrottle|Antalet begränsningsfel|Antal|Totalt|Begränsar antalet begränsningsfel på grund av enheten dataflöde|Inga dimensioner|
 |dailyMessageQuotaUsed|Sammanlagt antal meddelanden som används|Antal|Medel|Antal Totalt antal meddelanden som används idag. Detta är en ackumulerad värde som nollställs på 00:00 UTC varje dag.|Inga dimensioner|
-|deviceDataUsage|Totalt antal devicedata användning|Antal|Totalt|Byte som överfördes till och från alla enheter som är anslutna till IotHub|Inga dimensioner|
+|deviceDataUsage|Totalt antal devicedata användning (inaktuell)|Byte|Totalt|Byte som överfördes till och från alla enheter som är anslutna till IotHub|Inga dimensioner|
+|deviceDataUsageV2|Dataanvändning för totalt antal enheter (förhandsversion)|Byte|Totalt|Byte som överfördes till och från alla enheter som är anslutna till IotHub|Inga dimensioner|
+|totalDeviceCount|Totalt antal enheter (förhandsversion)|Antal|Medel|Antalet enheter som registrerats till din IoT hub|Inga dimensioner|
+|connectedDeviceCount|Anslutna enheter (förhandsversion)|Antal|Medel|Antalet enheter som är anslutna till din IoT hub|Inga dimensioner|
+|Konfigurationer|Konfiguration av mått|Antal|Totalt|Mått för konfigurationsåtgärder|Inga dimensioner|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices /
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |RegistrationAttempts|Appresursprovidern|Antal|Totalt|Antal försök registreringar för enhet|ProvisioningServiceName IotHubName, Status|
 |DeviceAssignments|Tilldelade enheter|Antal|Totalt|Antalet enheter som är tilldelade till en IoT hub|ProvisioningServiceName IotHubName|
@@ -612,18 +634,45 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|MetadataRequests|Metadataförfrågningar|Antal|Antal|Antalet metadataförfrågningar. Cosmos DB upprätthåller samling för varje konto, där du kan räkna upp samlingar, databaser osv och konfigurationer, utan kostnad.|GlobalDatabaseAccountName, DatabaseName, samlingsnamn, Region, StatusCode|
-|MongoRequestCharge|Kostnad för mongo-begäran|Antal|Totalt|Mongo-programbegäran som förbrukas|GlobalDatabaseAccountName, DatabaseName, samlingsnamn, Region, CommandName, felkod|
-|MongoRequests|Mongo-begäranden|Antal|Antal|Antal Mongo-begäranden gjorda|GlobalDatabaseAccountName, DatabaseName, samlingsnamn, Region, CommandName, felkod|
-|TotalRequestUnits|Totalt antal enheter för programbegäran|Antal|Totalt|Enheter som används för begäran|GlobalDatabaseAccountName, DatabaseName, samlingsnamn, Region, StatusCode|
-|TotalRequests|Totalt antal begäranden|Antal|Antal|Antalet begäranden som görs|GlobalDatabaseAccountName, DatabaseName, samlingsnamn, Region, StatusCode|
+|MetadataRequests|Metadataförfrågningar|Antal|Antal|Antalet metadataförfrågningar. Cosmos DB upprätthåller samling för varje konto, där du kan räkna upp samlingar, databaser osv och konfigurationer, utan kostnad.|DatabaseName, samlingsnamn, Region, StatusCode|
+|MongoRequestCharge|Kostnad för mongo-begäran|Antal|Totalt|Mongo-programbegäran som förbrukas|DatabaseName, samlingsnamn, Region, CommandName, felkod|
+|MongoRequests|Mongo-begäranden|Antal|Antal|Antal Mongo-begäranden gjorda|DatabaseName, samlingsnamn, Region, CommandName, felkod|
+|TotalRequestUnits|Totalt antal enheter för programbegäran|Antal|Totalt|Enheter som används för begäran|DatabaseName, samlingsnamn, Region, StatusCode|
+|TotalRequests|Totalt antal begäranden|Antal|Antal|Antalet begäranden som görs|DatabaseName, samlingsnamn, Region, StatusCode|
 
+
+## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats till det här avsnittet|Inga dimensioner|
+|PublishFailCount|Misslyckade händelser|Antal|Totalt|Det gick inte att publicera till det här avsnittet Totalt antal händelser|ErrorType, fel|
+|UnmatchedEventCount|Omatchade händelser|Antal|Totalt|Totalt antal händelser som inte matchar någon av händelseprenumerationer för det här avsnittet|Inga dimensioner|
+
+## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventSubscriptions
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|MatchedEventCount|Matchande händelser|Antal|Totalt|Totalt antal händelser som matchas mot den här händelseprenumerationen|Inga dimensioner|
+|DeliveryAttemptFailCount|Händelser gick inte att leverera|Antal|Totalt|Det gick inte att leverera till den här händelseprenumerationen Totalt antal händelser|Fel, ErrorType|
+|DeliverySuccessCount|Levererade händelser|Antal|Totalt|Totalt antal händelser som levereras till den här händelseprenumerationen|Inga dimensioner|
+|DestinationProcessingDurationInMs|Bearbetningstid för mål|Millisekunder|Medel|Bearbetningstid för målet i millisekunder|Inga dimensioner|
+|DroppedEventCount|Avbrutna händelser|Antal|Totalt|Totalt antal avbrutna händelser som matchar den här händelseprenumerationen|Inga dimensioner|
+|DeadLetteredCount|Död bokstäver händelser|Antal|Totalt|Totalt antal död bokstäver händelser som matchar den här händelseprenumerationen|DeadLetterReason|
+
+## <a name="microsofteventgridextensiontopics"></a>Microsoft.EventGrid/extensionTopics
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats till det här avsnittet|Inga dimensioner|
+|PublishFailCount|Misslyckade händelser|Antal|Totalt|Det gick inte att publicera till det här avsnittet Totalt antal händelser|ErrorType, fel|
+|UnmatchedEventCount|Omatchade händelser|Antal|Totalt|Totalt antal händelser som inte matchar någon av händelseprenumerationer för det här avsnittet|Inga dimensioner|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |SuccessfulRequests|Lyckade begäranden (förhandsversion)|Antal|Totalt|Lyckade begäranden för Microsoft.EventHub. (Förhandsversion)|EntityName|
 |ServerErrors|Serverfel. (Förhandsversion)|Antal|Totalt|Serverfel för Microsoft.EventHub. (Förhandsversion)|EntityName|
@@ -660,16 +709,39 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |EHAMSGS|Arkivera meddelanden|Antal|Totalt|Arkiverade meddelanden för händelsehubb i ett namnområde|Inga dimensioner|
 |EHAMBS|Arkivera meddelandedataflöde|Byte|Totalt|Dataflöde för arkiverade meddelanden för händelsehubb i ett namnområde|Inga dimensioner|
 
+## <a name="microsofteventhubclusters"></a>Microsoft.EventHub/clusters
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|SuccessfulRequests|Lyckade begäranden (förhandsversion)|Antal|Totalt|Lyckade begäranden för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|ServerErrors|Serverfel. (Förhandsversion)|Antal|Totalt|Serverfel för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|UserErrors|Användarfel. (Förhandsversion)|Antal|Totalt|Användarfel för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|QuotaExceededErrors|Kvoten överskridits-fel. (Förhandsversion)|Antal|Totalt|Kvoten överskridits-fel för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|ThrottledRequests|Begränsade begäranden. (Förhandsversion)|Antal|Totalt|Begränsade begäranden för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|IncomingRequests|Inkommande förfrågningar (förhandsversion)|Antal|Totalt|Inkommande begäranden för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|IncomingMessages|Inkommande meddelanden (förhandsversion)|Antal|Totalt|Inkommande meddelanden för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|OutgoingMessages|Utgående meddelanden (förhandsversion)|Antal|Totalt|Utgående meddelanden för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|IncomingBytes|Inkommande byte. (Förhandsversion)|Byte|Totalt|Inkommande byte för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|OutgoingBytes|Utgående byte. (Förhandsversion)|Byte|Totalt|Utgående byte för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|ActiveConnections|ActiveConnections (förhandsversion)|Antal|Medel|Totalt antal aktiva anslutningar för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|ConnectionsOpened|Öppnade anslutningar. (Förhandsversion)|Antal|Medel|Öppnade Microsoft.EventHub-anslutningar. (Förhandsversion)|Inga dimensioner|
+|ConnectionsClosed|Stängda anslutningar. (Förhandsversion)|Antal|Medel|Stängda Microsoft.EventHub-anslutningar. (Förhandsversion)|Inga dimensioner|
+|CaptureBacklog|Hämta kvarvarande uppgifter. (Förhandsversion)|Antal|Totalt|Hämta kvarvarande uppgifter för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|CapturedMessages|Hämtade meddelanden. (Förhandsversion)|Antal|Totalt|Hämtade meddelanden för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|CapturedBytes|Hämtade byte. (Förhandsversion)|Byte|Totalt|Hämtade byte för Microsoft.EventHub. (Förhandsversion)|Inga dimensioner|
+|Processor|CPU (förhandsversion)|Procent|Maximal|Processoranvändning för Event Hub-klustret i procentandel|Roll|
+|AvailableMemory|Tillgängligt minne (förhandsversion)|Antal|Maximal|Tillgängligt minne för Event Hub-klustret i byte|Roll|
+
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |GatewayRequests|Gateway-begäranden|Antal|Totalt|Antal gateway-begäranden|ClusterDnsName HttpStatus|
 |CategorizedGatewayRequests|Kategoriserat Gateway-begäranden|Antal|Totalt|Antal gatewaybegäranden efter kategorier (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName HttpStatus|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |ObservedMetricValue|Observerat mätvärde|Antal|Medel|Värdet som beräknas av autoskalning vid körning|MetricTriggerSource|
 |MetricThreshold|Tröskelvärde för mått|Antal|Medel|Det inställda tröskelvärdet när autoskalning kördes.|MetricTriggerRule|
@@ -678,7 +750,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |ServiceApiHit|Totalt antal Service API-träffar|Antal|Antal|Totalt antal Service API-träffar|ActivityType, ActivityName|
 |ServiceApiLatency|Total svarstid för Service API|Millisekunder|Medel|Total svarstid för Service API-begäranden|ActivityType, ActivityName, StatusCode|
@@ -686,13 +758,13 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|Svarstid|Svarstid|Millisekunder|Medel|Varaktighet för API-anrop|OperationName OperationResult|
+|Användning|Användning|Antal|Antal|Antal API-anrop|ApiCategory ApiName|
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |RunsStarted|Startade körningar|Antal|Totalt|Antal startade arbetsflödeskörningar.|Inga dimensioner|
 |RunsCompleted|Slutförda körningar|Antal|Totalt|Antal slutförda arbetsflödeskörningar.|Inga dimensioner|
@@ -724,21 +796,75 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |BillableActionExecutions|Fakturerbara åtgärdskörningar|Antal|Totalt|Antal körningar av arbetsflödesåtgärder som faktureras.|Inga dimensioner|
 |BillableTriggerExecutions|Fakturerbara utlösarkörningar|Antal|Totalt|Antal körningar av arbetsflödesutlösare som faktureras.|Inga dimensioner|
 |TotalBillableExecutions|Totalt antal fakturerbara körningar|Antal|Totalt|Antal arbetsflödeskörningar som faktureras.|Inga dimensioner|
+|BillingUsageNativeOperation|Faktureringsanvändning för körningar av interna åtgärder|Antal|Totalt|Det antal ursprungliga åtgärdskörningar som faktureras.|Inga dimensioner|
+|BillingUsageStandardConnector|Faktureringsanvändning för körningar av standardanslutningsappar|Antal|Totalt|Det antal standardanslutningsappskörningar som faktureras.|Inga dimensioner|
+|BillingUsageStorageConsumption|Faktureringsanvändning för körningar av lagringsförbrukning|Antal|Totalt|Det antal lagringsförbrukningskörningar som faktureras.|Inga dimensioner|
+|BillingUsageNativeOperation|Faktureringsanvändning för körningar av interna åtgärder|Antal|Totalt|Det antal ursprungliga åtgärdskörningar som faktureras.|Inga dimensioner|
+|BillingUsageStandardConnector|Faktureringsanvändning för körningar av standardanslutningsappar|Antal|Totalt|Det antal standardanslutningsappskörningar som faktureras.|Inga dimensioner|
+|BillingUsageStorageConsumption|Faktureringsanvändning för körningar av lagringsförbrukning|Antal|Totalt|Det antal lagringsförbrukningskörningar som faktureras.|Inga dimensioner|
+
+## <a name="microsoftnetappnetappaccountscapacitypoolsvolumes"></a>Microsoft.NetApp/netAppAccounts/capacityPools/Volumes
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|AverageOtherLatency|Genomsnittlig svarstid för andra|MS/op|Medel|Genomsnittlig andra svarstid (som inte är läsning eller skrivning) i millisekunder per åtgärd|Inga dimensioner|
+|AverageReadLatency|Genomsnittlig läsfördröjning|MS/op|Medel|Genomsnittlig läsa svarstid i millisekunder per åtgärd|Inga dimensioner|
+|AverageTotalLatency|Genomsnittlig svarstid för total|MS/op|Medel|Genomsnittlig total svarstid i millisekunder per åtgärd|Inga dimensioner|
+|AverageWriteLatency|Genomsnittligt antal skrivåtgärder svarstid|MS/op|Medel|Genomsnittligt antal skrivåtgärder svarstid i millisekunder per åtgärd|Inga dimensioner|
+|FilesystemOtherOps|Filsystem övriga åtgärder|OPS|Medel|Antal filsystem övriga åtgärder (som inte är läsning eller skrivning)|Inga dimensioner|
+|FilesystemReadOps|Läsåtgärder för filsystem|OPS|Medel|Antal filsystem läsåtgärder|Inga dimensioner|
+|FilesystemTotalOps|Totalt antal åtgärder för filsystem|OPS|Medel|Summan av alla filsystemsåtgärder|Inga dimensioner|
+|FilesystemWriteOps|Filsystem skrivning ops|OPS|Medel|Antalet skrivåtgärder för filsystem|Inga dimensioner|
+|IoBytesPerOtherOps|I/o-byte per övriga åtgärder|byte/op|Medel|Många av i/ut byte per övriga åtgärder (som inte är läsning eller skrivning)|Inga dimensioner|
+|IoBytesPerReadOps|I/o-byte per Läs ops|byte/op|Medel|Antalet byte per Läsåtgärden In/ut|Inga dimensioner|
+|IoBytesPerTotalOps|I/o-byte per op över alla åtgärder|byte/op|Medel|Summan av alla In/ut byte åtgärden|Inga dimensioner|
+|IoBytesPerWriteOps|I/o-byte per skrivning ops|byte/op|Medel|Många av i/ut byte per skrivåtgärd|Inga dimensioner|
+|OtherIops|Andra iops|åtgärder per sekund|Medel|Andra In/ut åtgärd per sekund|Inga dimensioner|
+|OtherThroughput|Andra dataflöde|Mbit/s|Medel|Andra dataflöde (som inte är läsning eller skrivning) i megabyte per sekund|Inga dimensioner|
+|ReadIops|Läsa iops|åtgärder per sekund|Medel|Läsa In/ut-åtgärder per sekund|Inga dimensioner|
+|ReadThroughput|Läs dataflöde|Mbit/s|Medel|Läsa dataflöde i megabyte per sekund|Inga dimensioner|
+|TotalIops|Totalt antal iops|åtgärder per sekund|Medel|Summan av alla In/ut-åtgärder per sekund|Inga dimensioner|
+|TotalThroughput|Totalt dataflöde|Mbit/s|Medel|Summan av alla dataflöde i megabyte per sekund|Inga dimensioner|
+|VolumeAllocatedSize|Volymen som allokerats storlek|byte|Medel|Allokerade storleken på volymen (inte den faktiska används byte)|Inga dimensioner|
+|VolumeLogicalSize|Logisk storlek|byte|Medel|Logiska storleken på volymen (används byte)|Inga dimensioner|
+|VolumeSnapshotSize|Volymstorlek för ögonblicksbild|byte|Medel|Storleken på alla ögonblicksbilder i volym|Inga dimensioner|
+|WriteIops|Skriva iops|åtgärder per sekund|Medel|Skriv In/ut-åtgärder per sekund|Inga dimensioner|
+|WriteThroughput|Skriva dataflöde|Mbit/s|Medel|Skriva dataflöde i megabyte per sekund|Inga dimensioner|
+
+## <a name="microsoftnetappnetappaccountscapacitypools"></a>Microsoft.NetApp/netAppAccounts/capacityPools
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|VolumePoolAllocatedSize|Volymstorlek för poolen som allokerats|byte|Medel|Allokerade storleken på poolen (inte den faktiska används byte)|Inga dimensioner|
+|VolumePoolAllocatedUsed|Volymen poolen allokeras används|byte|Medel|Allokerade storleken på poolen som används|Inga dimensioner|
+|VolumePoolTotalLogicalSize|Volymen Totalt antal logiska poolstorlek|byte|Medel|Summan av den logiska storleken på alla volymer som hör till poolen|Inga dimensioner|
+|VolumePoolTotalSnapshotSize|Volymstorlek pool totala ögonblicksbild|byte|Medel|Summan av alla ögonblicksbilder i pool|Inga dimensioner|
+
+## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|BytesSentRate|Skickade byte|Antal|Totalt|Antalet byte som skickas nätverksgränssnittet|Inga dimensioner|
+|BytesReceivedRate|Mottagna byte|Antal|Totalt|Antalet byte nätverksgränssnittet som tagits emot|Inga dimensioner|
+|PacketsSentRate|Paket som skickats|Antal|Totalt|Antal paket nätverksgränssnittet skickas|Inga dimensioner|
+|PacketsReceivedRate|Mottagna paket|Antal|Totalt|Antal paket nätverksgränssnittet som tagits emot|Inga dimensioner|
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|VipAvailability|VIP-tillgänglighet|Antal|Medel|Tillgängligheten för VIP-slutpunkter, beroende på avsökning|VipAddress VipPort|
-|DipAvailability|Tillgängligheten för DIP|Antal|Medel|Tillgängligheten för DIP-slutpunkter, beroende på avsökning|Protokolltyp, DipPort, VipAddress, VipPort, DipAddress|
-|ByteCount|Antal byte|Antal|Totalt|Sammanlagt antal byte som skickas inom tidsperioden|VipAddress, VipPort, riktning|
-|PacketCount|Antal paket|Antal|Totalt|Totalt antal paket som skickas inom tidsperioden|VipAddress, VipPort, riktning|
-|SYNCount|SYN-antal|Antal|Totalt|Totalt antal SYN-paket som skickas inom tidsperioden|VipAddress, VipPort, riktning|
-|SnatConnectionCount|Antal för SNAT-anslutningar|Antal|Totalt|Totalt antal nya SNAT-anslutningar som skapats inom tidsperioden|VipAddress, DipAddress, ConnectionState|
+|VipAvailability|Tillgänglighet för data-sökväg|Antal|Medel|Genomsnittlig belastningsutjämnaren data sökväg tillgänglighet per varaktighet|FrontendIPAddress FrontendPort|
+|DipAvailability|Hälsostatus för avsökning|Antal|Medel|Genomsnittlig belastningsutjämnaren avsökningen hälsostatus per varaktighet|Protokolltyp, BackendPort, FrontendIPAddress, FrontendPort, BackendIPAddress|
+|ByteCount|Antal byte|Antal|Totalt|Sammanlagt antal byte som skickas inom tidsperioden|FrontendIPAddress, FrontendPort, riktning|
+|PacketCount|Antal paket|Antal|Totalt|Totalt antal paket som skickas inom tidsperioden|FrontendIPAddress, FrontendPort, riktning|
+|SYNCount|SYN-antal|Antal|Totalt|Totalt antal SYN-paket som skickas inom tidsperioden|FrontendIPAddress, FrontendPort, riktning|
+|SnatConnectionCount|Antal för SNAT-anslutningar|Antal|Totalt|Totalt antal nya SNAT-anslutningar som skapats inom tidsperioden|FrontendIPAddress, BackendIPAddress, ConnectionState|
+|AllocatedSnatPorts|Allokerade SNAT portar (förhandsversion)|Antal|Totalt|Totalt antal SNAT-portar som allokerats inom tidsperioden|FrontendIPAddress, BackendIPAddress, protokolltyp|
+|UsedSnatPorts|Använda SNAT portar (förhandsversion)|Antal|Totalt|Totalt antal SNAT-portar som används inom tidsperioden|FrontendIPAddress, BackendIPAddress, protokolltyp|
 
 ## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |QueryVolume|Fråga volym|Antal|Totalt|Antal frågor som hanteras för en DNS-zon|Inga dimensioner|
 |RecordSetCount|Antal för uppsättningen av poster|Antal|Maximal|Antal postuppsättningar i en DNS-zon|Inga dimensioner|
@@ -746,7 +872,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |PacketsInDDoS|Inkommande paket DDoS|CountPerSecond|Maximal|Inkommande paket DDoS|Inga dimensioner|
 |PacketsDroppedDDoS|Inkommande paket som tas bort DDoS|CountPerSecond|Maximal|Inkommande paket som tas bort DDoS|Inga dimensioner|
@@ -770,27 +896,30 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |DDoSTriggerTCPPackets|Inkommande TCP-paket för att utlösa DDoS-åtgärd|CountPerSecond|Maximal|Inkommande TCP-paket för att utlösa DDoS-åtgärd|Inga dimensioner|
 |DDoSTriggerUDPPackets|Inkommande UDP-paket för att utlösa DDoS-åtgärd|CountPerSecond|Maximal|Inkommande UDP-paket för att utlösa DDoS-åtgärd|Inga dimensioner|
 |DDoSTriggerSYNPackets|Inkommande SYN-paket för att utlösa DDoS-åtgärd|CountPerSecond|Maximal|Inkommande SYN-paket för att utlösa DDoS-åtgärd|Inga dimensioner|
-|VipAvailability|Tillgänglighet|Antal|Medel|Genomsnittlig tillgänglighet för IP-adress inom tidsperioden|Port|
+|VipAvailability|Tillgänglighet för data-sökväg|Antal|Medel|Genomsnittlig tillgänglighet för IP-adress per varaktighet|Port|
 |ByteCount|Antal byte|Antal|Totalt|Sammanlagt antal byte som skickas inom tidsperioden|Port, riktning|
 |PacketCount|Antal paket|Antal|Totalt|Totalt antal paket som skickas inom tidsperioden|Port, riktning|
 |SynCount|SYN-antal|Antal|Totalt|Totalt antal SYN-paket som skickas inom tidsperioden|Port, riktning|
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Dataflöde|Dataflöde|BytesPerSecond|Totalt|Antalet byte per sekund som Application Gateway har hämtats|Inga dimensioner|
-|UnhealthyHostCount|Defekt antal värdar per Backendpool|Antal|Medel|Antal felaktiga backend-värdar. Du kan filtrera på en per backend-pool regelbundet visar felfria/defekta värdar i en specifik serverdelspool.|BackendSettingsPool|
-|HealthyHostCount|Felfri värd-antal|Antal|Medel|Antalet felfri backend-värdar. Du kan filtrera på en per backend-pool regelbundet visar felfria/defekta värdar i en specifik serverdelspool.|BackendSettingsPool. |
+|UnhealthyHostCount|Defekt antal värdar per Backendpool|Antal|Medel|Antalet felaktiga backend-värdar|BackendSettingsPool|
+|HealthyHostCount|Felfri värd-antal|Antal|Medel|Antalet felfri backend-värdar|BackendSettingsPool|
 |TotalRequests|Totalt antal begäranden|Antal|Totalt|Antal lyckade begäranden som Application Gateway har hämtats|BackendSettingsPool|
 |FailedRequests|Misslyckade begäranden|Antal|Totalt|Antal misslyckade begäranden som Application Gateway har hämtats|BackendSettingsPool|
-|ResponseStatus|Svarsstatus|Antal|Totalt|HTTP-svarsstatus som returneras av Application Gateway. Svaret status kod distribution kan vara ytterligare categoized att visa svar i 2xx, 3xx, 4xx eller 5xx kategorier.|HttpStatusGroup|
+|ResponseStatus|Svarsstatus|Antal|Totalt|HTTP-svarsstatus som returneras av Application Gateway|HttpStatusGroup|
 |CurrentConnections|Aktuella anslutningar|Antal|Totalt|Antal aktuella anslutningar som upprättats via Application Gateway|Inga dimensioner|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
+|AverageBandwidth|Gateway S2S bandbredd|BytesPerSecond|Medel|Genomsnittlig plats-till-plats-bandbredd för en gateway i byte per sekund|Inga dimensioner|
+|P2SBandwidth|P2S bandbredden|BytesPerSecond|Medel|Genomsnittlig punkt-till-plats-bandbredd för en gateway i byte per sekund|Inga dimensioner|
+|P2SConnectionCount|Antal för P2S-anslutningar|Antal|Maximal|Antal för punkt-till-plats-anslutning för en gateway|Protokoll|
 |TunnelAverageBandwidth|Tunnel bandbredd|BytesPerSecond|Medel|Genomsnittlig bandbredd en tunnel i byte per sekund|ConnectionName RemoteIP|
 |TunnelEgressBytes|Tunnel utgående byte|Byte|Totalt|Utgående byte en tunnel|ConnectionName RemoteIP|
 |TunnelIngressBytes|Tunnel inkommande byte|Byte|Totalt|Inkommande byte en tunnel|ConnectionName RemoteIP|
@@ -801,28 +930,42 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Medel|BITS ingressing Azure per sekund|Inga dimensioner|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Medel|BITS egressing Azure per sekund|Inga dimensioner|
+
+## <a name="microsoftnetworkexpressroutecircuitspeerings"></a>Microsoft.Network/expressRouteCircuits/peerings
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Medel|BITS ingressing Azure per sekund|Inga dimensioner|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Medel|BITS egressing Azure per sekund|Inga dimensioner|
+
+## <a name="microsoftnetworkconnections"></a>Microsoft.Network/connections
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |BitsInPerSecond|BitsInPerSecond|CountPerSecond|Medel|BITS ingressing Azure per sekund|Inga dimensioner|
 |BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Medel|BITS egressing Azure per sekund|Inga dimensioner|
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |QpsByEndpoint|Frågor efter slutpunkten returnerade|Antal|Totalt|Antal gånger som en Traffic Manager-slutpunkt som returnerades i angiven tidsperiod|EndpointName|
 |ProbeAgentCurrentEndpointStateByProfileResourceId|Slutpunktsstatus av slutpunkten|Antal|Maximal|1 om en slutpunkt avsökningen status är ”aktiverad”, annars 0.|EndpointName|
 
 ## <a name="microsoftnetworknetworkwatchersconnectionmonitors"></a>Microsoft.Network/networkWatchers/connectionMonitors
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |ProbesFailedPercent|% Avsökningar misslyckades|Procent|Medel|% av tiden har anslutning övervakningsavsökningar misslyckades|Inga dimensioner|
 |AverageRoundtripMs|Genomsn. Fram och åter tid (ms)|Millisekunder|Medel|Genomsnittlig nätverk fram och åter tid (ms) för anslutning övervakningsavsökningar som skickas mellan källa och mål|Inga dimensioner|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Registration.all|Registreringsåtgärder|Antal|Totalt|Totalt antal genomförda registreringsåtgärder (skapa, uppdatera, fråga och ta bort). |Inga dimensioner|
 |Registration.Create|Registreringsskaparåtgärder|Antal|Totalt|Totalt antal registreringar som skapats.|Inga dimensioner|
@@ -890,7 +1033,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
 (Förhandsversion)
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 Average_ % Ledigai|% Ledigai-noder|Antal|Medel|Average_ % Ledigai|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
 Average_ % ledigt utrymme|Ledigt utrymme i procent|Antal|Medel|Average_ % ledigt utrymme|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
@@ -958,7 +1101,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |QueryDuration|Frågevaraktighet|Millisekunder|Medel|DAX-frågan varaktighet i sista intervallet|Inga dimensioner|
 |QueryPoolJobQueueLength|Trådar: Fråga pool jobbkölängd|Antal|Medel|Antal jobb i kön för frågetrådspoolen.|Inga dimensioner|
@@ -968,7 +1111,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |ListenerConnections-Success|ListenerConnections-Success|Antal|Totalt|Lyckade ListenerConnections för Microsoft.Relay.|EntityName|
 |ListenerConnections-ClientError|ListenerConnections-ClientError|Antal|Totalt|ClientError på ListenerConnections för Microsoft.Relay.|EntityName|
@@ -986,7 +1129,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |SearchLatency|Svarstid för sökning|Sekunder|Medel|Svarstid för genomsnittlig sökning för search-tjänsten|Inga dimensioner|
 |SearchQueriesPerSecond|Sökfrågor per sekund|CountPerSecond|Medel|Sökfrågor per sekund för search-tjänsten|Inga dimensioner|
@@ -994,12 +1137,12 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Lyckade begäranden (förhandsversion)|Antal|Totalt|Totalt antal slutförda begäranden för ett namnområde (förhandsversion)|EntityName, |
-|ServerErrors|Serverfel. (Förhandsversion)|Antal|Totalt|Serverfel för Microsoft.ServiceBus. (Förhandsversion)|EntityName, |
-|UserErrors|Användarfel. (Förhandsversion)|Antal|Totalt|Användarfel för Microsoft.ServiceBus. (Förhandsversion)|EntityName, |
-|ThrottledRequests|Begränsade begäranden. (Förhandsversion)|Antal|Totalt|Begränsade begäranden för Microsoft.ServiceBus. (Förhandsversion)|EntityName, |
+|SuccessfulRequests|Lyckade begäranden (förhandsversion)|Antal|Totalt|Totalt antal slutförda begäranden för ett namnområde (förhandsversion)|EntityName|
+|ServerErrors|Serverfel. (Förhandsversion)|Antal|Totalt|Serverfel för Microsoft.ServiceBus. (Förhandsversion)|EntityName|
+|UserErrors|Användarfel. (Förhandsversion)|Antal|Totalt|Användarfel för Microsoft.ServiceBus. (Förhandsversion)|EntityName|
+|ThrottledRequests|Begränsade begäranden. (Förhandsversion)|Antal|Totalt|Begränsade begäranden för Microsoft.ServiceBus. (Förhandsversion)|EntityName|
 |IncomingRequests|Inkommande förfrågningar (förhandsversion)|Antal|Totalt|Inkommande begäranden för Microsoft.ServiceBus. (Förhandsversion)|EntityName|
 |IncomingMessages|Inkommande meddelanden (förhandsversion)|Antal|Totalt|Inkommande meddelanden för Microsoft.ServiceBus. (Förhandsversion)|EntityName|
 |OutgoingMessages|Utgående meddelanden (förhandsversion)|Antal|Totalt|Utgående meddelanden för Microsoft.ServiceBus. (Förhandsversion)|EntityName|
@@ -1012,21 +1155,18 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|ConnectionCount|Antal anslutningar|Antal|Maximal|Mängden användaranslutning.|Inga dimensioner|
-|ConnectionCountPerSecond|Antal anslutningar Per sekund|CountPerSecond|Medel|Den genomsnittliga anslutningsräknare per sekund.|Inga dimensioner|
-|MessageCount|Antal meddelanden|Antal|Maximal|Den totala mängden meddelande i månaden|Inga dimensioner|
-|MessageCountPerSecond|Antal meddelanden Per sekund|CountPerSecond|Medel|Genomsnittligt antal meddelanden|Inga dimensioner|
-|MessageUsed|Meddelandet som används|Procent|Maximal|Procentandelen av meddelanden som har använts i månaden|Inga dimensioner|
-|ConnectionUsed|Anslutningen som används|Procent|Maximal|Procentandelen anslutningar har använts|Inga dimensioner|
+|ConnectionCount|Antal anslutningar|Antal|Maximal|Mängden användaranslutning.|Slutpunkt|
+|MessageCount|Antal meddelanden|Antal|Totalt|Den totala mängden meddelanden.|Inga dimensioner|
+|InboundTraffic|Inkommande trafik|Byte|Totalt|Inkommande trafik för tjänsten|Inga dimensioner|
+|OutboundTraffic|Utgående trafik|Byte|Totalt|Utgående trafik för tjänsten|Inga dimensioner|
 |UserErrors|Användarfel|Procent|Maximal|Procentandelen användarfel|Inga dimensioner|
 |SystemErrors|Systemfel|Procent|Maximal|Procentandelen fel i filsystemet|Inga dimensioner|
-|SystemLoad|Systembelastning|Procent|Maximal|Procentandelen systembelastning|Inga dimensioner|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
 |physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga dimensioner|
@@ -1051,7 +1191,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
 |physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga dimensioner|
@@ -1066,84 +1206,77 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 |storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
 |xtp_storage_percent|Procent för in-Memory OLTP-lagring|Procent|Medel|Procent för in-Memory OLTP-lagring|Inga dimensioner|
 
-## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
-
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
-|---|---|---|---|---|---|
-|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|ElasticPoolResourceId|
-|storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|ElasticPoolResourceId|
-
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|UsedCapacity|Använd kapacitet|Byte|Medel|Kapacitet som används av konto|Inga dimensioner|
-|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, GeoType, ApiName|
-|Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|GeoType ApiName|
-|Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|GeoType ApiName|
-|SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Lyckad E2E-svarstid|Millisekunder|Medel|Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|GeoType ApiName|
-|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att ta TotalBillableRequests-värdet och att dela den med antalet tillämpliga förfrågningar, inklusive sådana som genererar oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
+|UsedCapacity|Använd kapacitet|Byte|Totalt|Kapacitet som används av konto|Inga dimensioner|
+|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, GeoType, ApiName, autentisering|
+|Ingress|Ingress|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|GeoType, ApiName, autentisering|
+|Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|GeoType, ApiName, autentisering|
+|SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType, ApiName, autentisering|
+|SuccessE2ELatency|Lyckad E2E-svarstid|Millisekunder|Medel|Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|GeoType, ApiName, autentisering|
+|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att ta TotalBillableRequests-värdet och att dela den med antalet tillämpliga förfrågningar, inklusive sådana som genererar oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType, ApiName, autentisering|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |BlobCapacity|Blobkapacitet|Byte|Totalt|Mängden lagring som används av lagringskontots Blob Service i byte.|BlobType|
 |BlobCount|Antalet blobar|Antal|Totalt|Antalet blobar i lagringskontots Blob Service.|BlobType|
 |ContainerCount|Antal blobcontainrar|Antal|Medel|Antalet containrar i lagringskontots Blob Service.|Inga dimensioner|
-|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, GeoType, ApiName|
-|Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|GeoType ApiName|
-|Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|GeoType ApiName|
-|SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Lyckad E2E-svarstid|Millisekunder|Medel|Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|GeoType ApiName|
-|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att ta TotalBillableRequests-värdet och att dela den med antalet tillämpliga förfrågningar, inklusive sådana som genererar oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
-
-## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
-
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
-|---|---|---|---|---|---|
-|TableCapacity|Tabellkapacitet|Byte|Medel|Mängden lagring som används av lagringskontots tabelltjänst i byte.|Inga dimensioner|
-|TableCount|Antal tabeller|Antal|Medel|Antalet tabeller i lagringskontots tabelltjänst.|Inga dimensioner|
-|TableEntityCount|Antal tabellentiteter|Antal|Medel|Antalet tabellentiteter i lagringskontots tabelltjänst.|Inga dimensioner|
-|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, GeoType, ApiName|
-|Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|GeoType ApiName|
-|Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|GeoType ApiName|
-|SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Lyckad E2E-svarstid|Millisekunder|Medel|Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|GeoType ApiName|
-|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att ta TotalBillableRequests-värdet och att dela den med antalet tillämpliga förfrågningar, inklusive sådana som genererar oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
-
-## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
-
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
-|---|---|---|---|---|---|
-|QueueCapacity|Kökapacitet|Byte|Medel|Mängden lagring som används av lagringskontots kötjänst i byte.|Inga dimensioner|
-|QueueCount|Antal köer|Antal|Medel|Antalet köer i lagringskontots kötjänst.|Inga dimensioner|
-|QueueMessageCount|Antal kömeddelanden|Antal|Medel|Ungefärligt antal kömeddelanden i lagringskontots kötjänst.|Inga dimensioner|
-|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, GeoType, ApiName|
-|Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|GeoType ApiName|
-|Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|GeoType ApiName|
-|SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Lyckad E2E-svarstid|Millisekunder|Medel|Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|GeoType ApiName|
-|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att ta TotalBillableRequests-värdet och att dela den med antalet tillämpliga förfrågningar, inklusive sådana som genererar oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
+|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, GeoType, ApiName, autentisering|
+|Ingress|Ingress|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|GeoType, ApiName, autentisering|
+|Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|GeoType, ApiName, autentisering|
+|SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType, ApiName, autentisering|
+|SuccessE2ELatency|Lyckad E2E-svarstid|Millisekunder|Medel|Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|GeoType, ApiName, autentisering|
+|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att ta TotalBillableRequests-värdet och att dela den med antalet tillämpliga förfrågningar, inklusive sådana som genererar oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType, ApiName, autentisering|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |FileCapacity|Filkapacitet|Byte|Medel|Mängden lagring som används av lagringskontots filtjänst i byte.|Inga dimensioner|
 |FileCount|Antal filer|Antal|Medel|Antalet filer i lagringskontots filtjänst.|Inga dimensioner|
 |FileShareCount|Antal filresurser|Antal|Medel|Antalet filresurser i lagringskontots filtjänst.|Inga dimensioner|
-|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, GeoType, ApiName|
-|Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|GeoType ApiName|
-|Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|GeoType ApiName|
-|SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Lyckad E2E-svarstid|Millisekunder|Medel|Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|GeoType ApiName|
-|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att ta TotalBillableRequests-värdet och att dela den med antalet tillämpliga förfrågningar, inklusive sådana som genererar oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
+|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, GeoType, ApiName, autentisering|
+|Ingress|Ingress|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|GeoType, ApiName, autentisering|
+|Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|GeoType, ApiName, autentisering|
+|SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType, ApiName, autentisering|
+|SuccessE2ELatency|Lyckad E2E-svarstid|Millisekunder|Medel|Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|GeoType, ApiName, autentisering|
+|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att ta TotalBillableRequests-värdet och att dela den med antalet tillämpliga förfrågningar, inklusive sådana som genererar oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType, ApiName, autentisering|
+
+## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|QueueCapacity|Kökapacitet|Byte|Medel|Mängden lagring som används av lagringskontots kötjänst i byte.|Inga dimensioner|
+|QueueCount|Antal köer|Antal|Medel|Antalet köer i lagringskontots kötjänst.|Inga dimensioner|
+|QueueMessageCount|Antal kömeddelanden|Antal|Medel|Ungefärligt antal kömeddelanden i lagringskontots kötjänst.|Inga dimensioner|
+|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, GeoType, ApiName, autentisering|
+|Ingress|Ingress|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|GeoType, ApiName, autentisering|
+|Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|GeoType, ApiName, autentisering|
+|SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType, ApiName, autentisering|
+|SuccessE2ELatency|Lyckad E2E-svarstid|Millisekunder|Medel|Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|GeoType, ApiName, autentisering|
+|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att ta TotalBillableRequests-värdet och att dela den med antalet tillämpliga förfrågningar, inklusive sådana som genererar oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType, ApiName, autentisering|
+
+## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|TableCapacity|Tabellkapacitet|Byte|Medel|Mängden lagring som används av lagringskontots tabelltjänst i byte.|Inga dimensioner|
+|TableCount|Antal tabeller|Antal|Medel|Antalet tabeller i lagringskontots tabelltjänst.|Inga dimensioner|
+|TableEntityCount|Antal tabellentiteter|Antal|Medel|Antalet tabellentiteter i lagringskontots tabelltjänst.|Inga dimensioner|
+|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, GeoType, ApiName, autentisering|
+|Ingress|Ingress|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|GeoType, ApiName, autentisering|
+|Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|GeoType, ApiName, autentisering|
+|SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType, ApiName, autentisering|
+|SuccessE2ELatency|Lyckad E2E-svarstid|Millisekunder|Medel|Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|GeoType, ApiName, autentisering|
+|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att ta TotalBillableRequests-värdet och att dela den med antalet tillämpliga förfrågningar, inklusive sådana som genererar oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType, ApiName, autentisering|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |ResourceUtilization|SU % utnyttjande|Procent|Maximal|SU % utnyttjande|Inga dimensioner|
 |InputEvents|Indatahändelser|Antal|Totalt|Indatahändelser|Inga dimensioner|
@@ -1157,11 +1290,12 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 |AMLCalloutFailedRequests|Misslyckade funktionsförfrågningar|Antal|Totalt|Misslyckade funktionsförfrågningar|Inga dimensioner|
 |AMLCalloutInputEvents|Funktionshändelser|Antal|Totalt|Funktionshändelser|Inga dimensioner|
 |DeserializationError|Fel vid deserialisering av indata|Antal|Totalt|Fel vid deserialisering av indata|Inga dimensioner|
-|EarlyInputEvents|Händelser vars program är tidigare än ankomsttid.|Antal|Totalt|Händelser vars program är tidigare än ankomsttid.|Inga dimensioner|
+|EarlyInputEvents|Tidiga indatahändelser|Antal|Totalt|Tidiga indatahändelser|Inga dimensioner|
+|OutputWatermarkDelaySeconds|Vattenstämpelfördröjning|Sekunder|Maximal|Vattenstämpelfördröjning|Inga dimensioner|
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |IngressReceivedMessages|Ingående fått meddelanden|Antal|Totalt|Antal meddelanden som läses från alla händelsehubb eller IoT-hubb händelsekällor|Inga dimensioner|
 |IngressReceivedInvalidMessages|Ingående erhöll ett felaktigt meddelande|Antal|Totalt|Antal felaktiga meddelanden läses från alla händelsehubb eller IoT-hubb händelsekällor|Inga dimensioner|
@@ -1173,7 +1307,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |IngressReceivedMessages|Ingående fått meddelanden|Antal|Totalt|Antal meddelanden som läses från händelsekällan|Inga dimensioner|
 |IngressReceivedInvalidMessages|Ingående erhöll ett felaktigt meddelande|Antal|Totalt|Antal felaktiga meddelanden läses från händelsekällan|Inga dimensioner|
@@ -1185,7 +1319,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |CpuPercentage|CPU-procent|Procent|Medel|CPU-procent|Instans|
 |MemoryPercentage|Minnesprocent|Procent|Medel|Minnesprocent|Instans|
@@ -1196,7 +1330,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (exklusive funktioner)
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |CpuTime|CPU-tid|Sekunder|Totalt|CPU-tid|Instans|
 |Begäranden|Begäranden|Antal|Totalt|Begäranden|Instans|
@@ -1217,6 +1351,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 |AppConnections|Anslutningar|Antal|Medel|Anslutningar|Instans|
 |Handtag|Antal referenser|Antal|Medel|Antal referenser|Instans|
 |Trådar|Antal trådar|Antal|Medel|Antal trådar|Instans|
+|PrivateBytes|Privata byte|Byte|Medel|Privata byte|Instans|
 |IoReadBytesPerSecond|I/O lästa byte per sekund|BytesPerSecond|Totalt|I/O lästa byte per sekund|Instans|
 |IoWriteBytesPerSecond|I/O skrivna byte per sekund|BytesPerSecond|Totalt|I/O skrivna byte per sekund|Instans|
 |IoOtherBytesPerSecond|I/O övrigt byte per sekund|BytesPerSecond|Totalt|I/O övrigt byte per sekund|Instans|
@@ -1233,7 +1368,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funktioner)
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |BytesReceived|Data in|Byte|Totalt|Data in|Instans|
 |BytesSent|Data ut|Byte|Totalt|Data ut|Instans|
@@ -1242,6 +1377,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 |AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Medel|Genomsnittligt arbetsminne|Instans|
 |FunctionExecutionUnits|Funktionskörningsenheter|Antal|Totalt|Funktionskörningsenheter|Instans|
 |FunctionExecutionCount|Funktionen Antal körningar|Antal|Totalt|Funktionen Antal körningar|Instans|
+|PrivateBytes|Privata byte|Byte|Medel|Privata byte|Instans|
 |IoReadBytesPerSecond|I/O lästa byte per sekund|BytesPerSecond|Totalt|I/O lästa byte per sekund|Instans|
 |IoWriteBytesPerSecond|I/O skrivna byte per sekund|BytesPerSecond|Totalt|I/O skrivna byte per sekund|Instans|
 |IoOtherBytesPerSecond|I/O övrigt byte per sekund|BytesPerSecond|Totalt|I/O övrigt byte per sekund|Instans|
@@ -1258,7 +1394,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |CpuTime|CPU-tid|Sekunder|Totalt|CPU-tid|Instans|
 |Begäranden|Begäranden|Antal|Totalt|Begäranden|Instans|
@@ -1281,6 +1417,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 |AppConnections|Anslutningar|Antal|Medel|Anslutningar|Instans|
 |Handtag|Antal referenser|Antal|Medel|Antal referenser|Instans|
 |Trådar|Antal trådar|Antal|Medel|Antal trådar|Instans|
+|PrivateBytes|Privata byte|Byte|Medel|Privata byte|Instans|
 |IoReadBytesPerSecond|I/O lästa byte per sekund|BytesPerSecond|Totalt|I/O lästa byte per sekund|Instans|
 |IoWriteBytesPerSecond|I/O skrivna byte per sekund|BytesPerSecond|Totalt|I/O skrivna byte per sekund|Instans|
 |IoOtherBytesPerSecond|I/O övrigt byte per sekund|BytesPerSecond|Totalt|I/O övrigt byte per sekund|Instans|
@@ -1297,7 +1434,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Begäranden|Begäranden|Antal|Totalt|Begäranden|Instans|
 |BytesReceived|Data in|Byte|Totalt|Data in|Instans|
@@ -1324,7 +1461,7 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |WorkersTotal|Totalt antal arbeten|Antal|Medel|Totalt antal arbeten|Inga dimensioner|
 |WorkersAvailable|Tillgängliga arbeten|Antal|Medel|Tillgängliga arbeten|Inga dimensioner|

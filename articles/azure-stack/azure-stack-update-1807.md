@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: c55667e61e35186f63f49082db0c3adadd66ff68
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: b46e365ea3903a8f2c805717df13d361c823148d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633389"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985604"
 ---
 # <a name="azure-stack-1807-update"></a>Uppdatering av Azure Stack 1807
 
@@ -172,6 +172,9 @@ Klicka på föregående länkarna för mer information om dessa säkerhetsrisker
 Här följer efter installation kända problem för den här build-versionen.
 
 ### <a name="portal"></a>Portalen
+
+- Möjligheten att [öppna en ny supportbegäran i listrutan](azure-stack-manage-portals.md#quick-access-to-help-and-support) inom administratören är inte tillgänglig. I stället för Azure Stack integrerade system kan använda följande länk: [ https://aka.ms/newsupportrequest ](https://aka.ms/newsupportrequest).
+
 - <!-- 2931230 – IS  ASDK --> Planer som läggs till i en användarprenumeration som en tilläggsplanen kan inte raderas även när du tar bort planen från användarprenumerationen. Planen finns kvar tills de prenumerationer som refererar till tilläggsplanen tas också bort. 
 
 - <!--2760466 – IS  ASDK --> När du installerar en ny Azure Stack-miljö med den här versionen, aviseringen-värde som anger *aktivering krävs* kanske inte visas. [Aktivering](azure-stack-registration.md) krävs innan du kan använda marketplace syndikering.  

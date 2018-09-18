@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: c731fd78ed7052697b3a5bd7c4da3a743e5a208d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299621"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734932"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Använd en U-SQL database-projekt för att utveckla en U-SQL-databas för Azure Data Lake
 
@@ -94,7 +94,7 @@ Du kan distribuera en U-SQL-databas via ett projekt för U-SQL-databas eller en 
 
 `PackageDeploymentTool.exe` innehåller programmering och kommandoradsverktyget gränssnitt som hjälper dig för att distribuera U-SQL-databaser. SDK: N som ingår i den [U-SQL SDK Nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), som finns i `build/runtime/PackageDeploymentTool.exe`.
 
-[Mer information om SDK och hur du ställer in CI/CD-pipeline för U-SQL-databasdistribution](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-devops).
+[Mer information om SDK och hur du ställer in CI/CD-pipeline för U-SQL-databasdistribution](data-lake-analytics-cicd-overview.md).
 
 ## <a name="reference-a-u-sql-database-project"></a>Referera till ett projekt för U-SQL-databas
 

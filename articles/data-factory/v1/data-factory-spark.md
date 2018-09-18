@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055919"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736418"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Anropa Spark-program från Azure Data Factory-pipelines
 
@@ -109,7 +109,7 @@ I det här steget länkar du ditt lagringskonto till datafabriken. En datauppsä
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Ersätt **kontonamn** och **kontonyckel** med namn och åtkomstnyckel för ditt lagringskonto. Information om hur du hämtar lagringsåtkomstnyckeln finns i avsnitten om hur du visar, kopierar och återskapar lagringsåtkomstnycklar i [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account) (Hantera ditt lagringskonto).
+1. Ersätt **kontonamn** och **kontonyckel** med namn och åtkomstnyckel för ditt lagringskonto. Information om hur du hämtar lagringsåtkomstnyckeln finns i avsnitten om hur du visar, kopierar och återskapar lagringsåtkomstnycklar i [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys) (Hantera ditt lagringskonto).
 
 1. Om du vill distribuera den länkade tjänsten, Välj **distribuera** i kommandofältet. Fönstret Draft-1 stängs när den länkade tjänsten har distribuerats. Du ser **AzureStorageLinkedService** i trädvyn till vänster.
 

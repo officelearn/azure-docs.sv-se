@@ -1,20 +1,21 @@
 ---
-title: Använd Azure Video Indexer för att hitta speciella ögonblick i videor | Microsoft Docs
-description: Det här avsnittet visar hur du hitta speciella ögonblick i videor.
+title: Hitta speciella ögonblick i videor – Video Indexer
+titlesuffix: Azure Cognitive Services
+description: Det här avsnittet visar hur du hitta speciella ögonblick i videor med Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 72f110c0c98e6fb6ee5fca684fdc74c6986e032c
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 9806f9c3f22429d61ac765773e4b6971d683a6b1
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541414"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984515"
 ---
 # <a name="find-exact-moments-within-videos"></a>Hitta exakta ögonblick i videor
 

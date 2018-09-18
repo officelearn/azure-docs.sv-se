@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: 276d36562aece7101465752528f59008e1ee7607
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cf3f7e131b177634318a6114b4f1efefcb9a9cec
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050331"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985668"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrering av SQL Server-instans till Azure SQL Database Managed Instance
 
@@ -39,7 +39,7 @@ Migreringen av databasen ut som på en hög nivå:
 
 Börja med att kontrollera om Managed Instance är kompatibelt med databaskrav av ditt program. Hanterad instans är utformad att ge enkel lift and shift-migrering för flesta av befintliga program som använder SQL Server lokalt eller på virtuella datorer. Men du kan ibland behöva funktioner eller funktioner som ännu inte stöds och kostnaden för att implementera en lösning är för höga. 
 
-Använd [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem påverkar databasfunktionaliteten på Azure SQL Database. DMA har stöd inte för hanterad instans som mål för migrering, men det rekommenderas att köra utvärderingen mot Azure SQL Database och noga igenom listan över rapporterade funktionsparitet och kompatibilitetsproblem mot produktdokumentationen. Se den [skillnader mellan Azure SQL Database Singleton och hanterad instans](sql-database-features.md) att kontrollera finns det vissa rapporterade allvarliga problem som inte blockeringar i Managed Instance eftersom de flesta av de blockerar problem hindrar en migrering till Azure SQL Database har tagits bort med Managed Instance. För instans, funktioner som databasöverskridande frågor och transaktioner över flera databaser inom samma instans länkad server för att andra SQL källor, CLR, globala temporära tabeller, är instans på vyer, Service Broker och liknande tillgängliga i hanterade instanser. 
+Använd [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem påverkar databasfunktionaliteten på Azure SQL Database. DMA har stöd inte för hanterad instans som mål för migrering, men det rekommenderas att köra utvärderingen mot Azure SQL Database och noga igenom listan över rapporterade funktionsparitet och kompatibilitetsproblem mot produktdokumentationen. Se [Azure SQL Database-funktioner](sql-database-features.md) att kontrollera finns det vissa rapporterade allvarliga problem att inte blockeringar i hanterad instans, eftersom de flesta av de blockerar problem hindrar en migrering till Azure SQL Database har tagits bort med hanterad Instans. För instans, funktioner som databasöverskridande frågor och transaktioner över flera databaser inom samma instans länkad server för att andra SQL källor, CLR, globala temporära tabeller, är instans på vyer, Service Broker och liknande tillgängliga i hanterade instanser. 
 
 Om det finns några rapporterade allvarliga problem som inte tas bort i Azure SQL Managed Instance kan du behöva tänka på ett alternativ, till exempel [SQL Server på virtuella datorer i Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Här följer några exempel:
 

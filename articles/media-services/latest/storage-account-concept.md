@@ -11,31 +11,31 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6d4c21867b0b46508f348300ae2b9553a75d23b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 883aecaa82f1a83af22bf345d364c2b43776e559
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788069"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732217"
 ---
 # <a name="storage-accounts"></a>Lagringskonton
 
-När du skapar ett Media Services-konto kan behöva du ange namnet på en resurs för Azure Storage-konto. Det angivna lagringskontot är kopplad till ditt Media Services-konto. 
+När du skapar ett Media Services-konto, måste du ange namnet på en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto. 
 
-Du måste ha en **primära** storage-konto och du kan ha valfritt antal **sekundära** storage-konton som är associerade med Media Services-kontot. Media Services stöder **allmänna v2** (GPv2) eller **allmänna v1** konton (GPv1). 
+Du måste ha ett **primära** storage-konto och du kan ha valfritt antal **sekundära** lagringskonton som är associerade med ditt Media Services-konto. Media Services stöder konton av typen **General-purpose v2** (GPv2) och **General-purpose v1** (GPv1). 
 
 >[!NOTE]
-> Endast BLOB-konton tillåts inte som **primära**. 
+> Endast blob-konton tillåts inte som **primära**. 
 
-Vi rekommenderar att du använder GPv2, så att du kan dra nytta av att välja mellan hot och kall lagringsnivåer. Mer information om lagringskonton finns [Azure Storage-konto](../../storage/common/storage-account-options.md). 
+Vi rekommenderar att du använder GPv2, så att du kan dra nytta av att välja mellan frekvent och lågfrekvent lagringsnivå. Mer information om lagringskonton finns [översikt över Azure Storage-konto](../../storage/common/storage-account-overview.md). 
 
 ## <a name="assets-in-a-storage-account"></a>Tillgångar i ett lagringskonto
 
-I Media Services v3 för Storage-API: er att överföra filer. Om du vill se hur du använder API: erna lagring med Media Services för att ladda upp dina indatafiler kolla [skapar ett jobb indata från en lokal fil](job-input-from-local-file-how-to.md). 
+I Media Services v3 för Storage-API: er att ladda upp filer. Om du vill se hur du använder Storage-API: er med Media Services för att ladda upp dina indatafiler, Kolla in [skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md). 
 
 > [!Note]
-> Du bör inte försöka ändra innehållet i blob-behållare som har genererats av Media Services SDK utan att använda Media Services-API: er.
+> Du bör inte försöka ändra innehållet i blob-behållare som har genererats av Media Services SDK utan att använda API: er för Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du kopplar ett lagringskonto till Media Services-kontot finns [skapa ett konto](create-account-cli-quickstart.md).
+Läs hur du kopplar ett storage-konto till ditt Media Services-konto i [skapa ett konto](create-account-cli-quickstart.md).

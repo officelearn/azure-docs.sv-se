@@ -1,18 +1,18 @@
 ---
 title: Använda Azure Storage som en Terraform-serverdel
-description: En introduktion till att lagra Terrafom tillstånd i Azure Storage.
+description: En introduktion till att lagra Terraform tillstånd i Azure Storage.
 services: terraform
 author: neilpeterson
 ms.service: terraform
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: nepeters
-ms.openlocfilehash: c27c6bc5f2071203c9a9dd5a94e73c0cb4626598
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 2bee9f73f430e18fe159eed142b265cc1934860e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45608307"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984993"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Tillstånd för Store-Terraform i Azure Storage
 
@@ -26,7 +26,7 @@ Terraform innehåller konceptet med en serverdel för tillstånd, vilket är Fj�
 
 ## <a name="configure-storage-account"></a>Konfigurera storage-konto
 
-Ett storage-konto måste skapas innan du använder Azure Storage som serverdel. Storage-konto kan skapas med Azure portal, PowerShell, Azure CLI eller Terraform själva. Använd följande exempel för att konfigurera store-konto med Azure CLI.
+Ett storage-konto måste skapas innan du använder Azure Storage som serverdel. Storage-konto kan skapas med Azure portal, PowerShell, Azure CLI eller Terraform själva. Använd följande exempel för att konfigurera storage-konto med Azure CLI.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -35,7 +35,7 @@ RESOURCE_GROUP_NAME=tfstatestorage
 STORAGE_ACCOUNT_NAME=tfstatestorage$RANDOM
 CONTAINER_NAME=tfstatestorage
 
-# Ceeate resoruce group
+# Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 # Create storage account
@@ -49,7 +49,7 @@ az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOU
 
 echo "storage_account_name: $STORAGE_ACCOUNT_NAME"
 echo "container_name: $CONTAINER_NAME"
-echo "ARM_ACCESS_KEY: $ACCOUNT_KEY"
+echo "access_key: $ACCOUNT_KEY"
 ```
 
 Anteckna det lagringskontonamn och behållarnamn lagringsåtkomstnyckeln. Dessa värden krävs när du konfigurerar fjärråtkomst tillstånd.
@@ -79,7 +79,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 Om du vill konfigurera Terraform för att använda serverdelen måste innehålla en *serverdel* med en typ av *azurerm* inuti Terraform-konfigurationen. Lägg till den *storage_account_name*, *container_name*, och *nyckel* värden till configuration-block.
 
-I följande exempel konfigurerar en serverdel för Terraform och skapar och Azure-resursgrupp.
+I följande exempel konfigurerar en Terraform-serverdel och skapar och Azure-resursgrupp.
 
 ```json
 terraform {
@@ -91,7 +91,7 @@ terraform {
 }
 
 resource "azurerm_resource_group" "state-demo-secure" {
-  name     = "state-demoe"
+  name     = "state-demo"
   location = "eastus"
 }
 ```
@@ -102,7 +102,7 @@ Nu kan initiera konfigurationen med *Terraform init* och kör sedan konfiguratio
 
 När du använder en Azure Storage Blob för lagring av användartillstånd, låses automatiskt blob före en åtgärd som skriver tillstånd. Den här konfigurationen hindrar flera samtidiga åtgärder, vilket kan orsaka skador. Mer information finns i [tillstånd låsning] [ terraform-state-lock] om Terraform-dokumentationen.
 
-Låset kan vara se när du granskar bloben genom Azure portal eller andra Azure-hanteringsverktyg.
+Låset visas när du granskar bloben genom Azure portal eller andra Azure-hanteringsverktyg.
 
 ![Azure-blob med lås](media/terraform-backend/lock.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: a7456bedeb6bc870ad5d6892fe697fb2dfcd3bc1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a85fb6ce211e6089f67cb2e2f265fbda06a25b10
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527812"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735105"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att exportera data från Azure Blob storage
 Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten för att exportera stora mängder data på ett säkert sätt från Azure Blob storage. Tjänsten kräver att du kan leverera tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagringskonto till enheterna och sedan levereras enheter tillbaka.
@@ -23,7 +23,7 @@ Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure I
 Innan du skapar en export-jobbet för att överföra data från Azure Blob Storage måste du noggrant granska och slutför följande lista över kraven för den här tjänsten. Måste du:
 
 - Ha en aktiv Azure-prenumeration som kan användas för Import/Export-tjänsten.
-- Har minst en Azure Storage-konto. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
+- Har minst en Azure Storage-konto. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-quickstart-create-account.md).
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks).
 - Ha ett FedEx/DHL-konto.  
     - Kontot måste vara giltig, bör ha saldo och måste ha returfrakt funktioner.

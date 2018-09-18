@@ -7,12 +7,12 @@ ms.date: 06/24/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 571aa5a080ae4622a23fdb20d712327d4ec6fbf9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 5eb0ba659961d809d0ae471034b03263f87e3894
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42061096"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985506"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Metodtips för enhetskonfiguration i en IoT-lösning
 
@@ -55,7 +55,7 @@ Här följer bästa praxis för maskinvarutillverkare och integrerare som hanter
 
 Här följer några Metodtips för IoT-lösningsutvecklare som skapar system baserade i Azure:
 
-* **Implementera [enhetstvillingar](iot-hub-devguide-device-twins.md):** enhetstvillingar Aktivera synkronisering av önskad konfiguration från molnet och att rapportera aktuell konfiguration och enhetens egenskaper. Det bästa sättet att implementera enhetstvillingar i lösningar för molnprogram är via den [Azure IoT SDK: er](https://github.com/Azure/azure-iot-sdks.) enhetstvillingar passar bäst för konfiguration eftersom de:
+* **Implementera [enhetstvillingar](iot-hub-devguide-device-twins.md):** enhetstvillingar Aktivera synkronisering av önskad konfiguration från molnet och att rapportera aktuell konfiguration och enhetens egenskaper. Det bästa sättet att implementera enhetstvillingar i lösningar för molnprogram är via den [Azure IoT SDK: er](https://github.com/Azure/azure-iot-sdks). Enhetstvillingar är bäst lämpade för konfiguration eftersom de:
 
     * Stöd för dubbelriktad kommunikation.
     * Tillåt både ansluten och frånkopplade enhetstillstånd. 

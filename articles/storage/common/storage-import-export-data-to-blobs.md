@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 2484d01c268757ef612ba7b397b80b8ea4c4e76a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528147"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737064"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
 
@@ -25,7 +25,7 @@ Innan du skapar ett importjobb för att överföra data till Azure Blob Storage 
 
 - Ha en aktiv Azure-prenumeration som kan användas för Import/Export-tjänsten.
 - Har minst en Azure Storage-konto med en lagringsbehållare. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). 
-    - Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account). 
+    - Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-quickstart-create-account.md). 
     - För information om storage-behållare, går du till [skapa en lagringsbehållare](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks). 
 - Har ett Windows-system som kör en [stöd för OS-version](storage-import-export-requirements.md#supported-operating-systems). 

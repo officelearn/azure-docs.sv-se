@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1bf20ebec5792fc01c62966a0454c37c3c950182
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 554434e57c5c67809f79aab21054e6ad60fe8491
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35964009"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729404"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect-inloggning användaralternativ
 Azure Active Directory (Azure AD) Connect kan användarna att logga in på både i molnet och lokala resurser med hjälp av samma lösenord. Den här artikeln beskriver viktiga begrepp för varje identitet modell för att välja den identitet som du vill använda för att logga in till Azure AD.
@@ -114,7 +114,7 @@ UPN för användaren har formatet username@domain. För en Active Directory-dom�
 ### <a name="user-principal-name-in-azure-ad"></a>Användarens huvudnamn i Azure AD
 Azure AD Connect-guiden använder attributet userPrincipalName eller kan du ange attributet (i en anpassad installation) för att användas från en lokal plats som användarens huvudnamn i Azure AD. Detta är det värde som används för att logga in till Azure AD. Om värdet för attributet userPrincipalName inte motsvarar en verifierad domän i Azure AD, Azure AD ersätter den med en standard. onmicrosoft.com-värde.
 
-Alla kataloger i Azure Active Directory levereras med en inbyggd domännamn, med formatet contoso.onmicrosoft.com, som gör att du komma igång med Azure eller andra Microsoft-tjänster. Du kan förbättra och förenkla inloggningen går genom att använda anpassade domäner. Information om anpassade domännamn i Azure AD och hur du verifierar en domän finns i [lägga till ett anpassat domännamn i Azure Active Directory](../fundamentals/add-custom-domain.md#add-the-custom-domain-name-to-your-directory).
+Alla kataloger i Azure Active Directory levereras med en inbyggd domännamn, med formatet contoso.onmicrosoft.com, som gör att du komma igång med Azure eller andra Microsoft-tjänster. Du kan förbättra och förenkla inloggningen går genom att använda anpassade domäner. Information om anpassade domännamn i Azure AD och hur du verifierar en domän finns i [lägga till ett anpassat domännamn i Azure Active Directory](../fundamentals/add-custom-domain.md#add-a-custom-domain-name).
 
 ## <a name="azure-ad-sign-in-configuration"></a>Inloggningskonfiguration för Azure AD
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Azure AD-inloggningen konfiguration med Azure AD Connect
@@ -126,7 +126,7 @@ Azure AD-inloggningssida Listar de UPN-suffix som har definierats för den lokal
 | Status | Beskrivning | Åtgärd krävs |
 |:--- |:--- |:--- |
 | Verifierad |Azure AD Connect att hitta matchande verifierade domän i Azure AD. Alla användare för den här domänen kan logga in med sina lokala autentiseringsuppgifter. |Ingen åtgärd krävs. |
-| Verifierades inte |Azure AD Connect finns en motsvarande anpassade domän i Azure AD, men det är inte verifierad. UPN-suffixet användare av den här domänen kommer att ändras till standardvärdet. onmicrosoft.com suffix efter synkroniseringen om domänen inte verifieras. | [Verifiera den anpassade domänen i Azure AD.](../fundamentals/add-custom-domain.md#verify-the-custom-domain-name-in-azure-ad) |
+| Verifierades inte |Azure AD Connect finns en motsvarande anpassade domän i Azure AD, men det är inte verifierad. UPN-suffixet användare av den här domänen kommer att ändras till standardvärdet. onmicrosoft.com suffix efter synkroniseringen om domänen inte verifieras. | [Verifiera den anpassade domänen i Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | Inte har lagts till |Azure AD Connect kunde inte hitta en anpassad domän som motsvarade UPN-suffixet. UPN-suffixet användare av den här domänen kommer att ändras till standardvärdet. onmicrosoft.com-suffix om domänen inte har lagts till och verifieras i Azure. | [Lägg till och verifiera en anpassad domän som motsvarar UPN-suffixet.](../fundamentals/add-custom-domain.md) |
 
 Azure AD-inloggningssida Listar de UPN-suffix som har definierats för den lokala Active Directory och motsvarande anpassade domän i Azure AD med aktuell status för verifiering. I en anpassad installation kan du nu välja attributet för user principal name på den **Azure AD-inloggningen** sidan.

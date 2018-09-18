@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0e292bfd38402d5a36be217746fd352ce4627177
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 9759c4149c6b026837e550dcf3ab0a0156bbb736
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633324"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730017"
 ---
 # <a name="create-a-map"></a>Skapa en karta
 
@@ -22,29 +22,29 @@ Den här artikeln visar hur du skapar en karta.
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Det finns två sätt som du kan skapa en karta. Du kan ange kameran på kartan genom att ange mittpunkt och zoomnivå eller ange kamera gränser på kartan genom att ange sydväst avgränsar punkt och nordöstra avgränsar punkt.
+Det finns två sätt som du kan skapa en karta. Du kan ange kameran på kartan genom att ange mittpunkt och zoomnivå. Ange kamera gränser på kartan genom att ange sydväst avgränsar punkt och nordöst avgränsar punkt.
 
 <a id="setCameraOptions"></a>
 
-### <a name="setting-the-camera"></a>Ange kameran
+### <a name="set-the-camera"></a>Ange kameran
 
-<iframe height='310' scrolling='no' title='Skapa en karta via CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>skapa en karta via CameraOptions</a> genom Azure LBS (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='310' scrolling='no' title='Skapa en karta via CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>skapa en karta via `CameraOptions` </a>av Azure Location Based Services (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-I koden ovan, en [Kartobjekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) har skapats `new atlas.Map()`. Egenskaper för kartan, till exempel centrering och zoomning nivå är en del av [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraoptions?view=azure-iot-typescript-latest). CameraOptions kan definieras i kartan konstruktorn eller via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) funktion i klassen kartan.
+I koden ovan, en [Kartobjekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) har skapats `new atlas.Map()`. Egenskaper för kartan, till exempel centrering och zoomning nivå är en del av [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraoptions?view=azure-iot-typescript-latest). `CameraOptions` Du kan definiera i konstruktorn kartan eller via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) funktion i klassen kartan.
 
 <a id="setCameraBoundsOptions"></a>
 
-### <a name="setting-the-camera-bounds"></a>Ange gränser för kamera
+### <a name="set-the-camera-bounds"></a>Ange gränser för kamera
 
-<iframe height='310' scrolling='no' title='Skapa en karta via CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>skapa en karta via CameraBoundsOptions</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='310' scrolling='no' title='Skapa en karta via CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>skapa en karta via `CameraBoundsOptions` </a>genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-I koden ovan, en [Kartobjekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) skapas `new atlas.Map()`. Egenskaper för kartan, till exempel angränsande ruta är en del av [CameraBoundsOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest). CameraBoundsOptions kan definieras [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) funktion i klassen kartan.
+I koden ovan, en [Kartobjekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) skapas `new atlas.Map()`. Egenskaper för kartan, till exempel angränsande ruta är en del av [CameraBoundsOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest). `CameraBoundsOptions` kan definieras [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) funktion i klassen kartan.
 
 ## <a name="try-out-the-code"></a>Prova att använda koden
 
-Ta en titt på exempelkoden ovan. Du kan redigera JavaScript-koden på fliken JS till vänster och se kartan visa ändringarna på fliken resultatet till höger. Du kan också klicka på knappen ”Redigera på CodePen” och redigera koden i CodePen.
+Ta en titt på exempelkoden ovan. Du kan redigera JavaScript-kod på den **JS fliken** till vänster och se kartvyn ändringar på den **resultatet fliken** till höger. Du kan också klicka på den **Redigera på CodePen** knappen och redigera koden i CodePen.
 
 <a id="relatedReference"></a>
 

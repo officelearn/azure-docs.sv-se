@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 09/15/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc362dba62e8fd41b33e10368483577d8166f300
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4ef50e1a027c0109b4e076e5f1dbbb1ba4ce2950
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722341"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737506"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -34,6 +34,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.AAD/domainServices/delete | Ta bort Domäntjänsten |
+> | Åtgärd | Microsoft.AAD/domainServices/oucontainer/delete | Ta bort Organisationsenhetsbehållaren |
+> | Åtgärd | Microsoft.AAD/domainServices/oucontainer/read | Läsa Ou-behållare |
+> | Åtgärd | Microsoft.AAD/domainServices/oucontainer/write | Skriva Organisationsenhetsbehållaren |
 > | Åtgärd | Microsoft.AAD/domainServices/read | Läs Domain Services |
 > | Åtgärd | Microsoft.AAD/domainServices/write | Skriva Domäntjänsten |
 > | Åtgärd | Microsoft.AAD/locations/operationresults/read |  |
@@ -699,7 +702,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Cache/redis/patchSchedules/read | Hämtar uppdateringsschemat för Redis Cache |
 > | Åtgärd | Microsoft.Cache/redis/patchSchedules/write | Ändra uppdateringsschemat för Redis Cache |
 > | Åtgärd | Microsoft.Cache/redis/read | Visa inställningarna och konfigurationen för Redis-cache i hanteringsportalen |
+> | Åtgärd | Microsoft.Cache/redis/recommendations/read | Läsa rekommendationer för Azure Redis Cache |
 > | Åtgärd | Microsoft.Cache/redis/regenerateKey/action | Ändra värdet för åtkomstnycklarna för Redis-cache i hanteringsportalen |
+> | Åtgärd | Microsoft.Cache/redis/start/action | Starta en cacheinstans. |
 > | Åtgärd | Microsoft.Cache/redis/start/action | Starta en cacheinstans. |
 > | Åtgärd | Microsoft.Cache/redis/stop/action | Stoppa en cacheinstans. |
 > | Åtgärd | Microsoft.Cache/redis/write | Ändra inställningarna och konfigurationen för Redis-cache i hanteringsportalen |
@@ -825,8 +830,12 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/capabilities/read | Visar domännamnsfunktionerna |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/delete | Ta bort resursernas domännamn. |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/read | Visar distributionsplatserna. |
+> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read | Hämta rollen på distributionsplatsen för domännamn |
+> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read | Hämta rollinstans för rollen på distributionsplatsen för domännamn |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/state/read | Hämta status för distributionsfacket. |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/state/write | Lägg till status för distributionsfacket. |
+> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read | Hämta uppgraderingsdomän för distributionsplatsen på domännamnet |
+> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write | Uppdatera uppgraderingsdomän för distributionsfacket på domännamnet |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/write | Skapar eller uppdaterar distributionen. |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/extensions/delete | Ta bort domännamnstilläggen. |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/extensions/operationStatuses/read | Läser domännamnstilläggens åtgärdsstatus. |
@@ -1173,6 +1182,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | Hämtar historiken för operativsystemuppgraderingar för en VM-skalningsuppsättning |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | Utför planerat underhåll på VM-skalningsuppsättningens instanser |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | Stänger av VM-skalningsuppsättningens instanser |
+> | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar diagnostikinställningen för skalningsuppsättningen för virtuell dator. |
+> | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för skalningsuppsättningen för virtuell dator. |
+> | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för skalningsuppsättningar för virtuell dator. |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | Läser måttdefinitioner för den virtuella datorns skalningsuppsättning |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | Hämta egenskaper för alla offentliga IP-adresser för en VM-skalningsuppsättning |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/read | Hämta egenskaperna för en VM-skalningsuppsättning |
@@ -2164,6 +2176,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Insights/AlertRules/Throttled/Action | Klassiska måttaviseringsregel begränsas |
 > | Åtgärd | Microsoft.Insights/AlertRules/Write | Skapa eller uppdatera en klassisk måttavisering |
 > | Åtgärd | Microsoft.Insights/AutoscaleSettings/Delete | Ta bort en autoskalningsinställning |
+> | Åtgärd | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Read | Läsa en resursdiagnostikinställning |
+> | Åtgärd | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Write | Skapa eller uppdatera en resursdiagnostikinställning |
+> | Åtgärd | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/logDefinitions/Read | Läs loggdefinitioner |
 > | Åtgärd | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | Läs måttdefinitioner |
 > | Åtgärd | Microsoft.Insights/AutoscaleSettings/Read | Läsa en autoskalningsinställning |
 > | Åtgärd | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Automatisk skalning skala ned initierad |
@@ -2257,7 +2272,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Insights/Logs/ContainerInventory/Read | Läs data från ContainerInventory-tabellen |
 > | Åtgärd | Microsoft.Insights/Logs/ContainerLog/Read | Läs data från ContainerLog-tabellen |
 > | Åtgärd | Microsoft.Insights/Logs/ContainerServiceLog/Read | Läs data från ContainerServiceLog-tabellen |
-> | Åtgärd | Microsoft.Insights/Logs/CustomLogs/Read | Läser data från valfri anpassad logg |
 > | Åtgärd | Microsoft.Insights/Logs/DeviceAppCrash/Read | Läs data från DeviceAppCrash-tabellen |
 > | Åtgärd | Microsoft.Insights/Logs/DeviceAppLaunch/Read | Läs data från DeviceAppLaunch-tabellen |
 > | Åtgärd | Microsoft.Insights/Logs/DeviceCalendar/Read | Läs data från DeviceCalendar-tabellen |
@@ -2418,24 +2432,24 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.KeyVault/checkNameAvailability/read | Kontrollerar att ett key vault-namn är giltigt och används inte |
-> | Åtgärd | Microsoft.KeyVault/deletedVaults/read | Visa egenskaperna för ej permanent borttagna nyckelvalven |
+> | Åtgärd | Microsoft.KeyVault/checkNameAvailability/read | Kontrollera att nyckelvalvsnamnet är giltigt och inte används |
+> | Åtgärd | Microsoft.KeyVault/deletedVaults/read | Visa egenskaperna för de ej permanent borttagna nyckelvalven |
 > | Åtgärd | Microsoft.KeyVault/hsmPools/delete | Ta bort en HSM-pool |
 > | Åtgärd | Microsoft.KeyVault/hsmPools/joinVault/action | Anslut ett nyckelvalv till en HSM-pool |
 > | Åtgärd | Microsoft.KeyVault/hsmPools/read | Visa egenskaperna för en HSM-pool |
-> | Åtgärd | Microsoft.KeyVault/hsmPools/write | Skapa en ny HSM-pool Update egenskaperna för en befintlig HSM-pool |
-> | Åtgärd | Microsoft.KeyVault/locations/deletedVaults/purge/action | Rensa ett ej permanent Borttaget nyckelvalv |
-> | Åtgärd | Microsoft.KeyVault/locations/deletedVaults/read | Visa egenskaperna för ett ej permanent Borttaget nyckelvalv |
+> | Åtgärd | Microsoft.KeyVault/hsmPools/write | Skapa en ny HSM-pool eller uppdatera egenskaperna för en befintlig HSM-pool |
+> | Åtgärd | Microsoft.KeyVault/locations/deletedVaults/purge/action | Rensa ett ej permanent borttaget nyckelvalv |
+> | Åtgärd | Microsoft.KeyVault/locations/deletedVaults/read | Visa egenskaperna för ett ej permanent borttaget nyckelvalv |
 > | Åtgärd | Microsoft.KeyVault/locations/deleteVirtualNetworkOrSubnets/action | Aviserar Microsoft.KeyVault att ett virtuellt nätverk eller undernät tas bort |
 > | Åtgärd | Microsoft.KeyVault/locations/operationResults/read | Kontrollera resultatet för en långkörd åtgärd |
-> | Åtgärd | Microsoft.KeyVault/operations/read | Visar en lista över åtgärder som är tillgängliga på resursprovidern Microsoft.keyvault |
+> | Åtgärd | Microsoft.KeyVault/operations/read | Listar de åtgärder som finns tillgängliga på resursprovidern Microsoft.KeyVault |
 > | Åtgärd | Microsoft.KeyVault/register/action | Registrerar en prenumeration |
 > | Åtgärd | Microsoft.KeyVault/unregister/action | Avregistrerar en prenumeration |
-> | Åtgärd | Microsoft.KeyVault/vaults/accessPolicies/write | Uppdatera en befintlig åtkomstprincip genom att sammanfoga ersätta eller lägga till en ny åtkomstprincip till ett valv. |
+> | Åtgärd | Microsoft.KeyVault/vaults/accessPolicies/write | Uppdatera en befintlig åtkomstprincip genom att sammanfoga, ersätta eller lägga till en ny åtkomstprincip till ett valv. |
 > | Åtgärd | Microsoft.KeyVault/vaults/delete | Ta bort ett nyckelvalv |
-> | Åtgärd | Microsoft.KeyVault/vaults/deploy/action | Tillåter åtkomst till hemligheter i key vault när du distribuerar Azure-resurser |
-> | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Read | Hämtar diagnostikinställningen för resursen |
-> | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Write | Skapar eller uppdaterar diagnostikinställningen för resursen |
+> | Åtgärd | Microsoft.KeyVault/vaults/deploy/action | Tillåter åtkomst till hemligheter i ett nyckelvalv vid distribution av Azure-resurser |
+> | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för resursen |
+> | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för ett nyckelvalv |
 > | Åtgärd | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för ett nyckelvalv |
 > | Åtgärd | Microsoft.KeyVault/vaults/read | Visa egenskaperna för ett nyckelvalv |
@@ -2456,7 +2470,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Kusto/Clusters/Databases/write | Skriver en databasresurs. |
 > | Åtgärd | Microsoft.Kusto/Clusters/delete | Tar bort en klusterresurs. |
 > | Åtgärd | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar diagnostikinställningarna för resursen |
-> | Åtgärd | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för resursen |
+> | Åtgärd | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/metricDefinitions/read | Hämtar måttdefinitioner för resursen |
 > | Åtgärd | Microsoft.Kusto/Clusters/read | Läser en klusterresurs. |
 > | Åtgärd | Microsoft.Kusto/Clusters/write | Skriver en klusterresurs. |
@@ -2496,9 +2510,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/users/write | Lägg till eller ändra användare. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/labs/write | Lägg till eller ändra labb. |
 > | Åtgärd | Microsoft.LabServices/labAccounts/read | Läsa lab-konton. |
-> | Åtgärd | Microsoft.LabServices/labAccounts/sizes/GetRegionalAvailability/action | Hämta information om regional tillgänglighet för varje kategori för storlek som konfigurerats under ett labbkonto |
-> | Åtgärd | Microsoft.LabServices/labAccounts/sizes/read | Läsa storlekar. |
-> | Åtgärd | Microsoft.LabServices/labAccounts/sizes/ResetOverrides/action | Återställer storlek konfigurationen av den här labbkonto till standardvärden |
 > | Åtgärd | Microsoft.LabServices/labAccounts/write | Lägg till eller ändra labb-konton. |
 > | Åtgärd | Microsoft.LabServices/locations/operations/read | Läsåtgärder. |
 > | Åtgärd | Microsoft.LabServices/register/action | Registrerar prenumerationen |
@@ -3742,6 +3753,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | Läs data från OutboundConnection-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/Perf/read | Läs data från Perf-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | Läs data från ProtectionStatus-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/read | Kör frågor över data i arbetsytan |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ReservedAzureCommonFields/read | Läs data från ReservedAzureCommonFields-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ReservedCommonFields/read | Läs data från ReservedCommonFields-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | Läs data från SCCMAssessmentRecommendation-tabellen |
@@ -4280,11 +4292,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ServiceBus/namespaces/messagingPlan/read | Hämtar Meddelandeplanen för ett namnområde.<br>Detta API är inaktuell.<br>Egenskaper som visas via MessagingPlan-resursen har flyttats till namnområdesresursen (överordnad) Namespace i senare API-versioner...<br>Den här åtgärden stöds inte på API-versionen 2017-04-01. |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/messagingPlan/write | Uppdaterar Meddelandeplanen för ett namnområde.<br>Detta API är inaktuell.<br>Egenskaper som visas via MessagingPlan-resursen har flyttats till namnområdesresursen (överordnad) Namespace i senare API-versioner...<br>Den här åtgärden stöds inte på API-versionen 2017-04-01. |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/migrate/action | Migreringsåtgärd för namnområde |
-> | Åtgärd | Microsoft.ServiceBus/namespaces/migrationConfigurations/delete | Tar bort migreringskonfigurationen. |
-> | Åtgärd | Microsoft.ServiceBus/namespaces/migrationConfigurations/read | Hämtar migreringskonfigurationen som visar migreringens status och väntande replikeringsåtgärder |
-> | Åtgärd | Microsoft.ServiceBus/namespaces/migrationConfigurations/revert/action | Återställer migreringen från standard- till Premium-namnområde |
-> | Åtgärd | Microsoft.ServiceBus/namespaces/migrationConfigurations/upgrade/action | Det DNS som är kopplat till standardnamnområdet kopplas till Premium-namnområdet vilket slutför migreringen och stoppar synkronisering av resurser från standard- till Premium-namnområdet |
-> | Åtgärd | Microsoft.ServiceBus/namespaces/migrationConfigurations/write | Skapar eller konfigurationen för migrering av uppdateringar. Detta startar synkronisering av resurser från standard till premium-namnområde |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/operationresults/read | Hämta status för namnområdesåtgärd |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Hämta listan över resursbeskrivningar för Namespace diagnostikinställningar |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Hämta listan över resursbeskrivningar för Namespace diagnostikinställningar |
@@ -4455,7 +4462,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/managedInstances/delete | Tar bort en befintlig hanterad instans. |
 > | Åtgärd | Microsoft.Sql/managedInstances/encryptionProtector/read | Returnerar en lista över server kryptering protectors eller hämtar egenskaperna för den angivna servern krypteringsskyddet. |
 > | Åtgärd | Microsoft.Sql/managedInstances/encryptionProtector/write | Uppdatera egenskaperna för den angivna Serverkrypteringsskydd. |
-> | Åtgärd | Microsoft.Sql/managedInstances/keys/delete | Tar bort en befintlig Azure SQL Database Managed Instance-nyckel. |
+> | Åtgärd | Microsoft.Sql/managedInstances/keys/delete | Tar bort en befintlig Azure SQL Managed Instance-nyckel. |
 > | Åtgärd | Microsoft.Sql/managedInstances/keys/read | Returnera listan över hanterade instansen nycklar eller hämtar egenskaperna för angivna hanterad instans-nyckeln. |
 > | Åtgärd | Microsoft.Sql/managedInstances/keys/write | Skapar en nyckel med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för angivna hanterad instans-nyckeln. |
 > | Åtgärd | Microsoft.Sql/managedInstances/metricDefinitions/read | Hämta måttdefinitioner för den hanterade instansen |
@@ -4712,7 +4719,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar en container eller containerlista |
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/containers/setLegalHold/action | Ställ in bevarande av juridiska skäl för blobcontainer |
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returnerar resultatet av att placera eller låna blobcontainer |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Returnerar en användardelegeringsnyckel för Blob Service |
+> | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Returnerar en användardelegeringsnyckel för Blob Service |
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/read | Hämta diagnostikinställningen för resursen. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för resursen. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/logDefinitions/read | Hämtar loggdefinitionen för blob |
@@ -4724,7 +4731,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för resursen. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/logDefinitions/read | Hämtar loggdefinitionen för fil |
 > | Åtgärd | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read | Hämta lista över Microsofts lagringsmåttdefinitioner. |
-> | Åtgärd | Microsoft.Storage/storageAccounts/lastsynctime/read |  |
+> | Åtgärd | Microsoft.Storage/storageAccounts/lastsynctime/read | Returnerar storage-kontots senaste synkroniseringstid |
 > | Åtgärd | Microsoft.Storage/storageAccounts/listAccountSas/action | Returnerar SAS-token för konto för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/listkeys/action | Returnerar åtkomstnycklarna för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/listServiceSas/action | Returnerar SAS-token för tjänst för det angivna lagringskontot. |

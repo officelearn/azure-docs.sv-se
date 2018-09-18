@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: a066d2a55f6949eea316eaf0a2956500667a996f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8a7346f884a065a21b6f0a822b2236fa7ce5dff0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340279"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732565"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Bearbeta Apache Kafka för Event Hubs-händelser med Stream-analys 
 Den här artikeln visar hur du strömma data till Kafka-aktiverade Event Hubs och bearbeta dem med Azure Stream Analytics. Vi går igenom följande steg: 
@@ -38,7 +38,7 @@ För att kunna slutföra den här snabbstarten behöver du följande:
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Ladda ned](http://maven.apache.org/download.cgi) och [installera](http://maven.apache.org/install.html) ett Maven-binärarkiv.
 * [Git](https://www.git-scm.com/)
-* En **Azure Storage-konto**. Om du inte har någon, [skapar ett](../storage/common/storage-create-storage-account.md#create-a-storage-account) innan du fortsätter. Stream Analytics-jobb i den här genomgången lagrar utdata i Azure blob storage. 
+* En **Azure Storage-konto**. Om du inte har någon, [skapar ett](../storage/common/storage-quickstart-create-account.md) innan du fortsätter. Stream Analytics-jobb i den här genomgången lagrar utdata i Azure blob storage. 
 
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Skapa ett Kafka-aktiverat Event Hubs-namnområde
@@ -114,7 +114,7 @@ Nu kan du strömma händelser från program som använder Kafka-protokollet till
     ![Event hub - meddelanden](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
 
 ## <a name="process-event-data-using-a-stream-analytics-job"></a>Bearbeta händelsedata med hjälp av ett Stream Analytics-jobb
-I det här avsnittet skapar du ett Azure Stream Analytics-jobb. Kafka-klienten skickar händelser till event hub. Du kan skapa ett Stream Analytics-jobb som tar händelsedata som indata och utdata till Azure blob storage. Om du inte har en **Azure Storage-konto**, [skapar ett](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+I det här avsnittet skapar du ett Azure Stream Analytics-jobb. Kafka-klienten skickar händelser till event hub. Du kan skapa ett Stream Analytics-jobb som tar händelsedata som indata och utdata till Azure blob storage. Om du inte har en **Azure Storage-konto**, [skapar ett](../storage/common/storage-quickstart-create-account.md).
 
 Frågan i Stream Analytics-jobb passerar data utan att behöva genomföra några analytics. Du kan skapa en fråga som omvandlar indata till utdata i ett annat format eller med vinst insikter.  
 

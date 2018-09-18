@@ -1,6 +1,6 @@
 ---
-title: Agenthälsoslösning i OMS | Microsoft Docs
-description: Den här artikeln är avsedd att hjälpa dig att förstå hur du använder den här lösningen för att övervaka hälsotillståndet hos dina agenter som rapporterar direkt till OMS- eller System Center Operations Manager.
+title: Agenthälsolösning i Azure | Microsoft Docs
+description: Den här artikeln är avsedd att hjälpa dig att förstå hur du använder den här lösningen för att övervaka hälsotillståndet hos dina agenter som rapporterar direkt till Log Analytics eller System Center Operations Manager.
 services: operations-management-suite
 documentationcenter: ''
 author: MGoedtel
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 8a6275748c82fbb448a767af690121abbd1f669a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f0737c6a6ff228b92a030242faf7f4d634bdd9f2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347157"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733200"
 ---
-#  <a name="agent-health-solution-in-oms"></a>Agenthälsolösning i OMS
-Agenthälsolösningen i OMS hjälper dig att förstå vilka av alla agenter som rapporterar direkt till OMS-arbetsyta eller en System Center Operations Manager-hanteringsgrupp som är anslutna till OMS som inte svarar och skickra in användningsdata.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
+#  <a name="agent-health-solution-in-azure"></a>Agenthälsolösning i Azure
+Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta eller en System Center Operations Manager-hanteringsgrupp ansluten till Log Analytics, som inte svarar och skicka operativa data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du distribuerar den här lösningen, bekräfta att du har [Windows-agenter](../log-analytics/log-analytics-windows-agent.md) som rapporterar till OMS-arbetsytan eller till en [Operations Manager-hanteringsgrupp](../log-analytics/log-analytics-om-agents.md) som är integrerad med din OMS-arbetsyta.    
+Innan du distribuerar den här lösningen kan du bekräfta att du har för närvarande [Windows-agenter](../log-analytics/log-analytics-windows-agent.md) rapporterar till Log Analytics-arbetsytan eller till en [Operations Manager-hanteringsgrupp](../log-analytics/log-analytics-om-agents.md) integrerad med din arbetsyta.    
 
 ## <a name="solution-components"></a>Lösningskomponenter
 Lösningen består av följande resurser som läggs till i din arbetsyta och ansluter direkt agenter eller Operations Manager-anslutna hanteringsgrupper.
 
 ### <a name="management-packs"></a>Hanteringspaket
-Om din hanteringsgrupp för System Center Operations Manager är ansluten till din OMS-arbetsytan installeras därefter följande hanteringspaket i Operations Manager.  Dessa hanteringspaket också har installerats på direktanslutna Windows-datorer när du lägger till den här lösningen. Det finns inget att konfigurera eller hantera med dessa hanteringspaket.
+Om din hanteringsgrupp för System Center Operations Manager är ansluten till en Log Analytics-arbetsyta, installeras följande hanteringspaket i Operations Manager.  Dessa hanteringspaket också har installerats på direktanslutna Windows-datorer när du lägger till den här lösningen. Det finns inget att konfigurera eller hantera med dessa hanteringspaket.
 
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack  (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
@@ -39,7 +39,7 @@ Om din hanteringsgrupp för System Center Operations Manager är ansluten till d
 Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ## <a name="configuration"></a>Konfiguration
-Lägg till agenthälsolösningen i OMS-arbetsytan med processen som beskrivs i [Lägga till lösningar](../log-analytics/log-analytics-add-solutions.md). Det krävs ingen ytterligare konfiguration.
+Lägga till agenthälsolösningen i Log Analytics-arbetsytan med processen som beskrivs i [lägga till lösningar](../log-analytics/log-analytics-add-solutions.md). Det krävs ingen ytterligare konfiguration.
 
 
 ## <a name="data-collection"></a>Datainsamling
@@ -52,7 +52,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | System Center Operations Manager-hanteringsgrupp | Ja | Pulsslagshändelser som samlas in från agenter som rapporterar till hanteringsgruppen var 60: e sekund och sedan vidarebefordras till logganalys. En direktanslutning från Operations Manager-agenten till Log Analytics krävs inte. Pulsslagshändelsedata vidarebefordras från hanteringsgruppen till Log Analytics-databasen.|
 
 ## <a name="using-the-solution"></a>Använda lösningen
-När du lägger till lösningen i OMS-arbetsytan läggs panelen **Agenthälsa** till på OMS-instrumentpanelen. Den här panelen visar det totala antalet agenter och antalet agenter som inte har svarat under de senaste 24 timmarna.<br><br> ![Panelen för Agenthälsa på instrumentpanelen](./media/monitoring-solution-agenthealth/agenthealth-solution-tile-homepage.png)
+När du lägger till lösningen i Log Analytics-arbetsytan i **Agenthälsa** läggs panelen på instrumentpanelen. Den här panelen visar det totala antalet agenter och antalet agenter som inte har svarat under de senaste 24 timmarna.<br><br> ![Panelen för Agenthälsa på instrumentpanelen](./media/monitoring-solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Klicka på panelen **Agenthälsa** för att öppna instrumentpanelen för **Agenthälsa**.  Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn visar de översta 10 händelserna med antalet som matchar den kolumnens kriterier för det angivna tidsintervallet. Du kan köra en loggsökning som innehåller hela listan genom att välja **Se alla** längst ned i varje kolumn, eller genom att klicka på kolumnrubriken.
 
@@ -65,12 +65,12 @@ Klicka på panelen **Agenthälsa** för att öppna instrumentpanelen för **Agen
 | Distribution enligt Agent-kategori | En partition av olika typer av agenter som skickar händelser för pulsslag: direkta agenter, OpsMgr-agenter eller OpsMgr Management Server.|
 | Distribution enligt hanteringsgrupp | En partition av olika SCOM-hanteringsgrupper i din miljö.|
 | Geoplats för agenter | En partition av olika länder där du har agenter och det sammanlagda antalet agenter som har installerats i varje land.|
-| Antalet installerade Gateways | Antalet servrar som har OMS-Gateway installerats och en lista över dessa servrar.|
+| Antalet installerade Gateways | Antalet servrar som har installerat gatewayen för Log Analytics och en lista över dessa servrar.|
 
 ![Agenthälsa på instrumentpanelen - exempel](./media/monitoring-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
 ## <a name="log-analytics-records"></a>Log Analytics-poster
-Lösningen skapar en typ av post i OMS-databasen.  
+Lösningen skapar en typ av post i Log Analytics-arbetsytan.  
 
 ### <a name="heartbeat-records"></a>Pulsslagsposter
 En post med en typ av **pulsslag** skapas.  Dessa poster har egenskaper enligt följande tabell.  
@@ -83,9 +83,9 @@ En post med en typ av **pulsslag** skapas.  Dessa poster har egenskaper enligt f
 | OSType | Windows- eller Linux-operativsystem.|
 | OSMajorVersion | Högre operativsystemversion.|
 | OSMinorVersion | Lägre operativsystemversion.|
-| Version | OMS-Agent eller Operations Manager Agent-version.|
+| Version | Log Analytics-agenten eller Operations Manager Agent-version.|
 | SCAgentChannel | Värdet är *Direkt* och/eller *SCManagementServer*.|
-| IsGatewayInstalled | Om OMS-gatewayen har installerats är värdet *SANT*, annars är värdet *FALSKT*.|
+| IsGatewayInstalled | Om Log Analytics Gateway har installerats är värdet *SANT*, annars är värdet *FALSKT*.|
 | ComputerIP | IP-adressen för datorn.|
 | RemoteIPCountry | Geografisk plats där datorn har distribuerats.|
 | ManagementGroupName | Namn på Operations Manager-hanteringsgrupp.|
@@ -93,7 +93,7 @@ En post med en typ av **pulsslag** skapas.  Dessa poster har egenskaper enligt f
 | RemoteIPLongitude | Longituden för datorns geografiska plats.|
 | RemoteIPLatitude | Latituden för datorns geografiska plats.|
 
-Varje agent som rapporterar till en hanteringsserver för Operations Manager skickar två pulsslag. Egenskapsvärdet för SCAgentChannel innehåller både **Direkt** och **SCManagementServer** beroende på vilka Log Analytics-datakällor och -lösningar du har aktiverat i OMS-prenumerationen. Om du återkallar, skickas data från lösningar antingen direkt från en hanteringsserver för Operations Manager till OMS-webbtjänsten eller, på grund av mängden data som samlas in på agenten, direkt från agenten till OMS-webbtjänsten. För pulsslaghändelser som har värdet **SCManagementServer**, är ComputerIP-värdet IP-adressen för hanteringsservern eftersom data faktiskt har laddats upp av den.  För pulsslag där SCAgentChannel är inställt på **Direkt** är det den offentliga IP-adressen för agenten.  
+Varje agent som rapporterar till en hanteringsserver för Operations Manager skickar två pulsslag och egenskapsvärdet för SCAgentChannel innehåller både **direkt** och **SCManagementServer** beroende på vilka Log Analytics-datakällor och lösningar som du har aktiverat i din prenumeration. Om du kommer ihåg data från lösningar antingen skickas direkt från en hanteringsserver för Operations Manager till Log Analytics eller på grund av mängden data som samlas in från agenten, skickas direkt från agenten till Log Analytics. För pulsslaghändelser som har värdet **SCManagementServer**, är ComputerIP-värdet IP-adressen för hanteringsservern eftersom data faktiskt har laddats upp av den.  För pulsslag där SCAgentChannel är inställt på **Direkt** är det den offentliga IP-adressen för agenten.  
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 Följande tabell innehåller exempel på sökningar i loggen för poster som har samlats in av den här lösningen.
@@ -111,7 +111,7 @@ Följande tabell innehåller exempel på sökningar i loggen för poster som har
 | Heartbeat &#124; summarize AggregatedValue = count() by Category |Distribution enligt Agent-kategori |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Distribution enligt hanteringsgrupp |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Geoplats för agenter |
-| Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Antalet installerade OMS-Gateways |
+| Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Antalet installerade Log Analytics-Gateways |
 
 
 

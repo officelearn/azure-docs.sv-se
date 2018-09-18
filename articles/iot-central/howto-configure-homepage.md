@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1b4d97c1e8c4360028cb249b7e1a61f9fc26e9f2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 609dc8aa1305833fb3677de6fbe95cf490237a4a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300536"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731129"
 ---
 ## <a name="configuring-homepage"></a>Konfigurera startsida
 
@@ -27,7 +27,7 @@ Att välja **redigera**, öppnas instrumentpanelen biblioteket på en panel till
 
 ![Instrumentpanelen bibliotek](media\howto-configure-homepage\image2.png)
 
-Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Efter som tillhandahåller panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. I det här fallet har vi valt **fläkthastighet**. Klicka på **klar** leder till den här panelen visas på startsidan.
+Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Efter som tillhandahåller panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. I det här fallet har vi valt **ange temperatur**. Klicka på **klar** leder till den här panelen visas på startsidan.
 
 ![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](media\howto-configure-homepage\image3.png)
 

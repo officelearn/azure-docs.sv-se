@@ -1,26 +1,25 @@
 ---
-title: Använda en Azure AD-klientorganisationskatalog – översikt | Microsoft Docs
-description: I den här artikeln lär du dig vad en Azure AD-klient är och hur du hanterar Azure via Azure Active Directory
+title: Hantera din Azure Active Directory-klient | Microsoft Docs
+description: Läs mer om vad en Azure AD-klient är och hur du hanterar Azure med hjälp av Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
-ms.date: 08/23/2017
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro;oldportal
-ms.openlocfilehash: b18ff1f59a46e98544159b488294e2d3f7bd9cd7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+custom: it-pro
+ms.openlocfilehash: 2a548a16a6b896ae1c1297badcef6154b64977f1
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767532"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737183"
 ---
-# <a name="manage-your-azure-ad-directory"></a>Hantera Azure AD-katalogen
+# <a name="manage-your-azure-active-directory-tenant"></a>Hantera din Azure Active Directory-klient
 
 ## <a name="what-is-an-azure-ad-tenant"></a>Vad är en Azure AD-klientorganisation eller Azure AD-klient?
 I Azure Active Directory (Azure AD) är en klient en dedikerad instans av en Azure AD-katalog som din organisation tilldelas när den registrerar sig för en Microsoft-molntjänst som Azure eller Office 365. Varje Azure AD-katalog är separat och åtskild från andra Azure AD-kataloger. Precis som ett företags kontorsbyggnad är en säker resurs som är specifik för din organisation har även Azure AD-katalogen utformats för att vara en säker tillgång för exklusiv användning av din organisation. Azure AD-arkitekturen håller isär kunddata och identitetsinformation så att användare och administratörer av en Azure AD-katalog inte oavsiktligt eller illvilligt kan komma åt data i en annan katalog.

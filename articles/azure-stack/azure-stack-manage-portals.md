@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: 975c5c2c5f0da7a6db946c6d1032b485947134d2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717717"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985302"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Med hjälp av administratörsportalen i Azure Stack
 
@@ -71,6 +71,8 @@ Administratörs- och portaler backas upp av separata instanser av Azure Resource
 ### <a name="customize-the-dashboard"></a>Anpassa instrumentpanelen
 
 Instrumentpanelen innehåller en uppsättning standardpaneler som. Du kan välja **redigera instrumentpanel** att ändra standardinstrumentpanelen eller välj **ny instrumentpanel** att lägga till en anpassad instrumentpanel. Du kan enkelt lägga till paneler på en instrumentpanel. Du kan till exempel välja **+ skapa en resurs**, högerklicka på **erbjuder + planer**, och välj sedan **fäst på instrumentpanelen**.
+
+Ibland kanske du ser en tom instrumentpanel i portalen. Om du vill återställa instrumentpanelen, klickar du på **redigera instrumentpanelen**, högerklicka och välj **återställa till standardtillståndet**.
 
 ### <a name="quick-access-to-online-documentation"></a>Snabbåtkomst till online-dokumentation
 

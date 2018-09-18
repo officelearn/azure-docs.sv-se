@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 09/14/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 75805cad43f015f1741193ec5a1ead1fa7603f41
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bcb533fbaa788498734776147c9bd053d35bef60
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057096"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733604"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL database med hjälp av automatiska databassäkerhetskopieringar
 SQL-databas finns följande alternativ för databas återställning med hjälp av [automatiska databassäkerhetskopieringar](sql-database-automated-backups.md) och [säkerhetskopior i långsiktig kvarhållning](sql-database-long-term-retention.md). Du kan återställa från en säkerhetskopia av databasen till:
@@ -32,7 +32,7 @@ En återställd databas tillkommer en extra lagringsutrymme kostnad under följa
 - Återställning av P11 – P15 S4 – S12 eller P1 – P6 om den maximala databasstorleken är större än 500 GB.
 - Återställning av P1 – P6 till S4 – S12 om den maximala databasstorleken är större än 250 GB.
 
-Extra kostnaden är eftersom maxstorleken på den återställda databasen är större än mängden lagringsutrymme som ingår för prestandanivå och debiteras extra lagringsutrymme utöver det inkluderade extra.  Prisinformation om extra lagringsutrymme finns i den [SQL Database-sidan med priser](https://azure.microsoft.com/pricing/details/sql-database/).  Om den faktiska mängden utrymme som används är mindre än mängden lagringsutrymme som ingår, kan sedan detta extra kostnader undvikas genom att minska den maximala databasstorleken till mängden som ingår.  
+Extra kostnaden är eftersom maxstorleken på den återställda databasen är större än mängden lagringsutrymme som ingår för beräkningsstorleken och debiteras extra lagringsutrymme utöver det inkluderade extra.  Prisinformation om extra lagringsutrymme finns i den [SQL Database-sidan med priser](https://azure.microsoft.com/pricing/details/sql-database/).  Om den faktiska mängden utrymme som används är mindre än mängden lagringsutrymme som ingår, kan sedan detta extra kostnader undvikas genom att minska den maximala databasstorleken till mängden som ingår.  
 
 > [!NOTE]
 > [Automatisk säkerhetskopiering av databaser](sql-database-automated-backups.md) används när du skapar en [databaskopieringen](sql-database-copy.md). 
@@ -43,7 +43,7 @@ Extra kostnaden är eftersom maxstorleken på den återställda databasen är st
 Tiden för återställning för att återställa en databas med hjälp av automatiska databassäkerhetskopieringar påverkas av flera faktorer: 
 
 * Storleken på databasen
-* Prestandanivå för databasen
+* Beräkningsstorleken för databasen
 * Antalet transaktionsloggar som ingår
 * Antal aktiviteter som ska återupprepas om du vill återställa till återställningspunkten
 * Nätverkets bandbredd om återställningen till en annan region 
@@ -72,11 +72,11 @@ Du kan återställa en befintlig databas till en tidigare tidpunkt som en ny dat
 > En PowerShell-exempelskript som visar hur du utför en point-in-time-återställning av en databas, se [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
 >
 
-Databasen kan återställas till en tjänstenivå eller prestandanivå servicenivå, och som en enkel databas eller till en elastisk pool. Se till att du har tillräckligt med resurser på den logiska servern eller i den elastiska poolen som du återställer databasen. När du är klar är den återställda databasen en normal, fullt åtkomlig, online-databas. Den återställda databasen debiteras enligt normal taxa baserat på dess servicenivå för tjänstnivå och prestandanivå. Du inte betalar avgifter förrän återställa databasen är klar.
+Databasen kan återställas till valfri tjänstnivå eller beräkningsstorleken, och som en enkel databas eller till en elastisk pool. Se till att du har tillräckligt med resurser på den logiska servern eller i den elastiska poolen som du återställer databasen. När du är klar är den återställda databasen en normal, fullt åtkomlig, online-databas. Den återställda databasen debiteras enligt normal taxa baserat på dess tjänstnivå och beräkningsstorleken. Du inte betalar avgifter förrän återställa databasen är klar.
 
 Du kan vanligtvis återställer en databas till en tidigare tidpunkt för återställning. När du gör detta kan du behandla den återställda databasen som en ersättning för den ursprungliga databasen eller använda den för att hämta data från och uppdatera sedan den ursprungliga databasen. 
 
-* ***Databasen ersättning:*** om den återställda databasen är avsedd som en ersättning för den ursprungliga databasen, bör du kontrollera att prestandanivån och/eller tjänstnivå är lämpliga och skala databasen om det behövs. Du kan byta namn på den ursprungliga databasen och ge sedan den återställda databasen med den ursprungliga namn den [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) i T-SQL. 
+* ***Databasen ersättning:*** om den återställda databasen är avsedd som en ersättning för den ursprungliga databasen, bör du kontrollera beräkningsstorleken och/eller tjänstnivå är lämpliga och skala databasen om det behövs. Du kan byta namn på den ursprungliga databasen och ge sedan den återställda databasen med den ursprungliga namn den [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) i T-SQL. 
 * ***Återställning av data:*** om du planerar att hämta data från den återställda databasen att återställa efter ett fel för användaren eller programmet, måste du skriva och köra de nödvändiga data recovery skript för att extrahera data från den återställda databasen till den ursprungliga databasen. Även om återställningen kan ta lång tid att slutföra, visas databasen som ska återställas i databaslistan under återställningsprocessen. Om du tar bort databasen under återställningen återställningen avbryts och du debiteras inte för den databas som inte gick att slutföra återställningen. 
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -146,7 +146,7 @@ Som tidigare beskrivs, utöver Azure portal, kan databasåterställning utföras
 |  | |
 
 ## <a name="summary"></a>Sammanfattning
-Automatisk säkerhetskopiering skyddar dina databaser från användare och programfel, databasen oavsiktlig borttagning och långvarig avbrott. Den här inbyggda funktionen är tillgänglig för alla tjänstnivåer och prestandanivåer. 
+Automatisk säkerhetskopiering skyddar dina databaser från användare och programfel, databasen oavsiktlig borttagning och långvarig avbrott. Den här inbyggda funktionen är tillgänglig för alla tjänstnivåer och storlekar. 
 
 ## <a name="next-steps"></a>Nästa steg
 * En översikt över affärskontinuitet och scenarier finns i [översikt över affärskontinuitet](sql-database-business-continuity.md).

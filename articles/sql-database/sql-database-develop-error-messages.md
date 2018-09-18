@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/14/2018
 ms.author: sstein
-ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 643add4e0e4732734e9ef763a587755bf8700605
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092536"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731010"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: anslutningsfel och andra problem
 
@@ -111,7 +111,7 @@ Följande fel är relaterade till skapar och använder elastiska pooler:
 | 40857 |EX_USER |Elastisk pool hittades inte för servern: '%ls ”, namn på elastisk pool: '%ls”. |namnet på servern. namn på elastisk pool |Angivna elastisk pool finns inte i den angivna servern. |Ange ett giltigt elastisk pool-namn. |
 | 40858 |EX_USER |Elastisk pool '%ls ”finns redan på servern: '%ls” |namn på elastisk pool, servernamn |Angivna elastisk pool finns redan i den angivna logiska servern. |Ange namn på ny elastisk pool. |
 | 40859 |EX_USER |Elastisk pool stöder inte tjänstnivå '%ls ”. |elastiska pooltjänstnivå |Angivna tjänstnivå finns inte stöd för etablering av elastisk pool. |Ange rätt version eller lämna det tomt om du vill använda standard-tjänstnivå tjänstnivå. |
-| 40860 |EX_USER |Kombinationen av elastisk pool '%ls ”och tjänsten objective '%ls” är ogiltig. |namn på elastisk pool; namn på servicenivåmål |Elastisk pool och tjänsten mål kan anges samtidigt endast om tjänstmålet har angetts som ”ElasticPool”. |Ange rätt kombination av elastisk pool och tjänstmål. |
+| 40860 |EX_USER |Kombinationen av elastisk pool '%ls ”och tjänsten objective '%ls” är ogiltig. |namn på elastisk pool; tjänstnivå |Elastisk pool och service-nivån kan anges tillsammans endast om resurstyp har angetts som ”ElasticPool”. |Ange rätt kombination av elastisk pool och tjänstnivå. |
 | 40861 |EX_USER |Databasversionen ' %. *ls' får inte vara densamma som den elastiska pooltjänstnivå som är ' %.* ls'. |Databasversionen, elastiska pooltjänstnivå |Databasversionen är annorlunda än den elastiska pooltjänstnivå. |Ange databasutgåva som skiljer sig från den elastiska pooltjänstnivå.  Observera att databasversionen inte måste anges. |
 | 40862 |EX_USER |Namn på elastisk pool måste vara anges om den elastiska pooltjänsten har angetts. |Ingen |Elastiska pooltjänsten identifierar inte en elastisk pool. |Ange namn på elastisk pool om du använder den elastiska pooltjänsten. |
 | 40864 |EX_USER |Dtu: er för den elastiska poolen måste vara minst (%d) dtu: er för tjänstnivån ' %. * ls'. |Dtu: er för elastiska poolen. elastiska pooltjänstnivå. |Om du försöker ange dtu: er för den elastiska poolen under minimigränsen. |Gör om inställningen dtu: erna för elastiska pool för minst det lägsta tillåtna värdet. |

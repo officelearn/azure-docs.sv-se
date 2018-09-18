@@ -6,15 +6,15 @@ author: srdan-bozovic-msft
 manager: craigg
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 09/14/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5e4d96df7d6a43418aad92fdf6509a5ca7ec623a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818410"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734672"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Anslut ditt program till Azure SQL Database Managed Instance
 
@@ -25,13 +25,10 @@ Du kan välja att vara värd för program i molnet antingen med hjälp av Azure 
 Vilka alternativ som du valde ansluta du den till en hanterad instans (förhandsversion).  
 
 ![hög tillgänglighet](./media/sql-database-managed-instance/application-deployment-topologies.png)  
-
 ## <a name="connect-an-application-inside-the-same-vnet"></a>Ansluta ett program i samma virtuella nätverk 
 
 Det här scenariot är enkel. Virtuella datorer i det virtuella nätverket kan ansluta till varandra direkt även om de finns i olika undernät. Det innebär att allt du behöver för att ansluta programmet i en miljö för Azure-program eller en virtuell dator är att ange anslutningssträngen på rätt sätt.  
  
-Om du inte kan upprätta anslutningen, kan du kontrollera om du har en Nätverkssäkerhetsgrupp som angetts i programmet undernät. I så fall måste du öppna utgående anslutning på SQL-port 1433 samt 11000 12000 portintervall för omdirigering. 
-
 ## <a name="connect-an-application-inside-a-different-vnet"></a>Ansluta ett program i ett annat virtuellt nätverk 
 
 Det här scenariot är lite mer komplexa eftersom hanterad instans har privat IP-adress i ett eget virtuellt nätverk. För att ansluta, behöver åtkomst till det virtuella nätverket där hanterad instans har distribuerats i ett program. Så först måste du upprätta en anslutning mellan programmet och VNet hanterade instans. De virtuella nätverken behöver inte vara i samma prenumeration för det här scenariot ska fungera. 
@@ -55,6 +52,19 @@ Det finns två alternativ för hur du ansluter en lokal till Azure VNet:
  
 Om du har skapat en lokal plats till Azure-anslutningen har och du kan inte upprätta anslutning till hanterad instans kan du kontrollera om din brandvägg har öppna utgående anslutningar på SQL-port 1433 samt 11000 12000 portintervall för omdirigering. 
 
+## <a name="connect-an-application-on-the-developers-box"></a>Ansluta ett program på rutan utvecklare
+
+Hanterad instans kan bara nås via en privat IP-adress så för att komma åt den från developer-box, måste du först att upprätta en anslutning mellan developer-rutan och VNet hanterade instans. Du gör detta genom att konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med Azures interna certifikatautentisering. Mer information finns i [konfigurera en punkt-till-plats-anslutning för att ansluta till en Azure SQL Database Managed Instance från den lokala datorn](sql-database-managed-instance-configure-p2s.md).
+
+## <a name="connect-from-on-premises-with-vnet-peering"></a>Ansluta från en lokal plats med VNet-peering
+Ett annat scenario som implementeras av kunder är där VPN-gateway är installerad i ett separat virtuellt nätverk och en prenumeration från en värd Managed Instance. Två virtuella etworks sedan peer-kopplade. Följande exempel arkitektur diagram visar hur detta kan vara implementeras.
+
+![VNET-peering](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
+
+När du har grundläggande infrastruktur ställa in kan behöva du ändra vissa inställningen så att VPN-gatewayen kan se IP-adresser i det virtuella nätverket som är värd för den hanterade instansen. Du gör detta genom att göra följande mycket specifik ändringar under den **Peering inställningar**.
+1.  I det virtuella nätverket som är värd för VPN-gateway, går du till **Peerings**, sedan till den hanterade instansen peer-kopplat VNet-anslutning och klicka sedan på **Tillåt Gatewayöverföring**.
+2.  I det virtuella nätverket som är värd för den hanterade instansen, går du till **Peerings**sedan peer-kopplat VNet-anslutning till VPN-Gateway och klicka sedan på **Använd fjärrgateway**.
+
 ## <a name="connect-an-azure-app-service-hosted-application"></a>Ansluta ett program i Azure App Service som värd 
 
 Hanterad instans kan nås endast via en privat IP-adress så för att kunna komma åt den från Azure App Service måste du först att upprätta en anslutning mellan programmet och VNet hanterade instans. Se [integrera din app med Azure-nätverk](../app-service/web-sites-integrate-with-vnet.md).  
@@ -71,11 +81,48 @@ Det här scenariot illustreras i följande diagram:
 
 ![integrerad app peering](./media/sql-database-managed-instance/integrated-app-peering.png)
  
-## <a name="connect-an-application-on-the-developers-box"></a>Ansluta ett program på rutan utvecklare 
+## <a name="troubleshooting-connectivity-issues"></a>Felsökning av problem med nätverksanslutningen
 
-Hanterad instans kan bara nås via en privat IP-adress så för att komma åt den från developer-box, måste du först att upprätta en anslutning mellan developer-rutan och VNet hanterade instans.  
- 
-Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikat autentisering artiklar ([Azure-portalen](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) innehåller detaljerad information om hur Det kan göras. 
+För att felsöka problem med nätverksanslutningen, kontrollerar du följande:
+- Om det inte går att ansluta till Managed Instance från en Azure virtuell dator i samma virtuella nätverk men olika undernät kan du kontrollera om du har en Nätverkssäkerhetsgrupp som angetts på VM-undernät som blockerar åtkomst. Dessutom Observera att du behöver öppna utgående anslutning på SQL-port 1433 samt portar i intervallet 11000 12000 eftersom de behövs för att ansluta via omdirigering inom gränsen för Azure. 
+- Kontrollera att BGP spridningsuppgift är inställd på **aktiverad** för routningstabellen som är associerade med det virtuella nätverket.
+- Om du använder P2S VPN, kontrollera konfigurationen i Azure portal för att se om du ser **ingående/utgående trafik** siffror. Inte är noll talen anger att Azure är dirigera trafiken till och från den lokala.
+
+   ![ingående/utgående trafik siffror](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
+
+- Kontrollera att klientdatorn (som kör den VPN-klienten) har routningsposterna för alla virtuella nätverk som du behöver komma åt. Vägarna lagras i `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+
+
+   ![route.txt](./media/sql-database-managed-instance-connect-app/route-txt.png)
+
+   I den här bilden visas det finns två poster för varje virtuellt nätverk som ingår och en tredje post för den VPN-slutpunkt som har konfigurerats i portalen.
+
+   Ett annat sätt att kontrollera vägar är via följande kommando. Utdata visar vägarna till de olika undernäten: 
+
+   ```cmd
+   C:\ >route print -4
+   ===========================================================================
+   Interface List
+   14...54 ee 75 67 6b 39 ......Intel(R) Ethernet Connection (3) I218-LM
+   57...........................rndatavnet
+   18...94 65 9c 7d e5 ce ......Intel(R) Dual Band Wireless-AC 7265
+   1...........................Software Loopback Interface 1
+   Adapter===========================================================================
+   
+   IPv4 Route Table
+   ===========================================================================
+   Active Routes:
+   Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0       10.83.72.1     10.83.74.112     35
+         10.0.0.0    255.255.255.0         On-link       172.26.34.2     43
+     
+         10.4.0.0    255.255.255.0         On-link       172.26.34.2     43
+   ===========================================================================
+   Persistent Routes:
+   None
+   ```
+
+- Om du använder VNet-peering, se till att du har följt anvisningarna för inställningen [Tillåt Gatewayöverföring och Använd fjärrgateway](#connect-from-on-premises-with-vnet-peering). 
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Nödvändiga versionerna av drivrutiner och verktyg
 
@@ -93,5 +140,5 @@ Följande minsta versioner av verktyg och drivrutiner rekommenderas om du vill a
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om Managed Instance finns i [vad är en hanterad instans](sql-database-managed-instance.md).
+- Information om hanterade instanser finns i avsnittet [Vad är en hanterad instans?](sql-database-managed-instance.md).
 - En självstudiekurs som visar hur du skapar en ny hanterad instans finns i [skapar en hanterad instans](sql-database-managed-instance-get-started.md).

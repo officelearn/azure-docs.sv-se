@@ -8,30 +8,30 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/12/2018
-ms.openlocfilehash: b514f23f2e8a43f99fd5bf5c3afb5ed625ad4472
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/14/2018
+ms.openlocfilehash: 65617aa87ec8f28b13951f1a2196eb2ccedf5c85
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046583"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729764"
 ---
 # <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Använd utökat Spark-Historikserver att felsöka och diagnostisera Spark-program
 
-Den här artikeln innehåller vägledning om hur du använder utökade Spark-Historikserver för att felsöka och diagnostisera slutförda och körs Spark-program. Tillägget innehåller för närvarande data-fliken och graph-fliken. I datafliken kan användare Kontrollera inkommande och utgående data av Spark-jobbet. Graph-fliken, kan användare Kontrollera dataflödet och spela upp jobbdiagram.
+Den här artikeln innehåller vägledning om hur du använder utökade Spark-Historikserver för att felsöka och diagnostisera slutförda och körs Spark-program. Tillägget innehåller data-fliken och graph flikarna och diagnos. På den **Data** fliken användare kan kontrollera inkommande och utgående data av Spark-jobbet. På den **Graph** fliken användare kan kontrollera data flödar och spela upp jobbdiagram. På den **diagnos** fliken som användaren kan referera till **Data förskjuta**, **Tidsförskjutningsintervallet** och **Executor användningsanalys**.
 
-## <a name="open-the-spark-history-server"></a>Öppna Spark-Historikserver
+## <a name="get-access-to-spark-history-server"></a>Få åtkomst till Spark-Historikserver
 
 Spark-Historikserver är webbgränssnittet för slutförda och körs Spark-program. 
 
-### <a name="to-open-the-spark-history-server-web-ui-from-azure-portal"></a>Öppna Spark historik Server-Webbgränssnittet från Azure-portalen
+### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Öppna Spark historik Server-Webbgränssnittet från Azure-portalen
 
 1. Från den [Azure-portalen](https://portal.azure.com/), öppna Spark-klustret. Mer information finns i [lista och visa kluster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. Från **snabblänkar**, klickar du på **Klusterinstrumentpanel**, och klicka sedan på **Spark-Historikserver**. När du uppmanas, anger du autentiseringsuppgifter som administratör för Spark-klustret. 
 
     ![Spark-Historikserver](./media/apache-azure-spark-history-server/launch-history-server.png "Spark-Historikserver")
 
-### <a name="to-open-the-spark-history-server-web-ui-by-url"></a>Öppna Spark historik Server-Webbgränssnittet efter URL
+### <a name="open-the-spark-history-server-web-ui-by-url"></a>Öppna Spark historik Server webbgränssnittet efter URL
 Öppna Spark-Historikserver genom att bläddra till följande URL ersätter <ClusterName> med Apache Spark-klusternamn av kunden.
 
    ```
@@ -43,7 +43,7 @@ Spark-Historikserver web UI som ser ut som:
 ![HDInsight Spark-Historikserver](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
 
-## <a name="open-the-data-tab-from-spark-history-server"></a>Öppna fliken Data från Spark-Historikserver
+## <a name="data-tab-in-spark-history-server"></a>Data-fliken i Spark-Historikserver
 Välj jobb-ID och klicka sedan **Data** på Verktyg-menyn för att hämta datavyn.
 
 + Kontrollera den **indata**, **utdata**, och **tabellåtgärder** genom att välja flikarna separat.
@@ -87,7 +87,7 @@ Välj jobb-ID och klicka sedan **Data** på Verktyg-menyn för att hämta datavy
     ![Graph-feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="open-the-graph-tab-from-spark-history-server"></a>Öppna fliken Graph från Spark-Historikserver
+## <a name="graph-tab-in-spark-history-server"></a>Graph-fliken i Spark-Historikserver
 Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet diagramvy.
 
 + Kontrollera översikt över ditt jobb genom att den genererade jobbdiagram. 
@@ -108,16 +108,19 @@ Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet d
 
     + Grön för lyckades: jobbet har slutförts.
     + Orange för göras: instanser av uppgifter som misslyckades men påverkar inte det slutgiltiga resultatet av jobbet. Dessa uppgifter hade duplicera eller försök instanser som kan lyckas senare.
-    + Röd om misslyckades: Det gick inte att aktiviteten.
     + Blå för att köra: aktiviteten körs.
-    + Vit för hoppades över eller väntar på: aktiviteten väntar på att köra eller scenen har hoppades över.
+    + Vit för att vänta eller hoppades över: aktiviteten väntar på att köra eller scenen har hoppades över.
+    + Röd om misslyckades: Det gick inte att aktiviteten.
 
     ![Graph färgprov som körs](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
+    Överhoppade scenen visningen i vitt.
+    ![Graph färgprov, hoppa över](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+
     ![Graph färgprov misslyckades](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
     > [!NOTE]
-    > Spela upp för varje jobb är tillåtet. När ett jobb har inte alla stadier eller inte har slutförts, stöds inte uppspelning.
+    > Spela upp för varje jobb är tillåtet. Spela upp stöds inte för ej slutförda jobb.
 
 
 + Mus rullar för att zooma in och ut jobbdiagram, eller klicka på **zoomning så att de passar** så att de blir Anpassa till skärm.
@@ -127,6 +130,12 @@ Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet d
 + Hovra över graph noden finns i knappbeskrivningen när det finns misslyckade uppgifter och klicka på scenen för att öppna sidan steg.
 
     ![Graph knappbeskrivning](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+
++ Jobbet graph fliken faser har knappbeskrivning och lilla ikonen som visas om de uppgifter som uppfyller de nedan villkor:
+    + Datasnedställning: data lässtorlek > genomsnittlig lässtorlek för alla aktiviteter i det här skedet * 2 och data läses storlek > 10 MB
+    + Tidssnedställning: körningstid > Genomsnittlig körningstid för alla aktiviteter i det här skedet * 2 och körningstid > 2 minuter
+
+    ![skeva Diagramikon](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + Jobbet graph-nod visas följande information i varje fas:
     + -ID.
@@ -147,6 +156,47 @@ Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet d
 + Skicka feedback med problem genom att klicka på **ge oss feedback**.
 
     ![Graph-feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+
+
+## <a name="diagnosis-tab-in-spark-history-server"></a>Fliken diagnostik i Spark-Historikserver
+Välj jobb-ID och klicka sedan **diagnos** på Verktyg-menyn för att få jobbet diagnos vy. Fliken diagnostik innehåller **Data förskjuta**, **Tidsförskjutningsintervallet**, och **Executor användningsanalys**.
+    
++ Kontrollera den **Data förskjuta**, **Tidsförskjutningsintervallet**, och **Executor användningsanalys** genom att välja flikarna respektive.
+
+    ![Du kan undersöka flikar](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+
+### <a name="data-skew"></a>Datasnedställning
+Klicka på **Data förskjuta** fliken motsvarande skeva uppgifter visas baserat på de angivna parametrarna. 
+
++ **Ange parametrar** – det första avsnittet visas de parametrar som används för att identifiera Data skeva. Inbyggda regeln är: uppgift lästa är större än 3 gånger på den genomsnittliga uppgiftsdata läses och aktivitetsdata läsa är mer än 10MB. Om du vill definiera dina egna regel för skeva uppgifter kan du välja din parametrar, den **förvrängd scenen**, och **förskjuta Char** avsnittet kommer att uppdateras i enlighet med detta.
+
++ **Förvrängd scenen** -det andra avsnittet visar steg som har förvrängd uppgifter som uppfyller de kriterier som anges ovan. Om det finns fler än en skeva uppgift i ett steg, visar skeva mellanlagringstabellen endast mest skeva uppgift (t.ex. största data för data förskjuta).
+
+    ![Data förskjuta sektion 2](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+
++ **Ge skeva diagrammet** – när en rad i tabellen skeva steg väljs de skeva diagrammet visar flera distributioner aktivitetsinformation baserat på data som lästs in och körningstid. Skeva uppgifter markeras i rött och de normala uppgifterna markeras i blått. Diagrammet visar bara upp till 100 exempelaktiviteter prestanda överväger. Aktivitetsinformationen visas i höger panel.
+
+    ![Data förskjuta avsnitt3](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+
+### <a name="time-skew"></a>Tid skeva
+Den **Tidsförskjutningsintervallet** fliken visas skeva aktiviteter baserat på körningstid för uppgiften. 
+
++ **Ange parametrar** – det första avsnittet visas de parametrar som används för att identifiera Tidsförskjutningsintervallet. Standardkriterier för att identifiera tidssnedställning är: körningstid för aktiviteten är större än 3 gånger av Genomsnittlig körningstid och körningstid för aktiviteten är högre än 30 sekunder. Du kan ändra parametrarna efter dina behov. Den **förvrängd scenen** och **förskjuta diagrammet** visa motsvarande steg och uppgifter information precis som den **Data förskjuta** flik ovan.
+
++ Klicka på **Tidsförskjutningsintervallet**, filtrerat resultat visas i **förvrängd scenen** avsnittet enligt de parametrar som anges i avsnitt **ange parametrar**. Klicka på ett objekt i **förvrängd scenen** avsnittet motsvarande diagrammet upprättats i avsnitt3 och aktivitetsinformationen visas i höger panel.
+
+    ![Tid skeva sektion 2](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+
+### <a name="executor-usage-analysis"></a>Executor användningsanalys
+Executor Se Användningsdiagram visualiserar Spark faktiska executor allokering och körs jobbstatusen.  
+
++ Klicka på **Executor användningsanalys**, och sedan fyra typer kurvor om executor användning sammanställs, inklusive **allokerade Executors**, **kör Executors**, **inaktiva Executors**, och **Max Executor instanser**. Om allokerade executors varje ”Executor har lagts till” eller ”Executor borttagen” händelse kommer öka eller minska allokerat executors kan du kontrollera ”händelse tidslinje” på ”jobbfliken” mer jämförelse.
+
+    ![Executors fliken](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+
++ Klicka på färgikonen för att markera eller avmarkera motsvarande innehållet i alla utkast.
+
+    ![Välj diagrammet](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
@@ -268,7 +318,7 @@ Om du vill uppgradera med snabbkorrigering använda skriptet nedan som kommer at
     ![Överför loggen eller uppgradera snabbkorrigering](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
-## <a name="known-issue"></a>Kända problem
+## <a name="known-issues"></a>Kända problem
 
 1.  För närvarande fungerar det bara för 2.3 Spark-kluster.
 

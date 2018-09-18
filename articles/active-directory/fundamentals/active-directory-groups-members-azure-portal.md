@@ -1,6 +1,6 @@
 ---
 title: Lägga till eller ta bort medlemmar med hjälp av Azure Active Directory | Microsoft Docs
-description: Hur du lägger till eller ta bort användare och enheter från en grupp med Azure Active Directory.
+description: Lär dig mer om att lägga till eller ta bort användare och enheter från en grupp med Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: f9244e1285396a2d5de40b596d47e311efa50b83
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7c1a83d83dcbf247550c66602a6f53d4ef0d7930
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574241"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733372"
 ---
 # <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>Så här: lägga till eller ta bort medlemmar med hjälp av Azure Active Directory
 Med Azure Active Directory kan fortsätta du att lägga till och ta bort medlemmar.

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a0ff6c09eb0a6fffe0ce82fe9ccb3bc43970ad68
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5ae57764e2950d027e832eccec5393d4aec4486a
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024626"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981852"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prova Speech Service kostnadsfritt
 
@@ -130,7 +130,7 @@ Lägga till en resurs för tal-tjänst på Azure-kontot:
 1. Under **snabbstarten**väljer den **nycklar** länken under steg 1 för att visa dina prenumerationsnycklar. Varje prenumeration har två nycklar; Du kan använda någon av nycklarna i ditt program. Välj knappen bredvid varje nyckel för att kopiera den till Urklipp för att klistra in i din kod.
 
 > [!NOTE]
-> Du kan skapa ett obegränsat antal prenumerationer för standard-nivån i en eller flera regioner. Du kan dock skapa endast en kostnadsfri nivå-prenumeration.
+> Du kan skapa ett obegränsat antal prenumerationer för standard-nivån i en eller flera regioner. Du kan dock skapa endast en kostnadsfri nivå-prenumeration. Modelldistributioner på den kostnadsfria nivån som är oanvända för 7 dagar kommer automatiskt att avetablerats.
 
 ## <a name="next-steps"></a>Nästa steg
 

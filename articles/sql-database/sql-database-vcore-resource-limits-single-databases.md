@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: c1ea223bf00dea32fb150cf141be7b5ea3239215
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ca6d36a4f06865b630e869623752bc5d488b6251
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055428"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732948"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas
 
@@ -26,14 +26,14 @@ DTU-baserade gränser för inköpschef modellen för finns i [SQL Database DTU-b
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
 
-## <a name="single-database-storage-sizes-and-performance-levels"></a>Databas: lagringsstorlekar och prestandanivåer
+## <a name="single-database-storage-sizes-and-compute-sizes"></a>Databas: lagringsstorlekar och storlekar
 
-Följande tabeller visar resurserna som är tillgängliga för en enskild databas på varje servicenivå för tjänstnivå och prestandanivå för enskilda databaser. Du kan ange den tjänstnivån, prestandanivån och lagringsutrymmet för en enkel databas med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), eller [REST-API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+För enskilda databaser i följande tabeller visar resurserna som är tillgängliga för en enskild databas på varje tjänstnivå och beräkna storleken. Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enkel databas med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), eller [REST-API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
 ### <a name="general-purpose-service-tier"></a>Tjänstnivå för allmänt syfte
 
 #### <a name="generation-4-compute-platform"></a>Beräkningsplattform generation 4
-|Prestandanivå|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
+|Beräkna storlek|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -55,7 +55,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |||
 
 #### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
-|Prestandanivå|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
+|Beräkna storlek|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
@@ -79,7 +79,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 ### <a name="business-critical-service-tier"></a>Kritiska-affärsnivå
 
 #### <a name="generation-4-compute-platform"></a>Beräkningsplattform generation 4
-|Prestandanivå|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|Beräkna storlek|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -101,7 +101,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |||
 
 #### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
-|Prestandanivå|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Beräkna storlek|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|

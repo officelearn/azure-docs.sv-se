@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205467"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736979"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -43,26 +43,34 @@ Fullständig information om konfigurationen finns i [MXChip mall enhetsinformati
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXChip** enheten mallen och gjort en notering enhetens anslutningssträng. Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
+I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXChip** enheten mallen och gjort en notering enhetsinformation för anslutningen (**Scope-ID, enhets-ID och primära nyckel**).
+
+1. Lägg till en **riktig enhet** från Device Explorer klickar du på **+ Ny > verkliga** att lägga till en riktig enhet.
+    * Ange enhets-Id **<span style="color:Red">(bör vara gemener)</span>** eller använder den föreslagna enhets-Id.
+    * Ange namnet på enheten eller använda det föreslagna namnet
+    
+    ![Lägg till enhet](media\concepts-connectivity\add-device.png)
+
+
+1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID och primära nyckel** för tillagd enhet genom att klicka på **Connect** på enhetssidan.
+ 
+    ![Anslutningsinformation](media\concepts-connectivity\device-connect.PNG)
+
+3. Se till att spara dessa uppgifter som du kommer temporaritly hämta ansluten till internet när du förbereder DevKit enheten. 
+
 
 ### <a name="prepare-the-devkit-device"></a>Förbered enheten DevKit
 
 > [!NOTE]
 > Om du tidigare har använt enheten och har wifi autentiseringsuppgifter lagras och vill konfigurera om enheten för att använda ett annat Wi-Fi-nätverk eller anslutningssträng telemetri mätning, trycker du på både den **A** och **B** knappar på tavlan samtidigt. Om det inte fungerar, trycker du på **återställa** knappen och försök igen.
 
-#### <a name="before-you-start-configuring-the-device"></a>Innan du börjar konfigurera enheten:
-1. I din IoT Central **exempel Devkits** gå till `Device Explorer` ->  `select MXChip Template`  ->  `Click on +New and choose **Real** Device`  ->  `Connect this device` (på upp till höger) 
-2. Kopiera primär anslutningssträng
-3. Se till att spara anslutningssträngen, som du kommer temporaritly hämta ansluten till internet när du förbereder DevKit enheten. 
 
 
 #### <a name="to-prepare-the-devkit-device"></a>Förbereda enheten DevKit:
 
 
-1. Ladda ned den senaste färdiga Azure IoT Central inbyggda programvaran för MXChip från den [släpper](https://github.com/Azure/iot-central-firmware/releases) sidan på GitHub. Ladda ned filnamnet på sidan med versioner som ser ut som `AZ3166-IoT-Central-X.X.X.bin`.
-
+1. Ladda ned den senaste färdiga Azure IoT Central inbyggda programvaran för MXChip från den [släpper](http://aka.ms/iotcentral-docs-MXChip-releases) sidan på GitHub.
 1. Anslut DevKit enheten till din utvecklingsdator med hjälp av en USB-kabel. I Windows öppnas en fil explorer på en enhet som har mappats till lagring på DevKit enheten. Exempelvis kan enheten kan anropas **AZ3166 (D:)**.
-
 1. Dra den **iotCentral.bin** fil till fönstret enhet. När kopieringen är klar, startar enheten om med den nya inbyggda programvaran.
 
 1. När DevKit enheten startas om, visas följande skärm:
@@ -75,7 +83,7 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXCh
     ```
 
     > [!NOTE]
-    > Om skärmen visar allt annat, trycker du på den **A** och **B** knappar på enheten på samma gång för att starta om enheten. 
+    > Om skärmen visar allt annat, återställa enheten och tryck på den **A** och **B** knappar på enheten på samma gång för att starta om enheten. 
 
 1. Enheten är nu i åtkomstläge åtkomstpunkten (AP). Du kan ansluta till den här Wi-Fi-åtkomstpunkt från din dator eller mobil enhet.
 
@@ -89,7 +97,7 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXCh
     - Lägg till namnet på ditt Wi-Fi-nätverk 
     - lösenordet för Wi-Fi-nätverk
     - PIN-koden som visas på enheten LCD 
-    - anslutningssträngen för enheten (du bör redan har sparat den här följa stegen) som du kan hitta anslutningssträngen på `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (på upp till höger)
+    - anslutningsinformationen **Scope-Id, enhets-Id och primära nyckel** för enheten (du bör redan har sparat den här följa stegen)      
     - Välj all tillgänglig telemetri mätningar! 
 
 1. När du har valt **– konfigurera enhet**, visas den här sidan:
@@ -99,7 +107,6 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXCh
 1. Tryck på den **återställa** knappen på din enhet.
 
 
-
 ## <a name="view-the-telemetry"></a>Visa telemetrin
 
 När DevKit enheten startas om, visar skärmen på enheten:
@@ -107,6 +114,9 @@ När DevKit enheten startas om, visar skärmen på enheten:
 * Antal telemetrimeddelanden som skickas.
 * Antal fel.
 * Antalet önskade egenskaper som tagits emot och antalet rapporterade egenskaper som skickas.
+
+> [!NOTE]
+> Om enheten verkar vara slingor under connect kontrollera om enheten är *blockerad* i IoT Central och *avblockera* enheten så att den kan ansluta till appen.
 
 Skaka enheten öka antalet rapporterade egenskaper som skickas. Enheten skickar ett slumptal som den **dör nummer** enhetsegenskap.
 

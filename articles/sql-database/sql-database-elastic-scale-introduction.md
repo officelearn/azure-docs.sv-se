@@ -1,94 +1,94 @@
 ---
 title: Skala ut med Azure SQL Database | Microsoft Docs
-description: Programvara som en tjänst (SaaS)-utvecklare kan enkelt skapa elastiska och skalbara databaser i molnet genom att använda dessa verktyg
+description: Programvara som en tjänst (SaaS)-utvecklare kan enkelt skapa elastiska, skalbara databaser i molnet med dessa verktyg
 services: sql-database
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: sstein
-ms.openlocfilehash: e8a07f1a1d172a96646a5c71a6267239e159c267
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b28b61dc9faf94c21854a73f99af47e302c8d153
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646576"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729934"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Skala ut med Azure SQL Database
-Du kan enkelt skala ut Azure SQL-databaser med hjälp av den **elastisk databas** verktyg. Dessa verktyg och funktioner kan du använda databasresurser av **Azure SQL Database** att skapa lösningar för transaktionell arbetsbelastningar och särskilt programvara som en tjänst (SaaS)-program. Elastiska databasfunktioner består av den:
+Du kan enkelt skala ut Azure SQL-databaser med hjälp av den **Elastic Database** verktyg. Dessa verktyg och funktioner kan du använda databasresurser av **Azure SQL Database** att skapa lösningar för transaktionsbelastningar och särskilt programvara som en tjänst (SaaS)-program. Elastic Database-funktioner består av den:
 
-* [Klientbibliotek för elastisk databas](sql-database-elastic-database-client-library.md): klientbiblioteket är en funktion som gör att du kan skapa och underhålla delat databaser.  Se [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md).
-* [Elastisk databas dela merge tool](sql-database-elastic-scale-overview-split-and-merge.md): flyttar data mellan delat. Detta är användbart för att flytta data från en databas med flera innehavare till en enskild klient-databas (eller vice versa). Se [elastisk databas delade dokument verktyget kursen](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Den elastiska databasen jobb](sql-database-elastic-jobs-overview.md) (förhandsversion): använder jobb för att hantera ett stort antal Azure SQL-databaser. Enkelt utföra administrativa åtgärder som till exempel schemaändringar, hantering av autentiseringsuppgifter, referens uppdateringar, insamling av prestandadata eller klient (kunden) telemetri samlingen med hjälp av jobben.
-* [Elastisk databasfrågan](sql-database-elastic-query-overview.md) (förhandsversion): gör att du kan köra en Transact-SQL-fråga som sträcker sig över flera databaser. Detta gör anslutningen till reporting verktyg som Excel, PowerBI, Tableau, osv.
-* [Elastisk transaktioner](sql-database-elastic-transactions-overview.md): den här funktionen kan du köra transaktioner som sträcker sig över flera databaser i Azure SQL Database. Elastisk databastransaktioner är tillgängliga för .NET-program med hjälp av ADO .NET och integrera med den gamla programmering upplevelse med den [System.Transaction klasser](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Klientbibliotek för elastiska databaser](sql-database-elastic-database-client-library.md): klientbiblioteket är en funktion som gör det möjligt att skapa och hantera shardade databaser.  Se [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md).
+* [Verktyg för elastisk databas dela / sammanslå](sql-database-elastic-scale-overview-split-and-merge.md): flyttar data mellan shardade databaser. Det här verktyget är användbart för att flytta data från en databas för flera innehavare till en enda klient databas (eller vice versa). Se [elastiska databaser dela och slå samman verktyget självstudien](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+* [Elastic Database-jobb](sql-database-elastic-jobs-overview.md) (förhandsversion): Använd jobb för att hantera stora mängder Azure SQL-databaser. Enkelt utföra administrativa åtgärder, till exempel schemaändringar, hantering av autentiseringsuppgifter, uppdateringar av referensdata, insamling av prestandadata eller klient (kund) telemetriinsamling med jobb.
+* [Elastisk databasfråga](sql-database-elastic-query-overview.md) (förhandsversion): gör att du kan köra en Transact-SQL-fråga som sträcker sig över flera databaser. På så sätt kan anslutningen till verktyg som Excel, Power BI, Tableau, osv.
+* [Elastiska transaktioner](sql-database-elastic-transactions-overview.md): den här funktionen kan du köra transaktioner som sträcker sig över flera databaser i Azure SQL Database. Transaktioner elastiska databaser är tillgängliga för .NET-program med hjälp av ADO .NET och integrera med en bekant programmering upplevelse med hjälp av den [System.Transaction klasser](https://msdn.microsoft.com/library/system.transactions.aspx).
 
-Följande bild visar en arkitektur som innehåller den **elastiska databasfunktioner** i förhållande till en samling av databaser.
+Följande bild visar en arkitektur som innehåller den **elastiska databasfunktionerna** i förhållande till en uppsättning databaser.
 
-I den här bilden representerar färgerna i databasen scheman. Databaser med samma färg delar samma schema.
+I den här bilden representerar färger för databasen scheman. Databaserna med samma färg delar samma schema.
 
-1. En uppsättning **Azure SQL-databaser** finns på Azure med hjälp av arkitekturen för horisontell partitionering.
-2. Den **klientbibliotek för elastisk databas** används för att hantera Fragmentera.
-3. En delmängd av databaserna som placeras i en **elastisk pool**. (Se [vad är en pool?](sql-database-elastic-pool.md)).
-4. En **elastisk databas jobbet** körs schemalagda eller ad hoc-T-SQL-skript mot alla databaser.
-5. Den **för delade sökvägssammanslagning** används för att flytta data från en Fragmentera till en annan.
-6. Den **elastisk databasfrågan** gör att du kan skriva en fråga som omfattar alla databaser i uppsättningen Fragmentera.
-7. **Elastisk transaktioner** gör att du kan köra transaktioner som sträcker sig över flera databaser. 
+1. En uppsättning **Azure SQL-databaser** finns på Azure med horisontell partitionering arkitektur.
+2. Den **Elastic Database-klientbiblioteket** används för att hantera en uppsättning fragment.
+3. En delmängd av databaserna placeras i en **elastisk pool**. (Se [vad är en pool?](sql-database-elastic-pool.md)).
+4. En **Elastic Database-jobb** körs schemalagd eller ad hoc-T-SQL-skript mot alla databaser.
+5. Den **dela / sammanslå verktyget** används för att flytta data från en shard till en annan.
+6. Den **elastisk databasfråga** kan du skriva en fråga som sträcker sig över alla databaser i fragment uppsättningen.
+7. **Elastiska transaktioner** kan du köra transaktioner som sträcker sig över flera databaser. 
 
 ![Elastic Database-verktyg][1]
 
-## <a name="why-use-the-tools"></a>Varför använda verktygen?
-Uppnå elasticitet och skala för molnprogram har enkla för virtuella datorer och blob-lagring – helt enkelt lägga till eller subtrahera enheter, eller öka power. Men det har varit en utmaning för tillståndskänsliga databearbetning i relationsdatabaser. Det här utmaningarna i följande scenarier:
+## <a name="why-use-the-tools"></a>Varför ska man använda verktygen?
+Uppnå elasticitet och skala för molnprogram har enkelt för virtuella datorer och blob-lagring – helt enkelt lägga till eller ta bort enheter eller öka power. Men det har varit en utmaning för tillståndskänsliga databearbetning i relationsdatabaser. Det här utmaningarna i dessa scenarier:
 
-* Växande och minska kapacitet för relationsdatabas en del av din arbetsbelastning.
-* Hantera anslutningar som kan uppstå som påverkar en delmängd av data -, till exempel en upptagen end-kund (klient).
+* Växer och krymper kapacitet för relationsdatabas som en del av din arbetsbelastning.
+* Hantera anslutningar som kan uppstå som påverkar en viss delmängd data – till exempel en upptagen end-kund (klient).
 
-Traditionellt berörs scenarier som dessa av investera i större skala databasservrar att programmet. Det här alternativet är dock begränsad i molnet där all bearbetning som händer på fördefinierade vanlig hårdvara. Distribuera data och bearbeta över flera identiskt strukturerade databaser i stället tillhandahåller ett alternativ till traditionella metoder skala upp både vad gäller kostnad och elasticitet (en skalbar mönstret kallas ”delning”).
+Scenarier som dessa har traditionellt har utförts genom att investera i större skala databasservrar programmet. Det här alternativet är dock begränsad i molnet där alla bearbetningen sker på fördefinierade vanlig maskinvara. (I stället distribuera data och bearbetning över flera identiskt strukturerade databaser en skalbar mönstret kallas ”horisontell partitionering”) ger ett alternativ till traditionella sätt skala upp både vad gäller kostnaden och elasticitet.
 
-## <a name="horizontal-and-vertical-scaling"></a>Vågräta och lodräta skalning
-Följande bild visar vågräta och lodräta dimensioner för skalning, som de olika sätt som de elastiska databaserna kan skalas.
+## <a name="horizontal-and-vertical-scaling"></a>Vågrät och lodrät skalning
+Följande bild visar vågräta och lodräta dimensioner för skalning, vilka är de grundläggande sätt som de elastiska databaserna kan skalas.
 
-![Vågräta och lodräta skala ut][2]
+![Vågrät jämfört med vertikal skalbarhet][2]
 
-Teckenbredden avser att lägga till eller ta bort databaser för att justera kapacitet eller övergripande prestanda. Detta kallas även ”skalning”. Horisontell partitionering, där data är partitionerad över en mängd identiskt strukturerade databaser är ett vanligt sätt att implementera teckenbredden.  
+Horisontell skalning syftar till att lägga till eller ta bort databaser för att justera kapacitet eller övergripande prestanda, kallas även ”skalning”. Horisontell partitionering, där data är partitionerad över en uppsättning identiskt strukturerade databaser är ett vanligt sätt att implementera horisontell skalning.  
 
-Lodrät skalning refererar till öka eller minska prestandanivåerna för en individuell databas – kallas även ”skala upp”.
+Vertikal skalning refererar till öka eller minska beräkningsstorleken på en enskild databas, även kallat ”skala upp”.
 
-De flesta databasprogram i molnskala använda en kombination av följande två metoder. En programvara som en tjänst kan till exempel använda teckenbredden för att etablera nya end-kunder och lodrät skalning så att varje end-kund databas kan öka eller minska resurser som krävs av arbetsbelastningen.
+De flesta databasprogram för molnskala använder en kombination av följande två metoder. En programvara som en tjänst kan till exempel använda horisontell skalning för att etablera nya slutkunder och vertikal skalning så att varje slutanvändarnas databas kan öka eller minska resurser efter behov av arbetsbelastningen.
 
-* Teckenbredden hanteras med hjälp av den [klientbibliotek för elastisk databas](sql-database-elastic-database-client-library.md).
-* Lodrät skalning åstadkoms med hjälp av Azure PowerShell-cmdlets för att ändra tjänstnivån, eller placera databaser i en elastisk pool.
+* Horisontell skalning hanteras med hjälp av den [Elastic Database-klientbiblioteket](sql-database-elastic-database-client-library.md).
+* Vertikal skalning sker med hjälp av Azure PowerShell-cmdletar för att ändra tjänstnivån, eller genom att placera databaser i en elastisk pool.
 
 ## <a name="sharding"></a>Horisontell partitionering
-*Horisontell partitionering* är en teknik som du distribuerar stora mängder identiskt strukturerade data över ett antal oberoende databaser. Det är särskilt populära med molnet utvecklare som skapar programvara som en tjänst (SAAS)-erbjudanden för slutanvändare och kunder eller företag. Dessa slutkunder kallas ofta ”innehavare”. Horisontell partitionering kan krävas av olika orsaker:  
+*Horisontell partitionering* är en teknik för att distribuera stora mängder identiskt strukturerade data över ett antal oberoende databaser. Det används särskilt ofta med cloud-utvecklare som skapar programvara som en tjänst (SAAS)-erbjudanden för slutkunder eller företag. Dessa slutkunder kallas ofta ”klientorganisationer”. Horisontell partitionering kan krävas för valfritt antal orsaker:  
 
-* Den totala mängden data är för stort för att rymmas inom begränsningarna för en enskild databas
-* Transaktionen genomströmning av övergripande belastningen överskrider kapaciteterna för en enskild databas
-* Klienter kan kräva fysiska isolerade från varandra, så separata databaser krävs för varje klient
-* Olika avsnitt i en databas behöver finnas i olika geografiska områden för kompatibilitet, prestanda eller geopolitiska orsaker.
+* Den totala mängden data är för stor för att rymmas inom begränsningarna för en enskild databas
+* Transaktionsdataflöde av den övergripande arbetsbelastningen överskrider kapaciteterna för en enskild databas
+* Klienter kan kräva fysiskt isolerade från varandra, så separata databaser behövs för varje klient
+* Olika delar i en databas kan behöva finnas i olika geografiska områden för efterlevnad, prestanda eller geopolitiska orsaker.
 
-I andra scenarier, till exempel införandet av data från distribuerade enheter kan delning användas för att fylla en uppsättning databaser som är ordnade närvarande. En separat databas kan till exempel vara dedikerade till varje dag och vecka. I så fall horisontell partitionering nyckeln kan vara ett heltal som representerar den (finns i alla rader i tabellerna delat) och frågor som hämtar information för ett datum måste dirigeras av programmet till delmängden av databaser som täcker intervallet i fråga.
+I andra scenarier, t.ex inmatning av data från distribuerade enheter, kan horisontell partitionering användas för att fylla en uppsättning databaser som är ordnade tillfälligt. En separat databas kan till exempel vara dedikerad till varje dag eller en vecka. I så fall nyckeln för horisontell partitionering kan vara ett heltal som representerar den (finns i alla rader i tabellerna shardade) och frågor som hämtar information för ett datumintervall skickas av programmet till delmängden av databaser som täcker intervallet i fråga.
 
-Delning fungerar bäst när varje transaktion i ett program kan vara begränsad till ett värde för en nyckel för horisontell partitionering. Detta säkerställer att alla transaktioner är lokala för en viss databas.
+Horisontell partitionering fungerar bäst när varje transaktion i ett program kan vara begränsad till ett enstaka värde för nyckeln för horisontell partitionering. Detta säkerställer att alla transaktioner är lokala för en viss databas.
 
-## <a name="multi-tenant-and-single-tenant"></a>Flera innehavare och single-klient
-Vissa program använder det enklaste sättet att skapa en separat databas för varje klient. Det här är den **mönster för enstaka klient horisontell partitionering** som ger isolering, möjlighet för säkerhetskopiering/återställning och resurs skalning på Granulariteten för innehavaren. Varje databas är kopplad till en viss klient ID-värde (eller kunden nyckelvärde) med enda innehavare delning, men nyckeln behöver inte alltid finns i själva informationen. Det är programmets ansvar för att dirigera varje förfrågan till rätt databas - och klientbiblioteket kan förenkla detta.
+## <a name="multi-tenant-and-single-tenant"></a>Flera innehavare och en enda klient
+Vissa program använder den enklaste metoden för att skapa en separat databas för varje klient. Den här metoden är den **mönster för horisontell partitionering av enskild klient** som ger isolering, möjlighet för säkerhetskopiering/återställning och resursgrupp skalning med precisionen för klienten. Med enskild klient partitionering har varje databas är associerad med en specifik klient-ID-värdet (eller kunden nyckelvärde), men nyckeln behöver inte alltid i själva informationen. Det är programmets ansvar att dirigera varje begäran till lämplig databas - och klientbiblioteket kan förenkla detta.
 
-![En organisation jämfört med flera innehavare][4]
+![Enskild klient jämfört med flera innehavare][4]
 
-Andra scenarier packa ihop flera innehavare i databaser i stället för att isolera dem i separata databaser. Det här är en typisk **mönster för flera innehavare horisontell partitionering** - och den styrs av det faktum att ett program hanterar stora mängder små innehavare. I flera innehavare delning är raderna i databastabellerna alla utformade för att utföra en nyckel som identifierar de klient-ID eller en nyckel för horisontell partitionering. Återigen nivån programmet ansvarar för omdirigering av en klient-begäran till rätt databas och det stöds av klientbiblioteket för elastisk databas. Dessutom säkerhet på radnivå kan användas för att filtrera vilka rader som varje klient kan komma åt - mer information finns i [program med flera klienter med elastiska Databasverktyg och säkerhet på radnivå](sql-database-elastic-tools-multi-tenant-row-level-security.md). Distribuera data mellan databaser kan behövas med flera innehavare horisontell partitionering mönster och detta möjliggörs med hjälp av verktyget för elastisk databas delade dokument. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Andra scenarier packa ihop flera klienter i databaser i stället för att isolera dem i separata databaser. Det här mönstret är en typisk **mönster för flera innehavare horisontell partitionering** - och den kan styras av det faktum att ett program hanterar stort antal små klienter. I flera innehavare partitionering har är raderna i databastabellerna utformade att utföra en nyckel som identifierar de klient-ID eller shardingnyckel. Igen, appnivån ansvarar för routning av begäran om en klient till rätt databas och det stöds av klientbiblioteket för elastiska databaser. Dessutom säkerhet på radnivå kan användas för att filtrera vilka rader som varje klient kan komma åt - mer information finns i [program för flera innehavare med elastic database-verktyg och säkerhet på radnivå](sql-database-elastic-tools-multi-tenant-row-level-security.md). Distribuera data mellan databaser kan behövas med mönster för flera innehavare horisontell partitionering och möjliggörs med hjälp av verktyget Dela och slå samman för elastic database. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Flytta data från flera till single-innehavare databaser
-När du skapar ett SaaS-program, är det vanligt att erbjuda en utvärderingsversion av programvaran för potentiella kunder. I det här fallet är det kostnadseffektivt att använda en databas med flera innehavare för data. När en potentiell kund blir en kund, är en enskild klient-databas dock bättre eftersom det ger bättre prestanda. Om kunden har skapat data under utvärderingsperioden, använder du den [för delade sökvägssammanslagning](sql-database-elastic-scale-overview-split-and-merge.md) att flytta data från flera innehavare till den nya databasen för en klient.
+### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Flytta data från flera till enskild innehavare databaser
+När du skapar ett SaaS-program, är det vanligt att erbjuda en utvärderingsversion av programvaran för potentiella kunder. I det här fallet är det kostnadseffektivt att använda en databas för flera innehavare för data. När en potentiell kund blir en kund, är en enda klient-databas dock bättre eftersom det ger bättre prestanda. Om kunden har skapat data under utvärderingsperioden, använder du den [dela / sammanslå verktyget](sql-database-elastic-scale-overview-split-and-merge.md) att flytta data från flera innehavare till den nya databasen för enstaka klientorganisationer.
 
 ## <a name="next-steps"></a>Nästa steg
 En exempelapp som visar klientbiblioteket finns [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md).
 
-Om du vill konvertera befintliga databaser för att använda verktygen finns [migrera befintliga databaser att skala ut](sql-database-elastic-convert-to-use-elastic-tools.md).
+Om du vill konvertera befintliga databaser för att använda verktyg, se [migrera befintliga databaser för att skala ut](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Egenskaperna för den elastiska poolen finns [pris- och prestandaöverväganden för en elastisk pool](sql-database-elastic-pool.md), eller skapa en ny pool med [elastiska pooler](sql-database-elastic-pool-manage-portal.md).  
+För att visa egenskaperna för den elastiska poolen, se [pris- och prestandaöverväganden för en elastisk pool](sql-database-elastic-pool.md), eller skapa en ny pool med [elastiska pooler](sql-database-elastic-pool-manage-portal.md).  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

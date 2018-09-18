@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 7f7d447edd0d73084a46aeff81f27b3ab0f072d3
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 7b7e21e3e5ad02d74a2ae39e37c9dd8086c2cdd6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286242"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729483"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Bild Analysis kognitiva kunskaper
 
 Den **bildanalys** färdighet extraherar en omfattande uppsättning visuella funktioner baserat på innehållet i. Du kan till exempel generera en etikett från en avbildning, generera taggar eller identifiera kändisar och landmärken.
+
+> [!NOTE]
+> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetens körning och extrahering av avbildningen och normalisering är för närvarande erbjuds kostnadsfritt. Vid ett senare tillfälle meddelas priserna för dessa funktioner. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 

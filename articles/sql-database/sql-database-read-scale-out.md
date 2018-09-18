@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 8/27/2018
+ms.date: 09/14/2018
 ms.author: sashan
-ms.openlocfilehash: c0fa4a9868aa19032888aa50a0d300dd2e88fcca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d7c3a672224bd7a167956d7699541880de11bef9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124825"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737047"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)
 
@@ -26,7 +26,7 @@ Varje databas i Premium-nivån ([DTU-baserade inköpsmodellen](sql-database-serv
 
 ![Skrivskyddade repliker](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-De här replikeringarna etableras med samma prestandanivå som används av de vanliga databasanslutningarna skrivskyddade replik. Den **Lässkalning** funktionen kan du belastningsutjämna SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för en av de skrivskyddade replikerna istället för att dela Läs-och repliken. Det här sättet skrivskyddad arbetsbelastning isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar, till exempel analyser, och därför kan få prestandafördelarna med hjälp av den här ytterligare kapacitet utan extra kostnad.
+De här replikeringarna etableras med samma beräkningsstorleken som används av de vanliga databasanslutningarna skrivskyddade replik. Den **Lässkalning** funktionen kan du belastningsutjämna SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för en av de skrivskyddade replikerna istället för att dela Läs-och repliken. Det här sättet skrivskyddad arbetsbelastning isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar, till exempel analyser, och därför kan få prestandafördelarna med hjälp av den här ytterligare kapacitet utan extra kostnad.
 
 Om du vill använda funktionen Lässkalning med en viss databas, måste du uttryckligen aktivera det när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att aktivera den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [ Ny-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdletar eller Azure Resource Manager REST API med hjälp av den [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate) metod. 
 

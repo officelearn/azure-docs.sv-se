@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8f86bcf5ecf38f0f1054fce82b66e63f0509f1c8
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 63ae8699af5213634eeac7dfc5045a3fc888b6c0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058265"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734260"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudie: Skapa din första pipeline för att transformera data med Hadoop-kluster
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ Från rad exemplet som visas ovan, förstnämnda (med 2016-01-01) skrivs till fi
 Innan du påbörjar den här självstudien måste du ha följande krav:
 
 1. **Azure-prenumeration** -om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Se den [kostnadsfri utvärderingsversion av](https://azure.microsoft.com/pricing/free-trial/) artikel om hur du kan få ett kostnadsfritt konto.
-2. **Azure Storage** – du använder ett Azure storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot, Skriv ned den **kontonamn** och **åtkomstnyckel**. Se [visa, kopiera och återskapa åtkomstnycklar](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+2. **Azure Storage** – du använder ett Azure storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot, Skriv ned den **kontonamn** och **åtkomstnyckel**. Se [visa, kopiera och återskapa åtkomstnycklar](../../storage/common/storage-account-manage.md#access-keys).
 3. Ladda ned och granska filen Hive-fråga (**HQL**) finns på: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Den här frågan omvandlar indata till utdata. 
 4. Ladda ned och granska indata-exempelfilen (**input.log**) finns på: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Skapa en blobbehållare med namnet **adfgetstarted** i Azure Blob Storage. 
@@ -94,7 +94,7 @@ Innan du påbörjar den här självstudien måste du ha följande krav:
 
 När du har slutfört förutsättningarna kan du välja något av följande verktyg/SDK: erna att göra självstudien: 
 
-- [Azure-portalen](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)

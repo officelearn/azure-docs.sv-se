@@ -9,12 +9,12 @@ ms.custom: develop databases
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: f4e056e9f8461085df6ae447672e2c9ec91aa3ca
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5fd0d487371acdf8d0b3301cc881aa2f059a9f41
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092411"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984160"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda med hjälp av minnesinterna tekniker i SQL-databas
 
@@ -72,7 +72,7 @@ Djupgående videor om tekniker:
 
 In-Memory OLTP innehåller minnesoptimerade tabeller som används för lagring av användardata. Dessa tabeller krävs för att få plats i minnet. Eftersom du hantera minne direkt i SQL Database-tjänsten har vi konceptet med en kvot för användardata. Den här idén kallas *InMemory-OLTP-lagring*.
 
-Varje stöds fristående databas prisnivå och varje elastisk pool prisnivån innehåller en viss mängd InMemory-OLTP-lagring. Se [DTU-baserade resursbegränsningar - enkel databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+Varje databas som stöds enda prisnivå och varje elastisk pool prisnivån innehåller en viss mängd InMemory-OLTP-lagring. Se [DTU-baserade resursbegränsningar - enkel databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Följande objekt tillgodoräknas din begränsning för In-Memory OLTP-lagring:
 

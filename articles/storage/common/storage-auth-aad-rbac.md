@@ -1,6 +1,6 @@
 ---
-title: Använd RBAC för att hantera åtkomstbehörigheter till Azure Storage-behållare och köer (förhandsversion) | Microsoft Docs
-description: Använd rollbaserad åtkomstkontroll (RBA) för att tilldela roller för åtkomst till Azure Storage-data till användare, grupper, tjänsthuvudnamn för programmet eller hanterade tjänstidentiteter. Azure Storage stöder inbyggda och anpassade roller för åtkomst till behållare och köer.
+title: Använd RBAC för att hantera åtkomstbehörigheter till behållare och Azure Storage-köer (förhandsversion) | Microsoft Docs
+description: Använda rollbaserad åtkomstkontroll (RBAC) för att tilldela roller för åtkomst till blob och kö data till användare, grupper, tjänsthuvudnamn för programmet eller hanterade tjänstidentiteter. Azure Storage stöder inbyggda och anpassade roller för åtkomst till behållare och köer.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298683"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737302"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Hantera åtkomsträttigheter till Azure Storage-data med RBAC (förhandsversion)
 
 Azure Active Directory (Azure AD) auktoriserar åtkomsträttigheter till skyddade resurser via [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för åtkomst till behållare eller köer. När en RBAC-roll tilldelas till en Azure AD-identitet identitet beviljas åtkomst till dessa resurser, enligt det angivna omfånget. Åtkomst kan begränsas till nivån för prenumerationen, resursgruppen, storage-konto eller en enskild behållare eller en kö. Du kan tilldela åtkomsträttigheter för Azure Storage-resurser med Azure-portalen, Azure kommandoradsverktyg och Azure Management API: er. 
 
-En Azure AD-identitet kan vara en användare, grupp eller tjänstens huvudnamn för programmet eller det kan vara en *hanterad tjänstidentitet*. Ett säkerhetsobjekt kan vara en användare, grupp eller program tjänstens huvudnamn. En [hanterad tjänstidentitet](../../active-directory/managed-identities-azure-resources/overview.md) är ett automatiskt hanterad identitet som används för att autentisera från program som körs i Azure-datorer, funktionsappar, skalningsuppsättningar för virtuella datorer och andra. En översikt av identitet i Azure AD finns i [förstå Azure-identitetslösningar](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+En Azure AD-identitet kan vara en användare, grupp eller program tjänstens huvudnamn eller det kan vara en hanterad identitet för Azure-resurser. Ett säkerhetsobjekt kan vara en användare, grupp eller program tjänstens huvudnamn. En [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) är ett automatiskt hanterad identitet som används för att autentisera från program som körs i Azure-datorer, funktionsappar, skalningsuppsättningar för virtuella datorer och andra. En översikt av identitet i Azure AD finns i [förstå Azure-identitetslösningar](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
-## <a name="rbac-roles-for-azure-storage"></a>RBAC-roller för Azure Storage
+## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-roller för blobbar och köer
 
 Azure Storage stöder både inbyggda och anpassade RBAC-roller. Azure Storage erbjuder dessa inbyggda RBAC-roller för användning med Azure AD:
 

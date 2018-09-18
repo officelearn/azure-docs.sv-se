@@ -3,17 +3,17 @@ title: Distribuera lösningen för fjärrövervakning lokalt – Azure | Microso
 description: Den här guiden visar hur du distribuerar den lösningsacceleratorn för fjärrövervakningen till din lokala dator för utveckling och testning.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: asdonald
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/06/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: aaaf31d5c1faae8176dd9909f74c70300c3f0b4e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: e29a21639d3d7c7acb6093bcd8eb9947721273bc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716448"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982550"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt
 
@@ -42,13 +42,13 @@ För att slutföra lokal distribution, behöver du följande verktygen som insta
 Om du vill installera Java-implementeringar av mikrotjänster, kör du:
 
 ```cmd/sh
-git clone --recurse-submodules -j8 https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
+git clone --recurse-submodules  https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
 ```
 
 Om du vill installera .net-implementeringar av mikrotjänster, kör du:
 
 ```cmd\sh
-git clone --recurse-submodules -j8 https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet
+git clone --recurse-submodules  https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
 ```
 
 > [!NOTE]
@@ -58,18 +58,38 @@ git clone --recurse-submodules -j8 https://github.com/Azure/azure-iot-pcs-remote
 
 Även om den här artikeln visar hur du kör mikrotjänster lokalt, de förlitar sig på Azure-tjänster som körs i molnet. Du kan distribuera Azure-tjänsterna [manuellt via Azure portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), eller använda skriptet. I följande skriptexempel förutsätter att du använder .NET-lagringsplatsen på en Windows-dator. Om du arbetar i en annan miljö, justera de sökvägar, filnamnstillägg, och avgränsarna på rätt sätt. Att använda skriptet:
 
-1. I din kommandoradmiljö, navigerar du till den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** mapp i din klonade kopia av databasen.
+### <a name="new-users"></a>Nya användare
+För användare som har **har ännu inte** skapat resurserna som krävs Azure kan fortsätta att följa stegen nedan:
 
-1. Kör den **start.cmd** skript och följer anvisningarna. Skriptet uppmanas du att följande information:
+ 1. I din kommandoradmiljö, navigerar du till den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** mapp i din klonade kopia av databasen.
+
+ 2. Kör den **start.cmd eller start.sh** skript och följer anvisningarna. Skriptet uppmanas du att följande information:
     * Ett lösningsnamn på.
     * Den Azure-prenumeration som ska användas.
     * Platsen för Azure-datacenter att använda.
 
     Skriptet skapar en resursgrupp i Azure med Lösningsnamnet på din.
 
-1. I din kommandoradmiljö, navigerar du till den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch\os\win** mapp i din klonade kopia av databasen.
+ 3. I din kommandoradmiljö, navigerar du till den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch\os\win** mapp i din klonade kopia av databasen.
 
-1. Kör den **set-env-uri.cmd** skript.
+ 4. Kör den **set-env-uri.cmd eller set-env-uri.sh** skript.
+ 
+ 5. Uppdatera din git-undermoduler för att kontrollera att du har de senaste: ```cd <repo-name>``` och kör sedan följande kommando ```git submodule foreach git pull origin master```
+
+> [!NOTE]
+> Om du har klonat azure-iot-pcs-remote-monitoring-dotnet lagringsplats, finns skriptmappen under tjänster submodule (mapp).
+Det på startskriptet kräver **Node.js** för att köra, installera senaste stabil noden 8 (inte förändrar Använd nod 10) innan du använder det här skriptet. Dessutom det här skriptet kan kräva noden administrativa privilegier eller sudo-behörighet som försöker installera [datorer cli](https://github.com/Azure/pcs-cli) en cli-gränssnittet för övervakning av remote distributioner.  
+
+### <a name="existing-users"></a>Befintliga användare
+För användare som redan har skapat de nödvändiga azure-resurserna och bara behöver du uppdatera dem kan endast färdigt **en** av följande steg:
+
+ * Ange miljövariabler globalt på din dator.
+ * **VS Code:** ange miljövariabler starta konfigurationer av IDE d.v.s. launch.json
+ * **Visual Studio:** ange miljövariabler för webbtjänsten projekt mikrotjänster genom att lägga till egenskaper → Debug → miljövariabler
+ 
+Slutligen uppdaterar du din git-undermoduler för att kontrollera att du har de senaste: ```cd <repo-name>``` och kör sedan följande kommando ```git submodule foreach git pull origin master```
+ 
+Även om det inte rekommenderas kan du också ange miljövariabler i appsettings.ini filen finns under mappen för webbtjänsten för var och en av mikrotjänster.
 
 ## <a name="run-the-microservices-in-docker"></a>Kör mikrotjänster i Docker
 

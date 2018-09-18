@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: ee24a055c6a3c53b9753728e13a7687e722c1c91
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e62023f5aeca73973598430ed357e8e9800a17f8
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526223"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732251"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Överföra Data med Microsoft Azure Storage Data Movement Library
 
@@ -35,10 +35,10 @@ Det här dokumentet visar hur du skapar ett .NET Core-konsolprogram som körs p�
 **Vad du behöver:**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Ett [Azure Storage-konto](storage-create-storage-account.md#create-a-storage-account)
+* Ett [Azure Storage-konto](storage-quickstart-create-account.md)
 
 > [!NOTE]
-> Den här guiden förutsätter att du redan är bekant med [Azure Storage](https://azure.microsoft.com/services/storage/). Om inte, läser den [introduktion till Azure Storage](storage-introduction.md) dokumentation är till hjälp. Framför allt du behöver [skapa ett lagringskonto](storage-create-storage-account.md#create-a-storage-account) att börja använda biblioteket för flytt av Data.
+> Den här guiden förutsätter att du redan är bekant med [Azure Storage](https://azure.microsoft.com/services/storage/). Om inte, läser den [introduktion till Azure Storage](storage-introduction.md) dokumentation är till hjälp. Framför allt du behöver [skapa ett lagringskonto](storage-quickstart-create-account.md) att börja använda biblioteket för flytt av Data.
 > 
 > 
 

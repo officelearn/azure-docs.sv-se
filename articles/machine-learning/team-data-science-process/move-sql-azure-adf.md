@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 5e5e8c3a81d911cb47edfcb5432bc423872a29ec
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: c0a488d34ffe2e5a8e8a3883276c1038039bc785
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056149"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731308"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory
 Det här avsnittet visar hur du flyttar data från en lokal SQL Server-databas till en SQL Azure-databas via Azure Blob Storage med hjälp av Azure Data Factory (ADF).
@@ -54,7 +54,7 @@ Vi konfigurerar en ADF-pipeline som composes två aktiviteter för migrering av 
 Den här självstudien förutsätter att du har:
 
 * En **Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
-* En **Azure storage-konto**. Du kan använda ett Azure storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot kan behöva du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [hantera dina lagringsåtkomstnycklar](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+* En **Azure storage-konto**. Du kan använda ett Azure storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot kan behöva du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [hantera dina lagringsåtkomstnycklar](../../storage/common/storage-account-manage.md#access-keys).
 * Åtkomst till en **Azure SQL Database**. Om du måste ställa in en Azure SQL Database, avsnittet [komma igång med Microsoft Azure SQL Database ](../../sql-database/sql-database-get-started.md) innehåller information om hur du etablerar en ny instans av en Azure SQL Database.
 * Installerat och konfigurerat **Azure PowerShell** lokalt. Anvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 

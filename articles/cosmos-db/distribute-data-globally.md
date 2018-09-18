@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 4defdabde19b2dcf7f9872fd6da1b63b0d244913
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288310"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983826"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Att distribuera data globalt med Azure Cosmos DB
 Azure är allt vanligare – den har ett globala fotavtryck över 50 + geografiska områden och utökas ständigt. Med dess global närvaro är en differentierad funktioner som Azure erbjuder till dess utvecklare möjlighet att bygga, distribuera och hantera enkelt globalt distribuerade program. 
@@ -28,7 +28,7 @@ Azure är allt vanligare – den har ett globala fotavtryck över 50 + geografis
 
 Vi har lärt dig när du skapar Azure Cosmos DB kan inte att lägga till global distribution vara en eftertanke. Den kan inte ”bult-på” på ett ”plats”-databassystem. Funktioner som erbjuds av en globalt distribuerad databas omfatta utöver att av traditionella geografiska disaster recovery (Geo DR) erbjuds av ”enskild plats”-databaser. Plats-databaser som erbjuder Geo-DR-funktionen är en strikt delmängd av globalt distribuerade databaser. 
 
-Med Azure Cosmos DB nyckelfärdig global distribution, utvecklare behöver inte skapa sina egna replikering ställningar genom att använda antingen Lambda-mönster (till exempel [AWS DynamoDB replikering](https://github.com/awslabs/dynamodb-cross-region-library/blob/master/README.md)) över databasloggen eller av Utför ”dubbla skrivåtgärder” i flera regioner. Vi gör *inte* rekommenderar dessa metoder, eftersom det är omöjligt att se till att är korrekt av dessa metoder och ge bra serviceavtal. 
+Med Azure Cosmos DB nyckelfärdig global distribution, behöver utvecklare inte skapa sina egna replikering ställningar genom att använda antingen Lambda mönstret över databasloggen eller genom att utföra ”dubbla skrivningar” i flera regioner. Vi gör *inte* rekommenderar dessa metoder, eftersom det är omöjligt att se till att är korrekt av dessa metoder och ge bra serviceavtal. 
 
 Den här artikeln innehåller en översikt över funktioner för global distribution av Azure Cosmos DB. Vi beskriver också unika Azure Cosmos DB-metod för att tillhandahålla omfattande serviceavtal. 
 

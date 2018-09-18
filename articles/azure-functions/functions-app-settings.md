@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/16/2018
 ms.author: glenga
-ms.openlocfilehash: 9f6746f1bf8fb65e39933afa00b74a2b8266a1a9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: f7299b9193c5ab24431feb9c73a0a3cf97596da3
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095444"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734949"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
@@ -152,18 +152,15 @@ Standardvärdet är ”6.5.0”.
 |---|------------|
 |WEBBPLATSEN\_NODEN\_DEFAULT_VERSION|6.5.0|
 
-## <a name="websiterunfromzip"></a>WEBBPLATSEN\_KÖR\_FROM\_ZIP
+## <a name="websiterunfrompackage"></a>WEBBPLATSEN\_KÖR\_FROM\_PAKET
 
 Gör att funktionsappen ska köras från en monterad paketfil.
 
-> [!NOTE]
-> Den här inställningen avser en förhandsgranskningsfunktion.
-
 |Nyckel|Exempelvärde|
 |---|------------|
-|WEBBPLATSEN\_KÖR\_FROM\_ZIP|1|
+|WEBBPLATSEN\_KÖR\_FROM\_PAKET|1|
 
-Giltiga värden är antingen en URL som motsvarar platsen för en paketfil för distribution eller `1`. När värdet `1`, paketet måste finnas i den `d:\home\data\SitePackages` mapp. När du använder zip-distribution med den här inställningen överförs automatiskt paketet till den här platsen.  Mer information finns i [kör dina funktioner från en paketfil](run-functions-from-deployment-package.md).
+Giltiga värden är antingen en URL som motsvarar platsen för en paketfil för distribution eller `1`. När värdet `1`, paketet måste finnas i den `d:\home\data\SitePackages` mapp. När du använder zip-distribution med den här inställningen överförs automatiskt paketet till den här platsen. I förhandsversion, kallades den här inställningen `WEBSITE_RUN_FROM_ZIP`. Mer information finns i [kör dina funktioner från en paketfil](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

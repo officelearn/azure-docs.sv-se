@@ -8,15 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.subservice: elastic-pool
 ms.custom: DBs & servers
-ms.date: 07/27/2018
+ms.date: 09/14/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: ffc74eafed81c3dad836cfe70050244cb66a820b
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 39c127569ea3ea5339c90554e1e899212f1b3f6a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003747"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735520"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler
 
@@ -55,7 +55,7 @@ Följande bild visar ett exempel på en databas med mycket inaktiv tid, men äve
 
    ![en enkel databas som är lämplig för en pool](./media/sql-database-elastic-pool/one-database.png)
 
-Under femminutersperioden som visas har DB1 toppar med 90 DTU:er, men en genomsnittlig användning på mindre än 5 DTU:er. En S3-prestandanivå krävs för att köra den här arbetsbelastningen i en enkel databas, men det innebär att de flesta av resurserna inte används under perioder med låg aktivitet.
+Under femminutersperioden som visas har DB1 toppar med 90 DTU:er, men en genomsnittlig användning på mindre än 5 DTU:er. En S3-beräkningsstorleken krävs för att köra den här arbetsbelastningen i en enda databas, men det innebär att de flesta resurserna inte används under perioder med låg aktivitet.
 
 En pool gör att dessa oanvända DTU:er kan delas av flera databaser och minskar således de DTU:er som krävs och den sammanlagda kostnaden.
 
@@ -65,7 +65,7 @@ Vi ska bygga vidare på föregående exempel och antar att det finns ytterligare
 
    ![20 databaser med ett användningsmönster som passar för en pool](./media/sql-database-elastic-pool/twenty-databases.png)
 
-Den sammanlagda DTU-användningen över alla 20 databaser illustreras av den svarta linjen i föregående bild. Detta visar att den sammanlagda DTU-användningen aldrig överskrider 100 DTU:er och indikerar att 20 databaser kan dela 100 eDTU:er under den här tidsperioden. Detta resulterar i 20 gånger färre DTU:er och 13 gånger lägre pris jämfört med om varje databas läggs till i S3-prestandanivåer för enskilda databaser.
+Den sammanlagda DTU-användningen över alla 20 databaser illustreras av den svarta linjen i föregående bild. Detta visar att den sammanlagda DTU-användningen aldrig överskrider 100 DTU:er och indikerar att 20 databaser kan dela 100 eDTU:er under den här tidsperioden. Detta resulterar i 20 gånger färre dtu: er och 13 gånger jämfört med att placera alla databaser i S3-prissänkning compute storlekar för enskilda databaser.
 
 Det här exemplet är idealisk av följande anledningar:
 
@@ -75,21 +75,21 @@ Det här exemplet är idealisk av följande anledningar:
 
 Priset för en pool är associerat med poolens eDTU:er. Även om eDTU-enhetspriset för en pool är 1,5 gånger större än DTU-enhetspriset för en enkel databas, så kan **pool-DTU:erna delas av många databaser och det behövs färre eDTU:er**. Dessa skillnader i pris och eDTU-delning utgör grunden för de prisbesparingar som pooler kan medföra.
 
-Genom att följa nedanstående tumregler för antalet databaser och databasanvändning kan du vara säker på att en pool ger mindre kostnader jämfört med användningen av prestandanivåer för enskilda databaser.
+I följande tumregler för databasantalet och databasanvändning att se till att en pool ger mindre kostnader jämfört med användningen av storlekar för enskilda databaser.
 
 ### <a name="minimum-number-of-databases"></a>Minsta antal databaser
 
 Om summan av resurser för enskilda databaser är mindre än 1,5 gånger resurser som behövs för poolen, är det mer kostnadseffektivt med en elastisk pool.
 
 ***DTU-baserade inköpschef modell-exempel***<br>
-Minst två S3-databaser eller minst 15 S0-databaser behövs för att en pool med 100 eDTU:er ska vara mer kostnadseffektivt än användningen av prestandanivåer för enskilda databaser.
+Minst två S3-databaser eller minst 15 S0-databaser behövs för en pool med 100 edtu: er ska vara mer kostnadseffektivt än användningen av storlekar för enskilda databaser.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Högsta antal samtidigt databaser med aktivitetstoppar
 
 Genom att dela resurser kan använda inte alla databaser i en pool samtidigt resurser upp till den tillgängliga gränsen för enskilda databaser. Ju färre databaser som har hög aktivitet som samtidigt, desto lägre poolresurser kan anges och desto mer kostnadseffektiv blir poolen. I allmänhet bör bör inte mer än 2/3 (eller 67%) av databaserna i poolen toppar samtidigt till sin gräns på resurser.
 
 ***DTU-baserade inköpschef modell-exempel***<br>
-För att minska kostnaderna för tre S3-databaser i en pool med 200 eDTU:er kan högst två av dessa databaser ha belastningstoppar samtidigt. Annars, om fler än två av dessa fyra S3-databaser har toppar samtidigt, skulle poolen behöva utökas till mer än 200 eDTU:er. Om poolen utökas till mer än 200 eDTU:er skulle fler S3-databaser behöva läggas till i poolen för att kostnaderna ska vara lägre än med prestandanivåer för enskilda databaser.
+För att minska kostnaderna för tre S3-databaser i en pool med 200 eDTU:er kan högst två av dessa databaser ha belastningstoppar samtidigt. Annars, om fler än två av dessa fyra S3-databaser har toppar samtidigt, skulle poolen behöva utökas till mer än 200 eDTU:er. Om poolen utökas till fler än 200 edtu: er skulle fler S3-databaser behöva läggas till i poolen för att hålla kostnaderna lägre än compute storlekar för enskilda databaser.
 
 Observera att det här exemplet inte tar hänsyn till användningen av andra databaser i poolen. Om alla databaser har viss belastning vid en given tidpunkt kan mindre än 2/3 (eller 67 %) av databaserna ha aktivitetstoppar samtidigt.
 
@@ -123,7 +123,7 @@ I de fall då du inte kan använda verktygsuppsättningar kan du följa stegen n
 2. Beräkna hur stort lagringsutrymme som krävs för poolen genom att lägga till antalet byte som behövs för alla databaser i poolen. Fastställ sedan den eDTU-poolstorlek som ger den här mängden lagringsutrymme.
 3. DTU-baserade inköpsmodellen ta för större av eDTU-beräkningarna från steg 1 och steg 2. För vCore-baserade inköpsmodellen ta vCore-beräkningen från steg 1.
 4. Se den [SQL Database-sidan med priser](https://azure.microsoft.com/pricing/details/sql-database/) och hitta det minsta poolstorleken som är större än beräkningen från steg3.
-5. Jämför poolpriset i steg 5 med priset för att använda lämpliga prestandanivåer för enskilda databaser.
+5. Jämför poolpriset i steg 5 med priset för med de lämpliga storlekarna för enskilda databaser.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Med hjälp av andra SQL Database-funktioner med elastiska pooler
 
@@ -151,7 +151,7 @@ Det finns två sätt som du kan skapa en elastisk pool i Azure-portalen.
 > [!NOTE]
 > Du kan skapa flera pooler på en server, men du kan inte lägga till databaser från olika servrar i samma pool.
 
-Poolens tjänstnivå avgör vilka funktioner som är tillgängliga för elastiska poolen och den maximala mängden resurser som är tillgängliga för varje databas. Mer information finns i resursgränser för elastiska pooler i den [DTU modellen](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). VCore-baserade resursbegränsningar för elastiska pooler, se [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+Poolens tjänstnivå avgör vilka funktioner som är tillgängliga för elastiska poolen och den maximala mängden resurser som är tillgängliga för varje databas. Mer information finns i resursgränser för elastiska pooler i den [DTU modellen](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes). VCore-baserade resursbegränsningar för elastiska pooler, se [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Konfigurera resurserna och priser för poolen klickar du på **konfigurera pool**. Välj sedan en tjänstnivå, lägga till databaser i poolen och konfigurera resursgränser för poolen och dess databaser.
 

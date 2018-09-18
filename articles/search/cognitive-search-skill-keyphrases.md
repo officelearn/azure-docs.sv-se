@@ -10,18 +10,21 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: b1da16269a1cbe83c6c0c625aba13026b6a462d6
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 694271115626c652523be34160ad6a07053f6387
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35967992"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735806"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Nyckeln diskussionsämne kognitiva kunskaper
 
 Den **nyckel diskussionsämne** färdigheter utvärderar ostrukturerad text och returnerar en lista med viktiga fraser för varje post.
 
 Den här funktionen är användbar om du behöver att snabbt identifiera de viktigaste samtalsämnen i posten. Till exempel angivna indata-text ”livsmedelskedjan var härligt och det fanns underbar personal”, tjänsten returnerar ”mat” och ”underbar personal”.
+
+> [!NOTE]
+> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetens körning och extrahering av avbildningen och normalisering är för närvarande erbjuds kostnadsfritt. Vid ett senare tillfälle meddelas priserna för dessa funktioner. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 

@@ -1,81 +1,59 @@
 ---
-title: Grunderna i Azures identitetshantering | Microsoft Docs
-description: Molnbaserade identiteter är nu det bästa sättet att behålla kontrollen över, och insyn i, hur och när användare får åtkomst till företagets program och data.
-keywords: ''
+title: Vad är grunderna i Azure identitets- och åtkomsthantering? – Azure Active Directory | Microsoft Docs
+description: Läs mer om de avancerade funktionerna och ytterligare verktyg som är tillgängliga med Azure Active Directory Premium-versionerna.
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.reviewer: jsnow
 ms.author: lizross
-ms.date: 08/07/2018
-ms.topic: overview
-ms.prod: ''
 ms.service: active-directory
 ms.component: fundamentals
-ms.technology: ''
-ms.assetid: ''
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 09/13/2018
+ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 327cecd129befb56c33d7fcf2d59ee5b58a18549
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: f7baa29c77ae4af9813bfc755a39cc07288a3ad2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42022869"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734683"
 ---
-# <a name="fundamentals-of-azure-identity-management"></a>Grunderna i Azures identitetshantering
-
-Då allt fler digitala företagsresurser finns utanför företagets nätverk, i molnet och på enheter, blir det nödvändigt med en bra molnbaserad identitets- och hanteringslösning. Molnbaserade identiteter är nu det bästa sättet att behålla kontrollen över, och insyn i, hur och när användare får åtkomst till företagets program och data.
-
-Microsoft har skyddat molnbaserade identiteter i mer än ett årtionde och nu är dessa skyddssystem tillgängliga för dig, med [Azure Active Directory (AD)](active-directory-whatis.md). Med Azure AD kan företagsadministratörer enkelt garantera användar- och administratörsansvar med bättre säkerhet och styrning än någonsin.
-
-Azure AD Premium är en molnbaserad identitets- och åtkomsthanteringslösning med avancerade skyddsfunktioner som möjliggör en säker identitet för alla appar, identitetsskydd (förbättrad med [Microsoft Intelligence Security Graph](https://www.microsoft.com/security/intelligence)), och Privileged Identity Management. Azure AD Premium är inte bara ett övervaknings- eller rapporteringsverktyg, utan kan även skydda användarnas identiteter i realtid och gör att du kan skapa riskbaserade, anpassningsbara åtkomstprinciper för att skydda organisationens data.
+# <a name="what-are-the-fundamentals-of-azure-identity-and-access-management"></a>Vad är grunderna i Azure identitets- och åtkomsthantering?
+Azure AD Premium är en molnbaserad identitets- och hanteringslösning, med funktioner för avancerat skydd. Dessa avancerade funktioner att tillhandahålla en säker identitet för alla dina appar, identitetsskydd (förbättrad med den [Microsoft information security graph](https://www.microsoft.com/security/intelligence)), och [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md). Azure AD hjälper dig för att skydda användarnas identiteter i realtid, vilket hjälper dig att skapa riskbaserad och anpassningsbar åtkomstprinciper runt data i din organisation.
 
 Titta på den här korta videon för en snabb översikt över identitetshantering och skydd i Azure AD:
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
-Microsoft tillhandahåller inte bara en identitet som du kan använda överallt, utan också en uppsättning verktyg för att automatisera, skydda och hantera IT i organisationen. Trots alla molntjänster finns det fortfarande ett behov av att hantera och kontrollera IT-uppgifter som samtal till supportavdelningen för lösenordsåterställning, hantering av användargrupper och programförfrågningar. Och för att göra det ännu mer komplicerat – medarbetare tar nu med sig sina personliga enheter till arbetet och använder SaaS-program, så att behålla kontrollen över program i företagets datacenter och offentliga molnplattformar är en tuff utmaning.
+Azure AD tillhandahåller också en uppsättning av verktyg som hjälper dig skydda, automatisera och hantera din miljö, inklusive återställning av lösenord, hantering av användare och grupp och app-begäranden. Azure AD kan också hjälpa dig att hantera enheter som ägs av användare och åtkomst till och kontroll av programvara som en tjänst (SaaS)-appar.
 
-[!INCLUDE [identity](../../../includes/azure-ad-licenses.md)]
+Mer information om kostnaderna för Azure Active Directory Premium-versionerna och tillhörande verktyg finns i [priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="connect-on-premises-active-directory-with-azure-ad-and-office-365"></a>Anslut lokal Active Directory till Azure AD och Office 365
-Organisationer som har gjort stora investeringar i lokal Active Directory kan utöka investeringarna till molnet genom att integrera lokala kataloger med Azure AD i [hybrididentitetshantering](https://aka.ms/aadframework). När du gör detta blir dina användare mer produktiva genom att ge en gemensam identitet för åtkomst till resurser oavsett plats. Användare och organisationer kan sedan använda enkel inloggning (SSO) för att komma åt både lokala resurser och molntjänster som Office 365.
+Utöka din lokala Active Directory-implementering i molnet genom att integrera dina lokala kataloger med Azure AD via [hybrididentitetshantering](https://aka.ms/aadframework). [Azure AD Connect](../connect/active-directory-aadconnect.md) ger den här integreringen och ge användarna en enda identitet och enkel inloggning (SSO) åtkomst till både lokala resurser och cloud services, till exempel Office 365.
 
-[Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) är det enda verktyg du behöver för att få integrationen gjord. Med Azure AD Connect får du funktioner för att stödja dina identitetssynkroniseringsbehov och det ersätter äldre versioner av identitetsintegrationsverktyg som DirSync och Azure AD Sync. Med Azure AD Connect möjliggörs identitetshantering och -synkronisering mellan lokalt och Azure AD genom:
+Azure AD Connect ersätter äldre versioner av identitetsintegrationsverktyg som DirSync och Azure AD Sync, vilket hjälper för att stödja dina behov med identity synkronisering mellan lokala och Azure AD. Azure AD Connect-synkronisering är aktiverat via:
 
-- Synkronisering – Den här komponenten är ansvarig för att skapa användare, grupper och andra objekt. Den är också ansvarig för att se till att identitetsinformationen för dina lokala användare och grupper matchar molnet. Tillbakaskrivning av lösenord kan också aktiveras för att synkronisera lokala kataloger när en användare uppdaterar sitt lösenord i Azure AD.
-- Autentisering – När Azure AD är ditt nya kontrollplan är autentisering grunden för molnåtkomst. Att välja rätt autentiseringsmetod är ett viktigt beslut i konfigurationen av en Azure AD-hybrididentitetslösning. Läs [den här guiden](https://aka.ms/auth-options) när du ska välja mellan molnautentisering layoutstödlinje/direktautentisering eller federerad autentisering (AD FS) för organisationen.
-- Hälsoövervakning – [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health) kan tillhandahålla robust övervakning och en central plats på Azure-portalen för att övervaka den här aktiviteten.
+- **Synkronisering.** Ansvarig för att skapa användare, grupper och andra objekt. Det är också ansvarig för att se till att identitetsinformationen för dina lokala användare matchar vad som finns i Azure AD. Aktivera tillbakaskrivning av lösenord hjälper också att synkronisera dina lokala kataloger när användare uppdaterar lösenord i Azure AD.
+
+- Autentisering. Det är viktigt att välja rätt autentiseringsmetod när du konfigurerar din Azure AD-hybrididentitetslösning. Du kan välja molnautentisering (Lösenordshashsynkronisering / direktautentisering) eller federerad autentisering (AD FS) för din organisation. Mer information om tillgängliga alternativen finns i [välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning](https://aka.ms/auth-options).
+
+- **Övervakning av hälsotillstånd.** Azure AD Connect Health tillhandahåller övervakning och en central plats på Azure portal för att visa den här aktiviteten. Mer information finns i [Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet](../connect-health/active-directory-aadconnect-health.md).
 
 ## <a name="increase-productivity-and-reduce-helpdesk-costs-with-self-service-and-single-sign-on-experiences"></a>Öka produktiviteten och minska supportkostnader med självbetjänings- och enkel inloggning-miljöer
+Användare sparar tid när de har ett användarnamn och lösenord, tillsammans med en konsekvent upplevelse på alla enheter. Användare också spara tid genom att utföra uppgifter för självbetjäning som[återställa glömda lösenord](../user-help/active-directory-passwords-update-your-own-password.md) eller för att begära åtkomst till ett program utan att behöva vänta på att få hjälp från supportavdelningen.
 
-Medarbetare är mer produktiva när de har ett enda användarnamn och lösenord att komma ihåg och ett konsekvent gränssnitt på alla enheter. De sparar också tid när de kan utföra självbetjäningsuppgifter som att [återställa ett glömt lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords) eller begära åtkomst till ett program utan att vänta på hjälp från supporten.
+Främjar enkel inloggning och enhetlig upplevelse, Azure AD [utökar din lokala Active Directory](../connect/active-directory-aadconnect.md) till molnet, så att användarna använder sina primära organisationskonto för sina domänanslutna enheter företagets resurser, och webb- och SaaS-program som de ska användas för att få ett klar. 
 
-Azure AD [utökar lokal Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) till molnet, så att användare kan använda sitt primära organisationskonto för både domänanslutna enheter, företagsresurser och alla webb- och SaaS-program de behöver för att få jobbet gjort. Utöver att inte behöva komma ihåg flera uppsättningar av användarnamn och lösenord kan användarnas programåtkomst också automatiskt etableras (eller avetableras) utifrån deras gruppmedlemskap i organisationen och deras status som medarbetare. Och du kan kontrollera den åtkomsten för galleriappar eller för dina egna lokala appar som du har utvecklat och publicerat genom [Azure AD-programproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+Dessutom programåtkomst kan automatiskt etablerade (eller avetableras) baserat på gruppmedlemskap och anställningsstatus för en användare, vilket hjälper dig att styra åtkomsten till galleriappar eller dina egna lokala appar som du har utvecklat och publicerats via den [Azure AD-programproxyn](../manage-apps/application-proxy.md).
 
-## <a name="manage-and-control-access-to-corporate-resources"></a>Hantera och kontrollera åtkomst till företagsresurser
-Microsofts lösningar för identitets- och åtkomsthantering hjälper IT-avdelningen att skydda åtkomsten till program och resurser i företagets datacenter och i molnet, vilket möjliggör ytterligare nivåer av verifiering som [multifaktorautentisering](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next) och [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Övervakning av misstänkt aktivitet genom avancerad säkerhetsrapportering, -granskning och -avisering hjälper till att minska potentiella säkerhetsproblem.
+## <a name="manage-and-control-access-to-your-organizational-resources"></a>Hantera och styr åtkomsten till din organisations resurser
+Lösningar för Microsoft identitets- och hjälper dig att skydda åtkomsten till appar och resurser i din organisations datacenter och i molnet. Den här åtkomsthantering som hjälper dig för att ger ytterligare kontrollmöjligheter verifiering som [Multifaktorautentisering](../authentication/concept-mfa-howitworks.md) och [principer för villkorlig åtkomst](../conditional-access/overview.md). Övervakning av misstänkt aktivitet via Avancerad säkerhetsrapportering, granskning och aviseringar kan också hjälpa för att minska potentiella säkerhetsproblem.
 
-Principer för villkorlig åtkomst i Azure AD Premium ger dig, företagsadministratören, möjlighet att skapa principbaserade åtkomstregler för alla Azure AD-anslutna program (SaaS-appar, anpassade appar som körs i molnet eller i lokala webbprogram). Azure AD utvärderar dessa principer i realtid och tillämpar dem varje gång en användare försöker komma åt ett program. Med Azures identitetsskyddsprinciper kan du automatiskt vidta åtgärder när misstänkt aktivitet upptäcks. Dessa åtgärder kan vara att blockera åtkomst för användare i farozonen, tillämpa multifaktorautentisering och återställa användarlösenord om autentiseringsuppgifterna verkar ha avslöjats.
-
+Använda principer för villkorlig åtkomst i Azure AD Premium kan du skapa principbaserad åtkomstregler för alla Azure AD-anslutna appar, till exempel anpassade appar som körs i molnet eller lokala eller webbappar på SaaS-appar). Azure AD utvärderar reglerna i realtid, verkställer dem. när en användare försöker komma åt en app. Azure identity protection-principer gör att du automatiskt vidta åtgärder (som blockerar åtkomst, Multifaktorautentisering framtvingades eller återställa användarlösenord) om misstänkt aktivitet upptäcks.
 
 ## <a name="azure-active-directory-privileged-identity-management"></a>Azure Active Directory Privileged Identity Management
-
-Med [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started), som ingår i Azure Active Directory Premium P2, kan du identifiera, begränsa och övervaka administrativa konton och deras åtkomst till resurser i Azure Active Directory och andra Microsoft-onlinetjänster. Du får även hjälp att administrera administrativ åtkomst på begäran under exakt den tid du behöver.
-
-Privileged Identity Management kan tillämpa administratörsbehörighet på begäran så att administratörer kan begära multifaktorautentisering, tillfällig höjning av behörigheten under förkonfigurerade tidsperioder innan deras konton återgår till normalt användartillstånd.
-
-## <a name="benefits-of-azure-identity"></a>Fördelarna med Azure-identitet
-
-Med Azure-identitetshantering kan du:
-
--   Skapa och hantera en enda identitet för varje användare i hela företaget och synkronisera användare, grupper och enheter med [Azure Active Directory Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
-
--   Ge åtkomst med enkel inloggning till programmen, inklusive tusentals förintegrerade SaaS-appar eller ge säker fjärråtkomst till lokala SaaS-appar med [Azure AD-programproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
-
--   Skydda programåtkomsten genom att tillämpa regelbaserad [multifaktorautentisering](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next) får både lokala program och molnprogram.
-
--   Förbättra användarnas produktivitet med [lösenordsåterställning via självbetjäning](https://docs.microsoft.com/azure/active-directory/active-directory-passwords) och grupp- och programåtkomstbegäranden med [MyApps-portalen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-user-help).
-
--   Dra nytta av den [höga tillgängligheten och tillgängligheten](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) i en global molnbaserad identitets- och åtkomsthanteringslösning i företagsklass.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-getting-started.md), ingår i Azure Active Directory Premium 2-utgåva, hjälper dig att upptäcka, begränsa och övervaka administrativa konton och deras åtkomst till resurser i din Azure Active Directory och andra Microsoft online services. PIM hjälper dig också att administrera på begäran administrativ åtkomst för den exakta tidsperioden som du behöver, vilket innebär att du tillåter administratörer att begära Multi-Factor Authentication autentiseras, tillfällig rättighetsökning deras under en förinställd tidsperiod innan det går tillbaka till en normal användartillstånd sina konton.
 
 ## <a name="next-steps"></a>Nästa steg
-[Läs mer om lösningar för Azure-identitet](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)
+Mer information om Azure AD-arkitekturen finns i [vad är Azure AD-arkitekturen?](active-directory-architecture.md).

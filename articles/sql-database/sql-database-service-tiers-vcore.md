@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 8266d9e3530969154ac9c8c877badda9f8b4fed3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 93b017482006507d616d9125cd17fd2f14389d59
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307280"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983054"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Välja tjänstnivå vCore beräkning, minne, lagring och IO-resurser
 
@@ -26,7 +26,7 @@ vCore-modellen kan du använda [Azure Hybrid Use-förmånen för SQL Server](../
 
 ## <a name="service-tier-characteristics"></a>Tjänstens nivån egenskaper
 
-VCore-modellen innehåller två tjänstnivåer generell användning och affärskritisk. Tjänstnivåer åtskiljs av flera olika prestandanivåer, design för hög tillgänglighet, felisolering, typer av lagring och i/o-intervallet. Kunden måste separat konfigurera nödvändiga lagring och kvarhållning för säkerhetskopior.
+VCore-modellen innehåller två tjänstnivåer generell användning och affärskritisk. Tjänstnivåer särskiljs med hjälp av olika storlekar, design för hög tillgänglighet, felisolering, typer av lagring och i/o-intervallet. Kunden måste separat konfigurera nödvändiga lagring och kvarhållning för säkerhetskopior.
 
 Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 
@@ -53,10 +53,10 @@ Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga
 
 Tänk också på följande:
 - Allokerat lagringsutrymme används av datafiler (MDF) och loggfiler för filer (LDF).
-- Varje prestandanivå för en enskild databas har stöd för den maximala databasstorleken med en maximal standardstorlek på 32 GB.
+- Varje enskild databas beräkna storleken stöder den maximala databasstorleken med en maximal standardstorlek på 32 GB.
 - När du konfigurerar den nödvändiga enda databasstorleken (storleken på MDF), läggs 30% av ytterligare lagringsutrymme automatiskt till stöd för LDF
 - Lagringsstorlek i Managed Instance måste anges i multipler av 32 GB.
-- Du kan välja alla singleton databasstorlek på mellan 10 GB och högsta som stöds
+- Du kan välja valfri databasstorlek mellan 10 GB och högsta som stöds
  - För standardlagring, öka eller minska storleken i steg om 10 GB
  - För Premium storage kan öka eller minska storleken i steg om 250 GB
 - På tjänstnivån generella `tempdb` använder anslutna SSD-disk och den här lagringskostnad ingår i priset för vCore.
@@ -113,13 +113,13 @@ Migrering av redundansgrupper med flera databaser kräver enskilda migreringen a
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>Skapandet av en sekundär geo-replikering
 
-Du kan bara skapa en geo-secondary baserat på samma tjänstenivå som primär. För databasen med hög log generation hastighet vi rekommenderar att sekundärt skapas med samma prestandanivå som primärt. Om du skapar en geo-secondary i den elastiska poolen för en enskild primär databas, är det bäst att poolen har de `maxVCore` inställning som matchar den primära databas prestandanivån. Om du skapar en geo-secondary i den elastiska poolen för en primär i en annan elastisk pool, är det bäst att poolerna har samma `maxVCore` inställningar
+Du kan bara skapa en geo-secondary baserat på samma tjänstenivå som primär. För databasen med hög log generation hastighet vi rekommenderar att sekundärt skapas med samma beräkning storlek som primärt. Om du skapar en geo-secondary i den elastiska poolen för en enskild primär databas, är det bäst att poolen har de `maxVCore` inställning som matchar beräkningsstorleken primära databasen. Om du skapar en geo-secondary i den elastiska poolen för en primär i en annan elastisk pool, är det bäst att poolerna har samma `maxVCore` inställningar
 
 ### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Använda databaskopian och konvertera en DTU-baserad databas till en vCore-baserad databas.
 
-Du kan kopiera en databas med den DTU-baserade prestandanivån till en databas med en vCore-baserade prestanda på utan begränsningar eller särskilda ordningsföljd så länge prestandanivå målet har stöd för den maximala databasstorleken av källdatabasen. Detta är eftersom databaskopian skapar en ögonblicksbild av data från och med starttiden för kopieringen och utför inte synkronisera data mellan källan och målet. 
+Du kan kopiera en databas med lämplig storlek i DTU-baserad beräkning till en databas med lämplig storlek för vCore-baserad beräkning utan begränsningar eller särskilda ordningsföljd så länge Målstorlek för beräkning har stöd för den maximala databasstorleken av källdatabasen. Detta är eftersom databaskopian skapar en ögonblicksbild av data från och med starttiden för kopieringen och utför inte synkronisera data mellan källan och målet. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om specifika prestandanivåer och lagring som kan användas för enkel databas finns [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
-- Mer information om specifika prestandanivåer och lagring som kan användas för elastiska pooler finns [SQL Database vCore-baserade resursbegränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- För att få information om specifika storlekar och lagring som kan användas för enkel databas, finns i [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
+- För information om specifika compute storlekar och lagring som kan användas för elastiska pooler finns i [SQL Database vCore-baserade resursbegränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

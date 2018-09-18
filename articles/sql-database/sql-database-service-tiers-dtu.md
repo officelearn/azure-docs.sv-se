@@ -1,24 +1,24 @@
 ---
 title: Azure SQL Database-servicenivåerna - DTU | Microsoft Docs
-description: Läs om tjänstnivåer för en enskild och poolen databaser att tillhandahålla prestandanivåer och lagringsstorlekar.
+description: Läs om tjänstnivåer för en enskild och poolen databaser att tillhandahålla storlekar och lagringsstorlekar.
 services: sql-database
 author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d0250d508ca6d21ee09c9402e10d2fdb025529ac
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 27e6e12efc28bb8ee1cdaa9ec62d7ca8c4c68f38
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059681"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729747"
 ---
-# <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Välja en DTU-baserade tjänstnivå och prestandanivå lagringsresurser 
+# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>Välja DTU-baserade tjänstnivå compute storlek och lagringsresurser 
 
-Tjänstnivåer åtskiljs av flera olika prestandanivåer med en fast mängd lagringsutrymme, fast kvarhållningsperiod för säkerhetskopior och fast pris. Alla tjänstnivåer ger flexibilitet för att byta prestandanivå utan avbrott. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och prestanda.
+Tjänstnivåer särskiljs med hjälp av olika storlekar med en fast mängd lagringsutrymme, fast kvarhållningsperiod för säkerhetskopior och fast pris. Alla tjänstnivåer ger flexibilitet för att ändra instansstorlekarna utan avbrott. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och beräkningsstorleken.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance är stöder för närvarande i förhandsversionen inte en DTU-baserade inköpsmodellen. Mer information finns i [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
@@ -40,7 +40,7 @@ Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Enkel databas DTU och Lagringsgränser
 
-Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser och eDTU (elastic Database Transaction Unit) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [vad är dtu: er och edtu: er](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
+Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [vad är dtu: er och edtu: er](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -73,7 +73,7 @@ Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser
 Fysiska egenskaper (processor, minne, i/o) som är kopplade till varje DTU-mått kalibreras med hjälp av en benchmark som simulerar verkliga databas-arbetsbelastning.
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Korrelera-resultaten till verkliga databasprestanda
-Det är viktigt att förstå att alla prestandamått är representativt och vägledande endast. Transaktionspriser uppnås med benchmark-programmet kan inte samma som de som kan uppnås med andra program. Benchmark består av en samling med annan transaktion typer kör mot ett schema som innehåller en mängd tabeller och datatyper. Medan prestandamått utövar samma grundläggande åtgärder som är gemensamma för alla OLTP-arbetsbelastningar, representerar inte någon specifik klass av databas eller ett program. Målet med prestandamått är att tillhandahålla en rimlig guide till den relativa prestandan för en databas som kan förväntas vid skalning upp eller ned mellan prestandanivåer. I verkligheten kan databaser är av olika storlekar och komplexitet, stöta på olika kombinationer av arbetsbelastningar och svarar på olika sätt. Till exempel ett i/o-intensiva program kan träffa tröskelvärden för i/o tidigare eller ett CPU-intensiva program kan träffa CPU-gränser snabbare. Det finns ingen garanti för att en viss databas skalas på samma sätt som prestandamått under ökande belastning.
+Det är viktigt att förstå att alla prestandamått är representativt och vägledande endast. Transaktionspriser uppnås med benchmark-programmet kan inte samma som de som kan uppnås med andra program. Benchmark består av en samling med annan transaktion typer kör mot ett schema som innehåller en mängd tabeller och datatyper. Medan prestandamått utövar samma grundläggande åtgärder som är gemensamma för alla OLTP-arbetsbelastningar, representerar inte någon specifik klass av databas eller ett program. Målet med prestandamått är att tillhandahålla en rimlig guide till den relativa prestandan för en databas som kan förväntas vid skalning upp eller ned mellan storlekar. I verkligheten kan databaser är av olika storlekar och komplexitet, stöta på olika kombinationer av arbetsbelastningar och svarar på olika sätt. Till exempel ett i/o-intensiva program kan träffa tröskelvärden för i/o tidigare eller ett CPU-intensiva program kan träffa CPU-gränser snabbare. Det finns ingen garanti för att en viss databas skalas på samma sätt som prestandamått under ökande belastning.
 
 Prestandamått och dess metoder beskrivs i detalj nedan.
 
@@ -155,5 +155,5 @@ Viktiga mått i prestandamått är dataflöde och svarstid.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om specifika prestandanivåer och lagring som kan användas för enskilda databaser finns [SQL Database DTU-baserade resursbegränsningar för enskilda databaser](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
-- Mer information om specifika prestandanivåer och lagring som kan användas för elastiska pooler finns [SQL Database DTU-baserade resursbegränsningar](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- För att få information om specifika storlekar och lagring som kan användas för enskilda databaser, se [SQL Database DTU-baserade resursbegränsningar för enskilda databaser](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- För att få information om specifika storlekar och lagring som kan användas för elastiska pooler, se [SQL Database DTU-baserade resursbegränsningar](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

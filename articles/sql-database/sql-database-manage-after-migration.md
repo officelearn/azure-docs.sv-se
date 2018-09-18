@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 09/14/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: d82cc3ee1074e326c9e4dee7fd65e338cb95e19f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4b48f360c95170a36d1e79b075403d541c8b66ed
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722239"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983941"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -36,9 +36,9 @@ Den här artikeln beskriver några av de grundläggande egenskaperna för Azure 
 Funktioner för Business affärskontinuitet och haveriberedskap återställning kan du fortsätta din verksamhet, som vanligt vid en katastrof. Katastrofen kan vara en databas på händelse (till exempel någon av misstag släpper en viktig tabell) eller en nivå Datacenter-händelse (regionala allvarliga händelser, till exempel en tsunami). 
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Hur jag för att skapa och hantera säkerhetskopior på SQL Database?
-Du skapar inte säkerhetskopior i Azure SQL DB och det beror på att du inte behöver. SQL-databas säkerhetskopierar automatiskt databaser för dig, så att du inte längre måste bekymra dig om schemaläggning, tar och hantera säkerhetskopior. Plattformen tar en fullständig säkerhetskopiering varje vecka, differentiell säkerhetskopiering några timmars mellanrum och en logg säkerhetskopiering var femte minut så haveriberedskap är effektivt och den minimal förlusten av data. Den första fullständiga säkerhetskopieringen sker när du skapar en databas. Dessa säkerhetskopior är tillgängliga för dig för en viss tid som kallas ”Kvarhållningsperioden” och varierar beroende på prestandanivå du väljer.  SQL-databas ger dig möjlighet att återställa till valfri punkt inom denna kvarhållning period med [peka i tiden Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
+Du skapar inte säkerhetskopior i Azure SQL DB och det beror på att du inte behöver. SQL-databas säkerhetskopierar automatiskt databaser för dig, så att du inte längre måste bekymra dig om schemaläggning, tar och hantera säkerhetskopior. Plattformen tar en fullständig säkerhetskopiering varje vecka, differentiell säkerhetskopiering några timmars mellanrum och en logg säkerhetskopiering var femte minut så haveriberedskap är effektivt och den minimal förlusten av data. Den första fullständiga säkerhetskopieringen sker när du skapar en databas. Dessa säkerhetskopior är tillgängliga för dig för en viss tid som kallas ”Kvarhållningsperioden” och varierar beroende på tjänstnivå som du väljer. SQL-databas ger dig möjlighet att återställa till valfri punkt inom denna kvarhållning period med [peka i tiden Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Prestandanivå|Kvarhållningsperiod i dagar|
+|Tjänstenivå|Kvarhållningsperiod i dagar|
 |---|:---:|
 |Basic|7|
 |Standard|35|
@@ -202,7 +202,7 @@ Du kan använda intelligenta insikter i plattformen för att övervaka prestanda
 
    ![Övervaka chart2](./media/sql-database-manage-after-migration/chart.png)
 
-I det här diagrammet kan du också konfigurera aviseringar efter resurs. Dessa aviseringar kan du svara på resursen villkor med ett e-postmeddelande, skriva till en HTTPS/HTTP-slutpunkt eller utföra en åtgärd. Se den [övervaka databasprestanda i SQL Database](sql-database-single-database-monitor.md) detaljerade anvisningar.
+I det här diagrammet kan du också konfigurera aviseringar efter resurs. Dessa aviseringar kan du svara på resursen villkor med ett e-postmeddelande, skriva till en HTTPS/HTTP-slutpunkt eller utföra en åtgärd. Mer information finns i [skapa aviseringar](sql-database-insights-alerts-portal.md).
 
 - **Dynamic Management Views**: du kan fråga den [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamisk hanteringsvy att returnera resource förbrukning statistik historik från den senaste timmen och [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system katalogvy att returnera historiken för de senaste 14 dagarna.
 - **Query Performance Insight**: [Query Performance Insight](sql-database-query-performance.md) kan du se en historik över de vanligaste resursintensiva frågor och tidskrävande frågor för en viss databas. Du kan snabbt identifiera de viktigaste frågorna av Resursanvändning, varaktighet och körningsfrekvensen. Du kan spåra frågor och identifiera regression. Den här funktionen kräver [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) är aktiverade och aktiv för databasen.
@@ -218,21 +218,21 @@ Din strategi för felsökning av problem med prestanda avsevärt förbättra pre
 
 Med prestandafelsökning av är det viktigt att identifiera om det är bara program eller säkerhetskopiera databasen, som påverkar programmets prestanda. Ofta ligger till prestandaproblemet i programlagret. Det kan vara arkitekturen eller dataåtkomstmönstret. Anta exempelvis att du har en trafikintensiva program som är känsliga för fördröjningar i nätverket. I det här fallet eftersom det skulle finnas många kort begäranden som kommer fram och tillbaka drabbas i ditt program (”trafikintensiva”) mellan programmet och servern och på ett överbelastat nätverk, dessa görs Lägg till snabbt. Du kan använda för att förbättra prestanda i det här fallet [Batchfrågekörning](sql-database-performance-guidance.md#batch-queries). Med hjälp av batchar hjälper dig att prestandaincident eftersom nu dina begäranden bearbetas i en batch; Därför hjälper dig att minska svarstiden i tur och RETUR och förbättra programmets prestanda. 
 
-Även om du märker en försämring av prestanda i din databas kan du övervaka den [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamiska hanteringsvyn vyer för att Förstå förbrukning av CPU, IO och minne. Prestanda påverkas kanske eftersom databasen är har för få resurser. Det kan vara att du kan behöva ändra prestandanivån och/eller tjänstnivån baserat på den växer och krymper arbetsbelastning. 
+Även om du märker en försämring av prestanda i din databas kan du övervaka den [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamiska hanteringsvyn vyer för att Förstå förbrukning av CPU, IO och minne. Prestanda påverkas kanske eftersom databasen är har för få resurser. Det kan vara att du kan behöva ändra beräkningsstorleken och/eller tjänstnivån baserat på den växer och krymper arbetsbelastning. 
 
 En omfattande uppsättning rekommendationer för justering prestandaproblem, se: [finjustera din databas](sql-database-performance-guidance.md#tune-your-database).
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-performance-level"></a>Hur undviker jag att jag använder lämplig tjänstnivå och prestandanivå servicenivå?
-SQL Database erbjuder olika tjänstnivåerna Basic, Standard och Premium. Varje tjänstnivå du får en garanterad förutsebara prestanda som är kopplad till den servicenivån. Beroende på din arbetsbelastning kan du ha toppar där din användning av resurser kan orsaka taket för den aktuella prestandanivå som du är i. Det är bra att börja genom att utvärdera i sådana fall, om någon justering hjälper (till exempel att lägga till eller ändra ett index osv.). Om du fortfarande stöter på problem med gränsen kan du överväga att flytta till en högre prestandanivå eller servicenivå. 
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Hur undviker jag att jag använder rätt tjänstnivån och beräkna storleken?
+SQL Database erbjuder olika tjänstnivåerna Basic, Standard och Premium. Varje tjänstnivå du får en garanterad förutsebara prestanda som är kopplad till den tjänstnivån. Beroende på din arbetsbelastning kan du ha toppar där din användning av resurser kan orsaka taket för den aktuella compute-storleken som du tillhör. Det är bra att börja genom att utvärdera i sådana fall, om någon justering hjälper (till exempel att lägga till eller ändra ett index osv.). Om du fortfarande stöter på problem med gränsen kan du överväga att flytta till en högre tjänstnivå eller compute storlek. 
 
-|**Servicenivå**|**Vanliga användningsfall**|
+|**Tjänstenivå**|**Vanliga användningsfall**|
 |---|---|
 |**Basic**|Program med ett fåtal användare och en databas som inte har höga krav för samtidighet, skala och prestanda. |
 |**Standard**|Program med en betydande krav för samtidighet, skala och prestanda tillsammans med låg till medelhög i/o-kraven. |
 |**Premium**|Program med många samtidiga användare, hög processor/minne och höga i/o-kraven. Hög samtidighet, högt dataflöde och svarstid känsliga appar kan utnyttja Premium-nivå. |
 |||
 
-För att se till att du använder rätt prestandanivå, kan du övervaka din fråga och databasen resursförbrukning genom någon av ovan nämnda sätt i ”hur övervakar jag prestanda och Resursanvändning i SQL Database”. Du bör märka att dina frågor/databaser konsekvent kör frekvent på processor/minne etc. kan du skala till en högre prestandanivå. På samma sätt, om du Observera att även under din belastning du verkar inte använda resurserna så mycket; Överväg att skala från den aktuella prestandanivån. 
+För att se till att du använder rätt beräkningsstorleken, kan du övervaka din fråga och databasen resursförbrukning genom någon av ovan nämnda sätt i ”hur övervakar jag prestanda och Resursanvändning i SQL-databas”. Du bör märka att dina frågor/databaser konsekvent kör frekvent på processor/minne etc. kan du skala till en högre beräkningsstorleken. På samma sätt, om du Observera att även under din belastning du verkar inte använda resurserna så mycket; Överväg att skala från den aktuella beräkningsstorleken. 
 
 Om du har ett mönster för SaaS-app eller ett scenario för konsolidering av databasen kan du använda en elastisk pool för kostnadsoptimeringar. Elastisk pool är ett bra sätt att uppnå databasen konsoliderings- och kostnadsoptimeringar. Läsa mer om hur du hanterar flera databaser med hjälp av elastisk Pool, se: [hantera pooler och databaser](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 

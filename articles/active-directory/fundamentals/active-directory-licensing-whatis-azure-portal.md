@@ -1,28 +1,26 @@
 ---
-title: Vad är gruppbaserad licensiering i Azure AD? | Microsoft Docs
-description: Beskrivning av gruppbaserad licensiering i Azure Active Directory, hur det fungerar och bästa praxis
+title: Vad är gruppbaserad licensiering i Azure Active Directory? | Microsoft Docs
+description: Läs mer om Azure Active Directory gruppbaserad licensiering, inklusive hur det fungerar och bästa praxis.
 services: active-directory
 keywords: Azure AD-licensiering
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/13/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 5f5aab6a8514636e8be09deb773748080871b9d4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 7848b52bcf5204a871920cbfab8a0e95223654d4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005239"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735909"
 ---
-# <a name="group-based-licensing-basics-in-azure-active-directory"></a>Grundläggande information om gruppbaserad licensiering i Azure Active Directory
+# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Vad är gruppbaserad licensiering i Azure Active Directory?
 
 Microsoft-betaltjänster i molnet, till exempel Office 365, Enterprise Mobility + Security, Dynamics 365 och andra liknande produkter kräver licenser. Dessa licenser tilldelas till varje användare som behöver åtkomst till dessa tjänster. För att hantera licenser använder administratörer någon av hanteringsportalerna (Office eller Azure) och PowerShell-cmdlets. Azure Active Directory (Azure AD) är den underliggande infrastrukturen som har stöd för identitetshantering för alla Microsofts molntjänster. Azure AD lagrar information om användarnas licenstilldelningsstatus.
 

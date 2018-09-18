@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: babanisa
-ms.openlocfilehash: 48fd43a315735ec8ba70f1a399462b65930fe069
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: fc8233b21ad662c6e595a04408bde75df46f97d6
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574121"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982950"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ta emot händelser till en HTTP-slutpunkt
 
@@ -24,7 +24,7 @@ Den här artikeln beskrivs hur du [validera en HTTP-slutpunkt](security-authenti
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Du behöver en funktionsapp med en [funktion som utlöses av HTTP](../azure-functions/functions-create-generic-webhook-triggered-function.md)
+Du behöver en funktionsapp med en HTTP-utlöst funktion.
 
 ## <a name="add-dependencies"></a>Lägga till beroenden
 

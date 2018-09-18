@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 921e9df11cd79e9d2558d9ca6a490a8da064deb8
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 877ea4c143d74414c3d733c446da57060322b11d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630349"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982149"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -57,7 +57,7 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 
 - <!-- | IS ASDK--> **Blockchain mallar**. Du kan nu köra [Ethereum consortium distributioner](azure-stack-ethereum.md) på Azure Stack. Du kan hitta tre nya mallar i den [Azure Stack Snabbstartsmallarna](https://github.com/Azure/AzureStack-QuickStart-Templates). De används att distribuera och konfigurera ett flera medlem Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum. Syftet med mallarna är att göra det enkelt för användarna att installationsprogrammet utveckling/testning Blockchain distributioner med några få steg.
 
-
+- <!-- | IS ASDK--> **API-version profilen 2017-03-09-profilen har uppdaterats till 2018-03-01-hybrid**. API-profiler ange Azure-resursprovidern och API-version för Azure REST-slutpunkter. Mer information om profiler finns i [hantera API-versionsprofiler i Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
  ### <a name="fixed-issues"></a>Åtgärdade problem
 - <!-- IS ASDK--> Vi har åtgärdat problemet för att skapa en tillgänglighetsuppsättning i portalen som resulterade i gruppen med en feldomän och uppdateringsdomän 1. 
@@ -142,6 +142,17 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
 Här följer efter installation kända problem för den här build-versionen.
 
 ### <a name="portal"></a>Portalen
+
+- <!-- TBD - IS ASDK --> Du kan se en tom instrumentpanel i portalen. Om du vill återställa instrumentpanelen, klickar du på **redigera instrumentpanelen**, högerklicka och välj **återställa till standardtillståndet**.
+
+- <!-- 2930718 - IS ASDK --> I administratörsportalen kan få åtkomst till information om alla användarprenumeration efter stänga bladet och klicka på **senaste**, användarnamn för prenumeration visas inte.
+
+- <!-- 3060156 - IS ASDK --> I både den administratörs- och portaler, klickar på portalinställningar och välja **ta bort alla inställningar och privata instrumentpaneler** fungerar inte som förväntat. En felmeddelandet visas. 
+
+- <!-- 2930799 - IS ASDK --> I både den administratörs- och analytikerportaler under **alla tjänster**, tillgången **DDoS-skyddsplaner** felaktigt visas. Det finns faktiskt inte i Azure Stack. Om du försöker skapa den visas ett felmeddelande om att portalen inte kunde skapa marketplace-objekt. 
+
+- <!-- 2930820 - IS ASDK --> Om du söker efter ”Docker”, i både den administratörs- och analytikerportaler är returnerade felaktigt objektet. Det finns faktiskt inte i Azure Stack. Om du försöker skapa den, visas ett blad med fel uppgift. 
+
 - <!-- 2967387 – IS, ASDK --> Det konto som används för att logga in på Azure Stack-administratör eller användare portalen visas som **Oidentifierad användare**. Detta inträffar när kontot inte har antingen en *första* eller *senaste* namnen. Undvik problemet genom att redigera användarkontot om du vill använda den första eller sista. Du måste sedan logga ut och logga sedan in igen på portalen. 
 
 -  <!--  2873083 - IS ASDK --> När du använder portalen för att skapa en virtuell datorskalning ange (VMSS), den *instansstorlek* listrutan inte in korrekt när du använder Internet Explorer. Undvik problemet genom att använda en annan webbläsare när du använder portalen för att skapa en VMSS.  
@@ -151,8 +162,6 @@ Här följer efter installation kända problem för den här build-versionen.
 - <!--2760466 – IS  ASDK --> När du installerar en ny Azure Stack-miljö med den här versionen, aviseringen-värde som anger *aktivering krävs* kanske inte visas. [Aktivering](azure-stack-registration.md) krävs innan du kan använda marketplace syndikering.  
 
 - <!-- TBD - IS ASDK --> Två administrativa prenumerationstyper som var [introducerades i version 1804](azure-stack-update-1804.md#new-features) bör inte användas. Typerna av prenumeration är **Avläsning av prenumeration**, och **förbrukning prenumeration**. Dessa typer av prenumerationer visas i den nya Azure Stack miljöer från och med version 1804 men ännu inte är redo att användas. Du bör fortsätta att använda den **Standard Provider** prenumerationstyp.
-
-- <!-- TBD - IS --> Du kan se en tom instrumentpanel i portalen. Om du vill återställa instrumentpanelen, väljer du kugghjulsikonen i det övre högra hörnet i portalen och välj sedan **Återställ standardinställningarna**.
 
 - <!-- TBD - IS ASDK --> Tar bort användaren prenumerationer resulterar i överblivna resurser. Som en lösning kan du först ta bort användarresurser eller hela resursgruppen och tar bort användarprenumerationer.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 3cc38e7ede9882e78e509738351696a64c938c40
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: d24a268cf389dfe9dec914b2d27bbe8e466ea675
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391427"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737200"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Jämför Azure Data Lake Storage Gen1 och Azure Blob Storage
 Tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake Storage Gen1 och Azure Blob Storage med viktiga aspekter av bearbetning av stordata. Azure Blob Storage är en allmän och skalbar objektlagring som är utformad för en mängd olika lagringsscenarier. Azure Data Lake Storage Gen1 är en lagringsplats i hyperskala som är optimerad för stordataanalyser.
@@ -31,9 +31,9 @@ Tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake St
 | API |REST-API via HTTPS |REST-API via HTTP/HTTPS |
 | API för serversidan |[WebHDFS-kompatibla REST-API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[REST API: et för Azure Blob Storage](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Hadoop-klienten för System |Ja |Ja |
-| Dataåtgärder - autentisering |Baserat på [Azure Active Directory-identiteter](../active-directory/develop/authentication-scenarios.md) |Baserat på delade hemligheter - [Kontoåtkomstnycklar](../storage/common/storage-create-storage-account.md#manage-your-storage-account) och [nycklar för signatur för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
+| Dataåtgärder - autentisering |Baserat på [Azure Active Directory-identiteter](../active-directory/develop/authentication-scenarios.md) |Baserat på delade hemligheter - [Kontoåtkomstnycklar](../storage/common/storage-account-manage.md#access-keys) och [nycklar för signatur för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Dataåtgärder - autentiseringsprotokoll |OAuth 2.0. Anrop måste innehålla en giltig JWT som (JSON Web Token) utfärdat av Azure Active Directory |Hashbaserad meddelandeautentiseringskod (HMAC). Anrop måste innehålla en Base64-kodad SHA-256-hash över en del av HTTP-begäran. |
-| Dataåtgärder - auktorisering |POSIX åtkomstkontrollistor (ACL).  Åtkomstkontrollistor baserat på Azure Active Directory-identiteter kan ställas in på nivån filer och mappar. |Kontonivå auktorisering – använda [Kontoåtkomstnycklar](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Använd för konto, behållare eller blob-auktorisering - [nycklar för delad åtkomst-signatur](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Dataåtgärder - auktorisering |POSIX åtkomstkontrollistor (ACL).  Åtkomstkontrollistor baserat på Azure Active Directory-identiteter kan ställas in på nivån filer och mappar. |Kontonivå auktorisering – använda [Kontoåtkomstnycklar](../storage/common/storage-account-manage.md#access-keys)<br>Använd för konto, behållare eller blob-auktorisering - [nycklar för delad åtkomst-signatur](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Dataåtgärder - granskning |Tillgängligt. Se [här](data-lake-store-diagnostic-logs.md) information. |Tillgängligt |
 | Vilande krypteringsdata |<ul><li>Transparent, på serversidan</li> <ul><li>Med tjänsten-hanterade nycklar</li><li>Med Kundhanterade nycklar i Azure Key</li></ul></ul> |<ul><li>Transparent, på serversidan</li> <ul><li>Med tjänsten-hanterade nycklar</li><li>Med Kundhanterade nycklar i Azure Key (förhandsversion)</li></ul><li>Kryptering av klientsidan</li></ul> |
 | Management-åtgärder (t.ex. Account Create) |[Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för kontohantering |[Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för kontohantering |

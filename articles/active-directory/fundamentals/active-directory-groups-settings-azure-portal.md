@@ -1,6 +1,6 @@
 ---
 title: Så här redigerar du din gruppinformation med Azure Active Directory | Microsoft Docs
-description: Så här redigerar du en grupp information med hjälp av Azure Active Directory.
+description: Lär dig mer om att redigera information för en grupp med Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,12 +12,12 @@ ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 0bac740a5da9c1e57ea1755c58579463da4a883a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a02987fdce3a15cd5d416234e3717df6d33622ec
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580454"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731350"
 ---
 # <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>Så här: redigera gruppinformation med hjälp av Azure Active Directory
 

@@ -1,6 +1,6 @@
 ---
 title: Så här tilldelar du directory-roller till användare med Azure Active Directory | Microsoft Docs
-description: Så här tilldelar du directory-roller till användare med Azure Active Directory.
+description: Lär dig mer om att tilldela directory-roller till användare med Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: 02eb55509a3708517dff4c14640826a3a21f1df0
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b73df5ec0381e83c54c8cd9f8c0335448def0c6d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603727"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733050"
 ---
 # <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>Så här: tilldela roller och administratörer till användare med Azure Active Directory
 Om en användare i din organisation behöver behörighet att hantera resurser i Azure Active Directory (AD Azure), måste du tilldela användaren en lämplig roll i Azure AD, beroende på vilka åtgärder som användaren behöver behörighet att utföra.

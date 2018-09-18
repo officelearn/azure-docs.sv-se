@@ -1,20 +1,21 @@
 ---
-title: Skapa en Video Indexer-konto som är ansluten till Azure | Microsoft Docs
-description: Den här artikeln visar hur du skapar en Video Indexer-konto som är ansluten till Azure.
+title: Skapa en Video Indexer-konto i Azure portal
+titlesuffix: Azure Cognitive Services
+description: Den här artikeln visar hur du skapar en Video Indexer-konto i Azure-portalen.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: juliako
-ms.openlocfilehash: 229624f4070c931b6ad892533aad269af49c738b
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 8b8aa3e2f7a461c13cc73270863498283f02f740
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544202"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983164"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
 

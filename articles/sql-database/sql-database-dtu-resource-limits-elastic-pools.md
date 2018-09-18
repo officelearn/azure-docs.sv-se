@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 0920489daf99445a9d715d0858cf68ae45e6a178
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a0e0b8e2de3c944698cdbc6b1b11351f70e77276
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055607"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729900"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Resurser-gränser för elastiska pooler med den DTU-baserade inköpsmodellen 
 
@@ -25,9 +25,9 @@ DTU-baserade inköpschef modellen resursgränser för enskilda databaser, se [DT
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Elastisk pool: lagringsstorlekar och prestandanivåer
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastisk pool: lagringsstorlekar och storlekar
 
-Följande tabeller visar de tillgängliga resurserna på varje servicenivå för tjänstnivå och prestandanivå för SQL Database elastiska pooler. Du kan ange tjänstnivån, prestandanivån och storage mycket med den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), eller [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+För elastiska pooler i SQL Database, i följande tabeller visar de tillgängliga resurserna på varje tjänstnivå och beräkna storleken. Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), eller [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
 > Resursbegränsningar enskilda databaser i elastiska pooler är vanligtvis samma som för enskilda databaser utanför poolerna baserat på dtu: er och tjänstnivån. Till exempel max samtidiga arbetare för en S2-databas är 120 arbetare. Max samtidiga arbetare för en databas i en Standard-pool är därför också 120 arbetare om max DTU per databas i poolen är 50 dtu: er (som motsvarar S2).

@@ -7,14 +7,14 @@ services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: aamalvea
-ms.openlocfilehash: aec4ce2e4fb22872673c977816ffbe8616567885
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 43702de9f0da3b5b82c304cf9289768f7a8264fc
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718244"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732642"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Skapa aviseringar för Azure SQL Database och Data Warehouse med hjälp av Azure portal
 
@@ -108,7 +108,7 @@ När du har skapat en avisering, kan du välja den och:
 | SQL Data Warehouse | connection_successful | Anslutningarna lyckades | Totalt | 10 minuter |
 | SQL Data Warehouse | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
 | SQL Data Warehouse | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |
-| SQL Data Warehouse | service_level_objective | Servicenivåmålet för databasen | Totalt | 10 minuter |
+| SQL Data Warehouse | service_level_objective | Tjänstenivå för databasen | Totalt | 10 minuter |
 | SQL Data Warehouse | dwu_limit | dwu-gräns | Maximal | 10 minuter |
 | SQL Data Warehouse | dwu_consumption_percent | DWU-procent | Medel | 10 minuter |
 | SQL Data Warehouse | dwu_used | Använda DWU | Medel | 10 minuter |

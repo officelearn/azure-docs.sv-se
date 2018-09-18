@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 8a5d880d0238e38fbbaa9de22fc1baf604f0fc07
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206045"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733472"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
 
@@ -38,7 +38,7 @@ Lägg till följande telemetri i den **mätningar** sidan:
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatur  | temperatur | F     | 60  | 110 | 0              |
 | Fuktighet     | luftfuktighet    | %     | 0   | 100 | 0              |
-| Hög belastning     | tryck    | kPa   | 80  | 110 | 0              |
+| Tryck     | tryck    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
   Datatypen för måttet telemetri är dubbla.
@@ -49,7 +49,7 @@ Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamn
 
 Lägg till följande tillstånd i den **mätningar** sidan:
 
-| Visningsnamn | Fältnamn  | Värdet 1 | Visningsnamn | Värdet 2 | Visningsnamn |
+| Visningsnamn | Fältnamn  | Värde 1 | Visningsnamn | Värde 2 | Visningsnamn |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Fläktläge     | fläktläge     | 1       | Körs      | 0       | Stoppad      |
 
@@ -129,7 +129,11 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     var client = clientFromConnectionString(connectionString);
     ```
 
-    Uppdatera platshållaren `{your device connection string}` med enhetens anslutningssträng. Du har kopierat det här värdet från anslutningens informationssida när du har lagt till din riktig enhet. I det här exemplet vi initiera `targetTemperature` till noll och, du kan eventuellt ta medan den aktuella läsningen från enheten eller värdet från enhetstvillingen. 
+  > [!NOTE]
+   > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instrustions till [hämta enhetens anslutningssträng](concepts-connectivity.md#getting-device-connection-string) och fortsätta med resten av kursen.
+
+
+    Uppdatera platshållaren `{your device connection string}` med enhetens anslutningssträng. I det här exemplet vi initiera `targetTemperature` till noll och, du kan eventuellt ta medan den aktuella läsningen från enheten eller värdet från enhetstvillingen. 
 
 1. Om du vill skicka telemetri, tillstånd och mätning av faktisk användning till programmet Azure IoT Central, lägger du till följande funktion i filen:
 

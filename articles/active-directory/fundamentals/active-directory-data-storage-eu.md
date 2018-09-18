@@ -2,24 +2,21 @@
 title: Var lagrar Azure AD identitetsdata för europeiska kunder? | Microsoft Docs
 description: Läs mer om var Microsoft Azure Active Directory lagrar identitetsrelaterade data för europeiska kunder.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.author: lizross
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro
-ms.openlocfilehash: 0baa499f56fa6c074ac1c0f604e74f9e7adb5502
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: d0015f40714b639d15245827ae0da3ca0f132df4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42022870"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733405"
 ---
 # <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Var lagrar Microsoft Azure Active Directory (Azure AD) identitetsdata för europeiska kunder?
 Azure AD hjälper dig att hantera användaridentiteter och att skapa intelligensdrivna åtkomstprinciper som hjälper dig att skydda din organisations resurser. Identitetsdata lagras på en plats som baseras på den adress som din organisationen uppgav när du registrerade dig för tjänsten. Till exempel när du registrerar dig för en prenumeration på Office 365 eller Azure. Specifik information om var dina identitetsdata lagras finns i avsnittet [Var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) på Microsoft Trust Center.
@@ -76,7 +73,6 @@ Merparten av alla Azure AD-relaterade europeiska identitetsdata, för organisati
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om funktionerna som beskrivs ovan finns i artiklarna nedan.
-- [Kom igång med Azure Active Directory](get-started-azure-ad.md)
 - [Vad är Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 - [Lösenordsåterställning via självbetjäning i Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 - [Vad är Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

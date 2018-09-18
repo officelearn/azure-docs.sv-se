@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: 9efe3c3d65dc1d809285eb760ca373c648ad66c0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: aaa18e5bc4a95ed0c7334232417f68064fd26ca7
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094578"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734915"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -29,7 +29,7 @@ Den här artikeln förklarar hur du arbetar med Azure Blob storage-bindningar i 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Använda Event Grid-utlösaren i stället för Blob storage-utlösare för endast blob storage-konton, för hög skala, eller att undvika förseningar kallstart. Mer information finns i den [utlösaren](#trigger) avsnittet. 
+> Använd Event Grid-utlösaren i stället för Blob storage-utlösare för Blob storage-konton, för hög skala, eller att undvika förseningar kallstart. Mer information finns i den [utlösaren](#trigger) avsnittet. 
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
@@ -53,13 +53,13 @@ Den [Event Grid-utlösare](functions-bindings-event-grid.md) har inbyggt stöd f
 
 Använda Event Grid i stället för Blob storage-utlösare för följande scenarier:
 
-* Endast BLOB storage-konton
+* Blob Storage-konton
 * Hög skala
 * Minimera kallstart fördröjning
 
-### <a name="blob-only-storage-accounts"></a>Endast BLOB storage-konton
+### <a name="blob-storage-accounts"></a>Blob Storage-konton
 
-[Endast BLOB storage-konton](../storage/common/storage-create-storage-account.md#blob-storage-accounts) stöds för blob-indata och utdata bindningar men inte för blobutlösare. BLOB storage-utlösare kräver ett allmänt lagringskonto.
+[BLOB storage-konton](../storage/common/storage-account-overview.md#types-of-storage-accounts) stöds för blob-indata och utdata bindningar men inte för blobutlösare. BLOB storage-utlösare kräver ett allmänt lagringskonto.
 
 ### <a name="high-scale"></a>Hög skala
 
@@ -284,7 +284,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i den [användning](#trigger---usage) avsnittet. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden. | 
 |**Sökväg** | **BlobPath** |Behållaren för att övervaka.  Kan vara en [blob namnmönstret](#trigger-blob-name-patterns). | 
-|**anslutning** | **anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**anslutning** | **anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [Blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -602,7 +602,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning** | Saknas | Måste anges till `in`. Undantag anges i den [användning](#input---usage) avsnittet. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.|
 |**Sökväg** |**BlobPath** | Sökvägen till blobben. | 
-|**anslutning** |**anslutning**| Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**anslutning** |**anslutning**| Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [Blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |Saknas | **Åtkomst** | Anger om du läser eller skriver. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -834,7 +834,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning** | Saknas | Måste anges till `out` för en utdatabindning. Undantag anges i den [användning](#output---usage) avsnittet. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.  Ange `$return` att referera till returvärde för funktion.|
 |**Sökväg** |**BlobPath** | Sökvägen till blobben. | 
-|**anslutning** |**anslutning**| Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**anslutning** |**anslutning**| Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [Blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |Saknas | **Åtkomst** | Anger om du läser eller skriver. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

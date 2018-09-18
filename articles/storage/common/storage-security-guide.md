@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 912ae17fb7bb5d5cecad0af5b53d817b2faeef02
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522209"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730957"
 ---
 # <a name="azure-storage-security-guide"></a>Säkerhetsguiden för Azure Storage
 
@@ -142,20 +142,13 @@ Med Azure Key Vault lägger också till en annan nivå av säkerhet för dina la
 
 En annan fördel med att använda Azure Key Vault är att du kan också kontrollera åtkomsten till dina nycklar med hjälp av Azure Active Directory. Det innebär att du kan bevilja åtkomst till program som behöver hämta nycklarna från Azure Key Vault och säker på att andra program inte kan komma åt nycklarna utan att ge dem behörighet specifikt handfull.
 
-Obs: Det rekommenderas att använda endast en av nycklarna i alla dina program på samma gång. Om du använder nyckel 1 på vissa platser och nyckel 2 i andra kan kunna du inte rotera nycklarna utan att ett program att förlora åtkomst.
+> [!NOTE]
+> Microsoft rekommenderar att du använder bara en av nycklarna i alla dina program på samma gång. Om du använder nyckel 1 på vissa platser och nyckel 2 i andra kan kunna du inte rotera nycklarna utan att ett program att förlora åtkomst.
 
 #### <a name="resources"></a>Resurser
-* [Om Azure Storage-konton](storage-create-storage-account.md#regenerate-storage-access-keys)
 
-  Den här artikeln ger en översikt över storage-konton och beskriver visa, kopiera och återskapa åtkomstnycklar för lagring.
+* [Hantera inställningar för lagringskonto i Azure portal](storage-account-manage.md)
 * [Azure Storage Resource Provider REST API-referens](https://msdn.microsoft.com/library/mt163683.aspx)
-
-  Den här artikeln innehåller länkar till specifika artiklar om hur du hämtar lagringskontonycklarna och återskapa lagringskontonycklarna för ett Azure-konto med hjälp av REST-API. Obs: Det här är för Resource Manager-lagringskonton.
-* [Åtgärder på storage-konton](https://msdn.microsoft.com/library/ee460790.aspx)
-
-  Den här artikeln i Storage Service Manager REST API Reference innehåller länkar till specifika artiklar om hämtning och återskapa lagringskontonycklar med hjälp av REST-API. Obs: Det här är klassiska lagringskonton.
-
-  Den här artikeln visar hur du använder Active Directory för att styra åtkomsten till dina Azure Storage-nycklar i Azure Key Vault. Den visar även hur du använder en Azure Automation-jobb för att återskapa nycklar per timme.
 
 ## <a name="data-plane-security"></a>Plan för datasäkerhet
 Plan för datasäkerhet refererar till de metoder som används för att skydda dataobjekt som lagras i Azure-lagring – blobar, köer, tabeller och filer. Vi har sett metoder för att kryptera data och security under överföring av data, men hur skaffar du styr åtkomst till objekten?

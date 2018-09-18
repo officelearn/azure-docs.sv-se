@@ -1,89 +1,91 @@
 ---
-title: Vanliga frågor och svar för datorn visionen API | Microsoft Docs
-description: Få svar på vanliga frågor och svar om datorn Vision API i kognitiva Microsoft-tjänster.
+title: Frågor och svar om API för visuellt
+titlesuffix: Azure Cognitive Services
+description: Få svar på vanliga frågor och svar om API för visuellt innehåll i Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 5c862dd2fb26a005f4e785673a4e9358ecf9286f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5c0a4e981a290b9a758c8401a75e546c61618b45
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351543"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983909"
 ---
-# <a name="computer-vision-api-frequently-asked-questions"></a>Vanliga och frågor svar om datorn Vision API
-### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-computer-vision-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Om du inte hittar svar på frågor här, kan du pröva att besvara datorn Vision API-gemenskapen på [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) eller kontakta [hjälp och Support på UserVoice](https://cognitive.uservoice.com/)
+# <a name="computer-vision-api-frequently-asked-questions"></a>Vanliga och frågor svar om API för visuellt
+
+### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-computer-vision-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Om du inte hittar svar på dina frågor i den här vanliga frågor och svar, kan du prova att fråga API för visuellt innehåll community på [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) eller kontakta [hjälp och Support på UserVoice](https://cognitive.uservoice.com/)
 
 -----
 
-**Fråga**: *kan jag lära datorn Vision API för att använda anpassade taggar?  Jag skulle vilja mata in bilder för kattraser träna AI och sedan ta emot RAS-värdet i en AI-begäran.*
+**Fråga**: *kan jag träna API för visuellt innehåll att använda anpassade taggar?  Jag skulle vilja feed i bilder av kattraser att träna AI och sedan ta emot RAS-värdet på en begäran om AI.*
 
-**Svaret**: den här funktionen är inte tillgängligt. Dock arbetar våra tekniker för att få den här funktionen till datorn Vision.
-
------
-
-**Fråga**: *kan datorn Vision användas lokalt utan Internetanslutning?*
-
-**Svaret**: vi för närvarande inte ger en lokal eller en lokal lösning.
+**Svar**: den här funktionen är för närvarande inte tillgänglig. Dock arbetar våra tekniker för att göra den här funktionen att visuellt.
 
 -----
 
-**Fråga**: *vilka språk som stöds med datorn Vision?*
+**Fråga**: *visuellt innehåll kan användas lokalt utan Internetanslutning?*
 
-**Svaret**: språk som stöds:
+**Svar**: för närvarande erbjuder vi inte en lokal eller lokal lösning.
+
+-----
+
+**Fråga**: *vilka språk som stöds med visuellt innehåll?*
+
+**Svar**: språk som stöds är:
 
 | | | Språk som stöds | | |
 |---------------- |------------------ |------------------ |--------------------------- |--------------------
 | Danska (da-DK)  | Nederländska (nl-NL)     | Svenska           | Finska (fi-FI)            |Franska (fr-FR)
 | Tyska (de-DE)  | Grekiska (el-GR)     | Ungerska (hu-HU) | Italienska (it-IT)            | Japanska (ja-JP)
 | Koreanska (ko-KR)  | Norska (nb-NO) | Polska (pl-PL)    | Portugisiska (pt-BR) (pt-PT) | Ryska (ru-RU)
-| Spanska (es-ES)   | Svenska (sv SV)     | Turkiska (tr TU)   |                            |
+| Spanska (es-ES)   | Svenska (SA-SV)     | Turkiska (tr Dataflödesenheter)   |                            |
 
 -----
 
-**Fråga**: *kan datorn Vision användas för att läsa licens nivåer?*
+**Fråga**: *visuellt innehåll kan användas för att läsa licens nivåer?*
 
-**Svaret**: Vision API: N ger bra text identifiering med OCR, men det är inte för närvarande är optimerad för licens nivåer. Vi försöker ständigt förbättra våra tjänster och lagt till OCR för automatisk licens skylt recognition till vår lista över funktioner som efterfrågas.
+**Svar**: The API för visuellt innehåll ger bra text-identifiering med OCR, men det inte är för tillfället optimerat för licens-nivåer. Vi försöker hela tiden förbättra våra tjänster och har lagt till OCR för automatisk licens lj erkännande till vår lista för framtida versioner.
 
 -----
 
 **Fråga:** *vilka språk som stöds för handskriftsigenkänning?*
 
-**Svaret**: för närvarande stöds endast på engelska.
+**Svar**: för närvarande stöds endast på engelska.
 
 -----
 
-**Fråga**: *vilka typer av skriva hämtar stöds för handskriftsigenkänning?*
+**Fråga**: *vilka typer av skriva Surface-enheter som stöds för handskriftsigenkänning?*
 
-**Svaret**: tekniken som fungerar med olika typer av, inklusive whiteboardtavlor, faktablad och gul anteckningar.
-
------
-
-**Fråga**: *hur lång tid åtgärden handskriftsigenkänning recognition tar?*
-
-**Svaret**: hur lång tid det tar beror på längden på texten. För längre texter, kan det ta upp till flera sekunder. Efter att identifiera handskriven Text slutförts, kan du därför behöva vänta innan du kan hämta resultat med åtgärden hämta handskriven Text resultat.
+**Svar**: tekniken fungerar med olika typer av Surface-enheter, inklusive whiteboardtavlor, faktablad och gula anteckningslappar.
 
 -----
 
-**Fråga**: *hur fungerar handskriftsigenkänning recognition teknik referensen text som har infogats med en hatt mitt i en rad?*
+**Fråga**: *hur lång tid åtgärden igenkänning av handskrift tar?*
 
-**Svaret**: sådan text returneras som en separat rad av handskriftsigenkänning recognition igen.
-
------
-
-**Fråga**: *hur handskriftsigenkänning recognition tekniken hanterar korsade out ord eller rader?*
-
-**Svaret**: om orden passeras med flera rader att återge dem inte kan tolkas, handskriftsigenkänning recognition åtgärden hämtar inte dem. Om ord passeras med hjälp av en enda rad, den korsande behandlas som brus och orden fortfarande få tas upp av handskriftsigenkänning recognition igen.
+**Svar**: hur lång tid det tar beror på längden på texten. För längre texter kan det ta upp till några sekunder. När identifiera handskriven Text-åtgärden är klar kan du därför behöva vänta innan du kan hämta resultat med åtgärden hämta handskriven Text resultatet för åtgärden.
 
 -----
 
-**Fråga**: *vilken text riktlinjer stöds för handskriftsigenkänning recognition tekniken?*
+**Fråga**: *hur fungerar handskrift igenkänning av teknik referensen text som har infogats med en hatt mitt i en rad?*
 
-**Svaret**: Text orienterad vinklar av upp till cirka 30 grader till 40 grader hämta hämtas av handskriftsigenkänning recognition igen.
+**Svar**: sådan text returneras som en separat rad av åtgärden för igenkänning av handskrift.
+
+-----
+
+**Fråga**: *hur taligenkänningsteknik handskrift hanterar överskred ut ord eller rader?*
+
+**Svar**: om orden passeras med flera rader att återge dem okänt, åtgärden igenkänning av handskrift inte hämta dem. Men om orden passeras med hjälp av en enda rad, att överbrygga behandlas som bruset och orden fortfarande få slutpunktsstatus uppfattas av åtgärden för igenkänning av handskrift.
+
+-----
+
+**Fråga**: *vilka text skärmorienteringar stöds för taligenkänningsteknik handskrift?*
+
+**Svar**: Text orienterad i vinkel av upp till cirka 30 grader mot 40 grader kan hämta slutpunktsstatus uppfattas av åtgärden för igenkänning av handskrift.
 
 -----

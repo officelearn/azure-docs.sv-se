@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 517de578e2a3c6350bbb18d756a8740ceb6f1d23
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 12f7e466bdfd6d9b6cf1c36df4daf1e76cc417f2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576382"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729832"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
 
@@ -48,7 +48,10 @@ Konfigurera en Windows IoT Core-enhet genom att följa steg-för-steg-instruktio
 
 ### <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-I Azure IoT Central programmet, lägger du till en riktig enhet från den **Windows IoT Core** enheten mallen och gjort en notering enhetens anslutningssträng. Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
+I Azure IoT Central programmet, lägger du till en riktig enhet från den **Windows IoT Core** enheten mallen och gjort en notering enhetsinformation för anslutningen (**Scope-ID, enhets-ID, primärnyckel**). Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
+
+ > [!NOTE]
+   > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instrustions till [hämta enhetens anslutningssträng](concepts-connectivity.md#getting-device-connection-string) och fortsätta med resten av kursen.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Förbereda Windows 10 IoT Core-enhet
 

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 09/17/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 912d4e1af3e1a4d07efddafa38bda5697b226787
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: cca9a12b0512ca502d143f4a88c959e1bfc4f90e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392278"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985889"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -456,8 +456,8 @@ Följande är ett exempel på ett cron-schemat i/etc/crontab:
 ```
 00 1-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 46
 10 00 * * *  ./azure_hana_backup.pl hana dailyhana 15min 28
-00,05,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-22 12 * * *  ./azure_hana_backup.pl log dailylogback 3min 28
+00,05,10,15,20,25,30,35,40,45,50,55 * * * * ./azure_hana_backup.pl logs regularlogback 3min 28
+22 12 * * *  ./azure_hana_backup.pl logs dailylogback 3min 28
 30 00 * * *  ./azure_hana_backup.pl boot TypeI dailyboot 15min 28
 ```
 I exemplet ovan är en timvis kombinerade ögonblicksbild som fullständigt täcker alla volymer som innehåller data/hana/och /hana/shared (inklusive/usr/sap) platser. Använd den här typen av ögonblicksbild för en snabbare point-in-time-återställning under de senaste två dagarna. Det finns också en ögonblicksbild på dessa volymer. Därför har två dagars täckning som per timme ögonblicksbilder, plus fyra veckor täckningen av dagliga ögonblicksbilder. Dessutom säkerhetskopieras säkerhetskopiering transaktionsvolymer log varje dag. Dessa säkerhetskopior behålls i fyra veckor samt. Som du ser i den tredje adressraden crontab är säkerhetskopia av transaktionsloggen HANA schemalagd att köras var femte minut. Starttider för olika cron-jobb som kör lagringsögonblicksbilder ut, så att dessa ögonblicksbilder inte körs på en gång vid en viss punkt i tiden. 
@@ -466,8 +466,8 @@ I följande exempel kan du utföra en kombinerad ögonblicksbild som omfattar vo
 
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 48
-0,5,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl log logback 3min 48
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * ./azure_hana_backup.pl logs regularlogback 3min 28
+2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl logs logback 3min 48
 30 00 * * *  ./azure_hana_backup.pl boot TypeII dailyboot 15min 28
 ```
 

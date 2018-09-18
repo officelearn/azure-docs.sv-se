@@ -4,28 +4,43 @@ description: Beskriver hur du förfina en utvärdering med beroendemappning för
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 37c4ce8638c8f0481151449317d6cd387b61b256
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 4f5ab4565191b38c07b2071609a57db2525860e3
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622906"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733422"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupper med beroendemappning för grupp
 
-Den här artikeln beskriver hur du förfina grupper genom att visualisera beroenden för alla datorer i gruppen. Du använder vanligtvis den här metoden när du vill begränsa medlemskap för en befintlig grupp efter dubbelkontrollera gruppberoenden innan du kör en utvärdering. Förfina en grupp med hjälp av beroendevisualisering kan hjälpa dig att effektivt planera din migrering till Azure.You kan identifiera alla beroende av varandra system som behöver för att migrera tillsammans. Det hjälper dig att se till att inget kvar och förvåning avbrott sker inte när du migrerar till Azure. 
+Den här artikeln beskriver hur du förfina grupper genom att visualisera beroenden för alla datorer i gruppen. Du använder vanligtvis den här metoden när du vill begränsa medlemskap för en befintlig grupp efter dubbelkontrollera gruppberoenden innan du kör en utvärdering. Förfina en grupp med hjälp av beroendevisualisering kan hjälpa dig att effektivt planera din migrering till Azure. Du kan identifiera alla beroende av varandra system som behöver för att migrera tillsammans. Det hjälper dig att se till att inget kvar och förvåning avbrott sker inte när du migrerar till Azure.
 
 
 > [!NOTE]
 > Grupper som du vill visualisera beroenden får inte innehålla fler än 10 datorer. Om du har fler än 10 datorer i gruppen, rekommenderar vi att du dela upp den i mindre grupper att utnyttja beroendevisualiseringsfunktionen.
 
 
-# <a name="prepare-the-group-for-dependency-visualization"></a>Förbereda gruppen för visualisering av beroenden
-Om du vill visa beroenden för en grupp som du behöver hämta och installera agenter på varje lokal dator som ingår i gruppen. Dessutom om du har datorer med utan internet-anslutning, måste du hämta och installera [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) på dem.
+## <a name="prepare-for-dependency-visualization"></a>Förbereda för visualisering av beroenden
+Azure Migrate använder Tjänstkarta-lösningen i Log Analytics för att aktivera beroendevisualisering av datorer.
+
+### <a name="associate-a-log-analytics-workspace"></a>Associera en Log Analytics-arbetsyta
+Om du vill använda visualisering av beroenden, måste du koppla en Log Analytics-arbetsyta, ny eller befintlig, med ett Azure Migrate-projekt. Du kan bara skapa eller koppla en arbetsyta i samma prenumeration där migration-projekt skapas.
+
+- Att koppla en Log Analytics-arbetsyta till ett projekt i **översikt**går du till **Essentials** delen av projektet klickar du på **kräver konfiguration**
+
+    ![Associera arbetsytan för Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- När du skapar en ny arbetsyta kan behöva du ange ett namn för arbetsytan. Arbetsytan skapas i samma prenumeration som migration-projekt och i en region i samma [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migration-projekt.
+- Den **Använd befintlig** alternativet visas endast arbetsytor som skapas i regioner där Tjänstkarta är tillgänglig. Om du har en arbetsyta i en region där Tjänstkarta inte är tillgänglig kan visas den inte i listrutan.
+
+> [!NOTE]
+> Du kan inte ändra arbetsytan som är kopplad till ett migreringsprojekt.
 
 ### <a name="download-and-install-the-vm-agents"></a>Hämta och installera VM-agenterna
+Om du vill visa beroenden för en grupp som du behöver hämta och installera agenter på varje lokal dator som ingår i gruppen. Dessutom om du har datorer med utan internet-anslutning, måste du hämta och installera [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) på dem.
+
 1. I **översikt**, klickar du på **hantera** > **grupper**går du till den nödvändiga gruppen.
 2. I listan över datorer, i den **beroendeagenten** kolumnen, klickar du på **kräver installation** att se information om hur du hämtar och installerar agenterna.
 3. På den **beroenden** sidan, hämta och installera Microsoft Monitoring Agent (MMA) och beroendeagenten på varje virtuell dator som ingår i gruppen.
@@ -37,8 +52,8 @@ Installera agenten på en Windows-dator:
 
 1. Dubbelklicka på den hämtade agenten.
 2. På sidan **Välkommen** klickar du på **Nästa**. På sidan **Licensvillkor** klickar du på **Jag accepterar** för att acceptera licensen.
-3. I **målmapp**, behålla eller ändra standardinstallationsmappen > **nästa**. 
-4. I **installationsalternativ för Agent**väljer **Azure Log Analytics** > **nästa**. 
+3. I **målmapp**, behålla eller ändra standardinstallationsmappen > **nästa**.
+4. I **installationsalternativ för Agent**väljer **Azure Log Analytics** > **nästa**.
 5. Klicka på **Lägg till** att lägga till en ny Log Analytics-arbetsyta. Klistra in i arbetsytans ID och nyckel som du kopierade från portalen. Klicka på **Nästa**.
 
 
@@ -66,7 +81,7 @@ När du har installerat agenter på alla datorer i gruppen kan du visualisera be
 3. Beroendekarta för gruppen visar följande information:
     - Inkommande (klienter) och utgående (servrar) TCP-anslutningar till/från alla datorer som ingår i gruppen
         - Beroende datorer som inte har MMA och beroendeagenter agenten installerad är grupperade efter portnummer
-        - Dependenct-datorer som har MMA och beroendeagenten installerat visas som separata rutor 
+        - Beroende datorer som har MMA och beroendeagenten installerat visas som separata rutor
     - Processer som körs på datorn, som du kan expandera varje datorrutan för att visa processer
     - Egenskaper som fullständigt kvalificerade namn, operativsystem, MAC-adress osv på varje dator som du kan klicka på varje datorrutan för att visa den här informationen
 

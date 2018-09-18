@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 4eadbe38eede505a3339d4b6090d0a34c12a5fc2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 432f1175ebc3fe84ad860ec0193f4f1338636150
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721967"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983732"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Publicera konfigurationsuppgifter för ASDK installation
 
@@ -33,14 +33,10 @@ Azure Stack-kompatibla Azure PowerShell-moduler som krävs för att arbeta med A
 PowerShell-kommandon för Azure Stack installeras via PowerShell-galleriet. Att registrera PSGallery databasen, öppna en upphöjd PowerShell-session och kör följande kommando:
 
 ``` Powershell
-Set-PSRepository `
-  -Name "PSGallery" `
-  -InstallationPolicy Trusted
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
 Du kan använda API-versionsprofiler för att ange Azure Stack-kompatibla AzureRM-moduler.  API-versionsprofiler är ett sätt att hantera skillnaderna mellan Azure och Azure Stack. En profil för API-versionen är en uppsättning AzureRM PowerShell-moduler med specifika API-versioner. Den **AzureRM.Bootstrapper** modulen som är tillgänglig via PowerShell-galleriet innehåller PowerShell-cmdlets som krävs för att arbeta med API-versionsprofiler.
-
- 
 
 Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Internet-anslutning till värddatorn ASDK:
 
@@ -49,19 +45,44 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
 
 - **Med en Internetanslutning** från värddatorn ASDK. Kör följande PowerShell-skript för att installera dessa moduler på din development kit-installation:
 
-  ``` PowerShell
-  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
-  Install-Module `
-    -Name AzureRm.BootStrapper
+  - Azure Stack 1808 eller senare:
 
-  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-  Use-AzureRmProfile `
-    -Profile 2017-03-09-profile -Force
+    ``` PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
+    Install-Module -Name AzureRm.BootStrapper
 
-  # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
-  Install-Module -Name AzureStack -RequiredVersion 1.4.0 
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 
-  ```
+    # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
+    Install-Module -Name AzureStack -RequiredVersion 1.5.0
+    ```
+
+  - Azure Stack 1807 eller tidigare:
+
+    ``` PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
+    Install-Module -Name AzureRm.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2017-03-09-profile -Force
+    
+    # Install Azure Stack Module Version 1.4.0.
+    Install-Module -Name AzureStack -RequiredVersion 1.4.0
+    ```
+
+  - Azure Stack 1803 eller tidigare:
+
+    ``` PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
+      Install-Module -Name AzureRm.BootStrapper
+
+      # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+      Use-AzureRmProfile -Profile 2017-03-09-profile -Force
+
+      # Install Azure Stack Module Version 1.2.11
+      Install-Module -Name AzureStack -RequiredVersion 1.2.11 
+    ```
 
   Om installationen lyckas visas AzureRM- och AzureStack-moduler i utdata.
 
@@ -70,22 +91,13 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
   ```PowerShell
   $Path = "<Path that is used to save the packages>"
 
+  # AzureRM for 1808 requires 2.3.0, for prior versions use 1.2.11
   Save-Package `
-    -ProviderName NuGet `
-    -Source https://www.powershellgallery.com/api/v2 `
-    -Name AzureRM `
-    -Path $Path `
-    -Force `
-    -RequiredVersion 1.2.11
-
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+  
+  # AzureStack requries 1.5.0 for version 1808, 1.4.0 for versions after 1803, and 1.2.11 for versions before 1803
   Save-Package `
-    -ProviderName NuGet `
-    -Source https://www.powershellgallery.com/api/v2 `
-    -Name AzureStack `
-    -Path $Path `
-    -Force `
-  # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
-    -RequiredVersion 1.4.0
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path Force -RequiredVersion 1.5.0
   ```
 
   Sedan kopiera de hämta paketen till ASDK-dator och registrera platsen som standard-databasen och installerar AzureRM- och AzureStack-moduler från den här lagringsplatsen:
@@ -94,16 +106,11 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
-    Register-PSRepository `
-      -Name $RepoName `
-      -SourceLocation $SourceLocation `
-      -InstallationPolicy Trusted
+    Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
 
-    Install-Module AzureRM `
-      -Repository $RepoName
+    Install-Module AzureRM -Repository $RepoName
 
-    Install-Module AzureStack `
-      -Repository $RepoName
+    Install-Module AzureStack -Repository $RepoName
     ```
 
 ## <a name="download-the-azure-stack-tools"></a>Ladda ned Azure Stack-verktyg
@@ -111,7 +118,7 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
 [Verktyg för AzureStack](https://github.com/Azure/AzureStack-Tools) är en GitHub-lagringsplats som är värd för PowerShell-moduler för att hantera och distribuera resurser till Azure Stack. Klona GitHub-databasen för att få dessa verktyg eller ladda ned mappen AzureStack verktyg genom att köra följande skript:
 
   ```PowerShell
-  # Change directory to the root directory. 
+  # Change directory to the root directory.
   cd \
 
   # Enforce usage of TLSv1.2 to download the Azure Stack tools archive from GitHub
@@ -121,15 +128,14 @@ Du kan installera den senaste Azure Stack PowerShell-modulen med eller utan Inte
     -OutFile master.zip
 
   # Expand the downloaded files.
-  expand-archive master.zip `
-    -DestinationPath . `
-    -Force
+  expand-archive master.zip -DestinationPath . -Force
 
   # Change to the tools directory.
   cd AzureStack-Tools-master
   ```
 
 ## <a name="validate-the-asdk-installation"></a>Verifiera installationen ASDK
+
 För att säkerställa att ASDK distributionen har lyckats, kan du använda cmdleten Test-AzureStack genom att följa dessa steg:
 
 1. Logga in som AzureStack\AzureStackAdmin på värddatorn ASDK.
@@ -144,16 +150,19 @@ Testerna ta ett par minuter att slutföra. Om installationen slutfördes korrekt
 Om det uppstod ett fel, följer du anvisningarna för att få hjälp.
 
 ## <a name="reset-the-password-expiration-policy"></a>Återställ förfalloprincipen för lösenord 
+
 Följ dessa steg för att säkerställa att lösenordet för development kit värden inte går ut innan din utvärderingsversion har upphört att gälla, när du har distribuerat ASDK.
 
-### <a name="to-change-the-password-expiration-policy-from-powershell"></a>Ändra förfalloprincipen för lösenord från Powershell:
+### <a name="to-change-the-password-expiration-policy-from-powershell"></a>Ändra förfalloprincipen för lösenord från Powershell
+
 Kör kommandot från en upphöjd Powershell-konsol:
 
 ```powershell
 Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
 ```
 
-### <a name="to-change-the-password-expiration-policy-manually"></a>Ändra förfalloprincipen för lösenord manuellt:
+### <a name="to-change-the-password-expiration-policy-manually"></a>Ändra förfalloprincipen för lösenord manuellt
+
 1. Öppna på development kit värden **Group Policy Management** (GPMC. MMC) och gå till **Group Policy Management** – **skog: azurestack.local** – **domäner** – **azurestack.local**.
 2. Högerklicka på **Standarddomänprincip** och klicka på **redigera**.
 3. I den Redigeraren för Grupprinciphantering, navigera till **Datorkonfiguration** – **principer** – **Windows-inställningar** – **säkerhetsinställningar**– **Kontoprinciper** – **lösenordsprincip**.
@@ -163,10 +172,12 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 ![Konsolen Grupprinciphantering](media/asdk-post-deploy/gpmc.png)
 
 ## <a name="enable-multi-tenancy"></a>Aktivera flera innehavare
+
 För distributioner med hjälp av Azure AD, måste du [aktivera flera innehavare](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) för ASDK installationen.
 
-> [!NOTE]
+> [!NOTE]  
 > När administratören eller användaren konton från andra domäner än den som används för att registrera Azure Stack som används för att logga in på Azure Stack-portalen, domännamn som används för att registrera Azure Stack måste läggas till på portalen URL: en. Till exempel om Azure Stack har registrerats med fabrikam.onmicrosoft.com och det användarkonto som har loggat in är admin@contoso.com, URL: en du använder för att logga in på användarportalen: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Registrera ASDK med Azure](asdk-register.md)

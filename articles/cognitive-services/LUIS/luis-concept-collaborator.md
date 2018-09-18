@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ac1c3b4ac49cd8934316eb5653af8f5af2cf801a
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 5573bd36761fb56f0731f886bd705327625f06fe
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630162"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734513"
 ---
 # <a name="collaborating"></a>Samarbeta
 
@@ -34,7 +34,7 @@ Kontot som skapar en app är ägaren. Varje app har en enda ägare. Ägaren ange
 ## <a name="authorization-roles"></a>Auktoriseringsroller
 LUIS stöder inte olika roller för ägare och medarbetare med ett undantag. Ägaren är det enda kontot som kan ta bort appen.
 
-Om du är intresserad av att kontrollera åtkomst till modellen kan du överväga att uppdelning modellen i mindre LUIS-appar, där varje mindre app har en mer begränsad uppsättning medarbetare. Använd [Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) så att en förälder LUIS-app för att hantera samordning mellan överordnade och underordnade appar.
+Om du är intresserad av att kontrollera åtkomst till modellen kan du överväga att uppdelning modellen i mindre LUIS-appar, där varje mindre app har en mer begränsad uppsättning medarbetare. Använd [Dispatch](https://aka.ms/dispatch-tool) så att en förälder LUIS-app för att hantera samordning mellan överordnade och underordnade appar.
 
 ## <a name="transfer-ownership"></a>Överför ägarskap
 LUIS ger inte överlåtelse av äganderätt, men alla medarbetare kan exportera en app och sedan skapa en app genom att importera den. Tänk på den nya appen har ett annat App-ID. Ny krävs för appen ska vara utbildade, publiceras och den nya slutpunkten som används.

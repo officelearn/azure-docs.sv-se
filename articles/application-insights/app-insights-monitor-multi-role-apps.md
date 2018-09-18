@@ -10,20 +10,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2017
+ms.date: 09/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 191913500daf7f1ab20f92c7e951f58598d5d14e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: bf247748415822d5ba1a0e652fdeff384d8e8db1
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647721"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982059"
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Övervaka program med flera komponenter med Application Insights (förhandsversion)
 
 Du kan övervaka appar som består av flera komponenter, roller eller tjänster med [Azure Application Insights](app-insights-overview.md). Hälsotillståndet för komponenterna och relationer mellan dem visas på en enda programavbildning. Du kan spåra enskilda åtgärder via flera komponenter med automatisk HTTP korrelation. Behållardiagnostik integrering och med programtelemetri. Använda en enda Application Insights-resurs för alla komponenter i ditt program. 
 
-![Flera komponenter programavbildning](./media/app-insights-monitor-multi-role-apps/app-map.png)
+![Flera komponenter programavbildning](./media/app-insights-monitor-multi-role-apps/application-map-001.png)
 
 Vi använder här ”component” avses någon fungerande del av en stor tillämpning. Till exempel ett typiskt affärsprogram kan bestå av klientkod som körs i webbläsare, pratar till en eller flera web app services, som i sin tur använda tillbaka sluta tjänster. Server-komponenter kan vara hanteras lokalt på i molnet, eller kan vara Azure webb- och worker-roller eller kan köras i behållare, till exempel Docker eller Service Fabric. 
 
@@ -33,7 +33,7 @@ Viktiga tekniken här innebär att skicka telemetri från alla komponenter i din
 
 För mer information om hur åsidosätter den `cloud_RoleName` egenskapen Se [Lägg till egenskaper: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
-I vissa fall kan det kanske inte är lämplig och kanske du föredrar att använda separata resurser för olika grupper av komponenter. Du kan behöva använda olika resurser för hantering och fakturering. Med hjälp av separata resurser innebär att du inte ser alla komponenter som visas på en enda programavbildning; och att du kan inte fråga för komponenter i [Analytics](app-insights-analytics.md). Du måste också konfigurera separata resurser.
+I vissa fall kan det kanske inte är lämplig och kanske du föredrar att använda separata resurser för olika grupper av komponenter. Du kan behöva använda olika resurser för hantering och fakturering.
 
 Med den teamindela förutsätter vi i resten av det här dokumentet som du vill skicka data från flera komponenter till en Application Insights-resurs.
 

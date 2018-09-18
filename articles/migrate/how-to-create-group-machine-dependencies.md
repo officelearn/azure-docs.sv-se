@@ -4,24 +4,39 @@ description: Beskriver hur du skapar en utvärdering med datorberoenden med tjä
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 31cbec8eab499fac116eac6fa2addac4ec2a340b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621087"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737116"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Gruppera datorer med datorberoende mappning
 
 Den här artikeln beskriver hur du skapar en grupp datorer för [Azure Migrate](migrate-overview.md) utvärdering genom att visualisera beroenden för datorer. Du använder vanligtvis den här metoden när du vill utvärdera grupper med virtuella datorer med högre förtroende genom att dubbelkontrollera datorberoenden innan du kör en utvärdering. Visualisering av beroenden kan hjälpa dig att effektivt planera din migrering till Azure. Det hjälper dig att se till att inget kvar och förvåning avbrott sker inte när du migrerar till Azure. Du kan identifiera alla beroende av varandra system som måste migrera tillsammans och identifiera om ett system som körs fortfarande fungerar som värd för användare eller är en kandidat för inaktivering av i stället för migrering.
 
 
-## <a name="prepare-machines-for-dependency-mapping"></a>Förbereda datorer för beroendemappning
-Om du vill visa beroenden för datorer som du behöver hämta och installera agenter på varje lokal dator som du vill utvärdera. Dessutom om du har datorer med utan internet-anslutning, måste du hämta och installera [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) på dem.
+## <a name="prepare-for-dependency-visualization"></a>Förbereda för visualisering av beroenden
+Azure Migrate använder Tjänstkarta-lösningen i Log Analytics för att aktivera beroendevisualisering av datorer.
+
+### <a name="associate-a-log-analytics-workspace"></a>Associera en Log Analytics-arbetsyta
+Om du vill använda visualisering av beroenden, måste du koppla en Log Analytics-arbetsyta, ny eller befintlig, med ett Azure Migrate-projekt. Du kan bara skapa eller koppla en arbetsyta i samma prenumeration där migration-projekt skapas.
+
+- Att koppla en Log Analytics-arbetsyta till ett projekt i **översikt**går du till **Essentials** delen av projektet klickar du på **kräver konfiguration**
+
+    ![Associera arbetsytan för Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- När du skapar en ny arbetsyta kan behöva du ange ett namn för arbetsytan. Arbetsytan skapas i samma prenumeration som migration-projekt och i en region i samma [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migration-projekt.
+- Den **Använd befintlig** alternativet visas endast arbetsytor som skapas i regioner där Tjänstkarta är tillgänglig. Om du har en arbetsyta i en region där Tjänstkarta inte är tillgänglig kan visas den inte i listrutan.
+
+> [!NOTE]
+> Du kan inte ändra arbetsytan som är kopplad till ett migreringsprojekt.
 
 ### <a name="download-and-install-the-vm-agents"></a>Hämta och installera VM-agenterna
+När du konfigurerar en arbetsyta, måste du hämta och installera agenter på varje lokal dator som du vill utvärdera. Dessutom om du har datorer med utan internet-anslutning, måste du hämta och installera [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) på dem.
+
 1. I **översikt**, klickar du på **hantera** > **datorer**, och välj datorn som krävs.
 2. I den **beroenden** kolumnen, klickar du på **installera agenter**.
 3. På den **beroenden** sidan, hämta och installera Microsoft Monitoring Agent (MMA) och beroendeagenten på varje virtuell dator som du vill utvärdera.

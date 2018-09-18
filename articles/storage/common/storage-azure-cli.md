@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: d09505e4738243576dbde64fa6daba22d054bc8e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 10b0d475113e5fcd413c7e62f88dcd434fc72a52
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053275"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732779"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Använda Azure CLI 2.0 med Azure Storage
 
@@ -31,7 +31,7 @@ Den här guiden förutsätter att du förstår de grundläggande principerna fö
 
 ### <a name="accounts"></a>Konton
 * **Azure-konto**: Om du inte redan har en Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/).
-* **Lagringskonto**: Se [skapar ett lagringskonto](storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](storage-create-storage-account.md).
+* **Lagringskonto**: Se [skapar ett lagringskonto](storage-quickstart-create-account.md) i [Om Azure-lagringskonton](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli-20"></a>Installera Azure CLI 2.0
 

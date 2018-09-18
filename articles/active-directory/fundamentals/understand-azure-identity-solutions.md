@@ -1,27 +1,25 @@
 ---
-title: Förstå Azure Identity | Microsoft Docs
-description: Få en grundläggande förståelse för villkor, begrepp och rekommendationer för Microsoft Azure-identitetslösningar så att du kan fatta det bästa beslutet gällande identitetsstyrning för din organisation.
-keywords: ''
+title: Vad är Microsoft Azure Identity? | Microsoft Docs
+description: Läs mer om villkor för Microsoft Azure identity-lösning, begrepp och rekommendationer för dig att fatta de bästa identitet styrning beslutet för din organisation.
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.reviewer: jsnow
-ms.author: lizross
-ms.date: 7/17/2017
-ms.topic: overview
-ms.prod: ''
-ms.service: azure-directory
+ms.service: active-directory
 ms.component: fundamentals
-ms.technology: ''
-ms.assetid: ''
-ms.custom: it-pro
-ms.openlocfilehash: ec84cdb4e226eea4d16d28d63acd7be59241b973
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 7/17/2017
+ms.author: lizross
+ms.reviewer: jsnow
+custom: it-pro
+ms.openlocfilehash: db14dbf298596a9fdc189c27ea8608d472c58a35
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346924"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737251"
 ---
-# <a name="understand-azure-identity-solutions"></a>Förstå Azure-identitetslösningar
+# <a name="what-is-microsoft-azure-identity"></a>Vad är Microsoft Azure-identitet?
 Microsoft Azure Active Directory (Azure AD) är en molnlösning för identitets- och åtkomsthantering som tillhandahåller katalogtjänster, identitetsstyrning och programåtkomsthantering. Azure AD [aktiverar snabbt enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till tusentals förintegrerade kommersiella och anpassade appar i [Azure AD-programgalleriet](https://azure.microsoft.com/marketplace/active-directory/all/). Du använder säkert många av de här apparna, till exempel Office 365, Salesforce.com, Box, ServiceNow och Workday.
 
 En enda Azure AD-katalog associeras automatiskt med en Azure-prenumeration när den skapas. Som identitetstjänst i Azure ger Azure AD sedan alla funktioner för identitetshantering och åtkomstkontroll för molnbaserade resurser. De här resurserna kan inbegripa användare, appar och grupper för en enskild klientorganisation (organisation) som visas i följande diagram:

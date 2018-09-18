@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 09/14/2018
 ms.author: moslake
-ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 09b7df861f65a5fb4b3c9727f61f73a0ff4e0d65
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054391"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730249"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Hantera utrymmet i Azure SQL Database
 Den här artikeln beskrivs olika typer av lagringsutrymme i Azure SQL Database och steg som kan utföras när utrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.
@@ -27,7 +27,7 @@ De flesta mätvärden i storage utrymme visas i Azure portal och följande API: 
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Det finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor.  Detta kan inträffa när utrymme används ökar och data raderas.  Det beror på att utrymme allokeras inte frigörs automatiskt när data tas bort.  I sådana scenarier kan allokerat utrymme för en databas eller en pool överstiga gränserna för stöds förhindra datatillväxt eller förhindra att prestanda nivåändringar och kräver att minska storleken på datafilerna som ska minska.
+Det finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor.  Detta kan inträffa när utrymme används ökar och data raderas.  Det beror på att utrymme allokeras inte frigörs automatiskt när data tas bort.  I sådana scenarier kan allokerat utrymme för en databas eller en pool överstiga gränserna för stöds och förhindra datatillväxt eller förhindra tjänstnivå compute storleksändringar och kräver att minska storleken på datafilerna som ska minska.
 
 SQL DB-tjänsten Komprimera inte automatiskt filer för att frigöra oanvänt allokerade utrymme på grund av den möjliga inverkan på prestanda för databasen.  Kunder kan dock minska datafiler via självbetjäning i taget de önskar genom att följa stegen som beskrivs i [frigöra oanvänt allokerat utrymme](#reclaim-unused-allocated-space). 
 

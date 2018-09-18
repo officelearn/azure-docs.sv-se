@@ -1,23 +1,23 @@
 ---
-title: Känna igen utskrivna och handskriven text
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Begrepp att känna igen utskrivna och handskriven text i bilder med visuellt i Azure Cognitive Services.
+title: 'Känna igen utskrivna och handskriven text: visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: Begrepp att känna igen utskrivna och handskriven text i bilder med den API för visuellt innehåll.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: bdfef668eddc712d2637dcf53a01f193a3204880
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 49cba0e9b6958beb07b6f074e6dc748679514525
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725485"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985319"
 ---
-# <a name="recognizing-printed-and-handwritten-text"></a>Känna igen utskrivna och handskriven text
+# <a name="recognizing-printed-and-handwritten-text"></a>Känna igen tryckt och handskriven text
 
 Visuellt innehåll kan identifiera och extrahera utskrivna eller handskriven text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, bokstäver och whiteboardtavlor.
 

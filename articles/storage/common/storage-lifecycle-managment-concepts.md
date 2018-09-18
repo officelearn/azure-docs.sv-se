@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: edc0cf7c8700e1ab728109bc9cbfda8135a59ee9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6b7a361213a0236d71fe41566ba71c28b2958cd7
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574750"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736350"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Hantera Azure Blob Storage livscykel (förhandsversion)
 
@@ -30,7 +30,7 @@ Princip för livscykelhantering hjälper dig att:
 
 ## <a name="storage-account-support"></a>Stöd för Storage-konton
 
-Princip för livscykelhantering är tillgängligt med både generell användning v2 (GPv2)-konto och Blob Storage-konto. Du kan konvertera ett befintligt konto för generell användning (GPv1) till ett GPv2-konto via en enkel process för ett klick i Azure-portalen. Mer information finns i [Alternativ för Azure Storage-konton](../common/storage-account-options.md).  
+Princip för livscykelhantering är tillgängligt med både generell användning v2 (GPv2)-konto och Blob Storage-konto. Du kan konvertera ett befintligt konto för generell användning (GPv1) till ett GPv2-konto via en enkel process för ett klick i Azure-portalen. Mer information om lagringskonton finns i [översikt över Azure storage-konton](../common/storage-account-overview.md) vill veta mer.  
 
 ## <a name="pricing"></a>Prissättning 
 

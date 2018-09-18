@@ -1,23 +1,23 @@
 ---
-title: Identifiera domänspecifika innehåll
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Begrepp för som beskriver bilder med hjälp av visuellt innehåll i Azure Cognitive Services.
+title: Identifiera domänspecifika innehåll – visuellt innehåll
+titleSuffix: Azure Cognitive Services
+description: Begrepp för som beskriver bilder med hjälp av den API för visuellt innehåll.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 699698d8235d8fa53050a67491ee4f0e1c336d0e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b197227b6550703e4cc303fc800839dc48bf2d1c
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725520"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985217"
 ---
-# <a name="detecting-domain-specific-content"></a>Identifiera domänspecifika innehåll
+# <a name="detecting-domain-specific-content"></a>Identifiera domänspecifikt innehåll
 
 Dessutom stöder också till taggning och översta kategorisering, visuellt specialiserad (eller domänspecifika) information. Särskild information kan implementeras som en fristående metod eller med den övergripande kategoriseringen. Den fungerar som ett sätt att ytterligare förfina 86 kategoritaxonomi genom tillägg av domänspecifika modeller.
 

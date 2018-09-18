@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 68d546fc4c853f1a19230b8aee7e86519aaa7e4c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617966"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729068"
 ---
 # <a name="what-is-cognitive-search"></a>Vad är cognitive search?
 
@@ -31,7 +31,7 @@ Kognitiva funktioner i Azure Search bygger på samma AI-algoritmer som används 
 Naturligt språk och bearbetning av avbildning tillämpas under fasen för inmatning av data med resultatet bli en del av ett dokument sammansättning i ett sökbart index i Azure Search. Data hämtas som en Azure datauppsättning och sedan skickas via en pipeline för fulltextindexering med beroende på vilket som [inbyggda kunskaper](cognitive-search-predefined-skills.md) du behöver. Arkitektur kan utökas så att du kan också skapa och koppla om de inbyggda kunskaperna inte är tillräckliga [anpassade funktioner](cognitive-search-create-custom-skill-example.md) att integrera anpassad bearbetning. Exempel kan vara en anpassad entitet modulen eller dokumentet klassificerare som riktar in sig på en specifik domän, till exempel Ekonomi, vetenskapliga publikationer eller medicin.
 
 > [!NOTE]
-> Cognitive search är i offentlig förhandsversion och kompetens körning finns för närvarande kostnadsfritt. Priserna för den här funktionen kommer att meddelas längre fram. 
+> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetens körning och extrahering av avbildningen och normalisering är för närvarande erbjuds kostnadsfritt. Vid ett senare tillfälle meddelas priserna för dessa funktioner. 
 
 ## <a name="components-of-cognitive-search"></a>Komponenter i kognitiv sökning
 

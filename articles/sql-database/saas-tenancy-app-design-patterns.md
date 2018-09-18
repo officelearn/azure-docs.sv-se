@@ -1,6 +1,6 @@
 ---
-title: Flera innehavare SaaS mönster - Azure SQL Database | Microsoft Docs
-description: Läs mer om krav och gemensamma data arkitektur mönster för flera innehavare programvara som en tjänst (SaaS)-databasprogram som körs i Azure-molnet-miljön.
+title: Flera innehavare SaaS-mönstren – Azure SQL Database | Microsoft Docs
+description: Läs om krav och vanliga data med flera innehavare programvara som en tjänst (SaaS)-databasprogram som körs i Azure-molnet-miljön.
 keywords: sql database tutorial
 services: sql-database
 author: billgib
@@ -8,194 +8,194 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.reviewer: genemi
 ms.author: billgib
-ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 5b50ba11f2af19d81d9dea2f28295e34a6a5ecb9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737688"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985032"
 ---
-# <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS databasen innehavare mönster
+# <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS innehavare mönster
 
-När du designar ett SaaS-program med flera innehavare, måste du noggrant välja innehavare modellen som passar bäst för ditt program.  En innehavare modell avgör hur varje klient data mappas till lagring.  Ditt val av innehavare modellen påverkar programmet design och hantering.  Växla till en annan modell senare är ibland kostsamma.
+När du utformar en SaaS-program, måste du noggrant välja modellen innehavare som bäst passar programmets behov.  En modell för innehavare avgör hur varje klient data mappas till lagring.  Ditt val av innehavare modellen påverkar programmets design och hantering.  Växla till en annan modell senare är ibland kostsamma.
 
-Den här artikeln beskriver alternativa innehavare modeller.
+Den här artikeln beskriver alternativ innehavare modeller.
 
-## <a name="a-saas-concepts-and-terminology"></a>A. SaaS-begrepp och termer
+## <a name="a-saas-concepts-and-terminology"></a>A. SaaS-koncept och terminologi
 
-Programuppdateringar som en tjänst (SaaS)-modellen i ditt företag inte säljer *licenser* med din programvara. I stället varje kund gör hyra ut betalningar företaget, vilket gör varje kund en *klient* för ditt företag.
+I programvaran som en tjänst (SaaS)-modell, ditt företag inte säljer *licenser* med din programvara. I stället varje kund gör hyra betalningar till företaget, vilket gör varje kund en *klient* för ditt företag.
 
-Tack vare att de betalar hyra varje klient tar emot åtkomst till SaaS-programkomponenter och dess data lagras i SaaS-systemet.
+Tack vare att de betala hyra varje klient tar emot åtkomst till beroenderelationer SaaS och har data som lagras i SaaS-system.
 
-Termen *innehavare modellen* refererar till hur ordnas klienternas lagrade data:
+Termen *innehavare modellen* avser hur klienternas lagrade data ordnas:
 
-- *Single-innehavare:* &nbsp; varje databas som lagrar data från en enda klient.
-- *Multitenans:* &nbsp; varje databas som lagrar data från flera olika klienter (med mekanismer för att skydda datasekretessen).
+- *Single-innehavare:* &nbsp; varje databas som lagrar data från endast en klient.
+- *Multitenans:* &nbsp; varje databas som lagrar data från flera olika klienter (med mekanismer för att skydda integriteten).
 - Det finns också hybridmodeller för innehavare.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Så här väljer du lämplig innehavare modellen
 
-I allmänhet innehavare modellen påverkar inte funktionen för ett program, men det sannolikt påverkar andra aspekter av virtualiseringslösningen.  Följande villkor används för att utvärdera var och en av:
+I allmänhet innehavare modellen påverkar inte funktionen för ett program, men det sannolikt påverkar andra aspekter av den övergripande lösningen.  Följande villkor används för att utvärdera var och en av modeller:
 
 - **Skalbarhet:**
     - Antal klienter.
     - Lagring per-klient.
-    - Lagring i mängden.
+    - Lagring i samlingen.
     - Arbetsbelastning.
 
-- **Klientisolering:** &nbsp; isolering av Data och prestanda (om en klient arbetsbelastning påverkar andra).
+- **Klientisolering:** &nbsp; dataisolering och prestanda (om en klientarbetsbelastning påverkar andra).
 
-- **Kostnaden per klient:** &nbsp; databasen kostnader.
+- **Kostnad per klient:** &nbsp; databasen kostnader.
 
-- **Utveckling komplexitet:**
+- **Utveckling komplexiteten:**
     - Ändringar i schemat.
-    - Ändringar av frågor (obligatoriskt för mönstret).
+    - Ändringar i frågor (krävs av mönstret).
 
-- **Operativa komplikationer:**
+- **Komplexiteten i driften:**
     - Övervaka och hantera prestanda.
-    - Schemahantering av.
+    - Schemahantering.
     - Återställa en klient.
     - Haveriberedskap.
 
-- **Anpassningsbarheten:** &nbsp; enkel stödja schemat anpassningar som antingen klient-specifika eller klass-specifika-klient.
+- **Anpassningsbarhet:** &nbsp; enkel stöder schemat anpassningar som är klientspecifika eller klass-specifika-klient.
 
-Innehavare diskussionen fokuserar på de *data* lager.  Men kom ihåg att ett ögonblick de *programmet* lager.  Applikationsnivån behandlas som en monolitisk entitet.  Om du dividerar programmet till många små komponenter kan valet av modellen för innehavare ändras.  Vissa komponenter gick behandlas annorlunda än andra om både innehavare och lagringsteknik eller plattform som används.
+Innehavare diskussion fokuserar på de *data* lager.  Men hänsyn till vid en tidpunkt då den *program* lager.  Programlagret behandlas som en monolitisk entitet.  Om du delar upp programmet i många små komponenter kan ditt val av innehavare modell ändras.  Du kan hantera vissa komponenter annorlunda än andra om både innehavare och lagringsteknik eller plattform.
 
-## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Stöd för en innehavare fristående app med stöd för en innehavare databas
+## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Fristående enda klient app med en enda klient-databas
 
-#### <a name="application-level-isolation"></a>Isolering av servicenivå
+#### <a name="application-level-isolation"></a>Nivån programisolering
 
-I den här modellen installeras hela programmet upprepade gånger, en gång för varje klient.  Varje instans av appen är en fristående instans, så den aldrig interagerar med en annan instans av fristående.  Varje instans av appen har endast en klient, och måste därför bara en databas.  Klienten har databas till sig själv.
+I den här modellen har hela programmet installerats upprepade gånger, en gång för varje klient.  Varje instans av appen är en fristående instans, så det aldrig interagerar med en annan instans av fristående.  Varje instans av appen har endast en klient, och därför behöver bara en databas.  Klienten har databas till sig själv.
 
-![Design av fristående app med exakt en enskild klient-databas.][image-standalone-app-st-db-111a]
+![Utformningen av fristående app med exakt en enda klient-databas.][image-standalone-app-st-db-111a]
 
-Varje app-instansen har installerats i en separat Azure resursgrupp.  Resursgruppen kan tillhöra en prenumeration som ägs av program- eller klienten.  I båda fallen kan leverantören hantera programvara för klienten.  Varje instans av programmet har konfigurerats för att ansluta till dess motsvarande databas.
+Varje app-instansen har installerats i en separat Azure-resursgrupp.  Resursgruppen kan höra till en prenumeration som ägs av program- eller klienten.  I båda fallen kan leverantören hantera programvaran för klienten.  Varje programinstans har konfigurerats för att ansluta till dess motsvarande databas.
 
-Varje klient databas distribueras som en fristående databas.  Den här modellen ger den mest databasen isoleringen.  Men isolering kräver att tillräckligt med resurser tilldelas varje databas för att hantera dess belastning belastning.  Här är den viktiga att elastiska pooler inte kan användas för databaser som distribuerats i olika resursgrupper olika prenumerationer.  Den här begränsningen är fristående stöd för en innehavare appen modellen dyraste lösningen ur ett övergripande databasen kostnaden.
+Varje klientdatabas distribueras som en enskild databas.  Den här modellen ger den bästa databas-isoleringen.  Men isoleringen kräver att tillräckligt med resurser allokeras till varje databas för att hantera dess belastningstoppar.  Här är det viktigt att elastiska pooler inte kan användas för databaser som distribuerats i olika resursgrupper eller till olika prenumerationer.  Den här begränsningen gör den här appen för enda klient av fristående modell dyraste lösningen från en övergripande kostnadsperspektiv för databasen.
 
 #### <a name="vendor-management"></a>Hantering av leverantörer
 
-Leverantören kan komma åt alla databaser i alla fristående app instanser, även om app-instanser som är installerade på olika klient prenumerationer.  Åtkomst uppnås via SQL-anslutningar.  Åtkomst mellan instansen kan aktivera leverantören för att centralisera schemahantering och mellan databasfrågan för rapportering eller i analytics.  Om den här typen av centraliserad hantering önskas måste en katalog distribueras som mappar klient-ID: n till databasen URI: er.  Azure SQL-databasen innehåller ett bibliotek för horisontell partitionering som används tillsammans med en SQL-databas för att tillhandahålla en katalog.  Horisontell partitionering biblioteket heter formellt den [klientbibliotek för elastisk databas][docu-elastic-db-client-library-536r].
+Leverantören kan komma åt alla databaser i alla fristående app-instanser, även om app-instanserna är installerade på en annan klient prenumerationer.  Åtkomst uppnås via SQL-anslutningar.  Cross-instans åtkomst kan aktivera leverantören att centralisera schemahantering och databasöverskridande frågor för rapportering eller i analytics.  Om den här typen av centraliserad hantering är det önskade kan måste en katalog distribueras som mappar klient-ID: n till databasen URI: er.  Azure SQL Database innehåller ett bibliotek för horisontell partitionering som används tillsammans med en SQL-databas för att tillhandahålla en katalog.  Horisontell partitionering biblioteket heter formellt den [klientbibliotek för elastiska databaser][docu-elastic-db-client-library-536r].
 
-## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Flera innehavare app med databasen per klient
+## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. App för flera klienter med databas-per-klient
 
-Den här nästa mönster använder ett program med flera innehavare med många databaser som alla databaser som en klient.  En ny databas etableras för varje ny klient.  Programmet nivån skalas *in* lodrätt genom att lägga till fler resurser per nod.  Eller appen skalas *ut* vågrätt genom att lägga till fler noder.  Skalningen baserat på arbetsbelastning och är oberoende av det antal eller skalan för enskilda databaser.
+Det här nästa mönstret använder ett program med flera innehavare med många databaser som alla databaser för enstaka klientorganisationer.  En ny databas etableras för varje ny klient.  Programnivån skalas *upp* lodrätt genom att lägga till fler resurser per nod.  Eller appen skalas *ut* horisontellt genom att lägga till fler noder.  Att skala baserat på arbetsbelastningen och är oberoende av antalet eller skala för individuella databaser.
 
-![Design av flera innehavare app till databas per klient.][image-mt-app-db-per-tenant-132d]
+![Utformningen av app för flera klienter med databas-per-klient.][image-mt-app-db-per-tenant-132d]
 
 #### <a name="customize-for-a-tenant"></a>Anpassa för en klient
 
-Som det fristående app-mönstret ger användningen av en klient databaser starka klientisolering.  Schemat för alla en viss databas kan anpassas och optimeras för dess klient i alla appar som vars modellen anger endast stöd för en innehavare databaser.  Den här anpassningen påverkar inte andra klienter i appen. En klient kan kanske behöver data utöver de grundläggande datafält som alla klienter behöver.  Dessutom behöva extra datafältet ett index.
+Som fristående app ger användning av en enda klient databaser stark klientisolering.  I alla appar vars modellen anger en enda klient-databaser, kan att schemat innehåller alla en viss databas anpassas och optimerade för dess klient.  Den här anpassningen påverkar inte andra klienter i appen. En klient kan kanske behöver data utöver de grundläggande datafält som alla klienter behöver.  Dessutom behöva extra datafältet ett index.
 
-Med databasen per klient är det enkelt att uppnå att anpassa schemat för en eller flera enskilda klienter.  Leverantören av tillämpningsprogrammet måste skapa procedurer för att hantera noggrant schemat anpassningar i större skala.
+Med databas-per-klient är det enkelt att uppnå att anpassa schemat för en eller flera enskilda klienter.  Programvaruleverantören måste utforma procedurer noggrant hantera schemat anpassningar i stor skala.
 
 #### <a name="elastic-pools"></a>Elastiska pooler
 
-När databaser distribueras i samma resursgrupp, kan de grupperas i elastiska databaspooler.  Pooler ger ett kostnadseffektivt sätt att dela resurser över flera databaser.  Det här alternativet om poolen är billigare än att kräva att varje databasen ska vara tillräckligt stor för att hantera användningstopparna som möjligt.  Även om grupperade databaser dela åtkomst till resurser kan de fortfarande få en hög grad av isolering av prestandan.
+När databaser distribueras i samma resursgrupp, kan du gruppera dem i elastiska databaspooler.  Poolerna ger ett prisvärt sätt att dela resurser över flera databaser.  Det här alternativet om poolen är billigare än att kräva att varje databas ska vara tillräckligt stor för att hantera användningstopparna som det inträffar.  Även om pooldatabaser delar åtkomst till resurser kan de fortfarande uppnå en hög grad av isolering av prestandan.
 
-![Designen för flera innehavare app med databas-per-klient med elastisk pool.][image-mt-app-db-per-tenant-pool-153p]
+![Utformningen av app för flera klienter med databas-per-klient, med hjälp av elastisk pool.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL-databasen innehåller verktyg som krävs för att konfigurera, övervaka och hantera delning.  Båda pool-nivå och databasnivå prestandamått är tillgängliga i Azure-portalen och via logganalys.  Mätvärdena kan ge bra insikter om sammanställd och klient-specifika prestanda.  Enskilda databaser kan flyttas mellan pooler för att tillhandahålla reserverade resurser för en viss klient.  Dessa verktyg kan du se till att goda prestanda på ett kostnadseffektivt sätt.
+Azure SQL Database innehåller verktyg som behövs för att konfigurera, övervaka och hantera delning.  Båda pool på servernivå och databasnivå prestandamått är tillgängliga i Azure-portalen och via Log Analytics.  Mått kan ge bra insikter om sammanställd och klientspecifik prestanda.  Enskilda databaser kan flyttas mellan pooler för att tillhandahålla reserverade resurser för en specifik klient.  Dessa verktyg kan du säkerställa bra prestanda på ett kostnadseffektivt sätt.
 
-#### <a name="operations-scale-for-database-per-tenant"></a>Operations skala för databasen per klient
+#### <a name="operations-scale-for-database-per-tenant"></a>Åtgärder som skalas för databas-per-klient
 
-Azure SQL Database-plattform har många hanteringsfunktioner som utformats för att hantera ett stort antal databaser i skala, till exempel väl över 100 000 databaser.  Dessa funktioner gör databasen per klient mönstret rimligt.
+Azure SQL Database-plattformen har många hanteringsfunktioner som är utformad för att hantera många databaser i stor skala, till exempel bra över 100 000 databaser.  Dessa funktioner gör det rimligt att mönstret databas-per-klient.
 
-Anta exempelvis att ett system har en databas som 1000-klient som bara en databas.  Databasen kan ha 20 index.  Om systemet konverterar till med 1000 stöd för en innehavare databaser, stiger antalet index till 20 000.  I SQL-databas som en del av [automatisk justering][docu-sql-db-automatic-tuning-771a], funktionerna för automatisk indexering är aktiverade som standard.  Automatisk indexering hanterar du alla 20 000 index och deras pågående optimeringar skapa och släpp.  Dessa automatiserade åtgärder som sker inom en individuell databas och de inte samordnas eller begränsade av liknande åtgärder i andra databaser.  Automatisk indexering behandlar index annorlunda än upptagen databaser i en ledig databas.  Den här typen av index management anpassning är opraktiska i databasen per klient skala om den här aktiviteten för hantering av stora var du tvungen att manuellt.
+Anta exempelvis att ett system har en 1000 klientdatabas som endast en-databas.  Databasen kan ha 20 index.  Om systemet konverterar till med 1000 enda klient databaser, ökar antalet index till 20 000.  I SQL-databas som en del av [automatisk justering][docu-sql-db-automatic-tuning-771a], automatisk indexering funktioner är aktiverade som standard.  Automatisk indexering hanterar du alla 20 000 index och deras pågående skapa och släpp-optimering.  Dessa automatiserade åtgärder som inträffar inom en individuell databas, och de inte samordnas eller begränsad av liknande åtgärder i andra databaser.  Automatisk indexering behandlar index på olika sätt i en upptagen databas än i en mindre upptagen databas.  Den här typen av index management anpassning skulle vara opraktiskt i databas-per-klient-skala om den här enorm hanteringsåtgärden var tvungen att göras manuellt.
 
-Andra funktioner som kan skalas efter era behov inkluderar följande:
+Andra funktioner som skalbarheten inkluderar följande:
 
-- Inbyggda säkerhetskopiering.
+- Inbyggd säkerhetskopiering.
 - Hög tillgänglighet.
 - Kryptering på disken.
-- Prestanda telemetri.
+- Telemetri om prestanda.
 
 #### <a name="automation"></a>Automation
 
-Hanteringsåtgärderna som kan användas av skriptet och erbjuds via en [devops] [ http-visual-studio-devops-485m] modell.  Åtgärder kan även automatiskt och visas i programmet.
+Vilka hanteringsåtgärder de kan användas av skriptet och erbjuds via en [devops] [ http-visual-studio-devops-485m] modell.  Åtgärderna kan även automatisk och visas i programmet.
 
-Exempelvis kan du automatisera återställning av en enskild klient till en tidigare tidpunkt.  Återställningen behöver bara återställa en enskild klient-databas som lagrar innehavaren.  Den här återställningen har ingen inverkan på andra klienter som bekräftar att hanteringsåtgärder är på varje enskild klientorganisation buffertstorleken detaljerad nivå.
+Exempelvis kan du automatisera återställning av en enda klient till en tidigare tidpunkt.  Återställningen behöver bara återställa en enda klient-databasen som lagrar klienten.  Den här återställningen har ingen inverkan på andra klienter som bekräftar att hanteringsåtgärder är på noggrant detaljerad nivå av varje enskild klientorganisation.
 
-## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. Flera innehavare app med flera innehavare databaser
+## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. App för flera klienter med databaser för flera innehavare
 
-En annan tillgänglig mönstret är att lagra många klienter i en databas med flera innehavare.  Programinstansen kan ha valfritt antal databaser för flera innehavare.  Schemat för en databas med flera innehavare måste ha en eller flera innehavare identifierare kolumner så att data från en viss klient kan hämtas selektivt.  Schemat kan dessutom kräva några tabeller eller kolumner som används av en delmängd av klienter.  Statiska kod och referens data lagras bara en gång och delas av alla klienter.
+En annan tillgänglig mönster är att lagra många klienter i en databas för flera innehavare.  Programinstansen kan ha valfritt antal databaser för flera innehavare.  Schemat för en databas för flera klienter måste ha en eller flera klient-ID kolumner så att data från en viss klient kan hämtas selektivt.  Schemat kan dessutom kräva några tabeller eller kolumner som används av endast en delmängd av klienter.  Statisk kod och data lagras bara en gång och delas av alla klienter.
 
 #### <a name="tenant-isolation-is-sacrificed"></a>Klientisolering bort
 
-*Data:* &nbsp; en databas med flera innehavare nödvändigtvis offrar klientisolering.  Data för flera innehavare lagras tillsammans i en databas.  Se till att frågor aldrig exponera data från mer än en klient under utvecklingen.  SQL Database stöder [radnivå säkerhet][docu-sql-svr-db-row-level-security-947w], som kan tillämpa dessa data som returnerats från en fråga vara begränsad till en enskild klient.
+*Data:* &nbsp; en databas för flera innehavare nödvändigtvis offrar klientisolering.  Data för flera klienter lagras tillsammans i en databas.  Se till att frågor aldrig exponera data från fler än en klient under utvecklingen.  SQL Database stöder [säkerhet på radnivå][docu-sql-svr-db-row-level-security-947w], som kan tillämpa dessa data som returnerats från en fråga vara begränsad till en enda klient.
 
-*Bearbetning:* &nbsp; en databas med flera innehavare resurser beräkning och lagring på alla klienter.  Databasen som helhet kan övervakas så acceptable.  Azure systemet har dock inget inbyggt sätt att övervaka och hantera användningen av dessa resurser av en enskild klientorganisation.  Därför innebär flera innehavare databasen en ökad risk för störningar grannar, där arbetsbelastningen för en overactive klient påverkar prestanda upplevelse av andra klienter i samma databas.  Ytterligare programnivå övervakning kan övervaka prestanda för klient-nivå.
+*Bearbetar:* &nbsp; en databas för flera klienter delar resurser för beräkning och lagring över alla klienter.  Databasen som helhet kan övervakas för att se till att den fungerar bra.  Azure-systemet har dock inget inbyggt sätt att övervaka eller hantera användningen av dessa resurser genom att en enskild klientorganisation.  Databas för flera innehavare innebär därför löper ökad risk för bort störande grannar, där arbetsbelastningen på en overactive klientorganisation påverkar prestandaupplevelse med andra klienter i samma databas.  Ytterligare programnivå övervakning kan övervaka på klientnivå prestanda.
 
 #### <a name="lower-cost"></a>Lägre kostnader
 
-I allmänhet har databaser för flera innehavare den lägsta per-klient kostnad.  Resurskostnader för en fristående databas är lägre än för en elastisk pool equivalently storlek.  Dessutom för scenarier där klienter behöver endast begränsad kan potentiellt miljontals innehavare lagras i en databas.  Inga elastiska poolen kan innehålla miljontals databaser.  Dock kan en lösning som innehåller 1000 databaser per pool med 1000 pooler nå skalan miljoner dess risk blir svårhanterliga att hantera.
+I allmänhet har flera klientdatabaser den lägsta per-klient kostnad.  Resurskostnader för en enskild databas är lägre än för en equivalently storlekar elastisk pool.  Dessutom för scenarier där klienter behöver endast begränsad lagring, kan potentiellt miljontals klienter lagras i en enskild databas.  Ingen elastisk pool kan innehålla miljontals databaser.  En lösning som innehåller 1000 databaser per pool, med 1000 pooler kan dock nå skala av flera miljoner dess risk bli svårhanterlig att hantera.
 
-Två varianter av en databasmodell för flera innehavare beskrivs vad följer med delat modell för flera klienter som är den mest flexibla och skalbara.
+Två varianter av en databas för flera innehavare modell diskuteras vad följer med delat modell för flera klienter som är den mest flexibla och skalbara.
 
-## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Flera innehavare app med en enskild databas för flera innehavare
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. App för flera klienter med en enda databas för flera innehavare
 
-Enklaste mönstret för flera innehavare databasen använder en enda fristående databas som värd för data för alla klienter.  När flera innehavare läggs skalas databasen med mer resurser för lagring och beräkning.  Den här skalas upp kan vara allt som krävs, även om det finns alltid en ultimate skala gräns.  Lång innan gränsen nås databasen blir emellertid svårhanterliga att hantera.
+Den enklaste mönstret för databas för flera klienter använder en enda databas som värd för data för alla klienter.  När fler klienter läggs skalas databasen upp med mer resurser för lagring och beräkning.  Den här att skala upp kan vara allt som krävs, även om det finns alltid en ultimate skalningsgränsen.  Långa innan den gränsen har uppnåtts databasen blir dock svårhanterligt att hantera.
 
-Hanteringsåtgärder som fokuserar på enskilda klienter är mer komplex att implementera i en databas med flera innehavare.  Och i skala dessa åtgärder bli oacceptabelt långsamt.  Ett exempel är en point-in-time-återställning av data för en klient.
+Hanteringsåtgärder som fokuserar på enskilda klienter är mer komplexa för att implementera i en databas för flera innehavare.  Och i stor skala kan dessa åtgärder bli oacceptabelt långsamt.  Ett exempel är en point-in-time-återställning av data för en klient.
 
-## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. Flera innehavare app med delat databaser för flera innehavare
+## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. App för flera klienter med shardade databaser för flera innehavare
 
-De flesta SaaS-program för att komma åt data för endast en klient i taget.  Det här åtkomstmönstret tillåter klientdata sprids över flera databaser eller delar, där alla data för en klient finns i en Fragmentera.  I kombination med ett mönster för flera innehavare databas, kan en delat modell nästan obegränsad skala.
+De flesta SaaS-program komma åt data för endast en klient i taget.  Det här åtkomstmönstret tillåter klientdata sprids över flera databaser eller shards, där alla data för en klient finns i en shard.  I kombination med ett mönster för databas för flera innehavare, kan en shardad modell nästan obegränsad skalning.
 
-![Design av flera innehavare app med delat databaser för flera innehavare.][image-mt-app-sharded-mt-db-174s]
+![Utformningen av app för flera klienter med shardade databaser för flera innehavare.][image-mt-app-sharded-mt-db-174s]
 
-#### <a name="manage-shards"></a>Hantera shards
+#### <a name="manage-shards"></a>Hantera fragment
 
-Horisontell partitionering lägger till komplexitet både design och operativa management.  En katalog krävs att underhålla mappningen mellan klienter och databaser.  Hanteringen av är dessutom krävs för att hantera delar och klient population.  Till exempel måste procedurer utformas att lägga till och ta bort delar och flytta klientdata mellan shards.  Ett sätt att skala är att genom att lägga till en ny Fragmentera och fyller den med nya klienter.  Vid andra tillfällen kan du dela en tätbefolkade Fragmentera i två mindre tätt ifyllda shards.  När flera klienter har flyttats eller upphöra att gälla, kan du koppla glesbefolkade shards tillsammans.  Kopplingen leder mer kostnadseffektivt resursutnyttjande.  Klienter kan också flyttas mellan shards saldo arbetsbelastningar.
+Horisontell partitionering innebär en mer komplicerad både konstruktion och drifthantering.  En katalog krävs för att underhålla mappningen mellan klienter och databaser.  Hantering av procedurer är dessutom krävs för att hantera shards och klient-befolkning.  Procedurer måste till exempel utformas för att lägga till och ta bort fragment och flyttas klientdata mellan shards.  Ett sätt att skala är att genom att lägga till en ny shard och fylla den med nya klienter.  Ibland kan du dela ett tätbefolkade fragment i två mindre tätt ifyllt shards.  När flera klienter har flyttats eller upphöra, kan du slå samman sparsamt ifyllda shards tillsammans.  Kopplingen skulle resultera i mer kostnadseffektiv resursutnyttjande.  Klienter kan också flyttas mellan shards vill jämna ut arbetsbelastningen.
 
-SQL Database ger ett dela/merge-verktyg som fungerar tillsammans med bibliotek för horisontell partitionering och katalogdatabasen för.  Den angivna appen kan dela och merge delar och den kan flytta klientdata mellan shards.  Appen har också katalog under dessa åtgärder, markera påverkas klienter som offline innan flyttas.  Efter överflyttningen uppdaterar appen katalogen igen med en ny mappning och markera innehavaren som online igen.
+SQL Database ger ett verktyg för dela/sammanslå som fungerar tillsammans med horisontell partitionering-bibliotek och katalogdatabasen.  Dela upp den angivna appen och sammanfoga shards och det kan flytta klientdata mellan fragment.  Appen har också enhetsspecifika katalogen under åtgärderna, markera påverkas klienter som offline innan flyttas.  Efter överflyttningen uppdaterar appen katalogen igen med en ny mappning och markera klienten som online igen.
 
 #### <a name="smaller-databases-more-easily-managed"></a>Mindre databaser mer enkelt hanteras
 
-Delat lösning för flera innehavare resulterar i mindre databaser som är enklare att hantera genom att distribuera klienter över flera databaser.  Återställa en viss klient till en tidigare punkt i tiden nu omfattar till exempel en enda mindre databas återställs från en säkerhetskopia, snarare än en större databas som innehåller alla klienter. Databasens storlek och antalet klienter per databas, kan du välja att balansera arbetsbelastningen och hantering av arbete.
+Genom att distribuera klienter över flera databaser, shardade lösning för flera innehavare som resulterar i mindre databaser som är enklare att hantera.  Till exempel innebär återställning av en specifik klient till en tidigare punkt i tiden nu att du återställer en enda mindre databas från en säkerhetskopia i stället för en större databas som innehåller alla klienter. Databasens storlek och antalet klienter per databas, kan väljas för att balansera arbetsbelastningen och arbete för.
 
 #### <a name="tenant-identifier-in-the-schema"></a>Klient-ID i schemat
 
-Beroende på den horisontell partitionering-metod som används, kan ytterligare begränsningar åläggas databasschemat.  SQL-databas dela/merge programmet kräver att schemat innehåller delning nyckel, vilket normalt är klient-ID.  Klient-ID är det inledande elementet i den primära nyckeln i alla tabeller som delat.  Klient-ID kan dela/merge-programmet för att snabbt hitta och flytta data som är associerade med en viss klient.
+Ytterligare begränsningar kan införas på databasschemat beroende på den horisontell partitionering-metod som används.  SQL Database dela/sammanslå programmet kräver att schemat innehåller nyckeln för horisontell partitionering, vilket normalt är klient-ID.  Klient-ID är ledande elementet i den primära nyckeln i alla tabeller för shardade.  Klient-ID gör att dela/sammanslå-programmet att snabbt hitta och flytta data som hör till en specifik klient.
 
-#### <a name="elastic-pool-for-shards"></a>Elastisk pool för shards
+#### <a name="elastic-pool-for-shards"></a>Elastisk pool för shard
 
-Delat databaser för flera innehavare kan placeras i elastiska pooler.  I allmänhet är har många stöd för en innehavare databaser i poolen kostnad effektiv som har många hyresgäster i några databaser för flera innehavare.  Flera innehavare databaser är bra när det finns ett stort antal relativt inaktiva klienter.
+Shardade databaser för flera innehavare kan placeras i elastiska pooler.  I allmänhet är att ha många enda klient databaser i poolen som kostnadseffektivt alternativ har många hyresgäster i några få databaser för flera innehavare.  Databaser för flera innehavare är bra när det finns ett stort antal relativt inaktiva klienter.
 
-## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. Hybrid delat flera innehavare databasmodellen
+## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. Hybridmodell fragmenterade (sharded) databas för flera innehavare
 
-I hybrid-modellen har alla databaser klient-ID i schemat.  Databaserna finns alla kan lagra mer än en klient och databaserna kan vara delat.  Så i schemat mening, de är alla databaser för flera innehavare.  I praktiken kan vissa av dessa databaser ännu innehålla endast en klient.  Oavsett, har antalet klienter som lagras i en viss databas ingen effekt på databasschemat.
+I hybrid-modellen har alla databaser klient-ID i sina schemat.  Databaserna är alla kan lagra fler än en klient och databaserna kan vara fragmenterade (sharded).  Så att de är alla databaser för flera innehavare i schema-mening.  I praktiken kan vissa av dessa databaser ännu innehåller endast en klient.  Oavsett har hur många klienter som lagras i en viss databas ingen effekt på databasschemat.
 
 #### <a name="move-tenants-around"></a>Flytta klienter
 
-När som helst kan du flytta en viss klient till en egen databas för flera innehavare.  Och när som helst kan du ångrar och flytta innehavaren tillbaka till en databas som innehåller flera innehavare.  Du kan också tilldela en klient till nya enskild klient-databasen när du etablerar den nya databasen.
+När som helst kan du flytta en viss klient till en egen databas för flera innehavare.  Och när som helst och du ändrar dig och flytta klienten tillbaka till en databas som innehåller flera klienter.  Du kan också tilldela en klient till ny enda klient databas när du etablerar den nya databasen.
 
-Hybrid-modellen kommer till sin rätt när det finns stora skillnader mellan resursbehov för att identifiera grupper av klienter.  Anta exempelvis att klienter deltar i en kostnadsfri utvärderingsversion inte är garanterat samma hög nivå av prestanda som prenumerationsapp klienter.  Principen kanske för klienter i den kostnadsfria utvärderingsversion fasen lagras i en databas med flera innehavare som delas mellan alla de kostnadsfria utvärderingsversioner för klienterna.  När en kostnadsfri utvärderingsversion klient prenumererar på servicenivån som grundläggande, kan klienten flyttas till en annan databas för flera innehavare som kan ha färre klienter.  En prenumerant som betalar för servicenivån premium kunde flyttas till en egen ny enskild klient-databas.
+Hybridmodell som bäst när det finns stora skillnader mellan resursbehov för identifierbar grupper av klienter.  Anta att klienter deltar i en kostnadsfri utvärderingsversion inte är garanterat samma hög nivå av prestanda som prenumererande klienter.  Principen kan vara för klienter i den kostnadsfria utvärderingsversionen fasen ska lagras i en databas för flera innehavare som delas mellan alla de kostnadsfria utvärderingsversioner för klienterna.  När en kostnadsfri utvärderingsversion klientorganisationen prenumererar på basic tjänstnivån, kan klienten flyttas till en annan databas för flera klienter som kan ha färre klienter.  En prenumerant som betalar för premium-tjänstnivån kunde flyttas till en egen ny enda klient-databas.
 
 #### <a name="pools"></a>Pooler
 
-Stöd för en innehavare databaser för prenumeranten klienter kan placeras i resurspooler för att minska kostnaderna för databasen per klient i den här hybrid-modellen.  Detta görs även i databasen per klient-modellen.
+I den här hybridmodell placeras enda klient-databaserna för prenumeranten klienter i resurspooler för att minska kostnaderna för databas per klient.  Detta görs även i databas-per-klient-modellen.
 
 ## <a name="i-tenancy-models-compared"></a>I. Innehavare modeller jämfört med
 
 I följande tabell sammanfattas skillnaderna mellan de huvudsakliga innehavare modellerna.
 
-| Mått | Fristående app | Databasen per klient | Delat flera innehavare |
+| Mått | Fristående app | Databas-per-klient | Shardade flera innehavare |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Skala | Medel<br />1-100-tal | Mycket hög<br />100 1-000-tal | Obegränsat<br />1 1,000,000s |
-| Klientisolering | Mycket hög | Hög | Låg; Förutom alla singleton-klient (det är enbart i en Huvudmålservern db). |
-| Databasen kostnad per klient | Hög. storlek för toppar. | Låg; Pooler används. | Lägsta, för små klienter i Huvudmålservern DBs. |
-| Hantering och övervakning av programprestanda | Per-klienten endast | Mängd + per klient | Aggregera; även om är per klient endast för singletons. |
+| Skala | Medel<br />1-100-tal | Mycket hög<br />100 1-000-tal | Obegränsat<br />1-1,000,000s |
+| Isolering av innehavare | Mycket hög | Hög | Låg; Förutom alla enskild klient (det vill säga enbart i en MT-db). |
+| Databaskostnaden per klient | Höga. storlek toppar. | Låg; pooler som använts. | Lägsta för små klienter i MT-databaser. |
+| Prestandaövervakning och hantering | Per-klient | Aggregering + per klient | Aggregera; även om är per klient endast för singel. |
 | Utveckling komplexitet | Låg | Låg | Medel; på grund av horisontell partitionering. |
-| Operativa komplikationer | Låg till hög. Individuellt enkla, komplexa i större skala. | Låg-medel. Mönster adress komplexiteten i större skala. | Låg till hög. Hantering av enskilda klient är komplex. |
+| Komplexiteten i driften | Låg och hög. Individuellt enkla, komplexa i stor skala. | Låg-medel. Mönster adress komplexiteten i stor skala. | Låg och hög. Enskilda klient-hantering är komplex. |
 | &nbsp; ||||
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Distribuera och utforska en flera innehavare Wingtip program som använder databasen per klient SaaS modell - Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
+- [Distribuera och utforska en Wingtip-programmet för flera klienter som använder modellen databas-per-klient SaaS - Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 
 - [Välkommen till Wingtip biljetter SaaS Azure SQL Database innehavare exempelappen][docu-saas-tenancy-welcome-wingtip-tickets-app-384w]
 
@@ -214,11 +214,11 @@ I följande tabell sammanfattas skillnaderna mellan de huvudsakliga innehavare m
 
 <!--  Image references.  -->
 
-[image-standalone-app-st-db-111a]: media/saas-tenancy-app-design-patterns/saas-standalone-app-single-tenant-database-11.png "Design av fristående app med exakt en enskild klient-databas."
+[image-standalone-app-st-db-111a]: media/saas-tenancy-app-design-patterns/saas-standalone-app-single-tenant-database-11.png "Utformningen av fristående app med exakt en enda klient-databas."
 
-[image-mt-app-db-per-tenant-132d]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-13.png "Design av flera innehavare app till databas per klient."
+[image-mt-app-db-per-tenant-132d]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-13.png "Utformningen av app för flera klienter med databas-per-klient."
 
-[image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "Designen för flera innehavare app med databas-per-klient med elastisk pool."
+[image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "Utformningen av app för flera klienter med databas-per-klient, med hjälp av elastisk pool."
 
-[image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "Design av flera innehavare app med delat databaser för flera innehavare."
+[image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "Utformningen av app för flera klienter med shardade databaser för flera innehavare."
 

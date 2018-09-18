@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: ee06039242afe5b5e92cf2fecc4c3fa9bff0b78b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 10720f42f7a9b10b42ccaaaad81acca369592f6a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214377"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731220"
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI används Azure att påskynda dess utvecklingscykeln och för att förbättra sin kundtjänst och prestanda
 ![Daxko/CSI-logotyp](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -59,7 +59,7 @@ Idag finns omkring 99% av CSI Software kunder i Azure, i fyra regionala datacent
 ## <a name="azure-elastic-pools-free-up-it-resources"></a>Azure elastiska pooler Frigör IT-resurser
 Flera funktioner i Azure har hjälpt CSI programvara SKIFT från att infrastrukturen och åtgärder som fokuserar till funktionen och utveckling fokus. Kanske har den största fördelen från elastiska pooler.
 
-CSI Software erbjuder för närvarande cirka 550 databaser till kunder. Det var svårt att hantera många databaser inom en nivå struktur innan elastiska pooler. OPS-hanterare var tvungen att tilldela prestandanivåer utifrån burst-behoven hos kunder som krävde stora IT-resurs overhead. Med elastiska pooler kan chefer tilldela klienterna en premium- eller standard-pool efter behov, och flytta kunder baserat på storleken och behöver. Kunder tyckte effekterna av elastiska pooler nästan omedelbart. kunder hade tidsgränser och andra problem under burst-usage perioder före elastiska pooler, men med elastiska pooler kunder kan uppleva aktivitetstoppar efter behov och de kan fortsätta att använda SpectrumNG utan problem.
+CSI Software erbjuder för närvarande cirka 550 databaser till kunder. Det var svårt att hantera många databaser inom en nivå struktur innan elastiska pooler. OPS-hanterare var tvungen att tilldela tjänstnivåer och compute storlekar utifrån burst-behoven hos kunder som krävde stora IT-resurs overhead. Med elastiska pooler kan chefer tilldela klienterna en premium- eller standard-pool efter behov, och flytta kunder baserat på storleken och behöver. Kunder tyckte effekterna av elastiska pooler nästan omedelbart. kunder hade tidsgränser och andra problem under burst-usage perioder före elastiska pooler, men med elastiska pooler kunder kan uppleva aktivitetstoppar efter behov och de kan fortsätta att använda SpectrumNG utan problem.
 
 ## <a name="azure-active-geo-replication-accelerates-reporting"></a>Azure aktiv geo-replikering kan införas snabbare rapportering
 Flera CSI programvara kunder även utnyttjar Azure aktiv geo-replikering. Med aktiv geo-replikering, kan upp till fyra läsbara sekundära databaser konfigureras i samma eller olika datacenterregioner. CSI programvaran använder aktiv geo-replikering på två sätt: först sekundära databaser är tillgängliga när det gäller ett strömavbrott i ett datacenter eller det inte går att ansluta till den primära databasen. och andra sekundära databaser kan läsas och kan användas för att avlasta skrivskyddade arbetsbelastningar som rapportering av jobb. Vissa CSI programvara kunder använda den här förmånen för att påskynda reporting arbetsflöden.

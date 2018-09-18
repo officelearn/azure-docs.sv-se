@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: e56c60f67dcfe5c11191942a812d2c670055dfd8
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: fbca9c746863b852a9ddd46d00a65d4133961718
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092656"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984381"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric-kluster i Azure med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
@@ -123,7 +123,7 @@ Konfigurera klusternoderna. Nodtyper definierar storlekarna, hur många virtuell
 7. **Aktivera omvänd proxy**.  Den [Service Fabric omvänd proxy](service-fabric-reverseproxy.md) hjälper till att mikrotjänster som körs i ett Service Fabric-kluster identifiera och kommunicera med andra tjänster som har http-slutpunkter.
 8. Under **+ visa valfria inställningar**, konfigurera klustret **diagnostik**. Som standard aktiveras diagnostik på ditt kluster som hjälper till med felsökning av problem. Om du vill inaktivera diagnostik ändra den **Status** växla till **av**. Om du inaktiverar diagnostik är **inte** rekommenderas. Om du redan har Application Insights-projekt som skapas kan du ge dess nyckel så att programspårningar dirigeras till den.
 9. **Inkludera DNS-tjänsten**.  Den [DNS-tjänsten](service-fabric-dnsservice.md) en valfri tjänst som hjälper dig att hitta andra tjänster med hjälp av DNS-protokollet.
-10. Välj den **Fabric Uppgraderingsläge** du vill ställa in ditt kluster. Välj **automatisk**om du vill att systemet kan automatiskt hämta den senaste tillgängliga versionen och försök att uppgradera klustret till den. Ange läget till **manuell**, om du vill välja en version som stöds. Mer information om Uppgraderingsläge för infrastruktur finns i [service fabric-kluster-upgrade-dokumentet.] [service-fabric-kluster-uppgraderingen]
+10. Välj den **Fabric Uppgraderingsläge** du vill ställa in ditt kluster. Välj **automatisk**om du vill att systemet kan automatiskt hämta den senaste tillgängliga versionen och försök att uppgradera klustret till den. Ange läget till **manuell**, om du vill välja en version som stöds. För mer information om infrastrukturen uppgradera läge finns i den [service fabric-kluster-upgrade-dokumentet.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
 > Vi stöder endast kluster som kör versioner som stöds av Service Fabric. Genom att välja den **manuell** läge du vidtar ansvar att uppgradera klustret till en version som stöds.
@@ -225,7 +225,8 @@ Nu har du ett säkert kluster som använder certifikat för hantering av autenti
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node --> [remote-connect-to-a-vm-scale-set]: service-fabric-kluster-nodetypes.md [service-fabric-kluster-uppgraderingen]: service-fabric-kluster-upgrade.mdd
+[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
+[service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png

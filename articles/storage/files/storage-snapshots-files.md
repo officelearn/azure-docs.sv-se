@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 03280f87b4b49b3e42091c6b1572a7f050afb336
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055771"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983185"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över resursögonblicksbilder för Azure Files 
 Azure Files ger möjlighet att ta ögonblicksbilder av filresurser. Dela ögonblicksbilder in tillstånd för filresurs i det här läget i tid. I den här artikeln beskrivs vilka funktioner som ger resursögonblicksbilder och hur du kan dra nytta av dem i dina anpassade användningsfall.
@@ -32,7 +32,7 @@ När du har skapat en filresurs kan du skapa en ögonblicksbild för filresursen
 ## <a name="capabilities"></a>Funktioner
 En ögonblicksbild är en point-in-time, skrivskyddad kopia av dina data. Du kan skapa, ta bort och hantera ögonblicksbilder med hjälp av REST-API. Samma funktioner är också tillgängliga i-klientbiblioteket, Azure CLI och Azure-portalen. 
 
-Du kan visa ögonblicksbilder av en resurs med hjälp av REST API och ett SMB. Du kan hämta listan över versioner av katalogen eller filen och du kan montera en specifik version direkt som en enhet. 
+Du kan visa ögonblicksbilder av en resurs med hjälp av REST API och ett SMB. Du kan hämta listan över versioner av katalogen eller filen och du kan montera en specifik version direkt som en enhet (endast tillgängligt på Windows - Se [gränser](#limits)). 
 
 När en ögonblicksbild har skapats kan kan den läsas, kopieras, eller ta bort, men inte har ändrats. Du kan inte kopiera en resursögonblicksbild av hela till ett annat lagringskonto. Du måste göra det varje fil, med hjälp av AzCopy och andra mekanismer som kopiering.
 
@@ -62,6 +62,8 @@ Om du vill spara utrymme kan du ta bort ögonblicksbilden för resursen under n�
 Det maximala antalet ögonblicksbilder som Azure Files gör i dag är 200. Du måste ta bort äldre ögonblicksbilder av filresurser för att skapa nya efter 200 ögonblicksbilder. 
 
 Det finns ingen gräns för samtidiga anrop för att skapa resursögonblicksbilder. Det finns ingen gräns för mängden utrymme som delar ögonblicksbilder av en viss resurs kan använda. 
+
+Idag är går det inte att montera ögonblicksbilder i Linux. Det beror på att Linux SMB-klienten inte har stöd för montering ögonblicksbilder som Windows har.
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Kopiera data till en resurs från en ögonblicksbild av filresurs
 Kopia av åtgärder som omfattar filer och dela ögonblicksbilder Följ de här reglerna:

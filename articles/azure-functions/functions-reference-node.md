@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: d80914fcd1f667924b52122b39f95871c1e21532
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a8ee92d117a416d638f62b573dfb155f67bf66e0
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298020"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983181"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -94,6 +94,13 @@ context.bindings.myOutput = {
 ```
 
 Observera att du kan välja att definiera utdata bindning data med den `context.done` metoden i stället för den `context.binding` objekt (se nedan).
+
+### <a name="contextbindingdata-property"></a>context.bindingData egenskap
+
+```
+context.bindingData
+```
+Returnerar en namngiven objekt som innehåller data för utlösaren metadata och funktionen anrop (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Ett exempel på utlösaren metadata finns i den här [event hubs exempel](functions-bindings-event-hubs.md#trigger---javascript-example).
 
 ### <a name="contextdone-method"></a>Context.Done metod
 ```
@@ -262,8 +269,9 @@ När du arbetar med HTTP-utlösare kan komma du åt HTTP-begäranden och svar-ob
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
++ _[Endast svar]_  Genom att anropa `context.res.send(body?: any)`. Ett HTTP-svar skapas med indata `body` som svarstexten. `context.done()` anropas implicit.
 
-+ [Endast svar] Genom att anropa `context.done()`. En särskild typ av HTTP-bindning returnerar ett svar som skickas till den `context.done()` metoden. Följande HTTP-utdatabindning definierar en `$return` utdataparameter:
++ _[Endast svar]_  Genom att anropa `context.done()`. En särskild typ av HTTP-bindning returnerar ett svar som skickas till den `context.done()` metoden. Följande HTTP-utdatabindning definierar en `$return` utdataparameter:
 
     ```json
     {

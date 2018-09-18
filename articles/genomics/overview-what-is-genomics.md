@@ -1,41 +1,39 @@
 ---
 title: Vad är Microsoft Genomics? | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur Microsoft Genomics sätta påvisa ordningsföljd nu erbjuder en molnimplementering av BWA-GATK för sekundära analys.
-services: microsoft-genomics
+description: Lär dig hur Microsoft Genomics kan genomsekvensering, erbjuder nu en molnimplementering av Burrows-Wheeler Aligner (BWA) och Genome Analysis Toolkit (GATK) för sekundär analys. Det är ISO-certifierad och följer HIPAA-bestämmelser.
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 8743905d6e415049a563bcd6b4736d6569f59b7f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4b4510a02c4212724f8a592c7318aecab3d06275
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333265"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733269"
 ---
 # <a name="what-is-microsoft-genomics"></a>Vad är Microsoft Genomics?
-Microsoft Genomics erbjuder en molnimplementering Burrows Larsson Aligner (BWA) och genom analys Toolkit (GATK) för sekundära analys. Tjänsten ISO-certifierad och kompatibel med HIPAA förordningar och ger pris förutsägbarhet för dina behov för påvisa ordningsföljd. Lär dig mer om att använda tjänsten Microsoft Genomics och integrera med vårt API genom att läsa vår Snabbstart, självstudier och dokumentation.
+Microsoft Genomics erbjuder en molnimplementering av Burrows-Wheeler Aligner (BWA) och Genome Analysis Toolkit (GATK) för sekundär analys. Tjänsten är ISO-certifierad och följer HIPAA-bestämmelser och erbjuder prisförutsägbarhet för din genom sekvenseringsbehov. Lär dig hur du använder Microsoft Genomics-tjänsten och integrera med vårt API genom att läsa våra snabbstarter, självstudier och dokumentation.
 
 ## <a name="support-your-most-demanding-sequencing-needs"></a>Stöd dina mest krävande sekvenseringsbehov
-Istället för att hantera dina egna datacenter kan du dra nytta av skalan och erfarenheten hos Microsoft i att köra arbetsbelastningar i exabyteskala. Vår molnet implentation av BWA-GATK är hög concordant med brett Institute bästa praxis pipeline.
+Istället för att hantera dina egna datacenter kan du dra nytta av skalan och erfarenheten hos Microsoft i att köra arbetsbelastningar i exabyteskala. Vårt moln av av BWA-GATK är mycket concordant med breda Institutes bästa praxis pipeline.
 
 
-## <a name="keep-your-business-running"></a>Hålla verksamheten igång
-Microsoft Genomics erbjuder ett 99,99% tillgänglighet servicenivåavtal (SLA) för att ta emot begäranden om arbetsflödet. Mer information om Microsoft Genomics [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).
+## <a name="keep-your-business-running"></a>Håll verksamheten igång
+Microsoft Genomics erbjuder en tillgänglighet på 99,99% serviceavtal (SLA) för att ta emot förfrågningar för arbetsflödet. Läs mer om Microsoft Genomics [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).
 
 
 ## <a name="secure-your-data"></a>Skydda dina data
-Tjänsten Microsoft Genomics är ISO 27001 och ISO 27018 ISO 9001 certifierad och kompatibel med HIPAA förordningar. Besök [Azure Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter/security) för information om Azures plattformssäkerhet.
+Microsoft Genomics-tjänsten är ISO 27001, ISO 27018 och ISO 9001 och följer HIPAA-bestämmelser. Besök [Azure Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter/security) för information om Azures plattformssäkerhet.
 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har läst en introduktion till Microsoft Genomics, är du redo att:
-- Se prissättningssidan för kostnadsjämförelse och Kostnadsberäknare. [Prissättning](https://azure.microsoft.com/pricing/details/genomics/)
-- Kom igång genom att köra ditt första arbetsflöde via tjänsten Microsoft Genomics. [Köra ett arbetsflöde via tjänsten Microsoft Genomics ](quickstart-run-genomics-workflow-portal.md)
-- Skicka data för bearbetning av tjänsten Microsoft Genomics: [länkas FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [flera FASTQ eller BAM](quickstart-input-multiple.md) 
+Nu när du har läst en introduktion till Microsoft Genomics är du redo att:
+- Se sidan med priser för kostnadsjämförelse och Kostnadsberäknare. [Prissättning](https://azure.microsoft.com/pricing/details/genomics/)
+- Kom igång genom att köra ditt första arbetsflöde genom Microsoft Genomics-tjänsten. [Köra ett arbetsflöde genom Microsoft Genomics-tjänsten ](quickstart-run-genomics-workflow-portal.md)
+- Skicka dina egna data för bearbetning av tjänsten Microsoft Genomics: [par FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [flera FASTQ eller BAM](quickstart-input-multiple.md) 
 

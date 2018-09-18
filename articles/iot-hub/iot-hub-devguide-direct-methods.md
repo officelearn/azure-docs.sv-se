@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 4d55c152bdc938d943c90a3e51af37b45f6a8eb5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c1684ce28cd52ac1891804ebb490b8b59d6fcccc
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301404"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729781"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direktmetoder från IoT Hub
 IoT Hub ger dig möjlighet att anropa direktmetoder på enheter från molnet. Direkta metoder representerar en begäran / svar-interaktion med en enhet som liknar ett HTTP-anrop i att de lyckas eller misslyckas omedelbart (efter en användardefinierade tidsgräns). Den här metoden är användbart för scenarier där loppet av omedelbara åtgärder är olika beroende på om enheten var kunna svara.
@@ -112,7 +112,7 @@ För detta ändamål använder den `ServiceClient.InvokeDeviceMethodAsync()` met
 ## <a name="handle-a-direct-method-on-a-device"></a>Hantera en direkt metod på en enhet
 ### <a name="mqtt"></a>MQTT
 #### <a name="method-invocation"></a>Metodanropet
-Enheter tar emot begäranden direkt metod på MQTT-avsnittet: `$iothub/methods/POST/{method name}/?$rid={request id}`
+Enheter tar emot begäranden direkt metod på avsnittet MQTT: `$iothub/methods/POST/{method name}/?$rid={request id}`. Antalet prenumerationer per enhet är begränsad till 5. Därför rekommenderas inte att prenumerera på varje direkt metod individuellt. I stället överväga att prenumerera `$iothub/methods/POST/#` och sedan filtrera levererade meddelanden baserat på din önskade metodnamn.
 
 Brödtexten som enheten tar emot är i följande format:
 

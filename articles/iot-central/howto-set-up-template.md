@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dafa58c5356c89351ab0eb711e4095b767aee1ae
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1cff44e8430af0a544da948b33a15439fae56d8e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298174"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735662"
 ---
-# <a name="set-up-a-device-template"></a>Konfigurera en mall för enhet
+# <a name="set-up-a-device-template"></a>Konfigurera en enhetsmall
 
 En mall för enheten är en skiss som definierar egenskaper och beteenden för en typ av enhet som ansluter till en Microsoft Azure IoT Central-App.
 
@@ -74,8 +74,6 @@ Du kan exempelvis lägga till en ny temperatur telemetri mätning:
 
 När du har valt **klar**, **temperatur** mått visas i listan över mått. En operatör kan se visualisering av temperaturdata som samlar in enheten.
 
-![Mätning graph](./media/howto-set-up-template/measurementsgraph.png)
-
 ### <a name="create-an-event-measurement"></a>Skapa en händelse
 Om du vill lägga till en ny händelse mätning, Välj **Redigera mall**, och klicka sedan på den **+ ny mätning** knappen. Välj **händelse** som mätningen skriver och anger informationen den **Skapa händelse** formuläret.
 
@@ -89,7 +87,7 @@ När du har valt **klar**, **fläkt meddelar fel** mått visas i listan över m�
 
 ![Diagram för mätning av händelse](./media/howto-set-up-template/eventmeasurementschart.png)
 
-Välj ikonen händelse i diagrammet om du vill visa mer information om händelsen:
+Välj ikonen händelse i diagrammet om du vill visa mer information om händelsen.
 
 ![Information om händelsen ”fläkt meddelar fel”](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
@@ -108,9 +106,6 @@ När du har valt **klar**, **fläkt läge** tillstånd mått visas i listan öve
 ![Statliga mätning diagram](./media/howto-set-up-template/statemeasurementschart.png)
 
 Om enheten skickar för många datapunkter i en liten varaktighet, visas mätningen tillstånd med ett annat visuellt objekt enligt följande skärmbild. Om du klickar på diagrammet visas alla datapunkter inom den tidsperioden i kronologisk ordning. Du kan också begränsa tidsintervall för mätningen ritas i diagrammet.
-
-![Information för ”statiska fläkt läget” tillstånd mätning](./media/howto-set-up-template/statemeasurementsdetail.png)
-
 
 ## <a name="settings"></a>Inställningar
 
@@ -182,11 +177,7 @@ Du kan skapa en plats-egenskap som en programegenskap med hjälp av Azure Maps i
    - **Platsen som en adress**
    - **Platsen som koordinater** 
 
-4. Välj **spara** och **klar**. 
-
-   ![Platsegenskapen med installationen-adress har lagts till](./media/howto-set-up-template/locationcloudproperty3.png)
-
-En operatör kan nu uppdatera platsvärdet i formuläret för fältet plats. 
+4. Välj **spara** och **klar**. En operatör kan nu uppdatera platsvärdet i formuläret för fältet plats. 
 
 #### <a name="add-location-as-a-device-property"></a>Lägg till plats som en enhetsegenskap 
 
@@ -261,11 +252,7 @@ Om du har konfigurerat en Platsegenskapen tidigare i [skapa en Platsegenskapen v
 
    ![Mappa panel med valda platsen](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-Du kan ändra storlek på kartan till din önskade storlek.
-
-Nu när en operatör visar instrumentpanelen, kan de se alla paneler som du har konfigurerat, inklusive en platskarta.
-
-![Panelerna på instrumentpanelen](./media/howto-set-up-template/locationcloudproperty7map.png) 
+Du kan ändra storlek på kartan till din önskade storlek. Nu när en operatör visar instrumentpanelen, kan de se alla paneler som du har konfigurerat, inklusive en platskarta.
 
 ## <a name="next-steps"></a>Nästa steg
 

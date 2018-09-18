@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/17/2018
 git ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: ad596e2f63d3ef5fb82fe52699fef3a79e835274
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 7770f4c45d974e8ce5750dbd3aee0d8393281151
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634820"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984449"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Viktig information om Azure Stack Development Kit  
 Den här artikeln innehåller information om förbättringar, korrigeringar och kända problem i Azure Stack Development Kit. Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,6 +46,8 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 - <!-- | IS ASDK--> **Marketplace-objekt för Kubernetes**. Du kan nu distribuera Kubernetes-kluster med hjälp av den [Kubernetes Marketplace-objekt](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Användare kan det Kubernetes-objekt och fylla i några parametrar för att distribuera ett Kubernetes-kluster i Azure Stack. Syftet med mallarna är att göra det enkelt för användarna att installationsprogrammet utveckling/testning i Kubernetes-distribution med några få steg.
 
 - <!-- | IS ASDK--> **Blockchain mallar**. Du kan nu köra [Ethereum consortium distributioner](/azure/azure-stack/azure-stack-ethereum) på Azure Stack. Du kan hitta tre nya mallar i den [Azure Stack Snabbstartsmallarna](https://github.com/Azure/AzureStack-QuickStart-Templates). De används att distribuera och konfigurera ett flera medlem Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum. Syftet med mallarna är att göra det enkelt för användarna att installationsprogrammet utveckling/testning Blockchain distributioner med några få steg.
+
+- <!-- | IS ASDK--> **API-version profilen 2017-03-09-profilen har uppdaterats till 2018-03-01-hybrid**. API-profiler ange Azure-resursprovidern och API-version för Azure REST-slutpunkter. Mer information om profiler finns i [hantera API-versionsprofiler i Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
 
 ### <a name="fixed-issues"></a>Åtgärdade problem

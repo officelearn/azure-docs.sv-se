@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 6cbaaeed75f160a2281fdce0949397b9a14bf981
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1be7dd9ce537d0999ace01eafa46318e42df9f20
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347927"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732457"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Files
 
@@ -26,7 +26,7 @@ Import/Export-tjänsten stöder bara importera av Azure Files till Azure Storage
 Innan du skapar ett importjobb för att överföra data till Azure Files noggrant granska och slutför följande lista med krav. Måste du:
 
 - Ha en aktiv Azure-prenumeration ska användas med tjänsten Import/Export.
-- Har minst en Azure Storage-konto. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
+- Har minst en Azure Storage-konto. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-quickstart-create-account.md).
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks). 
 - Har ett Windows-system som kör en [stöd för OS-version](storage-import-export-requirements.md#supported-operating-systems).
 - [Ladda ned WAImportExport version 2](https://www.microsoft.com/download/details.aspx?id=55280) på Windows-system. Packa upp i standardmappen `waimportexport`. Till exempel `C:\WaImportExport`.

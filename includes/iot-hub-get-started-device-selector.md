@@ -3,6 +3,7 @@
 > * [Simulerad enhet med .NET](../articles/iot-hub/quickstart-send-telemetry-dotnet.md)
 > * [Simulerad enhet med Java](../articles/iot-hub/quickstart-send-telemetry-java.md)
 > * [Simulerad enhet med Node.js](../articles/iot-hub/quickstart-send-telemetry-node.md)
+> * [Simulerad enhet med Python](../articles/iot-hub/quickstart-send-telemetry-python.md)
 > * [IoT DevKit AZ3166 med VS-kod](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Raspberry Pi med Node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Raspberry Pi med Python](../articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md)
@@ -12,3 +13,4 @@
 > * [Adafruit Feather HUZZAH ESP8266 med Arduino IDE](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md)
 > * [Sparkfun ESP8266 Thing Dev med Arduino IDE](../articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 > * [Adafruit Feather M0 med Arduino IDE](../articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+> * [iOS med Swift](../articles/iot-hub/quickstart-send-telemetry-ios.md)

@@ -1,30 +1,30 @@
 ---
-title: Välja kapacitet för distributionen QnA Maker - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: Kapacitet för distribution – QnA Maker
+titleSuffix: Azure Cognitive Services
 description: en guide för att välja kapacitet för QnA Maker-distribution
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 71af374fbd08fe1f7568bc1ece2a65af2de3ad19
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.date: 09/12/2018
+ms.author: nstulasi
+ms.openlocfilehash: e2c9239ccd42e2464c85172be0e91492bd8f6718
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573374"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736792"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Välja kapacitet för QnA Maker-distribution
 
 QnA Maker-tjänsten får ett beroende på tre Azure-resurser:
 1.  App Service (för runtime)
 2.  Azure Search (för att lagra kunskapsbaser)
-3.  App Insights (valfritt, för att lagra chatlogs och telemetri)
+3.  App Insights (valfritt, för att lagra chattloggarna och telemetri)
 
-Innan du skapar QnA Maker-tjänsten kan bestämma du vilka nivåer av tjänsterna ovan passar dig. 
+Innan du skapar QnA Maker-tjänsten kan bestämma du vilken nivå av tjänsterna ovan passar dig. 
 
 Det finns vanligtvis tre parametrar som du behöver tänka på:
 1. **Dataflödet som du behöver från tjänsten**: Välj lämpliga [App Plan](https://azure.microsoft.com/en-in/pricing/details/app-service/plans/) för din apptjänst utifrån dina behov. Du kan [skala upp](https://docs.microsoft.com/azure/app-service/web-sites-scale) eller ned appen. Det bör också påverka valet av Azure Search-SKU, mer information finns i [här](https://docs.microsoft.com/azure/search/search-sku-tier).
@@ -38,7 +38,7 @@ Följande tabell innehåller riktlinjer på hög nivå.
 |                        | QnA Maker-hantering | App Service | Azure Search | Begränsningar                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Experimentering        | Kostnadsfri SKU             | Kostnadsfri nivå   | Kostnadsfri nivå    | Publicera upp till 2 kB-artiklar, 50 MB storlek  |
-| Miljö för utveckling/testning   | Standard-SKU         | Delad      | Basic        | Publicera upp till 4 kB-artiklar, 2GB storlek    |
+| Miljö för utveckling/testning   | Standard-SKU         | Delad      | Basic        | Publicera upp till 4 kB-artiklar, 2 GB storlek    |
 | Produktionsmiljö | Standard-SKU         | Basic       | Standard     | Publicera upp till 49 kB-artiklar, 25 GB storlek |
 
 Uppgradera din QnA Maker-stack finns i [uppgradera QnA Maker-tjänsten](../How-To/upgrade-qnamaker-service.md).

@@ -3,7 +3,7 @@ title: Vad är Tillgänglighetszoner i Azure? | Microsoft Docs
 description: Om du vill skapa tillgängliga och robusta program i Azure får Availability Zones du fysiskt separata platser som du kan använda för att köra dina resurser.
 services: ''
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
-ms.author: iainfou
+ms.date: 08/31/2018
+ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 488f7fa123692a908c36619e17166cee27d17612
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42054351"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735874"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Vad är Tillgänglighetszoner i Azure?
 Tillgänglighetszoner är en hög tillgänglighet erbjudande som skyddar dina program och data från datacenter havererar. Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. För att säkerställa återhämtning, finns det minst tre separata zoner i alla aktiverade regioner. Fysisk avgränsning av Tillgänglighetszoner inom en region skyddar program och data mot datacenterproblem. Zonredundant tjänster replikera dina program och data i olika Tillgänglighetszoner och skydda från single punkter av fel. Azure erbjuder branschens bästa 99,99% VM DRIFTTID med Tillgänglighetszoner. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
@@ -40,10 +40,13 @@ Skapa programarkitekturen med hjälp av en kombination av Tillgänglighetszoner 
 ## <a name="regions-that-support-availability-zones"></a>Regioner som har stöd för Tillgänglighetszoner
 
 - Centrala USA
-- Frankrike, centrala
 - Östra USA 2 (förhandsversion)
-- Västra Europa
+- Frankrike, centrala
+- Norra Europa
 - Sydostasien (förhandsversion)
+- Västra Europa
+- Västra USA 2
+
 
 
 ## <a name="services-that-support-availability-zones"></a>Tjänster som stöder Tillgänglighetszoner

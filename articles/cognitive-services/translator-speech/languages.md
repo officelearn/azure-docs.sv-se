@@ -1,23 +1,24 @@
 ---
-title: Språk som stöds i Microsofts översättare Speech API | Microsoft Docs
-description: Visa språk som stöds av Microsoft översättare tal-API.
+title: Språk som stöds – Translator Speech API
+titlesuffix: Azure Cognitive Services
+description: Visa språk som stöds av Translator Speech API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0d33033442a012290baa78d80f1b8bde0499b3f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 216a3caf9b4e6f3f512ba13361de9f3933f83b13
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355659"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985153"
 ---
-# <a name="languages-supported-by-the-microsoft-translator-speech-api"></a>Språk som stöds av Microsoft översättare tal-API
-Följande språk stöds för översättning för tal. Om både språk som stöds för tal-översättning tal tal eller tal till text är tillgänglig. Om mål-språk inte stöds för översättning av tal, är endast tal text översättning tillgänglig. 
+# <a name="languages-supported-by-the-translator-speech-api"></a>Språk som stöds av Translator Speech API
+Följande språk stöds för talöversättning. Om båda språken stöds för talöversättning, tal-till-tal eller tal till text är tillgänglig. Om målspråket som inte stöds för talöversättning är endast tal till textöversättning tillgänglig. 
 
 | Talspråk    |
 |:----------- |
@@ -32,9 +33,9 @@ Följande språk stöds för översättning för tal. Om både språk som stöds
 | Ryska      |
 | Spanska      | 
 
-Microsoft översättare tal-API stöder följande språk som mål språk för taligenkänning översättning av text. 
+Translator Speech API stöder följande språk som en målspråk för tal till textöversättning. 
 
-| Textens språk    | Språkkod |
+| Språk    | Språkkod |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Arabiska       | `ar`          |
@@ -72,7 +73,7 @@ Microsoft översättare tal-API stöder följande språk som mål språk för ta
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |
-| Malagassiska      | `mg`          |
+| Madagaskisk      | `mg`          |
 | Malajiska      | `ms`          |
 | Maltesiska      | `mt`          |
 | Norska      | `nb`          |
@@ -102,14 +103,14 @@ Microsoft översättare tal-API stöder följande språk som mål språk för ta
 
 ## <a name="access-the-list-programmatically"></a>Programmässig åtkomst i listan
 
-Du kan komma åt listan över språk som stöds genom programmering med resursen språk. Listan innehåller språkkoden samt språknamn på engelska eller något annat språk som stöds. Den här listan uppdateras automatiskt av tjänsten Microsoft Translator när nya språk blir tillgängliga.
+Du kan komma åt listan över språk som stöds via programmering med språk-resursen. Listan innehåller språkkoden samt språkets namn på engelska eller något annat språk som stöds. Den här listan uppdateras automatiskt av Translator Speech-tjänsten när nya språk blir tillgängliga.
 
-Resursen språk returnerar lista med språk som stöds för tal, text och text till tal. Språk-resurs kräver inte autentisering.
+Språk-resurs returnerar listan över språk som stöds för tal, text och text till tal. Språk-resursen kräver inte autentisering.
 
-[Besök API-referens för att testa metoden språk](languages-reference.md)
+[Gå till API-referens du prova att använda metoden språk](languages-reference.md)
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Komma åt listan på webbplatsen Microsoft Translator
 
-Webbplatsen Microsoft Translator visar alla språk som stöds av översättare Text och tal-API: er för en titt på språk. Den här listan innehåller inte developer-specifik information, till exempel språkkoder.
+Webbplatsen Microsoft Translator visar alla språk som stöds av Translator Text och tal-API: er för en snabb titt på språk. Den här listan innehåller inte developer-specifik information, till exempel språkkoder.
 
-[Visa en lista över språk](https://www.microsoft.com/translator/languages.aspx) 
+[Se en lista över språk](https://www.microsoft.com/translator/languages.aspx) 

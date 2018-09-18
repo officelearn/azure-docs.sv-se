@@ -1,114 +1,115 @@
 ---
-title: Anpassa inloggningssidan för Azure AD-klientorganisationen | Microsoft Docs
-description: Lär dig hur du varumärkesanpassar inloggningssidan i Azure till ditt företag
+title: Hur du lägger till anpassning till din Azure Active Directory-inloggningssida | Microsoft Docs
+description: Lär dig hur du lägger till din organisation anpassning till inloggningssidan för Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 07/20/2018
+ms.topic: conceptual
+ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: HT
+ms.openlocfilehash: 6a817d4e52d602c921cb04f8c40dbad632d41932
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528334"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731335"
 ---
-# <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Snabbstart: Varumärkesanpassa inloggningssidan i Azure AD till ditt företag
-För att undvika förvirring vill många företag använda ett enhetligt utseende på alla webbplatser och tjänster som de hanterar. Azure Active Directory (Azure AD) erbjuder den här möjligheten genom att låta dig anpassa utseendet på inloggningssidan med företagets logotyp och egna färgscheman. Inloggningssidan visas när du loggar in på webbaserade program, till exempel Office 365, som använder Azure AD som identitetsprovider. Du kan interagera med den här sidan för att ange dina autentiseringsuppgifter.
+# <a name="how-to-add-branding-to-your-azure-ad-sign-in-page"></a>Så här: Lägg till företagsanpassning för din Azure AD-inloggningssida
+Använda organisationens logotyp och egna färgscheman för att tillhandahålla ett konsekvent utseende och känsla på webbsidorna för Azure Active Directory (AD Azure). Logga in sidorna visas när användare loggar in på din organisations webbaserade appar, till exempel Office 365, som använder Azure AD som identitetsprovider.
+
+>[!Note]
+>Lägga till anpassade anpassning kräver att du använder Azure Active Directory Premium 1, 2 för Premium eller Basic-utgåvor och ha en licens för Office 365. Läs mer om licensiering och utgåvor [registrera dig för Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure AD Premium och Basic stöds inte för närvarande i tjänsten Azure som drivs av 21Vianet i Kina. Mer information tala med oss med hjälp av den [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
+
+## <a name="customize-your-azure-ad-sign-in-page"></a>Anpassa din Azure AD-inloggningssida
+Du kan anpassa dina Azure AD-inloggningssidor, som visas när användare loggar in till din organisations klientspecifik appar, till exempel [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), eller vid sändning av en domänvariabel i, till exempel [ *https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+
+Ditt varumärke visas inte direkt när dina användare gå till platser, till exempel www.office.com. Användaren måste i stället logga in innan din anpassningsfunktionerna visas.
 
 > [!NOTE]
-> * Funktionen för varumärkesanpassning är bara tillgänglig om du har köpt Premium- eller Basic-licensen för Azure Active Directory, eller om du har en Office 365-licens. Om du vill veta om en viss funktion stöds av din licenstyp kan du titta på sidan med [prisinformation för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
-> 
-> * Azure AD Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure AD Premium och Basic stöds inte för närvarande i den Azure-tjänst som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Alla företagsanpassning element är valfria. Exempel: Om du anger en banderollslogotyp med ingen bakgrundsbild visas på inloggningssidan din logotyp med en standard bakgrundsbild från målplatsen (till exempel Office 365).<br><br>Dessutom sprids inloggningssidan anpassning inte till personliga Microsoft-konton. Om dina användare eller företagsgäster loggar du in med ett personligt microsoftkonto, visas inte på inloggningssidan anpassning av din organisation.
 
-## <a name="customizing-the-sign-in-page"></a>Anpassa inloggningssidan
+### <a name="to-customize-your-branding"></a>Anpassa din företagsanpassning
+1. Logga in på den [Azure AD-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
 
-<!--You can customize the following elements on the sign-in page: <attach image>-->
+2. Välj **Azure Active Directory**, och välj sedan **Varumärkesexponering**, och välj sedan **konfigurera**.
 
-Varumärkesanpassningar visas på inloggningssidan för Azure AD när användare kommer åt en klientorganisationsspecifik URL som [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com) eller skickar domänvariabeln i URL:en som [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com)
+    ![Contoso - företagets företagsanpassning bladet, konfigurera alternativet markerat](media/customize-branding/company-branding-configure-button.png)
 
-När användare till exempel besöker www.office.com visar inte inloggningssidan några varumärkesanpassningar eftersom användaren ännu inte har angett några autentiseringsuppgifter. När en användaren har angett sitt användar-ID eller väljer en användarpanel visas varumärkesanpassningen.
+3. På den **konfigurera företagsanpassning** bladet ge vissa eller alla av följande information:
 
-> [!NOTE]
-> * Domännamnet måste visas som ”Active” (Aktivt) i **Domains**-delen (Domäner) av den Azure-portal där du har konfigurerat varumärkesanpassningen. Mer information finns i [Lägg till ett anpassat domännamn](add-custom-domain.md).
-> * Varumärkesanpassningen på inloggningssidan förs inte över till inloggningssidan för personliga Microsoft-konton. Om dina anställda eller företagsgäster loggar in med ett personligt Microsoft-konto återges inte organisationens varumärkesanpassning på deras inloggningssida.
+    - **Allmänna inställningar**
 
+        ![Konfigurera företagsanpassning bladet med allmänna inställningar som har slutförts](media/customize-branding/configure-company-branding-general-settings.png)
 
-### <a name="banner-logo"></a>Banderollslogotyp 
+        - **Språk.** Språket är konfigureras automatiskt som standard och kan inte ändras.
+        
+        - **Bakgrundsbild för inloggningssidan.** Välj en PNG- eller JPG-bildfil ska visas som bakgrund för din inloggningssidorna. Bilden får inte vara större än 1 920 x 1 080 bildpunkter i storlek och måste ha en storlek på mindre än 300 KB.
 
-Beskrivning | Villkor | Rekommendationer
-------- | ------- | ----------
-Banderollslogotypen visas på sidorna för inloggning och åtkomstpanel.<br>På inloggningssidan visas logotypen när användarnamnet har angetts. | Transparent JPG eller PNG<br>Maximal höjd: 36 pixlar<br>Maximal bredd: 245 pixlar | Använd organisationens logotyp här.<br>Använd en transparent bild. Förutsätt inte att bakgrunden är vit.<br>Lägg inte till utfyllnad kring logotypen i bilden; annars ser logotypen oproportionerligt liten ut.
+        - **Banderoll logotyp.** Välj en .png eller .jpg version av din logotyp som ska visas på sidan logga in när användaren anger ett användarnamn och på den **Mina appar** portalsidan. Bilden får inte vara högre än 36 bildpunkter eller större än 245 bildpunkter. Vi rekommenderar att du använder en transparent bild eftersom bakgrunden inte kanske matchar din logotyp bakgrund. Vi rekommenderar att det inte att lägga till utfyllnad runt bilden eller det kan vara din logotyp ser liten.
 
-### <a name="username-hint"></a>Ledtråd för användarnamn   
-Beskrivning | Villkor | Rekommendationer
-------- | ------- | ----------
-Det här alternativet anpassar tipstexten i fältet för användarnamn. | Unicode-text, upp till 64 tecken<br>Endast oformaterad text | Om du förväntar dig att gästanvändare utanför organisationen loggar in på din app rekommenderar vi att du inte konfigurerar det här alternativet.
+        - **Användarnamn-tipset.** Ange tips-text som visas för användarna om de glömmer sitt lösenord. Den här texten måste vara Unicode, utan länkar eller kod och får inte överstiga 64 tecken. Om gäster loggar in på din app, föreslår vi att du inte lägger till den här tipset.
+
+        - **Text på inloggningssidan.** Ange den text som visas längst ned på sidan logga in. Du kan använda den här texten för att ge ytterligare information, till exempel telefonnumret till supportavdelningen eller ett juridiskt meddelande. Den här texten måste vara Unicode och högst 256 tecken. Vi rekommenderar också att inte, inklusive länkar eller HTML-taggar.
+
+    - **Avancerade inställningar**
             
-### <a name="sign-in-page-text"></a>Text på inloggningssidan   
-Beskrivning | Villkor | Rekommendationer
-------- | ------- | ----------
-Det här alternativet visas längst ned i inloggningsformuläret och kan användas för att ge ytterligare information, till exempel telefonnumret till supportavdelningen eller ett juridiskt meddelande. | Unicode-text, upp till 256 tecken<br>Endast oformaterad text (inga länkar eller HTML-taggar)    
+        ![Konfigurera företagsanpassning bladet med avancerade inställningar har slutförts](media/customize-branding/configure-company-branding-advanced-settings.png)   
 
-### <a name="sign-in-page-image"></a>Bild på inloggningssidan  
-Beskrivning | Villkor | Rekommendationer
-------- | ------- | ----------
-Det här alternativet visas i bakgrunden på inloggningssidan, är fäst på mitten av det visningsbara området och skalar och beskärs för att fylla webbläsarfönstret.    <br>På smala skärmar såsom mobiltelefoner visas inte den här bilden.<br>En svart mask med 0,55 opacitet tillämpas över den här bilden när sidan läses in. | JPG eller PNG<br>Bilddimensioner: 1920 x 1080 pixlar<br>Filstorlek: &lt; 300 KB | <br>Använd bilder i de fall då det inte finns något starkt fokus på ett ämne. Det täckande inloggningsformuläret visas över mitten av den här bilden och kan täcka vilken del av bilden som helst, beroende på storleken på webbläsarfönstret.<br>Håll filstorleken liten för att ge snabba inläsningstider. 
+        - **Bakgrundsfärg på inloggningssidan.** Ange hexadecimal färgen (till exempel vit är #FFFFFF) som ska visas i stället din bakgrund i långsam anslutning situationer. Vi rekommenderar att du använder den primära färgen i din banderollslogotyp eller i din organisation färg.
 
-### <a name="sign-in-page-background-color"></a>Bakgrundsfärg på inloggningssidan
-Beskrivning | Villkor | Rekommendationer
-------- | ------- | ----------
-Den här färgen används i stället för bakgrundsbilden för anslutningar med låg bandbredd. | RGB-färg i hexadecimal (exempel: #FFFFFF | Vi föreslår att du använder den primära färgen från banderollslogotypen eller organisationens färg.
+        - **Fyrkantig logotyp.** Välj en PNG (föredragen) eller .jpg-bild av organisationens logotyp som ska visas för användarna under konfigurationsprocessen för nya Windows 10 Enterprise-enheter. Den här avbildningen används endast för Windows-autentisering och visas endast på klienter som använder [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) för distribution eller för lösenordsinmatning sidor i andra Windows-10 inträffar. Bilden får inte vara större än 240 x 240 bildpunkter i storlek och måste ha en storlek på mindre än 10 KB. Vi rekommenderar att du använder en transparent bild eftersom bakgrunden inte kanske matchar din logotyp bakgrund. Vi rekommenderar att det inte att lägga till utfyllnad runt bilden eller det kan vara din logotyp ser liten.
+    
+        - **Fyrkantig logotyp, mörkt tema.** Samma som fyrkantiga logotypen bilden ovan. Den här logotypbild sker fyrkantig logotyp när det används med en mörk bakgrund, till exempel med Windows 10 Azure AD ansluten skärmar under out-of-box experience (OOBE).  Om din logotyp ser bra ut på vit, mörkt blå och svarta bakgrunder, behöver du inte lägga till den här avbildningen. 
+        
+        - **Visa alternativet för att förbli inloggad.** Du kan välja att låta användarna förbli inloggad till Azure AD tills du uttryckligen utloggningen. Om du väljer **nr**, det här alternativet är dolt och användarna måste logga in varje gång som webbläsaren är stängd och igen.
+        
+            >[!Note]
+            >För vissa funktioner i SharePoint Online och Office 2010 måste användarna kunna välja att fortsätta vara inloggade. Om du ställer in den här inställningen till **No** (Nej) kan eventuellt ytterligare och oväntade uppmaningar att logga in visas för dina användare.
+   
 
-### <a name="square-logo-image"></a>Fyrkantig logotypbild
-Beskrivning | Villkor | Rekommendationer
-------- | ------- | ----------
-Den här bilden visas under installationen för nya Enterprise Windows 10-datorer. Den ger kontext till de anställda när de konfigurerar sina nya arbetsdatorer. Bilden visas för klientorganisationer som använder [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) för att distribuera sina arbetsenheter samt på lösenordsinmatningssidor i andra Windows 10-miljöer.<br>Den fyrkantiga logotypen används endast i Windows-autentisering. Versionen med mörkt tema är inaktuell och används inte längre någonstans. | Transparent PNG (föredras) eller JPG<br>Bilddimensioner: 240 x 240 pixlar<br>Filstorlek: &lt; 10 KB | Använd organisationens logotyp här.<br> Använd en transparent bild.<br>Förutsätt inte att bakgrunden är vit.<br>Lägg inte till utfyllnad till logotypen i bilden; annars ser logotypen oproportionerligt liten ut.
+3. När du har lagt till din företagsanpassning, väljer **spara**.
 
-### <a name="show-option-to-remain-signed-in"></a>Visa alternativet för att förbli inloggad
-Beskrivning | Villkor | Rekommendationer
-------- | ------- | ----------
-Azure AD-inloggningen ger användaren alternativet att förbli inloggad när webbläsaren stängs och öppnas igen. Den här inställningen döljer det alternativet.<br>Ställ in på **No** (Nej) för att dölja det här alternativet från användarna. | &nbsp; | Om du döljer det här alternativet påverkas inte sessionens varaktighet.<br>För vissa funktioner i SharePoint Online och Office 2010 måste användarna kunna välja att fortsätta vara inloggade. Om du ställer in den här inställningen till **No** (Nej) kan eventuellt ytterligare och oväntade uppmaningar att logga in visas för dina användare.
+  Eftersom det här är din första företagsanpassning konfiguration blir standard för din klient. Om du lägger till fler konfigurationer, får du möjlighet att välja din standard.
 
-> [!NOTE]
-> Alla element är valfria. Om du till exempel anger en banderollslogotyp utan bakgrundsbild visar inloggningssidan din logotyp och bakgrundsbilden för målplatsen (till exempel Office 365).
+  >[!Important]
+  >Att lägga till mer företagets anpassning konfigurationer till din klient, måste du välja **nytt språk** på den **Contoso - företagsanpassning** bladet. Då öppnas det **konfigurera företagsanpassning** bladet, där du kan följa samma steg som ovan.
 
-## <a name="add-company-branding-to-your-directory"></a>Lägga till varumärkesanpassning till din katalog
+## <a name="update-your-custom-branding"></a>Uppdatera ditt varumärke
+När du har skapat ditt varumärke, kan du gå tillbaka och ändra vad du vill.
 
-1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör för klientorganisationen.
-2. Välj **Azure Active Directory** > **Company branding (Varumärkesanpassning)** > **Redigera**.
-  
-  ![Öppna varumärkesanpassning](./media/customize-branding/navigation-to-branding.png)
-3. Ändra de element som du vill anpassa. Alla element är valfria.
-  
-  ![Redigera varumärkesanpassning](./media/customize-branding/edit-branding.png)
-4. När du är klar väljer du **Spara**.
+### <a name="to-edit-your-custom-branding"></a>Så här redigerar du ditt varumärke
+1. Logga in på den [Azure AD-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
 
-Det kan ta upp till en timme innan ändringar som du har gjort på inloggningssidan visas.
+2. Välj **Azure Active Directory**, och välj sedan **Varumärkesexponering**, och välj sedan **konfigurera**.
+
+    ![Contoso - företagets företagsanpassning bladet med standardkonfiguration som visas](media/customize-branding/company-branding-default-config.png)
+
+3. På den **konfigurera företagsanpassning** bladet Lägg till, ta bort eller ändra några av information utifrån beskrivningarna i den [anpassa din Azure AD-inloggningssida](#customize-your-azure-ad-sign-in-page) i den här artikeln.
+
+4. Välj **Spara**.
+
+  Det kan ta upp till en timme innan ändringar som du har gjort på inloggningssidan visas.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Lägga till språkspecifik varumärkesanpassning till din katalog
+Du kan inte ändra den ursprungliga konfigurationen språk från din standardspråk. Om du behöver en konfiguration på ett annat språk kan du skapa en ny konfiguration.
 
-1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör för katalogen.
-2. Välj **Azure Active Directory** > **Company branding (Varumärkesanpassning)** > **Nytt språk**.
-  
-  ![Lägga till språkspecifika varumärkesanpassningselement](./media/customize-branding/add-language.png)
-3. Ändra de element som du vill anpassa. Alla element är valfria.
-4. När du är klar väljer du **Spara**.
+### <a name="to-add-a-language-specific-branding-configuration"></a>Att lägga till en språkspecifik företagsanpassning konfiguration
 
-Det kan ta upp till en timme innan ändringar som du har gjort på inloggningssidan visas.
+1. Logga in på den [Azure AD-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
 
-## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten har du lärt dig hur du lägger till varumärkesanpassning för din Azure AD-katalog. 
+2. Välj **Azure Active Directory**, och välj sedan **Varumärkesexponering**, och välj sedan **nytt språk**.
 
-Du kan använda följande länk för att konfigurera varumärkesanpassningen i Azure AD från Azure-portalen.
+    ![Contoso - företagets företagsanpassning bladet med den nya språkalternativet markerat](media/customize-branding/company-branding-new-language.png)
 
-> [!div class="nextstepaction"]
-> [Konfigurera varumärkesexponering](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LoginTenantBrandingBlade) 
+3. På den **konfigurera företagsanpassning** bladet väljer du språk (till exempel franska) och Lägg sedan till din översatta information utifrån beskrivningarna i den [anpassa din Azure AD-inloggningssida](#customize-your-azure-ad-sign-in-page) i den här artikeln.
+
+4. Välj **Spara**.
+
+    Den **Contoso – företagsanpassning** bladet uppdateringar att visa den nya franska konfigurationen.
+
+    ![Contoso - företagets företagsanpassning bladet med standardkonfiguration som visas](media/customize-branding/company-branding-french-config.png)

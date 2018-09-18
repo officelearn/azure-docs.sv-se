@@ -1,20 +1,21 @@
 ---
-title: Hämta prenumerationsnycklar för den API för visuellt innehåll | Microsoft Docs
-description: Lär dig mer om att hämta prenumerationsnycklar för anrop till API för visuellt innehåll i Cognitive Services.
+title: Hämta prenumerationsnycklar för den API för visuellt innehåll
+titlesuffix: Azure Cognitive Services
+description: Lär dig mer om att hämta prenumerationsnycklar för anrop till API för visuellt innehåll i Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
-ms.openlocfilehash: 682266df9e1a1f8209904697358d10bbaa633cf1
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: db4d589bb0c7611e632a90f2174ad8e9c415bf6a
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35760277"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985430"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Hur du hämtar prenumerationsnycklar
 
@@ -41,4 +42,4 @@ Om du glömmer regionen för din prenumerationsnyckel när du har fått din utv�
 
 ### <a name="related-links"></a>Relaterade länkar:
 
-* [Prisalternativ för Microsoft kognitiva API: er](https://azure.microsoft.com/pricing/details/cognitive-services/)
+* [Prisalternativ för API: er för Azure Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)

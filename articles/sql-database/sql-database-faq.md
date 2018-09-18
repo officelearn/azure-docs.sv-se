@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 218bd9031193d4987fdc1e0ae2bf302bdb028673
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 479f7df740e75ae44a5198414036ff0b0c216471
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604509"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730655"
 ---
 # <a name="sql-database-faq"></a>Vanliga frågor om SQL Database
 
@@ -41,7 +41,7 @@ I många fall utnyttja program enkelheten med ett förkonfigurerat paket av resu
 Både den DTU- och den vCore-baserade modellen kommer att finnas kvar fortsättningsvis. Startar vi den vCore-baserade modellen som svar på Återkopplingen för mer transparens gällande databasresurser och möjlighet att skala sina resurser för beräkning och lagring separat. Den vCore-baserade modellen medger också ytterligare besparingar för kunder med aktiv Software Assurance tack vare Azure Hybrid-förmånen för SQL Server.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>Hur ska jag välja mellan vs DTU-baserade inköpschef modellen den vCore-baserade inköpsmodellen? 
-Dataöverföringsenheten (DTU, Database Transaction Unit) baseras på ett blandat mått av CPU, minne, läsningar och skrivningar. DTU-baserade prestandanivåer motsvarar förkonfigurerade paket av resurser för att driva olika nivåer av programprestanda. Kunder som inte vill bekymra dig om de underliggande resurserna och föredrar enkelheten med ett förkonfigurerat paket samtidigt och betala en fast mängd varje månad kanske den DTU-baserade modellen passar deras behov. För kunder som behöver mer information om de underliggande resurserna eller behöver skala dem oberoende av varandra för att uppnå optimala prestanda, kommer dock den vCore-baserade modellen vara det bästa valet.  Om en kund har en aktiv Software Assurance (SA) för SQL Server kan de dessutom utnyttja sina befintliga investering och spara upp till 30% med [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Alternativen i var och en inköpsmodellerna ger dig fördelarna med en fullständigt hanterad tjänst som automatiska säkerhetskopieringar, uppdateringar och korrigeringar. 
+Dataöverföringsenheten (DTU, Database Transaction Unit) baseras på ett blandat mått av CPU, minne, läsningar och skrivningar. DTU-baserade storlekar motsvarar förkonfigurerade paket av resurser för att driva olika nivåer av programprestanda. Kunder som inte vill bekymra dig om de underliggande resurserna och föredrar enkelheten med ett förkonfigurerat paket samtidigt och betala en fast mängd varje månad kanske den DTU-baserade modellen passar deras behov. För kunder som behöver mer information om de underliggande resurserna eller behöver skala dem oberoende av varandra för att uppnå optimala prestanda, kommer dock den vCore-baserade modellen vara det bästa valet.  Om en kund har en aktiv Software Assurance (SA) för SQL Server kan de dessutom utnyttja sina befintliga investering och spara upp till 30% med [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Alternativen i var och en inköpsmodellerna ger dig fördelarna med en fullständigt hanterad tjänst som automatiska säkerhetskopieringar, uppdateringar och korrigeringar. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>Vad är Azure Hybrid-förmånen för SQL Server? 
 Den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) hjälper dig att maximera värdet från dina nuvarande licensinvesteringar och snabba migreringen till molnet. Azure Hybrid-förmånen för SQL Server är en Azure-baserad förmån som gör att du kan använda SQL Server-licenser med Software Assurance för att betala en reducerad avgift (”grundpris”) i SQL-databas. Azure Hybrid-förmånen för SQL Server är tillgänglig i den offentliga förhandsversionen av den vCore-baserade inköpsmodellen för SQL Database enskilda databaser och elastiska pooler. Du kan använda den här förmånen även om SKU är aktiv, men Observera baspriset tillämpas från den tidpunkt som du väljer i Azure-portalen. Ingen kredit utfärdas retroaktivt.
@@ -78,8 +78,8 @@ Du debiteras för lagring av säkerhetskopior för en enkel databas, på en prop
 ## <a name="how-do-i-select-the-right-sku-when-converting-an-existing-database-to-the-new-service-tiers"></a>Hur väljer jag rätt SKU vid konvertering av en befintlig databas till de nya tjänstenivåerna? 
 För befintliga SQL Database-program som använder den DTU-baserade modellen, är service-nivån generell användning jämförbar med Standard-nivån. Affärskritisk tjänstnivån är jämförbar med Premium-nivån. I båda fallen bör du allokera minst 1 virtuell kärna för varje 100 DTU som programmet använder i den DTU-baserade modellen.
 
-## <a name="do-the-new-vcore-based-service-tiers-offer-the-performance-levels-compatible-with-all-existing-service-level-objectives-slos"></a>Erbjuder de nya vCore-baserade tjänstnivåerna prestandanivåer som är kompatibel med alla befintliga servicenivåmål (slo: erna)?
-De nya vCore-baserade tjänstenivåerna erbjuder jämförbara prestandaval för alla elastiska pooler och databaser med 100 dtu: er eller mer.  Vi kommer att fortsätta att lägga till flera servicenivåmål över tid för att hantera sub 100 DTU-arbetsbelastningar.
+## <a name="do-the-new-vcore-based-service-tiers-offer-the-compute-sizes-compatible-with-all-existing-compute-sizes"></a>Erbjuder de nya vCore-baserade tjänstnivåerna storlekar som är kompatibel med alla befintliga compute storlekar?
+De nya vCore-baserade tjänstenivåerna erbjuder jämförbara prestandaval för alla elastiska pooler och databaser med 100 dtu: er eller mer.  Vi kommer att fortsätta att lägga till mer compute storlekar med tiden för sub 100 DTU-arbetsbelastningar.
 
 ## <a name="are-there-any-database-feature-differences-between-the-existing-dtu-based-and-new-vcore-based-service-tiers"></a>Finns det någon databas skillnaderna mellan de befintliga nivåerna DTU-baserade och nya vCore-baserad tjänst? 
 De nya tjänstenivåerna stöder en superuppsättning av funktionerna med de aktuella DTU-baserade erbjudandena. De ytterligare funktionerna inkluderar en uppsättning ytterligare dynamiska hanteringsvyer (DMV) och alternativ för ytterligare konfiguration. 
@@ -110,7 +110,7 @@ Eftersom den vCore-modellen kan oberoende kontroll över mängden etablerade ber
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>Hur ofta kan jag justera resurserna per pool?
 Så ofta du vill. Se [hantera elastiska pooler](sql-database-elastic-pool.md).
 
-## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Hur lång tid tar det att ändra tjänstenivå eller prestandanivå för en enkel databas eller flytta en databas och från en elastisk pool?
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Hur lång tid tar det att ändra tjänstnivå eller beräkna storleken på en enskild databas eller flytta en databas och från en elastisk pool?
 När du byter tjänstenivå för en databas och flyttas till eller från en pool måste du databasen som ska kopieras på plattformen som en bakgrundsåtgärd. När du byter tjänstenivå kan ta från några minuter till flera timmar beroende på storleken på databaserna. I båda fallen är databaserna online och tillgängliga under flytten. Mer information om hur du ändrar enskilda databaser finns i [ändra tjänstnivå för en databas](sql-database-service-tiers-dtu.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>När ska jag använda en enkel databas jämfört med elastiska databaser?
@@ -120,7 +120,7 @@ I allmänhet elastiska pooler är utformade för en typisk [programvara som tjä
 SQL Database fakturerar baserat på ett förutsägbart timpris baserat på den [köpa modellen](sql-database-service-tiers-dtu.md). Faktisk användning beräknas och debiteras per timme, så din faktura kan innehålla bråkdelar av en timme. Om det finns en databas i 12 timmar under en månad, visar din faktura användning av 0,5 dagars. 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>Vad händer om en enskild databas är aktiv i mindre än en timme eller använder en högre tjänstnivå i mindre än en timme?
-Du debiteras för varje timme som det finns en databas med hjälp av den högsta tjänstenivå och prestandanivå som gällde under den timmen, oavsett användning eller om databasen var aktiv under mindre än en timme. Om du skapar en enkel databas och raderar den fem minuter senare visar din faktura en avgift för en databastimme. 
+Du debiteras för varje timme som det finns en databas med hjälp av den högsta tjänstenivå + compute storlek som gällde under den timmen, oavsett användning eller om databasen var aktiv under mindre än en timme. Om du skapar en enkel databas och raderar den fem minuter senare visar din faktura en avgift för en databastimme. 
 
 Exempel:
 
@@ -141,8 +141,8 @@ DTU-baserade inköpschef modellen exempel:
 Elastiska pooler faktureras per följande egenskaper:
 
 * En elastisk pool faktureras när den har skapandet, även om det finns inga databaser i poolen.
-* En elastisk pool faktureras per timme. Det här är samma Avläsning av programvara frekvens för prestandanivåer för enskilda databaser.
-* Om en elastisk pool utökas sedan faktureras poolen inte enligt den nya mängden resurser tills storleksändring åtgärden har slutförts. Det följer samma mönster som byter prestandanivå för enskilda databaser.
+* En elastisk pool faktureras per timme. Det här är samma Avläsning av programvara frekvens som storlekar för enskilda databaser.
+* Om en elastisk pool utökas sedan faktureras poolen inte enligt den nya mängden resurser tills storleksändring åtgärden har slutförts. Det följer samma mönster som ändrar storlek på beräkning för enskilda databaser.
 * Priset för en elastisk pool är baserad på resurserna i poolen. Priset för en elastisk pool är oberoende av antalet och utnyttjar de elastiska databaserna i den.
 
 Mer information finns i [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/), [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).

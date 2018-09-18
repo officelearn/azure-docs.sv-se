@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: d90a9f8bd32924eef6533e602957aa1704cfdae9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5bd1b534386f38f8dd3a78bbd98ffd012875351f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190481"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736163"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Text Merge kognitiva kunskaper
 
 Den **Text sammanfoga** färdighet konsoliderar text från en samling av fält till ett fält. 
+
+> [!NOTE]
+> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetens körning och extrahering av avbildningen och normalisering är för närvarande erbjuds kostnadsfritt. Vid ett senare tillfälle meddelas priserna för dessa funktioner. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill

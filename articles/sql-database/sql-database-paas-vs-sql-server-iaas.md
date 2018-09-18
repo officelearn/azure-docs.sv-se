@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 3ba1f7a5759f037ce4bcfafcef40d0b247692f58
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 57e83376747b9a3e2d30dec37d4a378a167580e5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577045"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733118"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på Azure Virtual Machines (IaaS)
 
@@ -89,7 +89,7 @@ Oavsett om du är en startup med dålig kassa, eller ett team i ett etablerat f�
 
 #### <a name="billing-and-licensing-basics"></a>Debitering och licensiering
 
-För närvarande **SQL Database** säljs som en tjänst och är tillgänglig i flera servicenivåer med olika priser för resurser, som debiteras timvis till en fast kostnad som baseras på tjänstnivå och prestandanivå servicenivån du väljer. Med SQL Database Managed Instance kan du också använda en egen licens. Mer information om att använda sin egen licensiering finns i [Licensera Mobility via Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/). Dessutom debiteras du för utgående Internettrafik till normal [dataöverföringskostnad](https://azure.microsoft.com/pricing/details/data-transfers/). Du kan dynamiskt justera tjänstnivåer och prestandanivåer som matchar ditt programs ändrade behov för genomströmning. Den senaste informationen om den aktuella stöds tjänstnivåer, se [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Du kan också skapa [elastiska pooler](sql-database-elastic-pool.md) att dela resurser mellan databasinstanser att minska kostnaderna och hantera användning vid tillfälliga toppar.
+För närvarande **SQL Database** säljs som en tjänst och är tillgänglig i flera servicenivåer med olika priser för resurser, som debiteras timvis till en fast kostnad som baseras på tjänstnivå och beräkningsstorleken som du väljer. Med SQL Database Managed Instance kan du också använda en egen licens. Mer information om att använda sin egen licensiering finns i [Licensera Mobility via Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/). Dessutom debiteras du för utgående Internettrafik till normal [dataöverföringskostnad](https://azure.microsoft.com/pricing/details/data-transfers/). Du kan dynamiskt justera tjänstnivåer och compute så att de matchar ditt programs ändrade behov för genomströmning. Den senaste informationen om den aktuella stöds tjänstnivåer, se [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Du kan också skapa [elastiska pooler](sql-database-elastic-pool.md) att dela resurser mellan databasinstanser att minska kostnaderna och hantera användning vid tillfälliga toppar.
 
 Med **SQL Database** så konfigureras, korrigeras och uppgraderas databasens programvara automatiskt av Microsoft, vilket minskar dina administrationskostnader. Dessutom gör dess [inbyggda säkerhetskopierings](sql-database-automated-backups.md)-funktioner att du kan uppnå markanta kostnadsbesparingar, speciellt om du har ett stort antal databaser. 
 

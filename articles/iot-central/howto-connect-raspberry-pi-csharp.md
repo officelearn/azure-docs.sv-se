@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205144"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734243"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (C#)
 
@@ -262,6 +262,9 @@ Du kan använda Visual Studio Code för att slutföra följande steg. Mer inform
 ## <a name="run-your-net-application"></a>Kör .NET-program
 
 Lägga till specifika anslutningssträngen i koden för enheten för att autentisera med Azure IoT Central. Du antecknade den här anslutningssträngen när du har lagt till din verklig enhet till Azure IoT Central programmet.
+
+  > [!NOTE]
+   > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instrustions till [hämta enhetens anslutningssträng](concepts-connectivity.md#getting-device-connection-string) och fortsätta med resten av kursen.
 
 1. Ersätt `{your device connection string}` i den **Program.cs** filen med den anslutningssträng som du antecknade tidigare.
 

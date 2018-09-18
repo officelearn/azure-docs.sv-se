@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 2c26c26f201e9b500018b4851ac0bc462820a8e5
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d6567b18984a6369a4a9e653270d0b788272aba4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057101"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729917"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Flytta data till SQL Server på en virtuell Azure-dator
 Det här avsnittet beskrivs alternativen för att flytta data från flata filer (CSV- eller TSV-format) eller från en lokal SQL Server till SQL Server på virtuella Azure-datorer. Dessa uppgifter för att flytta data till molnet är en del av Team Data Science Process.
@@ -49,7 +49,7 @@ Observera att det här dokumentet förutsätter att SQL-kommandon utförs från 
 Den här självstudien förutsätter att du har:
 
 * En **Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
-* En **Azure storage-konto**. För att lagra data i den här självstudien använder du ett Azure storage-konto. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot kan behöver du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [hantera dina lagringsåtkomstnycklar](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+* En **Azure storage-konto**. För att lagra data i den här självstudien använder du ett Azure storage-konto. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot kan behöver du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [hantera dina lagringsåtkomstnycklar](../../storage/common/storage-account-manage.md#access-keys).
 * Etablerade **SQLServer på en Azure-VM**. Anvisningar finns i [ställa in en Azure SQL Server-dator som en IPython Notebook-server för avancerade analyser](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Installerat och konfigurerat **Azure PowerShell** lokalt. Anvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 

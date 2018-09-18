@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: c076ae96f8aba648196dc5222db3da3da68673ff
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 86a14d12f6621524ef26e2a869d4be532105dc77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528399"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732361"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Använda Azure Storage med en Hudson-baserad CI-lösning
 ## <a name="overview"></a>Översikt
@@ -53,7 +53,7 @@ Du behöver följande för att använda Blob-tjänsten med Hudson CI-lösning:
      
       När en typisk Hudson CI-lösning skulle ställas in att köras som en tjänst som körs på Hudson war på kommandoraden räcker för den här självstudiekursen.
 * Ett Azure-konto. Du kan registrera dig för ett Azure-konto på <http://www.azure.com>.
-* Ett Azure-lagringskonto. Om du inte redan har ett lagringskonto kan du skapa en med hjälp av stegen i [skapa ett Lagringskonto](../common/storage-create-storage-account.md#create-a-storage-account).
+* Ett Azure-lagringskonto. Om du inte redan har ett lagringskonto kan du skapa en med hjälp av stegen i [skapa ett Lagringskonto](../common/storage-quickstart-create-account.md).
 * Liknar processen med Hudson CI-lösning rekommenderas men krävs inte, eftersom följande innehåll kommer att använda ett grundläggande exempel för att visa de steg som krävs när du använder Blob service som databas för Hudson CI skapa artefakter.
 
 ## <a name="how-to-use-the-blob-service-with-hudson-ci"></a>Hur du använder Blob-tjänsten med Hudson CI

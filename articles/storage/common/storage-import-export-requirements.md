@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 10e8fb6ac5bcce278de3924ebd3a0d9f90392217
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 18c27e4059ea06fcc52863b2d7671c14167dae75
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528062"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732761"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systemkrav
 
@@ -32,12 +32,15 @@ Förbereda hårddiskar med verktyget WAImportExport följande **64-bitars operat
 
 ## <a name="supported-storage-accounts"></a>Stöds storage-konton
 
-Azure Import/Export-tjänsten har stöd för följande [Azure storage-konton](storage-account-options.md).
+Azure Import/Export-tjänsten stöder följande typer av lagringskonton:
+
+- Generell användning v2 storage-konton
 - Allmänt syfte v1-lagringskonton (både klassiska eller Azure Resource Manager distributioner)
 - Blob Storage-konton
-- Generell användning v2 storage-konton
 
-Varje jobb kan användas för att överföra data till eller från endast en storage-konto. Med andra ord kan inte en enda import/export-jobbet omfatta över flera lagringskonton. Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
+Mer information om lagringskonton finns i [Azure storage-konton översikt](storage-account-overview.md).
+
+Varje jobb kan användas för att överföra data till eller från endast en storage-konto. Med andra ord kan inte en enda import/export-jobbet omfatta över flera lagringskonton. Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
 > Azure Import Export-tjänsten stöder inte storage-konton där den [tjänstslutpunkter i virtuella nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md) funktionen har aktiverats. 

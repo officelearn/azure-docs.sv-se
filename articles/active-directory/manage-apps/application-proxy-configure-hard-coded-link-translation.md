@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 618df9b4bcc4a1b6f44d9cabc29c797a2cabcc80
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366800"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982280"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy
 
@@ -109,7 +109,7 @@ Det är lika enkelt som att klicka på en knapp för att komma igång med länk�
 2. Gå till **Azure Active Directory** > **företagsprogram** > **alla program** > Välj den app som du vill hantera >  **Programproxy**.
 3. Aktivera **Översätt URL: er i brödtext för program** till **Ja**.
 
-   ![Välj Ja om du vill översätta URL: er i brödtext för program](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png).
+   ![Välj Ja om du vill översätta URL: er i brödtext för program](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
 4. Välj **spara** att tillämpa ändringarna.
 
 Nu när dina användare har åtkomst till det här programmet, genomsökas proxyn för interna URL: er som har publicerats via programproxy på din klient.

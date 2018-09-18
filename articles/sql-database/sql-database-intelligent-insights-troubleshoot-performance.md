@@ -8,14 +8,14 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 09/14/2018
 ms.author: v-daljep
-ms.openlocfilehash: 100cb939c0d7297b92af3255382745355aa8d271
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c2bb85d9c0bb02b7eb698dbee07f488c2ad0b62
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722120"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733199"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med intelligenta insikter
 
@@ -283,7 +283,7 @@ Databasbegränsade konfigurationsändringar kan ställas in för varje enskild d
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostiklogg utdata databasbegränsade konfigurationsändringar som gjorts nyligen som orsakade försämring jämfört med det tidigare beteendet i sju dagar arbetsbelastning. Du kan återställa konfigurationsändringar i tidigare värden. Du kan även finjustera värde med värde tills den önskade prestandanivån har uppnåtts. Du kan kopiera konfigurationsvärden för databas-omfång från en liknande databas med tillfredsställande prestanda. Om det inte går att felsöka prestanda återgå till standardvärden för standard-SQL-databas och försök att finjustera från och med den här baslinjen.
+Diagnostiklogg utdata databasbegränsade konfigurationsändringar som gjorts nyligen som orsakade försämring jämfört med det tidigare beteendet i sju dagar arbetsbelastning. Du kan återställa konfigurationsändringar i tidigare värden. Du kan även finjustera värde med värde tills önskad beräkningsstorleken har uppnåtts. Du kan kopiera konfigurationsvärden för databas-omfång från en liknande databas med tillfredsställande prestanda. Om det inte går att felsöka prestanda återgå till standardvärden för standard-SQL-databas och försök att finjustera från och med den här baslinjen.
 
 Läs mer om hur du optimerar databasbegränsade konfigurationen och T-SQL-syntax för att ändra konfigurationen för [Alter database scoped configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

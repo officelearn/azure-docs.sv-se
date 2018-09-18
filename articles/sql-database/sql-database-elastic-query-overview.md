@@ -7,14 +7,14 @@ author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: mlandzic
-ms.openlocfilehash: 52fce1cf1acb5e084c629c9cad6486d6a599b4fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a57e354651255e2d3ff723e978222d1a5a9fa002
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435782"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733354"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastisk fråga översikt (förhandsversion)
 
@@ -28,7 +28,7 @@ Frågor, Azure SQL-databaser helt i T-SQL. Detta möjliggör skrivskyddade fråg
 
 ### <a name="available-on-standard-tier"></a>Tillgängliga på standard-nivån
 
-Elastisk fråga har stöd för både Standard och Premium-prestandanivån. Se avsnittet på begränsningar i förhandsversionen nedan på prestanda begränsningar för lägre prestandanivåer.
+Elastisk fråga stöds för både Standard och Premium-nivåerna. Se avsnittet på begränsningar i förhandsversionen nedan på prestanda begränsningar för lägre tjänstnivåer.
 
 ### <a name="push-parameters-to-remote-databases"></a>Skicka parametrar till fjärranslutna databaser
 
@@ -101,7 +101,7 @@ Med hjälp av elastisk fråga för att utföra en shardad rapportuppgifter, det 
 
 > [!NOTE]
 > Elastisk fråga databas (huvudnod) kan vara en separat databas eller det kan vara samma databas som är värd för fragmentkartan.
-> Den konfiguration som du väljer, kontrollera service- och nivån för den databasen är tillräckligt högt för att hantera den förväntade mängden inloggning/frågebegäranden.
+> Den konfiguration du väljer och kontrollera att den tjänstnivån beräkna storleken på den här databasen är tillräckligt högt för att hantera den förväntade mängden inloggning/frågebegäranden.
 
 Med följande steg konfigurerar frågor för horisontell partitionering scenarier som kräver åtkomst till en uppsättning tabeller som finns på (normalt) flera fjärranslutna SQL-databaser i elastiska databaser:
 
@@ -133,7 +133,7 @@ Elastisk fråga ingår i kostnaden för Azure SQL Database-databaser. Observera 
 
 ## <a name="preview-limitations"></a>Begränsningar i förhandsversionen
 
-* Kör din första elastisk fråga kan ta upp till några minuter på Standard-prestandanivån. Nu är nödvändigt att läsa in de elastiska frågefunktioner; läser in prestanda förbättras med högre prestandanivåer.
+* Kör din första elastisk fråga kan ta upp till några minuter på Standard-tjänstnivå. Nu är nödvändigt att läsa in de elastiska frågefunktioner; läser in prestanda förbättras med högre tjänste- och storlekar.
 * Kör skript på externa datakällor eller externa tabeller från SSMS eller SSDT stöds inte ännu.
 * Import/Export för SQL DB stöder ännu inte externa datakällor och externa tabeller. Om du behöver använda Import/Export, ta bort dessa objekt innan du exporterar och sedan återskapa dem när du har importerat.
 * Elastisk fråga stöder för närvarande endast skrivskyddad åtkomst till externa tabeller. Du kan dock använda alla T-SQL-funktioner på databasen där den externa tabellen definieras. Detta kan vara användbart att t.ex. Spara tillfällig resultat med till exempel, väljer < column_list > i < local_table > eller definiera lagrade procedurer för elastisk fråga i databasen som refererar till externa tabeller.

@@ -6,19 +6,19 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 09/04/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 ms.topic: conceptual
-ms.openlocfilehash: 6df71f50129ec6901d0b8688b0a6d3619260cf22
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eefffdc425a300a8a4caa358494fbdc4fd84e356
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634249"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983992"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importera en BACPAC-fil till en ny Azure SQL Database
 
-När du behöver importera en databas från ett arkiv eller när du migrerar från en annan plattform kan du importera databasschema och data från en [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) fil. En BACPAC-fil är en ZIP-fil med filnamnstillägget BACPAC som innehåller metadata och data från en SQL Server-databas. En BACPAC-fil kan importeras från Azure blob storage (endast standard storage) eller från lokal lagring på en lokal plats. För att maximera import hastighet, rekommenderar vi att du anger en högre tjänstnivå och prestandanivå servicenivå, till exempel en P6 och skala sedan ned efter behov när importen har slutförts. Dessutom kompatibilitetsnivån för databas efter importen baseras på källdatabasen kompatibilitetsnivå. 
+När du behöver importera en databas från ett arkiv eller när du migrerar från en annan plattform kan du importera databasschema och data från en [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) fil. En BACPAC-fil är en ZIP-fil med filnamnstillägget BACPAC som innehåller metadata och data från en SQL Server-databas. En BACPAC-fil kan importeras från Azure blob storage (endast standard storage) eller från lokal lagring på en lokal plats. För att maximera import hastighet, rekommenderar vi att du anger en högre tjänstnivå och compute storlek, till exempel en P6 och skala sedan ned efter behov när importen har slutförts. Dessutom kompatibilitetsnivån för databas efter importen baseras på källdatabasen kompatibilitetsnivå. 
 
 > [!IMPORTANT] 
 > När du har migrerat din databas till Azure SQL Database kan du välja att köra databasen på den aktuella kompatibilitetsnivån (nivå 100 för AdventureWorks2008R2 databasen) eller på en högre nivå. Mer information om effekterna av och alternativ för att köra en databas på en specifik kompatibilitetsnivå finns i [Ändra databasens kompatibilitetsnivå](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). I [Ändra konfiguration av databasomfång](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) finns även information om ytterligare databasnivåinställningar som rör kompatibilitetsnivåer.   >
@@ -104,7 +104,7 @@ $importStatus
 Ett annat skript exempel finns i [importerar en databas från en BACPAC-fil](scripts/sql-database-import-from-bacpac-powershell.md).
 
 ## <a name="limitations"></a>Begränsningar
-- Importera till en databas i elastiska poolen stöds inte. Du kan importera data till en singleton-databas och sedan flytta databasen till en pool.
+- Importera till en databas i elastiska poolen stöds inte. Du kan importera data till en enkel databas och sedan flytta databasen till en pool.
 
 ## <a name="import-using-other-methods"></a>Importera med hjälp av andra metoder
 

@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: a4bf21f972da1aa92d6f127e8cbabb89a9c31489
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4fe75d8d350ee2d2a97b9d7efb10ff3c1675168d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719961"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737122"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database köpa modeller och resurser 
 
@@ -26,7 +26,7 @@ Följande tabell och diagrammet Jämför och kontrastera dessa två inköpschef 
 
 |**Inköpsmodell**|**Beskrivning**|**Bäst för**|
 |---|---|---|
-|DTU-baserad modell|Den här modellen är baserad på ett paketerat mått av beräkning, lagring och IO-resurser. Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser och eDTU (elastic Database Transaction Unit) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [vad är dtu: er och edtu: er](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Bäst för kunder som vill ha enkel, förkonfigurerade alternativ.| 
+|DTU-baserad modell|Den här modellen är baserad på ett paketerat mått av beräkning, lagring och IO-resurser. Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [vad är dtu: er och edtu: er](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Bäst för kunder som vill ha enkel, förkonfigurerade alternativ.| 
 |vCore-baserad modell|Den här modellen kan du välja oberoende beräknings- och lagringsresurser. Du kan också använda Azure Hybrid-förmånen för SQL Server för att få kostnadsbesparingar.|Bäst för kunder som värde flexibilitet, kontroll och transparens.|
 ||||  
 
@@ -50,22 +50,22 @@ Den vCore-baserade inköpsmodellen kan du välja beräknings- och lagringsresurs
 > Beräknings-, IOs, data och logglagring debiteras per databas eller elastisk pool. Lagring för säkerhetskopior debiteras per varje databas. Information av avgifter för hanterad instans i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 > **Region begränsningar:** vCore-baserade inköpsmodellen ännu inte finns tillgänglig i följande regioner: västra Europa, Frankrike, centrala, Storbritannien, södra, Storbritannien, västra och Australien, sydöstra Australien.
 
-Om din databas eller elastisk pool förbrukar mer än 300 DTU-konvertering till vCore minska dina kostnader. Du kan konvertera med hjälp av ditt API föredrar eller med hjälp av Azure-portalen utan avbrott. Dock krävs inte konverteringen. Om den DTU-inköpsmodellen uppfyller dina krav på prestanda och företag, bör du fortsätta använda den. Om du vill konvertera från DTU-modellen till vCore-modellen, bör du välja prestandanivån med hjälp av följande tumregel: varje 100 dtu: er i Standard-nivån kräver minst 1 vCore i nivån generell användning; varje 125 DTU på premiumnivån kräver minst 1 vCore i nivån affärskritisk.
+Om din databas eller elastisk pool förbrukar mer än 300 DTU-konvertering till vCore minska dina kostnader. Du kan konvertera med hjälp av ditt API föredrar eller med hjälp av Azure-portalen utan avbrott. Dock krävs inte konverteringen. Om den DTU-inköpsmodellen uppfyller dina krav på prestanda och företag, bör du fortsätta använda den. Om du vill konvertera från DTU-modellen till vCore-modellen kan du bör välja beräkningsstorleken med hjälp av följande tumregel: varje 100 dtu: er i Standard-nivån kräver minst 1 vCore i nivån generell användning; varje 125 DTU på premiumnivån kräver minst 1 vCore i nivån affärskritisk.
 
 ## <a name="dtu-based-purchasing-model"></a>DTU-baserade inköpsmodellen
 
 Database Transaction Unit (DTU) representerar ett blandat mått på processor, minne, läser och skriver. DTU-baserade inköpsmodellen erbjuder en uppsättning förkonfigurerade paket av beräkningsresurser och inkluderat lagringsutrymme för att driva olika nivåer av programprestanda. Kunder som föredrar enkelheten med ett förkonfigurerat paket och fasta betalningar varje månad, kanske den DTU-baserade modellen passar deras behov. I DTU-baserade inköpsmodellen kunderna kan välja mellan **grundläggande**, **Standard**, och **Premium** tjänstnivåer för både [enkla databaser](sql-database-single-database-scale.md) och [elastiska pooler](sql-database-elastic-pool.md). Den här inköpsmodell är inte tillgänglig i [hanterade instanser](sql-database-managed-instance.md).
 
 ### <a name="what-are-database-transaction-units-dtus"></a>Vad är Databastransaktionsenheter (dtu: er)?
-För en enskild Azure SQL-databas på en specifik prestandanivå på en [tjänstnivå](sql-database-single-database-scale.md), Microsoft garanterar en viss nivå av resurser för den här databasen (oberoende av någon annan databas i Azure-molnet), vilket ger en förutsägbar nivån på prestanda. Mängden resurser beräknas som ett antal Databastransaktionsenheter eller dtu: er och är ett paketerat mått av beräkning, lagring och IO-resurser. Förhållandet mellan här resursernas fördelning har ursprungligen bestämts av en [OLTP-benchmarkarbetsbelastning](sql-database-benchmark-overview.md), utformade för att representera verkliga OLTP-arbetsbelastningar. När din arbetsbelastning överstiger mängden av någon av dessa resurser, är ditt dataflöde begränsade - resulterande långsammare prestanda och tidsgränser. De resurser som används av din arbetsbelastning inverkar inte resurserna som är tillgängliga för andra SQL-databaser i Azure-molnet och de resurser som används av andra arbetsbelastningar inverkar inte resurserna som är tillgängliga för din SQL-databas.
+För en enskild Azure SQL-databas på en specifik compute storlek i en [tjänstnivå](sql-database-single-database-scale.md), Microsoft garanterar en viss nivå av resurser för den här databasen (oberoende av någon annan databas i Azure-molnet), vilket ger en förutsägbar nivån på prestanda. Mängden resurser beräknas som ett antal Databastransaktionsenheter eller dtu: er och är ett paketerat mått av beräkning, lagring och IO-resurser. Förhållandet mellan här resursernas fördelning har ursprungligen bestämts av en [OLTP-benchmarkarbetsbelastning](sql-database-benchmark-overview.md), utformade för att representera verkliga OLTP-arbetsbelastningar. När din arbetsbelastning överstiger mängden av någon av dessa resurser, är ditt dataflöde begränsade - resulterande långsammare prestanda och tidsgränser. De resurser som används av din arbetsbelastning inverkar inte resurserna som är tillgängliga för andra SQL-databaser i Azure-molnet och de resurser som används av andra arbetsbelastningar inverkar inte resurserna som är tillgängliga för din SQL-databas.
 
 ![avgränsningsruta](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-Dtu: er som är mest användbara för att förstå den relativa mängden resurser mellan tjänstnivåerna och Azure SQL-databaser på olika prestandanivåer. Till exempel motsvarar fördubbling av dtu: erna genom att öka prestandanivå för en databas fördubbling av uppsättningen resurser som är tillgängliga för databasen. En premium P11-databas med 1 750 DTU:er erbjuder exempelvis 350 gånger mer DTU-beräkningskraft än en Basic-databas med 5 DTU:er.  
+Dtu: er som är mest användbara för att förstå den relativa mängden resurser mellan tjänstnivåerna och Azure SQL-databaser på olika instansstorlekarna. Till exempel motsvarar fördubbling av dtu: erna genom att öka beräkningsstorleken för en databas fördubbling av uppsättningen resurser som är tillgängliga för databasen. En premium P11-databas med 1 750 DTU:er erbjuder exempelvis 350 gånger mer DTU-beräkningskraft än en Basic-databas med 5 DTU:er.  
 
 Om du vill få bättre insikt i resursförbrukning (DTU) för din arbetsbelastning kan använda [Azure SQL Database Query Performance Insight](sql-database-query-performance.md) till:
 
-- Identifiera de viktigaste frågorna med CPU/varaktighet/körning antalet som potentiellt kan anpassas för bättre prestanda. Till exempel en i/o-intensiva fråga kan dra nytta av användningen av [InMemory-optimeringstekniker](sql-database-in-memory.md) för att bättre utnyttja det tillgängliga minnet på en viss tjänstnivå och prestandanivå servicenivå.
+- Identifiera de viktigaste frågorna med CPU/varaktighet/körning antalet som potentiellt kan anpassas för bättre prestanda. Till exempel en i/o-intensiva fråga kan dra nytta av användningen av [InMemory-optimeringstekniker](sql-database-in-memory.md) för att bättre utnyttja det tillgängliga minnet på en viss tjänstnivån och beräkna storleken.
 - Granska nedåt i detaljerna för en fråga kan visa text och historik över resursanvändningen.
 - Rekommendationer som visar åtgärder som utförs av för åtkomst av prestandajustering [SQL Database Advisor](sql-database-advisor.md).
 

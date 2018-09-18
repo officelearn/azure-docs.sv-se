@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: b2561f4b1b5ef27f389114c85f0646b968f7765e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c7db8eaf57bf29e17b4543e99a44655030aa6172
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36269569"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979403"
 ---
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Med hjälp av hanterade diskar i Azure Resource Manager-mallar
+# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Med hanterade diskar i Azure Resource Manager-mallar
 
-Det här dokumentet går igenom skillnader mellan hanterade och ohanterade diskar när du använder Azure Resource Manager-mallar för att etablera virtuella datorer. Exemplen hjälpa dig att uppdatera befintliga mallar som använder ohanterade diskar till hanterade diskar. För referens anger vi använder den [101-vm-enkel-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) mallen som en vägledning. Du kan se mallen använder både [hanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) och en tidigare version med hjälp av [ohanterad diskar](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) om du vill jämföra dem direkt.
+Det här dokumentet beskriver skillnaderna mellan hanterade och ohanterade diskar när du använder Azure Resource Manager-mallar för att etablera virtuella datorer. Exemplen hjälper dig att uppdatera befintliga mallar som använder ohanterade diskar till hanterade diskar. Referens så vi använder den [101-vm-enkel-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) mallen som en vägledning. Du kan se mallen genom att använda både [hanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) och en tidigare version med hjälp av [ohanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) om du vill jämföra dem direkt.
 
-## <a name="unmanaged-disks-template-formatting"></a>Ohanterad diskar mallen formatering
+## <a name="unmanaged-disks-template-formatting"></a>Ohanterade diskar mall formatering
 
-Om du vill börja, ska vi ta en titt på hur ohanterade diskar har distribuerats. När du skapar en ohanterad diskar, behöver ett lagringskonto för VHD-filer. Du kan skapa ett nytt lagringskonto eller använda en som redan finns. Den här artikeln visar hur du skapar ett nytt lagringskonto. Skapa en resurs för storage-konto i blocket resurser som visas nedan.
+Om du vill börja, låt oss ta en titt på hur ohanterade diskar har distribuerats. När du skapar ohanterade diskar, behöver du ett storage-konto för VHD-filer. Du kan skapa ett nytt lagringskonto eller använda en som redan finns. Den här artikeln visar hur du skapar ett nytt lagringskonto. Skapa en resurs för storage-konto i blocket resurser enligt nedan.
 
 ```json
 {
@@ -37,7 +37,7 @@ Om du vill börja, ska vi ta en titt på hur ohanterade diskar har distribuerats
 }
 ```
 
-I det virtuella datorobjektet, lägger du till ett beroende på lagringskontot för att se till att den har skapats innan den virtuella datorn. I den `storageProfile` avsnitt, anger du den fullständiga URI för VHD-platsen som refererar till lagringskontot och behövs för OS-disken och eventuella hårddiskar.
+I det virtuella datorobjektet, lägger du till ett beroende på lagringskontot för att se till att den har skapats innan den virtuella datorn. I den `storageProfile` avsnittet, ange den fullständiga URI: N för VHD-platsen, som refererar till lagringskontot och krävs för OS-disken och eventuella datadiskar.
 
 ```json
 {
@@ -85,18 +85,18 @@ I det virtuella datorobjektet, lägger du till ett beroende på lagringskontot f
 }
 ```
 
-## <a name="managed-disks-template-formatting"></a>Hanterade diskar mallen formatering
+## <a name="managed-disks-template-formatting"></a>Hanterade diskar mall formatering
 
-Med Azure hanterade diskar disken blir en översta resurs och kräver inte längre ett lagringskonto skapas av användaren. Hanterade diskar har först exponeras i den `2016-04-30-preview` API-versionen som de är tillgängliga i alla efterföljande API-versioner och nu är standard disktyp. I följande avsnitt igenom standardinställningarna och innehåller information om hur du anpassar ytterligare diskar.
+Med Azure Managed Disks disken blir en resurs på toppnivå och kräver inte längre ett storage-konto som ska skapas av användaren. Hanterade diskar exponerades först i den `2016-04-30-preview` API-versionen som de är tillgängliga i alla efterföljande API-versioner och nu är typ av disk. I följande avsnitt beskriver standardinställningarna och förklarar vi hur att ytterligare anpassa dina diskar.
 
 > [!NOTE]
-> Det rekommenderas att använda en API-version senare än `2016-04-30-preview` eftersom viktiga förändringar mellan `2016-04-30-preview` och `2017-03-30`.
+> Det rekommenderas att använda en API-version senare än `2016-04-30-preview` eftersom det fanns ändringar mellan `2016-04-30-preview` och `2017-03-30`.
 >
 >
 
-### <a name="default-managed-disk-settings"></a>Standardinställningarna för hanterade diskar
+### <a name="default-managed-disk-settings"></a>Standardinställningar för hanterad disk
 
-Om du vill skapa en virtuell dator med hanterade diskar, behöver du inte längre skapa lagring kontot resurs och uppdatera din virtuella datorresursen enligt följande. Observera att särskilt den `apiVersion` återspeglar `2017-03-30` och `osDisk` och `dataDisks` inte längre referera till en specifik URI för den virtuella Hårddisken. När du distribuerar utan att ange ytterligare egenskaper som använder disken [Standard LRS lagring](../articles/storage/common/storage-redundancy.md). Om inget namn anges tar format `<VMName>_OsDisk_1_<randomstring>` för OS-disken och `<VMName>_disk<#>_<randomstring>` för varje datadisk. Azure disk encryption är inaktiverat som standard. cachelagring är läsning och skrivning för OS-disken och ingen för datadiskar. Du kan se i exemplet nedan har fortfarande ett beroende som storage-konto, även om detta är endast avsedd för lagring av diagnostik och behövs inte för disklagring.
+Om du vill skapa en virtuell dator med hanterade diskar, behöver du inte längre skapa lagringen konto resurs och uppdatera resursen för virtuella datorer på följande sätt. Observera att särskilt den `apiVersion` återspeglar `2017-03-30` och `osDisk` och `dataDisks` inte längre refererar till en specifik URI för den virtuella Hårddisken. När du distribuerar utan att ange ytterligare egenskaper använder disken en lagringstyp baserat på storleken på den virtuella datorn. Till exempel om du använder en Premium kan VM-storlek (storlekar med ”s” i sina namn, till exempel Standard_D2s_v3) använder sedan system Premium_LRS storage. Använd sku-inställningen på disken för att ange en lagringstyp. Om inget namn anges, tar det formatet `<VMName>_OsDisk_1_<randomstring>` för OS-disken och `<VMName>_disk<#>_<randomstring>` för varje datadisk. Azure-diskkryptering är inaktiverat som standard. cachelagring är skrivbara under OS-disken och inget datadiskar. Du kanske ser i exemplet nedan har fortfarande beroende en storage-konto, men detta gäller endast för lagring av diagnostik och behövs inte för disklagring.
 
 ```json
 {
@@ -135,9 +135,9 @@ Om du vill skapa en virtuell dator med hanterade diskar, behöver du inte längr
 }
 ```
 
-### <a name="using-a-top-level-managed-disk-resource"></a>Med hjälp av en översta hanterade diskresurs
+### <a name="using-a-top-level-managed-disk-resource"></a>Med hjälp av en översta hanterade diskresursen
 
-Du kan skapa en översta diskresurs och bifoga den som en del av den virtuella dator skapandet som ett alternativ till att ange diskkonfigurationen i det virtuella datorobjektet. Du kan till exempel skapa en diskresurs enligt följande för att använda som en datadisk.
+Som ett alternativ till att ange diskkonfigurationen i det virtuella datorobjektet, kan du skapa en översta diskresurs och koppla den som en del av skapa en virtuell dator. Du kan till exempel skapa en diskresurs enligt följande för att använda som en datadisk.
 
 ```json
 {
@@ -157,7 +157,7 @@ Du kan skapa en översta diskresurs och bifoga den som en del av den virtuella d
 }
 ```
 
-I det Virtuella datorobjektet, referera till diskobjektet ska anslutas. Ange resurs-ID för hanterade diskar som skapats i den `managedDisk` egenskapen kan den bifogade filen på disken som den virtuella datorn skapas. Den `apiVersion` för den virtuella datorn resursen har angetts till `2017-03-30`. Ett beroende för diskresursen läggs till se till att den har skapats innan du skapa en virtuell dator. 
+I det Virtuella datorobjektet, referera till diskobjektet ska anslutas. Ange resurs-ID för hanterad disk som skapats i den `managedDisk` egenskap kan den bifogade filen på disken som den virtuella datorn skapas. Den `apiVersion` för den virtuella datorn resurs är inställt på `2017-03-30`. Ett beroende för diskresursen har lagts till för att se till att den har skapats innan du skapa en virtuell dator. 
 
 ```json
 {
@@ -200,9 +200,9 @@ I det Virtuella datorobjektet, referera till diskobjektet ska anslutas. Ange res
 }
 ```
 
-### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Skapa hanterade tillgänglighetsuppsättningar med virtuella datorer med hjälp av hanterade diskar
+### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Skapa hanterade tillgänglighetsuppsättningar med virtuella datorer med hanterade diskar
 
-För att skapa hanterade tillgänglighetsuppsättningar med virtuella datorer med hjälp av hanterade diskar, lägga till den `sku` objekt tillgängligheten resursen och den `name` egenskapen `Aligned`. Den här egenskapen garanterar att diskar för varje virtuell dator är tillräckligt isolerade från varandra för att undvika enskilda felpunkter. Observera att den `apiVersion` för resursen tillgänglighetsuppsättning är inställd på `2017-03-30`.
+För att skapa hanterade tillgänglighetsuppsättningar med virtuella datorer med hanterade diskar, lägga till den `sku` objekt tillgängliga resurser och den `name` egenskap `Aligned`. Den här egenskapen säkerställer att diskarna för varje virtuell dator är tillräckligt isolerade från varandra för att undvika enskilda felpunkter. Observera också att den `apiVersion` för tillgänglighetsuppsättningen resursen är inställd på `2017-03-30`.
 
 ```json
 {
@@ -222,12 +222,12 @@ För att skapa hanterade tillgänglighetsuppsättningar med virtuella datorer me
 
 ### <a name="standard-ssd-disks"></a>Standard SSD-diskar
 
-Nedan visas de parametrar som behövs i Resource Manager-mall för att skapa Standard SSD-diskar:
+Nedan visas de parametrar som behövs i Resource Manager-mallen för att skapa Standard SSD-diskar:
 
 * *apiVersion* för Microsoft.Compute måste anges som `2018-04-01` (eller senare)
 * Ange *managedDisk.storageAccountType* som `StandardSSD_LRS`
 
-I följande exempel visas den *properties.storageProfile.osDisk* för en virtuell dator som använder Standard SSD-diskar:
+I följande exempel visas den *properties.storageProfile.osDisk* avsnittet för en virtuell dator som använder Standard SSD-diskar:
 
 ```json
 "osDisk": {
@@ -241,19 +241,19 @@ I följande exempel visas den *properties.storageProfile.osDisk* för en virtuel
 }
 ```
 
-En fullständig mall exempel på hur du skapar en Standard SSD-disk med en mall finns i [skapa en virtuell dator från en Windows-avbildning med Datadiskar som Standard SSD](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+En fullständig mall exempel på hur du skapar en Standard SSD-disk med en mall finns i [skapa en virtuell dator från en Windows-avbildning med Standard SSD-Datadiskar](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 ### <a name="additional-scenarios-and-customizations"></a>Fler scenarier och anpassningar
 
-Om du vill hitta fullständig information om REST API-specifikationerna, granska den [skapar du en hanterad disk REST API-dokumentation](/rest/api/manageddisks/disks/disks-create-or-update). Du hittar fler scenarier, såväl som standard och godkända värden som ska skickas till API: N via mall-distributioner. 
+För att hitta fullständig information om REST API-specifikationerna, granska de [skapa en hanterad disk REST API-dokumentation](/rest/api/manageddisks/disks/disks-create-or-update). Du hittar fler scenarier som standard och godkända värden som kan skickas till API: ets malldistributioner. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Fullständig mallar som använder hanterade diskar finns på följande länkar för Azure Quickstart lagringsplatsen.
-    * [Windows virtuell dator med hanterad disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
-    * [Linux VM med hanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-    * [Fullständig lista över mallar för hanterade diskar](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
-* Besök den [hanterade diskar översikt över Azure](../articles/virtual-machines/windows/managed-disks-overview.md) dokumentet för mer information om hanterade diskar.
-* Granska referensdokumentationen mall för virtuella datorresurser genom att besöka den [Microsoft.Compute/virtualMachines mallreferensen](/azure/templates/microsoft.compute/virtualmachines) dokumentet.
-* Granska referensdokumentationen mall för diskresurser genom att besöka den [Microsoft.Compute/disks mallreferensen](/azure/templates/microsoft.compute/disks) dokumentet.
-* Information om hur du använder hanterade diskar i skalningsuppsättningar i virtuella Azure-datorn finns i [använder datadiskar med skalningsuppsättningar](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) dokumentet.
+* Besök följande länkar för Azure Quickstart-lagringsplatsen för fullständiga mallar som använder hanterade diskar.
+    * [Windows VM med en hanterad disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+    * [Linux VM med en hanterad disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+    * [Fullständig lista över mallar för hanterad disk](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* Gå till den [Azure översikten över Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md) dokumentet för mer information om hanterade diskar.
+* Granska referensdokumentationen för mallar för virtuella datorresurser genom att besöka den [Microsoft.Compute/virtualMachines mallreferensen](/azure/templates/microsoft.compute/virtualmachines) dokumentet.
+* Granska referensdokumentationen för mallar för diskresurser genom att besöka den [Microsoft.Compute/disks mallreferensen](/azure/templates/microsoft.compute/disks) dokumentet.
+* Information om hur du använder hanterade diskar i Azure VM-skalningsuppsättningar finns i [använda datadiskar med skalningsuppsättningar](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) dokumentet.

@@ -3,18 +3,18 @@ title: Konfigurera HBase-kluster-replikering i Azure-nätverk
 description: Lär dig hur du ställer in HBase-replikering från en HDInsight-version till en annan för Utjämning av nätverksbelastning, hög tillgänglighet, noll stilleståndstid vid migrering och uppdateringar och katastrofåterställning.
 services: hdinsight,virtual-network
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: jasonh
-ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/15/2018
+ms.openlocfilehash: 0d675b3efa165f36b93d791975a8007a68b02e12
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047491"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734766"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera HBase-kluster-replikering i Azure-nätverk
 
@@ -135,7 +135,7 @@ Följ anvisningarna nedan om du vill installera bindning:
     sudo apt-get install bind9 -y
     ```
 
-3. Om du vill konfigurera bindning att vidarebefordra begäran till din DNS-server med en lokal namnmatchning, Använd följande text som innehållet i den `/etc/bind/named.conf.options` fil:
+3. Konfigurera Bind att vidarebefordra begäran till din DNS-server med en lokal namnmatchning. Du gör detta genom att använda följande text som innehållet i den `/etc/bind/named.conf.options` fil:
 
     ```
     acl goodclients {
@@ -151,7 +151,7 @@ Följ anvisningarna nedan om du vill installera bindning:
         allow-query { goodclients; };
 
         forwarders {
-            168.63.129.16 #This is the Azure DNS server
+            168.63.129.16; #This is the Azure DNS server
         };
 
         dnssec-validation auto;

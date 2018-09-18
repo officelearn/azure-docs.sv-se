@@ -10,12 +10,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 87560f3fb34c281b6802ef5079fd1445caba6db8
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423573"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983639"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuera och utforska en multitenant SaaS-app som använder mönstret databas-per-klient med SQL Database
 
@@ -83,7 +83,7 @@ Ladda ned källkod kod- och skript när programmet distribueras.
 > Körbart innehåll (skript och DLL-filer) kan blockeras av Windows när ZIP-filer laddas ned från en extern källa och extraheras. Följ stegen för att låsa upp ZIP-filen innan du extrahera skripten. Avblockera ser till att skripten ska tillåtas att köras.
 
 1. Bläddra till den [WingtipTicketsSaaS DbPerTenant GitHub-lagringsplatsen][github-wingtip-dpt].
-1. Välj **klona eller ladda ned**.
+1. Välj **Klona eller ladda ned**.
 1. Välj **ladda ned ZIP**, och spara filen.
 1. Högerklicka på den **WingtipTicketsSaaS-DbPerTenant-master.zip** och väljer sedan **egenskaper**.
 1. På den **Allmänt** fliken **avblockera** > **tillämpa**.
@@ -242,7 +242,7 @@ Bläddra till servern **tenants1-dpt -&lt;användaren&gt;**, och välj **Pool1**
 - Det första diagrammet som är märkt **resursutnyttjande**, visar poolens eDTU-användningen.
 - Det andra diagrammet visar eDTU-användningen av de fem mest aktiva databaserna i poolen.
 
-De två diagrammen visar att elastiska pooler och SQL-databas är utmärkt för arbetsbelastningar med oförutsägbara SaaS-program. Diagrammen visar att fyra databaser är varje burst-överförs till så mycket som 40 edtu: er och ännu alla databaser bekvämt stöds av en 50 eDTU-pool. 50 eDTU-pool har stöd för ännu större arbetsbelastningar. Om databaserna har etablerats som fristående databaser, var och en måste vara en S2 (50 DTU) för att stödja topparna. Kostnaden för 4 fristående S2-databaser är nästan tre gånger priset för poolen. I verkliga situationer kör SQL-databaskunder upp till 500 databaser i 200 eDTU-pooler. Mer information finns i den [guide för prestandaövervakning](saas-dbpertenant-performance-monitoring.md).
+De två diagrammen visar att elastiska pooler och SQL-databas är utmärkt för arbetsbelastningar med oförutsägbara SaaS-program. Diagrammen visar att fyra databaser är varje burst-överförs till så mycket som 40 edtu: er och ännu alla databaser bekvämt stöds av en 50 eDTU-pool. 50 eDTU-pool har stöd för ännu större arbetsbelastningar. Om databaserna har etablerats som enskilda databaser, var och en måste vara en S2 (50 DTU) för att stödja topparna. Kostnaden för 4 fristående S2-databaser är nästan tre gånger priset för poolen. I verkliga situationer kör SQL-databaskunder upp till 500 databaser i 200 eDTU-pooler. Mer information finns i den [guide för prestandaövervakning](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

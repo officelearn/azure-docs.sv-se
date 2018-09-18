@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 1373e98b8edac81ebdb15aaf36d8bbfc910029fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: fdcc4f51f49e8eb133deeeecd070c55511cda464
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026193"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985804"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivera säkerhetskopiering för Azure Stack från administrationsportalen
 Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure Stack kan generera säkerhetskopieringar. Du kan använda dessa säkerhetskopior för att återskapa din miljö med hjälp av molnåterställning i händelse av [ett oåterkalleligt fel](.\azure-stack-backup-recover-data.md). Syftet med molnet är att säkerställa att dina operatörer och användare kan logga in igen på portalen när återställningen är klar. Användarna har sina prenumerationer som återställts, inklusive behörigheter för rollbaserad åtkomst och roller, ursprungliga planer, erbjudanden, och tidigare definierad beräkning, lagring och nätverkskvoter.
@@ -62,7 +62,7 @@ Administratörer och användare ansvarar för att säkerhetskopiera och återst�
 ## <a name="start-backup"></a>Starta Säkerhetskopiering
 Om du vill starta en säkerhetskopiering klickar du på **Säkerhetskopiera nu** att starta en säkerhetskopiering på begäran. En säkerhetskopiering på begäran kan inte ändra tiden för nästa schemalagda säkerhetskopiering. När uppgiften har slutförts kan du bekräfta inställningarna i **Essentials**:
 
-![Azure Stack - säkerhetskopiering på begäran](media\azure-stack-backup\scheduled-backup.png).
+![Azure Stack - säkerhetskopiering på begäran](media\azure-stack-backup\scheduled-backup.png)
 
 Du kan också köra PowerShell-cmdleten **Start AzsBackup** på din dator för administration av Azure Stack. Mer information finns i [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 

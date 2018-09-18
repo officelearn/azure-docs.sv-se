@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: e025a1a625bded118ea7f3b3968502115b64d83a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348284"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734706"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption 
  Den här artikeln krävs för Azure Disk Encryption, förklarar objekt som måste vara uppfyllda innan du kan använda Azure Disk Encryption. Azure Disk Encryption är integrerad med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) för att hantera krypteringsnycklar. Du kan använda [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), eller [Azure-portalen](https://portal.azure.com) att konfigurera Azure Disk Encryption.
@@ -127,6 +127,9 @@ Om du redan är bekant med Key Vault och Azure AD-krav för Azure Disk Encryptio
 1. Om det behövs skapar du en resursgrupp.
 2. Skapa ett nyckelvalv. 
 3. Ange nyckelvalv avancerade åtkomstprinciper.
+
+>[!WARNING]
+>Se till att du inte krypterar alla befintliga virtuella datorer med den innan du tar bort ett nyckelvalv. Att skydda ett valv mot oavsiktlig borttagning [aktivera mjuk borttagning](../key-vault/key-vault-soft-delete-powershell.md#enabling-soft-delete) och en [resurslås](../azure-resource-manager/resource-group-lock-resources.md) på valvet. 
  
 ## <a name="bkmk_KeyVault"></a> Skapa ett nyckelvalv 
 Azure Disk Encryption är integrerad med [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) för att styra och hantera diskkrypteringsnycklar och hemligheter i key vault-prenumeration. Du kan skapa ett nyckelvalv eller Använd en befintlig för Azure Disk Encryption. Läs mer om nyckelvalv [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md) och [säkra ditt nyckelvalv](../key-vault/key-vault-secure-your-key-vault.md). Du kan använda en Resource Manager-mall, Azure PowerShell eller Azure CLI för att skapa ett nyckelvalv. 

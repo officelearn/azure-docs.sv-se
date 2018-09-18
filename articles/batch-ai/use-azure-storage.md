@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6a9897e94bf8f58ca4000f68ff30bfc6eece6249
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057254"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731810"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Store Batch AI-jobbindata och utdata med Azure Storage
 
@@ -30,7 +30,7 @@ Azure Storage är Microsofts molntjänstlagringslösning. Batch AI stöder monte
 
 När du väljer Azure Storage för Batch AI-miljö rekommenderar vi att du lagrar dina indatafiler (till exempel datauppsättningar) i en Blob-behållare som har högre dataflöde, och du sparar din utbildning utdata i en filresurs, som har stöd för direktuppspelning (som tillåter läsning av utdataloggar medan jobbet körs samtidigt). 
 
-Innan du kan använda Azure Storage, måste du [skapa ett Azure Storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account). Batch AI har stöd för montering volymer från båda General-purpose v1 (GPv1) och generell användning v2 (GPv2) Azure Storage-konton. Azure Storage-konto kan innehålla flera Blob-behållare eller fil-instanser av filresurser. Överväga dina krav kostnad och prestanda när du väljer ett lagringskonto [alternativet](../storage/common/storage-account-options.md). 
+Innan du kan använda Azure Storage, måste du [skapa ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md). Batch AI har stöd för montering volymer från båda General-purpose v1 (GPv1) och generell användning v2 (GPv2) Azure Storage-konton. Azure Storage-konto kan innehålla flera Blob-behållare eller fil-instanser av filresurser. Överväg att dina krav kostnad och prestanda när du väljer typ av lagringskonto för att skapa. Mer information finns i [översikt över Azure storage-konton](../storage/common/storage-account-overview.md). 
 
 Skapa en Blob-behållare och om du vill ladda upp din datauppsättning till en Azure Blob-behållare, väljer du något av följande metoder:
 - [Azure-portalen](../storage/blobs/storage-quickstart-blobs-portal.md) för att ladda upp med ett webbaserat grafiskt användargränssnitt. Om du vill överföra ett litet antal filer, innehåller Azure portal enklaste igen.

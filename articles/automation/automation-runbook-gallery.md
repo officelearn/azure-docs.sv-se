@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/13/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 489d9c430db000710368a65f3100bb175ad00eae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 988f77dd0f8f31f6e31e5371ed263d4c4195c105
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041195"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984881"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- och gallerier för Azure Automation
 I stället för att skapa egna runbooks och moduler i Azure Automation kan du komma åt en mängd olika scenarier som redan har skapats av Microsoft och communityn.  Du kan antingen använda de här scenarierna utan ändringar eller du kan använda dem som en startpunkt och redigera dem efter behov.
@@ -59,7 +59,7 @@ Microsoft rekommenderar att du vill lägga till runbooks i Runbook-galleriet som
   * Ändringshantering
   * Efterlevnad
   * Dev / Test-miljöer
-  * Katastrofåterställning
+  * Haveriberedskap
   * Övervakning
   * Uppdatering
   * Etablering
@@ -80,7 +80,7 @@ PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och 
    
    * Modulnamn
    * Taggar
-   * Skapa
+   * Författare
    * Cmdlet/DSC-resursnamn
 6. Hitta en modul som du är intresserad av och markera den för att visa dess egenskaper.  
    När du ökar detaljnivån i en specifik modul, kan du visa mer information om modulen, inklusive en länk tillbaka till PowerShell-galleriet alla obligatoriska beroenden och alla cmdletar och/eller DSC-resurser som innehåller modulen.
@@ -94,6 +94,10 @@ PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och 
 
 > [!NOTE]
 > Moduler som har endast stöd för PowerShell core stöds inte i Azure Automation och kan inte importeras i Azure-portalen eller distribueras direkt från PowerShell-galleriet.
+
+## <a name="python-runbooks"></a>Python-Runbooks
+
+Python-Runbooks är tillgängliga i den [Script Center galleriet](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Du kan bidra Python runbooks i Script Center-galleriet. När du, se till att du lägger till taggen **Python** när du laddar upp ditt bidrag.
 
 ## <a name="requesting-a-runbook-or-module"></a>Begär en runbook eller en modul
 Du kan skicka begäranden till [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Om du behöver hjälp skriver du en runbook eller har en fråga om PowerShell, ställa en fråga till vår [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).

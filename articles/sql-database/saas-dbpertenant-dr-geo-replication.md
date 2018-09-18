@@ -10,18 +10,18 @@ ms.custom: saas apps
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1af13857bdde06b70cb8d01db8d9668cc6ce99e6
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34645801"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983975"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Haveriberedskap för en SaaS-program med hjälp av database geo-replikering
 
 I den här självstudien får utforska du fullständig haveriberedskap för ett SaaS-program för flera innehavare som implementeras med hjälp av modellen databas-per-klient. För att skydda appen från ett avbrott kan du använda [ _georeplikering_ ](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) att skapa repliker för catalog och klient-databaser i en annan återställningsregion. Om ett avbrott uppstår kan växlar du snabbt över till de här replikeringarna att återuppta normal verksamheten. Vid redundans blir databaser i den ursprungliga regionen sekundära repliker för databaserna i återställningsregionen. När dessa repliker är online igen fånga de automatiskt upp till tillståndet för databaserna i återställningsregionen. När driftstörningarna har åtgärdats, växla tillbaka till databaserna i produktionsregionen.
 
-Den här guiden utforskar arbetsflöden för både redundans och återställning efter fel. Du får lära dig hur du:
+Den här guiden utforskar arbetsflöden för både redundans och återställning efter fel. Du lär dig följande:
 > [!div classs="checklist"]
 
 >* Synkronisera databaser och elastiska konfigurationsinformation för lagringspool i klient-katalogen
@@ -51,9 +51,9 @@ En DR-planen baserat på geo-replikering består av tre separata delar:
 Alla delar måste planeras noggrant, särskilt om du kör i skala. Övergripande måste planen utföra flera mål:
 
 * Konfiguration
-    * Upprätta och upprätthålla en spegelbild miljö i återställningsregionen. Skapa elastiska pooler och replikering av alla fristående databaser i den här Återställningsmiljö reserverar kapacitet i återställningsregionen. Underhåll av den här miljön innehåller replikera nya klientdatabaserna när de har etablerats.  
+    * Upprätta och upprätthålla en spegelbild miljö i återställningsregionen. Skapa elastiska pooler och replikering av alla enskilda databaser i den här Återställningsmiljö reserverar kapacitet i återställningsregionen. Underhåll av den här miljön innehåller replikera nya klientdatabaserna när de har etablerats.  
 * Återställning
-    * Om en skalas ned Återställningsmiljö används för att minimera dagliga kostnader, måste pooler och fristående databaser skalas upp för att hämta fullständig driftskapacitet i återställningsregionen
+    * Om en skalas ned Återställningsmiljö används för att minimera dagliga kostnader, måste pooler och enskilda databaser skalas upp för att hämta fullständig driftskapacitet i återställningsregionen
     * Aktivera etableringen i återställningsregionen så snart som möjligt av nya klienter  
     * Optimeras för att återställa klienter i prioritetsordning
     * Optimeras för att hämta klienter online så snabbt som möjligt genom att göra steg parallellt där praktiska
@@ -90,8 +90,8 @@ Senare, i ett separat hemtransport steg växlar över katalog- och klienttrafik 
 Granska det normala felfritt tillståndet innan du startar återställningsprocessen.
 1. Öppna i webbläsaren, Evenemangshubben Wingtip biljetter (http://events.wingtip-dpt.&lt; användare&gt;. trafficmanager.net - Ersätt &lt;användaren&gt; med värdet för användarnamn för din distribution).
     * Bläddra längst ned på sidan och Lägg märke till katalogen servernamnet och en plats i sidfoten. Platsen är den region där du har distribuerat appen.
-    *Tips: Pekar på platsen för att visa.*
-    ![Händelser hub felfritt tillstånd i ursprungliga region](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *Tips: Pekar på platsen för att visa. * 
+     ![Händelser hub felfritt tillstånd i ursprungliga region](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Klicka på Contosos Konserthall-klient och öppna appens sida för händelsen.
     * Observera klient servernamnet i sidfoten. Platsen ska vara samma som den katalogservern plats.
@@ -158,7 +158,7 @@ Observera länken geo-replikering mellan primärt i regionen ursprungliga och se
 
 1. Markerar alla befintliga klienter i katalogen recovery som offline om du vill förhindra åtkomst till klientdatabaser innan de har redundansväxlats.
 
-1. Uppdaterar konfigurationen av alla elastiska pooler och replikerade fristående databaser i återställningsregionen för spegling av deras konfiguration i den ursprungliga regionen. (Den här uppgiften krävs endast om pooler eller replikerade databaser i recovery environment skalas under normal drift för att minska kostnaderna).
+1. Uppdaterar konfigurationen av alla elastiska pooler och replikerade enskilda databaser i återställningsregionen för spegling av deras konfiguration i den ursprungliga regionen. (Den här uppgiften krävs endast om pooler eller replikerade databaser i recovery environment skalas under normal drift för att minska kostnaderna).
 
 1. Aktiverar Traffic Manager-slutpunkten för webbappen i återställningsregionen. Om du aktiverar den här slutpunkten kan programmet för att etablera nya klienter. I det här skedet är befintliga klienter fortfarande offline.
 
@@ -185,7 +185,7 @@ Nu imagine det uppstår ett avbrott i regionen där programmet distribueras och 
     * Återställningsregionen är den _parad region_ som är associerade med Azure-regionen där du har distribuerat programmet. Mer information finns i [parade Azure-regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Övervaka status för återställningen i PowerShell-fönstret.
-    ![redundans](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
+    ![Redundans](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
 
 > [!Note]
 > Granska PowerShell-skript i mappen ...\Learning Modules\Business affärskontinuitet och Haveriberedskap Recovery\DR-FailoverToReplica\RecoveryJobs för att utforska koden för återställningsjobben.

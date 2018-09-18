@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: aa2d8f50d8fb4ba356af20a290976b8b32601ebf
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b5632db57e902eef76860f85de6e76f85861090a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188799"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45728971"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (Python)
 
@@ -27,13 +27,13 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 
 * Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [skapa Azure IoT Central programmet](howto-create-application.md).
 * En Raspberry Pi-enhet som kör operativsystemet Raspbian. Du behöver en bildskärm, tangentbord och mus som är anslutna till Raspberry Pi till GUI-miljö. Raspberry Pi måste kunna [ansluta till internet](https://www.raspberrypi.org/learning/software-guide/wifi/).
-* Du kan också en [mening Hat](https://www.raspberrypi.org/products/sense-hat/) tillägg tavla för Raspberry Pi. Den här tavla samlar in telemetridata från olika sensorer för att skicka till din Azure IoT Central-App. Om du inte har en **mening Hat** tavla, du kan använda en emulator i stället.
+* Du kan också en [mening Hat](https://www.raspberrypi.org/products/sense-hat/) tillägg tavla för Raspberry Pi. Den här tavla samlar in telemetridata från olika sensorer för att skicka till din Azure IoT Central-App. Om du inte har en **mening Hat** tavla, du kan använda en emulator i stället (tillgänglig som en del av Raspberry Pi-avbildning).
 
 ## <a name="sample-devkits-application"></a>**Exempel på Devkits** program
 
 Ett program som skapats från den **exempel Devkits** programmall innehåller en **Raspberry Pi** enheten mallen med följande egenskaper: 
 
-- Telemetri som innehåller mätningarna för enheten **fuktighet**, **temperatur**, **tryck**, **Magnometer** (mätt längs X Y, Z-axeln), **Accelorometer** (mätt längs X, Y, Z-axeln) och **gyroskop** (mätt längs X, Y, Z-axeln).
+- Telemetri som innehåller mätningarna för enheten **fuktighet**, **temperatur**, **tryck**, **Magnometer** (mätt längs X Y, Z-axeln), **Accelorometer** (mätt längs X, Y, Z-axeln), och **gyroskop** (mätt längs X, Y, Z-axeln).
 - Inställningar som visar **Voltage**, **aktuella**,**fläkthastighet** och en **IR** växlingsknappen.
 - Egenskaper som innehåller enhetsegenskap **dör nummer** och **plats** egenskap i molnet.
 
@@ -43,7 +43,8 @@ Fullständig information om konfigurationen av enheten mallen finns i [Raspberry
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-I Azure IoT Central programmet, lägger du till en riktig enhet från den **Raspberry Pi** enheten mallen och gjort en notering enhetens anslutningssträng. Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
+I Azure IoT Central programmet, lägger du till en riktig enhet från den **Raspberry Pi** enheten mallen och gjort en notering enhetsinformation för anslutningen (**Scope-ID, enhets-ID, primärnyckel**). Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
+
 
 ### <a name="configure-the-raspberry-pi"></a>Konfigurera Raspberry Pi
 
@@ -52,30 +53,14 @@ Följande steg beskriver hur du hämtar och konfigurerar du exempelprogrammet Py
 * Skickar telemetri och egenskapsvärden till Azure IoT Central.
 * Svarar på inställningen ändringar som gjorts i Azure IoT Central.
 
+Att konfigurera enheten [följa de stegvisa anvisningarna på GitHub.](http://aka.ms/iotcentral-docs-Raspi-releases)
+
+
 > [!NOTE]
-> Mer information om de Raspberry Pi Python-exempel finns i den [Readme](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md) fil på GitHub.
+> Mer information om de Raspberry Pi Python-exempel finns i den [Readme](http://aka.ms/iotcentral-docs-Raspi-releases) fil på GitHub.
 
-1. Använda webbläsaren i desktop Raspberry Pi för att navigera till den [Azure IoT Central firmware släpper](https://github.com/Azure/iot-central-firmware/releases) sidan.
 
-1. Ladda ned zip-filen som innehåller den senaste inbyggda programvaran arbetsmappen på Raspberry Pi. Namnet på filen som ser ut som `RaspberryPi-IoTCentral-X.X.X.zip`.
-
-1. Om du vill packa upp filen inbyggd programvara, använda den **hanteraren** i desktop Raspberry Pi. Högerklicka på zip-filen och välj **extrahera här**. Den här åtgärden skapar en mapp med namnet `RaspberryPi-IoTCentral-X.X.X` i arbetsmappen.
-
-1. Om du inte har en **mening Hat** tavlan som är kopplade till Raspberry Pi, måste du aktivera emulatorn:
-    1. I **hanteraren**i den `RaspberryPi-IoTCentral-X.X.X` mapp, högerklickar du på den **config.iot** filen och välj **textredigerare**.
-    1. Ändrar du raden `"simulateSenseHat": false,` till `"simulateSenseHat": true,`.
-    1. Spara ändringarna och Stäng **textredigerare**.
-
-1. Starta en **Terminal** session och använda den `cd` kommando för att navigera till mappen du skapade i föregående steg.
-
-1. Om du vill starta exempelprogrammet körs skriver `./start.sh` i den **Terminal** fönster. Om du använder den **mening HAT emulatorn**, visar dess GUI. Du kan använda det grafiska Användargränssnittet för att ändra värdena för telemetri som skickas till Azure IoT Central programmet.
-
-1. Den **Terminal** visas ett meddelande som ser ut som i fönstret `Device information being served at http://192.168.0.60:8080`. URL: en kan skilja sig i din miljö. Kopiera URL: en och använda webbläsaren för att navigera till konfigurationssidan:
-
-    ![Konfigurera enhet](media/howto-connect-raspberry-pi-python/configure.png)
-
-1. Ange enhetens anslutningssträng som du antecknade när du har lagt till en riktig enhet till Azure IoT Central programmet. Välj sedan **– konfigurera enhet**. Du ser ett meddelande **enheten konfigurerad, enheten ska börja skicka data till Azure IoT Central tillfälligt**.
-
+1. När enheten har konfigurerats kan ska enheten börja skicka data till Azure IoT Central under ett ögonblick.
 1. I Azure IoT Central programmet se du hur koden körs på Raspberry Pi interagerar med programmet:
 
     * På den **mätningar** sidan för din riktig enhet visas telemetri som skickas från Raspberry Pi. Om du använder den **mening HAT emulatorn**, du kan ändra telemetrivärden i det grafiska Användargränssnittet på Raspberry Pi.

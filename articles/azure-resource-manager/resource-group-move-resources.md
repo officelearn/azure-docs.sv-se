@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 807026d2de40de1b14d2eb1d9eeb9da0aade4ad7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0b0ddedde49208a85628cdfc226f870a32ff7170
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297765"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985872"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -218,7 +218,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Service Fabric
 * Service Fabric-nät
 * SignalR Service
-* Storage
+* Storage - konton i olika regioner kan inte flyttas på samma gång. Använd i stället separata åtgärder för varje region.
 * Storage (klassisk) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
 * Stream Analytics - tillstånd för Stream Analytics-jobb inte kan flyttas när du kör i.
 * SQL Database-server - databas och server måste finnas i samma resursgrupp. Om du flyttar en SQLServer, flyttas även alla dess databaser. Det här beteendet gäller för Azure SQL Database och Azure SQL Data Warehouse-databaser.

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 044d47a294df4e218c84a928a63426dde4f8373b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 580dd5bf6a7e905927189f4b1ae42ab49a1cbc80
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053141"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730723"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,21 +27,21 @@ ms.locfileid: "37053141"
 > * [Version 2 (aktuell version)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [anpassade aktiviteter i V2](../transform-data-using-dotnet-custom-activity.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [anpassade aktiviteter i V2](../transform-data-using-dotnet-custom-activity.md).
 
-Det finns två typer av aktiviteter som du kan använda i ett Azure Data Factory-pipelinen.
+Det finns två typer av aktiviteter som du kan använda i en Azure Data Factory-pipeline.
 
-- [Data Movement aktiviteter](data-factory-data-movement-activities.md) att flytta data mellan [stöds källa och mottagare datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- [Data Transformation aktiviteter](data-factory-data-transformation-activities.md) för att omvandla data med hjälp av compute-tjänster som Azure HDInsight, Azure Batch och Azure Machine Learning. 
+- [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) att flytta data mellan [datalager för källa och mottagare som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+- [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) för att omvandla data med Beräkningstjänster som Azure HDInsight, Azure Batch och Azure Machine Learning. 
 
-Om du vill flytta data till/från ett dataarkiv som Data Factory inte har stöd för, skapa en **anpassad aktivitet** med dina egna data movement logik och Använd aktiviteten i en pipeline. På samma sätt för att transformera/bearbeta data på ett sätt som inte stöds av Data Factory, skapa en anpassad aktivitet med dina egna data transformation logik och använda aktiviteten i en pipeline. 
+Om du vill flytta data till/från ett datalager som Data Factory inte stöder kan skapa en **anpassad aktivitet** med dina egna data movement logik och Använd aktiviteten i en pipeline. På samma sätt för att transformera/bearbeta data på ett sätt som inte stöds av Data Factory, skapa en anpassad aktivitet med egen logik för omvandling av data och använda aktiviteten i en pipeline. 
 
-Du kan konfigurera en anpassad aktivitet ska köras på en **Azure Batch** pool för virtuella datorer. När du använder Azure Batch kan använda du endast en befintlig Azure Batch-pool.
+Du kan konfigurera en anpassad aktivitet ska köras på en **Azure Batch** pool med virtuella datorer. När du använder Azure Batch kan använda du endast en befintlig Azure Batch-pool.
 
-Den här genomgången innehåller stegvisa instruktioner för att skapa en anpassad .NET-aktivitet och använda den anpassade aktiviteten i en pipeline. Den här genomgången använder en **Azure Batch** länkade tjänsten. 
+Den här genomgången innehåller stegvisa instruktioner för att skapa en anpassad .NET-aktivitet och använda den anpassade aktiviteten i en pipeline. Den här genomgången använder en **Azure Batch** länkad tjänst. 
 
 > [!IMPORTANT]
-> - Det går inte att använda en Data Management Gateway från en anpassad aktivitet för att få åtkomst till lokala datakällor. För närvarande [Data Management Gateway](data-factory-data-management-gateway.md) stöder endast kopieringsaktiviteten och aktiviteten lagrad procedur i Data Factory.   
+> - Det går inte att använda en Gateway för datahantering från en anpassad aktivitet för att komma åt lokala datakällor. För närvarande [Data Management Gateway](data-factory-data-management-gateway.md) stöder endast Kopieringsaktivitet och lagrad proceduraktivitet i Data Factory.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Genomgång: skapa en anpassad aktivitet
 ### <a name="prerequisites"></a>Förutsättningar
@@ -49,39 +49,39 @@ Den här genomgången innehåller stegvisa instruktioner för att skapa en anpas
 * Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Krav för Azure Batch
-I den här genomgången kan du köra dina anpassade .NET-aktiviteter med hjälp av Azure Batch som en resurs för beräkning. **Azure Batch** är en plattform som tjänsten för att köra storskaliga parallellt och högpresterande datorbearbetning (HPC) program effektivt i molnet. Azure Batch schemalägger beräkningsintensiva arbete ska köras på en hanterad **samling av virtuella datorer**, och kan automatiskt skala beräkningsresurser för att möta behoven hos dina jobb. Se [grunderna i Azure Batch] [ batch-technical-overview] artikel en detaljerad översikt över Azure Batch-tjänsten.
+I den här genomgången kan du köra dina anpassade .NET-aktiviteter med hjälp av Azure Batch som en beräkningsresurs. **Azure Batch** är en plattform som tjänst för att köra storskaliga parallella och högpresterande databehandlingsprogram (HPC) effektivt i molnet. Azure Batch schemalägger beräkningsintensiva arbeten att köras på en hanterad **samling virtuella datorer**, och kan automatiskt skala beräkningsresurser för att uppfylla behoven i dina jobb. Se [grunderna om Azure Batch] [ batch-technical-overview] artikeln en detaljerad översikt över Azure Batch-tjänsten.
 
-Skapa ett Azure Batch-konto med en pool för virtuella datorer för självstudierna. Här är stegen:
+Skapa ett Batch-konto med en pool med virtuella datorer för den här självstudien. Här är stegen:
 
-1. Skapa en **Azure Batch-kontot** med hjälp av den [Azure-portalen](http://portal.azure.com). Se [skapa och hantera Azure Batch-kontot] [ batch-create-account] artikel anvisningar.
-2. Notera Azure Batch-kontonamn, kontonyckel, URI: N och namnet på programpoolen. Du behöver dem för att skapa en Azure Batch länkad tjänst.
-    1. På startsidan för Azure Batch-kontot som du ser en **URL** i följande format: `https://myaccount.westus.batch.azure.com`. I det här exemplet **MITTKONTO** är namnet på Azure Batch-kontot. URI som du använder i länkade tjänstdefinitionen är URL: en utan att namnet på kontot. Till exempel: `https://<region>.batch.azure.com`.
-    2. Klicka på **nycklar** på den vänstra menyn och kopiera den **primära ÅTKOMSTNYCKELN**.
-    3. Om du vill använda en befintlig adresspool **pooler** på menyn och Skriv ner den **ID** för poolen. Om du inte har en befintlig adresspool går vidare till nästa steg.     
+1. Skapa en **Azure Batch-konto** med hjälp av den [Azure-portalen](http://portal.azure.com). Se [skapa och hantera ett Azure Batch-konto] [ batch-create-account] artikeln anvisningar.
+2. Skriv ned Azure Batch-kontonamn, nyckel, URI: N och namn på programpool. Du behöver dem för att skapa ett Azure Batch-länkad tjänst.
+    1. På startsidan för Azure Batch-konto, visas en **URL** i följande format: `https://myaccount.westus.batch.azure.com`. I det här exemplet **myaccount** är namnet på Azure Batch-kontot. URI: N som du använder i länkade tjänstedefinition är URL: en utan att namnet på kontot. Till exempel: `https://<region>.batch.azure.com`.
+    2. Klicka på **nycklar** på den vänstra menyn och kopiera den **primära ÅTKOMSTNYCKEL**.
+    3. Om du vill använda en befintlig pool, klickar du på **pooler** på menyn och Skriv ned den **ID** för poolen. Om du inte har en befintlig pool kan du flytta till nästa steg.     
 2. Skapa en **Azure Batch-pool**.
 
-   1. I den [Azure-portalen](https://portal.azure.com), klickar du på **Bläddra** i den vänstra menyn och klicka på **Batch-konton**.
-   2. Välj Azure Batch-konto för att öppna den **Batch-kontot** bladet.
+   1. I den [Azure-portalen](https://portal.azure.com), klickar du på **Bläddra** i den vänstra menyn och på **Batch-konton**.
+   2. Välj din Azure Batch-konto för att öppna den **Batch-kontot** bladet.
    3. Klicka på **pooler** panelen.
-   4. I den **pooler** bladet, klickar du på knappen Lägg till i verktygsfältet för att lägga till en pool.
-      1. Ange ett ID för poolen (Pool-ID). Observera den **ID för poolen**; du behöver den när du skapar Data Factory-lösning.
-      2. Ange **Windows Server 2012 R2** för operativsystemsfamiljen inställningen.
+   4. I den **pooler** bladet klickar du på knappen Lägg till i verktygsfältet för att lägga till en pool.
+      1. Ange ett ID för poolen (Pool-ID). Obs den **ID: T för poolen**; du behöver den när du skapar Data Factory-lösning.
+      2. Ange **Windows Server 2012 R2** för operativsystemets familj inställningen.
       3. Välj en **nodprisnivå**.
-      4. Ange **2** som värde för den **mål dedikerade** inställningen.
-      5. Ange **2** som värde för den **maximalt antal uppgifter per nod** inställningen.
+      4. Ange **2** som värde för den **Target dedikerade** inställningen.
+      5. Ange **2** som värde för den **högsta antal aktiviteter per nod** inställningen.
    5. Klicka på **OK** för att skapa poolen.
-   6. Notera den **ID** för poolen. 
+   6. Anteckna den **ID** för poolen. 
 
 
 
-### <a name="high-level-steps"></a>Anvisningar
+### <a name="high-level-steps"></a>Steg på hög nivå
 Här är de två övergripande steg du utför som en del av den här genomgången: 
 
-1. Skapa en anpassad aktivitet som innehåller enkla data transformation/standardbearbetningslogiken.
-2. Skapa ett Azure data factory med en pipeline som använder den anpassade aktiviteten.
+1. Skapa en anpassad aktivitet som innehåller enkla transformering/bearbetning av dataströmmar.
+2. Skapa en Azure-datafabrik med en pipeline som använder den anpassade aktiviteten.
 
 ### <a name="create-a-custom-activity"></a>Skapa en anpassad aktivitet
-Om du vill skapa en anpassad aktivitet för .NET, skapa en **.NET-klassbibliotek** projekt med en klass som implementerar som **IDotNetActivity** gränssnitt. Det här gränssnittet har endast en metod: [kör](https://msdn.microsoft.com/library/azure/mt603945.aspx) och signaturen är:
+Om du vill skapa en anpassad .NET-aktivitet, skapa en **.NET-klassbiblioteket** projekt med en klass som implementerar som **IDotNetActivity** gränssnitt. Det här gränssnittet har bara en av metoderna: [kör](https://msdn.microsoft.com/library/azure/mt603945.aspx) och signaturen är:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -92,22 +92,22 @@ public IDictionary<string, string> Execute(
 ```
 
 
-Metoden som använder fyra parametrar:
+Metoden tar fyra parametrar:
 
-- **linkedServices**. Den här egenskapen är en enumerable lista över datalager som är länkade tjänster som refereras av in-/ utdata-datauppsättningar för aktiviteten.   
-- **datauppsättningar**. Den här egenskapen är en enumerable lista över datauppsättningar in-/ utdata för aktiviteten. Du kan använda den här parametern för att få platser och scheman som definierats av inkommande och utgående datauppsättningar.
+- **linkedServices**. Den här egenskapen är en uppräkningsbara lista över Data Store länkade tjänster som refereras av datauppsättningar för indata/utdata för aktiviteten.   
+- **datauppsättningar**. Den här egenskapen är en uppräkningsbara lista över datauppsättningar för indata/utdata för aktiviteten. Du kan använda den här parametern för att få de platser och scheman som definieras av in- och utdatauppsättningar.
 - **aktiviteten**. Denna egenskap representerar den aktuella aktiviteten. Den kan användas för att få åtkomst till utökade egenskaper som är associerade med den anpassade aktiviteten. Se [åtkomst utökade egenskaper](#access-extended-properties) mer information.
-- **loggaren**. Det här objektet kan du skriva debug kommentarer som yta i användarinloggning för pipeline.
+- **loggaren**. Det här objektet kan du skriva debug kommentarer som surface i användarloggen för för pipelinen.
 
-Metoden returnerar en ordlista som kan användas för att kedja anpassade aktiviteter tillsammans i framtiden. Den här funktionen har inte implementerats ännu, så returneras en tom ordlista från metoden.  
+Metoden returnerar en ordlista som kan användas för att länka anpassade aktiviteter tillsammans i framtiden. Den här funktionen har inte implementerats ännu, så returnerar en tom ordlista från metoden.  
 
 ### <a name="procedure"></a>Procedur
-1. Skapa en **.NET-klassbibliotek** projekt.
+1. Skapa en **.NET-klassbiblioteket** projekt.
    <ol type="a">
      <li>Starta <b>Visual Studio 2017</b> eller <b>Visual Studio 2015</b> eller <b>Visual Studio 2013</b> eller <b>Visual Studio 2012</b>.</li>
      <li>Klicka på <b>Arkiv</b>, peka på <b>Nytt</b> och klicka på <b>Projekt</b>.</li>
-     <li>Expandera <b>Mallar</b> och välj <b>Visual C#</b>. I den här genomgången ska du använda C#, men du kan använda alla .NET-språk för att utveckla anpassade aktiviteten.</li>
-     <li>Välj <b>klassbiblioteket</b> från listan över projekttyper till höger. Välj i VS 2017 <b>Class Library (.NET Framework)</b> </li>
+     <li>Expandera <b>Mallar</b> och välj <b>Visual C#</b>. I den här genomgången ska du använda C#, men du kan använda valfritt .NET-språk för att utveckla den anpassade aktiviteten.</li>
+     <li>Välj <b>klassbiblioteket</b> i listan över projekttyper till höger. I VS 2017 väljer <b>Class Library (.NET Framework)</b> </li>
      <li>Ange <b>MyDotNetActivity</b> för den <b>namn</b>.</li>
      <li>Välj <b>C:\ADFGetStarted</b> för den <b>plats</b>.</li>
      <li>Klicka på <b>OK</b> för att skapa projektet.</li>
@@ -120,14 +120,14 @@ Metoden returnerar en ordlista som kan användas för att kedja anpassade aktivi
     ```PowerShell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
-4. Importera den **Azure Storage** NuGet-paketet i i projektet.
+4. Importera den **Azure Storage** NuGet-paket i i projektet.
 
     ```PowerShell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
     > [!IMPORTANT]
-    > Startprogram för data Factory-tjänsten kräver 4.3 version av WindowsAzure.Storage. Om du lägger till en referens till en senare version av Azure Storage sammansättning i projektet anpassad aktivitet finns ett fel när aktiviteten körs. Du kan lösa problemet, se [Appdomain isolering](#appdomain-isolation) avsnitt. 
+    > Startprogram för data Factory-tjänsten krävs 4.3 av WindowsAzure.Storage. Om du lägger till en referens till en senare version av Azure Storage-sammansättningen i projektet anpassade aktiviteten, visas ett fel när aktiviteten körs. Lös felet genom att se [Appdomain isolering](#appdomain-isolation) avsnittet. 
 5. Lägg till följande **med** instruktioner till källfilen i projektet.
 
     ```csharp
@@ -158,14 +158,14 @@ Metoden returnerar en ordlista som kan användas för att kedja anpassade aktivi
     ```csharp
     namespace MyDotNetActivityNS
     ```
-7. Ändra namnet på klassen som **MyDotNetActivity** och härleds från den **IDotNetActivity** gränssnitt som visas i följande kodavsnitt:
+7. Ändra namnet på klassen för att **MyDotNetActivity** och få det från den **IDotNetActivity** gränssnitt som visas i följande kodavsnitt:
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
     ```
-8. Implementera (Lägg till) på **kör** metod för den **IDotNetActivity** gränssnitt till den **MyDotNetActivity** klassen och kopiera följande exempelkod till metoden.
+8. Implementera (Lägg till) det **kör** -metoden för den **IDotNetActivity** gränssnitt till den **MyDotNetActivity** klassen och kopiera följande exempelkod till metoden.
 
-    I följande exempel räknar antal förekomster av sökordet (”Microsoft”) i varje blob som är associerade med en datasektorn.
+    I följande exempel räknar antalet förekomster av söktermen (”Microsoft”) i varje blob som är associerade med en datasektor.
 
     ```csharp
     /// <summary>
@@ -358,7 +358,7 @@ Metoden returnerar en ordlista som kan användas för att kedja anpassade aktivi
     }
     ```
 
-    Metoden GetFolderPath returnerar sökvägen till mappen som dataset pekar på, och metoden GetFileName Returnerar namnet på blob/fil som dataset pekar på. Om du havefolderPath definierar använda variabler, till exempel {Year}, {Month}, {Day} osv., metoden returnerar strängen eftersom den är utan att ersätta dem med runtime-värden. Se [åtkomst utökade egenskaper](#access-extended-properties) information om att komma åt SliceStart, SliceEnd osv.    
+    Metoden GetFolderPath returnerar sökvägen till den mapp som den här datauppsättningen pekar på och metoden GetFileName Returnerar namnet på blob/fil som datauppsättningen pekar på. Om du havefolderPath definierar använda variabler, till exempel {Year}, {Month} {Day} osv, metoden returnerar strängen som den är utan att ersätta dem med runtime-värden. Se [åtkomst utökade egenskaper](#access-extended-properties) information om hur du använder SliceStart, SliceEnd osv.    
 
     ```JSON
     "name": "InputDataset",
@@ -370,95 +370,95 @@ Metoden returnerar en ordlista som kan användas för att kedja anpassade aktivi
             "folderPath": "adftutorial/inputfolder/",
     ```
 
-    Metoden Calculate beräknar antalet instanser av nyckelordet Microsoft i indatafiler (blobbar i mappen). Sökordet (”Microsoft”) är hårdkodat i koden.
-10. Kompilera projektet. Klicka på **skapa** i menyn och klickar på **skapa lösning**.
+    Metoden Calculate beräknar antalet instanser av nyckelordet Microsoft i indatafilerna (blobbar i mappen). Söktermen (”Microsoft”) är hårdkodad i koden.
+10. Kompilera projektet. Klicka på **skapa** i menyn och klicka på **skapa lösning**.
 
     > [!IMPORTANT]
-    > Ange 4.5.2 version av .NET Framework som målramverk för ditt projekt: Högerklicka på projektet och klicka på **egenskaper** ange Målversionen av framework. Data Factory stöder inte anpassade aktiviteter kompileras mot .NET Framework-versioner senare än 4.5.2.
+    > Ange 4.5.2 version av .NET Framework som målramverk för ditt projekt: Högerklicka på projektet och klicka på **egenskaper** att ställa in målramverk. Data Factory stöder inte anpassade aktiviteter som är senare än 4.5.2 kompileras mot .NET Framework-versioner.
 
-11. Starta **Windows Explorer**, och navigera till **bin\debug** eller **bin\release** beroende på vilken typ av version.
-12. Skapa en zip-fil **MyDotNetActivity.zip** som innehåller alla binärfiler i den <project folder>\bin\Debug mapp. Inkludera den **MyDotNetActivity.pdb** filen så att du får ytterligare information, till exempel radnumret i källkoden som har orsakat problemet om ett fel uppstod. 
+11. Starta **Windows Explorer**, och gå till **bin\debug** eller **bin\release** mappen, beroende på vilken typ av build.
+12. Skapa en zip-fil **MyDotNetActivity.zip** som innehåller alla binärfiler i den <project folder>\bin\Debug mapp. Inkludera den **MyDotNetActivity.pdb** filen så att du får ytterligare information, till exempel ett radnummer i källkoden som har orsakat problemet om det uppstod ett fel. 
 
     > [!IMPORTANT]
     > Alla filer i zip-filen för den anpassade aktiviteten måste vara på den **översta nivån** utan undermappar.
 
-    ![Binära filer](./media/data-factory-use-custom-activities/Binaries.png)
-14. Skapa en blobbbehållare med namnet **customactivitycontainer** om den inte redan finns. 
-15. Ladda upp MyDotNetActivity.zip som en blobb till customactivitycontainer i en **allmänna** Azure blob-lagring (hot inte/lågfrekvent Blob-lagring) som refereras av AzureStorageLinkedService.  
+    ![Binär utdatafiler](./media/data-factory-use-custom-activities/Binaries.png)
+14. Skapa en blobbehållare med namnet **customactivitycontainer** om den inte redan finns. 
+15. Ladda upp MyDotNetActivity.zip som en blob till customactivitycontainer i en **allmänna** Azure blob storage (inte frekvent/lågfrekvent – Blob storage) som refereras av AzureStorageLinkedService.  
 
 > [!IMPORTANT]
-> Om du lägger till det här projektet för .NET-aktiviteten en lösning i Visual Studio som innehåller ett projekt som Data Factory och lägga till en referens till projektet för .NET-aktiviteten från Data Factory-programprojekt, behöver du inte utföra de två sista stegen för att skapa zip manuellt filen och överföra den till allmänna Azure blob storage. När du publicerar Data Factory-enheter med hjälp av Visual Studio, utförs automatiskt de här stegen av publiceringsprocessen. Mer information finns i [Data Factory-projekt i Visual Studio](#data-factory-project-in-visual-studio) avsnitt.
+> Om du lägga till det här projektet för .NET-aktivitet i en lösning i Visual Studio som innehåller en Data Factory-projektet och Lägg till en referens till projekt för .NET-aktivitet från programmet Data Factory-projektet, behöver du inte utföra de två sista stegen för att manuellt skapa ZIP-filen filen och överföra den till allmänna Azure blob storage. När du publicerar Data Factory-entiteter med hjälp av Visual Studio, utförs automatiskt de här stegen av publiceringsprocessen. Mer information finns i [Data Factory-projekt i Visual Studio](#data-factory-project-in-visual-studio) avsnittet.
 
-## <a name="create-a-pipeline-with-custom-activity"></a>Skapa en pipeline med anpassad aktivitet
-Du har skapat en anpassad aktivitet och upp zip-filen med binärfiler till en blobbbehållare i en **allmänna** Azure Storage-konto. I det här avsnittet skapar du ett Azure data factory med en pipeline som använder den anpassade aktiviteten.
+## <a name="create-a-pipeline-with-custom-activity"></a>Skapa en pipeline med en anpassad aktivitet
+Du har skapat en anpassad aktivitet och överfört zip-filen med binärfiler till en blobbehållare i en **allmänna** Azure Storage-konto. I det här avsnittet skapar du en Azure-datafabrik med en pipeline som använder den anpassade aktiviteten.
 
-Den inkommande datamängden för den anpassade aktiviteten representerar blobbar (filer) i mappen customactivityinput för adftutorial behållare i blob storage. Datamängd för utdata för aktiviteten representerar utdata blobbar i mappen customactivityoutput för adftutorial behållare i blob storage.
+Den inkommande datauppsättningen för den anpassade aktiviteten representerar BLOB-objekt (filer) i mappen customactivityinput i adftutorial-behållaren i blob storage. Datauppsättningen för utdata för aktiviteten representerar utdata blobbar i mappen customactivityoutput i adftutorial-behållaren i blob storage.
 
-Skapa **fil.txt** filen med följande innehåll och överföra den till **customactivityinput** mappen för den **adftutorial** behållare. Skapa adftutorial behållaren om den inte redan finns. 
+Skapa **fil.txt** fil med följande innehåll och överför den till **customactivityinput** mappen för den **adftutorial** behållare. Skapa behållaren adftutorial om den inte redan finns. 
 
 ```
 test custom activity Microsoft test custom activity Microsoft
 ```
 
-Mappen inkommande motsvarar en sektor i Azure Data Factory även om mappen har två eller flera filer. När varje segment bearbetas av pipelinen går anpassad aktivitet igenom alla blobbar i mappen inkommande för den sektorn.
+Indatamappen motsvarar en sektor i Azure Data Factory även om mappen har två eller flera filer. När varje sektor bearbetas av pipelinen, upprepas den anpassade aktiviteten över alla blobbar i Indatamappen för den sektorn.
 
-Du ser en utdatafil med i mappen adftutorial\customactivityoutput med en eller flera rader (samma som antal blobbar i mappen inkommande):
+Du ser en utdatafil med i mappen adftutorial\customactivityoutput med en eller flera rader (samma som antal blobbar i Indatamappen):
 
 ```
 2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2016-11-16-00/file.txt.
 ```
 
 
-Här är vad du behöver göra i det här avsnittet:
+Här följer de steg du utför i det här avsnittet:
 
-1. Skapa en **datafabriken**.
-2. Skapa **länkade tjänster** för Azure Batch-pool för virtuella datorer som den anpassade aktiviteten körs och Azure-lagring som innehåller in-/ utdata-BLOB.
-3. Skapa ingående och utgående **datauppsättningar** som representerar indata och utdata för den anpassade aktiviteten.
+1. Skapa en **datafabrik**.
+2. Skapa **länkade tjänster** för Azure Batch-pool med virtuella datorer på vilken den anpassade aktiviteten körs och Azure Storage som innehåller indata/utdata-BLOB.
+3. Skapa indata och utdata **datauppsättningar** som representerar indata och utdata för den anpassade aktiviteten.
 4. Skapa en **pipeline** som använder den anpassade aktiviteten.
 
 > [!NOTE]
 > Skapa den **fil.txt** och överföra den till en blob-behållare, om du inte redan gjort det. Se anvisningarna i föregående avsnitt.   
 
-### <a name="step-1-create-the-data-factory"></a>Steg 1: Skapa datafabriken
-1. När du loggar in på Azure-portalen, gör du följande steg:
-   1. Klicka på **skapar du en resurs** på den vänstra menyn.
-   2. Klicka på **Data + analys** i den **ny** bladet.
+### <a name="step-1-create-the-data-factory"></a>Steg 1: Skapa data factory
+1. När du loggar in på Azure Portal, gör du följande:
+   1. Klicka på **skapa en resurs** på den vänstra menyn.
+   2. Klicka på **Data och analys** i den **New** bladet.
    3. Klicka på **Data Factory** på bladet **Dataanalys**.
    
-    ![Nya Azure Data Factory-menyn](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. I den **nya datafabriken** bladet ange **CustomActivityFactory** för namnet. Namnet på Azure Data Factory måste vara globalt unikt. Om du får felmeddelandet: **datafabriksnamnet ”CustomActivityFactory” är inte tillgänglig**, byta namn på datafabriken (till exempel **yournameCustomActivityFactory**) och försöker skapa igen.
+    ![Meny för ny Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
+2. I den **ny datafabrik** bladet ange **CustomActivityFactory** för namnet. Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **datafabriksnamnet ”CustomActivityFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel **yournameCustomActivityFactory**) och försöker skapa igen.
 
-    ![Nya Azure Data Factory-bladet](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
+    ![Nytt Azure Data Factory-blad](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Klicka på **RESURSGRUPPENS namn**, och välj en befintlig resursgrupp eller skapa en resursgrupp.
 4. Kontrollera att du använder rätt **prenumeration** och **region** där du vill att datafabriken ska skapas.
 5. Klicka på **Skapa** på bladet **Ny datafabrik**.
-6. Du ser datafabriken som skapas i den **instrumentpanelen** på Azure-portalen.
-7. När datafabriken har skapats, kan du se Data Factory-bladet, som visar innehållet i datafabriken.
+6. Du ser att datafabriken skapas på den **instrumentpanelen** i Azure Portal.
+7. När datafabriken har skapats, visas Data Factory-blad som visar innehållet i datafabriken.
     
     ![Bladet Datafabrik](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>Steg 2: Skapa länkade tjänster
-Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-datafabrik. I det här steget kan länka du ditt Azure Storage-konto och Azure Batch-konto till din data factory.
+Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-datafabrik. I det här steget länkar du ditt Azure Storage-konto och Azure Batch-konto till datafabriken.
 
 #### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
-1. Klicka på den **författare och distribuera** panelen på den **DATAFABRIKEN** bladet för **CustomActivityFactory**. Du ser Data Factory Editor.
+1. Klicka på den **författare och distribuera** panel på den **DATA FACTORY** bladet för **CustomActivityFactory**. Du ser Data Factory Editor.
 2. Klicka på **Nytt datalager** på kommandoraden och välj **Azure storage**. Du bör se JSON-skriptet för att skapa en länkad Azure-lagringstjänst i redigeraren.
     
     ![Nytt datalager - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Ersätt `<accountname>` med namnet på ditt Azure storage-konto och `<accountkey>` med åtkomstnyckeln för Azure storage-konto. Information om hur du hämtar din lagringsåtkomstnyckel finns i [Visa, kopiera och återskapa lagringsåtkomstnycklar](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Ersätt `<accountname>` med namnet på ditt Azure storage-konto och `<accountkey>` med åtkomstnyckeln för Azure storage-kontot. Information om hur du hämtar din lagringsåtkomstnyckel finns i [Visa, kopiera och återskapa lagringsåtkomstnycklar](../../storage/common/storage-account-manage.md#access-keys).
 
-    ![Azure Storage tyckte om tjänsten](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
+    ![Azure Storage gillade service](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Klicka på **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
 
-#### <a name="create-azure-batch-linked-service"></a>Skapa Azure Batch länkad tjänst
-1. I den Data Factory-redigeraren, klicka på **... Flera** i kommandofältet klickar du på **nya beräkning**, och välj sedan **Azure Batch** på menyn.
+#### <a name="create-azure-batch-linked-service"></a>Skapa Azure Batch-länkad tjänst
+1. I Data Factory-redigeraren, klicka på **... Mer** på kommandofältet klickar du på **ny beräkning**, och välj sedan **Azure Batch** på menyn.
 
-    ![Nya beräknings - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
+    ![Ny beräkning – Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. Gör följande ändringar i JSON-skriptet:
 
-   1. Ange Azure Batch-kontonamnet för den **accountName** egenskapen. Den **URL** från den **Azure Batch-kontoblad** är i följande format: `http://accountname.region.batch.azure.com`. För den **batchUri** egenskap i JSON som du behöver ta bort `accountname.` från URL: en och använder den `accountname` för den `accountName` JSON-egenskapen.
-   2. Ange nyckel för Azure Batch-kontot för den **accessKey** egenskapen.
-   3. Ange namnet på poolen som du har skapat som en del av krav för den **poolName** egenskapen. Du kan också ange ID för poolen i stället för namnet på poolen.
+   1. Ange Azure Batch-kontonamnet för den **accountName** egenskapen. Den **URL** från den **Azure Batch-kontobladet** finns i följande format: `http://accountname.region.batch.azure.com`. För den **batchUri** egenskap i JSON som du vill ta bort `accountname.` från URL: en och använder den `accountname` för den `accountName` JSON-egenskap.
+   2. Ange nyckel för Azure Batch-konto för den **accessKey** egenskapen.
+   3. Ange namnet på poolen som du har skapat som en del av förutsättningarna för den **poolName** egenskapen. Du kan även ange ID för poolen i stället för namnet på poolen.
    4. Ange Azure Batch-URI för den **batchUri** egenskapen. Exempel: `https://westus.batch.azure.com`.  
    5. Ange den **AzureStorageLinkedService** för den **linkedServiceName** egenskapen.
 
@@ -478,7 +478,7 @@ Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-da
         }
         ```
 
-       För den **poolName** egenskap, du kan också ange ID för poolen i stället för namnet på poolen.
+       För den **poolName** egenskapen, du kan även ange ID för poolen i stället för namnet på poolen.
 
     
 
@@ -486,8 +486,8 @@ Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-da
 I det här steget skapar du datauppsättningar som representerar indata och utdata.
 
 #### <a name="create-input-dataset"></a>Skapa indatauppsättning
-1. I **redigeringsprogrammet** för Data Factory klickar du på **... Flera** i kommandofältet klickar du på **ny datamängd**, och välj sedan **Azure Blob storage** från den nedrullningsbara menyn.
-2. Ersätt JSON i den högra rutan med följande kodavsnitt i JSON:
+1. I **redigeringsprogrammet** för Data Factory klickar du på **... Mer** på kommandofältet klickar du på **ny datauppsättning**, och välj sedan **Azure Blob storage** från den nedrullningsbara menyn.
+2. Ersätt JSON i den högra rutan med följande JSON-kodfragment:
 
     ```json
     {
@@ -511,16 +511,16 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
     }
     ```
 
-   Du skapar en pipeline senare i den här genomgången med starttid: 2016-11-16T00:00:00Z-och Sluttid: 2016-11-16T05:00:00Z. Den är schemalagd att generera data varje timma, så att det finns fem i/o-segment (mellan **00**: 00:00 -> **05**: 00:00).
+   Skapar du en pipeline senare i den här genomgången med starttid: 2016-11-16T00:00:00Z-och Sluttid: 2016-11-16T05:00:00Z. Den är schemalagd att producera data per timme, så att det finns fem indata/utdata-segment (mellan **00**: 00:00 -> **05**: 00:00).
 
-   Den **frekvens** och **intervall** för inkommande datamängden har värdet **timme** och **1**, vilket innebär att inkommande segmentet finns varje timme. I det här exemplet är det samma fil (fil.txt) på intputfolder.
+   Den **frekvens** och **intervall** för indatauppsättningen är inställd på **timme** och **1**, vilket innebär att indatasektorn är tillgänglig per timme. I det här exemplet är det samma fil (fil.txt) i intputfolder.
 
-   Här följer starttider för varje segment som representeras av SliceStart systemvariabel i ovanstående JSON-fragment.
+   Här följer starttider för varje sektor som representeras av SliceStart systemvariabeln i ovanstående JSON-kodfragmentet.
 3. Klicka på **distribuera** i verktygsfältet för att skapa och distribuera den **InputDataset**. Kontrollera att du ser meddelandet **TABELLEN HAR SKAPATS** i namnlisten i redigeraren.
 
 #### <a name="create-an-output-dataset"></a>Skapa en datauppsättning för utdata
-1. I den **Data Factory-redigeraren**, klickar du på **... Flera** i kommandofältet klickar du på **ny datamängd**, och välj sedan **Azure Blob storage**.
-2. Ersätt JSON-skript i den högra rutan med följande JSON-skript:
+1. I den **Data Factory-redigeraren**, klickar du på **... Mer** på kommandofältet klickar du på **ny datauppsättning**, och välj sedan **Azure Blob storage**.
+2. Ersätt JSON-skriptet i den högra rutan med följande JSON-skriptet:
 
     ```JSON
     {
@@ -550,9 +550,9 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
     }
     ```
 
-     Platsen är **adftutorial/customactivityoutput/** och utdata-filnamn är åååå-MM-dd-HH.txt där åååå-MM-dd-HH är år, månad, datum och timme av sektorn som skapas. Se [för utvecklare] [ adf-developer-reference] mer information.
+     Platsen är **adftutorial/customactivityoutput/** och utdata-filnamn är åååå-MM-dd-HH.txt där åååå-MM-dd-HH är år, månad, datum och timme för den sektor som genereras. Se [Utvecklarreferens] [ adf-developer-reference] information.
 
-    En blob/utdatafil genereras för varje inkommande segment. Här är hur en utdatafil heter för varje segment. Alla utdatafiler som skapas i en utdatamapp: **adftutorial\customactivityoutput**.
+    En blob/utdatafil genereras för varje indatasektorn. Här är hur en utdatafil har namnet för varje sektor. Alla utdatafiler som genereras i en utdatamapp: **adftutorial\customactivityoutput**.
 
    | Sektor | Starttid | Utdatafil |
    |:--- |:--- |:--- |
@@ -562,12 +562,12 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
    | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    Kom ihåg att alla filer i en inkommande mapp är en del av ett segment med starttiderna som nämns ovan. När den här sektorn behandlas den anpassade aktiviteten söker igenom varje fil och ger en rad i filen med antalet förekomster av sökordet (”Microsoft”). Om det finns tre filer i inputfolder, det finns tre rader i filen för varje timme segment: 2016-11-16-00.txt 2016-11-16:01:00:00.txt, etc.
+    Kom ihåg att alla filer i en Indatamappen är en del av ett segment med starttider som nämns ovan. När den här sektor bearbetas, den anpassade aktiviteten söker igenom varje fil och skapar en rad i filen med antalet förekomster av sökterm (”Microsoft”). Om det finns tre filer i inputfolder, det finns tre raderna i utdatafil för varje per timme segment: 2016-11-16-00.txt 2016-11-16:01:00:00.txt, osv.
 3. Att distribuera den **OutputDataset**, klickar du på **distribuera** i kommandofältet.
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>Skapa och köra en pipeline som använder den anpassade aktiviteten
-1. I den Data Factory-redigeraren, klicka på **... Flera**, och välj sedan **ny pipeline** i kommandofältet. 
-2. Ersätt JSON i den högra rutan med följande JSON-skript:
+1. I Data Factory-redigeraren, klicka på **... Mer**, och välj sedan **ny pipeline** i kommandofältet. 
+2. Ersätt JSON i den högra rutan med följande JSON-skriptet:
 
     ```JSON
     {
@@ -616,120 +616,120 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
 
     Observera följande punkter:
 
-   * **Concurrency** är inställd på **2** så att två segment bearbetas parallellt med 2 virtuella datorer i Azure Batch-pool.
-   * Det finns en aktivitet i avsnittet aktiviteter och är av typen: **DotNetActivity**.
-   * **AssemblyName** är inställd på namnet på DLL: **MyDotnetActivity.dll**.
+   * **Samtidighet** är inställd på **2** så att två segment bearbetas parallellt med 2 virtuella datorer i Azure Batch-pool.
+   * Det finns en aktivitet i aktivitetsavsnittet och är av typen: **DotNetActivity**.
+   * **AssemblyName** anges till namnet på den DLL-filen: **MyDotnetActivity.dll**.
    * **EntryPoint** är inställd på **MyDotNetActivityNS.MyDotNetActivity**.
-   * **PackageLinkedService** är inställd på **AzureStorageLinkedService** som pekar till blob-lagring som innehåller anpassad aktivitet zip-filen. Om du använder olika Azure Storage-konton för i/o-filer och anpassad aktivitet zip-filen kan skapa du en annan länkad Azure Storage-tjänst. Den här artikeln förutsätter att du använder samma Azure Storage-konto.
+   * **PackageLinkedService** är inställd på **AzureStorageLinkedService** som pekar på blob-lagringen som innehåller anpassad aktivitet zip-filen. Om du använder olika Azure Storage-konton för indata/utdata-filer och anpassad aktivitet zip-filen, skapar du en annan länkad Azure Storage-tjänst. Den här artikeln förutsätter att du använder samma Azure Storage-kontot.
    * **PackageFile** är inställd på **customactivitycontainer/MyDotNetActivity.zip**. Det är i formatet: containerforthezip/nameofthezip.zip.
    * Den anpassade aktiviteten tar **InputDataset** som indata och **OutputDataset** som utdata.
-   * LinkedServiceName-egenskapen för den anpassade aktiviteten pekar på den **AzureBatchLinkedService**, som talar om Azure Data Factory som den anpassade aktiviteten ska köras på virtuella datorer i Azure Batch.
-   * **isPaused** egenskap är inställd på **FALSKT** som standard. Pipelinen körs direkt i det här exemplet eftersom sektorerna starta tidigare. Du kan ange egenskapen till true för att pausa pipeline och ställa tillbaka till false om du vill starta om.
-   * Den **starta** tid och **end** tider är **fem** timmar från varandra och segment produceras varje timma, så att fem segment produceras av pipeline.
-3. Om du vill distribuera pipeline, klickar du på **distribuera** i kommandofältet.
+   * LinkedServiceName-egenskapen för den anpassade aktiviteten pekar på den **AzureBatchLinkedService**, som talar om för Azure Data Factory som den anpassade aktiviteten ska köras på virtuella datorer i Azure Batch.
+   * **isPaused** är inställd på **FALSKT** som standard. Pipelinen körs direkt i det här exemplet eftersom sektorer starta tidigare. Du kan ange den här egenskapen till true för att pausa pipelinen och Återställ den till false om du vill starta om.
+   * Den **starta** tid och **slutet** tiderna är **fem** timmar från varandra och segment produceras per timme, så att fem sektorer som produceras av pipelinen.
+3. Om du vill distribuera pipelinen klickar du på **distribuera** i kommandofältet.
 
 ### <a name="monitor-the-pipeline"></a>Övervaka pipeline
-1. I bladet Data Factory i Azure-portalen klickar du på **Diagram**.
+1. Data Factory-bladet i Azure-portalen klickar du på **Diagram**.
 
     ![Ikonen Diagram](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
 2. Klicka på OutputDataset i diagramvyn.
 
     ![Diagramvy](./media/data-factory-use-custom-activities/diagram.png)
-3. Du bör se att fem utdata-segment är i tillståndet redo. Om de inte är i tillståndet klar inte har de producerats ännu. 
+3. Du bör se att fem utdatasegment är i tillståndet klar. Om de inte är i tillståndet klar, inte har de har skapats ännu. 
 
-   ![Utdata segment](./media/data-factory-use-custom-activities/OutputSlices.png)
-4. Kontrollera att utdatafilerna genereras i blobblagring i den **adftutorial** behållare.
+   ![Utdatasegment](./media/data-factory-use-custom-activities/OutputSlices.png)
+4. Kontrollera att utdata genereras i blob storage i den **adftutorial** behållare.
 
    ![utdata från anpassad aktivitet][image-data-factory-ouput-from-custom-activity]
-5. Om du öppnar filen bör du se utdata som liknar följande utdata:
+5. Om du öppnar filen, bör du se utdata som liknar följande utdata:
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2016-11-16-00/file.txt.
     ```
-6. Använd den [Azure-portalen] [ azure-preview-portal] eller Azure PowerShell-cmdletar för att övervaka din data factory, rörledningar och datauppsättningar. Du kan ta emot meddelanden från den **ActivityLogger** i koden för den anpassade aktiviteten i loggarna (särskilt användar-0.log) som du kan hämta från portalen eller med cmdlet: ar.
+6. Använd den [Azure-portalen] [ azure-preview-portal] eller Azure PowerShell-cmdletar för att övervaka data factory, pipelines och datauppsättningar. Du kan ta emot meddelanden från den **ActivityLogger** i koden för den anpassade aktiviteten i loggarna (särskilt user-0.log) som du kan hämta från portalen eller med cmdlet: ar.
 
    ![Hämta loggar från anpassad aktivitet][image-data-factory-download-logs-from-custom-activity]
 
-Se [övervaka och hantera Pipelines](data-factory-monitor-manage-pipelines.md) detaljerade anvisningar för att övervaka datamängd och pipelinor.      
+Se [övervaka och hantera Pipelines](data-factory-monitor-manage-pipelines.md) detaljerade anvisningar för att övervaka datauppsättningar och pipeliner.      
 
 ## <a name="data-factory-project-in-visual-studio"></a>Data Factory-projekt i Visual Studio  
-Du kan skapa och publicera Data Factory-enheter med hjälp av Visual Studio istället för att använda Azure-portalen. För detaljerad information om hur du skapar och publicerar Data Factory-enheter med hjälp av Visual Studio finns [skapa din första pipeline med Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) och [kopiera data från Azure Blob till Azure SQL](data-factory-copy-activity-tutorial-using-visual-studio.md) artiklar.
+Du kan skapa och publicera Data Factory-entiteter med hjälp av Visual Studio istället för att använda Azure-portalen. För detaljerad information om hur du skapar och publicerar Data Factory-entiteter med hjälp av Visual Studio, finns i [skapa din första pipeline med Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) och [kopiera data från Azure-Blob till Azure SQL](data-factory-copy-activity-tutorial-using-visual-studio.md) artiklar.
 
-Gör följande om du skapar Data Factory-projekt i Visual Studio:
+Om du skapar Data Factory-projekt i Visual Studio gör du följande åtgärder:
  
-1. Lägga till Data Factory-projekt i Visual Studio-lösning som innehåller anpassad aktivitet projektet. 
-2. Lägg till en referens till projektet .NET aktivitet från Data Factory-projekt. Högerklicka på Data Factory-projektet, peka på **Lägg till**, och klicka sedan på **referens**. 
-3. I den **Lägg till referens** dialogrutan markerar du den **MyDotNetActivity** projektet och klicka på **OK**.
+1. Lägg till Data Factory-projekt i Visual Studio-lösningen som innehåller anpassad aktivitet projektet. 
+2. Lägg till en referens till projekt för .NET-aktivitet från Data Factory-projektet. Högerklicka på Data Factory-projekt, peka på **Lägg till**, och klicka sedan på **referens**. 
+3. I den **Lägg till referens** dialogrutan den **MyDotNetActivity** projektet och klicka på **OK**.
 4. Skapa och publicera lösningen.
 
     > [!IMPORTANT]
-    > När du publicerar Data Factory-entiteter, en zip-fil skapas automatiskt för dig och överförs till blob-behållaren: customactivitycontainer. Om blob-behållaren inte finns, skapas den automatiskt för.  
+    > När du publicerar Data Factory-entiteter, en zip-fil skapas automatiskt åt dig och har överförts till blob-behållaren: customactivitycontainer. Om blob-behållaren inte finns skapas den automatiskt för.  
 
 
 ## <a name="data-factory-and-batch-integration"></a>Data Factory och Batch-integrering
-Data Factory-tjänsten skapar ett jobb med namnet i Azure Batch: **poolname adf: jobb-xxx**. Klicka på **jobb** i den vänstra menyn. 
+Data Factory-tjänsten skapar ett jobb i Azure Batch med namnet: **adf poolname: jobb-xxx**. Klicka på **jobb** menyn till vänster. 
 
-![Azure Data Factory - batchjobb](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
+![Azure Data Factory - Batch-jobb](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
 
-En aktivitet skapas för varje aktivitet kör för ett segment. Om det finns fem segment som är redo att bearbetas, skapas fem uppgifter i jobbet. Om det finns flera compute-noder i Batch-pool, kan två eller flera segment köras parallellt. Du kan också ha fler än ett segment som körs på samma beräkningar om de maximala uppgifterna per compute-nod är > 1.
+En uppgift skapas för varje aktivitet kör för en sektor. Om det finns fem segment som är redo att bearbetas, skapas fem uppgifter i det här jobbet. Om det finns flera beräkningsnoder i Batch-pool, kan två eller flera segment köras parallellt. Du kan också ha fler än en sektor som körs på samma beräkning om de maximala aktiviteterna per beräkningsnod är > 1.
 
-![Azure Data Factory - jobbet batchaktiviteter](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
+![Azure Data Factory - uppgifter för Batch-jobb](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
 
-Följande diagram illustrerar förhållandet mellan Azure Data Factory och Batch uppgifter.
+Följande diagram illustrerar förhållandet mellan Azure Data Factory och Batch-aktiviteter.
 
-![Data Factory & Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
+![Data Factory och Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
 ## <a name="troubleshoot-failures"></a>Felsöka fel
-Felsökning består av några grundläggande tekniker:
+Felsökning består av några grundläggande metoder:
 
-1. Om du ser följande fel kan kanske du använder en aktiv/lågfrekvent blob-lagring i stället för med ett allmänt Azure blob storage. Ladda upp zip-filen till en **allmänna Azure Storage-konto**. 
+1. Om du ser följande fel kan använder du en frekvent/lågfrekvent – blob storage i stället för med ett allmänt Azure blob storage. Ladda upp zip-filen till en **Allmänt Azure Storage-konto**. 
  
     ```
     Error in Activity: Job encountered scheduling error. Code: BlobDownloadMiscError Category: ServerError Message: Miscellaneous error encountered while downloading one of the specified Azure Blob(s).
     ``` 
-2. Om du ser följande fel, bekräfta att namnet på klassen i filen CS matchar det namn du angav för den **EntryPoint** egenskap i pipeline-JSON. I den här genomgången är namnet på klassen: MyDotNetActivity och EntryPoint i JSON: MyDotNetActivityNS. **MyDotNetActivity**.
+2. Om du ser följande fel kan du bekräfta att namnet på klassen i filen CS matchar det namn du angav för den **EntryPoint** egenskap i JSON-pipelinen. I den här genomgången är namnet på klassen: MyDotNetActivity och EntryPoint i JSON är: MyDotNetActivityNS. **MyDotNetActivity**.
 
     ```
     MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
     ```
 
-   Om namnen stämmer överens, bekräfta att alla binärfiler i **rotmappen** i zip-filen. När du öppnar zip-filen som är bör du se alla filer i rotmappen, inte i alla undermappar.   
-3. Om inkommande segmentet är inte **klar**, bekräfta att inkommande mappstrukturen är korrekt och **fil.txt** finns i mapparna inkommande.
-3. I den **kör** metod för din anpassade aktivitet, Använd den **IActivityLogger** objekt att logga information som hjälper dig att felsöka problem. De loggade meddelandena visas i loggfilerna för användare (en eller flera filer med namnet: användaren 0.log, användaren 1.log, användaren 2.log osv.).
+   Om namnen stämmer överens, bekräfta att alla binärfiler finns i den **rotmappen** i zip-filen. När du öppnar zip-filen, det vill säga bör du se alla filer i rotmappen, inte i alla undermappar.   
+3. Om indatasektorn inte har angetts **redo**, bekräfta att mappstrukturen för indata är korrekt och **fil.txt** finns i indatamapparna.
+3. I den **kör** -metoden för din anpassade aktivitets den **IActivityLogger** objekt att logga information som hjälper dig att felsöka problem. De loggade meddelandena som visas i användarens loggfiler (en eller flera filer med namnen: user-0.log, user-1.log, user-2.log osv.).
 
-   I den **OutputDataset** bladet, klickar du på sektorn att se den **DATASEKTORN** bladet för den sektorn. Du ser **aktivitetskörningar** för den sektorn. Du bör se en aktivitet som körs för sektorn. Om du klickar på Kör i kommandofältet kan du starta en annan aktivitet som körs för samma segment.
+   I den **OutputDataset** bladet klickar du på sektorn att se den **DATASEKTOR** bladet för den sektorn. Du ser **aktivitetskörningar** för den sektorn. Du bör se en aktivitetskörning för sektorn. Du kan starta en annan aktivitet som kör för samma sektorn om du klickar på Kör i kommandofältet.
 
-   När du klickar på aktiviteten kör du ser den **kör AKTIVITETSINFORMATION** bladet med en lista över loggfilerna. Du ser loggade meddelanden i filen user_0.log. När ett fel uppstår finns tre aktivitetskörningar eftersom antalet nya försök är inställd på 3 i pipeline/aktivitet JSON. När du klickar på kör aktiviteten finns i loggfilerna som du kan granska för att felsöka felet.
+   När du klickar på den aktivitet som körs, visas den **AKTIVITETSKÖRNINGSINFORMATION** blad med en lista med loggfiler. Du ser loggade meddelanden i filen user_0.log. När ett fel inträffar, se tre aktivitetskörningar eftersom antalet återförsök är inställd på 3 i pipeline/JSON-aktiviteten. När du klickar på kör aktiviteten, visas de loggfiler som du kan granska för att felsöka problemet.
 
-   I listan över loggfiler, klickar du på den **användare 0.log**. I den högra panelen är resultatet av att använda den **IActivityLogger.Write** metod. Om du inte ser alla meddelanden, kontrollera om du har flera loggfiler med namnet: user_1.log, user_2.log osv. Koden kan annars kan ha misslyckats efter senaste loggat meddelandet.
+   I listan över loggfiler, klickar du på den **user-0.log**. I den högra panelen är resultatet av att använda den **IActivityLogger.Write** metod. Om du inte ser alla meddelanden, kontrollera om du har fler loggfiler med namnet: user_1.log, user_2.log osv. I annat fall ha koden misslyckats efter senaste loggat meddelande.
 
-   Du kan också kontrollera **system 0.log** för alla system felmeddelanden och undantag.
-4. Inkludera den **PDB** filen i zip-filen så att felinformation har information som **anropsstacken** när ett fel inträffar.
+   Du kan också kontrollera **system-0.log** för alla system felmeddelanden och undantag.
+4. Inkludera den **PDB** filen i zip-filen så att felinformationen innehåller information som t.ex **anropsstacken** när ett fel uppstår.
 5. Alla filer i zip-filen för den anpassade aktiviteten måste vara på den **översta nivån** utan undermappar.
-6. Se till att den **assemblyName** (MyDotNetActivity.dll) **entryPoint**(MyDotNetActivityNS.MyDotNetActivity) **packageFile** (customactivitycontainer / MyDotNetActivity.zip) och **packageLinkedService** (måste peka på den **allmänna**Azure blob-lagring som innehåller zip-filen) är inställda på rätt värden.
+6. Se till att den **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer / MyDotNetActivity.zip) och **packageLinkedService** (bör peka på den **allmänna**Azure blob storage som innehåller zip-filen) är inställda på rätt värden.
 7. Om du har korrigerat ett fel och vill bearbeta sektorn på nytt, högerklickar du på sektorn i **OutputDataset**-bladet och klickar på **Kör**.
-8. Om du ser följande fel använder du Azure Storage-paketet med version > 4.3.0. Startprogram för data Factory-tjänsten kräver 4.3 version av WindowsAzure.Storage. Se [Appdomain isolering](#appdomain-isolation) avsnittet för en arbete runt om du måste använda den senare versionen av Azure Storage-sammansättningen. 
+8. Om du ser följande fel kan använder du Azure Storage-paketet med version > 4.3.0. Startprogram för data Factory-tjänsten krävs 4.3 av WindowsAzure.Storage. Se [Appdomain isolering](#appdomain-isolation) avsnittet för arbete-runt om du måste använda den senare versionen av Azure Storage-sammansättningen. 
 
     ```
     Error in Activity: Unknown error in module: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Could not load type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from assembly 'Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, 
     ```
 
-    Om du kan använda 4.3.0 versionen av Azure Storage, ta bort befintliga referensen till Azure Storage-paketet med version > 4.3.0. Kör sedan följande kommando från NuGet Package Manager-konsolen. 
+    Om du kan använda 4.3.0 versionen av Azure Storage-paketet, ta bort befintliga referensen till Azure Storage-paketet med version > 4.3.0. Kör sedan följande kommando från NuGet Package Manager-konsolen. 
 
     ```PowerShell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
-    Bygga projektet. Ta bort Azure.Storage sammansättningen av version > 4.3.0 från mappen bin\Debug. Skapa en zip-fil med binärfiler och PDB-filen. Ersätt den gamla zipfilen med den här i blob-behållaren (customactivitycontainer). Köra sektorerna misslyckades (Högerklicka segment och klicka på Kör).   
-8. Den anpassade aktiviteten använder inte den **app.config** filen från paketet. Därför om koden läser eventuella anslutningssträngar i konfigurationsfilen, fungerar det inte vid körning. Bästa praxis och när du använder Azure Batch är att hålla alla hemligheter i en **Azure KeyVault**, använda en certifikatbaserad tjänstens huvudnamn för att skydda den **keyvault**, och distribuera certifikat till Azure Batch pool. Den anpassade .NET-aktiviteten kan sedan komma åt hemligheter i KeyVault vid körning. Den här lösningen är en allmän lösning och kan skalas till alla typer av hemlighet, inte bara anslutningssträngen.
+    Bygga projektet. Ta bort Azure.Storage sammanställningen av version > 4.3.0 från mappen bin\Debug. Skapa en zip-fil med binärfiler och PDB-filen. Vill du ersätta den gamla zipfilen med den här blobbehållaren (customactivitycontainer). Kör sektorer som inte (högerklickar du på sektorn och klicka på Kör).   
+8. Den anpassade aktiviteten använder inte den **app.config** filen från paketet. Därför, om din kod läser några anslutningssträngar från konfigurationsfilen, det fungerar inte vid körning. Den bästa metoden när du använder Azure Batch är att förvara eventuella hemligheter i ett **Azure KeyVault**, använda certifikatbaserad tjänstens huvudnamn för att skydda den **keyvault**, samt distribuera certifikatet till Azure Batch pool. Den anpassade .NET-aktiviteten kan sedan komma åt hemligheter i KeyVault vid körning. Den här lösningen är en allmän lösning som kan skalas till alla typer av hemligheter, inte bara anslutningssträngar.
 
-   Det finns en enklare lösning (men inte rekommenderas): du kan skapa en **Azure SQL länkade tjänsten** skapa en datamängd som använder den länkade tjänsten med inställningar för sträng och kedja datamängden som en dummy inkommande datauppsättningen till den Anpassad .NET-aktivitet. Du kan sedan komma åt den länkade tjänsten anslutningssträngen i koden anpassad aktivitet.  
+   Det finns en enklare lösning (men inte bästa praxis): du kan skapa en **länkad Azure SQL-tjänst** med inställningar för anslutningssträngen, skapa en datauppsättning som använder den länkade tjänsten och länka datauppsättningen som en dummy datauppsättningen för indata till den Anpassad .NET-aktivitet. Du kan sedan komma åt den länkade tjänsten anslutningssträng i koden anpassad aktivitet.  
 
 ## <a name="update-custom-activity"></a>Uppdatera anpassad aktivitet
-Om du uppdaterar koden för den anpassade aktiviteten, skapa den och ladda upp zip-filen som innehåller nya binärfiler till blob storage.
+Om du uppdaterar koden för den anpassade aktiviteten, skapa och ladda upp zip-filen som innehåller nya binärfiler till blob storage.
 
 ## <a name="appdomain-isolation"></a>AppDomain isolering
-Se [mellan AppDomain-exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) som visar hur du skapar en anpassad aktivitet som inte är begränsad till sammansättningen versioner som används av Data Factory-programstart (exempel: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x osv.).
+Se [mellan AppDomain exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) som visar hur du skapar en anpassad aktivitet som inte är begränsad till sammansättningen-versioner som används av Data Factory-startprogrammet (exempel: WindowsAzure.Storage verze 4.3.0, Newtonsoft.Json v6.0.x osv.).
 
 ## <a name="access-extended-properties"></a>Åtkomst till utökade egenskaper
 Du kan deklarera utökade egenskaper i aktivitets-JSON som visas i följande exempel:
@@ -748,9 +748,9 @@ Du kan deklarera utökade egenskaper i aktivitets-JSON som visas i följande exe
 ```
 
 
-Det här exemplet finns det två utökade egenskaper: **SliceStart** och **DataFactoryName**. Värdet för SliceStart baseras på variabeln SliceStart system. Se [systemvariabler](data-factory-functions-variables.md) för en lista över variabler system som stöds. Värdet för DataFactoryName är hårdkodat till CustomActivityFactory.
+I det här exemplet finns två utökade egenskaper: **SliceStart** och **DataFactoryName**. Värdet för SliceStart baseras på systemvariabeln SliceStart. Se [systemvariabler](data-factory-functions-variables.md) en lista över systemvariabler som stöds. Värdet för DataFactoryName är hårdkodad att CustomActivityFactory.
 
-Åtkomst till dessa utökade egenskaper i den **Execute** metod, Använd koden liknar följande kod:
+Åtkomst till dessa utökade egenskaper i den **kör** metod, Använd-koden som liknar följande kod:
 
 ```csharp
 // to get extended properties (for example: SliceStart)
@@ -766,12 +766,12 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 }
 ```
 
-## <a name="auto-scaling-of-azure-batch"></a>Automatisk skalning av Azure Batch
-Du kan också skapa en Azure Batch-pool med **Autoskala** funktion. Du kan till exempel skapa en azure batch-pool med 0 dedikerade virtuella datorer och en Autoskala formel baserat på antalet väntande åtgärder. 
+## <a name="auto-scaling-of-azure-batch"></a>Automatisk skalning i Azure Batch
+Du kan också skapa ett Azure Batch-pool med **Autoskala** funktionen. Du kan till exempel skapa en azure batch-pool med 0 dedikerade virtuella datorer och en formel för automatisk skalning baserat på antalet väntande aktiviteter. 
 
-Exempel formeln här uppnår på följande: När poolen skapas, det börjar med 1 VM. $PendingTasks mått definierar antalet aktiviteter i körs + aktiv (i kö) tillstånd.  Formeln hittar det genomsnittliga antalet väntande aktiviteter under de senaste 180 sekunderna och anger därefter TargetDedicated. Det garanterar att TargetDedicated aldrig är mer omfattande än 25 virtuella datorer. Så när nya aktiviteter skickas pool växer automatiskt och som slutförda uppgifter, virtuella datorer blir ledigt i taget och autoskalning krymper dessa virtuella datorer. startingNumberOfVMs och maxNumberofVMs kan justeras efter dina behov.
+Exemplet formeln här uppnår på följande: När poolen skapas, den börjar med 1 virtuell dator. $PendingTasks mått definierar antalet uppgifter i körs + aktiv (köad) tillstånd.  Formeln hittar det genomsnittliga antalet väntande aktiviteter de senaste 180 sekunderna och anger TargetDedicated därefter. Det innebär att TargetDedicated aldrig är mer omfattande än 25 virtuella datorer. Så när nya aktiviteter skickas pool växer automatiskt och som aktiviteterna slutförs kan virtuella datorer blir kostnadsfria en i taget och autoskalning minskar storleken på de virtuella datorerna. startingNumberOfVMs och maxNumberofVMs kan justeras efter dina behov.
 
-Autoskala formel:
+Formel för automatisk skalning:
 
 ``` 
 startingNumberOfVMs = 1;
@@ -781,13 +781,13 @@ pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($
 $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 ```
 
-Se [automatiskt skala compute-noder i en Azure Batch-pool](../../batch/batch-automatic-scaling.md) mer information.
+Se [skala beräkningsnoder automatiskt i en Azure Batch-pool](../../batch/batch-automatic-scaling.md) mer information.
 
-Om poolen använder standard [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), Batch-tjänsten kan ta 15 30 minuter att förbereda den virtuella datorn innan du kör den anpassade aktiviteten.  Om poolen använder en annan autoScaleEvaluationInterval, kan Batch-tjänsten ta autoScaleEvaluationInterval + 10 minuter.
+Om poolen använder standard [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), Batch-tjänsten kan ta 15-30 minuter att förbereda den virtuella datorn innan du kör den anpassade aktiviteten.  Om poolen använder en annan autoScaleEvaluationInterval, kan Batch-tjänsten ta autoScaleEvaluationInterval + 10: e minut.
 
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>Skapa en anpassad aktivitet med hjälp av .NET SDK
-I den här genomgången i den här artikeln skapa en datafabrik med en pipeline som använder den anpassade aktiviteten med hjälp av Azure portal. Följande kod visar hur du skapar datafabriken med hjälp av .NET SDK i stället. Du hittar mer information om hur du använder SDK för att skapa programmässigt pipelines i den [skapar en pipeline med kopieringsaktiviteten med hjälp av .NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md) artikel. 
+I den här genomgången i den här artikeln skapar du en datafabrik med en pipeline som använder den anpassade aktiviteten med hjälp av Azure portal. Följande kod visar hur du skapar data factory med hjälp av .NET SDK i stället. Du hittar mer information om hur du använder SDK för att programmässigt skapa pipelines i den [skapa en pipeline med en Kopieringsaktivitet med hjälp av .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md) artikeln. 
 
 ```csharp
 using System;
@@ -1027,17 +1027,17 @@ namespace DataFactoryAPITestApp
 ```
 
 ## <a name="debug-custom-activity-in-visual-studio"></a>Felsöka anpassad aktivitet i Visual Studio
-Den [Azure Data Factory - lokal miljö](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) prov på GitHub innehåller ett verktyg som hjälper dig att felsöka anpassade .NET-aktiviteter i Visual Studio.  
+Den [Azure Data Factory - lokal miljö](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) exemplet på GitHub innehåller ett verktyg som hjälper dig att felsöka anpassad .NET-aktiviteter i Visual Studio.  
 
 
-## <a name="sample-custom-activities-on-github"></a>Exempel anpassade aktiviteter på GitHub
-| Exempel | Vilka anpassade aktiviteten har |
+## <a name="sample-custom-activities-on-github"></a>Anpassade aktiviteter för exemplet på GitHub
+| Exempel | Vilka anpassade aktiviteten ska hantera |
 | --- | --- |
-| [HTTP-Data Installationshämtaren](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Hämtar data från en HTTP-slutpunkt till Azure Blob Storage med hjälp av anpassade C# aktiviteten i Data Factory. |
-| [Twitter-Sentiment Analysis-exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Anropar en Azure ML-modell och vill sentiment analys, bedömningen, förutsägelse osv. |
-| [Kör R-skriptet](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Anropar R-skriptet genom att köra RScript.exe på ditt HDInsight-kluster som redan har R installerat på den. |
-| [Mellan AppDomain .NET-aktiviteten](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Använder olika sammansättningen versioner från de som används av Data Factory-starta |
-| [Bearbeta en modell i Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Ombearbeta en modell i Azure Analysis Services. |
+| [Data om HTTP-Installationshämtaren](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Hämtar data från en HTTP-slutpunkt till Azure Blob Storage med anpassad C#-aktivitet i Data Factory. |
+| [Exempel för Twitter-Attitydanalys](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Anropar en Azure ML-modell och gör attitydanalys, bedömning, förutsägelse osv. |
+| [Köra R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Anropar R-skriptet genom att köra RScript.exe i ditt HDInsight-kluster som redan finns R har installerats på datorn. |
+| [Mellan AppDomain .NET-aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Använder olika paketversionerna från de som används av Data Factory-startprogram |
+| [Ombearbeta en modell i Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Ombearbeta en modell i Azure Analysis Services. |
 
 [batch-net-library]: ../../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md

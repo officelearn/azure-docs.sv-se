@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: andrl
-ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059529"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734479"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Ange och hämta dataflöde för Azure Cosmos DB-behållare och databasen
 
@@ -61,7 +61,7 @@ I nästa avsnitt kommer du lära dig de steg som krävs för att konfigurera dat
 2. I det vänstra navigeringsfältet väljer **alla resurser** och hitta ditt Azure Cosmos DB-konto.  
 3. Du kan konfigurera dataflöde när du skapar en databas eller uppdatera genomströmning för en befintlig databas.  
 4. Om du vill tilldela dataflöde när du skapar en databas, öppna den **Datautforskaren** bladet och välj **ny databas**  
-5. Fyll i **databas-id** värde, kontrollera **etablera dataflöde** , och konfigurera dataflödesvärde gjorts. En databas kan etableras med minsta dataflödesvärde gjorts 50 000 RU/s.  
+5. Fyll i **databas-id** värde, kontrollera **etablera dataflöde** , och konfigurera dataflödesvärde gjorts.  
 
    ![Ange dataflöde med nytt databasalternativ](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -74,7 +74,7 @@ I nästa avsnitt kommer du lära dig de steg som krävs för att konfigurera dat
 1. Logga in på [Azure Portal](https://portal.azure.com).  
 2. I det vänstra navigeringsfältet väljer **alla resurser** och hitta ditt Azure Cosmos DB-konto.  
 3. Skapa en databas och tilldela det dataflöde. Öppna den **Datautforskaren** bladet och välj **ny databas**  
-4. Fyll i **databas-id** värde, kontrollera **etablera dataflöde** , och konfigurera dataflödesvärde gjorts. En databas kan etableras med minsta dataflödesvärde gjorts 50 000 RU/s.  
+4. Fyll i **databas-id** värde, kontrollera **etablera dataflöde** , och konfigurera dataflödesvärde gjorts.  
 
    ![Ange dataflöde med nytt databasalternativ](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -107,33 +107,6 @@ Nedan finns några överväganden som hjälper dig att avgöra om en strategi f�
 * Om du har mindre antal Azure Cosmos DB-behållare.  
 
 * Om du vill få garanterat dataflöde i en given behållare som backas upp av ett serviceavtal (SLA).
-
-## <a name="throughput-ranges"></a>Intervall i dataflöde
-
-I följande tabell visas dataflödet som är tillgängligt för behållare:
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Enskild Partition behållare</strong></p></td>
-            <td valign="top"><p><strong>Partitionerad behållare</strong></p></td>
-            <td valign="top"><p><strong>Uppsättning behållare</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Minsta dataflöde</p></td>
-            <td valign="top"><p>400 begäransenheter per sekund</p></td>
-            <td valign="top"><p>1 000 programbegäran per sekund</p></td>
-            <td valign="top"><p>50 000 enheter för programbegäran per sekund</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Maximalt dataflöde</p></td>
-            <td valign="top"><p>10 000 enheter för programbegäran per sekund</p></td>
-            <td valign="top"><p>Obegränsat</p></td>
-            <td valign="top"><p>Obegränsat</p></td>
-        </tr>
-    </tbody>
-</table>
 
 <a id="set-throughput-sdk"></a>
 

@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: af9d34b0c3b59cbf012d16de27bb4c60a809f619
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 19693e394b0bd3a589ead25e2ddfa2fa88e92bad
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630973"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730387"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL Database vCore-baserade köpa modellen lagringsgränser för elastiska pooler
 
@@ -25,17 +25,17 @@ DTU-baserade gränser för inköpschef modellen för finns i [SQL Database DTU-b
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Elastisk pool: lagringsstorlekar och prestandanivåer
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastisk pool: lagringsstorlekar och storlekar
 
-Följande tabeller visar de tillgängliga resurserna på varje servicenivå för tjänstnivå och prestandanivå för SQL Database elastiska pooler. Du kan ange tjänstnivån, prestandanivån och storage mycket med den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), eller [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+För elastiska pooler i SQL Database, i följande tabeller visar de tillgängliga resurserna på varje tjänstnivå och beräkna storleken. Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), eller [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
-> Resursbegränsningar enskilda databaser i elastiska pooler är vanligtvis samma som för enskilda databaser utanför pooler som har samma prestandanivå. Max samtidiga arbetare för en GP_Gen4_1-databas är till exempel 200 arbetare. Max samtidiga arbetare för en databas i poolen GP_Gen4_1 är därför också 200 arbetare. Observera att det totala antalet samtidiga arbetare i GP_Gen4_1 pool är 210.
+> Resursbegränsningar enskilda databaser i elastiska pooler är vanligtvis samma som för enskilda databaser utanför pooler som har samma compute storlek. Max samtidiga arbetare för en GP_Gen4_1-databas är till exempel 200 arbetare. Max samtidiga arbetare för en databas i poolen GP_Gen4_1 är därför också 200 arbetare. Observera att det totala antalet samtidiga arbetare i GP_Gen4_1 pool är 210.
 
 ### <a name="general-purpose-service-tier"></a>Tjänstnivå för allmänt syfte
 
 #### <a name="generation-4-compute-platform"></a>Beräkningsplattform generation 4
-|Prestandanivå|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+|Beräkna storlek|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -59,7 +59,7 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |||
 
 #### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
-|Prestandanivå|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Beräkna storlek|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
@@ -85,7 +85,7 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 ### <a name="business-critical-service-tier"></a>Kritiska-affärsnivå
 
 #### <a name="generation-4-compute-platform"></a>Beräkningsplattform generation 4
-|Prestandanivå|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|Beräkna storlek|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -100,7 +100,7 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Maximalt antal samtidiga arbetare (begäranden)|210|420|840|1680|3360|5040|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
-|Maximalt antal databaser per pool|Stöds inte|50|100|100|100|100|
+|Maximalt antal databaser per pool|Endast enskild databaser har stöd för den här beräkningsstorleken|50|100|100|100|100|
 |Min/max-databaspool vcore val per databas|Gäller inte|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24|
 |Antal repliker|3|3|3|3|3|3|
 |Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -109,7 +109,7 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 |||
 
 #### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
-|Prestandanivå|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Beräkna storlek|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|

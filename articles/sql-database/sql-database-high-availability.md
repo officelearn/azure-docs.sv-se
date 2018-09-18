@@ -6,15 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 1aab8dfd3a4bcc33cddb71dec08157ee7eb68f8d
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: b35eafd8c154b6550104a87bfadce6ec528e911a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324656"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732530"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 
@@ -23,8 +23,8 @@ Azure SQL Database är en databas med hög tillgänglighet plattform som en tjä
 Azure-plattformen fullständigt hanterar varje Azure SQL-databas och garanterar att inga data går förlorade och en hög andel datatillgänglighet. Azure hanterar automatiskt korrigeringar, säkerhetskopieringar, replikering, felidentifiering, underliggande potentiella maskinvara, program- eller fel, distribuera felkorrigeringar, redundans, databasen uppgraderingar och andra underhållsuppgifter. SQL Server-tekniker har implementerat MES praxis att säkerställa att alla underhållsåtgärder för har utförts i mindre än 0,01% tidpunkten för livet databas. Den här arkitekturen är utformad för att se till att allokerade data aldrig går förlorad och att underhåll utförs utan att påverka arbetsbelastning. Det finns inga underhållsperioder eller stilleståndstider som bör kräver att du stoppar arbetsbelastningen när databasen har uppgraderats eller bibehålls. Inbyggd hög tillgänglighet i Azure SQL Database garanterar att databasen blir aldrig felkritisk systemdel i din programvaruarkitektur.
 
 Azure SQL Database är baserad på SQL Server Database Engine-arkitektur som justeras för molnmiljön för att säkerställa 99,99% tillgänglighet även i fall av infrastrukturfel. Det finns två hög tillgänglighet arkitekturmodeller som används i Azure SQL Database (lagringsintensiva säkerställer tillgänglighet på 99,99%):
-- Standard/generell användning-modell som baseras på en åtskillnad mellan beräkning och lagring. Den här arkitekturen modellen förlitar sig på hög tillgänglighet och tillförlitlighet för lagringsnivån, men det kan ha vissa potentiella prestandaförsämring medan underhålls.
-- Premium/kritiska affärsmodell som baseras på ett kluster med databasen sökmotor-processer. Den här arkitekturen modellen är beroende av ett faktum att det är alltid ett nodkvorum tillgängliga database engine och har minimal prestandapåverkan på din arbetsbelastning även under underhållsaktiviteter.
+- Standard/generell användning service nivåmodellen som baseras på en åtskillnad mellan beräkning och lagring. Den här arkitekturen modellen förlitar sig på hög tillgänglighet och tillförlitlighet för lagringsnivån, men det kan ha vissa potentiella prestandaförsämring medan underhålls.
+- Premium/business kritiska-nivåmodellen som baseras på ett kluster med databasen sökmotor-processer. Den här arkitekturen modellen är beroende av ett faktum att det är alltid ett nodkvorum tillgängliga database engine och har minimal prestandapåverkan på din arbetsbelastning även under underhållsaktiviteter.
 
 Azure uppgraderar och korrigerar underliggande operativsystemet, drivrutiner och SQL Server Database Engine transparent med minimalt driftstopp för slutanvändare. Azure SQL-databas som körs på den senaste stabila versionen av SQL Server Database Engine och Windows OS och de flesta användarna skulle inte lägger märke till att uppgraderingen utförs kontinuerligt.
 
@@ -59,7 +59,7 @@ Affärskritisk kluster tillhandahåller dessutom inbyggda skrivskyddad nod som k
 
 Som standard skapas kvorum-set-repliker för lokal lagringskonfigurationer i samma datacenter. Med introduktionen av [Azure Availability Zones](../availability-zones/az-overview.md), du har möjlighet att placera olika repliker i kvorum-aktiverar till olika tillgänglighetszoner i samma region. För att ta bort en enskild felpunkt dupliceras också ringen kontroll över flera zoner som tre gateway-ringar (GW). Routning till en specifik gateway-ring styrs av [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Eftersom zonen redundant konfiguration inte skapar ytterligare databasredundans, användningen av Tillgänglighetszoner (förhandsversion) på tjänstnivåerna Premium och affärskritiska är tillgänglig utan extra kostnad. Genom att välja en zonen redundant databas, kan du din Premium- eller affärskritiska databaser elastiska till ett mycket större antal fel, inklusive oåterkalleligt datacenter-avbrott utan ändringar av programlogiken. Du kan också konvertera alla befintliga Premium eller affärskritiska databaser eller pooler till zonen redundant konfiguration.
 
-Eftersom zonen redundant kvorum-set har repliker i olika datacenter med vissa avståndet mellan dem, kan ökad Nätverksfördröjningen öka tid som commit och därmed påverka prestandan för vissa OLTP-arbetsbelastningar. Du kan alltid återgå till den enskilda zon konfigurationen genom att inaktivera inställningen zon redundans. Den här processen är en storlek på data igen och liknar vanliga mål för servicenivå (SLO) tjänstuppdateringen. I slutet av processen har databas eller pool migrerats från en zonen redundant ring en enskild zon ringer eller vice versa.
+Eftersom zonen redundant kvorum-set har repliker i olika datacenter med vissa avståndet mellan dem, kan ökad Nätverksfördröjningen öka tid som commit och därmed påverka prestandan för vissa OLTP-arbetsbelastningar. Du kan alltid återgå till den enskilda zon konfigurationen genom att inaktivera inställningen zon redundans. Den här processen är en storlek på data igen och liknar regelbundna nivån tjänstuppdateringen. I slutet av processen har databas eller pool migrerats från en zonen redundant ring en enskild zon ringer eller vice versa.
 
 > [!IMPORTANT]
 > Zonen redundant databaser och elastiska pooler finns för närvarande stöds endast i Premium-tjänstnivån. Under förhandsversionen, säkerhetskopior och granska poster lagras i RA-GRS-lagring och därför inte automatiskt tillgängliga i händelse av ett avbrott på hela zonen. 
@@ -69,7 +69,7 @@ Zonen redundant versionen av arkitektur med hög tillgänglighet är illustreras
 ![hög tillgänglighet arkitektur zonredundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Lässkalbarhet
-Enligt beskrivningen, utnyttja Premium och affärskritisk tjänstnivåer kvorum uppsättningar och Always On-teknik för hög tillgänglighet för både i samma zon och zonen redundant konfigurationer. En av fördelarna med AlwaysOn är att replikerna alltid är i ett konsekvent tillstånd. Eftersom replikerna har samma prestandanivå som primärt, programmet kan dra nytta av den extra kapaciteten för att underhålla de skrivskyddade arbetsbelastningarna utan extra kostnad (Läs skala ut). Det här sättet skrivskyddade frågor isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Läs uppskalningsfunktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar som analyser och därför kan nu använda den här ytterligare kapacitet utan att ansluta till primärt. 
+Enligt beskrivningen, utnyttja Premium och affärskritisk tjänstnivåer kvorum uppsättningar och Always On-teknik för hög tillgänglighet för både i samma zon och zonen redundant konfigurationer. En av fördelarna med AlwaysOn är att replikerna alltid är i ett konsekvent tillstånd. Eftersom replikerna har samma beräkning storlek som primärt, programmet kan dra nytta av den extra kapaciteten för att underhålla de skrivskyddade arbetsbelastningarna utan extra kostnad (Läs skala ut). Det här sättet skrivskyddade frågor isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Läs uppskalningsfunktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar som analyser och därför kan nu använda den här ytterligare kapacitet utan att ansluta till primärt. 
 
 Om du vill använda funktionen Lässkalning med en viss databas, måste du uttryckligen aktivera den när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att aktivera den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdletar eller Azure Resource Manager REST API med hjälp av den [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate) metod.
 

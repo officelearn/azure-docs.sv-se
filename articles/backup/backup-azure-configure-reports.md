@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4839b1aaa56be1ad93fa1dd685ca3176d1cc8a27
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: c59653bf3709f7798fd92a44fa420b99f2cbc6b6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057717"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733596"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln handlar om åtgärder för att konfigurera rapporter för Azure Backup med Recovery Services-valvet och till dessa rapporter med Power BI. När du har utfört dessa steg kan du direkt Gå till Power BI för att visa alla rapporter, anpassa och skapa rapporter. 
@@ -83,7 +83,7 @@ När du konfigurerar lagringskontot för rapporter med hjälp av recovery servic
 4. Ange namnet på lagringskontot konfigurerade i steg 5 ovan och klicka på **nästa** knappen.
 
     ![Ange ett lagringskontonamn](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Ange lagringskontonyckeln för det här lagringskontot. Du kan [visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-create-storage-account.md#manage-your-storage-account) genom att gå till ditt lagringskonto i Azure-portalen. 
+5. Ange lagringskontonyckeln för det här lagringskontot. Du kan [visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-account-manage.md#access-keys) genom att gå till ditt lagringskonto i Azure-portalen. 
 
      ![Ange storage-konto](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

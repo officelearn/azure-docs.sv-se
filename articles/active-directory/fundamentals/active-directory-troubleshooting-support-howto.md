@@ -1,6 +1,6 @@
 ---
-title: Få support för Azure AD | Microsoft Docs
-description: Få support för Azure Active Directory
+title: Få support för Azure Active Directory | Microsoft Docs
+description: Lär dig mer om att få support för Azure Active Directory.
 services: active-directory
 documentationcenter: na
 author: eross-msft
@@ -14,16 +14,14 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 72212d2d47ff0290ee541c1ffeab6d73dbf3185d
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: d7d499ed43ee2eab03e46e408104eca4af6a2945
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35968150"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729407"
 ---
-# <a name="how-to-get-support-for-azure-active-directory"></a>Få support för Azure Active Directory
-
-
+# <a name="how-to-get-support-for-azure-active-directory"></a>Så här: få support för Azure Active Directory
 Microsoft tillhandahåller global teknisk, förförsäljnings, fakturering och prenumerationsstöd för Azure Active Directory (AD Azure). Support fås både online och per telefon för Microsoft Azure betalda prenumerationer och provprenumerationer. Telefonsupport och faktureringssupport online är tillgänglig på andra språk. 
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>Få hjälp utan att öppna ett supportärende

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: e096a67d953860ec2e9601f25dbd9ca92a8fb4a3
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 0bd894e99fd575fca734a101a1cde0f0a2979682
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633788"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983775"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Begränsningar i Azure Database för PostgreSQL
 I följande avsnitt beskrivs kapacitet och funktionella begränsningar i databastjänsten.
@@ -48,9 +48,6 @@ Azure-systemet kräver fem anslutningar att övervaka Azure Database for Postgre
 
 ### <a name="server-version-upgrades"></a>Server-versionsuppgraderingar
 - Automatisk migrering mellan större database engine-versioner stöds för närvarande inte. Om du vill uppgradera till nästa huvudversion kan ta en [dumpa och Återställ](./howto-migrate-using-dump-and-restore.md) den till en server som har skapats med ny version.
-
-### <a name="subscription-management"></a>Prenumerationshantering
-- Dynamiskt flytta servrar över prenumerationer och resursgrupper stöds för närvarande inte.
 
 ### <a name="vnet-service-endpoints"></a>VNet-tjänstslutpunkter
 - Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.

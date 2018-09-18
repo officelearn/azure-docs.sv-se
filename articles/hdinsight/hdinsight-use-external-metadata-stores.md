@@ -8,13 +8,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: a2c992a47e40a4f8764f5950c65bb90f1cd9e066
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/14/2018
+ms.openlocfilehash: 7c58162048de341468b69a29c55edf346b376e9b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045151"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733822"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
@@ -29,11 +29,11 @@ Det finns två sätt som du kan ställa in ett metaarkiv för dina HDInsight-klu
 
 ## <a name="default-metastore"></a>Standardmetaarkiv
 
-Som standard etablerar ett metaarkiv med varje typ av kluster i HDInsight. Du kan i stället ange en anpassad metaarkiv. Standardmetaarkiv innefattar följande överväganden:
-- Utan extra kostnad. HDInsight etablerar ett metaarkiv med varje typ av kluster utan extra kostnad för dig.
-- Varje standardmetaarkiv är en del av klustrets livscykel. När du tar bort ett kluster att raderas även metaarkiv och metadata.
+Som standard skapar ett metaarkiv med varje typ av kluster i HDInsight. Du kan i stället ange en anpassad metaarkiv. Standardmetaarkiv innefattar följande överväganden:
+- Utan extra kostnad. HDInsight skapar ett metaarkiv med varje typ av kluster utan extra kostnad för dig.
+- Varje standardmetaarkiv är en del av klustrets livscykel. När du tar bort ett kluster, raderas också motsvarande metaarkiv och metadata.
 - Du kan inte dela standardmetaarkiv med andra kluster.
-- Standardmetaarkiv använder grundläggande Azure SQL DB, som har en gräns för 5 DTU (database transaction unit).
+- Standardmetaarkiv använder grundläggande Azure SQL DB, som har en gräns för fem DTU (database transaction unit).
 Den här standardmetaarkiv används vanligtvis för relativt enkla arbetsbelastningar som inte kräver flera kluster och behöver inte metadata bevaras utöver klustrets livscykel.
 
 
@@ -46,11 +46,7 @@ HDInsight har också stöd för anpassade metastores som rekommenderas för prod
 - Du betalar för kostnaden för metaarkiv (Azure SQL DB) enligt den prestandanivå som du väljer.
 - Du kan skala upp metaarkiv efter behov.
 
-
 ![HDInsight Hive-Metadata Store användningsfall](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
-
-<!-- Image – Typical shared custom Metastore scenario in HDInsight (?) -->
-
 
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Välj en anpassad metaarkiv när klustret skapas
@@ -67,12 +63,14 @@ Du kan också lägga till ytterligare kluster till ett anpassat metaarkiv från 
 
 Här är några allmänna HDInsight Hive metastore metodtips:
 
-- Använd ett anpassat metaarkiv när det är möjligt på så sätt kan separat beräkningsresurser (som körs klustret) och metadata (lagras i metaarkiv).
+- Använd ett anpassat metaarkiv när det är möjligt att separat beräkningsresurser (som körs klustret) och metadata (lagras i metaarkiv).
 - Börja med en S2-nivå som ger 50 DTU och 250 GB lagring. Om du ser en flaskhals kan skala du databasen upp.
-- Se till att metaarkiv som skapats för ett HDInsight-kluster av version inte delas mellan olika versioner av HDInsight-kluster. Olika versioner av Hive använda olika scheman. Exempel: du kan inte dela ett metaarkiv med både Hive 1.2 och Hive 2.1-kluster.
-- Säkerhetskopiera dina anpassade metastore med jämna mellanrum.
-- Se metaarkiv och HDInsight-kluster i samma region.
+- Om du planerar flera HDInsight-kluster på separata dataåtkomst, kan du använda en separat databas för metaarkiv på varje kluster. Om du delar ett metaarkiv över flera HDInsight-kluster, innebär det att klustren använder samma metadata och filer för underliggande användardata.
+- Säkerhetskopiera dina anpassade metastore med jämna mellanrum. Säkerhetskopior genererar automatiskt i Azure SQL-databas, men en mer specifik tidsram för kvarhållning av säkerhetskopior varierar. Mer information finns i [Lär dig mer om automatisk SQL Database-säkerhetskopior](../sql-database/sql-database-automated-backups.md).
+- Leta upp din metaarkiv och HDInsight-kluster i samma region för högsta prestanda och kostnader för utgående trafik för lägsta nätverk.
 - Övervaka din metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database-övervakning verktyg, till exempel Azure portal eller Azure Log Analytics.
+- När en ny, högre version av Azure HDInsight skapas mot en befintlig anpassad metaarkiv-databas, uppgraderar systemet schemat för metaarkiv, vilket är oåterkallelig utan att återställa databasen från en säkerhetskopia.
+- Om du delar ett metaarkiv över flera kluster kan du kontrollera att alla kluster är samma HDInsight-version. Olika Hive versioner använder olika metaarkiv databasscheman. Du kan inte till exempel dela ett metaarkiv för Hive 1.2 och Hive 2.1 version kluster. 
 
 ## <a name="oozie-metastore"></a>Oozie-Metaarkiv
 

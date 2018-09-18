@@ -1,6 +1,6 @@
 ---
-title: Autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion) | Microsoft Docs
-description: Autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion).
+title: Autentisera åtkomsten till Azure BLOB-objekt och köer med hjälp av Azure Active Directory (förhandsversion) | Microsoft Docs
+description: Autentisera åtkomsten till Azure BLOB-objekt och köer med hjälp av Azure Active Directory (förhandsversion).
 services: storage
 author: tamram
 ms.service: storage
@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 802eefb7ed8191525a8a4a6601b620ca5dfd5faa
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d48eee711e5d43c2113c3a21d87386b350c6b01f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300621"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731911"
 ---
-# <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)
+# <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>Autentisera åtkomsten till Azure BLOB-objekt och köer med hjälp av Azure Active Directory (förhandsversion)
 
 Azure Storage stöder autentisering och auktorisering med Azure Active Directory (AD) för tjänsterna Blob och kö. Med Azure AD, kan du använda rollbaserad åtkomstkontroll (RBAC) för att bevilja åtkomst till användare, grupper eller program tjänstens huvudnamn. 
 
-Auktorisera program som har åtkomst till Azure Storage med Azure AD tillhandahåller överlägsen säkerhet och användarvänlighet andra alternativ för auktorisering. Du kan fortsätta använda delad nyckel auktorisering med program, kringgår med hjälp av Azure AD behovet av att spara din åtkomstnyckel med din kod. På samma sätt du kan fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt storage-konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig om du återkallar en komprometterad SAS.
+Autentisera användare eller program med hjälp av autentiseringsuppgifter för Azure AD tillhandahåller överlägsen säkerhet och användarvänlighet över annan typ av auktorisering. Du kan fortsätta använda delad nyckel auktorisering med program, kringgår med hjälp av Azure AD behovet av att spara din åtkomstnyckel med din kod. Du kan också fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt storage-konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig om du återkallar en komprometterad SAS. Microsoft rekommenderar att du använder Azure AD-autentisering för dina Azure Storage-program när det är möjligt.
 
 ## <a name="about-the-preview"></a>Om förhandsversionen av
 

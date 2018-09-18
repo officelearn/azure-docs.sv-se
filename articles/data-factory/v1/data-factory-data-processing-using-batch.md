@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057040"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737421"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta datauppsättningar i stor skala med hjälp av Data Factory och Batch
 > [!NOTE]
@@ -556,7 +556,7 @@ Länkade tjänster länkar datalager eller Beräkningstjänster till en data fac
 
    ![Nytt datalager](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Ersätt **account name** med namnet på ditt lagringskonto. Ersätt **account key** med åtkomstnyckeln för lagringskontot. Information om hur du hämtar din lagringsåtkomstnyckel finns [visa, kopiera, och återskapa åtkomstnycklar](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Ersätt **account name** med namnet på ditt lagringskonto. Ersätt **account key** med åtkomstnyckeln för lagringskontot. Information om hur du hämtar din lagringsåtkomstnyckel finns [visa, kopiera, och återskapa åtkomstnycklar](../../storage/common/storage-account-manage.md#access-keys).
 
 1. Välj **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
 

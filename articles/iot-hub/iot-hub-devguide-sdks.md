@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: f5d493628df68e0afbe05137b0d7386d6c40f7d4
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: ba06617762650afc8cd3eecb2fcddda6d24f4228
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605750"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734998"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Förstå och använda Azure IoT Hub SDK: er
 
@@ -37,33 +37,35 @@ Azure IoT Hub device SDK för .NET:
 * Installera från [Nuget][lnk-nuget-csharp-device]
 * [Källkod][lnk-dotnet-sdk]
 * [API-referens][lnk-dotnet-ref]
-* [Modulreferens] [https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet]
+* [Modulreferens](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
 
 Azure IoT Hub device SDK för C: som skrivits i ANSI C (C99) för portabilitet och bred plattformskompatibilitet
 * Installera från [apt-get, MBED, Arduino IDE eller Nuget][lnk-c-package]
 * [Källkod][lnk-c-sdk]
 * [API-referens][lnk-c-ref]
-* [Modulreferens] [https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h]
+* [Modulreferens](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
 Azure IoT Hub device SDK för Java: 
 * Lägg till i [Maven] [ lnk-maven-device] projekt
 * [Källkod][lnk-java-sdk]
 * [API-referens][lnk-java-ref]
-* [Modulreferens] [https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable]
+* [Modulreferens](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable)
 
 Azure IoT Hub device SDK för Node.js: 
 * Installera från [npm][lnk-npm-device]
 * [Källkod][lnk-node-sdk]
 * [API-referens][lnk-node-ref]
-* [Modulreferens] [https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest]
+* [Modulreferens](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)
 
 Azure IoT Hub device SDK för Python: 
 * Installera från [pip][lnk-pip-device]
 * [Källkod][lnk-python-sdk]
+* API-referens: se [C API-referens][lnk-c-ref]
 
 Azure IoT Hub device SDK för iOS: 
 * Installera från [CocoaPod][lnk-cocoa-device]
 * [Exempel][lnk-ios-sample]
+* API-referens: se [C API-referens][lnk-c-ref]
 
 > [!NOTE]
 > Finns i readme-filerna i GitHub-lagringsplatser för information om att använda språk och plattformsspecifika pakethanterare för att installera binärfilerna och beroenden på utvecklingsdatorn.

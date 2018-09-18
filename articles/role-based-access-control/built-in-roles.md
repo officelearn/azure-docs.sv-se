@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 09/15/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 44b32746c43569705b445ac5df0a5727463acbe0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 0b7933df1e9f250430800b5b7deba06239cb6fd1
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095342"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736690"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
@@ -663,12 +663,12 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Åtgärder** |  |
 > | Microsoft.CognitiveServices/*/read |  |
-> | Microsoft.CognitiveServices/accounts/listkeys/action | Lista över nycklar |
+> | Microsoft.CognitiveServices/accounts/listkeys/action | Visa nyckellista |
 > | Microsoft.Insights/metricdefinitions/read | Läs måttdefinitioner |
 > | Microsoft.Insights/metrics/read | Läs mått |
 > | Microsoft.Insights/alertRules/read | Läsa en klassisk måttavisering |
 > | Microsoft.Insights/diagnosticSettings/read | Läsa en resursdiagnostikinställning |
-> | Microsoft.Insights/logDefinitions/read | Läs Loggdefinitioner |
+> | Microsoft.Insights/logDefinitions/read | Läs loggdefinitioner |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Resources/deployments/operations/read | Hämtar eller listar distributionsåtgärder. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Hämtar prenumerationsåtgärdsresultaten. |
@@ -889,7 +889,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Skapa ett labb i ett labbkonto. |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Hämta information om regional tillgänglighet för varje kategori för storlek som konfigurerats under ett labbkonto |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Hämta information om regional tillgänglighet för varje kategori för storlek som konfigurerats under ett labbkonto |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
@@ -1670,10 +1670,10 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Network/virtualNetworks/read | Hämta definitionen av virtuella nätverket |
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Ansluter till ett virtuellt nätverk |
 > | Microsoft.RecoveryServices/locations/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Skapa en säkerhetskopia för Avsiktsskydd |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returnerar information om det skyddade objektet |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Skapa ett säkerhetskopierat skyddat objekt |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Skapa en säkerhetskopia för Avsiktsskydd |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skyddsprinciper |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Skapar en Skyddsprincip |
 > | Microsoft.RecoveryServices/Vaults/read | Hämta valv-åtgärden hämtar ett objekt som representerar Azure-resursen av typen ”vault' |
@@ -1682,6 +1682,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.SqlVirtualMachine/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returnerar åtkomstnycklarna för det angivna lagringskontot. |
 > | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |

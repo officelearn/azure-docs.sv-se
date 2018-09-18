@@ -1,5 +1,5 @@
 ---
-title: Ordlista för elastisk databas verktyg | Microsoft Docs
+title: Ordlista för verktyg för elastiska databaser | Microsoft Docs
 description: Förklaring av termer som används för elastiska Databasverktyg
 services: sql-database
 documentationcenter: ''
@@ -8,78 +8,78 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: sstein
-ms.openlocfilehash: 4ab938bc556d5e3dea8b7ec093f590ff1746ea29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 387f40204c8ab07ba0205fd74b5c6a549efff0ef
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647552"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45728854"
 ---
-# <a name="elastic-database-tools-glossary"></a>Ordlista för verktyg för elastisk databas
-Följande villkor definieras för den [elastisk Databasverktyg](sql-database-elastic-scale-introduction.md), en funktion i Azure SQL Database. Verktygen används för att hantera [Fragmentera mappar](sql-database-elastic-scale-shard-map-management.md), och inkludera den [klientbiblioteket](sql-database-elastic-database-client-library.md), [för delade sökvägssammanslagning](sql-database-elastic-scale-overview-split-and-merge.md), [elastiska pooler](sql-database-elastic-pool.md), och [frågor](sql-database-elastic-query-overview.md). 
+# <a name="elastic-database-tools-glossary"></a>Ordlista för verktyg för elastiska databaser
+Följande villkor har definierats för den [elastiska Databasverktyg](sql-database-elastic-scale-introduction.md), en funktion i Azure SQL Database. Verktygen används för att hantera [shardkartor](sql-database-elastic-scale-shard-map-management.md), och inkluderar den [klientbiblioteket](sql-database-elastic-database-client-library.md), [dela / sammanslå verktyget](sql-database-elastic-scale-overview-split-and-merge.md), [elastiska pooler](sql-database-elastic-pool.md), och [frågor](sql-database-elastic-query-overview.md). 
 
-Dessa villkor används i [att lägga till en Fragmentera med elastiska Databasverktyg](sql-database-elastic-scale-add-a-shard.md) och [med hjälp av klassen RecoveryManager för att åtgärda problem med Fragmentera kartan](sql-database-elastic-database-recovery-manager.md).
+Dessa villkor används i [att lägga till en shard med elastiska Databasverktyg](sql-database-elastic-scale-add-a-shard.md) och [korrigera shard-kartproblem med RecoveryManager-klassen](sql-database-elastic-database-recovery-manager.md).
 
-![Elastisk skala villkor][1]
+![Villkor för elastisk skala][1]
 
 **Databasen**: en Azure SQL-databas. 
 
-**Data beroende routning**: funktioner som gör att ett program för att ansluta till en Fragmentera ges en specifik horisontell partitionering nyckel. Se [Data beroende routning](sql-database-elastic-scale-data-dependent-routing.md). Jämför med  **[flera Fragmentera frågan](sql-database-elastic-scale-multishard-querying.md)**.
+**Databeroende routning**: funktioner som gör att ett program kan ansluta till en shard som ett specifikt horisontell partitionering nyckel. Se [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md). Jämför med  **[Multi-shard fråga](sql-database-elastic-scale-multishard-querying.md)**.
 
-**Globala Fragmentera kartan**: mappningen mellan horisontell partitionering nycklar och deras respektive shards inom en **Fragmentera set**. Globala Fragmentera kartan lagras i den **Fragmentera kartan manager**. Jämför med **lokala Fragmentera kartan**.
+**Global fragmentkartan**: mappningen mellan nycklar för horisontell partitionering och deras respektive fragment i en **shard set**. Global fragmentkartan lagras i den **karthanteraren**. Jämför med **lokala fragmentkartan**.
 
-**Lista Fragmentera kartan**: en Fragmentera karta i vilka horisontell partitionering nycklar är mappade individuellt. Jämför med **intervallet Fragmentera kartan**.   
+**Listfragmentkarta**: en skärvkarta i vilken horisontell partitionering nycklar mappas individuellt. Jämför med **intervall Fragmentkartan**.   
 
-**Lokala Fragmentera kartan**: lagras på en Fragmentera lokala Fragmentera kartan innehåller mappningar för shardlets som finns på Fragmentera.
+**Lokala fragmentkartan**: lagras på ett fragment, lokala fragmentkartan innehåller mappningar för shardletar som finns på fragmentet.
 
-**Flera Fragmentera frågan**: möjligheten att köra en fråga mot flera delar, anger resultat returneras med hjälp av UNION ALL semantik (även kallat ”fan-out query”). Jämför med **data beroende routning**.
+**Multi-shard fråga**: möjligheten att köra en fråga mot flera shards; uppsättningar resultat som returneras med hjälp av UNION ALL semantik (även kallat ”förgreningsfråga”). Jämför med **databeroende routning**.
 
-**Flera innehavare** och **stöd för en innehavare**: här visas en enskild klient-databas och en databas med flera innehavare:
+**Flera innehavare** och **enda klient**: Detta visar en enda klient-databas och en databas för flera innehavare:
 
-![Enstaka och flera innehavare](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
+![Enstaka och flera innehavare databaser](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
 
-Här är en representation av **delat** enstaka och flera innehavare. 
+Här är en representation av **shardade** enstaka och flera innehavare databaser. 
 
-![Enstaka och flera innehavare](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
+![Enstaka och flera innehavare databaser](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
-**Intervallet Fragmentera kartan**: en Fragmentera karta som distributionsstrategi Fragmentera baseras på flera intervall med sammanhängande värden. 
+**Intervallfragmentkarta**: en skärvkarta där shard-distributionsstrategi utifrån flera intervall med sammanhängande värden. 
 
-**Refererar till tabeller**: tabeller som inte är delat men replikeras över shards. Postnummer kan till exempel lagras i en tabell. 
+**Tabeller**: tabeller som inte är fragmenterade (sharded) men replikeras över shards. Postnummer kan till exempel lagras i en tabell. 
 
-**Fragmentera**: en Azure SQL-databas som lagrar data i ett delat datamängd. 
+**Shard**: en Azure SQL-databas som lagrar data från en shardade data. 
 
-**Fragmentera elasticitet**: möjligheten att utföra både **teckenbredden** och **lodräta skalning**.
+**Skärvelasticitet**: möjligheten att utföra både **horisontell skalning** och **vertikal skalning**.
 
-**Delat tabeller**: tabeller som är delat, d.v.s., distribueras vars data på shards baserat på deras nyckelvärden för horisontell partitionering. 
+**Shardade tabeller**: tabeller som är shardade, d.v.s., vars data är fördelad i shards baserat på deras nyckelvärden för horisontell partitionering. 
 
-**Horisontell partitionering nyckeln**: ett kolumnvärde som avgör hur data distribueras över shards. Värdetypen kan vara något av följande: **int**, **bigint**, **varbinary**, eller **uniqueidentifier**. 
+**Shardingnyckel**: ett kolumnvärde som avgör hur data ska distribueras över shards. Värdetypen kan vara något av följande: **int**, **bigint**, **varbinary**, eller **uniqueidentifier**. 
 
-**Fragmentera set**: insamling av shards som hänföras till samma Fragmentera kartan i hanteraren för kartan Fragmentera.  
+**Shard set**: insamling av shards som hänföras till på samma fragmentkartan i fragmentkartehanteraren.  
 
-**Shardlet**: alla data som är associerade med ett värde för en delning nyckel på en Fragmentera. En shardlet är den minsta enheten av dataflyttning som möjligt när omdistribuera delat tabeller. 
+**Shardlet**: alla data som är associerade med ett enda värde för en shardingnyckel på en shard. En shardlet är den minsta enheten av dataförflyttning som möjligt när distribuera shardade tabeller. 
 
-**Fragmentera kartan**: uppsättningen mappningar mellan horisontell partitionering nycklar och deras respektive shards.
+**Fragmentkartan**: uppsättningen mappningar mellan horisontell partitionering nycklar och deras respektive shards.
 
-**Fragmentera kartan manager**: en management-objekt och i datalagret som innehåller Fragmentera mappningen, Fragmentera platser och mappningar för en eller flera Fragmentera uppsättningar.
+**Karthanteraren**: en management-objekt och i datalagret som innehåller den shard map(s) och platser för shards mappningar för en eller flera fragment uppsättningar.
 
 ![Mappningar][2]
 
 ## <a name="verbs"></a>Verb
-**Teckenbredden**: att skala ut (eller i) en mängd shards genom att lägga till eller ta bort delar på en karta Fragmentera, enligt nedan.
+**Horisontell skalning**: av skala ut (eller i) i en samling fragment genom att lägga till eller ta bort en skärvkarta partitioner enligt nedan.
 
-![Vågräta och lodräta skalning][3]
+![Vågrät och lodrät skalning][3]
 
-**Sammanfoga**: flytta shardlets från två delar till en Fragmentera och därefter uppdatera Fragmentera kartan.
+**Sammanfoga**: flytta shardletar från två fragment till en shard och därefter uppdatera fragmentkartan.
 
-**Shardlet flytta**: att flytta en enda shardlet till en annan Fragmentera. 
+**Shardlet flytta**: act att flytta en enda shardlet till en annan shard. 
 
-**Fragmentera**: act vågrätt partitionering identiskt strukturerade data över flera databaser baserat på en nyckel för horisontell partitionering.
+**Shard**: av horisontell partitionering identiskt strukturerade data över flera databaser baserat på en shardingnyckel.
 
-**Dela**: att flytta flera shardlets från en Fragmentera till en annan (vanligtvis nya) Fragmentera. En nyckel för horisontell partitionering anges av användaren som dela punkt.
+**Dela**: av flytta flera shardletar från en shard till en annan (normalt nya) shard. En shardingnyckel tillhandahålls av användaren som delad punkt.
 
-**Lodrät skalning**: att skala upp (eller ned) ett enskilt Fragmentera prestandanivå. Ändra exempelvis en Fragmentera från Standard till Premium (vilket resulterar i mer datorresurser). 
+**Lodrät skalning**: av skala upp (eller ned) beräkningsstorleken för en enskild fragment. Till exempel ändrar ett fragment från Standard till Premium (vilket resulterar i fler datorresurser). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

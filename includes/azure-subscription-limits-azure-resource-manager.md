@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/22/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 08cd67e86666cdc9c9fc1b0f4ef98cf3ea7a156c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "43435614"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979511"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "43435614"
 | Totalt antal VM-kärnor per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region | Kontakta supporten |
 | VM-kärnor per serie (Dv2, F osv.) per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region | Kontakta supporten |
 | [Medadministratörer](../articles/billing-add-change-azure-subscription-administrator.md) per prenumeration |Obegränsat |Obegränsat |
-| [Storage-konton](../articles/storage/common/storage-create-storage-account.md) per region per prenumeration |200 |200<sup>2</sup> |
+| [Storage-konton](../articles/storage/common/storage-quickstart-create-account.md) per region per prenumeration |200 |200<sup>2</sup> |
 | [Resursgrupper](../articles/azure-resource-manager/resource-group-overview.md) per prenumeration |980 |980 |
 | [Tillgänglighetsuppsättningar](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per prenumeration |2 000 per region |2 000 per region |
 | Läsningar med Resource Manager API |15 000 per timme |15 000 per timme |

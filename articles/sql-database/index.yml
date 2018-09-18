@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0439f35a8ad7daab780bde301a2ec5fee8aaf1d6
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 8c56b4d0bbd4b2726b9673ca537084376ee40d94
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718308"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629331"
 documentType: LandingData
 title: Dokumentation om Azure SQL Database
 metadata:
@@ -107,7 +107,7 @@ sections:
       values:
       - href: /azure/sql-database/sql-database-get-started-portal
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
-      - href: /azure/sql-database//scripts/sql-database-create-and-configure-database-powershell
+      - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: 
     - title: Skapa hanterad SQL-instans
       values:
@@ -135,7 +135,7 @@ sections:
     - title: Skala hanterad instans
       values:
       - href: 
-      - href: 
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
       - href: 
     - title: Konfigurera Azure-nätverk för hanterad instans
@@ -152,9 +152,9 @@ sections:
     style: ordered
     items:
     - html: Skapa och utforma schemat för en ny SQL-databas med <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> eller <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
-    - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrera en befintlig SQL Server-databas för att använda Azure SQL Database</a>
+    - html: Migrera en befintlig databas till Azure med hjälp av <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> eller <a href="/azure/sql-database/sql-database-import">BACPAC-import</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Skydda din SQL-databas</a>
-    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implementera en geodistribuerad databas</a>
+    - html: Distribuera dina data globalt med en <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">geo-distribuerad databas</a>
 - title: Kostnadsfri videoutbildning för Pluralsight
   items:
   - type: list

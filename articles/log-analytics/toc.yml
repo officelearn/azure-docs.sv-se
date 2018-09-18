@@ -118,8 +118,6 @@ items:
     items:
     - name: Språkdokumentation
       items:
-      - name: Språkreferens
-        href: https://docs.loganalytics.io
       - name: Kom igång
         items:
         - name: Komma igång med Log Analytics
@@ -154,6 +152,14 @@ items:
           href: query-language/sql-cheatsheet.md
         - name: Splunk
           href: query-language/splunk-cheatsheet.md
+      - name: Språkreferens
+        items:
+        - name: Språkreferens
+          href: https://docs.loganalytics.io
+        - name: uttryck för app
+          href: query-language/app-expression.md
+        - name: uttryck för arbetsyta
+          href: query-language/workspace-expression.md
     - name: Sökningar mellan resurser
       href: log-analytics-cross-workspace-search.md
     - name: Utför åtgärder från sökresultat
@@ -340,9 +346,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=log-analytics
   - name: Windows Analytics
     href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
-ms.openlocfilehash: 891630fc5e6815f20090c6d27e752bb38a1f091f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 525b121abdb31441daf4284145538e717d8a10cd
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605699"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631920"

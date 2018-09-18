@@ -1,0 +1,53 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 4c9f26c36b0cf79c8bd28e57fc7bdec5dda22764
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45636333"
+documentType: LandingData
+title: Dokumentation om Azure Active Directory-grunderna
+metadata:
+  document_id: 
+  title: Dokumentation om Azure Active Directory-grunderna
+  description: Läs mer om de grundläggande koncepten och processerna som finns tillgängliga med Azure Active Directory.
+  services: active-directory
+  ms.component: fundamentals
+  author: eross-msft
+  manager: mtillman
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 09/07/2018
+  ms.author: lizross
+abstract:
+  description: Läs mer om grundläggande Azure Active Directory (Azure AD)-koncept och -processer, bland annat hur du skapar basanvändare och grupper, och hur du skapar en basmiljö för att komma igång.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig att komma igång med Azure Active Directory-portalen.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_portal.png
+      text: Öppna Azure AD om du vill skapa en klient
+      href: active-directory-access-create-new-tenant.md
+    - image:
+        src: ./media/index/i_tasks.png
+      text: Visa grupper och medlemmar
+      href: active-directory-groups-view-azure-portal.md
+- title: Steg-för-steg-guide
+  items:
+  - type: paragraph
+    text: Lär dig att utföra grundläggande uppgifter för att konfigurera din Azure Active Directory-miljö
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Registrera dig för Azure AD Premium</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">Så här lägger du vill ett anpassat domännamn</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">Så här skapar du en basgrupp och lägger till medlemmar</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">Så här lägger du till gruppägare</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Så här lägger du till en ny användare</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">Så här tilldelar du roller till användare</a>
+    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Så här tilldelar du licenser till användare</a>

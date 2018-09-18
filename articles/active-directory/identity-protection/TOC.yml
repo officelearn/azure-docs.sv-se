@@ -1,0 +1,63 @@
+items:
+- name: Identity Protection-dokumentation
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Vad är Azure AD Identity Protection?
+    href: overview.md
+- name: Snabbstarter
+  items:
+  - name: Blockera åtkomst när en sessionsrisk identifieras
+    href: quickstart-sign-in-risk-policy.md
+- name: Begrepp
+  items:
+  - name: Vad är sårbarheter?
+    href: vulnerabilities.md
+  - name: Vad är meddelanden?
+    href: notifications.md
+  - name: Hur är din inloggningsupplevelse?
+    href: flows.md
+  expanded: false
+- name: Instruktionsguider
+  items:
+  - name: Aktivera Azure AD Identity Protection
+    href: enable.md
+  - name: Konfigurera MFA-registreringsprincipen
+    href: howto-mfa-policy.md
+  - name: Konfigurera riskprincipen för inloggning
+    href: howto-sign-in-risk-policy.md
+  - name: Konfigurera riskprincipen för användare
+    href: howto-user-risk-policy.md
+  - name: Avblockera användare
+    href: howto-unblock-user.md
+  - name: Simulera riskhändelser
+    href: playbook.md
+  - name: Använda Microsoft Graph API
+    href: graph-get-started.md
+  - name: Vanliga frågor och svar
+    href: faqs.md
+  expanded: true
+- name: Referens
+  items:
+  - name: Ordlista
+    href: glossary.md
+- name: Resurser
+  items:
+  - name: Azures feedbackforum
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Tjänstuppdateringar
+    href: ../fundamentals/whats-new.md
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Videoklipp
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: 651ac43690180fadad6eef7f83d2a58b531752ed
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45606719"

@@ -26,22 +26,22 @@
 ## Planera och designa
 ### [Förstå Azure AD-arkitektur](fundamentals/active-directory-architecture.md)
 ### [Anspråksmappning i Azure Active Directory](active-directory-claims-mapping.md)
-### [Distribuera en hybrididentitetslösning](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Distribuera en hybrididentitetslösning](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Fastställa krav
-##### [Identitet](active-directory-hybrid-identity-design-considerations-business-needs.md)
-##### [Katalogsynkronisering](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-##### [Flerfaktorautentisering](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-##### [Strategi för identitetslivscykel](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-#### [Planera för datasäkerhet](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-##### [Dataskydd](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-##### [Innehållshantering](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-##### [Åtkomstkontroll](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-##### [Incidenthantering](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+##### [Identitet](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
+##### [Katalogsynkronisering](hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Flerfaktorautentisering](hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [Strategi för identitetslivscykel](hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [Planera för datasäkerhet](hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [Dataskydd](hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [Innehållshantering](hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [Åtkomstkontroll](hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [Incidenthantering](hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 #### Planera din identitetslivscykel
-##### [Uppgifter](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-##### [Införandestrategi](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-#### [Nästa steg](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-#### [Jämförelse av verktyg](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+##### [Uppgifter](hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [Införandestrategi](hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [Nästa steg](hybrid/plan-hybrid-identity-design-considerations-nextsteps.md)
+#### [Jämförelse av verktyg](hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Hantera användare
 ### [Lägga till nya användare i Azure AD](fundamentals/add-users-azure-active-directory.md)
@@ -309,7 +309,7 @@
 
 
 ## Hantera din katalog
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ### Egna domännamn
 #### [Snabbstart](fundamentals/add-custom-domain.md)
 ### [Administrera din katalog](fundamentals/active-directory-administer.md)
@@ -321,7 +321,7 @@
 #### [Felsöka](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
-### [Integrera lokala identiteter med Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Integrera lokala identiteter med Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
 
@@ -329,7 +329,7 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Distribuera AD FS i Azure](active-directory-aadconnect-azure-adfs.md)
+## [Distribuera AD FS i Azure](hybrid/how-to-connect-fed-azure-adfs.md)
 ### [Hög tillgänglighet](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Ändra signaturens hashalgoritm](active-directory-federation-sha256-guidance.md)
 
@@ -349,8 +349,8 @@
 
 # Relaterat
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](./connect/active-directory-aadconnect.md)
-## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
+## [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
+## [Azure AD Connect Health](hybrid/whatis-hybrid-identity-health.md)
 ## [Azure AD för utvecklare](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Python: Kontohanteringsåtgärder på Azure Data Lake Store | Microsoft Docs'
-description: Lär dig hur du använder Python SDK för att arbeta med kontohanteringsåtgärder för Data Lake Store.
+title: 'Python: Kontohanteringsåtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
+description: Lär dig hur du använder Python SDK för att arbeta med Azure Data Lake Storage Gen1 kontohanteringsåtgärder.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: e5b04a4cfbf26011753715f02baea689ec3065b6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0cc5b101e1afb6ea648963188887cf43b65a5afa
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009247"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124957"
 ---
-# <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Kontohanteringsåtgärder på Azure Data Lake Store med hjälp av Python
+# <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Kontohanteringsåtgärder på Azure Data Lake Storage Gen1 med hjälp av Python
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [REST-API](data-lake-store-get-started-rest-api.md)
@@ -27,7 +27,7 @@ ms.locfileid: "39009247"
 >
 >
 
-Lär dig hur du använder Python SDK för Azure Data Lake Store för att utföra grundläggande kontohanteringsåtgärder som att skapa Data Lake Store-konto, lista Data Lake Store-konto osv. Anvisningar för att utföra filsystemsåtgärder på Data Lake Store med Python finns i [Filsystemsåtgärder på Data Lake Store med Python](data-lake-store-data-operations-python.md).
+Lär dig hur du använder Python SDK för Azure Data Lake Storage Gen1 för att utföra grundläggande hanteringsåtgärder som att skapa ett Data Lake Storage Gen1-konto, lista över Data Lake Storage Gen1 konton osv. Anvisningar att utföra filsystemsåtgärder på Data Lake Storage Gen1 med Python finns i [filsystemsåtgärder på Data Lake Storage Gen1 med hjälp av Python](data-lake-store-data-operations-python.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -39,11 +39,11 @@ Lär dig hur du använder Python SDK för Azure Data Lake Store för att utföra
 
 ## <a name="install-the-modules"></a>Installera modulerna
 
-Du måste installera tre moduler för att kunna arbeta med Data Lake Store med hjälp av Python.
+Att arbeta med Data Lake Storage Gen1 med hjälp av Python, måste du installera tre moduler.
 
 * `azure-mgmt-resource`-modulen, som innehåller Azure-moduler för Active Directory osv.
-* `azure-mgmt-datalake-store`-modulen, som innehåller Azure Data Lake Store-kontohanteringsåtgärder. Mer information om den här modulen finns i [referensen för Azure Data Lake Store Management-modulen](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* `azure-datalake-store`-modulen, som innehåller Azure Data Lake Store-filsystemsåtgärder. Mer information om den här modulen finns i [referensen för Azure Data Lake Store Filesystem-modulen](http://azure-datalake-store.readthedocs.io/en/latest/).
+* Den `azure-mgmt-datalake-store` modulen, som innehåller Azure Data Lake Storage Gen1-kontohanteringsåtgärder. Mer information om den här modulen finns i [Gen1 för Azure Data Lake lagringshantering modulreferens](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
+* Den `azure-datalake-store` modulen, som innehåller Azure Data Lake Storage Gen1 filsystemsåtgärder. Mer information om den här modulen finns i [referensen för azure-datalake-store filesystem-modulen](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Installera modulerna med hjälp av följande kommandon.
 
@@ -69,11 +69,11 @@ pip install azure-datalake-store
     ## Use this only for Azure AD multi-factor authentication
     from msrestazure.azure_active_directory import AADTokenCredentials
 
-    ## Required for Azure Data Lake Store account management
+    ## Required for Data Lake Storage Gen1 account management
     from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
     from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-    ## Required for Azure Data Lake Store filesystem management
+    ## Required for Data Lake Storage Gen1 filesystem management
     from azure.datalake.store import core, lib, multithread
 
     # Common Azure imports
@@ -90,12 +90,12 @@ pip install azure-datalake-store
 
 I det här avsnittet tittar vi på hur du kan autentisera med Azure AD på olika sätt. De tillgängliga alternativen är:
 
-* Information om slutanvändarautentisering för programmet finns i [Slutanvändarautentisering med Data Lake Store med hjälp av Python](data-lake-store-end-user-authenticate-python.md).
-* Information om tjänst-till-tjänst-autentisering för programmet finns i [Tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av Python](data-lake-store-service-to-service-authenticate-python.md).
+* Information om slutanvändarautentisering för programmet, se [slutanvändarautentisering med Data Lake Storage Gen1 med hjälp av Python](data-lake-store-end-user-authenticate-python.md).
+* Tjänst-till-tjänst-autentisering för programmet, se [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med hjälp av Python](data-lake-store-service-to-service-authenticate-python.md).
 
-## <a name="create-client-and-data-lake-store-account"></a>Skapa klient och Data Lake Store-konto
+## <a name="create-client-and-data-lake-storage-gen1-account"></a>Skapa klienten och Gen1 för Data Lake Storage-konto
 
-Följande kodfragment skapar först Data Lake Store-klienten. Klientobjektet används för att skapa ett Data Lake Store-konto. Slutligen skapar kodfragmentet ett klientobjekt för filsystemet.
+Följande kodfragment skapar först Data Lake Storage Gen1-klienten. Klientobjektet används för att skapa ett Data Lake Storage Gen1-konto. Slutligen skapar kodfragmentet ett klientobjekt för filsystemet.
 
     ## Declare variables
     subscriptionId = 'FILL-IN-HERE'
@@ -103,10 +103,10 @@ Följande kodfragment skapar först Data Lake Store-klienten. Klientobjektet anv
     resourceGroup = 'FILL-IN-HERE'
     location = 'eastus2'
 
-    ## Create data lake store account management client object
+    ## Create Data Lake Storage Gen1 account management client object
     adlsAcctClient = DataLakeStoreAccountManagementClient(armCreds, subscriptionId)
 
-    ## Create a Data Lake Store account
+    ## Create a Data Lake Storage Gen1 account
     adlsAcctResult = adlsAcctClient.account.create(
         resourceGroup,
         adlsAccountName,
@@ -116,24 +116,24 @@ Följande kodfragment skapar först Data Lake Store-klienten. Klientobjektet anv
     ).wait()
 
     
-## <a name="list-the-data-lake-store-accounts"></a>Visa en lista med Data Lake Store-konton
+## <a name="list-the-data-lake-storage-gen1-accounts"></a>Lista över Gen1 för Data Lake Storage-konton
 
-    ## List the existing Data Lake Store accounts
+    ## List the existing Data Lake Storage Gen1 accounts
     result_list_response = adlsAcctClient.account.list()
     result_list = list(result_list_response)
     for items in result_list:
         print(items)
 
-## <a name="delete-the-data-lake-store-account"></a>Ta bort Data Lake Store-kontot
+## <a name="delete-the-data-lake-storage-gen1-account"></a>Ta bort Data Lake Storage Gen1-konto
 
-    ## Delete the existing Data Lake Store accounts
+    ## Delete an existing Data Lake Storage Gen1 account
     adlsAcctClient.account.delete(adlsAccountName)
     
 
 ## <a name="next-steps"></a>Nästa steg
-* [Filsystemsåtgärder på Data Lake Store med hjälp av Python](data-lake-store-data-operations-python.md).
+* [Filsystemsåtgärder på Data Lake Storage Gen1 med hjälp av Python](data-lake-store-data-operations-python.md).
 
 ## <a name="see-also"></a>Se också
 
-* [Referens för Azure Data Lake Store Python (filsystem)](http://azure-datalake-store.readthedocs.io/en/latest)
-* [Stordataprogram med öppen källkod som är kompatibla med Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+* [Referens för Azure-datalake-store Python (filsystem)](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Öppna källa Big Data-program som är kompatibla med Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

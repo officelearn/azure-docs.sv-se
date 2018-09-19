@@ -1,42 +1,43 @@
 ---
-title: Omvandla text med Microsoft översättare Text API | Microsoft Docs
-description: Transformera text med Microsoft översättare Text API.
+title: 'Omvandla text: Translator Text API'
+titlesuffix: Azure Cognitive Services
+description: Omvandla text med Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 5aa88f471a33a668b8385e46c2105a3139c142cb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e5061e322b4f0edb416f321cefef73776b9165ff
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352581"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123954"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Hur du använder metoden TransformText
 
 > [!NOTE]
-> Den här metoden är föråldrad. Det är inte tillgänglig i V3.0 översättare Text API.
+> Den här metoden är inaktuell. Det är inte tillgängliga i version 3.0 av Translator Text API.
 
-Metoden TransformText är en funktion för normalisering av text för sociala medier som returnerar en normaliserade form av indata. Metoden kan användas som ett förbearbetning steg i maskinöversättning eller andra program som förvänta ren indatatexten som normalt inte kan hittas i sociala medier eller innehåll som skapats av användaren. Funktionen fungerar för närvarande bara på engelska indata. 
+Metoden TransformText är en funktion för normalisering av text för sociala medier, som returnerar en normaliserad form av indata. Metoden kan användas som ett förbearbetning steg i maskinöversättning eller andra program som förväntar sig ren indatatext som inte finns vanligtvis i sociala medier eller användargenererat innehåll. Funktionen fungerar för närvarande bara på engelska indata. 
 
-Metoden är en RESTful-tjänst med GET över HTTP. Det stöder enkel XML och JSON-serialisering.
+Metoden är en RESTful-tjänst med hjälp av GET via HTTP. Det stöder enkel XML- och JSON-serialisering.
 
 ## <a name="parameters"></a>Parametrar
 
 | Parameter | Beskrivning |
 |:---|:---|
-| Auktoriseringsrubrik | **Krävs** HTTP-huvudet som används för att identifiera programmet. Använd en nyckel: ”tillstånd” och värde: ”ägar” + ”” + åtkomst-token. Gå hit mer information.|
-| Språk | **Krävs** en sträng som representerar språkkoden. Den här parametern stöder endast på engelska med **SV** som språkets namn.|
-| category | **Valfria** en sträng som innehåller kategori eller domänen för översättning. Den här parametern stöder endast standardalternativet **allmänna**.|
-| meningen | **Krävs** en mening som du vill korrigera. |
+| Auktoriseringsrubrik | **Krävs** HTTP-huvud som används för att identifiera programmet. Använd en nyckel: ”Authorization” och värdet: ”ägar” + ”” + åtkomst-token. Gå hit för mer information.|
+| Språk | **Krävs** en sträng som representerar språkkoden. Den här parametern stöder endast på engelska med **en** som språkets namn.|
+| category | **Valfritt** en sträng som innehåller den kategori eller domän översättningens. Den här parametern stöder endast standardalternativet **Allmänt**.|
+| mening | **Krävs** en mening som du vill korrigera. |
 
 ## <a name="return-value"></a>Returvärde
 
-Returvärdet innehåller omvandlade meningarna.
+Returvärdet innehåller omvandlade meningen.
 
 > [!div class="tabbedCodeSnippets"]
 ```json

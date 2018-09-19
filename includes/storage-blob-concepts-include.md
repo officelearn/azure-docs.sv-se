@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 63593ff5f02f5e37fc25c988c4cef071a03a00b4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a934a1b75e85e03b6803be5c8afcd8fe74b0fad5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066041"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45739206"
 ---
 Azure Blob Storage är Microsofts objektlagringslösning för molnet. Blob Storage är optimerat för att lagra stora mängder ostrukturerade data, exempelvis text eller binära data.
+
+Extremt skalbar objektlagring för ostrukturerade data
 
 Blob Storage är perfekt för:
 
@@ -30,17 +32,17 @@ Objekt i Blob storage kan nås från vilken plats som helst i världen via HTTP 
 
 ## <a name="blob-service-concepts"></a>Blob Service-koncept
 
-Blob Storage innehåller tre resurser: ditt lagringskonto, kontots behållare och behållarens blobbar. Följande diagram visar relationen mellan de här resurserna.
+Blob Storage innehåller tre resurser: ditt lagringskonto, kontots containrar och containerns blobbar. Följande diagram visar relationen mellan de här resurserna.
 
 ![Diagram över Blob Storage-arkitektur (objekt)](./media/storage-blob-concepts-include/blob1.png)
 
 ### <a name="storage-account"></a>Lagringskonto
 
-All åtkomst till dataobjekt i Azure Storage sker via ett lagringskonto. Mer information finns i [Om Azure Storage-konton](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+All åtkomst till dataobjekt i Azure Storage sker via ett lagringskonto. Mer information finns i [kontoöversikten för Azure Storage](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="container"></a>Behållare
+### <a name="container"></a>Container
 
-I en behållare ordnas en uppsättning blobbar, ungefär som en mapp i ett filsystem. Alla blobbar finns i en behållare. Ett lagringskonto kan innehålla ett obegränsat antal behållare, och varje behållare kan lagra ett obegränsat antal blobbar. Observera att behållarens namn får innehålla endast gemener.
+I en container ordnas en uppsättning blobbar, ungefär som en mapp i ett filsystem. Alla blobbar finns i en container. Ett lagringskonto kan innehålla ett obegränsat antal containrar, och varje container kan lagra ett obegränsat antal blobbar. Observera att containerns namn får innehålla endast gemener.
 
 ### <a name="blob"></a>Blob
  
@@ -50,8 +52,8 @@ Azure Storage innehåller tre typer av blobbar – blockblobbar, tilläggsblobba
 * Tilläggsblobbar består av block precis som blockblobbarna, men är optimerade för tilläggsåtgärder. Tilläggsblobbar passar utmärkt för åtgärder som att logga data från virtuella datorer.
 * I sidblobbar lagras filer med slumpmässig åtkomst på upp till 8 TB. Sidblobbar lagrar VHD-filerna som stöder virtuella datorer.
 
-Alla blobbar finns i en behållare. En behållare är ungefär som en mapp i ett filsystem. Du kan ordna blobbar i virtuella kataloger och bläddra i dem precis som i ett filsystem. 
+Alla blobbar finns i en container. En container är ungefär som en mapp i ett filsystem. Du kan ordna blobbar i virtuella kataloger och bläddra i dem precis som i ett filsystem. 
 
 För mycket stora datamängder där nätverksbegränsningar gör det orealistiskt att överföra eller hämta data till Blob Storage via kabel kan du skicka en uppsättning hårddiskar till Microsoft för att importera eller exportera data direkt från datacentret. Mer information finns i [Använda tjänsten Microsoft Azure Import/Export för att överföra data till Blob Storage](../articles/storage/common/storage-import-export-service.md).
   
-Mer information om namngivning av behållare och blobbar finns i [Namngivning och referens av behållare, blobbar och metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+Mer information om namngivning av container och blobar finns i [Namngivning och referens av containrar, blobar och metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).

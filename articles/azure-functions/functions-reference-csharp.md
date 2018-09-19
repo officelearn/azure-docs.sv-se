@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3bdb5bc2aa47a51cc95a4274fbf20ba5d0515130
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 9a75e7ed8ce25384d39afb22ef50b5453ef543ba
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094289"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129683"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C#-skript (.csx) för utvecklare
 
@@ -34,7 +34,30 @@ C#-skript upplevelsen för Azure Functions är baserad på den [Azure WebJobs SD
 
 Den *.csx* format kan du skriva mindre ”formaterad” och fokusera på att bara en C#-funktion. I stället för omsluter allt i ett namnområde och en klass kan bara definiera en `Run` metod. Inkludera alla referenser till sammansättningar och namnområden i början av filen som vanligt.
 
-En funktionsapp *.csx* filer kompileras när en instans har initierats. Den här kompileringssteg innebär exempelvis kallstart kan ta längre tid för C#-skriptfunktioner jämfört med C#-klassbibliotek. Den här kompileringssteg är också varför C#-skript-funktioner kan redigeras i Azure Portal, C#-klassbibliotek finns inte.
+En funktionsapp *.csx* filer kompileras när en instans har initierats. Den här kompileringssteg innebär exempelvis kallstart kan ta längre tid för C#-skriptfunktioner jämfört med C#-klassbibliotek. Den här kompileringssteg är också varför C#-skript-funktioner kan redigeras i Azure-portalen, C#-klassbibliotek finns inte.
+
+## <a name="folder-structure"></a>mappstruktur
+
+Mappstrukturen för ett C#-skript projekt ser ut som följande:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+Det finns en delad [host.json] (functions-värd-json.md)-fil som kan användas för att konfigurera funktionsappen. Varje funktion har sina egna kodfilen (.csx) och bindningen konfigurationsfil (function.json).
+
+Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime definieras i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-triggers-bindings.md#local-development-azure-functions-core-tools). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
 
 ## <a name="binding-to-arguments"></a>Bindning till argument
 
@@ -336,8 +359,10 @@ Följande sammansättningar kan refereras till av enkel-namn (till exempel `#r "
 ## <a name="referencing-custom-assemblies"></a>Referera till anpassade sammansättningar
 
 Om du vill referera till en anpassad sammansättning, kan du använda antingen en *delade* sammansättningen eller en *privata* sammansättningen:
-- Delade sammansättningar är gemensamma för alla funktioner i en funktionsapp. Om du vill referera till en anpassad sammansättning, att ladda upp sammansättningen till en mapp med namnet `bin` i din [funktionen app-rotmappen](functions-reference.md#folder-structure) (wwwroot). 
-- Privata sammansättningar är en del av en viss funktion kontext och stöd för separat inläsning med olika versioner. Privata sammansättningar ska överföras i en `bin` mapp i katalogen funktion. Referera till sammansättningar med filnamnet, till exempel `#r "MyAssembly.dll"`. 
+
+* Delade sammansättningar är gemensamma för alla funktioner i en funktionsapp. Om du vill referera till en anpassad sammansättning, att ladda upp sammansättningen till en mapp med namnet `bin` i din [funktionen app-rotmappen](functions-reference.md#folder-structure) (wwwroot).
+
+* Privata sammansättningar är en del av en viss funktion kontext och stöd för separat inläsning med olika versioner. Privata sammansättningar ska överföras i en `bin` mapp i katalogen funktion. Referera till sammansättningar med filnamnet, till exempel `#r "MyAssembly.dll"`.
 
 Information om hur du överför filer till mappen funktionen finns i avsnittet på [paket på](#using-nuget-packages).
 

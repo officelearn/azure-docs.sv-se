@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 877ea4c143d74414c3d733c446da57060322b11d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 1e2a3221b6db5becbea49aa6ec5fee7b145e8e03
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982149"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295402"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -112,16 +112,18 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
 
 - Installera Azure Stack [1807 uppdatera](azure-stack-update-1807.md) innan du installerar Azure Stack 1808 uppdateringen. 
 
-- Installera den senaste tillgängliga [uppdatering eller snabbkorrigering för version 1805](azure-stack-update-1805.md#post-update-steps).  
+- Installera den senaste tillgängliga [uppdatering eller snabbkorrigering för version 1807](azure-stack-update-1807.md#post-update-steps).  
   > [!TIP]  
   > Prenumerera på följande *RRS* eller *Atom* flöden, hålla jämna steg med Azure Stack snabbkorrigeringar:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
 
 
-- Innan du påbörjar installationen av uppdateringen kör [Test AzureStack](azure-stack-diagnostic-test.md) att verifiera statusen för din Azure Stack och lösa alla operativa problem som hittas, inklusive alla varningar och fel. Även granska aktiva aviseringar och lösningar som kräver åtgärd.
+- Innan du påbörjar installationen av uppdateringen kör [Test AzureStack](azure-stack-diagnostic-test.md) att verifiera statusen för din Azure Stack och lösa alla operativa problem som hittas, inklusive alla varningar och fel. Även granska aktiva aviseringar och lösningar som kräver åtgärd.  
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen
+
+- När du kör [Test AzureStack](azure-stack-diagnostic-test.md) efter 1808 uppdateringen visas ett varningsmeddelande från den Hanteringsstyrenheten för baskort (BMC). Du kan ignorera den här varningen.
 
 - <!-- 2468613 - IS --> Under installationen av den här uppdateringen kan du se aviseringar med rubriken *fel – mall för FaultType UserAccounts.New saknas.*  Du kan ignorera dessa aviseringar. De här aviseringarna stängs automatiskt när installationen av uppdateringen har slutförts.
 
@@ -130,12 +132,9 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
 - <!-- 2830461 - IS --> I vissa fall när en uppdatering kräver uppmärksamhet, kan motsvarande avisering inte skapas. Felaktig status visas fortfarande i portalen och påverkas inte.
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
+Installera alla tillämpliga snabbkorrigeringar efter installationen av uppdateringen. Visa mer information i följande artiklar i kunskapsbasen, samt våra [Servicing princip](azure-stack-servicing-policy.md). 
+- [KB 4464226 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.1.99]( https://support.microsoft.com/help/4464226)
 
-*Det finns inga efter uppdateringen åtgärder för uppdatering 1808.*
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
 
 ## <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
 

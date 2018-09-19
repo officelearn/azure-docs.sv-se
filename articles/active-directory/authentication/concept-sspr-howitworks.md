@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42054561"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296404"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: återställning av lösenord för självbetjäning i Azure AD
 
@@ -161,8 +161,8 @@ Om du installerar, konfigurerar och aktiverar Azure AD Connect har du följande 
 Den här sidan innehåller en snabb status för den lokala tillbakaskrivningsklient, något av följande meddelanden visas baserat på den aktuella konfigurationen:
 
 * Din lokala tillbakaskrivningsklient är igång.
-* Azure AD är online och är ansluten till din lokala tillbakaskrivningsklient. Det verkar dock som den installera versionen av Azure AD Connect är inaktuell. Överväg att [uppgradera Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) så att du har de senaste anslutningsfunktionerna och viktiga felkorrigeringar.
-* Tyvärr kan vi Kontrollera din lokala tillbakaskrivningsklient eftersom den installerade versionen av Azure AD Connect är inaktuell. [Uppgradera Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) för att kunna kontrollera din anslutningsstatus.
+* Azure AD är online och är ansluten till din lokala tillbakaskrivningsklient. Det verkar dock som den installera versionen av Azure AD Connect är inaktuell. Överväg att [uppgradera Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) så att du har de senaste anslutningsfunktionerna och viktiga felkorrigeringar.
+* Tyvärr kan vi Kontrollera din lokala tillbakaskrivningsklient eftersom den installerade versionen av Azure AD Connect är inaktuell. [Uppgradera Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) för att kunna kontrollera din anslutningsstatus.
 * Det verkar tyvärr som vi inte kan ansluta till din lokala tillbakaskrivningsklient just nu. [Felsöka Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) att återställa anslutningen.
 * Vi kan tyvärr inte ansluta till din lokala tillbakaskrivningsklient eftersom tillbakaskrivning av lösenord inte har konfigurerats korrekt. [Konfigurera tillbakaskrivning av lösenord](howto-sspr-writeback.md) att återställa anslutningen.
 * Det verkar tyvärr som vi inte kan ansluta till din lokala tillbakaskrivningsklient just nu. Detta kan bero på tillfälliga problem hos oss. Om problemet kvarstår [felsöka Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) att återställa anslutningen.

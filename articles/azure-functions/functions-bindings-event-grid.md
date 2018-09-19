@@ -9,14 +9,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/23/2018
+ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 6d15405ef22f47dc8a94c07d9d09d343a743408e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a52ba16d7c8548d378d1b13a85fc1fd1070144e8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094560"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128391"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Event Grid-utlösare för Azure Functions
 
@@ -308,23 +308,40 @@ Mer information om hur du skapar prenumerationer med hjälp av Azure portal finn
 
 Skapa en prenumeration med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), använda den [az eventgrid-händelseprenumeration skapa](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) kommando.
 
-Kommandot kräver slutpunkts-URL som anropar funktionen. I följande exempel visar mönstret för URL:
+Kommandot kräver slutpunkts-URL som anropar funktionen. I följande exempel visas versionsspecifika URL-mönstret:
 
-```
-https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
-```
+#### <a name="version-2x-runtime"></a>Version 2.x-körningen
+
+    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+
+#### <a name="version-1x-runtime"></a>Version 1.x-körningen
+
+    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
 Systemnyckeln är en auktoriseringsnyckel för som måste tas med i slutpunkts-URL för en Event Grid-utlösare. I följande avsnitt förklaras hur du hämtar systemnyckeln.
 
 Här är ett exempel som prenumererar på ett blob storage-konto (med en platshållare för systemnyckeln):
 
+#### <a name="version-2x-runtime"></a>Version 2.x-körningen
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
 --provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name glengablobstorage --name myFuncSub  \
+--resource-name myblobstorage12345 --name myFuncSub  \
 --included-event-types Microsoft.Storage.BlobCreated \
 --subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://glengastorageevents.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=LUwlnhIsNtSiUjv/sNtSiUjvsNtSiUjvsNtSiUjvYb7XDonDUr/RUg==
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+#### <a name="version-1x-runtime"></a>Version 1.x-körningen
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup \
+--provider-namespace Microsoft.Storage --resource-type storageAccounts \
+--resource-name myblobstorage12345 --name myFuncSub  \
+--included-event-types Microsoft.Storage.BlobCreated \
+--subject-begins-with /blobServices/default/containers/images/blobs/ \
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
 Läs mer om hur du skapar en prenumeration, [snabbstarten om blob storage](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) eller andra snabbstarter i Event Grid.
@@ -334,10 +351,10 @@ Läs mer om hur du skapar en prenumeration, [snabbstarten om blob storage](../st
 Du kan få systemnyckeln med hjälp av följande API (HTTP GET):
 
 ```
-http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-Detta är en administrations-API, så att den kräver din funktionsapp [huvudnyckeln](functions-bindings-http-webhook.md#authorization-keys). Blanda inte ihop systemnyckeln (för att anropa en funktion för Event Grid-utlösare) med huvudnyckeln (för att utföra administrativa uppgifter på funktionsappen). När du prenumererar på en Event Grid-ämne, måste du använda systemnyckeln. 
+Detta är en administrations-API, så att den kräver din funktionsapp [huvudnyckeln](functions-bindings-http-webhook.md#authorization-keys). Blanda inte ihop systemnyckeln (för att anropa en funktion för Event Grid-utlösare) med huvudnyckeln (för att utföra administrativa uppgifter på funktionsappen). När du prenumererar på en Event Grid-ämne, måste du använda systemnyckeln.
 
 Här är ett exempel på ett svar som innehåller systemnyckel:
 
@@ -354,7 +371,12 @@ Här är ett exempel på ett svar som innehåller systemnyckel:
 }
 ```
 
-Mer information finns i [auktoriseringsregel nycklar](functions-bindings-http-webhook.md#authorization-keys) i referensartikeln för HTTP-utlösare. 
+Du kan hämta huvudnyckeln för funktionsappen från den **fungera appinställningar** i portalen.
+
+> [!IMPORTANT]
+> Huvudnyckeln ger administratören tillgång till din funktionsapp. Inte dela den här nyckeln med tredje part eller distribuera den i interna klientprogram.
+
+Mer information finns i [auktoriseringsregel nycklar](functions-bindings-http-webhook.md#authorization-keys) i referensartikeln för HTTP-utlösare.
 
 Du kan också skicka en HTTP PUT att ange nyckelvärdet själv.
 
@@ -475,7 +497,7 @@ https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionN
 ``` 
 Använd det här mönstret för slutpunkten för Functions 2.x:
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
 ``` 
 Den `functionName` parametern måste vara namnet i den `FunctionName` attribut.
 

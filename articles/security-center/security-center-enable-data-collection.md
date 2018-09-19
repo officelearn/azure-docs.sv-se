@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9043c6583a15d3be9d0d468e83a4bf79b3121794
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 313697d73d1e269691f1af4f021545049a907d66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304126"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127099"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.
@@ -34,7 +34,8 @@ Den här artikeln innehåller råd om hur du installerar Microsoft Monitoring Ag
 > - Insamling av data för Virtual machine scale Sets stöds inte för närvarande.
 
 
-## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Aktivera automatisk etablering av Microsoft Monitoring Agent     
+## Aktivera automatisk etablering av Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
+
 Om du vill samla in data från datorerna bör du ha Microsoft Monitoring Agent installerad.  Installationen av agenten kan vara automatiskt (rekommenderas) eller så kan du välja att installera agenten manuellt.  
 
 >[!NOTE]
@@ -296,9 +297,9 @@ Du kan installera Microsoft Monitoring Agent manuellt så att Security Center ka
 -   För att identifiera problem med installation av Automatisk etablering, se [hälsoproblem för Övervakningsagenten](security-center-troubleshooting-guide.md#mon-agent).
 
 -  För att identifiera nätverkskrav för övervakningsagenten Se [felsökning övervakning nätverkskrav för övervakningsagenten](security-center-troubleshooting-guide.md#mon-network-req).
--   För att identifiera problem med manuell integrationsprocessen Se [så här felsöker du problem med integrationsprocessen Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
+-   För att identifiera problem med manuell integrationsprocessen Se [felsökning av problem i Operations Management Suite onboarding](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-- För att identifiera oövervakade virtuella datorer och datorer problem, se [oövervakade virtuella datorer och datorer](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers)
+- För att identifiera oövervakade virtuella datorer och datorer problem, se [oövervakade virtuella datorer och datorer](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers).
 
 ## <a name="next-steps"></a>Nästa steg
 Den här artikeln visar dig hur datainsamling och automatisk etablering i Security Center fungerar. I följande avsnitt kan du lära dig mer om Security Center:

@@ -1,6 +1,7 @@
 ---
-title: Skicka frågor till sökning i Bing | Microsoft Docs
-description: Läs mer om att skicka och anpassa sökfrågor som skickas till den bildsökning i Bing.
+title: Skicka avbildningen frågor – bildsökning i Bing
+titleSuffix: Azure Cognitive Services
+description: Lär dig mer om hur du anpassar sökfrågor som skickas till den bildsökning i Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: bf0db0b6d2aa54a853ba86b570ca05fba902dbc1
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5d2dcc60a8707394ec07a76e3286929db365c651
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049566"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296523"
 ---
 # <a name="send-queries-to-the-bing-image-search-api"></a>Skicka frågor till sökning i Bing
 
@@ -102,7 +103,7 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Expandera frågan
 
-Om Bing kan expandera frågan för att begränsa den ursprungliga sökningen innehåller objektet [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) (Bilder) fältet `queryExpansions`. Exempel: Om frågan var *Microsoft Surface*, utökad frågorna kan vara: 
+Om Bing kan expandera frågan för att begränsa den ursprungliga sökningen innehåller objektet [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) (Bilder) fältet `queryExpansions`. Exempel: Om frågan var *Microsoft Surface*, utökad frågorna kan vara:
 - Microsoft Surface **Pro 3**.
 - Microsoft Surface **RT**.
 - Microsoft Surface **Phone**.

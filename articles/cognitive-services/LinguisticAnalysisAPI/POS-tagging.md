@@ -1,30 +1,30 @@
 ---
-title: En del av tal-märkning i språkliga analys API | Microsoft Docs
-description: Lär dig hur en del av tal taggning i Microsoft kognitiva Services identifierar kategori- eller en del av tal varje ord med text.
+title: En del av tal-märkning – API för Lingvistisk analys
+description: 'Lär dig hur taggning av ordklasser i API: T för Lingvistisk analys identifierar kategori eller en del av tal i varje ord i texten.'
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 90fd5b05c2dabdac88c6c8da288ab629177be38d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 636b8bc4ef41674d1e9ca12111aecee05870f381
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082646"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124576"
 ---
-# <a name="part-of-speech-tagging"></a>En del av tal taggning
+# <a name="part-of-speech-tagging"></a>En del av tal-märkning
 
-## <a name="background-and-motivation"></a>Bakgrund och syfte
+## <a name="background-and-motivation"></a>Bakgrund och motivationen
 
-När en text har separerats i meningar och token, är analys nästa steg att identifiera kategori- eller en del av tal varje ord.
-Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer, platser, saker, idéer, etc.) och *verb* (som vanligtvis motsvarar åtgärder, ändrar tillstånd, etc. För vissa ord är en del av tal entydigt (till exempel *quagmire* verkligen är endast ett substantiv), men för många andra är det svårt att se.
-*Tabellen* kan vara en plats där du sitta (eller 2D-layout av siffror), men du kan också ”tabell en diskussion”.
+När en text har separerats i meningar och token, är nästa steg i analysis att identifiera den kategori eller en del av tal i varje ord.
+Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer, platser, saker, idéer, osv.) och *verb* (vanligtvis som representerar åtgärder, ändrar tillstånd osv. För vissa ord, en del av tal är entydiga (exempelvis *quagmire* verkligen är endast ett substantiv), men för många andra är det svårt att se.
+*Tabellen* kan vara en plats där du finns (eller 2D-layout med tal), men du kan också ”tabellen en diskussion”.
 
-## <a name="list-of-part-of-speech-tags"></a>Lista över en del av tal taggar
+## <a name="list-of-part-of-speech-tags"></a>Lista över taggar som en del av tal
 
 | Tagga | Beskrivning | Exempel ord |
 |-----|-------------|---------------|
@@ -32,48 +32,48 @@ Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer,
 | \`\` | inledande citattecken | \` \`\` |
 | '' | avslutande citattecken | ' '' |
 | ( | vänsterparentes | ( [ { |
-| ) | avslutande parentes | ) ] } |
-| , | kommatecken | , |
+| ) | högerparentes | ) ] } |
+| ,  | kommaavgränsad | ,  |
 | -- | streck | -- |
-| . | meningen Begränsare | . ! ? |
-| : | kolon eller punkter | : ; ... |
+| . | mening Begränsare | . ! ? |
+| : | kolon eller ellipsen | : ; ... |
 | Kopia | tillsammans, samordna | och men eller ännu|
-| CD | siffror, kardinalkurvelementets | nio 20 1980 ' 96 |
-| DT | determiner |en av en alla båda varken|
-| EX | existentiell där | Det |
-| FW | externa word | enfant terrible hoi polloi je ne sais quoi |
-| I | preposition eller underordna tillsammans| i innanför om vid om |
+| CD | siffror, väsentliga | nio 20 1980 ' 96 |
+| DT | determiner |en på en alla båda varken|
+| T.EX. | existentiell där | Det |
+| VB | främmande ord | enfant terrible hoi polloi je ne sais quoi |
+| INDIEN | preposition eller underordna tillsammans| i inuti om vid om |
 | JJ | adjektiv eller siffror, ordningstal | nionde ganska execrable multimodal |
 | JJR | adjektiv, jämförande | bättre snabbare billigare |
 | JJS | adjektiv, superlative | bästa snabbaste billigaste | 
 | LS | lista över objekt markör | (a) (b) 1 2 A B A. B. |
-| MD | modal tillägg | kan kan skall kommer kunde kan bör borde |
-| NN | substantiv vanliga, enkel eller vikt | tilldelats pengar sko |
-| NNP | substantiv, korrekt, enda | Kennedy Roosevelt Chicago Weehauken |
-| NNPS | substantiv, korrekt, plural | Springfields buskar |
-| NNS | substantiv, vanliga, plural | delar möss fält |
-| (stillahavstid) | före determiner | alla både halv många ganska sådana till detta |
+| MD | modal assistent | kan kan skall kommer kunde kanske bör borde |
+| NN | substantiv vanliga, rapportanvändare eller drivrutiner för masslagring | ljus pengar sko |
+| NNP | substantiv rätt, rapportanvändare | Kennedy Roosevelt Chicago Weehauken |
+| NNPS | substantiv rätt, plural | Springfields buskar |
+| NNS | substantiv vanliga, plural | delar möss fält |
+| (stillahavstid) | före determiner | alla båda hälften många ganska sådana till detta |
 | POS | genitive markör | ' 's |
-| PRP | pronomen, personliga | hon han den jag vi de du |
-| PRP$ | pronomen, Possessiv | hennes hans dess min våra sina din |
+| PRP | pronomen, personliga | hon han det jag vi de du |
+| PRP$ | pronomen, Possessiv | hennes hans dess min vår sina din |
 | RB | adverb | kliniskt endast |
-| RBR | ett adverb jämförande | ytterligare gloomier grander graver större grimmer svårare harsher sundare tyngre högre men större senare smidigare längre mindre perfekt mindre lonelier längre starkare nedre mer... |
-| RBS | adverb, superlative | bästa största bluntest tidigaste längst första längst svåraste heartiest högsta största minst mindre de flesta närmaste andra hårdaste sämsta |
-| RP | Partikeln | på inaktiverat upp ut om |
-| SYM | symbol | % & |
+| RBR | ett adverb jämförande | ytterligare gloomier grander graver större grimmer svårare harsher sundare tyngre högre men större senare mer slimmade längre mindre perfekt mindre lonelier längre starkare lägre mer... |
+| RBS | ett adverb superlative | bästa största bluntest tidigaste längst bort första längst svåraste heartiest högsta största minst mindre de flesta närmaste andra hårdaste sämsta |
+| RP | Particle | på av uppåt reda på om |
+| SYM | Symbol | % & |
 | Till | ”till” som preposition eller infinitive markör | till |
-| VISST | interjection | visst vilken fröjdefull jul howdy hello |
-| VB | basformulär-verb | ge tilldela direkt |
-| VBD | tidigare Tempus-verb | gav tilldelade flög |
-| VBG | verb, finns participle eller gerund | ger tilldela flyga |
-| VBN | tidigare participle-verb | angivna tilldelade leds |
-| VBP | verb, presens, inte 3 person som enda | ge tilldela direkt |
-| VBZ | verb, presens, 3 person som enda | ger tilldelas kommer |
-| WDT | Vad determiner | som vilka som |
+| HOPPSAN | interjection | hoppsan hurra howdy hello |
+| VB | verb, basformulär | ge tilldela direkt |
+| VBD | verb, tidigare Tempus | gav tilldelade reste |
+| VBG | verb, finns participle eller gerund | ge tilldela flyga |
+| VBN | verb, tidigare participle | beroende tilldelade leds |
+| VBP | verb, presens, inte 3 person rapportanvändare | ge tilldela direkt |
+| VBZ | verb, presens, 3 person rapportanvändare | ger tilldelar sig |
+| WDT | Vad determiner | som vilken som |
 | WP | Vad pronomen | vem som |
 | WP$ | Vad pronomen Possessiv | vars |
-| WRB | Vad adverb | hur men när där |
+| WRB | Vad adverb | hur men när det är där |
 
 ## <a name="specification"></a>Specifikationen
 
-För tokenisering, vi förlitar sig på specifikationen från den [Sandberg Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+För tokenisering, vi förlitar sig på specifikation från den [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).

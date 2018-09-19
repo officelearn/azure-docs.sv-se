@@ -1,5 +1,5 @@
 ---
-title: Anpassa information protection-principen i Azure Security Center | Microsoft Docs
+title: Anpassa SQL information protection-principen i Azure Security Center | Microsoft Docs
 description: Lär dig hur du anpassar principer för informationsskydd i Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4b454f712b8cb65c69b183979a2fe2e97495d12e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ac4aa3c8aafae24736cc7b48a9ca4e8ba9fd0742
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724211"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125195"
 ---
-# <a name="customize-the-information-protection-policy-in-azure-security-center-preview"></a>Anpassa information protection-principen i Azure Security Center (förhandsversion)
+# <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Anpassa SQL information protection-principen i Azure Security Center (förhandsversion)
  
-En information protection-princip kan definieras och som är anpassad efter din hela Azure-klient i Azure Security Center.
+En SQL information protection-princip kan definieras och som är anpassad efter din hela Azure-klient i Azure Security Center.
 
 Information protection är en avancerad säkerhetsfunktion för identifiering, klassificering, märkning och skydd av känsliga data i resurserna i Azure data. Identifiera och klassificera dina mest känsliga data (business, ekonomi, hälsovård, personligt identifierbar information, etc.) kan spela upp en central roll i din organisations information protection datasekretesstandarder. Det kan fungera som en infrastruktur för:
 - Hjälpa uppfylla data sekretesstandarder och efterlevnadskrav

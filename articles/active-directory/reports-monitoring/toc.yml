@@ -1,0 +1,110 @@
+items:
+- name: Dokumentation om rapporter och övervakning
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Vad är Azure AD-rapporter?
+    href: overview-reports.md
+- name: Snabbstarter
+  items:
+  - name: Rapporter
+    items:
+    - name: Ladda ned en inloggningsrapport
+      href: quickstart-download-sign-in-report.md
+    - name: Ladda ned en granskningsrapport
+      href: quickstart-download-audit-report.md
+    - name: Konfigurera namngivna platser
+      href: quickstart-configure-named-locations.md
+    - name: Installera Power BI-innehållspaket
+      href: quickstart-install-power-bi-content-pack.md
+  - name: Övervakning
+    items:
+    - name: Dirigera loggar till lagringskonto
+      href: quickstart-azure-monitor-route-logs-to-storage-account.md
+  expanded: true
+- name: Självstudier
+  items:
+  - name: Rapporter
+    items:
+    - name: Komma åt Reporting-API med certifikat
+      href: tutorial-access-api-with-certificates.md
+  - name: Övervakning
+    items:
+    - name: Strömma loggar till händelsehubb
+      href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Integrera aktivitetsloggar med Splunk
+      href: tutorial-integrate-activity-logs-with-splunk.md
+- name: Begrepp
+  items:
+  - name: Rapporter
+    items:
+    - name: Granskningsloggar
+      href: concept-audit-logs.md
+    - name: Inloggningsloggar
+      href: concept-sign-ins.md
+    - name: Riskfyllda inloggningar
+      href: concept-risky-sign-ins.md
+    - name: Riskhändelser
+      href: concept-risk-events.md
+    - name: Användare i riskzonen
+      href: concept-user-at-risk.md
+    - name: Reporting-API:er
+      href: concept-reporting-api.md
+  - name: Övervakning
+    items:
+    - name: Azure AD-loggar i Azure Monitor
+      href: concept-activity-logs-in-azure-monitor.md
+- name: Instruktionsguider
+  items:
+  - name: Rapporter
+    items:
+    - name: Hitta aktivitetsrapporter
+      href: howto-find-activity-reports.md
+    - name: Åtgärda användare som har flaggats för risk
+      href: howto-remediate-users-flagged-for-risk.md
+    - name: Använda Power BI-innehållspaket för Azure AD-rapporter
+      href: howto-power-bi-content-pack.md
+    - name: Konfigurera krav för Reporting-API
+      href: howto-configure-prerequisites-for-reporting-api.md
+  - name: Övervakning
+    items:
+    - name: Integrera aktivitetsloggar med SumoLogic
+      href: howto-integrate-activity-logs-with-sumologic.md
+  - name: Felsöka
+    items:
+    - name: Granskningsdata som saknas
+      href: troubleshoot-missing-audit-data.md
+    - name: Data som saknas i nedladdning
+      href: troubleshoot-missing-data-download.md
+    - name: Det går inte att komma åt Graph API:er för rapportering
+      href: troubleshoot-graph-api.md
+    - name: Fel i Power BI-innehållspaket
+      href: troubleshoot-content-pack.md
+  expanded: true
+- name: Referens
+  items:
+  - name: Rapporter
+    items:
+    - name: Granskningsaktiviteter
+      href: reference-audit-activities.md
+    - name: Datakvarhållningsprinciper
+      href: reference-reports-data-retention.md
+    - name: Rapporteringssvarstider
+      href: reference-reports-latencies.md
+    - name: Felkoder för inloggning
+      href: reference-sign-ins-error-codes.md
+    - name: Vanliga frågor och svar
+      href: reports-faq.md
+  - name: Övervakning
+    items:
+    - name: Schema för spårningslogg
+      href: reference-azure-monitor-audit-log-schema.md
+    - name: Schema för inloggningslogg
+      href: reference-azure-monitor-sign-ins-log-schema.md
+  expanded: true
+ms.openlocfilehash: 20321358f74157bda02740d536dd30e7a21f5588
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45740294"

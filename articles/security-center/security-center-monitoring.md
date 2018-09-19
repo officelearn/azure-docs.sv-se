@@ -1,9 +1,9 @@
 ---
-title: Säkerhetsövervakning i Azure Security Center | Microsoft Docs
-description: I den här artikeln får du hjälp att komma igång med övervakningsfunktionerna i Azure Security Center.
+title: Resource security hygien i Azure Security Center | Microsoft Docs
+description: Den här artikeln hjälper dig att komma igång med övervakning av din resurs security hygien i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
@@ -12,111 +12,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
-ms.author: terrylan
-ms.openlocfilehash: 8fe2195559d807ef72b54603c8b4118ada705880
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.date: 9/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 361fc2c6931dcfaed062bd39b75be7bef059b467
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162877"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122082"
 ---
-# <a name="security-health-monitoring-in-azure-security-center"></a>Övervakning av säkerhetshälsa i Azure Security Center
-I den här artikeln berättar vi hur du använder övervakningsfunktionerna i Azure Security Center för att övervaka att fastställda principer efterlevs.
+# <a name="monitoring-resource-security-hygiene-in-azure-security-center"></a>Övervaka resource security hygien i Azure Security Center
+Den här artikeln får du använder övervakningsfunktionerna i Azure Security Center för att säkerställa att din säkerhet är så nära som möjligt och övervaka efterlevnaden med principer.
 
-## <a name="what-is-security-health-monitoring"></a>Vad är övervakning av säkerhetshälsa?
-Ofta tänker vi oss att övervakning är att sitta och titta och vänta på att något ska hända som vi sedan ska åtgärda. Säkerhetsövervakning handlar om att ha en proaktiv strategi där resurserna hela tiden kontrolleras så att system som inte uppfyller organisationens normer och principer hittas.
+## <a name="what-is-resource-security-hygiene"></a>Vad är resource security hygien?
+Ofta tänker vi oss att övervakning är att sitta och titta och vänta på att något ska hända som vi sedan ska åtgärda. Resource security hygien avser ha en proaktiv strategi som granskar dina resurser för att identifiera system som inte uppfyller organisationens normer och bästa praxis.
 
-## <a name="monitoring-security-health"></a>Övervakning av säkerhetshälsa
-När du har aktiverat [säkerhetsprinciper](security-center-policies.md) för resurser i en prenumeration analyserar Security Center resursernas säkerhet för upptäckt av eventuella säkerhetsrisker. Information om nätverkskonfigurationen är tillgänglig direkt. Beroende på antalet virtuella datorer och datorer som du har med agenten installerad kan det ta en timme eller mer att samla in information om de virtuella datorerna och datorns konfiguration, t.ex. status för säkerhetsuppdatering och operativsystemkonfiguration, så att informationen blir tillgänglig. Du kan se säkerhetsstatus för dina resurser och eventuella problem i bladet **Prevention** (Skydd). Problemen visas även i en lista på panelen **Recommendations (Rekommendationer)**.
+## <a name="resource-security-hygiene"></a>Resource security hygien
+När du har aktiverat [säkerhetsprinciper](security-center-policies.md) för resurser i en prenumeration analyserar Security Center resursernas säkerhet för upptäckt av eventuella säkerhetsrisker. Information om nätverkskonfigurationen är tillgänglig direkt. Beroende på antalet virtuella datorer och datorer som du har med agenten installerad kan det ta en timme eller mer att samla in information om de virtuella datorerna och datorns konfiguration, t.ex. status för säkerhetsuppdatering och operativsystemkonfiguration, så att informationen blir tillgänglig. Du kan visa en fullständig lista över problem och hur du kan förstärka nätverket och åtgärda risker i den **rekommendationer** panelen.
+
+Du kan se säkerhetsstatus för dina resurser och eventuella problem per resurstyp:
+
+- Om du vill övervaka hälsotillståndet för dina datorresurser och dina appar och få rekommendationer för att förbättra deras säkerhet, se [skydda dina datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
+- Om du vill övervaka dina nätverksresurser, till exempel virtuella datorer, nätverkssäkerhetsgrupper och slutpunkter, och få rekommendationer för att förbättra deras säkerhet, se [skydda ditt nätverk i Azure Security Center](security-center-network-recommendations.md) mer information. 
+- Om du vill övervaka dina data- och lagringsresurser, till exempel SQL-servrar och storage-konton och få rekommendationer för att förbättra deras säkerhet, se [skydda Azure SQL-tjänst och data i Azure Security Center](security-center-sql-service-recommendations.md) för mer information . 
+- Om du vill övervaka dina identitets- och resurser, inklusive behörigheter för MFA och konto, och få rekommendationer för att förbättra deras säkerhet, se [övervaka identitet och åtkomst i Azure Security Center](security-center-identity-access.md) för mer information. 
+- För att övervaka precis i tid åtkomst till resurser, se [hantera VM-åtkomst med hjälp av just-in-time](security-center-just-in-time.md) för mer information. 
+
 
 Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
 
-Under **Övervakning av resurshälsa** kan du övervaka säkerhetsstatus för dina resurser. I följande exempel kan du se att det totala antalet problem som identifierats visas på panelen för varje resurs (compute och appar, nätverk, datasäkerhet samt identitet och åtkomst).
+
 
 ![Panelen resurssäkerhetshälsa](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
 
-### <a name="monitor-compute--apps"></a>Övervaka compute och appar
-Mer information finns i [Skydda dina datorer och program i Azure Security Center](security-center-virtual-machine-recommendations.md).
-
-### <a name="monitor-virtual-networks"></a>Övervakning av virtuella nätverk
-Om du klickar på **Nätverk** öppnas bladet **Nätverk** med mer information som på följande skärmbild:
-
-![Bladet Nätverk](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
-
-#### <a name="networking-recommendations"></a>Nätverksrekommendationer
-Liksom vid resurshälsoinformationen för virtuella datorer visas här en sammanfattande lista längst upp och en lista med övervakade nätverk längst ned.
-
-I listan med detaljerad status för nätverk visas potentiella säkerhetsproblem och [rekommendationer](security-center-network-recommendations.md). Följande säkerhetsproblem kan visas:
-
-* Nästa generations brandvägg inte installerad
-* Nätverkssäkerhetsgrupper i undernät inte aktiverade
-* Nätverkssäkerhetsgrupper på virtuella datorer är inte aktiverade
-* Begränsa extern åtkomst genom offentlig extern slutpunkt
-* Felfria internetuppkopplade slutpunkter
-
-När du klickar på en rekommendation visas mer information om rekommendationen som i följande exempel:
-
-![Information om en rekommendation i Nätverk](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
-
-I det här exemplet har **Konfigurera saknade nätverkssäkerhetsgrupper för undernät** en lista med undernät och virtuella datorer som saknar skyddet som nätverkssäkerhetsgrupper ger. Om du klickar på det undernät som du vill använda för nätverkssäkerhetsgruppen visas **Välj nätverkssäkerhetsgrupp**. Här väljer du den mest lämpade nätverkssäkerhetsgruppen för undernätet eller skapar en ny grupp.
-
-#### <a name="internet-facing-endpoints-section"></a>Delen med internetuppkopplade slutpunkter
-I delen **Internetuppkopplade slutpunkter** ser du de virtuella datorer som är konfigurerade med en internetuppkopplad slutpunkt och aktuell status för dem.
-
-![Virtuella datorer som konfigurerats med internetuppkopplad slutpunkt och status](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
-
-Den här tabellen har det slutpunktsnamn som representerar den virtuella datorn, den internetuppkopplade IP-adressen och den aktuella statusen för allvarlighetsgrad för nätverkssäkerhetsgruppen och NGFW. Tabellen är sorterad efter allvarlighetsgrad:
-
-* Röd (högst upp): hög prioritet och bör åtgärdas omedelbart
-* Orange: medelhög prioritet och bör åtgärdas så snart som möjligt
-* Grön (längst ned): god status
-
-#### <a name="networking-topology-section"></a>Delen med nätverkstopologi
-I delen **Nätverkstopologi** visas en hierarkisk vy över resurserna såsom visas på följande skärmbild:
-
-![Hierarkisk visning över resurser i avsnittet om nätverkstopologi](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
-
-Den här tabellen är sorterad (virtuella datorer och undernät) efter allvarlighetsgrad:
-
-* Röd (högst upp): hög prioritet och bör åtgärdas omedelbart
-* Orange: medelhög prioritet och bör åtgärdas så snart som möjligt
-* Grön (längst ned): god status
-
-I den här topologiska vyn har du [virtuella nätverk](../virtual-network/virtual-networks-overview.md), [virtuella nätverksgatewayer](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) och [virtuella nätverk (klassiska)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) på översta nivån. På andra nivån hittar du undernät och på den tredje de virtuella datorer som finns på dessa undernät. I den högra kolumnen visas aktuell status för resursernas nätverkssäkerhetsgrupper, som i följande exempel:
-
-![Status för nätverkssäkerhetsgruppen i avsnittet Nätverkstopologi](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
-
-Längst ned på det här bladet finns rekommendationer för den här virtuella datorn som liknar vad som beskrivs ovan. Om du klickar på en av rekommendationerna får du mer information och kan utföra den säkerhetskontroll eller säkerhetskonfiguration som behövs.
-
-### <a name="monitor-data-security"></a>Övervaka datasäkerhet
-
-När du klickar på **Datasäkerhet** i avsnittet **Skydd** öppnas **Dataresurser** med rekommendationer för SQL och lagring. Här finns även [rekommendationer](security-center-sql-service-recommendations.md) gällande databasens allmänna hälsoläge. Mer information om lagringskryptering finns i [Aktivera kryptering för Azure-lagringskontot i Azure Security Center](security-center-enable-encryption-for-storage-account.md).
-
-![Dataresurser](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
-
-Under **SQL-rekommendationer**, kan du klicka på valfri rekommendation och få mer information om ytterligare åtgärder för att lösa ett problem. Följande exempel visar den expanderade rekommendationen **Databasgranskning och hotidentifiering på SQL-databaser**.
-
-![Information om en SQL-rekommendation](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
-
-Under **Aktivera granskning på SQL-databaser** visas följande information:
-
-* en lista med SQL-databaser
-* vilken server de ligger på
-* information om huruvida inställningen har ärvts från servern eller om den är unik för databasen
-* aktuell status
-* problemets allvarlighetsgrad
-
-När du klickar på databasen för att utföra rekommendationen öppnas **Granskning och hotidentifiering** som på följande skärmbild.
-
-![Granskning och hotidentifiering](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
-
-Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning**.
-
-### <a name="monitor-identity--access"></a>Övervaka identitet och åtkomst
-
-Mer information finns i [Övervaka identitet och åtkomst i Azure Security Center](security-center-identity-access.md).
 
 ## <a name="see-also"></a>Se också
 I den här artikeln har du fått lära dig hur du använder övervakningsfunktionerna i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:

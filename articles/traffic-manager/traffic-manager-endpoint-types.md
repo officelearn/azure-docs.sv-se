@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 115511d15bc2366e49f6b3d1b89b513ea0ee5e90
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: e0c2ad2385b5c8a54b4d8a743cc4f081e5ff6703
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398036"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127303"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-slutpunkter
 Microsoft Azure Traffic Manager kan du styra hur nätverkstrafiken distribueras till distribution av program som körs i olika datacenter. Du konfigurerar varje programdistribution som en slutpunkt i Traffic Manager. När Traffic Manager tar emot en DNS-begäran, väljer en slutpunkt som är tillgängliga för att returnera i DNS-svaret. Traffic manager baser valet aktuella statusen för slutpunkten och routning av nätverkstrafik-metoden. Mer information finns i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md).
 
 Det finns tre typer av slutpunkten som stöds av Traffic Manager:
 * **Azure-slutpunkter** används för tjänsterna i Azure.
-* **Externa slutpunkter** används för tjänster som finns utanför Azure, antingen lokalt eller med en annan värdleverantör.
+* **Externa slutpunkter** används för IPv4/IPv6-adresser eller, för tjänster som hanteras utanför Azure kan antingen vara en lokal eller med en annan värdleverantör.
 * **Kapslade slutpunkter** används för att kombinera Traffic Manager-profiler om du vill skapa mer flexibel system för routning av nätverkstrafik som har stöd för större och mer komplexa distributioner.
 
 Det finns ingen begränsning för hur slutpunkter för olika typer kombineras i en enda Traffic Manager-profil. Varje profil kan innehålla alla olika typer av slutpunkter.
@@ -47,11 +47,12 @@ När du använder Azure-slutpunkter, identifierar Traffic Manager när en ”kla
 
 ## <a name="external-endpoints"></a>Externa slutpunkter
 
-Externa slutpunkter som används för tjänster utanför Azure. Exempelvis kan en tjänst finns lokalt eller med en annan provider. Externa slutpunkter kan användas enskilt eller tillsammans med Azure-slutpunkter i samma Traffic Manager-profilen. Kombinera Azure-slutpunkter med externa slutpunkter kan olika scenarier:
+Externa slutpunkter som används för antingen IPv4/IPv6-adresser, eller, för tjänster utanför Azure. Användning av IPv4/IPv6-adress-slutpunkter kan traffic manager för att kontrollera hälsotillståndet för slutpunkter utan att ett DNS-namn för dessa. Traffic Manager kan därför kan svara på frågor med A/AAAA-poster när slutpunkten och returnerar ett svar. Tjänster utanför Azure är en tjänst som finns lokalt eller med en annan provider. Externa slutpunkter kan användas enskilt eller tillsammans med Azure-slutpunkter i samma Traffic Manager-profilen förutom slutpunkter som angetts som IPv4 eller IPv6-adresser som bara kan vara externa slutpunkter. Kombinera Azure-slutpunkter med externa slutpunkter kan olika scenarier:
 
-* I antingen en aktiv-aktiv eller aktiv-passiv redundans modellen använder du Azure för att ge ökad redundans för en befintlig lokala program.
-* Utöka ett befintligt lokala program till fler geografiska platser i Azure för att minska svarstid för programmet för användare i hela världen. Mer information finns i [Traffic Manager ”Performance” trafikroutning](traffic-manager-routing-methods.md#performance).
-* Använd Azure för att tillhandahålla ytterligare kapacitet för en befintlig lokala program, kontinuerligt eller som en ”burst-till-moln”-lösning som uppfyller en topp i efterfrågan.
+* Ger ökad redundans för ett befintligt lokalt program i antingen en aktiv-aktiv eller aktiv-passiv redundans-modell som använder Azure. 
+* Dirigera trafik till slutpunkter som inte har ett DNS-namn som är kopplade till standardrisknivåer. Dessutom kan minska den övergripande svarstiden för DNS-sökning genom att ta bort behovet av att köra en andra DNS-fråga för att få en IP-adressen för en DNS-namn som returneras. 
+* Sänk svarstiderna i programmet för användare i hela världen, utöka ett befintligt lokala program till fler geografiska platser i Azure. Mer information finns i [Traffic Manager ”Performance” trafikroutning](traffic-manager-routing-methods.md#performance).
+* Ge ytterligare kapacitet för en befintlig lokala program, kontinuerligt eller som en ”burst-till-moln”-lösning som uppfyller en topp i begäran med hjälp av Azure.
 
 I vissa fall är det praktiskt att använda externa slutpunkter för att referera till Azure-tjänster (exempel finns i den [vanliga frågor och svar](traffic-manager-faqs.md#traffic-manager-endpoints)). I det här fallet faktureras hälsokontroller enligt priset för Azure-slutpunkter, inte den externa slutpunkter hastigheten. Men till skillnad från Azure-slutpunkter, om du stoppar eller ta bort den underliggande tjänsten hälsokontrollen fakturering fortsätter tills du inaktiverar eller ta bort slutpunkt i Traffic Manager.
 
@@ -71,7 +72,7 @@ Vissa ytterligare förutsättningar gäller när du konfigurerar Webbappar som s
 
 Inaktiveringen av en slutpunkt i Traffic Manager kan vara praktiskt att tillfälligt ta bort trafik från en slutpunkt som är i underhållsläge eller som omdistribueras. När slutpunkten körs igen kan aktiveras den igen.
 
-Slutpunkter kan aktiveras och inaktiveras via Traffic Manager-portalen, PowerShell, CLI eller REST API som stöds i både Resource Manager och den klassiska distributionsmodellen.
+Slutpunkter kan aktiveras och inaktiveras via Traffic Manager-portalen, PowerShell, CLI eller REST API.
 
 > [!NOTE]
 > Inaktiveringen av en Azure slutpunkt har inget samband med dess Distributionsstatus i Azure. En Azure-tjänst (till exempel en virtuell dator eller Web App fortfarande körs och kan ta emot trafik även om den är inaktiverad i Traffic Manager. Trafiken kan åtgärdas direkt till tjänstinstansen i stället för via DNS-namnet på Traffic Manager-profilen. Mer information finns i [så här fungerar Traffic Manager](traffic-manager-how-it-works.md).

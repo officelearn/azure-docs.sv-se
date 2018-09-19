@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0d98aef3e75130bbab7871733f709bf5e2ffdbcb
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 62c171381201f3cedee869aba301859a7047f5ce
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541257"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294925"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows Hybrid Runbook Worker
 
@@ -30,7 +30,7 @@ Du kan använda två metoder för att installera och konfigurera en Windows Hybr
 Minimikraven för en Windows Hybrid Runbook Worker är:
 
 * Windows Server 2012 eller senare.
-* Windows PowerShell 4.0 eller senare ([hämta WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)). Vi rekommenderar att Windows PowerShell 5.1 ([hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) för ökad tillförlitlighet.
+* Windows PowerShell 5.1 eller senare ([hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
 * .NET framework 4.6.2 eller senare.
 * Två kärnor.
 * 4 GB RAM.
@@ -63,8 +63,8 @@ Utför följande steg för att automatisera installation och konfiguration av Wi
      > [!NOTE]
      > De enda Automation-regioner som stöds för integrering med Log Analytics finns för närvarande **Australien, sydöstra**, **östra USA 2**, **Sydostasien**, och  **Västeuropa**. Om ditt Automation-konto inte är i någon av dessa regioner skriptet skapar en Log Analytics-arbetsyta men varnar dig om att det går inte att länka dem tillsammans.
 
-1. På din dator, öppna **Windows PowerShell** från den **starta** skärm i administratörsläge.
-1. Bläddra till den mapp som innehåller skriptet som du laddade ned från PowerShell-kommandoradsgränssnittet. Ändra värdena för parametrarna *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, och *- WorkspaceName*. Kör sedan skriptet.
+2. På din dator, öppna **Windows PowerShell** från den **starta** skärm i administratörsläge.
+3. Bläddra till den mapp som innehåller skriptet som du laddade ned från PowerShell-kommandoradsgränssnittet. Ändra värdena för parametrarna *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, och *- WorkspaceName*. Kör sedan skriptet.
 
      > [!NOTE]
      > Du uppmanas att autentisera med Azure när du har kört skriptet. Du *måste* logga in med ett konto som är medlem i rollen Prenumerationsadministratörer och medadministratör för prenumerationen.
@@ -75,9 +75,9 @@ Utför följande steg för att automatisera installation och konfiguration av Wi
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-1. Du uppmanas att godkänna att installera NuGet och du uppmanas att autentisera med dina autentiseringsuppgifter för Azure.
+4. Du uppmanas att godkänna att installera NuGet och du uppmanas att autentisera med dina autentiseringsuppgifter för Azure.
 
-1. När skriptet har slutförts, den **Hybrid Worker-grupper** sidan visas den nya gruppen och antalet medlemmar. Om det är en befintlig grupp ökas antalet medlemmar. Du kan välja grupp i listan på den **Hybrid Worker-grupper** och välj den **Hybrid Worker-arbeten** panelen. På den **Hybrid Worker-arbeten** du se att varje medlem i gruppen i listan.
+5. När skriptet har slutförts, den **Hybrid Worker-grupper** sidan visas den nya gruppen och antalet medlemmar. Om det är en befintlig grupp ökas antalet medlemmar. Du kan välja grupp i listan på den **Hybrid Worker-grupper** och välj den **Hybrid Worker-arbeten** panelen. På den **Hybrid Worker-arbeten** du se att varje medlem i gruppen i listan.
 
 ### <a name="manual-deployment"></a>Manuell distribution
 

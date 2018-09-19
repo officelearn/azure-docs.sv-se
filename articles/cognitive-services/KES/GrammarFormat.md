@@ -1,27 +1,30 @@
 ---
-title: Grammatikformat i Knowledge utforskning Service API | Microsoft Docs
-description: Läs mer om grammatikformat i den kunskap utforskning Service (KES) API i Cognitive Services.
+title: Grammatikformat - Knowledge API för tjänst för Kunskapsutveckling
+titlesuffix: Azure Cognitive Services
+description: Läs mer om grammatikformat i den kunskap utforskning Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: b64025be2f5a9708162da475c1f037d7f253d2c6
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4b4010152622cd9a1d8111ac92dd1960e78d4601
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865761"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125161"
 ---
 # <a name="grammar-format"></a>Grammatikformat
+
 Grammatik är en XML-fil som definierar vilka viktad frågor med naturligt språk som tjänsten kan tolka samt hur dessa frågor med naturligt språk översätts till semantiska frågeuttryck.  Grammatik-syntax är baserad på [SRGS](http://www.w3.org/TR/speech-grammar/), en W3C-standard för tal erkännande grammatik, med tillägg för integrering av index och semantisk funktioner.
 
 Nedan beskrivs var och en av de syntaktiska element som kan användas i en grammatik.  Se [det här exemplet](#example) för en fullständig grammatik som visar hur du använder de här elementen i kontexten.
 
-### <a name="grammar-element"></a>grammatik Element 
+### <a name="grammar-element"></a>grammatik Element
+
 Den `grammar` elementet har det översta elementet i XML-specifikationen grammatik.  De nödvändiga `root` attributet anger namnet på rot-regel som definierar grammatik startpunkt.
 
 ```xml
@@ -29,6 +32,7 @@ Den `grammar` elementet har det översta elementet i XML-specifikationen grammat
 ```
 
 ### <a name="import-element"></a>Importera Element
+
 Den `import` elementet importerar en schemadefinitionen från en extern fil att aktivera attributet referenser. Elementet måste vara en underordnad till den översta `grammar` element och visas innan någon `attrref` element. De nödvändiga `schema` attributet anger namnet på en schemafil som finns i samma katalog som XML-filen grammatik. De nödvändiga `name` elementet anger schemat alias som efterföljande `attrref` element använder när du refererar till attribut som definierats i det här schemat.
 
 ```xml
@@ -36,6 +40,7 @@ Den `import` elementet importerar en schemadefinitionen från en extern fil att 
 ```
 
 ### <a name="rule-element"></a>regeln Element
+
 Den `rule` elementet definierar en strukturella enhet som anger en uppsättning med frågeuttryck som systemet kan tolka en grammatik-regel.  Elementet måste vara en underordnad till den översta `grammar` element.  De nödvändiga `id` attributet anger namnet på regeln, som refereras till från `grammar` eller `ruleref` element.
 
 En `rule` elementet definierar en uppsättning juridiska expanderar.  Text-token matcha direkt mot indatafrågan.  `item` element ange upprepningar och alter tolkning sannolikhet.  `one-of` indikationer på alternativa val.  `ruleref` element kan konstruktion av mer komplexa expanderar från enklare som.  `attrref` element kan matchningar mot attributvärden från indexet.  `tag` element ange semantiken för tolkningen och kan ändra tolkning sannolikheten.
@@ -45,6 +50,7 @@ En `rule` elementet definierar en uppsättning juridiska expanderar.  Text-token
 ```
 
 ### <a name="example-element"></a>exempel Element
+
 Den valfria `example` elementet anger exempel fraser som kan godkännas av den som innehåller `rule` definition.  Detta kan användas för dokumentation och/eller automatiska tester.
 
 ```xml
@@ -52,6 +58,7 @@ Den valfria `example` elementet anger exempel fraser som kan godkännas av den s
 ```
 
 ### <a name="item-element"></a>element Element
+
 Den `item` elementet grupperar en sekvens med grammatik konstruktioner.  Den kan användas till repetitioner av expansion sekvensen eller för att ange alternativa tillsammans med den `one-of` element.
 
 När en `item` elementet är inte en underordnad till en `one-of` element, den kan ange upprepning av slutna sekvensen genom att tilldela den `repeat` attributet till ett värde för antal.  Antal värdet ”*n*” (där *n* är ett heltal) anger att sekvensen måste äga rum exakt *n* gånger.  Antal värdet ”*m*-*n*” gör att aktivitetssekvensen ska visas mellan *m* och *n* gånger portintervallet.  Antal värdet ”*m*-” anger att teckensekvensen måste finnas minst *m* gånger.  Den valfria `repeat-logprob` attributet kan användas för att ändra tolkning sannolikheten för varje ytterligare upprepning utöver minimum.
@@ -71,6 +78,7 @@ När `item` element visas som underordnade till en `one-of` element de definiera
 ```
 
 ### <a name="one-of-element"></a>en-elementets
+
 Den `one-of` elementet anger alternativa expanderar mellan en underordnad `item` element.  Endast `item` element kan förekomma inuti en `one-of` element.  Relativa sannolikhet mellan olika alternativ kan anges den `logprob` attribut i varje underordnad `item`.
 
 ```xml
@@ -82,6 +90,7 @@ Den `one-of` elementet anger alternativa expanderar mellan en underordnad `item`
 ```
 
 ### <a name="ruleref-element"></a>ruleref Element
+
 Den `ruleref` elementet anger giltiga expanderar via referenser till en annan `rule` element.  Med `ruleref` element, mer komplexa uttryck kan byggas från enklare regler.  De nödvändiga `uri` attributet anger namnet på den refererade `rule` med syntaxen ”#*rulename*”.  Om du vill samla in semantiska utdata från den refererade regeln, Använd det valfria `name` attribut för att ange namnet på en variabel som semantiska utdata är tilldelad.
  
 ```xml
@@ -89,6 +98,7 @@ Den `ruleref` elementet anger giltiga expanderar via referenser till en annan `r
 ```
 
 ### <a name="attrref-element"></a>attrref Element
+
 Den `attrref` element refererar till ett indexattribut som tillåter matchning mot attributvärden observerats i indexet.  De nödvändiga `uri` attributet anger index schemanamn och attributnamnet med syntaxen ”*%{SchemaName/*#*%{attrname/*”.  Det måste finnas en föregående `import` element som importerar schemat med namnet *%{SchemaName/*.  Attributets namn är namnet på ett attribut som angetts i motsvarande schemat.
 
 Utöver att matcha indata från användaren, den `attrref` elementet returnerar också en strukturerade frågeobjektet som utdata som väljer deluppsättning objekt i indexet matchar indatavärdet.  Använd det valfria `name` attribut för att ange namnet på variabeln där objektet frågeresultatet ska sparas.  Frågeobjektet kan sammanställas med andra frågeobjekt för att skapa mer komplexa uttryck.  Se [semantisk tolkning](SemanticInterpretation.md) mer information.  
@@ -97,7 +107,8 @@ Utöver att matcha indata från användaren, den `attrref` elementet returnerar 
 <attrref uri="academic#Keyword" name="keyword"/>
 ```
 
-#### <a name="query-completion"></a>Frågan slutförs 
+#### <a name="query-completion"></a>Frågan slutförs
+
 För att stödja frågeifyllning när tolkas partiella användarfrågor, måste varje refererade attributet innehålla ”starts_with” som en åtgärd i schemadefinitionen.  Får en fråga prefix användaren `attrref` matcha alla värden i indexet som Slutför prefixet, och ge varje fullständig värde som en separat tolkning av grammatik.  
 
 Exempel:
@@ -105,6 +116,7 @@ Exempel:
 * Matchar `<attrref uri="academic#Year" name="year"/>` mot frågan prefixet ”200” genererar en tolkning papper i ”2000”, en tolkning papper ”2001”, osv.
 
 #### <a name="matching-operations"></a>Matchande åtgärder
+
 Förutom exakt matchning väljer du attributet typer också stöd för prefix och ojämlikhet matchar via den valfria `op` attribut.  Om inga objekt i indexet har ett värde som matchar, grammatik sökvägen blockeras och tjänsten kommer inte att generera någon tolkningar passerar över den här grammatik-sökvägen.   Den `op` attributet standardvärden ”eq”.
 
 ```xml
@@ -129,6 +141,7 @@ Exempel:
 * `<attrref uri="academic#Year" op="starts_with" name="year"/>` matchningar Indatasträngen ”20” och returnerar i en enkel tolkning handlingar som publicerats i 200 299, 2000-2999, osv.  Det här är ett ovanligt användningsfall.
 
 ### <a name="tag-element"></a>tagga Element
+
 Den `tag` elementet anger hur en väg genom grammatik ska tolkas.  Den innehåller en sekvens med semikolon-terminerade instruktioner.  En instruktion kan vara en tilldelning av en literal eller en variabel till en annan variabel.  Det kan också tilldela en variabel utdata för en funktion med 0 eller fler parametrar.  Varje funktionsparameter kan anges med hjälp av en literal eller en variabel.  Om funktionen inte returnerar några utdata utelämnas tilldelningen.  Variabeln scope är lokala för som innehåller regeln.
 
 ```xml
@@ -144,12 +157,13 @@ Vissa instruktioner får ändra sannolikheten för en tolkning sökväg genom at
 En lista över semantiska funktioner som stöds finns i [semantiska funktioner](SemanticInterpretation.md#semantic-functions).
 
 ## <a name="interpretation-probability"></a>Tolkning sannolikhet
+
 Sannolikheten för en tolkning väg genom grammatik är kumulativa log sannolikheten att alla de `<item>` element och semantisk functions påträffade längs vägen.  Det beskriver relativa sannolikheten för att matcha en viss sekvens för indata.
 
 Får en sannolikhet *p* mellan 0 och 1 motsvarande log sannolikheten kan beräknas som log (*p*), där log() är funktionen naturliga loggen.  Om du använder log sannolikhet kan systemet att lagra den sammanslagna sannolikheten för en tolkning väg genom att lägga.  Det gör också med underskott som är gemensamma för sammanslagen sannolikhet beräkningarna.  Observera att avsiktligt log sannolikheten är alltid ett negativt värde eller 0, där större värden anger högre sannolikhet.
 
-<a name="example"></a>
 ## <a name="example"></a>Exempel
+
 Följande är ett exempel XML från domänen akademiska publikationer som visar de olika elementen i en grammatik:
 
 ```xml

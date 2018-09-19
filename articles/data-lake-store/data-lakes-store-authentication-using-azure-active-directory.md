@@ -1,6 +1,6 @@
 ---
-title: Autentisering i Data Lake Store med Azure Active Directory | Microsoft Docs
-description: Lär dig att autentisera med Data Lake Store med Azure Active Directory
+title: Autentisering i Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory | Microsoft Docs
+description: Lär dig hur du autentiserar med Azure Data Lake Storage Gen1 med Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7db48b03a6f34655917c82702c12dbc9bc4c987a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: feb35336681376f6f4bd262418146d931f3d1e83
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494185"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294891"
 ---
-# <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Autentisering med Data Lake Store med Azure Active Directory
+# <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autentisering med Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory
 
-Azure Data Lake Store använder Azure Active Directory för autentisering. Innan du skapar ett program som fungerar med Azure Data Lake Store, måste du bestämma hur du autentiserar ditt program med Azure Active Directory (AD Azure).
+Azure Data Lake Storage Gen1 använder Azure Active Directory för autentisering. Innan du skapar ett program som fungerar med Data Lake Storage Gen1, måste du bestämma hur du autentiserar ditt program med Azure Active Directory (AD Azure).
 
 ## <a name="authentication-options"></a>Autentiseringsalternativ
 
-* **Slutanvändarautentisering** -användarens autentiseringsuppgifter för Azure används för att autentisera med Data Lake Store. Programmet du skapar för att arbeta med Data Lake Store ber om autentiseringsuppgifterna för användaren. Därför kan den här autentiseringsmekanismen är *interaktiva* och programmet körs i kontexten för den inloggade användaren. Mer information och instruktioner finns i [slutanvändarautentisering för Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Slutanvändarautentisering** -användarens autentiseringsuppgifter för Azure används för att autentisera med Data Lake Storage Gen1. Programmet du skapar för att arbeta med Data Lake Storage Gen1 ber om autentiseringsuppgifterna för användaren. Därför kan den här autentiseringsmekanismen är *interaktiva* och programmet körs i kontexten för den inloggade användaren. Mer information och instruktioner finns i [slutanvändarautentisering för Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **Tjänst-till-tjänst-autentisering** – Använd det här alternativet om du vill att ett program för att autentisera sig själv med Data Lake Store. I sådana fall kan du skapa ett Azure Active Directory (AD)-program och använder nyckeln från Azure AD-programmet för att autentisera med Data Lake Store. Därför kan den här autentiseringsmekanismen är *icke-interaktiv*. Mer information och instruktioner finns i [tjänst-till-tjänst-autentisering för Data Lake Store](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Tjänst-till-tjänst-autentisering** – Använd det här alternativet om du vill att ett program för att autentisera sig själv med Data Lake Storage Gen1. I sådana fall kan du skapa ett Azure Active Directory (AD)-program och använder nyckeln från Azure AD-programmet för att autentisera med Data Lake Storage Gen1. Därför kan den här autentiseringsmekanismen är *icke-interaktiv*. Mer information och instruktioner finns i [tjänst-till-tjänst-autentisering för Data Lake Storage Gen1](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
-I följande tabell visas hur slutanvändare och tjänst-till-tjänst-autentiseringsmekanismer stöds för Data Lake Store. Här är hur du genom att läsa tabellen.
+I följande tabell visas hur slutanvändare och tjänst-till-tjänst-autentiseringsmekanismer stöds för Data Lake Storage Gen1. Här är hur du genom att läsa tabellen.
 
 * Symbolen ✔ * anger att autentiseringsalternativet som stöds och länkar till en artikel som visar hur du använder alternativ för autentisering. 
 * Symbolen ✔ anger att det finns stöd för alternativ för autentisering. 

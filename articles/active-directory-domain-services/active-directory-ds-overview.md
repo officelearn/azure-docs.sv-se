@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 4467c193b5ff70a304b4ec5f632276ca14551b08
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d30d164a3e2896b1a300bf665ca09f57ce97fdf3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502006"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295877"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Översikt
@@ -65,7 +65,7 @@ Några designmönster för den hanterade domänen som tillhandahålls av Azure A
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Azure AD Domain Services för hybridorganisationer
 Organisationer med en hybrid IT-infrastruktur använder en blandning av molnresurser och lokala resurser. Sådana organisationer synkronisera identitetsinformation från sina lokala katalog till deras Azure AD-klient. Som hybridorganisationer se ut för att migrera mer av sina lokala program till molnet, särskilt äldre katalogbaserade appar Azure AD Domain Services kan vara användbar för dem.
 
-Litware Corporation har distribuerat [Azure AD Connect](../active-directory/active-directory-aadconnect.md), för att synkronisera identitetsinformation från sina lokala katalog till deras Azure AD-klient. ID-information som synkroniseras innehåller användarkonton, deras hashvärden för autentiseringsuppgifter för autentisering (Lösenordssynkronisering) och gruppmedlemskap.
+Litware Corporation har distribuerat [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md), för att synkronisera identitetsinformation från sina lokala katalog till deras Azure AD-klient. ID-information som synkroniseras innehåller användarkonton, deras hashvärden för autentiseringsuppgifter för autentisering (Lösenordssynkronisering) och gruppmedlemskap.
 
 > [!NOTE]
 > **Lösenordssynkronisering är obligatoriskt för hybridorganisationer att använda Azure AD Domain Services**. Det här kravet är eftersom användarnas autentiseringsuppgifter behövs i den hanterade domänen tillhandahålls av Azure AD Domain Services för att autentisera dessa användare via NTLM eller Kerberos autentiseringsmetoder.

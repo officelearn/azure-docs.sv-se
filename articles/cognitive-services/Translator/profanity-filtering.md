@@ -1,37 +1,38 @@
 ---
-title: Svordomar filtrering med Microsoft översättare Text API | Microsoft Docs
-description: Använd svordomar filtrering i Microsoft översättare Text API.
+title: Svordomar filtrering – Translator Text API
+titlesuffix: Azure Cognitive Services
+description: Använd siris filtrering i Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a7172e1e8aa336c011fb06e93fc5c4b54d26a3cd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87814571e6f1c20b219020651eb798fa49a28deb
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352590"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127941"
 ---
-# <a name="how-to-add-profanity-filtering-with-the-microsoft-translator-text-api"></a>Hur du lägger till svordomar filtrering med Microsoft översättare Text-API
+# <a name="add-profanity-filtering-with-the-translator-text-api"></a>Lägg till svordomar filtrering med Translator Text API
 
-Tjänsten översättare behåller normalt svordomar som finns i datakällan i översättningen. Graden av svordomar och kontext som gör ord vulgärt skiljer sig åt mellan kulturer. Därför graden av svordomar i målspråket framhävas eller minskas.
+Tjänsten Translator behåller normalt svordomar som finns i källan i översättningen. Graden av svordomar och kontext som gör ord olämpliga skiljer sig åt mellan kulturer. Därmed graden av svordomar i målspråket framhävas eller minskas.
 
-Om du vill slippa svordomar i översättning (oavsett förekomst av svordomar i texten källa), kan du använda svordomar filtreringsalternativ i metoden Translate(). Alternativet kan du välja om du vill se svordomar bort eller markerats med lämpliga taggar eller ingen åtgärd vidtogs.
+Om du vill undvika att se svordomar i översättningen (även om svordomar finns i källtext) Använd svordomar filtrering alternativ i metoden Translate(). Det här alternativet kan du välja om du vill se svordomar tagits bort eller markerats med lämpliga taggar eller någon åtgärd krävs.
 
-Metoden Translate() tar en parameter ”alternativ”, som innehåller det nya elementet ”ProfanityAction”. Accepterade värden för ProfanityAction är ”NoAction”, ”markerat” och ”borttaget”.
+Metoden Translate() tar en ”alternativ”-parametern, som innehåller det nya elementet ”ProfanityAction”. De godkända värdena för ProfanityAction är ”NoAction”, ”markerade” och ”har tagits bort”.
 
-## <a name="accepted-values-of-profanityaction-and-examples"></a>Accepterade värden för ProfanityAction och exempel
-|ProfanityAction värde | Åtgärd | Exempel: Käll - japanska | Exempel: Mål - engelska|
+## <a name="accepted-values-of-profanityaction-and-examples"></a>Godkända värden för ProfanityAction och exempel
+|ProfanityAction värde | Åtgärd | Exempel: Source - japanska | Exempel: Mål - engelska|
 | :---|:---|:---|:---|
 | NoAction | Standard. Samma som inte ange alternativet. Svordomar Överför från källan till målet. | 彼は変態です。 | Han är en tölp. |
-| Markerad | Vulgärt ord omges av XML-taggar \<svordomar >... \</Profanity >. | 彼は変態です。 | Han är en \<svordomar > jerk\</profanity >. |
-| Borttagen | Vulgärt ord tas bort från utdata utan ersättning. | 彼は。 | Han är en. |
+| Markerad | Olämpliga ord. omges av XML-taggar \<svordomar >... \</Profanity >. | 彼は変態です。 | Han är en \<svordomar > jerk\</profanity >. |
+| Borttagen | Olämpliga ord. tas bort från utdata utan ersättning. | 彼は。 | Han är en. |
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Tillämpa svordomar filtrering med översättare API-anrop](reference/v3-0-translate.md)
+> [Tillämpa svordomar filtrering med Translator API-anrop](reference/v3-0-translate.md)
 

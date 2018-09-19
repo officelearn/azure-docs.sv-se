@@ -14,12 +14,12 @@ ms.date: 09/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 2768ba4726ccaf5e2249e356e425aeafaaaf91f6
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 985fd559c0af0306dc5b0868a8d7ccc66ca790f8
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349253"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296710"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -119,12 +119,20 @@ Följande administratörsroller är tillgängliga:
 
 * **[SharePoint-tjänstadministratör](#sharepoint-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft SharePoint Online när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[Skype för företag – / Lync-tjänstadministratör](#lync-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Skype för företag när tjänsten finns närvarande, samt hantera Skype-specifika användarattribut i Azure Active Katalogen. Den här rollen ger dessutom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd och komma åt Teams och Skype för Business Admin Center. Kontot måste också ha licens för team eller teamen PowerShell-cmdlet: ar kan köras. Mer information på [om the Skype för företag-administratörsroll](https://support.office.com/en-us/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) och team licensinformation på [Skype för företag och Microsoft Teams-tillägg-licensiering](https://docs.microsoft.com/en-us/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
+* **[Skype för företag – / Lync-tjänstadministratör](#lync-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Skype för företag när tjänsten finns närvarande, samt hantera Skype-specifika användarattribut i Azure Active Katalogen. Den här rollen ger dessutom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd och komma åt Teams och Skype för Business Admin Center. Kontot måste också ha licens för team eller teamen PowerShell-cmdlet: ar kan köras. Mer information på [om the Skype för företag-administratörsroll](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) och team licensinformation på [Skype för företag och Microsoft Teams-tillägg-licensiering](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
   > [!NOTE]
   > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Lync-tjänstadministratör”. Det är ”Skype för företag tjänstadministratör” i den [Azure-portalen](https://portal.azure.com/).
   >
   >
+
+* **[Teams kommunikation administratör](#teams-communications-administrator)**: användare i den här rollen kan hantera aspekter av Microsoft Teams-arbetsbelastningen som rör röst- och telefoni. Detta inkluderar hanteringsverktygen för tilldelning av telefon, röst- och möte principer och fullständig åtkomst till anropet analytics verktygsuppsättningen.
+
+* **[Teams kommunikation supporttekniker](#teams-communications-support-engineer)**: användare i den här rollen kan felsöka kommunikationsproblem i Microsoft Teams och Skype för företag med hjälp av användaren anropa felsökningsverktyg i Microsoft Teams och Skype för Administrationscenter för företag. Användare i den här rollen kan visa fullständiga anropet registrera information för alla deltagare som ingår.
+
+* **[Teams kommunikation Support Specialist](#teams-communications-support-specialist)**: användare i den här rollen kan felsöka kommunikationsproblem i Microsoft Teams och Skype för företag med hjälp av användaren anropa felsökningsverktyg i Microsoft Teams och Skype för Administrationscenter för företag. Användare i den här rollen kan bara se användarinformation i anropet för den specifika användaren har sökt.
+
+* **[Team tjänstadministratör](#teams-service-administrator)**: användare i den här rollen kan hantera alla aspekter av Microsoft Teams-arbetsbelastning via Microsoft Teams och Skype för företag-administrationscentret och respektive PowerShell-moduler. Detta inkluderar bland andra delar alla hanteringsverktyg som är relaterade till telefoni, meddelanden, möten och team själva. Den här rollen ger även möjlighet att hantera Office 365-grupper.
 
 * **[Användarkontoadministratören](#user-account-administrator)**: användarna med den här rollen kan skapa och hantera alla aspekter av användare och grupper. Dessutom innehåller den här rollen möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Vissa begränsningar gäller. Den här rollen tillåter exempelvis inte att ta bort en global administratör. Användarkontoadministratörer kan ändra lösenord och ogiltigförklara uppdateringstoken för användare, supportadministratörer och andra användaradministratörer endast. Ogiltigförklara en uppdateringstoken Tvingar användaren att logga in igen.
 
@@ -1081,6 +1089,93 @@ Kan hantera alla aspekter av SharePoint-tjänsten.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.SharePoint/allEntities/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standardegenskaper i microsoft.office365.sharepoint. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
+
+### <a name="teams-communications-administrator"></a>Teams kommunikation administratör
+Kan hantera anropa och möten funktioner i Microsoft Teams-tjänst.
+
+  > [!NOTE]
+  > Den här rollen ärver behörigheterna från katalogläsarrollen.
+  >
+  >
+
+  > [!NOTE]
+  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft.aad.Directory/policies/Basic/Read | Läs grundläggande egenskaper för principer i Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure supportärenden. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
+| Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
+| Microsoft.Office365.usageReports/allEntities/Read | Läs Office 365-användningsrapporter. |
+
+### <a name="teams-communications-support-engineer"></a>Teams kommunikation supporttekniker
+Kan felsöka problem med kommunikation i grupper med hjälp av avancerade verktyg.
+
+  > [!NOTE]
+  > Den här rollen ärver behörigheterna från katalogläsarrollen.
+  >
+  >
+
+  > [!NOTE]
+  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft.aad.Directory/policies/Basic/Read | Läs grundläggande egenskaper för principer i Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
+
+### <a name="teams-communications-support-specialist"></a>Teams kommunikation Support Specialist
+Kan felsöka problem med kommunikation i Teams med hjälp av grundläggande verktyg.
+
+  > [!NOTE]
+  > Den här rollen ärver behörigheterna från katalogläsarrollen.
+  >
+  >
+
+  > [!NOTE]
+  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft.aad.Directory/policies/Basic/Read | Läs grundläggande egenskaper för principer i Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
+
+### <a name="teams-service-administrator"></a>Team-tjänstadministratör
+Hantera Microsoft Teams-tjänsten.
+
+  > [!NOTE]
+  > Den här rollen ärver behörigheterna från katalogläsarrollen.
+  >
+  >
+
+  > [!NOTE]
+  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.directory/groups/hiddenMembers/read | Läsa groups.hiddenMembers-egenskapen i Azure Active Directory. |
+| Microsoft.aad.Directory/policies/Basic/Read | Läs grundläggande egenskaper för principer i Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure supportärenden. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
+| Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
+| Microsoft.Office365.usageReports/allEntities/Read | Läs Office 365-användningsrapporter. |
 
 ### <a name="user-account-administrator"></a>Användarkonto-administratör
 Kan hantera alla aspekter av användare och grupper

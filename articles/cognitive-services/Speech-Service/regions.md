@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: 1cb00035dc8f1cdeabd1beb22ca69f47bf4bd89e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d651a0a9e006e996db44b82eeaf0a1242a4114e0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379578"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296098"
 ---
 # <a name="regions-of-the-speech-service"></a>Med taltjänsten-regioner
 
@@ -35,16 +35,17 @@ I den [tal SDK](speech-sdk.md), regioner har angetts som en sträng (till exempe
 
 Tabellen nedan visar en lista över tillgängliga regioner för **taligenkänning** och **translation**:
 
-Region| Värde för parametern region i tal-SDK| Portal
--|-
-USA, västra| `westus`| https://westus.cris.ai
-USA, västra 2| `westus2`| https://westus2.cris.ai
-USA, östra| `eastus`| https://eastus.cris.ai
-USA, östra 2| `eastus2`| https://eastus2.cris.ai
-Asien, östra| `eastasia`| https://eastasia.cris.ai
-Sydostasien| `southeastasia`| https://southeastasia.cris.ai
-Europa, norra| `northeurope`| https://northeurope.cris.ai
-Europa, västra|  `westeurope`| https://westeurope.cris.ai
+  Region | Parametern för tal-SDK | Portalen
+ ------|-------|--------
+ Västra USA | `westus` | https://westus.cris.ai
+ USA, västra 2 | `westus2` | https://westus2.cris.ai 
+ Östra USA | `eastus` | https://eastus.cris.ai
+ USA, östra 2 | `eastus2` | https://eastus2.cris.ai
+ Östasien | `eastasia` | https://eastasia.cris.ai
+ Sydostasien | `southeastasia` | https://southeastasia.cris.ai
+ Norra Europa | `northeurope` | https://northeurope.cris.ai
+ Västra Europa | `westeurope` | https://westeurope.cris.ai
+
 
 ### <a name="regions-for-intent-recognition"></a>Regioner för taligenkänning
 

@@ -4,37 +4,42 @@ description: ta med fil
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
-ms.date: 08/12/2018
+ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3cbe634d862682a5f6b06c2cfc77a4d3b03954f9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 2808264b4641bda49a53677ebe216a3b53b7d0d9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811613"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293835"
 ---
-Koden för alla funktioner i en viss funktionsapp finns i rotmappen för en (`wwwroot`) som innehåller en konfigurationsfil för värden och en eller flera undermappar. Varje undermapp innehåller koden för en separat funktion, som i följande exempel:
+Koden för alla funktioner i en specifik funktionsapp finns i en rotmapp för projekt som innehåller en konfigurationsfil för värden och en eller flera undermappar. Varje undermapp innehåller koden för en separat funktion, som i följande bild:
 
 ```
-wwwroot
+FunctionApp
  | - host.json
- | - mynodefunction
+ | - Myfirstfunction
  | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
+ | | - ...  
+ | - mysecondfunction
  | | - function.json
- | | - run.csx
+ | | - ...  
+ | - SharedCode
  | - bin
- | | - mycompiledcsharp.dll
 ```
 
-Host.json-filen innehåller vissa runtime-specifika konfigurationer och är placerad i rotmappen för funktionsappen. Information om inställningar som är tillgängliga finns i den [referens för host.json](../articles/azure-functions/functions-host-json.md).
+I version 2.x av funktionskörningen alla funktioner i funktionsappen måste dela samma språk worker.  
 
-Varje funktion har en mapp som innehåller en eller flera kodfiler, function.json-konfiguration och andra beroenden. För en C# klassbiblioteksprojektet, filen kompilerade class library (.dll) har distribuerats till den `bin` undermappen.
+Den [host.json](../articles/azure-functions/functions-host-json.md) filen som innehåller vissa runtime-specifika konfigurationer finns i rotmappen för funktionsappen. En `bin` mappen innehåller paket och andra library-filer som krävs av funktionsappen. Se kraven för ett funktionsapprojekt språkspecifika:
+
+* [C#-klassbiblioteket (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+* [C#-skript (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+* [F #-skript](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
+* [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
+* [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
+
+
 

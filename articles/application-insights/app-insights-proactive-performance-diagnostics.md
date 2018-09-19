@@ -1,6 +1,6 @@
 ---
-title: Smartkort identifiering - prestandaavvikelser | Microsoft Docs
-description: Application Insights utför smart analys av din app telemetri och varnar dig om potentiella problem. Den här funktionen behöver ingen installation.
+title: Smart identifiering – prestandaavvikelser | Microsoft Docs
+description: Application Insights gör smart analys av apptelemetrin och varnar dig om potentiella problem. Den här funktionen måste behöver konfigureras.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -10,183 +10,185 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
-ms.author: mbullwin; antonfr
-ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: antonfr
+ms.author: mbullwin
+ms.openlocfilehash: eef597bf0c9f28cdec5af56c6dfe8bcaaa2415bd
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35649722"
 ---
-# <a name="smart-detection---performance-anomalies"></a>Identifiering - Prestandaavvikelser för smartkort
+# <a name="smart-detection---performance-anomalies"></a>Smart identifiering – Prestandaavvikelser
 
-[Application Insights](app-insights-overview.md) automatiskt analyserar prestanda för ditt webbprogram och varna dig om potentiella problem. Du kanske att läsa det eftersom du har fått en av våra meddelanden för smart identifiering.
+[Application Insights](app-insights-overview.md) analyseras prestanda för ditt webbprogram automatiskt och kan varna dig om potentiella problem. Du kan vara att läsa det eftersom du har en av våra smart identifiering meddelanden.
 
-Den här funktionen kräver några särskilda inställningar, förutom att konfigurera din app för Application Insights (på [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), eller [Node.js](app-insights-nodejs.md), och i [webbsida kod](app-insights-javascript.md)). Det är aktivt när genererar tillräckligt med telemetri för din app.
+Den här funktionen kräver några särskilda inställningar, förutom att konfigurera din app för Application Insights (på [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), eller [Node.js](app-insights-nodejs.md), och i [webbsida kod](app-insights-javascript.md)). Den är aktiv när din app genererar mycket telemetri.
 
-## <a name="when-would-i-get-a-smart-detection-notification"></a>När kan jag får ett meddelande om smarta identifiering?
+## <a name="when-would-i-get-a-smart-detection-notification"></a>När ska jag får ett meddelande för smart identifiering?
 
-Application Insights har upptäckt att prestanda för ditt program har degraderats i något av följande sätt:
+Application Insights har identifierat att prestanda för programmet har degraderat i något av följande sätt:
 
-* **Svaret tid försämring** -appen har startats långsammare än den som används för att svara på begäranden. Ändringen kan ha varit snabb, till exempel eftersom det var en regressionsmodell i senaste distributionen. Eller så kanske har blivit gradvis, kanske på grund av en minnesläcka. 
-* **Beroende varaktighet försämring** -appen gör anrop till en REST-API, databaser eller andra beroende. Beroendet är långsammare än den som används för att svara.
-* **Långsam mönster** -appen verkar ha ett prestandaproblem som påverkar endast vissa begäranden. Till exempel inläsning sidor långsammare på en typ av webbläsare än andra. eller begäranden behandlas långsammare från en viss server. För närvarande titta våra algoritmer på sidinläsningstider, begäran svarstider och beroende svarstider.  
+* **Svaret tid försämring** -appen har börjat svara på begäranden långsammare än vad det brukade. Ändringen kanske har snabb, till exempel, eftersom det inte fanns en regression i din senaste distribution. Eller den kan ha gått gradvis, kanske på grund av en minnesläcka. 
+* **Försämring av varaktigheten för beroendet** -appen anropar ett REST-API, databas eller andra beroenden. Beroendet svarar långsammare än vad det brukade.
+* **Långsamma prestanda mönstret** -appen verkar ha prestandaproblem som påverkar endast vissa begäranden. Till exempel inläsning sidor långsammare på en typ av webbläsare än andra. eller begäranden behandlas långsammare från en viss server. För närvarande kan titta våra algoritmer på sidans belastning, svarstider för begäran och beroende svarstider.  
 
-Smart identifiering kräver minst 8 dagar telemetri vid en fungerande volym för att upprätta en baslinje för normal prestanda. När programmet har körts under den tid, så resulterar eventuella viktiga problem i ett meddelande.
+Smart identifiering kräver minst 8 dagarnas telemetri vid en fungerande volym för att upprätta en baslinje för normal prestanda. När ditt program har körts under den perioden, resulterar därför några betydande problem i ett meddelande.
 
 
-## <a name="does-my-app-definitely-have-a-problem"></a>Har min app definitivt problem?
+## <a name="does-my-app-definitely-have-a-problem"></a>Min app definitivt finns det ett problem?
 
-Nej, ett meddelande innebär inte att appen verkligen har problem. Det är bara ett förslag om något du kanske vill titta på flera.
+Nej, ett meddelande innebär inte att din app definitivt finns ett fel. Det är bara ett förslag om något kanske du vill titta på mer noggrant.
 
-## <a name="how-do-i-fix-it"></a>Hur kan jag göra?
+## <a name="how-do-i-fix-it"></a>Hur jag för att åtgärda det?
 
 Aviseringarna inkluderar diagnostisk information. Här är ett exempel:
 
 
-![Här är ett exempel på servern svar tid försämring identifiering](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![Här är ett exempel på identifiering av Serversvarstider](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
 
-1. **Prioritering**. Meddelandet visas hur många användare eller hur många åtgärder som påverkas. Detta kan hjälpa dig att tilldela en prioritet till problemet.
-2. **Scope**. Problemet som påverkar all trafik, eller bara vissa sidor Begränsas den viss webbläsare eller platser? Den här informationen kan hämtas från meddelandet.
-3. **Diagnostisera**. Ofta föreslås diagnostisk information i meddelandet problemets art. Om svarstiden saktar ned när frågehastigheten är för hög, föreslår som till exempel din server eller beroenden är överbelastad. 
+1. **Prioritering**. Aviseringen visar hur många användare eller hur många åtgärder som påverkas. Detta kan du tilldela en prioritet till problemet.
+2. **Omfång**. Problemet som påverkar all trafik, eller enbart på vissa sidor Är den begränsad till viss webbläsare eller platser? Den här informationen kan hämtas från meddelandet.
+3. **Diagnostisera**. Diagnostisk information i meddelandet föreslås ofta problemets art. Om svarstiden saktar ned när frågehastigheten är för hög, föreslår som till exempel din server eller beroenden är överbelastad. 
 
-    I annat fall öppna bladet prestanda i Application Insights. Där hittar du [Profiler](app-insights-profiler.md) data. Om undantag utlöses, du kan också prova den [ögonblicksbild felsökare](app-insights-snapshot-debugger.md).
+    I annat fall öppna bladet prestanda i Application Insights. Där hittar du [Profiler](app-insights-profiler.md) data. Om undantag utlöses, du kan också prova den [felsökning av ögonblicksbild](app-insights-snapshot-debugger.md).
 
 
 
 ## <a name="configure-email-notifications"></a>Konfigurera e-postaviseringar
 
-Meddelanden för smart identifiering är aktiverad som standard och skickas till de som har [ägare, deltagare och läsare som har åtkomst till Application Insights-resursen](app-insights-resources-roles-access-control.md). Om du vill ändra den här, antingen på **konfigurera** i e-postmeddelande eller öppna smarta identifieringsinställningar i Application Insights. 
+Smart identifiering av meddelanden är aktiverade som standard och skickas till de som har [ägare, deltagare och läsare som har åtkomst till Application Insights-resursen](app-insights-resources-roles-access-control.md). Om du vill ändra detta, antingen på **konfigurera** i e-postmeddelande eller öppna inställningar för Smart identifiering i Application Insights. 
   
-  ![Identifieringsinställningar för smartkort](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![Inställningar för smart identifiering](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
   
-  * Du kan använda den **avbryta prenumerationen** länk i e-Smart identifiering att inte ta emot e-postmeddelanden.
+  * Du kan använda den **avbryta prenumerationen** länken i e-postmeddelandet för Smart identifiering som sluta ta emot e-postmeddelanden.
 
-E-post om identifieringar som Smart prestandaavvikelser är begränsade till en e-post per dag per Application Insights-resurs. E-postmeddelandet skickas endast om det finns minst en ny problem som har identifierats på den dagen. Du kommer inte upprepas för varje meddelande. 
+E-post om identifieringar Smart prestandaavvikelser är begränsade till en e-post per dag per Application Insights-resurs. E-postmeddelandet skickas endast om det finns minst en nya ärenden som har identifierats på den dagen. Du kommer inte upprepningar av alla meddelanden. 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-* *Alltså Se Microsoft-Personal på Mina data?*
-  * Nej. Tjänsten är helt automatisk. Bara hämta meddelanden. Dina data är [privata](app-insights-data-retention-privacy.md).
+* *Det Microsoft-Personal titta på Mina data?*
+  * Nej. Tjänsten är helt automatisk. Du får endast meddelanden. Dina data är [privata](app-insights-data-retention-privacy.md).
 * *Du analysera alla data som samlas in av Application Insights?*
-  * Inte för närvarande. För närvarande kan analyserar vi begäran svarstid, beroende-svarstid och sidan hämtningstid. Analys av ytterligare mått finns på vår eftersläpning väntar.
+  * Inte för närvarande. För närvarande kan analysera vi begäran svarstid, svarstid för beroende och sidan kan du läsa in tid. Analys av ytterligare mått är på våra återstående uppgifter som vi ser fram emot.
 
-* Vilka typer av program fungerar detta för?
-  * Dessa degradations identifieras i alla program som genererar lämpliga telemetri. Om du har installerat Application Insights i ditt webbprogram sedan spåras begäranden och beroenden automatiskt. Men i backend-tjänster eller andra appar, om du har infogat anrop till [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) eller [TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency), och sedan Smart identifiering fungerar på samma sätt.
+* Vilka typer av programmet fungerar detta för?
+  * Dessa försämringar identifieras i alla program som genererar den lämpliga telemetrin. Om du har installerat Application Insights i din webbapp, sedan spåras begäranden och beroenden automatiskt. Men i backend-tjänster eller andra appar, om du har infogat anrop till [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) eller [TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency), Smart identifiering fungerar på samma sätt.
 
-* *Kan jag skapa egna avvikelseidentifiering regler för identifiering eller anpassa befintliga regler?*
+* *Kan jag skapa min egen avvikelseidentifiering regler för identifiering eller anpassa befintliga regler?*
 
   * Inte ännu, men du kan:
-    * [Ställa in aviseringar](app-insights-alerts.md) som anger om måttet överskrider ett tröskelvärde.
+    * [Ställa in aviseringar](app-insights-alerts.md) som talar om när ett mått överskrider ett tröskelvärde.
     * [Exportera telemetri](app-insights-export-telemetry.md) till en [databasen](app-insights-code-sample-export-sql-stream-analytics.md) eller [till PowerBI](app-insights-export-power-bi.md), där du kan analysera dem själv.
 * *Hur ofta utförs analysen?*
 
-  * Vi kör dagligen analys på telemetrin från föregående dag (fullständig dag i UTC-tidszonen).
-* *Det gör även detta ersätta [mått aviseringar](app-insights-alerts.md)?*
-  * Nej.  Vi att inte identifiera var problemet bör du överväga onormalt.
+  * Analys körs dagligen på telemetri från föregående dag (hel dag i UTC-tidszonen).
+* *Det gör även detta ersätta [måttaviseringar](app-insights-alerts.md)?*
+  * Nej.  Vi arbetar inte för att identifiera varje beteenden som du kan överväga att onormalt.
 
 
-* *Om jag inte göra något svar på ett meddelande ska jag en påminnelse?*
-  * Nej, du får ett meddelande om varje problemet bara en gång. Om problemet kvarstår kommer att uppdateras i Smart identifieringen feed bladet.
-* *E-postmeddelandet gick förlorad. Var hittar jag meddelanden i portalen*
-  * I Application Insights-översikten över appen klickar du på den **Smart identifiering** panelen. Det kommer du att kunna hitta alla meddelanden upp till 90 dagar bakåt.
+* *Får jag en påminnelse om jag inte gör något som svar på ett meddelande?*
+  * Nej, du får ett meddelande om varje problemet bara en gång. Om problemet kvarstår kommer att uppdateras i Smart identifiering feed-bladet.
+* *E-postmeddelandet gick förlorad. Var hittar jag aviseringar i portalen?*
+  * I Application Insights-översikten över appen klickar du på den **Smart identifiering** panelen. Det kommer du att kunna hitta alla meddelanden upp till 90 dagar tillbaka.
 
 ## <a name="how-can-i-improve-performance"></a>Hur kan jag för att förbättra prestanda?
-Långsamt och misslyckade svar är en av de största frustrationen för webbplatsanvändare som du känner till från din egen erfarenheter. Därför är det viktigt att åtgärda eventuella problem.
+Långsam och misslyckade svar är en av största frustrationen för webbplatsanvändare som du vet från din egen erfarenhet. Det är därför viktigt att åtgärda eventuella problem.
 
 ### <a name="triage"></a>Prioritering
-Först spelar det roll? Om en sida är alltid tar lång tid att läsa in, men endast 1% av webbplatsens användare behöver titta på den, kanske har du flera viktiga saker att tänka på. Å andra sidan, om det bara är 1% av användare öppna den, men den utlöser undantag varje gång, kan det vara värt att undersöka.
+Först, spelar det någon roll? Om en sida är alltid långsamt att läsa, men endast 1% av webbplatsens användare behöver titta på den, har du kanske är viktigare saker att tänka på. Om det bara 1% av användarna öppna den, men den genererar undantag varje gång, kanske som å andra sidan värda att undersöka.
 
-Använda instruktionen påverkan (användare som påverkas eller % av trafik) som en allmän vägledning, men tänk på att den inte hela artikeln. Samla in andra bevis för att bekräfta.
+Använda instruktionen påverkan (berörda användare eller % av trafiken) som en allmän vägledning, men tänk på att det inte är hela artikeln. Samla in andra bevis på att bekräfta.
 
-Överväg att parametrarna för problemet. Om det är beroende geografi, ställa in [tillgänglighetstester](app-insights-monitor-web-app-availability.md) inklusive den regionen: det kanske bara nätverksproblem i detta område.
+Överväg att parametrarna för problemet. Om det är beroende av geografiskt område, ställa in [tillgänglighetstester](app-insights-monitor-web-app-availability.md) inklusive regionen: Det kan bara finnas nätverksproblem i det området.
 
-### <a name="diagnose-slow-page-loads"></a>Diagnostisera långsam sidan läses in
-Var har problemet uppstått? Är servern svarar långsamt, är sidan lång eller webbläsaren behöver göra mycket arbete för att visa den?
+### <a name="diagnose-slow-page-loads"></a>Diagnostisera långsamma sidinläsningar
+Var finns problemet? Långsamt servern svarar, är sidan som är mycket långa eller har webbläsaren att göra mycket arbete att visa den?
 
-Öppna bladet webbläsare mått. Segmenterade visningen av webbläsaren belastningen tid visas där tiden kommer. 
+Öppna bladet webbläsare mått. Segmenterade visningen av webbläsare sidan belastningen tid visar vart tiden är på väg. 
 
-* Om **skicka tid för begäran** är hög, antingen servern svarar långsamt eller begäran är en post med stora mängder data. Titta på den [prestandamått](app-insights-web-monitor-performance.md#metrics) att undersöka svarstider.
-* Ställ in [beroende spårning](app-insights-asp-net-dependencies.md) att se om den långsamt arbete är på grund av externa tjänster eller din databas.
-* Om **ta emot svar** är övervägande, sidan och dess beroende delar - JavaScript, CSS, bilder och så vidare (men inte asynkront inlästa data) är för lång. Konfigurera en [tillgänglighetstest](app-insights-monitor-web-app-availability.md), och se till att ange alternativet för att läsa in beroende delar. När du får några resultat kan öppna informationen som ett resultat och expandera den för att se laddningstider olika filer.
-* Hög **klienten bearbetningstid** föreslår skript körs långsamt. Om orsaken till inte visas, Överväg att lägga till kod tidsinställning och skicka tiderna i trackMetric-anrop.
+* Om **skicka begärandetid** är hög, antingen servern svarar långsamt eller begäran finns ett inlägg med stora mängder data. Titta på den [prestandamått](app-insights-web-monitor-performance.md#metrics) att undersöka svarstider.
+* Konfigurera [beroendespårning](app-insights-asp-net-dependencies.md) att se om långsamhet beror på att externa tjänster eller din databas.
+* Om **ta emot svar** är dominerande, sidan och dess beroende delar – JavaScript, CSS, bilder och så vidare (men inte asynkront inlästa data) är långa. Konfigurera en [tillgänglighetstestet](app-insights-monitor-web-app-availability.md), och se till att ställa in alternativet för att läsa in beroende delar. När du får några resultat, öppna informationen om ett resultat och expandera den för att se inläsningstider olika filer.
+* Hög **klienten bearbetningstid** föreslår skript körs långsamt. Om orsaken till inte visas, Överväg att lägga till kod tidsinställning och sändtider i trackMetric anrop.
 
 ### <a name="improve-slow-pages"></a>Förbättra långsamma sidor
-Det finns en fullständig råd om att förbättra din serversvar och sidinläsningstider, så inte försöker vi Upprepa den här alla webbplats. Här följer några tips du förmodligen redan vet om, precis som du tänker:
+Det finns en webbplats som är fulla av råd om att förbättra dina serversvar och sidinläsningstider, så att vi inte försöka Upprepa det allt här. Här följer några tips som du förmodligen redan vet om, bara för att få funderar du:
 
-* Långsam lästes in på grund av stora filer: läsa in skript och andra delar asynkront. Använd skriptet paketering. Bryt huvudsidan i widgetar som läser in sina data separat. Skicka inte vanlig gamla HTML för långa tabeller: använda ett skript för att begära data som JSON eller andra komprimerat format och sedan fylla tabellen på plats. Det är bra ramverk för att hjälpa med allt detta. (De även innebära ett stort skript naturligtvis.)
-* Långsamma server beroenden: Överväg att geografiska platser av komponenter. Till exempel om du använder Azure Kontrollera webbservern och databasen är i samma region. Frågor ska hämta mer information än de behöver? Skulle cachelagrar eller batchbearbetning hjälp?
-* Kapacitet problem: Leta serverstatistik av svarstider och begäran räknas. Om svarstider högsta oproportionerligt med toppar i begäran räknas, är det troligt att servrarna har sträckts ut.
+* Långsam inläsning av på grund av stora filer: läsa in skripten och andra delar asynkront. Använd skriptet paketering. Bryt huvudsidan i widgetar som läses in sina data separat. Skicka inte vanlig gamla HTML för långa tabeller: använda ett skript för att begära data som JSON eller andra kompakt format och sedan fylla i tabell på plats. Det är bra ramverk som behövs för att hjälpa dig med allt detta. (De också kan medföra big skript naturligtvis.)
+* Långsam serverberoenden: Överväg att de geografiska platserna av dina komponenter. Till exempel om du använder Azure, se till webbservern och databasen är i samma region. Frågorna hämtar mer än de behöver? Skulle cachelagring eller batchbearbetning hjälp?
+* Kapacitet problem: Titta på servermått för svarstider och antalet begäranden. Om svarstider högsta oproportionerligt toppar i antalet förfrågningar, är det troligt att dina servrar sträcks ut.
 
 
-## <a name="server-response-time-degradation"></a>Servern svar tid försämring
+## <a name="server-response-time-degradation"></a>Serversvarstider
 
 Svaret tid försämring meddelandet kan du se:
 
 * Svarstiden jämfört med normala svarstiden för den här åtgärden.
-* Hur många användare påverkas.
+* Hur många användare som påverkas.
 * Genomsnittlig svarstid och 90: e percentilen svarstiden för den här åtgärden på dagen för att upptäcka och 7 dagar innan. 
-* Antalet för den här åtgärden begäranden på dagen för att upptäcka och 7 dagar innan.
-* Korrelation mellan försämring i den här åtgärden och degradations i relaterade beroenden. 
-* Länkar som hjälper dig att felsöka problemet.
-  * Profiler-spårningar för att visa där åtgärden tid det tar (länken är tillgänglig om profileraren trace exempel samlades in för den här åtgärden under identifieringsperioden). 
-  * Prestandarapporter i måttet Explorer, där du kan statistikforskning tid intervallfilter för den här åtgärden.
-  * Sök efter det här anropet till specifika anropet egenskaper.
-  * Fel rapporteras - om räkna > 1 detta innebära att det inträffade fel under den här åtgärden kan ha bidragit till försämrade prestanda.
+* Antal den här åtgärden begäranden på dag av identifieringen och 7 dagar innan.
+* Korrelation mellan försämring i den här åtgärden och försämringar i relaterade beroenden. 
+* Länkar för att hjälpa dig att diagnostisera problemet.
+  * Profiler-spårningar för att visa var åtgärden tid går åt (länken är tillgänglig om Profiler-spårning exempel samlades in för den här åtgärden under identifieringsperioden). 
+  * Prestandarapporter i Metric Explorer, där du kan statistikforskning tid/intervallfiltren för den här åtgärden.
+  * Sök efter det här anropet att visa specifika anrop egenskaper.
+  * Rapporterar fel - om antal > 1 detta innebära att det fanns fel i den här åtgärden kan ha bidragit till försämrade prestanda.
 
-## <a name="dependency-duration-degradation"></a>Beroende varaktighet försämring
+## <a name="dependency-duration-degradation"></a>Försämring av varaktigheten för beroendet
 
-Moderna program anta mer och mer micro services Designmetoden, vilket i många fall leder till hög tillförlitlighet för externa tjänster. Till exempel om ditt program som förlitar sig på vissa dataplattform eller även om skapar du egna bot på tjänsten som du förmodligen vidarebefordrar på vissa kognitiva tjänsteleverantör att aktivera din robotar kan interagera på flera mänsklig sätt och vissa data store-tjänsten för bot och hämtar svar från m.  
+Moderna program vidta fler och fler metod för mikrotjänster, vilket ofta leder till stor tillförlitlighet på externa tjänster. Till exempel om ditt program som förlitar sig på vissa dataplattform och även om skapar du egna bot på tjänsten som du förmodligen vidarebefordrar på vissa cognitive services-providern för att aktivera dina bots kan interagera på mänskligare sätt och vissa data store-tjänsten att hämta svar från-robot m.  
 
-Exempel beroende omvandlings-meddelande:
+Exempel beroende försämring meddelande:
 
-![Här är ett exempel på beroende varaktighet försämring identifiering](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![Här är ett exempel på försämring av varaktigheten för beroendet identifiering](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
 
-Observera att du får meddelande:
+Observera att du:
 
 * Varaktigheten jämfört med normala svarstiden för den här åtgärden
 * Hur många användare som påverkas
-* Genomsnittlig varaktighet och 90: e percentilen varaktigheten för detta beroende på dagen för att upptäcka och 7 dagar innan
-* Antal beroende anrop på dagen för att upptäcka och 7 dagar innan
+* Genomsnittlig varaktighet och 90: e percentilen längden på det här beroendet på dag av identifieringen och 7 dagar innan
+* Antalet beroende anrop på dag av identifieringen och 7 dagar innan
 * Länkar som hjälper dig att diagnostisera problemet
-  * Prestandarapporter i måttet Explorer för detta beroende
-  * Sök efter beroendeanrop för att visa egenskaper för anrop
-  * Rapporter om fel - om antalet > 1 Detta innebär att det fanns misslyckade beroende anrop under identifieringsperioden som kanske har bidragit till varaktighet försämras. 
-  * Öppna Analytics med frågor som utför den här beroende varaktighet och antal  
+  * Prestandarapporter i Metric Explorer för det här beroendet
+  * Sök efter det här beroendet anropar för att visa egenskaperna för anrop
+  * Rapporter om fel - om antal > 1 Det innebär att det fanns misslyckat beroende anrop under identifieringsperioden som kan ha bidragit till försämring av varaktigheten. 
+  * Öppna Analytics med frågor som utför den här beroendevaraktighet och antal  
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Smart identifiering av långsam prestanda mönster 
 
-Application Insights söker efter prestandaproblem som påverkar endast en del av användarna eller påverkar endast användare i vissa fall. Till exempel meddelanden om sidor belastningen är långsammare på en typ av webbläsare än på andra typer av webbläsare, eller om begäranden som betjänats långsammare från en viss server. Problem med kombinationer av egenskaper, kan också identifieras som långsam sidan läses in i ett geografiskt område för klienter som använder operativsystemet.  
+Application Insights söker efter prestandaproblem som kan påverka endast en del av användarna eller påverkar endast användare i vissa fall. Till exempel om sidor är långsammare för en typ av webbläsare än på andra typer av webbläsare, eller om levereras långsammare från en viss server. Problem med kombinationer av egenskaperna kan också identifieras som långsamma sidinläsningar i ett geografiskt område för klienter som använder specifika operativsystem.  
 
-Avvikelser som dessa är mycket svåra att upptäcka genom att kontrollera data, men är vanligare än du tror. De yta ofta endast när dina kunder klagar. Vid den tidpunkten är för sent: berörda användare redan växla till konkurrenter!
+Avvikelser som dessa är mycket svårt att identifiera bara genom att granska data, men är vanligare än du tror. Ofta de endast att visa upp när kunderna börjar klaga. Efter den tid det är för sent: de berörda användarna redan byter till dina konkurrenter!
 
-För närvarande titta våra algoritmer på sidinläsningstider, svarstider för begäran på servern och beroende svarstider.  
+För närvarande kan titta våra algoritmer på sidans belastning, svarstider för begäran på servern och beroende svarstider.  
 
 Du behöver inte ange några tröskelvärden eller konfigurera regler. Machine learning och datautvinningsalgoritmer används för att upptäcka onormala mönster.
 
-![Klicka på länken om du vill öppna diagnostisk rapport i Azure e-postavisering](./media/app-insights-proactive-performance-diagnostics/03.png)
+![E-postavisering, klicka på länken för att öppna Diagnostikrapporten i Azure](./media/app-insights-proactive-performance-diagnostics/03.png)
 
-* **När** visas den tid som problemet upptäcktes.
-* **Vad** beskrivs:
+* **När** visar den tid som problemet upptäcktes.
+* **Vad** beskriver:
 
   * Problem som har identifierats;
-  * Egenskaper för de händelser som påträffades visas problemet.
-* I tabell jämförs ineffektivt fungerande uppsättningen med genomsnittlig beteendet för alla andra händelser.
+  * Egenskaperna för en uppsättning händelser som vi har hittat visas problemet.
+* I tabell jämförs-bristfälligt uppsättningen med det genomsnittliga beteendet för alla andra händelser.
 
-Klicka på länkarna om du vill öppna mått Explorer och Sök på relevanta rapporter, filtreras i tid och egenskaperna för uppsättningen långsam prestanda.
+Klicka på länkarna för att öppna Metric Explorer och Sök på relevanta rapporter, filtrerat efter tid och egenskaperna för långsam prestanda uppsättningen.
 
-Ändra tidsintervall och filter för att utforska telemetrin.
+Ändra tidsintervall och filter för att utforska telemetri.
 
 ## <a name="next-steps"></a>Nästa steg
-Dessa verktyg för Nätverksdiagnostik hjälpa dig att inspektera telemetri från din app:
+Dessa diagnostiska verktyg hjälper dig att inspektera telemetrin från din app:
 
 * [Profiler](app-insights-profiler.md) 
-* [Snapshot-felsökare](app-insights-snapshot-debugger.md)
+* [Felsökning av ögonblicksbild](app-insights-snapshot-debugger.md)
 * [Analys](app-insights-analytics-tour.md)
-* [Diagnostik för Analytics-smartkort](app-insights-analytics-diagnostics.md)
+* [Analytics smart diagnostik](app-insights-analytics-diagnostics.md)
 
 Smart identifieringar är helt automatisk. Men kanske du vill ställa in några fler aviseringar?
 
-* [Manuellt konfigurerade mått aviseringar](app-insights-alerts.md)
-* [Tillgänglighetstester för webbprogram](app-insights-monitor-web-app-availability.md)
+* [Manuellt konfigurerade måttaviseringar](app-insights-alerts.md)
+* [Webbtester för tillgänglighet](app-insights-monitor-web-app-availability.md)

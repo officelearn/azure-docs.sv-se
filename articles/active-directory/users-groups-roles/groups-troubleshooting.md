@@ -14,12 +14,12 @@ ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c616618df0ef3a7b97a8d90977559889022db232
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: e189fb8b2bc5079d1560d3b7a54fea2db7366fe7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718482"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46293987"
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Felsöka dynamiska medlemskap för grupper
 
@@ -44,4 +44,4 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](../fundamentals/active-directory-manage-groups.md)
 * [Programhantering i Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Vad är Azure Active Directory?](../fundamentals/active-directory-whatis.md)
-* [Integrera dina lokala identiteter med Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 211d79f387697ce850ac645ef65338c216e2bd76
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382203"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294772"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Schemaläggning av en Runbook i Azure Automation
 
@@ -50,7 +50,10 @@ Du kan skapa ett nytt schema för runbooks i Azure portal eller med Windows Powe
 1. I Azure-portalen från ditt automation-konto väljer **scheman** under avsnittet **delade resurser** till vänster.
 1. Klicka på **lägga till ett schema** överst på sidan.
 1. På den **nytt schema** rutan Ange ett **namn** och eventuellt en **beskrivning** för det nya schemat.
-1. Välj om schemat har körts en gång, eller enligt ett återkommande schema genom att välja **när** eller **upprepning**. Om du väljer **när** anger en **starttid**, och klicka sedan på **skapa**. Om du väljer **upprepning**, ange en **starttid** och frekvensen för hur ofta du vill att runbook ska upprepas - av **timme**, **dag**, **vecka**, eller av **månad**. Om du väljer **vecka** eller **månad** från den nedrullningsbara listan den **upprepning alternativet** visas i fönstret och när de har valts, den **upprepning alternativet** fönstret visas och du kan välja dag i veckan om du har valt **vecka**. Om du har valt **månad**, du kan välja genom **vardagar** eller särskilda dagar i månaden i kalendern och slutligen vill du köra den på den sista dagen i månaden eller inte och klicka sedan på **OK**.
+1. Välj om schemat har körts en gång, eller enligt ett återkommande schema genom att välja **när** eller **återkommande**. Om du väljer **när** anger en **starttid**, och klicka sedan på **skapa**. Om du väljer **återkommande**, ange en **starttid** och för **Upprepa varje**, väljer du frekvens för hur ofta du vill att runbook ska upprepas - av **timme**, **dag**, **vecka**, eller av **månad**.
+    1. Om du väljer **vecka**, du får en lista över de veckodagar att välja bland. Välj så många dagar som du vill ha. Den första körningen av schemat sker på den första dagen efter starttiden.
+    2. Om du väljer **månad**, ges du olika alternativ. För den **månatliga occurrances** alternativet, väljer du antingen **dagar i månaden** eller **veckodagar**. Om du väljer **dagar i månaden** en kalender visas där du kan välja så många dagar som du vill. Om du väljer ett datum, till exempel den 31 inte inträffar i den aktuella månaden, körs inte schemat. Om du vill att schemat ska köras den sista dagen väljer **Ja** under **kör sista dagen i månaden**. Om du väljer **veckodagar**, **Upprepa varje** alternativ visas. Välj **första**, **andra**, **tredje**, **fjärde**, eller **senaste**. Välj slutligen en dag till Upprepa på.
+1. När klar klickar du på **skapa**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Att skapa ett nytt schema med Windows PowerShell
 
@@ -73,9 +76,9 @@ En runbook kan länkas till flera scheman och ett schema kan ha flera runbooks s
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Länka ett schema till en runbook med Azure-portalen
 
 1. I Azure-portalen från ditt automation-konto väljer **Runbooks** under avsnittet **Processautomatisering** till vänster.
-1. Klicka på namnet på runbooken som ska schemaläggas.
-1. Om runbook inte för närvarande är länkad till ett schema, erbjuds du alternativet för att skapa ett nytt schema eller länka till ett befintligt schema.
-1. Om runbooken har parametrar, kan du välja alternativet **ändra körningsinställningar (standard: Azure)** och **parametrar** fönstret visas där du kan ange informationen i enlighet med detta.
+2. Klicka på namnet på runbooken som ska schemaläggas.
+3. Om runbook inte för närvarande är länkad till ett schema, erbjuds du alternativet för att skapa ett nytt schema eller länka till ett befintligt schema.
+4. Om runbooken har parametrar, kan du välja alternativet **ändra körningsinställningar (standard: Azure)** och **parametrar** fönstret visas där du kan ange informationen i enlighet med detta.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Länka ett schema till en runbook med Windows PowerShell
 

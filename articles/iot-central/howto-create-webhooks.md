@@ -3,19 +3,21 @@ title: Skapa webhooks i reglerna i Azure IoT Central | Microsoft Docs
 description: Skapa webhooks i Azure IoT Central som automatiskt underrättar andra program när regler utlöses.
 author: viv-liu
 ms.author: viviali
-ms.date: 07/17/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1e21076cafe21e6c0efcdf5a8146278eabd9ebc4
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 896d4e9c775fa0b0c8eb062d11d141901daa7242
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228109"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295996"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Skapa webhook-åtgärder på regler i Azure IoT Central
+
+*Det här avsnittet gäller builders och administratörer.*
 
 Webhooks kan du ansluta din IoT Central-app till andra program och tjänster för fjärrövervakning och aviseringar. Webhookarna meddelar automatiskt andra program och tjänster som du ansluter när en regel utlöses i din IoT Central-app. Din IoT Central-app skickar en POST-begäran till det andra programmet HTTP-slutpunkt när en regel utlöses. Nyttolasten innehåller information om enheten och Regelinformation för utlösaren. 
 
@@ -25,9 +27,9 @@ I det här exemplet ansluter du till RequestBin att bli meddelad när regler utl
 1. Öppna [RequestBin](http://requestbin.net/). 
 1. Skapa en ny RequestBin och kopiera den **lagerplatsens URL**. 
 1. Skapa en [telemetri regeln](howto-create-telemetry-rules.md) eller en [händelse regeln](howto-create-event-rules.md). Spara regeln och Lägg till en ny åtgärd.
-![Webhooken skapas skärmen](media/howto-create-webhooks/webhookcreate.png)
+![Webhooken skapas skärmen](media/howto-create-webhooks/webhookcreate.PNG)
 1. Välj webhook-åtgärd och ange ett visningsnamn och klistra in lagerplatsens URL som Motringnings-URL. 
-1. Spara regeln
+1. Spara regeln.
 
 Du bör nu se en ny begäran visas i RequestBin när regeln utlöses.
 
@@ -42,6 +44,7 @@ När en regel utlöses görs en HTTP POST-begäran att Motringnings-URL som inne
         "id":"ID",
         "name":  "Refrigerator1",
         "simulated" : true,
+        "deviceId": "deviceID",
         "deviceTemplate":{
             "id": "ID",
             "version":"1.0.0"

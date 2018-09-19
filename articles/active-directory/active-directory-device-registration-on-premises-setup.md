@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3b4c9de16c7248cbd3087689544d70fe22c858fd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056112"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296421"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory-enhetsregistrering
 När du behöver användare till arbetsplatsen på sina personliga enheter till Azure Active Directory (Azure AD) enhetsregistreringstjänsten kan sina enheter markeras som känner till din organisation. Följande är en stegvis guide för att aktivera villkorlig åtkomst till lokala program med hjälp av Active Directory Federation Services (AD FS) i Windows Server 2012 R2.
@@ -88,7 +88,7 @@ Följ stegen i checklistan om du vill aktivera och konfigurera Azure Active Dire
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Del 3: Aktivera tillbakaskrivning av enheter i Azure AD
 | Aktivitet | Referens |
 | --- | --- |
-| Slutför del två av ”aktivera tillbakaskrivning av enheter i Azure AD Connect”. När du har det kan gå tillbaka till den här guiden. |[Aktivera tillbakaskrivning av enheter i Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
+| Slutför del två av ”aktivera tillbakaskrivning av enheter i Azure AD Connect”. När du har det kan gå tillbaka till den här guiden. |[Aktivera tillbakaskrivning av enheter i Azure AD Connect](hybrid/how-to-connect-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Valfritt] Del 4: Aktivera Multi-Factor Authentication
 Vi rekommenderar starkt att du konfigurerar ett av flera alternativ för Multifaktorautentisering. Om du vill kräva Multifaktorautentisering finns i [Välj Multi-Factor Authentication-säkerhetslösning för dig](authentication/concept-mfa-whichversion.md). Den innehåller en beskrivning av varje lösning och länkar om du vill konfigurera lösning för jobbschemaläggning.
@@ -107,9 +107,9 @@ Distributionen är nu klar och du kan prova några scenarier. Använd följande 
 
 **Se:**
 
-- [Integrerar dina lokala kataloger med Azure Active Directory](./connect/active-directory-aadconnect.md) – om du vill granska konceptuell information.
+- [Integrerar dina lokala kataloger med Azure Active Directory](hybrid/whatis-hybrid-identity.md) – om du vill granska konceptuell information.
 
-- [Anpassad installation av Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) – anvisningar för installation.
+- [Anpassad installation av Azure AD Connect](hybrid/how-to-connect-install-custom.md) – anvisningar för installation.
 
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Uppgradera ditt Active Directory Domain Services-schema

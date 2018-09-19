@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 custom: it-pro
-ms.openlocfilehash: 2a548a16a6b896ae1c1297badcef6154b64977f1
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: eb9cf7c21613ab91cc0b8e41a4454835d18f2c34
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737183"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297936"
 ---
 # <a name="manage-your-azure-active-directory-tenant"></a>Hantera din Azure Active Directory-klient
 
@@ -42,7 +42,7 @@ Vi rekommenderar att du använder administratörskontot som du använde för din
 
 Om du till exempel registrerar dig för en Microsoft Intune-prenumeration och sedan ytterligare synkroniserar din lokala Active Directory med din Azure AD-katalog kan du registrera dig för en annan Microsoft-tjänst, till exempel Office 365, och enkelt uppnå samma fördelar av katalogintegrering som du har med Microsoft Intune.
 
-Mer information om hur du integrerar din lokala katalog med Azure AD finns i [Katalogintegrering med Azure AD Connect](../connect/active-directory-aadconnect.md).
+Mer information om hur du integrerar din lokala katalog med Azure AD finns i [Katalogintegrering med Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 ### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>Associera en befintlig Azure AD-katalog med en ny Azure-prenumeration
 Du kan associera en ny Azure-prenumeration med samma katalog som autentiserar inloggningen för en befintlig Office 365- eller Microsoft Intune-prenumeration. Mer information om det scenariot finns i [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../../billing/billing-subscription-transfer.md)

@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 4b48f360c95170a36d1e79b075403d541c8b66ed
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9ca8c42d99f3bd7548c685f03328084865a09906
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983941"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295792"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -73,12 +73,12 @@ Det finns [två autentiseringsmetoder](sql-database-control-access.md#authentica
 - [Azure Active Directory-autentisering](sql-database-aad-authentication.md)
 - SQL-autentisering. 
 
-Traditionella windows-autentisering stöds inte. Azure Active Directory (AD) är en centraliserad tjänst för identitets- och åtkomsthantering. Med detta kan du mycket bekvämt tillhandahålla en enkel inloggning för åtkomst (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna som är gemensamma för alla Azure-tjänster för enklare autentisering. Har stöd för AAD [MFA (Multifaktorautentisering)](sql-database-ssms-mfa-authentication.md) och en med en [få klick](../active-directory/connect/active-directory-aadconnect-get-started-express.md) AAD kan integreras med Windows Server Active Directory. SQL-autentisering fungerar på exakt samma sätt som du har använt den tidigare. Du anger ett användarnamn/lösenord och du kan autentisera användare till valfri databas på en viss logisk server. Detta kan också SQL Database och SQL Data Warehouse att erbjuda Multi-Factor authentication och Gäst användarkonton i en Azure AD-domän. Om du redan har en Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
+Traditionella windows-autentisering stöds inte. Azure Active Directory (AD) är en centraliserad tjänst för identitets- och åtkomsthantering. Med detta kan du mycket bekvämt tillhandahålla en enkel inloggning för åtkomst (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna som är gemensamma för alla Azure-tjänster för enklare autentisering. Har stöd för AAD [MFA (Multifaktorautentisering)](sql-database-ssms-mfa-authentication.md) och en med en [få klick](../active-directory/hybrid/how-to-connect-install-express.md) AAD kan integreras med Windows Server Active Directory. SQL-autentisering fungerar på exakt samma sätt som du har använt den tidigare. Du anger ett användarnamn/lösenord och du kan autentisera användare till valfri databas på en viss logisk server. Detta kan också SQL Database och SQL Data Warehouse att erbjuda Multi-Factor authentication och Gäst användarkonton i en Azure AD-domän. Om du redan har en Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
 
 |**Om du...**|**SQL-databas / SQL Data Warehouse**|
 |---|---|
 |Inte vill använda Azure Active Directory (AD) i Azure|Använd [SQL-autentisering](sql-database-security-overview.md)|
-|Använda AD på SQLServer lokalt|[Federera AD med Azure AD](../active-directory/connect/active-directory-aadconnect.md), och använda Azure AD-autentisering. Du kan använda enkel inloggning med detta.|
+|Använda AD på SQLServer lokalt|[Federera AD med Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md), och använda Azure AD-autentisering. Du kan använda enkel inloggning med detta.|
 |Behovet av att upprätthålla Multi-Factor authentication (MFA)|Kräva MFA som en princip via [villkorlig åtkomst för Microsoft](sql-database-conditional-access.md), och använda [Azure AD universell autentisering med stöd för MFA](sql-database-ssms-mfa-authentication.md).|
 |Har gästkonton från Microsoft-konton (live.com, outlook.com) eller andra domäner (gmail.com)|Använd [Azure AD universell autentisering](sql-database-ssms-mfa-authentication.md) i SQL Database/Data Warehouse, som använder [Azure AD B2B-samarbete](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
 |Loggas Windows med hjälp av Azure AD-autentiseringsuppgifter från en federerad domän|Använd [Azure AD-integrerad autentisering](sql-database-aad-authentication-configure.md).|

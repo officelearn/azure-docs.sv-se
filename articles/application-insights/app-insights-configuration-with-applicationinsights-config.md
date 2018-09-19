@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: fa7115e651cf1b5c4533675cc2b2194b36d773f8
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 76567820a3d0fcd7dbd27cc7bc1afd09da94715c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730185"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129853"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights-SDK: er består av ett antal NuGet-paket. Den [core-paketet](http://www.nuget.org/packages/Microsoft.ApplicationInsights) tillhandahåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) ger telemetri *moduler* och *fältparameterbindningar* för att spåra automatiskt telemetri från ditt program och dess kontext. Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetri moduler och initierare och ställa in parametrar för några av dem.
@@ -228,21 +228,6 @@ Anger den maximala storleken i MB som tilldelas till beständig lagring på den 
       </Channel>
       ...
    </ApplicationInsights>
-```
-
-#### <a name="local-forwarder"></a>Lokala vidarebefordrare
-
-[Lokala vidarebefordrare](https://docs.microsoft.com/azure/application-insights/local-forwarder) är en agent som samlar in Application Insights eller [OpenCensus](https://opencensus.io/) telemetri från en mängd olika SDK: er och ramverk och den vidare till Application Insights. Det kan köras under Windows och Linux. 
-
-```Java
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-   <DeveloperMode>false</DeveloperMode>
-   <EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-
-   <!-- The properties below are optional. The values shown are the defaults for each property -->
-   <FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-   <MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
 ```
 
 ## <a name="instrumentationkey"></a>InstrumentationKey

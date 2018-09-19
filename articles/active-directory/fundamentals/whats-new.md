@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0fa220822c65065538db70df8a74de2fcca51938
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: e62dd48af69dd54abd26c21d7510ec872500e274
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143687"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737438"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
->Håll dig informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att lägga till detta [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) till din ![RSS-ikonen](./media/whats-new/feed-icon-16x16.png) feed läsare.
+>Håll dig informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att lägga till detta [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=docs.microsoft.com/) till din ![RSS-ikonen](./media/whats-new/feed-icon-16x16.png) feed läsare.
 
 Azure AD får förbättringar med jämna mellanrum. Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den här artikeln information om:
 
@@ -954,7 +954,7 @@ Mer information finns i [hur logga in på en intern klient med sömlös SSO arbe
 **Tjänstekategori:** autentiseringar (inloggningar)  
 **Produkt-funktionen:** användarautentisering
  
-Användare får en tyst inloggningsupplevelse, med sömlös enkel om ett program (till exempel `https://contoso.sharepoint.com`) skickar inloggningsförfrågningar till slutpunkter för Azure AD-klient – det vill säga `https://login.microsoftonline.com/contoso.com/<.>` eller `https://login.microsoftonline.com/<tenant_ID>/<.>` – i stället för Azure AD: s vanliga slutpunkt (`https://login.microsoftonline.com/common/<...>`).
+Användare får en tyst inloggningsupplevelse, med sömlös enkel om ett program (till exempel `https://contoso.sharepoint.com`) skickar inloggningsförfrågningar till slutpunkter för Azure AD-klient – det vill säga `https://login.microsoftonline.com/contoso.com/<..>` eller `https://login.microsoftonline.com/<tenant_ID>/<..>` – i stället för Azure AD: s vanliga slutpunkt (`https://login.microsoftonline.com/common/<...>`).
 
 Mer information finns i [Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
 

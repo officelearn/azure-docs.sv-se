@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 21d6ed8a21e4c9273446eff6b0057214c715873f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 9d07f6cd5fa6a2df82dc2cbf9c1ebe08e5941acf
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391733"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125025"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhetskopiering och återställning i Azure Database för MySQL
 
@@ -66,6 +66,8 @@ Du kan behöva vänta på Nästa säkerhetskopiering av transaktionsloggen som s
 ### <a name="geo-restore"></a>Geo-återställning
 
 Du kan återställa en server till en annan Azure-region där tjänsten är tillgänglig om du har konfigurerat din server för geo-redundanta säkerhetskopieringar. GEO-återställning är standardalternativet för återställning när servern är inte tillgänglig på grund av en incident i den region där servern finns. Om en storskalig incident i en region blir otillgänglig programmets databasen återställa du en server från geo-redundanta säkerhetskopieringar till en server i alla andra regioner. Det finns en fördröjning mellan när en säkerhetskopia görs och när de replikeras till annan region. Den här fördröjningen kan vara upp till en timme, så om en olycka inträffar, det kan ta upp till en timme dataförlust.
+
+Under geo-återställning inkludera serverkonfigurationerna kan ändras compute-generering, vCore, kvarhållningsperiod för säkerhetskopiering och redundansalternativ för säkerhetskopiering. Ändra prisnivå (Basic, generell användning eller Minnesoptimerade) eller lagringsstorleken under geo-återställning stöds inte.
 
 ### <a name="perform-post-restore-tasks"></a>Utföra uppgifter efter återställning
 

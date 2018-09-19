@@ -1,21 +1,22 @@
 ---
-title: Med hjälp av rangordning för att visa sökresultat | Microsoft Docs
+title: Med hjälp av rangordning för att visa sökresultat
+titleSuffix: Azure Cognitive Services
 description: Visar hur du använder Bing RankingResponse svaret för att visa sökresultat i rangordnas ordning.
 services: cognitive-services
 author: bradumbaugh
-manager: bking
+manager: cgronlun
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: brumbaug
-ms.openlocfilehash: 0dd3a2057e73adda3224e7cebe7c492572f94105
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3e55830fcfdbea91581a75fcfc343fd522485c5a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41987488"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123410"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Skapa en app search konsolklient i C#
 
@@ -45,8 +46,8 @@ Ge programmet namnet **MyConsoleSearchApp**, och klicka sedan på **OK**.
 
 JSON.net kan du arbeta med JSON-svaren som returneras av API: et. Lägg till dess NuGet-paketet i projektet:
 
-- I **Solution Explorer** högerklickar du på projektet och välj **hantera NuGet-paket...** . 
-- På den **Bläddra** fliken, Sök efter `Newtonsoft.Json`. Välj den senaste versionen och klicka sedan på **installera**. 
+- I **Solution Explorer** högerklickar du på projektet och välj **hantera NuGet-paket...** .
+- På den **Bläddra** fliken, Sök efter `Newtonsoft.Json`. Välj den senaste versionen och klicka sedan på **installera**.
 - Klicka på den **OK** knappen på den **granska ändringar** fönster.
 - Stäng Visual Studio-flik som heter **NuGet: MyConsoleSearchApp**.
 
@@ -60,7 +61,7 @@ Den här kursen används den `System.Web` sammansättningen. Lägg till en refer
 
 ## <a name="add-some-necessary-using-statements"></a>Lägga till vissa nödvändiga using-satser
 
-Koden i den här självstudien kräver tre ytterligare med hjälp av uttryck. Lägg till dessa instruktioner under den befintliga `using` uttryck överst i **Program.cs**: 
+Koden i den här självstudien kräver tre ytterligare med hjälp av uttryck. Lägg till dessa instruktioner under den befintliga `using` uttryck överst i **Program.cs**:
 
 ```csharp
 using System.Web;
@@ -145,7 +146,7 @@ Se till att ange värdet för `Ocp-Apim-Subscription-Key` till din prenumeration
 
 ## <a name="display-ranked-results"></a>Visa översta resultat
 
-Ta en titt på ett exempel web search-svar innan du visar hur du vill visa resultatet i rankad ordning: 
+Ta en titt på ett exempel web search-svar innan du visar hur du vill visa resultatet i rankad ordning:
 
 ```json
 {
@@ -171,7 +172,7 @@ Ta en titt på ett exempel web search-svar innan du visar hur du vill visa resul
         },
 
         ...
-        
+
         ],
         "someResultsRemoved" : true
     },
@@ -184,7 +185,7 @@ Ta en titt på ett exempel web search-svar innan du visar hur du vill visa resul
         }
 
         ...
-        
+
         ]
     },
     "rankingResponse" : {
@@ -220,7 +221,7 @@ Ta en titt på ett exempel web search-svar innan du visar hur du vill visa resul
 }
 ```
 
-Den `rankingResponse` JSON-objekt ([dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) beskriver lämplig visningsordningen för sökresultat. Det innehåller en eller flera av följande, prioriterad grupper: 
+Den `rankingResponse` JSON-objekt ([dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) beskriver lämplig visningsordningen för sökresultat. Det innehåller en eller flera av följande, prioriterad grupper:
 
 - `pole`: Sökresultaten till får mest synliga behandling (till exempel visas ovanför den likriktade och sidopanelen).
 - `mainline`: Sökresultaten ska visas i den likriktade.
@@ -273,7 +274,7 @@ static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects
 Den här metoden:
 
 - Slinga över den `rankingResponse` grupper som innehåller svaret
-- Visar objekt i varje grupp genom att anropa `DisplaySpecificResults(...)` 
+- Visar objekt i varje grupp genom att anropa `DisplaySpecificResults(...)`
 
 I **Program.cs**, Lägg till följande två metoder:
 

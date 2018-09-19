@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.openlocfilehash: 437831736d80214ce569b41de7b13c2d051aaf40
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3ec8472285ecc7512e2eedc8b9ac850ef8e9cf87
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45572829"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298028"
 ---
 # <a name="learn-about-access-management-using-azure-active-directory-groups"></a>Lär dig mer om hantering med hjälp av Azure Active Directory-grupper
 Azure Active Directory (Azure AD) hjälper dig att hantera dina molnbaserade appar, lokala appar och dina resurser med hjälp av organisationens grupper. Dina resurser kan inte ingå i katalogen, till exempel behörighet att hantera objekt via roller i katalogen eller externa för katalogen, t.ex. för programvara som en tjänst (SaaS)-appar, Azure-tjänster eller SharePoint-webbplatser och lokala resurser.
@@ -58,4 +58,4 @@ Nu när du har lite en introduktion till hantering med hjälp av grupper kan bö
 
 - [Använda grupper för att tilldela åtkomst till en integrerad SaaS-app](../users-groups-roles/groups-saasapps.md)
 
-- [Synkronisera en lokal grupp till Azure med Azure AD Connect](../connect/active-directory-aadconnect.md)
+- [Synkronisera en lokal grupp till Azure med Azure AD Connect](../hybrid/whatis-hybrid-identity.md)

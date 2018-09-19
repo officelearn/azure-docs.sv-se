@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1ce03c55a346adf846619c50f09eb063e6b6f639
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2201455477af2bd871f8e8e401536d45af4a02f7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734632"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294666"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en Linux-dator i Azure med Azure Active Directory-autentisering (förhandsversion)
 
@@ -35,7 +35,7 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
   - Genom att minska dina lokala administratörskonton där behöver du inte bekymra dig om förlust/stöld av autentiseringsuppgifter, användare som konfigurerar svaga behörigheter osv.
   - Hjälper att säkra virtuella Linux-datorer samt lösenordens komplexitet och lösenordsprinciper livslängd som konfigurerats för Azure AD-katalogen.
   - Du kan konfigurera multifaktorautentisering för att ytterligare säker inloggning till Azure-datorer.
-  - Möjligheten att logga in på virtuella Linux-datorer med Azure Active Directory fungerar även för kunder som använder [federationstjänster](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
+  - Möjligheten att logga in på virtuella Linux-datorer med Azure Active Directory fungerar även för kunder som använder [federationstjänster](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
 - **Kan samarbeta:** With Role-Based åtkomstkontroll (RBAC), kan du ange vem som kan logga in på en viss virtuell dator som en vanlig användare eller med administratörsbehörighet. När användare ansluta till eller lämnar ditt team kan uppdatera du RBAC-principen för den virtuella datorn att bevilja åtkomst efter behov. Den här upplevelsen är mycket enklare än att behöva Skrubba virtuella datorer för att ta bort onödiga offentliga SSH-nycklar. När medarbetare lämnar organisationen och användarkontot inaktiveras eller tas bort från Azure AD kan har de inte längre åtkomst till dina resurser.
 

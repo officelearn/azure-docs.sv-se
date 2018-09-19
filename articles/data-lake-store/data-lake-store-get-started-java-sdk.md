@@ -1,6 +1,6 @@
 ---
-title: 'Java SDK: Filsystemsåtgärder på Azure Data Lake Store | Microsoft Docs'
-description: Använda Azure Data Lake Store Java SDK till att utföra filsystemsåtgärder på Data Lake Store, som att skapa mappar osv.
+title: 'Java SDK: filsystemsåtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
+description: Använd Azure Data Lake Storage Gen1 Java SDK till att utföra filsystemsåtgärder på Data Lake Storage Gen1 till exempel skapa mappar osv.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 8f2dd4d001ae7322a351844146925c23b90f0916
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: a91593c1bae3002be8b7e423b627f1baf19e86e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649869"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129211"
 ---
-# <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Filsystemsåtgärder på Data Lake Store med hjälp av Java SDK
+# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Filsystemsåtgärder på Azure Data Lake Storage Gen1 med hjälp av Java SDK
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
@@ -28,13 +28,13 @@ ms.locfileid: "35649869"
 >
 > 
 
-Läs hur man använder Azure Data Lake Store Java-SDK:n för att utföra grundläggande åtgärder som att skapa mappar, överföra och hämta datafiler, och så vidare. Mer information om Data Lake finns i [Azure Data Lake Store](data-lake-store-overview.md).
+Lär dig hur du använder Azure Data Lake Storage Gen1 Java SDK för att utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta datafiler osv. Läs mer om Data Lake Storage Gen1 [Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
-Du kommer åt Java SDK API-dokumentation för Azure Data Lake Store på [Azure Data Lake Store Java API-dokumentation](https://azure.github.io/azure-data-lake-store-java/javadoc/).
+Du kan komma åt Java SDK API-dokumentation för Data Lake Storage Gen1 på [Azure Data Lake Storage Gen1 Java API-dokumentation](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Java Development Kit (JDK 7 eller senare, med Java version 1.7 eller senare)
-* Azure Data Lake Store-konto. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
+* Data Lake Storage Gen1-konto. Följ anvisningarna på [Kom igång med Azure Data Lake Storage Gen1 med Azure portal](data-lake-store-get-started-portal.md).
 * [Maven](https://maven.apache.org/install.html). Den här självstudien använder Maven för bygg- och projektberoenden. Även om det är möjligt att skapa utan att använda ett build-system som Maven eller Gradle, gör de här systemen det mycket enklare att hantera beroenden.
 * (Valfritt) Och IDE-liknande [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) eller [Eclipse](https://www.eclipse.org/downloads/) eller liknande.
 
@@ -58,7 +58,7 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://azure.microsoft.com/do
           </dependency>
         </dependencies>
    
-    Det första beroendet är för att använda Data Lake Store-SDK:n (`azure-data-lake-store-sdk`) från maven-centrallagret. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. Data Lake Store SDK:n använder sig av loggningsfasaden [slf4j](http://www.slf4j.org/) som låter dig välja från en rad populära ramverk för loggning som log4j, Java-loggning, logback och så vidare, eller ingen loggning alls. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](http://www.slf4j.org/manual.html#projectDep).
+    Det första beroendet är att använda Data Lake Storage Gen1 SDK (`azure-data-lake-store-sdk`) från maven-centrallagret. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. Data Lake Storage Gen1 SDK använder [slf4j](http://www.slf4j.org/) loggningsfasaden som låter dig välja från ett antal populära loggningsramverk som log4j, Java-loggning, logback och så vidare, eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](http://www.slf4j.org/manual.html#projectDep).
 
 3. Lägg till följande importuttryck i programmet.
 
@@ -75,20 +75,20 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://azure.microsoft.com/do
 
 ## <a name="authentication"></a>Autentisering
 
-* Information om slutanvändarautentisering för programmet finns i [Slutanvändarautentisering med Data Lake Store med hjälp av Java](data-lake-store-end-user-authenticate-java-sdk.md).
-* Information om tjänst-till-tjänst-autentisering för programmet finns i [Tjänst-till-tjänst-autentisering med Data Lake Stor med hjälp av Java](data-lake-store-service-to-service-authenticate-java.md).
+* Information om slutanvändarautentisering för programmet, se [klient-slutanvändaren-autentisering med Data Lake Storage Gen1 med Java](data-lake-store-end-user-authenticate-java-sdk.md).
+* Tjänst-till-tjänst-autentisering för programmet, se [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med hjälp av Java](data-lake-store-service-to-service-authenticate-java.md).
 
-## <a name="create-an-azure-data-lake-store-client"></a>Skapa en Azure Data Lake Store-klient
-Om du vill skapa ett [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/)-objekt krävs att du anger det Data Lake Store-kontonamn och den tokenleverantör du genererade när du autentiserade med Data Lake Store (se avsnittet [Autentisering](#authentication)). Data Lake Store-kontonamnet måste vara ett fullständigt kvalificerat domännamn. Ersätt till exempel **FILL-IN-HERE** med något som **mydatalakestore.azuredatalakestore.net**.
+## <a name="create-a-data-lake-storage-gen1-client"></a>Skapa en Data Lake Storage Gen1-klient
+Skapa en [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) objekt måste du ange kontonamnet för Data Lake Storage Gen1 och den tokenleverantör du genererade när du autentiserade med Data Lake Storage Gen1 (se [autentisering](#authentication) avsnittet). Data Lake Storage Gen1 kontonamnet måste vara ett fullständigt kvalificerat domännamn. Ersätt till exempel **Fill-in-HERE** med något som liknar **mydatalakestoragegen1.azuredatalakestore.net**.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
     ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
-Fragmenten i följande avsnitt innehåller exempel på vissa vanliga filsystemsåtgärder. Du kan titta på den fullständiga [Data Lake Store Java SDK API-dokumentationen](https://azure.github.io/azure-data-lake-store-java/javadoc/) för **ADLStoreClient**-objektet för att visa andra åtgärder.
+Fragmenten i följande avsnitt innehåller exempel på vissa vanliga filsystemsåtgärder. Du kan titta på fullständiga [Data Lake Storage Gen1 Java SDK API-dokumentation](https://azure.github.io/azure-data-lake-store-java/javadoc/) av den **ADLStoreClient** objekt att visa andra åtgärder.
 
 ## <a name="create-a-directory"></a>Skapa en katalog
 
-Följande fragment skapar en katalogstruktur i roten för Data Lake Store-kontot du har angett.
+Följande fragment skapar en katalogstruktur i roten för Data Lake Storage Gen1-kontot som du angav.
 
     // create directory
     client.createDirectory("/a/b/w");
@@ -134,7 +134,7 @@ Definitionen för funktionen `getSampleContent` som används i föregående frag
 
 ## <a name="read-a-file"></a>Läs en fil
 
-Följande fragment läser innehåll från en fil på Data Lake Store-kontot.
+Följande kodfragment läser innehåll från en fil i ett Data Lake Storage Gen1-konto.
 
     // Read File
     InputStream in = client.getReadStream(filename);
@@ -149,7 +149,7 @@ Följande fragment läser innehåll från en fil på Data Lake Store-kontot.
 
 ## <a name="concatenate-files"></a>Sammanfoga filer
 
-Följande fragment sammanfogar två filer på Data Lake Store-kontot. Om det lyckas ersätter den sammanfogade filen de två befintliga filerna.
+Följande fragment sammanfogar två filer i ett Data Lake Storage Gen1-konto. Om det lyckas ersätter den sammanfogade filen de två befintliga filerna.
 
     // concatenate the two files into one
     List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
@@ -158,7 +158,7 @@ Följande fragment sammanfogar två filer på Data Lake Store-kontot. Om det lyc
 
 ## <a name="rename-a-file"></a>Byt namn på en fil
 
-Följande fragment byter namn på en fil på Data Lake Store-kontot.
+Följande fragment byter namn på en fil i ett Data Lake Storage Gen1-konto.
 
     //rename the file
     client.rename("/a/b/f.txt", "/a/b/g.txt");
@@ -166,7 +166,7 @@ Följande fragment byter namn på en fil på Data Lake Store-kontot.
 
 ## <a name="get-metadata-for-a-file"></a>Hämta metadata för en fil
 
-Följande fragment hämtar metadata för en fil på Data Lake Store-kontot.
+Följande fragment hämtar metadata för en fil i ett Data Lake Storage Gen1-konto.
 
     // get file metadata
     DirectoryEntry ent = client.getDirectoryEntry(filename);
@@ -197,7 +197,7 @@ Definitionen för funktionen `printDirectoryInfo` som används i föregående fr
 
 ## <a name="delete-files-and-folders"></a>Ta bort filer och mappar
 
-Följande fragment tar bort det angivna filerna och mapparna på ett Data Lake Store-konto, rekursivt.
+Följande kodavsnitt tar bort de angivna filerna och mapparna på ett Data Lake Storage Gen1-konto, rekursivt.
 
     // delete directory along with all the subdirectories and files in it
     client.deleteRecursive("/a");
@@ -210,6 +210,6 @@ Följande fragment tar bort det angivna filerna och mapparna på ett Data Lake S
 
 ## <a name="next-steps"></a>Nästa steg
 * [Utforska JavaDoc för Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
+* [Skydda data i Data Lake Storage Gen1](data-lake-store-secure-data.md)
 
 

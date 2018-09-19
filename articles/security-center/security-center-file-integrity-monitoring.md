@@ -3,7 +3,7 @@ title: Övervakning av filintegritet i Azure Security Center | Microsoft Docs
 description: " Lär dig hur du aktiverar Filintegritetsövervakning i Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
-ms.author: terrylan
-ms.openlocfilehash: e8455dddf62c16cb5ebcf20622580fad82d783a7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 09/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296243"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124124"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av filintegritet i Azure Security Center
 Lär dig hur du konfigurerar filen integritet övervakning (FIM) i Azure Security Center med den här genomgången.
@@ -182,6 +182,14 @@ Under **Redigera för ändringsspårning** kan du:
   ![Set-aktiverad på FALSKT][19]
 
 6. Välj **Spara**.
+
+## <a name="folder-and-path-monitoring-using-wildcards"></a>Mappen och sökvägen övervakning med jokertecken
+
+Du kan använda jokertecken för att enklare att spåra kataloger. När du konfigurerar mappen övervakning med hjälp av jokertecken gäller följande regler:
+-   Jokertecken krävs för att spåra flera filer.
+-   Jokertecken kan bara användas i det sista segmentet i en sökväg, till exempel C:\folder\file eller /etc/*.conf
+-   Om en miljövariabel innehåller en sökväg som inte är giltig, verifiering lyckas men sökvägen misslyckas när maskinvaruinventering körs.
+-   När du anger sökvägen, undvika Allmänt sökvägar, till exempel c:\*. * som ger för många mappar är slut.
 
 ## <a name="disable-fim"></a>Inaktivera FIM
 Du kan inaktivera FIM. FIM använder lösningen Azure ändringsspårning för att spåra och identifiera ändringar i din miljö. Genom att inaktivera FIM du ta bort lösningen ändringsspårning från valda arbetsytan.

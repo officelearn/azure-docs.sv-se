@@ -3,7 +3,7 @@ title: ta med fil
 description: ta med fil
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: navyasric
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -12,35 +12,35 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 24a5baade2168df603f5505baeaaf8e1c3ea2411
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 724166d402f81fa3a2c977d107111f5a0c32571d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205235"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293750"
 ---
-## <a name="setting-up-your-web-server-or-project"></a>Konfigurera webbservern eller projekt
+## <a name="setting-up-your-web-server-or-project"></a>Hur du konfigurerar din webbserver eller projekt
 
-> Om du vill hämta den här exempelprojektet i stället? 
-> - [Hämta Visual Studio-projekt](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
+> Om du vill ladda ned det här exempelprojektet i stället?
+> - [Ladda ned Visual Studio-projekt](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
 >
 > eller
-> - [Hämta projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) för en lokal webbserver, till exempel Python
+> - [Hämta projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) för en lokal webbserver, till exempel nod
 >
-> Och gå sedan till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan den körs.
+> Och sedan gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan det körs.
 
 ## <a name="prerequisites"></a>Förutsättningar
-En lokal webbserver som [Python http.server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), eller IIS Express integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/) krävs för att köra interaktiva installationen. 
+En lokal webbserver som [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), eller IIS Express-integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/) krävs för att köra den här självstudien.
 
-Anvisningarna i guiden är baserade på både Python och Visual Studio 2017 men passa på att använda något annat utvecklingsmiljö eller webbserver.
+Anvisningarna i den här guiden är baserat på Node.js och Visual Studio 2017, men passa på att använda något annat utvecklingsmiljö eller webbservern.
 
-## <a name="create-your-project"></a>Skapa projektet 
+## <a name="create-your-project"></a>Skapa ditt projekt
 
-> ### <a name="option-1-visual-studio"></a>Alternativ 1: Visual Studio 
-> Om du använder Visual Studio och skapar ett nytt projekt, Följ stegen nedan för att skapa en ny Visual Studio-lösning:
+> ### <a name="option-1-visual-studio"></a>Alternativ 1: Visual Studio
+> Om du använder Visual Studio och skapar ett nytt projekt, följer du stegen nedan för att skapa en ny Visual Studio-lösning:
 > 1.    I Visual Studio:  `File` > `New` > `Project`
 > 2.    Under `Visual C#\Web`väljer `ASP.NET Web Application (.NET Framework)`
 > 3.    Namnge ditt program och klicka på *OK*
@@ -48,14 +48,14 @@ Anvisningarna i guiden är baserade på både Python och Visual Studio 2017 men 
 
 <p/><!-- -->
 
-> ### <a name="option-2-python-other-web-servers"></a>Alternativ 2: Python / andra webbservrar
-> Kontrollera att du har installerat [Python](https://www.python.org/downloads/), följ instruktionerna nedan:
-> - Skapa en mapp som värd för ditt program.
+> ### <a name="option-2-node-other-web-servers"></a>Alternativ 2: Noden / övrigt webbservrar
+> Kontrollera att du har installerat [Node.js](https://nodejs.org/en/download/), följ instruktionerna nedan:
+> - Skapa en mapp för att vara värd för programmet.
 
 
-## <a name="create-your-single-page-applications-ui"></a>Skapa sida programmets användargränssnitt
-1.  Skapa en *index.html* -filen för JavaScript-SPA. Om du använder Visual Studio, Välj projekt (rotmapp projekt), högerklicka och välj: `Add`  >  `New Item`  >  `HTML page` och ge den namnet index.html
-2.  Lägg till följande kod på sidan:
+## <a name="create-your-single-page-applications-ui"></a>Skapa en sida programmets användargränssnitt
+1.  Skapa en *index.html* -filen för din JavaScript SPA. Om du använder Visual Studio väljer du projektet (rotmappen för projektet), högerklicka och välj: `Add`  >  `New Item`  >  `HTML page` och ge den namnet index.html
+2.  Lägg till följande kod till din sida:
 ```html
 <!DOCTYPE html>
 <html>

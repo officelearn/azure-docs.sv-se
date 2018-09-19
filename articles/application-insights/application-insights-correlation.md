@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 057e47c19f6405bec9e1fa80dd7097476876baa9
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 696843363bc6617bb11c01cdccb9dbbb7b719a82
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648717"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298208"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -74,6 +74,34 @@ Vi arbetar på RFC förslag för den [korrelation HTTP-protokollet](https://gith
 Standarden definierar också två scheman för `Request-Id` generation - platta och hierarkiska. Med fast schema, det är ett välkänt `Id` key som definierats för den `Correlation-Context` samling.
 
 Application Insights definierar den [tillägget](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) för korrelation HTTP-protokollet. Den använder `Request-Context` namn/värdepar för sprida insamlingen av egenskaper som används av den omedelbara anroparen eller mottagaren. Application Insights SDK använder den här rubriken för att ange `dependency.target` och `request.source` fält.
+
+### <a name="w3c-distributed-tracing"></a>W3C distribuerad spårning
+
+Vi övergår till (W3C distribuerad spårning format) [https://w3c.github.io/distributed-tracing/report-trace-context.html]. Den definierar:
+- `traceparent` -globalt unika åtgärds-id och unik identifierare för anropet
+- `tracestate` -innebär spårning av specifika systemkontexten.
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-classic-apps"></a>Aktivera stöd för W3C distribuerad spårning för ASP.NET, klassisk appar
+
+Den här funktionen är tillgänglig i Microsoft.ApplicationInsights.Web och Microsoft.ApplicationInsights.DependencyCollector paket från och med version 2.8.0-beta1.
+Det är **av** som standard om du vill göra det måste ändra `ApplicationInsights.config`:
+
+* under `RequestTrackingTelemetryModule` lägga till `EnableW3CHeadersExtraction` element med värdet satt till `true`
+* under `DependencyTrackingTelemetryModule` lägga till `EnableW3CHeadersInjection` element med värdet satt till `true`
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Aktivera stöd för W3C distribuerad spårning för ASP.NET Core-appar
+
+Den här funktionen är Microsoft.ApplicationInsights.AspNetCore med version 2.5.0-beta1 och Microsoft.ApplicationInsights.DependencyCollector version 2.8.0-beta1.
+Det är **av** så att den som standard `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` till `true`:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry(o => 
+        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
+    // ....
+}
+```
 
 ## <a name="open-tracing-and-application-insights"></a>Öppna spårning och Application Insights
 
@@ -137,3 +165,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - Publicera alla komponenter i din micro tjänst med Application Insights. Kolla in [plattformar som stöds](app-insights-platforms.md).
 - Se [datamodellen](application-insights-data-model.md) för Application Insights och modellen.
 - Lär dig hur du [utöka och filtrera telemetri](app-insights-api-filtering-sampling.md).
+- [Application Insights confg-referens](app-insights-configuration-with-applicationinsights-config.md)
+

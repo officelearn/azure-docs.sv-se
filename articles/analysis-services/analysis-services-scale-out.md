@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 09/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e494c2bc90f6db1f3a850fccff88efdf26f43012
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 7c0aa2d43001100a392f8882316b7998838d90b9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604255"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121949"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-utskalning
 
@@ -27,7 +27,7 @@ Med skalbar, kan du skapa en frågepool med upp till sju ytterligare repliken re
 
 Oavsett hur många frågerepliker som du har i en frågepool fördelas bearbetningsbelastningar inte mellan frågerepliker. En enskild server fungerar som bearbetningsservern. Frågerepliker fungerar bara frågor mot modeller som synkroniseras mellan varje fråga replik i frågepoolen. 
 
-Vid utskalning, läggs nya frågerepliker till frågepoolen inkrementellt. Det kan ta upp till fem minuter för nya fråga repliken resurser som ska ingå i frågepoolen. är du redo att ta emot klientanslutningar och frågor. När alla nya frågerepliker är igång och körs, att nya klientanslutningar finns belastningsutjämnas mellan alla poolresurser för frågan. Befintliga klientanslutningar ändras inte från de för närvarande är anslutna till resursen.  När skalning i avslutas de befintliga klientanslutningar i en poolresurs för frågan som tas bort från frågepoolen. De återansluts till en återstående fråga poolresurs när skalan i åtgärden har slutförts, vilket kan ta upp till fem minuter.
+Vid utskalning, läggs nya frågerepliker till frågepoolen inkrementellt. Det kan ta upp till fem minuter efter nya resurser som frågan repliken som ska ingå i frågepoolen. När alla nya frågerepliker är igång och körs, att nya klientanslutningar finns belastningsutjämnas mellan alla poolresurser för frågan. Befintliga klientanslutningar ändras inte från de för närvarande är anslutna till resursen.  När skalning i avslutas de befintliga klientanslutningar i en poolresurs för frågan som tas bort från frågepoolen. De återansluts till en återstående fråga poolresurs när skalan i åtgärden har slutförts, vilket kan ta upp till fem minuter.
 
 Vid bearbetning av modeller, när bearbetningen är avslutad, måste du utföra en synkronisering mellan bearbetningsservern och fråga replikerna. Det är viktigt att konfigurera en synkroniseringsåtgärd vid slutförande av bearbetningsåtgärder vid automatisering av bearbetningsåtgärder. Synkronisering kan utföras manuellt i portalen eller med hjälp av PowerShell eller REST API. 
 
@@ -63,7 +63,6 @@ Antal frågerepliker som du kan konfigurera begränsas av den region som din ser
 
 Tabellmodeller på den primära servern är synkroniserade med replikservrarna. När synkroniseringen är klar börjar frågepoolen distribuerar inkommande frågor bland replikservrarna. 
 
-
 ## <a name="synchronization"></a>Synkronisering 
 
 När du etablerar nya frågerepliker replikerar automatiskt dina modeller i alla repliker Azure Analysis Services. Du kan också utföra en manuell synkronisering med hjälp av portalen eller REST API. När du bearbetar dina modeller, bör du utföra en synkronisering så att programuppdateringarna är synkroniserade bland dina frågerepliker.
@@ -90,8 +89,6 @@ Ange antal frågerepliker och [Set-azurermanalysisservicesserver har](https://do
 
 Kör synkronisering med [synkronisering AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
-
-
 ## <a name="connections"></a>Anslutningar
 
 På översiktssidan för din server finns det två servernamn. Om du inte har konfigurerat skalbar för en server, fungerar på samma både servernamn. När du konfigurerar skalbar för en server, måste du ange namnet på lämplig servern beroende på vilken typ av anslutning. 
@@ -107,7 +104,6 @@ SSMS SSDT och anslutningssträngar i PowerShell, Azure-funktionsappar och AMO, a
 **Problem:** användare får fel **servern hittades inte ”\<namnet på servern >' instansen i anslutningsläge” skrivskyddad ”.**
 
 **Lösning:** när du väljer den **separera bearbetningsservern från frågepoolen** alternativet klientanslutningar med hjälp av standard-anslutningssträngen (utan: rw) omdirigeras till frågerepliker för poolen. Om repliker i frågepoolen inte är ännu online eftersom synkronisering inte har ännu har slutförts, kan omdirigerad klientanslutningar misslyckas. Om du vill förhindra att misslyckade anslutningar, Välj att inte separera bearbetningsservern från frågepoolen tills en skalbar och synkronisering åtgärd har slutförts. Du kan använda minne och QPU mått för att övervaka synkroniseringsstatus för.
-
 
 ## <a name="related-information"></a>Relaterad information
 

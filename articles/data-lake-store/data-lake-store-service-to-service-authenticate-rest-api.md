@@ -1,6 +1,6 @@
 ---
-title: 'Tjänst-till-tjänst-autentisering: REST-API med Data Lake Store med Azure Active Directory | Microsoft Docs'
-description: Lär dig att uppnå service to service autentisering med Data Lake Store med Azure Active Directory med hjälp av REST API
+title: 'Tjänst-till-tjänst-autentisering: REST API med Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft Docs'
+description: Lär dig att uppnå tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med Azure Active Directory med hjälp av REST API
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ffa9b7408475820735e35a82edc0b1751abeb08a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd282091d41538b7e3dc08eb0b3d82539fa0bb4f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624857"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295605"
 ---
-# <a name="service-to-service-authentication-with-data-lake-store-using-rest-api"></a>Tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av REST API
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med REST API
 > [!div class="op_single_selector"]
 > * [Använda Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Använda .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -27,15 +27,15 @@ ms.locfileid: "34624857"
 > 
 > 
 
-I den här artikeln får information du om hur du använder REST API för att göra service to service autentisering med Azure Data Lake Store. Slutanvändarens autentisering med Data Lake Store med hjälp av REST-API, se [slutanvändarens autentisering med Data Lake Store med hjälp av REST API](data-lake-store-end-user-authenticate-rest-api.md).
+I den här artikeln lär du dig hur du använder REST API för att göra tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1. Slutanvändarautentisering med Data Lake Storage Gen1 med hjälp av REST API, se [slutanvändarautentisering med Data Lake Storage Gen1 med hjälp av REST API](data-lake-store-end-user-authenticate-rest-api.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Skapa ett program för Azure Active Directory ”Web”**. Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Store med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Skapa ett program för Azure Active Directory ”Web”**. Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="service-to-service-authentication"></a>Tjänst-till-tjänst-autentisering
-I det här scenariot ger programmet sina egna autentiseringsuppgifter om du vill utföra åtgärderna. För att göra detta måste du skicka en POST-begäran såsom visas i följande utdrag: 
+I det här scenariot ger programmet sina egna autentiseringsuppgifter för att utföra åtgärder. För detta, måste du skicka en POST-begäran som den som visas i följande kodavsnitt: 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \
@@ -43,15 +43,15 @@ I det här scenariot ger programmet sina egna autentiseringsuppgifter om du vill
       -F client_id=<CLIENT-ID> \
       -F client_secret=<AUTH-KEY>
 
-Utdata för begäran innehåller en autentiseringstoken (betecknas med `access-token` i utdata nedan) att du sedan skickar med REST API-anrop. Spara autentiseringstoken i en textfil; Du behöver den när du gör REST-anrop till Data Lake Store.
+Utdata för begäran innehåller en autentiseringstoken (betecknas med `access-token` i utdata nedan) att du sedan skickar med REST API-anrop. Spara autentiseringstoken i en textfil; Du behöver den när du gör REST-anrop till Data Lake Storage Gen1.
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 
 I den här artikeln används metoden **icke-interaktivt**. Mer information om icke-interaktivt (serviceartikel) finns i [Serviceartikelanrop med autentiseringsuppgifter](https://msdn.microsoft.com/library/azure/dn645543.aspx). 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln beskrivs hur du använder autentisering för tjänst-till-tjänst för att autentisera med Azure Data Lake Store med hjälp av REST API. Du kan nu se följande artiklar som talar om hur du använder REST API för att arbeta med Azure Data Lake Store.
+I den här artikeln har du lärt dig hur du använder tjänst-till-tjänst-autentisering för att autentisera med Data Lake Storage Gen1 med hjälp av REST API. Du kan nu se ut i följande artiklar som pratar om hur du använder REST API för att arbeta med Data Lake Storage Gen1.
 
-* [Kontohanteringsåtgärder på Data Lake Store med hjälp av REST API](data-lake-store-get-started-rest-api.md)
-* [Dataåtgärder på Data Lake Store med hjälp av REST API](data-lake-store-data-operations-rest-api.md)
+* [Kontohanteringsåtgärder i Data Lake Storage Gen1 med hjälp av REST API](data-lake-store-get-started-rest-api.md)
+* [Dataåtgärder på Data Lake Storage Gen1 med hjälp av REST API](data-lake-store-data-operations-rest-api.md)
 

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0cbcb6095c59089008bd9a95b9bb0a3ddaa70a58
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 722ab51d0f591b8f16924d1d5661385267b7f0e6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984068"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295163"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Bevilja hanteras lokalt partneråtkomst till molnresurser med hjälp av Azure AD B2B-samarbete
 
@@ -32,17 +32,17 @@ Två vanliga metoder för detta är att:
 - Ange en oanvända lokala Active Directory-attributet (till exempel extensionAttribute1) ska användas som källattributet. 
 - Du kan också härleds värdet för UserType-attributet från andra egenskaper. Exempelvis kan du vill synkronisera alla användare som gäst om deras lokala Active Directory-UserPrincipalName-attribut som slutar med domänen *@partners.contoso.com*.
  
-Detaljerad attributet krav finns i [Aktivera synkronisering av UserType](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype). 
+Detaljerad attributet krav finns i [Aktivera synkronisering av UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 
 ## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>Konfigurera Azure AD Connect att synkronisera användare till molnet
 
 När du identifierar unikt attribut kan du konfigurera Azure AD Connect att synkronisera dessa användare i molnet som Azure AD B2B-användare (det vill säga användare med UserType = Gäst). Från en auktorisering synsätt är dessa användare identiska med B2B-användare som skapats via Azure AD B2B-samarbete inbjudningsprocessen.
 
-Implementering anvisningar finns i [Aktivera synkronisering av UserType](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype).
+Implementering anvisningar finns i [Aktivera synkronisering av UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure Active Directory B2B-samarbete för hybridorganisationer](hybrid-organizations.md)
 - [Grant B2B-användare i Azure AD åtkomst till dina lokala program](hybrid-cloud-to-on-premises.md)
-- En översikt av Azure AD Connect finns i [integrerar dina lokala kataloger med Azure Active Directory](../connect/active-directory-aadconnect.md).
+- En översikt av Azure AD Connect finns i [integrerar dina lokala kataloger med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: b0fded9f5543d151091955c0b0d645bf9db16b7d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158591"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296167"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory smart kontoutelåsning
 
@@ -27,7 +27,7 @@ Smart kontoutelåsning är alltid på för alla Azure AD-kunder med dessa standa
 
 Smart kontoutelåsning kan integreras med hybriddistributioner, använder hash-synkronisering av lösenord eller direktautentisering för att förhindra att den lokala Active Directory-konton bli utelåsta av angripare. Genom att ange principer för smart kontoutelåsning i Azure AD på rätt sätt kan att attacker filtreras bort innan de når den lokala Active Directory.
 
-När du använder [direktautentisering](../connect/active-directory-aadconnect-pass-through-authentication.md), måste du se till att:
+När du använder [direktautentisering](../hybrid/how-to-connect-pta.md), måste du se till att:
 
    * Tröskelvärde för låsning av Azure AD är **mindre** än tröskelvärde för kontoutelåsning Active Directory. Ange värden så att Active Directory-kontoutelåsningströskelvärde är minst två eller tre gånger som är längre än tröskelvärde för låsning av Azure AD. 
    * Azure AD-utelåsningstid **sekundsnabbt** är **längre** än Active Directory Återställ räknaren för kontoutelåsning efter längd **minuter**.

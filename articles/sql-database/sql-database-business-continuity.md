@@ -12,12 +12,12 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c653f1f5366e7dac43f51d5daf1f0b13d93674ce
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5e45bff827a8c376d4b35ee88f1f000c2b122443
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722001"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298242"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -59,11 +59,11 @@ I följande tabell jämförs ERT och RPO för varje tjänstnivå för de tre van
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Återställa en databas på den befintliga servern
 
-SQL Database utför automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, differentiella säkerhetskopieringar varje timme och transaktionen loggsäkerhetskopior var 5 – 10 minuter för att skydda ditt företag mot dataförlust. Säkerhetskopiorna lagras i RA-GRS-lagring i 35 dagar för alla tjänstnivåer förutom grundläggande DTU tjänstnivåerna där säkerhetskopiorna lagras i 7 dagar. Mer information finns i [automatiska databassäkerhetskopieringar](sql-database-automated-backups.md). Du kan återställa ett befintligt databasformulär automatiska säkerhetskopior till en tidigare tidpunkt som en ny databas på samma logiska server med hjälp av Azure portal, PowerShell eller REST API. Mer information finns i [Point-in-time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL Database utför automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, differentiella säkerhetskopieringar som är allmänt var tolfte timme och transaktionen loggsäkerhetskopior var 5 – 10 minuter för att skydda ditt företag mot dataförlust. Säkerhetskopiorna lagras i RA-GRS-lagring i 35 dagar för alla tjänstnivåer förutom grundläggande DTU tjänstnivåerna där säkerhetskopiorna lagras i 7 dagar. Mer information finns i [automatiska databassäkerhetskopieringar](sql-database-automated-backups.md). Du kan återställa ett befintligt databasformulär automatiska säkerhetskopior till en tidigare tidpunkt som en ny databas på samma logiska server med hjälp av Azure portal, PowerShell eller REST API. Mer information finns i [Point-in-time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Om den maximala stöds point-in-time-återställning (PITR) kvarhållningsperioden är inte tillräcklig för ditt program, kan du utöka den genom att konfigurera en långsiktig kvarhållning av säkerhetskopior (LTR)-princip för databaserna. Mer information finns i [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md).
 
-Du kan använda dessa automatiska databassäkerhetskopior för att återställa en databas från olika avbrottshändelser, både i ditt datacenter och till ett annat datacenter. Om du använder automatiska databassäkerhetskopieringar beror den beräknade återställningstiden på flera faktorer, inklusive det totala antalet databaser som återställs i samma region vid samma tidpunkt, databasens storlek, transaktionsloggarnas storlek och nätverksbandbredden. Tiden för återställning är vanligtvis mindre än 12 timmar. Det kan ta längre tid att återställa en databas med mycket stora eller active. Mer information om tiden för återställning finns i [databasen återställningstid](sql-database-recovery-using-backups.md#recovery-time). När du återställer till en annan dataregion är den potentiella dataförlusten begränsad till 1 timme med geo-redundant lagring med differentiella säkerhetskopieringar varje timme.
+Du kan använda dessa automatiska databassäkerhetskopior för att återställa en databas från olika avbrottshändelser, både i ditt datacenter och till ett annat datacenter. Om du använder automatiska databassäkerhetskopieringar beror den beräknade återställningstiden på flera faktorer, inklusive det totala antalet databaser som återställs i samma region vid samma tidpunkt, databasens storlek, transaktionsloggarnas storlek och nätverksbandbredden. Tiden för återställning är vanligtvis mindre än 12 timmar. Det kan ta längre tid att återställa en databas med mycket stora eller active. Mer information om tiden för återställning finns i [databasen återställningstid](sql-database-recovery-using-backups.md#recovery-time). När du återställer till en annan dataregion är den potentiella dataförlusten begränsad till 1 timme med användning av geo-redundanta säkerhetskopieringar.
 
 Använd automatiska säkerhetskopieringar och [point-in-time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore) som ditt företag affärskontinuitets- och återställningsmetod om ditt program:
 
@@ -122,7 +122,7 @@ Om du använder aktiv geo-replikering och automatisk redundans grupper som åter
 > 
 
 ### <a name="perform-a-geo-restore"></a>Utföra en geo-återställning
-Om du använder automatiska säkerhetskopieringar med geo-redundant lagringsreplikering som återställningsmetod [initiera en databasåterställning med geo-återställning](sql-database-disaster-recovery.md#recover-using-geo-restore). Återställningen sker vanligtvis inom 12 timmar – med en dataförlust på upp till en timme beroende på när den senaste differentiella säkerhetskopieringen per timme gjordes och replikerades. Databasen kan inte registrera några transaktioner eller svara på frågor förrän återställningen har slutförts. Medan detta återställer en databas till den senaste stöds tillgängliga tidpunkt, återställa geo-secondary till valfri punkt i tiden för närvarande inte.
+Om du använder automatiska säkerhetskopieringar med geo-redundant lagringsreplikering som återställningsmetod [initiera en databasåterställning med geo-återställning](sql-database-disaster-recovery.md#recover-using-geo-restore). Återställningen sker vanligtvis inom 12 timmar – med dataförlust på upp till en timme systemets när senaste log säkerhetskopian skapades och geo-replikeras till andra regioner. Databasen kan inte registrera några transaktioner eller svara på frågor förrän återställningen har slutförts. Medan detta återställer en databas till den senaste stöds tillgängliga tidpunkt, återställa geo-secondary till valfri punkt i tiden för närvarande inte.
 
 > [!NOTE]
 > Om datacentret är online igen innan du växlar över programmet till den återställda databasen, kan du avbryta återställningen.  

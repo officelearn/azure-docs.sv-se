@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/18/2018
 ms.author: carlrab
-ms.openlocfilehash: 84fb916a5620bc7d91f01b9aebfd3eae8346f6bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e14f65c16706f8285b6ce390e75f95ea1a8bede6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729443"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295526"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet
 
@@ -65,6 +65,10 @@ Låt oss anta att du kör en generell användning, Gen5 – 16 vCore elastisk po
 Om du behöver reserverad kapacitet reservation att avbryta din SQL-databas, det kan finnas 12% uppsägningsavgift. Återbetalningar baseras på lägsta priset för din inköpspriset eller aktuella priset för reservationen. Återbetalningar är begränsade till 50 000 per år. Återbetalning felmeddelandet är det återstående proportionella saldot minus 12% uppsägningsavgift. Om du vill begära ett avbrott, går du till reservationen i Azure-portalen och välj **återbetala** att skapa en supportbegäran.
 
 Om du vill ändra din SQL Database reserverad kapacitet reservation till en annan region, resurstyp, tjänstnivå eller termen kan byta du den för en annan reservation som är av samma eller högre värde. Termen startdatumet för den nya reservationen sprids inte från sker ett certifikatutbyte reservationen. 1 eller 3 år termen startar från när du skapar den nya reservationen. Om du vill begära en exchange, gå till reservationen i Azure-portalen och välj **Exchange** att skapa en supportbegäran.
+
+## <a name="vcore-size-flexibility"></a>flexibilitet för vCore-storlek
+
+flexibilitet för vCore-storlek kan du skala upp eller ned inom en prestandanivå och region, utan att förlora fördelen reserverad kapacitet. SQL-databas som reserverad kapacitet ger dig flexibiliteten att tillfälligt flytta dina frekvent databaser mellan pooler och enskilda databaser som en del av din normal drift (inom samma region och prestanda nivå) utan att förlora reserverad kapacitet Dra. Du kan effektivt hantera prestanda toppar utan överskrider din budget genom att lagra en icke tillämpade buffert i din reservation.
 
 ## <a name="next-steps"></a>Nästa steg
 

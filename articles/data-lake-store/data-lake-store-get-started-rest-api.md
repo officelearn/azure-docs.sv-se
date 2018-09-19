@@ -1,6 +1,6 @@
 ---
-title: 'REST API: Kontohanteringsåtgärder i Azure Data Lake Store | Microsoft Docs'
-description: Använd Azure Data Lake Store och WebHDFS REST API för att utföra kontohanteringsåtgärder i Data Lake Store
+title: 'REST API: Kontohanteringsåtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
+description: Använd Azure Data Lake Storage Gen1 och WebHDFS REST API för att utföra kontohanteringsåtgärder i Data Lake Storage Gen1-konto
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 1b8b680736c49c0036600bf4337da6952cf38afb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7f22fe7d1c3962e59922bc4e2795ed4f899e3eca
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573647"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121676"
 ---
-# <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>Kontohanteringsåtgärder i Azure Data Lake Store med hjälp av REST API
+# <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Kontohanteringsåtgärder på Azure Data Lake Storage Gen1 med hjälp av REST API
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [REST-API](data-lake-store-get-started-rest-api.md)
@@ -27,26 +27,26 @@ ms.locfileid: "45573647"
 >
 >
 
-I den här artikeln får du lära dig att utföra kontohanteringsåtgärder i Data Lake Store med REST API. Kontohanteringsåtgärder omfattar att skapa ett Data Lake Store-konto, ta bort ett Data Lake Store-konto osv. Anvisningar för att utföra filsystemsåtgärder i Data Lake Store med REST API finns i [Filsystemsåtgärder på Data Lake Store med REST API](data-lake-store-data-operations-rest-api.md).
+I den här artikeln får du lära dig hur du utför kontohanteringsåtgärder på Azure Data Lake Storage Gen1 med hjälp av REST-API. Kontohanteringsåtgärder omfattar att skapa ett Data Lake Storage Gen1-konto, ta bort ett Data Lake Storage Gen1 konto, osv. Anvisningar att utföra filsystemsåtgärder på Data Lake Storage Gen1 med hjälp av REST API finns i [filsystemsåtgärder på Data Lake Storage Gen1 med hjälp av REST API](data-lake-store-data-operations-rest-api.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](http://curl.haxx.se/)**. Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Store-konto.
+* **[cURL](http://curl.haxx.se/)**. Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Storage Gen1-konto.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hur autentiserar jag med Azure Active Directory?
 Du kan använda två sätt för att autentisera med Azure Active Directory.
 
-* Information om slutanvändarautentisering för programmet (interaktivt) finns i [Slutanvändarautentisering med Data Lake Store med hjälp av .NET SDK](data-lake-store-end-user-authenticate-rest-api.md).
-* Information om tjänst-till-tjänst-autentisering för programmet (ej interaktivt) finns i [Tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av .NET SDK](data-lake-store-service-to-service-authenticate-rest-api.md).
+* Information om slutanvändarautentisering för programmet (interaktivt) finns i [slutanvändarautentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-end-user-authenticate-rest-api.md).
+* Tjänst-till-tjänst-autentisering för programmet (interaktivt) finns i [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-service-to-service-authenticate-rest-api.md).
 
 
-## <a name="create-a-data-lake-store-account"></a>Skapa ett Data Lake Store-konto
+## <a name="create-a-data-lake-storage-gen1-account"></a>Skapa ett Data Lake Storage Gen1-konto
 Den här åtgärden är baserad på det REST API-anrop som definierats [här](https://docs.microsoft.com/rest/api/datalakestore/accounts/create).
 
-Använd följande cURL-kommando. Ersätt **\<yourstorename>** med ditt Data Lake Store-namn.
+Använd följande cURL-kommando. Ersätt  **\<yourstoragegen1name >** med namnet på ditt Data Lake Storage Gen1.
 
-    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
 
 I kommandot ovan ersätter du \<`REDACTED`\> med den autentiseringstoken som hämtades tidigare. Nyttolasten i begäran för det här kommandot finns i den **input.json**-fil som har angetts för parameter `-d` ovan. Innehållet i input.json-filen liknar följande kodavsnitt:
 
@@ -58,12 +58,12 @@ I kommandot ovan ersätter du \<`REDACTED`\> med den autentiseringstoken som hä
     "properties": {}
     }    
 
-## <a name="delete-a-data-lake-store-account"></a>Ta bort ett Data Lake Store-konto
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Ta bort ett Data Lake Storage Gen1-konto
 Den här åtgärden är baserad på det REST API-anrop som definierats [här](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete).
 
-Använd kommandot cURL för att ta bort ett Data Lake Store-konto. Ersätt **\<yourstorename>** med ditt Data Lake Store-namn.
+Använd följande cURL-kommando för att ta bort ett Data Lake Storage Gen1-konto. Ersätt  **\<yourstoragegen1name >** med namnet på ditt Data Lake Storage Gen1.
 
-    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview
+    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview
 
 Du bör se utdata som liknar följande kodavsnitt:
 
@@ -72,9 +72,9 @@ Du bör se utdata som liknar följande kodavsnitt:
     ...
 
 ## <a name="next-steps"></a>Nästa steg
-* [Filsystemsåtgärder på Data Lake Store med hjälp av REST API](data-lake-store-data-operations-rest-api.md).
+* [Filsystemsåtgärder på Data Lake Storage Gen1 med hjälp av REST API](data-lake-store-data-operations-rest-api.md).
 
 ## <a name="see-also"></a>Se också
-* [Azure Data Lake Store REST API-referens](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Stordataprogram med öppen källkod som är kompatibla med Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake Storage Gen1 REST API-referens](https://docs.microsoft.com/rest/api/datalakestore/)
+* [Öppna källa Big Data-program som är kompatibla med Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 

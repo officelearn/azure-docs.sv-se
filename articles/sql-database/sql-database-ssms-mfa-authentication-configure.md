@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: mireks
 ms.reviewer: vanto
-ms.openlocfilehash: 504b20dfddb5984c17bba9842fbc1a08671c4175
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2008fdc5b3b6a5263821f6b0a603ae45dad19f9e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719043"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297323"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurera Multi-Factor authentication för SQL Server Management Studio och Azure AD
 
@@ -27,7 +27,7 @@ Det här avsnittet visar hur du använder Azure Active Directory multifaktoraute
 
 ## <a name="configuration-steps"></a>Konfigurationssteg
 
-1. **Konfigurera en Azure Active Directory** – mer information finns i [administrera Azure AD-katalogen](https://msdn.microsoft.com/library/azure/hh967611.aspx), [integrera dina lokala identiteter med Azure Active Directory](../active-directory/active-directory-aadconnect.md), [ Lägga till ditt eget domännamn i Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure har nu stöd för federation med Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), och [hantera Azure AD med hjälp av Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+1. **Konfigurera en Azure Active Directory** – mer information finns i [administrera Azure AD-katalogen](https://msdn.microsoft.com/library/azure/hh967611.aspx), [integrera dina lokala identiteter med Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [ Lägga till ditt eget domännamn i Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure har nu stöd för federation med Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), och [hantera Azure AD med hjälp av Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 2. **Konfigurera MFA** – stegvisa instruktioner finns i [vad är Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md), [villkorlig åtkomst (MFA) med Azure SQL Database och Data Warehouse](sql-database-conditional-access.md). (Fullständig villkorlig åtkomst kräver en Premium Azure Active Directory (AD Azure). Begränsad MFA är tillgänglig med en Azure AD som standard.)
 3. **Konfigurera SQL Database eller SQL Data Warehouse för Azure AD-autentisering** – stegvisa instruktioner finns i [ansluta till SQL Database eller SQL Data Warehouse med hjälp av Azure Active Directory-autentisering](sql-database-aad-authentication.md).
 4. **Ladda ned SSMS** – på klientdatorn, ladda ned den senaste SSMS från [ladda ned SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). För alla funktioner i det här avsnittet Använd minst version 17,2 i juli 2017.  

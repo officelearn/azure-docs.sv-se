@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 3b187b5d776a099fd41e3db5b5c14c67f3ef9483
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b965fea3d4f166b1a801dda7cafd8e4190790c68
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30325947"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45739512"
 ---
-Replikeringsalternativ för ett lagringskonto är:
+Replikeringsalternativ för ett lagringskonto är bland annat:
 
-* [Lokalt redundant lagring (LRS)](../articles/storage/common/storage-redundancy-lrs.md): Det enklaste och billig replikeringsstrategi som erbjuder Azure Storage.
-* [Zonredundant lagring (ZRS)](../articles/storage/common/storage-redundancy-zrs.md): ett enkelt alternativ för hållbarhet och hög tillgänglighet.
-* [GEO-redundant lagring (GRS)](../articles/storage/common/storage-redundancy-grs.md): mellan regionala replikering för att skydda mot region hela inte finns.
-* [Geo-redundant lagring med läsbehörighet (RA-GRS)](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage): mellan regionala replikering med läsbehörighet till repliken.
+* [Lokalt redundant lagring (LRS)](../articles/storage/common/storage-redundancy-lrs.md): En enkel och billig replikeringsstrategi. Data replikeras inom en enda lagringsskalningsenhet.
+* [Zonredundant lagring (ZRS)](../articles/storage/common/storage-redundancy-zrs.md): Replikering för hög tillgänglighet och hållbarhet. Data replikeras synkront i tre tillgänglighetszoner. 
+* [Geo-redundant lagring (GRS)](../articles/storage/common/storage-redundancy-grs.md): Tvärregional replikering som skyddar mot regionomfattande otillgänglighet.
+* [Geo-redundant lagring med läsbehörighet (RA-GRS)](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage): Tvärregional replikering med läsbehörighet till repliken.

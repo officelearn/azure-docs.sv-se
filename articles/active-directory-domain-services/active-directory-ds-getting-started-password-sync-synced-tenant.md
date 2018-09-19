@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 261cb45bd3b7b7f284eff3397aca141917a82502
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 33cbc65ec5971f8bfe0133e5dca181194cd0bbdd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504863"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294007"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Aktivera lösenordssynkronisering med Azure Active Directory Domain Services
 I föregående uppgifter aktiverade du Azure Active Directory Domain Services för din Azure Active Directory-klient (Azure AD). Nästa uppgift är att aktivera synkronisering av autentiseringshasher som krävs för NT LAN Manager (NTLM)- och Kerberos-autentisering till Azure AD Domain Services. När du har konfigurerat synkroniseringen av autentiseringsuppgifter kan användarna logga in till den hanterade domänen med sina företagsuppgifter.
@@ -59,7 +59,7 @@ Rekommenderad version: **1.1.614.0** – publicerad den 5 september 2017.
 >
 >
 
-Installationsinstruktioner för Azure AD Connect finns i följande artikel – [Komma igång med Azure AD Connect](../active-directory/active-directory-aadconnect.md)
+Installationsinstruktioner för Azure AD Connect finns i följande artikel – [Komma igång med Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)
 
 ### <a name="enable-synchronization-of-ntlm-and-kerberos-credential-hashes-to-azure-ad"></a>Aktivera synkroniseringen av NTLM- och Kerberos-autentiseringshasher till Azure AD
 Kör följande PowerShell-skript på varje AD-skog. Skriptet aktiverar alla lokala användares NTLM- och Kerberos-lösenordshashvärden som ska synkroniseras med din Azure AD-klientorganisation. Skriptet initierar också en fullständig synkronisering i Azure AD Connect.

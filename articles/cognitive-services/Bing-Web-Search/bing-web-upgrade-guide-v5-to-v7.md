@@ -1,54 +1,55 @@
 ---
-title: Uppgradera från Bing Web Sök API v5 till v7 | Microsoft Docs
-description: Identifierar delarna av programmet som du behöver uppdatera om du vill använda version 7.
+title: Uppgradera från API v5 till v7 - API för Bing-webbsökning
+titleSuffix: Azure Cognitive Services
+description: 'Bestämma vilka delar av ditt program kräver uppdateringar som använder API: er för webbsökning i Bing v7.'
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: reference
 ms.date: 01/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 155297f230c0ee02d6fa49d6d35eb24d9941f29b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eb84c961d13c5abac7a0c9f426f099d21f034f20
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354531"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129751"
 ---
-# <a name="web-search-api-upgrade-guide"></a>Uppgraderingshandboken för Web API-sökning
+# <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Uppgradera från Bing Web Search API v5 till v7
 
-Den här uppgraderingshandboken identifierar ändringar mellan version 5 och version 7 för Bing webb-API för sökning. Använd den här guiden för att identifiera delarna av programmet som du behöver uppdatera om du vill använda version 7.
+Den här uppgraderingshandboken identifierar ändringar mellan version 5 och version 7 för Bing Web Search API. Använd den här guiden hjälper dig att identifiera delarna av programmet som du behöver uppdatera om du vill använda version 7.
 
 ## <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
 
 ### <a name="endpoints"></a>Slutpunkter
 
-- Versionsnummer för slutpunkten har ändrats från v5 till v7. Till exempel https:\/\/api.cognitive.microsoft.com/bing/**v7.0**  /Sök.
+- Versionsnumret för den slutpunkt som har ändrats från v5 till v7. Till exempel https:\/\/api.cognitive.microsoft.com/bing/**v7.0**  /Sök.
 
-### <a name="error-response-objects-and-error-codes"></a>Fel svar objekt och felkoder
+### <a name="error-response-objects-and-error-codes"></a>Fel svarsobjekt och felkoder
 
-- Alla misslyckade begäranden innehåller nu ett `ErrorResponse` -objekt på brödtext för svar.
+- Alla misslyckade begäranden ska nu innehålla en `ErrorResponse` objekt i svarstexten.
 
-- Lägga till följande fält till den `Error` objekt.  
-  - `subCode`&mdash;Partitionerar felkoden till diskreta buckets, om möjligt
-  - `moreDetails`&mdash;Mer information om fel som beskrivs i den `message` fält
-   
+- Lagt till följande fält i den `Error` objekt.  
+  - `subCode`&mdash;Partitionerar felkoden i diskreta buckets, om möjligt
+  - `moreDetails`&mdash;Mer information om felet som beskrivs i den `message` fält
 
-- Ersatt felkoder v5 med följande möjliga `code` och `subCode` värden.
 
-|Kod|Delkoden|Beskrivning
+- Ersatt v5-felkoder med följande möjliga `code` och `subCode` värden.
+
+|Kod|Obligatorisk|Beskrivning
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av de underordnade kod inträffar. Svaret innehåller dessa fel om HTTP-statuskoden är 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. Till exempel en obligatorisk parameter saknas eller ett parametervärde är inte giltig.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue, är HTTP-statuskoden 400.<br/><br/>Om felet är HttpNotAllowed, felkod HTTP-status 410.
-|RateLimitExceeded||Bing returnerar RateLimitExceeded när du överskrider din frågor per sekund (QPS) eller frågor per månad (QPM) kvoten.<br/><br/>Bing returnerar HTTP-statuskod 429 om du har överskridit QPS och 403 om du har överskridit QPM.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returnerar InvalidAuthorization när Bing inte kan verifiera anroparen. Till exempel den `Ocp-Apim-Subscription-Key` huvud saknas eller nyckeln prenumerationen är inte giltigt.<br/><br/>Redundans inträffar om du anger fler än en autentiseringsmetod.<br/><br/>Om felet InvalidAuthorization är 401 HTTP-statuskoden.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returnerar InsufficientAuthorization när anroparen inte har behörighet att komma åt resursen. Det här felet kan inträffa om nyckeln för prenumerationen har inaktiverats eller har upphört att gälla. <br/><br/>Om felet InsufficientAuthorization är 403 HTTP-statuskoden.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av de underordnade kod inträffar. Svaret innehåller de här felen om HTTP-statuskoden är 500.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. Till exempel en obligatorisk parameter saknas eller ett parametervärde är inte giltig.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue, är HTTP-statuskod 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
+|RateLimitExceeded||Bing returnerar RateLimitExceeded varje gång du överskrider din frågor per sekund (QPS) eller frågor per månad (QPM) kvot.<br/><br/>Bing returnerar HTTP-statuskod 429 om du har överskridit Indexlagring och 403 om du har överskridit QPM.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returnerar InvalidAuthorization när Bing inte kan autentisera anroparen. Till exempel den `Ocp-Apim-Subscription-Key` huvud saknas eller prenumerationsnyckeln är inte giltig.<br/><br/>Redundans inträffar om du anger mer än en autentiseringsmetod.<br/><br/>Om felet är InvalidAuthorization, är HTTP-statuskod 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returnerar InsufficientAuthorization när anroparen inte har behörighet att komma åt resursen. Det här felet kan inträffa om prenumerationsnyckeln har inaktiverats eller har upphört att gälla. <br/><br/>Om felet är InsufficientAuthorization, är HTTP-statuskod 403.
 
-- Följande mappar tidigare felkoder till de nya koderna. Om du har gjort ett beroende på v5 felkoder, måste din kod uppdateras också.
+- Följande mappar tidigare felkoder till de nya koderna. Om du har gått ett beroende på v5 felkoder, måste din kod uppdateras också.
 
-|Version 5-kod|Version 7 code.subCode
+|Versionskod 5|Version 7 code.subCode
 |-|-
 |RequestParameterMissing|InvalidRequest.ParameterMissing
 RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
@@ -70,19 +71,18 @@ InsufficientScope|InsufficientAuthorization
 Blockerad|InvalidRequest.Blocked
 
 
-## <a name="non-breaking-changes"></a>Hårt ändringar  
+## <a name="non-breaking-changes"></a>Icke-ändringar  
 
-### <a name="headers"></a>Sidhuvuden
+### <a name="headers"></a>Rubriker
 
-- Lägga till valfria [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) huvudet i begäran. Som standard returnerar Bing cachelagrat innehåll om det är tillgängligt. Ange rubriken Pragma till no cache för att förhindra att Bing returnerar cachelagrat innehåll (till exempel Pragma: no-cache).
+- Har lagts till det valfria [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) huvudet i begäran. Bing returnerar cachelagrat innehåll om de är tillgängliga som standard. Om du vill förhindra att Bing returnera cachelagrat innehåll, ange rubriken Pragma till no cache (till exempel Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Lägga till den [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) Frågeparametern. Använd den här parametern om du vill ange antal svar som du vill att svaret ska inkludera. Svaren är valt baserat på rangordning. Om du anger den här parametern exempelvis tre (3), svaret innehåller översta tre ranked svar.  
-  
-- Lägga till den [befordra](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) Frågeparametern. Använd den här parametern tillsammans med `answerCount` att inkludera en eller flera svar typer, oavsett deras rangordning explicit. Till exempel om du vill höja videor och bilder i svaret, anger du befordra *videor, bilder*. Lista över svar som du vill flytta upp räknas inte mot den `answerCount` gränsen. Till exempel om `answerCount` är 2 och `promote` är inställd på *videor, bilder*, svaret kan innehålla webbsidor, nyheter, videor och bilder.
+- Har lagts till i [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) frågeparameter. Använd den här parametern om du vill ange antal svar som du vill att svaret ska ingå. Svaren är valt baserat på rangordning. Exempel: Om du ställer in den här parametern till tre (3), svaret innehåller de tre översta rankad svar.  
+
+- Har lagts till i [marknadsföra](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) frågeparameter. Använd den här parametern tillsammans med `answerCount` att uttryckligen innehåller en eller flera svar typer, oavsett deras rangordning. Till exempel för att flytta upp videor och bilder i svaret, ange du uppgradera till *videor, bilder*. Listan över svar som du vill flytta upp räknas inte mot den `answerCount` gränsen. Till exempel om `answerCount` är 2 och `promote` är inställd på *videor, bilder*, svaret kan innehålla webbsidor, nyheter, videor och bilder.
 
 ### <a name="object-changes"></a>Objekt ändras
 
-- Lägga till den `someResultsRemoved` automatiskt till den [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) objekt. Fältet innehåller ett booleskt värde som anger om svaret exkluderad några resultat från webben svaret.  
-
+- Har lagts till i `someResultsRemoved` automatiskt till den [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) objekt. Fältet innehåller ett booleskt värde som anger om svaret exkluderad vissa resultat från web-svaret.  

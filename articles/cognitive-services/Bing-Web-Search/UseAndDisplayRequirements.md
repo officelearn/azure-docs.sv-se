@@ -1,19 +1,20 @@
 ---
-title: 'Använd och visa krav för API: er för Bing Web Search | Microsoft Docs'
-description: 'Använda data från API: er för Bing Web Search för att förbättra resultatet från söker på webben.'
+title: Använd och visa kraven - API för webbsökning i Bing
+titleSuffix: Azure Cognitive Services
+description: Krav för att visa sökresultat från Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: scottwhi
-ms.openlocfilehash: e9fd17ee3b95f4aa797db854854894ae950c3ec8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6a0732b683f726d19bf929b546baebee2ba955f9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355176"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124226"
 ---
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

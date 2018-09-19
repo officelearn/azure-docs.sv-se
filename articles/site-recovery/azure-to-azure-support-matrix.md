@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 105c1d97a812841e82a0c364ec7dda097c0dd399
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 1fa5451b852a564ef3f0858fdfe0ab0091117508
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717377"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296036"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -171,7 +171,8 @@ Standard Managed disks | Stöd i Azure-regioner där Azure Site Recovery stöds.
 Premium Managed disks | Stöd i Azure-regioner där Azure Site Recovery stöds. |
 Lagringsutrymmen | Stöds |         
 Kryptering i vila (SSE) | Stöds | SSE är standardinställningen på storage-konton.   
-Azure Disk Encryption (ADE) | Stöds inte |
+Azure Disk Encryption (ADE) för Windows OS | Virtuella datorer som har aktiverats för [kryptering med Azure AD-app](https://aka.ms/ade-aad-app) stöds |
+Azure Disk Encryption (ADE) för Linux OS | Stöds inte |
 Frekvent Lägg till/ta bort disk | Stöds inte | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktiverar replikering igen för den virtuella datorn.
 Uteslut disk | Stöds inte|   Temporär disk är undantagen som standard.
 Lagringsdirigering  | Stöds inte|

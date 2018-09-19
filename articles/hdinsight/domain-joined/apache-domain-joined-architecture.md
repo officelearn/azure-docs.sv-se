@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: d5132cf2414045ca1343354215b2a4564f696190
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: efdc9cfbbe9a78571e0a56437e512d0cbbc18b3e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044778"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297287"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planera Azure-domänanslutna Hadoop-kluster i HDInsight
 
@@ -61,7 +61,7 @@ Mer information finns i [konfigurera domänanslutna HDInsight-kluster med Azure 
 
 Om du har en lokal Active Directory-instans eller mer komplexa Active Directory-inställningar för din domän, kan du synkronisera dessa identiteter till Azure AD med hjälp av Azure AD Connect. Sedan kan du aktivera Azure AD DS på den Active Directory-klienten. 
 
-Eftersom Kerberos är beroende av hashvärden för lösenord, måste du [aktivera lösenordshashsynkronisering på Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Om du använder federation med Active Directory Federation Services (AD FS), kan du också konfigurera lösenordshashsynkronisering som en säkerhetskopia om det inte går att AD FS-infrastrukturen. Mer information finns i [aktivera lösenordshashsynkronisering med Azure AD Connect-synkronisering](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). 
+Eftersom Kerberos är beroende av hashvärden för lösenord, måste du [aktivera lösenordshashsynkronisering på Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Om du använder federation med Active Directory Federation Services (AD FS), kan du också konfigurera lösenordshashsynkronisering som en säkerhetskopia om det inte går att AD FS-infrastrukturen. Mer information finns i [aktivera lösenordshashsynkronisering med Azure AD Connect-synkronisering](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 Med hjälp av en lokal Active Directory eller Active Directory på virtuella IaaS-datorer separat, utan Azure AD och Azure AD DS, inte är en konfiguration som stöds för domänanslutna HDInsight-kluster.
 

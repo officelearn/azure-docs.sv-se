@@ -1,33 +1,36 @@
 ---
-title: Webb-API-gränssnitt i Knowledge utforskning Service API | Microsoft Docs
-description: Använda web API-gränssnitt för att skapa en omfattande, semantiska sökinställningar i den kunskap utforskning Service (KES) API i kognitiva Services.
+title: Webb-API-gränssnitt - Knowledge API för tjänst för Kunskapsutveckling
+titlesuffix: Azure Cognitive Services
+description: Använda web API-gränssnitt för att skapa en omfattande, semantiska sökfunktion i den kunskap utforskning Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 16c5680eb4f249a5d37e6b90eea92cfff7090eef
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5be39e8dce6aeeef32d20273c56650620d6fe986
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351546"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122033"
 ---
-# <a name="web-api-interface"></a>API för webbgränssnitt
-Modellfiler som har skapats av tjänsten Knowledge utforskning kan värdbaserad och nås via en uppsättning web API: er.  API: er kan befinna sig på den lokala datorn med hjälp av [ `host_service` ](CommandLine.md#host_service-command) kommando eller kan distribueras till en Azure cloud service med hjälp av den [ `deploy_service` ](CommandLine.md#deploy_service-command) kommando.  Båda metoderna exponera följande API-slutpunkter:
+# <a name="web-api-interface"></a>Webb-API-gränssnitt
+
+Modellfiler som skapats av tjänsten för Kunskapsutveckling kan som värd och kan nås via en uppsättning av webb-API: er.  API: erna kan vara baserad på den lokala datorn med den [ `host_service` ](CommandLine.md#host_service-command) kommandot eller kan distribueras till en Azure-molnet tjänsten med hjälp av den [ `deploy_service` ](CommandLine.md#deploy_service-command) kommando.  Båda metoderna exponerar följande API-slutpunkter:
+
 * [*tolka* ](interpretMethod.md) – tolkar en frågesträng för naturligt språk. Returnerar kommenterade tolkningar för att aktivera funktioner för automatisk ifyllning i sökrutor som förutsäger vad användaren skriver.
 * [*utvärdera* ](evaluateMethod.md) – utvärdera och returnerar resultatet av ett strukturerade frågeuttryck.
-* [*calchistogram* ](calchistogramMethod.md) – beräknar ett histogram över attributvärden för objekt som returnerats av en strukturerad frågeuttryck.
+* [*calchistogram* ](calchistogramMethod.md) – beräknar ett histogram för attributvärden för objekt som returneras av en strukturerade frågeuttryck.
 
-Dessa API-metoder att används tillsammans, skapa en omfattande semantiska sökinställningar.  Få en naturligt språk frågesträng den *tolka* metoden ger kommenterade versioner av indatafrågan med strukturerade frågeuttryck, baserat på de underliggande grammatik och index.  Den *utvärdera* metoden utvärderar strukturerade frågeuttrycket och returnerar matchande index-objekt för visning.  Den *calchistogram* metoden beräknar attributet värdet distributioner för att aktivera filtrering och förfining.
+Dessa API-metoder att används tillsammans skapa en fullständig semantiska sökfunktion.  Får en frågesträng för naturligt språk i *tolka* metoden ger kommenterade versioner av indatafrågan med strukturerade frågeuttryck, baserat på de underliggande grammatik- eller indexhantering.  Den *utvärdera* metoden utvärderar strukturerade frågeuttryck och returnerar de matchande objekt index för visning.  Den *calchistogram* metoden beräknar attributet värdet distributioner för att aktivera filtrering och förfining.
 
 **Exempel**
 
-I en domän för academic publikationer, om en användare skriver strängen ”Latenta s” den *tolka* metod kan ge en uppsättning rangordnas tolkningar tyder på att användaren kan söka efter nyckelordet ”Latenta semantiska analysen”, den rubriken ”Latenta strukturanalys” eller andra uttryck som börjar med ”Latenta s”.  Den här informationen kan användas för att snabbt leder användaren till önskade sökresultat.
+I en domän för akademiska publikationer, om en användare skriver strängen ”latent s” den *tolka* metoden kan ge en uppsättning rankad tolkningar som tyder på att användaren kan söka efter nyckelordet ”latent semantiska analys”, den rubriken ”latent struktur analysis” eller andra uttryck som börjar med ”latent s”.  Den här informationen kan användas för att snabbt hjälper användaren att önskade sökresultat.
 
-För den här domänen i *utvärdera* metoden kan användas för att hämta en uppsättning matchande publikationer från academic indexet och *calchistogram* metoden kan användas för att beräkna fördelningen av attribut värden för de matchande publikationer som kan användas för att ytterligare filter och avgränsa sökresultaten.
+För den här domänen i *utvärdera* metoden kan användas för att hämta en uppsättning matchande publikationer från akademiska indexet och *calchistogram* metoden kan användas för att beräkna fördelningen av attribut värden för de matchande publikationer som kan användas för att ytterligare filter och förfina sökresultaten.
 
-Observera att REST API-anrop för att förbättra läsbarhet exemplen innehåller tecken (till exempel blanksteg) som inte har URL-kodade. Din kod måste du använda rätt URL-kodning.
+Observera att REST API-anrop för att förbättra läsbarheten av exemplen innehåller tecken (t ex blanksteg) som inte har URL-kodade. Koden behöver du tillämpa lämpliga URL-kodningar.

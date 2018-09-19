@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5315e7d45ef3af838f26422655cf6971af6f903e
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 6b78c7f5d7d1b5ad4db9401bf2138502c9bbd397
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382558"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121933"
 ---
 # <a name="add-a-shape-to-a-map"></a>Lägga till formen på en karta
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du lägger till en rad, en cirkel och en polygon på
 
 I koden ovan skapar första kodblocket en Kartobjekt. Du kan se [skapa en karta](./map-create.md) anvisningar.
 
-I det andra kodblocket skapas en rad. En rad är en [funktionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) av LineString med LineStringProperties som egenskapen funktionen. Använd `new atlas.data.Feature(new atlas.data.LineString())` att skapa en rad och definiera dess egenskaper. 
+I det andra kodblocket skapas en rad. En rad är en [funktionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) av LineString med LineStringProperties som egenskapen funktionen. Använd `new atlas.data.Feature(new atlas.data.LineString())` att skapa en rad och definiera dess egenskaper.
 
 En linjeskikt är en matris med rader. Det sista blocket kod använder [addLineStrings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings) funktion i kartan klassen för att lägga till raden skiktet på kartan och definiera egenskaperna för linjeskikt. Se egenskaperna för en linjeskikt på [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.linestringlayeroptions?view=azure-iot-typescript-latest).
 
@@ -49,6 +49,7 @@ Ett cirkel-lager är en matris med cirklar. Det sista blocket kod använder [add
 <a id="addAPolygon"></a>
 
 ## <a name="add-a-polygon"></a>Lägga till en polygon
+
 <iframe height='500' scrolling='no' title='Lägga till en polygon på en karta ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>lägga till en polygon på en karta </a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -56,11 +57,14 @@ I koden ovan skapar första kodblocket en Kartobjekt. Du kan se [skapa en karta]
 
 I det andra kodblocket skapas en polygon. En polygon har en [funktionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) av [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest) med [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/models.polygonproperties?view=azure-iot-typescript-latest) som egenskapen funktionen. Använd `new atlas.data.Feature(new atlas.data.Polygon())` att skapa en polygon och definiera dess egenskaper. Ange sorterad koordinaterna för polygon-sökvägen i konstruktorn polygon.
 
-En polygonskikt är en matris med polygoner. Det sista blocket kod använder [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpolygons) funktion i kartan klassen för att lägga till polygonskikt på kartan och definiera dess egenskaper. Se egenskaperna för en polygonskikt på [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.polygonlayeroptions?view=azure-iot-typescript-latest). 
+En polygonskikt är en matris med polygoner. Det sista blocket kod använder [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpolygons) funktion i kartan klassen för att lägga till polygonskikt på kartan och definiera dess egenskaper. Se egenskaperna för en polygonskikt på [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.polygonlayeroptions?view=azure-iot-typescript-latest).
 
 ## <a name="next-steps"></a>Nästa steg
+
 Flera kodexempel för att lägga till i dina kartor, finns i följande artiklar:
-* [Lägg till anpassade HTML](./map-add-custom-html.md)
-* [Visa sökresultat](./map-search-location.md)
 
+> [!div class="nextstepaction"]
+> [Lägg till anpassade HTML](./map-add-custom-html.md)
 
+> [!div class="nextstepaction"]
+> [Visa sökresultat](./map-search-location.md)

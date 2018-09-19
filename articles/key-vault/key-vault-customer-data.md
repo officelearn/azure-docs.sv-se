@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 807b8a17570dfdcefa07a42719b7b0b24e4f31d7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42059559"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297170"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault-funktioner som kundens data
 
@@ -37,7 +37,7 @@ Följande information visas kundinformation i Azure Key Vault:
 - Certifikatskontakterna kan innehålla användarnas e-postadresser, namn eller telefonnummer
 - Certifikatutfärdare kan innehålla e-postadresser, namn, telefonnummer, autentiseringsuppgifter och organisatorisk information
 - Godtycklig taggar kan användas på objekt i Azure Key Vault. Dessa objekt innefattar valv, nycklar, hemligheter, certifikat och storage-konton. De taggar som används kan innehålla personuppgifter
-- Azure Key Vault-åtkomstloggar innehåller objekt-ID: N, [UPN-namnen](../active-directory/connect/active-directory-aadconnect-userprincipalname.md), och IP-adresser för varje REST API-anrop
+- Azure Key Vault-åtkomstloggar innehåller objekt-ID: N, [UPN-namnen](../active-directory/hybrid/plan-connect-userprincipalname.md), och IP-adresser för varje REST API-anrop
 - Diagnostikloggar för Azure Key Vault kan innehålla objekt-ID: N och IP-adresser för REST API-anrop
 
 ## <a name="deleting-customer-data"></a>Tar bort kunddata

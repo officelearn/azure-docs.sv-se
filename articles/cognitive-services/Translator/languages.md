@@ -1,24 +1,25 @@
 ---
-title: Språk som stöds i Microsoft Translator-API | Microsoft Docs
-description: Visa språk som stöds av Microsoft Translator Text API.
+title: Translator Text API stöds språk
+titlesuffix: Azure Cognitive Services
+description: Visa språk som stöds av Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 15e01dd55a0fe297eab69417074dc58a15b469c4
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 9318a562fad00f61d50fdce19b8b84b62c294cba
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783220"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124856"
 ---
-# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Språk som stöds i Microsoft Translator Text API
+# <a name="supported-languages-in-the-translator-text-api"></a>Språk som stöds i Translator Text API
 
-Microsoft Translator Text API stöder följande språk för översättning till text. Neural maskinöversättning NMT är den nya standarden för AI-driven maskinöversättningar i hög kvalitet och är tillgänglig som standard med V3 av Translator Text API när ett neural system är tillgänglig. Neural maskinöversättning är tillgänglig i V2 med hjälp av kategorin ”generalnn”.
+Translator Text API stöder följande språk för översättning till text. Neural maskinöversättning NMT är den nya standarden för AI-driven maskinöversättningar i hög kvalitet och är tillgänglig som standard med V3 av Translator Text API när ett neural system är tillgänglig. Neural maskinöversättning är tillgänglig i V2 med hjälp av kategorin ”generalnn”.
 
 [Mer information om hur maskinöversättning fungerar](https://www.microsoft.com/translator/mt.aspx)
 

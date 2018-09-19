@@ -1,6 +1,30 @@
-## <a name="add-the-applications-registration-information-to-your-app"></a>Lägg till programmets registreringsinformation i din app
+---
+title: ta med fil
+description: ta med fil
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: a2ca767edf1ee3e4ba2d3185d66a871ceff21a6c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293502"
+---
+## <a name="add-the-applications-registration-to-your-code"></a>Lägg till programmets registrering i din kod
 
-I det här steget behöver du Lägg till klient-ID i projektet.
+I det här steget kan du behöva lägga till programmet / klient-ID: T i projektet.
 
 1.  Öppna `MainActivity` (under `app`  >  `java`  >  *`{host}.{namespace}`*)
 2.  Ersätt den rad som börjar med `final static String CLIENT_ID` med:
@@ -8,7 +32,7 @@ I det här steget behöver du Lägg till klient-ID i projektet.
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
 3. Öppna: `app` > `manifests` > `AndroidManifest.xml`
-4. Lägg till att följande aktiviteter `manifest\application` noden. Den här registrera en `BrowserTabActivity` så att operativsystem och återuppta ditt program när du har slutfört autentiseringen:
+4. Lägg till att följande aktiviteter `manifest\application`. Den`BrowserTabActivity` tillåter Microsoft att ringa tillbaka till ditt program när du har slutfört autentiseringen:
 
 ```xml
 <!--Intent filter to capture System Browser calling back to our app after Sign In-->

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e100859a184db2b6298dd02a1bb7bb238de27d51
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e7cb3049f680f81026e09388066001413922600a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096372"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Självstudier: Azure Active Directory-integration med Silverback
 
@@ -38,7 +38,7 @@ Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är pro
 Om du vill konfigurera Azure AD-integrering med Silverback, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Silverback enkel inloggning aktiverat prenumeration
+- En aktiv prenumeration på Silverback
 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -107,11 +107,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Silverback domän och URL: er med enkel inloggning för information](./media/silverback-tutorial/tutorial_silverback_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<YOURSILVERBACKURL>/ssp`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<YOURSILVERBACKURL>.com/ssp`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<YOURSILVERBACKURL>`
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `<YOURSILVERBACKURL>.com`
 
-    c. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<YOURSILVERBACKURL>/sts/authorize/login`
+    c. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och svars-URL. Kontakta [Silverback klienten supportteamet](mailto:helpdesk@matrix42.com) att hämta dessa värden. 
@@ -124,7 +124,31 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara-knapp](./media/silverback-tutorial/tutorial_general_400.png)
 
-6. Att konfigurera enkel inloggning på **Silverback** sida, som du behöver skicka den **Appfederationsmetadata** till [Silverback supportteamet](mailto:helpdesk@matrix42.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+6.  Logga in på Silverback servern som administratör och utför följande steg:
+
+    a.  Gå till **Admin** > **autentiseringsprovider**.
+
+    b. På den **autentiseringsinställningar för providern** utför följande steg:
+
+    ![Administratören ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+
+    c.  Klicka på **importera från URL: en**.
+    
+    d.  Klistra in den kopierade Metadata-URL och klicka på **OK**.
+    
+    e.  Bekräfta med **OK** och sedan värden fylls i automatiskt.
+    
+    f.  Aktivera **visas på inloggningssidan**.
+    
+    g.  Aktivera **dynamisk Användargenereringen** om du vill lägga till av Azure AD som är auktoriserade användare automatiskt (valfritt).
+    
+    h.  Skapa en **rubrik** för knappen på självbetjäningsportalen.
+
+    i.  Ladda upp en **ikonen** genom att klicka på **Välj fil**.
+    
+    j.  Välj bakgrunden **färg** för knappen.
+    
+    k.  Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -160,7 +184,34 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-silverback-test-user"></a>Skapa en Silverback testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Silverback. Arbeta med [Silverback supportteamet](mailto:helpdesk@matrix42.com) att lägga till användare i Silverback-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+Om du vill aktivera Azure AD-användare att logga in på Silverback, måste de etableras i Silverback. I Silverback är etablering en manuell aktivitet.
+
+**Utför följande steg för att etablera ett användarkonto:**
+
+1. Logga in på Silverback servern som administratör.
+
+2. Gå till **användare** och **lägga till en ny enhet användare**.
+
+3. På den **grundläggande** utför följande steg:
+
+    ![Användaren ](./media/silverback-tutorial/tutorial_silverback_user.png)
+
+    a. I **användarnamn** text, ange namnet på användaren som **Britta**.
+
+    b. I **Förnamn** text, ange först namnet på användaren som **Britta**.
+
+    c. I **efternamn** text anger efternamn för användaren som **Simon**.
+
+    d. I **e-postadress** text, ange den e-postadressen för användaren som **Brittasimon@contoso.com**.
+
+    e. I den **lösenord** text, ange ditt lösenord.
+    
+    f. I den **Bekräfta lösenord** textrutan, skriva in lösenordet igen och bekräfta.
+
+    g. Klicka på **Spara**.
+
+>[!NOTE]
+>Om du inte vill skapa varje användare manuellt aktivera den **dynamisk Användargenereringen** kryssrutan under **Admin** > **autentiseringsprovider**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

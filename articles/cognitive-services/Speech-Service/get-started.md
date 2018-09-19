@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 5ae57764e2950d027e832eccec5393d4aec4486a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: cbb73b199255af7e7a91b1586b331acde035bfd7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981852"
+ms.locfileid: "46124520"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prova Speech Service kostnadsfritt
 
@@ -26,7 +26,7 @@ Slutligen erbjuder Speech-tjänsten en nivå för ledigt, med låga volymer som 
 
 ## <a name="free-trial"></a>Kostnadsfri utvärderingsversion
 
-30-dagars kostnadsfri utvärderingsversion ger dig tillgång till S0 standardprisnivån under en begränsad tid. 
+30-dagars kostnadsfri utvärderingsversion ger dig tillgång till standardprisnivån under en begränsad tid.
 
 Att registrera dig för en 30-dagars kostnadsfri utvärderingsversion:
 
@@ -44,58 +44,30 @@ Att registrera dig för en 30-dagars kostnadsfri utvärderingsversion:
 
    ![Godkänn villkoren](media/index/try-speech-api-free-trial3.png)
 
-1. Logga in med ditt Microsoft, Facebook, LinkedIn och GitHub-konto. Alternativt kan du kan registrera dig för ett kostnadsfritt microsoftkonto:
+1. Logga in med ditt Microsoft, Facebook, LinkedIn och GitHub-konto.
 
-    * Gå till den [Microsoft kontoportalen](https://account.microsoft.com/account).
-    * Välj **logga in med Microsoft**.
+    Du kan registrera dig för ett kostnadsfritt microsoftkonto på den [Microsoft kontoportalen](https://account.microsoft.com/account). Kom igång genom att klicka på **logga in med Microsoft** och klicka sedan, när du ombeds logga in på **skapa ett.** Följ stegen för att skapa och verifiera ditt nya Microsoft-konto.
 
-    ![Logga in](media/index/try-speech-api-free-trial4.png)
-
-    * När du ombeds logga in, Välj **skapar ett**.
-
-    ![Skapa ett nytt konto](media/index/try-speech-api-free-trial5.png)
-
-    * Tilldela ett lösenord i de steg som följer, ange din e-postadress eller telefonnummer, och följ anvisningarna för att verifiera ditt nya Microsoft-konto.
-
-När du loggar in, börjar din kostnadsfria utvärderingsversion. Visade webbsidan visar alla Azure Cognitive Services-tjänster som du för närvarande har utvärderingsprenumerationer. Två prenumerationsnycklar visas bredvid **taltjänster**. Du kan använda någon av nycklarna i dina program.
+När du loggar in på prova Cognitive Services, börjar din kostnadsfria utvärderingsversion. Visade webbsidan visar alla Azure Cognitive Services-tjänster som du för närvarande har utvärderingsprenumerationer. Två prenumerationsnycklar visas bredvid **taltjänster**. Du kan använda någon av nycklarna i dina program.
 
 > [!NOTE]
-> Alla kostnadsfria utvärderingsversioner är i regionen USA, västra. När du gör förfrågningar måste du använda den slutpunkt som motsvarar till din region.
+> Alla kostnadsfria utvärderingsversioner är i regionen USA, västra. När du gör förfrågningar måste du använda den `westus` slutpunkt.
 
 ## <a name="new-azure-account"></a>Nya Azure-konto
 
 Nya Azure-konton får en kredit på 200 servicekrediter som är tillgänglig i upp till 30 dagar. Du kan använda krediten att utforska ytterligare Speech-tjänsten eller för att starta apputveckling.
 
-Du registrerar dig för ett nytt Azure-konto:
+Om du vill registrera dig för en ny Azure-konto går du till den [Azure registreringssidan](https://azure.microsoft.com/free/ai/), klickar du på **starta kostnadsfri** och skapa en ny Azure-konto med ditt Microsoft-konto.
 
-1. Gå till den [Azure registreringssidan](https://azure.microsoft.com/free/ai/). 
+Du kan registrera dig för ett kostnadsfritt microsoftkonto på den [Microsoft kontoportalen](https://account.microsoft.com/account). Kom igång genom att klicka på **logga in med Microsoft** och klicka sedan, när du ombeds logga in på **skapa ett.** Följ stegen för att skapa och verifiera ditt nya Microsoft-konto.
 
-1. Välj **börja kostnadsfritt**.
-
-    ![Börja kostnadsfritt](media/index/try-speech-api-new-azure1.png)
-
-1. Logga in med ditt Microsoft-konto. Om du inte har någon:
-
-    * Gå till den [Microsoft kontoportalen](https://account.microsoft.com/account).
-    * Välj **logga in med Microsoft**.
-    * När du ombeds logga in, Välj **skapa ett.**
-    * Tilldela ett lösenord i de steg som följer, ange din e-postadress eller telefonnummer, och följ anvisningarna för att verifiera ditt nya Microsoft-konto.
-
-1. Ange resten av den information som har begärt för att registrera dig för ett konto. Ange ditt land och ditt namn och ange ett telefonnummer och e-postadress.
-
-    ![Ange information](media/index/try-speech-api-new-azure2.png)
-
-    Verifiera din identitet via telefon och genom att tillhandahålla ett kreditkortsnummer. (Ditt kreditkort inte faktureras.) är, Godkänn avtalet för Azure-användare. 
-
-    ![Godkänn avtalet](media/index/try-speech-api-new-azure3.png)
-
-Ditt kostnadsfria Azure-konto har skapats. Följ stegen i nästa avsnitt för att starta en prenumeration på Speech-tjänsten.
+När du har skapat ditt Azure-konto, följer du stegen i nästa avsnitt för att starta en prenumeration på Speech-tjänsten.
 
 ## <a name="create-a-speech-resource-in-azure"></a>Skapa en tal-resurs i Azure
 
-Lägga till en resurs för tal-tjänst på Azure-kontot:
+Lägga till en tal-tjänstresurs (kostnadsfritt eller betalt nivå) på Azure-kontot:
 
-1. Logga in på den [Azure-portalen](https://ms.portal.azure.com/) med hjälp av ditt Microsoft-konto.
+1. Logga in på den [Azure-portalen](https://ms.portal.azure.com/) med ditt Microsoft-konto.
 
 1. Välj **skapa en resurs** på upp till vänster på portalen.
 
@@ -107,7 +79,7 @@ Lägga till en resurs för tal-tjänst på Azure-kontot:
 
     ![Välj tal (förhandsversion)](media/index/try-speech-api-create-speech2.png)
 
-1. Under **tal (förhandsversion)** väljer den **skapa** knappen.
+1. Under **tal (förhandsversion)**, klickar du på den **skapa** knappen.
 
     ![Välj knappen Skapa](media/index/try-speech-api-create-speech3.png)
 
@@ -116,21 +88,33 @@ Lägga till en resurs för tal-tjänst på Azure-kontot:
     * Ett namn för den nya resursen. Namnet hjälper dig att skilja mellan flera prenumerationer för samma tjänst.
     * Välj den prenumeration som den nya resursen är associerad med för att fastställa hur avgiften faktureras.
     * Välj den region där resursen ska användas. Tal-tjänsten är för närvarande tillgänglig i Asien, Europa, norra och västra USA-regioner.
-    * Välj prisnivå, antingen F0 (begränsat kostnadsfri prenumeration) eller S0 (standard-prenumeration). Välj **Visa fullständiga prisuppgifter** fullständig information om priser och användning kvoter för varje nivå.
+    * Välj antingen en kostnadsfri eller betald prisnivå. Klicka på **Visa fullständiga prisuppgifter** fullständig information om priser och användning kvoter för varje nivå.
     * Skapa en ny resursgrupp för den här prenumerationen med tal eller tilldela prenumerationen till en befintlig resursgrupp. Kan du spara dina olika Azure-prenumerationer som ordnas resursgrupperna.
     * För åtkomst till prenumerationen i framtiden, väljer du den **fäst på instrumentpanelen** markerar du kryssrutan.
     * Välj **skapa.**
 
     ![Välj knappen Skapa](media/index/try-speech-api-create-speech4.png)
 
-    Det kan ta en stund att skapa och distribuera din nya tal-resurs. Välj **snabbstarten** att se information om ny resurs.
+    Det tar en stund att skapa och distribuera din nya tal-resurs. Välj **snabbstarten** att se information om ny resurs.
 
     ![Snabbstart för panelen](media/index/try-speech-api-create-speech5.png)
 
-1. Under **snabbstarten**väljer den **nycklar** länken under steg 1 för att visa dina prenumerationsnycklar. Varje prenumeration har två nycklar; Du kan använda någon av nycklarna i ditt program. Välj knappen bredvid varje nyckel för att kopiera den till Urklipp för att klistra in i din kod.
+1. Under **snabbstarten**, klickar du på den **nycklar** länken under steg 1 för att visa dina prenumerationsnycklar. Varje prenumeration har två nycklar; Du kan använda någon av nycklarna i ditt program. Välj knappen bredvid varje nyckel för att kopiera den till Urklipp för att klistra in i din kod.
 
 > [!NOTE]
 > Du kan skapa ett obegränsat antal prenumerationer för standard-nivån i en eller flera regioner. Du kan dock skapa endast en kostnadsfri nivå-prenumeration. Modelldistributioner på den kostnadsfria nivån som är oanvända för 7 dagar kommer automatiskt att avetablerats.
+
+## <a name="switch-to-a-new-subscription"></a>Växla till en ny prenumeration
+
+Om du vill växla från en prenumeration till en annan, Ersätt till exempel när din kostnadsfria utvärderingsversion upphör att gälla eller när du publicerar ditt program, nyckeln region och prenumeration i din kod med nyckeln region och prenumeration för den nya Azure-resursen.
+
+> [!NOTE]
+> Kostnadsfri utvärderingsversion nycklar skapas i västra USA (`westus`) region. En prenumeration som skapats via Azure-instrumentpanelen kanske vissa andra region om du vill.
+
+* Om programmet använder ett [tal SDK](speech-sdk.md), ange regionskod, t.ex `westus`, när instanser skapades av `RecognizerFactory`. 
+* Om ditt program använder en av Speech-tjänsten [REST API: er](rest-apis.md), regionen är en del av slutpunkten URI som du använder när du gör förfrågningar.
+
+Nycklar som har skapats för en region är endast giltiga i den regionen. Försök att använda dem med andra regioner leder autentiseringsfel.
 
 ## <a name="next-steps"></a>Nästa steg
 

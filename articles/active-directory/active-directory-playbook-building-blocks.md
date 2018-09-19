@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 4c8f2966df9c33ec227b14c00996f84f39043cdb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c8517114f51b5aed8f8e31a19b672721b109775e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349236"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298310"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept strategibok: komponenter
 
@@ -46,7 +46,7 @@ Här följer några förutsättningar som krävs för alla POC med Azure AD Prem
 | Azure AD Premium eller EMS utvärdering aktiverad | [Azure Active Directory Premium kostnadsfritt i en månad](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Du har tilldelat Azure AD Premium eller EMS-licenser till PoC-användare | [Licensiera själv och dina användare i Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Autentiseringsuppgifter för Azure AD Global administratör | [Tilldela administratörsroller i Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
-| Valfritt men rekommenderas starkt: parallella laboratoriemiljö som reserv | [Förutsättningar för Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
+| Valfritt men rekommenderas starkt: parallella laboratoriemiljö som reserv | [Förutsättningar för Azure AD Connect](hybrid/how-to-connect-install-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>Directory-synkronisering – lösenordets Hash-synkronisering (PHS) - nyinstallation
 
@@ -56,23 +56,23 @@ Ungefärlig tid att Slutför: en timme för mindre än 1 000 PoC-användare
 
 | Förhandskrav | Resurser |
 | --- | --- |
-| Server för att köra Azure AD Connect | [Förutsättningar för Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
-| POC-användare i samma domän och en del av en grupp och Organisationsenhet | [Anpassad installation av Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) |
-| Azure AD Connect funktioner som behövs för Konceptbeviset identifieras | [Ansluta Active Directory med Azure Active Directory – Konfigurera synkronisering funktioner](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Du har krävs autentiseringsuppgifter för lokala och molnbaserade miljöer  | [Azure AD Connect: Konton och behörigheter](./connect/active-directory-aadconnect-accounts-permissions.md) |
+| Server för att köra Azure AD Connect | [Förutsättningar för Azure AD Connect](hybrid/how-to-connect-install-prerequisites.md) |
+| POC-användare i samma domän och en del av en grupp och Organisationsenhet | [Anpassad installation av Azure AD Connect](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) |
+| Azure AD Connect funktioner som behövs för Konceptbeviset identifieras | [Ansluta Active Directory med Azure Active Directory – Konfigurera synkronisering funktioner](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
+| Du har krävs autentiseringsuppgifter för lokala och molnbaserade miljöer  | [Azure AD Connect: Konton och behörigheter](hybrid/reference-connect-accounts-permissions.md) |
 
 ### <a name="steps"></a>Steg
 
 | Steg | Resurser |
 | --- | --- |
 | Hämta den senaste versionen av Azure AD Connect | [Ladda ned Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
-| Installera Azure AD Connect med den enklaste sökvägen: Express <br/>1. Filtrera till mål-Organisationsenhet för att minimera tid som Synkroniseringscykel<br/>2. Välj Målet uppsättning användare i den lokala gruppen.<br/>3. Distribuera funktioner som krävs av den andra POC-teman | [Azure AD Connect: Anpassad installation: domän och Organisationsenhet filtrering](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Anpassad installation: Filtrering baserad på grupp](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrera dina lokala identiteter med Azure Active Directory: Konfigurera synkroniseringsfunktioner](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Öppna Azure AD Connect Användargränssnittet och se körs profiler slutförda (Import, synkronisering och export) | [Azure AD Connect sync: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
+| Installera Azure AD Connect med den enklaste sökvägen: Express <br/>1. Filtrera till mål-Organisationsenhet för att minimera tid som Synkroniseringscykel<br/>2. Välj Målet uppsättning användare i den lokala gruppen.<br/>3. Distribuera funktioner som krävs av den andra POC-teman | [Azure AD Connect: Anpassad installation: domän och Organisationsenhet filtrering](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Anpassad installation: Filtrering baserad på grupp](hybrid/how-to-connect-install-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrera dina lokala identiteter med Azure Active Directory: Konfigurera synkroniseringsfunktioner](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
+| Öppna Azure AD Connect Användargränssnittet och se körs profiler slutförda (Import, synkronisering och export) | [Azure AD Connect sync: Scheduler](hybrid/how-to-connect-sync-feature-scheduler.md) |
 | Öppna den [Azure AD-hanteringsportalen](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), går du till ”alla användare”-bladet, Lägg till kolumn ”auktoritetskälla” och se användarna visas markerad korrekt som kommer från ”Windows Server AD” | [Azure AD-hanteringsportalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
 ### <a name="considerations"></a>Överväganden
 
-1. Titta på säkerhetsåtgärder för synkronisering av lösenords-hash [här](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  Om synkronisering av lösenords-hash för pilot produktionsanvändarna definitivt inte är ett alternativ, bör du följande alternativ:
+1. Titta på säkerhetsåtgärder för synkronisering av lösenords-hash [här](hybrid/how-to-connect-password-hash-synchronization.md).  Om synkronisering av lösenords-hash för pilot produktionsanvändarna definitivt inte är ett alternativ, bör du följande alternativ:
    * Skapa testanvändare i till produktionsdomänen. Kontrollera att du inte synkroniserar något annat konto
    * Flytta till en UAT-miljö
 2.  Om du vill använda federation är det värt att förstå kostnaderna kopplade till en federerad lösning en lokal identitetsprovider utöver POC och mäta som mot fördelarna du letar efter:
@@ -277,7 +277,7 @@ Ungefärlig tid att Slutför: 60 minuter
 | --- | --- |
 | Azure AD Connect installerat och konfigurerat | Byggblock: [katalogsynkronisering - lösenordets Hash-synkronisering](#directory-synchronization--password-hash-sync-phs--new-installation) |
 | ADLDS instans uppfyller kraven | [Teknisk referens för allmän LDAP Connector: översikt över den allmänna LDAP-Anslutningsappen](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
-| Lista över arbetsbelastningar som använder och attribut som är associerade med dessa arbetsbelastningar | [Azure AD Connect-synkronisering: attribut som synkroniseras till Azure Active Directory](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
+| Lista över arbetsbelastningar som använder och attribut som är associerade med dessa arbetsbelastningar | [Azure AD Connect-synkronisering: attribut som synkroniseras till Azure Active Directory](hybrid/reference-connect-sync-attributes-synchronized.md) |
 
 
 ### <a name="steps"></a>Steg
@@ -285,11 +285,11 @@ Ungefärlig tid att Slutför: 60 minuter
 | Steg | Resurser |
 | --- | --- |
 | Lägg till allmän LDAP Connector | [Teknisk referens för allmän LDAP Connector: skapa en ny anslutning](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
-| Skapa körningsprofiler för kopplingen som skapats (fullständig import, Deltaimport, fullständig synkronisering, Deltasynkronisering, export) | [Skapa en Körningsprofil för Management-agenten](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Med hjälp av kopplingar med Azure AD Connect Sync Service Manager](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
-| Kör fullständig import-profil och kontrollera att det finns objekt i anslutarplatsen | [Sök efter en Anslutarplatsen](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Med hjälp av kopplingar med Azure AD Connect Sync Service Manager: Search Connector Space](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| Skapa Synkroniseringsregler, så att objekt i Metaversumet har attribut som krävs för arbetsbelastningar | [Azure AD Connect-synkronisering: Metodtips för att ändra standardkonfigurationen: ändras till Synkroniseringsregler](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect-synkronisering: Förstå deklarativ etablering](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect-synkronisering: Förstå uttryck för deklarativ etablering](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| Starta fullständig synkroniseringscykel | [Azure AD Connect-synkronisering: Scheduler: starta scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
-| Gör eventuella fel felsökning | [Felsök ett objekt som inte synkroniseras med Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
+| Skapa körningsprofiler för kopplingen som skapats (fullständig import, Deltaimport, fullständig synkronisering, Deltasynkronisering, export) | [Skapa en Körningsprofil för Management-agenten](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Med hjälp av kopplingar med Azure AD Connect Sync Service Manager](hybrid/how-to-connect-sync-service-manager-ui-connectors.md)|
+| Kör fullständig import-profil och kontrollera att det finns objekt i anslutarplatsen | [Sök efter en Anslutarplatsen](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Med hjälp av kopplingar med Azure AD Connect Sync Service Manager: Search Connector Space](hybrid/how-to-connect-sync-service-manager-ui-connectors.md#search-connector-space) |
+| Skapa Synkroniseringsregler, så att objekt i Metaversumet har attribut som krävs för arbetsbelastningar | [Azure AD Connect-synkronisering: Metodtips för att ändra standardkonfigurationen: ändras till Synkroniseringsregler](hybrid/how-to-connect-sync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect-synkronisering: Förstå deklarativ etablering](hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)<br/>[Azure AD Connect-synkronisering: Förstå uttryck för deklarativ etablering](hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) |
+| Starta fullständig synkroniseringscykel | [Azure AD Connect-synkronisering: Scheduler: starta scheduler](hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler) |
+| Gör eventuella fel felsökning | [Felsök ett objekt som inte synkroniseras med Azure AD](hybrid/tshoot-connect-object-not-syncing.md) |
 | Kontrollera att LDAP-användare kan logga in och komma åt programmet | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Överväganden
@@ -552,7 +552,7 @@ Ungefärlig tid att slutföra: 20 minuter
 | Förhandskrav | Resurser |
 | --- | --- |
 | Enhet med användarcertifikat etablerats (Windows, iOS eller Android) från Företags-PKI | [Distribuera användarcertifikat](https://msdn.microsoft.com/library/cc770857.aspx) |
-| Azure AD-domän som är federerad med AD FS | [Azure AD Connect och federation](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Översikt över Active Directory Certificate Services](https://technet.microsoft.com/library/hh831740.aspx)|
+| Azure AD-domän som är federerad med AD FS | [Azure AD Connect och federation](hybrid/how-to-connect-fed-whatis.md)<br/>[Översikt över Active Directory Certificate Services](https://technet.microsoft.com/library/hh831740.aspx)|
 | För iOS-enheter har installerat Microsoft Authenticator-appen | [Kom igång med Microsoft Authenticator-appen](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Steg

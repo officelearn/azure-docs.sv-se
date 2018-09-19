@@ -8,93 +8,94 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.author: ramamill
-ms.date: 07/06/2018
-ms.openlocfilehash: 8d5db03eeebb659414ea1f554e5b34c938fd2795
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 09/17/2018
+ms.openlocfilehash: d77b252351c15bea13b0fa1fb42fa062d508fbdc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952917"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126997"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
-Den här artikeln beskriver hur du felsöker vanliga fel som kan uppstår när du försöker installera Azure Site Recovery-Mobilitetstjänsten på källservern för att aktivera skydd.
+Installationen av mobilitetstjänsten är ett viktigt steg vid aktivering av replikering. Det här steget beror helt på uppfyller kraven och arbeta med konfigurationer som stöds. De vanligaste felen som uppstår under mobilitetstjänsten är på grund av
 
-## <a name="error-78007---the-requested-operation-could-not-be-completed"></a>Fel 78007 – den begärda åtgärden kunde inte slutföras
-Det här felet kan misslyckas på grund av tjänsten av flera skäl. Välj motsvarande provider-fel till felsökningen.
+* Anslutning/Credential-fel
+* Operativsystem som stöds inte
 
-* [Fel 95103](#error-95103---protection-could-not-be-enabled-ep0854) 
-* [Fel 95105](#error-95105---protection-could-not-be-enabled-ep0856) 
-* [Fel 95107](#error-95107---protection-could-not-be-enabled-ep0858) 
-* [Fel 95108](#error-95108---protection-could-not-be-enabled-ep0859) 
-* [Fel 95117](#error-95117---protection-could-not-be-enabled-ep0865) 
-* [Fel 95213](#error-95213---protection-could-not-be-enabled-ep0874) 
-* [Fel 95224](#error-95224---protection-could-not-be-enabled-ep0883) 
-* [Fel 95265](#error-95265---protection-could-not-be-enabled-ep0902) 
+När du aktiverar replikering, installera Azure Site Recovery försöker skicka mobilitetstjänstagenten på den virtuella datorn. Som en del av detta försöker konfigurationsservern ansluta med den virtuella datorn och kopiera agenten. Om du vill aktivera lyckad installation, följer du steg för steg-felsökningsinformation som anges nedan
 
+## <a name="credentials-check-errorid-95107--95108"></a>Autentiseringsuppgifter kontroll (samtalsstatus: 95107 & 95108)
 
-## <a name="error-95105---protection-could-not-be-enabled-ep0856"></a>Fel 95105 - skydd kan inte vara aktiverad (EP0856)
+* Kontrollera om det användarkonto som valdes när Aktivera replikering är **giltig, korrekt**.
+* Azure Site Recovery kräver **administratörsbehörighet** att utföra push-installation.
+  * Kontrollera om användarkontot har administrativ åtkomst för Windows, antingen lokalt eller via domänadministratör på källdatorn.
+  * Om du inte använder ett domänkonto, måste du inaktivera kontroll av åtkomst för fjärranvändare på den lokala datorn.
+    * Inaktivera kontroll av åtkomst för fjärranvändare, under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registernyckeln, lägga till ett nytt DWORD-värde: LocalAccountTokenFilterPolicy. Ange värdet till 1. Om du vill köra det här steget kör du följande kommando från Kommandotolken:
 
-**Felkod** | **Möjliga orsaker** | **Fel-specifika rekommendationer**
---- | --- | ---
-95105 </br>**Meddelande:** Push-installation av Mobilitetstjänsten till källdatorn misslyckades med felkoden **EP0856**. <br> Antingen **File and Printer Sharing** är inte tillåten på käll-datorer eller att det är network problem med nätverksanslutningen mellan processervern och källdatorn.| **Fil- och skrivardelning** har inte aktiverats. | Tillåt **File and Printer Sharing** på källdatorn i Windows-brandväggen. På källdatorn, under **Windows-brandväggen** > **Tillåt en app eller funktion i brandväggen**väljer **fil- och skrivardelning för alla profiler**. </br> Dessutom kan kontrollera följande krav för att slutföra har push-installationen.<br> Läs mer om [felsökning av WMI utfärdar](#troubleshoot-wmi-issues).
+         `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+  * Du måste välja root-kontot för installation av mobilitetsagenten för Linux.
 
+Om du vill ändra autentiseringsuppgifterna för valda användarkonto, följ instruktionerna [här](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="error-95107---protection-could-not-be-enabled-ep0858"></a>Fel 95107 - skydd kan inte vara aktiverad (EP0858)
+## <a name="connectivity-check-errorid-95117--97118"></a>**Anslutningskontroll (samtalsstatus: 95117 & 97118)**
 
-**Felkod** | **Möjliga orsaker** | **Fel-specifika rekommendationer**
---- | --- | ---
-95107 </br>**Meddelande:** Push-installation av Mobilitetstjänsten till källdatorn misslyckades med felkoden **EP0858**. <br> Antingen tillhandahållna för att installera Mobilitetstjänsten autentiseringsuppgifterna är felaktiga eller användarkontot har inte tillräcklig behörighet. | Användarens autentiseringsuppgifter tillhandahålls för att installera Mobilitetstjänsten på källdatorn är felaktiga. | Se till att användarautentiseringsuppgifterna för källdatorn på konfigurationsservern är korrekta. <br> Om du vill lägga till eller redigera autentiseringsuppgifter för användare, gå till konfigurationsservern och välj **Cspsconfigtool** > **Hantera konto**. </br> Kontrollera också följande [krav](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) ska kunna slutföras push-installationen.
+* Kontrollera att du kan pinga källdatorn från konfigurationsservern. Om du har valt skalbar processerver under Aktivera replikering, kontrollera att du kan pinga källdatorn från processervern.
+  * Från kommandoraden för källservern datorn använda Telnet för att pinga konfigurationsservern / skala ut processervern med https-porten (standard 9443) som visas nedan för att se om det finns problem med nätverksanslutningen eller brandväggen port blockerande problem.
 
+     `telnet <CS/ scale-out PS IP address> <port>`
 
-## <a name="error-95117---protection-could-not-be-enabled-ep0865"></a>Fel 95117 - skydd kan inte vara aktiverad (EP0865)
+  * Om du inte kan ansluta, kan du inkommande port 9443 på konfigurationsservern / skalbar processerver.
+  * Kontrollera status för tjänsten **InMage Scout VX Agent – Sentinel/Outpost**. Starta tjänsten, om den inte körs.
 
-**Felkod** | **Möjliga orsaker** | **Fel-specifika rekommendationer**
---- | --- | ---
-95117 </br>**Meddelande:** Push-installation av Mobilitetstjänsten till källdatorn misslyckades med felkoden **EP0865**. <br> Antingen körs inte källdatorn eller också är problem med nätverksanslutningen mellan processervern och källdatorn. | Problem med nätverksanslutningen mellan processervern och källservern. | Kontrollera anslutningen mellan processervern och källservern. </br> Kontrollera också följande [krav](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) ska kunna slutföras push-installationen.|
+* Dessutom för **virtuell Linux-dator**,
+  * Kontrollera om senaste openssh, openssh-server och openssl paketen har installerats.
+  * Kontrollera och se till att Secure Shell (SSH) är aktiverad och körs på port 22.
+  * SFTP-tjänsterna ska köras. Att aktivera SFTP-undersystemet och lösenordsautentisering i sshd_config-filen
+    * Logga in som rot.
+    * Gå till /etc/ssh/sshd_config, leta reda på raden som börjar med PasswordAuthentication.
+    * Ta bort raden och ändra värdet på Ja
+    * Hitta raden som börjar med undersystemet och ta bort raden
+    * Starta om tjänsten sshd.
+* Ett anslutningsförsök kan ha misslyckats om det finns inget rätt svar efter en viss tidsperiod, eller etablerade anslutningen eftersom den anslutna värden inte svarade.
+* Det kan vara en anslutning/nätverk/domän problem. Det kan också bero på DNS-namn som löser problemet eller TCP-port överbelastning problem. Kontrollera om det finns några kända problem i din domän.
 
-## <a name="error-95103---protection-could-not-be-enabled-ep0854"></a>Fel 95103 - skydd kan inte vara aktiverad (EP0854)
+## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Fil- och skrivardelning tjänster kontroll (samtalsstatus: 95105 & 95106)
 
-**Felkod** | **Möjliga orsaker** | **Fel-specifika rekommendationer**
---- | --- | ---
-95103 </br>**Meddelande:** Push-installation av Mobilitetstjänsten till källdatorn misslyckades med felkoden **EP0854**. <br> Antingen Windows Management Instrumentation (WMI) är inte tillåten på källdatorn eller också är problem med nätverksanslutningen mellan processervern och källdatorn.| WMI är blockerad i Windows-brandväggen. | Tillåt WMI i Windows-brandväggen. Under **Windows-brandväggen** > **Tillåt en app eller funktion i brandväggen**väljer **WMI för alla profiler**. </br> Kontrollera också följande [krav](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) ska kunna slutföras push-installationen.|
+När du anslutningskontroll, kontrollera om fil- och skrivardelning tjänsten är aktiverad på den virtuella datorn.
 
-## <a name="error-95213---protection-could-not-be-enabled-ep0874"></a>Fel 95213 - skydd kan inte vara aktiverad (EP0874)
+För **windows 2008 R2 och tidigare versioner**,
 
-**Felkod** | **Möjliga orsaker** | **Fel-specifika rekommendationer**
---- | --- | ---
-95213 </br>**Meddelande:** Installation av Mobilitetstjänsten på källdatorn % SourceIP; misslyckades med felkoden **EP0874**. <br> | Operativsystemets version på källdatorn stöds inte. <br>| Se till att källdatorn OS-versionen stöds. Läs den [stödmatris](https://aka.ms/asr-os-support). </br> Kontrollera också följande [krav](https://aka.ms/pushinstallerror) ska kunna slutföras push-installationen.| 
+* Aktivera fil- och skrivardelning via Windows-brandväggen
+  * Öppna Kontrollpanelen -> System och säkerhet > Windows-brandväggen -> i vänstra fönstret, klicka på Avancerat Inställningar -> Klicka på regler för inkommande trafik i konsolträdet.
+  * Leta upp regler fil och skrivardelning (NB-Session-In) och File and Printer Sharing (SMB-In). Högerklicka på regeln för varje regel och klicka sedan på **Aktivera regel**.
+* Aktivera fildelning med en Grupprincip
+  * Gå till Start, Skriv gpmc.msc och söka.
+  * I navigeringsfönstret öppnar du följande mappar: lokal datorprincip, Användarkonfiguration, Administrationsmallar, Windows-komponenter och nätverksdelning.
+  * I informationsfönstret dubbelklickar du på **hindra användare från att dela filer i profilen för deras**. Om du vill inaktivera grupprincipinställningen och aktivera användarens möjlighet att dela filer, klickar du på inaktiverad. Klicka på OK för att spara ändringarna. Mer information klickar du på [här](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
+För **senare versioner**, följer du [här](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) att aktivera fil- och skrivardelning
 
-## <a name="error-95108---protection-could-not-be-enabled-ep0859"></a>Fel 95108 - skydd kan inte vara aktiverad (EP0859)
+## <a name="windows-management-instrumentation-wmi-configuration-check"></a>Konfigurationskontroll för Windows Management Instrumentation (WMI)
 
-**Felkod** | **Möjliga orsaker** | **Fel-specifika rekommendationer**
---- | --- | ---
-95108 </br>**Meddelande:** Push-installation av Mobilitetstjänsten till källdatorn misslyckades med felkoden **EP0859**. <br>| Antingen tillhandahållna för att installera Mobilitetstjänsten autentiseringsuppgifterna är felaktiga eller användarkontot har inte tillräcklig behörighet. <br>| Se till att de angivna autentiseringsuppgifterna är den **rot** kontots autentiseringsuppgifter. Om du vill lägga till eller redigera autentiseringsuppgifter för användare, gå till konfigurationsservern och välj den **Cspsconfigtool** genvägsikon på skrivbordet. Välj **Hantera konto** att lägga till eller redigera autentiseringsuppgifter.|
+När fil-och skrivare kontrollerar du aktivera WMI-tjänsten via brandväggen.
 
-## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Fel 95265 - skydd kan inte vara aktiverad (EP0902)
+* I Kontrollpanelen på säkerhet och klicka sedan på Windows-brandväggen.
+* Klicka på Ändra inställningar och klickar sedan på fliken undantag.
+* I fönstret undantag väljer du kryssrutan för Windows Management Instrumentation (WMI) att WMI-trafik genom brandväggen. 
 
-**Felkod** | **Möjliga orsaker** | **Fel-specifika rekommendationer**
---- | --- | ---
-95265 </br>**Meddelande:** Push-installation av Mobilitetstjänsten till källdatorn lyckades men källdatorn måste startas om för att ändringarna ska börja gälla. <br>| En äldre version av Mobilitetstjänsten har redan installerats på servern.| Replikeringen av den virtuella datorn fortsätter sömlöst.<br> Starta om servern under nästa underhållsperiod att ta del av de nya förbättrade funktionerna i Mobilitetstjänsten.|
+Du kan också aktivera WMI-trafik genom brandväggen i Kommandotolken. Använd följande kommando `netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes`
+Andra felsökning WMI-artiklar hittades i följande artiklar.
 
-
-## <a name="error-95224---protection-could-not-be-enabled-ep0883"></a>Fel 95224 - skydd kan inte vara aktiverad (EP0883)
-
-**Felkod** | **Möjliga orsaker** | **Fel-specifika rekommendationer**
---- | --- | ---
-95224 </br>**Meddelande:** Push-installation av Mobilitetstjänsten till källdatorn % SourceIP; misslyckades med felkoden **EP0883**. En systemomstart från en tidigare installation eller uppdatering väntar.| Systemet har inte startats om när du avinstallerar en äldre eller inkompatibel version av Mobilitetstjänsten.| Se till att det finns ingen version av Mobilitetstjänsten på servern. <br> Starta om servern och kör aktivering av skydd.|
-
-## <a name="resource-to-troubleshoot-push-installation-problems"></a>Resursen för att felsöka problem med push-installation
-
-#### <a name="troubleshoot-file-and-print-sharing-issues"></a>Felsöka fil och skriva ut delningsapplikationen problem
-* [Aktivera eller inaktivera fildelning med en Grupprincip](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
-* [Aktivera fil- och skrivardelning via Windows-brandväggen](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
-
-#### <a name="troubleshoot-wmi-issues"></a>Felsökning av problem med WMI
 * [Grundläggande WMI-testning](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
 * [Felsökning av WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
 * [Felsökning av problem med WMI-skript och WMI-tjänster](https://technet.microsoft.com/library/ff406382.aspx#H22)
+
+## <a name="unsupported-operating-systems"></a>Operativsystem som stöds inte
+
+En annan vanligaste orsaken till felet kan bero på operativsystem som inte stöds. Se till att du är på den operativsystem/Kernel-versionen som stöds för installation av mobilitetstjänsten.
+
+Läs om vilka operativsystem som stöds av Azure Site Recovery, vår [matris stöddokument](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="next-steps"></a>Nästa steg
 

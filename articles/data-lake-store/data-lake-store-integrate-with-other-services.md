@@ -1,6 +1,6 @@
 ---
-title: Integrera Data Lake Store med andra Azure-tjänster | Microsoft Docs
-description: Förstå hur Data Lake Store integreras med andra Azure-tjänster
+title: Integrera Azure Data Lake Storage Gen1 med andra Azure-tjänster | Microsoft Docs
+description: Förstå hur Azure Data Lake Storage Gen1 kan integreras med andra Azure-tjänster
 documentationcenter: ''
 services: data-lake-store
 author: nitinme
@@ -12,61 +12,61 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 3fd1b03d2ce0b814f453ae4d87a136f28479662d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e377a29167ace21e021568f3c65cefd1098d1dab
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624105"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127169"
 ---
-# <a name="integrating-data-lake-store-with-other-azure-services"></a>Integrera Data Lake Store med andra Azure-tjänster
-Azure Data Lake Store kan användas tillsammans med andra Azure-tjänster för att aktivera ett bredare spektrum av scenarier. I följande artikel Listar de tjänster som Data Lake Store kan integreras med.
+# <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integrera Azure Data Lake Storage Gen1 med andra Azure-tjänster
+Azure Data Lake Storage Gen1 kan användas tillsammans med andra Azure-tjänster för att aktivera ett bredare spektrum av scenarier. I följande artikel listas de tjänster som Data Lake Storage Gen1 kan integreras med.
 
-## <a name="use-data-lake-store-with-azure-hdinsight"></a>Använd Data Lake Store med Azure HDInsight
-Du kan etablera ett [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) kluster som använder Data Lake Store som HDFS-kompatibla lagring. Den här versionen kan för Hadoop och Storm-kluster i Windows och Linux, du använda Data Lake Store enbart som ett ytterligare lagringsutrymme. Sådana kluster kan du fortfarande använda Azure Storage (WASB) som standardlagring. Dock gäller HBase-kluster i Windows och Linux, kan du använda Data Lake Store som standard lagringen, eller den ytterligare lagringsutrymme.
+## <a name="use-data-lake-storage-gen1-with-azure-hdinsight"></a>Använda Data Lake Storage Gen1 med Azure HDInsight
+Du kan etablera en [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) kluster som använder Data Lake Storage Gen1 som HDFS-kompatibel lagring. Den här versionen kan för Hadoop- och Storm-kluster i Windows och Linux, du använda Data Lake Storage Gen1 endast som ett ytterligare lagringsutrymme. Sådana kluster kan du fortfarande använda Azure Storage (WASB) som standardlagring. HBase-kluster i Windows och Linux kan använda du Data Lake Storage Gen1 som standardlagring eller den ytterligare lagringsutrymme.
 
-Anvisningar för hur du etablerar ett HDInsight-kluster med Data Lake Store, se:
+Mer information om hur du etablerar ett HDInsight-kluster med Data Lake Storage Gen1 finns i:
 
-* [Etablera ett HDInsight-kluster med Data Lake Store med hjälp av Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Tillhandahålla ett HDInsight-kluster med Data Lake Store som standardlagring med hjälp av Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-* [Tillhandahålla ett HDInsight-kluster med Data Lake Store som ytterligare lagringsutrymme med hjälp av Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [Etablera ett HDInsight-kluster med Data Lake Storage Gen1 med hjälp av Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Etablera ett HDInsight-kluster med Data Lake Storage Gen1 som standard storage med hjälp av Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+* [Etablera ett HDInsight-kluster med Data Lake Storage Gen1 som ytterligare lagringsutrymme med hjälp av Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
-## <a name="use-data-lake-store-with-azure-data-lake-analytics"></a>Använd Data Lake Store med Azure Data Lake Analytics
-[Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) kan du arbeta med Stordata i molnskala. Den resurser etableras dynamiskt och du kan utföra analyser på terabyte eller även exabyte av data som kan lagras i ett antal datakällor som stöds, ett av dem som Data Lake Store. Data Lake Analytics är speciellt optimerade för att fungera med Azure Data Lake Store - ger högsta prestanda, genomströmning och parallellisering för dina arbetsbelastningar med stordata.
+## <a name="use-data-lake-storage-gen1-with-azure-data-lake-analytics"></a>Använda Data Lake Storage Gen1 med Azure Data Lake Analytics
+[Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) kan du arbeta med Stordata i molnskala. Den resurser etableras dynamiskt och kan utföra analyser på terabyte eller även exabyte av data som kan lagras på flera olika datakällor som stöds, en av dem som Data Lake Storage Gen1. Data Lake Analytics är speciellt optimerade för att arbeta med Data Lake Storage Gen1 - ger högsta prestanda, dataflöde och parallellisering för big data-arbetsbelastningar.
 
-Instruktioner om hur du använder Data Lake Analytics med Data Lake Store finns [Kom igång med Data Lake Analytics med hjälp av Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Instruktioner om hur du använder Data Lake Analytics med Data Lake Storage Gen1 finns [Kom igång med Data Lake Analytics med Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
-## <a name="use-data-lake-store-with-azure-data-factory"></a>Använd Data Lake Store med Azure Data Factory
-Du kan använda [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) att mata in data från Azure-tabeller, Azure SQL Database, Azure SQL DataWarehouse, Azure Storage-Blobbar och lokala databaser. Som en förstklassigt allmänheten i Azure-ekosystemet kan Azure Data Factory användas till att dirigera införandet av data från dessa källa till Azure Data Lake Store.
+## <a name="use-data-lake-storage-gen1-with-azure-data-factory"></a>Använda Data Lake Storage Gen1 med Azure Data Factory
+Du kan använda [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) att mata in data från Azure-tabeller, Azure SQL Database, Azure SQL DataWarehouse, Azure Storage-Blobbar och lokala databaser. Som en första klassens medborgare i Azure-ekosystemet, kan Azure Data Factory vara används för att samordna inmatningen av data från dessa källa till Data Lake Storage Gen1.
 
-Instruktioner om hur du använder Azure Data Factory med Data Lake Store finns [flytta data till och från Data Lake Store med hjälp av Data Factory](../data-factory/connector-azure-data-lake-store.md).
+Instruktioner om hur du använder Azure Data Factory med Data Lake Storage Gen1 finns [flytta data till och från Data Lake Storage Gen1 med Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
-## <a name="copy-data-from-azure-storage-blobs-into-data-lake-store"></a>Kopiera data från Azure Storage-Blobbar till Data Lake Store
-Azure Data Lake Store ger ett kommandoradsverktyg, AdlCopy som gör det möjligt att kopiera data från Azure Blob Storage till ett Data Lake Store-konto. Mer information finns i [kopiera data från Azure Storage-Blobbar till Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md).
+## <a name="copy-data-from-azure-storage-blobs-into-data-lake-storage-gen1"></a>Kopiera data från Azure Storage BLOB till Data Lake Storage Gen1
+Azure Data Lake Storage Gen1 ger ett kommandoradsverktyg, AdlCopy, där du kan kopiera data från Azure Blob Storage till en Gen1 för Data Lake Storage-konto. Mer information finns i [kopiera data från Azure Storage BLOB till Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md).
 
-## <a name="copy-data-between-azure-sql-database-and-data-lake-store"></a>Kopiera data mellan Azure SQL Database och Data Lake Store
-Du kan använda Apache Sqoop för att importera och exportera data mellan Azure SQL Database och Data Lake Store. Mer information finns i [kopiera data mellan Data Lake Store och Azure SQL database med Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
+## <a name="copy-data-between-azure-sql-database-and-data-lake-storage-gen1"></a>Kopiera data mellan Azure SQL Database och Data Lake Storage Gen1
+Du kan använda Apache Sqoop för att importera och exportera data mellan Azure SQL Database och Data Lake Storage Gen1. Mer information finns i [kopiera data mellan Data Lake Storage Gen1 och Azure SQL database med Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
 
-## <a name="use-data-lake-store-with-stream-analytics"></a>Använd Data Lake Store med Stream Analytics
-Du kan använda Data Lake Store som ett av utdata för att lagra data som direktuppspelas med Azure Stream Analytics. Mer information finns i [strömma data från Azure Storage Blob till Data Lake Store med Azure Stream Analytics](data-lake-store-stream-analytics.md).
+## <a name="use-data-lake-storage-gen1-with-stream-analytics"></a>Använda Data Lake Storage Gen1 med Stream Analytics
+Du kan använda Data Lake Storage Gen1 som en av utdata för att lagra data som strömmas med direktuppspelning med Azure Stream Analytics. Mer information finns i [Stream data från Azure Storage Blob till Data Lake Storage Gen1 med Azure Stream Analytics](data-lake-store-stream-analytics.md).
 
-## <a name="use-data-lake-store-with-power-bi"></a>Använd Data Lake Store med Powerbi
-Du kan använda Power BI för att importera data från ett Data Lake Store-konto för att analysera och visualisera data. Mer information finns i [analysera data i Data Lake Store med hjälp av Power BI](data-lake-store-power-bi.md).
+## <a name="use-data-lake-storage-gen1-with-power-bi"></a>Använda Data Lake Storage Gen1 med Powerbi
+Du kan använda Power BI för att importera data från ett Data Lake Storage Gen1-konto för att analysera och visualisera data. Mer information finns i [analysera data i Data Lake Storage Gen1 med Power BI](data-lake-store-power-bi.md).
 
-## <a name="use-data-lake-store-with-data-catalog"></a>Använd Data Lake Store med Data Catalog
-Du kan registrera data från Data Lake Store i Azure Data Catalog att göra data synlig i hela organisationen. Mer information finns i [registrera data från Data Lake Store i Azure Data Catalog](data-lake-store-with-data-catalog.md).
+## <a name="use-data-lake-storage-gen1-with-data-catalog"></a>Använda Data Lake Storage Gen1 med Data Catalog
+Du kan registrera data från Data Lake Storage Gen1 i Azure Data Catalog att göra data synlig i hela organisationen. Mer information finns i [registrera data från Data Lake Storage Gen1 i Azure Data Catalog](data-lake-store-with-data-catalog.md).
 
-## <a name="use-data-lake-store-with-sql-server-integration-services-ssis"></a>Använd Data Lake Store med SQL Server Integration Services (SSIS)
-Du kan använda Anslutningshanteraren för Azure Data Lake Store i SSIS för att ansluta ett SSIS-paket med Azure Data Lake Store. Mer information finns i [Använd Data Lake Store med SSIS](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
+## <a name="use-data-lake-storage-gen1-with-sql-server-integration-services-ssis"></a>Använda Data Lake Storage Gen1 med SQL Server Integration Services (SSIS)
+Du kan använda Data Lake Storage Gen1 Anslutningshanteraren i SSIS för att ansluta ett SSIS-paket med Data Lake Storage Gen1. Mer information finns i [Använd Data Lake Storage Gen1 med SSIS](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
 
-## <a name="use-data-lake-store-with-sql-data-warehouse"></a>Använd Data Lake Store med SQL Data Warehouse
-Du kan använda PolyBase för att läsa in data från Azure Data Lake Store till SQL Data Warehouse. Mer information finns i [Använd Data Lake Store med SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+## <a name="use-data-lake-storage-gen1-with-sql-data-warehouse"></a>Använda Data Lake Storage Gen1 med SQL Data Warehouse
+Du kan använda PolyBase för att läsa in data från Data Lake Storage Gen1 till SQL Data Warehouse. Mer information finns i [Använd Data Lake Storage Gen1 med SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
 
-## <a name="use-data-lake-store-with-azure-event-hubs"></a>Använd Data Lake Store med Azure Event Hubs
-Du kan använda Azure Data Lake Store att arkivera och avbilda data som tagits emot av Händelsehubbar i Azure. Mer information finns i [Använd Data Lake Store med Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).
+## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Använda Data Lake Storage Gen1 med Azure Event Hubs
+Du kan använda Azure Data Lake Storage Gen1 till arkivet och avbilda data som tas emot av Händelsehubbar i Azure. Mer information finns i [Använd Data Lake Storage Gen1 med Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).
 
 ## <a name="see-also"></a>Se också
-* [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
-* [Kom igång med Data Lake Store med hjälp av portalen](data-lake-store-get-started-portal.md)
-* [Kom igång med Data Lake Store med hjälp av PowerShell](data-lake-store-get-started-powershell.md)  
+* [Översikt över Azure Data Lake Storage Gen1](data-lake-store-overview.md)
+* [Komma igång med Data Lake Storage Gen1 med hjälp av portalen](data-lake-store-get-started-portal.md)
+* [Kom igång med Data Lake Storage Gen1 med hjälp av PowerShell](data-lake-store-get-started-powershell.md)  
 

@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: ec4260363aa0af3062a6d61db44a75d9ebd599db
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090752"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125263"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F #-Utvecklarreferens
 
@@ -29,6 +29,29 @@ Den här artikeln förutsätter att du redan har läst den [Azure Functions för
 En `.fsx` filen är en F #-skript. Det kan betraktas som ett F #-projekt som finns i en enda fil. Filen innehåller både koden för ditt program (i det här fallet din Azure-funktion) och direktiv för att hantera beroenden.
 
 När du använder en `.fsx` för en Azure-funktion, ofta krävs sammansättningar inkluderas automatiskt åt dig, så att du kan fokusera på koden för funktionen i stället för ”formaterad”.
+
+## <a name="folder-structure"></a>mappstruktur
+
+Mappstrukturen för en F #-skript projektet ser ut som följande:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+Det finns en delad [host.json] (functions-värd-json.md)-fil som kan användas för att konfigurera funktionsappen. Varje funktion har sina egna kodfilen (.fsx) och bindningen konfigurationsfil (function.json).
+
+Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime definieras i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-triggers-bindings.md#local-development-azure-functions-core-tools). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
 
 ## <a name="binding-to-arguments"></a>Bindning till argument
 Varje bindningen stöder en uppsättning argument som beskrivs i den [Azure Functions-utlösare och bindningar utvecklarreferens](functions-triggers-bindings.md). En av de argument-bindningar som har stöd för en blob-utlösare är till exempel en POCO som kan uttryckas i en F #-post. Exempel:

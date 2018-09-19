@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 1597e850219ddbab1a0714072c47e12016aa2069
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d46c0382540f33f41c44249cf9464426de265000
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736896"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124258"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine Serial Console
 
@@ -29,7 +29,7 @@ Virtual Machine Serial Console i Azure ger åtkomst till en textbaserad konsol f
 Seriell konsol dokumentation för virtuella Linux-datorer [Klicka här](../linux/serial-console.md).
 
 > [!Note] 
-> Seriekonsol för virtuella datorer är allmänt tillgängligt i globala Azure-regioner. I det här läget är seriell konsol ännu inte tillgängliga Azure Government eller Azure Kina-molnet.
+> Seriekonsol för virtuella datorer är allmänt tillgängligt i globala Azure-regioner. I det här läget ännu seriekonsolen inte finns tillgänglig i Azure Government eller Azure Kina moln.
 
  
 

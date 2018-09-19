@@ -1,6 +1,6 @@
 ---
-title: Använd Azure-portalen för att komma igång med Data Lake lagring Gen1 | Microsoft Docs
-description: Använda Azure portal för att skapa ett Data Lake Store-konto och utföra grundläggande åtgärder i data lake store
+title: Använd Azure-portalen för att komma igång med Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Använda Azure-portalen för att skapa ett Azure Data Lake Storage Gen1-konto och utföra grundläggande åtgärder i Data Lake Storage Gen1-konto.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: e23b2496ccb69bb530bd825a1feb99abcc4ab35b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: da238a30a55f37607abb3cfe63c3ba8f33ca2bf2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036677"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125178"
 ---
-# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Kom igång med Azure Data Lake lagring Gen1 med Azure-portalen
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Kom igång med Azure Data Lake Storage Gen1 med Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portalen](data-lake-store-get-started-portal.md)
@@ -28,79 +28,79 @@ ms.locfileid: "37036677"
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Lär dig mer om att använda Azure Portal för att skapa ett Azure Data Lake Store-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och ladda ned filer, ta bort ditt konto. Mer information finns i [översikt över Azure Data Lake lagring Gen1](data-lake-store-overview.md).
+Lär dig mer om att använda Azure portal för att skapa ett Azure Data Lake Storage Gen1-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta datafiler, ta bort ditt konto, osv. Mer information finns i [översikt av Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här självstudiekursen behöver du följande:
 
 * **en Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="create-an-azure-data-lake-store-account"></a>Skapa ett Azure Data Lake Store-konto
+## <a name="create-a-data-lake-storage-gen1-account"></a>Skapa ett Data Lake Storage Gen1-konto
 
 1. Logga in på nya [Azure Portal](https://portal.azure.com).
-2. Klicka på **Skapa en resurs > Storage > Data Lake Store**.
-3. På bladet **Ny Data Lake Store**, anger du de värden som visas på följande skärmbild:
+2. Klicka på **skapa en resurs > Storage > Data Lake Storage Gen1**.
+3. I den **ny Data Lake Storage Gen1** bladet anger du värden som visas i följande skärmbild:
    
-    ![Skapa ett nytt Azure Data Lake Store-konto](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Skapa ett nytt Azure Data Lake-konto")
+    ![Skapa ett nytt konto för Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "skapar ett nytt Data Lake Storage Gen1-konto")
    
-   * **Namn**. Ange ett unikt namn Data Lake Store-kontot.
-   * **Prenumeration**. Välj den prenumeration under vilken du vill skapa ett nytt Data Lake Store-konto.
-   * **Resursgrupp**. Välj en befintlig resursgrupp eller klicka på **Skapa en resursgrupp** för att skapa en. En resursgrupp är en behållare som innehåller relaterade resurser för ett program. Mer information finns i [Resursgrupper i Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   * **Plats**: Välj en plats där du vill skapa Data Lake Store-kontot.
+   * **Namn**. Ange ett unikt namn för Data Lake Storage Gen1-kontot.
+   * **Prenumeration**. Välj den prenumeration som du vill skapa ett nytt Data Lake Storage Gen1-konto.
+   * **Resursgrupp**. Välj en befintlig resursgrupp eller klicka på **Skapa en resursgrupp** för att skapa en. En resursgrupp är en container som innehåller relaterade resurser för ett program. Mer information finns i [Resursgrupper i Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   * **Plats**: Välj en plats där du vill skapa Data Lake Storage Gen1-konto.
    * **Krypteringsinställningar**. Det finns tre alternativ:
      
      * **Aktivera inte kryptering**.
-     * **Använd nycklar som hanteras av Data Lake Store**.  om du vill att dina krypteringsnycklar ska hanteras av Azure Data Lake Store.
-     * **Välj nycklar från ditt eget nyckelvalv**. Du kan välja ett befintligt Azure Key Vault eller skapa ett nytt nyckelvalv. Om du vill använda nycklarna från ett nyckelvalv måste du tilldela behörigheter för Azure Data Lake Store-konto för åtkomst till Azure Key Vault. Anvisningar finns i [Tilldela behörigheter till Azure Key Vault](#assign-permissions-to-azure-key-vault).
+     * **Använd nycklar som hanteras av Data Lake Storage Gen1**om du vill att Data Lake Storage Gen1 att hantera dina krypteringsnycklar.
+     * **Välj nycklar från ditt eget nyckelvalv**. Du kan välja ett befintligt Azure Key Vault eller skapa ett nytt nyckelvalv. Om du vill använda nycklarna från ett Nyckelvalv måste du tilldela behörigheter för Data Lake Storage Gen1-konto för åtkomst till Azure Key Vault. Anvisningar finns i [Tilldela behörigheter till Azure Key Vault](#assign-permissions-to-azure-key-vault).
        
-        ![Data Lake Store-kryptering](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store-kryptering")
+        ![Kryptering av data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-2.png "kryptering för Data Lake Storage Gen1")
        
         Klicka på **OK** i bladet **krypteringsinställningar**.
 
-        Mer information finns i [Kryptering av data i Azure Data Lake Store](./data-lake-store-encryption.md).
+        Mer information finns i [kryptering av data i Azure Data Lake Storage Gen1](./data-lake-store-encryption.md).
 
-4. Klicka på **Skapa**. Om du väljer att fästa kontot på startsidan, tas du tillbaka till startsidan där du kan se förloppet för Data Lake Store-kontoetableringen. När Data Lake Store-kontot har etablerats visas kontobladet.
+4. Klicka på **Skapa**. Om du har valt att fästa kontot på instrumentpanelen, tas du tillbaka till instrumentpanelen och du kan följa förloppet för Data Lake Storage Gen1 kontoetableringen. När Data Lake Storage Gen1-konto har etablerats visas.
 
 ## <a name="assign-permissions-to-azure-key-vault"></a>Tilldela behörigheter till Azure Key Vault
-Om du använder nycklar från ett Azure Key Vault för att konfigurera kryptering för ett Data Lake Store-konto, måste du konfigurera åtkomst mellan Data Lake Store-kontot och Azure Key Vault-kontot. Utför följande steg för att göra det.
+Om du använder nycklar från ett Azure Key Vault för att konfigurera kryptering för Data Lake Storage Gen1-konto, måste du konfigurera åtkomst mellan Data Lake Storage Gen1-konto och Azure Key Vault-konto. Utför följande steg för att göra det.
 
-1. Om du använder nycklar från Azure Key Vault visar bladet för Data Lake Store-kontot en varning överst på sidan. Klicka på varningen för att öppna **kryptering**.
+1. Om du använder nycklar från Azure Key Vault visar bladet för Data Lake Storage Gen1 kontot en varning längst upp. Klicka på varningen för att öppna **kryptering**.
    
-    ![Data Lake Store-kryptering](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Store-kryptering")
+    ![Kryptering av data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-3.png "kryptering för Data Lake Storage Gen1")
 2. Bladet visar två alternativ för att konfigurera åtkomst.
 
-    ![Data Lake Store-kryptering](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Data Lake Store-kryptering")
+    ![Kryptering av data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-4.png "kryptering för Data Lake Storage Gen1")
    
-   * Klicka på **Ge behörighet** på första alternativet för att konfigurera åtkomst. Det första alternativet är endast aktiverat när användaren som skapade kontot Data Lake Store också är administratör för Azure Key Vault.
+   * Klicka på **Ge behörighet** på första alternativet för att konfigurera åtkomst. Det första alternativet aktiveras bara om användaren som skapade kontot Data Lake Storage Gen1 också är administratör för Azure Key Vault.
    * Ett annat alternativ är att köra PowerShell-cmdleten som visas på bladet. Du måste vara ägare till Azure Key Vault eller ha möjlighet att bevilja behörighet för Azure Key Vault. När du har kört cmdlet:en, gå tillbaka till bladet och klickar på **Aktivera** att konfigurera åtkomst.
 
 > [!NOTE]
-> Du kan också skapa ett Data Lake Store-konto med hjälp av Azure Resource Manager-mallar. Mallarna är tillgängliga från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
-    - Utan datakryptering: [Distribuera Azure Data Lake Store-konto utan datakryptering](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - Med datakryptering med hjälp av Data Lake Store: [Distribuera Data Lake Store-konto med kryptering (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - Med datakryptering med hjälp av Azure Key Vault: [Distribuera Data Lake Store-konto med kryptering (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> Du kan också skapa ett Data Lake Storage Gen1-konto med Azure Resource Manager-mallar. Mallarna är tillgängliga från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
+    - Utan datakryptering: [distribuera Azure Data Lake Storage Gen1 konto utan datakryptering](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+    - Med datakryptering med hjälp av Data Lake Storage Gen1: [distribuera Gen1 för Data Lake Storage-konto med kryptering (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+    - Med datakryptering med hjälp av Azure Key Vault: [distribuera Gen1 för Data Lake Storage-konto med kryptering (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 
 
 
-## <a name="createfolder"></a>Skapa mappar i Azure Data Lake Store-konto
-Du kan skapa mappar under Data Lake Store-kontot för att hantera och lagra data.
+## <a name="createfolder"></a>Skapa mappar i ett Data Lake Storage Gen1-konto
+Du kan skapa mappar under Data Lake Storage Gen1 kontot för att hantera och lagra data.
 
-1. Öppna det Data Lake Store-konto som du har skapat. Klicka på **Alla resurser** i den vänstra rutan, och klicka sedan på det kontonamn under vilket du vill skapa mappar. Om du fäst kontot på startsidan klickar du på kontoikonen.
-2. I ditt Data Lake Store-kontoblad klickar du på **Data Explorer**.
+1. Öppna det Data Lake Storage Gen1-konto som du skapade. Klicka på **Alla resurser** i den vänstra rutan, och klicka sedan på det kontonamn under vilket du vill skapa mappar. Om du fäst kontot på startsidan klickar du på kontoikonen.
+2. I ditt Data Lake Storage Gen1-kontoblad klickar du på **Datautforskaren**.
    
-    ![Skapa mappar i Data Lake Store-konto](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Skapa mappar i Data Lake Store-konto")
+    ![Skapa mappar i ett Data Lake Storage Gen1 konto](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "skapa mappar i ett Data Lake Storage Gen1-konto")
 3. I bladet i Datautforskaren klickar du på **Ny mapp**, ange ett namn på den nya mappen och klicka sedan på **OK**.
    
-    ![Skapa mappar i Data Lake Store-konto](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Skapa mappar i Data Lake Store-konto")
+    ![Skapa mappar i ett Data Lake Storage Gen1 konto](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "skapa mappar i ett Data Lake Storage Gen1-konto")
    
     Den nya mappen visas i bladet **Datautforskaren**. Du kan skapa kapslade mappar upp till valfri nivå.
    
-    ![Skapa mappar i Data Lake-konto](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Skapa mappar i Data Lake-konto")
+    ![Skapa mappar i ett Data Lake-konto](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "skapa mappar i ett Data Lake-konto")
 
-## <a name="uploaddata"></a>Ladda upp data till Azure Data Lake Store-konto
-Du kan ladda upp data till ett Azure Data Lake Store-konto direkt på rotnivå eller till en mapp som du har skapat i kontot. 
+## <a name="uploaddata"></a>Ladda upp data till ett Data Lake Storage Gen1-konto
+Du kan ladda upp data till ett Data Lake Storage Gen1-konto direkt på rotnivå eller till en mapp som du har skapat i kontot. 
 
 1. I bladet i **Datautforskaren** klickar du på **Ladda upp**. 
 2. I bladet **Ladda upp filer** går du till de filer du vill ladda upp och klickar sedan på **Lägg till valda filer**. Du kan också välja mer än en fil att ladda upp.
@@ -115,16 +115,16 @@ Klicka på ellipsikonen mot en fil och klicka i popup-menyn på den åtgärd du 
 ![Egenskaper för data](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Egenskaper för data") 
 
 ## <a name="secure-your-data"></a>Skydda dina data
-Du kan skydda data som lagras i ditt Azure Data Lake Store-konto med hjälp av Azure Active Directory och åtkomstkontroll (ACL). Mer information om hur du gör finns i [Skydda data i Azure Data Lake Store](data-lake-store-secure-data.md).
+Du kan skydda data som lagras i ditt Data Lake Storage Gen1-konto med Azure Active Directory och åtkomstkontroll (ACL). Anvisningar för hur du gör finns i [skydda data i Azure Data Lake Storage Gen1](data-lake-store-secure-data.md).
 
-## <a name="delete-azure-data-lake-store-account"></a>Ta bort Azure Data Lake Store-konto
-Om du vill ta bort ett Azure Data Lake Store-konto från dina Data Lake Store-blad, klicka på **Ta bort**. För att bekräfta åtgärden uppmanas du att ange namnet på det konto som du vill ta bort. Ange namnet på kontot och klicka sedan på **Ta bort**.
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Ta bort ett Data Lake Storage Gen1-konto
+Om du vill ta bort ett Data Lake Storage Gen1-konto från dina Data Lake Storage Gen1-bladet, klickar du på **ta bort**. För att bekräfta åtgärden uppmanas du att ange namnet på det konto som du vill ta bort. Ange namnet på kontot och klicka sedan på **Ta bort**.
 
-![Ta bort Data Lake-konto](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Ta bort Data Lake-konto")
+![Ta bort Data Lake Storage Gen1 konto](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "ta bort Data Lake-konto")
 
 ## <a name="next-steps"></a>Nästa steg
-* [Använd Azure Data Lake Store för stordatakrav](data-lake-store-data-scenarios.md) 
-* [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
-* [Använd Azure Data Lake Analytics med Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Använd Azure HDInsight med Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Använda Azure Data Lake Storage Gen1 för stordatakrav](data-lake-store-data-scenarios.md) 
+* [Skydda data i Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Använd Azure Data Lake Analytics med Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Använd Azure HDInsight med Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

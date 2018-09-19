@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c1247dfca6dea638da2113fef940b97ad3348b9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160288"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297579"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 
@@ -122,7 +122,7 @@ Om Microsoft Azure Active Directory PowerShell-modulen inte finns installeras de
 
 Om du vill använda NPS-tillägget, lokala användare synkroniseras med Azure Active Directory och aktiverade för MFA. Den här handboken förutsätts att en lokal användare synkroniseras med Azure Active Directory via Azure AD Connect. Anvisningar för att ge användare för MFA finns nedan.
 
-Information om Azure AD Connect finns i [integrerar dina lokala kataloger med Azure Active Directory](../connect/active-directory-aadconnect.md). 
+Information om Azure AD Connect finns i [integrerar dina lokala kataloger med Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>ID för Azure Active Directory-GUID 
 
@@ -393,7 +393,7 @@ Om du vill använda skriptet, ger du tillägget med dina administrativa autentis
 
 6. Starta om servern.
 
-### <a name="verify-the-configuration"></a>Kontrollera att konfigurationen
+### <a name="verify-the-configuration"></a>Kontrollera konfigurationen
 Du kan verifiera konfigurationen, måste du upprätta en ny VPN-anslutning med VPN-servern. När du har angett dina autentiseringsuppgifter för primär autentisering, väntar VPN-anslutningen på den sekundära autentiseringen ska lyckas innan anslutningen har upprättats, enligt nedan. 
 
 ![Fönstret VPN för Windows-inställningar](./media/howto-mfa-nps-extension-vpn/image42.png)
@@ -453,5 +453,5 @@ Mer information finns i [integrera din befintliga NPS-infrastruktur med Azure Mu
 
 [Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integrerar dina lokala kataloger med Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Integrerar dina lokala kataloger med Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

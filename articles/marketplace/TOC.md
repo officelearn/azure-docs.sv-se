@@ -20,7 +20,7 @@
 #### [Containrar](./marketplace-containers.md)
 #### [Konsulttjänst](./consulting-services.md)  
 #### [Publiceringsguide för Office 365, Dynamics 365 och Power BI](./appsource-offer-publishing-guide.md)
-#### [Aktivera din utvärderingsversion av Marketplace med Azure Active Directory](./enable-trial-using-azure-ad.md)
+#### [Aktivera en Microsoft AppSource- och Azure Marketplace-listning med hjälp av Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Låt din verksamhet växa genom marknadsplatsen](./grow-your-business-with-azure-marketplace.md)  
 #### [Önskade lösningar](./preferred-solutions.md) 

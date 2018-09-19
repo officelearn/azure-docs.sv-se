@@ -1,6 +1,6 @@
 ---
-title: 'Slutanvändarens autentisering: .NET SDK med Data Lake Store med Azure Active Directory | Microsoft Docs'
-description: Lär dig att uppnå slutanvändarens autentisering med Data Lake Store med Azure Active Directory med .NET SDK
+title: 'Slutanvändarautentisering: .NET SDK med Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft Docs'
+description: Lär dig att uppnå slutanvändarautentisering med Azure Data Lake Storage Gen1 med Azure Active Directory med .NET SDK
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cbb0f703f61b6c15b3a827dc75821286b7914c21
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 65672d5dc42ae1e584a36bcc72c16911f6c1f6e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623969"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122833"
 ---
-# <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Slutanvändarens autentisering med Data Lake Store med hjälp av .NET SDK
+# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Slutanvändarautentisering med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
 > * [Använda Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Använda .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
@@ -27,14 +27,14 @@ ms.locfileid: "34623969"
 > 
 >  
 
-I den här artikeln får du lära dig hur du använder .NET SDK för att göra slutanvändarens autentisering med Azure Data Lake Store. Tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av .NET SDK, se [tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
+I den här artikeln lär du dig hur du använder .NET SDK för att göra slutanvändarautentisering med Azure Data Lake Storage Gen1. Tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med hjälp av .NET SDK, se [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 * **Visual Studio 2013, 2015 eller 2017**. Anvisningarna nedan använder Visual Studio 2017.
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Skapa ett Azure Active Directory ”interna” program**. Du måste ha slutfört stegen i [slutanvändarens autentisering med Data Lake Store med Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Skapa ett Azure Active Directory ”interna” program**. Du måste ha slutfört stegen i [slutanvändarautentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
 1. Öppna Visual Studio och skapa ett konsolprogram.
@@ -62,7 +62,7 @@ I den här artikeln får du lära dig hur du använder .NET SDK för att göra s
    4. Stäng **NuGet Package Manager**.
 
 6. Öppna **Program.cs**
-7. Ersätt den med hjälp av rapporter med följande rader:
+7. Ersätt den med hjälp av-instruktioner med följande rader:
 
     ```csharp
     using System;
@@ -80,11 +80,11 @@ I den här artikeln får du lära dig hur du använder .NET SDK för att göra s
     ```     
 
 ## <a name="end-user-authentication"></a>Slutanvändarautentisering
-Lägg till följande kodutdrag i .NET-klientprogrammet. Ersätta platshållarvärdena med värden som hämtats från en intern Azure AD-program (visas en förutsättning). Den här fragment låter dig autentisera ditt program **interaktivt** med Data Lake Store, vilket innebär att du uppmanas att ange dina autentiseringsuppgifter för Azure.
+Lägg till det här kodfragmentet i dina .NET-klientprogram. Ersätt platshållarvärdena med värden som hämtats från en Azure AD-program (som listas som krav). Det här kodfragmentet kan du autentisera ditt program **interaktivt** med Data Lake Storage Gen1, vilket innebär att du uppmanas att ange dina autentiseringsuppgifter för Azure.
 
-Lätt att använda använder följande kodavsnitt standardvärden för klient-ID och omdirigerings-URI som är giltiga för alla Azure-prenumerationer. I följande fragment behöver du bara ange värdet för klient-ID. Du kan hämta klient-ID med hjälp av anvisningarna i [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+I följande kodfragment används standardvärden för klient-ID och omdirigerings-URI som är giltiga för alla Azure-prenumerationer för enkelhets skull. I följande kodfragment behöver du bara ange värdet för din klient-ID. Du kan hämta klient-ID med hjälp av anvisningarna på [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     
-- Ersätt Main()-funktionen med följande kod:
+- Ersätt funktionen Main() med följande kod:
 
     ```csharp
     private static void Main(string[] args)
@@ -104,14 +104,14 @@ Lätt att använda använder följande kodavsnitt standardvärden för klient-ID
 
 Några saker du behöver veta om föregående fragment:
 
-* Sammandraget som föregår använder en hjälpfunktioner `GetTokenCache` och `GetCreds_User_Popup`. Koden för dessa hjälpfunktioner finns [här på Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
-* För att slutföra kursen snabbare ska använder kodavsnittet programspecifika klient-ID, som är tillgängligt som standard för alla Azure-prenumerationer. Så kan du **använder detta utdrag i befintligt skick i ditt program**.
-* Men om du vill använda en egen Azure AD-domän och ett eget programklient-ID måste du skapa ett eget Azure AD-program och sedan använda Azure AD-domänens ID, klient-ID och omdirigerings-URI för det program som du skapade. Se [Create an Active Directory Application for end-user authentication with Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md) (Skapa ett Active Directory-program för slutanvändarautentisering med Data Lake Store) för anvisningar.
+* I föregående kodfragment används en hjälpfunktioner `GetTokenCache` och `GetCreds_User_Popup`. Koden för dessa hjälpfunktioner finns [här på Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* Som hjälper dig att slutföra kursen snabbare, används i kodfragment ett internt program klient-ID som är tillgängligt som standard för alla Azure-prenumerationer. Så kan du **använder detta utdrag i befintligt skick i ditt program**.
+* Men om du vill använda en egen Azure AD-domän och ett eget programklient-ID måste du skapa ett eget Azure AD-program och sedan använda Azure AD-domänens ID, klient-ID och omdirigerings-URI för det program som du skapade. Se [skapa ett Active Directory-program för slutanvändarautentisering med Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) anvisningar.
 
   
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln beskrivs hur du använder slutanvändarens autentisering för att autentisera med Azure Data Lake Store med hjälp av .NET SDK. Du kan nu se följande artiklar som talar om hur du använder .NET SDK för att arbeta med Azure Data Lake Store.
+I den här artikeln beskrivs hur du använder autentisering för slutanvändare för att autentisera med Azure Data Lake Storage Gen1 med .NET SDK. Du kan nu se ut i följande artiklar som pratar om hur du använder .NET SDK för att arbeta med Azure Data Lake Storage Gen1.
 
-* [Kontohanteringsåtgärder på Azure Data Lake Store med hjälp av .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Dataåtgärder på Data Lake Store med hjälp av .NET SDK](data-lake-store-data-operations-net-sdk.md)
+* [Kontohanteringsåtgärder i Data Lake Storage Gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Åtgärder på Data Lake Storage Gen1 med .NET SDK](data-lake-store-data-operations-net-sdk.md)
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: dab282ad8f5f55b12d83f3329823d76b8ba4000f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 8c8376fcdcc33996ecc9340647c92a3abcf262c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629312"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129700"
 ---
-# <a name="copy-data-from-oracle-responsys-using-azure-data-factory"></a>Kopiera data från Oracle Responsys med Azure Data Factory
+# <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Kopiera data från Oracle Responsys med Azure Data Factory (förhandsversion)
 
 Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Oracle Responsys. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 

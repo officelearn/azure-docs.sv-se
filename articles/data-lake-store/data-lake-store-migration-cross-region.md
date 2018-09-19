@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store mellan region migrering | Microsoft Docs
-description: Mer information om migrering mellan region för Azure Data Lake Store.
+title: Azure Data Lake Storage Gen1 interregionala-migrering | Microsoft Docs
+description: Läs mer om migrering över flera regioner för Azure Data Lake Storage Gen1.
 services: data-lake-store
 documentationcenter: ''
 author: swums
@@ -12,43 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: 1199eca457c3f06fdd6a4b68a05da3210ea9a2c9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0d27ae79ab2c14cc5fd5ca81b8b7f089e7fa294e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34197247"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126232"
 ---
-# <a name="migrate-data-lake-store-across-regions"></a>Migrera Data Lake Store över regioner
+# <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrera Azure Data Lake Storage Gen1 över regioner
 
-Som Azure Data Lake Store blir tillgängliga i nya regioner, kan du välja att göra en enstaka migrering för att dra nytta av nya region. Lär dig vad du ska tänka på när du planerar och slutföra migreringen.
+Eftersom Azure Data Lake Storage Gen1 blir tillgängligt i nya regioner kan du välja att göra ett tillfälle för att kunna utnyttja det nya området. Lär dig vad du ska tänka på när du planerar och slutföra migreringen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **En Azure-prenumeration**. Mer information finns i [skapa din kostnadsfria Azure-konto idag](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett Data Lake Store-konto i två olika regioner**. Mer information finns i [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md).
+* **En Azure-prenumeration**. Mer information finns i [skapa ditt kostnadsfria Azure-konto i dag](https://azure.microsoft.com/pricing/free-trial/).
+* **Ett Data Lake Storage Gen1 konto i två olika regioner**. Mer information finns i [Kom igång med Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **Azure Data Factory**. Mer information finns i [Introduktion till Azure Data Factory](../data-factory/introduction.md).
 
 
 ## <a name="migration-considerations"></a>Överväganden vid migrering
 
-Först identifiera migreringsstrategi som passar bäst för ditt program som skriver, läser eller bearbetar data i Data Lake Store. När du väljer en strategi, Överväg programmets tillgänglighet och avbrottstiden som uppstår under migreringen. Till exempel kan den enklaste metoden är att använda migrering ”lift och SKIFT” molnmodellen. I den här metoden pausar programmet i din befintliga region när alla data kopieras till den nya regionen. När kopieringen är klar du återuppta ditt program i den nya regionen och ta sedan bort det gamla Data Lake Store-kontot. Det krävs avbrott under migreringen.
+Först identifiera migreringsstrategi som fungerar bäst för ditt program som skriver, läser och bearbetar data i Data Lake Storage Gen1. När du väljer en strategi du programmets tillgänglighet och stilleståndstid som uppstår under migreringen. Exempelvis kanske den enklaste metoden att använda ”lift and shift” molnet migration-modellen. Den här metoden kan pausa du programmet i din befintliga region medan alla dina data har kopierats till det nya området. När kopieringen är klar kan du återuppta ditt program i det nya området och ta sedan bort det gamla Data Lake Storage Gen1-kontot. Det krävs avbrott under migreringen.
 
-Om du vill minska avbrottstiden starta du omedelbart att mata in nya data i den nya regionen. När du har den minsta mängd data som behövs, kör ditt program i den nya regionen. Fortsätta att kopiera äldre data från befintliga Data Lake Store-kontot till det nya Data Lake Store-kontot i den nya regionen i bakgrunden. Med den här metoden kan du växeln till den nya regionen lite avbrott. Ta bort det gamla Data Lake Store-kontot när alla äldre data har kopierats.
+Om du vill minska stopptiden börja du omedelbart att mata in nya data i det nya området. När du har den minsta mängd data som behövs, kör du ditt program i det nya området. I bakgrunden, fortsätter du att kopiera äldre data från det befintliga Gen1 för Data Lake Storage-kontot till det nya Gen1 för Data Lake Storage-kontot i det nya området. Med den här metoden kan göra du växeln till det nya området med lite avbrott. Ta bort det gamla Data Lake Storage Gen1-kontot när alla äldre data har kopierats.
 
-Viktig information att tänka på när du planerar migreringen är:
+Annan viktig information att tänka på när du planerar din migrering är:
 
-* **Datavolymen**. Mängden data (i GB, hur många filer och mappar och så vidare) påverkar tid och resurser som du behöver för migreringen.
+* **Datavolym**. Mängden data (i GB, hur många filer och mappar och så vidare) påverkar tid och resurser du behöver för migreringen.
 
-* **Data Lake Store-kontonamnet**. Det nya kontonamnet i den nya regionen måste vara globalt unika. Namnet på ditt gamla Data Lake Store-konto i östra USA 2 kan till exempel vara contosoeastus2.azuredatalakestore.net. Ditt nya Data Lake Store-konto i Norra Europa contosonortheu.azuredatalakestore.net kan namnet.
+* **Kontonamnet för data Lake Storage Gen1**. Det nya kontonamnet i det nya området måste vara globalt unikt. Namnet på ditt gamla Gen1 för Data Lake Storage-konto i USA, östra 2 kan till exempel vara contosoeastus2.azuredatalakestore.net. Du kan namnge ditt nya Gen1 för Data Lake Storage-konto i Norra Europa contosonortheu.azuredatalakestore.net.
 
-* **Verktyg för**. Vi rekommenderar att du använder den [Azure Data Factory-Kopieringsaktiviteten](../data-factory/connector-azure-data-lake-store.md) att kopiera Data Lake Store-filer. Data Factory har stöd för flytt av data med hög prestanda och tillförlitlighet. Tänk på att Data Factory kopierar endast mapphierarkin och innehållet i filerna. Du måste manuellt koppla alla åtkomstkontrollistor (ACL) som du använder i det gamla kontot till det nya kontot. Mer information, inklusive prestandamål för bästa möjliga scenarier finns i [prestandajustering guide och Kopieringsaktivitet prestanda](../data-factory/copy-activity-performance.md). Om du vill att data som kopieras snabbare kan du behöva använda ytterligare enheter i molnet Data Movement. Vissa andra verktyg som AdlCopy, stöder inte kopiering av data mellan regioner.  
+* **Verktyg för**. Vi rekommenderar att du använder den [Kopieringsaktiviteten för Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) att kopiera Data Lake Storage Gen1 filer. Data Factory stöder dataförflyttning med höga prestanda och tillförlitlighet. Tänk på att Data Factory kopierar endast mapphierarkin och innehållet i filerna. Du måste manuellt tillämpa några åtkomstkontrollistor (ACL) som du använder i det gamla kontot till det nya kontot. Mer information, inklusive prestandamål för bästa möjliga scenarier finns i den [Kopieringsaktiviteten prestanda- och Justeringsguiden](../data-factory/copy-activity-performance.md). Om du vill att data som kopieras snabbare kan du behöva använda ytterligare enheter för Molndataflytt. Vissa andra verktyg som AdlCopy, stöder inte kopiering av data mellan regioner.  
 
-* **Kostnader för bandbredd**. [Kostnader för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/) gäller eftersom data överförs utanför en Azure-region.
+* **Bandbreddsavgifter**. [Bandbreddsavgifter](https://azure.microsoft.com/pricing/details/bandwidth/) gäller eftersom data överförs utanför en Azure-region.
 
-* **ACL: er på dina data**. Skydda dina data i den nya regionen genom att använda ACL: er för filer och mappar. Mer information finns i [att skydda data som lagras i Azure Data Lake Store](data-lake-store-secure-data.md). Vi rekommenderar att du använder migrering för att uppdatera och ändra din ACL: er. Du kanske vill använda inställningarna för liknar de aktuella inställningarna. Du kan visa ACL: er som tillämpas på alla filer med hjälp av Azure portal [PowerShell-cmdlets](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission), eller SDK: er.  
+* **ACL: er på dina data**. Skydda dina data i det nya området genom att använda ACL: er för filer och mappar. Mer information finns i [skydda data som lagrats i Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). Vi rekommenderar att du använder migrering för att uppdatera och justera dina ACL: er. Du kanske vill använda inställningarna som liknar de aktuella inställningarna. Du kan visa ACL: er som tillämpas på alla filer med hjälp av Azure-portalen [PowerShell-cmdletar](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission), eller SDK: er.  
 
-* **Platsen för Analystjänster**. För bästa prestanda måste din analytics tjänster, till exempel Azure Data Lake Analytics eller Azure HDInsight vara i samma region som dina data.  
+* **Platsen för Analystjänster**. För bästa prestanda bör dina Analystjänster som Azure Data Lake Analytics eller Azure HDInsight, vara i samma region som dina data.  
 
 ## <a name="next-steps"></a>Nästa steg
-* [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
+* [Översikt över Azure Data Lake Storage Gen1](data-lake-store-overview.md)

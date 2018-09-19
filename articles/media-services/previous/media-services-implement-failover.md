@@ -1,63 +1,57 @@
 ---
 title: Implementera redundans strömning med Azure Media Services | Microsoft Docs
-description: Det här avsnittet visar hur du implementerar en växling vid fel strömning scenario.
+description: Det här avsnittet visar hur du implementerar en redundans streaming scenario.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 9ea18d4131705ac1e7ba12ed6af6d8202e766abd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788860"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124618"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Implementera redundans strömning med Azure Media Services
 
-Den här genomgången visar hur du kopierar innehåll (BLOB) från en tillgång till en annan för att hantera redundans för strömning på begäran. Det här scenariot är användbart om du vill ställa in Azure Content Delivery Network att växla över mellan två datacenter, vid ett strömavbrott i ett datacenter. Den här genomgången använder Azure Media Services SDK, Azure Media Services REST API och Azure Storage SDK: N för att demonstrera följande uppgifter:
+Den här genomgången visar hur du kopierar innehållet (blobbar) från en tillgång till en annan för att hantera redundans för strömning på begäran. Det här scenariot är användbart om du vill ställa in Azure Content Delivery Network för att växla över mellan två datacenter i händelse av ett strömavbrott i ett datacenter. Den här genomgången använder Azure Media Services SDK, Azure Media Services REST-API och Azure Storage SDK för att demonstrera följande uppgifter:
 
-1. Skapa ett Media Services-konto i ”A. Datacenter”
+1. Upprätta ett Media Services-konto i ”datacenter a”
 2. Överför en mezzaninfil till en källa tillgång.
-3. Koda tillgången till flera bit hastighet MP4-filer. 
-4. Skapa en delad läsåtkomst signatur. Detta är att källan tillgången ska ha läsbehörighet till behållaren i storage-konto som är associerad med källan tillgången.
-5. Hämta behållarnamn tillgångens källa från den delade läsbehörighet signatur positionerare skapade i föregående steg. Detta är nödvändigt för att kopiera BLOB mellan storage-konton (beskrivs senare i avsnittet).
-6. Skapa ett ursprung positionerare för tillgången som skapades av aktiviteten kodning. 
+3. Koda tillgången till flera stund rate MP4-filer. 
+4. Skapa en delad läsåtkomst signatur. Det här är att källan tillgången ska ha läsbehörighet till behållaren i lagringskontot som är associerad med den käll-tillgången.
+5. Hämta behållarens namn tillgångens datakälla från den skrivskyddade delade lokaliserare skapade i föregående steg. Detta är nödvändigt för att kopiera BLOB-objekt mellan lagringskonton (beskrivs senare i avsnittet).
+6. Skapa en ursprung lokaliserare för den tillgång som skapades av kodningsjobbet. 
 
-Sedan kan hantera redundans:
+Sedan kan hantera växling vid fel:
 
-1. Skapa ett Media Services-konto i ”Data Center B.”
-2. Skapa en tom tillgång mål i Media Services-kontot.
-3. Skapa en skrivning delad åtkomst signatur. Detta är tomt tillgången mål för skrivåtkomst till behållaren i mål-lagringskontot som är kopplat till målet tillgången.
-4. Använd Azure Storage SDK: N för att kopiera BLOB (tillgångsfiler) mellan käll-lagringskonto i ”datacenter A” och mål-lagringskontot i ”Data Center B.” Dessa storage-konton är kopplade till resurser av intresse.
-5. Associera blobbar (tillgångsfiler) som har kopierats till mål-blob-behållare med mål tillgången. 
-6. Skapa ett ursprung positionerare för tillgången i ”Data Center B” och ange lokaliserare-ID som har genererats för tillgången i ”A. Datacenter”
+1. Upprätta ett Media Services-konto i ”Data Center B.”
+2. Skapa ett tomt mål-tillgång i Media Services-kontot.
+3. Skapa en lokaliserare för skrivning som delad. Detta är tomt tillgången mål för skrivåtkomst till behållaren i mål-lagringskontot som är associerad med mål tillgången.
+4. Använd Azure Storage SDK för att kopiera blobar (tillgångsfiler) mellan källagringskontot i ”datacenter A” och mål-lagringskontot i ”Data Center B.” Dessa konton är associerade med tillgångar i närheten.
+5. Associera blobar (tillgångsfiler) som har kopierats till mål-blob-behållare med mål tillgången. 
+6. Skapa en ursprung-positionerare för tillgången i ”Data Center B” och ange positionerare-ID som genererades för tillgången i ”datacenter A.”
 
-Detta ger dig strömmande URL: er där relativa sökvägar för URL: er är samma (endast basen URL skiljer sig åt). 
+Detta ger dig de strömmande URL: er där relativa sökvägar för URL: er är desamma (endast grundläggande URL: er är olika). 
 
-Du kan sedan skapa ett innehållsleveransnätverk ovanpå dessa ursprung positionerare för att hantera alla avbrott. 
+Du kan sedan skapa en Content Delivery Network ovanpå dessa ursprung positionerare för att hantera alla avbrott. 
 
 Följande gäller:
 
-* Den aktuella versionen av Media Services SDK stöder inte programmässigt genererar IAssetFile information som kan associera en tillgång med tillgångsfiler. Använd i stället CreateFileInfos Media Services REST API för att göra detta. 
-* Lagringskrypterad tillgångar (AssetCreationOptions.StorageEncrypted) stöds inte för replikering (eftersom krypteringsnyckeln är olika i båda Media Services-konton). 
-* Om du vill dra nytta av dynamisk paketering, kontrollera att den strömningsslutpunkt från vilken du vill strömma ditt innehåll finns i den **kör** tillstånd.
-
-> [!NOTE]
-> Överväg att använda Media Services [replikatorn verktyget](http://replicator.codeplex.com/) i stället för att implementera en växling vid fel strömning scenariot manuellt. Det här verktyget kan du replikera tillgångar mellan två Media Services-konton.
-> 
-> 
+* Den aktuella versionen av Media Services SDK stöder inte programmässigt genererar IAssetFile information som kan associera en tillgång med tillgångsfiler. Använd i stället CreateFileInfos Media Services REST-API för att göra detta. 
+* Storage krypteras tillgångar (AssetCreationOptions.StorageEncrypted) stöds inte för replikering (eftersom krypteringsnyckeln är olika i båda Media Services-konton). 
+* Om du vill dra nytta av dynamisk paketering, kontrollera att slutpunkten för direktuppspelning som du vill att strömma ditt innehåll finns i den **kör** tillstånd.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Två Media Services-konton i en ny eller befintlig Azure-prenumeration. Se [hur du skapar ett Media Services-konto](media-services-portal-create-account.md).
+* Två Media Services-konton i en ny eller befintlig Azure-prenumeration. Se [hur du skapar ett Media Services-kontot](media-services-portal-create-account.md).
 * Operativsystem: Windows 7, Windows 2008 R2 eller Windows 8.
 * .NET framework 4.5 eller .NET Framework 4.
 * Visual Studio 2010 SP1 eller senare version (Professional, Premium, Ultimate eller Express).
@@ -65,11 +59,11 @@ Följande gäller:
 ## <a name="set-up-your-project"></a>Konfigurera ditt projekt
 I det här avsnittet, skapa och konfigurera ett konsolprogram i C#-projekt.
 
-1. Använda Visual Studio för att skapa en ny lösning som innehåller C#-konsolprogram projektet. Ange **HandleRedundancyForOnDemandStreaming** namn och klicka sedan på **OK**.
-2. Skapa den **SupportFiles** mappen på samma nivå som den **HandleRedundancyForOnDemandStreaming.csproj** projektfilen. Under den **SupportFiles** mapp, skapa den **OutputFiles** och **MP4Files** mappar. Kopiera en .mp4-fil i den **MP4Files** mapp. (I det här exemplet i **BigBuckBunny.mp4** filen används.) 
-3. Använd **Nuget** att lägga till referenser till DLL-filer som är relaterade till Media Services. I **Visual Studio huvudmenyn**väljer **verktyg** > **Library Package Manager** > **Pakethanterarkonsolen**. I konsolfönstret, skriver **Install-Package windowsazure.mediaservices**, och tryck på RETUR.
+1. Skapa en ny lösning som innehåller projektet C#-konsolprogram med Visual Studio. Ange **HandleRedundancyForOnDemandStreaming** namn och klicka sedan på **OK**.
+2. Skapa den **SupportFiles** mapp på samma nivå som den **HandleRedundancyForOnDemandStreaming.csproj** projektfilen. Under den **SupportFiles** mapp, skapa den **OutputFiles** och **MP4Files** mappar. Kopiera en MP4-fil i den **MP4Files** mapp. (I det här exemplet på **BigBuckBunny.mp4** filen används.) 
+3. Använd **Nuget** att lägga till referenser till DLL-filer som är relaterade till Media Services. I **Visual Studio-huvudmenyn**väljer **verktyg** > **Library Package Manager** > **Pakethanterarkonsolen**. I konsolfönstret skriver **Install-Package windowsazure.mediaservices**, och tryck på RETUR.
 4. Lägg till andra referenser som krävs för det här projektet: System.Configuration och avsnittsgruppen System.Web.
-5. Ersätt **med** instruktioner som har lagts till i den **Programs.cs** fil som standard med de följande:
+5. Ersätt **med** instruktioner som har lagts till i den **Programs.cs** fil som standard med följande:
    
         using System;
         using System.Configuration;
@@ -88,7 +82,7 @@ I det här avsnittet, skapa och konfigurera ett konsolprogram i C#-projekt.
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using Microsoft.WindowsAzure.Storage.Auth;
-6. Lägg till den **appSettings** avsnittet till den **.config** filen och uppdatera värden baserat på ditt Media Services och lagring nyckeln och namnet värden. 
+6. Lägg till den **appSettings** avsnitt i den **.config** fil- och uppdatera värdena utifrån dina Media Services och Storage-nyckeln och namnge värden. 
    
         <appSettings>
           <add key="MediaServicesAccountNameSource" value="Media-Services-Account-Name-Source"/>
@@ -102,7 +96,7 @@ I det här avsnittet, skapa och konfigurera ett konsolprogram i C#-projekt.
         </appSettings>
 
 ## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Lägg till kod som hanterar redundans för strömning på begäran
-I det här avsnittet skapar du möjligheten att hantera redundans.
+I det här avsnittet skapar du kan hantera redundans.
 
 1. Lägg till följande klassnivå fält i programklassen.
        
@@ -131,7 +125,7 @@ I det här avsnittet skapar du möjligheten att hantera redundans.
         static private MediaServicesCredentials _cachedCredentialsSource = null;
         static private MediaServicesCredentials _cachedCredentialsTarget = null;
 
-2. Ersätt standarddefinition Main-metoden med följande. Metoddefinitioner som anropas från Main anges nedan.
+2. Ersätt standarddefinition Main-metoden med följande. Definitioner av metod som anropas från Main definieras nedan.
         
         static void Main(string[] args)
         {
@@ -212,7 +206,7 @@ I det här avsnittet skapar du möjligheten att hantera redundans.
 3. Följande metoddefinitioner anropas från Main.
 
     >[!NOTE]
-    >Det finns en gräns på 1 000 000 principer för olika Media Services-principer (till exempel för lokaliserare principen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar och åtkomstbehörigheter. Till exempel använda samma ID för principer för lokaliserare som är avsedda att vara på plats för lång tid (icke-överföringen principer). Mer information finns i [i det här avsnittet](media-services-dotnet-manage-entities.md#limit-access-policies).
+    >Det finns en gräns på 1 000 000 principer för olika Media Services-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar och åtkomstbehörigheter. Till exempel använda samma ID för principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [det här avsnittet](media-services-dotnet-manage-entities.md#limit-access-policies).
 
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,
@@ -941,7 +935,7 @@ I det här avsnittet skapar du möjligheten att hantera redundans.
         }
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan nu använda en traffic manager för att vidarebefordra begäranden mellan två datacenter, och därför över vid eventuella avbrott.
+Du kan nu använda en traffic manager för att dirigera begäranden mellan två datacenter och därmed växla över vid alla avbrott.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

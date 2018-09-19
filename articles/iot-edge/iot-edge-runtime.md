@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 3f3a8c8a8bce59d1757e9ad53c8ebdbd06a7f33f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42057325"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294177"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge-körningen och dess arkitektur
 
@@ -23,7 +23,7 @@ IoT Edge-körningen utför följande funktioner på IoT Edge-enheter:
 
 * Installerar och uppdaterar arbetsbelastningar på enheten.
 * Underhåller Azure IoT Edge-säkerhetsstandarder på enheten.
-* Säkerställer att [IoT Edge-moduler] [ lnk-modules] alltid körs.
+* Säkerställer att [IoT Edge-moduler] [lnk-moduler] alltid körs.
 * Rapporterar modulens hälsa till molnet för fjärrövervakning.
 * Underlättar kommunikationen mellan nedströms lövenheter och IoT Edge-enheter.
 * Underlättar kommunikationen mellan moduler på IoT Edge-enheten.
@@ -117,7 +117,7 @@ Mer information om Azure IoT Edge security framework Läs mer om den [IoT Edge-s
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Förstå Azure IoT Edge-moduler][lnk-modules]
+[Förstå Azure IoT Edge-certifikat][lnk-certs]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -126,4 +126,4 @@ Mer information om Azure IoT Edge security framework Läs mer om den [IoT Edge-s
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[lnk-modules]: iot-edge-modules.md
+[lnk-certs]: iot-edge-certs.md

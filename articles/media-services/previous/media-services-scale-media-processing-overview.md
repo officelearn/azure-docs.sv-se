@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 81fab8903c0101d0e4aae8a392f05129651cd762
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a17c08cc66b13a5ec15d32be7e9ec738da73e219
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369144"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129062"
 ---
 # <a name="scaling-media-processing-overview"></a>Bearbetning av Media översikt över skalning
 Den här sidan ger en översikt över hur och varför att skala mediebearbetning. 
@@ -35,7 +35,7 @@ Tabellen nedan hjälper dig att fatta beslut när du väljer mellan olika kodnin
 | Scenarier | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | Avsedda användning |Enkel bithastighet kodning. <br/>Filer på SD eller under lösningar, tid inte känsliga, låg kostnad. |Enkel bithastighet och flera bithastigheter kodning.<br/>Normal användning för både SD och HD encoding. |Enkel bithastighet och flera bithastigheter kodning.<br/>Fullständig HD och 4K högupplöst video. Tid känsliga och snabbare arbetet kodning. |
-| Prestandamått |Koda till en enda bithastighet MP4-fil med samma upplösning tar ungefär 11 minuter. |Kodning med ”H264, enkel bithastighet, 720p” förinställda tar cirka 5 minuter.<br/><br/>Kodning med ”H264, flera bithastigheter, 720p” förinställning tar ca 11,5 minuter. |Kodning med ”H264, enkel bithastighet, 1080p” förinställda tar cirka 2.7 minuter.<br/><br/>Kodning med ”H264 Multibithastighet 1080p” förinställning tar cirka 5.7 minuter. |
+| Prestandamått för 5 minuter långa videon |Koda till en enda bithastighet MP4-fil med samma upplösning tar ungefär 11 minuter. |Kodning med ”H264, enkel bithastighet, 720p” förinställda tar cirka 5 minuter.<br/><br/>Kodning med ”H264, flera bithastigheter, 720p” förinställning tar ca 11,5 minuter. |Kodning med ”H264, enkel bithastighet, 1080p” förinställda tar cirka 2.7 minuter.<br/><br/>Kodning med ”H264 Multibithastighet 1080p” förinställning tar cirka 5.7 minuter. |
 
 
 ## <a name="considerations"></a>Överväganden

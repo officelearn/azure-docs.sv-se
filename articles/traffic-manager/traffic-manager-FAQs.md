@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8c3d632063c8ed9347aa870d0971cc09dc1a658e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054951"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129547"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Traffic Manager
 
@@ -72,7 +72,7 @@ Om du vill undvika det här problemet bör du använda en HTTP-omdirigering där
 Fullständigt stöd för utan www domäner i Traffic Manager spåras i våra funktionen återstående uppgifter. Du kan registrera upp som stöd för den här funktionsbegäran från [röstat på vår webbplats för community-feedback](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Traffic Manager betraktar undernätsadress klienten vid hantering av DNS-frågor? 
-Ja, förutom källans IP-adress för DNS-fråga tas emot (som vanligtvis är IP-adressen för DNS-matchning), när du utför sökningar för routningsmetoder för geografisk och prestanda, traffic manager tittar också undernätsadress klienten om det är ingår i fråga genom att matcharen gör begäran åt användaren.  
+Ja, förutom källans IP-adress för DNS-fråga tas emot (som vanligtvis är IP-adressen för DNS-matchning), när du utför sökningar för routningsmetoder för geografisk, prestanda och undernät, traffic manager också tar hänsyn till undernätet klientadressen om den ingår i frågan genom att matcharen gör begäran åt användaren.  
 Mer specifikt [RFC 7871 – klientnät i DNS-frågor](https://tools.ietf.org/html/rfc7871) som ger en [Tilläggsmekanism för DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) som kan överföra på undernätet klientadressen från matchare som stöder den.
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>Vad är TTL för DNS och hur påverkar det Mina användare?
@@ -133,6 +133,39 @@ En region kan tilldelas till endast en slutpunkt i en profil om dess med geograf
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Finns det några restriktioner för API-version som stöder den här routningstyp?
 
 Ja, endast API-version 2017-03-01 och senare har stöd för geografisk routning skriver. Alla äldre API-versioner kan inte användas för att skapade profiler av typen för geografisk routning eller tilldela geografiska områden till slutpunkter. Om en äldre API-version används för att hämta profiler från en Azure-prenumeration, returneras inte någon profil för geografisk routningstyp. Dessutom, när du använder äldre API-versioner, returneras alla profiler som har slutpunkter med en tilldelning av geografiskt område, har inte dess tilldelning för geografiska region som visas.
+
+## <a name="traffic-manager-subnet-traffic-routing-method"></a>Traffic Manager undernät trafikroutningsmetod
+
+### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Vilka är några användningsområden där undernätet routning är användbart?
+Undernät routning kan du skilja den upplevelse du levererar för specifika uppsättningar med användare som identifieras av käll-IP för DNS-begäranden IP-adresser. Ett exempel är som visar olika innehåll om användare ansluter till en webbplats från ditt företags HQ. En annan skulle vara att begränsa användare från vissa Internetleverantörer endast åtkomst till slutpunkter som stöder endast IPv4-anslutningar om dessa Internetleverantörer har icke nominellt prestanda när IPv6 används.
+Ett annat skäl att använda undernät routningsmetod anges tillsammans med andra profiler i en kapslad profil. Om du vill använda geografisk routningsmetod för geografiska avgränsningar användarna, men du vill göra en annan routningsmetod för en specifik Internet-leverantör, du exempelvis har en profil withy undernät routningsmetod som den överordnade profilen och åsidosätta Internet-Leverantören om du vill använda en viss underordnad pro fil- och ha standard geografiska profil för alla andra.
+
+### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Hur kan IP-adressen för användaren i Traffic Manager?
+Slutanvändarenheter använder vanligtvis en DNS-matchare för att göra DNS-sökning för deras räkning. Utgående IP-Adressen för sådana matchare är Traffic Manager ser som käll-IP. Dessutom verkar undernät routningsmetod även om du vill se om det finns information som EDNS0 utökade klienten undernät (ECS) som skickades med begäran. Om ECS finns språkinformation, är den adress som används för att bestämma routningen. Käll-IP för frågan används inte av ECS information är för routningen.
+
+### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>Hur kan jag ange IP-adresser när du använder undernätet Routning?
+IP-adresser ska associeras med en slutpunkt kan anges på två sätt. Du kan först använda fyra punktavgränsad decimalform oktett-notation med en start- och slut-adresser för att ange ett intervall (t.ex. 1.2.3.4-5.6.7.8 eller 3.4.5.6-3.4.5.6). Du kan dessutom använda CIDR-notation för att ange ett intervall (t.ex. 1.2.3.0/24). Du kan ange flera intervall och kan använda båda typerna av notering i en rad. Några begränsningar gäller.
+-   Du kan inte ha överlappande adressintervall eftersom varje IP måste mappas till endast en enda slutpunkt
+-   Startadressen får inte innehålla fler än slutadressen
+-   När det gäller CIDR-notering, IP-adressen innan den '/' ska vara startadressen av det intervallet (t.ex. 1.2.3.0/24 är giltig men 1.2.3.4.4/24 är inte giltig)
+
+### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Hur kan jag ange en återställningsplats slutpunkt när du använder undernätet Routning?
+I en profil med undernätet routning, om du har en slutpunkt med inga undernät som mappats till, dirigeras varje begäran som inte överensstämmer med andra slutpunkter till här. Vi rekommenderar starkt att du har en återställningsplats slutpunkt i din profil eftersom Traffic Manager returnerar ett NXDOMAIN svar om en begäran kommer in och det inte är kopplat till alla slutpunkter eller om det är kopplat till en slutpunkt utan att slutpunkten är skadad.
+
+### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>Vad händer om en slutpunkt har inaktiverats i ett undernät routning typ profil?
+I en profil med undernätet routning, om du har en slutpunkt med som är inaktiverad, Traffic Manager fungerar som om slutpunkten och undernät-mappningar har inte finns. Om en fråga som skulle har matchade med dess IP-adressmappningen tas emot och slutpunkten är inaktiverad, Traffic Manager kommer att returnera en återställningsplats slutpunkt (en med ingen mappning) eller om en sådan slutpunkt inte finns, returneras ett NXDOMAIN svar
+
+## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Traffic Manager Flervärden är trafikroutningsmetod
+
+### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>Vilka är några användningsområden där flera värden routning är användbart?
+Flera värden routning returnerar flera felfria slutpunkter i en enda frågesvaret. Den största fördelen med detta är att, om en slutpunkt är ohälsosamt kan klienten har fler alternativ och försök igen utan att göra ett annat DNS-anrop (som kan returnera samma värde från en överordnad cache). Detta gäller för tillgänglighet känsliga program som vill minimera i driftstopp.
+Ett annat användningsområde för flera värden routningsmetod är om en slutpunkt är ”dual-homed” till både IPv4 och IPv6-adresser och du vill ge anroparen båda alternativ att välja mellan när den upprättar en anslutning till slutpunkten.
+
+### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>Hur många slutpunkter som returneras när flera värden routing används?
+Du kan ange det maximala antalet endopints som ska returneras och Flervärden är returnerar inga fler än så många felfria slutpunkter när en fråga tas emot. Största möjliga värde för den här konfigurationen är 10.
+
+### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>Jag får samma uppsättning slutpunkter när flera värden routing används?
+Vi kan inte garantera att samma uppsättning slutpunkter kommer att returneras i varje fråga. Detta påverkas även av det faktum att några av slutpunkterna försätts feltillstånd då inte kommer de inkluderas i svaret
 
 ## <a name="real-user-measurements"></a>Faktisk slutanvändarmätning
 
@@ -257,7 +290,7 @@ Ja. Molntjänst ”mellanlagring” platser kan konfigureras i Traffic Manager s
 
 Traffic Manager tillhandahåller inte IPv6-addressible namnservrar för närvarande. Traffic Manager kan dock fortfarande användas av IPv6-klienter som ansluter till IPv6-slutpunkter. En klient gör inte DNS-begäranden direkt till Traffic-Manager. I stället använder klienten en rekursiv DNS-tjänst. En endast-IPv6-klient skickar begäranden till den rekursiva DNS-tjänsten via IPv6. Sedan bör tjänsten rekursiv kunna kontakta Traffic Managers namnservrar som använder IPv4.
 
-Traffic Manager svarar med DNS-namnet på slutpunkten. För att stödja en IPv6-slutpunkt, måste det finnas en DNS-AAAA-post som pekar på DNS-namnet på slutpunkten IPv6-adress. Hälsokontroller för Traffic Manager stöder endast IPv4-adresser. Tjänsten måste exponera en IPv4-slutpunkt på samma DNS-namn.
+Traffic Manager svarar med DNS-namn eller IP-adressen för slutpunkten. Det finns två alternativ för att stödja en IPv6-slutpunkt. Du kan lägga till slutpunkten som ett DNA-namn som har en associerad AAAA-post och Traffic Manager kommer hälsokontrollen som slutpunkten och gå sedan tillbaka den som en CNAME-post anger i frågesvaret. Du kan också lägga till slutpunkten direkt med IPv6-adress och Traffic Manager returnerar en typ AAAA-post i frågesvaret. 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Kan jag använda Traffic Manager med mer än en Webbapp i samma region?
 
@@ -300,6 +333,46 @@ Traffic manager kan inte ange någon certifikatsverifiering inklusive:
 * SNI serversidan certifikat stöds inte
 * Klientcertifikat stöds inte
 
+### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Kan jag använda en IP-adress eller ett DNS-namn när du lägger till en slutpunkt?
+Traffic Manager har stöd för att lägga till slutpunkter med hjälp av tre sätt att hänvisa dem – som en DNS-namn, som en IPv4-adress och en IPv6-adress. Om slutpunkten läggs till som en IPv4- eller IPv6-adress blir frågesvaret posttyp A eller AAAA. Om slutpunkten har lagts till som ett DNS-namn, blir svaret på frågan för CNAME-posttyp. . Observera att lägga till slutpunkter som IPv4 eller IPv6-adress tillåts endast slutpunkten är av typen ”extern”.
+Alla routningsmetoder och övervakar inställningar stöds av tre slutpunktstyper för adressering.
+
+### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>Vilka typer av IP-adresser kan jag använda när du lägger till en slutpunkt?
+Traffic Manager kan du använda IPv4 eller IPv6-adresser för att ange slutpunkter. Det finns några begränsningar som visas nedan:
+- Adresser som motsvarar reserverade privata IP-adressutrymmena är inte tillåtna. De här adresserna är de som beskrivs i RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 och RFC 5771
+- Adressen får inte innehålla några portnummer (du kan ange portarna som ska användas i inställningarna för profil-konfiguration) 
+- Inga två slutpunkter i samma profil kan ha samma mål-IP
+
+### <a name="can-i-use-different-endpoint-addressing-types-within-a-single-profile"></a>Kan jag använda olika endpoint adressering typer i en enda profil?
+Nej, Traffic Manager kan du inte blanda adressering slutpunktstyper inom en profil, såvida en profil med flera värden routningstyp där du kan blanda IPv4 och IPv6-adressering typer
+
+### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>Vad händer när ett inkommande frågan posttyp skiljer sig från den typ som är associerade med typen adressering av slutpunkterna?
+När en fråga tas emot mot en profil, hittar Traffic Manager först den slutpunkt som ska returneras enligt vilken routningsmetod som angetts och hälsotillståndet för slutpunkterna. Den tittar sedan på posttypen har begärt i den inkommande frågan och den typ som är associerade med slutpunkten innan det returneras ett svar baserat på tabellen nedan.
+
+För profiler med routningmetod än Flervärden är:
+|Inkommande query-fråga|    Typ av slutpunkt|  Svar som tillhandahålls|
+|--|--|--|
+|ALLA |  A / AAAA / CNAME |  Mål-slutpunkt| 
+|A |    A / CNAME | Mål-slutpunkt|
+|A |    AAAA |  INGA DATA |
+|AAAA | AAAA / CNAME |  Mål-slutpunkt|
+|AAAA | A | INGA DATA |
+|CNAME |    CNAME | Mål-slutpunkt|
+|CNAME  |A / AAAA | INGA DATA |
+|
+För profiler med routningsmetod inställd på Flervärden är:
+
+|Inkommande query-fråga|    Typ av slutpunkt | Svar som tillhandahålls|
+|--|--|--|
+|ALLA |  Blandning av A och AAAA | Målslutpunkter|
+|A |    Blandning av A och AAAA | Endast Målslutpunkter av typ A|
+|AAAA   |Blandning av A och AAAA|     Målslutpunkter av typen AAAA|
+|CNAME |    Blandning av A och AAAA | INGA DATA |
+
+### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>Kan jag använda en profil med IPv4 / IPv6 åtgärdas slutpunkter i en kapslad profil?
+Ja, du kan med undantaget att en profil av typen Flervärden är inte får vara en överordnad-profil i en kapslad profil ange.
+
+
 ### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Jag har stoppat en Azure-molntjänst / webb-programslutpunkt i min Traffic Manager-profil men jag tar inte emot trafik även efter att jag startas om. Hur kan jag åtgärda detta?
 
 När en Azure-molntjänst / webb-programslutpunkt är stoppad Traffic Manager stoppar kontrollerar dess hälsa och startar om hälsokontrollerna endast när det upptäcker att slutpunkten har startats om. För att förhindra att den här fördröjningen, inaktivera och sedan återaktivera den slutpunkten i Traffic Manager-profil när du startar om slutpunkten.   
@@ -326,9 +399,13 @@ Genom att använda de här inställningarna kan får Traffic Manager redundans u
 
 Traffic Manager övervakningsinställningarna finns på en per-profilnivå. Om du vill använda en annan övervakning inställning för endast en slutpunkt kan du göra genom att låta den slutpunkten som en [kapslad profil](traffic-manager-nested-profiles.md) vars övervakningsinställningarna skiljer sig från den överordnade profilen.
 
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>Vilka värden rubrik gör endpoint hälsokontroller användning?
+### <a name="how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints"></a>Hur kan jag tilldela HTTP-huvuden till Traffic Manager hälsokontroller till min slutpunkter?
+Traffic Manager kan du ange anpassade huvuden i den HTTP (S) hälsokontroller initieras till dina slutpunkter. Om du vill ange en anpassad rubrik du göra det på profilnivå (gäller för alla slutpunkter) eller ange på nivån slutpunkt. Om en rubrik har definierats på båda nivåerna kan åsidosätta den som angetts på nivån endpoint profilnivå en.
+Ett vanligt användningsfall för detta är att ange värdhuvuden så att Traffic Manager-begäranden kan korrekt dirigeras till en slutpunkt i en miljö med flera innehavare. Ett annat exempel med detta är att identifiera Traffic Manager-förfrågningar från en slutpunkt HTTP (S) begära loggar
 
-Traffic Manager använder värdhuvuden i hälsokontroller för HTTP och HTTPS. Du värdhuvudet som används av Traffic Manager är namnet på slutpunkten målet som konfigurerats i profilen. Det värde som används i värdhuvudet kan inte anges separat från egenskapen target.
+## <a name="what-host-header-do-endpoint-health-checks-use"></a>Vilka värden rubrik gör endpoint hälsokontroller användning?
+Om ingen rubrik inställning för anpassade värden anges, är du värdhuvudet som används av Traffic Manager DNS-namnet på slutpunkten målet som konfigurerats i profilen, om som är tillgänglig. 
+
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Vilka är de IP-adresser som kontrollerar hälsotillståndet kommer?
 

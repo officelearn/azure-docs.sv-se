@@ -12,7 +12,6 @@
 
 
 # Kom igång
-## [Kom igång med Azure AD](fundamentals/get-started-azure-ad.md)
 ## [Registrera dig för Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Lägga till ett anpassat domännamn](fundamentals/add-custom-domain.md)
 ## [Konfigurera varumärkesexponering](fundamentals/customize-branding.md)
@@ -20,6 +19,7 @@
 ## [Tilldela licenser till användare](fundamentals/license-users-groups.md)
 ## [Konfigurera lösenordsåterställning via självbetjäning](authentication/quickstart-sspr.md)
 ## [Lägg till din organisations sekretessinformation i Azure AD](active-directory-properties-area.md)
+## [Komma åt Azure Active Directory för att skapa en ny klientorganisation](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # Gör så här för att
@@ -91,11 +91,13 @@
 ### [Användare i riskzonen](reports-monitoring/concept-user-at-risk.md)
 ### [Riskfyllda inloggningar](reports-monitoring/concept-risky-sign-ins.md)
 ### [Riskhändelser](reports-monitoring/concept-risk-events.md)
-### [Övervaka loggar med Azure Monitor](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [Övervaka loggar med Azure Monitor](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [Vanliga frågor och svar](reports-monitoring/reports-faq.md)
 
 ### Uppgifter
-#### [Konfigurera namngivna platser](active-directory-named-locations.md)
+#### [Ladda ned en inloggningsrapport](reports-monitoring/quickstart-download-sign-in-report.md)
+#### [Ladda ned en granskningsrapport](reports-monitoring/quickstart-download-audit-report.md)
+#### [Konfigurera namngivna platser](reports-monitoring/quickstart-configure-named-locations.md)
 #### [Hitta aktivitetsrapporter](reports-monitoring/howto-find-activity-reports.md)
 #### [Använda Azure AD Power BI-innehållspaket](reports-monitoring/howto-power-bi-content-pack.md)
 #### [Åtgärda användare som har flaggats för risk](reports-monitoring/howto-remediate-users-flagged-for-risk.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 468c6486274b8bf1dc202716f525c39face91862
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f8aa37dbc2d3fb5f560d899626a84a2ab86ff223
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297306"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294585"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -261,7 +261,7 @@ Som utvecklare som vi att gå direkt till koden och försök att komma igång s�
 
 ### <a name="what-is-an-azure-account"></a>Vad är ett Azure-konto?
 
-För att kunna skapa eller arbeta med en Azure-prenumeration, måste du ha ett Azure-konto. Ett Azure-konto är helt enkelt en identitet i Azure AD eller i en katalog, t.ex en arbets- eller skolkonto organisation, som är betrodd av Azure AD. Om du inte tillhör sådan organisation, kan du alltid skapa en prenumeration med hjälp av ditt Microsoft-Account som är betrott av Azure AD. Mer information om hur du integrerar lokala Windows Server Active Directory med Azure AD finns [integrera dina lokala identiteter med Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
+För att kunna skapa eller arbeta med en Azure-prenumeration, måste du ha ett Azure-konto. Ett Azure-konto är helt enkelt en identitet i Azure AD eller i en katalog, t.ex en arbets- eller skolkonto organisation, som är betrodd av Azure AD. Om du inte tillhör sådan organisation, kan du alltid skapa en prenumeration med hjälp av ditt Microsoft-Account som är betrott av Azure AD. Mer information om hur du integrerar lokala Windows Server Active Directory med Azure AD finns [integrera dina lokala identiteter med Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 Alla Azure-prenumerationer har en förtroenderelation med en Azure AD-instans. Det innebär att den litar på den katalogen för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma katalog, men en prenumeration litar bara på en katalog. Mer information finns i [hur Azure-prenumerationer är associerade med Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 09/14/2018
 ms.author: jeedes
-ms.openlocfilehash: b742f3eb9124093bcf0c3c912bbae0367cdcce56
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5b1099e46cf1aa2fd4b948fee8407cfd859390ce
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053847"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Självstudier: Azure Active Directory-integration med Slack
 
@@ -217,6 +217,9 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 > [!NOTE]
 > Om du vill skapa en användare manuellt kan du behöva kontakta [Slack supportteamet](https://slack.com/help/contact).
+
+> [!NOTE]
+> Azure AD Connect är verktyget synkronisering som kan synkronisera lokala Active Directory-identiteter till Azure AD och sedan dessa synkroniserade användare kan också använda program som vill andra molnanvändare.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

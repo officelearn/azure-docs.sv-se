@@ -1,6 +1,6 @@
 ---
-title: Stream data från Stream Analytics i Data Lake Store | Microsoft Docs
-description: Använd Azure Stream Analytics för att strömdata till Azure Data Lake Store
+title: Stream data från Stream Analytics i Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Använd Azure Stream Analytics för att strömdata till Azure Data Lake Storage Gen1
 services: data-lake-store,stream-analytics
 documentationcenter: ''
 author: nitinme
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 396d514d0d75c43f20ab7b0fcdf8c7351cb3dd89
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0d9ddbeae3a666d3b3cf56f80ae633a7ecaa650a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213460"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294041"
 ---
-# <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Strömma data från Azure Storage Blob till Data Lake Store med Azure Stream Analytics
-I den här artikeln får du lära dig hur du använder Azure Data Lake Store som utdata för Azure Stream Analytics-jobb. Den här artikeln visar ett enkelt scenario som läser data från en Azure Storage blob (indata) och skriver data till Data Lake Store (utdata).
+# <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Stream-data från Azure Storage Blob till Azure Data Lake Storage Gen1 med Azure Stream Analytics
+I den här artikeln får du lära dig hur du använder Azure Data Lake Storage Gen1 som utdata för Azure Stream Analytics-jobb. Den här artikeln visar ett enkelt scenario som läser data från en Azure Storage blob (indata) och skriver data till Data Lake Storage Gen1 (utdata).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
@@ -29,10 +29,10 @@ Innan du påbörjar de här självstudierna måste du ha:
 
 * **Azure Storage-konto**. Du använder en blob-behållare från det här kontot för att mata in data för ett Stream Analytics-jobb. Den här självstudien antar vi att du har ett lagringskonto med namnet **storageforasa** och en behållare i kontot kallas **storageforasacontainer**. När du har skapat behållaren måste du ladda upp en exempeldatafil till den. 
   
-* **Azure Data Lake Store-konto**. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md). Vi antar att du har ett Data Lake Store-konto med namnet **asadatalakestore**. 
+* **Ett konto för Data Lake Storage Gen1**. Följ anvisningarna på [Kom igång med Azure Data Lake Storage Gen1 med hjälp av Azure-portalen](data-lake-store-get-started-portal.md). Vi antar att du har ett Data Lake Storage Gen1 konto med namnet **myadlsg1**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
-Börja med att skapa ett Stream Analytics-jobb som innehåller en indatakälla och ett mål för utdata. Den här självstudien källan är en Azure blob-behållare och målet är Data Lake Store.
+Börja med att skapa ett Stream Analytics-jobb som innehåller en indatakälla och ett mål för utdata. Den här självstudien källan är en Azure blob-behållare och målet är Data Lake Storage Gen1.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
@@ -67,9 +67,9 @@ Börja med att skapa ett Stream Analytics-jobb som innehåller en indatakälla o
     Klicka på **Skapa**. Portalen nu lägger till indata och testar anslutningen till den.
 
 
-## <a name="create-a-data-lake-store-output-for-the-job"></a>Skapa ett Data Lake Store-utdata för jobbet
+## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Skapa ett Data Lake Storage Gen1 utdata för jobbet
 
-1. Öppna den för Stream Analytics-jobbet klickar du på den **utdata** fliken och klicka sedan på **Lägg till**.
+1. Öppna den för Stream Analytics-jobbet klickar du på den **utdata** fliken **Lägg till**, och välj **Data Lake Storage Gen1**.
 
     ![Lägg till utdata för jobbet](./media/data-lake-store-stream-analytics/create.output.1.png "Lägg till utdata för jobbet")
 
@@ -77,16 +77,15 @@ Börja med att skapa ett Stream Analytics-jobb som innehåller en indatakälla o
 
     ![Lägg till utdata för jobbet](./media/data-lake-store-stream-analytics/create.output.2.png "Lägg till utdata för jobbet")
 
-    * För **utdataaliaset**, ange ett unikt namn för utdata för jobbet. Det här är ett eget namn som används i frågor för att dirigera utdata till det här Data Lake Store.
-    * För **mottagare**väljer **Data Lake Store**.
-    * Du uppmanas att godkänna åtkomst till Data Lake Store-konto. Klicka på **auktorisera**.
+    * För **utdataaliaset**, ange ett unikt namn för utdata för jobbet. Det här är ett eget namn som används i frågor för att dirigera utdata till det här Data Lake Storage Gen1-kontot.
+    * Du uppmanas att godkänna åtkomst till Data Lake Storage Gen1-konto. Klicka på **auktorisera**.
 
 3. På den **nya utdata** bladet fortsätta att tillhandahålla följande värden.
 
     ![Lägg till utdata för jobbet](./media/data-lake-store-stream-analytics/create.output.3.png "Lägg till utdata för jobbet")
 
-    * För **kontonamn**, väljer du det Data Lake Store-konto som du redan skapat där du vill att jobbet utdata skickas till.
-    * För **prefixmönster för sögväg**, ange en filsökväg som används för att skriva dina filer inom det angivna Data Lake Store-kontot.
+    * För **kontonamn**, väljer du det Data Lake Storage Gen1-konto som du redan skapat där du vill att jobbet utdata skickas till.
+    * För **prefixmönster för sögväg**, ange en filsökväg som används för att skriva dina filer inom det angivna Gen1 för Data Lake Storage-kontot.
     * För **datumformat**, om du använde en datumtoken i prefixsökvägen kan du välja datumformat där filerna ordnas.
     * För **tidsformat**, om du använde en time-token i prefixsökvägen, ange tidsformatet där filerna ordnas.
     * För **händelseserialiseringsformat**väljer **CSV**.
@@ -113,11 +112,11 @@ Börja med att skapa ett Stream Analytics-jobb som innehåller en indatakälla o
 
     ![Övervakningsjobb](./media/data-lake-store-stream-analytics/run.query.3.png "Övervakningsjobb")
 
-5. Slutligen kan kontrollera du att utdata för jobbet är tillgänglig i Data Lake Store-konto. 
+5. Slutligen kan kontrollera du att utdata för jobbet är tillgänglig i Data Lake Storage Gen1-konto. 
 
     ![Verifiera utdata](./media/data-lake-store-stream-analytics/run.query.4.png "verifiera utdata")
 
-    I Data Explorer-fönstret Lägg märke till att utdata skrivs till en mappsökväg som anges i Data Lake Store-utdatainställningar (`streamanalytics/job/output/{date}/{time}`).  
+    I Data Explorer-fönstret Lägg märke till att utdata skrivs till en sökväg som anges i Data Lake Storage Gen1 utdatainställningar (`streamanalytics/job/output/{date}/{time}`).  
 
 ## <a name="see-also"></a>Se också
-* [Skapa ett HDInsight-kluster om du vill använda Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Skapa ett HDInsight-kluster om du vill använda Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

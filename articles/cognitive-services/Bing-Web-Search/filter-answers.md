@@ -1,21 +1,22 @@
 ---
-title: Filtrera de web-svar som Bing returnerar | Microsoft Docs
-description: Visar hur du använder responseFilter för att filtrera de svar som returnerar Bing Web Search API.
+title: Så här filtrerar du sökresultat - API för webbsökning i Bing
+titleSuffix: Azure Cognitive Services
+description: Lär dig mer om att filtrera och visa sökresultat från Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: 64095089e4c0841aa1f77165969221836c747738
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 700fae4e206e547037406d4f15f32cb167fbe6b9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888581"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123597"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrera de svar som Sök-svaret innehåller  
 
@@ -81,25 +82,25 @@ Nedan visas svaret på den föregående frågan. Som du kan se kunde inte Bing h
 }
 ```
 
-Om du vill undanta specifika typer av innehåll som bilder, från svaret som kan du utesluta dem med bindestreck (minus) prefix till responseFilter-värdet. Separata exkluderade filtyper med kommatecken: 
+Om du vill undanta specifika typer av innehåll som bilder, från svaret som kan du utesluta dem med bindestreck (minus) prefix till responseFilter-värdet. Separata exkluderade filtyper med kommatecken:
 
 ```
 &responseFilter=-images,-videos
 ```
 
-Även om Bing inte returnerade video och nyheter resultaten i föregående svar, innebär det inte att video och nyheter innehåll inte finns. Det innebär helt enkelt att sidan inte inkluderar dem. Men om du [sidan](./paging-webpages.md) via fler resultat de efterföljande sidorna skulle förmodligen inkludera. Även om du anropar den [Bing](../bing-video-search/search-the-web.md) och [nyheter Search API](../bing-news-search/search-the-web.md) slutpunkter direkt, svaret skulle sannolikt innehålla resultat. 
+Även om Bing inte returnerade video och nyheter resultaten i föregående svar, innebär det inte att video och nyheter innehåll inte finns. Det innebär helt enkelt att sidan inte inkluderar dem. Men om du [sidan](./paging-webpages.md) via fler resultat de efterföljande sidorna skulle förmodligen inkludera. Även om du anropar den [Bing](../bing-video-search/search-the-web.md) och [nyheter Search API](../bing-news-search/search-the-web.md) slutpunkter direkt, svaret skulle sannolikt innehålla resultat.
 
 Du är avråder från att använda `responseFilter` att få resultat från en enda API. Om du vill innehåll från en enda Bing-API, anropa det API: et direkt. Till exempel för att få endast bilder, skicka en begäran till avbildningen Search API-slutpunkter, `https://api.cognitive.microsoft.com/bing/v7.0/images/search` eller något av de andra [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#endpoints) slutpunkter. Anrop av ett enda API är viktiga inte bara av prestandaskäl men eftersom innehållsspecifika-API: erna ger bättre resultat. Du kan till exempel använda filter som inte är tillgängliga i API för webbsökning att filtrera resultaten.  
-  
+
 För att få resultat från från en specifik domän kan inkludera den `site:` fråga operatorn i frågesträngen.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
 ```
 
-> [!NOTE] 
-> Beroende på frågan, om du använder den `site:` fråga-operator, det finns risk att svaret kan innehålla vuxet innehåll oavsett den [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) inställningen. Du bör endast använda `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn. 
-  
+> [!NOTE]
+> Beroende på frågan, om du använder den `site:` fråga-operator, det finns risk att svaret kan innehålla vuxet innehåll oavsett den [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) inställningen. Du bör endast använda `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn.
+
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Begränsning av antalet svar i svaret
 
 Bing innehåller svar i svaret, utifrån rangordning. Exempel: Om du frågar *färdas + dinghies*, Bing returnerar `webpages`, `images`, `videos`, och `relatedSearches`.
@@ -118,7 +119,7 @@ Bing innehåller svar i svaret, utifrån rangordning. Exempel: Om du frågar *f�
 }
 ```
 
-Begränsar antalet svar som Bing returnerar de två översta svar (webbsidor och avbildningar), ange den [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) frågeparameter till 2. 
+Begränsar antalet svar som Bing returnerar de två översta svar (webbsidor och avbildningar), ange den [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) frågeparameter till 2.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -159,7 +160,7 @@ Om du lägger till den `responseFilter` frågeparameter till den föregående fr
 
 ## <a name="promoting-answers-that-are-not-ranked"></a>Uppgradera svar som inte rangordnas
 
-Om upp rangordnas svar som Bing returnerar för en fråga är webbsidor, bilder, videor och relatedSearches, skulle svaret innehålla svaren. Om du ställer in [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) till två (2), Bing returnerar de övre två rankad svar: webbsidor och bilder. Om du vill Bing för att inkludera bilder och videor i svaret, ange den [marknadsföra](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) frågeparameter och ge den värdet bilder och videor. 
+Om upp rangordnas svar som Bing returnerar för en fråga är webbsidor, bilder, videor och relatedSearches, skulle svaret innehålla svaren. Om du ställer in [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) till två (2), Bing returnerar de övre två rankad svar: webbsidor och bilder. Om du vill Bing för att inkludera bilder och videor i svaret, ange den [marknadsföra](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) frågeparameter och ge den värdet bilder och videor.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  

@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/14/2018
 ms.author: bonova
-ms.openlocfilehash: 7a2b98f0a78c82b65d7d29181a048ab59f237107
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 113f171f5ad4bcc8ee9abc2935a9741f7c23c3b0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391937"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734226"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad instans (förhandsversion)?
 
@@ -58,10 +58,10 @@ En virtuell kärna representerar en logisk CPU med möjligheten att välja mella
 
 I följande tabell beskriver vi hur du väljer den bästa konfigurationen av din beräkning, minne, lagring och i/o-resurser.
 
-||4:e generationen|5:e generationen|
+||Generation 4|Generation 5|
 |----|------|-----|
 |Maskinvara|Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysiska kärnor)|Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer för snabb eNVM SSD, vCore = 1 LP (hyper-tråd)|
-|Prestandanivåer|8, 16, 24 virtuella kärnor|8, 16, 24, 32, 40, 64, 80 virtuella kärnor|
+|Compute-storlekar|8, 16, 24 virtuella kärnor|8, 16, 24, 32, 40, 64, 80 virtuella kärnor|
 |Minne|7 GB per vCore|5.5 GB per vCore|
 ||||
 

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7363a4f78faaae77a8ee476921ade9d3b1368929
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983037"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297222"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Grant B2B-användare i Azure AD åtkomst till dina lokala program
 
@@ -85,5 +85,5 @@ Se till att du har rätt klientåtkomstlicenser (CAL) för externa gästanvända
 
 - [Azure Active Directory B2B-samarbete för hybridorganisationer](hybrid-organizations.md)
 
-- En översikt av Azure AD Connect finns i [integrerar dina lokala kataloger med Azure Active Directory](../connect/active-directory-aadconnect.md).
+- En översikt av Azure AD Connect finns i [integrerar dina lokala kataloger med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

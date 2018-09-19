@@ -9,14 +9,14 @@ keywords: azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 12/12/2017
+ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9f538b48918bdde923c6dbf3999302e45b955035
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 54ac616f97ba034893721ff62fc6157dd045b5f8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092418"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126837"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C#-utvecklarreferens
 
@@ -36,10 +36,24 @@ Den här artikeln förutsätter att du redan har läst i följande artiklar:
 I Visual Studio i **Azure Functions** projektmall skapar en C# klassbiblioteksprojektet som innehåller följande filer:
 
 * [Host.JSON](functions-host-json.md) -lagrar konfigurationsinställningar som påverkar alla funktioner i projektet när du kör lokalt eller i Azure.
-* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -lagrar appinställningar och anslutningssträngar som används när du kör lokalt.
+* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -lagrar appinställningar och anslutningssträngar som används när du kör lokalt. Den här filen innehåller hemligheter och publiceras inte i din funktionsapp i Azure. Du måste i stället [lägga till programinställningar i funktionsappen](functions-develop-vs.md#function-app-settings).
+
+När du skapar projektet utdata en mappstruktur som ser ut som följande genereras i bygget directory:
+
+```
+<framework.version>
+ | - bin
+ | - MyFirstFunction
+ | | - function.json
+ | - MySecondFunction
+ | | - function.json
+ | - host.json
+```
+
+Den här katalogen är det distribueras till din funktionsapp i Azure. Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime är [lagts till i projektet som NuGet-paket](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
-> Skapandeprocessen skapar en *function.json* fil för varje funktion. Detta *function.json* filen är inte avsedd att redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. Om du vill inaktivera en funktion, använda den [inaktivera](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribut. Till exempel lägga till en boolesk MY_TIMER_DISABLED för appinställningen och tillämpa `[Disable("MY_TIMER_DISABLED")]` till din funktion. Du kan aktivera och inaktivera den genom att ändra appinställningen.
+> Skapandeprocessen skapar en *function.json* fil för varje funktion. Detta *function.json* filen är inte avsedd att redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. Läs hur du inaktiverar en funktion i [så här inaktiverar du funktioner](disable-function.md#functions-2x---c-class-libraries).
 
 ## <a name="methods-recognized-as-functions"></a>Metoder som utsetts till funktioner
 

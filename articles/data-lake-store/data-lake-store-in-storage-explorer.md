@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure Data Lake Store-resurser i Azure Storage Explorer
-description: Läs om hur du kommer åt och hanterar Azure Data Lake Store-data och -resurser i Azure Storage Explorer
+title: Hantera Azure Data Lake Storage Gen1 resurser i Azure Storage Explorer
+description: Lär dig att komma åt och hantera dina Azure Data Lake Storage Gen1 data och resurser i Azure Storage Explorer
 Keywords: Azure Data Lake Store, Azure Storage Explorer
 services: Data Lake Store
 documentationcenter: ''
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: f44518bd6167bc1da207e3c301eabefc014a5749
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 537c94976dbb4f7753b7fafb3b6c94e97cc2cc17
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649977"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126334"
 ---
-# <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Hantera Azure Data Lake Store-resurser i Storage Explorer
+# <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Hantera Azure Data Lake Storage Gen1 resurser med Storage Explorer
 
-[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) är en tjänst som används för att lagra stora mängder ostrukturerade data, som text eller binära data. Du kan komma åt data var du än är via HTTP eller HTTPS. Data Lake Store i Azure Storage Explorer ger dig möjlighet att komma åt och hantera Data Lake Store-data och -resurser med andra Azure-entiteter som blobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe.
+[Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) är en tjänst för att lagra stora mängder Ostrukturerade data, exempelvis text eller binära data. Du kan komma åt data var du än är via HTTP eller HTTPS. Data Lake Storage Gen1 i Azure Storage Explorer kan du komma åt och hantera Data Lake Storage Gen1 data och resurser, tillsammans med andra Azure-entiteter som blobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe.
 
-En annan fördel är att du inte behöver ha prenumerationsbehörighet för att hantera Data Lake Store-data. I Storage Explorer kan du koppla Data Lake Store-sökvägen till noden **Lokal och Ansluten** så länge någon beviljar behörigheten.
+En annan fördel är att du inte behöver ha Prenumerationsbehörighet för att hantera Data Lake Storage Gen1 data. I Storage Explorer kan du koppla Data Lake Storage Gen1 sökvägen till den **lokala och anslutna** noden så länge någon beviljar behörigheten.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra stegen i den här artikeln:
 
 *   En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial).
-*   Ett Azure Data Lake Store-konto. Mer information om hur du skapar ett finns i [Kom igång med Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+*   Ett Data Lake Storage Gen1-konto. Anvisningar för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Installera Storage Explorer
 
@@ -59,10 +59,10 @@ Installera den senaste versionen av Azure Storage Explorer på [webbsidan för p
 
     ![Kontolista](./media/data-lake-store-in-storage-explorer/account-list.png)
 
-Du har anslutit Azure Data Lake Store till din Azure-prenumeration.
+Data Lake Storage Gen1 har anslutit till din Azure-prenumeration.
 
-## <a name="connect-to-data-lake-store"></a>Ansluta till Data Lake Store
-Du kan komma åt resurser som inte finns i din prenumeration om någon ger dig URI:n till dessa resurser. Du kan sedan ansluta till Data Lake Store med hjälp av URI:n när du har loggat in.
+## <a name="connect-to-data-lake-storage-gen1"></a>Ansluta till Data Lake Storage Gen1
+Du kan komma åt resurser som inte finns i din prenumeration om någon ger dig URI:n till dessa resurser. Du kan sedan ansluta till Data Lake Storage Gen1 med hjälp av URI: N när du loggar in.
 1. Öppna Storage Explorer.
 2. I det vänstra fönstret expanderar du **Lokala och ansluten**.
 3. Högerklicka på **Data Lake Store** och välj **Anslut till Data Lake Store**.
@@ -73,42 +73,42 @@ Du kan komma åt resurser som inte finns i din prenumeration om någon ger dig U
 
       ![Dialogrutan Anslut till Data Lake Store med textrutan för att ange URI:n](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
-      ![Resultatet av anslutningen till Data Lake Store](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-attach-finish.png)
+      ![Resultatet av att ansluta till Data Lake Storage Gen1](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-attach-finish.png)
 
-## <a name="view-an-azure-data-lake-store-accounts-contents"></a>Visa innehållet i ett Azure Data Lake Store-konto
-Ett Azure Data Lake Store-kontos resurser innehåller mappar och filer.
+## <a name="view-a-data-lake-storage-gen1-accounts-contents"></a>Visa innehållet i ett Data Lake Storage Gen1-konto
+Ett Data Lake Storage Gen1 kontos resurser innehåller mappar och filer.
 
-Följande steg illustrerar hur du kan visa innehållet i ett Data Lake Store-konto i Storage Explorer:
+Följande steg illustrerar hur du visar innehållet i ett Data Lake Storage Gen1 konto i Storage Explorer:
 
 1. Öppna Storage Explorer.
-2. I den vänstra rutan expanderar du prenumerationen som innehåller det Azure Data Lake Store-konto som du vill visa.
+2. I den vänstra rutan expanderar du den prenumeration som innehåller det Data Lake Storage Gen1-konto som du vill visa.
 3. Expandera **Data Lake Store**.
-4. Högerklicka på den Azure Data Lake Store-kontonod som du vill visa och välj **Öppna**. Du kan också öppna Data Lake Store-kontot genom att dubbelklicka på det. 
+4. Högerklicka på noden Gen1 för Data Lake Storage-konto som du vill visa och välj sedan **öppna**. Du kan också dubbelklicka på Data Lake Storage Gen1-konto för att öppna den. 
    
-   Huvudfönstret visar Data Lake Store-kontots innehåll.
+   Huvudfönstret visar Data Lake Storage Gen1-kontots innehåll.
 
    ![Huvudfönstret med en lista över mappar](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-toolbar-mainpane.png) 
 
-## <a name="manage-resources-in-azure-data-lake-store"></a>Hantera resurser i Azure Data Lake Store
+## <a name="manage-resources-in-data-lake-storage-gen1"></a>Hantera resurser i Data Lake Storage Gen1
 
-Du kan hantera Azure Data Lake Store-resurser med följande åtgärder:
-*   Bläddra igenom Data Lake Store-resurser på flera Azure Data Lake-konton.  
-*   Använd en anslutningssträng för att ansluta och hantera Data Lake Store direkt. 
-*   Visa Data Lake Store-resurser som delas av andra via en ACL under **Lokal och Ansluten**.
+Du kan hantera Data Lake Storage Gen1 resurser med följande åtgärder:
+*   Bläddra igenom Data Lake Storage Gen1 resurser över flera Gen1 för Data Lake Storage-konton.  
+*   Använd en anslutningssträng för att ansluta till och hantera Data Lake Storage Gen1 direkt. 
+*   Visa Data Lake Storage Gen1 resurser som delas av andra via en ACL under **lokala och anslutna**.
 *   Utför CRUD-åtgärder på filer eller mappar: stöd för rekursiva mappar och val av flera filer. 
 *   Dra, släpp och lägg till en mapp så att du snabbt kommer åt nyligen använda platser. Den här åtgärden speglar Utforskaren i skrivbordsmiljö. 
-*   Kopiera och öppna en Azure Data Lake-hyperlänk med Storage Explorer med ett klick. 
+*   Kopiera och öppna Data Lake Storage Gen1 hyperlänk i Storage Explorer med ett klick. 
 *   Visa aktivitetslogg i det undre högra fönstret för att hålla reda på aktivitetsstatusen.
 *   Visa mappstatistik och filegenskaper.
 
 ## <a name="manage-resources-in-azure-storage-explorer"></a>Hantera resurser i Azure Storage Explorer
-När du har skapat ett Azure Data Lake Store-konto kan du:
+När du skapar ett Data Lake Storage Gen1-konto kan du:
 
 * ladda upp mappar och filer, ladda ned mappar och filer och öppna resurser på din lokala dator
 * fästa på **Snabbåtkomst**, skapa en ny mapp, kopiera en URL och markera alla
 * kopiera och klistra in, byta namn, ta bort, få mappstatistik och uppdatera.
 
-Följande anvisningar visar hur du hanterar resurser i ett Azure Data Lake Store-konto. Följ stegen för den uppgift som du vill utföra.
+Följande anvisningar visar hur du hanterar resurser i ett Data Lake Storage Gen1-konto. Följ stegen för den uppgift som du vill utföra.
 
 ### <a name="upload-files"></a>Överföra filer
 
@@ -159,13 +159,13 @@ Filen laddas ned och öppnas med det program som är associerat med filens under
 
 1. Markera de mappar eller filer som du vill kopiera.
 2. Gå till verktygsfältet i huvudfönstret och klicka på **Kopiera**. Högerklicka på de markerade mapparna eller filerna och välj **Kopiera** på snabbmenyn.
-3. Bläddra till ett annat Data Lake Store-konto i den vänstra rutan och dubbelklicka på det för att visa det i huvudfönstret.
+3. Bläddra till ett annat Data Lake Storage Gen1 konto i den vänstra rutan och dubbelklicka för att visa den i huvudfönstret.
 4. Gå till verktygsfältet i huvudfönstret och klicka på **Klistra in** för att skapa en kopia. Eller välj **Klistra in** på snabbmenyn för målet.
 
 ![Val för att kopiera en mapp](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
 > [!NOTE] 
-> Kopiera och klistra in mellan lagringstyper stöds inte. Du kan kopiera Data Lake Store-mappar eller -filer och klistra in dem i ett annat Data Lake Store-konto. Det går *inte* att kopiera Data Lake Store-mappar eller -filer och klistra in dem till Azure Blob Storage eller tvärtom.
+> Kopiera och klistra in mellan lagringstyper stöds inte. Du kan kopiera Data Lake Storage Gen1 mappar eller filer och klistra in dem i ett annat Data Lake Storage Gen1-konto. Men du *kan* kopiera Data Lake Storage Gen1 mappar och filer och klistra in dem till Azure Blob storage eller tvärtom.
 > 
 > Kopieringen och inklistringen fungerar genom att mapparna eller filerna laddas ned lokalt och sedan laddas upp till destinationen. Verktyget *utför inte* åtgärden på serversidan. Det är långsamt att kopiera och klistra in stora filer. Optimering av högpresterande kopiering och flytt av filer pågår.
 
@@ -198,5 +198,5 @@ Om du har en URL kan du ange den i adressfältet i Utforskaren eller i en webbl�
 * Visa [viktig information och videor för den senaste Storage Explorer-versionen](http://www.storageexplorer.com).
 * Lär dig [hantera Azure Cosmos DB i Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
 * [Kom igång med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Kom igång med Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+* [Kom igång med Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * Titta på en [YouTube-video om hur du använder Azure Cosmos DB i Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

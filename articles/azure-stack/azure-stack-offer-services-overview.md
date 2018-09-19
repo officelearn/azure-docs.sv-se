@@ -1,9 +1,9 @@
 ---
-title: Erbjuda tjänster i Azure-stacken | Microsoft Docs
-description: Som en moln-operatör kan du erbjuda tjänster till dina användare.
+title: Erbjuder tjänster i Azure Stack | Microsoft Docs
+description: Du kan erbjuda tjänster till dina användare som ansvarig för molnet.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,38 +12,47 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 09/17/2018
+ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 042e65cfe350cb61124ed8920ae3616502e6553d
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e4e1701a145a36fce93db3812b67c307b342da5c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248851"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127490"
 ---
-# <a name="overview-of-offering-services-in-azure-stack"></a>Översikt över erbjuda tjänster i Azure-stacken
+# <a name="overview-of-offering-services-in-azure-stack"></a>Översikt över erbjudna tjänster i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-[Microsoft Azure-stacken](azure-stack-poc.md) är en hybrid cloud-plattform som gör att du kan leverera tjänster från ditt datacenter. Som en leverantör, kan du erbjuda tjänster till dina klienter. Du kan erbjuda lokala tjänster till dina anställda inom ett företag eller myndighet. De tjänster som du kan leverera inkludera, men inte begränsat till:
+[Microsoft Azure Stack](azure-stack-poc.md) är en hybridmolnplattform som du kan leverera tjänster från ditt datacenter. En tjänstleverantör, kan du erbjuda tjänster till dina klienter. Inom ett företag eller en myndighet kan du erbjuda dina anställda lokala tjänster. 
 
-- Plattform som en tjänst (PaaS)-tjänster som Apptjänster, API Apps, API-funktioner, SQL och MySQL.
+Du kan erbjuda [infrastruktur som en tjänst](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS)-tjänster som kan användas att bygga en infrastruktur med på begäran databehandling etableras och hanteras från Azure Stack-användarportalen.
 
-Du kan även kombinera tjänster för att integrera och skapa komplexa lösningar för olika användare.
+Du kan också distribuera [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) (PaaS)-tjänster för Azure Stack från Microsoft och andra 3 leverantörer. De tjänster som du kan leverera inkludera, men inte begränsat till:
 
-För att leverera tjänsterna till dina användare, måste du skapa [planer, erbjudanden och kvoter](azure-stack-plan-offer-quota-overview.md). Användarna kan sedan prenumerera på dina erbjudanden att använda tjänsterna.
+- [Lägga till en App Service-resursprovider i Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
 
-## <a name="plan-your-service-offers"></a>Planera service-erbjudanden
+- [Lägga till en SQL Server-resursprovider i Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
 
-När du planerar din erbjudanden, Tänk på följande:
+- [Lägga till en MySQL-Server-resursprovider i Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
 
-**Utvärderingserbjudanden**: du kan använda utvärderingserbjudanden för att dra nya användare som kan sedan uppgradera till ytterligare tjänster till. Skapa en utvärderingsversion kan skapa en liten [Basplan](azure-stack-plan-offer-quota-overview.md#base-plan) med ett valfritt större tillägg plan.
 
-**Kapacitetsplanering**: du kanske berörda om användare som hämtar stora mängder resurser och belastning system för alla användare. För att hjälpa prestanda, kan du [konfigurera planerna med kvoter](azure-stack-plan-offer-quota-overview.md#plans) cap Usage.
+Du kan även kombinera tjänster för att integrera och skapa komplicerade lösningar för olika användare.
 
-**Delegerad providers**: du kan ge andra användare möjlighet att skapa erbjudanden i din miljö. Om du är en tjänstprovider, du kan exempelvis [delegera](azure-stack-delegated-provider.md) denna möjlighet att din återförsäljare. Eller, om du är en organisation kan du delegera till andra avdelningar/dotterbolag.
+För att leverera tjänsterna till dina användare, måste du skapa [planer, erbjudanden och kvoter](azure-stack-plan-offer-quota-overview.md). Användarna kan sedan prenumerera på dina erbjudanden för att använda tjänsterna.
+
+## <a name="plan-your-service-offers"></a>Planera dina service-erbjudanden
+
+När du planerar dina erbjudanden, Tänk på följande saker övervägas:
+
+**Testversioner**: du kan använda testversioner för att locka nya användare, som sedan kan uppgradera till ytterligare tjänster. Skapa en utvärderingsversionen kan skapa ett litet [Basplan](azure-stack-plan-offer-quota-overview.md#base-plan) med en valfri större tilläggsplanen.
+
+**Kapacitetsplanering**: du kan vara orolig över användare som hämta stora mängder resurser och belastning system för alla användare. För att prestanda, kan du [konfigurera dina planer med kvoter](azure-stack-plan-offer-quota-overview.md#plans) tak Usage.
+
+**Delegerade providrar**: du kan ge andra möjlighet att skapa erbjudanden i din miljö. Om du är en tjänstleverantör, du kan exempelvis [delegera](azure-stack-delegated-provider.md) möjligheten att din återförsäljare. Eller, om du är en organisation, kan du delegera till andra avdelningar/dotterbolag.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa ett erbjudande på Azure-stacken](azure-stack-create-offer.md)
+[Skapa ett erbjudande i Azure Stack](azure-stack-create-offer.md)

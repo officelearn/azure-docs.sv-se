@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: eb3c1177f86f4c595280521f4dbcbe8081f68895
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159574"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296252"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuera lösenordsåterställning utan registrerad slutanvändare
 
 Autentiseringsdata måste finnas för att distribuera lösenordsåterställning för Azure Active Directory (Azure AD) via självbetjäning (SSPR). Vissa organisationer har användarna ange sina autentiseringsdata själva. Men många organisationer vill synkronisera med data som redan finns i Active Directory. Synkroniserade data görs tillgänglig för Azure AD och SSPR utan användaråtgärder om du:
    * Korrekt formatera data i din lokala katalog.
-   * Konfigurera [Azure AD Connect genom att använda standardinställningarna](./../connect/active-directory-aadconnect-get-started-express.md).
+   * Konfigurera [Azure AD Connect genom att använda standardinställningarna](../hybrid/how-to-connect-install-express.md).
 
 För att fungera korrekt telefonnummer måste vara i formatet *+ CountryCode PhoneNumber*, till exempel + 1 4255551234.
 

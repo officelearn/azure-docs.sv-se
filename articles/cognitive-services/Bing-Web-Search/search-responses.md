@@ -1,23 +1,23 @@
 ---
-title: Webbsökning i Bing svar | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Läs mer om typer av svar och svar som tillhandahålls av Bing Web Search API.
+title: Sök efter svar - API för webbsökning i Bing
+titleSuffix: Azure Cognitive Services
+description: Läs mer om typer av svar och svar från av Bing Web Search API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 13e9792f3d5765047dabb4cdef59e85a47a69aba
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: f3a4c8bb024aa5e92365b72b8cc2180cc6f4d6d4
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889492"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123784"
 ---
-# <a name="bing-web-search-responses"></a>Webbsökning i Bing-svar  
+# <a name="bing-web-search-api-response-structure-and-answer-types"></a>Webbsökning i Bing struktur och svaret svarstyper  
 
 När du skickar webbsökning i Bing en sökbegäran, returneras en [ `SearchResponse` ](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) objekt i svarstexten. Objektet innehåller ett fält för varje svar som Bing var relevanta för frågan. Detta exempel visar ett svarsobjekt om Bing returneras alla svar på:
 

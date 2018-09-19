@@ -1,5 +1,28 @@
-
-## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Använd MSAL för att hämta en token för Microsoft Graph API
+---
+title: ta med fil
+description: ta med fil
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: cf6ded1252528a0bbfac9c7378f03384cc484c50
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293497"
+---
+## <a name="use-msal-to-get-a-token"></a>Om du Använd MSAL för att hämta en token 
 
 1.  Under **app** > **java** > **{domain}. { AppName}** öppnar `MainActivity`. 
 2.  Lägg till följande importer:
@@ -219,22 +242,20 @@
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
-#### <a name="get-a-user-token-interactively"></a>Hämta token för en användare interaktivt
-Anropar den `AcquireTokenAsync` metoden resulterar i ett fönster som uppmanar användaren att logga in. Program kräver vanligtvis användare att logga in interaktivt första gången de behöver för att få åtkomst till en skyddad resurs. De kan också behöva logga in när en tyst att hämta en token misslyckas (till exempel när en användares lösenord har upphört att gälla).
+#### <a name="get-a-user-token-interactively"></a>Hämta åtkomsttoken för en användare interaktivt
+Anropa den `AcquireTokenAsync` metoden öppnas ett fönster som uppmanar användaren att logga in eller välja sitt konto. Program måste vanligtvis fråga användaren efter en inledande interaktion, men kan användas utan meddelanden från den tidpunkten i. 
 
-#### <a name="get-a-user-token-silently"></a>Hämta token för en användare tyst
-Den `AcquireTokenSilentAsync` metoden hanterar token anskaffning och förnyelser utan någon användarinteraktion. Efter `AcquireTokenAsync` körs för första gången `AcquireTokenSilentAsync` är den vanliga metoden för att hämta token som kommer åt skyddade resurser för efterföljande anrop, eftersom anrop till begära eller förnya token görs tyst.
+#### <a name="get-a-user-token-silently"></a>Hämta åtkomsttoken för en användare tyst
+Den `AcquireTokenSilentAsync` metoden hämtar en token utan någon användarinteraktion.  `AcquireTokenSilentAsync` kan hanteras som en mån-begäran med reserv för `AcquireTokenAsync` när användaren måste logga in igen eller göra vissa extra auktorisering, t.ex. Multi-Factor-autentisering. 
 
-Slutligen den `AcquireTokenSilentAsync` metoden misslyckas. Orsaker till felet kan vara att användaren har loggat ut eller ändra sina lösenord på en annan enhet. När MSAL upptäcker att problemet kan lösas genom att kräva en interaktiv åtgärd, den utlöses en `MsalUiRequiredException` undantag. Programmet kan hantera det här undantaget på två sätt:
+När `AcquireTokenSilentAsync` misslyckas, den genererar en `MsalUiRequiredException`. Programmet kan hantera det här undantaget på två sätt:
 
-* Det kan göra att ett anrop mot `AcquireTokenAsync` omedelbart. Det här anropet resulterar i att användaren uppmanas att logga in. Det här mönstret används vanligtvis i Onlineprogram där det finns inga tillgängliga offline innehåll för användaren. Exempel som genererats av den här interaktiv installation följer detta mönster som du kan se i åtgärden första gången du köra exemplet. 
-    * Eftersom ingen användare har använt programmet, `PublicClientApp.Users.FirstOrDefault()` innehåller ett null-värde och ett `MsalUiRequiredException` undantag. 
-    * Koden i exemplet hanterar undantaget genom att anropa `AcquireTokenAsync`, vilket innebär att användaren uppmanas att logga in. 
-
-* Det kan i stället presentera en indikering för användare som en interaktiv inloggning krävs, så att de kan välja rätt tid att logga in. Eller programmet kan försöka `AcquireTokenSilentAsync` senare. Det här mönstret används ofta när användare kan använda andra funktioner i programmet utan avbrott – exempelvis när offline innehållet är tillgängligt i programmet. I det här fallet kan användare bestämma när de vill logga in att komma åt den skyddade resursen eller uppdatera informationen om gamla. Du kan också programmet kan bestämma att försöka `AcquireTokenSilentAsync` när nätverket återställs efter att ha varit tillfälligt otillgänglig. 
+* Anropa `AcquireTokenAsync` omedelbart. Det här anropet resulterar i uppmanar användaren att logga in. Det här mönstret används i online-program där det finns inga tillgängliga offline innehåll för användaren. I exemplet som genererats av den här självstudien följer detta mönster som du kan se i åtgärden först gången du kör exemplet.
+* Presentera en visuell indikering för användare att en interaktiv inloggning krävs. Anropa `AcquireTokenAsync` när du är redo.
+* Försök `AcquireTokenSilentAsync` senare. Det här mönstret används ofta när användare kan använda andra programfunktionen utan avbrott, till exempel när offline innehållet är tillgängligt i programmet. Programmet kan bestämma att försöka igen `AcquireTokenSilentAsync` när nätverket har återställts efter att ha varit otillgänglig. 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Anropa Microsoft Graph API med hjälp av den token som du precis erhölls
+## <a name="call-the-microsoft-graph-api"></a>Anropa Microsoft Graph API 
 Lägg till följande metoder i den `MainActivity` klass:
 
 ```java
@@ -292,12 +313,12 @@ private void updateGraphUI(JSONObject graphResponse) {
 }
 ```
 <!--start-collapse-->
-### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mer information om hur du använder ett REST-anrop mot ett skyddade API
+### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mer information om hur du gör ett REST-anrop mot ett skyddade API
 
-I det här exempelprogrammet `callGraphAPI` anrop `getAccessToken` och gör ett HTTP `GET` begäran mot en resurs som kräver ett token och returnerar innehållet. Den här metoden lägger till anskaffats token i auktoriseringshuvudet för HTTP. Resursen för det här exemplet är Microsoft Graph API *mig* slutpunkt som visar information om användarens profil.
+I det här exempelprogrammet `callGraphAPI()` använder `getAccessToken()` att hämta ny åtkomsttoken.  Appen använder token i en HTTP- `GET` begäran mot Microsoft Graph API. 
 <!--end-collapse-->
 
-## <a name="set-up-sign-out"></a>Ställ in utloggning
+## <a name="set-up-sign-out"></a>Konfigurera logga ut
 
 Lägg till följande metoder i den `MainActivity` klass:
 
@@ -351,9 +372,10 @@ private void updateSignedOutUI() {
 }
 ```
 <!--start-collapse-->
-### <a name="more-information-about-user-sign-out"></a>Mer information om användaren utloggning
+### <a name="more-information-about-user-sign-out"></a>Mer information om användaren logga ut
 
-Den `onSignOutClicked` metoden koden tar bort användare från användarcachen MSAL som säger MSAL att glömma den aktuella användaren så att en framtida begäran om att hämta en token lyckas bara om det görs för att interaktivt.
+Den `onSignOutClicked()` metoden tar bort användare från MSAL-cachen. MSAL har inte längre några tillstånd för den inloggade användaren och de kommer att loggas ut från programmet. 
 
-Även om programmet i det här exemplet stöder en enskild användare, stöder MSAL scenarier där flera konton kan logga in på samma gång. Ett exempel är ett e-postprogram där en användare har flera konton.
+### <a name="more-information-on-multi-account-scenarios"></a>Mer information om flera konto scenarier
+MSAL har också stöd för scenarier när flera konton har loggat in på samma gång. Många e-postappar att till exempel flera konton som kan vara inloggad på samma gång. 
 <!--end-collapse-->

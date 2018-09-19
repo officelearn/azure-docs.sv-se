@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b46e365ea3903a8f2c805717df13d361c823148d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 53f01ad6e8a801c69ea93c54e805807cb8eed34d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985604"
+ms.locfileid: "46127830"
 ---
 # <a name="azure-stack-1807-update"></a>Uppdatering av Azure Stack 1807
 
@@ -158,14 +158,10 @@ Klicka på föregående länkarna för mer information om dessa säkerhetsrisker
 - <!-- 2830461 - IS --> I vissa fall när en uppdatering kräver uppmärksamhet, kan motsvarande avisering inte skapas. Felaktig status visas fortfarande i portalen och påverkas inte.
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
+Installera alla tillämpliga snabbkorrigeringar efter installationen av uppdateringen. Visa mer information i följande artiklar i kunskapsbasen, samt våra [Servicing princip](azure-stack-servicing-policy.md). 
+- [KB 4464231 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1807.1.78]( https://support.microsoft.com/help/4464231)
 
-- <!-- 2933866 – IS --> **Förbättrad status för misslyckad uppdateringsinstallationer.** Den här versionen innehåller två nya tillstånd kategorier för att ge mer information om misslyckade uppdateringsinstallationer för operatörer. De två kategorierna är *PreparationFailed*, och *InstallationFailed*. När du har installerat den här versionen kan du se information för föregående update-installationsfel som utgångspunkt för att återspegla dessa nya kategorier. 
-
-<!-- *There are no post-update steps for update 1807.* -->
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - Link to KB  
- -->
+ <!-- 2933866 – IS --> Efter installationen av den här uppdateringen kan du se **förbättrade statusmeddelanden för misslyckad uppdateringsinstallationer.** Detta kan innehålla information om föregående update-installationsfel som utgångspunkt för att återspegla de två nya kategorierna tillstånd. Nytt tillstånd kategorierna är *PreparationFailed*, och *InstallationFailed*.  
 
 ## <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
 

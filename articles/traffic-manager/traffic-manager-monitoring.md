@@ -3,8 +3,8 @@ title: Azure Traffic Manager endpoint monitoring | Microsoft Docs
 description: Den här artikeln kan hjälpa dig att förstå hur Traffic Manager använder slutpunktsövervakning och redundans för automatiska slutpunkt för att Azure-kunder distribuera program med hög tillgänglighet
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c28b0ccfb565cb6bd4809a321d5e57f04475dceb
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398843"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123903"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager endpoint monitoring
 
@@ -32,17 +32,19 @@ Om du vill konfigurera slutpunktsövervakning, måste du ange följande inställ
 * **Protokollet**. Välj HTTP, HTTPS eller TCP som protokoll att Traffic Manager använder när din slutpunkt-avsökning för att kontrollera dess hälsa. Övervakning av HTTPS kontrollerar inte om SSL-certifikatet är giltigt – endast kontrolleras att certifikatet är installerat.
 * **Port**. Välj den port som används för begäran.
 * **Sökvägen**. Den här inställningen gäller endast för HTTP och HTTPS-protokollen, för vilka att ange sökvägen inställning är obligatorisk. Ta del av den här inställningen för TCP övervakning protokollet uppstår ett fel. Ge den relativa sökvägen och namnet på webbsidan eller den fil som ansluter till för övervakning för HTTP och HTTPS-protokoll. Ett snedstreck (/) är en giltig post för den relativa sökvägen. Det här värdet anger att filen är i rotkatalogen (standard).
+* **Inställningar för anpassade huvud** den här inställningen kan du lägga till lägga till specifika HTTP-huvuden hälsa kontrollerar att Traffic Manager skickar till slutpunkter i en profil. Anpassade huvuden kan anges på en profilnivå för att gälla för alla slutpunkter i profilen and / or på slutpunkten nivå gäller endast för slutpunkten. Du kan använda anpassade huvuden för att ha hälsokontroller till slutpunkter i en miljö med flera innehavare dirigeras korrekt till sina mål genom att ange ett värdhuvud. Du kan också använda den här inställningen genom att lägga till unika rubriker som kan användas för att identifiera Traffic Manager har sitt ursprung HTTP (S)-begäranden och bearbetar dem på olika sätt.
+* **Förväntade statuskodintervall** den här inställningen kan du ange flera lyckades kod intervall i formatet 200 299, 301 301. Om dessa statuskoder tas emot som svar från en slutpunkt när en hälsokontroll initieras, markerar Traffic Manager de slutpunkterna som felfri. Du kan ange upp till 8 statuskodintervall. Den här inställningen gäller endast för HTTP och HTTPS-protokollet och för alla slutpunkter. Den här inställningen är på nivån för Traffic Manager-profil och som standard värdet 200 definieras som statuskod lyckades.
 * **Kontrollintervall**. Det här värdet anger hur ofta en slutpunkt har markerats för dess hälsa från en sökning Traffic Manager-agent. Du kan ange två värden här: 30 sekunder (vanlig sökning) och 10 sekunder (snabb avsökning). Om inga värden har angetts, anger profilen till ett standardvärde på 30 sekunder. Gå till den [Traffic Manager priser](https://azure.microsoft.com/pricing/details/traffic-manager) att lära dig mer om snabb sökning priser.
 * **Ska tolereras antalet fel**. Det här värdet anger hur många fel som en sökning Traffic Manager-agenten kan tolerera innan du markerar slutpunkten som skadad. Värdet kan variera mellan 0 och 9. Värdet 0 innebär att ett enstaka övervakning fel kan orsaka att slutpunkten markeras som felaktig. Om inget värde anges används standardvärdet 3.
-* **Övervakning av Timeout**. Denna egenskap anger hur lång tid att avsöknings Traffic Manager-agenten ska vänta innan som kontrollerar ett fel när en kontroll hälsoavsökning skickas till slutpunkten. Om intervallet avsökning är inställt på 30 sekunder, kan du ange Timeout-värde mellan 5 och 10 sekunder. Om inget värde anges används standardvärdet 10 sekunder. Om intervallet avsökning har angetts till 10 sekunder, kan du ange Timeout-värde mellan 5 och 9 sekunder. Om inget Timeout-värde anges används standardvärdet 9 sekunder.
+* **Tidsgräns för kontroll**. Denna egenskap anger hur lång tid att avsöknings Traffic Manager-agenten ska vänta innan som kontrollerar ett fel när en kontroll hälsoavsökning skickas till slutpunkten. Om intervallet avsökning är inställt på 30 sekunder, kan du ange Timeout-värde mellan 5 och 10 sekunder. Om inget värde anges används standardvärdet 10 sekunder. Om intervallet avsökning har angetts till 10 sekunder, kan du ange Timeout-värde mellan 5 och 9 sekunder. Om inget Timeout-värde anges används standardvärdet 9 sekunder.
 
-![Traffic Manager endpoint monitoring](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+    ![Traffic Manager endpoint monitoring](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-**Bild 1: Traffic Manager-slutpunktsövervakning**
+    **Bild: Traffic Manager-slutpunktsövervakning**
 
 ## <a name="how-endpoint-monitoring-works"></a>Så här fungerar slutpunktsövervakning
 
-Om protokollet övervakning har angetts som HTTP eller HTTPS, gör en GET-begäran till slutpunkten via protokollet, porten och relativ sökväg som anges i avsöknings Traffic Manager-agenten. Om den får tillbaka ett svar med 200 OK, och sedan att slutpunkten anses vara felfritt. Om svaret är ett annat värde, eller, om inget svar tas emot inom tidsgränsen för angivna måste Traffic Manager-avsökning agent försöker igen enligt inställningen ska tolereras antalet fel (inget nytt försök görs om den här inställningen är 0). Om antalet på varandra följande fel är högre än inställningen ska tolereras antalet fel, sedan markeras att slutpunkten som felaktig. 
+Om protokollet övervakning har angetts som HTTP eller HTTPS, gör en GET-begäran till slutpunkten via protokollet, porten och relativ sökväg som anges i avsöknings Traffic Manager-agenten. Om den får tillbaka ett svar med 200 OK, eller någon av svar som konfigurerats i den ** förväntat statuskod * intervall ** och sedan att slutpunkten anses vara felfritt. Om svaret är ett annat värde, eller, om inget svar tas emot inom tidsgränsen för angivna måste Traffic Manager-avsökning agent försöker igen enligt inställningen ska tolereras antalet fel (inget nytt försök görs om den här inställningen är 0). Om antalet på varandra följande fel är högre än inställningen ska tolereras antalet fel, sedan markeras att slutpunkten som felaktig. 
 
 Om övervakning protokollet är TCP, initierar avsöknings Traffic Manager-agenten en TCP-anslutningsbegäran med hjälp av den angivna porten. Om slutpunkten som svarar på begäran med ett svar för att upprätta anslutningen, att hälsokontrollen har markerats som ett lyckat test och avsöknings Traffic Manager-agenten återställer TCP-anslutningen. Om svaret är ett annat värde, eller om inget svar tas emot inom den angivna tiden har angetts, Traffic Manager-avsökning agent försöker igen enligt inställningen ska tolereras antalet fel (inget nytt försök görs om den här inställningen är 0). Om antalet på varandra följande fel är högre än inställningen ska tolereras antalet fel, sedan att slutpunkten har ett dåligt.
 
@@ -101,7 +103,7 @@ Traffic Manager kontrollerar med jämna mellanrum hälsotillståndet för varje 
 
 En slutpunkt är i feltillstånd när någon av följande händelser inträffar:
 - Om övervakning protokollet HTTP eller HTTPS:
-    - Ett icke-200-svar tas emot (inklusive en annan 2xx-kod eller en 301/302-omdirigering).
+    - Ett icke-200-svar eller ett svar som inte innehåller status-intervallet som angetts i den **förväntade statuskodintervall** inställningen tas emot (inklusive en annan 2xx-kod eller en 301/302-omdirigering).
 - Om övervakning protokollet är TCP: 
     - Än ACK eller SYN ACK svar som svar på SYNC-begäran som skickats av Traffic Manager att försöka upprätta en anslutning.
 - Timeout. 
@@ -109,14 +111,14 @@ En slutpunkt är i feltillstånd när någon av följande händelser inträffar:
 
 Mer information om felsökning av misslyckade kontroller finns i [felsöka degraderat tillstånd i Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md). 
 
-Följande tidslinjen i bild 2 är en detaljerad beskrivning av övervakningsprocessen för Traffic Manager-slutpunkt som har följande inställningar: protokoll är HTTP, sökning är 30 sekunder, antalet tolererade fel är 3, timeout-värdet är 10 sekunder och TTL för DNS är 30 sekunder.
+Tidslinje i följande bild är en detaljerad beskrivning av övervakningsprocessen för Traffic Manager-slutpunkt som har följande inställningar: protokoll är HTTP, sökning är 30 sekunder, antalet tolererade fel är 3, timeout-värdet är 10 sekunder och TTL för DNS är 30 sekunder.
 
 ![Traffic Manager endpoint redundans och återställning efter fel sekvens](./media/traffic-manager-monitoring/timeline.png)
 
-**Bild 2: Traffic manager endpoint redundans och återställning sekvens**
+**Bild: Traffic manager endpoint redundans och återställning sekvens**
 
 1. **HÄMTA**. För varje slutpunkt utför Traffic Manager övervakningssystem en GET-begäran på den sökväg som anges i inställningarna för övervakning.
-2. **200 OK**. Övervakningssystemet förväntar sig en HTTP 200 OK-meddelande som ska returneras inom 10 sekunder. När den har fått det här svaret identifierar att tjänsten är tillgänglig.
+2. **200 OK eller anpassad kod intervallet anges Traffic Manager-profil övervakningsinställningarna** . Övervakningssystemet förväntar sig en HTTP 200 OK eller eller anpassad kod intervallet anges Traffic Manager-profil som övervakning av för inställningsmeddelandet som ska returneras inom 10 sekunder. När den har fått det här svaret identifierar att tjänsten är tillgänglig.
 3. **30 sekunder mellan kontroller**. Slutpunkt-hälsokontroll upprepas med 30 sekunders mellanrum.
 4. **Tjänsten är inte tillgänglig**. Tjänsten blir otillgänglig. Traffic Manager märker inte förrän nästa hälsokontrollen.
 5. **Försöker få åtkomst till övervakningssökvägen**. Övervakningssystemet utför en GET-begäran, men inte emot något svar inom tidsgränsen på 10 sekunder (du kan också ett icke-200-svar kan tas emot). Den försöker sedan tre gånger med 30 sekunders mellanrum. Om en av försök lyckas, återställs antalet försök.
@@ -137,6 +139,8 @@ När en slutpunkt har statusen degraderad, returneras den inte längre som svar 
 * **Viktat**. Valfri tillgänglig slutpunkt väljs slumpmässigt baserat på deras tilldelade vikt och vikten av de tillgängliga slutpunkterna.
 * **Prestanda**. Slutpunkten som är närmast användaren returneras. Om slutpunkten är tillgänglig, flyttar Traffic Manager trafik till slutpunkterna i nästa närmsta Azure-region. Du kan konfigurera alternativa redundans planer för routning av prestanda-trafik med hjälp av [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geografisk**. Den slutpunkt som mappats för att leverera den geografiska plats baserat på fråga IP-adress returneras. Om slutpunkten är tillgänglig, en annan slutpunkt markeras inte ska gå över till, eftersom en geografisk plats kan endast mappas till en slutpunkt i en profil (Mer information finns i den [vanliga frågor och svar](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Som bästa praxis när du använder geografisk routning, rekommenderar vi kunder att använda kapslade Traffic Manager-profiler med mer än en slutpunkt som slutpunkter för profilen.
+* **Flervärden är** flera slutpunkter mappas till IPv4/IPv6-adresser som returneras. När en fråga tas emot för den här profilen, felfria slutpunkter returneras baserat på den **maximalt antal poster i svaret** värde som du har angett. Standardvärdet för antal svar är två slutpunkter.
+* **Undernät** returneras den slutpunkt som mappats till en uppsättning IP-adressintervall. När en begäran tas emot från IP-adress, returnerade slutpunkten mappas det för IP-adress. 
 
 Mer information finns i [Traffic Manager trafikroutningsmetoder](traffic-manager-routing-methods.md).
 

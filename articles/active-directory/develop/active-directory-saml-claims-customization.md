@@ -17,12 +17,12 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: ba4d8d46a6423a932eceea7fbe20ae985445c6a3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 08e817b24d4190b6d7f774dd8c812d04e89c1e5a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718890"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296761"
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory
 Idag Azure Active Directory har stöd för enkel inloggning på med de flesta företagsprogram, inklusive båda programmen som är förintegrerade i appgalleriet för Azure AD samt anpassade program. När en användare autentiseras till ett program via Azure AD med hjälp av protokollet SAML 2.0, skickar Azure AD en token till programmet (via en HTTP-POST). Och sedan programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token innehåller uppgifter om den användare som kallas ”anspråk”.
@@ -73,7 +73,7 @@ Exempelvis kan behöva du skicka avdelning som användaren tillhör i deras orga
 > Om det finns inget värde som lagras i ett valt attribut för en viss användare, är inte det anspråket som utfärdas i token.
 
 > [!TIP]
-> Den **user.onpremisesecurityidentifier** och **user.onpremisesamaccountname** stöds endast när synkronisering av användardata från en lokal Active Directory med hjälp av den [Azure AD Anslut verktyget](../active-directory-aadconnect.md).
+> Den **user.onpremisesecurityidentifier** och **user.onpremisesamaccountname** stöds endast när synkronisering av användardata från en lokal Active Directory med hjälp av den [Azure AD Anslut verktyget](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="restricted-claims"></a>Begränsad anspråk
 

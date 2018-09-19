@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 846b76bddbc771a924a1d710cd333dfa4623f5ec
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a629c598c94e44713f8990871c46272dc48b1359
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450279"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296285"
 ---
 # <a name="authentication-and-user-permissions"></a>Autentisering och användarbehörigheter
 Azure Analysis Services använder Azure Active Directory (Azure AD) för identity management- och användarautentisering. Alla användare skapa, hantera eller ansluta till en Azure Analysis Services server måste ha en giltig användaridentitet i en [Azure AD-klient](../active-directory/fundamentals/active-directory-administer.md) i samma prenumeration.
@@ -33,7 +33,7 @@ Beroende på klientprogram eller verktyg som du använder, skilja vilken typ av 
 
 Power BI Desktop och SSDT SSMS stöd för Active Directory Universal-autentisering, en interaktiv metod som också har stöd för Azure Multi-Factor Authentication (MFA). Azure MFA hjälper till att skydda åtkomsten till data och program samtidigt som du tillhandahåller en enkel inloggningsprocess. Du får stark autentisering med flera alternativ för verifiering (telefonsamtal, textmeddelande, smartkort och PIN-kod eller mobilapp). Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering. **Universell autentisering rekommenderas**.
 
-Om du loggar in i Azure med hjälp av ett Windows-konto och universell autentisering inte har valts eller tillgängliga (Excel), [Active Directory Federation Services (AD FS)](../active-directory/connect/active-directory-aadconnect-azure-adfs.md) krävs. Med Federation, Azure AD och Office 365-användare som autentiseras med hjälp av lokala autentiseringsuppgifter och har åtkomst till Azure-resurser.
+Om du loggar in i Azure med hjälp av ett Windows-konto och universell autentisering inte har valts eller tillgängliga (Excel), [Active Directory Federation Services (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) krävs. Med Federation, Azure AD och Office 365-användare som autentiseras med hjälp av lokala autentiseringsuppgifter och har åtkomst till Azure-resurser.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 Azure Analysis Services-servrarna har stöd för anslutningar från [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och senare med hjälp av Windows-autentisering, Active Directory-lösenordsautentisering och Active Directory Universal-autentisering. I allmänhet bör du använda Active Directory Universal-autentisering eftersom:

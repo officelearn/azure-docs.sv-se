@@ -1,23 +1,23 @@
 ---
-title: Automatiska förslag i Bing söktermer
-titleSuffix: Microsoft Cognitive Services
+title: Automatiska förslag i söktermer - API för webbsökning i Bing
+titleSuffix: Azure Cognitive Services
 description: Koppla Bing Web Search API med automatiska förslag i Bing att ge användare en förbättrad sökupplevelse.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
-ms.openlocfilehash: df8a57b3136abfacce971f4d01ccb2296dfa784c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 475ddfc2bcd9acd1312348a6c85e3d4627e48a3d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889464"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128952"
 ---
-# <a name="autosuggest-bing-search-terms"></a>Automatiska förslag i Bing söktermer
+# <a name="autosuggest-bing-search-terms-in-your-application"></a>Automatiska förslag i Bing söktermer i ditt program
 
 Om du tillhandahåller en sökruta där användaren anger sin sökterm bör du använda [API för automatiska förslag i Bing ](../bing-autosuggest/get-suggested-search-terms.md) för att ge bättre funktioner. API:t returnerar föreslagna frågesträngar baserat på partiella söktermer som användaren skriver in.
 

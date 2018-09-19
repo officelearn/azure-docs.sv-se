@@ -1,6 +1,6 @@
 ---
-title: 'Tjänst-till-tjänst-autentisering: .NET SDK med Data Lake Store med Azure Active Directory | Microsoft Docs'
-description: Lär dig att uppnå service to service autentisering med Data Lake Store med hjälp av Azure Active Directory med .NET SDK
+title: 'Tjänst-till-tjänst-autentisering: .NET SDK med Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft Docs'
+description: Lär dig att uppnå tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory med .NET SDK
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 388b84024a031a181625404ec1429087982dffbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bd03c0801fed0da6d9a87466bc33819f6afa4578
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625499"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296931"
 ---
-# <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av .NET SDK
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
 > * [Använda Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Använda .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -27,7 +27,7 @@ ms.locfileid: "34625499"
 > 
 >  
 
-I den här artikeln får du lära dig hur du använder .NET SDK för att göra service to service autentisering med Azure Data Lake Store. Slutanvändarens autentisering med Data Lake Store med hjälp av .NET SDK, se [slutanvändarens autentisering med Data Lake Store med hjälp av .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
+I den här artikeln lär du dig hur du använder .NET SDK för att göra tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1. Slutanvändarautentisering med Data Lake Storage Gen1 med .NET SDK, se [slutanvändarautentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -35,7 +35,7 @@ I den här artikeln får du lära dig hur du använder .NET SDK för att göra s
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Skapa ett program för Azure Active Directory ”Web”**. Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Store med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Skapa ett program för Azure Active Directory ”Web”**. Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
 1. Öppna Visual Studio och skapa ett konsolprogram.
@@ -78,7 +78,7 @@ I den här artikeln får du lära dig hur du använder .NET SDK för att göra s
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 ## <a name="service-to-service-authentication-with-client-secret"></a>Tjänst-till-tjänst-autentisering med klienthemlighet
-Lägg till följande kodutdrag i .NET-klientprogrammet. Vill du ersätta platshållarvärdena med värdena som hämtas från en Azure AD-webbprogram (visas som en förutsättning).  Den här fragment låter dig autentisera ditt program **icke-interaktivt** med Data Lake Store med hjälp av klienten hemlig/nyckel för Azure AD-webbprogram. 
+Lägg till det här kodfragmentet i dina .NET-klientprogram. Ersätt platshållarvärdena med värden som hämtats från ett Azure AD-webbprogram (visas som en förutsättning).  Det här kodfragmentet kan du autentisera ditt program **icke-interaktivt** med Data Lake Storage Gen1 med klientens hemlighet/nyckel för Azure AD-webbappen. 
 
     private static void Main(string[] args)
     {    
@@ -93,11 +93,11 @@ Lägg till följande kodutdrag i .NET-klientprogrammet. Vill du ersätta platsh�
         var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
     }
 
-Sammandraget som föregår använder en hjälpfunktion `GetCreds_SPI_SecretKey`. Koden för den här helper-funktionen är tillgänglig [här på Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
+I föregående kodfragment används en hjälpfunktionen `GetCreds_SPI_SecretKey`. Koden för den här hjälpfunktionen finns [här på Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Tjänst-till-tjänst-autentisering med certifikat
 
-Lägg till följande kodutdrag i .NET-klientprogrammet. Vill du ersätta platshållarvärdena med värdena som hämtas från en Azure AD-webbprogram (visas som en förutsättning). Den här fragment låter dig autentisera ditt program **icke-interaktivt** med Data Lake Store med hjälp av certifikatet för en Azure AD-webbprogram. Instruktioner om hur du skapar ett Azure AD-program finns i [skapa tjänstens huvudnamn med certifikat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+Lägg till det här kodfragmentet i dina .NET-klientprogram. Ersätt platshållarvärdena med värden som hämtats från ett Azure AD-webbprogram (visas som en förutsättning). Det här kodfragmentet kan du autentisera ditt program **icke-interaktivt** med Data Lake Storage Gen1 använder certifikatet för ett Azure AD-webbprogram. Anvisningar om hur du skapar ett Azure AD-program finns i [skapa tjänstens huvudnamn med certifikat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
     
     private static void Main(string[] args)
@@ -113,12 +113,12 @@ Lägg till följande kodutdrag i .NET-klientprogrammet. Vill du ersätta platsh�
         var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
     }
 
-Sammandraget som föregår använder en hjälpfunktion `GetCreds_SPI_Cert`. Koden för den här helper-funktionen är tillgänglig [här på Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
+I föregående kodfragment används en hjälpfunktionen `GetCreds_SPI_Cert`. Koden för den här hjälpfunktionen finns [här på Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln beskrivs hur du använder autentisering för tjänst-till-tjänst för att autentisera med Azure Data Lake Store med hjälp av .NET SDK. Du kan nu se följande artiklar som talar om hur du använder .NET SDK för att arbeta med Azure Data Lake Store.
+I den här artikeln har du lärt dig hur du använder tjänst-till-tjänst-autentisering för att autentisera med Data Lake Storage Gen1 med .NET SDK. Du kan nu se ut i följande artiklar som pratar om hur du använder .NET SDK för att arbeta med Data Lake Storage Gen1.
 
-* [Kontohanteringsåtgärder på Azure Data Lake Store med hjälp av .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Dataåtgärder på Data Lake Store med hjälp av .NET SDK](data-lake-store-data-operations-net-sdk.md)
+* [Kontohanteringsåtgärder i Data Lake Storage Gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Åtgärder på Data Lake Storage Gen1 med .NET SDK](data-lake-store-data-operations-net-sdk.md)
 
 

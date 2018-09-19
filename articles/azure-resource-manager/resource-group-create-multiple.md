@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 25488295ec046eb0ca7473af76e4618eacb1155d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8828ba3c91df7b0a2fde3c42ecd81bd4ee4d17a3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38600778"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295945"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera flera instanser av en resurs eller egenskapen i Azure Resource Manager-mallar
 
 Den här artikeln visar hur du iterera på dina Azure Resource Manager-mall för att skapa flera instanser av en resurs. Om du vill ange om en resurs är distribuerad på alla, se [elementet](resource-manager-templates-resources.md#condition).
+
+En självstudiekurs finns i [självstudie: skapa flera resursinstanser med hjälp av Resource Manager-mallar](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-iteration"></a>Resursen iteration
 
@@ -442,6 +444,9 @@ I följande exempel visas vanliga scenarier för att skapa flera resurser eller 
 |[Flera säkerhetsregler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuerar flera säkerhetsregler till en nätverkssäkerhetsgrupp. Den skapar säkerhetsregler från en parameter. Parametern, se [flera NSG-parameterfil](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Nästa steg
+
+* Om du vill gå igenom en självstudiekurs, se [självstudie: skapa flera resursinstanser med hjälp av Resource Manager-mallar](./resource-manager-tutorial-create-multiple-instances.md).
+
 * Om du vill lära dig om delar av en mall finns i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 * Läs hur du distribuerar mallen i [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
 

@@ -1,57 +1,58 @@
 ---
-title: CalcHistogram-metoden i Knowledge utforskning Service API | Microsoft Docs
-description: Lär dig hur du använder metoden CalcHistogram i den kunskap utforskning Service (KES) API i kognitiva Services.
+title: CalcHistogram metod - Knowledge API för tjänst för Kunskapsutveckling
+titlesuffix: Azure Cognitive Services
+description: Lär dig hur du använder-metoden CalcHistogram i den kunskap utforskning Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 6ed694b0cc9cf41b815cc54b9f6d12adb2b7cd64
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0ca43d6f6879198b8f80794c1948439e15f312ad
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351624"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122764"
 ---
 # <a name="calchistogram-method"></a>calchistogram metod
-Den *calchistogram* metoden beräknar objekt som matchar ett strukturerade frågeuttryck och beräknar fördelningen av deras attributvärden.
+Den *calchistogram* metoden beräknar de objekt som matchar ett strukturerade frågeuttryck och beräknar fördelningen av deras attributvärden.
 
 ## <a name="request"></a>Förfrågan
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
 Namn|Värde|Beskrivning
 ----|-----|-----------
-uttryck | Textsträng | Strukturerade frågeuttryck som anger entiteterna index över som du vill beräkna histogram.
-attribut | Sträng (standard = ””) | Kommaavgränsad lista över attribut som ska inkluderas i svaret.
+uttryck för Markörstorlek | Textsträngen | Strukturerade frågeuttryck som anger index-entiteter över som du vill beräkna histogram.
+Attribut | Textsträng (standard = ””) | Kommaavgränsad lista över attribut som ska inkluderas i svaret.
 count   | Antal (standard = 10) | Antalet resultat som ska returneras.
-förskjutning  | Antal (standard = 0) | Indexet för det första resultatet ska returneras.
+förskjutning  | Antal (standard = 0) | Index för det första resultatet ska returneras.
 
 ## <a name="response-json"></a>Svar (JSON)
 JSONPath | Beskrivning
 ----|----
 $.expr | *uttryck* parametern från begäran.
 $.num_entities | Totalt antal matchande entiteter.
-$.histograms |  Matris med histogram, ett för varje begärda attribut.
-$.histograms [\*] .attribute | Namnet på attributet som histogrammet beräknades.
-$.histograms [\*] .distinct_values | Antalet distinkta värden mellan matchar entiteter för det här attributet.
-$.histograms [\*] .total_count | Totalt antal instanser av värdet mellan matchar entiteter för det här attributet.
+$.histograms |  Matris med histogram, en för varje begärda attribut.
+$.histograms [\*] .attribute | Namnet på attributet för vilken histogrammet beräknas.
+$.histograms [\*] .distinct_values | Antal distinkta värden mellan matchande entiteter för det här attributet.
+$.histograms [\*] .total_count | Totalt antal värdet instanser mellan matchande entiteter för det här attributet.
 $.histograms [\*] .histogram | Histogramdata för det här attributet.
 $.histograms [\*] .histogram [\*] .value | Attributvärdet.
-$.histograms [\*] .histogram [\*] .logprob  | Totalt antal den naturliga logaritmen sannolikheten för matchar entiteter med det här attributvärdet.
+$.histograms [\*] .histogram [\*] .logprob  | Totalt antal naturliga loggen sannolikhet med matchande entiteter med det här attributvärdet.
 $.histograms [\*] .histogram [\*] .count    | Antal matchande entiteter med det här attributvärdet.
-$.aborted | TRUE om tidsgränsen för begäran.
+$.aborted | SANT om uppnåddes för begäran.
 
 ### <a name="example"></a>Exempel
-I exemplet academic publikationer beräknar följande ett histogram för publikationen antal per år och nyckelord för en viss författare sedan 2013:
+I exemplet akademiska publikationer beräknar följande ett histogram för publikationen antal per år och efter nyckelord för en viss författare sedan 2013:
 
 `http://<host>/calchistogram?expr=And(Composite(Author.Name=='jaime teevan'),Year>=2013)&attributes=Year,Keyword&count=4`
 
-Svaret anger att det finns 37 papper matchar frågeuttrycket.  För den *år* attribut, 3 distinkta värden, en för varje år sedan 2013.  Det totala antalet över 3 distinkta värden är 37.  För varje *år*, histogrammet visar värdet, totalt antal den naturliga logaritmen sannolikhet och räkna matchande entiteter.     
+Svaret anger att det finns 37 papers matchar frågeuttrycket.  För den *år* attribut, det finns 3 distinkta värden, en för varje år sedan 2013.  Det totala antalet över 3 distinkta värden är 37.  För varje *år*, histogrammet visar värde, totalt antal naturliga loggen sannolikheten och antalet matchande entiteter.     
 
-Histogram för *nyckelordet* visar att det finns 34 distinkta nyckelord. Som en papper kan vara kopplad till flera nyckelord, kan det totala antalet (53) vara större än antalet matchande entiteter.  Även om det finns 34 distinkta värden svaret endast innehåller upp 4 eftersom den ”count = 4” parametern.
+Histogram för *nyckelordet* visar att det finns 34 distinkta nyckelord. När ett dokument kan vara associerad med flera nyckelord, kan det totala antalet (53) vara större än antalet matchande entiteter.  Även om det finns 34 distinkta värden, svaret endast innehåller upp 4 grund av den ”antal = 4” parametern.
 
 ```json
 {

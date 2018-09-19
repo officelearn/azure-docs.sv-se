@@ -1,59 +1,60 @@
 ---
-title: Analyzer naming strukturen i språkliga analys API | Microsoft Docs
-description: Lär dig hur språkliga analys API använder namngivning strukturen för analyzers både flexibel och precision.
+title: Analyzer naming struktur - API för Lingvistisk analys
+titlesuffix: Azure Cognitive Services
+description: Lär dig hur namngivningsstrukturen för Lingvistisk analys API Analyzer ger både flexibilitet och precision.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
-ms.openlocfilehash: 2729b7126e82862660fc8e1a995cc87ae996ea03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a998bdf32be948448131ea12db1b7d4204e6722d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351570"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127473"
 ---
-# <a name="analyzer-names"></a>Analyzer namn
+# <a name="analyzer-names"></a>Analyzer-namn
 
-Vi använder en ganska komplicerat namngivning struktur för analyzers för att både på analyzers och precision förstå vad det innebär att ett namn.
-Analyzer består av fyra delar: ett ID, en typ, en specifikation och en implementering.
-Rollen för varje komponent anges nedan.
+Vi använder en något komplicerade namngivningsstrukturen för analysverktyg för båda flexibelt på analysverktyg och precision förstå vad ett namn innebär.
+Analyzer-namn som består av fyra delar: ett ID, en typ, en specifikation och en implementering.
+Rollen för varje komponent definieras nedan.
 
 ## <a name="id"></a>ID
-Först har en analyzer ett unikt ID; ett GUID.
-Dessa GUID ska ändra relativt sällan, men är det enda sättet att beskriva en viss analyzer unikt.
+Först måste har en analyzer ett unikt ID; ett GUID.
+Dessa GUID bör ändras relativt sällan, men är det enda sättet att beskriva en viss analyzer unikt.
 
 ## <a name="kind"></a>Variant
-Därefter varje analyzer är ett **typ**.
-Detta definierar i mycket bred villkor typ av analys returnerade och bör unikt definiera datastruktur som används för att representera den analysen.
+Sedan måste varje analyzer är ett **typ**.
+Detta definierar mycket mer allmänt typ av analys returneras och unikt bör definiera datastrukturen som används för att representera den här analysen.
 Det finns tre olika typer:
  - [Token](Sentences-and-Tokens.md)
  - [POS-taggar](Pos-Tagging.md)
- - [Område träd](constituency-parsing.md)
+ - [Av valkrets trädet](constituency-parsing.md)
 
 ## <a name="specification"></a>Specifikationen
-Inom en viss typ, men olika experter kan inte samtycka på hur en viss företeelse bör analyseras.
-Till skillnad från programmeringsspråk finns det ingen klar och exakt definition av hur det ska ske.
+Inom en viss typ, men olika experter kan inte samtycka på hur ett visst fenomen bör analyseras.
+Till skillnad från programmeringsspråk finns det ingen klar och exakt definition av hur detta ska göras.
 
 Anta exempelvis att vi försöker hitta token i engelska meningen ”han inte gå”.
-Särskilt bör du strängen ”inte”.
-En möjlig tolkning är att detta ska delas upp i två token: ”gjorde” och ”inte”.
-Sedan skulle den alternativa meningen ”han inte att gå” ha samma uppsättning token.
-En annan möjlighet är att säga ska delas in i token ”matchade” och ””.
-Denna token inte skulle normalt anses ett ord, men den här metoden behåller mer information om den ytan strängen, som ibland kan vara användbara.
-Eller kanske den minskningen ska betraktas som ett enstaka ord.
+Tänk särskilt strängen ”inte”.
+En möjlig tolkning är att detta ska delas upp i två token: ”gjorde” och ”not”.
+Sedan skulle den alternativa meningen ”han inte gå” ha samma uppsättning token.
+En annan möjlighet är att säga att det ska delas upp i token ”gjorde” och ””.
+Denna token kan inte normalt betraktas som ett ord, men den här metoden innehåller mer information om surface strängen, som ibland kan vara användbara.
+Eller kanske den minskningen av ska betraktas som ett enstaka ord.
 
-Oavsett vad görs valet ska göras konsekvent.
-Detta är exakt rollen för en **specifikationen**: för att avgöra vad som ska vara en rätt representation.
+Oavsett vilken väljs automatiskt, att välja ska göras konsekvent.
+Detta är exakt vilken roll en **specifikationen**: för att bestämma vad en korrekt återgivning ska vara.
 
-Analyzer utdata kan endast jämföras ganska med data som överensstämmer med samma specifikationer.
+Endast ganska att jämfört med Analyzer utdata till data som överensstämmer med samma-specifikationen.
 
 ## <a name="implementation"></a>Implementering
 
-Ofta finns flera modeller som försöker få samma resultat, men med olika prestandaegenskaper.
-En modell kan vara snabbare men mindre exakt; en annan kan göra en annan kompromiss.
+Det finns ofta flera modeller som försöker uppnå samma resultat, men med olika prestandaegenskaper.
+En modell kan vara snabbare dock mindre exakta; en annan kan vara en annan kompromiss.
 
-Den **implementering** delen av ett analyzer namn används för att identifiera den här typen av information, så att användarna kan välja den lämpligaste analyzer för deras behov.
+Den **implementering** delen av ett analyzer-namn används för att identifiera den här typen av information, så att användarna kan välja den lämpligaste analyzer för deras behov.

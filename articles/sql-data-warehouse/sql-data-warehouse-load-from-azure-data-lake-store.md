@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Läsa in från Azure Data Lake Store till Azure SQL Data Warehouse | Microsoft Docs'
-description: Använd PolyBase externa tabeller för att läsa in data från Azure Data Lake Store till Azure SQL Data Warehouse.
+title: 'Självstudie: Läsa in från Azure Data Lake Storage Gen1 till Azure SQL Data Warehouse | Microsoft Docs'
+description: Använd PolyBase externa tabeller för att läsa in data från Azure Data Lake Storage Gen1 till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
 manager: craigg
@@ -10,19 +10,19 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 04676db3048cf747e9a20d91a404f29c6cfc6853
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c3902061264b75ba177ba150176d784ad5384a9f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306401"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297204"
 ---
-# <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Läsa in data från Azure Data Lake Store till SQL Data Warehouse
-Använd PolyBase externa tabeller för att läsa in data från Azure Data Lake Store till Azure SQL Data Warehouse. Även om du kan köra ad hoc-frågor på data som lagras i ADLS, rekommenderar vi importerar data till SQL Data Warehouse för bästa prestanda.
+# <a name="load-data-from-azure-data-lake-storage-gen1-to-sql-data-warehouse"></a>Läsa in data från Azure Data Lake Storage Gen1 till SQL Data Warehouse
+Använd PolyBase externa tabeller för att läsa in data från Azure Data Lake Storage Gen1 till Azure SQL Data Warehouse. Även om du kan köra ad hoc-frågor på data som lagras i Data Lake Storage Gen1, rekommenderar vi importerar data till SQL Data Warehouse för bästa prestanda.
 
 > [!div class="checklist"]
-> * Skapa databasobjekt som krävs för att läsa in från Azure Data Lake Store.
-> * Anslut till en Azure Data Lake Store-katalog.
+> * Skapa databasobjekt som krävs för att läsa in från Data Lake Storage Gen1.
+> * Anslut till en Data Lake Storage Gen1 katalog.
 > * Läs in data i Azure SQL Data Warehouse.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -35,17 +35,17 @@ Om du vill köra den här självstudien behöver du:
 * Azure Active Directory-program för tjänst-till-tjänst-autentisering. Så här skapar du [Active directory-autentisering](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
 >[!NOTE] 
-> Du behöver det klient-ID och nyckel OAuth2.0 Token slutpunktsvärdet programmets Active Directory för att ansluta till din Azure Data Lake från SQL Data Warehouse. Information om hur du hämtar dessa värden finns i länken ovan. Använda program-ID för Azure Active Directory-Appregistrering som klient-ID.
+> Du behöver det klient-ID och nyckel OAuth2.0 Token slutpunktsvärdet för din Active Directory-programmet för att ansluta till ditt Data Lake Storage Gen1-konto från SQL Data Warehouse. Information om hur du hämtar dessa värden finns i länken ovan. Använda program-ID för Azure Active Directory-Appregistrering som klient-ID.
 > 
 
 * Ett Azure SQL Data Warehouse. Se [skapa och fråga och Azure SQL Data Warehouse](create-data-warehouse-portal.md).
 
-* En Azure Data Lake Store. Se [Kom igång med Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md). 
+* Ett Data Lake Storage Gen1-konto. Se [Kom igång med Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md). 
 
 ##  <a name="create-a-credential"></a>Skapa en autentiseringsuppgift
-För att komma åt din Azure Data Lake Store, kommer du behöva skapa en huvudnyckel för databasen för att kryptera din autentiseringshemligheten som används i nästa steg. Du kan sedan skapa en Database Scoped Credential, som lagrar autentiseringsuppgifterna för tjänstobjektet i AAD. Observera att credential-syntax är olika för dig som har använt PolyBase för att ansluta till Windows Azure Storage-Blobbar.
+Tillgång till ditt Data Lake Storage Gen1-konto, behöver du skapa en databashuvudnyckel för att kryptera din autentiseringshemligheten som används i nästa steg. Du kan sedan skapa en Database Scoped Credential, som lagrar autentiseringsuppgifterna för tjänstobjektet i AAD. Observera att credential-syntax är olika för dig som har använt PolyBase för att ansluta till Windows Azure Storage-Blobbar.
 
-Om du vill ansluta till Azure Data Lake Store, måste du **första** skapa ett Azure Active Directory-program, skapa en åtkomstnyckel och ge programmet åtkomst till resursen i Azure Data Lake. Anvisningar finns i [autentisera till Azure Data Lake Store med hjälp av Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+Om du vill ansluta till Data Lake Storage Gen1, måste du **första** skapa ett Azure Active Directory-program, skapa en åtkomstnyckel och ge programmet åtkomst till Data Lake Storage Gen1 resursen. Anvisningar finns i [autentisera till Azure Data Lake Storage Gen1 med hjälp av Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -61,14 +61,14 @@ CREATE MASTER KEY;
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/library/mt270260.aspx
 
-CREATE DATABASE SCOPED CREDENTIAL ADLCredential
+CREATE DATABASE SCOPED CREDENTIAL ADLSG1Credential
 WITH
     IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
 ;
 
 -- It should look something like this:
-CREATE DATABASE SCOPED CREDENTIAL ADLCredential
+CREATE DATABASE SCOPED CREDENTIAL ADLSG1Credential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
     SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
@@ -80,20 +80,20 @@ Använd det här [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-exte
 
 ```sql
 -- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Store.
--- LOCATION: Provide Azure Data Lake accountname and URI
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Storage Gen1.
+-- LOCATION: Provide Data Lake Storage Gen1 account name and URI
 -- CREDENTIAL: Provide the credential created in the previous step.
 
-CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
+CREATE EXTERNAL DATA SOURCE AzureDataLakeStorageGen1
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalakestore.net',
-    CREDENTIAL = ADLCredential
+    LOCATION = 'adl://<datalakestoregen1accountname>.azuredatalakestore.net',
+    CREDENTIAL = ADLSG1Credential
 );
 ```
 
 ## <a name="configure-data-format"></a>Konfigurera dataformat
-Om du vill importera data från ADLS, måste du ange det externa filformatet. Det här objektet definierar hur filerna som är skrivna i ADLS.
+Om du vill importera data från Data Lake Storage Gen1, måste du ange det externa filformatet. Det här objektet definierar hur filerna som är skrivna i Data Lake Storage Gen1.
 Titta på vår T-SQL-dokumentation för en fullständig lista [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
 ```sql
@@ -119,7 +119,7 @@ Nu när du har angett dataformatet för käll- och filen, är du redo att skapa 
 
 ```sql
 -- D: Create an External Table
--- LOCATION: Folder under the ADLS root folder.
+-- LOCATION: Folder under the Data Lake Storage Gen1 root folder.
 -- DATA_SOURCE: Specifies which Data Source Object to use.
 -- FILE_FORMAT: Specifies which File Format Object to use
 -- REJECT_TYPE: Specifies how you want to deal with rejected rows. Either Value or percentage of the total
@@ -134,7 +134,7 @@ CREATE EXTERNAL TABLE [dbo].[DimProduct_external] (
 WITH
 (
     LOCATION='/DimProduct/'
-,   DATA_SOURCE = AzureDataLakeStore
+,   DATA_SOURCE = AzureDataLakeStorageGen1
 ,   FILE_FORMAT = TextFileFormat
 ,   REJECT_TYPE = VALUE
 ,   REJECT_VALUE = 0
@@ -151,10 +151,10 @@ Om en rad inte matchar schemadefinitionen avvisade raden från belastningen.
 
 Alternativen REJECT_TYPE och REJECT_VALUE kan du definiera hur många rader eller vilken procentandel av data måste finnas i den slutliga tabellen. Om värdet för avvisa har nåtts under belastning misslyckas belastningen. Den vanligaste orsaken för avvisade raden är en felaktig schemamatchning definition. Till exempel om en kolumn är felaktigt schemat för int när data i filen är en sträng varje rad inte laddas.
 
- Azure Data Lake store använder rollbaserad åtkomstkontroll (RBAC) för att styra åtkomsten till data. Det innebär att tjänstens huvudnamn måste ha läsbehörighet till kataloger som definierats i parametern plats och underordnade grupper till sista katalogen och filerna. På så sätt kan PolyBase för att autentisera och läsa in data. 
+Data Lake Storage Gen1 använder rollbaserad åtkomstkontroll (RBAC) för att styra åtkomsten till data. Det innebär att tjänstens huvudnamn måste ha läsbehörighet till kataloger som definierats i parametern plats och underordnade grupper till sista katalogen och filerna. På så sätt kan PolyBase för att autentisera och läsa in data. 
 
 ## <a name="load-the-data"></a>Läs in data
-Att läsa in data från Azure Data Lake Store-användning i [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) instruktionen. 
+Att läsa in data från Data Lake Storage Gen1 användning den [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) instruktionen. 
 
 CTAS skapar en ny tabell och fylla den med resultatet av en select-instruktion. CTAS definierar den nya tabellen om du vill ha samma kolumner och datatyper som resultatet av select-instruktionen. Om du väljer alla kolumner från en extern tabell är en replik av kolumner och datatyper i den externa tabellen i den nya tabellen.
 
@@ -192,12 +192,12 @@ I följande exempel är en bra utgångspunkt för att skapa statistik. Den skapa
 Du har har läst in data i Azure SQL Data Warehouse. Bra jobbat!
 
 ## <a name="next-steps"></a>Nästa steg 
-I den här självstudien skapade externa tabeller för att definiera strukturen för data som lagras i Azure Data Lake Store och sedan används PolyBase CREATE TABLE AS SELECT-instruktion för att läsa in data i ditt informationslager. 
+I den här självstudien skapade externa tabeller för att definiera strukturen för data som lagras i Data Lake Storage Gen1 och sedan används PolyBase CREATE TABLE AS SELECT-instruktion för att läsa in data i ditt informationslager. 
 
 Du gjorde detta:
 > [!div class="checklist"]
-> * Skapade databasobjekt som krävs för att läsa in från Azure Data Lake Store.
-> * Ansluten till en Azure Data Lake Store-katalog.
+> * Skapade databasobjekt som krävs för att läsa in från Data Lake Storage Gen1.
+> * Ansluten till en Data Lake Storage Gen1 katalog.
 > * Inlästa data till Azure SQL Data Warehouse.
 > 
 

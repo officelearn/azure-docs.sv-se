@@ -12,21 +12,53 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: a8ee92d117a416d638f62b573dfb155f67bf66e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 72b93de029af750f55bf53fcc82e22ad91b45f69
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983181"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296353"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
+Den här guiden innehåller information om krångla skriva Azure Functions med JavaScript.
 
-JavaScript-upplevelsen för Azure Functions gör det enkelt att exportera en funktion som skickas som en `context` objekt för att kommunicera med körningen och för att ta emot och skicka data via bindningar.
+En JavaScript-funktion är en exporterad `function` som körs när den utlöses ([utlösare har konfigurerats i function.json](functions-triggers-bindings.md)). Varje funktion skickas en `context` objektet som används för mottagning och skicka bindningsdata, loggning och kommunicera med körningen.
 
-Den här artikeln förutsätter att du redan har läst den [Azure Functions för utvecklare](functions-reference.md).
+Den här artikeln förutsätter att du redan har läst den [Azure Functions för utvecklare](functions-reference.md). Vi rekommenderar också att du har följt en självstudiekurs i ”Snabbstarter” till [skapa din första funktion](functions-create-first-function-vs-code.md).
+
+## <a name="folder-structure"></a>mappstruktur
+
+Det ser ut som följande nödvändiga mappstrukturen för en JavaScript-projektet. Observera att du kan ändra denna standardinställning: finns i den [skriptfil](functions-reference-node.md#using-scriptfile) avsnittet nedan för mer information.
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - index.js
+ | | - function.json
+ | - MySecondFunction
+ | | - index.js
+ | | - function.json
+ | - SharedCode
+ | | - myFirstHelperFunction.js
+ | | - mySecondHelperFunction.js
+ | - node_modules
+ | - host.json
+ | - package.json
+ | - extensions.csproj
+ | - bin
+```
+
+I roten av projektet, det finns en delad [host.json](functions-host-json.md) -fil som kan användas för att konfigurera funktionsappen. Varje funktion har en mapp med en egen fil med kod (.js) och bindningen konfigurationsfil (function.json).
+
+Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime definieras i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-triggers-bindings.md#local-development-azure-functions-core-tools). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
 
 ## <a name="exporting-a-function"></a>Exportera en funktion
-Varje JavaScript-funktion måste exportera en enda `function` via `module.exports` för körning för att hitta funktionen och kör den. Den här funktionen måste alltid ta en `context` objektet som första parameter.
+
+JavaScript-funktioner måste exporteras [ `module.exports` ](https://nodejs.org/api/modules.html#modules_module_exports) (eller [ `exports` ](https://nodejs.org/api/modules.html#modules_exports)). I standard-fall din exporterade funktion ska vara den enda exporten från dess fil, export med namnet `run`, eller export med namnet `index`. Standardplatsen för din funktion `index.js`, där `index.js` delar samma överordnad katalog som motsvarande `function.json`. Observera att namnet på `function.json`'s överordnad katalog är alltid namnet på din funktion. 
+
+Om du vill konfigurera filens plats och exportera namnet på din funktion, Läs om [konfigurerar din funktionsadressen](functions-reference-node.md#configure-function-entry-point) nedan.
+
+Din startpunkt för exporterade funktionen alltid vidta en `context` objektet som första parameter.
 
 ```javascript
 // You must include a context, other arguments are optional
@@ -45,7 +77,7 @@ module.exports = function(context) {
 };
 ```
 
-Bindningar för indata och utlösare (bindningarna för `direction === "in"`) kan skickas till funktionen som parametrar. De skickas till funktionen i samma ordning som de har definierats i *function.json*. Du kan dynamiskt hantera indata med hjälp av JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objekt. Om du har till exempel `function(context, a, b)` och ändra den till `function(context, a)`, du kan fortfarande få värdet för `b` i Funktionskoden genom att referera till `arguments[2]`.
+Utlösare och bindningar för indata (bindningarna för `direction === "in"`) kan skickas till funktionen som parametrar. De skickas till funktionen i samma ordning som de har definierats i *function.json*. Du kan också dynamiskt hantera indata med hjälp av JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objekt. Om du har till exempel `function(context, a, b)` och ändra den till `function(context, a)`, du kan fortfarande få värdet för `b` i Funktionskoden genom att referera till `arguments[2]`.
 
 Alla bindningar, oavsett riktning, skickas även vidare den `context` objekt med hjälp av den `context.bindings` egenskapen.
 
@@ -56,9 +88,9 @@ Den `context` objektet är alltid den första parametern för en funktion och m�
 
 ```javascript
 // You must include a context, but other arguments are optional
-module.exports = function(context) {
+module.exports = function(ctx) {
     // function logic goes here :)
-    context.done();
+    ctx.done();
 };
 ```
 
@@ -109,7 +141,7 @@ context.done([err],[propertyBag])
 
 Informerar den runtime som koden har slutförts. Om din funktion använder JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen (tillgängligt med hjälp av Node 8 + i Functions version 2.x), du behöver inte använda `context.done()`. Den `context.done` anropas implicit återanrop.
 
-Om funktionen inte är en async-funktion, **måste du anropa `context.done`**  att informera körningen att funktionen har slutförts. Körningen når tidsgränsen om den saknas.
+Om funktionen inte är en async-funktion, **måste du anropa** `context.done` att informera körningen att funktionen har slutförts. Körningen når tidsgränsen om den saknas.
 
 Den `context.done` metoden kan du ange både en användardefinierad fel att körningen och ett JSON-objekt som innehåller utdata-bindning. Egenskaper som skickas till `context.done` skrivs allt på den `context.bindings` objekt.
 
@@ -164,7 +196,7 @@ Alternativ för `dataType` är: `binary`, `stream`, och `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>Skrivning spårningsutdata till konsolen 
 
-I funktioner, använder du den `context.log` metoder för att skriva spårningsutdata till konsolen. Du kan inte använda i Functions v1.x `console.log` att skriva till konsolen. Spåra ouputs via i Functions v2.x `console.log` samlas på Funktionsapp-nivå. Det innebär att utdata från `console.log` inte är knutna till en specifik funktionsanrop.
+I funktioner, använder du den `context.log` metoder för att skriva spårningsutdata till konsolen. Spåra ouputs via i Functions v2.x `console.log` samlas på Funktionsapp-nivå. Det innebär att utdata från `console.log` inte är knutna till en specifik funktionsanrop och kan därför inte visas i loggarna för en specifik funktion. De kommer dock att spridas till Application Insights. Du kan inte använda i Functions v1.x `console.log` att skriva till konsolen. 
 
 När du anropar `context.log()`, meddelandet skrivs till konsolen vid spårningsnivån standard, vilket är den _info_ spårningsnivå. Följande kod skriver till konsolen vid spårningsnivån info:
 
@@ -295,22 +327,10 @@ I följande tabell visas Node.js-version som används av varje huvudversion av F
 | 1.x | 6.11.2 (låst av körningen) |
 | 2.x  | _Aktiva LTS_ och _aktuella_ Node.js-versioner (8.11.1 och 10.6.0 rekommenderas). Ange version med hjälp av WEBSITE_NODE_DEFAULT_VERSION [appinställningen](functions-how-to-use-azure-function-app-settings.md#settings).|
 
-Du kan se den aktuella versionen med hjälp av körningen genom att skriva ut `process.version` från valfri funktion.
+Du kan se den aktuella versionen som körningen använder genom att kontrollera inställningarna ovan appen eller genom att skriva ut `process.version` från valfri funktion.
 
-## <a name="package-management"></a>Pakethantering
-Följande steg kan du inkludera paket i din funktionsapp: 
-
-1. Gå till `https://<function_app_name>.scm.azurewebsites.net`.
-
-2. Klicka på **felsöka konsolen** > **CMD**.
-
-3. Gå till `D:\home\site\wwwroot`, och dra sedan package.json-fil till den **wwwroot** mapp på den övre delen av sidan.  
-    Du kan också överföra filer till din funktionsapp på andra sätt. Mer information finns i [så här uppdaterar du funktionen appfiler](functions-reference.md#fileupdate). 
-
-4. När package.json-fil har överförts, kör den `npm install` i den **Kudu-konsolen för fjärrkörning**.  
-    Den här åtgärden hämtar de paket som anges i package.json-fil och startar om appen.
-
-När du har installerat de paket som du behöver du ska importera dem till din funktion genom att anropa `require('packagename')`, som i följande exempel:
+## <a name="dependency-management"></a>Beroendehantering
+För att kunna använda community-biblioteken i JavaScript-koden som visas i det exemplet nedan måste du kontrollera att alla beroenden är installerade på din Funktionsapp i Azure.
 
 ```javascript
 // Import the underscore.js library
@@ -323,7 +343,26 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Du bör definiera en `package.json` i roten på din funktionsapp. Definiera filen kan alla funktioner i appen som delar samma cachelagrade paket, vilket ger bästa prestanda. Om det uppstår en versionskonflikt, du kan lösa problemet genom att lägga till en `package.json` filen i mappen för en specifik funktion.  
+Observera att du bör definiera en `package.json` i roten på din funktionsapp. Definiera filen kan alla funktioner i appen som delar samma cachelagrade paket, vilket ger bästa prestanda. Om det uppstår en versionskonflikt, du kan lösa problemet genom att lägga till en `package.json` filen i mappen för en specifik funktion.  
+
+Det finns två sätt att installera paket på din Funktionsapp: 
+
+### <a name="deploying-with-dependencies"></a>Distribuera med beroenden
+1. Installera alla nödvändiga paket lokalt genom att köra `npm install`.
+
+2. Distribuera din kod och se till att den `node_modules` mappen ingår i distributionen. 
+
+
+### <a name="using-kudu"></a>Med Kudu
+1. Gå till `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Klicka på **felsöka konsolen** > **CMD**.
+
+3. Gå till `D:\home\site\wwwroot`, och dra sedan package.json-fil till den **wwwroot** mapp på den övre delen av sidan.  
+    Du kan också överföra filer till din funktionsapp på andra sätt. Mer information finns i [så här uppdaterar du funktionen appfiler](functions-reference.md#fileupdate). 
+
+4. När package.json-fil har överförts, kör den `npm install` i den **Kudu-konsolen för fjärrkörning**.  
+    Den här åtgärden hämtar de paket som anges i package.json-fil och startar om appen.
 
 ## <a name="environment-variables"></a>Miljövariabler
 Hämta en miljövariabel eller en app som inställningsvärde `process.env`, vilket visas här i den `GetEnvironmentVariable` funktionen:
@@ -344,9 +383,74 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+
+## <a name="configure-function-entry-point"></a>Konfigurera funktionens startadress
+
+Den `function.json` egenskaper `scriptFile` och `entryPoint` kan användas för att konfigurera platsen och namnet på din exporterade funktion. Det kan vara viktigt om din JavaScript är transpiled.
+
+### <a name="using-scriptfile"></a>Med hjälp av `scriptFile`
+
+Som standard körs en JavaScript-funktion från `index.js`, en fil som delar samma överordnad katalog som dess motsvarande `function.json`.
+
+`scriptFile` kan användas för att få en mappstruktur som ser ut så här:
+```
+FunctionApp
+ | - host.json
+ | - myNodeFunction
+ | | - function.json
+ | - lib
+ | | - nodeFunction.js
+ | - node_modules
+ | | - ... packages ...
+ | - package.json
+```
+
+Den `function.json` för `myNodeFunction` bör innehålla en `scriptFile` egenskap som pekar på filen med exporterade funktionen ska köras.
+```json
+{
+  "scriptFile": "../lib/nodeFunction.js",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+### <a name="using-entrypoint"></a>Med hjälp av `entryPoint`
+
+I `scriptFile` (eller `index.js`), en funktion måste exporteras med `module.exports` för att hitta och köra. Som standard är den funktion som körs när den utlöses endast export från filen, export med namnet `run`, eller export med namnet `index`.
+
+Detta kan konfigureras med hjälp av `entryPoint` i `function.json`:
+```json
+{
+  "entryPoint": "logFoo",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+I funktioner v2.x som har stöd för den `this` parameter i användarfunktioner Funktionskoden kan sedan vara på följande sätt:
+```javascript
+class MyObj {
+    constructor() {
+        this.foo = 1;
+    };
+    
+    function logFoo(context) { 
+        context.log("Foo is " + this.foo); 
+        context.done(); 
+    }
+}
+
+const myObj = new MyObj();
+module.exports = myObj;
+```
+
+I det här exemplet är det viktigt att Observera att även om ett objekt ska exporteras, det finns inga guarantess runt bevara tillstånd mellan körningar.
+
 ## <a name="considerations-for-javascript-functions"></a>Överväganden för JavaScript-funktioner
 
-När du arbetar med JavaScript-funktioner måste du vara medveten om överväganden i följande två avsnitt.
+När du arbetar med JavaScript-funktioner måste du vara medveten om överväganden i följande avsnitt.
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Välj en vCPU App Service-planer
 
@@ -354,6 +458,9 @@ När du skapar en funktionsapp som använder App Service-planen, rekommenderar v
 
 ### <a name="typescript-and-coffeescript-support"></a>Stöd för TypeScript och CoffeeScript
 Eftersom direktstöd ännu inte finns för automatisk kompilering av TypeScript eller CoffeeScript via körningen, behöver stödet hanteras utanför körning, vid tidpunkten för distribution.  
+
+### <a name="cold-start"></a>Kallstart
+När börjar utveckla Azure Functions i utan server som värd modellen kalla är verklighet. ”Kallstart” avser faktumet att när appen startas för första gången efter en tids inaktivitet, det tar längre tid att starta. För JavaScript-funktioner med stora beroendeträd särskilt kan detta medföra större minskningen. För att skynda processen, om möjligt [kör dina funktioner som en paketfil](run-functions-from-deployment-package.md). Många distributionsmetoder välja i den här modellen som standard, men om du arbetar med stora kallstarter och inte kör en paketfil från kan detta kan vara en enorm förbättring.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser:

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e5cfbc7ddc10edf9b21afce73e3b7f8795fcdac9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382053"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121965"
 ---
 # <a name="add-custom-html-to-the-map"></a>Lägga till anpassade HTML på kartan
 
-Den här artikeln visar hur du lägger till en anpassad HTML till exempel en bildfil på kartan. 
+Den här artikeln visar hur du lägger till en anpassad HTML till exempel en bildfil på kartan.
 
 ## <a name="understand-the-code"></a>Förstå koden
 
@@ -33,11 +33,15 @@ Det sista blocket kod använder [addHtml](https://docs.microsoft.com/javascript/
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om de klasser och metoder som används i den här artikeln: 
-* [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
-    
-Flera kodexempel för att lägga till i dina kartor, finns i följande artiklar: 
-* [Visa sökresultat](./map-search-location.md)
-* [Hämta information från en koordinat](./map-get-information-from-coordinate.md)
+Läs mer om de klasser och metoder som används i den här artikeln:
 
+> [!div class="nextstepaction"]
+> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Flera kodexempel för att lägga till i dina kartor, finns i följande artiklar:
+
+> [!div class="nextstepaction"]
+> [Visa sökresultat](./map-search-location.md)
+
+> [!div class="nextstepaction"]
+> [Hämta information från en koordinat](./map-get-information-from-coordinate.md)

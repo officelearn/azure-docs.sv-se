@@ -1,6 +1,6 @@
 ---
-title: 'Tjänst-till-tjänst-autentisering: Python med Data Lake Store med Azure Active Directory | Microsoft Docs'
-description: Lär dig att uppnå service to service autentisering med Data Lake Store med Azure Active Directory använder Python
+title: 'Tjänst-till-tjänst-autentisering: Python med Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft Docs'
+description: Lär dig att uppnå tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med Azure Active Directory med hjälp av Python
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: f2ebd9228b9fa7861527dab20277ceb09f61b544
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a8e2cb090b2ee02301c54697db9edadeaebd9cd3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626240"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295419"
 ---
-# <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Tjänst-till-tjänst-autentisering med Data Lake Store använder Python
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med hjälp av Python
 > [!div class="op_single_selector"]
 > * [Använda Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Använda .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -27,7 +27,7 @@ ms.locfileid: "34626240"
 > 
 >  
 
-I den här artikeln får information du om hur du använder Python SDK för att göra service to service autentisering med Azure Data Lake Store. Slutanvändarens autentisering med Data Lake Store med hjälp av Python, se [slutanvändarens autentisering med Data Lake Store med hjälp av Python](data-lake-store-end-user-authenticate-python.md).
+I den här artikeln lär du dig hur du använder Python SDK för att göra tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1. Slutanvändarautentisering med Data Lake Storage Gen1 med hjälp av Python, se [slutanvändarautentisering med Data Lake Storage Gen1 med hjälp av Python](data-lake-store-end-user-authenticate-python.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -36,15 +36,15 @@ I den här artikeln får information du om hur du använder Python SDK för att 
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Skapa ett program för Azure Active Directory ”Web”**. Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Store med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Skapa ett program för Azure Active Directory ”Web”**. Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="install-the-modules"></a>Installera modulerna
 
-Du måste installera tre moduler för att kunna arbeta med Data Lake Store med hjälp av Python.
+Att arbeta med Data Lake Storage Gen1 med hjälp av Python, måste du installera tre moduler.
 
 * `azure-mgmt-resource`-modulen, som innehåller Azure-moduler för Active Directory osv.
-* `azure-mgmt-datalake-store`-modulen, som innehåller Azure Data Lake Store-kontohanteringsåtgärder. Mer information om den här modulen finns i [referensen för Azure Data Lake Store Management-modulen](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* `azure-datalake-store`-modulen, som innehåller Azure Data Lake Store-filsystemsåtgärder. Mer information om den här modulen finns i [referensen för Azure Data Lake Store Filesystem-modulen](http://azure-datalake-store.readthedocs.io/en/latest/).
+* Den `azure-mgmt-datalake-store` modulen, som innehåller kontohanteringsåtgärder för Data Lake Storage Gen1. Mer information om den här modulen finns i [Gen1 för Azure Data Lake lagringshantering modulreferens](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
+* Den `azure-datalake-store` modulen, som innehåller Data Lake Storage Gen1 filsystemsåtgärder. Mer information om den här modulen finns i [referensen för azure-datalake-store Filesystem-modulen](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Installera modulerna med hjälp av följande kommandon.
 
@@ -64,11 +64,11 @@ pip install azure-datalake-store
     ## Use this for Azure AD authentication
     from msrestazure.azure_active_directory import AADTokenCredentials
 
-    ## Required for Azure Data Lake Store account management
+    ## Required for Data Lake Storage Gen1 account management
     from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
     from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-    ## Required for Azure Data Lake Store filesystem management
+    ## Required for Data Lake Storage Gen1 filesystem management
     from azure.datalake.store import core, lib, multithread
 
     # Common Azure imports
@@ -84,7 +84,7 @@ pip install azure-datalake-store
 
 ## <a name="service-to-service-authentication-with-client-secret-for-account-management"></a>”Tjänst till tjänst”-autentisering med klienthemlighet för kontohantering
 
-Använda den här fragment för att autentisera med Azure AD för kontohanteringsåtgärder på Data Lake-butiken som skapa Data Lake Store-konto, ta bort Data Lake Store-konto, osv. Följande kodavsnitt kan användas för att autentisera ditt program interaktivt, använda klienthemligheten för ett program / service principal av en befintlig Azure AD ”Webbapp” program.
+Använd det här kodfragmentet för att autentisera med Azure AD för kontohanteringsåtgärder i Data Lake Storage Gen1 som att skapa ett Data Lake Storage Gen1, ta bort ett Data Lake Storage Gen1 konto, osv. Följande kodavsnitt kan användas för att autentisera ditt program icke-interaktivt, med hjälp av klienthemligheten för ett program / tjänstobjekt för ett befintligt Azure AD ”Webbapp” program.
 
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
@@ -99,7 +99,7 @@ Använda den här fragment för att autentisera med Azure AD för kontohantering
 
 ## <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>Tjänst-till-tjänst-autentisering med klienthemlighet för filsystemsåtgärder
 
-Använd följande kodavsnitt att autentisera med Azure AD för filsystemsåtgärder på Data Lake Store som skapa mappar, ladda uppladdningsfilen osv. Du kan använda följande kodfragment för att autentisera ditt program icke-interaktivt, med hjälp av klienthemligheten för ett program/tjänstobjekt. Använd detta med ett befintligt Azure AD-webbappsprogram.
+Använd följande kodfragment för att autentisera med Azure AD för filsystemsåtgärder på Data Lake Storage Gen1 till exempel skapa mapp, Överför fil osv. Du kan använda följande kodfragment för att autentisera ditt program icke-interaktivt, med hjälp av klienthemligheten för ett program/tjänstobjekt. Använd detta med ett befintligt Azure AD-webbappsprogram.
 
     tenant = '<TENANT>'
     RESOURCE = 'https://datalake.azure.net/'
@@ -113,7 +113,7 @@ Använd följande kodavsnitt att autentisera med Azure AD för filsystemsåtgär
 
 <!-- ## Service-to-service authentication with certificate for account management
 
-Use this snippet to authenticate with Azure AD for account management operations on Data Lake Store such as create Data Lake Store account, delete Data Lake Store account, etc. The following snippet can be used to authenticate your application non-interactively, using the certificate of an existing Azure AD "Web App" application. For instructions on how to create an Azure AD application, see [Create service principal with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+Use this snippet to authenticate with Azure AD for account management operations on Data Lake Storage Gen1 such as create a Data Lake Storage Gen1 account, delete a Data Lake Storage Gen1 account, etc. The following snippet can be used to authenticate your application non-interactively, using the certificate of an existing Azure AD "Web App" application. For instructions on how to create an Azure AD application, see [Create service principal with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
@@ -128,9 +128,9 @@ Use this snippet to authenticate with Azure AD for account management operations
     credentials = AADTokenCredentials(mgmt_token, client_id) -->
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln beskrivs hur du använder autentisering för tjänst-till-tjänst för att autentisera med Azure Data Lake Store med hjälp av Python. Du kan nu se följande artiklar som talar om hur du använder Python för att arbeta med Azure Data Lake Store.
+I den här artikeln har du lärt dig hur du använder tjänst-till-tjänst-autentisering för att autentisera med Data Lake Storage Gen1 med hjälp av Python. Du kan nu se ut i följande artiklar som pratar om hur du använder Python för att arbeta med Data Lake Storage Gen1.
 
-* [Kontohanteringsåtgärder på Data Lake Store använder Python](data-lake-store-get-started-python.md)
-* [Dataåtgärder på Data Lake Store använder Python](data-lake-store-data-operations-python.md)
+* [Kontohanteringsåtgärder i Data Lake Storage Gen1 med hjälp av Python](data-lake-store-get-started-python.md)
+* [Åtgärder på Data Lake Storage Gen1 med hjälp av Python](data-lake-store-data-operations-python.md)
 
 

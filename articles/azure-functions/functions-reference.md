@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: d2b05c83f77a58e224760d90d111b270d71a6514
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d97766b0a8c0df3b414d78f563406530f67c313b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092435"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125382"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
 I Azure Functions dela några tekniska nyckelkoncept och komponenter, oavsett språk eller bindning som du använder specifika funktioner. Innan du sätter igång till learning information som gäller för ett visst språk eller en bindning, bör du läsa igenom den här översikten som gäller för alla.
@@ -62,15 +62,13 @@ Runtime eller skriptvärden, är den underliggande WebJobs SDK-värden som lyssn
 
 För att underlätta HTTP-utlösare, finns det också en värd som har utformats för att sitta framför skriptvärden i produktionsscenarier. Med två värdar avslutas bidrar till att isolera skriptvärden framifrån trafik som hanteras av webbvärd.
 
-## <a name="folder-structure"></a>Mappstruktur
+## <a name="folder-structure"></a>mappstruktur
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-När inställningen upp ett projekt för distribution av funktioner till en funktionsapp i Azure App Service, kan du hantera den här mappstrukturen som din kod. Du kan använda befintliga verktyg som kontinuerlig integrering och distribution eller anpassat distributionsskript för detta distribuera tid paketinstallationen eller code transpilation.
+När inställningen upp ett projekt för distribution av funktioner till en funktionsapp i Azure, kan du hantera den här mappstrukturen som din kod. Vi rekommenderar att du använder [paketera distribution](deployment-zip-push.md) att distribuera projektet till din funktionsapp i Azure. Du kan också använda befintliga verktyg som [kontinuerlig integrering och distribution](functions-continuous-deployment.md) och Azure DevOps.
 
 > [!NOTE]
-> Se till att distribuera din `host.json` filen och fungerar mappar direkt till den `wwwroot` mapp. Ta inte med den `wwwroot` mapp i dina distributioner. Annars kan du få `wwwroot\wwwroot` mappar. 
-> 
-> 
+> Se till att distribuera din `host.json` filen och fungerar mappar direkt till den `wwwroot` mapp. Ta inte med den `wwwroot` mapp i dina distributioner. Annars kan du få `wwwroot\wwwroot` mappar.
 
 ## <a id="fileupdate"></a> Så här uppdaterar du funktionen app-filer
 Funktionen redigeraren inbyggda i Azure-portalen kan du uppdatera den *function.json* fil- och kodfilen för en funktion. Överföra eller andra uppdateringsfiler som *package.json* eller *project.json* eller beroenden, som du behöver använda andra metoder för distribution.

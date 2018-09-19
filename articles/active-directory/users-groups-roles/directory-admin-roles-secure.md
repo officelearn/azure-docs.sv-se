@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 55ce6398d89e56f92874d0ec135377d2a08cf075
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346737"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297817"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -159,7 +159,7 @@ Kontrollera att alla användare har loggat in på sina administrativa konton och
 
 #### <a name="turn-on-password-hash-synchronization"></a>Aktivera synkronisering av lösenordshash
 
-Synkronisering av lösenordshash är en funktion som används för att synkronisera hashvärden av användarlösenord från en lokal Active Directory-instans för en molnbaserad Azure AD-instans. Även om du vill använda federation med Active Directory Federation Services (AD FS) eller andra identitetsleverantörer, kan du också konfigurera synkronisering av lösenordshash som en säkerhetskopia i fall din lokala infrastruktur, till exempel AD eller AD FS-servrar misslyckas eller blir tillfälligt otillgänglig. Detta gör det möjligt för användare att logga in på tjänsten med hjälp av samma lösenord som de använder för att logga in på sina lokala AD-instans. Det kan också, Identity Protection att identifiera avslöjade autentiseringsuppgifter genom att jämföra dessa hashvärden för lösenord med lösenord som är kända för äventyras, om en användare har, med sitt samma e-postadress och lösenord för andra tjänster som inte är anslutna till Azure AD.  Mer information finns i [implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](./../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
+Synkronisering av lösenordshash är en funktion som används för att synkronisera hashvärden av användarlösenord från en lokal Active Directory-instans för en molnbaserad Azure AD-instans. Även om du vill använda federation med Active Directory Federation Services (AD FS) eller andra identitetsleverantörer, kan du också konfigurera synkronisering av lösenordshash som en säkerhetskopia i fall din lokala infrastruktur, till exempel AD eller AD FS-servrar misslyckas eller blir tillfälligt otillgänglig. Detta gör det möjligt för användare att logga in på tjänsten med hjälp av samma lösenord som de använder för att logga in på sina lokala AD-instans. Det kan också, Identity Protection att identifiera avslöjade autentiseringsuppgifter genom att jämföra dessa hashvärden för lösenord med lösenord som är kända för äventyras, om en användare har, med sitt samma e-postadress och lösenord för andra tjänster som inte är anslutna till Azure AD.  Mer information finns i [implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Kräv multifaktorautentisering (MFA) för användare i alla Privilegierade roller samt exponerade användare
 

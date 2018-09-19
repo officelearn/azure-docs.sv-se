@@ -14,12 +14,12 @@ ms.date: 03/14/2017
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 45882e4d107ffd9ece2bfa6caac43b3bb2f60add
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5d8e6c0db2ce6c35935c2b00aa40de2a5d5a050f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720250"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297630"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Använd en grupp för att hantera åtkomst till SaaS-program
 Med Azure Active Directory (Azure AD) med Azure AD Premium eller Azure AD Basic-licens kan använda du grupper för att tilldela åtkomst till ett SaaS-program som är integrerad med Azure AD. Till exempel om du vill tilldela åtkomst för marknadsföringsavdelningen att använda fem olika SaaS-program du kan skapa en grupp som innehåller användare i marknadsföringsavdelningen och sedan tilldela den gruppen för dessa fem SaaS-program som krävs av den marknadsföringsavdelningen. På så sätt kan du spara tid genom att hantera medlemskapet för marknadsföringsavdelningen på samma ställe. Användare sedan tilldelas till programmet när de läggs till som medlemmar i gruppen marknadsföring och har tilldelningarna tas bort från programmet när de tas bort från gruppen marknadsföring. Den här funktionen kan användas med hundratals program som du kan lägga till från inom Azure AD-Programgalleriet.
@@ -43,4 +43,4 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 * [Programhantering i Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](groups-settings-cmdlets.md)
 * [Vad är Azure Active Directory?](../fundamentals/active-directory-whatis.md)
-* [Integrera dina lokala identiteter med Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

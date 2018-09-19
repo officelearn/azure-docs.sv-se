@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 930ca49a63e34214ec197d8dd37f38361b34fe90
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 917baa4b0d983df858c64cd0fa5b697b0fbb316c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347043"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298276"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Självstudie: Konfigurera Workday för automatisk användar-etablering (förhandsversion)
 
@@ -75,7 +75,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 * En klient för implementering av Workday för testning och integration
 * Administratörsbehörighet i Workday att skapa en systemanvändare integrering och göra ändringar till medarbetare testdata för testning
 * För användaretablering till Active Directory, en domänansluten server som kör tjänsten Windows 2012 eller högre krävs till värden i [lokala synkroniseringsagenten](https://go.microsoft.com/fwlink/?linkid=847801)
-* [Azure AD Connect](../connect/active-directory-aadconnect.md) för synkronisering mellan Active Directory och Azure AD
+* [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) för synkronisering mellan Active Directory och Azure AD
 
 ### <a name="solution-architecture"></a>Lösningsarkitektur
 
@@ -504,11 +504,11 @@ Hur du konfigurerar etablering i Azure Active Directory beror på dina etablerin
 
 | Scenario | Lösning |
 | -------- | -------- |
-| **Användarna behöver etableras till Active Directory och Azure AD** | Använd  **[AAD Connect](../connect/active-directory-aadconnect.md)** |
-| **Användarna behöver bara ska etableras till Active Directory** | Använd  **[AAD Connect](../connect/active-directory-aadconnect.md)** |
+| **Användarna behöver etableras till Active Directory och Azure AD** | Använd  **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
+| **Användarna behöver bara ska etableras till Active Directory** | Använd  **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
 | **Användarna behöver etableras till Azure AD endast (moln)** | Använd den **Workday till Azure Active Directory etableras** app i appgalleriet |
 
-Anvisningar om hur du konfigurerar Azure AD Connect finns i den [dokumentation för Azure AD Connect](../connect/active-directory-aadconnect.md).
+Anvisningar om hur du konfigurerar Azure AD Connect finns i den [dokumentation för Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 I följande avsnitt beskrivs hur du konfigurerar en anslutning mellan Workday och Azure AD för att etablera molnexklusiva användare.
 

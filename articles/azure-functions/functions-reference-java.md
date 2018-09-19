@@ -9,14 +9,14 @@ keywords: Azure functions, funktioner, händelsebearbetning, webhooks, dynamisk 
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/10/2018
+ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: f0dc471e8875ad0d738fce10421c3586752148b9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: f6c5eb4a3ace1fcca1bbbef321371d55a0ce8da9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092317"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123495"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarguide för Azure Functions Java
 
@@ -26,7 +26,35 @@ ms.locfileid: "44092317"
 
 Din Azure-funktion ska vara en tillståndslös klassmetod som bearbetar indata och utdata. Även om du kan skriva instans metoder, måste din funktion inte beror på eventuella Instansfält i klassen. Alla metoder för funktionen måste ha en `public` Åtkomstmodifieraren.
 
-Du kan placera mer än en funktion i ett projekt. Undvik att placera dina funktioner i separata JAR-filer.
+## <a name="folder-structure"></a>mappstruktur
+
+Mappstrukturen för ett Java-projekt som ser ut som följande:
+
+```
+FunctionsProject
+ | - src
+ | | - main
+ | | | - java
+ | | | | - FunctionApp
+ | | | | | - MyFirstFunction.java
+ | | | | | - MySecondFunction.java
+ | - target
+ | | - azure-functions
+ | | | - FunctionApp
+ | | | | - FunctionApp.jar
+ | | | | - host.json
+ | | | | - MyFirstFunction
+ | | | | | - function.json
+ | | | | - MySecondFunction
+ | | | | | - function.json
+ | | | | - bin
+ | | | | - lib
+ | - pom.xml
+```
+
+Det finns en delad [host.json] (functions-värd-json.md)-fil som kan användas för att konfigurera funktionsappen. Varje funktion har sina egna kodfilen (.java) och bindningen konfigurationsfil (function.json).
+
+Du kan placera mer än en funktion i ett projekt. Undvik att placera dina funktioner i separata JAR-filer. FunctionApp i målkatalogen är vad distribueras till din funktionsapp i Azure.
 
 ## <a name="triggers-and-annotations"></a>Utlösare och anteckningar
 

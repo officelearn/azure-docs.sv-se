@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b4801048c391aae6e95f4181464255ecf6151fc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39360011"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126351"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge-säkerhetshanteraren
 
@@ -109,7 +109,7 @@ IoT Edge-körningen spårar och rapporterar versionen av IoT Edge security daemo
 
 ### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>Security module platform HAL (HSM PAL)
 
-HSM-PAL avlägsnar alla roten av förtroende maskinvara för att isolera utvecklare eller användare av IoT Edge från deras komplexitet.  Den består av en kombination av programmerare API (Application Interface) och trans domän kommunikation procedurer, till exempel kommunikation mellan en standard körningsmiljö och en säker enklaven.  Den faktiska implementeringen av HSM-PAL beror på den säkra maskinvaran används.  Dess finns kan du använda valfri säker silicon maskinvara i IoT-ekosystemet.
+HSM-PAL avlägsnar alla roten av förtroende maskinvara för att isolera utvecklare eller användare av IoT Edge från deras komplexitet.  Den består av en kombination av Application Programming Interface (API) och trans domän kommunikation procedurer, till exempel kommunikation mellan en standard körningsmiljö och en säker enklaven.  Den faktiska implementeringen av HSM-PAL beror på den säkra maskinvaran används.  Dess finns kan du använda valfri säker silicon maskinvara i IoT-ekosystemet.
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Säker silicon roten förtroende maskinvara
 

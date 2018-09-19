@@ -1,5 +1,5 @@
 ---
-title: Så här avinstallerar du Verktyg för elastisk databas jobb
+title: Så här avinstallerar du Verktyg för elastic database-jobb
 description: Lär dig mer om att avinstallera elastiska jobb databaskomponenterna med Azure PowerShell-portalen.
 services: sql-database
 manager: craigg
@@ -7,34 +7,39 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: e1089db848b30945e5e61765c762262f5478450e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 395bbf50373d3a6e3848fba9fd3db0d6989023f4
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645896"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35649494"
 ---
-# <a name="uninstall-elastic-database-jobs-components"></a>Avinstallera jobb komponenter för elastisk databas
-**Den elastiska databasen jobb** komponenter kan avinstalleras med Azure-portalen eller PowerShell.
+# <a name="uninstall-elastic-database-jobs-components"></a>Avinstallera elastiska jobb databaskomponenter
 
-## <a name="uninstall-elastic-database-jobs-components-using-the-azure-portal"></a>Avinstallera elastisk databas jobb komponenter med hjälp av Azure portal
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+**Elastic Database-jobb** komponenter kan avinstalleras med hjälp av Azure-portalen eller PowerShell.
+
+## <a name="uninstall-elastic-database-jobs-components-using-the-azure-portal"></a>Avinstallera elastiska jobb databaskomponenter med Azure portal
 1. Öppna [Azure-portalen](https://portal.azure.com/).
-2. Navigera till den prenumeration som innehåller **elastisk databas jobb** komponenter, nämligen prenumerationen i vilka elastisk databas jobb-komponenter installerades.
-3. Klicka på **Bläddra** och på **resursgrupper**.
-4. Välj den resursgrupp med namnet ”__ElasticDatabaseJob”.
+2. Navigera till den prenumeration som innehåller **elastiska databasjobb** komponenter, nämligen den prenumeration i vilken Elastic Database jobb komponenter har installerats.
+3. Klicka på **Bläddra** och klicka på **resursgrupper**.
+4. Välj resursgruppen med namnet ”__ElasticDatabaseJob”.
 5. Ta bort resursgruppen.
 
-## <a name="uninstall--elastic-database-jobs-components-using-powershell"></a>Avinstallera elastisk databas jobb komponenter med hjälp av PowerShell
-1. Starta Microsoft Azure PowerShell-Kommandotolken och navigera till verktyg underkatalog under mappen Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x: typen **cd verktyg**.
+## <a name="uninstall--elastic-database-jobs-components-using-powershell"></a>Avinstallera elastiska jobb databaskomponenter med hjälp av PowerShell
+1. Öppna ett Microsoft Azure PowerShell-kommandofönster och gå till verktyg underkatalog under mappen Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x: typen **cd-verktyg**.
    
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x* > CD-verktyg
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x* > cd-verktyg
 2. Köra.\UninstallElasticDatabaseJobs.ps1 PowerShell-skript.
    
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools > avblockera filen.\UninstallElasticDatabaseJobs.ps1 PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools >.\UninstallElasticDatabaseJobs.ps1
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools > avblockera filen.\UninstallElasticDatabaseJobs.ps1 PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools >. \ UninstallElasticDatabaseJobs.ps1
 
-Eller helt enkelt, kör du följande skript, förutsatt att standard värden används på installation av komponenter:
+Eller bara, kör du följande skript, förutsatt att standard värden används på installation av komponenter:
 
         $ResourceGroupName = "__ElasticDatabaseJob"
         Switch-AzureMode AzureResourceManager
@@ -51,9 +56,9 @@ Eller helt enkelt, kör du följande skript, förutsatt att standard värden anv
         Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job compoennts are now uninstalled."
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill installera elastisk databas jobb, se [installera tjänsten jobbet elastisk databas](sql-database-elastic-jobs-service-installation.md)
+Om du vill installera Elastic Database-jobb, se [installera tjänsten för Elastic Database-jobb](sql-database-elastic-jobs-service-installation.md)
 
-En översikt över elastisk databas jobb finns [elastisk databas översikt över](sql-database-elastic-jobs-overview.md).
+En översikt över Elastic Database-jobb finns i [översikt över elastiska databasjobb](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 

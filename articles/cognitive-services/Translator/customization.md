@@ -1,31 +1,34 @@
 ---
-title: Anpassning av översättning av Microsoft Translator-API för textöversättning | Microsoft Docs
+title: Anpassning av översättning av Translator Text API
+titlesuffix: Azure Cognitive Services
 description: Använd Microsoft Translator Hub för att skapa dina egna maskinöversättning system med hjälp av dina önskade terminologi och stil.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9c7083ed0147b221d3d400afe83bb3bd6b6db86e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d71158bc74ffe15f133cc637371ddc840ef9df9e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574031"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124345"
 ---
 # <a name="customize-your-text-translations"></a>Anpassa dina textöversättningar
 
-Förhandsversionen av Microsoft anpassad Translator är en funktion i tjänsten Microsoft Translator, vilket gör att användare kan anpassa Microsoft Translator avancerade neural maskinöversättning översätta text med hjälp av Microsoft Translator Text API (endast version 3). 
+Förhandsversionen av Microsoft anpassad Translator är en funktion i tjänsten Microsoft Translator, vilket gör att användare kan anpassa Microsoft Translator avancerade neural maskinöversättning översätta text med Translator Text API (endast version 3). 
 
 Funktionen kan också användas för att anpassa talöversättning när det används med [Cognitive Services tal förhandsversion](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
 ## <a name="custom-translator"></a>Anpassade Translator
+
 Med anpassade Translator, kan du skapa neural översättningssystem som förstår de termer som används i din egen verksamhet och branschen. Den anpassade översättningssystemet sedan integreras i befintliga program, arbetsflöden och webbplatser. 
 
 ### <a name="how-does-it-work"></a>Hur fungerar det?
+
 Använd dina tidigare översatta dokument (bipacksedlar, webbsidor, dokumentation, osv.) att skapa en översättningssystemet som återspeglar ditt domänspecifika terminologi och stil, bättre än en allmän översättningssystemet. Användarna kan ladda upp TMX, XLIFF, TXT, DOCX och XLSX dokument.  
 
 Systemet kan också användas med data som är parallella på dokumentnivå men ännu inte är justerade på nivån mening. Om användarna har åtkomst till versioner av samma innehåll i flera språk, men i separata dokument kommer anpassad Translator att kunna matcha automatiskt meningar för dokument.  Systemet kan också använda enspråkig data på ena eller båda språk för att komplettera parallell utbildning-data för att förbättra översättningarna. 
@@ -60,5 +63,6 @@ Mer information om de olika nivåerna på anpassning som är baserad på tillgä
 >Liknande funktionalitet är tillgänglig i hubben Translator-API. Se [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger). 
 
 ## <a name="next-steps"></a>Nästa steg
+
 > [!div class="nextstepaction"]
 > [Konfigurera ett anpassat språksystem med hjälp av anpassade Translator](http://aka.ms/CustomTranslatorDocs)

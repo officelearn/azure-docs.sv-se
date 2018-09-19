@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: 5ca2115e8f5f2e18c31477135aa94bc04d6d9256
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f546ea5b5f9288849334d27cd1721f0c22fb8806
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577403"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297783"
 ---
 # <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Så här: lägga till eller ta bort gruppägare i Azure Active Directory
 Azure Active Directory (Azure AD)-grupper ägs och hanteras av gruppägare. Gruppägare har tilldelats till hantera en grupp och dess medlemmar av en resursägare (administratör). Gruppägare behöver inte vara medlemmar i gruppen. När en gruppägare har tilldelats kan en resursägare lägga till eller ta bort ägare.
@@ -66,6 +66,6 @@ Ta bort ägare från en grupp med hjälp av Azure AD.
 
 - [Använda grupper för att tilldela åtkomst till en integrerad SaaS-app](../users-groups-roles/groups-saasapps.md)
 
-- [Integrera dina lokala identiteter med Azure Active Directory](../connect/active-directory-aadconnect.md)
+- [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 
 - [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-v2-cmdlets.md)

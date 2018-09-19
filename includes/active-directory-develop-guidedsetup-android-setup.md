@@ -12,32 +12,32 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 45e8668ce0a7eb2edd79271096f58b56ca1af5f0
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 2e23a15a6bff81f0b48b703e516de8a1a1820972
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205577"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293578"
 ---
 ## <a name="set-up-your-project"></a>Konfigurera ditt projekt
 
-Vill du hämta det här exemplet Android Studio-projekt i stället? [Hämta ett projekt](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip), och gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan du kan köra den.
+Vill du hämta det här exemplet Android Studio-projekt i stället? [Ladda ned ett projekt](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip), och gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan du kör den.
 
 ### <a name="create-a-new-project"></a>Skapa ett nytt projekt 
-1.  Öppna Android Studio och välj sedan **filen** > **ny** > **nytt projekt**.
+1.  Öppna Android Studio och välj sedan **filen** > **New** > **nytt projekt**.
 2.  Namnge programmet och välj sedan **nästa**.
 3.  Välj **API 21 eller nyare (Android 5.0)**, och välj sedan **nästa**.
-4.  Lämna **tom aktivitet** som den, markerar **nästa**, och välj sedan **Slutför**.
+4.  Lämna **tom aktivitet** eftersom den är Välj **nästa**, och välj sedan **Slutför**.
 
 
 ### <a name="add-msal-to-your-project"></a>Lägg till MSAL i projektet
-1.  Markera i Android Studio **Gradle skript** > **build.gradle (modul: app)**.
+1.  I Android Studio väljer **Gradle-skripten** > **build.gradle (modul: app)**.
 2.  Under **beroenden**, klistra in följande kod:
 
-    ```ruby  
+    ```gradle  
     compile ('com.microsoft.identity.client:msal:0.1.+') {
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
@@ -47,15 +47,15 @@ Vill du hämta det här exemplet Android Studio-projekt i stället? [Hämta ett 
 <!--start-collapse-->
 ### <a name="about-this-package"></a>Om det här paketet
 
-Paketet i föregående kod installerar Microsoft Authentication Library. MSAL hanterar införskaffa, cachelagring och uppdatera användartoken som används för åtkomst till API: er som skyddas av Azure Active Directory v2-slutpunkten.
+Paketet i föregående kod installerar Microsoft Authentication Library. MSAL hanterar alla token åtgärder, inklusive hämtar, cachelagring, uppdatera och ta bort.  Token behövs för att få åtkomst till API: er som skyddas av Microsoft identity-plattformen.
 <!--end-collapse-->
 
-## <a name="create-the-application-ui"></a>Skapa UI-programmet
+## <a name="create-the-apps-ui"></a>Skapa appens användargränssnitt
 
-1. Gå till **res** > **layout**, och sedan öppna **activity_main.xml**. 
+1. Gå till **res** > **layout**, och öppna sedan **activity_main.xml**. 
 2. Ändra layouten aktivitet från `android.support.constraint.ConstraintLayout` eller andra till `LinearLayout`.
-3. Lägg till den `android:orientation="vertical"` egenskapen till den `LinearLayout` nod.
-4. Klistra in följande kod i den `LinearLayout` nod, ersätter det aktuella innehållet:
+3. Lägg till den `android:orientation="vertical"` egenskap enligt den `LinearLayout` noden.
+4. Klistra in följande kod till den `LinearLayout` nod, ersätter det aktuella innehållet:
 
     ```xml
     <TextView

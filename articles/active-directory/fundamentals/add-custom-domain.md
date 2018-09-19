@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b33f2e809ae5758e41f7a76680347b9487f3f461
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e49e362528f5fcd00a13a9fc1b233e62a569fe5a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735350"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297954"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Så här: Lägg till ditt domännamn med hjälp av Azure Active Directory-portalen
 Varje ny Azure AD-klienten levereras med ett första domännamn *domainname*. onmicrosoft.com. Du kan inte ändra eller ta bort det ursprungliga domännamnet, men du kan lägga till din organisations namn i listan. Att lägga till anpassade domännamn som hjälper dig att skapa användarnamn som dina användare känner igen som _alain@contoso.com_.
@@ -31,9 +31,14 @@ Först måste du lägga till ett anpassat domännamn till Azure AD-klient.
 ### <a name="to-add-a-custom-domain-name"></a>Att lägga till ett anpassat domännamn
 1. Logga in på den [Azure AD-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
 
+<<<<<<< HEAD
+> [!TIP]
+> Om du planerar att federera din lokala Windows Server AD med Azure AD behöver du markera kryssrutan **Jag planerar att konfigurera den här domänen för enkel inloggning med min lokala Active Directory** när du kör Azure AD Connect-verktyget för att synkronisera dina kataloger. Du behöver även registrera samma domännamn som du väljer för federering med din lokala katalog i steget **Azure AD-domän** i guiden. Du kan se hur det steget i guiden ser ut [i dessa anvisningar](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Om du inte har verktyget Azure AD Connect kan du [ladda ned det här](http://go.microsoft.com/fwlink/?LinkId=615771).
+=======
 2. Välj **Azure Active Directory**väljer **anpassade domännamn**, och välj sedan **Lägg till anpassad domän**.
+>>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
 
-    ![Fabrikam - anpassad domän namn på bladet med Lägg till anpassad domänalternativet är markerat](media/add-custom-domain/add-custom-domain.png)
+    ![Fabrikam - Custom domain names blade, with Add custom domain option highlighted](media/add-custom-domain/add-custom-domain.png)
 
 3. Skriv ny företagets domännamn till den **anpassade domännamn** box (till exempel _contoso.com_), och välj sedan **Lägg till domän**.
 

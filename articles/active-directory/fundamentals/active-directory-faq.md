@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 53c38eee1befe7c83f739deeb0e85711e7313e60
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: eb9eebb4f5fff4a0c3dc7729387cfbc4b13a12f1
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730117"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294922"
 ---
 # <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -72,7 +72,7 @@ Dessutom kompletterar Azure AD-betaltjänster som Enterprise Mobility + Security
 
 **S:** Du kan ansluta din lokala katalog till Azure AD med hjälp av Azure AD Connect.
 
-Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../connect/active-directory-aadconnect.md).
+Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **F: Hur konfigurerar jag enkel inloggning (SSO) mellan min lokala katalog och mina molnprogram?**
@@ -81,7 +81,7 @@ Mer information finns i [Integrera dina lokala identiteter med Azure Active Dire
 
 Du kan enkelt implementera enkel inloggning (SSO) från det lokala systemet med federationslösningar som Active Directory Federation Services (AD FS) eller genom att konfigurera hash-synkronisering av lösenord. Du kan enkelt distribuera båda alternativen med hjälp av Azure AD Connect-konfigurationsguiden.
 
-Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../connect/active-directory-aadconnect.md).
+Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **F: Tillhandahåller Azure AD en självbetjäningsportal för användare i organisationen?**
@@ -95,7 +95,7 @@ Mer information finns i [Introduktion till åtkomstpanelen](../user-help/active-
 
 **S:** Ja. Azure AD Premium-versionen tillhandahåller Azure AD Connect Health. Azure AD Connect Health hjälper dig att övervaka och få insyn i den lokala identitetsinfrastrukturen och synkroniseringstjänsterna.  
 
-Mer information finns i [Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet](../connect-health/active-directory-aadconnect-health.md).  
+Mer information finns i [Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet](../hybrid/whatis-hybrid-identity-health.md).  
 
 - - -
 ## <a name="password-management"></a>Lösenordshantering

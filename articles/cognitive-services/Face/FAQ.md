@@ -1,43 +1,45 @@
 ---
-title: Vanliga frågor om Ansikts-API-tjänsten | Microsoft Docs
-description: Här är svaren på de mest populära frågorna om Ansikts-API-tjänsten.
+title: Vanliga frågor och svar – Ansikts-API
+titlesuffix: Azure Cognitive Services
+description: Här är några svar på de mest populära frågorna om Ansikts-API-tjänsten.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: sbowles
-ms.openlocfilehash: da2f75deef8a8beea3ba23b6a39eb6d2fe104b54
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b30fa0fbbd655c03800dadb19cc2568d404204d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351558"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129564"
 ---
 # <a name="face-api-frequently-asked-questions"></a>Vanliga och frågor svar om ansikts-API
-### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-face-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Om du inte hittar svar på frågor här, kan du pröva att besvara Ansikts-API-gemenskapen på [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) eller kontakta hjälp och Support på [UserVoice](https://cognitive.uservoice.com/).
+
+### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-face-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Om du inte hittar svar på dina frågor i den här vanliga frågor och svar, kan du prova att fråga Ansikts-API-community på [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) eller kontakta hjälp och Support på [UserVoice](https://cognitive.uservoice.com/).
 
 -----
-**Fråga**: vilka faktorer kan minska precisionen Ansikts-API för igenkänning, verifiering eller söka efter liknande?
+**Fråga**: vilka faktorer kan minska Precision för Ansikts-API för taligenkänning, verifiering eller Sök liknande?
 
-**Svaret**: vanligtvis är det fall där människor har svårt att identifiera någon inklusive.
-* Hinder blockerar en eller båda ögon
-* Tuffa ljus, t.ex. allvarligt bakgrundsbelysningen
-* Ändringar av hår format eller ansiktskirurgi hår
+**Svar**: Allmänt är det fall där människor har svårt att identifiera någon inklusive.
+* Hinder som blockerar ena eller båda ögon
+* Tuffa drar t.ex. allvarliga bakgrundsbelysningen
+* Ändringar av hår format eller videodetektion hår
 * Ändringar på grund av ålder
-* Extreme ansikte uttryck (t.ex. Skrikande)
+* Extreme ansiktsuttryck (t.ex. Skrikande)
 
-Yta API är ofta lyckas svårt fall som dessa, men kan minska noggrannhet. Träna din personer med foton som innehåller en stor vinklar och ljus recognition mer robusta och åtgärda dessa problem.
+Ansikts-API är ofta i utmanande fall som dessa, men noggrannhet kan minskas. Träna dina personer med foton som innehåller en stor vinklar och belysning för att göra erkännande mer robust och åtgärda dessa problem.
 
 -----
-**Fråga**: jag skicka binär data i men får ett ”ogiltig ansikte bild”-fel.
+**Fråga**: jag skicka binär data i men jag får felmeddelandet ”ogiltig ansiktsbilden”.
 
-**Svaret**: Detta innebär att algoritmen haft problem parsning av avbildningen. Orsaker är:
-* De inkommande bildformat som stöds omfattar JPEG, PNG, GIF (den första bildrutan), BMP.
-* Bildens filstorlek ska inte vara större än 4MB
-* Storlek är kan upptäckas står inför 36 x 36 till 4096 x 4 096 pixlar. Ytor utanför det här intervallet hittas inte
-* Vissa ytor kanske inte identifieras på grund av tekniska utmaningar, t.ex. väldigt ansikte vinklar (head-attityd) stora är spärrat. Främre och nästan direkt ytor har bästa resultat
+**Svar**: Detta innebär att algoritmen som hade ett problem med parsning av avbildningen. Orsaker är:
+* Format som stöds inmatad bild innehåller JPEG, PNG, GIF (den första bildrutan), BMP.
+* Bildens filstorlek får inte vara större än 4MB
+* Ansikts-flashminnet storleksintervall är 36 x 36 till 4096 x 4 096 pixlar. Ansikten utanför det här intervallet kommer inte att identifieras
+* Vissa ansikten kanske inte identifieras på grund av tekniska utmaningar, t.ex. mycket stora ansikte vinklar (head-attityd), stor ocklusion. Främre och nästan direkt ansikten har bästa resultat
 
 -----

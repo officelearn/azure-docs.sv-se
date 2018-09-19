@@ -1,31 +1,55 @@
-## <a name="test-your-code"></a>Testa din kod
+---
+title: ta med fil
+description: ta med fil
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 7f086c44abf6c9002c47904dc722294e046528f7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293773"
+---
+## <a name="test-your-app"></a>Testa din app
 
-1. Distribuera din kod till din emulatorn.
+1. Köra din kod till din enhetsemulatorn.
 
-2. När du är redo att testa ditt program kan använda en Azure Active Directory-konto (arbets- eller skolkonto konto) eller ett Microsoft-konto (live.com, outlook.com) för att logga in. 
+2. Försök att logga in med ett Azure Active Directory-konto (arbets- eller skolkonto konto) eller Microsoft-konto (live.com, outlook.com). 
 
-    ![Testa programmet](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
+    ![Testa ditt program](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
     <br/><br/>
     ![Ange användarnamn och lösenord](media/active-directory-develop-guidedsetup-android-test/usernameandpassword.png)
 
-### <a name="provide-consent-for-application-access"></a>Ange tillstånd för åtkomst till program
-Första gången du loggar in till ditt program också uppmanas du att ange samtycke till att programmet ska kunna komma åt din profil och logga in dig i som visas här: 
+### <a name="consent-to-your-app"></a>Godkänna din app
+Första gången en användare loggar in på ditt program, uppmanas de att godkänna behörigheterna som appen behöver, som visas här: 
 
 ![Ge ditt medgivande för programåtkomst](media/active-directory-develop-guidedsetup-android-test/androidconsent.png)
 
 
-### <a name="view-application-results"></a>Visa program resultat
-Du bör se resultatet som returneras av anropet till Microsoft Graph API när du loggar in. Anropet till Microsoft Graph API **mig** endpoint returnerar den [användarprofil](https://graph.microsoft.com/v1.0/me). En lista över vanliga Microsoft Graph-slutpunkter, se [Microsoft Graph API utvecklardokumentationen](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
+### <a name="success"></a>Lyckades!
+När du loggar in och godkänna visar appen svar från Microsoft Graph API. Det här specifika anropet är att den **/me** slutpunkten och returnerar den [användarprofil](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_get). En lista över andra Microsoft Graph-slutpunkter, se [Microsoft Graph API-utvecklardokumentation](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
 
 <!--start-collapse-->
-### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om scope och delegerade behörigheter
+### <a name="scopes-and-delegated-permissions"></a>Scope och delegerade behörigheter
 
-Microsoft Graph API kräver den *user.read* omfång att läsa en användares profil. Detta scope läggs automatiskt som standard i alla program som har registrerats i portalen för registrering av programmet. Andra för Microsoft Graph-API: er, samt anpassade API: er för backend-servern, kan kräva ytterligare scope. Microsoft Graph API kräver den *Calendars.Read* scope för att visa användarens kalendrar. 
+Microsoft Graph API kräver den *User.Read* omfattning att läsa en användares profil. Det här området är automatiskt i varje app som är registrerade i portalen för registrering av programmet. API: er kräver ytterligare scope. Till exempel Microsoft Graph API kräver den *Calendars.Read* omfattning att lista användarens kalendrar. 
 
-För att få åtkomst till användarkalendrar i kontexten för ett program måste du lägga till den *Calendars.Read* delegerad behörighet att registreringsinformation för programmet. Lägg sedan till den *Calendars.Read* omfånget för den `acquireTokenSilent` anropa. 
+För att komma åt användarens kalendrar, lägger du till den *Calendars.Read* delegerad behörighet att registreringsinformation för programmet. Lägg sedan till den *Calendars.Read* begränsa omfånget till den `acquireTokenSilent` anropa. 
 
 >[!NOTE]
->Användaren kan uppmanas att ytterligare medgivanden när du ökar antalet scope.
+>Dina användare kan uppmanas om ytterligare samtycke om du ändrar din appregistrering.
 
 <!--end-collapse-->
 

@@ -12,12 +12,12 @@ ms.date: 7/17/2017
 ms.author: lizross
 ms.reviewer: jsnow
 custom: it-pro
-ms.openlocfilehash: db14dbf298596a9fdc189c27ea8608d472c58a35
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e22f5ced30e30d6f53a1d29c8be2f318161d4fc0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737251"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294857"
 ---
 # <a name="what-is-microsoft-azure-identity"></a>Vad är Microsoft Azure-identitet?
 Microsoft Azure Active Directory (Azure AD) är en molnlösning för identitets- och åtkomsthantering som tillhandahåller katalogtjänster, identitetsstyrning och programåtkomsthantering. Azure AD [aktiverar snabbt enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till tusentals förintegrerade kommersiella och anpassade appar i [Azure AD-programgalleriet](https://azure.microsoft.com/marketplace/active-directory/all/). Du använder säkert många av de här apparna, till exempel Office 365, Salesforce.com, Box, ServiceNow och Workday.
@@ -106,7 +106,7 @@ Här följer några vanliga scenarier om identitet och åtkomst med rekommendati
 ## <a name="where-can-i-learn-more"></a>Var hittar jag mer information?
 Vi har en mängd bra resurser online för att lära dig allt om Azure AD. Här är en lista över bra artiklar för att komma igång:
 
-* [Aktivera din katalog för hybridhantering med Azure AD Connect](../connect/active-directory-aadconnect.md)
+* [Aktivera din katalog för hybridhantering med Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
 * [Ytterligare säkerhet för en allt mer ansluten värld](../authentication/multi-factor-authentication.md)
 * [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md)
 * [Hantera dina lösenord var du än är](../user-help/active-directory-passwords-update-your-own-password.md)

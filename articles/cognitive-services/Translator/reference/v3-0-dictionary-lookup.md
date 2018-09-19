@@ -1,22 +1,23 @@
 ---
-title: Sökmetod för Microsoft Translator Text API-ordlista | Microsoft Docs
-description: Använda Microsoft Translator Text API ordlista sökmetod.
+title: Sökmetod för Translator Text API-ordlista
+titlesuffix: Azure Cognitive Services
+description: Använd sökmetod för Translator Text API ordlista.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868093"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127853"
 ---
-# <a name="text-api-30-dictionary-lookup"></a>API 3.0 för textöversättning: Ordlista sökning
+# <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: Ordlista sökning
 
 Tillhandahåller alternativa översättningar för ett ord och ett litet antal idiomatiskt fraser. Varje översättning har en del av tal- och en lista över tillbaka översättningar. Tillbaka-översättningar att en användare kan förstå översättningen i kontexten. Den [ordlista exempel](.\v3-0-dictionary-examples.md) åtgärden tillåter ytterligare detaljnivån finns i exemplet används varje par för översättning.
 
@@ -52,7 +53,7 @@ Parametrarna som skickades mot frågesträngen är:
 Begärandehuvuden är:
 
 <table width="100%">
-  <th width="20%">Sidhuvuden</th>
+  <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
     <td>_En auktorisering_<br/>_Rubrik_</td>
@@ -139,7 +140,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
 
 Det här exemplet visar hur du leta upp alternativa översättningar på spanska engelska har löpt ut `fly` .
 
-# <a name="curltabcurl"></a>[cURL](#tab/curl)
+# <a name="curltabcurl"></a>[CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
@@ -190,7 +191,7 @@ Svarstexten (förkortat för tydlighetens skull) är:
 
 Det här exemplet visar vad som händer när termen som du söker efter inte finns för giltiga ordlista paret.
 
-# <a name="curltabcurl"></a>[cURL](#tab/curl)
+# <a name="curltabcurl"></a>[CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"

@@ -1,23 +1,26 @@
 ---
-title: Kommandoradsgränssnitt för Knowledge tjänst för Kunskapsutveckling | Microsoft Docs
-description: Skapa indexet och grammatik filer från strukturerade data med hjälp av kommandoradsgränssnittet KES och sedan distribuera dem som webbtjänster i Microsoft Cognitive Services.
+title: Kommandoradsgränssnittet - Knowledge API för tjänst för Kunskapsutveckling
+titlesuffix: Azure Cognitive Services
+description: Använda kommandoradsgränssnittet för att skapa indexet och grammatik filer från strukturerade data och sedan distribuera dem som webbtjänster.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136363"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127173"
 ---
 # <a name="command-line-interface"></a>Kommandoradsgränssnitt
-Kommandoradsgränssnitt för KES ger möjlighet att skapa indexet och grammatik filer från strukturerade data och distribuera dem som webbtjänster.  Den använder den allmänna syntaxen: `kes.exe <command> <required_args> [<optional_args>]`.  Du kan köra `kes.exe` utan argument för att visa en lista över kommandon, eller `kes.exe <command>` att visa en lista över argument som är tillgängliga för det angivna kommandot.  Nedan visas en lista över tillgängliga kommandon:
+
+Kommandoradsgränssnitt för Knowledge utforskning Service (KES) ger möjlighet att skapa indexet och grammatik filer från strukturerade data och distribuera dem som webbtjänster.  Den använder den allmänna syntaxen: `kes.exe <command> <required_args> [<optional_args>]`.  Du kan köra `kes.exe` utan argument för att visa en lista över kommandon, eller `kes.exe <command>` att visa en lista över argument som är tillgängliga för det angivna kommandot.  Nedan visas en lista över tillgängliga kommandon:
+
 * build_index
 * build_grammar
 * host_service

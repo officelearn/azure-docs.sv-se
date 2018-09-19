@@ -10,22 +10,22 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4f4c2ada08c69b6602ff5a300a15c4ca57090a8e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816061"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295843"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösenord?
 
-Med verktyget molnbaserad lösenordsåterställning är bra, men de flesta företag fortfarande har en lokal katalog där användarna finns. Så här hanterar Microsoft support att se till att traditionella lokala Active Directory (AD) synkroniserade med ändringar av lösenord i molnet? Tillbakaskrivning av lösenord är en funktion som aktiveras med [Azure AD Connect](./../connect/active-directory-aadconnect.md) som tillåter ändringar av lösenord i molnet för att skrivas tillbaka till en befintlig lokal katalog i realtid.
+Med verktyget molnbaserad lösenordsåterställning är bra, men de flesta företag fortfarande har en lokal katalog där användarna finns. Så här hanterar Microsoft support att se till att traditionella lokala Active Directory (AD) synkroniserade med ändringar av lösenord i molnet? Tillbakaskrivning av lösenord är en funktion som aktiveras med [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) som tillåter ändringar av lösenord i molnet för att skrivas tillbaka till en befintlig lokal katalog i realtid.
 
 Tillbakaskrivning av lösenord stöds i miljöer där:
 
-* [Active Directory Federation Services](../connect/active-directory-aadconnect-federation-management.md)
-* [Synkronisering av lösenordshash](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [Direktautentisering](../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
+* [Synkronisering av lösenordshash](../hybrid/how-to-connect-password-hash-synchronization.md)
+* [Direktautentisering](../hybrid/how-to-connect-pta.md)
 
 Tillbakaskrivning av lösenord innehåller:
 

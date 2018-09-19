@@ -6,53 +6,77 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 1d2f194eb6a2186fc1e8451a7022d26cd1013bb2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8877234502ff662954dc6fe0c19d8252db42d7d6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022404"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123564"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Hantera konfigurationsservern för VMware-datorer
 
 Du ställer in en konfigurationsservern lokalt när du använder [Azure Site Recovery](site-recovery-overview.md) för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure. Konfigurationsservern samordnar kommunikationen mellan lokala VMware- och Azure och hanterar datareplikering. Den här artikeln sammanfattas vanliga uppgifter för att hantera configuration server när den har distribuerats.
 
-
-
-## <a name="modify-vmware-settings"></a>Ändra inställningarna för VMware
+## <a name="access-configuration-server"></a>Åtkomst till konfigurationsservern
 
 Du kan komma åt konfigurationsservern på följande sätt:
-    - Logga in på den virtuella datorn har distribuerats och starta Azure Site Recovery Configuration Manager från genvägen på skrivbordet.
-    - Du kan också komma åt configuration server via en fjärranslutning från **https://*ConfigurationServerName*/:44315 /**. Logga in med administratörsbehörighet.
 
-### <a name="modify-vmware-server-settings"></a>Ändra inställningarna för VMware-server
+* Logga in på den virtuella datorn har distribuerats och börja **Azure Site Recovery Configuration Manager** från genvägen på skrivbordet.
+* Du kan också du kan komma åt configuration server via fjärranslutning från https://*ConfigurationServerName*/:44315 /. Logga in med administratörsbehörighet.
 
-1. Om du vill associera en annan VMware-server med konfigurationsservern efter inloggning, Välj **Lägg till vCenter Server/vSphere ESXi-servern**.
+## <a name="modify-vmware-server-settings"></a>Ändra inställningarna för VMware-server
+
+1. Associera en annan VMware-server med konfigurationsservern efter [inloggning](#access-configuration-server)väljer **Lägg till vCenter Server/vSphere ESXi-servern**.
 2. Ange information och välj sedan **OK**.
 
+## <a name="modify-credentials-for-automatic-discovery"></a>Ändra autentiseringsuppgifter för automatisk identifiering
 
-### <a name="modify-credentials-for-automatic-discovery"></a>Ändra autentiseringsuppgifter för automatisk identifiering
-
-1. Om du vill uppdatera de autentiseringsuppgifter som används för att ansluta till VMware-servern för automatisk identifiering av virtuella VMware-datorer, efter inloggning, Välj **redigera**.
+1. Att uppdatera de autentiseringsuppgifter som används för att ansluta till VMware-servern för automatisk identifiering av virtuella VMware-datorer, efter [inloggning](#access-configuration-server), Välj kontot och klickar på **redigera**.
 2. Ange de nya autentiseringsuppgifterna och välj sedan **OK**.
 
     ![Ändra VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
+Du kan också ändra autentiseringsuppgifter via CSPSConfigtool.exe.
+
+1. Logga in på konfigurationsservern och starta CSPSConfigtool.exe
+2. Välj det konto som du vill ändra och klicka på **redigera**.
+3. Ange autentiseringsuppgifterna som ändrade och klicka på **Ok**
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Ändra autentiseringsuppgifter för installation av Mobilitetstjänsten
 
 Ändra autentiseringsuppgifterna som används för att automatiskt installera Mobilitetstjänsten på den virtuella VMware-datorer du aktivera för replikering.
 
-1. Efter inloggningen, Välj **hantera autentiseringsuppgifter för virtuell dator**
-2. Ange de nya autentiseringsuppgifterna och välj sedan **OK**.
+1. Efter [inloggning](#access-configuration-server)väljer **hantera autentiseringsuppgifter för virtuell dator**
+2. Välj det konto som du vill ändra och klicka på **redigera**
+3. Ange de nya autentiseringsuppgifterna och välj sedan **OK**.
 
     ![Ändra autentiseringsuppgifter för Mobilitetstjänsten](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
+
+Du kan också ändra autentiseringsuppgifter via CSPSConfigtool.exe.
+
+1. Logga in på konfigurationsservern och starta CSPSConfigtool.exe
+2. Välj det konto som du vill ändra och klicka på **redigera**
+3. Ange de nya autentiseringsuppgifterna och klicka på **Ok**.
+
+## <a name="add-credentials-for-mobility-service-installation"></a>Lägg till autentiseringsuppgifter för installation av Mobilitetstjänsten
+
+Om du missade lägga till autentiseringsuppgifter vid OVF distribution av konfigurationsservern
+
+1. Efter [inloggning](#access-configuration-server)väljer **hantera autentiseringsuppgifter för virtuell dator**.
+2. Klicka på **Lägg till autentiseringsuppgifter för virtuell dator**.
+    ![Lägg till-mobility-autentiseringsuppgifter](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+3. Ange de nya autentiseringsuppgifterna och klicka på **Lägg till**.
+
+Du kan också lägga till autentiseringsuppgifter via CSPSConfigtool.exe.
+
+1. Logga in på konfigurationsservern och starta CSPSConfigtool.exe
+2. Klicka på **Lägg till**, ange nya inloggningsuppgifter och klickar på **Ok**.
 
 ## <a name="modify-proxy-settings"></a>Ändra proxyinställningar för
 
 Ändra proxyinställningar som används av configuration server-datorn för internet-åtkomst till Azure. Om du har en process server-dator utöver standard-processerver som körs på configuration server-dator kan du ändra inställningarna på båda datorerna.
 
-1. Efter inloggningen till konfigurationsservern, Välj **hantera anslutningar**.
+1. Efter [inloggning](#access-configuration-server) till konfigurationsservern, Välj **hantera anslutningar**.
 2. Uppdatera proxy-värden. Välj sedan **spara** att uppdatera inställningarna.
 
 ## <a name="add-a-network-adapter"></a>Lägga till ett nätverkskort
@@ -60,7 +84,7 @@ Du kan komma åt konfigurationsservern på följande sätt:
 Open Virtualization Format (OVF) mallen distribuerar configuration server VM med ett enda nätverkskort.
 
 - Du kan [lägga till ytterligare en adapter till den virtuella datorn](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), men du måste lägga till den innan du registrerar konfigurationsservern i valvet.
-- Lägg till ett kort när du registrerar konfigurationsservern i valvet genom att lägga till nätverkskortet i virtuella datorns egenskaper. Måste du registrera om servern i valvet.
+- Lägg till ett kort när du registrerar konfigurationsservern i valvet genom att lägga till nätverkskortet i virtuella datorns egenskaper. Måste du [Omregistrera](#reregister-a-configuration-server-in-the-same-vault) servern i valvet.
 
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Registrera en konfigurationsserver i samma valv
@@ -87,7 +111,8 @@ Du kan registrera om konfigurationsservern på samma valv om du behöver. Om du 
   ```
           net stop obengine
           net start obengine
-  ```
+   ```
+
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrera en konfigurationsserver med ett annat valv
 

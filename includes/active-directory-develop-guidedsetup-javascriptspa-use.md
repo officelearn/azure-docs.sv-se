@@ -1,7 +1,31 @@
+---
+title: ta med fil
+description: ta med fil
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
+ms.openlocfilehash: 94d57abc95dabf1da579f6d2105ca6c74140a86f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293651"
+---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Använd Microsoft Authentication Library (MSAL) för att logga in användaren
 
-1.  Skapa en fil med namnet `app.js`. Om du använder Visual Studio, Välj projekt (rotmapp projekt), högerklicka och välj: `Add`  >  `New Item`  >  `JavaScript File`:
-2.  Lägg till följande kod i din `app.js` fil:
+1.  Skapa en fil som heter `app.js`. Om du använder Visual Studio väljer du projektet (rotmappen för projektet), högerklicka och välj: `Add`  >  `New Item`  >  `JavaScript File`:
+2.  Lägg till följande kod till din `app.js` fil:
 
 ```javascript
 // Graph API endpoint to show user profile
@@ -113,32 +137,32 @@ function showError(endpoint, error, errorDesc) {
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-När en användare klickar på den *'anropa Microsoft Graph API-* knappen för första gången `callGraphApi` metodanrop `loginRedirect` att logga in användaren. Den här metoden innebär att omdirigera användare till den *Microsoft Azure Active Directory v2 endpoint* till Kommandotolken och verifiera användarens autentiseringsuppgifter. På grund av en lyckad inloggning, omdirigeras användaren till ursprungligt *index.html* sidan och en token tas emot ska bearbetas av `msal.js` och den information som finns i token cachelagras. Denna token kallas den *ID token* och innehåller grundläggande information om användare, till exempel användarens visningsnamn. Om du planerar att använda några data som tillhandahålls av denna token för andra syften måste du kontrollera att denna token har verifierats av backend-servern för att garantera att token har utfärdats till en giltig användare för ditt program.
+När en användare klickar på *”anropa Microsoft Graph API-* knappen för första gången `callGraphApi` metodanrop `loginRedirect` att logga in användaren. Den här metoden innebär att omdirigera användaren till den *Microsoft Azure Active Directory v2-slutpunkten* att fråga efter och verifiera användarens autentiseringsuppgifter. Till följd av en lyckad inloggning, användaren omdirigeras tillbaka till ursprungligt *index.html* sidan och en token tas emot, bearbetas av `msal.js` och den information som finns i token cachelagras. Denna token kallas den *ID-token* och innehåller grundläggande information om användare, till exempel användarens visningsnamn. Om du planerar att använda några data som tillhandahålls av denna token ändamål, måste du kontrollera att denna token ska valideras av backend-servern för att garantera att token utfärdats till en giltig användare för ditt program.
 
-SPA som genererats av den här guiden gör inte användas direkt av ID-token – i stället anropas `acquireTokenSilent` och/eller `acquireTokenRedirect` att erhålla ett *åtkomsttoken* frågar Microsoft Graph API. Om du behöver ett exempel som validerar ID-token kan ta en titt på [detta](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 exempel") exempelprogrammet i GitHub-exemplet använder en ASP .NET web API för token verifiering.
+SPA som genererats av den här guiden gör inte använda direkt av ID-token – i stället anropas `acquireTokenSilent` och/eller `acquireTokenRedirect` att hämta en *åtkomsttoken* används för att fråga Microsoft Graph API. Om du behöver ett exempel som validerar ID-token kan ta en titt på [detta](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 exempel") exempelprogrammet i GitHub – exemplet använder en ASP .NET webb-API för tokenvalidering.
 
-#### <a name="getting-a-user-token-interactively"></a>Hämta token för en användare interaktivt
+#### <a name="getting-a-user-token-interactively"></a>Hämta en användaren token interaktivt
 
-Efter den första inloggningen, du inte vill be användare att autentiseras varje gång de behöver för att begära en token för att komma åt en resurs – så *acquireTokenSilent* ska användas för de flesta fall för att hämta token. Det finns situationer men det måste du tvinga användare att interagera med Azure Active Directory v2 slutpunkt – några exempel:
-- Användare kan behöva ange sina autentiseringsuppgifter på eftersom lösenordet har upphört att gälla
-- Ditt program begär åtkomst till en resurs som användaren behöver samtycker till att
-- Tvåfaktorsautentisering krävs
+Efter den första inloggningen, du inte vill be användare att autentiseras på nytt varje gång som de behöver för att begära en token till en resurs – så *acquireTokenSilent* bör användas för de flesta fall för att hämta token. Det finns dock situationer när måste du tvinga användare att interagera med Azure Active Directory v2-slutpunkten – några exempel är:
+- Användare kan behöva ange sina autentiseringsuppgifter igen eftersom lösenordet har upphört att gälla
+- Ditt program begär åtkomst till en resurs som användaren behöver för att godkänna
+- Tvåstegs-autentisering krävs
 
-Anropar den *acquireTokenRedirect(scope)* resultera i att omdirigera användare till Azure Active Directory v2 slutpunkten (eller *acquireTokenPopup(scope)* resultatet i ett popup-fönster) när användare behöver interagera genom att antingen bekräfta sina autentiseringsuppgifter, ge medgivande till den begärda resursen eller Slutför tvåfaktorsautentisering de två.
+Anropa den *acquireTokenRedirect(scope)* leda till att omdirigera användare till Azure Active Directory v2-slutpunkten (eller *acquireTokenPopup(scope)* resultat på ett popup-fönster) när användare behöver interagera genom att antingen bekräfta sina autentiseringsuppgifter, ge samtycke till den begärda resursen eller du har slutfört factor de två-autentisering.
 
-#### <a name="getting-a-user-token-silently"></a>Hämta token för en användare tyst
-Den ` acquireTokenSilent` metoden hanterar token förvärv av organisationer och förnyelse utan någon användarinteraktion. Efter `loginRedirect` (eller `loginPopup`) körs för första gången `acquireTokenSilent` är den metod som används ofta för att hämta token som används för att komma åt skyddade resurser för efterföljande anrop - eftersom anrop till begära eller förnya token görs tyst.
-`acquireTokenSilent` misslyckas i vissa fall – till exempel användarens lösenord har upphört att gälla. Programmet kan hantera det här undantaget på två sätt:
+#### <a name="getting-a-user-token-silently"></a>Hämta en användaren token tyst
+Den ` acquireTokenSilent` metoden hanterar token anskaffning och förnyelse utan någon användarinteraktion. Efter `loginRedirect` (eller `loginPopup`) körs för första gången `acquireTokenSilent` är den metod som ofta används för att hämta token som används för att komma åt skyddade resurser för efterföljande anrop - eftersom anrop till begära eller förnya token görs tyst.
+`acquireTokenSilent` kanske inte kan utföras i vissa fall – till exempel användarens lösenord har upphört att gälla. Programmet kan hantera det här undantaget på två sätt:
 
-1.  Gör ett anrop till `acquireTokenRedirect` direkt, vilket innebär att användaren uppmanas att logga in. Det här mönstret är vanligt i Onlineprogram där det finns inget oautentiserade innehåll i programmet tillgängligt för användaren. Genereras av den här interaktiv installation används det här mönstret.
+1.  Göra ett anrop till `acquireTokenRedirect` direkt, vilket innebär att uppmanar användaren att logga in. Det här mönstret används ofta i online-program där det finns inget oautentiserade innehåll i programmet tillgängligt för användaren. I exemplet som genererats av den här guidade konfigurationen används det här mönstret.
 
-2. Program kan också göra en indikering för användaren som en interaktiv inloggning krävs, så att användaren kan välja att logga in rätt tidpunkt eller programmet kan försöka `acquireTokenSilent` vid ett senare tillfälle. Detta används vanligtvis när användaren kan använda andra funktioner i programmet utan att något stör – t.ex, det finns oautentiserade innehåll i programmet. I det här fallet kan användaren välja när de vill logga in till den skydda resursen eller uppdatera inaktuell information.
+2. Program kan också göra en visuell indikering för användaren som en interaktiv inloggning krävs, så att användaren kan välja rätt tid att logga in eller programmet kan försöka `acquireTokenSilent` vid ett senare tillfälle. Detta används vanligtvis när användaren kan använda andra funktioner i programmet utan störs – till exempel finns oautentiserade innehåll i programmet. I det här fallet kan användaren avgöra när de vill logga in till den skyddade resursen eller uppdatera gammal information.
 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Anropa använder token som du precis har köpt Microsoft Graph API
+## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Anropa Microsoft Graph API med hjälp av den token som du precis fick
 
-Lägg till följande kod i din `app.js` fil:
+Lägg till följande kod till din `app.js` fil:
 
 ```javascript
 /**
@@ -192,15 +216,15 @@ function callWebApiWithToken(endpoint, token, responseElement, showTokenElement)
 ```
 <!--start-collapse-->
 
-### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Mer information om hur du skapar ett REST-anrop mot ett skyddade API
+### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Mer information om hur du gör ett REST-anrop mot ett skyddade API
 
-I det exempelprogram som skapats av den här guiden, den `callWebApiWithToken()` metoden används för att en HTTP `GET` begäran mot en skyddad resurs som kräver ett token och returnera innehållet till anroparen. Den här metoden lägger till anskaffats token i den *HTTP Authorization-huvud*. För det exempelprogram som skapats av den här guiden, resursen är Microsoft Graph API *mig* slutpunkt – som visar information om användarens profil.
+I det exempelprogram som skapats av den här guiden, den `callWebApiWithToken()` metod för att göra HTTP `GET` begäran mot en skyddad resurs som kräver ett token och återgå sedan innehållet till anroparen. Den här metoden lägger till förvärvade token i den *HTTP auktoriseringsrubrik*. För exempelprogrammet som skapats av den här guiden, resursen är Microsoft Graph API *mig* slutpunkt – som visar användarens profilinformation.
 
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-the-user"></a>Lägg till en metod för att logga ut användaren
 
-Lägg till följande kod i din `app.js` fil:
+Lägg till följande kod till din `app.js` fil:
 
 ```javascript
 /**

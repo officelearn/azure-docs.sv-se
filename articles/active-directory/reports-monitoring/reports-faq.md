@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1683321e23eff82e73dc9bb44941fc390633b8c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c2e131776fb9f2c5e87c363d0d57e655bc34448f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055911"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294228"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory-rapportering vanliga frågor och svar
 
@@ -169,3 +169,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 **F: på principnamnet i rapporten för alla inloggning matchar inte namnet på principen i CA: N. Varför?**
 
 **S:** på principnamnet i alla loggar in rapporten baseras på namnet på CA-principen vid tidpunkten för inloggningen. Detta kan inte överensstämmer med principens namn i CA: N om du har uppdaterat principnamnet senare, det vill säga efter inloggningen.
+
+**F: mitt inloggning har blockerats på grund av en princip för villkorlig åtkomst, men inloggningsaktivitet rapporten visar att inloggningen lyckades. Varför?**
+
+**S:** just nu logga in rapporten kan inte visa korrekta resultat för Exchange ActiveSync-scenarier när villkorlig åtkomst tillämpas. Det kan finnas fall när du loggar in resultatet i rapporten visar en lyckad inloggning, men inloggningen faktiskt misslyckades på grund av en princip för villkorlig åtkomst. 

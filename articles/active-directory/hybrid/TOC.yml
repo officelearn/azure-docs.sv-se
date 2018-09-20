@@ -1,0 +1,291 @@
+items:
+- name: Dokumentation om hybrididentitet
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Vad är hybrididentitet?
+    href: whatis-hybrid-identity.md
+    maintainContext: true
+- name: Självstudier
+  items:
+  - name: Integrera en enskild AD-miljö för AD-skogar till molnet med PHS
+    href: tutorial-password-hash-sync.md
+  - name: Integrera en enskild AD-miljö för AD-skogar till molnet med PTA
+    href: tutorial-passthrough-authentication.md
+  - name: Federera en enskild miljö för AD-skogar till molnet
+    href: tutorial-federation.md
+  expanded: true
+- name: Begrepp
+  items:
+  - name: Azure AD Connect Sync
+    items:
+    - name: Tekniska begrepp för Azure AD Connect-synkronisering
+      href: how-to-connect-sync-technical-concepts.md
+    - name: Förstå arkitektur för Azure AD Connect-synkronisering
+      href: concept-azure-ad-connect-sync-architecture.md
+    - name: Förstå deklarativ etablering
+      href: concept-azure-ad-connect-sync-declarative-provisioning.md
+    - name: Förstå uttryck för deklarativ etablering
+      href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
+    - name: Förstå standardkonfigurationen
+      href: concept-azure-ad-connect-sync-default-configuration.md
+    - name: Förstå användare och kontakter
+      href: concept-azure-ad-connect-sync-user-and-contacts.md
+    - name: Förstå skuggattribut
+      href: how-to-connect-syncservice-shadow-attributes.md
+  - name: Identitetssynkronisering och duplicerad attributåterhämtning
+    href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+- name: Instruktionsguider
+  items:
+  - name: Installation och uppgradering
+    items:
+    - name: Installationsöversikt
+      href: how-to-connect-install-roadmap.md
+    - name: Installationskrav
+      href: how-to-connect-install-prerequisites.md
+    - name: Välj installationstyp
+      href: how-to-connect-install-select-installation.md
+    - name: Installera Azure AD Connect med Express-inställningar (synkronisering av lösenordshash)
+      href: how-to-connect-install-express.md
+    - name: Installera Azure AD Connect-federation eller andra anpassade inställningar
+      href: how-to-connect-install-custom.md
+    - name: Installera Azure AD Connect med hjälp av direktautentisering (PTA)
+      href: how-to-connect-pta-quick-start.md
+    - name: Installera Azure AD Connect Health
+      href: how-to-connect-health-agent-install.md
+    - name: Automatisk uppgradering
+      href: how-to-connect-install-automatic-upgrade.md
+    - name: Köra installationsguiden en andra gång
+      href: how-to-connect-installation-wizard.md
+    - name: Uppgradera till en ny version av Azure AD Connect
+      href: how-to-upgrade-previous-version.md
+    - name: Uppgradera från DirSync eller Azure AD Sync
+      href: how-to-dirsync-upgrade-get-started.md
+    - name: Installera med hjälp av en befintlig ADSync-databas
+      href: how-to-connect-install-existing-database.md
+    - name: Installera med hjälp av SQL-delegerade administratörsbehörigheter
+      href: how-to-connect-install-sql-delegation.md
+    - name: Uppgradera agenter i förhandsversionen för PTA
+      href: how-to-connect-pta-upgrade-preview-authentication-agents.md
+    - name: Flytta Azure AD Connect-databasen från SQL Express till SQL Server
+      href: how-to-connect-install-move-db.md
+    - name: Om du redan har Azure AD
+      href: how-to-connect-install-existing-tenant.md
+    - name: Uppgifter efter installation
+      href: how-to-connect-post-installation.md
+  - name: Planera och designa
+    items:
+    - name: Designbegrepp
+      href: plan-connect-design-concepts.md
+    - name: Topologier för Azure AD Connect
+      href: plan-connect-topologies.md
+    - name: Så här loggar användarna in
+      href: plan-connect-user-signin.md
+    - name: Att tänka på för instanser
+      href: reference-connect-instances.md
+    - name: Information om utformning av hybrididentitet
+      items:
+      - name: Översikt över information om utformning av hybrididentitet
+        href: plan-hybrid-identity-design-considerations-overview.md
+      - name: Fastställa identitetskrav
+        href: plan-hybrid-identity-design-considerations-business-needs.md
+      - name: Fastställa synkroniseringskrav
+        href: plan-hybrid-identity-design-considerations-directory-sync-requirements.md
+      - name: Fastställa krav för multifaktorautentisering
+        href: plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
+      - name: Fastställa införandestrategi för livscykel
+        href: plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
+      - name: Definiera en strategi för att skydda data
+        href: plan-hybrid-identity-design-considerations-data-protection-strategy.md
+      - name: Planera dataskyddskrav
+        href: plan-hybrid-identity-design-considerations-dataprotection-requirements.md
+      - name: Fastställa krav för innehållshantering
+        href: plan-hybrid-identity-design-considerations-contentmgt-requirements.md
+      - name: Fastställa åtkomstkontrollkrav
+        href: plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
+      - name: Fastställa krav för incidenthantering
+        href: plan-hybrid-identity-design-considerations-incident-response-requirements.md
+      - name: Planera för hybrididentitetslivscykeln
+        href: plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
+      - name: Definiera en införandestrategi
+        href: plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
+      - name: Information om utformning av hybrididentitet – nästa steg
+        href: plan-hybrid-identity-design-considerations-nextsteps.md
+      - name: Jämförelse av verktyg för hybrididentitet
+        href: plan-hybrid-identity-design-considerations-tools-comparison.md
+  - name: Hantera Azure AD Connect
+    items:
+    - name: Vad är synkronisering av lösenordshash?
+      href: how-to-connect-password-hash-synchronization.md
+    - name: Aktivera tillbakaskrivning av enheter
+      href: how-to-connect-device-writeback.md
+    - name: Enhetsalternativ
+      href: how-to-connect-device-options.md
+    - name: Ytterligare funktioner i Azure AD Connect
+      href: how-to-connect-preview.md
+    - name: Förhindra oavsiktliga borttagningar
+      href: how-to-connect-sync-feature-prevent-accidental-deletes.md
+    - name: Aktivera AD-papperskorgen
+      href: how-to-connect-sync-recycle-bin.md
+    - name: Ändra lösenordet för Azure AD Sync-tjänstkontot
+      href: how-to-connect-sync-change-serviceacct-pass.md
+    - name: Ändra kontot för Azure AD-anslutningsappen
+      href: how-to-connect-azureadaccount.md
+    - name: Ändra AD DS-kontolösenordet
+      href: how-to-connect-sync-change-addsacct-pass.md
+  - name: Hantera Federation Services
+    items:
+    - name: Vad är federation med Azure AD Connect?
+      href: how-to-connect-fed-whatis.md
+    - name: Hantera federation med Azure AD Connect
+      href: how-to-connect-fed-management.md
+    - name: Stöd för flera domäner vid federering
+      href: how-to-connect-install-multiple-domains.md
+    - name: Federera flera instanser av Azure AD med en enda instans av AD FS
+      href: how-to-connect-fed-single-adfs-multitenant-federation.md
+    - name: Förnya federationscertifikat för O365 och Azure AD
+      href: how-to-connect-fed-o365-certs.md
+    - name: Uppdatera SSL-certifikat för AD FS
+      href: how-to-connect-fed-ssl-update.md
+    - name: Hantera AD FS-förtroendet med Azure AD
+      href: how-to-connect-azure-ad-trust.md
+    - name: Kompatibilitetslista för Azure AD-federation
+      href: how-to-connect-fed-compatibility.md
+    - name: Använda en SAML 2.0-server som IDP
+      href: how-to-connect-fed-saml-idp.md
+    - name: Uppgifter efter konfiguration för Hybrid Azure AD-anslutning
+      href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
+  - name: Hantera direktautentisering
+    items:
+    - name: Vad är direktautentisering?
+      href: how-to-connect-pta.md
+    - name: Kom igång med direktautentisering
+      href: how-to-connect-pta-quick-start.md
+    - name: Så här fungerar direktautentisering
+      href: how-to-connect-pta-how-it-works.md
+    - name: Detaljerad information om säkerhet vid direktautentisering
+      href: how-to-connect-pta-security-deep-dive.md
+    - name: Direktautentisering och användarsekretess
+      href: how-to-connect-pta-user-privacy.md
+    - name: Nuvarande begränsningar med direktautentisering
+      href: how-to-connect-pta-security-deep-dive.md
+    - name: Vanliga frågor och svar om direktautentisering
+      href: how-to-connect-pta-faq.md
+  - name: Hantera enkel inloggning
+    items:
+    - name: Vad är enkel inloggning?
+      href: how-to-connect-sso.md
+    - name: Komma igång med enkel inloggning
+      href: how-to-connect-sso-quick-start.md
+    - name: Så här fungerar enkel inloggning
+      href: how-to-connect-sso-how-it-works.md
+    - name: Enkel inloggning och användarsekretess
+      href: how-to-connect-sso-user-privacy.md
+    - name: Vanliga frågor och svar om enkel inloggning
+      href: how-to-connect-sso-faq.md
+  - name: Hantera Azure AD Connect Health
+    items:
+    - name: Azure AD Connect Health-åtgärder
+      href: how-to-connect-health-operations.md
+    - name: Använda Azure AD Connect Health med AD FS
+      href: how-to-connect-health-adfs.md
+    - name: Använda Azure AD Connect Health för synkronisering
+      href: how-to-connect-health-sync.md
+    - name: Använda Azure AD Connect Health med AD DS
+      href: how-to-connect-health-adds.md
+    - name: Data om tjänstens hälsotillstånd är inaktuella
+      href: how-to-connect-health-data-freshness.md
+    - name: Diagnostisera fel med duplicerad attributsynkronisering
+      href: how-to-connect-health-diagnose-sync-errors.md
+    - name: Azure AD Connect Health-åtgärdskatalog
+      href: how-to-connect-health-alert-catalog.md
+  - name: Hantera Azure AD Connect Sync
+    items:
+    - name: Vad är Azure AD Connect Sync?
+      href: how-to-connect-sync-whatis.md
+    - name: Funktioner för Azure AD Connect-synkronisering
+      href: how-to-connect-syncservice-features.md
+    - name: Hantera driftuppgift
+      href: how-to-connect-sync-operations.md
+    - name: Metodtips för att ändra standardkonfigurationen
+      href: how-to-connect-sync-best-practices-changing-default-configuration.md
+    - name: Ändra standardkonfigurationen
+      href: how-to-connect-sync-change-the-configuration.md
+    - name: Konfigurera katalogtillägg
+      href: how-to-connect-sync-feature-directory-extensions.md
+    - name: Konfigurera önskad dataplats
+      href: how-to-connect-sync-feature-preferreddatalocation.md
+    - name: Konfigurera filtrering
+      href: how-to-connect-sync-configure-filtering.md
+    - name: Hantera schemaläggare
+      href: how-to-connect-sync-feature-scheduler.md
+    - name: Tjänsthanterare för Azure AD Connect-synkronisering
+      items:
+      - name: Vad är tjänsthanteraren för Azure AD Connect-synkronisering?
+        href: how-to-connect-sync-service-manager-ui.md
+      - name: Hantera åtgärdsfliken för tjänsthanteraren
+        href: how-to-connect-sync-service-manager-ui-operations.md
+      - name: Använda anslutningsappar med tjänsthanteraren
+        href: how-to-connect-sync-service-manager-ui-connectors.md
+      - name: Metaversumdesigner
+        href: how-to-connect-sync-service-manager-ui-mvdesigner.md
+      - name: Metaversumsökning
+        href: how-to-connect-sync-service-manager-ui-mvsearch.md
+  - name: Felsöka
+    items:
+    - name: Anslutning
+      href: tshoot-connect-connectivity.md
+    - name: Fel under synkronisering
+      href: tshoot-connect-sync-errors.md
+    - name: Objektet har inte synkroniserats
+      href: tshoot-connect-object-not-syncing.md
+    - name: Objektsynkronisering med hjälp av felsökningsaktiviteten
+      href: tshoot-connect-objectsync.md
+    - name: Synkronisering av lösenordshash
+      href: tshoot-connect-password-hash-synchronization.md
+    - name: Direktautentisering
+      href: tshoot-connect-pass-through-authentication.md
+    - name: Enkel inloggning
+      href: tshoot-connect-sso.md
+    - name: LargeObject-fel som orsakats av userCertificate
+      href: tshoot-connect-largeobjecterror-usercertificate.md
+    - name: Så här återställer du från LocalDB med en gräns på 10 GB
+      href: tshoot-connect-recover-from-localdb-10gb-limit.md
+    - name: SQL-anslutning
+      href: tshoot-connect-tshoot-sql-connectivity.md
+- name: Referens
+  items:
+  - name: Portar och protokoll som krävs för hybrididentitet
+    href: reference-connect-ports.md
+  - name: Versionshistorik för Azure AD Connect
+    href: reference-connect-version-history.md
+  - name: Versionshistorik för Azure AD Connect Health
+    href: reference-connect-health-version-history.md
+  - name: Versionshistorik för anslutningsappen
+    href: reference-connect-sync-connector-version-history.md
+  - name: Konton och behörigheter
+    href: reference-connect-accounts-permissions.md
+  - name: Vanliga frågor och svar om Azure AD Connect
+    href: reference-connect-faq.md
+  - name: Vanliga frågor och svar om Azure AD Connect Health
+    href: reference-connect-health-faq.md
+  - name: Användarsekretess för Azure AD Connect
+    href: reference-connect-user-privacy.md
+  - name: Användarsekretess för Azure AD Connect Health
+    href: reference-connect-health-user-privacy.md
+  - name: Azure AD Connect i Tyskland
+    href: reference-connect-germany.md
+  - name: DirSync-utfasning
+    href: reference-connect-dirsync-deprecated.md
+  - name: Attribut som synkroniseras
+    href: reference-connect-sync-attributes-synchronized.md
+  - name: Referens för funktioner
+    href: reference-connect-sync-functions-reference.md
+  - name: Kompatibilitetslista för Azure AD-federation
+    href: how-to-connect-fed-compatibility.md
+ms.openlocfilehash: e0485c86f365c93362fed792a41ec835680a1ee7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46300484"

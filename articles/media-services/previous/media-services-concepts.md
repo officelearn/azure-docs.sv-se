@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services-koncepten | Microsoft Docs
-description: Det här avsnittet ger en översikt över Azure Media Services-koncepten
+description: Det här avsnittet ger en översikt över Azure Media Services-begrepp
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,115 +14,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: f9d51869b9a6ba63c73637c50f5a19e864bc23e4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5a48a86e324af44143a7df64ca08fb71018711d3
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942310"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364932"
 ---
-# <a name="azure-media-services-concepts"></a>Azure Media Services-koncepten
-Det här avsnittet ger en översikt av de viktigaste Media Services-begrepp.
+# <a name="azure-media-services-concepts"></a>Azure Media Services-begrepp
+Det här avsnittet ger en översikt över de viktigaste begreppen för Media Services.
 
 ## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Tillgångar och lagring
 ### <a name="assets"></a>Tillgångar
-En [tillgången](https://docs.microsoft.com/rest/api/media/operations/asset) innehåller digitala filer (inklusive video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning) och metadata om dessa filer. När digitala filer överförs till en tillgång, kan de användas i Media Services encoding och direktöverföring av arbetsflöden.
+En [tillgången](https://docs.microsoft.com/rest/api/media/operations/asset) innehåller digitala filer (inklusive video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning) och metadata om dessa filer. När de digitala filerna överförs till en tillgång, kan de användas i Media Services kodning och strömning arbetsflöden.
 
-En tillgång som är mappad till en blob-behållare i Azure Storage-konto och lagras filerna i tillgången som blockblobar i behållaren. Azure Media Services stöder inte sidblobar.
+En tillgång är mappad till en blobbehållare i Azure Storage-kontot och filerna i tillgången lagras som blockblobar i den behållaren. Sidblobar stöds inte av Azure Media Services.
 
 När du bestämmer vilka medieinnehåll att överföra och lagra i en tillgång, gäller följande:
 
-* En tillgång får innehålla endast en enda, unikt instans av medieinnehåll. Till exempel en enda redigering av TV-avsnitt, film eller annons.
-* En tillgång får inte innehålla flera återgivningar eller ändringar i en fil som audiovisuella. Ett exempel på en felaktig användning av en tillgång skulle försök gjordes att lagra mer än en TV-avsnitt, annons eller flera kameravinklar från en enda produktion inuti en tillgång. Lagra flera återgivningar eller ändringar i en audiovisuella fil i en tillgång kan det leda till problem med att skicka kodning jobb, strömning och skydda leverans av tillgången senare i arbetsflödet.  
+* En tillgång får innehålla endast en enda, unikt instans av medieinnehåll. Till exempel en enkel redigering av TV-avsnittet, film eller annons.
+* En tillgång får inte innehålla flera återgivningar eller ändringar i en fil som audiovisuellt. Ett exempel på en felaktig användning av en tillgång skulle försöker lagra mer än en TV-avsnittet, annonsering eller flera kameravinklar från en enda produktion inuti en tillgång. Lagra flera återgivningar eller ändringar i en fil som audiovisuellt i en tillgång kan leda till problem som skickar kodningsjobb, strömning och skydda leveransen av tillgången senare i arbetsflödet.  
 
-### <a name="asset-file"></a>Resursfil
-En [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representerar en faktiska video eller ljud-fil som lagras i en blob-behållare. En resursfil är alltid associerad med en tillgång och en tillgång kan innehålla en eller många filer. Media Services Encoder uppgiften misslyckas om objekttypen tillgången filen inte är associerad med en digital fil i en blob-behållaren.
+### <a name="asset-file"></a>Tillgångsfil
+En [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representerar en faktiska video- eller ljudinnehåll fil som lagras i en blob-behållare. En resursfil är alltid kopplad till en tillgång och en tillgång kan innehålla en eller flera filer. Media Services Encoder aktiviteten misslyckas om ett objekt för tillgången-filen inte är associerad med en digital fil i en blobbehållare.
 
-Den **AssetFile** instansen och den faktiska mediefilen är två distinkta objekt. AssetFile-instans innehåller metadata om filen media när mediefilen innehåller faktiskt medieinnehåll.
+Den **AssetFile** instans och den faktiska mediefilen finns två olika objekt. AssetFile-instans innehåller metadata om filen media medan mediefilen innehåller faktiskt medieinnehåll.
 
 Du bör inte försöka ändra innehållet i blob-behållare som har genererats av Media Services utan att använda Media Service API: er.
 
-### <a name="asset-encryption-options"></a>Alternativ för kryptering av tillgångsinformation
-Beroende på vilken typ av innehåll som du vill överföra, lagra och leverera tillhandahåller Media Services olika krypteringsalternativ för som du kan välja bland.
+### <a name="asset-encryption-options"></a>Alternativ för kryptering av tillgången
+Beroende på vilken typ av innehåll som du vill ladda upp, lagra och leverera erbjuder Media Services olika alternativ för kryptering av som du kan välja bland.
 
 >[!NOTE]
->Ingen kryptering används. Detta är standardvärdet. När du använder det här alternativet skyddas inte innehållet under överföring eller i vila i lagringsutrymmet.
+>Ingen kryptering används. Detta är standardvärdet. När du använder det här alternativet skyddas inte innehållet under överföring eller i vila i lagring.
 
-Om du planerar att leverera en MP4 med progressivt nedladdning ska använda det här alternativet för att ladda upp ditt innehåll.
+Om du planerar att leverera en MP4 med progressivt nedladdning ska använda det här alternativet för att överföra innehållet.
 
-**StorageEncrypted** – Använd det här alternativet för att kryptera innehållet lokalt med hjälp av AES 256-bitars kryptering och överföra den till Azure Storage där den lagras krypterat i vila. Tillgångar som skyddas med lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Det primära användningsfallet för lagringskryptering är när du vill skydda dina hög kvalitet inkommande mediefiler med stark kryptering i vila på disk. 
+**StorageEncrypted** – Använd det här alternativet för att kryptera innehållet lokalt med hjälp av AES 256-bitars kryptering och sedan överföra det till Azure Storage var den lagras krypterat i vila. Tillgångar som skyddas med lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. I första hand för lagringskryptering är när du vill skydda din högkvalitativa inkommande mediefiler med stark kryptering i vila på disk. 
 
-För att kunna leverera en krypterad tillgång för lagring, måste du konfigurera den tillgångsleveransprincip så Media Services vet hur du vill leverera ditt innehåll. Innan din tillgång kan strömmas strömmande server tar du bort krypteringen lagring och strömmar ditt innehåll med hjälp av angivna leveransprincipen (till exempel AES, PlayReady eller Ingen kryptering). 
+För att kunna leverera en krypterad tillgång för lagring, måste du konfigurera den tillgångsleveransprincip så att Media Services vet hur du vill leverera ditt innehåll. Innan du kan strömma din tillgång, kommer servern för strömning tar bort lagringskryptering och strömmar ditt innehåll med den angivna leveransprincipen (exempelvis AES, PlayReady eller Ingen kryptering). 
 
 **CommonEncryptionProtected** – Använd det här alternativet om du vill kryptera (eller överför redan krypterat) innehåll med vanlig kryptering eller PlayReady DRM (till exempel Smooth Streaming som skyddas med PlayReady DRM).
 
-**EnvelopeEncryptionProtected** – Använd det här alternativet om du vill skydda (eller överför redan skyddad) HTTP Live Streaming (HLS) krypteras med Advanced Encryption Standard (AES). Om du överför HLS som redan har krypterats med AES, måste den har krypterats av Transform Manager.
+**EnvelopeEncryptionProtected** – Använd det här alternativet om du vill skydda (eller överför redan skyddas) HTTP Live Streaming (HLS) krypteras med Advanced Encryption Standard (AES). Om du överför HLS som redan har krypterats med AES, måste den har krypterats av Transform Manager.
 
 ### <a name="access-policy"></a>Åtkomstpolicy
-En [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) definierar behörigheter (t.ex. Läs-, Skriv- och listan) och varaktighet för åtkomst till en tillgång. Du skulle vanligtvis skickar ett AccessPolicy-objekt till en positionerare som sedan används för att komma åt filer i en tillgång.
+En [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) definierar behörigheter (till exempel läsa, skriva och lista) och varaktighet för åtkomst till en tillgång. Du skulle vanligtvis skicka ett AccessPolicy-objekt till en positionerare som skulle användas för att komma åt filer i en tillgång.
 
 >[!NOTE]
 >Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) avsnitt.
 
 ### <a name="blob-container"></a>BLOB-behållare
-En blob-behållare grupperar en uppsättning blobbar. BLOB-behållare används som gräns för åtkomstkontroll och delade signatur åtkomst (SAS)-positionerare på tillgångar i Media Services. Ett Azure Storage-konto kan innehålla ett obegränsat antal blob-behållare. En behållare kan lagra ett obegränsat antal blobbar.
+En blob-behållare grupperar en uppsättning blobbar. BLOB-behållare används som gräns för åtkomstkontroll och signatur för delad åtkomst (SAS)-positionerare på tillgångar i Media Services. Ett Azure Storage-konto kan innehålla ett obegränsat antal blob-behållare. En container kan lagra ett obegränsat antal blobar.
 
 >[!NOTE]
 > Du bör inte försöka ändra innehållet i blob-behållare som har genererats av Media Services utan att använda Media Service API: er.
 > 
 > 
 
-### <a name="a-idlocatorslocators"></a><a id="locators"/>Lokaliserare
-[Lokaliserare](https://docs.microsoft.com/rest/api/media/operations/locator)s ger en startpunkt för att få åtkomst till filer i en tillgång. En åtkomstprincip används för att definiera behörigheter och varaktighet för att en klient har åtkomst till en given tillgång. Positionerare kan ha en många-till-en relation med en åtkomstprincip så att olika positionerare kan ange olika start- och anslutningstyper för olika klienter när alla använder samma behörighet och varaktigheten; på grund av en delad åtkomst för begränsning av Azure storage-tjänster, kan inte du ha fler än fem unika lokaliserare som är associerade med en viss resurs i taget. 
+### <a name="a-idlocatorslocators"></a><a id="locators"/>Positionerare
+[Lokaliserare](https://docs.microsoft.com/rest/api/media/operations/locator)s ger en startpunkt för att få åtkomst till filer i en tillgång. En åtkomstprincip används för att definiera behörigheter och varaktighet för att en klient har åtkomst till en given tillgång. Lokaliserare kan ha en många-till-en-relation med en åtkomstprincip, så att olika lokaliserare kan ge olika start- och anslutningstyper till olika klienter samtidigt som alla använder samma behörighet och varaktighet inställningar. på grund av en delad åtkomst principbegränsning som anges av Azure storage-tjänster, kan inte du ha fler än fem unik positionerare som är associerade med en given tillgång i taget. 
 
-Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) eller progressivt hämta media och SAS-URL-positionerare som används för att överföra eller hämta media filer to\from Azure storage. 
+Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) eller progressivt hämta media och SAS-Webbadressen positionerare som används för att överföra eller hämta media filer to\from Azure storage. 
 
 >[!NOTE]
->Behörigheten lista (AccessPermissions.List) bör inte användas när du skapar en OnDemandOrigin-positionerare. 
+>Behörigheten lista (AccessPermissions.List) ska inte användas när du skapar en OnDemandOrigin-positionerare. 
 
 ### <a name="storage-account"></a>Lagringskonto
-All åtkomst till Azure Storage görs genom ett lagringskonto. Ett Media Service-konto kan associera med en eller flera lagringskonton. Ett konto kan innehålla ett obegränsat antal behållare, så länge som deras sammanlagda storlek är under 500TB per lagringskonto.  Media Services tillhandahåller SDK nivån verktygsuppsättning så att du kan hantera flera lagringskonton och belastningsutjämna distribution av dina tillgångar vid överföring till dessa konton baserat på mått eller en slumpmässig distributionsplats. Mer information finns i Arbeta med [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
+All åtkomst till Azure Storage görs genom ett lagringskonto. Ett Media Services-konto kan associera med en eller flera lagringskonton. Ett konto kan innehålla ett obegränsat antal behållare, så länge som deras totala storlek är under 500TB per lagringskonto.  Media Services tillhandahåller SDK på Verktyg så att du kan hantera flera lagringskonton och belastningsutjämna distributionen av dina tillgångar vid överföring till dessa konton baserat på mått eller slumpmässig distribution. Mer information finns i Arbeta med [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
-## <a name="jobs-and-tasks"></a>Jobb och uppgifter
-En [jobbet](https://docs.microsoft.com/rest/api/media/operations/job) används vanligtvis för att bearbeta (till exempel index eller koda) ljud/video presentationer. Om du bearbetar flera videor, skapa ett jobb varje video ska kodas.
+## <a name="jobs-and-tasks"></a>Jobb och aktiviteter
+En [jobbet](https://docs.microsoft.com/rest/api/media/operations/job) används vanligtvis för att bearbeta (till exempel index eller koda) ett ljud/video presentation. Om du bearbetar flera videor, skapa ett jobb för varje video som ska kodas.
 
-Ett jobb innehåller metadata om bearbetning ska utföras. Varje jobb innehåller en eller flera [aktivitet](https://docs.microsoft.com/rest/api/media/operations/task)s som anger en atomisk Bearbetningsuppgift tillgångarna indata, utdata tillgångar, en medieprocessor och dess associerade inställningarna. Uppgifter i ett jobb kan sammankopplas, där utdatatillgången av en aktivitet anges som indata tillgången till nästa aktivitet. På så sätt kan ett jobb innehåller alla bearbetning behövs för en media.
+Ett jobb innehåller metadata om bearbetningen som ska utföras. Varje jobb som innehåller en eller flera [uppgift](https://docs.microsoft.com/rest/api/media/operations/task)s som anger en atomisk bearbetning uppgift, tillgångarna indata, utdata tillgångar, en medieprocessor och dess tillhörande inställningar. Uppgifter i ett jobb kan sammanlänkas, där utdatatillgången för en aktivitet ges som indata tillgången till nästa aktivitet. På så vis kan ett jobb innehålla all bearbetning behövs för en media.
 
 ## <a id="encoding"></a>Kodning
 Azure Media Services erbjuder flera alternativ för kodning av media i molnet.
 
-När börjat med Media Services är det viktigt att förstå skillnaden mellan codec och filformat.
-Codec-rutiner är programvara som implementerar komprimering/dekomprimering algoritmer filformat är behållare som innehåller den komprimerad videon.
+När du börjar med Media Services, är det viktigt att förstå skillnaden mellan codec- och filformat.
+Codec är program som implementerar komprimering/dekomprimering algoritmer filformat är behållare som innehåller komprimerade videon.
 
-Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt innehåll MP4 eller Smooth Streaming-kodade med anpassad bithastighet i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) utan att du behöver packa om till dessa strömningsformat.
+Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera innehåll med anpassad bithastighet MP4 eller Smooth Streaming-kodade i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) utan att du behöver packa om till dessa strömningsformat.
 
-Dra nytta av [dynamisk paketering](media-services-dynamic-packaging-overview.md), måste du koda din mezzaninfil (källa) till en uppsättning med anpassningsbar bithastighet MP4-filer eller Smooth Streaming-filer och har minst en standard eller premium strömmande slutpunkten i startat tillstånd.
+Att dra nytta av [dynamisk paketering](media-services-dynamic-packaging-overview.md), måste du koda din mezzaninfil (källa) till en uppsättning MP4-filer eller Smooth Streaming-filer och har minst en standard- eller premium slutpunkten för direktuppspelning i Starta tillstånd.
 
 Media Services stöder följande på begäran-kodare som beskrivs i den här artikeln:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 * [Arbetsflöde för Media Encoder Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Information om stöds kodare finns [kodare](media-services-encode-asset.md).
+Information om kodare som stöds finns i [kodare](media-services-encode-asset.md).
 
 ## <a name="live-streaming"></a>Liveströmning
-I Azure Media Services representerar en kanal en pipeline för bearbetning av liveströmmat innehåll. En kanal som tar emot live indata i ett av två sätt:
+I Azure Media Services representerar en kanal en pipeline för bearbetning av liveuppspelningsinnehåll. En kanal tar emot inkommande direktsändningar i ett av två sätt:
 
-* En lokal livekodare skickar flera bithastigheter RTMP eller Smooth Streaming (fragmenterad MP4) till kanalen. Du kan använda de följande livekodare som skickar Smooth Streaming i flera bithastigheter: MediaExcel, Ateme, anta kommunikation, Envivio, Cisco och Elemental. Följande livekodare skickar RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision och Tricaster kodare. De infogade strömmarna passerar genom kanalerna utan ytterligare omkodning och kodning. På begäran levererar Media Services strömmen till kunder.
-* En dataström med enkel bithastighet (i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4)) som skickas till den kanal som är aktiverad för att utföra live encoding med Media Services. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
+* En lokal livekodare skickar med flera bithastigheter RTMP eller Smooth Streaming (fragmenterad MP4) till kanalen. Du kan använda följande livekodare som Smooth Streaming med flera bithastigheter: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco och Elemental. I följande livekodare RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision och Tricaster-kodare. De infogade strömmarna passerar via kanaler utan vidare transkodning eller kodning. På begäran levererar Media Services strömmen till kunder.
+* En enda bithastighet (i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4)) skickas till den kanal som är aktiverad för att utföra live encoding med Media Services. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 
 ### <a name="channel"></a>Kanal
-I Media Services [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s ansvarar för bearbetning av liveströmmat innehåll. En kanal som tillhandahåller en slutpunkt för indata (infognings-URL) som du sedan vidarebefordra till en levande transcoder. Kanalen tar emot live indata från live transcoder och gör den tillgänglig för strömning via en eller flera Strömningsslutpunkter. Kanaler ger också förhandsgranskningsslutpunkten (förhandsgranskning URL) som används för att förhandsgranska och verifiera strömmen innan ytterligare bearbetning och leverans.
+I Media Services [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s ansvarar för bearbetning av liveuppspelningsinnehåll. En kanal som innehåller en slutpunkt för indata (infognings-URL) som du sedan vidarebefordra till en levande transkodare. Kanalen tar emot inkommande direktsändningar från live transkodare och gör den tillgänglig för direktuppspelning via en eller flera Strömningsslutpunkter. Kanaler tillhandahåller även en slutpunkt för förhandsversionen (förhandsgransknings-URL) som används för att förhandsgranska och validera dataströmmen inför vidare behandling och leverans.
 
-Du kan få infognings-URL och förhandsgransknings-URL när du skapar kanalen. För att få dessa URL: er, behöver kanalen inte vara i startat tillstånd. När du är redo att börja skicka data från en levande transcoder till kanalen måste kanalen vara igång. När levande transcoder startar mata in data, kan du förhandsgranska dataströmmen.
+Du kan hämta URL: en för inmatning och förhandsgransknings-URL när du skapar kanalen. För att få dessa URL: er, behöver inte kanalen vara tillståndet startad. När du är redo att börja skicka data från en levande transkodare till kanalen startas kanalen. När live transkodare startar mata in data, kan du förhandsgranska dataströmmen.
 
-Varje Media Services-konto kan innehålla flera kanaler, flera program och flera Strömningsslutpunkter. Beroende på behov bandbredds- och kan StreamingEndpoint tjänster dedikeras till en eller flera kanaler. Alla StreamingEndpoint dra från varje kanal.
+Varje Media Services-konto kan innehålla flera kanaler, flera program och flera Strömningsslutpunkter. Beroende på behov bandbredds- och kan StreamingEndpoint-tjänster vara dedikerad till en eller flera kanaler. Alla StreamingEndpoint kan hämta från alla kanaler.
 
-### <a name="program-event"></a>Program (händelse)
+### <a name="program-event"></a>Programmet (händelse)
 En [Program (händelse)](https://docs.microsoft.com/rest/api/media/operations/program) gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar program (händelser). Relationen mellan kanal och Program liknar traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till viss tidsinställd händelse på kanalen.
 Du kan ange antalet timmar som du vill behålla inspelat innehåll för programmet genom att ange den **ArchiveWindowLength** egenskapen. Det här värdet kan anges från minst 5 minuter till högst 25 timmar.
 
-ArchiveWindowLength avgör också hur lång tid som klienter kan söka bakåt i tiden från den aktuella direktsända positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
+ArchiveWindowLength avgör också längsta tid som klienter kan söka bakåt i tiden från den aktuella direktsända positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
 
 Varje program (händelse) är associerat med en tillgång. Om du vill publicera programmet måste du skapa en positionerare för den associerade tillgången. Med den här lokaliseraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
 
@@ -136,68 +136,68 @@ Mer information finns i:
 
 ## <a name="protecting-content"></a>Skydda innehållet
 ### <a name="dynamic-encryption"></a>Dynamisk kryptering
-Azure Media Services kan du skydda mediet från den tidpunkt som den lämnar din dator via lagring, bearbetning och leverans. Media Services kan du leverera ditt innehåll krypteras dynamiskt med Standard AES (Advanced Encryption) (med 128-bitars krypteringsnycklar) och vanliga kryptering (CENC) med PlayReady och/eller Widevine DRM. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och PlayReady-licenser till auktoriserade klienter.
+Azure Media Services kan du skydda dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Media Services kan du leverera ditt innehåll dynamiskt krypterad med Standard AES (Advanced Encryption) (med 128-bitars krypteringsnycklar) och gemensam kryptering (CENC) med PlayReady och/eller Widevine DRM. Media Services tillhandahåller också en tjänst för leverans av nycklar för AES och PlayReady-licenser till auktoriserade klienter.
 
-För närvarande kan du kryptera följande strömningsformat: HLS MPEG DASH och Smooth Streaming. Det går inte att kryptera progressiv hämtning.
+För närvarande kan du kryptera följande strömningsformat: HLS, MPEG DASH och Smooth Streaming. Du kan inte krypteras progressiva nedladdningar.
 
-Om du vill använda för Media Services att kryptera en tillgång, måste du associera en krypteringsnyckel (CommonEncryption eller EnvelopeEncryption) med din tillgång och även konfigurera auktoriseringsprinciper för nyckeln.
+Om du vill använda för Media Services för att kryptera en tillgång, måste du associera en krypteringsnyckel (CommonEncryption eller EnvelopeEncryption) med din tillgång och även konfigurera auktoriseringsprinciper för nyckeln.
 
-Om du vill strömma en krypterad tillgång lagring måste du konfigurera den tillgångsleveransprincip för att ange hur du vill leverera din tillgång.
+Om du vill spela en krypterad tillgång för lagring, måste du konfigurera den tillgångsleveransprincip för att ange hur du vill leverera din tillgång.
 
-När en dataströmmen har begärts av en spelare, använder Media Services den angivna nyckeln för att kryptera dynamiskt innehåll med en kuvert kryptering (med AES) eller vanliga kryptering (med PlayReady eller Widevine). Om du vill dekryptera dataströmmen begär spelaren nyckeln från tjänsten nyckel. Om du vill avgöra om användaren har behörighet att hämta nyckel för utvärderar tjänsten auktoriseringsprinciper som du angav för nyckeln.
+När en dataströmmen har begärts av en spelare, använder Media Services den angivna nyckeln för att dynamiskt kryptera ditt innehåll med en kuvert-kryptering (med AES) eller gemensam kryptering (med PlayReady eller Widevine). Om du vill dekryptera dataströmmen begär spelaren nyckeln från nyckelleveranstjänst. När du beslutar om användaren har behörighet att hämta nyckel måste utvärderar tjänsten auktoriseringsprinciper som du angav för nyckeln.
 
 ### <a name="token-restriction"></a>Tokenbegränsningar
-Principen för auktorisering av innehållsnyckel kan ha en eller flera auktoriseringsbegränsningar: öppen och token begränsning eller en IP-begränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder token i formatet Simple Web Tokens (SWT) och JSON-Webbtoken (JWT)-format. Media Services tillhandahåller inte Secure Token tjänster. Du kan skapa en anpassad STS eller använda Microsoft Azure ACS problemet tokens. STS måste konfigureras för att skapa en token som signerats med angiven nyckel och utfärda anspråk som du angav i tokenbegränsningar-konfigurationen. Media Services viktiga tjänsten returneras den begärda (eller licensinformation) till klienten om token är giltig och anspråk i token matchar de som konfigurerats för nyckeln (eller licens).
+Auktoriseringsprincipen för innehållsnyckeln kan ha en eller flera auktoriseringsbegränsningar: öppna, token begränsning eller IP-begränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder token i formatet Simple Web token (SWT) och format för JSON Web Token (JWT). Media Services tillhandahåller säkra Säkerhetstokentjänster. Du kan skapa en anpassad STS. STS måste konfigureras för att skapa en token som signerats med de angivna nyckeln och problemet anspråk som du angav i tokenbegränsningar konfigurationen. Media Services-nyckelleveranstjänst returnerar den begärda (eller licensinformation) till klienten om token är giltig och anspråk i token matchar de som konfigurerats för nyckeln (eller licens).
 
-När du konfigurerar token begränsad princip, måste du ange primär Verifieringsnyckeln, utfärdare och målgrupp parametrar. Primära Verifieringsnyckeln innehåller den nyckel som token som signerats med, utfärdaren är den säkra tokentjänst som utfärdar token. Målgruppen (kallas ibland för scope) beskrivs syftet med denna token eller resursen token auktoriserar åtkomst till. Media Services viktiga tjänsten verifierar att dessa värden i token matchar värdena i mallen.
+När du konfigurerar token tokenbegränsade principen, måste du ange primär verifieringsnyckel, utfärdare och målgrupp parametrar. Den primära Verifieringsnyckeln innehåller den nyckel som token signerats med, utfärdare är den säkra tokentjänst som utfärdar en token. Målgruppen (kallas ibland för omfång) beskriver syftet med denna token eller resursen token auktoriserar åtkomst till. Media Services-nyckelleveranstjänst verifierar att dessa värden i token matchar värden i mallen.
 
 Mer information finns i följande artiklar:
-- [Skydda innehåll-översikt](media-services-content-protection-overview.md)
+- [Skydda innehåll – översikt](media-services-content-protection-overview.md)
 - [Skydda med AES-128](media-services-protect-with-aes128.md)
 - [Skydda med PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Leverera
 ### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Dynamisk paketering
-När du arbetar med Media Services, rekommenderas att koda mezzanine filerna till en MP4-uppsättningen med anpassad bithastighet och sedan konvertera uppsättningen till önskade format med hjälp av den [dynamisk paketering](media-services-dynamic-packaging-overview.md).
+När du arbetar med Media Services, rekommenderar vi att koda ditt mezzanine-filer till en med anpassningsbar bithastighet MP4-uppsättningen och sedan konvertera uppsättningen till det önskade formatet med hjälp av den [dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Slutpunkt för direktuppspelning
-En StreamingEndpoint representerar en strömmande tjänst som kan leverera innehåll direkt till ett klientprogram player eller till en innehåll innehållsleveransnätverk (CDN) för vidare distribution (Azure Media Services tillhandahåller nu Azure CDN-integration.) Utgående dataströmmen från en strömmande slutpunkt-tjänst kan vara en direktsänd dataström eller en video på begäran tillgångar i Media Services-kontot. Media Services-kunder väljer antingen en **Standard**-slutpunkt för direktuppspelning eller en eller flera **Premium**-slutpunkter för direktuppspelning, utifrån behov. Standard strömmande slutpunkten är lämplig för de flesta strömmande arbetsbelastningar. 
+En StreamingEndpoint representerar en direktuppspelningstjänst som kan leverera innehåll direkt till ett klientspelarprogram eller till ett CDN Content Delivery Network () för vidare distribution (Azure Media Services ger nu Azure CDN-integreringen.) Den utgående dataströmmen från en strömmande slutpunkt-tjänst kan vara en direktsänd dataström eller en video på begäran-tillgång i Media Services-kontot. Media Services-kunder väljer antingen en **Standard**-slutpunkt för direktuppspelning eller en eller flera **Premium**-slutpunkter för direktuppspelning, utifrån behov. Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. 
 
-Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Standard Strömningsslutpunkter ger flexibilitet för att leverera ditt innehåll till praktiskt taget alla enheten via dynamisk paketering till HLS, MPEG DASH, Smooth Streaming samt och dynamisk kryptering för Microsoft PlayReady, Google Widevines, Apple Fairplay och AES128.  De även skala från mycket små till stora målgrupper med tusentals samtidiga användare via Azure CDN-integrering. Om du har en avancerad arbetsbelastning eller dina strömmande kapacitetskrav inte får plats på standard strömmande slutpunkten genomströmning mål eller du vill styra tjänsten StreamingEndpoint förmåga att hantera växande behov av bandbredd, rekommenderas att allokera skalenheter (även kallat premium enheter för strömning).
+Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Standard-slutpunkter för direktuppspelning erbjuder flexibilitet för att leverera ditt innehåll till i stort sett alla enheter via dynamisk paketering till HLS, MPEG-DASH, Smooth Streaming samt och dynamisk kryptering för Microsoft PlayReady, Google Widevine, Apple Fairplay och AES128.  De även skala från mycket små till mycket stora målgrupper med tusentals samtidiga användare via Azure CDN-integreringen. Om du har en avancerad arbetsbelastning eller dina kapacitetskrav för direktuppspelning inte passar att standard strömmande slutpunkt dataflödesmål eller du vill styra StreamingEndpoint-tjänstens kapacitet att hantera växande behov av bandbredd, rekommenderar vi att du allokera skalningsenheter (kallas även premiumenheter för strömning).
 
-Det rekommenderas att använda dynamisk paketering och dynamisk kryptering.
+Det rekommenderas att använda dynamisk paketering och/eller dynamisk kryptering.
 
 >[!NOTE]
 >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
 
 Mer information finns i [detta](media-services-portal-manage-streaming-endpoints.md) avsnitt.
 
-Du kan ha upp till 2 strömningsslutpunkter i Media Services-kontot som standard. Om du vill begära en högre gräns finns [kvoter och begränsningar](media-services-quotas-and-limitations.md).
+Du kan ha upp till 2 strömmande slutpunkter i Media Services-kontot som standard. Om du vill begära en högre gräns, se [kvoter och begränsningar](media-services-quotas-and-limitations.md).
 
 Du debiteras endast när din StreamingEndpoint är i körningstillstånd.
 
 ### <a name="asset-delivery-policy"></a>Principen för tillgångsleverans
-Ett av stegen i Media Services innehållsleverans arbetsflödet konfigurerar [leveransprinciperna för tillgångar ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)som du vill att strömmas. Anger tillgångsleveransprincip Media Services hur du vill använda för din tillgång som ska levereras: till vilka streaming-protokollet bör din tillgång dynamiskt paketeras (till exempel MPEG DASH, HLS, Smooth Streaming eller alla), oavsett om du vill kryptera dynamiskt din tillgång och hur (envelope eller vanliga kryptering).
+Ett av stegen i arbetsflödet för Media Services-leverans av innehåll som krävs konfigureras [leveransprinciper för tillgångar ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)som du vill att strömmas. Talar tillgångsleveransprincip om Media Services för hur du vill för tillgången som ska levereras: i vilket strömningsprotokoll bör din tillgång dynamiskt paketeras (till exempel, MPEG DASH, HLS, Smooth Streaming eller alla), oavsett om du vill kryptera dynamiskt din tillgång och hur (kuvert eller gemensam kryptering).
 
-Om du har en tillgång med lagring krypterade innan din tillgång kan strömmas strömmande server tar du bort lagringskryptering och strömmar ditt innehåll med hjälp av angivna leveransprincipen. Exempelvis för att leverera din tillgång som krypterats med Advanced Encryption Standard (AES) krypteringsnyckeln ställer du in Principtyp DynamicEnvelopeEncryption. Om du vill ta bort lagringskryptering och strömma tillgången i klartext, anger du principen till NoDynamicEncryption.
+Om du har en storage krypterade tillgången, innan du kan strömma din tillgång kommer servern för strömning tar bort storage-kryptering och strömning ditt innehåll med den angivna principen. Exempelvis för att leverera din tillgång som krypterats med Advanced Encryption Standard (AES) krypteringsnyckeln, ställer du in typen av DynamicEnvelopeEncryption. Om du vill ta bort lagringskryptering och strömma tillgången i klartext, anger du principtypen till NoDynamicEncryption.
 
-### <a name="progressive-download"></a>Progressiv hämtning
-Progressiv nedladdning kan du spela upp media innan hela filen har hämtats. Du kan bara progressivt hämta MP4-fil.
+### <a name="progressive-download"></a>Progressiv nedladdning
+Progressiv nedladdning kan du börja spela upp media innan hela filen har laddats ned. Du kan endast progressivt hämta MP4-fil.
 
 >[!NOTE]
 >Du måste dekryptera krypterade tillgångar om du vill att de ska vara tillgängliga för progressiv nedladdning.
 
-För att ge användare URL: er för progressiv nedladdning måste skapa du först en OnDemandOrigin-positionerare. Skapar positioneraren får du rotsökvägen till tillgången. Sedan måste du lägga till namnet på MP4-fil. Exempel:
+För att ge användare URL: er för progressiv nedladdning måste skapa du först en OnDemandOrigin-positionerare. Skapa lokaliseraren får du grundläggande sökvägen till tillgången. Sedan måste du lägga till namnet på MP4-fil. Exempel:
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
 ### <a name="streaming-urls"></a>Direktuppspelnings-URL:er
-Direktuppspelning av ditt innehåll till klienter. För att ge användare URL: er för strömning måste skapa du först en OnDemandOrigin-positionerare. Skapa positioneraren ger rotsökvägen till den tillgång som du vill strömma innehållet. Men om du vill kunna strömma innehållet behöver du ändra den här sökvägen ytterligare. Om du vill skapa en fullständig URL till den strömmande manifestfilen måste du sammanfoga värdet för den positionerare sökväg och manifestet (filename.ism) namn. Lägg sedan till /Manifest och ett lämpligt format (vid behov) till sökvägen lokaliserare.
+Direktuppspelning av innehåll till klienter. För att ge användare strömmande URL: er måste skapa du först en OnDemandOrigin-positionerare. Skapar lokaliseraren får du grundläggande sökvägen till den tillgång som innehåller det innehåll som du vill spela. Men om du vill kunna strömma innehållet behöver du ändra den här sökvägen ytterligare. Om du vill skapa en fullständig URL till strömmande manifestfilen måste du sammanfoga den lokaliseraren sökvägsvärde och manifestet (filename.ism) filnamn. Lägg sedan till /Manifest och ett lämpligt format (vid behov) till positionerare-sökväg.
 
-Du kan också strömma ditt innehåll via en SSL-anslutning. Gör detta genom att kontrollera att din strömmande URL: er som börjar med HTTPS. För närvarande stöder AMS inte SSL med anpassade domäner.  
+Du kan också strömma ditt innehåll över en SSL-anslutning. Om du vill göra detta måste du kontrollera att din strömmande URL: er börjar med HTTPS. För närvarande stöder AMS inte SSL med anpassade domäner.  
 
 >[!NOTE]
->Du kan bara strömma via SSL om den strömningsslutpunkt från vilken du kan leverera ditt innehåll skapades efter 10 September 2014. Om din strömmande URL: er baseras på strömningsslutpunkter som skapats efter 10 September, innehåller URL: en ”streaming.mediaservices.windows.net” (det nya formatet). Strömmande URL: er som innehåller ”origin.mediaservices.windows.net” (det gamla formatet) stöder inte SSL. Om URL: en är i formatet gamla och du vill kunna strömma via SSL, skapa en ny strömmande slutpunkt. Använd URL: er skapas baserat på den nya strömmande slutpunkten för att strömma ditt innehåll via SSL.
+>Du kan endast strömmas via SSL om slutpunkten för direktuppspelning som du kan leverera ditt innehåll har skapats efter den 10 September 2014. Om din strömmande URL: er baseras på de slutpunkter för direktuppspelning som skapats efter 10 September, innehåller URL: en ”streaming.mediaservices.windows.net” (det nya formatet). Strömmande URL: er som innehåller ”origin.mediaservices.windows.net” (det äldre formatet) stöder inte SSL. Om din URL: en används det äldre formatet och du vill kunna strömma via SSL, kan du skapa en ny slutpunkt för direktuppspelning. Använd URL: er skapa baserat på den nya slutpunkten för direktuppspelning för att strömma ditt innehåll via SSL.
 
 I följande lista beskrivs olika strömningsformat och ger exempel:
 
@@ -209,19 +209,19 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 * MPEG DASH
 
-{strömmande slutpunkten namn media services-konto name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+{strömmande slutpunkt namn-name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 * Apple HTTP Live Streaming (HLS) V4
 
-{strömmande slutpunkten namn media services-konto name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{strömmande slutpunkt namn-name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 * Apple HTTP Live Streaming (HLS) V3
 
-{strömmande slutpunkten namn media services-konto name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
+{strömmande slutpunkt namn-name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 

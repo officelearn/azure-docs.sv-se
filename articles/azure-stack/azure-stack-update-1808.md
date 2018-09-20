@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1e2a3221b6db5becbea49aa6ec5fee7b145e8e03
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 686d911c7a59fa33508d130382a3fda4af28e665
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295402"
+ms.locfileid: "46466072"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -119,7 +119,11 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
 
 
-- Innan du påbörjar installationen av uppdateringen kör [Test AzureStack](azure-stack-diagnostic-test.md) att verifiera statusen för din Azure Stack och lösa alla operativa problem som hittas, inklusive alla varningar och fel. Även granska aktiva aviseringar och lösningar som kräver åtgärd.  
+- Innan du påbörjar installationen av uppdateringen kör [Test AzureStack](azure-stack-diagnostic-test.md) med följande parametrar för att verifiera statusen för din Azure Stack och lösa alla operativa problem som hittades, inklusive alla varningar och fel. Även granska aktiva aviseringar och lösningar som kräver åtgärd.  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ```   
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen
 

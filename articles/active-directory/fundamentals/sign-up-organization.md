@@ -12,12 +12,12 @@ ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: ac9783d970af96242266a787071ec831ef5c0df8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ccff64b88787291832b9d2ed84eb81919152d887
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296914"
+ms.locfileid: "46364779"
 ---
 # <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>Så här: registrera dig för Azure Active Directory som en organisation
 Registrera dig för Azure Active Directory (Azure AD) en ny Microsoft Azure-prenumeration med hjälp av antingen:
@@ -26,9 +26,12 @@ Registrera dig för Azure Active Directory (Azure AD) en ny Microsoft Azure-pren
 
 - **Arbets- eller skolkonto konto.** Använd ditt arbets- eller skolrelaterade konto för att få åtkomst till alla små, medelstora och företagets molntjänster från Microsoft, till exempel Azure, Microsoft Intune eller Office 365. När du registrerar dig för någon av dessa tjänster som en organisation kan etablerar Azure AD automatiskt en molnbaserad katalog som representerar din organisation. Mer information finns i [hantera Azure AD-katalogen](active-directory-administer.md).
 
+    >[!Note]
+    Vi rekommenderar att du använder ditt arbets- eller skolkonto om du redan har åtkomst till Azure AD. Dock bör du använda oavsett vilken typ av konto som är associerad med din Azure-prenumeration.
+
 ## <a name="next-steps"></a>Nästa steg
 
-- [Registrera dig som en organisation](https://azure.microsoft.com/pricing/purchase-options/)
+- [Så här köper du Azure](https://azure.microsoft.com/pricing/purchase-options/)
 
 - [Registrera dig för Azure Active Directory Premium-versioner](active-directory-get-started-premium.md)
 
@@ -36,11 +39,5 @@ Registrera dig för Azure Active Directory (Azure AD) en ny Microsoft Azure-pren
 
 - [Använda din lokala identitetsinfrastruktur i molnet](../connect/active-directory-aadconnect.md)
 
-<<<<<<< HEAD
-* [Microsoft Azure-bloggen](https://azure.microsoft.com/blog/)
-* [Vad är Azure AD?](active-directory-whatis.md)
-* [Använda din lokala identitetsinfrastruktur i molnet](../hybrid/whatis-hybrid-identity.md)
-=======
 - [Gå till Microsoft Azure-bloggen](https://azure.microsoft.com/blog/)
->>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
 

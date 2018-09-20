@@ -8,15 +8,15 @@ author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 09/18/2018
 ms.reviewer: vanto
 ms.author: dmalik
-ms.openlocfilehash: e1c05b56a1a7cc57b4d85d696df324438d916f11
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 51a9c1e2528833f0931e0bff30a9ec8a78eb99e0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720740"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367346"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure SQL Database och SQL Data Warehouse
 
@@ -125,7 +125,7 @@ Har du möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)] [ rbac-what
 
 Funktionen för regler för virtuellt nätverk har följande begränsningar för Azure SQL Database:
 
-- En Webbapp kan mappas till en privat IP-adress i ett virtuellt nätverk/undernät. Även om tjänstslutpunkter är aktiverade från de angivna VNet/undernät, har anslutningar från Webbappen till servern en Azure offentlig IP-källa, inte en virtuellt nätverk/undernät källa. Om du vill aktivera anslutningen från en Webbapp till en server med VNet-brandväggsreglerna, måste du **Tillåt alla Azure-tjänster** på servern.
+- En Webbapp kan mappas till en privat IP-adress i ett virtuellt nätverk/undernät. Även om tjänstslutpunkter är aktiverade från de angivna VNet/undernät, har anslutningar från Webbappen till servern en Azure offentlig IP-källa, inte en virtuellt nätverk/undernät källa. Om du vill aktivera anslutningen från en Webbapp till en server med VNet-brandväggsreglerna, måste du **Tillåt Azure-tjänster åtkomst till servern** på servern.
 
 - Refererar till ett undernät i brandväggen för SQL-databasen, varje regel för virtuella nätverk. Alla dessa refererade undernät måste finnas i samma geografiska region som är värd för SQL-databasen.
 
@@ -157,23 +157,23 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-all-azure-services"></a>Effekt vid borttagning av ”Tillåt alla Azure-tjänster.
+## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Effekt vid borttagning av ”Tillåt Azure services för att komma åt servern”
 
-Många användare vill du ta bort **ge alla Azure-tjänster** från sin Azure SQL-servrar och Ersätt den med en VNet-brandväggsregeln.
+Många användare vill du ta bort **Tillåt Azure-tjänster åtkomst till servern** från sin Azure SQL-servrar och Ersätt den med en VNet-brandväggsregeln.
 Men ta bort detta påverkar följande Azure-SQLDB-funktioner:
 
 #### <a name="import-export-service"></a>Import Export-tjänsten
-Azure SQLDB Import Export-tjänsten körs på virtuella datorer i Azure. Dessa virtuella datorer är inte i ditt virtuella nätverk och kan därför få en Azure-IP-adress när du ansluter till din databas. För att ta bort **ge alla Azure-tjänster** dessa virtuella datorer kan inte komma åt dina databaser.
+Azure SQLDB Import Export-tjänsten körs på virtuella datorer i Azure. Dessa virtuella datorer är inte i ditt virtuella nätverk och kan därför få en Azure-IP-adress när du ansluter till din databas. För att ta bort **Tillåt Azure-tjänster åtkomst till servern** dessa virtuella datorer kan inte komma åt dina databaser.
 Du kan undvika problemet. Kör BACPAC importera eller exportera direkt i din kod med hjälp av DACFx-API. Se till att det distribueras i en virtuell dator som är i VNet-undernät som du har angett brandväggsregeln.
 
 #### <a name="sql-database-query-editor"></a>SQL Database Query Editor
-Azure SQL Database Query Editor distribueras på virtuella datorer i Azure. Dessa virtuella datorer är inte i ditt virtuella nätverk. De virtuella datorerna får därför en Azure-IP-adress när du ansluter till din databas. För att ta bort **ge alla Azure-tjänster**, dessa virtuella datorer kan inte komma åt dina databaser.
+Azure SQL Database Query Editor distribueras på virtuella datorer i Azure. Dessa virtuella datorer är inte i ditt virtuella nätverk. De virtuella datorerna får därför en Azure-IP-adress när du ansluter till din databas. För att ta bort **Tillåt Azure-tjänster åtkomst till servern**, dessa virtuella datorer kan inte komma åt dina databaser.
 
 #### <a name="table-auditing"></a>Tabellgranskning
 För närvarande finns det två sätt att aktivera granskning på SQL-databasen. Tabellgranskning misslyckas när du har aktiverat Tjänsteslutpunkter på din Azure SQL-Server. Här lösning är att flytta till blobbgranskning.
 
 #### <a name="impact-on-data-sync"></a>Påverkan på datasynkronisering
-Azure SQLDB innehåller Data Sync-funktion som ansluter till dina databaser med hjälp av Azure IP-adresser. När du använder Tjänsteslutpunkter, är det troligt att du stänger av **ge alla Azure-tjänster** åtkomst till din logiska server. Detta bryter funktionen datasynkronisering.
+Azure SQLDB innehåller Data Sync-funktion som ansluter till dina databaser med hjälp av Azure IP-adresser. När du använder Tjänsteslutpunkter, är det troligt att du stänger av **Tillåt Azure-tjänster åtkomst till servern** åtkomst till din logiska server. Detta bryter funktionen datasynkronisering.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Effekten av att använda tjänstslutpunkter för virtuellt nätverk med Azure storage
 

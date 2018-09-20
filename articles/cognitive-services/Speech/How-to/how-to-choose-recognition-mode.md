@@ -1,32 +1,33 @@
 ---
-title: Så här väljer du Recognition läge | Microsoft Docs
-description: Så här väljer du det bästa recognition-läget.
+title: Så här väljer du Bing Speech erkännande läge | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Så här att välja det bästa läget för taligenkänning i Bing-taligenkänning.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f02b683dde16b537ae5554e6435c068f0fcb808
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ea11054e3062c0a265701f6d7fdd136cb692213
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352173"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366411"
 ---
-# <a name="speech-recognition-modes"></a>Tal recognition lägen
+# <a name="bing-speech-recognition-modes"></a>Lägen för taligenkänning för Bing-tal
 
-Microsofts *tal till Text* API: er stöder flera lägen för taligenkänning. Välj det läge som ger de bästa resultat för ditt program.
+Bing-tal till Text-API: er har stöd för flera lägen för taligenkänning. Välj det läge som ger det bästa av resultatet för ditt program.
 
 | Läge | Beskrivning |
 |---|---|
-| *interaktiva* | ”Kommando- och” Igenkännande för Programscenarier för interaktiv användare. Användare tala fraser som är avsedda som kommandon till ett program. |
-| *Dictation* | Kontinuerlig Igenkännande dictation scenarier. Användare tala längre meningar som visas som text. Användare anta en mer formella tala. |
-| *konversationen* | Kontinuerlig Igenkännande för skriva konversationer mellan människor. Användare anta en mindre formella tala och kan växla mellan längre meningar och kortare fraser.
+| *Interaktiv* | ”Kommando och kontroll” erkännande för interaktiv användare Programscenarier. Användare talar korta fraser som är avsett för kommandon till ett program. |
+| *diktering* | Kontinuerlig igenkänning av diktering scenarier. Användare talar längre meningar som visas som text. Användare anta ett mer formella samtalsstil. |
+| *konversationen* | Kontinuerlig erkännande för transkribera konversationer mellan människor. Användare använda en mindre formell samtalsstil och kan växla mellan längre meningar och kortare fraser.
 
 > [!NOTE]
-> Dessa lägen kan användas när du använder den [REST API: er](../GetStarted/GetStartedREST.md). Den [klientbibliotek](../GetStarted/GetStartedClientLibraries.md) använda olika parametrar för att ange recognition läge. Mer information finns i klientbiblioteket önskat.
+> Dessa lägen kan användas när du använder den [REST API: er](../GetStarted/GetStartedREST.md). Den [klientbibliotek](../GetStarted/GetStartedClientLibraries.md) använda olika parametrar för att ange erkännande läge. Mer information finns i klientbiblioteket för ditt val.
 
-Mer information finns i [Recognition lägen](../concepts.md#recognition-modes) sidan.
+Mer information finns i den [erkännande lägen](../concepts.md#recognition-modes) sidan.

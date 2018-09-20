@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/18/2018
 ms.author: sashan
-ms.openlocfilehash: d7c3a672224bd7a167956d7699541880de11bef9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d29886b5c8693e4465053c8816fc38376a51fafc
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737047"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363608"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)
 
@@ -119,7 +119,7 @@ Mer information finns i [databaser – skapa eller uppdatera](/rest/api/sql/data
 Om du använder lässkalbarhet att läsa in saldo skrivskyddade arbetsbelastningar för en databas som är geo-replikerade (t.ex. som en medlem i en redundansgrupp), se till att läsa skalbara är aktiverad på både primär och sekundär geo-replikerade databaser. Det garanterar samma belastningsutjämning effekt när ditt program som ansluter till den nya primärt efter en redundansväxling. Om du ansluter till geo-replikerad sekundär databas med lässkala aktiverad sessioner till `ApplicationIntent=ReadOnly` kommer att dirigeras till en av replikerna på samma sätt som vi dirigera anslutningar på den primära databasen.  Sessioner utan `ApplicationIntent=ReadOnly` kommer att dirigeras till den primära repliken för den georeplikerade sekundärt, vilket också är skrivskyddad. Eftersom geo-replikerad sekundär databas har en annan slutpunkt än den primära databasen, historiskt att få åtkomst till sekundärt det inte krävs för att ange `ApplicationIntent=ReadOnly`. Att säkerställa bakåtkompatibilitet, `sys.geo_replication_links` DMV visar `secondary_allow_connections=2` (alla klientanslutning tillåts).
 
 > [!NOTE]
-> Vi kommer inte att utföra resursallokering förhandsversionen eller några andra belastningsutjämnade routning mellan lokala repliker av den sekundära databasen. 
+> Under förhandsgranskning, resursallokering eller andra belastningen stöds belastningsutjämnade routning mellan lokala repliker av den sekundära databasen inte. 
 
 
 ## <a name="next-steps"></a>Nästa steg

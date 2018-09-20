@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dhruv
-ms.openlocfilehash: 8159a9eb8d8829ed01609cebc3ae41713892f6cf
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6066462d0a7f31698745275c3c6d65c4e09d9cc5
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630193"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364152"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-arkitektur 
 
@@ -51,13 +51,16 @@ Om du ansluter från platser utanför Azure, dina anslutningar har en princip f�
 ![Översikt över arkitekturen](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> När du använder Tjänsteslutpunkter med Azure SQL Database principen är **Proxy** som standard. Tillåt utgående anslutningar till Azure SQL Database Gateway IP-adresser som anges i listan nedan om du vill aktivera anslutningen från i det virtuella nätverket. När du använder Tjänsteslutpunkter vi rekommenderar starkt att ändra anslutningsprincipen till **omdirigera** för att förbättra prestanda. Om du ändrar din anslutningsprincip till **omdirigera** det inte blir tillräckliga för att tillåta utgående på din NSG till Azure-SQLDB-gateway IP-adresser som anges nedan, måste du tillåta utgående trafik till alla SQLDB IP-adresser för Azure. Detta kan åstadkommas med hjälp av Tjänsttaggar för NSG (Nätverkssäkerhetsgrupper). Mer information finns i [Tjänsttaggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+> När du använder Tjänsteslutpunkter med Azure SQL Database principen är **Proxy** som standard. Om du vill aktivera anslutningen från i det virtuella nätverket måste du tillåta utgående anslutningar till Azure SQL Database Gateway IP-adresser som anges i listan nedan. När du använder Tjänsteslutpunkter vi rekommenderar starkt att ändra anslutningsprincipen till **omdirigera** för att förbättra prestanda. Om du ändrar din anslutningsprincip till **omdirigera** det inte blir tillräckliga för att tillåta utgående på din NSG till Azure-SQLDB-gateway IP-adresser som anges nedan, måste du tillåta utgående trafik till alla SQLDB IP-adresser för Azure. Detta kan åstadkommas med hjälp av Tjänsttaggar för NSG (Nätverkssäkerhetsgrupper). Mer information finns i [Tjänsttaggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database gateway IP-adresser
 
 Om du vill ansluta till en Azure SQL database från lokala resurser, som du vill tillåta utgående trafik till Azure SQL Database-gatewayen för din Azure-region. Dina anslutningar kan bara gå via gatewayen när du ansluter i Proxy-läge, vilket är standard när du ansluter från lokala resurser.
 
 I följande tabell visas de primära och sekundära IP-adresserna för Azure SQL Database-gateway för alla dataområden. Det finns två IP-adresser för vissa regioner. Den primära IP-adressen är den aktuella IP-adressen till gatewayen i dessa regioner och den andra IP-adressen är en IP-adress för redundans. Redundans-adressen är den adress som vi kan också flytta din server för att hålla hög tjänsternas tillgänglighet. För dessa regioner rekommenderar vi att du tillåter utgående trafik till båda IP-adresserna. Den andra IP-adressen ägs av Microsoft och lyssnar inte på alla tjänster förrän den aktiveras genom Azure SQL Database för att acceptera anslutningar.
+
+> [!IMPORTANT]
+> Om du ansluter från inom Azure anslutningsprincipen blir **omdirigera** som standard (utom om du använder Tjänsteslutpunkter). Det räcker inte att tillåta följande IP-adresser. Du måste tillåta alla Azure SQL Database IP-adresser. Om du ansluter från inom ett virtuellt nätverk, kan detta åstadkommas med hjälp av Tjänsttaggar för NSG (Nätverkssäkerhetsgrupper). Mer information finns i [Tjänsttaggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Regionsnamn | Primär IP-adress | Sekundär IP-adress |
 | --- | --- |--- |

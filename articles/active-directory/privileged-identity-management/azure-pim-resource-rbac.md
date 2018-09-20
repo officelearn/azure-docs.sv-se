@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: aee172bc6fc77aaac8d2d52037a481fdb976d308
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ce7c96d92938c4e3b4cc0b53271df48350083754
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188976"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465239"
 ---
 # <a name="view-who-has-azure-resource-roles-in-pim"></a>Visa som har Azure-resursroller i PIM
 
@@ -42,7 +42,7 @@ Om du vill se vilka åtgärder som en viss användare vidtog för olika resurser
 
 ![](media/azure-pim-resource-rbac/user-details.png)
 
-Att välja en specifik rollaktivering visar rollaktiveringsinformation och motsvarande Azure Resource-aktivitet som inträffade när användaren var aktiv.
+Att välja en specifik rollaktivering visar rollaktiveringsinformation och motsvarande Azure-resurs-aktivitet som inträffade när användaren var aktiv.
 
 ![](media/azure-pim-resource-rbac/audits.png)
 

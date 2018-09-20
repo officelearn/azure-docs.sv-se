@@ -11,16 +11,22 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: c98a90aa44166d6453612f9b73287966851df6ce
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 90a01e1b6741d0668a71e612d9c0cf90871b67da
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578165"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366326"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planera Azure Time Series Insights-miljön
 
 Den här artikeln beskriver hur du planerar din Azure Time Series Insights-miljö utifrån förväntade ingångshändelser och dina krav på datalagring.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>I den här videon beskriver vi Time Series Insights datakvarhållning och hur du planerar för den.</br>
+
+> [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 ## <a name="best-practices"></a>Bästa praxis
 
@@ -63,8 +69,8 @@ I följande tabell sammanfattas kapacitet för ingångshändelser för varje SKU
 
 |SKU  |Antal händelser Per månad Per enhet  |Händelser storlek Per månad Per enhet  |Antal händelser Per minut Per enhet  | Storlek Per minut Per enhet   |
 |---------|---------|---------|---------|---------|
-|S1     |   30 miljoner     |  30 GB     |  700    |  700 KB   |
-|S2     |   300 miljoner    |   300 GB   | 7,000   | 7 000 KB  |
+|S1     |   30 miljoner     |  30 GB     |  720    |  720 KB   |
+|S2     |   300 miljoner    |   300 GB   | 7200   | 7 200 KB  |
 
 Du kan öka kapaciteten för en S1 eller S2 SKU till 10 enheter i en enda miljö. Du kan inte migrera från en S1-miljö till en S2 eller från en S2-miljö till en S1. 
 
@@ -72,7 +78,7 @@ För kapacitet för ingångshändelser, bör du först avgöra totalt inkommande
 
 Om du har en topp i din inkommande data som varar mindre än 24 timmar kan Time Series Insights ”missade” med en ingående hastighet på 2 x listade priserna ovan. 
 
-Till exempel om du har en enkel S1 SKU och inkommande data med en hastighet av 700 händelser per minut och topp i mindre än 1 timme med en hastighet av 1400 händelser eller mindre, skulle det finnas utan märkbar fördröjning till din miljö. Om du överskrider 1400 händelser per minut under mer än en timme, skulle du dock förmodligen uppleva fördröjning till data som är visualiserade och tillgängliga för frågor i din miljö. 
+Till exempel om du har en enkel S1 SKU och inkommande data med en hastighet av 720 händelser per minut och topp i mindre än 1 timme med en hastighet av 1440 händelser eller mindre, skulle det finnas utan märkbar fördröjning till din miljö. Om du överskrider 1440 händelser per minut under mer än en timme, skulle du dock förmodligen uppleva fördröjning till data som är visualiserade och tillgängliga för frågor i din miljö. 
 
 Du kanske inte vet i förväg hur mycket data du förväntar dig att skicka. I det här fallet kan du hitta data telemetri för [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) och [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) i din Azure-portalen. Den här telemetrin kan hjälpa dig att avgöra hur du etablerar din miljö. Använd den **mått** sida i Azure-portalen för respektive händelsekällan för att se dess telemetri. Om du förstår din mått för datakällan av händelsen du mer effektivt planera och etablera din Time Series Insights-miljö.
 
@@ -97,15 +103,19 @@ Observera att referensdata är inte ansluten retroaktivt. Det innebär att endas
 Mer information om hur du skapar, ladda upp och hantera dina referensdata i TSD, gå till vår *referensdata* dokumentation [dokumentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="business-disaster-recovery"></a>Haveriberedskap för företag
-Time Series Insights ger hög tillgänglighet (HA) med hjälp av uppsägningar på nivån Azure-region utan ytterligare plattformsbelastning krävs för lösningen som en Azure-tjänst. Microsoft Azure-plattformen innehåller också funktioner för att hjälpa dig att skapa lösningar med funktioner för katastrofåterställning (DR) eller interregionala tillgänglighet. Om du vill ange globala kan utnyttja interregionala hög tillgänglighet för enheter eller användare, dessa Azure-DR-funktioner. Artikeln [Azure Business Continuity teknisk vägledning](../resiliency/resiliency-technical-guidance.md) beskrivs de inbyggda funktionerna i Azure för affärskontinuitet och Katastrofåterställning. [Haveriberedskap och hög tillgänglighet för Azure-program] [haveriberedskap och hög tillgänglighet för Azure-program] dokumentet innehåller vägledning för arkitektur om strategier för Azure-program att uppnå hög tillgänglighet och Katastrofåterställning.
+Time Series Insights ger hög tillgänglighet (HA) med hjälp av uppsägningar på nivån Azure-region utan ytterligare plattformsbelastning krävs för lösningen som en Azure-tjänst. Microsoft Azure-plattformen innehåller också funktioner för att hjälpa dig att skapa lösningar med funktioner för katastrofåterställning (DR) eller interregionala tillgänglighet. Om du vill ange globala kan utnyttja interregionala hög tillgänglighet för enheter eller användare, dessa Azure-DR-funktioner. Artikeln [Azure Business Continuity teknisk vägledning](../resiliency/resiliency-technical-guidance.md) beskrivs de inbyggda funktionerna i Azure för affärskontinuitet och Katastrofåterställning. [Haveriberedskap och hög tillgänglighet för Azure-program] [https://docs.microsoft.com/en-us/azure/architecture/resiliency/index] dokumentet innehåller vägledning för arkitektur om strategier för Azure-program att uppnå hög tillgänglighet och Katastrofåterställning.
 
-Time Series Insights har inte inbyggda haveriberedskap (BCDR).  Kunder som behöver BCDR kan dock fortfarande att implementera en strategi. Skapa en andra Time Series Insights-miljö i en Azure backup-region och skicka händelser till den här sekundära miljön från den primära händelsekälla utnyttjar en andra dedikerad konsumentgrupp och den händelsekälla BCDR riktlinjer.  
+Azure Time Series Insights har inte inbyggda haveriberedskap (BCDR). Kunder som behöver BCDR kan fortfarande att implementera en strategi på följande sätt: 
+
+Skapa en andra Time Series Insights-miljö i en Azure backup-region och skicka händelser till den här sekundära miljön från den primära händelsekälla utnyttjar en andra dedikerad konsumentgrupp och den händelsekälla BCDR riktlinjer.  
 
 1.  Skapa miljö i andra region.  Mer om hur du skapar en Time Series Insights-miljö [här](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 2.  Skapa en andra dedikerad konsumentgrupp för din händelsekälla och ansluta den händelsekällan till den nya miljön.  Glöm inte att ange den andra, dedikerad konsumentgruppen.  Du kan läsa mer om detta genom att göra något [dokumentation för IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) eller [dokumentation för Event hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
 3.  Om din primära region skulle gå nedåt under en katastrofåterställning incident, växla över aktiviteter i säkerhetskopiering Time Series Insights-miljön.  
 
-Om du vill veta mer om IoT Hub BCDR-principer kan gå [här](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  Om du vill veta mer om Event hub BCDR-principer kan gå [här](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
+Som standard har inbyggd återställning av både Azure Iot Hub och Event Hubs. Om du vill veta mer om IoT Hub BCDR-principer kan gå [här](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  Om du vill veta mer om Event hub BCDR-principer kan gå [här](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
+
+Det är **viktigt att notera** under alla redundansscenario det kan uppstå en fördröjning innan TSI kan starta bearbetning av meddelanden igen. Detta kan orsaka en topp i meddelandebehandling för mer information ta en titt på [Time Series Insights hantera begränsning](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-environment-mitigate-latency)
 
 ## <a name="next-steps"></a>Nästa steg
 - [Hur du lägger till en Event Hub-händelsekälla](time-series-insights-how-to-add-an-event-source-eventhub.md)

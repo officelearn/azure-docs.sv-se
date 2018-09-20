@@ -8,87 +8,98 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: e49e362528f5fcd00a13a9fc1b233e62a569fe5a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9098a822aaf244130604493ac74c745f4000ab24
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297954"
+ms.locfileid: "46368213"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Så här: Lägg till ditt domännamn med hjälp av Azure Active Directory-portalen
 Varje ny Azure AD-klienten levereras med ett första domännamn *domainname*. onmicrosoft.com. Du kan inte ändra eller ta bort det ursprungliga domännamnet, men du kan lägga till din organisations namn i listan. Att lägga till anpassade domännamn som hjälper dig att skapa användarnamn som dina användare känner igen som _alain@contoso.com_.
 
->[!Note]
->Du måste upprepa hela processen, från början till slut för var och en av dina egna domännamn.
+## <a name="before-you-begin"></a>Innan du börjar
+Innan du kan lägga till ett anpassat domännamn, måste du skapa ditt domännamn med en domänregistrator. En auktoriserad domänregistrator Se [ICANN-Accredited Registratorer](https://www.icann.org/registrar-reports/accredited-list.html).
 
-## <a name="add-a-custom-domain-name"></a>Lägg till ett anpassat domännamn
-Först måste du lägga till ett anpassat domännamn till Azure AD-klient.
+## <a name="create-your-directory-in-azure-ad"></a>Skapa din katalog i Azure AD
+När du får ditt domännamn kan skapa du din första Azure AD-katalog.
 
-### <a name="to-add-a-custom-domain-name"></a>Att lägga till ett anpassat domännamn
-1. Logga in på den [Azure AD-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) med hjälp av en prenumerationsägare för katalogen och välj sedan **Azure Active Directory**.
 
-<<<<<<< HEAD
-> [!TIP]
-> Om du planerar att federera din lokala Windows Server AD med Azure AD behöver du markera kryssrutan **Jag planerar att konfigurera den här domänen för enkel inloggning med min lokala Active Directory** när du kör Azure AD Connect-verktyget för att synkronisera dina kataloger. Du behöver även registrera samma domännamn som du väljer för federering med din lokala katalog i steget **Azure AD-domän** i guiden. Du kan se hur det steget i guiden ser ut [i dessa anvisningar](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Om du inte har verktyget Azure AD Connect kan du [ladda ned det här](http://go.microsoft.com/fwlink/?LinkId=615771).
-=======
-2. Välj **Azure Active Directory**väljer **anpassade domännamn**, och välj sedan **Lägg till anpassad domän**.
->>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
+    ![Azure portal skärmen](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
-    ![Fabrikam - Custom domain names blade, with Add custom domain option highlighted](media/add-custom-domain/add-custom-domain.png)
+    >[!TIP]
+    > Om du planerar att federera din lokala Windows Server AD med Azure AD behöver du markera kryssrutan **Jag planerar att konfigurera den här domänen för enkel inloggning med min lokala Active Directory** när du kör Azure AD Connect-verktyget för att synkronisera dina kataloger. Du behöver även registrera samma domännamn som du väljer för federering med din lokala katalog i steget **Azure AD-domän** i guiden. Du kan se hur det steget i guiden ser ut [i dessa anvisningar](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Om du inte har verktyget Azure AD Connect kan du [ladda ned det här](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-3. Skriv ny företagets domännamn till den **anpassade domännamn** box (till exempel _contoso.com_), och välj sedan **Lägg till domän**.
+2. Skapa en ny katalog genom att följa stegen i [skapar en ny klient för din organisation](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
+
+    >[!Important]
+    >Den person som skapar klienten blir automatiskt den globala administratören för den klienten. Global administratör kan lägga till ytterligare administratörer för klienten.
+
+## <a name="add-your-custom-domain-name-to-azure-ad"></a>Lägga till ett anpassat domännamn i Azure AD
+När du har skapat din katalog kan du lägga till ditt domännamn.
+
+1. Välj **anpassade domännamn**, och välj sedan **Lägg till anpassad domän**.
+
+    ![Fabrikam - anpassad domän, sida med Lägg till anpassad domänalternativet är markerat](media/add-custom-domain/add-custom-domain.png)
+
+2. Ange din organisations nya domännamnet i den **anpassade domännamn** box (till exempel _contoso.com_), och välj sedan **Lägg till domän**.
+
+    Overifierad domän läggs och **Contoso** visas där du kan se din DNS-information.
 
     >[!Important]
     >Du måste ta med .com, .net eller annat toppnivåtillägg för detta ska fungera korrekt.
 
-    ![Fabrikam - anpassad domän namn på bladet med Lägg till domän knappen markerad](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Fabrikam - anpassad domän, sida med Lägg till domän knappen markerad](media/add-custom-domain/add-custom-domain-blade.png)
 
-4. Kopiera DNS-informationen från den **Contoso** bladet.
+4. Kopiera den DNS-informationen från den **Contoso** sidan. Till exempel MS = ms64983159.
 
-    ![Contoso-bladet med information om DNS-post](media/add-custom-domain/contoso-blade-with-dns-info.png)
+    ![Contoso-sida med information om DNS-post](media/add-custom-domain/contoso-blade-with-dns-info.png)
 
-## <a name="add-your-domain-name-with-a-domain-name-registrar"></a>Lägg till ditt domännamn med en domännamnsregistrator
-Därefter måste du uppdatera DNS-zonfilen för din nya anpassade domän. Du kan använda [DNS-zoner](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) för din Azure, Office 365, eller externa DNS-poster, eller du kan lägga till din nya DNS-post med hjälp av en annan DNS-registrator (till exempel [InterNIC](https://go.microsoft.com/fwlink/p/?LinkId=402770)).
+## <a name="add-your-dns-information-to-the-domain-registrar"></a>Lägga till DNS-information i domänregistratorn
+När du lägger till ett anpassat domännamn till Azure AD måste du gå tillbaka till din domänregistrator och lägga till Azure AD-DNS-information från den kopierade TXT-filen. Skapa den här TXT verifierar-post för din domän ”” ägarskap för ditt domännamn.
 
-### <a name="to-add-your-domain-name"></a>Att lägga till ditt domännamn 
-1. Logga in på domännamnsregistratorn för domänen. Om du inte har rätt behörighet för att uppdatera ditt bidrag, kommer du behöva kontakta någon med dessa behörigheter.
+-  Gå tillbaka till din domänregistrator, skapa en ny TXT-post för din domän baserat på din kopierade DNS-information i **TTL** (tid till live) till 60 minuter och sedan spara informationen.
 
-2. När DNS-posten har uppdaterats med Registratorn måste du uppdatera DNS-zonfilen med den information som tillhandahålls av Azure AD.
-
-    >[!Note]
-    >DNS-posten ändrar hur din e-postdirigering eller webbhosting fungerar.
+    >[!Important]
+    >Du kan registrera så många domännamn som du vill ha. Varje domän får dock sin egen TXT-posten från Azure AD. Var försiktig när du anger din TXT-fil uppgifter på domänregistratorn. Om du anger fel eller duplicera information av misstag, kommer du behöva vänta tills TTL-Perioden tidsgränsen (60 minuter) innan du kan försöka igen.
 
 ## <a name="verify-your-custom-domain-name"></a>Kontrollera ditt domännamn
-När du har registrerat ditt eget domännamn, kan det ta några sekunder till några timmar innan DNS-information sprids till där Azure AD kan se det som giltig.
+När du registrerar ditt domännamn måste du kontrollera att den är giltig i Azure AD. Spridning från din domänregistrator till Azure AD kan vara omedelbar eller det kan ta upp till några få dagar, beroende på din domänregistrator.
 
 ### <a name="to-verify-your-custom-domain-name"></a>Verifiera ditt domännamn
-1. Logga in på den [Azure AD-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
 
 2. Välj **Azure Active Directory**, och välj sedan **anpassade domännamn**.
 
-3. På den **Fabrikam - anpassade domännamn** bladet Välj det anpassade domännamnet **Contoso**.
+3. På den **Fabrikam - anpassade domännamn** väljer du det anpassade domännamnet **Contoso**.
 
-    ![Fabrikam - anpassad domän namn på bladet med contoso markerat](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
+    ![Fabrikam - anpassad domän, sida med contoso markerat](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
 
-4. På den **Contoso** bladet väljer **Kontrollera** så att den anpassade domänen har registrerats korrekt och är giltig för Azure AD.
+4. På den **Contoso** väljer **Kontrollera** så att den anpassade domänen har registrerats korrekt och är giltig för Azure AD.
 
-    ![Contoso-bladet med information om DNS-post och knappen verifiera](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+    ![Contoso-sida med information om DNS-post och knappen verifiera](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
 ### <a name="common-verification-issues"></a>Vanliga problem med verifiering
-Om Azure AD inte kan verifiera ett anpassat domännamn, kan du prova följande rekommendationer:
-- **Vänta minst en timme och försök igen**. DNS-posterna måste spridas innan Azure AD kan verifiera domänen och den här processen kan ta en timme eller mer.
+- Om Azure AD inte kan verifiera ett anpassat domännamn, kan du prova följande rekommendationer:
+    - **Vänta minst en timme och försök igen**. DNS-posterna måste spridas innan Azure AD kan verifiera domänen och den här processen kan ta en timme eller mer.
 
-- **Kontrollera att DNS-posten är korrekt.** Gå tillbaka till webbplatsen domain name Registratorn och kontrollera att posten finns och att den matchar DSN informationen tillhandahålls av Azure AD.
+    - **Kontrollera att DNS-posten är korrekt.** Gå tillbaka till webbplatsen domain name Registratorn och kontrollera att posten finns och att den matchar DNS-informationen tillhandahålls av Azure AD.
 
     Om du inte kan uppdatera posten på webbplatsen registrator, måste du dela posten med någon som har rätt behörighet för att lägga till posten och kontrollera att den är korrekt.
 
-- **Kontrollera att domännamnet inte redan är i en annan katalog.** Ett domännamn kan bara verifieras i en katalog, vilket innebär att om ditt domännamn är för närvarande verifierat i en annan katalog, den inte kan också verifieras på den nya katalogen. Åtgärda problemet duplicering, måste du ta bort domännamnet från den gamla katalogen. Mer information om hur du tar bort domännamn finns [hantera egna domännamn](../users-groups-roles/domains-manage.md).    
+- **Kontrollera att domännamnet inte redan används i en annan katalog.** Ett domännamn kan bara verifieras i en katalog, vilket innebär att om ditt domännamn är för närvarande verifierat i en annan katalog, den inte kan också verifieras på den nya katalogen. Åtgärda problemet duplicering, måste du ta bort domännamnet från den gamla katalogen. Mer information om hur du tar bort domännamn finns [hantera egna domännamn](../users-groups-roles/domains-manage.md). 
 
 ## <a name="next-steps"></a>Nästa steg
-- Lägga till användare i din domän, se [hantera egna domännamn](../users-groups-roles/domains-manage.md).
+
+- Lägg till en annan Global administratör i din katalog. Mer information finns i [så här tilldelar du roller och administratörer](active-directory-users-assign-role-azure-portal.md)
+
+- Lägga till användare i din domän, se [lägga till eller ta bort användare](add-users-azure-active-directory.md)
+
+- Hantera ditt domännamn i Azure AD. Mer information finns i [hantera anpassade domännamn](../users-groups-roles/domains-manage.md)
 
 - Om du har lokala versioner av Windows Server som du vill använda tillsammans med Azure Active Directory, se [integrerar dina lokala kataloger med Azure Active Directory](../connect/active-directory-aadconnect.md).

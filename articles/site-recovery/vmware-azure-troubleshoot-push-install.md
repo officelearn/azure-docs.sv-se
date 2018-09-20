@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery felsökning från VMware till Azure | Microsoft Docs
-description: Felsöka fel när du replikerar virtuella Azure-datorer.
+description: Felsöka mobility service/push-installationsfel när du replikerar virtuella Azure-datorer.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,22 +8,23 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.author: ramamill
-ms.date: 09/17/2018
-ms.openlocfilehash: d77b252351c15bea13b0fa1fb42fa062d508fbdc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.date: 09/19/2018
+ms.openlocfilehash: 32b579ac680204a909c19e7125711d298b08b26a
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126997"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365493"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
 Installationen av mobilitetstjänsten är ett viktigt steg vid aktivering av replikering. Det här steget beror helt på uppfyller kraven och arbeta med konfigurationer som stöds. De vanligaste felen som uppstår under mobilitetstjänsten är på grund av
 
-* Anslutning/Credential-fel
+* Autentiseringsuppgifter/behörighet fel
+* Anslutningsfel
 * Operativsystem som stöds inte
 
-När du aktiverar replikering, installera Azure Site Recovery försöker skicka mobilitetstjänstagenten på den virtuella datorn. Som en del av detta försöker konfigurationsservern ansluta med den virtuella datorn och kopiera agenten. Om du vill aktivera lyckad installation, följer du steg för steg-felsökningsinformation som anges nedan
+När du aktiverar replikering, installera Azure Site Recovery försöker skicka mobilitetstjänstagenten på den virtuella datorn. Som en del av detta försöker konfigurationsservern ansluta med den virtuella datorn och kopiera agenten. Följ steg för steg-felsökningsinformation som anges nedan om du vill aktivera lyckad installation.
 
 ## <a name="credentials-check-errorid-95107--95108"></a>Autentiseringsuppgifter kontroll (samtalsstatus: 95107 & 95108)
 

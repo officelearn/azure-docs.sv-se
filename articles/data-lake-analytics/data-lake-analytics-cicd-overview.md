@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: a0fd7ff86fe7502ddc54e2533c5f79950b5f8082
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 740549e1ed1447781707c5e4b9fdc6961075d017
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731146"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364798"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Hur du ställer in en CI/CD-pipeline för Azure Data Lake Analytics  
 
@@ -84,9 +84,9 @@ Definition av argument och värden är följande:
 * **DataRoot =<DataRoot path>**. DataRoot krävs endast för SyntaxCheck läge. När den bygger skriptet med SyntaxCheck läge kontrollerar MSBuild referenser till databasobjekt i skriptet. Innan du bygga, ställa in en matchande lokal miljö som innehåller de refererade objekt i U-SQL-databas i build-datorns DataRoot mapp. Du kan också hantera dessa databasen beroenden av [refererar till ett U-SQL-databasprojekt](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild kontrollerar endast databasen objektreferenser, inte filer.
 * **EnableDeployment = true** eller **FALSKT**. EnableDeployment anger om det har rätt för att distribuera refererade U-SQL-databaser under skapandeprocessen. Om du refererar till ett projekt för U-SQL-databas och använder databasobjekt i U-SQL-skript, ange den här parametern **SANT**.
 
-### <a name="continuous-integration-with-azure-devops-pipelines"></a>Kontinuerlig integrering med Azure DevOps-Pipelines
+### <a name="continuous-integration-through-azure-pipelines"></a>Kontinuerlig integrering via Azure-Pipelines
 
-Förutom command line använda du också Visual Studio versionen eller en MSBuild-uppgift för att skapa U-SQL-projekt i tjänsten Azure DevOps Pipelines (Pipelines). Om du vill konfigurera en build-pipeline, bör du lägga till två aktiviteter i pipelinen build: en restore NuGet-uppgift och en MSBuild-uppgift.
+Förutom command line använda du också Visual Studio versionen eller en MSBuild-uppgift för att skapa U-SQL-projekt i Azure-Pipelines. Om du vill konfigurera en build-pipeline, bör du lägga till två aktiviteter i pipelinen build: en restore NuGet-uppgift och en MSBuild-uppgift.
 
 ![MSBuild-aktiviteten för ett U-SQL-projekt](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -94,7 +94,7 @@ Förutom command line använda du också Visual Studio versionen eller en MSBuil
 
     ![NuGet Återställ aktivitet för ett U-SQL-projekt](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  Ange MSBuild-argument i Visual Studio-genereringsverktyg eller i en MSBuild-uppgift som du ser i följande exempel. Eller du kan definiera variabler för de här argumenten i Pipelines build-pipeline.
+2.  Ange MSBuild-argument i Visual Studio-genereringsverktyg eller i en MSBuild-uppgift som du ser i följande exempel. Eller du kan definiera variabler för de här argumenten i Azure Pipelines build-pipeline.
 
     ![Definiera variabler för CI/CD MSBuild för ett U-SQL-projekt](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
@@ -115,15 +115,15 @@ När du kör en version, alla skript i U-SQL-projektet har skapats och spara til
 
 Azure Data Lake innehåller testprojekt för U-SQL-skript och C# UDO/UDAG/UDF:
 * Lär dig hur du [lägga till testfall för U-SQL-skript och utökade C#-kod](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
-* Lär dig hur du [kör testfall i Azure DevOps](data-lake-analytics-cicd-test.md#run-test-cases-in-azure-devops).
+* Lär dig hur du [kör testfall i Azure Pipelines](data-lake-analytics-cicd-test.md#run-test-cases-in-azure-devops).
 
 ## <a name="deploy-a-u-sql-job"></a>Distribuera ett U-SQL-jobb
 
-Du kan skicka U-SQL-jobb direkt från Azure DevOps via en Azure PowerShell-uppgift när du har kontrollerat kod genom skapa och testa processen. Du kan också distribuera skriptet till Azure Data Lake Store eller Azure Blob storage och [köra schemalagda jobb via Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+Du kan skicka U-SQL-jobb direkt från Azure Pipelines via en Azure PowerShell-uppgift när du har kontrollerat kod genom skapa och testa processen. Du kan också distribuera skriptet till Azure Data Lake Store eller Azure Blob storage och [köra schemalagda jobb via Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
-### <a name="submit-u-sql-jobs-through-azure-devops-pipelines"></a>Skicka U-SQL-jobb via Azure DevOps-Pipelines
+### <a name="submit-u-sql-jobs-through-azure-pipelines"></a>Skicka U-SQL-jobb via Azure-Pipelines
 
-Versionen utdata av U-SQL-projektet en zip-fil kallas **USQLProjectName.usqlpack**. Zip-filen innehåller alla U-SQL-skript i projektet. Du kan använda den [Azure PowerShell-uppgift](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) i Pipelines med följande PowerShell-exempelskript för att skicka U-SQL-jobb direkt från tjänsten Azure DevOps-Pipelines.
+Versionen utdata av U-SQL-projektet en zip-fil kallas **USQLProjectName.usqlpack**. Zip-filen innehåller alla U-SQL-skript i projektet. Du kan använda den [Azure PowerShell-uppgift](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) i Pipelines med följande PowerShell-exempelskript för att skicka U-SQL-jobb direkt från Azure-Pipelines.
 
 ```powershell
 <#
@@ -230,9 +230,9 @@ Main
 
 ### <a name="deploy-u-sql-jobs-through-azure-data-factory"></a>Distribuera U-SQL-jobb via Azure Data Factory
 
-Du kan skicka U-SQL-jobb direkt från tjänsten Azure DevOps-Pipelines. Eller du kan överföra de inbyggda skript till Azure Data Lake Store eller Azure Blob storage och [köra schemalagda jobb via Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+Du kan skicka U-SQL-jobb direkt från Azure-Pipelines. Eller du kan överföra de inbyggda skript till Azure Data Lake Store eller Azure Blob storage och [köra schemalagda jobb via Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
-Använd den [Azure PowerShell-uppgift](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) i Azure DevOps med följande PowerShell-exempelskript för att ladda upp U-SQL-skript till ett Azure Data Lake Store-konto:
+Använd den [Azure PowerShell-uppgift](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) i Azure-Pipelines med följande PowerShell-exempelskript för att ladda upp U-SQL-skript till en Azure Data Lake Store-konto:
 
 ```powershell
 <#
@@ -319,9 +319,9 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
 
 Argumentet `USQLSDKPath=<U-SQL Nuget package>\build\runtime` refererar till installationssökvägen för NuGet-paketet för tjänsten U-SQL-språk.
 
-### <a name="continuous-integration-with-the-azure-devops-pipelines-service"></a>Kontinuerlig integrering med tjänsten Azure DevOps-Pipelines
+### <a name="continuous-integration-with-azure-pipelines"></a>Kontinuerlig integrering med Azure-Pipelines
 
-Förutom kommandoraden, kan du använda Visual Studio-versionen eller en MSBuild-uppgift för att skapa projekt för U-SQL-databas i Azure DevOps-Pipelines. Om du vill konfigurera en build-aktivitet, se till att lägga till två aktiviteter i pipelinen build: en restore NuGet-uppgift och en MSBuild-uppgift.
+Förutom kommandoraden, kan du använda Visual Studio-versionen eller en MSBuild-uppgift för att skapa projekt för U-SQL-databas i Azure-Pipelines. Om du vill konfigurera en build-aktivitet, se till att lägga till två aktiviteter i pipelinen build: en restore NuGet-uppgift och en MSBuild-uppgift.
 
    ![CI/CD MSBuild-aktiviteten för ett U-SQL-projekt](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -330,7 +330,7 @@ Förutom kommandoraden, kan du använda Visual Studio-versionen eller en MSBuild
 
     ![CI/CD-NuGet-uppgift för ett U-SQL-projekt](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  Ange MSBuild-argument i Visual Studio-genereringsverktyg eller i en MSBuild-uppgift som du ser i följande exempel. Eller du kan definiera variabler för de här argumenten i Azure DevOps build-pipeline.
+2.  Ange MSBuild-argument i Visual Studio-genereringsverktyg eller i en MSBuild-uppgift som du ser i följande exempel. Eller du kan definiera variabler för de här argumenten i Azure Pipelines build-pipeline.
 
    ![Definiera variabler för CI/CD MSBuild för ett projekt för U-SQL-databas](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
@@ -350,16 +350,16 @@ Att lägga till testfall för tabellvärdesfunktioner och lagrade procedurer dir
 2.  Lägg till en databas som referens i U-SQL-projektet. För att få tabellvärdesfunktion och lagrade Procedurdefinition, måste du referera databasprojektet som innehåller DDL-instruktion. Läs mer om [databasen referenser](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
 3.  Lägg till testfall för U-SQL-skript som anropar tabellvärdesfunktioner och lagrade procedurer. Lär dig hur du [lägga till testfall för U-SQL-skript](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
 
-## <a name="deploy-u-sql-database-through-the-azure-devops-pipelines-service"></a>Distribuera U-SQL-databas via tjänsten Azure DevOps-Pipelines
+## <a name="deploy-u-sql-database-through-azure-pipelines"></a>Distribuera U-SQL-databas via Azure-Pipelines
 
 `PackageDeploymentTool.exe` programmering och kommandoradsverktyget gränssnitt som hjälper att distribuera paket för distribution av U-SQL-databas, **.usqldbpack**. SDK: N som ingår i den [U-SQL SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), som finns i **build/runtime/PackageDeploymentTool.exe**. Med hjälp av `PackageDeploymentTool.exe`, du kan distribuera U-SQL-databaser till både Azure Data Lake Analytics och lokala konton.
 
 > [!NOTE]
 >
-> Stöd för PowerShell-kommandoraden och Pipelines publiceringsuppgift stöd för distribution av U-SQL-databaser är för närvarande väntar.
+> Stöd för PowerShell-kommandoraden och Azure Pipelines publiceringsuppgift stöd för distribution av U-SQL-databaser är för närvarande väntar.
 >
 
-Vidta följande steg för att ställa in en uppgift för distribution av databasen i Pipelines:
+Vidta följande steg för att ställa in en databasåtgärd distribution i Azure Pipelines:
 
 1. Lägg till en PowerShell-skript-aktivitet i en version eller släpp pipeline och kör följande PowerShell-skript. Den här uppgiften hjälper till att hämta Azure SDK-beroendena för `PackageDeploymentTool.exe` och `PackageDeploymentTool.exe`. Du kan ange den **- AzureSDK** och **- DBDeploymentTool** parametrar för att läsa in beroenden och distributionsverktyg till specifika mappar. Skicka den **- AzureSDK** sökvägen till `PackageDeploymentTool.exe` som den **- AzureSDKPath** parameter i steg 2. 
 

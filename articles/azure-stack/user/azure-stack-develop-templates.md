@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: d09dec2f327d8b5911a4e55832ba106838c7ebc3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 21fd3a33181542d86eccc4292ae68f7ce25e0a05
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055837"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366734"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Överväganden för Azure Resource Manager-mall
 
@@ -34,15 +34,17 @@ Den mall som du planerar att distribuera måste bara använda Microsoft Azure-tj
 
 ## <a name="public-namespaces"></a>Offentliga namnområden
 
-Eftersom Azure Stack finns i ditt datacenter, har olika service endpoint namnområden än i Azures offentliga moln. Därför misslyckas hårdkodad offentliga slutpunkter i Azure Resource Manager-mallar när du försöker distribuera dem till Azure Stack. Du kan dynamiskt skapa tjänstslutpunkter med den *referens* och *sammanfoga* funktioner för att hämta värden från resursprovidern under distributionen. Till exempel i stället för hardcoding *blob.core.windows.net* i mallen, hämta den [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) med den *osDisk.URI* slutpunkt:
+Eftersom Azure Stack finns i ditt datacenter, har olika service endpoint namnområden än i Azures offentliga moln. Därför misslyckas hårdkodad offentliga slutpunkter i Azure Resource Manager-mallar när du försöker distribuera dem till Azure Stack. Du kan dynamiskt skapa tjänstslutpunkter med den *referens* och *sammanfoga* funktioner för att hämta värden från resursprovidern under distributionen. Till exempel i stället för hardcoding *blob.core.windows.net* i mallen, hämta den [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) med den *osDisk.URI* slutpunkt:
 
-     "osDisk": {"name": "osdisk","vhd": {"uri":
-     "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
-      '/',variables('OSDiskName'),'.vhd')]"}}
+```json
+"osDisk": {"name": "osdisk","vhd": {"uri":
+"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
+ '/',variables('OSDiskName'),'.vhd')]"}}
+```
 
 ## <a name="api-versioning"></a>API-versionshantering
 
-Azure tjänstversioner kan variera mellan Azure och Azure Stack. Varje resurs kräver den **apiVersion** attribut, som definierar de funktioner som erbjuds. För att säkerställa kompatibilitet för API-version i Azure Stack, gäller följande API-versioner för varje Resursprovider:
+Azure tjänstversioner kan variera mellan Azure och Azure Stack. Varje resurs kräver den **apiVersion** attribut, som definierar de funktioner som erbjuds. För att säkerställa kompatibilitet för API-version i Azure Stack, gäller följande API-versioner för varje resursprovider:
 
 | Resursprovider | apiVersion |
 | --- | --- |
@@ -54,7 +56,7 @@ Azure tjänstversioner kan variera mellan Azure och Azure Stack. Varje resurs kr
 
 ## <a name="template-functions"></a>Mallfunktioner
 
-Azure Resource Manager [functions](../../azure-resource-manager/resource-group-template-functions.md) innehåller funktioner som krävs för att skapa dynamiska mallar. Du kan använda funktioner för uppgifter som till exempel:
+Azure Resource Manager [functions](../../azure-resource-manager/resource-group-template-functions.md) innehåller funktioner som krävs för att skapa dynamiska mallar. Exempelvis kan använda du funktioner för uppgifter som:
 
 * Sammanfoga eller ta strängar.
 * Refererar till värden från andra resurser.
@@ -67,20 +69,22 @@ Dessa funktioner är inte tillgängliga i Azure Stack:
 
 ## <a name="resource-location"></a>Resursplats
 
-Azure Resource Manager-mallar kan du använda ett platsattribut för att placera resurser under distributionen. I Azure avser platser en region som USA, västra eller Sydamerika. Platser är olika i Azure Stack, eftersom Azure Stack är i ditt datacenter. För att säkerställa mallar är överföra mellan Azure och Azure Stack, bör du referera till resursgruppens plats när du distribuerar enskilda resurser. Du kan göra detta med hjälp av `[resourceGroup().Location]` att se till att alla resurser ärver plats för resursgruppen. Följande utdrag är ett exempel på hur du använder den här funktionen när du distribuerar ett storage-konto:
+Azure Resource Manager-mallar använder en `location` attribut för att placera resurser under distributionen. I Azure avser platser en region, till exempel USA, västra eller Sydamerika. Platser är olika i Azure Stack, eftersom Azure Stack är i ditt datacenter. För att säkerställa mallar är överföras mellan Azure och Azure Stack, bör du referera till resursgruppens plats när du distribuerar enskilda resurser. Du kan göra detta med hjälp av `[resourceGroup().Location]` att se till att alla resurser ärver plats för resursgruppen. Följande kod är ett exempel på hur du använder den här funktionen när du distribuerar ett storage-konto:
 
-    "resources": [
-    {
-      "name": "[variables('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "[variables('apiVersionStorage')]",
-      "location": "[resourceGroup().location]",
-      "comments": "This storage account is used to store the VM disks",
-      "properties": {
-      "accountType": "Standard_GRS"
-      }
-    }
-    ]
+```json
+"resources": [
+{
+  "name": "[variables('storageAccountName')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "[variables('apiVersionStorage')]",
+  "location": "[resourceGroup().location]",
+  "comments": "This storage account is used to store the VM disks",
+  "properties": {
+  "accountType": "Standard_GRS"
+  }
+}
+]
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

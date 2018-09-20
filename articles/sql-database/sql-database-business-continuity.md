@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/25/2018
+ms.date: 09/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5e45bff827a8c376d4b35ee88f1f000c2b122443
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 803dddd13ab3b18b6f161be9c0004d18c8d69f1e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298242"
+ms.locfileid: "46364207"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -122,12 +122,10 @@ Om du använder aktiv geo-replikering och automatisk redundans grupper som åter
 > 
 
 ### <a name="perform-a-geo-restore"></a>Utföra en geo-återställning
-Om du använder automatiska säkerhetskopieringar med geo-redundant lagringsreplikering som återställningsmetod [initiera en databasåterställning med geo-återställning](sql-database-disaster-recovery.md#recover-using-geo-restore). Återställningen sker vanligtvis inom 12 timmar – med dataförlust på upp till en timme systemets när senaste log säkerhetskopian skapades och geo-replikeras till andra regioner. Databasen kan inte registrera några transaktioner eller svara på frågor förrän återställningen har slutförts. Medan detta återställer en databas till den senaste stöds tillgängliga tidpunkt, återställa geo-secondary till valfri punkt i tiden för närvarande inte.
+Om du använder automatiska säkerhetskopieringar med geo-redundant lagring (aktiverat som standard), kan du återställa en databas med hjälp av [geo-återställning](sql-database-disaster-recovery.md#recover-using-geo-restore). Återställningen sker vanligtvis inom 12 timmar – med dataförlust på upp till en timme systemets när den senaste differentiella säkerhetskopieringen per timme har vidtagits och replikeras. Databasen kan inte registrera några transaktioner eller svara på frågor förrän återställningen har slutförts. Observera att geo-återställning bara återställs databasen till den senaste tillgängliga tidpunkten.
 
 > [!NOTE]
 > Om datacentret är online igen innan du växlar över programmet till den återställda databasen, kan du avbryta återställningen.  
->
->
 
 ### <a name="perform-post-failover--recovery-tasks"></a>Utföra åtgärder efter en redundansväxling eller återställning
 Efter återställningen från endera återställningsmetod måste du utföra följande ytterligare uppgifter innan dina användare och program kan komma igång igen:

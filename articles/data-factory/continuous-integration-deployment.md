@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 57c691271c2b2673ade40d600162934341e18a81
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 94c4a3fbd1c854401c42af5787c22db0e5dd6083
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300248"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365003"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Kontinuerlig integrering och distribution i Azure Data Factory
 
@@ -81,7 +81,7 @@ Här följer stegen för att konfigurera en version med Azure DevOps-tjänster s
 
 -   En [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som innehåller hemligheterna.
 
-### <a name="set-up-a-azure-devops-services-release"></a>Konfigurera en version med Azure DevOps-tjänster
+### <a name="set-up-an-azure-devops-services-release"></a>Konfigurera en version med Azure DevOps-tjänster
 
 1.  Gå till sidan Azure DevOps-tjänsterna i samma projekt som konfigurerats med Data Factory.
 
@@ -799,9 +799,9 @@ else {
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Använda anpassade parametrar med Resource Manager-mall
 
-Du kan definiera anpassade parametrar för Resource Manager-mallen. Du behöver bara har en fil med namnet `arm-template-parameters-definition.json` i rotmappen på lagringsplatsen. (Namnet på filen måste matcha det namn som visas här exakt.) Data Factory försöker läsa filen från den gren du arbetar i, inte bara från grenen samarbete. Om ingen fil hittas, använder Data Factory standarddefinitioner.
+Du kan definiera anpassade parametrar för Resource Manager-mallen. Du behöver bara har en fil med namnet `arm-template-parameters-definition.json` i rotmappen på lagringsplatsen. (Namnet på filen måste matcha det namn som visas här exakt.) Data Factory försöker läsa filen från den gren du arbetar i, inte bara från grenen samarbete. Om ingen fil hittas, använder Data Factory standardparametrar och värden.
 
-I följande exempel visas en exempelfil för parametrar. Använd det här exemplet som referens för att skapa dina egna anpassade parameterfilen. Om filen som du anger inte är rätt JSON-format, Data Factory matar ut ett felmeddelande visas i webbläsarens konsol och återgår till standarddefinitioner som visas i Användargränssnittet för Data Factory.
+I följande exempel visas en exempelfil för parametrar. Använd det här exemplet som referens för att skapa dina egna anpassade parameterfilen. Om filen som du anger inte är rätt JSON-format, Data Factory matar ut ett felmeddelande visas i webbläsarens konsol och återgår till standardparametrar och värden som visas i Användargränssnittet för Data Factory.
 
 ```json
 {

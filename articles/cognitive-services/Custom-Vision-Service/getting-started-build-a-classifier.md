@@ -1,20 +1,21 @@
 ---
-title: Skapa en klassificerare med Custom Vision Service – Azure Cognitive Services | Microsoft Docs
+title: Att skapa en klassificerare – Custom Vision Service
+titlesuffix: Azure Cognitive Services
 description: Lär dig hur du använder Custom Vision Service för att skapa en klassificerare som kan urskilja objekt i fotografier.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 998900e72511a95336e4a94289c794e2a8e59feb
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223377"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364258"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Hur du skapar en klassificerare med anpassad visuellt innehåll
 
@@ -55,7 +56,7 @@ Använd följande steg för att skapa ett nytt projekt:
 
 3. Ange ett namn och en beskrivning för projektet. Välj sedan en av de tillgängliga domänerna. Varje domän optimerar klassificerare för vissa typer av bilder, enligt beskrivningen i följande tabell:
 
-    |Domän|Syfte|
+    |Domain|Syfte|
     |---|---|
     |__Generisk__| Optimerat för en mängd olika aktiviteter för klassificering av avbildning. Om ingen av de andra domänerna är lämpligt, eller du är osäker på vilken domän som du väljer, väljer du den allmänna domänen. |
     |__Mat__|Optimerat för fotografier av disk som du ser dem på en restaurang-meny. Om du vill klassificera fotografier av enskilda frukter och grönsaker använda mat domänen.|

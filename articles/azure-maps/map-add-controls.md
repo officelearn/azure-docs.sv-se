@@ -3,17 +3,17 @@ title: Lägg till karta kontroller i Azure Maps | Microsoft Docs
 description: Hur du lägger till zoomkontrollen, försäljningsargument kontroll, rotera kontroll och en väljare för stil på en karta i Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ddbb621561d8fcef3637e036be004d17aea76f40
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4410c2ec5851ff210ca8a5fb4f482e5e12d0b8e8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129309"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367805"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Lägg till karta kontroller i Azure Maps
 
@@ -63,7 +63,7 @@ Det tredje kodblocket skapar ett Zoomkontroll-objekt med hjälp av atlas [ZoomCo
 
 Fjärde kodblocket skapar ett försäljningsargument Control-objekt med hjälp av atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) och läggs till i kartan med hjälp av kartans [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) metod.
 
-Det sista blocket kod lägger till ett Formatväljare-objekt på kartan genom att använda atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) och läggs till i kartan med hjälp av kartans [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) metod.
+Det sista blocket kod skapar ett Style väljare-objekt med hjälp av atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) och läggs till i kartan med hjälp av kartans [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) metod.
 
 ## <a name="next-steps"></a>Nästa steg
 

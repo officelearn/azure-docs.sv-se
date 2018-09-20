@@ -1,20 +1,21 @@
 ---
-title: Kom igång med Microsoft för Taligenkänning med hjälp av klientbibliotek för Bing-taligenkänning | Microsoft Docs
-description: Använd Microsoft Speech Service klientbibliotek i Microsoft Cognitive Services för att utveckla program som omvandla talat ljud till text.
+title: Kom igång med Bing-Taligenkänning för taligenkänning med hjälp av klientbibliotek | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Använd Bing-taligenkänning klientbibliotek i Microsoft Cognitive Services för att utveckla program som omvandla talat ljud till text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6fb490def6807204943a1ce3ba3c53186055102b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8e0c95b73db057c429c57da8c026822436c6c3b4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048465"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367282"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Kom igång med Bing Speech Service-klientbibliotek
 
@@ -43,3 +44,4 @@ I maj 2018 vi också släppt den nya [Speech Service](../../speech-service/index
 ## <a name="license"></a>Licens
 
 Alla kognitiva tjänster SDK: er och exempel har en licens för MIT-licensen. Mer information finns i [licens](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+

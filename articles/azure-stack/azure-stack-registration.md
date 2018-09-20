@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 92c0ad6dfde4fc83a912b4a3387d8b586e72809c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630451"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364609"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -45,12 +45,12 @@ Du behöver följande för på plats innan du registrerar:
 
 Innan du registrerar Azure Stack med Azure, måste du ha:
 
-- Prenumerations-ID för en Azure-prenumeration. Logga in på Azure för att hämta ID, klickar du på **alla tjänster**. Sedan, under den **Allmänt** kategori, väljer **prenumerationer**, klicka på den prenumeration som du vill använda, och under **Essentials** du hittar prenumerations-ID.
+- Prenumerations-ID för en Azure-prenumeration. Endast EA, CSP eller CSP delade tjänster som prenumerationer stöds för registrering. CSP: er måste du bestämma om du vill [använder en CSP eller CSPSS prenumeration](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Logga in på Azure för att hämta ID, klickar du på **alla tjänster**. Sedan, under den **Allmänt** kategori, väljer **prenumerationer**, klicka på den prenumeration som du vill använda, och under **Essentials** du hittar prenumerations-ID.
 
   > [!Note]  
   > Tyskland cloud-prenumerationer stöds inte för närvarande.
 
-- Användarnamnet och lösenordet för ett konto som är ägare till prenumerationen (MSA/2FA-konton stöds).
+- Användarnamn och lösenord för ett konto som är ägare till prenumerationen.
 
 - Användarkontot måste ha åtkomst till Azure-prenumerationen och har behörighet att skapa program med identiteter och tjänstens huvudnamn i katalogen som är associerade med den aktuella prenumerationen.
 

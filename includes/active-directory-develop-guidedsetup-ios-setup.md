@@ -1,28 +1,52 @@
-## <a name="setting-up-your-ios-application"></a>Konfigurera iOS-program
+---
+title: ta med fil
+description: ta med fil
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 4ed4f7e15a21e1565031994bd377c15aebd535bc
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466192"
+---
+## <a name="setting-up-your-ios-application"></a>Hur du konfigurerar ditt iOS-program
 
 Det här avsnittet innehåller stegvisa instruktioner för hur du skapar ett nytt projekt för att demonstrera hur du integrerar en iOS-App (Swift) med *logga In med Microsoft* så att den kan fråga webb-API: er som kräver en token.
 
-> Om du vill hämta det här exemplet XCode-projekt i stället? [Hämta ett projekt](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) och gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan du kör.
+> Om du vill ladda ned det här exemplet XCode-projekt i stället? [Ladda ned ett projekt](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) och gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan du kör.
 
 
-## <a name="install-carthage-to-download-and-build-msal"></a>Installera Carthage om du vill hämta och skapa MSAL
-Carthage Pakethanteraren används i förhandsversionen av MSAL – den kan integreras med XCode samtidigt möjligheten för Microsoft för att göra ändringar i biblioteket.
+## <a name="install-carthage-to-download-and-build-msal"></a>Installera Carthage för att ladda ned och skapa MSAL
+Carthage Pakethanteraren används för förhandsversionen av MSAL – det är integrerat med XCode samtidigt som möjligheten för Microsoft att göra ändringar i biblioteket.
 
-- Hämta och installera den senaste versionen av Carthage [här](https://github.com/Carthage/Carthage/releases "Carthage nedladdnings-URL")
+- Ladda ned och installera den senaste versionen av Carthage [här](https://github.com/Carthage/Carthage/releases "Carthage nedladdnings-URL")
 
 ## <a name="creating-your-application"></a>Skapar ditt program
 
 1.  Öppna Xcode och välj `Create a new Xcode project`
-2.  Välj `iOS`  >  `Single view Application` och på *nästa*
-3.  Ge ett produktnamn och klicka på *nästa*
+2.  Välj `iOS`  >  `Single view Application` och klicka på *nästa*
+3.  Ger ett produktnamn och klickar på *nästa*
 4.  Välj en mapp för att skapa din app och klicka på *skapa*
 
 ## <a name="build-the-msal-framework"></a>Skapa MSAL Framework
 
-Följ instruktionerna nedan när du hämtar och skapa sedan den senaste versionen av MSAL bibliotek med Carthage:
+Följ anvisningarna nedan för att hämta och bygg sedan den senaste versionen av MSAL bibliotek med Carthage:
 
-1.  Öppna terminalen bash och gå till appens rotmapp
-2.  Kopiera den nedan och klistra in i bash terminalen för att skapa en 'Cartfile'-fil:
+1.  Öppna bash terminal och gå till appens rotmapp
+2.  Kopiera den nedan och klistra in i bash-terminalen för att skapa en ”Cartfile”-fil:
 
 ```bash
 echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
@@ -30,7 +54,7 @@ echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" >
 <!-- Workaround for Docs conversion bug -->
 <ol start="3">
 <li>
-Kopiera och klistra in den nedan. Detta kommando hämtar beroenden till en Carthage/utcheckningar mapp och sedan skapar MSAL-biblioteket:
+Kopiera och klistra in den nedan. Det här kommandot hämtar beroenden till en mapp som Carthage/utcheckningar och skapar sedan MSAL-biblioteket:
 </li>
 </ol>
 
@@ -38,14 +62,14 @@ Kopiera och klistra in den nedan. Detta kommando hämtar beroenden till en Carth
 carthage update
 ```
 
-> Processen ovan används för att hämta och skapa Microsoft Authentication Library (MSAL). MSAL hanterar införskaffa, cachelagring och uppdatera användartoken som används för åtkomst till API: er som skyddas av Azure Active Directory-v2.
+> Processen ovan används för att ladda ned och skapa Microsoft Authentication Library (MSAL). MSAL hanterar införskaffa, cachelagring och uppdatera användartoken som används för åtkomst till API: er som skyddas av Azure Active Directory v2.
 
-## <a name="add-the-msal-framework-to-your-application"></a>Lägg till MSAL framework i ditt program
+## <a name="add-the-msal-framework-to-your-application"></a>Ge MSAL framework till programmet.
 1.  I Xcode öppnar den `General` fliken
-2.  Gå till den `Linked Frameworks and Libraries` avsnittet och klicka på `+`
+2.  Gå till den `Linked Frameworks and Libraries` och klicka `+`
 3.  Välj `Add other…`
-4.  Välj: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` och på *öppna*. Du bör se `MSAL.framework` läggs till i listan.
-5.  Gå till `Build Phases` och på `+` ikon, Välj `New Run Script Phase`
+4.  Välj: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` och klicka på *öppna*. Du bör se `MSAL.framework` läggs till i listan.
+5.  Gå till `Build Phases` och på `+` ikonen och välj `New Run Script Phase`
 6.  Lägg till följande innehåll till den *skript området*:
 
 ```text
@@ -63,11 +87,11 @@ Lägg till följande till <code>Input Files</code> genom att klicka på <code>+<
 $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
 
-## <a name="creating-your-applications-ui"></a>Skapa programmets användargränssnitt
-En Main.storyboard-fil ska skapas automatiskt som en del av projektmallen för. Följ anvisningarna nedan för att skapa UI-app:
+## <a name="creating-your-applications-ui"></a>Skapar programmets användargränssnitt
+En Main.storyboard fil bör skapas automatiskt som en del av din projektmall. Följ anvisningarna nedan för att skapa Användargränssnittet för programmet:
 
-1.  CTRL + klicka `Main.storyboard` öppna snabbmenyn och klicka sedan på: `Open As` > `Source Code`
-2.  Ersätt den `<scenes>` nod med koden nedan:
+1.  CTRL + klicka `Main.storyboard` öppna snabbmenyn och klickar sedan på: `Open As` > `Source Code`
+2.  Ersätt den `<scenes>` noden med koden nedan:
 
 ```xml
  <scenes>

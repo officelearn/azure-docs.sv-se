@@ -10,14 +10,22 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
-ms.openlocfilehash: b05b824d8d35351030ca466566f14e4249d4b99d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 399c7b000360a73a9bab06b046be21c9d93a1c70
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626628"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367142"
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i din Time Series Insights-miljö
+
+Den här artikeln beskriver några problem som kan uppstå i din Time Series Insights-miljö. Den erbjuder möjliga orsaker och lösningar för matchning.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>I den här videon beskriver vi vanliga Time Series Insights kundutmaningar och åtgärder.</br>
+
+> [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
 ## <a name="problem-1-no-data-is-shown"></a>Problem 1: Inga data visas
 Det finns flera vanliga orsaker varför du inte kanske se dina data i den [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com):
@@ -31,7 +39,7 @@ Azure Time Series Insights har stöd för JSON-data. JSON-exempel finns [stöds 
    ![IoT Hub-tjänsten anslutningsbehörighet](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    Som visas i den föregående bilden är någon av principerna **iothubowner** och **service** skulle fungera, eftersom båda har **tjänsten ansluta** behörighet.
-   
+
 * För en händelsehubb, måste du ange den nyckel som har **lyssna** behörighet.
 
    ![Event hub listen behörighet](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)

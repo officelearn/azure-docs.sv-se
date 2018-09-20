@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840627"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465800"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webbprogram med hjälp av Visual Studio Connected Services
 
@@ -39,7 +39,8 @@ Mer information om ändringarna att Connected Services gör i ditt projekt för 
 
    ![Välj ”säker hemligheter med Azure Key Vault”](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Om du har loggat in Visual Studio och Azure-prenumeration som är associerade med ditt konto, visas en sida med en listruta med dina prenumerationer.
+   Om du har loggat in Visual Studio och Azure-prenumeration som är associerade med ditt konto, visas en sida med en listruta med dina prenumerationer. Kontrollera att du har loggat in Visual Studio och att konton som du har loggat in med samma konto som du använder för din Azure-prenumeration.
+
 1. Välj den prenumeration som du vill använda och välj sedan en ny eller befintlig Key Vault eller Välj länken Redigera för att ändra det automatiskt genererade namnet.
 
    ![Välj din prenumeration](media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)

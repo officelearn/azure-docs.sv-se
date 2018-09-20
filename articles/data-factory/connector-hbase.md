@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: f47e85b47f262e30e9160f11604220aa8055be5d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 10867974c6f1c3fae6965b1888db3c4448b26a38
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701725"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364125"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiera data från HBase med Azure Data Factory 
 
@@ -45,7 +45,7 @@ Följande egenskaper har stöd för HBase länkade tjänsten:
 | typ | Type-egenskapen måste anges till: **HBase** | Ja |
 | värd | IP-adressen eller värdnamnet namnet på den HBase-servern. (dvs.)  `[clustername].azurehdinsight.net`, ' 192.168.222.160·)  | Ja |
 | port | TCP-porten som HBase-instans som används för att lyssna efter klientanslutningar. Standardvärdet är 9090. Ange porten som 443 om du ansluter till Azure HDInsights. | Nej |
-| httpPath | Partiell URL som motsvarar HBase-server. (d.v.s. `/hbaserest0`)  | Nej |
+| httpPath | Partiell URL: en motsvarar HBase-server, t.ex. `/hbaserest0` när du använder HDInsights kluster. | Nej |
 | authenticationType | Autentiseringsmekanismen för att ansluta till HBase-servern. <br/>Tillåtna värden är: **anonym**, **grundläggande** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till HBase-instans.  | Nej |
 | lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
@@ -56,7 +56,7 @@ Följande egenskaper har stöd för HBase länkade tjänsten:
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!NOTE]
->Om klustret inte stöder sticky sessionen som HDInsight, uttryckligen lägga till noden index i slutet av inställningen för http-sökväg, t.ex. Ange `/hbaserest0` i stället för `/hbaserest`.
+>Om klustret inte stöder sticky session t.ex. HDInsight, uttryckligen lägga till noden index i slutet av inställningen för http-sökväg, t.ex. Ange `/hbaserest0` i stället för `/hbaserest`.
 
 **Exempel för HDInsights HBase:**
 

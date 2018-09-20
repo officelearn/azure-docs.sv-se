@@ -12,40 +12,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 7814552256f17c5265bbeb4ce8c069dd8dca1bb2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d40f9e8bf319f327879a71b23f9d9b82da924c2f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059692"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365442"
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Distribuera mallar i Azure Stack med hjälp av kommandoraden
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Använda kommandoraden för att distribuera Azure Resource Manager-mallar till Azure Stack Development Kit. Azure Resource Manager-mallar distribuera och Tillhandahåll alla resurser för programmet i en enda, samordnad åtgärd.
+Använda kommandoraden för att distribuera Azure Resource Manager-mallar i Azure Stack Development Kit-miljö. Azure Resource Manager-mallar distribuera och Tillhandahåll alla resurser för programmet i en enda, samordnad åtgärd.
 
 ## <a name="before-you-begin"></a>Innan du börjar
- - [Installera och ansluta](azure-stack-version-profiles-azurecli2.md) till Azure Stack med Azure CLI
+
+ - [Installera och ansluta](azure-stack-version-profiles-azurecli2.md) till Azure Stack med Azure CLI.
  - Ladda ned filerna *azuredeploy.json* och *azuredeploy.parameters.json* från den [skapa exempelmall för storage-konto](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
  
 ## <a name="deploy-template"></a>Distribuera mallen
-Gå till den mapp där filerna har hämtats och kör följande kommando för att distribuera mallen:
 
-    azure group create "cliRG" "local" –f azuredeploy.json –d "testDeploy" –e azuredeploy.parameters.json
+Navigera till mappen dit filerna har hämtats och kör följande kommando för att distribuera mallen:
 
-Det här kommandot distribuerar mallen till resursgruppen **cliRG** i Azure Stack POC-standardplatsen.
+```azurecli
+az group create "cliRG" "local" –f azuredeploy.json –d "testDeploy" –e azuredeploy.parameters.json
+```
+
+Det här kommandot distribuerar mallen till resursgruppen **cliRG** på standardplatsen för Azure Stack POC.
 
 ## <a name="validate-template-deployment"></a>Validera malldistributionen av
+
 Om du vill se den här resurskontot för gruppen och lagring, använder du följande kommandon:
 
-    azure group list
+```azurecli
+az group list
 
-    azure storage account list
+az storage account list
+```
 
+## <a name="next-steps"></a>Nästa steg
 
+Mer information om hur du distribuerar mallar finns:
 
+[Distribuera mallar med PowerShell](azure-stack-deploy-template-powershell.md)
 

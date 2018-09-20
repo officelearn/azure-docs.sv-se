@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: cf0c9b76a7edace9f2a9147823b292e218e20bf7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 63f4c4c48dd0fed3130dc99929a0e84c3cba2026
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300281"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466055"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Azure AD-katalogroller som du kan hantera i PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -34,20 +34,20 @@ Det finns ingen skillnad i åtkomst till någon med en permanent jämfört med e
 ## <a name="roles-managed-in-pim"></a>Roller som hanteras i PIM
 Privileged Identity Management kan du tilldela användare till vanliga administratörsroller, inklusive:
 
-* **Global administratör** (även kallat företagsadministratör) har åtkomst till alla administrativa funktioner. Du kan ha fler än en global administratör i din organisation. Den person som registrerar sig för att köpa Office 365 automatiskt blir global administratör.
-* **Privilegierad rolladministratör** hanterar Azure AD PIM och uppdaterar rolltilldelningar för andra användare.  
+* **Global administratör** (även kallat företagsadministratör) har åtkomst till alla administrativa funktioner. Du kan ha fler än en Global administratör i din organisation. Den person som registrerar sig för att köpa Office 365 automatiskt blir en Global administratör.
+* **Privilegierad Rolladministratör** hanterar Azure AD PIM och uppdaterar rolltilldelningar för andra användare.  
 * **Faktureringsadministratör** gör inköp, hanterar prenumerationer, hanterar supportärenden och övervakar tjänstehälsa.
 * **Lösenordsadministratör** återställer lösenord, hanterar tjänstbegäranden och övervakar tjänstehälsa. Lösenordsadministratörer är begränsade till återställning av lösenord för användare.
 * **Tjänstadministratör** hanterar tjänstbegäranden och övervakar tjänstehälsa.
   
   > [!NOTE]
-  > Om du använder Office 365 innan du tilldelar administratörsrollen till en användare först tilldela sedan användaren administrativ behörighet till en tjänst, till exempel Exchange Online.
+  > Om du använder Office 365, sedan innan du tilldelar rollen som tjänstadministratör för en användare först tilldela användaren administrativa behörigheter till en tjänst, till exempel Exchange Online.
   > 
   > 
-* **Administratör för användarhantering** återställer lösenord, övervakar tjänstehälsa och hanterar användarkonton, användargrupper och tjänstbegäranden. Administratören för användarhantering kan inte ta bort en global administratör, skapa andra administratörsroller eller återställa lösenord för faktureringsadministratörer, globala administratörer och tjänstadministratörer.
+* **Användaradministratör** återställer lösenord, övervakar tjänstehälsa och hanterar användarkonton, användargrupper och tjänstbegäranden. Administratören för den kan inte ta bort en Global administratör, skapa andra administratörsroller eller återställa lösenord för faktureringsadministratörer, globala administratörer och tjänstadministratörer.
 * **Exchange-administratören** har administrativ åtkomst till Exchange Online via administrationscentret för Exchange (UK) och kan utföra nästan alla aktiviteter i Exchange Online.
-* **SharePoint-administratör (förhandsversion)** har administrativ åtkomst till SharePoint Online via administrationscentret för SharePoint Online och kan utföra nästan alla aktiviteter i SharePoint Online. Den här rollen förhandsvisas just nu. Berättigade användare avbrott med hjälp av den här rollen i SharePoint när du har aktiverat i PIM.
-* **Skype för företag-administratör** har administrativ åtkomst till Skype för företag via Skype för företag-administrationscentret och kan utföra nästan alla aktiviteter i Skype för företag Online.
+* **SharePoint-tjänstadministratör** har administrativ åtkomst till SharePoint Online via administrationscentret för SharePoint Online och kan utföra nästan alla aktiviteter i SharePoint Online. Berättigade användare avbrott med hjälp av den här rollen i SharePoint när du har aktiverat i PIM.
+* **Skype för Business Administrator** har administrativ åtkomst till Skype för företag via Skype för företag-administrationscentret och kan utföra nästan alla aktiviteter i Skype för företag Online.
 
 Läs de här artiklarna för mer information om [Tilldela administratörsroller i Azure AD](../users-groups-roles/directory-assign-admin-roles.md) och [Tilldela administratörsroller i Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 

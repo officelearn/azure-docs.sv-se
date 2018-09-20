@@ -1,8 +1,8 @@
 ---
-title: Hantera Media Services entiteter med REST | Microsoft Docs
-description: Lär dig hur du hanterar Media Services entiteter med REST API.
+title: Hantera Media Services-enheter med REST | Microsoft Docs
+description: Lär dig mer om att hantera Media Services-entiteter med REST API.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,38 +12,38 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/19/2017
 ms.author: juliako
-ms.openlocfilehash: 0fa7b080f360ab5f4fc50e146620f395fd57ee7a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e5c035c4bcf449ecf20a9dfb072ce3ab480110a9
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790260"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364337"
 ---
-# <a name="managing-media-services-entities-with-rest"></a>Hantera Media Services entiteter med REST 
+# <a name="managing-media-services-entities-with-rest"></a>Hantera Media Services-enheter med REST 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
 > 
 > 
 
-Microsoft Azure Media Services är en REST-baserad tjänst som bygger på OData v3. Du kan lägga till, fråga, uppdatera och ta bort enheter på ungefär samma sätt som på andra OData-tjänst. Undantag kallas när så är tillämpligt. Mer information om OData finns [dokumentation Open Data Protocol](http://www.odata.org/documentation/).
+Microsoft Azure Media Services är en REST-baserad tjänst som bygger på OData v3. Du kan lägga till, fråga, uppdatera och ta bort entiteter på ungefär samma sätt som på andra OData-tjänst. Undantag att appåtgärden anropas när så är tillämpligt. Läs mer på OData [Open Data Protocol dokumentation](http://www.odata.org/documentation/).
 
-Det här avsnittet visar hur du hanterar Azure Media Services entiteter med REST.
+Det här avsnittet visar hur du hanterar Azure Media Services-enheter med REST.
 
 >[!NOTE]
-> Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med deras associerade uppgiftsposter, även om det totala antalet poster är lägre än den maximala kvoten. Till exempel på 1 April 2017 tas alla jobb poster i ditt konto som är äldre än den 31 December 2016 automatiskt bort. Du kan använda koden som beskrivs i det här avsnittet om du behöver Arkivera jobb/aktivitetsinformationen.
+> Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med deras associerade uppgiftsposter, även om det totala antalet poster är lägre än den maximala kvoten. Exempelvis den 1 April 2017 tas alla jobbposter i ditt konto som är äldre än den 31 December 2016 automatiskt bort. Om du behöver Arkivera jobb/uppgiftsinformationen kan du använda koden som beskrivs i det här avsnittet.
 
 ## <a name="considerations"></a>Överväganden  
 
-Vid åtkomst till entiteter i Media Services måste du ange specifika namn på huvudfält och värden i HTTP-begäranden. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
+Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Ansluta till Media Services
 
-Information om hur du ansluter till AMS API: et finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="adding-entities"></a>Lägger till enheter
+## <a name="adding-entities"></a>Att lägga till enheter
 Varje entitet i Media Services har lagts till i en entitetsuppsättning, till exempel tillgångar, via en HTTP POST-begäran.
 
 I följande exempel visas hur du skapar en AccessPolicy.
@@ -62,7 +62,7 @@ I följande exempel visas hur du skapar en AccessPolicy.
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
 ## <a name="querying-entities"></a>Fråga entiteter
-Frågar och visar en lista över enheter är enkla och endast innebär en hämta HTTP-begäran och valfria OData-åtgärder.
+Frågor och visa en lista över entiteter är enkelt och bara omfattar en hämta HTTP-begäran och valfritt OData-åtgärder.
 I följande exempel hämtar en lista över alla MediaProcessor entiteter.
 
     GET https://media.windows.net/API/MediaProcessors HTTP/1.1
@@ -74,7 +74,7 @@ I följande exempel hämtar en lista över alla MediaProcessor entiteter.
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
-Du kan också hämta en viss enhet eller alla entitetsuppsättningar som är associerade med en specifik enhet, som i följande exempel:
+Du kan också hämta en specifik entitet eller alla entitetsuppsättningar som är associerade med en specifik entitet, som i följande exempel:
 
     GET https://media.windows.net/API/JobTemplates('nb:jtid:UUID:e81192f5-576f-b247-b781-70a790c20e7c') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -117,14 +117,14 @@ I följande exempel returneras alla JobTemplates med namnet ”SampleTemplate”
     Host: media.windows.net
 
 > [!NOTE]
-> $Expand åtgärden stöds inte i Media Services samt stöds inte LINQ metoderna som beskrivs i LINQ överväganden (WCF Data Services).
+> $Expand åtgärden stöds inte i Media Services samt som inte stöds LINQ-metoderna som beskrivs i LINQ överväganden (WCF-datatjänster).
 > 
 > 
 
 ## <a name="enumerating-through-large-collections-of-entities"></a>Uppräkning av stora mängder av entiteter
-När du frågar entiteter, finns det en gräns på 1000 entiteter som returneras i taget eftersom offentlig REST-v2 begränsar frågeresultaten till 1000 resultat. Använd **hoppa över** och **upp** att räkna upp genom stor samling med entiteter. 
+Vid frågor till entiteter, finns det en gräns på 1000 enheter som returneras i taget eftersom offentlig REST-v2 begränsar frågeresultaten till 1000 resultat. Använd **hoppa över** och **upp** att räkna upp genom det stora antal entiteter. 
 
-I följande exempel visas hur du använder **hoppa över** och **upp** hoppa över först 2000 jobb och hämta nästa 1000 jobb.  
+I följande exempel visas hur du använder **hoppa över** och **upp** hoppas över först 2000 jobb och hämta sedan 1000 jobb.  
 
     GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -132,13 +132,13 @@ I följande exempel visas hur du använder **hoppa över** och **upp** hoppa öv
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.windows.net
 
-## <a name="updating-entities"></a>Uppdatera entiteter
-Beroende på enhetstypen och att den är i tillståndet kan du uppdatera egenskaper för enheten via en korrigering PUT eller sammanfoga HTTP-begäranden. Mer information om dessa åtgärder finns [MERGE-korrigering/PUT](https://msdn.microsoft.com/library/dd541276.aspx).
+## <a name="updating-entities"></a>Uppdaterar entiteter
+Beroende på enhetstypen och tillstånd att är kan du uppdatera egenskaperna på denna entitet via en KORRIGERINGSFIL PUT eller sammanfoga HTTP-begäranden. Mer information om dessa åtgärder finns i [MERGE-PATCH/PUT](https://msdn.microsoft.com/library/dd541276.aspx).
 
-Följande kodexempel visar hur du uppdaterar egenskapen Name för en tillgång entitet.
+I följande kodexempel visar hur du uppdaterar egenskapen namn på en entitet för tillgången.
 
     MERGE https://media.windows.net/API/Assets('nb:cid:UUID:80782407-3f87-4e60-a43e-5e4454232f60') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -146,17 +146,17 @@ Följande kodexempel visar hur du uppdaterar egenskapen Name för en tillgång e
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337083279&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=DMLQXWah4jO0icpfwyws5k%2b1aCDfz9KDGIGao20xk6g%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.windows.net
     Content-Length: 21
     Expect: 100-continue
 
     {"Name" : "NewName" }
 
-## <a name="deleting-entities"></a>Ta bort enheter
-Enheter kan tas bort i Media Services med hjälp av en ta bort HTTP-begäran. Den ordning som du kan ta bort enheter kan vara viktiga beroende på enheten. Till exempel entiteter, till exempel tillgångar kräver att du återkalla (eller ta bort) alla lokaliserare som refererar till viss tillgången innan du tar bort tillgången.
+## <a name="deleting-entities"></a>Ta bort entiteter
+Entiteter kan tas bort i Media Services med hjälp av en ta bort HTTP-begäran. Den ordning som du kan ta bort entiteter kan vara viktiga beroende på entiteten. Till exempel entiteter, till exempel tillgångar kräver att du återkalla (eller ta bort) alla positionerare som refererar till den tillgången innan du tar bort tillgången.
 
-I följande exempel visas hur du tar bort en positionerare som används för att överföra en fil i blob-lagring.
+I följande exempel visas hur du tar bort en positionerare som används för att ladda upp en fil till blob-lagring.
 
     DELETE https://media.windows.net/API/Locators('nb:lid:UUID:76dcc8e8-4230-463d-97b0-ce25c41b5c8d') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -164,7 +164,7 @@ I följande exempel visas hur du tar bort en positionerare som används för att
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.windows.net
     Content-Length: 0
 

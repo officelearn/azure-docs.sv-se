@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 99848cf4ba1e6e65a8c41c682916ca391128eb21
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 3f92eac79e9524aa6ded9f898d582ce46c99bf97
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059944"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363300"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uppgradera och skala en Azure API Management-instans  
 
@@ -67,5 +67,5 @@ Du kan uppgradera och nedgradera till och från valfri nivå. Observera att uppg
 
 ## <a name="next-steps"></a>Nästa steg
 
-*[Hur du distribuerar en Azure API Management-tjänstinstans till flera Azure-regioner](api-management-howto-deploy-multi-region.md)
-*[hur du automatiskt skalar en Azure API Management-tjänstinstans](api-management-howto-autoscale.md)
+- [Hur du distribuerar en Azure API Management-tjänstinstans till flera Azure-regioner](api-management-howto-deploy-multi-region.md)
+- [Hur du automatiskt skalar en Azure API Management-tjänstinstans](api-management-howto-autoscale.md)

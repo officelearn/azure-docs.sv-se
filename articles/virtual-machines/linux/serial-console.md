@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 6fb60955f1d436e13234243c0e83f1487cb7f7d0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1ede114f670dc7b1f610dff7cf076329e50f9240
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127728"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367788"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine Serial Console
 
@@ -44,7 +44,7 @@ Seriell konsol dokumentation för Windows-datorer samt [Klicka här](../windows/
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Inställningar som är specifika för Linux-distributioner, se [komma åt seriekonsolen för Linux](#access-serial-console-for-linux)
+* Inställningar som är specifika för Linux-distributioner, se [komma åt seriekonsolen för Linux](#Serial-Console-Linux-distro-availability)
 
 
 
@@ -52,15 +52,18 @@ Seriell konsol dokumentation för Windows-datorer samt [Klicka här](../windows/
 Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://portal.azure.com). Nedan visas stegen för att komma åt seriekonsol för virtuella datorer via portalen 
 
   1. Öppna Azure portal
-  2. Välj virtuella datorer i den vänstra menyn.
-  3. Klicka på den virtuella datorn i listan. Översiktssidan för den virtuella datorn öppnas.
-  4. Rulla ned till avsnittet om Support och felsökning och klicka på alternativet ”seriekonsolen”. Ett nytt fönster med seriell konsol öppnas och starta anslutningen.
+  1. (Hoppa över detta om den virtuella datorn har en användare som använder lösenordsautentisering) Lägg till en användare med autentisering med användarnamn/lösenord genom att klicka på bladet ”Återställ lösenord”
+  1. Välj virtuella datorer i den vänstra menyn.
+  1. Klicka på den virtuella datorn i listan. Översiktssidan för den virtuella datorn öppnas.
+  1. Rulla ned till avsnittet om Support och felsökning och klicka på alternativet ”seriekonsolen”. Ett nytt fönster med seriell konsol öppnas och starta anslutningen.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
+### 
 
 > [!NOTE] 
-> Seriell konsol kräver en lokal användare med ett lösenord som har konfigurerats. Virtuella datorer som endast konfigurerats med en offentlig SSH-nyckel har inte åtkomst till seriekonsol för tillfället. Om du vill skapa en lokal användare med lösenord, använda den [VM Access-tillägg](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (finns också i portalen genom att klicka på ”Återställ lösenord”) och skapa en lokal användare med ett lösenord.
+> Seriell konsol kräver en lokal användare med ett lösenord som har konfigurerats. Virtuella datorer som endast konfigurerats med en offentlig SSH-nyckel kan inte logga in till seriekonsol för tillfället. Om du vill skapa en lokal användare med lösenord, använda den [VM Access-tillägg](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), tillgänglig i portalen genom att klicka på ”Återställ lösenord” i portalen och skapa en lokal användare med ett lösenord.
+> Du kan också återställa administratörslösenordet i ditt konto genom att [med GRUB för att släppa i enanvändarläge](./serial-console-grub-single-user-mode.md).
 
 ## <a name="serial-console-linux-distro-availability"></a>Seriell konsol Linux-distribution tillgänglighet
 Gästoperativsystemet måste konfigureras för att läsa och skriva konsolmeddelanden att den seriella porten för seriekonsol för att fungera korrekt. De flesta [godkända Azure Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) har seriekonsolen konfigureras som standard. Att klicka på avsnittet Seriekonsolen i Azure portal ger åtkomst till konsolen. 
@@ -208,6 +211,8 @@ A. Avbildningen är antagligen felkonfigurerad för seriell konsolåtkomst. Se [
 **FRÅGOR OCH. Är seriell konsol för Virtual Machine Scale Sets?**
 
 A. Åtkomst till seriekonsol för VM-skalningsuppsättningsinstanser stöds inte för tillfället.
+
+**FRÅGOR OCH. Jag konfigurera min virtuella dator med hjälp av endast SSH-nyckelautentisering, kan jag fortsätta att använda Seriell konsol för att ansluta till min virtuella dator?** A. Ja. Seriell konsol kräver inte SSH-nycklar, så att allt du behöver göra en kombination av användarnamn/lösenord. Du kan göra detta genom att använda ”Återställ lösenord”-bladet i portalen och använda dessa autentiseringsuppgifter för att logga in på Seriell konsol.
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd Seriekonsol för att [starta i GRUB och ange enanvändarläge](serial-console-grub-single-user-mode.md)

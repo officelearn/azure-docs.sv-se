@@ -1,41 +1,42 @@
 ---
-title: Autentisera till tjänsten Microsoft Speech | Microsoft Docs
-description: Begär autentisering som ska användas av Microsoft tal-API
+title: Autentisera till Bing-taligenkänning | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Begär autentisering du använder API för Bing-taligenkänning
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e36168cf3ff938af44f1028c2d26fd475d60b148
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 93171dba435172565215560e437dc56c9436baac
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352209"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366462"
 ---
-# <a name="authenticate-to-the-speech-api"></a>Autentisera till tal-API
+# <a name="authenticate-to-the-speech-api"></a>Autentisera till API för taligenkänning
 
-Tal tjänsten stöder autentisering med hjälp av:
+Bing-taligenkänning stöder autentisering med hjälp av:
 
-- En prenumeration nyckel.
+- En prenumerationsnyckel.
 - En autentiseringstoken.
 
-## <a name="use-a-subscription-key"></a>Använda en prenumeration för
+## <a name="use-a-subscription-key"></a>Använd en prenumerationsnyckel
 
-Om du vill använda tal tjänsten måste du först prenumerera tal-API som är en del av kognitiva tjänster (tidigare projekt Oxford). Du kan hämta en kostnadsfri utvärderingsprenumeration nycklar från den [kognitiva abonnemang](https://azure.microsoft.com/try/cognitive-services/) sidan. När du har valt tal-API, Välj **hämta API-nyckel** att hämta nyckeln. Returnerar en primär och en sekundär nyckel. Båda nycklarna är knutna till samma kvoten, så du kan använda antingen nyckel.
+Om du vill använda Speech Service, måste du först prenumerera API för taligenkänning som är en del av Cognitive Services (tidigare projekt Oxford). Du kan få kostnadsfri utvärderingsprenumeration nycklar från den [Cognitive Services-prenumeration](https://azure.microsoft.com/try/cognitive-services/) sidan. När du har valt API för taligenkänning, Välj **hämta API-nyckel** att hämta nyckeln. Returnerar den primära och sekundära nyckeln. Båda nycklarna är knutna till samma kvot, så du kan använda någon av nycklarna.
 
-För långsiktig användning eller en större kvot registrera dig för en [Azure-konto](https://azure.microsoft.com/free/).
+För långvarig användning eller en större kvot, registrera dig för en [Azure-konto](https://azure.microsoft.com/free/).
 
-Om du vill använda tal REST API du behöver för att skicka nyckeln prenumerationen i den `Ocp-Apim-Subscription-Key` i huvudet i begäran.
+Om du vill använda REST-API för taligenkänning, måste du skicka prenumerationsnyckeln i den `Ocp-Apim-Subscription-Key` i huvudet för begäran.
 
 Namn| Format| Beskrivning
 ----|-------|------------
-OCP-Apim-prenumeration-nyckel | ASCII | YOUR_SUBSCRIPTION_KEY
+OCP-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 
-Följande är ett exempel på ett huvud:
+Följande är ett exempel på en rubrik för begäran:
 
 ```HTTP
 POST https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -48,18 +49,18 @@ Expect: 100-continue
 ```
 
 > [!IMPORTANT]
-> Om du använder [klientbibliotek](../GetStarted/GetStartedClientLibraries.md) i ditt program, kontrollera att du kan få autentiseringstoken med din prenumeration nyckel som beskrivs i följande avsnitt. Klientbiblioteken Använd prenumeration för att få en autentiseringstoken och sedan använda token för autentisering.
+> Om du använder [klientbibliotek](../GetStarted/GetStartedClientLibraries.md) i ditt program, kontrollera att du kan få autentiseringstoken med din prenumerationsnyckel som beskrivs i följande avsnitt. Klientbiblioteken använda prenumerationsnyckeln för att få en autentiseringstoken och sedan använda token för autentisering.
 
-## <a name="use-an-authorization-token"></a>Använd en autentiseringstoken
+## <a name="use-an-authorization-token"></a>Använda en autentiseringstoken
 
-Du kan också använda en Autentiseringstoken för autentisering som bevis på autentisering/auktorisering. För att få detta token, måste du först skaffa en prenumeration nyckel från tal-API som beskrivs i den [föregående avsnitt](#use-a-subscription-key).
+Du kan också använda en Autentiseringstoken för autentisering som bevis på autentisering/auktorisering. Om du vill ha detta token, måste du först skaffa en prenumerationsnyckel från API för taligenkänning, enligt beskrivningen i den [föregående avsnittet](#use-a-subscription-key).
 
 ### <a name="get-an-authorization-token"></a>Hämta en autentiseringstoken
 
-När du har en giltig prenumeration nyckel kan skicka en POST-begäran till tokentjänsten kognitiva tjänster. I svaret visas autentiseringstoken som en JSON-Webbtoken (JWT).
+När du har en giltig prenumeration-nyckel kan du skicka en POST-begäran till token-tjänsten för Cognitive Services. I svaret får du autentiseringstoken som en JSON Web Token (JWT).
 
 > [!NOTE]
-> Token har en giltighetstid 10 minuter. Om du vill förnya token finns i följande avsnitt.
+> Token har en giltighetstid på 10 minuter. Se följande avsnitt för att förnya token.
 
 Tokentjänsten URI finns här:
 
@@ -67,7 +68,7 @@ Tokentjänsten URI finns här:
 https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-Följande kodexempel visar hur du hämtar en åtkomst-token. Ersätt `YOUR_SUBSCRIPTION_KEY` med din egen prenumeration nyckel:
+Följande kodexempel visar hur du hämtar en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med din egen prenumerationsnyckel:
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
 
@@ -85,9 +86,9 @@ $OAuthToken
 
 ```
 
-# <a name="curltabcurl"></a>[cURL](#tab/curl)
+# <a name="curltabcurl"></a>[CURL](#tab/curl)
 
-I exemplet används curl på Linux med bash. Om den inte är tillgänglig på din plattform, kan du behöva installera curl. Exemplet fungerar även på Cygwin på Windows, Git Bash, zsh och andra gränssnitt.
+Exemplet använder curl på Linux med bash. Om det inte är tillgänglig på din plattform, kan du behöva installera curl. Exemplet fungerar även på Cygwin på Windows, Git Bash, zsh och andra gränssnitt.
 
 ```
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
@@ -134,7 +135,7 @@ curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Co
 
 ---
 
-Följande är ett exempel på POST-begäran:
+Följande är ett exempel POST-begäran:
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken HTTP/1.1
@@ -145,16 +146,16 @@ Content-Length: 0
 Connection: Keep-Alive
 ```
 
-Om du inte får tillstånd token från token-tjänsten bör du kontrollera om din prenumeration nyckel är fortfarande giltig. Om du använder en kostnadsfri utvärderingsversion nyckel går du till den [kognitiva abonnemang](https://azure.microsoft.com/try/cognitive-services/) klickar du på ”Logga in” för att logga in med det konto som du använde för att tillämpa den kostnadsfria utvärderingsversion nyckeln och kontrollera om nyckeln prenumeration har upphört att gälla eller överskrider den kvoten.
+Om du inte får auktorisation token från token-tjänsten bör du kontrollera om din prenumerationsnyckel är fortfarande giltig. Om du använder en kostnadsfri utvärderingsversion nyckel, går du till den [Cognitive Services-prenumeration](https://azure.microsoft.com/try/cognitive-services/) klickar du på ”Logga in” för att logga in med det konto som du använde för att tillämpa den kostnadsfria utvärderingsversionen nyckeln och kontrollera om prenumerationsnyckeln har upphört att gälla eller överskrider den kvot.
 
 ### <a name="use-an-authorization-token-in-a-request"></a>Använd en autentiseringstoken i en begäran
 
-Varje gång du anropar tal-API, måste du skicka autentiseringstoken i den `Authorization` rubrik. Den `Authorization` huvudet måste innehålla en JWT-åtkomsttoken.
+Varje gång du anropar API för taligenkänning, måste du skicka autentiseringstoken i den `Authorization` rubrik. Den `Authorization` rubrik måste innehålla en JWT-token för åtkomst.
 
-I följande exempel visas hur du använder en autentiseringstoken när du anropar tal REST API.
+I följande exempel visas hur du använder en autentiseringstoken när du anropar REST-API för taligenkänning.
 
 > [!NOTE]
-> Ersätt `YOUR_AUDIO_FILE` med sökvägen till filen inspelade ljud. Ersätt `YOUR_ACCESS_TOKEN` med autentiseringstoken som du fick i förra steget [få en autentiseringstoken](#get-an-authorization-token).
+> Ersätt `YOUR_AUDIO_FILE` med sökvägen till din inspelade ljudfil. Ersätt `YOUR_ACCESS_TOKEN` med autentiseringstoken som du fick i det föregående steget [får en autentiseringstoken](#get-an-authorization-token).
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
 
@@ -180,7 +181,7 @@ $RecoResponse
 
 ```
 
-# <a name="curltabcurl"></a>[cURL](#tab/curl)
+# <a name="curltabcurl"></a>[CURL](#tab/curl)
 
 ```
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
@@ -229,9 +230,9 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ### <a name="renew-an-authorization-token"></a>Förnya en autentiseringstoken
 
-Autentiseringstoken upphör att gälla efter en viss tidsperiod (för närvarande 10 minuter). Du måste förnya autentiseringstoken innan den upphör.
+Autentiseringstoken upphör att gälla efter en viss tidsperiod (för närvarande 10 minuter). Du måste förnya autentiseringstoken innan den upphör att gälla.
 
-Följande kod är ett exempel på implementering i C# för hur du förnyar autentiseringstoken:
+Följande kod är ett exempel på implementering i C# på hur du kan förnya autentiseringstoken:
 
 ```cs
     /*

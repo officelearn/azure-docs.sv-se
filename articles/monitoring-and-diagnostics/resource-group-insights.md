@@ -9,15 +9,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 723006d37ed0570e32790a0bb70a3dce5a87ade8
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345090"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465817"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Övervaka resursgrupper med Azure Monitor (förhandsversion)
 
@@ -109,6 +109,11 @@ Prestanda erbjuder en egen galleri med arbetsböcker. För App Service erbjuder 
 I det här fallet om du väljer Redigera visas att den här uppsättningen visuella effekter drivs av Azure Monitor Metrics.
 
  ![Skärmbild av prestandavy med Azure-mått](.\media\resource-group-insights\0012-performance-metrics.png)
+
+## <a name="troubleshooting"></a>Felsökning
+
+### <a name="enabling-access-to-alerts"></a>Aktivera åtkomst till aviseringar
+Azure Monitor för resursgrupper måste vissa behörigheter att komma åt aviseringsstatus resurser i resursgruppen. Om du ser ett felmeddelande när du läser in aviseringar, har du inte tillräcklig behörighet. Be administratören att ge dig den **ägare** eller **deltagare** för prenumerationen som innehåller resursgruppen.
 
 ## <a name="next-steps"></a>Nästa steg
 

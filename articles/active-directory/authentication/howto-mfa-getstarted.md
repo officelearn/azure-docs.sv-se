@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 17c67cc07f2bbdee3d71e69068cca6cbcfe3a104
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e8d4286e282ebbe727941712f3f3c4d3ea749cb5
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579827"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366598"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Distribuera molnbaserade Azure Multi-Factor Authentication
 
@@ -24,7 +24,7 @@ Det är enkelt att komma igång med Azure Multi-Factor Authentication (MFA Azure
 Innan du börjar bör du kontrollera att du har följande krav:
 
 * Ett globalt administratörskonto i Azure AD-klienten. Om du behöver hjälp med att slutföra det här steget finns i vår artikel [Kom igång med Azure AD](../get-started-azure-ad.md).
-* Rätt licenser till användare. Om du behöver mer information finns i avsnittet [så här hämtar du Azure Multi-Factor Authentication](concept-mfa-licensing.md).
+* Rätt licenser till användare. Om du behöver mer information finns i artikeln [så här hämtar du Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
 ## <a name="choose-how-to-enable"></a>Välj hur du vill aktivera
 
@@ -44,7 +44,7 @@ Aktivera minst en autentiseringsmetod för användarna utifrån organisationens 
 
 ## <a name="get-users-to-enroll"></a>Få användarna att registrera
 
-När du aktiverar principen för villkorlig åtkomst kan tvingas användarna att registrera nästa gång de använder en app som skyddas med principen. Om du aktiverar en princip som kräver MFA för alla användare på alla molnappar kan den här åtgärden orsaka problem för användarna och supportavdelningen. Rekommendationen är att be användare att registrera autentiseringsmetoder i förväg med registreringsportalen på [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Många organisationer hitta att skapa affischer, tabell-kort och e-postmeddelanden som hjälper dig att införa.
+När du aktiverar principen för villkorlig åtkomst kan tvingas användarna att registrera nästa gång de använder en app som skyddas med principen. Om du aktiverar en princip som kräver MFA för alla användare på alla molnappar, kan den här åtgärden orsaka problem för användarna och supportavdelningen. Rekommendationen är att be användare att registrera autentiseringsmetoder i förväg med registreringsportalen på [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Många organisationer hitta att skapa affischer, tabell-kort och e-postmeddelanden som hjälper dig att införa.
 
 ## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Aktivera Multi-Factor Authentication med villkorlig åtkomst
 
@@ -54,40 +54,40 @@ Logga in på den [Azure-portalen](https://portal.azure.com) med hjälp av ett gl
 
 Innan du aktiverar Azure Multi-Factor Authentication, måste din organisation bestämma vilka alternativ för verifiering som de gör. I den här övningen aktivera du anrop till telefon och text meddelandet till telefon, eftersom de allmänna alternativ för att de flesta ska kunna använda. Mer information om autentiseringsmetoder och deras användning finns i artikeln [vad är autentiseringsmetoder?](concept-authentication-methods.md)
 
-1. Bläddra till **Azure Active Directory**, **användare**, **Multifaktorautentisering**
-   ![åtkomst till Multi-Factor Authentication portalen från bladet för Azure AD-användare i Azure-portalen](media/howto-mfa-getstarted/users-mfa.png) 
-2. I den nya fliken som öppnas bläddrar du till **tjänstinställningar**
-3. Under **verifieringsalternativ**, markera följande kryssrutorna för metoder som är tillgängliga för användare
-   * Samtal till telefon
-   * Textmeddelande till telefon
+1. Bläddra till **Azure Active Directory**, **användare**, **Multifaktorautentisering**.
+
+   ![Ansluter till Multi-Factor Authentication-portalen från bladet för Azure AD-användare i Azure-portalen](media/howto-mfa-getstarted/users-mfa.png)
+
+1. I den nya fliken som öppnas bläddrar du till **tjänstinställningar**.
+1. Under **verifieringsalternativ**, kontrollera alla rutorna för metoder som är tillgängliga för användare.
 
    ![Konfigurera verifieringsmetoder i inställningar-fliken Multi-Factor Authentication-tjänsten](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
 
-4. Klicka på **Spara**
-5. Stäng den **tjänstinställningar** fliken
+4. Klicka på **Spara**.
+5. Stäng den **tjänstinställningar** fliken.
 
 ### <a name="create-conditional-access-policy"></a>Skapa princip för villkorlig åtkomst
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med hjälp av ett globalt administratörskonto.
-1. Bläddra till **Azure Active Directory**, **Conditional access** (Villkorsstyrd åtkomst)
-1. Välj **Ny princip**
-1. Ange ett beskrivande namn för principen
-1. Under **användare och grupper**
+1. Bläddra till **Azure Active Directory**, **Conditional access** (Villkorsstyrd åtkomst).
+1. Välj **ny princip**.
+1. Ange ett beskrivande namn för principen.
+1. Under **användare och grupper**:
    * På den **inkludera** fliken den **alla användare** alternativknapp
    * REKOMMENDERAT: På den **undanta** fliken, markerar du kryssrutan för **användare och grupper** och välj en grupp som ska användas för undantag när användare inte har åtkomst till sina autentiseringsmetoder.
-   * Klicka på **Klar**
-1. Under **Molnappar**väljer den **alla molnappar** alternativknapp
+   * Klicka på **Klar**.
+1. Under **Molnappar**väljer den **alla molnappar** alternativknappen.
    * Du kan också: På den **undanta** -fliken, Välj molnappar som din organisation inte kräver MFA för.
-   * Klicka på **Klar**
-1. Under **villkor** avsnittet
+   * Klicka på **Klar**.
+1. Under **villkor** avsnittet:
    * : Om du har aktiverat Azure Identity Protection, du kan välja att utvärdera inloggningsrisk som en del av principen.
    * Du kan också: Om du har konfigurerat betrodda platser eller namngivna platser, kan du ange om du vill inkludera eller exkludera dessa platser från principen.
-1. Under **Bevilja** ser du till att alternativknappen **Bevilja åtkomst** har markerats
-    * Markera rutan för **Kräv multifaktorautentisering**
-    * Klicka på **Välj**
-1. Hoppa över avsnittet **Session**
-1. Ställ in växeln **Aktivera princip** till **På**
-1. Klicka på **Skapa**
+1. Under **bevilja**, se till att den **bevilja åtkomst** alternativknappen har valts.
+    * Markera kryssrutan för **kräva multifaktorautentisering**.
+    * Klicka på **Välj**.
+1. Hoppa över den **Session** avsnittet.
+1. Ange den **aktiverar principen** växla till **på**.
+1. Klicka på **Skapa**.
 
 ![Skapa en princip för villkorlig åtkomst för att aktivera MFA för användare av Azure i pilotgrupp](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
@@ -96,18 +96,18 @@ Innan du aktiverar Azure Multi-Factor Authentication, måste din organisation be
 Testa för att bekräfta att din princip för villkorlig åtkomst fungerar, logga in till en resurs som inte får kräva MFA och sedan till Azure-portalen som kräver MFA.
 
 1. Öppna ett nytt webbläsarfönster i InPrivate- eller <inkognitoläge och gå till [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
-   * Logga in med den testanvändare som skapades i avsnittet om förutsättningar i den här artikeln. Observera att den inte ska uppmana dig att slutföra MFA.
-   * Stäng webbläsarfönstret
+   * Logga in med den användare som skapats i avsnittet med förutsättningar i den här artikeln och Observera att det inte ska uppmana dig att slutföra MFA.
+   * Stäng webbläsarfönstret.
 2. Öppna ett nytt webbläsarfönster i InPrivate- eller <inkognitoläge och gå till [https://portal.azure.com](https://portal.azure.com).
-   * Logga in med den testanvändare som skapades i avsnittet om förutsättningar i den här artikeln. Observera att det nu ska krävas att du registrerar dig för och använder multifaktorautentisering.
-   * Stäng webbläsarfönstret
+   * Logga in med testet användaren som skapades som en del av avsnittet med förutsättningar i den här artikeln och Observera att du ska nu vara krävs för att registrera dig för och använder Azure Multi-Factor Authentication.
+   * Stäng webbläsarfönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Grattis, du har konfigurerat Azure Multi-Factor Authentication i molnet.
 
-Om du vill konfigurera ytterligare inställningar som tillförlitliga IP-adresser, anpassade röstmeddelanden och bedrägerivarningar finns i artikeln [konfigurera Azure Multi-Factor Authentication-inställningar](howto-mfa-mfasettings.md)
+Om du vill konfigurera ytterligare inställningar som tillförlitliga IP-adresser, anpassade röstmeddelanden och bedrägerivarningar finns i artikeln [konfigurera Azure Multi-Factor Authentication-inställningar](howto-mfa-mfasettings.md).
 
-Information om hur du hanterar användarinställningar för Azure Multi-Factor Authentication finns i artikeln [hantera användarinställningar med Azure Multi-Factor Authentication i molnet](howto-mfa-userdevicesettings.md)
+Information om hur du hanterar användarinställningar för Azure Multi-Factor Authentication finns i artikeln [hantera användarinställningar med Azure Multi-Factor Authentication i molnet](howto-mfa-userdevicesettings.md).
 
-[Aktivera konvergerade registrering för Azure Multi-Factor Authentication och Azure AD lösenordsåterställning via självbetjäning](concept-registration-mfa-sspr-converged.md)
+[Aktivera konvergerade registrering för Azure Multi-Factor Authentication och Azure AD lösenordsåterställning via självbetjäning](concept-registration-mfa-sspr-converged.md).

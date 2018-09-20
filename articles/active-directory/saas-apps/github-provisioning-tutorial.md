@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f069134c0665769316b794122cc077b05941f635
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c645b0a99493c71a9fa1416c16876da30bcff891
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346176"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367669"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Självstudie: Konfigurera GitHub för automatisk användaretablering
 
@@ -80,7 +80,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till GitHub-användarko
 
     ![Dialogrutan för auktorisering](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. Azure-portalen anger **klient-URL** och klicka på **Testanslutningen** att se till att Azure AD kan ansluta till din GitHub-app. Om anslutningen misslyckas se till att ditt GitHub-konto har administratörsbehörighet och **klient-URl** är inputted korrekt och försök igen ”auktorisera” steg (du kan utgöra **klient-URL** av regel: `https://api.github.com/scim/v2/<Organizations_name>` Du kan hitta din organisationer under ditt GitHub-konto: **inställningar** > **organisationer**).
+7. Azure-portalen anger **klient-URL** och klicka på **Testanslutningen** att se till att Azure AD kan ansluta till din GitHub-app. Om anslutningen misslyckas se till att ditt GitHub-konto har administratörsbehörighet och **klient-URl** är inputted korrekt och försök igen ”auktorisera” steg (du kan utgöra **klient-URL** av regel: `https://api.github.com/scim/v2/organizations/<Organization_name>` Du kan hitta din organisationer under ditt GitHub-konto: **inställningar** > **organisationer**).
 
     ![Dialogrutan för auktorisering](./media/github-provisioning-tutorial/GitHub3.png)
 

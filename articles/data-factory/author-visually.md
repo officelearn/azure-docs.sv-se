@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/19/2018
 ms.author: shlo
-ms.openlocfilehash: 8ad587f7aa7aeb5b7176e63b52f6dea8286055a6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5bb1099dee919de50d2c2fc110f3a204e580b66c
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296899"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465987"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 Azure Data Factory användargränssnittet användarupplevelsen (UX) kan du visuellt skapa och distribuera resurser för din datafabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en rityta för pipelinen, utför testkörningar, felsöker stegvis och distribuerar och övervakar dina pipelinekörningar. Det finns två metoder för att utföra visuell redigering med UX-Gränssnittet:
 
 - Författare direkt med Data Factory-tjänsten.
-- Författare med Azure DevOps Git-integrering för samarbete, källkontroll och versionshantering.
+- Författare med Git-integrering med Azure-lagringsplatser för samarbete, källkontroll och versionshantering.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>Författare direkt med Data Factory-tjänsten
-Visuell redigering med Data Factory-tjänsten skiljer sig från visuell redigering med Azure DevOps på två sätt:
+Visuell redigering med Data Factory-tjänsten skiljer sig från visuell redigering med Azure DevOps-tjänsterna på två sätt:
 
 - Data Factory-tjänsten innehåller inte en lagringsplats för att lagra JSON-entiteter för dina ändringar.
 - Data Factory-tjänsten inte är optimerad för samarbete eller versionskontroll.
@@ -38,39 +38,39 @@ När du använder UX **Redigeringsyta** skriva direkt med Data Factory-tjänsten
 
 ![Publicera läge](media/author-visually/data-factory-publish.png)
 
-## <a name="author-with-azure-devops-git-integration"></a>Redigera med Azure DevOps Git-integrering
-Visuell redigering med Azure DevOps Git-integrering har stöd för källkontroll och samarbete for work på din data factory-pipelines. Du kan associera en datafabrik med en organisationens databas i Azure DevOps Git för källkontroll, samarbete, versionshantering och så vidare. En enda Azure DevOps Git-organisation kan ha flera databaser, men en Azure DevOps Git-lagringsplatsen kan associeras med endast en data factory. Om du inte har en Azure DevOps-organisation eller databasen, Följ [instruktionerna](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) att skapa dina resurser.
+## <a name="author-with-git-integration-with-azure-repos"></a>Redigera med Git-integrering med Azure-lagringsplatser
+Visuell redigering med Git-integrering med Azure-databaser har stöd för källkontroll och samarbete for work på din data factory-pipelines. Du kan associera en datafabrik med en organisationens databas i Azure-lagringsplatser Git för källkontroll, samarbete, versionshantering och så vidare. En enda Azure-lagringsplatser Git-organisation kan ha flera databaser, men en Azure-lagringsplatser Git-lagringsplatsen kan associeras med endast en data factory. Om du inte har en Azure-lagringsplatser organisation eller databasen, Följ [instruktionerna](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) att skapa dina resurser.
 
 > [!NOTE]
-> Du kan lagra aktivitetsskript och datafiler i en Azure DevOps Git-lagringsplats. Du kan dock överföra filerna manuellt till Azure Storage. Data Factory-pipeline överför inte skript eller datafiler som lagras i en Azure DevOps Git-databas till Azure Storage automatiskt.
+> Du kan lagra aktivitetsskript och datafiler i en Azure-lagringsplatser Git-lagringsplats. Du kan dock överföra filerna manuellt till Azure Storage. Data Factory-pipeline överför inte skript eller datafiler som lagras i en Azure-lagringsplatser Git-databas till Azure Storage automatiskt.
 
-### <a name="configure-an-azure-devops-git-repository-with-azure-data-factory"></a>Konfigurera en Azure DevOps Git-lagringsplats med Azure Data Factory
-Du kan konfigurera en Azure DevOps Git-lagringsplats med en datafabrik med två metoder.
+### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Konfigurera en Azure-lagringsplatser Git-lagringsplats med Azure Data Factory
+Du kan konfigurera en Azure-lagringsplatser Git-lagringsplats med en datafabrik med två metoder.
 
-#### <a name="method1"></a> Metod 1 (Azure DevOps Git-lagringsplats): vi sidan Kom igång
+#### <a name="method1"></a> Metod 1 (Azure lagringsplatser Git-lagringsplats): vi sidan Kom igång
 
 I Azure Data Factory går du till den **nu sätter vi igång** sidan. Välj **konfigurera Kodlagringsplats**:
 
-![Konfigurera en lagringsplats för Azure DevOps-kod](media/author-visually/configure-repo.png)
+![Konfigurera en kodlagringsplats för Azure-lagringsplatser](media/author-visually/configure-repo.png)
 
 Den **inställningar för lagringsplats** konfigurationsruta visas:
 
 ![Konfigurera inställningar för kod lagringsplats](media/author-visually/repo-settings.png)
 
-Fönstret visar följande kod för Azure DevOps inställningar för lagringsplats:
+Fönstret visar följande kod i Azure-lagringsplatser inställningar för lagringsplats:
 
 | Inställning | Beskrivning | Värde |
 |:--- |:--- |:--- |
-| **Typ av lagringsplats** | Typ av lagringsplats för Azure DevOps-kod.<br/>**Obs**: GitHub stöds inte för närvarande. | Azure Dev Ops Git |
+| **Typ av lagringsplats** | Typ av kodlagringsplatsen Azure lagringsplatser.<br/>**Obs**: GitHub stöds inte för närvarande. | Azure Dev Ops Git |
 | **Azure Active Directory** | Ditt klientnamn för Azure AD. | <your tenant name> |
-| **Azure DevOps-organisation** | Azure DevOps organisationens namn. Du kan hitta din Azure DevOps-organisationens namn på `https://{organization name}.visualstudio.com`. Du kan [logga in på din Azure DevOps-organisation](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | <your organization name> |
-| **Projektnamn** | Din Azure DevOps-projektnamn. Du kan hitta din Azure DevOps-projektnamn på `https://{organization name}.visualstudio.com/{project name}`. | <your Azure DevOps project name> |
-| **RepositoryName** | Din Azure DevOps kod databasnamn. Azure DevOps-projekt innehålla Git-lagringsplatser för att hantera din källkod när projektet växer. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i projektet. | <your Azure DevOps code repository name> |
-| **Samarbete gren** | Din Azure DevOps samarbete gren som ska användas för publicering. Som standard är det `master`. Ändra den här inställningen om du vill publicera resurser från en annan gren. | <your collaboration branch name> |
-| **Rotmapp för vyer** | Rotmappen i din gren för Azure DevOps-samarbete. | <your root folder name> |
-| **Importera befintlig Data Factory-resurser till databasen** | Anger om du vill importera befintliga data factory-resurser från UX **Redigeringsyta** till en Azure DevOps Git-lagringsplats. Markera kryssrutan för att importera din data factory-resurser till den associerade Git-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (det vill säga länkade tjänster och datauppsättningar exporteras till separata för). När den här rutan inte har valts, importera inte befintliga resurser. | Valda (standard) |
+| **Azure-lagringsplatser organisation** | Organisationsnamnet Azure lagringsplatser. Du kan hitta Azure-lagringsplatser organisationens namn på `https://{organization name}.visualstudio.com`. Du kan [logga in på din Azure-lagringsplatser organisation](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | <your organization name> |
+| **Projektnamn** | Projektnamnet Azure lagringsplatser. Du kan hitta din Azure-lagringsplatser projektnamn på `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
+| **RepositoryName** | Din Azure-lagringsplatser kod databasnamn. Projekt för Azure lagringsplatser innehålla Git-lagringsplatser för att hantera din källkod när projektet växer. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i projektet. | <your Azure Repos code repository name> |
+| **Samarbete gren** | Din Azure-lagringsplatser samarbete gren som ska användas för publicering. Som standard är det `master`. Ändra den här inställningen om du vill publicera resurser från en annan gren. | <your collaboration branch name> |
+| **Rotmapp för vyer** | Rotmappen i din Azure-lagringsplatser samarbete gren. | <your root folder name> |
+| **Importera befintlig Data Factory-resurser till databasen** | Anger om du vill importera befintliga data factory-resurser från UX **Redigeringsyta** till en Azure-lagringsplatser Git-lagringsplats. Markera kryssrutan för att importera din data factory-resurser till den associerade Git-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (det vill säga länkade tjänster och datauppsättningar exporteras till separata för). När den här rutan inte har valts, importera inte befintliga resurser. | Valda (standard) |
 
-#### <a name="configuration-method-2--azure-devops-git-repo-ux-authoring-canvas"></a>Metod 2 (Azure DevOps Git-lagringsplats): UX Redigeringsyta
+#### <a name="configuration-method-2--azure-repos-git-repo-ux-authoring-canvas"></a>Metod 2 (Azure lagringsplatser Git-lagringsplats): UX Redigeringsyta
 I Azure Data Factory UX **Redigeringsyta**, leta upp din data factory. Välj den **Data Factory** nedrullningsbara menyn och välj sedan **konfigurera Kodlagringsplats**.
 
 En konfigurationsruta visas. Mer information om inställningarna se beskrivningarna i <a href="#method1">konfigurationsmetoden 1</a>.
@@ -79,7 +79,7 @@ En konfigurationsruta visas. Mer information om inställningarna se beskrivninga
 
 ## <a name="use-a-different-azure-active-directory-tenant"></a>Använd en annan Azure Active Directory-klient
 
-Du kan skapa en Azure DevOps Git-lagringsplats i en annan Azure Active Directory-klient. Ange en annan Azure AD-klient du måste ha administratörsbehörighet för den prenumeration som du använder.
+Du kan skapa en Azure-lagringsplatser Git-lagringsplats i en annan Azure Active Directory-klient. Ange en annan Azure AD-klient du måste ha administratörsbehörighet för den prenumeration som du använder.
 
 ## <a name="switch-to-a-different-git-repo"></a>Växla till en annan Git-lagringsplats
 
@@ -92,13 +92,31 @@ När du tar bort kopplingen till den aktuella lagringsplatsen kan konfigurera du
 ## <a name="use-version-control"></a>Använda versionskontroll
 Versionskontrollsystem (även kallat _källkontroll_) möjligt för utvecklare att samarbeta med kod och spåra ändringar som görs i koden grundläggande. Källkontroll är ett viktigt verktyg för flera utvecklare projekt.
 
-Varje Azure DevOps Git-lagringsplats som är associerat med en data factory har en gren för samarbete. (`master` är samarbete standardgrenen). Användarna kan också skapa funktionen grenar genom att klicka på **+ ny gren** och göra utvecklingen i funktionen grenar.
+Varje Azure-lagringsplatser Git-lagringsplats som är associerat med en data factory har en gren för samarbete. (`master` är samarbete standardgrenen). Användarna kan också skapa funktionen grenar genom att klicka på **+ ny gren** och göra utvecklingen i funktionen grenar.
 
 ![Ändra koden genom att synkronisera eller publicera](media/author-visually/sync-publish.png)
 
-När du är klar med utvecklingen nya funktioner i din gren med funktionen kan du klicka på **skapa pull-begäran**. Den här åtgärden tar du Azure DevOps Git där du kan öka pull-begäranden gör code granskningar och slå samman ändringar i din gren för samarbete. (`master` är standard). Du kan bara publicera till Data Factory-tjänsten från din gren för samarbete. 
+När du är klar med utvecklingen nya funktioner i din gren med funktionen kan du klicka på **skapa pull-begäran**. Den här åtgärden tar du Azure lagringsplatser Git där du kan öka pull-begäranden gör code granskningar och slå samman ändringar i din gren för samarbete. (`master` är standard). Du kan bara publicera till Data Factory-tjänsten från din gren för samarbete. 
 
 ![Skapa en ny pullbegäran](media/author-visually/create-pull-request.png)
+
+## <a name="configure-publishing-settings"></a>Konfigurera inställningar för publicering
+
+Konfigurera grenen publicera – det vill säga grenen där sparas Resource Manager-mallar – Lägg till en `publish_config.json` filen till rotmappen i grenen samarbete. Data Factory läser den här filen, söker efter fältet `publishBranch`, och skapar en ny gren (om den inte redan finns) med det angivna värdet. Det sparar alla Resource Manager-mallar i den angivna platsen. Exempel:
+
+```json
+{
+    "publishBranch": "factory/adf_publish"
+}
+```
+
+När du publicerar från Git-läge kan bekräfta du att Data Factory använder publish-gren som du förväntar dig enligt följande skärmbild:
+
+![Bekräfta rätt publicera gren](media/author-visually/configure-publish-branch.png)
+
+När du anger en ny gren publicera Data Factory inte ta bort den tidigare publicera grenen. Om du vill remote grenen tidigare publicera kan ta du bort den manuellt.
+
+Data Factory läser bara den `publish_config.json` filen när den har lästs in fabriken. Om du redan har den fabriken som lästs in i portalen kan du uppdatera webbläsaren för att ändringarna ska börja gälla.
 
 ## <a name="publish-code-changes"></a>Publicera ändringar i koden
 När du har en sammanfogad ändringar i grenen samarbete (`master` är standard), Välj **publicera** manuellt publicera kodändringarna i huvudgrenen till Data Factory-tjänsten.
@@ -140,11 +158,11 @@ Den **inställningar för lagringsplats** konfigurationsruta visas:
 
 ![Inställningar för GitHub-lagringsplats](media/author-visually/github-integration-image2.png)
 
-Fönstret visar följande kod för Azure DevOps inställningar för lagringsplats:
+Fönstret visar följande kod i Azure-lagringsplatser inställningar för lagringsplats:
 
 | **Inställning**                                              | **Beskrivning**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Värde**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| **Typ av lagringsplats**                                      | Typ av lagringsplats för Azure DevOps-kod.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **Typ av lagringsplats**                                      | Typ av kodlagringsplatsen Azure lagringsplatser.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **GitHub-konto**                                       | Namnet på ditt GitHub. Det här namnet kan hitta https://github.com/{account namn} / {databasnamn}. Navigera till den här sidan uppmanas du att ange autentiseringsuppgifter för GitHub OAuth till ditt GitHub-konto.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | Din GitHub-lagringsplatsen kodnamnet. GitHub-konton innehåller Git-lagringsplatser för att hantera din källkod. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i ditt konto.                                                                                                                                                                                                                              |                    |
 | **Samarbete gren**                                 | Din GitHub samarbete gren som ska användas för publicering. Som standard är det master. Ändra den här inställningen om du vill publicera resurser från en annan gren.                                                                                                                                                                                                                                                               |                    |
@@ -172,11 +190,11 @@ Den **inställningar för lagringsplats** konfigurationsruta visas:
 
 ![Inställningar för GitHub-lagringsplats](media/author-visually/github-integration-image3.png)
 
-Fönstret visar följande kod för Azure DevOps inställningar för lagringsplats:
+Fönstret visar följande kod i Azure-lagringsplatser inställningar för lagringsplats:
 
 | **Inställning**                                              | **Beskrivning**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Värde**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| **Typ av lagringsplats**                                      | Typ av lagringsplats för Azure DevOps-kod.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **Typ av lagringsplats**                                      | Typ av kodlagringsplatsen Azure lagringsplatser.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **Använd GitHub Enterprise**                                | Kryssruta för att välja GitHub Enterprise                                                                                                                                                                                                                                                                                                                                                                                              |                    |
 | **GitHub Enterprise-URL**                                | GitHub Enterprise rot-URL. Exempel: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
 | **GitHub-konto**                                       | Namnet på ditt GitHub. Det här namnet kan hitta https://github.com/{account namn} / {databasnamn}. Navigera till den här sidan uppmanas du att ange autentiseringsuppgifter för GitHub OAuth till ditt GitHub-konto.                                                                                                                                                                                                                                               |                    |

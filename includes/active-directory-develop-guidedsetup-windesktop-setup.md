@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: c5d61da61f6ec98a1cac37ce9b12b28019ce2ae1
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7f8e9e8d333b87113783c566222b2d7ea57c411e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44058586"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368469"
 ---
 ## <a name="set-up-your-project"></a>Konfigurera ditt projekt
 
@@ -33,27 +33,26 @@ Det program som du skapar med den här guiden visar en knapp som används för a
 >
 
 Skapa ditt program genom att göra följande:
+
 1. I Visual Studio väljer **filen** > **New** > **projekt**.
 2. Under **mallar**väljer **Visual C#**.
-3. Välj **WPF-App** eller **Aplikaci WPF**, beroende på vilken version av Visual Studio-version som du använder.
+3. Välj **WPF-App (.NET Framework)**, beroende på vilken version av Visual Studio-version som du använder.
 
 ## <a name="add-msal-to-your-project"></a>Lägg till MSAL i projektet
+
 1. I Visual Studio väljer **verktyg** > **NuGet-Pakethanteraren**> **Pakethanterarkonsolen**.
 2. Klistra in följande Azure PowerShell-kommando i fönstret Package Manager-konsolen:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
+    Install-Package Microsoft.Identity.Client -Pre
     ```
 
     > [!NOTE] 
-    > Det här kommandot installerar Microsoft Authentication Library. MSAL hanterar hämtar, cachelagring och uppdatering användartoken som används för att få åtkomst till API: er som skyddas av Azure Active Directory v2.
+    > Det här kommandot installerar Microsoft Authentication Library. MSAL hanterar hämtar, cachelagring och uppdatering användartoken som används för att få åtkomst till API: er som skyddas av Azure Active Directory v2.0
     >
 
-    > [!NOTE]
-    > Den här snabbstarten inte användning men den senaste versionen av MSAL.NET, men vi arbetar på att uppdateras
-    > 
-
 ## <a name="add-the-code-to-initialize-msal"></a>Lägg till kod för att initiera MSAL
+
 I det här steget skapar du en klass för att hantera interaktion med MSAL, till exempel hantering av token.
 
 1. Öppna den *App.xaml.cs* filen och sedan lägga till referensen för MSAL i klassen:
@@ -97,4 +96,3 @@ En *MainWindow.xaml* fil bör skapas automatiskt som en del av din projektmall. 
     </StackPanel>
 </Grid>
 ```
-

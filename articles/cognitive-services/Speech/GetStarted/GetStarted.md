@@ -1,23 +1,24 @@
 ---
-title: Komma igång med Microsoft tal Service | Microsoft Docs
-description: Använda Microsoft Speech tjänst.
+title: Kom igång med Microsoft Speech Service | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Använda Microsoft Speech-tjänsten.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 9f9058706e2504b8c9ee8a7509e7380c415074a3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5fe00134bc7e9cd3017d7b2e84db60b36981a68
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352161"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368128"
 ---
-# <a name="get-started-with-speech-service"></a>Komma igång med tal Service
+# <a name="get-started-with-bing-speech"></a>Kom igång med Bing-taligenkänning
 
-Om du vill använda tjänsten Microsoft speech recognition ljud konvertera till text finns taligenkänning [REST API: er](GetStartedREST.md) eller [klientbiblioteken](GetStartedClientLibraries.md).
+Om du vill använda tjänsten Microsoft för taligenkänning för att konvertera ljud till text, se den taligenkänning [REST API: er](GetStartedREST.md) eller [klientbibliotek](GetStartedClientLibraries.md).
 
-Om du vill använda tjänsten Microsoft text till tal, finns det [Text till tal-API-referens](../api-reference-rest/bingvoiceoutput.md).
+Om du vill använda tjänsten Microsoft text till tal, se den [Text till tal-API-referens](../api-reference-rest/bingvoiceoutput.md).

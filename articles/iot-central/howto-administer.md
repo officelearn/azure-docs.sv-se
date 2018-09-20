@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a43febf1e78f80451b6aeed19e095b2c313d3216
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: adcc0b741cac0ac5038243c80b3da2e0ff872c95
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284861"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466106"
 ---
 # <a name="how-to-administer-your-application"></a>Hur du administrerar ditt program
 
@@ -168,6 +168,23 @@ Som standard är alla kostnadsfria utvärderingsversioner tillgängliga i 7 daga
 1. Klicka på **utöka utvärdering**. I popup-fönstret väljer du lämplig Azure Active Directory-klient och sedan Azure-prenumeration om du vill använda för ditt IoT Central-program:
 
 1. Klicka sedan på **utöka**. Din utvärderingsversion är nu giltig i 30 dagar.
+
+## <a name="utilize-the-azure-sdks-to-do-control-plane-operations"></a>Använda Azure-SDK: er för att styra kontrollplansåtgärder
+
+IoT Central Azure Resource Manager SDK-paket är tillgängliga för Node, Python, C#, Ruby, Java och Go. Dessa bibliotek support kontrollplanåtgärder för IoT Central, så att du kan skapa, visa, uppdatera eller ta bort IoT Central-program. Du får även hjälp för att hantera autentisering och felhantering som är specifika för varje språk. 
+
+Exempel på användning av Azure Resource Manager-SDK: er finns på [ https://github.com/emgarten/iotcentral-arm-sdk-examples ](https://github.com/emgarten/iotcentral-arm-sdk-examples).
+
+Om du vill veta ta mer en titt på dessa paket på GitHub.
+
+| Språk | Lagringsplats | Paket |
+| ---------| ---------- | ------- |
+| Node | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
+| Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)
+| C# | [https://github.com/Azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) | [https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral](https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral)
+| Ruby | [https://github.com/Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby) | [https://rubygems.org/gems/azure_mgmt_iot_central](https://rubygems.org/gems/azure_mgmt_iot_central)
+| Java | [https://github.com/Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) | [https://search.maven.org/search?q=a:azure-mgmt-iotcentral](https://search.maven.org/search?q=a:azure-mgmt-iotcentral)
+| Go | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 849253dd4a2e66acc6a509a0515a22309c90e081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 99a1832d82005fabd6f8b62aea6ad7722b317a13
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42061464"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367890"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -25,7 +25,7 @@ Azure Monitor innehåller enhetligt användargränssnitt för övervakning över
 
 Azure Monitor innehåller flera sätt att åtkomst mått. Du kan komma åt dem från den [Azure-portalen](https://portal.azure.com), Azure Monitor-API: er (REST och .net) och lösningar för dataanalys, till exempel Operations Management Suite och Event Hubs. Mer information finns i [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) i Azure Monitor.
+Mått är aktiverade som standard och du kan komma åt de senaste 93 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) i Azure Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Åtkomst-mått i Azure portal
 
@@ -51,7 +51,7 @@ I följande exempel visar hur du listar måttdefinition på kontonivå:
 # Login to Azure and enter your credentials when prompted.
 > armclient login
 
-> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2017-05-01-preview
+> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2018-01-01
 
 ```
 
@@ -95,7 +95,7 @@ Svaret innehåller måttdefinitionen i JSON-format:
 I följande exempel visas hur du läser måttdata på kontonivå:
 
 ```
-> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metric=Availability&api-version=2017-05-01-preview&aggregation=Average&interval=PT1H"
+> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metricnames=Availability&api-version=2018-01-01&aggregation=Average&interval=PT1H"
 
 ```
 
@@ -312,7 +312,7 @@ Nedan visas format för att ange resurs-ID för var och en av lagringstjänstern
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * Filen service resurs-ID `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Resurs-ID i Azure Monitor REST-API
@@ -375,7 +375,7 @@ Azure Storage tillhandahåller följande transaktionsmått i Azure Monitor.
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 | Transaktioner | Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Tillämpliga dimensioner: ResponseType, GeoType, ApiName och autentisering ([Definition](#metrics-dimensions))<br/> Värdeexempel: 1024 |
-| Ingångshändelser | Mängden inkommande data. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. <br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Tillämpliga dimensioner: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
+| Ingress | Mängden inkommande data. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. <br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Tillämpliga dimensioner: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
 | Egress | Mängden utgående data. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. <br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Tillämpliga dimensioner: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
 | SuccessServerLatency | Den genomsnittliga tiden det tar för Azure Storage att bearbeta en lyckad begäran. Det här värdet innefattar inte nätverksfördröjningen som anges i SuccessE2ELatency. <br/><br/> Enhet: millisekunder <br/> Sammansättningstyp: genomsnittlig <br/> Tillämpliga dimensioner: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
 | SuccessE2ELatency | Den genomsnittliga svarstiden från slutpunkt till slutpunkt för lyckade begäranden som gjorts till en lagringstjänst eller för en angiven API-åtgärd. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. <br/><br/> Enhet: millisekunder <br/> Sammansättningstyp: genomsnittlig <br/> Tillämpliga dimensioner: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |

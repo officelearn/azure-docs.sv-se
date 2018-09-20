@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 6a817d4e52d602c921cb04f8c40dbad632d41932
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cdf1c8bfb8e623956d50975f36faafe10b534d06
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731335"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367568"
 ---
-# <a name="how-to-add-branding-to-your-azure-ad-sign-in-page"></a>Så här: Lägg till företagsanpassning för din Azure AD-inloggningssida
+# <a name="how-to-add-branding-to-your-azure-active-directory-sign-in-page"></a>Så här: Lägg till företagsanpassning för din Azure Active Directory-inloggningssida
 Använda organisationens logotyp och egna färgscheman för att tillhandahålla ett konsekvent utseende och känsla på webbsidorna för Azure Active Directory (AD Azure). Logga in sidorna visas när användare loggar in på din organisations webbaserade appar, till exempel Office 365, som använder Azure AD som identitetsprovider.
 
 >[!Note]
@@ -34,23 +34,30 @@ Ditt varumärke visas inte direkt när dina användare gå till platser, till ex
 > Alla företagsanpassning element är valfria. Exempel: Om du anger en banderollslogotyp med ingen bakgrundsbild visas på inloggningssidan din logotyp med en standard bakgrundsbild från målplatsen (till exempel Office 365).<br><br>Dessutom sprids inloggningssidan anpassning inte till personliga Microsoft-konton. Om dina användare eller företagsgäster loggar du in med ett personligt microsoftkonto, visas inte på inloggningssidan anpassning av din organisation.
 
 ### <a name="to-customize-your-branding"></a>Anpassa din företagsanpassning
-1. Logga in på den [Azure AD-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
 
 2. Välj **Azure Active Directory**, och välj sedan **Varumärkesexponering**, och välj sedan **konfigurera**.
 
-    ![Contoso - företagets företagsanpassning bladet, konfigurera alternativet markerat](media/customize-branding/company-branding-configure-button.png)
+    ![Contoso - företagets företagsanpassning sida, konfigurera alternativet markerat](media/customize-branding/company-branding-configure-button.png)
 
-3. På den **konfigurera företagsanpassning** bladet ge vissa eller alla av följande information:
+3. På den **konfigurera företagsanpassning** anger allt eller något av följande information.
+
+    >[!Important]
+    >Alla anpassade avbildningar som du lägger till på den här sidan har bildstorlek (bildpunkter) och potentiellt filstorlek (KB), begränsningar. På grund av dessa begränsningar måste du mest sannolika du använder en fotoredigerare för att skapa avbildningar rätt storlek.
 
     - **Allmänna inställningar**
 
-        ![Konfigurera företagsanpassning bladet med allmänna inställningar som har slutförts](media/customize-branding/configure-company-branding-general-settings.png)
+        ![Konfigurera företagsanpassning sidan med allmänna inställningar som har slutförts](media/customize-branding/configure-company-branding-general-settings.png)
 
         - **Språk.** Språket är konfigureras automatiskt som standard och kan inte ändras.
         
-        - **Bakgrundsbild för inloggningssidan.** Välj en PNG- eller JPG-bildfil ska visas som bakgrund för din inloggningssidorna. Bilden får inte vara större än 1 920 x 1 080 bildpunkter i storlek och måste ha en storlek på mindre än 300 KB.
+        - **Bakgrundsbild för inloggningssidan.** Välj en PNG- eller JPG-bildfil ska visas som bakgrund för din inloggningssidorna. 
+        
+            Bilden får inte vara större än 1 920 x 1 080 bildpunkter i storlek och måste ha en storlek på mindre än 300 KB.
 
-        - **Banderoll logotyp.** Välj en .png eller .jpg version av din logotyp som ska visas på sidan logga in när användaren anger ett användarnamn och på den **Mina appar** portalsidan. Bilden får inte vara högre än 36 bildpunkter eller större än 245 bildpunkter. Vi rekommenderar att du använder en transparent bild eftersom bakgrunden inte kanske matchar din logotyp bakgrund. Vi rekommenderar att det inte att lägga till utfyllnad runt bilden eller det kan vara din logotyp ser liten.
+        - **Banderoll logotyp.** Välj en .png eller .jpg version av din logotyp som ska visas på sidan logga in när användaren anger ett användarnamn och på den **Mina appar** portalsidan.
+            
+            Bilden får inte vara högre än 36 bildpunkter eller större än 245 bildpunkter. Vi rekommenderar att du använder en transparent bild eftersom bakgrunden inte kanske matchar din logotyp bakgrund. Vi rekommenderar att det inte att lägga till utfyllnad runt bilden eller det kan vara din logotyp ser liten.
 
         - **Användarnamn-tipset.** Ange tips-text som visas för användarna om de glömmer sitt lösenord. Den här texten måste vara Unicode, utan länkar eller kod och får inte överstiga 64 tecken. Om gäster loggar in på din app, föreslår vi att du inte lägger till den här tipset.
 
@@ -58,11 +65,13 @@ Ditt varumärke visas inte direkt när dina användare gå till platser, till ex
 
     - **Avancerade inställningar**
             
-        ![Konfigurera företagsanpassning bladet med avancerade inställningar har slutförts](media/customize-branding/configure-company-branding-advanced-settings.png)   
+        ![Konfigurera företagsanpassning sidan med avancerade inställningar har slutförts](media/customize-branding/configure-company-branding-advanced-settings.png)   
 
         - **Bakgrundsfärg på inloggningssidan.** Ange hexadecimal färgen (till exempel vit är #FFFFFF) som ska visas i stället din bakgrund i långsam anslutning situationer. Vi rekommenderar att du använder den primära färgen i din banderollslogotyp eller i din organisation färg.
 
-        - **Fyrkantig logotyp.** Välj en PNG (föredragen) eller .jpg-bild av organisationens logotyp som ska visas för användarna under konfigurationsprocessen för nya Windows 10 Enterprise-enheter. Den här avbildningen används endast för Windows-autentisering och visas endast på klienter som använder [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) för distribution eller för lösenordsinmatning sidor i andra Windows-10 inträffar. Bilden får inte vara större än 240 x 240 bildpunkter i storlek och måste ha en storlek på mindre än 10 KB. Vi rekommenderar att du använder en transparent bild eftersom bakgrunden inte kanske matchar din logotyp bakgrund. Vi rekommenderar att det inte att lägga till utfyllnad runt bilden eller det kan vara din logotyp ser liten.
+        - **Fyrkantig logotyp.** Välj en PNG (föredragen) eller .jpg-bild av organisationens logotyp som ska visas för användarna under konfigurationsprocessen för nya Windows 10 Enterprise-enheter. Den här avbildningen används endast för Windows-autentisering och visas endast på klienter som använder [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) för distribution eller för lösenordsinmatning sidor i andra Windows-10 inträffar.
+        
+            Bilden får inte vara större än 240 x 240 bildpunkter i storlek och måste ha en storlek på mindre än 10 KB. Vi rekommenderar att du använder en transparent bild eftersom bakgrunden inte kanske matchar din logotyp bakgrund. Vi rekommenderar att det inte att lägga till utfyllnad runt bilden eller det kan vara din logotyp ser liten.
     
         - **Fyrkantig logotyp, mörkt tema.** Samma som fyrkantiga logotypen bilden ovan. Den här logotypbild sker fyrkantig logotyp när det används med en mörk bakgrund, till exempel med Windows 10 Azure AD ansluten skärmar under out-of-box experience (OOBE).  Om din logotyp ser bra ut på vit, mörkt blå och svarta bakgrunder, behöver du inte lägga till den här avbildningen. 
         
@@ -74,22 +83,22 @@ Ditt varumärke visas inte direkt när dina användare gå till platser, till ex
 
 3. När du har lagt till din företagsanpassning, väljer **spara**.
 
-  Eftersom det här är din första företagsanpassning konfiguration blir standard för din klient. Om du lägger till fler konfigurationer, får du möjlighet att välja din standard.
-
-  >[!Important]
-  >Att lägga till mer företagets anpassning konfigurationer till din klient, måste du välja **nytt språk** på den **Contoso - företagsanpassning** bladet. Då öppnas det **konfigurera företagsanpassning** bladet, där du kan följa samma steg som ovan.
+    Om den här processen skapar din första anpassade företagsanpassning konfiguration, blir standard för din klient. Om du har ytterligare konfigurationer, kommer du att kunna välja standardkonfigurationen.
+    
+    >[!Important]
+    >Att lägga till mer företagets anpassning konfigurationer till din klient, måste du välja **nytt språk** på den **Contoso - företagsanpassning** sidan. Då öppnas det **konfigurera företagsanpassning** sidan där du kan följa samma steg som ovan.
 
 ## <a name="update-your-custom-branding"></a>Uppdatera ditt varumärke
 När du har skapat ditt varumärke, kan du gå tillbaka och ändra vad du vill.
 
 ### <a name="to-edit-your-custom-branding"></a>Så här redigerar du ditt varumärke
-1. Logga in på den [Azure AD-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
 
 2. Välj **Azure Active Directory**, och välj sedan **Varumärkesexponering**, och välj sedan **konfigurera**.
 
-    ![Contoso - företagets företagsanpassning bladet med standardkonfiguration som visas](media/customize-branding/company-branding-default-config.png)
+    ![Contoso - företagets anpassning sidan med standardkonfiguration som visas](media/customize-branding/company-branding-default-config.png)
 
-3. På den **konfigurera företagsanpassning** bladet Lägg till, ta bort eller ändra några av information utifrån beskrivningarna i den [anpassa din Azure AD-inloggningssida](#customize-your-azure-ad-sign-in-page) i den här artikeln.
+3. På den **konfigurera företagsanpassning** sidan, lägga till, ta bort eller ändra några av information utifrån beskrivningarna i den [anpassa din Azure AD-inloggningssida](#customize-your-azure-ad-sign-in-page) i den här artikeln.
 
 4. Välj **Spara**.
 
@@ -100,16 +109,29 @@ Du kan inte ändra den ursprungliga konfigurationen språk från din standardspr
 
 ### <a name="to-add-a-language-specific-branding-configuration"></a>Att lägga till en språkspecifik företagsanpassning konfiguration
 
-1. Logga in på den [Azure AD-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett konto som Global administratör för katalogen.
 
 2. Välj **Azure Active Directory**, och välj sedan **Varumärkesexponering**, och välj sedan **nytt språk**.
 
-    ![Contoso - företagets företagsanpassning bladet med den nya språkalternativet markerat](media/customize-branding/company-branding-new-language.png)
+    ![Contoso - företagets företagsanpassning sida med den nya språkalternativet markerat](media/customize-branding/company-branding-new-language.png)
 
-3. På den **konfigurera företagsanpassning** bladet väljer du språk (till exempel franska) och Lägg sedan till din översatta information utifrån beskrivningarna i den [anpassa din Azure AD-inloggningssida](#customize-your-azure-ad-sign-in-page) i den här artikeln.
+3. På den **konfigurera företagsanpassning** väljer du språk (till exempel franska) och Lägg sedan till din översatta information utifrån beskrivningarna i den [anpassa din Azure AD-inloggningssida](#customize-your-azure-ad-sign-in-page) i den här artikeln.
 
 4. Välj **Spara**.
 
-    Den **Contoso – företagsanpassning** bladet uppdateringar att visa den nya franska konfigurationen.
+    Den **Contoso – företagsanpassning** sidan uppdateringar att visa den nya franska konfigurationen.
 
-    ![Contoso - företagets företagsanpassning bladet med standardkonfiguration som visas](media/customize-branding/company-branding-french-config.png)
+    ![Contoso - företagets anpassning sidan med standardkonfiguration som visas](media/customize-branding/company-branding-french-config.png)
+
+## <a name="add-your-custom-branding-to-pages"></a>Lägg till ditt varumärke till sidor
+Lägg till ditt varumärke till sidor genom att ändra i slutet av URL med texten, `?whr=yourdomainname`. Den här ändringen fungerar på flera sidor, inklusive konfigurationssidan Multi-Factor Authentication (MFA), konfigurationssidan Self-service lösenord återställer (SSPR) och tecknet på sidan.
+
+**Exempel:**
+
+**Ursprungliga URL: en:** https://aka.ms/MFASetup<br>
+**Anpassad URL:** https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com
+
+**Ursprungliga URL: en:** https://aka.ms/SSPR<br>
+**Anpassad URL:** https://passwordreset.microsoftonline.com/?whr=contoso.com
+
+ 

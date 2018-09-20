@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 33072732053325f29dc44e4a46b809c1afaa93f4
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 38086d0e975956aefe4fcde4eda67d939d58f617
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312650"
+ms.locfileid: "46365850"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect-inloggning användaralternativ
 Azure Active Directory (Azure AD) Connect kan användarna att logga in på både i molnet och lokala resurser med hjälp av samma lösenord. Den här artikeln beskriver viktiga begrepp för varje identitet modell för att välja den identitet som du vill använda för att logga in till Azure AD.
@@ -114,7 +114,7 @@ UPN för användaren har formatet username@domain. För en Active Directory-dom�
 ### <a name="user-principal-name-in-azure-ad"></a>Användarens huvudnamn i Azure AD
 Azure AD Connect-guiden använder attributet userPrincipalName eller kan du ange attributet (i en anpassad installation) för att användas från en lokal plats som användarens huvudnamn i Azure AD. Detta är det värde som används för att logga in till Azure AD. Om värdet för attributet userPrincipalName inte motsvarar en verifierad domän i Azure AD, Azure AD ersätter den med en standard. onmicrosoft.com-värde.
 
-Alla kataloger i Azure Active Directory levereras med en inbyggd domännamn, med formatet contoso.onmicrosoft.com, som gör att du komma igång med Azure eller andra Microsoft-tjänster. Du kan förbättra och förenkla inloggningen går genom att använda anpassade domäner. Information om anpassade domännamn i Azure AD och hur du verifierar en domän finns i [lägga till ett anpassat domännamn i Azure Active Directory](../fundamentals/add-custom-domain.md#add-a-custom-domain-name).
+Alla kataloger i Azure Active Directory levereras med en inbyggd domännamn, med formatet contoso.onmicrosoft.com, som gör att du komma igång med Azure eller andra Microsoft-tjänster. Du kan förbättra och förenkla inloggningen går genom att använda anpassade domäner. Information om anpassade domännamn i Azure AD och hur du verifierar en domän finns i [lägga till ett anpassat domännamn i Azure Active Directory](../fundamentals/add-custom-domain.md).
 
 ## <a name="azure-ad-sign-in-configuration"></a>Inloggningskonfiguration för Azure AD
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Azure AD-inloggningen konfiguration med Azure AD Connect

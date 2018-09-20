@@ -4,18 +4,20 @@ description: Exportera data från Azure IoT Central-programmet
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/3/2018
+ms.date: 09/18/2018
 ms.topic: article
-ms.prod: azure-iot-central
+ms.service: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 5defbf7021936e3cc77250ccc453cb3887c77617
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a1a7e6a62a88057cc8bc512a0c46de79a55ccd53
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576450"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368145"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportera dina data i Azure IoT Central
+
+*Det här avsnittet gäller för administratörer.*
 
 Den här artikeln beskriver hur du använder funktionen löpande export i Azure IoT Central att regelbundet exporterar data till Azure Blob storage-kontot. Du kan exportera **mätningar av**, **enheter**, och **enheten mallar** med den [Apache AVRO](https://avro.apache.org/docs/current/index.html) format. Exporterade data kan användas för analys av kalla sökvägen som utbildning modeller i Azure Machine Learning eller långsiktig trendanalys i Microsoft Power BI.
 
@@ -36,7 +38,7 @@ Den här artikeln beskriver hur du använder funktionen löpande export i Azure 
 De mått som enheterna skickar exporteras till ditt storage-konto en gång per minut. Data har alla nya meddelanden som tas emot av IoT Central från alla enheter under den tiden. De exporterade AVRO-filerna använder samma format som meddelandefiler som exporteras av [IoT Hub meddelanderoutning](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) till Blob storage.
 
 > [!NOTE]
-> De enheter som skickar mått som representeras av enhets-ID (se nedan). Exportera ögonblicksbilder för enheten för att hämta namnen på enheterna. Korrelera varje meddelande-post med hjälp av den **connectionDeviceId** som överensstämmer med enhets-ID.
+> De enheter som skickar mått som representeras av enhets-ID (se nedan). Exportera ögonblicksbilder för enheten för att hämta namnen på enheterna. Korrelera varje meddelande-post med hjälp av den **connectionDeviceId** som matchar den **deviceId** av enheten.
 
 I följande exempel visas en post i en avkodade AVRO-fil:
 
@@ -45,9 +47,9 @@ I följande exempel visas en post i en avkodade AVRO-fil:
     "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
     "Properties": {},
     "SystemProperties": {
-        "connectionDeviceId": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+        "connectionDeviceId": "<connectionDeviceId>",
         "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "636614021491644195",
+        "connectionDeviceGenerationId": "<generationId>",
         "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
     },
     "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
@@ -56,12 +58,13 @@ I följande exempel visas en post i en avkodade AVRO-fil:
 
 ### <a name="devices"></a>Enheter
 
-När löpande dataexport aktiveras först, exporteras en enda ögonblicksbild med alla enheter. Ögonblicksbilden innehåller:
-- Enhets-ID.
-- Namn på enheter.
-- Enheten mall ID: N.
-- Egenskapsvärden.
-- Ange värdena.
+När löpande dataexport aktiveras först, exporteras en enda ögonblicksbild med alla enheter. Varje enhet innehåller:
+- `id` för enheten i IoT Central
+- `name` enhetens
+- `deviceId` från [Device Provisioning-tjänst](https://aka.ms/iotcentraldocsdps)
+- Mallen enhetsinformation
+- Egenskapsvärden
+- Inställningsvärden
 
 En ny ögonblicksbild skrivs en gång per minut. Ögonblicksbilden innehåller:
 
@@ -73,15 +76,16 @@ En ny ögonblicksbild skrivs en gång per minut. Ögonblicksbilden innehåller:
 >
 > Mallen enhet som varje enhet som tillhör representeras av en enhet mall-ID. Exportera mall-ögonblicksbilder enheten för att hämta namnet på mallen för enheten.
 
-Varje post i filen avkodade AVRO ser ut som:
+En post i filen avkodade AVRO kan se ut:
 
 ```json
 {
-    "id": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+    "id": "<id>",
     "name": "Refrigerator 2",
     "simulated": true,
+    "deviceId": "<deviceId>",
     "deviceTemplate": {
-        "id": "c318d580-39fc-4aca-b995-843719821049",
+        "id": "<template id>",
         "version": "1.0.0"
     },
     "properties": {
@@ -104,8 +108,10 @@ Varje post i filen avkodade AVRO ser ut som:
 
 ### <a name="device-templates"></a>Enheten mallar
 
-När löpande dataexport aktiveras först, exporteras en enda ögonblicksbild med alla mallar för enheten. Ögonblicksbilden innehåller: 
-- Enheten mall ID: N.
+När löpande dataexport aktiveras först, exporteras en enda ögonblicksbild med alla mallar för enheten. Varje enhet-mall innehåller:
+- `id` för mall för enhet
+- `name` för mall för enhet
+- `version` för mall för enhet
 - Datatyper för mätning och min/max-värden.
 - Egenskapen datatyper och standardvärden.
 - Ställa in datatyper och standardvärden.
@@ -118,11 +124,11 @@ En ny ögonblicksbild skrivs en gång per minut. Ögonblicksbilden innehåller:
 > [!NOTE]
 > Enhet-mallar som har tagits bort sedan den senaste ögonblicksbilden exporteras inte. Ögonblicksbilder har för närvarande inte indikatorer för borttagna mallar.
 
-Varje post i filen avkodade AVRO ser ut som:
+En post i filen avkodade AVRO kan se ut så här:
 
 ```json
 {
-    "id": "c318d580-39fc-4aca-b995-843719821049",
+    "id": "<id>",
     "name": "Refrigerated Vending Machine",
     "version": "1.0.0",
     "measurements": {
@@ -209,16 +215,16 @@ Varje post i filen avkodade AVRO ser ut som:
 
 4. Under **Administration**väljer **dataexport**.
 
-   ![Konfigurera löpande dataexport](media/howto-export-data/continuousdataexport.PNG)
-
 5. I den **lagringskonto** listrutan väljer du ditt lagringskonto. I den **behållare** listrutan väljer du din behållare. Under **Data som ska exporteras**, ange varje typ av data som ska exporteras genom att ställa in typen **på**.
 
 6. Om du vill aktivera löpande dataexport ange **dataexport** till **på**. Välj **Spara**.
 
+  ![Konfigurera löpande dataexport](media/howto-export-data/continuousdataexport.PNG)
+
 7. Efter ett par minuter visas dina data i ditt storage-konto. Bläddra till ditt lagringskonto. Välj **Bläddra efter blobar** > din behållare. Du kan se tre mappar för exporterade data. Standardsökvägarna för AVRO-filerna med exporterade data är:
-    - Meddelanden: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - Enheter: {container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - Mallar för enheten: {container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - Meddelanden: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - Enheter: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - Mallar för enheten: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ## <a name="read-exported-avro-files"></a>Läs exporterade AVRO-filer
 
@@ -280,7 +286,7 @@ def parse(filePath):
     transformed = pd.DataFrame()
 
     # The device ID is available in the id column.
-    transformed["device_id"] = devices["id"]
+    transformed["device_id"] = devices["deviceId"]
 
     # The template ID and version are present in a dictionary under
     # the deviceTemplate column.
@@ -395,7 +401,7 @@ public static async Task Run(string filePath)
                 {
                     // Get the field value directly. You can also yield return
                     // records and make the function IEnumerable<AvroRecord>.
-                    var deviceId = record.GetField<string>("id");
+                    var deviceId = record.GetField<string>("deviceId");
 
                     // The device template information is stored in a sub-record
                     // under the deviceTemplate field.
@@ -411,7 +417,7 @@ public static async Task Run(string filePath)
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
                     
                     Console.WriteLine(
-                        "ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
+                        "Device ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
                         deviceId,
                         templateId,
                         templateVersion,
@@ -524,8 +530,8 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device ID from the id property.
-        const deviceId = record.id;
+        // Fetch the device ID from the deviceId property.
+        const deviceId = record.deviceId;
 
         // Fetch the template ID and version from the deviceTemplate property.
         const deviceTemplateId = record.deviceTemplate.id;
@@ -535,7 +541,7 @@ async function parse(filePath) {
         const fanSpeed = record.settings.device.fanSpeed;
 
         // Log the retrieved device ID and humidity.
-        console.log(`ID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
+        console.log(`deviceID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 

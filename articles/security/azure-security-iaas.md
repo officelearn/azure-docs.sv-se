@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2018
+ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 7c28459aa04c67db8abda54d9f14eb417bd8ed60
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 057c98d4bac87b4e43e5beb8268d3d3bdbe3ec85
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618605"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364269"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Rekommenderade säkerhetsmetoder för IaaS-arbetsbelastningar i Azure
 
-I de flesta infrastruktur som en tjänst (IaaS)-scenarier, [virtuella Azure-datorer (VM)](https://docs.microsoft.com/azure/virtual-machines/) är huvudsakliga arbetsbelastningen för organisationer som använder molnbaserad databehandling. Detta är särskilt tydligt i [hybridscenarier](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) där organisationer vill långsamt migrera arbetsbelastningar till molnet. I sådana scenarier, följer du de [allmänna säkerhetsaspekter för IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), och tillämpa rekommenderade säkerhetsmetoder för alla dina virtuella datorer.
+I de flesta infrastruktur som en tjänst (IaaS)-scenarier, [virtuella Azure-datorer (VM)](https://docs.microsoft.com/azure/virtual-machines/) är huvudsakliga arbetsbelastningen för organisationer som använder molnbaserad databehandling. Detta kan ses i [hybridscenarier](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) där organisationer vill långsamt migrera arbetsbelastningar till molnet. I sådana scenarier, följer du de [allmänna säkerhetsaspekter för IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), och tillämpa rekommenderade säkerhetsmetoder för alla dina virtuella datorer.
 
 Ditt ansvar för säkerhet baseras på vilken typ av tjänst i molnet. Följande diagram sammanfattar balans ansvar för både Microsoft och du:
 
@@ -31,225 +31,144 @@ Ditt ansvar för säkerhet baseras på vilken typ av tjänst i molnet. Följande
 
 Säkerhetskrav varierar beroende på ett antal faktorer, inklusive olika typer av arbetsbelastningar. Inte en av dessa metodtips skydda ensamt dina system. Som allt annat i security måste du välja lämpliga alternativ och se hur lösningarna kan kompletterar varandra genom att fylla luckor.
 
-Den här artikeln beskrivs olika VM-säkerhetsmetoder, var och en har härletts från kunder och Microsofts egna direkt upplevelser med virtuella datorer.
+Den här artikeln beskriver rekommenderade säkerhetsmetoder för virtuella datorer och operativsystem.
 
-De bästa metoderna är baserade på en enhälligt av åsikter och de fungerar med den aktuella Azure-plattformsfunktioner och egenskapsuppsättningar. Eftersom andras åsikter och tekniker kan ändras med tiden, den här artikeln kommer att uppdateras med dessa ändringar.
+De bästa metoderna är baserade på en enhälligt av åsikter och de fungerar med den aktuella Azure-plattformsfunktioner och egenskapsuppsättningar. Eftersom andras åsikter och tekniker kan ändras med tiden, kommer den här artikeln att uppdateras för att återspegla dessa ändringar.
 
-## <a name="use-privileged-access-workstations"></a>Använda arbetsstationer för privilegierad åtkomst
+## <a name="protect-vms-by-using-authentication-and-access-control"></a>Skydda virtuella datorer med hjälp av autentisering och åtkomstkontroll
+Det första steget i att skydda dina virtuella datorer är att säkerställa att endast behöriga användare kan ställa in nya virtuella datorer och åtkomst till virtuella datorer.
 
-Organisationer ofta faller använder sig mot cyberattacker eftersom administratörer utför åtgärder vid användning av konton med utökade behörigheter. Detta kan inte vara resultatet av skadlig aktivitet, beror det på att befintliga konfiguration och processer för att den. De flesta av dessa användare är medveten om risken för dessa åtgärder från en konceptuell synvinkel men fortfarande välja att göra dem.
+**Bästa praxis**: åtkomst till kontrollen virtuell dator.   
+**Information om**: Använd [Azure principer](../azure-policy/azure-policy-introduction.md) upprätta konventioner för resurser i din organisation och skapa anpassade principer. Använda dessa principer på resurser, till exempel [resursgrupper](../azure-resource-manager/resource-group-overview.md). Virtuella datorer som tillhör en resursgrupp ärver dess principer.
 
-Gör saker som e-post- och Internetanvändning verka ofarliga försöker tillräckligt. Men de kan exponera upphöjd konton för att angripa med skadliga aktörer. Bläddra aktiviteter, särskilt utformad e-post eller andra metoder kan användas för att få åtkomst till ditt företag. Vi rekommenderar starkt att användningen av säker hantering av arbetsstationer (saw) för att utföra alla Azure administrationsuppgifter. Saw är ett sätt att minska exponeringen för oavsiktlig kompromettering.
+Om din organisation har många prenumerationer, kanske du behöver ett sätt att effektivt hantera åtkomst, principer och efterlevnad för dessa prenumerationer. [Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md) ger en nivå av omfång över prenumerationer. Du organiserar prenumerationer till hanteringsgrupper (behållare) och tillämpa dina styrning villkor för dessa grupper. Alla prenumerationer i en hanteringsgrupp ärver automatiskt villkor som används för gruppen. Av hanteringsgrupper ger företagsklass i stor skala oavsett vilken typ av prenumerationer som du kan ha.
 
-Arbetsstationer för privilegierad åtkomst (Paw) ger ett dedikerat operativsystem för känsliga uppgifter – en som är skyddat mot internetattacker och hotvektorer. Separera känsliga uppgifter och konton från arbetsstationer för daglig användning och enheter ger starkt skydd. Den här separationen begränsar effekten av nätfiskeattacker, program och OS-sårbarheter, olika personifiering attacker och stöldattacker av autentiseringsuppgifter. (loggning av tangenttryckningar, Pass-the-Hash och Pass-the-Ticket)
+**Bästa praxis**: minska variationer i din installation och distribution av virtuella datorer.   
+**Information om**: Använd [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) mallar att stärka dina distributionsalternativ och gör det enklare att förstå och inventera de virtuella datorerna i din miljö.
 
-PAW-metoden är en utökning av välkänt och praktiskt att använda ett individuellt tilldelat administrativt konto. Det administrativa kontot som är separat från ett vanligt användarkonto. En PAW som ger en säker arbetsstation för sådana känsliga kontona.
+**Bästa praxis**: skydda privilegierad åtkomst.   
+**Information om**: Använd en [minsta privilegium metoden](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) och inbyggda Azure-roller så att användarna kan komma åt och konfiguration av virtuella datorer:
 
-Mer information och implementering vägledning finns i [arbetsstationer för privilegierad åtkomst](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations).
+- [Virtuell Datordeltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): kan hantera virtuella datorer, men inte virtuella nätverks- eller kontot som de är anslutna.
+- [Klassisk virtuell Datordeltagare](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): kan hantera virtuella datorer som skapas med hjälp av den klassiska distributionsmodellen, men inte virtuella nätverks- eller kontot som de virtuella datorerna är anslutna.
+- [Säkerhetshanteraren](../role-based-access-control/built-in-roles.md#security-manager): hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer.
+- [DevTest Labs-användare](../role-based-access-control/built-in-roles.md#devtest-labs-user): kan visa allt och ansluta, starta, starta om och stänga av virtuella datorer.
 
-## <a name="use-multi-factor-authentication"></a>Använd Multi-Factor Authentication
+Dina prenumerationsadministratörer och coadmins ska kan ändra den här inställningen, vilket gör dem administratörer av alla virtuella datorer i en prenumeration. Var noga med att du litar på alla prenumerationsadministratörer och coadmins ska logga in på någon av dina datorer.
 
-Tidigare användes perimeternätverket att styra åtkomsten till företagets data. I en moln- och mobilinriktad värld identiteten är kontrollplanet: du kan använda den för att kontrollera åtkomsten till IaaS-tjänster från valfri enhet. Du också använda den för att få insyn i och insyn i var och hur dina data som används. Skydda digital identiteten för ditt Azure-användare är Hörnstenen i för att skydda dina prenumerationer från identitetsstöld och andra cybercrimes.
+> [!NOTE]
+> Vi rekommenderar att du sammanställa virtuella datorer med samma livscykel i samma resursgrupp. Med hjälp av resursgrupper kan du distribuera, övervaka och ackumulera faktureringskostnader för dina resurser.
+>
+>
 
-En av de mest fördelaktigt steg som du kan vidta för att skydda ett konto är att aktivera tvåfaktorsautentisering. Tvåfaktorsautentisering är ett sätt att autentisera med hjälp av något utöver ett lösenord. Det hjälper dig att minska risken för åtkomst av någon som är ansvarig för att få någon annans lösenord.
+Organisationer som styr åtkomst till virtuell dator och installationen att förbättra sina övergripande VM-säkerhet.
 
-[Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) hjälper dig att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål för en enkel inloggningsprocess. Du får stark autentisering med en rad enkla verifieringsalternativ – telefonsamtal, SMS eller mobilapp. Användare välja den metod som de föredrar.
+## <a name="use-multiple-vms-for-better-availability"></a>Använda flera virtuella datorer för bättre tillgänglighet
+Om den virtuella datorn kör kritiska program som måste ha hög tillgänglighet, rekommenderar vi starkt att du använder flera virtuella datorer. För bättre tillgänglighet använda en [tillgänglighetsuppsättning](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
-Det enklaste sättet att använda Multi-Factor Authentication är Microsoft Authenticator-mobilappen som kan användas på mobila enheter som kör Windows, iOS och Android. Med den senaste versionen av Windows 10 och integrering av lokala Active Directory med Azure Active Directory (Azure AD), [Windows Hello för företag](../active-directory/active-directory-azureadjoin-passport-deployment.md) kan användas för sömlös enkel inloggning till Azure-resurser. I det här fallet används Windows 10-enhet som den andra faktorn för autentisering.
+En tillgänglighetsuppsättning är en logisk gruppering som du kan använda i Azure så att du placerar i VM-resurserna är isolerade från varandra när de har distribuerats i ett Azure-datacenter. Azure ser till att de virtuella datorerna som du placerar i en tillgänglighetsuppsättning in kör över flera fysiska servrar, beräkning rack, lagringsenheter och nätverksväxlar. Om ett maskinvarufel eller Azure programvarufel inträffar endast en delmängd av dina virtuella datorer som påverkas och ditt program fortsätter att vara tillgängliga för dina kunder. Tillgänglighetsuppsättningar är en viktig funktion när du vill skapa tillförlitliga molnlösningar.
 
-För konton som hanterar din Azure-prenumeration och för konton som kan logga in på virtuella datorer ger mycket bättre säkerhet än att använda endast ett lösenord om du använder multi-Factor Authentication. Andra former av tvåfaktorsautentisering fungerar lika bra, men distribuerar dem kan vara komplicerade om de inte redan är i produktion.
+## <a name="protect-against-malware"></a>Skydda mot skadlig kod
+Du bör installera skydd mot skadlig kod för att identifiera och ta bort virus, spionprogram och annan skadlig programvara. Du kan installera [Microsoft Antimalware](azure-security-antimalware.md) eller en Microsoft-partner endpoint protection-lösning ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection), och [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection)).
 
-Följande skärmbild visar några av de tillgängliga alternativen för Azure Multi-Factor Authentication:
+Microsoft Antimalware innehåller funktioner som realtidsskydd, schemalagd genomsökning, korrigering av skadlig kod, Signaturuppdateringar, uppdateringar, exempel reporting och insamling av undantag. Du kan använda ett tillägg för program mot skadlig kod för att skydda dina virtuella datorer och molntjänster för miljöer som finns separat från din produktionsmiljö.
 
-![Multi-Factor Authentication-alternativ](./media/azure-security-iaas/mfa-options.png)
+Du kan integrera lösningar från Microsoft Antimalware och partner med [Azure Security Center](https://docs.microsoft.com/azure/security-center/) för enkel distribution och inbyggda identifieringar (aviseringar och incidenter).
 
-## <a name="limit-and-constrain-administrative-access"></a>Begränsa och begränsa administrativ åtkomst
+**Bästa praxis**: installera ett program mot skadlig kod som skydd mot skadlig kod.   
+**Information om**: [installera en lösning för Microsoft-partner eller Microsoft Antimalware](../security-center/security-center-install-endpoint-protection.md)
 
-Det är viktigt att skydda de konton som kan hantera din Azure-prenumeration. Förlust av någon av dessa konton eliminerar värdet för alla andra steg som du kan vidta för att säkerställa sekretess och integritet hos dina data. Illustrerade som nyligen av den [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) interna attacker utgör en enorm hot mot den övergripande säkerheten i alla organisationer.
+**Bästa praxis**: integrera dina program mot skadlig kod med Security Center för att övervaka status för skyddet av.   
+**Information om**: [hantera problem med endpoint protection med Security Center](../security-center/security-center-partner-integration.md)
 
-Utvärdera enskilda användare för administrativ behörighet genom följande kriterier som liknar dessa:
+## <a name="manage-your-vm-updates"></a>Hantera VM-uppdateringar
+Azure virtuella datorer, som alla lokala virtuella datorer är avsedda att hanteras av användare. Azure Skicka inte Windows-uppdateringar till dem. Du behöver hantera dina VM-uppdateringar.
 
-- Utför de uppgifter som kräver administratörsbehörighet?
-- Hur ofta utförs uppgifterna?
-- Finns det en särskild anledning varför aktiviteterna inte kan utföras av en annan administratör åt dem?
+**Bästa praxis**: se till att dina virtuella datorer är aktuell.   
+**Information om**: Använd den [uppdateringshantering](../automation/automation-update-management.md) lösning i Azure Automation för att hantera uppdateringar av operativsystemet för dina Windows- och Linux-datorer som distribueras i Azure, i lokala miljöer eller i andra moln leverantörer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
 
-Dokumentera alla andra kända alternativa metoder för att bevilja behörigheten och varför var och en inte godkändes.
+Datorer som hanteras av uppdateringshantering Använd följande konfigurationer för att utföra utvärdering och uppdatera distribueringar:
 
-Just-in-time-administration förhindrar onödig förekomsten av konton med utökade rättigheter under perioder när dessa rättigheter inte behövs. Konton ha utökade rättigheter för en begränsad tid så att administratörer kan utföra sitt arbete. Dessa rättigheter tas sedan bort i slutet av en förändring, eller när en uppgift är slutförd.
+- Microsoft Monitoring Agent (MMA) för Windows eller Linux
+- Önskad PowerShell-tillståndskonfiguration (DSC) för Linux
+- Automation Hybrid Runbook Worker
+- Microsoft Update eller Windows Server Update Services (WSUS) för Windows-datorer
 
-Du kan använda [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) för att hantera, övervaka och kontrollera åtkomst till i din organisation. Det hjälper dig att vara medveten om de åtgärder som enskilda användare utför i din organisation. Det medför också just-in-time-administration till Azure AD genom att introducera begreppet berättigade administratörer. Det här är personer som har konton som kan beviljas administratörsrättigheter. Dessa typer av användare kan gå igenom en aktiveringsprocess och beviljas administratörsrättigheter under en begränsad tid.
+Om du använder Windows Update, lämna inställningen för automatisk uppdatering för Windows.
 
-## <a name="use-devtest-labs"></a>Använda DevTest Labs
+**Bästa praxis**: se till att vid distributionen att avbildningar som du skapat omfattar den senaste runda av Windows-uppdateringar.   
+**Information om**: Sök efter och installera alla Windows-uppdateringar som ett första steg för varje distribution. Det här måttet är särskilt viktigt att tillämpa när du distribuerar avbildningar som kommer från dig eller dina egna bibliotek. Även om avbildningar från Azure Marketplace uppdateras automatiskt som standard, kan det finnas en fördröjning (upp till några veckor) när du har en offentlig version.
 
-Azure för laborationer och utvecklingsmiljöer tar bort fördröjningar som introducerar inköp av maskinvara. Detta gör det möjligt för organisationer att få flexibilitet vid testning och utveckling. Brist på tidigare erfarenhet av Azure eller en önskan att påskynda antagandet kan å andra sidan leda administratören vara alltför Tillåtande med tilldelning av användarrättigheter. Den här risken kan oavsiktligt exponera organisationen till interna attacker. Vissa användare kan beviljas mycket mer åtkomst än vad de ska ha.
+**Bästa praxis**: distribuera regelbundet om dina virtuella datorer om du vill framtvinga en ny version av Operativsystemet.   
+**Information om**: definiera den virtuella datorn med en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) så att du enkelt kan distribuera om den. En mall ger dig en korrigerad och säker virtuell dator när du behöver den.
 
-Den [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) tjänsten använder [rollbaserad åtkomstkontroll i](../role-based-access-control/overview.md) (RBAC). Med RBAC kan du hålla isär uppgifter i ditt team i roller som ger endast åtkomstnivån krävs för att användarna att göra sina jobb. RBAC levereras med fördefinierade roller (ägare, lab-användare och deltagare). Du kan även använda dessa roller för att tilldela rättigheter till externa partner och förenklar samarbete.
+**Bästa praxis**: installera de senaste säkerhetsuppdateringarna.   
+**Information om**: vissa av de första arbetsbelastningarna som kunder flyttar till Azure är labs och externa system. Om virtuella datorer i Azure vara värd för program eller tjänster som måste vara tillgänglig på Internet, vara vaksam om uppdateringar. Korrigera sig utöver operativsystemet. Okorrigerade säkerhetsproblem på partnerprogram kan också leda till problem som kan undvikas om bra uppdateringshantering är på plats.
 
-Eftersom labb använder sig av RBAC, är det möjligt att skapa ytterligare, [anpassade roller](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs inte bara förenklar hanteringen av behörigheter, förenklar processen för att få miljöer som har etablerats. Det hjälper dig också hantera andra vanliga utmaningar för team som arbetar med utvecklings- och testmiljöer. Det krävs vissa förberedelser, men på lång sikt, det kan göra det enklare för ditt team.
+**Bästa praxis**: distribuera och testa en lösning för säkerhetskopiering.   
+**Information om**: en säkerhetskopia måste hanteras på samma sätt som du hanterar andra åtgärder. Det här gäller för system som ingår i din produktionsmiljö utöka till molnet.
 
-Azure DevTest Labs-funktioner:
+Testning och utveckling system måste följa säkerhetskopieringsstrategier som gör det möjligt för återställning som liknar vad användare har blivit vana vid, baserat på deras upplevelse med lokala miljöer. Produktionsarbetsbelastningar flyttade till Azure ska integrera med befintliga säkerhetskopieringslösningar när det är möjligt. Du kan också använda [Azure Backup](../backup/backup-azure-vms-first-look-arm.md) att hjälpa med dina behov för säkerhetskopiering.
 
-- Administrativ kontroll över alternativ som är tillgängliga för användare. Administratören kan centralt hantera tillåtna storlekar för Virtuella datorer, maximalt antal virtuella datorer, och när virtuella datorer startas och avsluta korrekt.
-- Automatisering av skapandet av labb miljö.
-- Kostnadsuppföljning.
-- Förenklad distribution av virtuella datorer för temporära collaborative arbete.
-- Självbetjäning som gör det möjligt för användare att tillhandahålla sina labb med hjälp av mallar.
-- Hantera och begränsa förbrukningen.
+Organisationer som inte tillämpa principer för programuppdatering exponeras mer för hot som utnyttjar kända, fasta tidigare sårbarheter. För att uppfylla branschbestämmelser måste företag bevisa att de är flitig och använda rätt säkerhetskontroller för att säkerställa säkerheten för sina arbetsbelastningar finns i molnet.
 
-![DevTest Labs](./media/azure-security-iaas/devtestlabs.png)
+Programuppdateringen Metodtips för ett traditionella datacenter och Azure IaaS har många likheter. Vi rekommenderar att du utvärderar din aktuella uppdateringsprinciper för programvara för att inkludera virtuella dator i Azure.
 
-Utan extra kostnad är associerad med användningen av DevTest Labs. Skapandet av labs, principer, mallar och artefakter är kostnadsfri. Du betalar för enbart Azure-resurser används i dina labb, till exempel virtuella datorer, lagringskonton och virtuella nätverk.
+## <a name="manage-your-vm-security-posture"></a>Hantera din säkerhetsposition för virtuell dator
+Cyberhot är under utveckling. Skydda dina virtuella datorer kräver en övervakningsfunktionen som kan snabbt identifiera hot, förhindra obehörig åtkomst till dina resurser, utlöser aviseringar och minska falska positiva identifieringar.
 
-## <a name="control-and-limit-endpoint-access"></a>Kontroll- och gräns-slutpunkt-åtkomst
+Övervaka säkerhetstillståndet för dina [Windows](../security-center/security-center-virtual-machine.md) och [virtuella Linux-datorer](../security-center/security-center-linux-virtual-machine.md), använda [Azure Security Center](../security-center/security-center-intro.md). Skydda dina virtuella datorer genom att utnyttja följande funktioner i Security Center:
 
-Som är värd för labb eller produktionssystem i Azure innebär det att dina system måste vara tillgänglig från Internet. Som standard en ny Windows virtuell dator har den RDP-porten som är tillgänglig från Internet och en Linux-dator har öppna SSH-porten. Vidta åtgärder till gränsen exponerade slutpunkter krävs för att minimera risken för obehörig åtkomst.
+- Tillämpa säkerhetsinställningar för OS med rekommenderade konfigurationsregler.
+- Identifiera och ladda ned systemsäkerhet och viktiga uppdateringar som saknas.
+- Distribuera rekommendationer för slutpunktsskydd för program mot skadlig kod.
+- Verifiera diskkryptering.
+- Utvärdera och åtgärda sårbarheter.
+- Identifiera hot.
 
-Med hjälp av tekniker i Azure kan du begränsa åtkomsten till dessa administrativa slutpunkter. Du kan använda i Azure, [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) (NSG). När du använder Azure Resource Manager för distribution av NSG: er att begränsa åtkomst från alla nätverk till bara hanteringsslutpunkter (RDP / SSH). När du överväger NSG: er tror router ACL: er. Du kan använda dem för att begränsa nätverkskommunikation mellan olika segment av din Azure-nätverk. Detta liknar skapar nätverk i perimeternätverk eller andra isolerade nätverk. Granska de inte trafiken, men de hjälpa till med nätverkssegmentering.
+Security Center kan övervaka aktivt för hot och potentiella hot som exponeras i säkerhetsaviseringar. Korrelerade hot räknas samman i en enda vy som kallas en säkerhetsincident.
 
-Ett mer dynamiskt sätt för att begränsa åtkomsten till virtuella datorer är att använda Azure Security center [Just-in-time-administration](../security-center/security-center-just-in-time.md). Security center kan låsa virtuella datorer i Azure och ger åtkomst när det behövs. Processen fungerar genom att tillåta åtkomst till en användare som begär den när du har verifierat baserat på deras [Role-Based Access control](../role-based-access-control/role-assignments-portal.md) (RBAC) som de har tillräcklig behörighet. Azure Security center kommer sedan göra nödvändiga Nätverkssäkerhetsgrupper (NSG) som tillåter inkommande trafik.
+Security Center lagrar data i [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics tillhandahåller en fråga frågespråk och en analytisk motor som ger dig insikter om hur dina program och resurser. Data samlas även från [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), hanteringslösningar och agenter som installerats på virtuella datorer i molnet eller lokalt. Denna delade funktion hjälper dig att få en komplett bild av din miljö.
 
-### <a name="site-to-site-vpnvpn-gatewayvpn-gateway-howto-site-to-site-resource-manager-portalmd"></a>[Plats-till-plats-VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+Organisationer som inte framtvingar stark säkerhet för sina virtuella datorer vara ovetande om eventuella försök från obehöriga användare kringgå de säkerhetskontroller.
 
-En plats-till-plats-VPN utökar ditt lokala nätverk till molnet. Detta ger dig en andra möjlighet att använda NSG: er, eftersom du kan också ändra NSG: er för att inte tillåta åtkomst från var som helst andra än det lokala nätverket. Du kan sedan kräva att administration gör du genom att först ansluter till Azure-nätverket via VPN.
+## <a name="monitor-vm-performance"></a>Övervaka prestanda för virtuell dator
+Resursen missbruk kan vara ett problem när VM-processer använder fler resurser än vad de ska. Prestandaproblem med en virtuell dator kan leda till avbrott i tjänsten, som bryter mot reglerna security tillgänglighet. Detta är särskilt viktigt för virtuella datorer som är värd för IIS eller andra webbservrar, eftersom hög CPU eller minne användning kan tyda på en attack denial of service (DoS). Det är viktigt att övervaka åtkomst till virtuell dator inte bara reaktivt när ett problem uppstår, utan även proaktivt mot baslinjeprestanda mätt under normal drift.
 
-Alternativet för plats-till-plats-VPN kan vara mest attraktiva i fall där du är värd för produktionssystem som är nära integrerad med dina lokala resurser i Azure.
+Vi rekommenderar att du använder [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) att få insyn i resursens hälsotillstånd. Azure Monitor-funktioner:
 
-### <a name="point-to-sitevpn-gatewayvpn-gateway-howto-point-to-site-rm-psmd"></a>[Punkt-till-plats](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Diagnostiklogg resursfiler](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): övervakar dina VM-resurser och identifierar potentiella problem som kan påverka datorns prestanda och tillgänglighet.
+- [Azure Diagnostics-tillägg](../monitoring-and-diagnostics/azure-diagnostics.md): innehåller funktioner för övervakning och diagnostik på virtuella Windows-datorer. Du kan aktivera dessa funktioner genom att inkludera tillägget som en del av den [Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md).
 
-I situationer där du vill hantera system som inte behöver åtkomst till lokala resurser. Dessa system kan isoleras i sina egna Azure-nätverk. Administratörer kan VPN i Azure som värd miljö från sina administrativ arbetsstation.
+Organisationer som inte övervakar prestanda för virtuella datorer kan inte avgöra om vissa ändringar i prestandamönster är normal eller onormalt. En attack från en extern resurs eller en komprometterad process som körs på den virtuella datorn kan tyda på en virtuell dator som använder fler resurser än normalt.
 
->[!NOTE]
->Du kan använda antingen VPN-alternativet för att konfigurera om ACL: er på NSG: er att inte tillåta åtkomst till av hanteringsslutpunkter från Internet.
+## <a name="encrypt-your-virtual-hard-disk-files"></a>Kryptera din virtuella hårddisk-filer
+Vi rekommenderar att du krypterar dina virtuella hårddiskar (VHD) för att skydda din startvolymen och datavolymer i vila i lagring, tillsammans med dina krypteringsnycklar och hemligheter.
 
-### <a name="remote-desktop-gatewayactive-directoryauthenticationhowto-mfaserver-nps-rdgmd"></a>[Gateway för fjärrskrivbord](../active-directory/authentication/howto-mfaserver-nps-rdg.md)
+[Azure Disk Encryption](azure-security-disk-encryption-overview.md) hjälper dig att kryptera din Windows- och Linux IaaS VM-diskar. Azure Disk Encryption används vanliga [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) funktion i Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) funktion i Linux för att kryptera volymer för Operativsystemet och datadiskarna. Lösningen är integrerad med [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) för att styra och hantera diskkrypteringsnycklar och hemligheter i key vault-prenumeration. Lösningen innebär också att alla data på diskar i virtuella datorer krypteras i vila i Azure Storage.
 
-Du kan använda Remote Desktop Gateway för säker anslutning till fjärrskrivbord-servrar över HTTPS, samtidigt som du använder mer detaljerade kontroller för dessa anslutningar.
+Nedan följer bästa praxis för att använda Azure Disk Encryption:
 
-Funktioner som du skulle ha åtkomst till om du vill inkludera:
+**Bästa praxis**: Aktivera kryptering på virtuella datorer.   
+**Information om**: Azure Disk Encryption genererar och skriver dem till ditt nyckelvalv. Hantera krypteringsnycklar i ditt nyckelvalv kräver Azure AD-autentisering. Skapa ett Azure AD-program för detta ändamål. Du kan använda antingen autentisering med klient-hemlighet för autentisering, eller [klientautentisering certifikatbaserad Azure AD](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
-- Alternativ för administratörer att begränsa antalet anslutningar till begäranden från specifika system.
-- Autentisering med smartkort eller Azure Multi-Factor Authentication.
-- Kontroll över vilka system som någon kan ansluta till via gatewayen.
-- Kontroll över enheten och disk-omdirigering.
+**Bästa praxis**: använda en krypteringsnyckel nyckel (KEK) för ett extra lager av säkerhet för krypteringsnycklar. Lägg till en KEK till ditt nyckelvalv.   
+**Information om**: Använd den [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala maskinvarusäkerhetsmodul (HSM) för hantering av nycklar. Mer information finns i den [dokumentationen för Key Vault](../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault. Att behålla en escrow kopia av den här nyckeln i en lokal ger nyckelhantering HSM ytterligare skydd mot oavsiktlig borttagning av nycklar.
 
-### <a name="vm-availability"></a>VM-tillgänglighet
+**Bästa praxis**: ta en [ögonblicksbild](../virtual-machines/windows/snapshot-copy-managed-disk.md) och/eller säkerhetskopiera innan diskar krypteras. Säkerhetskopieringar ger ett återställningsalternativ om ett oväntat fel inträffar under krypteringen.   
+**Information om**: virtuella datorer med hanterade diskar kräver en säkerhetskopia innan kryptering sker. När en säkerhetskopia görs, kan du använda den **Set-AzureRmVMDiskEncryptionExtension** cmdlet för att kryptera hanterade diskar genom att ange den *- skipVmBackup* parametern. Mer information om hur du säkerhetskopiera och återställa krypterade virtuella datorer finns i den [Azure Backup](../backup/backup-azure-vms-encryption.md) artikeln.
 
-Om en virtuell dator körs kritiska program som måste ha hög tillgänglighet, är det rekommenderar starkt att flera virtuella datorer används. För bättre tillgänglighet kan du skapa minst två virtuella datorer i den [tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md).
+**Bästa praxis**: Om du vill se till att kryptering hemligheterna inte går över regionala gränser, Azure Disk Encryption behöver nyckelvalvet och de virtuella datorerna ska finnas i samma region.   
+**Information om**: skapa och använda ett nyckelvalv som är i samma region som den virtuella datorn måste vara krypterade.
 
-[Azure Load Balancer](../load-balancer/load-balancer-overview.md) kräver också att belastningsutjämnade virtuella datorer tillhör samma tillgänglighetsuppsättning. Om dessa virtuella datorer måste kunna nås från Internet, måste du konfigurera en [internetuppkopplade belastningsutjämnare](../load-balancer/load-balancer-internet-overview.md).
+När du använder Azure Disk Encryption kan du uppfylla följande affärsbehov:
 
-## <a name="use-a-key-management-solution"></a>Använda en lösning för hantering av nycklar
-
-Säker nyckelhantering är nödvändig för att skydda data i molnet. Med [Azure Key Vault](../key-vault/key-vault-whatis.md), på ett säkert sätt kan du lagra krypteringsnycklar och små hemligheter som lösenord i maskinvarusäkerhetsmoduler (HSM). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler.
-
-Bearbetar Microsoft dina nycklar i FIPS 140-2 nivå 2 verifierade Maskinvarusäkerhetsmoduler (maskinvara och inbyggd programvara). Övervaka och granska nyckelanvändningen med Azure-loggning: skicka loggar vidare till Azure eller din säkerhetsinformation och händelsehantering (SIEM) system för extra analys och hotidentifiering.
-
-Vem som helst med en Azure-prenumeration kan skapa och använda nyckelvalv. Även om Key Vault hjälper utvecklare och säkerhetsadministratörer, kan de implementeras och hanteras av en administratör som ansvarar för att hantera Azure-tjänster i en organisation.
-
-## <a name="encrypt-virtual-disks-and-disk-storage"></a>Kryptera virtuella diskar och disklagring
-
-[Azure Disk Encryption](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) adresser hot om datastöld eller exponering från obehörig åtkomst som uppnås genom att flytta en disk. Disken kan kopplas till ett annat system som ett sätt att kringgå andra säkerhetskontroller. Disk encryption använder [BitLocker](https://technet.microsoft.com/library/hh831713) i Windows och DM-Crypt i Linux för att kryptera operativsystem och dataenheter. Azure Disk Encryption kan integreras med Key Vault för att styra och hantera krypteringsnycklarna. Den är tillgänglig för standard virtuella datorer och virtuella datorer med premium storage.
-
-Mer information finns i [Azure Disk Encryption i Windows och Linux IaaS-datorer](azure-security-disk-encryption.md).
-
-[Azure Storage Service Encryption](../storage/common/storage-service-encryption.md) hjälper dig att skydda data i vila. Den är aktiverad på lagringskontonivån. Data krypteras när de skrivs i våra datacenter och dekrypteras automatiskt när du öppnar den. Det har stöd för följande scenarier:
-
-- Kryptering för blockblobbar, tilläggsblobbar och sidblobbar
-- Kryptering av arkiverade virtuella hårddiskar och mallar som gav oss till Azure från en lokal plats
-- Kryptering av underliggande OS och datadiskar för virtuella IaaS-datorer som du skapade med hjälp av dina VHD: er
-
-Innan du fortsätter med Azure Storage kryptering måste du vara medveten om två begränsningar:
-
-- Det är inte tillgänglig på klassiska lagringskonton.
-- Endast de data som skrivs när kryptering är aktiverat krypteras.
-
-## <a name="use-a-centralized-security-management-system"></a>Använd ett hanteringssystem för centraliserad säkerhet
-
-Servrarna måste övervakas för korrigering, konfiguration, händelser och aktiviteter som anses vara säkerhetsproblem. Du kan använda för att åtgärda dessa problem, [Security Center](https://azure.microsoft.com/services/security-center/) och [Operations Management Suite Security and Compliance](https://azure.microsoft.com/services/security-center/). Båda dessa alternativ utöver konfigurationen i operativsystemet. Du får även övervakning av konfigurationen av den underliggande infrastrukturen som konfiguration och användning av virtuell installation.
-
-## <a name="manage-operating-systems"></a>Hantera operativsystem
-
-I en IaaS-distribution är du fortfarande ansvarig för hantering av de system som du distribuerar, precis som alla andra servrar eller arbetsstationer i din miljö. Uppdatering, härdning, tilldelning av användarrättigheter och andra aktiviteter som rör underhållet av systemet är fortfarande ditt ansvar. För system som är nära integrerad med dina lokala resurser, kanske du vill använda samma verktyg och procedurer för att du använder en lokal för saker som antivirus, program mot skadlig kod, uppdatering och säkerhetskopiering.
-
-### <a name="harden-systems"></a>Förstärka system
-
-Alla virtuella datorer i Azure IaaS bör vara härdade så att de visar endast tjänstslutpunkter som krävs för de program som är installerade. För Windows-datorer, Följ rekommendationerna som Microsoft publicerar som baslinjer för den [Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx) lösning.
-
-Security Compliance Manager är ett kostnadsfritt verktyg. Du kan använda den för att snabbt konfigurera och hantera stationära datorer, traditionella datacenter och privata och offentliga moln med hjälp av en Grupprincip och System Center Configuration Manager.
-
-Security Compliance Manager innehåller redo att distribuera principer och Desired Configuration Management configuration packs som testas. Dessa baslinjer baseras på [Microsofts säkerhetsvägledning](https://technet.microsoft.com/library/cc184906.aspx) rekommendationer och branschens bästa praxis. De hjälper dig att hantera konfigurationsförändringar, adress efterlevnadskrav, och minska hot.
-
-Du kan använda Security Compliance Manager för att importera den aktuella konfigurationen av datorerna med hjälp av två olika metoder. Först måste importera du Active Directory-baserad grupprinciper. Dessutom kan du importera konfigurationen av en ”golden master” referensdatorn med hjälp av den [LocalGPO verktyget](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) för säkerhetskopiering av den lokala grupprincipen. Du kan sedan importera den lokala grupprincipen till Security Compliance Manager.
-
-Jämför dina standarder för branschens bästa praxis, anpassa dem och skapa nya principer och konfigurationspaket för Desired Configuration Management. Baslinjer har publicerats för alla operativsystem som stöds, inklusive Windows 10 Anniversary Update och Windows Server 2016.
-
-
-### <a name="install-and-manage-antimalware"></a>Installera och hantera program mot skadlig kod
-
-Du kan använda ett tillägg för program mot skadlig kod för att skydda dina virtuella datorer och molntjänster för miljöer som finns separat från din produktionsmiljö. Den kan integreras med [Azure Security Center](../security-center/security-center-intro.md).
-
-[Microsoft Antimalware](azure-security-antimalware.md) innehåller funktioner som realtidsskydd, schemalagd genomsökning, korrigering av skadlig kod, Signaturuppdateringar, uppdateringar, exempel reporting event samling, och [stöd för PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension).
-
-![Azure mot skadlig kod](./media/azure-security-iaas/azantimalware.png)
-
-### <a name="install-the-latest-security-updates"></a>Installera de senaste säkerhetsuppdateringarna 
-
-Vissa av de första arbetsbelastningarna som kunder flyttar till Azure är labs och externa system. Om dina virtuella datorer i Azure vara värd för program eller tjänster som måste vara tillgänglig på Internet, vara vaksam om uppdateringar. Korrigera sig utöver operativsystemet. Okorrigerade säkerhetsproblem på program från tredje part kan också leda till problem som kan undvikas om bra uppdateringshantering är på plats.
-
-### <a name="deploy-and-test-a-backup-solution"></a>Distribuera och testa en lösning för säkerhetskopiering
-
-Precis som säkerhetsuppdateringar måste en säkerhetskopia som ska hanteras på samma sätt som du hanterar andra åtgärder. Det här gäller för system som ingår i din produktionsmiljö utöka till molnet. Testning och utveckling system måste följa säkerhetskopieringsstrategier som gör det möjligt för återställning som liknar vad användare har blivit vana vid, baserat på deras upplevelse med lokala miljöer.
-
-Produktionsarbetsbelastningar flyttade till Azure ska integrera med befintliga säkerhetskopieringslösningar när det är möjligt. Du kan också använda [Azure Backup](../backup/backup-azure-arm-vms.md) att hjälpa med dina behov för säkerhetskopiering.
-
-## <a name="monitor"></a>Övervaka
-
-### <a name="security-centersecurity-centersecurity-center-intromd"></a>[Security Center](../security-center/security-center-intro.md)
-
-Security center tillhandahåller kontinuerlig utvärdering av säkerhetsläget hos dina Azure-resurser att identifiera potentiella säkerhetsrisker. Genom en lista med rekommendationer får du hjälp att ställa in de kontrollfunktioner som behövs.
-
-Exempel:
-
-- Skadlig kod för att identifiera och ta bort skadlig programvara.
-- Konfigurera nätverkssäkerhetsgrupper och regler för trafiken till virtuella datorer.
-- Etablerar brandväggar för webbprogram för att skydda mot attacker som är inriktade på dina webbprogram.
-- Distribuera saknade systemuppdateringar.
-- Åtgärda OS-konfigurationer som inte överensstämmer med rekommenderade baslinjer.
-
-Följande bild visar några av de alternativ som du kan aktivera i Security Center.
-
-![Azure Security Center-principer](./media/azure-security-iaas/security-center-policies.png)
-
-### <a name="operations-management-suiteoperations-management-suiteoperations-management-suite-overviewmd"></a>[Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) 
-
-Operations Management Suite är en Microsoft molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Eftersom Operations Management Suite implementeras som en molnbaserad tjänst, kan du distribuera den snabbt och med minimal investering i infrastrukturresurser.
-
-Nya funktioner levereras automatiskt, vilket sparar dig från löpande underhåll och Uppgraderingskostnader. Operations Management Suite är integrerat med System Center Operations Manager. Den har olika komponenter för att bättre hantera dina Azure-arbetsbelastningar, inklusive en [säkerhet och efterlevnad](../operations-management-suite/oms-security-getting-started.md) modulen.
-
-Du kan använda funktioner för säkerhet och efterlevnad i Operations Management Suite för att visa information om dina resurser. Informationen är uppdelad i fyra huvudkategorier:
-
-- **Säkerhetsdomäner**: Utforska ytterligare säkerhetsposter över tid. Åt utvärdering av skadlig kod, uppdatera utvärdering, nätverksinformation för säkerhet, identitet och åtkomst och datorer med säkerhetshändelser. Dra nytta av snabb åtkomst till instrumentpanelen i Azure Security Center.
-- **Anmärkningsvärda problem**: snabbt identifiera antalet aktiva problem och problemens allvarlighetsgrad.
-- **Identifieringar (förhandsversion)**: identifiera attack mönster genom att visualisera säkerhetsvarningar när de visar mot dina resurser.
-- **Hotinformation**: identifiera attack mönster genom att visualisera det totala antalet servrar med utgående skadlig IP-trafik, typen av hot och en karta som visar var dessa IP-adresser kommer från.
-- **Vanliga säkerhetsfrågor**: visa en lista över de vanligaste säkerhetsfrågorna som du kan använda för att övervaka din miljö. När du klickar på någon av dessa frågor i **Search** bladet öppnas och visar resultatet för frågan.
-
-Följande skärmbild visar ett exempel på information som kan visa i Operations Management Suite.
-
-![Säkerheten för Operations Management Suite](./media/azure-security-iaas/oms-security-baseline.png)
-
-### <a name="monitor-vm-performance"></a>Övervaka prestanda för virtuell dator
-
-Resursen missbruk kan vara ett problem när VM-processer använder fler resurser än vad de ska. Prestandaproblem med en virtuell dator kan leda till avbrott i tjänsten, som bryter mot reglerna security tillgänglighet. Därför är det viktigt att övervaka åtkomst till virtuell dator inte bara reaktivt när ett problem uppstår, men även proaktivt mot baslinjeprestanda mätt under normal drift.
-
-Genom att analysera [Azure diagnostisk loggfiler](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), du kan övervaka dina VM-resurser och identifiera eventuella problem som kan påverka datorns prestanda och tillgänglighet. Azure Diagnostics-tillägget tillhandahåller funktioner för övervakning och diagnostik på Windows-baserade virtuella datorer. Du kan aktivera dessa funktioner genom att inkludera tillägget som en del av den [Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md).
-
-Du kan också använda [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) att få insyn i dina resursers hälsotillstånd.
-
-Organisationer som inte övervakar prestanda för virtuella datorer kan inte avgöra om vissa ändringar i prestandamönster är normal eller onormalt. Om den virtuella datorn använder fler resurser än normalt kan sådana avvikelser tyda på potentiella från en extern resurs eller en komprometterad process som körs på den virtuella datorn.
+- Virtuella IaaS-datorer är skyddade i vila med branschstandard krypteringsteknik att uppfylla organisationens krav för säkerhet och efterlevnad.
+- Virtuella IaaS-datorer startar under kund-kontrollerade nycklar och principer och du kan granska deras användning i ditt nyckelvalv.
 
 ## <a name="next-steps"></a>Nästa steg
+Se [säkerhet i Azure-metodtips och mönster](security-best-practices-and-patterns.md) för flera beprövade metoder för att använda när du utforma, distribuera och hantera dina molnlösningar med hjälp av Azure.
 
-* [Azure-säkerhetsteamets blogg](https://blogs.msdn.microsoft.com/azuresecurity/)
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
-* [Azure-säkerhetsmetodtips och mönster](security-best-practices-and-patterns.md)
+Följande resurser är tillgängliga för att tillhandahålla mer allmän information om Azure-säkerhet och relaterade Microsoft-tjänster:
+* [Azure-Säkerhetsteamets blogg](https://blogs.msdn.microsoft.com/azuresecurity/) – uppdaterad information på senast inom Azure-säkerhet
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där kan du rapportera säkerhetsproblem i Microsoft, inklusive problem med Azure, eller mejla till secure@microsoft.com

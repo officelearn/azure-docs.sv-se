@@ -10,15 +10,22 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: 204a9d64d14fe190cb0de73c964bb95b4b9b475f
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628774"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364146"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Förstå datakvarhållning i Time Series Insights
+
 Den här artikeln beskrivs två inställningar som påverkar datalagring i miljön för Time Series Insights (TSI).
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>I den här videon beskriver vi Time Series Insights datakvarhållning och hur du planerar för den.</br>
+
+> [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 Alla TSI-miljöer har en inställning som styr **datalagringstid**. Värdet som sträcker sig från 1 och 400 dagar. Data tas bort baserat på miljön storage kvarhållning eller kapacitet (1 400), beroende på vilket som inträffar först.
 

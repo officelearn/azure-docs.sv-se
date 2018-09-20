@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 9ca8c42d99f3bd7548c685f03328084865a09906
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 7cad09a3fc02d0c25f164f7e45974019ff9bbb71
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295792"
+ms.locfileid: "46367924"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -98,7 +98,7 @@ En brandvägg förhindrar åtkomst till din server från en extern entitet genom
 Du kan skapa brandväggsregler på servernivå eller på databasnivå. Nivån brandväggsregler för servern kan antingen skapas via portalen eller genom SSMS. För mer information om hur du anger en server och databas på brandväggsregel, se: [skapa brandväggsregler i SQL Database](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### <a name="service-endpoints"></a>Tjänstslutpunkter
-Som standard SQL-databasen är konfigurerad för att ”tillåta alla Azure-tjänster” – vilket innebär att alla virtuella datorer i Azure kan försöka ansluta till databasen. Dessa försök fortfarande behöver autentiserad. Men om du inte vill din databas för att vara tillgängliga för alla Azure-IP-adresser, kan du inaktivera ”Tillåt att alla Azure-tjänster”. Du kan också konfigurera [VNET-tjänstslutpunkter](sql-database-vnet-service-endpoint-rule-overview.md).
+Som standard SQL-databasen är konfigurerad att ”Tillåt Azure-tjänster åtkomst till servern” – vilket innebär att alla virtuella datorer i Azure kan försöka ansluta till databasen. Dessa försök fortfarande behöver autentiserad. Men om du inte vill din databas för att vara tillgängliga för alla Azure-IP-adresser, kan du inaktivera ”Tillåt Azure-tjänster åtkomst till servern”. Du kan också konfigurera [VNET-tjänstslutpunkter](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Tjänsteslutpunkter (SE) kan du exponera dina kritiska Azure-resurser endast till ditt eget privata virtuella nätverk i Azure. Då kan att du i princip offentlig åtkomst till resurser. Trafiken mellan ditt virtuella nätverk till Azure ligger i Azure-stamnätverket. Utan att SE få du Tvingad tunneltrafik routningen av datapaket. Det virtuella nätverket tvingar Internettrafik till din organisation och Azure-tjänsttrafiken att gå via samma väg. Med tjänstslutpunkter kan optimera du detta eftersom paket flödet direkt från ditt virtuella nätverk till tjänsten på Azure-stamnätverket.
 

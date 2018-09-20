@@ -1,66 +1,68 @@
 ---
-title: Experiment - kognitiva Azure-tjänster | Microsoft Docs
-description: Den här artikeln är en guide för Azure anpassad beslut Service experiment.
+title: Experimentering – Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: Den här artikeln är en guide för testning av Custom Decision Service.
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: b0ac0bc049d556423493f0c48dd9a548929bcd41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354954"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366564"
 ---
 # <a name="experimentation"></a>Experimentering
 
-Följande typ av [kontextuella bandits (CB)](https://www.microsoft.com/en-us/research/blog/contextual-bandit-breakthrough-enables-deeper-personalization/), anpassad beslut tjänsten flera gånger registrerar en kontext, utför en åtgärd och registrerar en ersättning för den valda åtgärden. Ett exempel är innehåll anpassning: kontexten beskriver en användare, åtgärder är kandidat artiklar och trafik som mäter hur mycket användaren tyckte rekommenderade artikeln.
+Följande typ av [sammanhangsberoende bandits (CB)](https://www.microsoft.com/en-us/research/blog/contextual-bandit-breakthrough-enables-deeper-personalization/), Custom Decision Service upprepade gånger iakttar en kontext vidtar en åtgärd och iakttar ersättning för den valda åtgärden. Ett exempel är personanpassning av innehåll: kontexten beskriver en användare, åtgärder är kandidat berättelser och trafik som mäter hur mycket du gillade rekommenderade budskapet.
 
-Anpassade beslut tjänsten ger en princip som mappar från kontexter till åtgärder. Med en princip för specifik målsökväg som du vill veta dess förväntade ersättning. Ett sätt att uppskatta ersättning är att använda en princip online och låta den Välj åtgärder (till exempel rekommenderar artiklar för användare). Sådana online utvärderingar kan dock vara kostsamma av två skäl:
+Custom Decision Service skapar en princip som den mappar från kontexter till åtgärder. Med en specifik princip som du vill veta dess förväntade trafik. Ett sätt att beräkna utmärkelse är att använda en princip online och låt den Välj åtgärder (till exempel rekommenderas artiklar för användare). Sådana online utvärdering kan dock vara kostsamma av två skäl:
 
-* Den visar användare till en princip för otestade, experiment.
-* Den inte kan skalas till utvärderingen av principer för flera mål.
+* Det visar användare till en princip för otestade, experimentella.
+* Den inte kan skalas till att utvärdera flera mål-principer.
 
-Utvärdering av principen är en alternativ paradigmet. Om du har loggar från ett befintligt online system som följer en loggningsprincip för beräkna av principutvärdering förväntade utdelningen av nya principer för målet.
+Inaktivera principutvärdering är en alternativ paradigm. Om du har loggar från ett befintligt online system som följer en loggningsprincip för uppskattning av principutvärdering av de förväntade fördelarna av nya mål-principer.
 
-Med hjälp av loggfilen experiment som syftar till att hitta principen med den högsta uppskattade, förväntad trafik. Mål principer parametriserade av [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) argument. I standardläge, testar skriptet för en mängd olika Vowpal Wabbit argument genom att lägga till den `--base_command`. Skriptet utförs följande åtgärder:
+Med hjälp av loggfilen, experimentering strävar efter att hitta principen med den högsta uppskattade, förväntat trafik. Principer för Target parametriseras av [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) argument. I standardläget, testar skriptet olika Vowpal Wabbit argument genom att lägga till till den `--base_command`. Skriptet utför följande åtgärder:
 
-* Identifieras funktioner namnområden från först `--auto_lines` raderna i filen.
-* Utför en första svep över hyper-parametrar (`learning rate`, `L1 regularization`, och `power_t`).
-* Testar principutvärdering `--cb_type` (inverterade benägenheten poäng (`ips`) eller dubbelt robust (`dr`). Mer information finns i [kontextuella Bandit exempel](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
+* Upptäcker automatiskt funktioner namnområden från först `--auto_lines` raderna i indatafilen.
+* Utför en första rensning hyperparametrar (`learning rate`, `L1 regularization`, och `power_t`).
+* Testar principutvärdering `--cb_type` (inverterade benägenhet poäng (`ips`) eller dubbelt robust (`dr`). Mer information finns i [sammanhangsberoende Bandit exempel](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
 * Testerna Marginalanteckningarna.
 * Testerna kvadratisk interaktiva funktioner:
-   * **Brute force-fasen**: testar alla kombinationer med `--q_bruteforce_terms` par eller färre.
-   * **girig fasen**: lägger till den bästa tills det inte finns några förbättringar för `--q_greedy_stop` Avrundar.
-* Utför en andra svep över hyper-parametrar (`learning rate`, `L1 regularization`, och `power_t`).
+   * **Brute force-fasen**: testar alla kombinationer av med `--q_bruteforce_terms` par eller färre.
+   * **girig fas**: lägger till den bästa tills det finns ingen förbättring för `--q_greedy_stop` Avrundar.
+* Utför en andra Svep hyperparametrar (`learning rate`, `L1 regularization`, och `power_t`).
 
-De parametrar som styr de här stegen är vissa Vowpal Wabbit argument:
-- Exempel manipulering alternativ:
+Parametrar som styr de här stegen är vissa Vowpal Wabbit argument:
+- Exempel manipulering av alternativ:
   - delade namnområden
-  - åtgärden namnområden
+  - åtgärd-namnområden
   - marginell namnområden
   - kvadratisk funktioner
-- Uppdatera alternativ för regel
-  - inlärningsfrekvensen
-  - L1 regularization
-  - t power värde
+- Alternativ för Klientuppdatering regel
+  - inlärningsfrekvens
+  - L1 regularisering
+  - t power-värde
 
-En detaljerad förklaring av argument som finns i [Vowpal Wabbit kommandoradsargument](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).
+En detaljerad förklaring av argument som finns i [kommandoradsargument som Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).
 
 ## <a name="prerequisites"></a>Förutsättningar
-- Vowpal Wabbit: Installerad på din sökväg.
-  - Windows: [användning av `.msi` installer](https://github.com/eisber/vowpal_wabbit/releases).
+- Vowpal Wabbit: Installerad och i sökvägen.
+  - Windows: [används den `.msi` installer](https://github.com/eisber/vowpal_wabbit/releases).
   - Andra plattformar: [Hämta källkoden](https://github.com/JohnLangford/vowpal_wabbit/releases).
-- Python 3: Installerad på din sökväg.
-- NumPy: Använd Pakethanteraren önskat.
-- Den *mwt/Microsoft-ds* databasen: [klona lagringsplatsen](https://github.com/Microsoft/mwt-ds).
-- Beslut Service JSON-loggfilen: som standard grundläggande kommandot innehåller `--dsjson`, vilket innebär att beslut Service JSON tolkning av indata-fil. [Hämta ett exempel på det här formatet](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
+- Python 3: Installerat och i sökvägen.
+- NumPy: Använd Pakethanteraren valfri.
+- Den *Microsoft/mwt-ds* lagringsplats: [klona lagringsplatsen](https://github.com/Microsoft/mwt-ds).
+- Beslutet Service JSON-loggfilen: som standard grundläggande kommandot innefattar `--dsjson`, vilket gör att Decision Service JSON-parsning av indata-filen. [Hämta ett exempel på det här formatet](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
 ## <a name="usage"></a>Användning
-Gå till `mwt-ds/DataScience` och kör `Experimentation.py` med relevanta argument, enligt anvisningarna i följande kod:
+Gå till `mwt-ds/DataScience` och kör `Experimentation.py` med relevanta argument, enligt beskrivningen i följande kod:
 
 ```cmd
 python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
@@ -72,38 +74,38 @@ python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
                           [--q_greedy_stop Q_GREEDY_STOP]
 ```
 
-En logg över resultaten läggs till i *mwt-ds/DataScience/experiments.csv* fil.
+En logg över resultatet läggs till i *mwt-ds/DataScience/experiments.csv* fil.
 
 ### <a name="parameters"></a>Parametrar
 | Indata | Beskrivning | Standard |
 | --- | --- | --- |
-| `-h`, `--help` | Visa hjälpmeddelandet och avsluta. | |
-| `-f FILE_PATH`, `--file_path FILE_PATH` | Sökväg till datafil (`.json` eller `.json.gz` format - varje rad är en `dsjson`). | Krävs |  
+| `-h`, `--help` | Visa hjälpmeddelande och avsluta. | |
+| `-f FILE_PATH`, `--file_path FILE_PATH` | Sökvägen för filen (`.json` eller `.json.gz` format: varje rad är en `dsjson`). | Krävs |  
 | `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | Grundläggande Vowpal Wabbit kommando.  | `vw --cb_adf --dsjson -c` |  
-| `-p N_PROC`, `--n_proc N_PROC` | Antalet parallella processer ska användas. | Logiska processorer |  
-| `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Delade funktionen namnområden (till exempel `abc` innebär namnområden `a`, `b`, och `c`).  | Automatisk identifiering från datafil |  
-| `-a ACTION_NAMESPACES, --action_namespaces ACTION_NAMESPACES` | Åtgärden funktionen namnområden. | Automatisk identifiering från datafil |  
-| `-m MARGINAL_NAMESPACES, --marginal_namespaces MARGINAL_NAMESPACES` | Marginell funktionen namnområden. | Automatisk identifiering från datafil |  
-| `--auto_lines AUTO_LINES` | Antal rader som data fil att söka till automatisk identifiering av funktioner namnområden. | `100` |  
-| `--only_hp` | Sopa endast med hyper-parametrar (`learning rate`, `L1 regularization`, och `power_t`). | `False` |  
-| `-l LR_MIN_MAX_STEPS`, `--lr_min_max_steps LR_MIN_MAX_STEPS` | Learning hastighet intervall som positiva värden `min,max,steps`. | `1e-5,0.5,4` |  
-| `-r REG_MIN_MAX_STEPS`, `--reg_min_max_steps REG_MIN_MAX_STEPS` | L1 regularization intervall som positiva värden `min,max,steps`. | `1e-9,0.1,5` |  
-| `-t PT_MIN_MAX_STEPS`, `--pt_min_max_steps PT_MIN_MAX_STEPS` | Power_t intervall som positiva värden `min,max,step`. | `1e-9,0.5,5` |  
+| `-p N_PROC`, `--n_proc N_PROC` | Antalet parallella processer som ska använda. | Logiska processorer |  
+| `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Delade funktionen namnområden (till exempel `abc` innebär namnområden `a`, `b`, och `c`).  | Identifiera automatiskt från datafil |  
+| `-a ACTION_NAMESPACES, --action_namespaces ACTION_NAMESPACES` | Åtgärden funktionen namnområden. | Identifiera automatiskt från datafil |  
+| `-m MARGINAL_NAMESPACES, --marginal_namespaces MARGINAL_NAMESPACES` | Marginell funktionen namnområden. | Identifiera automatiskt från datafil |  
+| `--auto_lines AUTO_LINES` | Antal data filen rader som ska genomsökas för att automatiskt identifiera funktioner namnområden. | `100` |  
+| `--only_hp` | Svepvinkeln endast med hyperparametrar (`learning rate`, `L1 regularization`, och `power_t`). | `False` |  
+| `-l LR_MIN_MAX_STEPS`, `--lr_min_max_steps LR_MIN_MAX_STEPS` | Learning rate-intervallet som positiva värden `min,max,steps`. | `1e-5,0.5,4` |  
+| `-r REG_MIN_MAX_STEPS`, `--reg_min_max_steps REG_MIN_MAX_STEPS` | L1 regularisering intervallet som positiva värden `min,max,steps`. | `1e-9,0.1,5` |  
+| `-t PT_MIN_MAX_STEPS`, `--pt_min_max_steps PT_MIN_MAX_STEPS` | Power_t intervallet som positiva värden `min,max,step`. | `1e-9,0.5,5` |  
 | `--q_bruteforce_terms Q_BRUTEFORCE_TERMS` | Antal kvadratisk par att testa i brute force-fasen. | `2` |  
-| `--q_greedy_stop Q_GREEDY_STOP` | Avrundar utan förbättringar, efter vilken kvadratisk girig Sök fasen stoppas. | `3` |  
+| `--q_greedy_stop Q_GREEDY_STOP` | Rundar utan förbättringar, efter vilken kvadratisk girig search fas stoppas. | `3` |  
 
 ### <a name="examples"></a>Exempel
-Använda förinställda standardvärden:
+Att använda förinställda standardvärden:
 ```cmd
 python Experimentation.py -f D:\multiworld\data.json
 ```
 
-Equivalently, Vowpal Wabbit kan också mata in `.json.gz` filer:
+Equivalently, Vowpal Wabbit kan också hämta `.json.gz` filer:
 ```cmd
 python Experimentation.py -f D:\multiworld\data.json.gz
 ```
 
-Att Sopa endast med hyper-parametrar (`learning rate`, `L1 regularization`, och `power_t`, stoppas efter steg 2):
+Att svepvinkeln endast med hyperparametrar (`learning rate`, `L1 regularization`, och `power_t`, stoppar efter steg 2):
 ```cmd
 python Experimentation.py -f D:\multiworld\data.json --only_hp
 ```

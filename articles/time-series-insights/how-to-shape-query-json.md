@@ -8,16 +8,22 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
-ms.openlocfilehash: 11bea78315ff7ebb4b0c167dbb687ce940907527
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b9d5e922a9a0a5f50e2ced896f5957fbc90d7eb4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628920"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364383"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Hur du utformar JSON för att maximera prestanda för frågor 
 
 Den här artikeln innehåller vägledning för att forma JSON, att maximera effektiviteten hos dina Azure Time Series Insights (TSI)-frågor.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-best-practices-around-shaping-json-to-meet-your-storage-needsbr"></a>I den här videon beskriver vi metodtips kring forma JSON för att uppfylla dina lagringsbehov.</br>
+
+> [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## <a name="best-practices"></a>Bästa praxis
 
@@ -181,7 +187,7 @@ Observera följande i exemplet ovan och liknar det första exemplet:
 
 - onödiga egenskaper har undvikas av skäl som anges i det första exemplet.
 
-- referensdata som används för att minska antalet byte som överförs i nätverket genom att introducera **deviceId**, för ett unikt par **messageId** och **deviceLocation**. En sammansatt nyckel används, **series.tagId**, för unikt par **typ** och **skalningsenheten**. Den sammansatta nyckeln tillåter den **deviceId** och **series.tagId** par som ska användas att referera till fyra värden: **messageId deviceLocation, Skriv** och **enhet **. Dessa data är ansluten med dessa data när ingångshändelser och därefter lagras i TSI för frågor.
+- referensdata som används för att minska antalet byte som överförs i nätverket genom att introducera **deviceId**, för ett unikt par **messageId** och **deviceLocation**. En sammansatt nyckel används, **series.tagId**, för unikt par **typ** och **skalningsenheten**. Den sammansatta nyckeln tillåter den **deviceId** och **series.tagId** par som ska användas att referera till fyra värden: **messageId deviceLocation, Skriv** och **enhet** . Dessa data är ansluten med dessa data när ingångshändelser och därefter lagras i TSI för frågor.
 
 - två nivåer av inkapsling används av skäl som anges i det första exemplet.
 

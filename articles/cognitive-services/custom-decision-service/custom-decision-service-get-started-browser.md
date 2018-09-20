@@ -1,27 +1,29 @@
 ---
-title: Anropa API från en webbläsare - kognitiva Azure-tjänster | Microsoft Docs
-description: Hur du kommer igång med Azure anpassad beslut-tjänsten för att optimera en webbsida genom att göra API-anrop direkt från en webbläsare.
+title: Anropa API från en webbläsare – Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: Hur du optimerar en webbsida genom att göra API-anrop direkt i en webbläsare till Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins,marcozo,alekh
-ms.openlocfilehash: 10236c9d8f70d9b90a896464b4f86a847ee904c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 554b90efe1c646396597a722a74390e9048570ea
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354747"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363190"
 ---
 # <a name="call-api-from-a-browser"></a>Anropa API från en webbläsare
 
-Den här artikeln hjälper dig att göra anrop till API: er Azure anpassad beslut tjänsten direkt i en webbläsare.
+Den här artikeln får du göra anrop till API: er för Azure Custom Decision Service direkt i en webbläsare.
 
-Se till att [registrera ditt program](custom-decision-service-get-started-register.md), första.
+Se till att [registrera ditt program](custom-decision-service-get-started-register.md)men först.
 
-Nu sätter vi igång. Programmet modelleras som en klient sida som länkar till flera sidor i artikeln. Främre sidan använder anpassad beslut tjänst för att ange ordning artikel sidor. Infoga följande kod i HTML-huvudet på främre sidan:
+Nu sätter vi igång. Programmets modelleras med en förstasida som länkar till flera artikelsidor. Sidan klient använder Custom Decision Service för att ange sorteringen av artikelsidor. Infoga följande kod i HTML-huvudet på klient sidan:
 
 ```html
 // Define the "callback function" to render UI
@@ -31,9 +33,9 @@ Nu sätter vi igång. Programmet modelleras som en klient sida som länkar till 
 <script src="https://ds.microsoft.com/api/v2/<appId>/rank/<actionSetId>" async></script>
 ```
 
-Den `data` argumentet innehåller rangordning URL: er som ska renderas. Mer information finns i referensen [API](custom-decision-service-api-reference.md).
+Den `data` argumentet innehåller URL: er som ska återges rangordning. Mer information finns i referensen [API](custom-decision-service-api-reference.md).
 
-Anropa följande kod för att hantera användare klickar på den översta artikeln på sidan klient:
+Anropa följande kod på klient sidan för att hantera en användare klickar du på den översta artikeln:
 
 ```javascript
 // call Reward API to report a click
@@ -43,9 +45,9 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Här, `data` argumentet till den `callback()` funktion. Ett exempel på implementering finns i det här [kursen](custom-decision-service-tutorial-news.md#use-the-apis).
+Här kan `data` argumentet till den `callback()` funktion. Ett exempel på implementering finns i den här [självstudien](custom-decision-service-tutorial-news.md#use-the-apis).
 
-Slutligen kan behöver du ange åtgärden Ange API som returnerar en lista över artiklar (åtgärder) anses av anpassade beslut-tjänsten. Implementera detta API som en RSS-feed som visas här:
+Slutligen måste du ange åtgärden Ange API som returnerar listan med artiklar (åtgärder) för att anses vara av Custom Decision Service. Implementera detta API som en RSS-feed som visas här:
 
 ```xml
 <rss version="2.0">
@@ -62,9 +64,9 @@ Slutligen kan behöver du ange åtgärden Ange API som returnerar en lista över
 </rss>
 ```
 
-Här kan varje översta `<item>` element beskriver en artikel. Den `<link>` är obligatoriskt och används som en åtgärds-ID av anpassade beslut tjänsten. Ange `<date>` (i ett standardformat för RSS) om du har mer än 15 artiklar. De senaste 15 artiklarna används. Den `<title>` är valfria och används för att skapa text-relaterade funktioner för artikeln.
+Här kan varje översta `<item>` element beskriver en artikel. Den `<link>` är obligatoriskt och används som en åtgärds-ID av Custom Decision Service. Ange `<date>` (i ett standardformat för RSS) om du har fler än 15 artiklar. 15 de senaste artiklarna används. Den `<title>` är valfri och används för att skapa textrelaterade funktioner för artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Gå igenom en [kursen](custom-decision-service-tutorial-news.md) för en mer ingående exempel.
-* Kontakta referensen [API](custom-decision-service-api-reference.md) lära dig mer om de angivna funktionerna.
+* Gå igenom en [självstudien](custom-decision-service-tutorial-news.md) för en mer ingående exempel.
+* Läser referensen [API](custom-decision-service-api-reference.md) mer information om de angivna funktionerna.

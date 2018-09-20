@@ -14,22 +14,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 9952720e917dc9202630b2feda0fadd0402d9eb6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e3745efdd0d0ea159afcda177c306f5865ac2aad
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377878"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366842"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd Seriekonsol för att komma åt GRUB och enanvändarläge
-Enanvändarläge är en minimal miljö med minimal funktioner. Det kan vara användbara för att undersöka problem eller nätverksproblem som färre tjänsterna kan köras i bakgrunden och, beroende på är ett filsystem kan inte ens att automatiskt montera. Detta är användbart att undersöka situationer, till exempel ett skadat filsystem, en bruten fstab eller nätverksanslutning (felaktig iptables-konfiguration).
+GRUB är GRand Unified startprogrammet. Från GRUB kan du ändra din startkonfiguration starta i enanvändarläge, bland annat. 
 
-För att komma åt GRUB, behöver du starta om den virtuella datorn samtidigt som det öppna bladet Seriell konsol. Detta kan göras med en SysRq `'b'` kommandot, eller genom att klicka på omstarten knappen på översiktsbladet. Vissa distributioner kräver tangentbordsinmatning att visa GRUB, medan andra automatiskt visa GRUB under några sekunder vid start och tillåter indata från användaren att avbryta timeout-värdet med tangentbordsinmatning. 
+Enanvändarläge är en minimal miljö med minimal funktioner. Det kan vara praktiskt för att undersöka problem, filsystem problem eller nätverksproblem. Färre tjänsterna kan köras i bakgrunden och, beroende på är ett filsystem kan inte ens att automatiskt montera.
 
-Vissa distributioner förlorar automatiskt du i enanvändarläge eller nödläge om den virtuella datorn inte att starta. Andra, men kräver ytterligare konfiguration innan de kan släpper du i enanvändarläge eller nödläge läge automatiskt.
+Enanvändarläge är också användbart i situationer där den virtuella datorn endast kan konfigureras för att acceptera SSH-nycklar för inloggning. I det här fallet kan du att kunna använda enanvändarläge för att skapa ett konto med lösenordsautentisering. 
 
-Du vill kontrollera att GRUB är aktiverat på den virtuella datorn för att få åtkomst till enanvändarläge. Beroende på din distribution, kan det finnas vissa installationen fungerar för att kontrollera att GRUB är aktiverat. 
+Om du vill ange enanvändarläge, behöver du ange GRUB när den virtuella datorn startas och ändra startkonfigurationen i GRUB. Detta kan göras med den virtuella datorn från seriell konsolen.
 
+## <a name="general-grub-access"></a>Allmän GRUB-åtkomst
+För att komma åt GRUB, behöver du starta om den virtuella datorn samtidigt som det öppna bladet Seriell konsol. Vissa distributioner kräver tangentbordsinmatning att visa GRUB, medan andra automatiskt visa GRUB under några sekunder och tillåter indata från användaren tangentbord annullera timeout-värdet. 
+
+Du vill kontrollera att GRUB är aktiverat på den virtuella datorn för att få åtkomst till enanvändarläge. Beroende på din distribution, kan det finnas vissa installationen fungerar för att kontrollera att GRUB är aktiverat. Distribution-specifik information finns nedan.
+
+### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Starta om den virtuella datorn för att komma åt GRUB i Seriekonsol
+Starta om den virtuella datorn med bladet Seriell konsol är öppen kan göras med en SysRq `'b'` kommandot om [SysRq](./serial-console-nmi-sysrq.md) är aktiverad, eller genom att klicka på omstarten knappen i bladet översikt (öppna den virtuella datorn i en ny webbläsarflik ska startas om utan att stänga bladet Seriell konsol). Följ distribution-specifika anvisningarna nedan för att lära dig vad som händer GRUB när du startar om.
+
+## <a name="general-single-user-mode-access"></a>Allmän enanvändarläge åtkomst
+Manuell åtkomst till enanvändarläge kan behövas i situationer där du inte har konfigurerat ett konto med autentisering med lösenord. Du behöver ändra GRUB-konfigurationen för att manuellt ange enanvändarläge. När du har gjort det, se [Använd läget för enskild användare kan återställa eller lägger till ett lösenord](#-Use-Single-User-Mode-to-reset-or-add-a-password) för ytterligare instruktioner.
+
+I fall där den virtuella datorn är det går inte att starta kommer distributioner ofta automatiskt släpper du i enanvändarläge eller nödläge. Andra, men kräver ytterligare konfiguration innan de kan släpper du i enanvändarläge eller nödläge läge automatiskt (till exempel ställa in ett rotlösenord).
+
+### <a name="use-single-user-mode-to-reset-or-add-a-password"></a>Använd enanvändarläge för att återställa eller lägger till ett lösenord
+När du är i enanvändarläge kan du göra följande för att lägga till en ny användare med sudo-behörighet:
+1. Kör `useradd <username>` lägga till en användare
+1. Kör `sudo usermod -a -G sudo <username>` och ge den nya användaren rotprivilegier
+1. Använd `passwd <username>` ställa in lösenordet för den nya användaren. Du kommer sedan att kunna logga in som den nya användaren
 
 ## <a name="access-for-red-hat-enterprise-linux-rhel"></a>Åtkomst för Red Hat Enterprise Linux (RHEL)
 RHEL förlorar du i enanvändarläge automatiskt om den inte kan starta på vanligt sätt. Om du inte har konfigurerat rotåtkomst för enanvändarläge du kommer inte att ha ett rotlösenord och går inte att logga in. Det finns en lösning (se ”manuellt ange enanvändarläge” nedan), men förslaget är att ställa in rotåtkomst från början.
@@ -101,7 +119,14 @@ Följ instruktionerna för RHEL ovan för att aktivera enanvändarläge i CentOS
 Ubuntu-avbildningar kräver inte ett rotlösenord. Du kan använda det utan ytterligare autentiseringsuppgifter om systemet startas i enanvändarläge. 
 
 ### <a name="grub-access-in-ubuntu"></a>GRUB-åtkomst i Ubuntu
-Tryck och håll ner 'Esc' medan den virtuella datorn startar upp för att komma åt GRUB.
+Tryck och håll ner 'Esc' medan den virtuella datorn startar upp för att komma åt GRUB. 
+
+Som standard visas Ubuntu-avbildningar automatiskt inte GRUB-skärmen. Detta kan ändras med följande instruktioner:
+1. Öppna `/etc/default/grub.d/50-cloudimg-settings.cfg` i en textredigerare valfri
+1. Ändra den `GRUB_TIMEOUT` värdet till ett annat värde än noll
+1. Öppna `/etc/default/grub` i en textredigerare valfri
+1. Kommentera ut den `GRUB_HIDDEN_TIMEOUT=1` rad
+1. Kör `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Enanvändarläge i Ubuntu
 Ubuntu förlorar du i enanvändarläge automatiskt om den inte kan starta på vanligt sätt. Använd följande instruktioner för att ange enanvändarläge manuellt:

@@ -1,7 +1,7 @@
 ---
-title: Anpassad sökning SDK C# quickstart | Microsoft Docs
+title: Anpassad sökning SDK C# Snabbstart | Microsoft Docs
 titleSuffix: Cognitive Services
-description: Inställningar för anpassad sökning SDK C#-konsolprogram.
+description: Konfigurera anpassade Search SDK C#-konsolprogram.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -10,45 +10,46 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: rosh
-ms.openlocfilehash: 59b208b53bec974433c50c0e2304dc96bd9bd09e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6b41dfbde0c2af776ee2c35220f731e40de334a0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351423"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367856"
 ---
-# <a name="custom-search-sdk-c-quickstart"></a>Anpassad sökning SDK C# Snabbstart
+# <a name="custom-search-sdk-c-quickstart"></a>Snabbstart för SDK för anpassad sökning i C#
 
-Bing anpassad sökning SDK innehåller funktionerna i REST-API för entiteten Sök och tolka resultaten.
+Bing Custom Search SDK innehåller funktionen för REST-API för entitetssökning och tolka resultaten.
 
+Källkoden för det här exemplet är tillgänglig från [Github](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 ## <a name="application-dependencies"></a>Programberoenden
 
-Om du vill konfigurera ett konsolprogram med Bing anpassad sökning SDK, bläddra till den `Manage NuGet Packages` alternativet från Solution Explorer i Visual Studio. Lägg till den `Microsoft.Azure.CognitiveServices.Search.CustomSearch` paketet.
+Om du vill konfigurera ett konsolprogram med Bing Custom Search SDK, bläddra till den `Manage NuGet Packages` alternativet från Solution Explorer i Visual Studio. Lägg till paketet `Microsoft.Azure.CognitiveServices.Search.CustomSearch`.
 
-Installera den [NuGet anpassad sökning](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) paketet installeras även beroenden, inklusive följande sammansättningar:
+Installera den [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) paketet installerar också beroenden, inklusive följande sammansättningar:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="entity-search-client"></a>Entiteten Sök klienten
+## <a name="entity-search-client"></a>Entiteten Search-klienten
 
-För att skapa en instans av CustomSearchAPI klienten, lägger du till med hjälp av direktiven:
+Om du vill skapa en instans av CustomSearchAPI-klienten, lägger du till med hjälp av direktiv:
 ```
 using Microsoft.Azure.CognitiveServices.Search.CustomSearch;
 
 ```
 
-Initiera klienten anpassad sökning: ersätta `YOUR-CUSTOM-SEARCH-KEY` och `YOUR-CUSTOM-CONFIG-ID` med din åtkomstnyckel och slutpunktskonfigurationen API-ID som tilldelats på [Mina instanser](https://www.customsearch.ai/).
+Skapa en instans av klienten för anpassad sökning: Ersätt `YOUR-CUSTOM-SEARCH-KEY` och `YOUR-CUSTOM-CONFIG-ID` med din åtkomstnyckel och konfigurationen av API-slutpunkten ID tilldelas på [Mina instanser](https://www.customsearch.ai/).
 ```
 var client = new CustomSearchAPI(new ApiKeyServiceClientCredentials("YOUR-CUSTOM-SEARCH-KEY"));
 
 ```
-Använd klienten för att söka med en frågetext:
+Du kan använda klienten för att söka med en frågetext:
 ```
 var webData = client.CustomInstance.SearchAsync(query: "Xbox", customConfig: Int32.Parse("YOUR-CUSTOM-CONFIG-ID")).Result;
 
 ```
-## <a name="parse-the-results"></a>Analysera resultaten
+## <a name="parse-the-results"></a>Tolka resultaten
 
 Den `SearchAsync` metoden returnerar en `WebData` objekt som innehåller `WebPages` om någon sådan hittas för frågan. Den här koden söker efter det första resultatet och hämtar dess `Name` och `URL`.
 ```
@@ -79,9 +80,9 @@ else
 }
 
 ```
-## <a name="complete-console-application"></a>Fullständig konsolprogram
+## <a name="complete-console-application"></a>Slutföra konsolprogram
 
-Följande kod söker på frågan ”Xbox” och skriver ut `Name` och `URL` för den första web resultatet.
+Följande kod söker på frågan ”Xbox” och skriver ut `Name` och `URL` för första Webbresultat.
 ```
 using System;
 using System.Linq;
@@ -141,4 +142,4 @@ namespace CustomSrchSDK
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva services .NET SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Exempel med Cognitive Services SDK för .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

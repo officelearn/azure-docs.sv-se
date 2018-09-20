@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/19/2018
-ms.openlocfilehash: 94d196ceecc0b63b9f0b0fe94f71363dc2086c30
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.date: 09/22/2018
+ms.openlocfilehash: b8d5208992e8f12fae3c010748b2c494e0d50ee8
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213658"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465665"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrera din PostgreSQL-databas med säkerhetskopiering och återställning
 Du kan använda [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) att extrahera en PostgreSQL-databas till en dumpfil och [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) att återställa PostgreSQL-databasen från en arkivfil som skapats av pg_dump.
@@ -41,7 +41,7 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.
 > 
 
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Återställa data till Azure-måldatabas för PostrgeSQL med pg_restore
-När du har skapat måldatabasen kan använda du kommandot pg_restore och -d,--dbname-parametern för att återställa data i måldatabasen från dumpfilen.
+När du har skapat måldatabasen, kan du använda kommandot pg_restore och -d, parametern--dbname för att återställa data i måldatabasen från dumpfilen.
 ```bash
 pg_restore -v --no-owner –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
@@ -57,6 +57,34 @@ I det här exemplet kan du återställa data från dumpfilen **testdb.dump** til
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
+
+## <a name="optimizing-the-migration-process"></a>Optimera migreringsprocessen
+
+Ett sätt att migrera din befintliga PostgreSQL-databas till Azure Database för PostgreSQL-tjänsten är att säkerhetskopiera databasen på käll- och återställa det i Azure. Överväg att använda följande parametrar med backup och återställa kommandon för att minimera den tid som krävs för att slutföra migreringen.
+
+> [!NOTE]
+> Information om syntaxinformation finns i artiklarna [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
+>
+
+### <a name="for-the-backup"></a>För säkerhetskopiering
+- Utgår vi från säkerhetskopiering med växeln -Fc så att du kan utföra återställningen parallellt för att snabba upp. Exempel:
+
+    ```
+    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+### <a name="for-the-restore"></a>Vid återställningen
+- Kopiera de säkerhetskopiera filerna i en Azure blobblagring och göra återställningen därifrån. Det bör vara snabbare än återställningen via Internet. 
+- Det bör göras redan som standard, men öppna dumpfilen för att verifiera att skapa index-instruktioner är efter infogningen av data. Om det inte är fallet, flytta create index-instruktioner när data infogas.
+- Återställa med växlarna -Fc och -j *#* att parallellisera återställningen. *#* är antalet kärnor på målservern. Du kan också försöka med *#* inställd på två gånger antalet kärnor på målservern för att se hur. Exempel:
+
+    ```
+    pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+- Du kan också redigera dumpfilen genom att lägga till kommandot *ange synchronous_commit = av;* i början och kommandot *ange synchronous_commit = on;* i slutet. Inte att aktivera det i slutet, innan apparna som ändrar data, kan det resultera i efterföljande förlust av data.
+
+Kom ihåg att testa och validera dessa kommandon i en testmiljö innan du använder dem i produktion.
 
 ## <a name="next-steps"></a>Nästa steg
 - Om du vill migrera en PostgreSQL-databas med exportera och importera, se [migrera din PostgreSQL-databas med exportera och importera](howto-migrate-using-export-and-import.md).

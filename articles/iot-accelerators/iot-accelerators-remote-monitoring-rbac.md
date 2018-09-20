@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: fccdc4ac40878060b94d495b8895e2a128c9477c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716119"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364303"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserade åtkomstkontroller i lösningsacceleratorn för fjärrövervakning
 
@@ -240,6 +240,8 @@ public async Task DeleteAsync(string id)
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln har du lärt dig hur rollbaserad åtkomst kontroller är implementerade i lösningsacceleratorn för fjärrövervakning.
+
+Se [konfigurera åtkomstkontroller för Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) information om hur du hanterar åtkomst till Time Series Insights explorer i lösningsacceleratorn för fjärrövervakning.
 
 Mer information om lösningsacceleratorn för fjärrövervakning finns [arkitektur för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 

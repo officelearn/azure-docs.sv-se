@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: af8c0b6a4aa0c3b6e25f92dc450faa22a01ee374
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 42b157a63b76474f6c9482da75072878fe9291e0
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579192"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466005"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics-datasäkerhet
 Det här dokumentet är avsedd att ge specifik information från Azure Log Analytics för att komplettera informationen på [Azure Trust Center](../security/security-microsoft-trust-center.md).  
@@ -44,9 +44,9 @@ Om du vill se till att skydda data under överföringen till Log Analytics, reko
 
 Den [PCI Security Standards Council](https://www.pcisecuritystandards.org/) har ställt in en [deadline på den 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) att inaktivera äldre versioner av TLS/SSL och uppgraderingen säkrare protokoll. När Azure sjunker bakåtkompatibelt stöd om agenterna inte kan kommunicera över minst TLS 1.2 inte skulle du kunna skicka data till Log Analytics. 
 
-Vi rekommenderar inte uttryckligen ställa in din agent att bara använda TLS 1.2, såvida inte är absolut nödvändigt eftersom det kan innebära säkerhet på funktioner som gör det möjligt att automatiskt identifiera och utnyttja fördelarna med nyare säkrare protokoll när de blir tillgängliga, till exempel som TLS 1.3. 
+Vi rekommenderar inte uttryckligen inställningen din agent att bara använda TLS 1.2, såvida inte är absolut nödvändigt, eftersom det kan bryta säkerhet på funktioner som gör det möjligt att automatiskt identifiera och dra nytta av nya säkrare protokoll när de blir tillgängliga, till exempel som TLS 1.3. 
 
-### <a name="platform-specific-guidance"></a>Specifik vägledning för plattformen
+### <a name="platform-specific-guidance"></a>Plattformsspecifika vägledning
 
 |Plattform/språk | Support | Mer information |
 | --- | --- | --- |
@@ -117,11 +117,11 @@ Log Analytics programvara utvecklings- och gruppens information säkerhet och st
 
 Varje medlem i gruppen utveckling får formella säkerhetsutbildning. Vi använder internt, ett versionskontrollsystem för programutveckling. Varje programvaruprojekt skyddas av systemet för versionskontroll.
 
-Microsoft har ett team för säkerhet och efterlevnad som övervakar och utvärderar alla tjänster i Microsoft. Information security införlivande utgör teamet och de är inte kopplade till de tekniska avdelningar som utvecklar Log Analytics. De har sina egna management-kedjan och utföra oberoende utvärderingar av produkter och tjänster för att säkerställa säkerhet och efterlevnad.
+Microsoft har ett team för säkerhet och efterlevnad som övervakar och utvärderar alla tjänster i Microsoft. Information security införlivande utgör teamet och de är inte kopplade teknikteam som utvecklar Log Analytics. De har sina egna management-kedjan och utföra oberoende utvärderingar av produkter och tjänster för att säkerställa säkerhet och efterlevnad.
 
 Microsofts styrelse meddelas via en årlig rapport om alla informationssäkerhetsprogram på Microsoft.
 
-Log Analytics programvara utvecklings- och teamet arbetar aktivt med Microsoft Legal och efterlevnad teams och andra branschpartners att förvärva olika certifieringar.
+Log Analytics-programutveckling och service-teamet arbetar aktivt med Microsoft Legal och efterlevnad teams och andra branschpartners att förvärva olika certifieringar.
 
 ## <a name="certifications-and-attestations"></a>Certifieringar och attesteringar
 Azure Log Analytics uppfyller följande krav:
@@ -176,7 +176,7 @@ Enligt beskrivningen ovan, skickas data från den hanteringsserver eller direkta
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Log Analytics-tjänsten tar emot och bearbetar data
 Log Analytics-tjänsten garanterar att inkommande data är från en betrodd källa genom att verifiera certifikat och dataintegritet med Azure-autentisering. Obearbetade rådata lagras sedan i en Azure-Händelsehubb i regionen kommer så småningom att lagras data i vila. Vilken typ av data som lagras beror på vilka typer av lösningar som har importerats och används för att samla in data. Log Analytics service processer rådata och matar in den i databasen.
 
-Kvarhållningsperioden för insamlade data som lagras i databasen är beroende av den valda prisplanen. För den *kostnadsfri* nivå, insamlade data är tillgängliga i 7 dagar. För den *betald* nivå, insamlade data är tillgängliga i 31 dagar som standard, men kan utökas till 730 dagar. Data lagras krypterat i vila i Azure storage, för att säkerställa datasekretess. De senaste två veckorna data lagras också i SSD-baserad cacheminnet och det här cacheminnet är för närvarande inte krypterat.  Vi planerar att stödja sådan kryptering i den senare halvan av 2018.  
+Kvarhållningsperioden för insamlade data som lagras i databasen är beroende av den valda prisplanen. För den *kostnadsfri* nivå, insamlade data är tillgängliga i sju dagar. För den *betald* nivå, insamlade data är tillgängliga i 31 dagar som standard, men kan utökas till 730 dagar. Data lagras krypterat i vila i Azure storage, för att säkerställa datasekretess, och data replikeras inom lokala region med hjälp av lokalt redundant lagring (LRS). De senaste två veckorna data lagras också i SSD-baserad cacheminnet och det här cacheminnet är för närvarande inte krypterat.  Vi arbetar för att stödja kryptering av SSD-baserad cache.      
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Använd Log Analytics för att få åtkomst till data
 För att få åtkomst till Log Analytics-arbetsytan måste du logga in på Azure-portalen med organisationens konto eller Microsoft-konto som du tidigare har konfigurerat. All trafik mellan portalen och Log Analytics-tjänsten skickas via en säker HTTPS-kanal. När du använder portalen, genereras ett sessions-ID på klienten för användare (webbläsare) och data lagras i ett lokalt cacheminne tills sessionen avslutas. När avslutas, tas cachen bort. Klientsidan cookies, som inte innehåller personligt identifierbar information tas inte bort automatiskt. Sessionscookies är markerad HTTPOnly och skyddas. Efter en förutbestämd inaktiv tid, har Azure portal sessionen avslutats.

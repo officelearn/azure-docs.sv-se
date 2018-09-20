@@ -1,19 +1,21 @@
 ---
-title: Anpassade Decision Service arbetsflöde – Azure Cognitive Services | Microsoft Docs
-description: Den här artikeln ger en översikt över Azure Custom Decision Service-arbetsflödet.
+title: Custom Decision Service-arbetsflöde
+titlesuffix: Azure Cognitive Services
+description: Den här artikeln innehåller det rekommenderat arbetsflöden för Azure Custom Decision Service.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: nolachar
-ms.openlocfilehash: 32d5939e9adb4d98ae0c38a32ded0e0b6dec8256
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: b3bc7f90c9238ce58fd9dc8ac630987803d79bfd
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580641"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368026"
 ---
 # <a name="custom-decision-service-workflow"></a>Custom Decision Service-arbetsflöde
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: d7a088db46d936d4a9626132254eb7bfbdd0f83f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: db7aa397d66c6bc3878633437682759b4be2d119
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44169139"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46473916"
 ---
 | Kategori | Datalager | Stöds som en källa | Stöds som en mottagare | Stöds av [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Stöds av [lokal IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -74,6 +74,7 @@ ms.locfileid: "44169139"
 | &nbsp; |[Jira (förhandsversion)](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento (förhandsversion)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo (förhandsversion)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
+| &nbsp; |[Office 365 (förhandsversion)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Eloqua (förhandsversion)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Responsys (förhandsversion)](../articles/data-factory/connector-oracle-responsys.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle-Tjänstmoln (förhandsversion)](../articles/data-factory/connector-oracle-service-cloud.md) |✓ | |✓ |✓  |

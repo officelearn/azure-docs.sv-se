@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: a404eb1393f9e99c2e2932c2d23724051f1b72a0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e301afaa2fed2b00599fbdde8178203965280c0d
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628495"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365011"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minimera begränsningar om du vill minska svarstiden i Azure Time Series Insights
 När mängden inkommande data överskrider konfigurationen för din miljö kan uppstår du fördröjning eller begränsning i Azure Time Series Insights.
@@ -30,6 +30,11 @@ Du är mest sannolika svarstid och begränsning när du:
 - Skicka stora mängder historiska händelser till en händelsekälla, vilket resulterar i en fördröjning (Time Series Insights måste komma ikapp).
 - Ansluta till referensdata med telemetri, vilket resulterar i större händelsestorleken.  En ingressed datapaketet paketstorleken är på 32 KB behandlas som 32 händelser från en begränsning perspektiv, var och en storlek 1 KB. Den maximala tillåtna händelsestorleken är 32 KB; datapaket som är större än 32 KB trunkeras.
 
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>I den här videon beskriver vi beteende för Time Series Insights data ingångshändelser och hur du planerar för den.</br>
+
+> [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>Övervaka svarstid och begränsning med aviseringar
 

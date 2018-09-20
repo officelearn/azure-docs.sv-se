@@ -8,32 +8,33 @@ ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: d651a0a9e006e996db44b82eeaf0a1242a4114e0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d2c40935504f6c2d477eae1830e58bf782d28b11
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296098"
+ms.locfileid: "46366208"
 ---
 # <a name="regions-of-the-speech-service"></a>Med taltjänsten-regioner
 
 Speech-tjänsten finns i olika regioner.
-När du skapar en prenumeration kan du välja en tillgänglig region, beroende på dina behov.
+När du skapar en prenumeration väljer du en tillgänglig region utifrån dina behov.
 
-När du använder din prenumeration som du behöver för den region som du valt.
+När du använder din prenumeration kan behöva du för den region som du har valt.
 
 ## <a name="rest-api"></a>REST-API
 
-Med hjälp av REST-API, Välj rätt regionspecifika-slutpunkter.
+Använd REST API för att välja rätt regionspecifika slutpunkterna.
 Se [REST API: er](rest-apis.md) mer information.
 
 ## <a name="speech-sdk"></a>Speech SDK
 
-I den [tal SDK](speech-sdk.md), regioner har angetts som en sträng (till exempel som en parameter till [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) i tal SDK för C#).
+I den [tal SDK](speech-sdk.md), regioner har angetts som en sträng.
+Ett exempel är som en parameter till [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) i tal SDK för C#.
 
 ### <a name="regions-for-speech-recognition-and-translation"></a>Regioner för taligenkänning och översättning
 
-Tabellen nedan visar en lista över tillgängliga regioner för **taligenkänning** och **translation**:
+I följande tabell visas tillgängliga regioner för **taligenkänning** och **translation**.
 
   Region | Parametern för tal-SDK | Portalen
  ------|-------|--------
@@ -49,6 +50,6 @@ Tabellen nedan visar en lista över tillgängliga regioner för **taligenkännin
 
 ### <a name="regions-for-intent-recognition"></a>Regioner för taligenkänning
 
-Tillgängliga regioner för **avsiktsigenkänning** via tal SDK finns i den [Language Understanding Tjänstesida region](/azure/cognitive-services/luis/luis-reference-regions).
+Tillgängliga regioner för **avsiktsigenkänning** via tal SDK listas på den [Language Understanding Tjänstesida region](/azure/cognitive-services/luis/luis-reference-regions).
 För varje publishing-region som visas, bestäms parametern motsvarande tal SDK region som den första delen av domännamnet för slutpunkten.
 Till exempel använda `westus` Ange regionen West US publicering.

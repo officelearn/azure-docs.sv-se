@@ -1,5 +1,6 @@
 ---
-title: Exempel för att använda Microsoft Speech Service | Microsoft Docs
+title: Exempel för att använda Bing-taligenkänning | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Exempel för att använda Microsoft Speech Service som konverterar talat ljud till text.
 services: cognitive-services
 author: zhouwangzw
@@ -7,18 +8,18 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 20ffba69d9f0f5b6648b19967c086e23e1dcb923
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 29000e67109a49991f8c5488843b2b379f689633
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41988801"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367692"
 ---
-# <a name="microsoft-speech-client-samples"></a>Microsoft speech klient-exempel
+# <a name="bing-speech-client-samples"></a>Bing-taligenkänning klient-exempel
 
-Microsoft Speech Service innehåller slutpunkt till slutpunkt-exempel som visar hur du använder Microsoft API för taligenkänning i olika användningsfall, till exempel kommandot igenkänning av kontinuerlig nätverksförmåner, exponering och avsikt identifiering. Alla exempel finns på GitHub och kan laddas ned av följande länkar: The README.md i varje databas samt de [klientbibliotek](GetStarted/GetStartedClientLibraries.md) sidan innehåller information om hur du skapar och kör exemplen.
+Bing-taligenkänning innehåller slutpunkt till slutpunkt-exempel för att demonstrera olika användningsfall, till exempel kommandot igenkänning av kontinuerlig nätverksförmåner, exponering och avsikt identifiering. Alla exempel finns på GitHub och kan laddas ned av följande länkar: The README.md i varje databas samt de [klientbibliotek](GetStarted/GetStartedClientLibraries.md) sidan innehåller information om hur du skapar och kör exemplen.
 
 - [REST API-exempel](https://github.com/Azure-Samples/SpeechToText-REST)
 

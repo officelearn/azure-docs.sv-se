@@ -16,8 +16,6 @@ items:
     href: abstract-container-security-microsoft-azure.md
   - name: Aktivera driftsäkerhet
     href: abstract-azure-operational-security.md
-  - name: Styrning i Azure
-    href: governance-in-azure.md
   - name: Isolering i Azure-molnet
     href: azure-isolation.md
   - name: Skydda hybridnätverksarkitektur
@@ -38,6 +36,7 @@ items:
   - name: Diskkryptering
     items:
     - name: Bästa praxis
+      displayName: transit
       href: azure-security-data-encryption-best-practices.md
     - name: Vilande datakryptering
       href: azure-security-encryption-atrest.md
@@ -64,12 +63,16 @@ items:
       - name: Felsökning
         href: azure-security-disk-encryption-tsg.md
       - name: Azure Disk Encryption med Azure AD-appen (tidigare version)
+        displayName: active directory
         items:
         - name: Förutsättningar för diskkryptering med Azure AD-appen
+          displayName: active directory
           href: azure-security-disk-encryption-prerequisites-aad.md
         - name: Diskkryptering med Azure AD-appen för virtuella Windows-datorer
+          displayName: active directory
           href: azure-security-disk-encryption-windows-aad.md
         - name: Diskkryptering med Azure AD-appen för virtuella Linux-datorer
+          displayName: active directory
           href: azure-security-disk-encryption-linux-aad.md
   - name: Azure Storage-säkerhet
     href: security-storage-overview.md
@@ -113,12 +116,16 @@ items:
     href: security-identity-management-overview.md
     items:
     - name: Välj Azure AD-autentisering
+      displayName: identity, active directory
       href: azure-ad-choose-authn.md
     - name: Säkerhetskontrollista
+      displayName: identity, active directory, password
       href: azure-ad-secure-steps.md
     - name: Bästa praxis
+      displayName: password, identity, active directory
       href: azure-security-identity-management-best-practices.md
     - name: Använda MFA på prenumerationsadministratörer
+      displayName: identity
       href: azure-security-global-admin.md
   - name: Nätverkssäkerhet
     href: security-network-overview.md
@@ -172,10 +179,12 @@ items:
       - name: Kom igång
         href: security-azure-log-integration-get-started.md
       - name: Integrera Azure AD-granskningsloggar
+        displayName: active directory
         href: security-azure-log-integration-ad.md
       - name: Integrera aviseringar i Security Center
         href: security-azure-log-integration-security-center.md
       - name: Integrera loggar från Key Vault
+        displayName: keyvault
         href: security-azure-log-integration-keyvault-eventhub.md
       - name: VANLIGA FRÅGOR OCH SVAR
         href: security-azure-log-integration-faq.md
@@ -187,14 +196,17 @@ items:
     - name: Säkerhetskontrollista
       href: azure-operational-security-checklist.md
 - name: Styrning och efterlevnad
+  displayName: blueprint
   items:
   - name: AU-SKYDDAD
+    displayName: blueprint
     items:
     - name: IaaS-webbprogram
       href: ./blueprints/au-protected-iaaswa-overview.md
     - name: PaaS-webbprogram
       href: ./blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
+    displayName: blueprint
     items:
     - name: Datanalys
       href: ./blueprints/fedramp-analytics-overview.md
@@ -205,6 +217,7 @@ items:
     - name: PaaS-webbprogram
       href: ./blueprints/fedramp-paaswa-overview.md
   - name: FFIEC
+    displayName: blueprint
     items:
     - name: Datanalys
       href: ./blueprints/ffiec-analytics-overview.md
@@ -215,6 +228,7 @@ items:
     - name: PaaS-webbprogram
       href: ./blueprints/ffiec-paaswa-overview.md
   - name: GDPR
+    displayName: blueprint
     items:
     - name: Datanalys
       href: ./blueprints/gdpr-analytics-overview.md
@@ -225,10 +239,12 @@ items:
     - name: PaaS-webbprogram
       href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
+    displayName: blueprint
     items:
     - name: Hälsodata och AI
       href: ./blueprints/azure-health.md
   - name: NIST SP 800-171
+    displayName: blueprint
     items:
     - name: Datanalys
       href: ./blueprints/nist171-analytics-overview.md
@@ -239,6 +255,7 @@ items:
     - name: PaaS-webbprogram
       href: ./blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
+    displayName: blueprint
     items:
     - name: Datanalys
       href: ./blueprints/pcidss-analytics-overview.md
@@ -249,10 +266,12 @@ items:
     - name: PaaS-webbprogram
       href: ./blueprints/pcidss-paaswa-overview.md
   - name: Betrodd Internetanslutning
+    displayName: blueprint
     items:
     - name: Betrodd Internetanslutning med Azure
       href: ./compliance/compliance-tic.md
   - name: UK NHS
+    displayName: blueprint
     items:
     - name: Datanalys
       href: ./blueprints/uknhs-analytics-overview.md
@@ -263,6 +282,7 @@ items:
     - name: PaaS-webbprogram
       href: ./blueprints/uknhs-paaswa-overview.md
   - name: OFFICIELLT FÖR STORBRITANNIEN
+    displayName: blueprint
     items:
     - name: IaaS-webbprogram
       href: ./blueprints/ukofficial-iaaswa-overview.md
@@ -318,9 +338,9 @@ items:
         href: azure-security-threat-modeling-tool-sensitive-data.md
       - name: Sessionshantering
         href: azure-security-threat-modeling-tool-session-management.md
-ms.openlocfilehash: 2e0bdab31a721c5b55488ac21579f0cb9ac45151
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 99ff7a6ba5a2289855739ce8b269c4b3aae10e61
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841572"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364864"

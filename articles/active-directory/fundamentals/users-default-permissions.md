@@ -1,26 +1,25 @@
 ---
-title: Jämför standardbehörigheter för användare i Azure AD | Microsoft Docs
-description: Jämför behörigheter för medlem, gäst, appägare och gruppägare
+title: Vad är standardbehörigheterna för användare i Azure Active Directory? | Microsoft Docs
+description: Läs mer om de olika användarbehörigheterna som är tillgängliga i Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
+ms.workload: identity
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-ms.openlocfilehash: e2571a6854d2c3de2425547b69c5435286182ef7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+custom: it-pro
+ms.openlocfilehash: 9a9bd33dce4b2be9e15df2745dd25338cdb42702
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448160"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730487"
 ---
-# <a name="default-user-permissions-in-azure-active-directory"></a>Standardbehörigheter för användare i Azure Active Directory
+# <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Vad är standardbehörigheterna för användare i Azure Active Directory?
 
 Alla användare beviljas en uppsättning standardbehörigheter i Azure Active Directory (AD Azure). En användares behörighet består av typen av användare, deras [rollmedlemskap](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av standardinställningar för medlem och gäst.
 
@@ -52,7 +51,7 @@ Behörighet | Förklaring av inställning
 ---------- | ------------
 Möjlighet att skapa säkerhetsgrupper | När den här inställningen är inställd på Nej kan användare inte skapa säkerhetsgrupper. Globala administratörer eller användarkontoadministratörer kan fortfarande skapa säkerhetsgrupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
 Får skapa Office 365-grupper | Om det här alternativet är Nej får användare inte skapa Office 365-grupper. Om det här alternativet är Vissa får en uppsättning användare skapa Office 365-grupper. Globala administratörer eller användarkontoadministratörer kommer fortfarande att kunna skapa grupper för Office 365. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
-Begränsa åtkomst till Azure AD-administrationsportalen | Om det här alternativet är Nej kan användare inte komma åt Azure Active Directory-portalen.
+Begränsa åtkomst till Azure AD-administrationsportalen | Ange det här alternativet på Nej förhindrar användare från att komma åt Azure Active Directory.
 Möjlighet att läsa andra användare | Den här inställningen är endast tillgänglig i PowerShell. Om den är $false får inga icke-administratörer läsa användarinformation från katalogen. Detta förhindrar inte läsning av användarinformation i andra Microsofttjänster, till exempel Exchange Online. Den här inställningen är avsedd för särskilda omständigheter och det rekommenderas inte att ställa in den på $false.
 
 ## <a name="object-ownership"></a>Objektägarskap
@@ -70,7 +69,7 @@ När en användare skapar en grupp, läggs de automatiskt som en ägare till gru
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du ändrar administratörer för en Azure-prenumeration finns i [Lägga till eller ändra Azure-administratörsroller](../../billing/billing-add-change-azure-subscription-administrator.md)
+* Mer information om hur du tilldelar administratörsroller i Azure AD finns [tilldela en användare till administratörsroller i Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Mer information om hur resursåtkomsten hanteras i Microsoft Azure finns i [Förstå resursåtkomst i Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Mer information om hur Azure Active Directory relaterar till din Azure-prenumeration finns i [Hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Hantera användare](add-users-azure-active-directory.md)

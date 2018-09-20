@@ -56,6 +56,8 @@ items:
       href: howto-set-up-template.md
     - name: Hantera dina enheter
       href: howto-manage-devices.md
+    - name: Köra ett jobb
+      href: howto-run-a-job.md
     - name: Använda enhetsuppsättningar
       href: howto-use-device-sets.md
     - name: Version av enhetsmall
@@ -66,7 +68,7 @@ items:
       href: howto-create-telemetry-rules.md
     - name: Skapa en händelseregel
       href: howto-create-event-rules.md
-    - name: Skapa anpassad analys
+    - name: Analysera dina enhetsdata
       href: howto-create-analytics.md
   - name: Åtgärder och utökningsbarhet
     items:
@@ -82,14 +84,12 @@ items:
       href: howto-connect-powerbi.md
   - name: Adminstration
     items:
-    - name: Administrera ditt program
-      href: howto-administer.md
+    - name: Hantera IOT Central från Azure-hanteringsportalen
+      href: howto-manage-iot-central-from-portal.md
     - name: Skapa och hantera ett program som molnlösningsleverantör
       href: howto-create-and-manage-applications-as-CSP.md
     - name: Konfigurera startsidan
       href: howto-configure-homepage.md
-    - name: Förbereda och ladda upp bilder
-      href: howto-prepare-images.md
 - name: Relaterat
   items:
   - name: Lösningar
@@ -122,9 +122,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-central
-ms.openlocfilehash: 103bbb59a20194447d49e11327df1d984ccb0a8a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3e8292ce6780381f4e8ead009002959fe42a9d02
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983142"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465682"

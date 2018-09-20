@@ -7,14 +7,16 @@ author: viv-liu
 ms.author: viviali
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5cb55e73b379b909811bde728d2ab39e29635bf5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 6f8bed8aba43d77cdfad49f4fe62a4c7aa2c5ce3
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190707"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368077"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualisera och analysera dina Azure IoT Central-data i en Power BI-instrumentpanel
+
+*Det här avsnittet gäller för administratörer.*
 
 ![Power BI-lösning mallens pipeline](media/howto-connect-powerbi/iot-continuous-data-export.png)
 
@@ -25,9 +27,9 @@ Använd Azure IoT Central Analytics Power BI-lösningsmall för att skapa en kra
 - Se historiska trender för enheten mätning av faktisk användning
 - Identifiera problematiska enheter som skickar stora mängder kritiska händelser
 
-Den här lösningsmallen ställer in den pipeline som hämtar data i Azure Blob storage-kontot från [löpande dataexport](howto-export-data.md). Dessa data flödar genom att Azure Functions, Azure Data Factory och Azure SQL Database som kan bearbeta och transformera data så att visualiseras och analyseras i en Power BI-rapport som du kan hämta som en PBIX-fil. Alla dessa resurser skapas i din Azure-prenumeration, så du kan anpassa varje komponent för att passa dina behov. Den här lösningsmallen är helt öppen källkod, så du kan läsa mer om arkitekturen och bygg ut lösningen genom att besöka den [Github-lagringsplatsen](https://aka.ms/iotcentralgithubpowerbisolutiontemplate).
+Den här lösningsmallen ställer in den pipeline som hämtar data i Azure Blob storage-kontot från [löpande dataexport](howto-export-data.md). Dessa data flödar genom att Azure Functions, Azure Data Factory och Azure SQL Database för att bearbeta och transformera data. Utdata kan visualiseras och analyseras i en Power BI-rapport som du kan hämta som en PBIX-fil. Alla dessa resurser skapas i din Azure-prenumeration, så du kan anpassa varje komponent för att passa dina behov. Den här lösningsmallen är helt öppen källkod, så du kan läsa mer om arkitekturen och bygg ut lösningen genom att besöka den [GitHub-lagringsplatsen](https://aka.ms/iotcentralgithubpowerbisolutiontemplate).
 
-**[Hämta Azure IoT Central Analytics lösningsmallen från Microsoft AppSource.](https://aka.ms/iotcentralpowerbisolutiontemplate)**
+## <a name="get-the-azure-iot-central-analytics-solution-templatehttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Hämta den [lösningsmall för Azure IoT Central Analytics](https://aka.ms/iotcentralpowerbisolutiontemplate) från Microsoft AppSource
 
 ## <a name="prerequisites"></a>Förutsättningar
 Konfigurera mallen kräver följande:
@@ -52,7 +54,7 @@ Den andra rapporten aktivitetsgruppsrapport djupare i händelser och visar en hi
 
 Gå till AppSource för att hämta den [lösningsmall för Azure IoT Central Analytics](https://aka.ms/iotcentralpowerbisolutiontemplate).
 
-Gå till den [Github-lagringsplatsen](https://aka.ms/iotcentralgithubpowerbisolutiontemplate) vill veta mer om arkitekturen och bygg ut lösningen.
+Gå till den [GitHub-lagringsplatsen](https://aka.ms/iotcentralgithubpowerbisolutiontemplate) vill veta mer om arkitekturen och bygg ut lösningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

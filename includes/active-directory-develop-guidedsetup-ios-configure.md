@@ -1,20 +1,34 @@
+---
+title: ta med fil
+description: ta med fil
+services: active-directory
+documentationcenter: dev-center-name
+author: brandwe
+manager: mtillman
+ms.openlocfilehash: ca7a47fbe2c5ee2a4eb10abf3b9b50a2d28c252e
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466207"
+---
 ## <a name="register-your-application"></a>Registrera ditt program
-Du kan registrera ditt program på två sätt som beskrivs i följande två avsnitt.
+Du kan registrera programmet i något av två sätt, enligt beskrivningen i följande två avsnitt.
 
 ### <a name="option-1-express-mode"></a>Alternativ 1: Express-läge
 Nu måste du registrera ditt program i den *Microsoft Programregistreringsportalen*:
 1. Registrera ditt program via den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)
 2.  Ange ett namn för ditt program och din e-post
-3.  Kontrollera att alternativet för interaktiv installation är markerat
-4.  Följ instruktionerna för att hämta program-ID och klistra in den i din kod
+3.  Kontrollera att alternativet för interaktiva installation är markerat
+4.  Följ anvisningarna för att hämta program-ID och klistra in den i din kod
 
 ### <a name="option-2-advanced-mode"></a>Alternativ 2: Avancerat läge
 
-1.  Gå till [Portal för Microsoft-program](https://apps.dev.microsoft.com/portal/register-app)
-2.  Ange ett namn för ditt program och din e-post
-3.  Kontrollera att alternativet för interaktiv installation är markerat
-4.  Klicka på `Add Platform`och välj `Native Application` och klicka på `Save`
-5.  Gå tillbaka till Xcode. I `ViewController.swift`, ersätter den rad som börjar med '`let kClientID`' med program-ID som du just har registrerat:
+1.  Gå till [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/portal/register-app)
+2.  Ange ett namn för ditt program
+3.  Kontrollera att alternativet för interaktiva installation är avmarkerat
+4.  Klicka på `Add Platform`och välj sedan `Native Application` och klicka på `Save`
+5.  Gå tillbaka till Xcode. I `ViewController.swift`, ersätter du raden som börjar med ”`let kClientID`' med program-ID som du just registrerade:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"
@@ -23,10 +37,10 @@ let kClientID = "Your_Application_Id_Here"
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
 <li>
-CTRL + klicka <code>Info.plist</code> öppna snabbmenyn och klicka sedan på: <code>Open As</code> > <code>Source Code</code>
+CTRL + klicka <code>Info.plist</code> öppna snabbmenyn och klickar sedan på: <code>Open As</code> > <code>Source Code</code>
 </li>
 <li>
-Under den <code>dict</code> rot nod, Lägg till följande:
+Under den <code>dict</code> root node, Lägg till följande:
 </li>
 </ol>
 
@@ -41,13 +55,12 @@ Under den <code>dict</code> rot nod, Lägg till följande:
         <key>CFBundleURLSchemes</key>
         <array>
             <string>msal[Your_Application_Id_Here]</string>
-            <string>auth</string>
         </array>
     </dict>
 </array>
 ```
 <ol start="8">
 <li>
-Ersätt <i> <code>[Your_Application_Id_Here]</code> </i> med program-Id som du precis har registrerats
+Ersätt <i> <code>[Your_Application_Id_Here]</code> </i> med program-Id som du just registrerade
 </li>
 </ol>

@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: b18cfce173da562aa7cffa48f336ff623c868f21
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: dcca63cc86889ad9dc0e56f932dbed96153de7ed
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40129328"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44754501"
 ---
 ## <a name="build-and-run-code-in-kubernetes"></a>Skapa och köra kod i Kubernetes
 Nu kör vi vår kod! Kör det här kommandot från webbklientdelen **rotmappen för kod** i terminalfönstret:
@@ -37,7 +37,10 @@ Håll ett öga på kommandots utdata – du kommer att se flera saker under för
 ### <a name="test-the-web-app"></a>Testa webbappen
 Skanna konsolens utdata för information om den offentliga webbadressen som skapades av kommandot `up`. Den kommer att vara i formen: 
 
-`Service 'webfrontend' port 'http' is available at <url>` 
+```
+(pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+```
 
 Öppna webbadressen i ett webbläsarfönster. Du bör nu se hur webbappen läses in. När containern körs strömmas `stdout`- och `stderr`-utdata till terminalfönstret.
 

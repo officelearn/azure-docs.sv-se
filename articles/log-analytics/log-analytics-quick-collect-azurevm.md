@@ -16,12 +16,12 @@ ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: a79679068b03103bd8ca63455dd2d1758751aa6f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 617a2ab4f98155789ae882c4253f07d8712050d2
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131245"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985557"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Samla in data om virtuella datorer i Azure
 Med [Azure Log Analytics](log-analytics-overview.md) kan du samla in data direkt från virtuella datorer i Azure och från andra resurser i din miljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från virtuella Linux- eller Windows-datorer i Azure med några enkla steg.  
@@ -78,7 +78,7 @@ Log Analytics kan samla in händelser från Windows-händelseloggar eller Linux 
 7. Välj **Windows-prestandadata** för att aktivera insamling av prestandaräknare på en Windows-dator. 
 8. När du först konfigurerar Windows-prestandaräknare för en ny Log Analytics-arbetsyta har du möjlighet att snabbt skapa flera vanliga räknare. De listas med en kryssruta bredvid varje.
 
-    ![Standardalternativen för Windows-prestandaräknare markerade](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).
+    ![Standardalternativen för Windows-prestandaräknare markerade](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png)
 
     Klicka på **Lägg till valda prestandaräknare**.  De läggs till med en förinställning av provintervall på tio sekunder.
   
@@ -93,7 +93,7 @@ Log Analytics kan samla in händelser från Windows-händelseloggar eller Linux 
 5. Välj **Linux-prestandadata** för att aktivera insamling av prestandaräknare på en Linux-dator. 
 6. När du först konfigurerar Linux-prestandaräknare för en ny Log Analytics-arbetsyta har du möjlighet att snabbt skapa flera vanliga räknare. De listas med en kryssruta bredvid varje.
 
-    ![Standardalternativen för Windows-prestandaräknare markerade](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).
+    ![Standardalternativen för Windows-prestandaräknare markerade](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)
 
     Klicka på **Lägg till valda prestandaräknare**.  De läggs till med en förinställning av provintervall på tio sekunder.  
 

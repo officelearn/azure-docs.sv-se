@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 255f23906bc93ce78b28f4f0806d7076a97b0ef2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e002f99cc16721b78d85284105ce22ee7d1eb9a3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698697"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574835"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Snabbstart: Skapat en Xamarin.Forms-app med MongoDB API med .NET och Azure-portalen
 
@@ -173,7 +173,7 @@ Du har nu uppdaterat din app med all information den behöver för att kommunice
 2. Klicka på **Återställ alla NuGet-paket**.
 3. Högerklicka på **TaskList.Android** och välj **Ange som startprojekt**.
 4. Tryck på F5 för att starta felsökning av programmet.
-5. Om du vill köra på iOS ansluts datorn först till en Mac (här är [instruktionerna](https://docs.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) för hur du gör detta).
+5. Om du vill köra på iOS ansluts datorn först till en Mac (här är [instruktionerna](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) för hur du gör detta).
 6. Högerklicka på projektet **TaskList.iOS** och välj **Ange som startprojekt**.
 7. Klicka på F5 för att starta felsökning av programmet.
 

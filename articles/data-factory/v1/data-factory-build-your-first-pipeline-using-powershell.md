@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f3c68fefc5cff2eafc969d11353e78eac8980e7f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 3972dd7031e25f20a2ef6bfb66b63fe3f3b0290b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096356"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732490"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Självstudier: Skapa din första Azure-datafabrik med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -119,7 +119,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken. Du anv�
         }
     }
     ```
-    Ersätt **kontonamn** med namnet på ditt Azure-lagringskonto och **kontonyckel** med åtkomstnyckeln för Azure-lagringskontot. Information om hur du hämtar lagringsåtkomstnyckeln finns i avsnitten om hur du visar, kopierar och återskapar åtkomstnycklar i [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account) (Hantera ditt lagringskonto).
+    Ersätt **kontonamn** med namnet på ditt Azure-lagringskonto och **kontonyckel** med åtkomstnyckeln för Azure-lagringskontot. Information om hur du hämtar lagringsåtkomstnyckeln finns i avsnitten om hur du visar, kopierar och återskapar åtkomstnycklar i [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys) (Hantera ditt lagringskonto).
 2. Växla till mappen ADFGetStarted i Azure PowerShell.
 3. Du kan använda cmdleten **New-AzureRmDataFactoryLinkedService** till att skapa en länkad tjänst. Med den här cmdleten och andra Data Factory-cmdlets som du använder i den här självstudien måste du ange värden för parametrarna *ResourceGroupName* och *DataFactoryName*. Du kan också använda **Get-AzureRmDataFactory** till att hämta ett **DataFactory**-objekt och skicka objektet utan att ange *ResourceGroupName* och *DataFactoryName* varje gång du kör en cmdlet. Kör följande kommando för att tilldela utdatan från cmdleten **Get-AzureRmDataFactory** till en **$df**-variabel.
 

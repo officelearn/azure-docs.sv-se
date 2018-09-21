@@ -44,6 +44,7 @@
 ### [Skapa ett grupphanterat tjänstkonto på en hanterad domän](active-directory-ds-create-gmsa.md)
 ### [Administrera grupprincip i en hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)
 ### [Konfigurera lösenordsprinciper på en hanterad domän](active-directory-ds-password-policy.md)
+### [Konfigurera begränsad synkronisering från Azure AD till en hanterad domän](active-directory-ds-scoped-synchronization.md)
 ## [Välj ett virtuellt nätverk](active-directory-ds-networking.md)
 ## Distribuera program
 ### [Konfigurera support för profilsynkronisering för SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)

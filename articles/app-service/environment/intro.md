@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: c6ae2aa46ae17c4ef995211b02112e1c05e2ec2f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 34c041bf96ecc8ce7f4440d7afaa64de775baef7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344485"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576944"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduktion till Azure App Service-miljöer #
  
@@ -73,7 +73,7 @@ En ASE-miljö kan vara antingen Internetuppkopplad med en offentlig IP-adress el
 
 [Nätverkssäkerhetsgrupper][NSGs] begränsar inkommande kommunikation till undernätet där en ASE-miljö finns. Du kan använda nätverkssäkerhetsgrupper för att köra appar bakom överordnade enheter och tjänster, t.ex. WAF och SaaS-nätverksleverantörer.
 
-Apparna måste ofta även komma åt företagsresurser, t.ex. interna databaser och webbtjänster. Om du distribuerar ASE-miljön i ett virtuellt nätverk som har en VPN-anslutning till det lokala nätverket kan apparna i ASE-miljön komma åt de lokala resurserna. Den här funktionen gäller oavsett om VPN är en VPN för [plats-till-plats](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site) eller [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+Apparna måste ofta även komma åt företagsresurser, t.ex. interna databaser och webbtjänster. Om du distribuerar ASE-miljön i ett virtuellt nätverk som har en VPN-anslutning till det lokala nätverket kan apparna i ASE-miljön komma åt de lokala resurserna. Den här funktionen gäller oavsett om VPN är en VPN för [plats-till-plats](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) eller [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
 Mer information om hur ASE-miljöer fungerar med virtuella nätverk och lokala nätverk finns i [App Service Environment network considerations][ASENetwork] (Nätverksöverväganden för App Service Environment).
 

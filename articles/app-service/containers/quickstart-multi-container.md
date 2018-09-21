@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 6fa0bab5d2b402c85ea3ee70e7356f8c8c989ab9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1d54d914edb306b89dc6f2604aa5af3d17cb535d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446790"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576790"
 ---
 # <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Skapa en app med flera containrar (förhandsversion) med hjälp av Web App for Containers
 
-Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. Den här snabbstarten visar hur du distribuerar en app med flera containrar till Web App for Containers i [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) med hjälp av en Docker Compose-konfiguration. För Kubernetes och en fullständig heltäckande lösning med Azure DB för MySQL följer du [självstudiekursen om flera containrar](tutorial-multi-container-app.md).
+Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. Den här snabbstarten visar hur du distribuerar en app med flera containrar till Web App for Containers i [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) med hjälp av en Docker Compose-konfiguration. För Kubernetes och en fullständig heltäckande lösning med Azure DB för MySQL följer du [självstudiekursen om flera containrar](tutorial-multi-container-app.md).
 
 Du genomför den här snabbstarten i Cloud Shell, men du kan även köra de här kommandona lokalt med [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 eller senare). 
 

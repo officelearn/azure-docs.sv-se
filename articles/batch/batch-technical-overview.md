@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: b784e64962569f22cba3bc52b6a4e9443a4587d5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311999"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35621287"
 ---
 # <a name="what-is-azure-batch"></a>Vad är Azure Batch?
 
@@ -61,7 +61,7 @@ På högre nivå finns även belastningsspecifika funktioner för Azure Batch:
 * Batch har stöd för storskaliga [återgivningsarbetsbelastningar](batch-rendering-service.md) med återgivningsverktyg inklusive Autodesk Maya, 3ds Max, Arnold och V-Ray. 
 * R-användare kan installera [doAzureParallel R-paketet](https://github.com/Azure/doAzureParallel) för att enkelt skala ut körning av R-algoritmer till Batch-adresspooler.
 
-Du kan också köra Batch-jobb som en del av ett större Azure-arbetsflöde för att omvandla data som hanteras av verktyg som [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
+Du kan också köra Batch-jobb som en del av ett större Azure-arbetsflöde för att omvandla data som hanteras av verktyg som [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md).
 
 
 ## <a name="how-it-works"></a>Hur det fungerar

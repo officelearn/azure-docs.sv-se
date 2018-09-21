@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e8989cadd331021a3e35fc559421bbdd08f0b4fb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 949d96bb1b5ffdc948737d4a47ffa14b2e344b5e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521202"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574739"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Hantera Azure-filresurser med Azure Storage Explorer 
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Den här artikeln vägleder dig igenom grunderna i att arbeta med Azure-filresurser med [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Storage Explorer är ett populärt klientverktyg som finns för Windows, macOS och Linux. Du kan använda Storage Explorer för att hantera Azure-filresurser och andra lagringsresurser.
@@ -91,7 +91,7 @@ Hämtningsförloppet visas i rutan **Aktiviteter** längst ned i fönstret.
 
 ## <a name="create-and-modify-share-snapshots"></a>Skapa och ändra resursögonblicksbilder
 En ögonblicksbild bevarar en kopia vid en viss tidpunkt av en Azure-filresurs. Ögonblicksbilder av filresurser liknar vissa andra tekniker som du kanske redan är bekant med:
-- [Tjänsten Volume Shadow Copy(VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) för Windows-filsystem, till exempel NTFS och ReFS
+- [Tjänsten Volume Shadow Copy(VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) för Windows-filsystem, till exempel NTFS och ReFS
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) ögonblicksbilder för Linux-system
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) ögonblicksbilder för macOS
 

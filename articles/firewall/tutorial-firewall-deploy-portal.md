@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480891"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576008"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -58,7 +58,7 @@ I den här självstudien skapar du ett virtuellt nätverk med tre undernät:
 
 ![Självstudie om nätverksinfrastruktur](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-I den här självstudien används en förenklad nätverkskonfiguration som är enkel att distribuera. I produktionsdistributioner rekommenderas en [modell med nav och ekrar](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) där brandväggen ligger i ett eget virtuellt nätverk, och arbetsbelastningsservrarna ligger i peerkopplade virtuella nätverk i samma region med ett eller flera undernät.
+I den här självstudien används en förenklad nätverkskonfiguration som är enkel att distribuera. I produktionsdistributioner rekommenderas en [modell med nav och ekrar](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) där brandväggen ligger i ett eget virtuellt nätverk, och arbetsbelastningsservrarna ligger i peerkopplade virtuella nätverk i samma region med ett eller flera undernät.
 
 
 

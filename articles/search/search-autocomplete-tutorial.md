@@ -9,16 +9,16 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989694"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578182"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Självstudie: Lägga till automatisk komplettering i sökrutan med Azure Search
 
-I den här självstudien får du lära dig hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions), [automatisk komplettering](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) och [fasetter](search-faceted-navigation.md) i [REST-API:et för Azure Search](https://docs.microsoft.com/rest/api/searchservice/) och [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) för att skapa en kraftfull sökruta. Med *förslag* ges rekommendationer av faktiska resultat utifrån det som användaren har skrivit hittills. *Komplettera automatiskt* är [en ny funktion (förhandsversion)](search-api-preview.md) i Azure Search, som tillhandahåller ord från index för att komplettera det som användaren skriver. Vi jämför flera tekniker för att förbättra användarproduktiviteten så att användarna snabbt och enkelt kan hitta det som de söker efter direkt medan de skriver.
+I den här självstudien får du lära dig hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions), [automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete) och [fasetter](search-faceted-navigation.md) i [REST-API:et för Azure Search](https://docs.microsoft.com/rest/api/searchservice/) och [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) för att skapa en kraftfull sökruta. Med *förslag* ges rekommendationer av faktiska resultat utifrån det som användaren har skrivit hittills. *Komplettera automatiskt* är [en ny funktion (förhandsversion)](search-api-preview.md) i Azure Search, som tillhandahåller ord från index för att komplettera det som användaren skriver. Vi jämför flera tekniker för att förbättra användarproduktiviteten så att användarna snabbt och enkelt kan hitta det som de söker efter direkt medan de skriver.
 
 Den här självstudien vägleder dig genom ett ASP.NET MVC-baserat program som använder C# för att anropa [Azure Search .NET-klientbiblioteken](https://aka.ms/search-sdk) och JavaScript för att direkt anropa REST-API:et för Azure Search. Programmet för den här självstudien använder ett index som fyllts i med [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)-exempeldata. Du kan antingen använda det index som redan har konfigurerats i NYC Jobs-demon eller fylla i ett eget index med en datainläsare i NYCJobs-exempellösningen. I exemplet används JavaScript-biblioteken [jQuery UI](https://jqueryui.com/autocomplete/) och [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) för att skapa en sökruta som stöder automatisk komplettering. Genom att använda de här komponenterna med Azure Search kan du se flera exempel på hur du kan ge stöd för automatisk komplettering med förifyllning av förslag i sökrutan.
 
@@ -214,7 +214,7 @@ I den här självstudien visas de grundläggande stegen för hur du skapar en s�
 Integrera förslag och automatisk komplettering i din sökfunktion.  Fundera över hur direkt användning av .Net SDK eller REST-API:et kan ge dina användare tillgång till kraftfulla Azure Search-funktioner när de skriver och göra dem mer produktiva.
 
 > [!div class="nextstepaction"]
-> [REST-API för automatisk komplettering](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete)
-> [REST-API för förslag](https://docs.microsoft.com/en-us/rest/api/searchservice/suggestions)
-> [Fasettindexattribut på ett REST-API för att skapa index](https://docs.microsoft.com/en-us/rest/api/searchservice/create-index)
+> [REST-API för automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [REST-API för förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Fasettindexattribut på ett REST-API för att skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

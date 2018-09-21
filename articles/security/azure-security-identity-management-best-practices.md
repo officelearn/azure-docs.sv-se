@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: 77bd95f036aec0cdaa351c44c0f1eafe9fc702d9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f6640e7d179199fbfb5b0c2b0c384729b6f53bcf
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294364"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498257"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identitetshantering och åtkomstkontroll säkerhetsmetoder
 
@@ -50,25 +50,22 @@ Azure identitet och kontroll säkerhetsmetoder beskrivs i den här artikeln är:
 * Kontrollera platser där resurser finns
 
 ## <a name="treat-identity-as-the-primary-security-perimeter"></a>Hantera identitet som primär säkerhetsperimeter
+
 Många Överväg identitet för att vara primär perimeternätverket för säkerhet. Det här är en förändring jämfört med traditionella fokus på nätverkssäkerhet. Nätverket perimetrar fortsätta att få mer porös och den perimeterskydd får inte vara så effektiv innan alltfler [BYOD](http://aka.ms/byodcg) enheter och molnprogram.
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) är Azure-lösning för identitets- och åtkomsthantering. Azure AD är en multitenant, molnbaserade företagskatalogen och identitetshanteringen management-tjänst från Microsoft. Den kombinerar viktiga katalogtjänster, åtkomsthantering för program och identitetsskydd i en enda lösning.
 
 I följande avsnitt listas Metodtips för identitets- och säkerhet med hjälp av Azure AD.
 
-<<<<<<< HEAD att åstadkomma detta [hybrididentitet](../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) scenario rekommenderar vi två alternativ: ===
 ## <a name="centralize-identity-management"></a>Centralisera Identitetshantering
+
 I en [hybrididentitet](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario rekommenderar vi att du integrera dina lokala och molnbaserade kataloger. Integrering gör det möjligt för IT-teamet och hantera konton från en enda plats, oavsett var ett konto har skapats. Integrering hjälper även användarna att bli mer produktiva genom att tillhandahålla en gemensam identitet för åtkomst till både i molnet och lokala resurser.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 
 **Bästa praxis**: integrera dina lokala kataloger med Azure AD.  
 **Information om**: Använd [Azure AD Connect](../active-directory/connect/active-directory-aadconnect.md) att synkronisera din lokala katalog med din molnkatalog.
 
-<<<<<<< HEAD för mer information om Azure AD-synkronisering, finns i artikeln [integrera dina lokala identiteter med Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md).
-=======
 **Bästa praxis**: aktivera lösenordshashsynkronisering.  
 **Information om**: synkronisering av lösenordshash är en funktion som används för att synkronisera hashvärden av användarlösenord från en lokal Active Directory-instans för en molnbaserad Azure AD-instans.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 Även om du vill använda federation med Active Directory Federation Services (AD FS) eller andra identitetsleverantörer, kan du också ställa in synkronisering av lösenordshash som en säkerhetskopia om dina lokala servrar misslyckas eller bli tillfälligt otillgängliga. Detta gör det möjligt för användare att logga in på tjänsten med hjälp av samma lösenord som de använder för att logga in på sina lokala Active Directory-instans. Det gör också Identity Protection att identifiera avslöjade autentiseringsuppgifter genom att jämföra dessa hashvärden för lösenord med lösenord som är kända för äventyras, om en användare har använt sitt samma e-postadress och lösenord för andra tjänster som inte är anslutna till Azure AD.
 
@@ -76,12 +73,6 @@ Mer information finns i [implementera lösenordshashsynkronisering med Azure AD 
 
 Organisationer som inte integrerar sin lokala identitet med sin molnidentitet kan ha fler tillägg i hanteringen av konton. Det här arbetet ökar sannolikheten för fel och säkerhetsintrång.
 
-<<<<<<< HEAD
-> [!NOTE]
-> beslutet att använda SSO påverkar hur du integrerar din lokala katalog med din molnkatalog. Om du vill att enkel inloggning, måste du använder federation, eftersom katalogsynkronisering ger endast [samma inloggning](../active-directory/hybrid/whatis-hybrid-identity.md).
->
->
-=======
 ## <a name="enable-single-sign-on"></a>Aktivera enkel inloggning
 
 I en mobil- och molnorienterade värld som du vill aktivera enkel inloggning (SSO) till enheter, appar och tjänster från var som helst så att användarna kan vara produktiva oavsett tid och plats. När du har flera identitetslösningar att hantera detta blir ett administrativa problem inte bara för IT utan även för användare som behöver komma ihåg flera lösenord.
@@ -94,19 +85,18 @@ Du kan få enkel inloggning med samma ID-lösning för alla dina appar och resur
 Använda SSO för att ge användare åtkomst till sina [SaaS-program](../active-directory/active-directory-appssoaccess-whatis.md) baserat på deras arbets- eller skolkonto konto i Azure AD. Detta gäller inte bara för Microsoft SaaS-appar, men även andra appar som [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) och [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Du kan konfigurera programmet att använda Azure AD som en [SAML-baserad identitet](../active-directory/fundamentals-identity.md) provider. Som en säkerhetskontroll utfärdar inte Azure AD en token som tillåter användare att logga in till programmet om de har beviljats åtkomst via Azure AD. Du kan bevilja åtkomst direkt eller via en grupp att användare är medlem i.
 
 Organisationer som inte skapar en gemensam identitet för att upprätta en enkel inloggning för användare och program exponeras mer för scenarier där användarna har flera lösenord. De här scenarierna öka sannolikheten för användare att lösenord eller med hjälp av svaga lösenord.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 ## <a name="turn-on-conditional-access"></a>Aktivera villkorlig åtkomst
+
 Användare kan komma åt din organisations resurser med hjälp av en mängd olika enheter och appar från var som helst. Som IT-administratör kan du se till att dessa enheter uppfyller dina krav för säkerhet och efterlevnad. Bara fokusera på vem som kan komma åt en resurs räcker inte längre.
 
-<<<<<<< HEAD du kan lära dig mer om Azure AD SSO genom att läsa artikeln [AD FS-hantering och anpassning med Azure AD Connect](../active-directory/hybrid/how-to-connect-fed-management.md).
-=== För att jämna ut säkerhet och produktivitet, måste du tänka på hur en resurs används innan du kan fatta ett beslut för kontroll av åtkomst. Med villkorsstyrd åtkoms i Azure AD kan du uppfylla det här kravet. Du kan göra automatiserade besluten om åtkomstkontroll för att komma åt dina appar i molnet som baseras på villkor med villkorlig åtkomst.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
+För att jämna ut säkerhet och produktivitet, måste du tänka på hur en resurs används innan du kan fatta ett beslut för kontroll av åtkomst. Med villkorsstyrd åtkoms i Azure AD kan du uppfylla det här kravet. Du kan göra automatiserade besluten om åtkomstkontroll för att komma åt dina appar i molnet som baseras på villkor med villkorlig åtkomst.
 
 **Bästa praxis**: hantera och styra åtkomsten till företagets resurser.  
 **Information om**: Konfigurera Azure AD [villkorlig åtkomst](../active-directory/active-directory-conditional-access-azure-portal.md) baserat på en grupp, plats och programmets känslighet för SaaS-appar och Azure AD-anslutna appar.
 
 ## <a name="enable-password-management"></a>Aktivera lösenordshantering
+
 Om du har flera klienter eller om du vill att användarna kan [återställa sina egna lösenord](../active-directory/active-directory-passwords-update-your-own-password.md), är det viktigt att du använder lämpliga säkerhetsprinciper för att förhindra missbruk.
 
 **Bästa praxis**: Konfigurera lösenord för självbetjäning självbetjäning (SSPR) för dina användare.  
@@ -116,6 +106,7 @@ Om du har flera klienter eller om du vill att användarna kan [återställa sina
 **Information om**: övervaka användare som registrerar med hjälp av Azure AD [lösenord återställer registreringen aktivitetsrapporten](../active-directory/active-directory-passwords-get-insights.md). Rapporteringsfunktionen som Azure AD tillhandahåller kan du besvara frågor med hjälp av fördefinierade rapporter. Om du har korrekt licens, kan du också skapa egna frågor.
 
 ## <a name="enforce-multi-factor-verification-for-users"></a>Framtvinga multifaktorverifiering för användare
+
 Vi rekommenderar att du kräver tvåstegsverifiering för alla användare. Detta inkluderar administratörer och andra i organisationen som kan ha en betydande inverkan om sitt konto komprometteras (till exempel företagsriskkonsulter).
 
 Det finns flera alternativ för att kräva tvåstegsverifiering. Det bästa alternativet för dig beror på dina mål och Azure AD-version du kör din licensprogram. Se [kräva tvåstegsverifiering för en användare](../active-directory/authentication/howto-mfa-userstates.md) att bestämma det bästa alternativet för dig. Se den [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) och [Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) prissidor för mer information om licenser och priser.
@@ -145,11 +136,13 @@ Den här metoden används Azure AD Identity Protection riskbedömningen att avg�
 Organisationer som inte lägger till extra skyddslager för identitet, till exempel tvåstegsverifiering, är mer sårbara för angrepp för stöld av autentiseringsuppgifter. En attack med stöld av autentiseringsuppgifter kan leda till kompromettering av data.
 
 ## <a name="use-role-based-access-control-rbac"></a>Använda rollbaserad åtkomstkontroll (RBAC)
+
 Begränsa åtkomst baserat på den [behöver veta](https://en.wikipedia.org/wiki/Need_to_know) och [lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhetsprinciper är mycket viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Du kan använda [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) att tilldela behörigheter till användare, grupper och program för ett visst omfång. Omfattningen för en rolltilldelning kan vara en prenumeration, en resursgrupp eller en enskild resurs.
 
 Du kan använda [inbyggda RBAC](../role-based-access-control/built-in-roles.md) roller i Azure för att tilldela behörigheter till användare. Organisationer som inte behöver använda åtkomstkontroll för data med hjälp av funktioner, till exempel RBAC kan ger fler behörigheter än vad som krävs till sina användare. Detta kan leda till kompromettering av data genom att låta användaråtkomst till vissa typer av data (till exempel stora marknadsfördelar) som de inte ska ha.
 
 ## <a name="lower-exposure-of-privileged-accounts"></a>Lägre exponering av Privilegierade konton
+
 Att skydda privilegierad är åtkomst ett viktigt första steg för att skydda företagets tillgångar. Minimera antalet personer som har åtkomst till säker information eller resurser minskar risken för att en obehörig användare få åtkomst eller en auktoriserad användare oavsiktligt påverkar en känsliga resurs.
 
 Privilegierade konton är konton som administrerar och hanterar IT-system. Cyberhot angripare siktar in dessa konton för att få åtkomst till organisationens data och system. Om du vill skydda privilegierad åtkomst, bör du isolera konton och system från risk att utsättas för en obehörig användare.
@@ -209,6 +202,7 @@ Utvärdera de konton som är tilldelade eller berättigad för rollen som global
 Om du inte skyddar privilegierad åtkomst, kanske du upptäcker att du har för många användare i mycket Privilegierade roller och är mer sårbara för attacker. Skadliga aktörer, inklusive cyberhot angripare, ofta mål-administratörskonton och andra element för privilegierad åtkomst för att få åtkomst till känsliga data och system med hjälp av stöld av autentiseringsuppgifter.
 
 ## <a name="control-locations-where-resources-are-created"></a>Kontrollera platser där resurser skapas
+
 Det är mycket viktigt att aktivera molnoperatörer att utföra uppgifter samtidigt som hindrar dem från icke-bakåtkompatibel konventioner som behövs för att hantera din organisations resurser. Organisationer som vill styra de platser där resurser skapas bör hårt koda de här platserna.
 
 Du kan använda [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) att skapa säkerhetsprinciper vars definitioner beskriver åtgärder eller resurser som uttryckligen har nekats. Du kan tilldela dessa principdefinitioner i det önskade omfånget som prenumerationen, resursgruppen eller en enskild resurs.
@@ -221,6 +215,7 @@ Du kan använda [Azure Resource Manager](../azure-resource-manager/resource-grou
 Organisationer som inte styr hur resurser skapas är svårare att användare som kan utnyttja tjänsten genom att skapa fler resurser än de behöver. Härdning av skapandeprocessen resurs är ett viktigt steg för att skydda ett scenario med flera innehavare.
 
 ## <a name="actively-monitor-for-suspicious-activities"></a>Övervaka aktivt för misstänkta aktiviteter
+
 En aktiv identitet övervakningen kan snabbt identifiera misstänkt beteende och utlösa en avisering för vidare studier. I följande tabell visas två Azure AD-funktioner som hjälper organisationer att övervaka deras identiteter:
 
 **Bästa praxis**: har en metod för att identifiera:
@@ -239,4 +234,5 @@ En aktiv identitet övervakningen kan snabbt identifiera misstänkt beteende och
 Organisationer som inte aktivt övervakar sina identitetssystem finns risken att användarens autentiseringsuppgifter har komprometterats. Organisationer kan inte utan kännedom att misstänkta aktiviteter som äger rum via dessa autentiseringsuppgifter kan minimera den här typen av hot.
 
 ## <a name="next-step"></a>Nästa steg
+
 Se [säkerhet i Azure-metodtips och mönster](security-best-practices-and-patterns.md) för flera beprövade metoder för att använda när du utforma, distribuera och hantera dina molnlösningar med hjälp av Azure.

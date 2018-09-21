@@ -1,6 +1,6 @@
 ---
 title: Hotidentifiering – Azure SQL Database | Microsoft Docs
-description: Hotidentifiering identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen.
+description: Hotidentifiering identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen i en enkel databas eller elastisk pool.
 services: sql-database
 author: rmatchoro
 manager: craigg
@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.subservice: advanced-threat-protection
 ms.custom: security
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 09/19/2018
 ms.author: ronmat
 ms.reviewer: vanto
-ms.openlocfilehash: 1f30d55bea825549453d9c8a3077ad17756e6a6f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ab554707d432f862f9fb9c075eea6cb12419eacd
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714266"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497744"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Hotidentifiering för Azure SQL Database
 

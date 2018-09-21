@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/14/2018
-ms.openlocfilehash: e025a1a625bded118ea7f3b3968502115b64d83a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734706"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498597"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption 
  Den här artikeln krävs för Azure Disk Encryption, förklarar objekt som måste vara uppfyllda innan du kan använda Azure Disk Encryption. Azure Disk Encryption är integrerad med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) för att hantera krypteringsnycklar. Du kan använda [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), eller [Azure-portalen](https://portal.azure.com) att konfigurera Azure Disk Encryption.
@@ -67,7 +67,7 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
     - [Installera och konfigurera Azure PowerShell för Windows](/powershell/azure/install-azurerm-ps). 
         - Installera PowerShellGet, Azure PowerShell, och Läs in AzureRM-modulen. 
     - [Installera och konfigurera Azure Powershell på macOS och Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Installera PowerShell Core, Azure PowerShell för .NET Core och läsa in modulen AzureRM.Netcore.
+        -  Installera PowerShell Core, Azure PowerShell för .NET Core och läsa in modulen Az.
 
 2. Kontrollera de installerade versionerna av AzureRM-modulen. Om det behövs [uppdatera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
     -  AzureRM-modulversionen måste vara 6.0.0 eller senare.

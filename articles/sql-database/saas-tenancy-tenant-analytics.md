@@ -1,6 +1,6 @@
 ---
 title: Kör extraherade data för flera klienter av analyser | Microsoft Docs
-description: Flera klienter analytics-frågor med hjälp av data som extraheras från flera Azure SQL Database-databaser.
+description: Flera klienter analytics-frågor med hjälp av data som extraheras från flera Azure SQL Database-databaser i en enda klient-app.
 keywords: sql database tutorial
 services: sql-database
 author: stevestein
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/19/2018
 ms.author: sstein
 ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: b887572e7c2bdf22c8a6cc8ffa1641e402fd6a58
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a838630e3423ca5ec26893597e2bb2b6e36ede2e
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736435"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498070"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Flera klienter analytics med hjälp av extraherade data
-
-I den här självstudien får gå igenom ett scenario med fullständig analytics. Scenariot visar hur analytics kan aktivera företag att fatta smarta beslut. Med data som extraheras från varje klientdatabas kan använda du analytics insikter om klient beteende och program. Det här scenariot omfattar tre steg: 
+# <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Flera klienter analytics med hjälp av extraherade data - enda klient
+ 
+I den här självstudien får gå igenom ett scenario med fullständig analytics för en enskild klient implementatoin. Scenariot visar hur analytics kan aktivera företag att fatta smarta beslut. Med data som extraheras från varje klientdatabas kan använda du analytics och få insikter om klient beteendet, inklusive deras användning av Wingtip biljetter SaaS-exempelprogram. Det här scenariot omfattar tre steg: 
 
 1.  **Extrahera** data från varje klientdatabas och **belastningen** till en analytics-arkivet.
 2.  **Omvandla de extraherade data** för bearbetning av trafikanalys.
@@ -241,3 +241,4 @@ Grattis!
 
 - Ytterligare [självstudier som bygger på Wingtip SaaS-program](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [Elastiska jobb](sql-database-elastic-jobs-overview.md).
+- [Flera klienter analytics med hjälp av extraherade data - app för flera klienter](saas-multitenantdb-tenant-analytics.md)

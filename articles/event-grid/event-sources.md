@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 09/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: adef9d2f2d859c62d3b3b3a542536698fa668f9a
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144237"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498308"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Händelsekällor i Azure Event Grid
 
@@ -58,7 +58,7 @@ Prenumerera på anpassade ämnen att svara på händelser för programmet.
 | [PowerShell: prenumerera på händelser för ett anpassat ämne](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Exempelskript som skapar en prenumeration för ett anpassat ämne. Den skickar händelser till en WebHook.|
 | [Resource Manager-mall: anpassat ämne och WebHook-slutpunkt](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | En Resource Manager-mall som skapar ett anpassat ämne och en prenumeration för det anpassade ämnet. Den skickar händelser till en WebHook. |
 |
-| [Resource Manager-mall: anpassat ämne och Event Hubs-slutpunkt](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeCustomTopicToEventHub.json)| En Resource Manager-mall som skapar en prenumeration för ett anpassat ämne. Den skickar händelser till en Azure Event Hubs. |
+| [Resource Manager-mall: anpassat ämne och Event Hubs-slutpunkt](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| En Resource Manager-mall som skapar en prenumeration för ett anpassat ämne. Den skickar händelser till en Azure Event Hubs. |
 | [Händelseschema](event-schema.md) | Visar fälten i anpassade händelser. |
 
 ## <a name="event-hubs"></a>Event Hubs
@@ -104,7 +104,7 @@ Prenumerera på resursen gruppera händelser att svara på förändringar i resu
 | [Azure CLI: prenumerera på händelser för en resursgrupp och filter för en resurs](./scripts/event-grid-cli-resource-group-filter.md) | Exempelskriptet som prenumererar på händelser för en resursgrupp och filtrerar händelser för en resurs. |
 | [PowerShell: prenumerera på händelser för en resursgrupp](./scripts/event-grid-powershell-resource-group.md) | Exempelskript som prenumererar på händelser för en resursgrupp. Den skickar händelser till en WebHook. |
 | [PowerShell: prenumerera på händelser för en resursgrupp och filter för en resurs](./scripts/event-grid-powershell-resource-group-filter.md) | Exempelskriptet som prenumererar på händelser för en resursgrupp och filtrerar händelser för en resurs. |
-| [Resource Manager-mall: prenumeration på resursgrupp](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeResourceGroupToWebHook.json) | Prenumererar på händelser för en resursgrupp. Den skickar händelser till en WebHook. |
+| [Resource Manager-mall: resursprenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Prenumerera på händelser för en Azure-prenumeration eller resursgrupp grupp. Den skickar händelser till en WebHook. |
 | [Händelseschema](event-schema-resource-groups.md) | Visar fälten i resursen gruppera händelser. |
 
 ## <a name="service-bus"></a>Service Bus
@@ -128,7 +128,7 @@ Prenumerera på Blob Storage-händelser att reagera på blob skapas och borttagn
 | [Snabbstart: skapa och dirigera Blob storage-händelser med Azure portal](blob-event-quickstart-portal.md) | Visar hur du använder portalen för att skicka blob storage-händelser till en WebHook. |
 | [Azure CLI: prenumerera på händelser för ett Blob storage-konto](./scripts/event-grid-cli-blob.md) | Exempelskriptet som prenumererar på händelser för ett Blob storage-konto. Skickas händelsen till en WebHook. |
 | [PowerShell: prenumerera på händelser för ett Blob storage-konto](./scripts/event-grid-powershell-blob.md) | Exempelskriptet som prenumererar på händelser för ett Blob storage-konto. Skickas händelsen till en WebHook. |
-| [Resource Manager-mall: skapa Blob-lagring och en prenumeration](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/createBlobAndSubscribe.json) | Distribuerar ett Azure Blob storage-konto och prenumererar på händelser för detta lagringskonto. Den skickar händelser till en WebHook. |
+| [Resource Manager-mall: skapa Blob-lagring och en prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Distribuerar ett Azure Blob storage-konto och prenumererar på händelser för detta lagringskonto. Den skickar händelser till en WebHook. |
 | [Översikt: reagera på Blob storage-händelser](../storage/blobs/storage-blob-event-overview.md) | Översikt över integrering av Blob-lagring med Event Grid. |
 | [Händelseschema](event-schema-blob-storage.md) | Visar fälten i Blob Storage-händelser. |
 

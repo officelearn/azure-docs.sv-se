@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7d5656d6599e1d8d2a3e85b9d41bcce6490e1511
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8f01130d46bce1e3b3e0b37f26e25d552c6002e5
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124175"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498121"
 ---
 # <a name="speech-service-rest-apis"></a>Taltjänst REST API: er
 
@@ -59,7 +59,7 @@ Ljudet skickas i brödtexten i HTTP `PUT` begära och måste vara i formatet fö
 
 ### <a name="chunked-transfer"></a>Segmentvis överföring
 
-Segmentvis överföring (`Transfer-Encoding: chunked`) kan hjälpa dig att minska svarstiden för igenkänning av eftersom den tillåter Speech-tjänsten att börja bearbetning överförs filen till den. REST API: et tillhandahåller inte partiell eller mellanliggande resultat. Det här alternativet är avsedd endast för att förbättra svarstiden.
+Segmentvis överföring (`Transfer-Encoding: chunked`) kan hjälpa dig att minska svarstiden för igenkänning av eftersom den tillåter Speech-tjänsten ska börja bearbeta ljudfilen medan den överförs. REST API: et tillhandahåller inte partiell eller mellanliggande resultat. Det här alternativet är avsedd endast för att förbättra svarstiden.
 
 Följande kod visar hur du skickar ljud i segment. `request` ett objekt i HTTPWebRequest är ansluten till rätt REST-slutpunkten. `audioFile` är sökvägen till en ljudfil på disken.
 
@@ -137,7 +137,7 @@ Den `RecognitionStatus` fältet kan innehålla följande värden.
 | `Error` | Igenkänning av tjänsten påträffade ett internt fel och kunde inte fortsätta. Försök igen om det är möjligt. |
 
 > [!NOTE]
-> Om användaren talar endast svordomar och `profanity` Frågeparametern anges till `remove`, tjänsten inte returnerar ett tal resultat, såvida inte erkännande läge är `interactive`. I det här fallet tjänsten returnerar ett tal resultat med en `RecognitionStatus` av `NoMatch`. 
+> Om ljudet består endast av svordomar, och `profanity` Frågeparametern anges till `remove`, tjänsten inte returnerar ett tal resultat. 
 
 Den `detailed` format innehåller samma fält som den `simple` format tillsammans med en `NBest` fält. Den `NBest` fält är en lista över alternativ tolkningar av samma tal, rangordnas från mest sannolikt minst sannolikt. Den första posten är samma som den huvudsakliga igenkänningsresultatet. Varje post innehåller följande fält:
 
@@ -215,8 +215,6 @@ Följande fält skickas i HTTP-frågehuvudet.
 |`Authorization`|En autentiseringstoken föregås av ordet `Bearer`. Krävs. Se [autentisering](#authentication).|
 |`Content-Type`|Inkommande innehållstyp: `application/ssml+xml`.|
 |`X-Microsoft-OutputFormat`|Ljudformatet utdata. Se nästa tabell.|
-|`X-Search-AppId`|Endast hex-GUID (inga streck) som unikt identifierar klientprogrammet. Detta kan vara butiks-ID. Du kan använda GUID FF som inte är en store-app.|
-|`X-Search-ClientId`|Endast hex-GUID (inga streck) som unikt identifierar en programinstans för varje installation.|
 |`User-Agent`|Programnamnet. Krävs. måste innehålla färre än 255 tecken.|
 
 Tillgängliga ljudet utdataformat (`X-Microsoft-OutputFormat`) en bithastighet och kodning.
@@ -230,9 +228,12 @@ Tillgängliga ljudet utdataformat (`X-Microsoft-OutputFormat`) en bithastighet o
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
+> [!NOTE]
+> Om din valda röst- och utdataformat har olika bithastigheter, samplas ljudet efter behov. Dock stöder inte 24khz röster `audio-16khz-16kbps-mono-siren` och `riff-16khz-16kbps-mono-siren` utdataformat. 
+
 ### <a name="request-body"></a>Begärandetext
 
-Texten som ska syntetiseras till tal skickas som en del av en HTTP `POST` begäran i oformaterad text eller [tal syntes Markup Language](speech-synthesis-markup.md) (SSML)-format med text i UTF-8-kodning. Du måste använda SSML om du vill använda en röst än tjänstens standard röst.
+Texten som ska konverteras till tal skickas som en del av en HTTP `POST` begär i oformaterad text (ASCII- eller UTF-8) eller [tal syntes Markup Language](speech-synthesis-markup.md) (SSML)-format (UTF-8). Oformaterad text begäranden använda tjänstens standard röst- och språk. Skicka SSML att använda en annan röst.
 
 ### <a name="sample-request"></a>Exempelbegäran
 
@@ -260,10 +261,10 @@ HTTP-status för svaret anger lyckad eller vanliga felvillkor.
 HTTP-kod|Betydelse|Möjlig orsak
 -|-|-|
 200|Ok|Begäran lyckades. svarstexten är en ljudfil.
-400|Felaktig förfrågan|Obligatorisk rubrik fält saknas, värdet för lång eller ogiltig SSML-dokumentet.
-401|Behörighet saknas|Prenumerationsnyckel eller auktorisering token är ogiltig i regionen eller ogiltig slutpunkt.
-403|Förbjudna|Prenumerationsnyckel eller auktorisering saknas token.
-413|Begäran om entiteten är för stor|Den inmatade texten är längre än 1 000 tecken.
+400 |Felaktig begäran |En obligatorisk parameter är tom, null eller saknas. Eller värdet som skickas till antingen en obligatorisk eller valfri parameter är ogiltig. Ett vanligt problem är en rubrik som är för lång.
+401|Behörighet saknas |Begäran har inte behörighet. Kontrollera att din prenumerationsnyckel eller token är giltig och i rätt region.
+413|Begäran om entiteten är för stor|SSML-indata är längre än 1024 tecken.
+|502|Felaktig gateway    | Problem med nätverket eller servern. Kan också vara ogiltiga sidhuvuden.
 
 Om HTTP-status är `200 OK`, brödtexten i svaret innehåller en ljudfil i det begärda formatet. Den här filen kan spelas upp när den överförs, eller spara till en buffert eller fil för senare uppspelning eller annan användning.
 

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: alkohli
-ms.openlocfilehash: 8f34d5a38f09f015547f52cc4b44819b780932bb
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818866"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498291"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Alternativ för att migrera data från StorSimple 5000-7000-serien 
 
@@ -75,13 +75,22 @@ A. Ja. Migrering till andra lagringslösningar med värden kopia av informatione
 
 A. Migrera från 5000 och 7000-serien finns fullständigt stöd för. Microsoft rekommenderar att du i själva verket kontaktar supporten innan du påbörjar migreringen. Migreringen är för närvarande en assisterad åtgärd. Om du planerar att migrera data från StorSimple 5000-7000-serieenhet, [öppna ett supportärende](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="q-how-does-the-cost-compare-for-the-two-listed-migrations-to-azure-hybrid-services"></a>F. Hur kostnaden jämfört med för två angivna migreringar till Azure hybrid-tjänster? 
+### <a name="q-what-is-the-pricing-model-for-both-the-migration-options"></a>F. Vad är prismodellen för båda migreringsalternativen?
 
-A. Migrering varierar beroende på vilket alternativ som väljs. Medan migreringen själva är kostnadsfri, om du vill uppgradera till en StorSimple 8000-serien kommer det att kostnaden för maskinvarans. Prenumerationsavgiften för tjänsten kan på liknande sätt kan tillkomma när du använder Azure File Sync. I båda fallen kan måste kunder även betala pågående lagringskostnader. Referera till [Microsoft priskalkylatorn för respektive tjänsterna](https://azure.microsoft.com/pricing/#product-picker) för en beräkning.  
+A. Migrering varierar beroende på vilket alternativ som väljs. Medan migreringen själva är kostnadsfri, om du vill uppgradera till en StorSimple 8000-serien kommer det att kostnaden för maskinvarans. 
+
+Prenumerationsavgiften för tjänsten kan på liknande sätt kan tillkomma när du använder Azure File Sync. I båda fallen kan måste kunder även betala pågående lagringskostnader. Se en uppskattning följande: 
+- [Priser för StorSimple](https://azure.microsoft.com/pricing/details/storsimple/)  
+- [AFS priser]( https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>F.  Hur lång tid tar det för att slutföra en migrering?
 
 A. Dags att migrera data beror på mängden data och uppgraderingsalternativet om du har valt. 
+
+### <a name="q-what-is-the-end-of-support-date-for-storsimple-8000-series"></a>F. Vad är Support upphör datum för StorSimple 8000-serien?
+
+A. I slutet av Support för StorSimple 8000-serien är publiceringsdatum [här](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+
 
 ## <a name="next-steps"></a>Nästa steg
  - [Migrera data från en StorSimple 5000-7000-serien till en enhet för 8000-serien](storsimple-8000-migrate-from-5000-7000.md).

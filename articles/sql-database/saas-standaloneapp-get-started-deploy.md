@@ -1,6 +1,6 @@
 ---
-title: Självstudier för flera innehavare SaaS - Azure SQL Database | Microsoft Docs
-description: Distribuera och utforska ett fristående enskild klient SaaS-program, som använder Azure SQL Database.
+title: Enda klient SaaS-självstudie – Azure SQL Database | Microsoft Docs
+description: Distribuera och utforska ett fristående enda klient SaaS-program, som använder Azure SQL Database.
 keywords: sql database tutorial
 services: sql-database
 author: stevestein
@@ -8,97 +8,97 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/19/2018
 ms.author: genemi
-ms.openlocfilehash: 32cfa2e9bd48dd4e27da5c4010391c032d67d96b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 806cea75a9050c5d74f4c6b929d76712e51dd9d1
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644730"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497781"
 ---
-# <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska en enskild klient fristående program som använder Azure SQL Database
+# <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska en enda klient fristående program som använder Azure SQL Database
 
-I den här självstudiekursen, distribuera och utforska Wingtip biljetter SaaS exempelprogrammet som utvecklats med fristående program eller app per klient, mönstret.  Programmet är avsedd att demonstrerar funktionerna i Azure SQL Database som gör det lättare att aktivera flera innehavare SaaS scenarier.
+I den här självstudien, distribuera och utforska Wingtip biljetter SaaS-exempelprogram som utvecklats med fristående program eller app-per-klient, mönstret.  Programmet har utformats för att demonstrera funktionerna i Azure SQL Database som gör det lättare att aktivera flera innehavare SaaS-scenarier.
 
-Fristående program eller mönster app per klient distribuerar du en instans av programmet för varje klient.  Varje program har konfigurerats för en viss klient och distribueras i en separat Azure resursgrupp. Flera instanser av programmet etableras för att ge en lösning för flera innehavare. Det här mönstret passar bäst till ett mindre antal, klienter där klientisolering är högsta prioritet. Azure har partnerprogram som tillåter att resurser som ska distribueras till en klient prenumeration och hanteras av en tjänsteleverantör å klientens vägnar. 
+Fristående program eller mönster för app-per-klient distribuerar du en programinstans för varje klient.  Varje program är konfigurerad för en specifik klient och distribueras i en separat Azure-resursgrupp. Flera instanser av programmet etableras för att tillhandahålla en lösning för flera innehavare. Det här mönstret är bäst för lägre värden med klienter där klientisolering är högsta prioritet. Azure har partnerprogram som gör att resurser som ska distribueras till en klient-prenumeration och hanteras av en tjänsteleverantör för klientens räkning. 
 
-I den här självstudiekursen distribuerar du tre fristående program för tre klienter i din Azure-prenumeration.  Du har fullständig åtkomst till att utforska och arbeta med enskilda programkomponenter.
+I den här självstudien distribuerar du tre fristående program för tre klienter i din Azure-prenumeration.  Du har fullständig åtkomst att utforska och arbeta med de olika programkomponenterna.
 
-Programmet källa kod och hantering av skript är tillgängliga i den [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub-lagringsplatsen.
+Programmet källa kod- och skript är tillgängliga i den [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub-lagringsplatsen.
 
 
 I den här guiden lär du dig:
 
 > [!div class="checklist"]
-> * Så här distribuerar du Wingtip biljetter SaaS fristående program.
-> * Var du kan hämta programmets källkod och av hanteringsskript.
+> * Så här distribuerar Wingtip biljetter SaaS fristående program.
+> * Var du kan hämta programmets källkod och skript.
 > * Om servrar och databaser som ingår i appen.
 
-Ytterligare självstudier kommer att släppas. De kan du utforska en mängd hanteringsscenarier baserat på det här programmet.   
+Ytterligare självstudier kommer att släppas. De kan du utforska olika scenarier för hantering av baserat på det här mönstret för programmet.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Distribuera Wingtip biljetter SaaS fristående program
 
-Distribuera appen för de tre angivna klienterna:
+Distribuera appen för de tre angivna innehavarna:
 
-1. Klicka på varje blå **till Azure** för att öppna distributionsmallen i den [Azure-portalen](https://portal.azure.com). Varje mall kräver två parametervärden. ett namn för en ny resursgrupp och ett användarnamn som särskiljer den här distributionen från andra distributioner av appen. Nästa steg innehåller information för att ange dessa värden.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso samklang Hall**
+1. Klicka på varje blå **distribuera till Azure** knappen för att öppna distributionsmallen i den [Azure-portalen](https://portal.azure.com). Varje mall kräver två parametervärden; ett namn för en ny resursgrupp och ett användarnamn som särskiljer den här distributionen från andra distributioner av appen. Nästa steg innehåller information för att ange dessa värden.<br><br>
+    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contosos Konserthall**
 <br><br>
     <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Skogskornell Dojo**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz en**
+    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazzklubb**
 
-2. Ange parametervärden som krävs för varje distribution.
+2. Ange nödvändiga parametervärden för varje distribution.
 
     > [!IMPORTANT]
-    > Vissa brandväggar för autentisering och servern är avsiktligt oskyddat i exempelsyfte. **Skapa en ny resursgrupp** för varje distribution.  Använd inte en befintlig resursgrupp. Använd inte det här programmet eller alla resurser som den skapar för produktion. Ta bort alla resursgrupper när du är klar med program att stoppa relaterade fakturering.
+    > Vissa brandväggar för autentisering och servern har avsiktligt lämnats oskyddade i demonstrationssyfte. **Skapa en ny resursgrupp** för varje programdistribution.  Använd inte en befintlig resursgrupp. Använd inte det här programmet eller resurser som det skapar för produktion. Ta bort alla resursgrupper när du är klar med program för att stoppa relaterad fakturering.
 
-    Det är bäst att använda bara gemena bokstäver, siffror och bindestreck i din resursnamn.
-    * För **resursgruppen**, Välj Skapa nytt och ange sedan ett gemener namn för resursgruppen. **Wingtip-sa -\<venueName\>-\<användare\>**  är det rekommenderade mönstret.  För \<venueName\>, ersätta plats namnet utan blanksteg. För \<användaren\>, Ersätt värdet för användaren nedan.  Med det här mönstret resursgruppnamn kanske *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    Det är bäst att använda endast gemena bokstäver, siffror och bindestreck i ditt resursnamn.
+    * För **resursgrupp**, Välj Skapa ny och ange sedan ett gemener namn för resursgruppen. **Wingtip-sa -\<venueName\>-\<användaren\>**  är det rekommendera mönstret.  För \<venueName\>, ersätter du jurisdiktionsort namnet utan blanksteg. För \<användaren\>, ersätta värdet för användaren nedan.  Med det här mönstret kanske resursgruppnamn *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Välj en **plats** från den nedrullningsbara listan.
 
-    * För **användare** -rekommenderar vi ett kort användaren värde, till exempel din initialer plus en siffra: till exempel *af1*.
+    * För **användaren** -vi rekommenderar ett värde som kort användaren, till exempel din initialer plus en siffra: till exempel *af1*.
 
 
 3. **Distribuera programmet**.
 
-    * Klicka om du accepterar villkoren.
+    * Klicka för att godkänna de allmänna villkoren.
     * Klicka på **Köp**.
 
-4. Övervaka status för alla tre distributioner genom att klicka på **meddelanden** (klockikonen till höger om sökrutan). Distribuera appar tar cirka fem minuter.
+4. Övervaka status för alla tre distributioner genom att klicka på **meddelanden** (klockikonen till höger om sökrutan). Det tar cirka fem minuter att distribuera appar.
 
 
 ## <a name="run-the-applications"></a>Köra programmen
 
-Appen demonstreras handelsplatser som värd för händelser.  Handelsplatser är innehavare av programmet. Varje plats hämtar en anpassad webbplats till en lista över händelserna och sälja biljetter. Platsen typer är konsertsalar, jazz föreningar och sport föreningar. I det här exemplet anger vilken typ av plats i bakgrunden foto som visas på webbplatsen för den platsen.   Varje plats har en separat program-instans med sin egen fristående SQL-databasen i fristående app-modellen.
+Appen visar platser som är värdar för händelser.  Platser är innehavare av programmet. Varje plats får en anpassad webbplats kan sina evenemang och sälja biljetter. Platstyperna är konsertlokaler, jazzklubbar och sport föreningar. I det här exemplet anger vilken typ av plats i bakgrunden foto som visas på webbplatsen för den platsen.   I fristående app-modellen har varje plats en separat program-instans med sin egen fristående SQL-databas.
 
-1. Öppna sidan händelser för var och en av de tre innehavarna i separata flikar i webbläsaren:
+1. Öppna sidan händelser för var och en av tre klienter i separata flikar i webbläsaren:
 
-    - http://events.contosoconcerthall.&lt; användaren&gt;. trafficmanager.net
-    - http://events.dogwooddojo.&lt; användaren&gt;. trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt; användaren&gt;. trafficmanager.net
+    - http://events.contosoconcerthall.&lt; användare&gt;. trafficmanager.net
+    - http://events.dogwooddojo.&lt; användare&gt;. trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt; användare&gt;. trafficmanager.net
 
-    (I varje URL ersätter &lt;användaren&gt; med din distribution användaren värde.)
+    (I varje URL ersätter &lt;användaren&gt; med värdet för användarnamn för din distribution.)
 
    ![Händelser](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
-Att kontrollera distributionen av inkommande begäranden, appen använder [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Varje klient-specifik app-instansen innehåller klientnamnet på som en del av namnet på en domän i URL-Adressen. Alla de URL: er omfattar ditt specifika **användaren** värde. URL: er gör du följande format:
+Att styra distributionen av inkommande begäranden, appen använder [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Varje klientspecifik appinstansen innehåller klientnamnet på som en del av domännamnet i URL: en. Alla klient URL: er inkluderar ditt specifika **användaren** värde. URL: er följer följande format:
 - http://events.&lt; venuename&gt;.&lt; användaren&gt;. trafficmanager.net
 
-Varje klient databasen **plats** ingår i appinställningarna för den motsvarande distribuerade appen.
+Varje klientdatabas **plats** ingår i appinställningarna för den motsvarande distribuerade appen.
 
-I en produktionsmiljö, vanligtvis skapar du en CNAME DNS-posten [ *peka företagets Internetdomän* ](../traffic-manager/traffic-manager-point-internet-domain.md) till trafikhanterarprofilen-URL.
+I en produktionsmiljö, vanligtvis skapar du en CNAME DNS-post till [ *peka företagets Internetdomän* ](../traffic-manager/traffic-manager-point-internet-domain.md) till Webbadressen för traffic manager-profil.
 
 
-## <a name="explore-the-servers-and-tenant-databases"></a>Utforska servrar och databaser för innehavare
+## <a name="explore-the-servers-and-tenant-databases"></a>Utforska servrar och klientdatabaser
 
 Nu ska vi titta på några av de resurser som har distribuerats:
 
 1. I den [Azure-portalen](http://portal.azure.com), bläddra i listan över resursgrupper.
-2. Du bör se resursgrupper tre klient.
-3. Öppna den **wingtip-sa-fabrikam -&lt;användare&gt;**  resursgruppen som innehåller resurser för Fabrikam Jazz en distribution.  Den **fabrikamjazzclub -&lt;användare&gt;**  server innehåller den **fabrikamjazzclub** databas.
+2. Du bör se tre klient resursgrupper.
+3. Öppna den **wingtip-sa-fabrikam -&lt;användaren&gt;**  resursgruppen som innehåller resurser för Fabrikam Jazzklubb-distribution.  Den **fabrikamjazzclub -&lt;användaren&gt;**  server innehåller den **fabrikamjazzclub** databas.
 
-Varje klient-databasen är 50 DTU *fristående* databas.
+Varje klientdatabas är en 50 DTU *fristående* databas.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -108,22 +108,22 @@ Varje klient-databasen är 50 DTU *fristående* databas.
 * To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
 -->
 
-- Mer information om flera innehavare SaaS-program, se [designmönster för SaaS-program med flera innehavare](saas-tenancy-app-design-patterns.md).
+- Mer information om delade SaaS-program, se [designmönster för SaaS-program för flera innehavare](saas-tenancy-app-design-patterns.md).
 
  
-## <a name="delete-resource-groups-to-stop-billing"></a>Ta bort resursgrupper för att stoppa fakturering ##
+## <a name="delete-resource-groups-to-stop-billing"></a>Ta bort resursgrupper för att stoppa debiteringen ##
 
-När du är klar använder exemplet, ta bort alla resursgrupper som du skapade för att stoppa den associerade faktureringen.
+Ta bort alla resursgrupper som du skapade för att stoppa den associerade faktureringen när du är klar med hjälp av exemplet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här guiden har du lärt dig:
 
 > [!div class="checklist"]
-> * Så här distribuerar du Wingtip biljetter SaaS fristående program.
+> * Så här distribuerar Wingtip biljetter SaaS fristående program.
 > * Om servrar och databaser som ingår i appen.
-> * Ta bort resurser för att stoppa relaterade fakturering.
+> * Hur du tar bort exempelresurser för att stoppa relaterad fakturering.
 
-Försök med den [etablera och katalogen](saas-standaloneapp-provision-and-catalog.md) självstudiekursen där du vill utforska användningen av en katalog med klienter som gör att en mängd mellan klient scenarier, till exempel schemat hantering och klient analytics.
+Nu ska du prova den [etablera och katalogisera](saas-standaloneapp-provision-and-catalog.md) kursen som du vill utforska användningen av en katalog med klienter som gör att flera olika scenarier för flera klienter, till exempel schemat hanterings och klienttrafik analytics.
  
 

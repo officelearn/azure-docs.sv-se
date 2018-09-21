@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ddc27d9f5124000601a57b4ecd72c3d6021c109f
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 3e21cb90dbe76a648cbb23729cc5068e75e8e5f7
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542641"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498546"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -35,7 +35,7 @@ Följande diagram visar en konceptuell vy över beteende och dataflöde över hu
 
 ![Uppdatera processflöde för hantering](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Hantering av uppdateringar kan användas för att internt registrera datorer i flera prenumerationer i samma klientorganisation. Hantera virtuella datorer i en annan klient måste du publicera dem som [icke-Azure-datorer](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+Hantering av uppdateringar kan användas för att internt registrera datorer i flera prenumerationer i samma klientorganisation. Hantera virtuella datorer i en annan klient måste du publicera dem som [icke-Azure-datorer](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
 
 När en dator utför en sökning för att kontrollera uppdateringskompatibilitet, vidarebefordrar agenten informationen gruppvis till Azure Log Analytics. På en Windows-dator utförs kompatibilitetsgenomsökningen var 12: e timme som standard.
 
@@ -55,6 +55,8 @@ En schemalagd distribution definierar vilka måldatorer som får tillämpliga up
 Uppdateringar installeras av runbooks i Azure Automation. Du kan inte visa dessa runbooks och runbooks kräver inte någon konfigurering. När en uppdateringsdistribution skapas, skapar ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för datorerna som ingår i uppdateringsdistributionen. Master-runbook startar en underordnad runbook på varje agent så att utföra installationen av nödvändiga uppdateringar.
 
 Vid det datum och tid som anges i uppdateringsdistributionen kör måldatorerna distributionen parallellt. Innan du kör installationen utförs en genomsökning för att verifiera att uppdateringarna fortfarande är nödvändiga. Om uppdateringarna som inte godkänts i WSUS, för WSUS-klientdatorer misslyckas distributionen av uppdateringen.
+
+Med en dator som har registrerats för uppdateringshantering i flera Log Analytics-arbetsytor (flera värdar) stöds inte.
 
 ## <a name="clients"></a>Klienter
 
@@ -190,7 +192,7 @@ Om du vill köra en loggsökning som returnerar information om datorn, uppdateri
 
 När uppdateringar utvärderas för alla Linux- och Windows-datorer i din arbetsyta, kan du installera nödvändiga uppdateringar genom att skapa en *uppdateringsdistribution*. En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer. Du kan ange datum och tid för distributionen och en dator eller grupp av datorer som ska ingå i omfattningen för en distribution. Läs mer om datorgrupper i [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) (Datorgrupper i Log Analytics).
 
- När du inkluderar datorgrupper i din distribution utvärderas gruppmedlemskap bara en gång när schemat skapas. Efterföljande ändringar i en grupp syns inte. Undvik detta genom att ta bort den schemalagda distributionen och skapa den igen.
+ När du inkluderar datorgrupper i din distribution utvärderas gruppmedlemskap bara en gång när schemat skapas. Efterföljande ändringar i en grupp syns inte. Att komma runt denna [dynamiska grupper](#using-dynamic-groups), dessa grupper har lösts vid tidpunkten för distribution och definieras av en fråga.
 
 > [!NOTE]
 > Windows-datorer som distribueras från Azure Marketplace som standard är inställda på att ta emot automatiska uppdateringar från Windows Update-tjänsten. Det här beteendet ändras inte när du lägger till den här lösningen eller lägga till Windows-datorer i din arbetsyta. Om du inte aktivt hantera uppdateringar med hjälp av den här lösningen, gäller standardbeteendet (för att automatiskt tillämpa uppdateringar).
@@ -198,6 +200,23 @@ När uppdateringar utvärderas för alla Linux- och Windows-datorer i din arbets
 Konfigurera om Unattended Upgrade-paketet om du vill inaktivera automatiska uppdateringar för att undvika att uppdateringar tillämpas utanför en underhållsperiod på Ubuntu. Information om hur du konfigurerar paketet finns i [automatiska uppdateringar-avsnittet i handboken för Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Virtuella datorer som har skapats från Red Hat Enterprise Linux (RHEL) på begäran-avbildningar som är tillgängliga i Azure Marketplace är registrerade åtkomst till den [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) som har distribuerats i Azure. Andra Linux-distribution måste du uppdatera från den distributionsplatsen online filens centrallager genom att följa distributionsmetoder som stöds.
+
+Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemauppdatering**. Den **ny Uppdateringsdistribution** öppnas fönstret. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **skapa**:
+
+| Egenskap  | Beskrivning |
+| --- | --- |
+| Namn |Unikt namn som identifierar uppdateringsdistributionen. |
+|Operativsystem| Linux eller Windows|
+| Grupper för att uppdatera (förhandsversion)|Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. Läs mer i [dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
+| Datorer som ska uppdateras |Välj en sparad sökning, importerat gruppen, eller välja dator från listrutan och Välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+|Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
+|Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar för inkluderas eller uteslutas är på en separat flik. Mer information om hur inkludering hanteras och se [inkludering beteende](automation-update-management.md#inclusion-behavior) |
+|Schemainställningar|Välj tid att starta och välj antingen en gång eller återkommande för upprepningen|
+| Förskript och efterskript|Välj skript ska köras före och efter distributionen|
+| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
+| Starta om kontroll| Anger hur omstarter ska hanteras. De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
+
+Distributioner av uppdateringar kan även skapas programmässigt. Läs hur du skapar en distribution med REST API i [programvarukonfigurationer för Update - skapa](/rest/api/automation/softwareupdateconfigurations/create). Det finns också en exempel-runbook som kan användas för att skapa en distribution av varje vecka. Läs mer om denna runbook i [skapa en veckovis uppdateringsdistribution för en eller flera virtuella datorer i en resursgrupp](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## <a name="view-missing-updates"></a>Visa uppdateringar som saknas
 
@@ -209,20 +228,7 @@ Välj den **distributioner av uppdateringar** fliken för att visa listan över 
 
 ![Översikt över uppdateringsdistributionens resultat](./media/automation-update-management/update-deployment-run.png)
 
-## <a name="create-or-edit-an-update-deployment"></a>Skapa eller redigera en uppdateringsdistribution
-
-Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemauppdatering**. Den **ny Uppdateringsdistribution** öppnas fönstret. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **skapa**:
-
-| Egenskap  | Beskrivning |
-| --- | --- |
-| Namn |Unikt namn som identifierar uppdateringsdistributionen. |
-|Operativsystem| Linux eller Windows|
-| Datorer som ska uppdateras |Välj en sparad sökning, importerat gruppen, eller välja dator från listrutan och Välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
-|Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
-|Uppdateringar som ska uteslutas|Ange uppdateringarna som ska uteslutas. För Windows, anger du KB utan prefixet ”KB”. Ange paketets namn för Linux, eller Använd ett jokertecken.  |
-|Schemainställningar|Välj tid att starta och välj antingen en gång eller återkommande för upprepningen|
-| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
-| Starta om kontroll| Anger hur omstarter ska hanteras. De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
+En uppdateringsdistribution från REST API finns [programvara uppdatera konfigurationen körs](/rest/api/automation/softwareupdateconfigurationruns).
 
 ## <a name="update-classifications"></a>Uppdatera klassificeringar
 
@@ -484,11 +490,32 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
+## <a name="using-dynamic-groups"></a>Med dynamiska grupper (förhandsversion)
+
+Uppdateringshantering ger möjlighet att fokusera på en dynamisk grupp av virtuella Azure-datorer för distributioner av uppdateringar. De här grupperna definieras av en fråga, när en uppdateringsdistribution börjar medlemmar i gruppen utvärderas. När du definierar din fråga kan följande objekt användas tillsammans att fylla i den dynamiska gruppen
+
+* Prenumeration
+* Resursgrupper
+* Platser
+* Taggar
+
+![Välj grupper](./media/automation-update-management/select-groups.png)
+
+Om du vill förhandsgranska resultaten av en dynamisk grupp klickar du på den **förhandsversion** knappen. Den här förhandsgranskningen visar gruppmedlemskapet vid den tiden, i det här exemplet vi söker efter datorer med taggen **rollen** är lika med **BackendServer**. Om flera virtuella datorer har den här taggen har lagts till, läggs de till alla framtida distributioner mot den gruppen.
+
+![förhandsversion av grupper](./media/automation-update-management/preview-groups.png)
+
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrera med System Center Configuration Manager
 
 Kunder som har investerat i System Center Configuration Manager för att hantera datorer, servrar och mobila enheter är också beroende av ett styrka och mognad av Configuration Manager som hjälper dem att hantera programuppdateringar. Configuration Manager är en del av sin cykel för hantering (SUM) programvara.
 
 Läs hur du integrerar hanteringslösningen med System Center Configuration Manager i [integrera System Center Configuration Manager med uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md).
+
+## <a name="inclusion-behavior"></a>Inkludering beteende
+
+Uppdatera inkludering kan du ange specifika uppdateringar tillämpas. Korrigeringsfiler eller paket som är inställda att ingå installeras oavsett klassificeringar som valts för distributionen.
+
+För Linux-datorer om ett paket som ingår men innehåller ett beroende paket som har undantagits är specifcally installeras paketet inte.
 
 ## <a name="patch-linux-machines"></a>Patch Linux-datorer
 
@@ -527,3 +554,5 @@ Vill du fortsätta till självstudien om hur du hanterar uppdateringar för din 
 
 * Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-searches.md) att visa detaljerad uppdateringsinformation.
 * [Skapa aviseringar](../log-analytics/log-analytics-alerts.md) när kritiska uppdateringar har identifierats som saknade i datorer eller om en dator har automatisk uppdatering inaktiverat.
+
+* Läs hur du interagerar med uppdateringshantering via REST API i [Update konfigurationer](/rest/api/automation/softwareupdateconfigurations)

@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d19b71542f032111bbd3d9c7f3fe246110377b5d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2bcba37d5bf0e508c1f9aa1ad30ab1c039cff83f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127594"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497764"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Använd ”Text till tal” i Speech service
 
-Med taltjänsten innehåller Text till tal-funktioner via en enkel HTTP-begäran. Du PUBLICERAR texten som ska läsas till lämplig slutpunkt och tjänsten returnerar en ljudfil (`.wav`) som innehåller syntetiskt tal. Programmet kan sedan använda den här ljud som den gillar.
+Med taltjänsten innehåller Text till tal-funktioner via en enkel HTTP-begäran. Du `POST` text som ska talas till lämplig slutpunkt och tjänsten returnerar en ljudfil (`.wav`) som innehåller syntetiskt tal. Programmet kan sedan använda den här ljud som den gillar.
 
 Begäran om programvaruprinciptext för INLÄGGET Text till tal kan vara oformaterad text (ASCII eller UTF8) eller ett [SSML](speech-synthesis-markup.md) dokumentet. Oformaterad text begäranden läses med en standard-röst. I de flesta fall som du vill använda en SSML brödtext. HTTP-begäran måste innehålla en [auktorisering](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
 
@@ -40,7 +40,7 @@ Om du vill ange en röst, använda den `<voice>` [SSML](speech-synthesis-markup.
 
 Se [Text till tal röster](supported-languages.md#text-to-speech) en lista över tillgängliga röster och deras namn.
 
-## <a name="make-a-request"></a>Gör en begäran
+## <a name="make-a-request"></a>Skapa en begäran
 
 En Text till tal HTTP-begäran skickas i POST-läge med texten som ska talas i brödtexten i begäran. Den maximala längden på HTTP-begärandetexten är 1024 tecken. Begäran måste ha följande huvuden: 
 

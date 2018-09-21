@@ -9,12 +9,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: 6f72e0cbb4476e9ff22bd1a1ead8dbee24a7edf0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 3efee2f9a4b205b87a65eb473271b0ab5e58046d
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649932"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498427"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Skapa och hantera SQL Database elastiska jobb med PowerShell (förhandsversion)
 
@@ -213,7 +213,7 @@ Rekommenderade säkerhetsmetoder för Elastic Database-jobb är:
 * Autentiseringsuppgifterna ska ha så få behörigheter som behövs för att utföra projektaktiviteten.  Mer information kan visas på den här [auktorisering och behörigheter](https://msdn.microsoft.com/library/bb669084.aspx) SQL Server MSDN-artikeln.
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>Så här skapar du en krypterade autentiseringsuppgifter för jobbkörning mellan databaser
-Att skapa en ny krypterade autentiseringsuppgifter i [ **cmdlet Get-Credential** ](https://technet.microsoft.com/library/hh849815.aspx) frågar efter ett användarnamn och lösenord som kan skickas till den [ **cmdlet New-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
+Att skapa en ny krypterade autentiseringsuppgifter i [ **cmdlet Get-Credential** ](/powershell/module/microsoft.powershell.security/get-credential) frågar efter ett användarnamn och lösenord som kan skickas till den [ **cmdlet New-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential

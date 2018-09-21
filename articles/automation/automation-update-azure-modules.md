@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 09/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9358c7ba72e16ed54514d42c1366420ef2f37324
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bee1c5c48242b69ee33fedd358a83e0580d19942
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304279"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498067"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Så här uppdaterar du Azure PowerShell-moduler i Azure Automation
 
@@ -44,8 +44,10 @@ Eftersom modulerna uppdateras regelbundet av produktgruppen, kan ändras med ink
 
     Om modulerna som redan är uppdaterad, Slutför processen i några sekunder. När uppdateringen är klar visas ett meddelande.<br><br> ![Uppdatera status för Azure-moduler](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
+    .NET core AzureRm moduler (AzureRm.*. Kärnor) stöds inte i Azure Automation och kan inte importeras.
+
 > [!NOTE]
-> Azure Automation använder de senaste modulerna i ditt Automation-konto när ett nytt schemalagt jobb körs.    
+> Azure Automation använder de senaste modulerna i ditt Automation-konto när ett nytt schemalagt jobb körs.  
 
 Om du använder cmdlets från dessa Azure PowerShell-moduler i dina runbooks du vill köra den här uppdateringen varje månad eller så se till att du har de senaste modulerna. Azure Automation använder AzureRunAsConnection anslutningen att autentisera när du uppdaterar moduler, om tjänstens huvudnamn har upphört att gälla eller finns inte längre på prenumerationsnivå modulen uppdateringen misslyckas.
 

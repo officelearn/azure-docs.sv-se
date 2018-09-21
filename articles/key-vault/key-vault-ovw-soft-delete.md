@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: c8bde99e0247871212766a9915b9d07b7f392201
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 776d5957ee2c11354c350523cbc8fde12fbcafaf
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465596"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498189"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Översikt över mjuk borttagning i Azure Key Vault
 
@@ -37,9 +37,16 @@ Azure Key Vaults är spårade resurser som hanteras av Azure Resource Manager. A
 
 ### <a name="soft-delete-behavior"></a>Beteende för mjuk borttagning
 
-Med den här funktionen är åtgärden ta bort på ett nyckelvalv eller nyckelvalv objekt en mjuk borttagning effektivt innehåller resurserna under en viss period, samtidigt som det utseendet att objektet tas bort. Tjänsten ytterligare är en mekanism för att återställa det borttagna objektet, i stort sett ångra borttagningen. 
+Med den här funktionen är åtgärden ta bort på ett nyckelvalv eller nyckelvalv objekt en mjuk borttagning effektivt innehåller resurserna under en viss period (90 dagar), samtidigt som det utseendet att objektet tas bort. Tjänsten ytterligare är en mekanism för att återställa det borttagna objektet, i stort sett ångra borttagningen. 
 
 Mjuk borttagning är ett valfritt beteende för Key Vault och är **inte aktiverad som standard** i den här versionen. 
+
+### <a name="do-not-purge-flag"></a>Rensa inte flaggan
+En användare som vill framtvinga borttagning av valvet eller vault-objekt kan göra detta. Det är om en användare som har behörighet att ta bort ett valv eller ett objekt i valvet kan tvinga Rensa även om mjuk borttagning för att valvet är påslagen. Men om användaren vill förhindra Framtvinga borttagning av valvet eller vault-objekt kan ställas in – aktivera rensningsskydd flagga för att vara sant. När du skapar ett valv kan du aktivera flaggan på så sätt. Krav för aktivering av Rensa skydd är måste du ha mjuk borttagning aktiveras. Kommandot för att göra det i Azure CLI-2 är
+
+```
+az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
+```
 
 ### <a name="key-vault-recovery"></a>Nyckelvalv-återställning
 

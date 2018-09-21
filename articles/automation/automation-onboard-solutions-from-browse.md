@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: c326232e0fc8f5f878241186eac8ae5ed23f0958
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 83a768b82172b8736ea06bfed012309ac92734b7
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366768"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497968"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera uppdateringshantering, ändringsspårning och inventering lösningar på flera virtuella datorer
 
@@ -51,9 +51,13 @@ Använd filterkontrollerna för att välja virtuella datorer från olika prenume
 
 ![Publicera lösning för uppdateringshantering](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Granska valen för Log analytics-arbetsytan och Automation-kontot. En ny arbetsyta och Automation-kontot är markerade som standard. Om du har en befintlig Log Analytics-arbetsytan och Automation-konto du vill använda, klicka på **ändra** att välja dem från den **Configuration** sidan. När du är klar klickar du på **Spara**.
+Granska valen för Log analytics-arbetsytan och Automation-kontot. En befintlig arbetsyta och Automation-kontot är markerade som standard. Om du vill använda en annan Log Analytics-arbetsytan och Automation-kontot klickar du på **anpassade** att välja dem från den **anpassad konfiguration** sidan. När du väljer en Log Analytics-arbetsyta, görs en kontroll för att avgöra om den är kopplad till ett Automation-konto. Om ett länkat Automation-konto hittas visas följande skärmbild. När du är klar klickar du på **OK**.
 
 ![Välj en arbetsyta och konto](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+
+Om arbetsytan som valts inte är länkad till ett Automation-konto, visas följande skärmbild. Välj ett Automation-konto och klicka på **OK** när du är klar.
+
+![Ingen arbetsyta](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 Avmarkera kryssrutan bredvid en virtuell dator som du inte vill aktivera. Virtuella datorer som inte kan aktiveras är redan avmarkerat.
 

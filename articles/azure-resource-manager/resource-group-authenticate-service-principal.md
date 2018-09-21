@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 84b32cadbd7d574e01053b61ace1203d495983b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023332"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498614"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten med certifikat
 
@@ -29,7 +29,7 @@ När du har en app eller ett skript som behöver åtkomst till resurser, kan du 
 * Använda ett certifikat för autentisering när du kör oövervakade skript.
 
 > [!IMPORTANT]
-> Överväg att använda Azure AD hanterad tjänstidentitet som tillämpningsprogrammets identitet i stället för att skapa ett huvudnamn för tjänsten. Azure AD MSI är en funktion för förhandsversion av Azure Active Directory som gör det enklare att skapa en identitet för koden. Om din kod körs på en tjänst som stöder Azure AD MSI och har åtkomst till resurser som stöder Azure Active Directory-autentisering, är Azure AD MSI ett bättre alternativ för dig. Läs mer om Azure AD MSI, inklusive tjänster som stöds för närvarande under avsnittet om [hanterade tjänstidentiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
+> Överväg att använda hanterade identiteter för Azure-resurser för din Programidentitet istället för att skapa ett huvudnamn för tjänsten. Om din kod körs på en tjänst som stöder hanterade identiteter och åtkomst till resurser som stöder Azure Active Directory-autentisering, är hanterade identiteter ett bättre alternativ för dig. Läs mer om hanterade identiteter för Azure-resurser, inklusive vilka tjänster för närvarande stöd för den i [vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md).
 
 Den här artikeln visar hur du skapar ett huvudnamn för tjänsten som autentiserar med ett certifikat. Om du vill konfigurera ett huvudnamn för tjänsten med lösenord, se [Skapa tjänstens huvudnamn för Azure med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
@@ -207,9 +207,9 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 
 Du kan få följande fel när du skapar ett huvudnamn för tjänsten:
 
-* **"Authentication_Unauthorized"** (Ej auktoriserad autentisering) eller **"No subscription found in the context."** (Ingen prenumeration hittades i sammanhanget). – Du får det här felet när ditt konto inte har [nödvändiga behörigheter](#required-permissions) på Azure Active Directory att registrera en app. Du får vanligen det här felet om bara administrativa användare i Azure Active Directory kan registrera appar och du inte har ett administratörskonto. Be din administratör antingen tilldela dig en administratörsroll eller ändra inställningar så att användare kan registrera appar.
+* **"Authentication_Unauthorized"** (Ej auktoriserad autentisering) eller **"No subscription found in the context."** (Ingen prenumeration hittades i sammanhanget). -Du ser detta fel när ditt konto inte har den [nödvändiga behörigheter](#required-permissions) på Azure Active Directory för att registrera en app. Normalt kan ser du detta fel när endast administrativa användare i Azure Active Directory kan registrera appar och ditt konto inte är en administratör. Be din administratör antingen tilldela dig en administratörsroll eller ändra inställningar så att användare kan registrera appar.
 
-* Ditt konto **"har inte behörighet att utföra åtgärden 'Microsoft.Authorization/roleAssignments/write' för omfånget '/subscriptions/{guid}'."** – Du får det här felet om ditt konto inte har tillräcklig behörighet att tilldela en roll till en identitet. Be din prenumerationsadministratör att ge dig rollen som administratör för användaråtkomst.
+* Ditt konto **”har inte behörighet att utföra åtgärden” Microsoft.Authorization/roleAssignments/write' over scope '/ subscriptions / {guid} ””.**  -Du ser detta fel när ditt konto inte har tillräcklig behörighet för att tilldela en roll till en identitet. Be din prenumerationsadministratör att ge dig rollen som administratör för användaråtkomst.
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill konfigurera ett huvudnamn för tjänsten med lösenord, se [Skapa tjänstens huvudnamn för Azure med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).

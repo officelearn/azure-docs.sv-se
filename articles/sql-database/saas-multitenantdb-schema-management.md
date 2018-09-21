@@ -8,18 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 09/19/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2f22ed862f9b45334a961f80e47ee2b4634e46fb
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247674"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498342"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Hantera schemat i ett SaaS-program som använder delat SQL-databaser för flera innehavare
-
+ 
 Den här självstudien går igenom utmaningarna med att underhålla en flotta med databaser i en programvara som en tjänst (SaaS). Lösningar visas för fläkt ut schemaändringar hela flottan databaser.
 
 Precis som alla program Wingtip biljetter SaaS-appen kommer att utvecklas med tiden och kräver ändringar i databasen. Ändringar kan påverka schemat eller referens data eller använda uppgifter för databasunderhåll. Med ett SaaS-program med hjälp av en databas per klient mönster, måste ändringarna samordnas över en potentiellt massiv mängd klientdatabaser. Dessutom måste du inkludera dessa ändringar i databasen etableringsprocessen för att säkerställa att de inkluderas i nya databaser som har skapats.

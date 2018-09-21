@@ -1,21 +1,21 @@
 ---
 title: Hotidentifiering – Azure SQL Database Managed Instance | Microsoft Docs
-description: Hotidentifiering identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen.
+description: Hotidentifiering identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen i en hanterad instans.
 services: sql-database
 author: rmatchoro
 manager: craigg
 ms.service: sql-database
 ms.custom: security, managed instance
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 09/19/2018
 ms.author: ronmat
 ms.reviewer: vanto
-ms.openlocfilehash: 76033438ad785412aa97358d80b5e4fdbf4c2bfb
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: af93a1c0f1e132b04d3bf5c5511f5db1f29ba30c
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717003"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498648"
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Azure SQL Database Managed Instance Hotidentifiering
 

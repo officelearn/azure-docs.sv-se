@@ -1,20 +1,20 @@
 ---
 title: Azure SQL Database-resurs begränsar översikt | Microsoft Docs
-description: Den här sidan beskriver några vanliga DTU-baserade resursbegränsningar för enskilda databaser i Azure SQL Database.
+description: Den här artikeln innehåller en översikt över Azure SQL Database-resursen begränsar och ger information om vad som händer när de resursbegränsningar nått eller överskridit.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/19/2018
 ms.author: carlrab
-ms.openlocfilehash: 5d070c1d65ea15450589e1b590eaf926c10e749f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: fbb73e46ed3aa41b544e8fea5c6184675140e810
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736197"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498168"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Översikt över Azure SQL Database-resursgränser 
 

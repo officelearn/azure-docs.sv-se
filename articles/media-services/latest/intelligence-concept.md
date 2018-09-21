@@ -1,6 +1,6 @@
 ---
-title: Azure media intelligence | Microsoft Docs
-description: När du använder Azure Media Services kan analysera du din ljud och video contnet med AudioAnalyzerPreset och VideoAnalyzerPreset.
+title: Azure medieinformation | Microsoft Docs
+description: När du använder Azure Media Services kan analysera du dina ljud- och contnet med AudioAnalyzerPreset och VideoAnalyzerPreset.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,48 +11,48 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a428f76f1239e7e67b99d05b96d26abd601e89c6
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331528"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498699"
 ---
 # <a name="media-intelligence"></a>Medieintelligens
 
-Azure Media Services REST v3-API kan du analysera ljud och video. För att analysera ditt innehåll kan du skapa en **transformera** och skicka en **jobbet** som använder en av dessa förinställningar: **AudioAnalyzerPreset** eller **VideoAnalyzerPreset** . 
+Azure Media Services REST v3 API kan du analysera ljud-och videoinnehåll. Om du vill analysera ditt innehåll kan du skapa en **transformera** och skicka en **jobbet** som använder en av dessa förinställningar: **AudioAnalyzerPreset** eller **VideoAnalyzerPreset** . 
 
 ## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
-**AudioAnalyzerPreset** kan du ta fram flera ljud insikter från en ljud- eller fil. Utdata innehåller en JSON-fil (med denna kunskap) och VTT-filen för ljud betyg. Den här förinställningen accepterar en egenskap som anger språket i indatafilen i form av en [BCP47](https://tools.ietf.org/html/bcp47) sträng. Ljud insikter inkluderar:
+**AudioAnalyzerPreset** kan du ta fram flera ljud insikter från en ljud- eller video-fil. Utdata innehåller en JSON-fil (med insikterna) och VTT-filen för ljudavskrifter. Den här förinställningen accepterar en egenskap som anger språket i indatafilen i form av en [BCP47](https://tools.ietf.org/html/bcp47) sträng. Ljud insikterna är:
 
-* Ljud skrivfel – ett betyg av tal med tidsstämplar. Flera språk som stöds
-* Talare indexering – en mappning av talare och motsvarande orden
-* Tal sentiment analys – utdata från sentiment analys utförs på ljud skrivfel
-* Nyckelord – nyckelord som extraheras från ljud skrivfel.
+* Ljudutskrift – avskrifter av orden med tidsstämplar. Flera språk som stöds
+* Talare indexering – en mappning av talare och motsvarande talade ord
+* Tal attitydanalys – utdata för attitydanalys som utförs på ljudutskrift
+* Nyckelord – nyckelord som extraheras från ljudutskrift.
 
 ## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** kan du ta fram flera ljud- och insikter från en videofil. Utdata innehåller en JSON-fil (med denna kunskap), en VTT-fil för video betyg och en samling av miniatyrbilder. Denna inställning kan också användas med en [BCP47](https://tools.ietf.org/html/bcp47) sträng (som motsvarar språket i videon) som en egenskap. Video insikter inkluderar alla ljud insikter som nämns ovan och följande ytterligare funktioner:
+**VideoAnalyzerPreset** kan du ta fram flera ljud- och insikter från en videofil. Utdata innehåller en JSON-fil (med insikterna), en VTT-fil för videoavskriften och en samling av miniatyrbilder. Den här förinställningen också godkänner en [BCP47](https://tools.ietf.org/html/bcp47) sträng (som motsvarar språket i videon) som en egenskap. Videoinsikter inkluderar alla ljud insikter som nämns ovan och följande funktioner:
 
-* Står inför spårning – den tid under vilken ytor finns i videon. Varje yta har ett ansikte-id och en motsvarande mängd miniatyrer
-* Visual text – den text som har identifierats via OCR. Texten är stämplad och används också för att extrahera nyckelord (förutom ljud betyg)
+* Ansikte spårning – den tid under vilken ansikten finns i videon. Varje ansikte har ett ansikts-id och en motsvarande samling av miniatyrbilder
+* Visual text – den text som har identifierats via optisk teckenläsning. Texten är stämplad och används också för att extrahera nyckelord (utöver ljudavskrifter)
 * Nyckelrutor – en samling nyckelrutor som extraheras från videon
-* Visual innehåll avbrottsmoderering – del videor som har flaggats som vuxen eller dyr till sin natur
-* Anteckningen – ett resultat av kommentera videor baserat på en fördefinierad objektmodell
+* Visual innehållsmoderering – delen av videor som har flaggats som vuxet eller olämpligt sin natur
+* Anteckningens – ett resultat av att kommentera videor baserat på en fördefinierad objektmodell
 
 ##  <a name="insightsjson-elements"></a>Insights.JSON element
 
-Utdata innehåller en JSON-fil (insights.json) med de insikter som hittades i video eller ljud. Json kan innehålla följande element:
+Utdata innehåller en JSON-fil (insights.json) med alla de insikter som hittades i video eller ljud. Json kan innehålla följande element:
 
-### <a name="transcript"></a>betyg
+### <a name="transcript"></a>avskrift
 
 |Namn|Beskrivning|
 |---|---|
 |id|Rad-ID.|
-|text|Betyg sig själv.|
-|Språk|Språket som betyg. Avsett att stödja betyg där varje rad kan ha ett annat språk.|
-|instanser|En lista över tidsintervall där den här raden visades. Om-instansen är ett betyg, får endast 1 instans.|
+|text|Avskriften.|
+|Språk|Avskriften-språk. Avser att stödja avskrift där varje rad kan ha ett annat språk.|
+|instanser|En lista över tidsintervall där den här raden visas. Om-instansen är avskrift, har endast 1 instans.|
 
 Exempel:
 
@@ -88,10 +88,10 @@ Exempel:
 |Namn|Beskrivning|
 |---|---|
 |id|OCR rad-ID.|
-|text|Texten som OCR.|
-|Förtroende|Recognition förtroende.|
+|text|OCR-text.|
+|förtroende|Igenkänning av förtroende.|
 |Språk|OCR-språk.|
-|instanser|En lista över tidsintervall där den här OCR fanns (samma OCR kan visas flera gånger).|
+|instanser|En lista över tidsintervall där den här OCR visades (samma OCR kan visas flera gånger).|
 
 ```json
 "ocr": [
@@ -126,69 +126,21 @@ Exempel:
   ],
 ```
 
-### <a name="keywords"></a>nyckelord
-
-|Namn|Beskrivning|
-|---|---|
-|id|Nyckelordet-ID.|
-|text|Nyckelordstexten som.|
-|Förtroende|Det nyckelordet recognition förtroende.|
-|Språk|Nyckelordet språk (vid översättning).|
-|instanser|En lista över tidsintervall där det här nyckelordet fanns (ett nyckelord kan visas flera gånger).|
-
-```json
-"keywords": [
-{
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    },
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
-}
-] 
-
-```
-
-### <a name="faces"></a>ytor
+### <a name="faces"></a>ansikten
 
 |Namn|Beskrivning|
 |---|---|
 |id|Ansikts-ID.|
-|namn|Ansikts-namn. Det kan vara ”okänt #0”, en identifierade ryktbarhet eller en kund utbildade person.|
-|Förtroende|Ansikts identifiering förtroende.|
-|description|Vid en ryktbarhet dess beskrivning. |
-|thumbnalId|Id för på miniatyrbilden för den sida.|
-|knownPersonId|Vid en känd person, ett internt ID.|
-|referenceId|Vid en Bing-ryktbarhet dess Bing-ID.|
+|namn|Ansikts-namnet. Det kan vara ”okänt #0”, en identifierade kändisar eller en kund utbildad person.|
+|förtroende|Face ID förtroende.|
+|beskrivning|En beskrivning av kändisar. |
+|thumbnalId|ID för miniatyrbilden för den sida.|
+|knownPersonId|Om det är en känd person, dess interna ID.|
+|Tjänsten|Om det är en Bing kändisar, dess Bing-ID.|
 |referenceType|För närvarande bara Bing.|
-|rubrik|Vid en ryktbarhet rubriken (till exempel ”Microsofts VD”).|
-|imageUrl|Vid en ryktbarhet dess bild-url.|
-|instanser|Dessa är instanser av där de står inför fanns i det angivna tidsintervallet. Varje instans har också en thumbnailsId. |
+|rubrik|Om det är en kändisar, dess rubrik (till exempel ”Microsofts VD”).|
+|imageUrl|Om det är en kändisar, dess bild-url.|
+|instanser|Dessa är instanser av där ansiktet visas i det angivna tidsintervallet. Varje instans har också en thumbnailsId. |
 
 ```json
 "faces": [{
@@ -219,14 +171,119 @@ Exempel:
 }]
 ```
 
+### <a name="shots"></a>skärmbilder
+
+|Namn|Beskrivning|
+|---|---|
+|id|Som ID.|
+|Nyckelrutor|En lista över viktiga ramarna i på nedan (var och en har ett ID och en lista över instanser tidsintervall). Viktiga bildrutor instanser har ett thumbnailId fält med den bildrutan miniatyr-ID.|
+|instanser|En lista över tidsintervall för den här som visar (skärmbilder har endast 1 instans).|
+
+```json
+"Shots": [
+    {
+      "id": 0,
+      "keyFrames": [
+        {
+          "id": 0,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
+              "start": "00: 00: 00.1670000",
+              "end": "00: 00: 00.2000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
+          "start": "00: 00: 00.2000000",
+          "end": "00: 00: 05.0330000"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "keyFrames": [
+        {
+          "id": 1,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
+              "start": "00: 00: 05.2670000",
+              "end": "00: 00: 05.3000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+      "thumbnailId": "00000000-0000-0000-0000-000000000000",
+          "start": "00: 00: 05.2670000",
+          "end": "00: 00: 10.3000000"
+        }
+      ]
+    }
+  ]
+```
+
+### <a name="statistics"></a>statistik
+
+|Namn|Beskrivning|
+|---|---|
+|CorrespondenceCount|Antal svaren i videon.|
+|WordCount|Antalet ord per talare.|
+|SpeakerNumberOfFragments|Mängden fragment talaren har i en video.|
+|SpeakerLongestMonolog|Talarens längsta monolog. Om talaren har silences inuti monolog ingår den. Åsidosatt inaktivitet i början och slutet av monolog tas bort.| 
+|SpeakerTalkToListenRatio|Beräkningen baseras på den tid som ägnats åt talarens monolog (utan intervallet mellan) dividerat med den totala tiden för videon. Tiden avrundas till tredje decimaltecknet.|
+
+
+### <a name="sentiments"></a>sentiment
+
+Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ). Till exempel 0 0.1, 0.1 0.2.
+
+|Namn|Beskrivning|
+|---|---|
+|id|Sentiment-ID.|
+|Medel |Medelvärdet för samtliga värden i alla instanser av den typ av sentiment – positiv/Neutral/negativ|
+|instanser|En lista över tidsintervall där den här sentiment visades.|
+|sentimentType |Typen kan vara ”positiva', 'Neutral' eller 'Negativt”.|
+
+```json
+"sentiments": [
+{
+    "id": 0,
+    "averageScore": 0.87,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:23",
+        "end": "00:00:41"
+    }
+    ]
+}, {
+    "id": 1,
+    "averageScore": 0.11,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:13",
+        "end": "00:00:21"
+    }
+    ]
+}
+]
+```
+
 ### <a name="labels"></a>etiketter
 
 |Namn|Beskrivning|
 |---|---|
 |id|Etikett-ID.|
-|namn|Etikettnamn (till exempel ”dator”, ”TV').|
+|namn|Etikettnamn (till exempel ”dator”, ”TV”).|
 |Språk|Etiketten namn språk (vid översättning). BCP-47|
-|instanser|En lista över tidsintervall där den här etiketten fanns (en etikett kan visas flera gånger). Varje instans har ett förtroende-fält. |
+|instanser|En lista över tidsintervall där den här etiketten visas (en etikett kan visas flera gånger). Varje instans har ett förtroende-fält. |
 
 
 ```json
@@ -278,95 +335,93 @@ Exempel:
   ] 
 ```
 
-### <a name="shots"></a>bilderna
+### <a name="keywords"></a>nyckelord
 
 |Namn|Beskrivning|
 |---|---|
-|id|Som ID.|
-|Nyckelrutor|En lista över viktiga ramar inom det bild (var och en har ett ID och en lista över instanser tidsintervall).|
-|instanser|En lista över tidsintervall för den här som visar (bilderna har endast 1 instans).|
+|id|Nyckelordet-ID.|
+|text|Nyckelordstexten.|
+|förtroende|Den nyckelordet igenkänning av förtroende.|
+|Språk|Nyckelordet språk (vid översättning).|
+|instanser|En lista över tidsintervall där det här nyckelordet visas (ett nyckelord kan visas flera gånger).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
-```
-
-
-### <a name="sentiments"></a>Våra
-
-Våra samman efter deras sentimentType (positiv/Neutral/negativ). Till exempel 0 0.1, 0,1 0,2.
-
-|Namn|Beskrivning|
-|---|---|
-|id|Sentiment-ID.|
-|Medel |Medelvärdet av alla resultat för alla instanser av den typen sentiment - Neutral/positiv/negativ|
-|instanser|En lista över tidsintervall där den här sentiment visades.|
-
-```json
-"sentiments": [
+"keywords": [
 {
     "id": 0,
-    "averageScore": 0.87,
+    "text": "office",
+    "confidence": 1.6666666666666667,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:23",
-        "end": "00:00:41"
+        "start": "00:00:00.5100000",
+        "end": "00:00:02.7200000"
+    },
+    {
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
     }
     ]
-}, {
+},
+{
     "id": 1,
-    "averageScore": 0.11,
+    "text": "icons",
+    "confidence": 1.4,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:13",
-        "end": "00:00:21"
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
+    },
+    {
+        "start": "00:00:13.9900000",
+        "end": "00:00:15.6100000"
     }
     ]
 }
-]
+] 
 ```
 
+#### <a name="visualcontentmoderation"></a>visualContentModeration
+
+VisualContentModeration blocket innehåller tidsintervall som Video Indexer hittas ha potentiellt vuxet innehåll. Om visualContentModeration är tom, finns det inga vuxet innehåll som har identifierats.
+
+Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga för privata vyn. Användare har möjlighet att skicka en begäran om en mänsklig granskning av innehållet, i vilket fall IsAdult attributet innehåller resultatet av mänsklig granskning.
+
+|Namn|Beskrivning|
+|---|---|
+|id|Visual innehållsmoderering-ID.|
+|adultScore|Poäng för Vuxeninnehåll (från content moderator).|
+|racyScore|Poäng för vågat (från innehållsmoderering).|
+|instanser|En lista över tidsintervall där den här visual innehållsmoderering visades.|
+
+```json
+"VisualContentModeration": [
+{
+    "id": 0,
+    "adultScore": 0.00069,
+    "racyScore": 0.91129,
+    "instances": [
+    {
+        "start": "00:00:25.4840000",
+        "end": "00:00:25.5260000"
+    }
+    ]
+},
+{
+    "id": 1,
+    "adultScore": 0.99231,
+    "racyScore": 0.99912,
+    "instances": [
+    {
+        "start": "00:00:35.5360000",
+        "end": "00:00:35.5780000"
+    }
+    ]
+}
+] 
+```
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Analysera videor med Azure Media Services](analyze-videos-tutorial-with-api.md)
+> [Självstudie: Analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md)

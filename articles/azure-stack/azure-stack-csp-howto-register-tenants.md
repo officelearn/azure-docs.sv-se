@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: af28bff0a9826bb96451ae944a377ad0ee284d87
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634004"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498580"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Lägg till klient för användning och fakturering i Azure Stack
 
@@ -69,9 +69,9 @@ Uppdatera din registrering med nya kundens prenumeration. Azure rapporterar kund
 ### <a name="new-azurermresource-powershell-parameters"></a>Ny AzureRmResource PowerShell-parametrar
 | Parameter | Beskrivning |
 | --- | --- | 
-|registrationSubscriptionID | Azure-prenumerationen som har använts för den första registreringen av Azure Stack. |
-| customerSubscriptionID | Azure-prenumerationen (inte Azure Stack) som hör till kunden som ska registreras. Måste vara skapas i CSP-erbjudandet; i praktiken innebär detta via Partnercenter. Om en kund har mer än en Azure Active Directory-klient, måste den här prenumerationen skapas i den klient som ska användas för att logga in på Azure Stack.
-| ResourceGroup | Resursgruppen i Azure som är lagrade i din registrering. 
+|registrationSubscriptionID | Azure-prenumerationen som har använts för den första registreringen av Azure Stack.|
+| customerSubscriptionID | Azure-prenumerationen (inte Azure Stack) som hör till kunden som ska registreras. Måste vara skapas i CSP-erbjudandet; i praktiken innebär detta via Partnercenter. Om en kund har mer än en Azure Active Directory-klient, måste den här prenumerationen skapas i den klient som ska användas för att logga in på Azure Stack. Kundens prenumerations-ID måste använda gemener. |
+| ResourceGroup | Resursgruppen i Azure som är lagrade i din registrering. |
 | registrationName | Namnet på registreringen av din Azure Stack. Det är ett objekt som lagras i Azure. | 
 | Egenskaper | Anger egenskaper för resursen. Använd den här parametern om du vill ange värden för egenskaper som är specifika för resurstypen.
 

@@ -1,6 +1,6 @@
 ---
 title: Kör analysfrågor mot Azure SQL-databaser | Microsoft Docs
-description: Flera klienter analytics-frågor med hjälp av data som extraheras från flera Azure SQL Database-databaser.
+description: Flera klienter analytics-frågor med hjälp av data som extraheras från flera Azure SQL Database-databaser i en app för flera klienter.
 keywords: SQL-självstudier
 services: sql-database
 author: stevestein
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/19/2018
 ms.author: anjangsh
-ms.reviewer: billgib, genemi
-ms.openlocfilehash: d5ffc9ade54ea02f34d25e4b6b7a4c0027b7d7b7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: anjangsh; billgib, genemi
+ms.openlocfilehash: 546cf4fc9a1aec23071b4d1cc69ece34e014da49
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733941"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498393"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Flera klienter analytics med hjälp av extraherade data
-
-I den här självstudien får gå igenom ett scenario med fullständig analytics. Scenariot visar hur analytics kan aktivera företag att fatta smarta beslut. Med data som extraheras från fragmenterade (sharded) databas kan använda du analytics och få insikter om klient beteendet, inklusive deras användning av Wingtip biljetter SaaS-exempelprogram. Det här scenariot omfattar tre steg: 
+# <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Flera klienter analytics med hjälp av extraherade data - app för flera klienter
+ 
+I den här självstudien får gå igenom ett scenario med fullständig analytics en implementering av flera innehavare. Scenariot visar hur analytics kan aktivera företag att fatta smarta beslut. Med data som extraheras från fragmenterade (sharded) databas kan använda du analytics och få insikter om klient beteendet, inklusive deras användning av Wingtip biljetter SaaS-exempelprogram. Det här scenariot omfattar tre steg: 
 
 1.  **Extrahera data** från varje klientdatabas till en analytics-arkivet.
 2.  **Optimera de extrahera data** för bearbetning av trafikanalys.
@@ -240,5 +240,6 @@ Grattis!
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
+Ytterligare [självstudier som bygger på Wingtip SaaS-program](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
 - [Elastiska jobb](sql-database-elastic-jobs-overview.md).
+- [Flera klienter analytics med hjälp av extraherade data - enda klient](saas-tenancy-tenant-analytics.md) 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 08/31/2018
-ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: da39d4132190a7dea661779c507fa817758c3e17
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667165"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497934"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Så här konfigurerar du Azure Database för MySQL-Data i replikering
 
@@ -158,6 +158,9 @@ Följande steg förbereder och konfigurera MySQL-servern körs lokalt, i en virt
    - master_log_pos: binär logg position från att köras `show master status`
    - master_ssl_ca: kontexten för CA-certifikat. Om du inte använder SSL skicka tom sträng.
        - Det rekommenderas att skicka den här parametern i som en variabel. Se följande exempel för mer information.
+
+> [!NOTE]
+> Om huvudservern finns i en Azure VM, anger du ”Tillåt åtkomst till Azure-tjänster” till ”på” för att tillåta huvud- och repliken servrar att kommunicera med varandra. Den här inställningen kan ändras från den **anslutningssäkerhet** alternativ. Referera till [hantera brandväggsregler med hjälp av portalen](howto-manage-firewall-using-portal.md) för mer information.
 
    **Exempel**
 

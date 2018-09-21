@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9cb2b0bdb036b26fbd355ff4bd84885b7e15507d
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541981"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498240"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -127,6 +127,7 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
 
 - **Namn på**: Ange ett unikt namn som identifierar uppdateringsdistributionen.
 - **Operativsystemet**: Välj **Windows** eller **Linux**.
+- **Grupper för att uppdatera (förhandsversion)**: definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. Läs mer i [dynamiska grupper](automation-update-management.md#using-dynamic-groups)
 - **Datorer som ska uppdateras**: Välj en sparad sökning importerat gruppen, eller välj datorer att välja de datorer som du vill uppdatera. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen. Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Nya rutan för distribution av uppdatering](./media/manage-update-multi/update-select-computers.png)
@@ -141,13 +142,15 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
   - Verktyg
   - Uppdateringar
 
-- **Uppdateringar som ska uteslutas**: Om du väljer det här alternativet öppnas den **undanta** sidan. Ange KB-artiklar eller paketnamn som ska undantas.
+- **Uppdateringar för inkludera/exkludera** -öppnas den **ta med eller undanta** sidan. Uppdateringar för inkluderas eller uteslutas är på en separat flik. Mer information om hur inkludering hanteras och se [inkludering beteende](automation-update-management.md#inclusion-behavior)
 
 - **Schemainställningar**: Du kan godkänna standarddatumet och -tiden, d.v.s. 30 minuter efter aktuell tid. Du kan också ange en annan tid.
 
    Du kan också ange om distributionen ska ske en gång eller enligt ett schema med återkommande tider. Du ställer in ett återkommande schema under **upprepning**väljer **återkommande**.
 
    ![Dialogrutan Schemainställningar](./media/manage-update-multi/update-set-schedule.png)
+
+- **Skript före och efter skript**: Välj skripten ska köras före och efter distributionen. Mer information finns i [skript hantera före och efter](pre-post-scripts.md).
 - **Underhållsperiod (minuter)**: Ange tidsperioden som uppdateringsdistributionen ska utföras. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
 
 - **Starta om kontrollen** – den här inställningen avgör hur omstarter hanteras för distributionen.

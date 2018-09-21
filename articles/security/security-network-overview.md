@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 09/19/2018
 ms.author: terrylan
-ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059672"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498512"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure network security
 
-Azure innehåller en stabil nätverksinfrastruktur för att stödja din program- och anslutningskrav för tjänsten. Nätverksanslutningen är mellan resurser i Azure, mellan lokala och Azure-värdbaserade resurser, och till och från internet och Azure.
+Nätverkssäkerhet kan definieras som skyddar resurser från obehörig åtkomst och attacker genom att använda kontroller för nätverkstrafik. Målet är att säkerställa att endast behöriga trafik är tillåten. Azure innehåller en stabil nätverksinfrastruktur för att stödja din program- och anslutningskrav för tjänsten. Nätverksanslutningen är mellan resurser i Azure, mellan lokala och Azure-värdbaserade resurser, och till och från internet och Azure.
 
 Den här artikeln beskriver några av de alternativ som Azure erbjuder i området för nätverkssäkerhet. Du kan lära dig om:
 
@@ -77,7 +77,11 @@ Läs mer:
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC just-in-time-åtkomst till virtuell dator
 
-[Azure security center](../security-center/security-center-just-in-time.md) kan hantera Nätverkssäkerhetsgrupper på virtuella datorer och låsa åtkomsten till den virtuella datorn förrän en användare med den lämpliga rollbaserad åtkomstkontrollen [RBAC](../role-based-access-control/overview.md) behörigheter begär åtkomst. När användaren har är gör auktoriserade ASC ändringar i NSG: er att tillåta åtkomst till valda portar för den tid som anges. När tiden upphör att gälla återställs NSG: erna till sina tidigare skyddat tillstånd.
+[Azure security center](../security-center/security-center-intro.md) kan hantera Nätverkssäkerhetsgrupper på virtuella datorer och låsa åtkomsten till den virtuella datorn förrän en användare med den lämpliga rollbaserad åtkomstkontrollen [RBAC](../role-based-access-control/overview.md) behörigheter begär åtkomst. När användaren har är gör auktoriserade ASC ändringar i NSG: er att tillåta åtkomst till valda portar för den tid som anges. När tiden upphör att gälla återställs NSG: erna till sina tidigare skyddat tillstånd.
+
+Läs mer:
+
+* [Azure Security Center Just-in-T](../security-center/security-center-just-in-time.md)
 
 #### <a name="service-endpoints"></a>Tjänstslutpunkter
 

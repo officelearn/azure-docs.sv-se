@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 790d192823867ee858a7fa6bf030721002a6bd94
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b11883ae592999a49db363486fd47a566bdfd360
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296881"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498716"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilera live-Azure-webbappar med Application Insights
 
-Den här funktionen i Azure Application Insights är allmänt tillgängliga för funktionen Web Apps i Azure App Service och förhandsversion av Azure-beräkningsresurser. Information angående [vid lokal användning av profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
+Den här funktionen i Azure Application Insights är allmänt tillgängligt för funktionen Web Apps i Azure App Service och Azure-beräkningsresurser. Information angående [vid lokal användning av profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
 Den här artikeln beskrivs hur lång tid som går åt för varje metod för ditt webbprogram när du använder [Application Insights](app-insights-overview.md). Application Insights Profiler visas detaljerad profiler för live-frågor som har hanteras av din app. Profiler visar den *heta sökvägen* som använder mest tid. Begäranden med olika svarstider profilerade på basis av sampling. Genom att använda en mängd olika tekniker kan minimera du kostnader som är associerat med programmet.
 

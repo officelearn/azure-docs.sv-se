@@ -1,19 +1,21 @@
 ---
-title: Vad är webbsökning i Bing? | Microsoft Docs
-description: API:et för webbsökning i Bing är en RESTful-tjänst som gör att programmet använder Bings webbsökfunktioner, bland annat för webbsidor, bilder, videor, nyheter, enheter, relaterade sökbegäranden, stavningskorrigeringar, enhetskonverteringar, översättningar och beräkningar.
+title: Vad är webbsökning i Bing?
+titleSuffix: Azure Cognitive Services
+description: API:et för webbsökning i Bing är en RESTful-tjänst som ger svar direkt på användarförfrågningar. Det är enkelt att konfigurera sökresultaten så att de omfattar webbsidor, bilder, video, nyheter, översättningar med mera. Resultaten tillhandahålls som JSON och baserat på sökrelevans och prenumerationer för webbsökning i Bing.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: overview
 ms.date: 08/14/2018
 ms.author: erhopf
-ms.openlocfilehash: ad1069a836a3ff9291ca8094fe86e19979bf7e32
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8482afae2889ccf2153e1864e4a65b635b6ab4c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889304"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125246"
 ---
 # <a name="what-is-bing-web-search"></a>Vad är webbsökning i Bing?
 

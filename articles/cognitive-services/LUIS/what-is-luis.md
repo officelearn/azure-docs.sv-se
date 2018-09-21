@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: overview
 ms.date: 08/15/2018
 ms.author: diberry
-ms.openlocfilehash: e74abb30709f186d3c1139793cf34d3e033ff967
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: aadf80df388a25e07051f6dd0a83cd4da7c2ef83
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40191647"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629805"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Language Understanding Intelligent Service (LUIS)?
 
@@ -179,7 +179,7 @@ Microsoft-klientprogram för LUIS är:
 * [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) – är dig mer med den här [kursen om mixad verklighet](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) med LUIS. 
 
 Microsoft-verktyg för att använda LUIS med en robot:
-* Med [Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) kan flera LUIS- och QnA Maker-appar användas via en överordnad app som använder en dispatcher-modell.
+* Med [Dispatch](https://aka.ms/dispatch-tool) kan flera LUIS- och QnA Maker-appar användas via en överordnad app som använder en dispatcher-modell.
 * Med [Conversation learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) kan du skapa robotkonversationer snabbare med LUIS.
 * [Project personality chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) för att hantera robotsmåprat.
 

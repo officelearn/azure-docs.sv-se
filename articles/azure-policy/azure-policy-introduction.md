@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 405f69ae1c37e478758d984ddf7dc0e267910fef
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 381263a39716ad1271c853ec4b7453a5a922b43e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023106"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633715"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
@@ -135,7 +135,7 @@ Här är några riktlinjer och tips som vi rekommenderar att du följer när du 
 
 Följande översikt över Azure Policy är från Build 2018. För nedladdning av bilder eller video besöker du sidan om att [styra Azure-miljön via Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) på Channel 9.
 
-> [!VIDEO https://channel9.msdn.com/events/Build/2018/THR2030/player]
+> [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
 
 ## <a name="next-steps"></a>Nästa steg
 

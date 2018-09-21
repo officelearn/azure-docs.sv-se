@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1ef4467862f47a833e0592c94c662170ca2946d8
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781457"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578945"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Rutt till en orienteringspunkt med hjälp av Azure Maps
 
@@ -27,14 +27,15 @@ Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route S
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du fortsätter ska du följa stegen i föregående självstudie för att [skapa ditt Azure Maps-konto](./tutorial-search-location.md#createaccount) och [hämta prenumerationsnyckeln för ditt konto](./tutorial-search-location.md#getkey). 
+Innan du fortsätter ska du följa stegen i föregående självstudie för att [skapa ditt Azure Maps-konto](./tutorial-search-location.md#createaccount) och [hämta prenumerationsnyckeln för ditt konto](./tutorial-search-location.md#getkey).
 
 <a id="getcoordinates"></a>
 
-## <a name="create-a-new-map"></a>Skapa en ny karta 
-Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kartkontroll. 
+## <a name="create-a-new-map"></a>Skapa en ny karta
 
-1. Skapa en ny fil på den lokala datorn och ge den namnet **MapRoute.html**. 
+Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kartkontroll.
+
+1. Skapa en ny fil på den lokala datorn och ge den namnet **MapRoute.html**.
 2. Lägg till följande HTML-komponenter i filen:
 
     ```HTML
@@ -45,9 +46,9 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css"/> 
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css"/>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script>
         <style>
             html,
             body {
@@ -86,13 +87,13 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
     ```
     **atlas.Map** ger kontroll över en visuell och interaktiv webbkarta och är en komponent i API:et Azure Kartkontroll.
 
-4. Spara filen och öppna den i webbläsaren. Du har nu en grundläggande karta som du kan utveckla mer. 
+4. Spara filen och öppna den i webbläsaren. Du har nu en grundläggande karta som du kan utveckla mer.
 
    ![Visa grundläggande karta](./media/tutorial-route-location/basic-map.png)
 
 ## <a name="set-start-and-end-points"></a>Ange start- och slutpunkter
 
-För den här självstudien anger du startpunkt som Microsoft, och målpunkt som en bensinstation i Seattle. 
+För den här självstudien anger du startpunkt som Microsoft, och målpunkt som en bensinstation i Seattle.
 
 1. I samma *skriptblock* i **MapRoute.html**-filen lägger du till följande JavaScript-kod för att skapa start- och slutpunkter för rutten:
 
@@ -110,7 +111,7 @@ För den här självstudien anger du startpunkt som Microsoft, och målpunkt som
         icon: "pin-blue"
     });
     ```
-    Den här koden skapar två [GeoJSON-objekt](https://en.wikipedia.org/wiki/GeoJSON) som representerar start- och slutpunkterna för rutten. 
+    Den här koden skapar två [GeoJSON-objekt](https://en.wikipedia.org/wiki/GeoJSON) som representerar start- och slutpunkterna för rutten.
 
 2. Lägg till följande JavaScript-kod för att lägga till kartnålar för start- och slutpunkterna på kartan:
 
@@ -131,10 +132,10 @@ För den här självstudien anger du startpunkt som Microsoft, och målpunkt som
         textFont: "SegoeUi-Regular",
         textOffset: [0, -20]
     });
-    ``` 
+    ```
     **map.setCameraBounds** justerar kartfönstret enligt koordinaterna för start- och slutpunkterna. API:et **map.addPins** lägger till punkterna i Kartkontroll som visuella komponenter.
 
-7. Spara filen **MapRoute.html** och uppdatera webbläsaren. Nu är kartan centrerad över Seattle, och du kan se de runda blå kartnålarna som markerar startpunkten, och den blå kartnålen som markerar slutpunkten.
+3. Spara filen **MapRoute.html** och uppdatera webbläsaren. Nu är kartan centrerad över Seattle, och du kan se de runda blå kartnålarna som markerar startpunkten, och den blå kartnålen som markerar slutpunkten.
 
    ![Visa karta med start- och slutpunkterna markerade](./media/tutorial-route-location/map-pins.png)
 
@@ -143,7 +144,6 @@ För den här självstudien anger du startpunkt som Microsoft, och målpunkt som
 ## <a name="get-directions"></a>Hämta anvisningar
 
 Det här avsnittet visar hur du använder API:et Route Service i Azure Maps för att hitta rutten från en viss startpunkt till ett mål. Route Service tillhandahåller API:er för att planera den *snabbaste*, *kortaste*, *, miljövänligaste* eller *mest spännande* rutten mellan två platser. Användare kan även planera rutter i framtiden genom att använda Azures omfattande historiska trafikdatabas för att förutsäga hur snabba olika rutter är på olika dagar och tidpunkter. Mer information finns i [Hämta väganvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
-
 
 1. Lägg först till ett lager på kartan för att visa vägen eller *linestring*. Lägg till följande JavaScript-kod i *script*-blocket.
 
@@ -160,44 +160,44 @@ Det här avsnittet visar hur du använder API:et Route Service i Azure Maps för
     });
     ```
 
-2.  Skapa en instans av klienttjänsten genom att lägga till följande Javascript-kod i skriptblocket.
+2. Skapa en instans av klienttjänsten genom att lägga till följande Javascript-kod i skriptblocket.
     ```JavaScript
-    var client = new atlas.service.Client(subscriptionKey);
+    var client = new atlas.service.Client(MapsAccountKey);
     ```
 
 3. Lägg till följande block med kod för att konstruera en vägfrågesträng.
     ```JavaScript
-    // Construct the route query string 
-        var routeQuery = startPoint.coordinates[1] + 
-            "," + 
-            startPoint.coordinates[0] + 
-            ":" + 
-            destinationPoint.coordinates[1] + 
-            "," + 
-            destinationPoint.coordinates[0];     
+    // Construct the route query string
+    var routeQuery = startPoint.coordinates[1] +
+        "," +
+        startPoint.coordinates[0] +
+        ":" +
+        destinationPoint.coordinates[1] +
+        "," +
+        destinationPoint.coordinates[0];
     ```
 
 4. Lägg till följande block med kod i skriptet för att hämta vägen. Den frågar Azure Maps-vägtjänsten via metoden [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) och parsar sedan svaret i GeoJSON-format med hjälp av [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes). Den lägger sedan till alla svarsrader på kartan för att rendera vägen. Mer information finns i avsnittet om att [lägga till en rad på kartan](./map-add-shape.md#addALine).
 
     ```JavaScript
     // Execute the query then add the route to the map once a response is received  
-    client.route.getRouteDirections(routeQuery).then(response => { 
-         // Parse the response into GeoJSON 
-         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response); 
- 
-         // Get the first in the array of routes and add it to the map 
-         map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], { 
-             name: routeLinesLayerName 
-         }); 
-    }); 
+    client.route.getRouteDirections(routeQuery).then(response => {
+         // Parse the response into GeoJSON
+         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response);
+
+         // Get the first in the array of routes and add it to the map
+         map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
+             name: routeLinesLayerName
+         });
+    });
     ```
 
 5. Spara filen **MapRoute.html** och uppdatera webbläsaren. För en lyckad anslutning med den API:er i Maps bör du se en karta som liknar följande.
 
     ![Azure Kartkontroll och Route Service](./media/tutorial-route-location/map-route.png)
 
-
 ## <a name="next-steps"></a>Nästa steg
+
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
@@ -205,7 +205,7 @@ I den här självstudiekursen lärde du dig att:
 > * Ställa in adresskoordinater
 > * Fråga Route Service om vägbeskrivning till orienteringspunkt
 
-Nästa självstudie visar hur du skapar en vägfråga med begränsningar som resläge eller typ av last och visar sedan flera vägar på samma karta. 
+Nästa självstudie visar hur du skapar en vägfråga med begränsningar som resläge eller typ av last och visar sedan flera vägar på samma karta.
 
 > [!div class="nextstepaction"]
 > [Hitta rutter för olika färdmedel](./tutorial-prioritized-routes.md)

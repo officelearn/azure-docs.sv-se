@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 15fcea6ca8f9c66ee4907018a11481b6c714b81a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 0dc92524843f47b1327af5e9d3f237656cad2a37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616291"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947544"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Självstudie: Skapa containeravbildningar i ett Service Fabric-kluster i Linux
 
@@ -38,14 +38,13 @@ I den här självstudieserien får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa containeravbildningar för Service Fabric
-> * 
-  [skapa och köra ett Service Fabric-program med containrar](service-fabric-tutorial-package-containers.md)
+> * [skapa och köra ett Service Fabric-program med containrar](service-fabric-tutorial-package-containers.md)
 > * [hantera redundans och skalning i Service Fabric](service-fabric-tutorial-containers-failover.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Linux-utvecklingsmiljö konfigurerad för Service Fabric. Följ instruktionerna [här](service-fabric-get-started-linux.md) för att konfigurera din Linux-miljö.
-* I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+* I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 * Dessutom måste du ha en Azure-prenumeration tillgänglig. Mer information om en kostnadsfri utvärderingsversion finns [här](https://azure.microsoft.com/free/).
 
 ## <a name="get-application-code"></a>Hämta programkod
@@ -221,5 +220,4 @@ I den här självstudien hämtades ett program från Github. Sedan skapades och 
 Gå vidare till nästa självstudie om du vill veta mer om paketering av containrar till ett Service Fabric-program med hjälp av Yeoman.
 
 > [!div class="nextstepaction"]
-> 
-  [Paketera och distribuera containrar som ett Service Fabric-program](service-fabric-tutorial-package-containers.md)
+> [Paketera och distribuera containrar som ett Service Fabric-program](service-fabric-tutorial-package-containers.md)

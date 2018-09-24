@@ -15,11 +15,11 @@ ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.openlocfilehash: a6e1acf3b9e69f32a8c175310134c534dbf8c561
-ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
-ms.translationtype: HT
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46876624"
+ms.locfileid: "46977544"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Distribuera Kubernetes till Azure Stack
 

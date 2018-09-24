@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: ae742bbe1e5b751a8a8cabf378afd049728c3b8a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717513"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995286"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en App Service-resursprovider i Azure Stack
 
@@ -27,8 +27,8 @@ ms.locfileid: "44717513"
 
 Använd informationen i den här artikeln för att distribuera App Service i Azure Stack.
 
->[!IMPORTANT]  
->Uppdateringen är 1807 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.3.
+> [!IMPORTANT]  
+> Uppdateringen är 1807 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.3.
 
 Du kan ge användarna möjlighet att skapa webbprogram och API: et. Om du vill låta användarna skapa dessa program, måste du:
 

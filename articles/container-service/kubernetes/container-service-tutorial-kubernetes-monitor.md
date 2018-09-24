@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 17398a9f74e40a7d513912d654fa609d9837d805
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d178fe3caa121c51ef081708ca440113871938e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165416"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996918"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Övervaka ett Kubernetes-kluster med Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Det är viktigt att du övervakar Kubernetes-klustren och behållarna, särskilt när du hanterar ett produktionskluster i skala med flera program.
+Det är viktigt att du övervakar Kubernetes-klustren och containrarna, särskilt när du hanterar ett produktionskluster i skala med flera program.
 
 Du kan dra nytta av flera Kubernetes-övervakningslösningar från antingen Microsoft eller andra leverantörer. I den här självstudiekursen övervakar du Kubernetes-kluster med Containers-lösningen i [Log Analytics](../../operations-management-suite/operations-management-suite-overview.md), Microsofts molnbaserade IT-hanteringslösning. (Containers-lösningen är i förhandsversion.)
 
@@ -35,7 +35,7 @@ Den här självstudiekursen, som är del sju av sju, tar upp följande uppgifter
 
 I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades.
 
-Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa behållaravbildningar](./container-service-tutorial-kubernetes-prepare-app.md).
+Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa containeravbildningar](./container-service-tutorial-kubernetes-prepare-app.md).
 
 ## <a name="get-workspace-settings"></a>Hämta inställningar för arbetsyta
 
@@ -51,7 +51,7 @@ kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID -
 
 ## <a name="set-up-log-analytics-agents"></a>Konfigurera Log Analytics-agenter
 
-Du kan använda följande Kubernetes-manifestfil för att konfigurera behållarens övervakningsagenter på ett Kubernetes-kluster. Det skapar ett Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) som kör en enda identisk pod på varje klusternod.
+Du kan använda följande Kubernetes-manifestfil för att konfigurera containerns övervakningsagenter på ett Kubernetes-kluster. Det skapar ett Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) som kör en enda identisk pod på varje klusternod.
 
 Spara följande text i en fil med namnet `oms-daemonset.yaml`.
 
@@ -143,17 +143,17 @@ När agenterna har körts tar det flera minuter för Log Analytics att mata in o
 
 ## <a name="access-monitoring-data"></a>Åtkomst till övervakningsdata
 
-Visa och analysera övervakningsdata för behållaren med [behållarlösningen](../../log-analytics/log-analytics-containers.md) i Log Analytics-portalen eller Azure Portal.
+Visa och analysera övervakningsdata för containern med [containerlösningen](../../log-analytics/log-analytics-containers.md) i Log Analytics-portalen eller Azure Portal.
 
-Installera behållarlösningen med [Log Analytics-portalen](https://mms.microsoft.com) genom att gå till **Lösningsgalleri**. Lägg sedan till **behållarlösning**. Du kan också lägga till behållarlösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
+Installera containerlösningen med [Log Analytics-portalen](https://mms.microsoft.com) genom att gå till **Lösningsgalleri**. Lägg sedan till **containerlösning**. Du kan också lägga till containerlösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-Sök efter en sammanfattningspanel för **Behållare** på instrumentpanelen i Log Analytics-portalen. Klicka på panelen. Nu visas information om behållarhändelser, fel, status, avbildningslager och processor- och minnesanvändning. Om du vill ha mer detaljerad information klickar du på en rad på valfri panel eller utför en [loggsökning](../../log-analytics/log-analytics-log-searches.md).
+Sök efter en **Containers**-sammanfattningspanel på instrumentpanelen i Log Analytics-portalen. Klicka på panelen. Nu visas information om containerhändelser, fel, status, avbildningslager och processor- och minnesanvändning. Om du vill ha mer detaljerad information klickar du på en rad på valfri panel eller utför en [loggsökning](../../log-analytics/log-analytics-log-searches.md).
 
-![Behållarinstrumentpanelen i OMS-portalen](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![Containerinstrumentpanelen i OMS-portalen](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-I Azure-portalen navigerar du på samma sätt till **Log Analytics** och väljer namnet på arbetsytan. När du vill visa sammanfattningspanelen **Behållare** klickar du på **Lösningar** > **Behållare**. Klicka på panelen om du vill se mer information.
+I Azure-portalen navigerar du på samma sätt till **Log Analytics** och väljer namnet på arbetsytan. Om du vill visa **Containers**-sammanfattningspanelen klickar du på **Lösningar** > **Containers**. Klicka på panelen om du vill se mer information.
 
-I [Azure Log Analytics-dokumentationen](../../log-analytics/index.yml) finns det detaljerad information om att fråga och analysera övervakningsdata.
+I [Azure Log Analytics-dokumentationen](../../log-analytics/log-analytics-queries.md) finns det detaljerad information om att fråga och analysera övervakningsdata.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,18 +9,19 @@ ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 599302cbf614f800d35a9a8c6a401c9692fc2e39
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ROBOTS: NOINDEX
+ms.openlocfilehash: 29f5c5efb78e85e265b56cba9ba20daa123d334e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268288"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961050"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Självstudie: Skapa en anpassad språkmodell
 
 I den här självstudien skapar du en anpassad språkmodell för textfrågor eller yttranden som du förväntar dig att användare säger eller skriver i ett program. Du kan sedan använda den här anpassade språkmodellen tillsammans med befintliga, avancerade talmodeller från Microsoft för att lägga till röstinteraktion i ditt program.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Förbereda data
 > * Importera språkdatamängden
@@ -30,7 +31,7 @@ Om du inte har ett Cognitive Services-konto kan du skapa ett [kostnadsfritt kont
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Kontrollera att ditt Cognitive Services-konto är anslutet till en prenumeration genom att öppna sidan [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) (Cognitive Services-prenumerationer).
+Se till att ditt Cognitive Services-konto är anslutet till en prenumeration genom att öppna sidan [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) (Cognitive Services-prenumerationer).
 
 Om det inte finns några prenumerationer kan Cognitive Services skapa ett konto åt dig om du klickar på knappen **Get free subscription** (Skaffa kostnadsfri prenumeration). Alternativt kan du ansluta till en Custom Search Service-prenumeration som skapats i Azure-portalen genom att klicka på knappen **Connect existing subscription** (Anslut befintlig prenumeration).
 
@@ -54,10 +55,10 @@ De grundläggande kraven för språkdata sammanfattas i följande tabell.
 | Egenskap | Värde |
 |----------|-------|
 | Textkodning | en-US: USA ACSII eller UTF-8 eller zh-CN: UTF-8|
-| Antal yttranden per rad | 1 |
+| antal yttrande per rad | 1 |
 | Maximal filstorlek | 200 MB |
 | Kommentarer | undvik att upprepa tecken mer än 4 gånger, till exempel ”aaaaa”|
-| Kommentarer | inga specialtecken som ”\t” eller andra UTF-8 tecken ovanför U+00A1 i [Unicode-teckentabellen](http://www.utf8-chartable.de/)|
+| Kommentarer | använd inga specialtecken som ”\t” eller andra UTF-8 tecken ovanför U+00A1 i [Unicode-teckentabellen](http://www.utf8-chartable.de/)|
 | Kommentarer | URI:er avvisas också eftersom det inte finns något unikt sätt att uttala en URI|
 
 När texten importeras textnormaliseras den så att den kan bearbetas av systemet. Det finns dock vissa viktiga normaliseringar som måste utföras av användaren _innan_ data överförs. Se [Riktlinjer för transkription](cognitive-services-custom-speech-transcription-guidelines.md) för att avgöra lämpliga språk när du förbereder dina språkdata.
@@ -86,7 +87,7 @@ När statusen för språkdatamängden är ”Complete” (Klar) kan den använda
 
 När språkdata är klara klickar du på ”Language Models” (Språkmodeller) på listrutan ”Menu” (Meny) för att starta processen med att skapa en anpassad språkmodell. Den här sidan innehåller en tabell med namnet ”Language Models” (Språkmodeller) med dina aktuella anpassade språkmodeller. Om du inte har skapat några anpassade språkmodeller är tabellen tom. Den aktuella nationella inställningen visas i tabellrubriken. Om du vill skapa en språkmodell för ett annat språk klickar du på ”Change Locale” (Ändra nationella inställningar). Mer information om språk som stöds finns i avsnittet [Changing Locale](cognitive-services-custom-speech-change-locale.md) (Ändra nationella inställningar). För att skapa en ny modell klickar du på länken ”Create New” (Skapa ny) under tabellrubriken.
 
-På sidan ”Create Language Model” (Skapa språkmodell) anger du ett ”Name” (Namn) och en ”Description” (Beskrivning) som hjälper dig att hålla reda på viktig information om den här modellen, till exempel den datamängd som används. Välj sedan ”Base Language Model” (Basspråkmodell) på listrutan. Den här modellen blir startpunkten för din anpassning. Det finns två basspråkmodeller att välja mellan. _Microsoft Search och Dictation LM_ (Microsofts språkmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen. _Microsoft Conversational LM_ (Microsofts språkmodell för konversation) är lämplig för igenkänning av tal i konversationsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten.
+På sidan ”Create Language Model” (Skapa språkmodell) anger du ett ”Name” (Namn) och en ”Description” (Beskrivning) som hjälper dig att hålla reda på viktig information om den här modellen, till exempel den datamängd som används. Välj sedan ”Base Language Model” (Basspråkmodell) i listrutan. Den här modellen blir startpunkten för din anpassning. Det finns två basspråkmodeller att välja mellan. _Microsoft Search och Dictation LM_ (Microsofts språkmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen. _Microsoft Conversational LM_ (Microsofts språkmodell för konversation) är lämplig för igenkänning av tal i konversationsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten.
 
 När du har angett basspråkmodellen väljer du den språkdatamängd som du vill använda för anpassning med hjälp av listrutan ”Language Data” (Språkdata)
 

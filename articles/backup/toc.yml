@@ -1,237 +1,244 @@
+items:
 - name: Dokumentation om Azure Backup
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Azure Backup?
-      href: backup-introduction-to-azure-backup.md
+  - name: Vad är Azure Backup?
+    href: backup-introduction-to-azure-backup.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Säkerhetskopiera en virtuell dator – portalen
-      href: quick-backup-vm-portal.md
-    - name: Säkerhetskopiera en virtuell dator – PowerShell
-      href: quick-backup-vm-powershell.md
-    - name: Säkerhetskopiera en virtuell dator – CLI
-      href: quick-backup-vm-cli.md
+  - name: Säkerhetskopiera en virtuell dator – portalen
+    href: quick-backup-vm-portal.md
+  - name: Säkerhetskopiera en virtuell dator – PowerShell
+    href: quick-backup-vm-powershell.md
+  - name: Säkerhetskopiera en virtuell dator – CLI
+    href: quick-backup-vm-cli.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: Säkerhetskopiera virtuella Azure-datorer enligt skala
-      href: tutorial-backup-vm-at-scale.md
-    - name: Återställa en disk
-      href: tutorial-restore-disk.md
-    - name: Återställa enskilda filer
-      href: tutorial-restore-files.md
-    - name: Säkerhetskopiera Windows Server
-      href: tutorial-backup-windows-server-to-azure.md
-    - name: Återställa filer till Windows Server
-      href: tutorial-backup-restore-files-windows-server.md
+  - name: Säkerhetskopiera virtuella Azure-datorer enligt skala
+    href: tutorial-backup-vm-at-scale.md
+  - name: Återställa en disk
+    href: tutorial-restore-disk.md
+  - name: Återställa enskilda filer
+    href: tutorial-restore-files.md
+  - name: Säkerhetskopiera Windows Server
+    href: tutorial-backup-windows-server-to-azure.md
+  - name: Återställa filer till Windows Server
+    href: tutorial-backup-restore-files-windows-server.md
 - name: Exempel
   items:
-    - name: Azure PowerShell
-      href: powershell-backup-samples.md
-    - name: Mallar för Resurshanteraren
-      href: backup-rm-template-samples.md
+  - name: Azure PowerShell
+    href: powershell-backup-samples.md
+  - name: Mallar för Resurshanteraren
+    href: backup-rm-template-samples.md
 - name: Begrepp
   items:
-    - name: VANLIGA FRÅGOR OCH SVAR
-      items:
-        - name: Vanliga frågor och svar om Recovery Services-valv
-          href: backup-azure-backup-faq.md
-        - name: Vanliga frågor och svar om säkerhetskopiering av virtuella Azure-datorer
-          href: backup-azure-vm-backup-faq.md
-        - name: Vanliga frågor och svar om säkerhetskopiering av filer och mappar med Azure Backup-agenten
-          href: backup-azure-file-folder-backup-faq.md
-        - name: Vanliga frågor och svar om automatiska uppgraderingar för säkerhetskopieringsvalv
-          href: backup-upgrade-backup-vault.md
-    - name: Rollbaserad Access Control
-      href: backup-rbac-rs-vault.md
-    - name: Säkerhet för hybridsäkerhetskopieringar
-      href: backup-azure-security-feature.md
-    - name: Konfigurera säkerhetskopiering offline
-      href: backup-azure-backup-import-export.md
-    - name: Offlinesäkerhetskopiering för DPM och Azure Backup Server
-      href: backup-azure-backup-server-import-export-.md
-    - name: Ersätt ditt bandbibliotek
-      href: backup-azure-backup-cloud-as-tape.md
+  - name: VANLIGA FRÅGOR OCH SVAR
+    items:
+    - name: Vanliga frågor och svar om Recovery Services-valv
+      href: backup-azure-backup-faq.md
+    - name: Vanliga frågor och svar om säkerhetskopiering av virtuella Azure-datorer
+      href: backup-azure-vm-backup-faq.md
+    - name: Vanliga frågor och svar om säkerhetskopiering av filer och mappar med Azure Backup-agenten
+      href: backup-azure-file-folder-backup-faq.md
+    - name: Vanliga frågor och svar om automatiska uppgraderingar för säkerhetskopieringsvalv
+      href: backup-upgrade-backup-vault.md
+  - name: Rollbaserad Access Control
+    href: backup-rbac-rs-vault.md
+  - name: Säkerhet för hybridsäkerhetskopieringar
+    href: backup-azure-security-feature.md
+  - name: Konfigurera säkerhetskopiering offline
+    href: backup-azure-backup-import-export.md
+  - name: Offlinesäkerhetskopiering för DPM och Azure Backup Server
+    href: backup-azure-backup-server-import-export-.md
+  - name: Ersätt ditt bandbibliotek
+    href: backup-azure-backup-cloud-as-tape.md
 - name: Gör så här för att
   items:
-    - name: Azure Backup Server
+  - name: Azure Backup Server
+    items:
+    - name: Skyddsöversikt för Azure Backup Server
+      href: backup-mabs-protection-matrix.md
+    - name: Installera eller uppgradera
       items:
-        - name: Skyddsöversikt för Azure Backup Server
-          href: backup-mabs-protection-matrix.md
-        - name: Installera eller uppgradera
-          items:
-            - name: Installera Azure Backup Server
-              href: backup-azure-microsoft-azure-backup.md
-            - name: Lägg till lagringsutrymme
-              href: backup-mabs-add-storage.md
-            - name: Uppgradera till V12
-              href: backup-mabs-upgrade-to-v2.md
-            - name: Obevakad installation
-              href: backup-mabs-unattended-install.md
-        - name: Skydda arbetsbelastningar
-          items:
-            - name: VMware-server
-              href: backup-azure-backup-server-vmware.md
-            - name: Exchange
-              href: backup-azure-exchange-mabs.md
-            - name: SharePoint-grupp
-              href: backup-azure-backup-sharepoint-mabs.md
-            - name: SQL Server
-              href: backup-azure-sql-mabs.md
-            - name: Skydda systemtillstånd och Bare Metal Recovery
-              href: backup-mabs-system-state-and-bmr.md
-        - name: Återställa data från Azure Backup Server
-          href: backup-azure-alternate-dpm-server.md
-    - name: Azure Backup Server på Azure Stack
+      - name: Installera Azure Backup Server
+        href: backup-azure-microsoft-azure-backup.md
+      - name: Lägg till lagringsutrymme
+        href: backup-mabs-add-storage.md
+      - name: Uppgradera till V12
+        href: backup-mabs-upgrade-to-v2.md
+      - name: Obevakad installation
+        href: backup-mabs-unattended-install.md
+    - name: Skydda arbetsbelastningar
       items:
-        - name: Installera Azure Backup Server
-          href: backup-mabs-install-azure-stack.md
-        - name: Skydda filer och program
-          href: backup-mabs-files-applications-azure-stack.md
-        - name: Skydda SharePoint-grupp
-          href: backup-mabs-sharepoint-azure-stack.md
-        - name: Skydda SQL Server-databas
-          href: backup-mabs-sql-azure-stack.md
-    - name: Azure-filresurser
+      - name: VMware-server
+        href: backup-azure-backup-server-vmware.md
+      - name: Exchange
+        href: backup-azure-exchange-mabs.md
+      - name: SharePoint-grupp
+        href: backup-azure-backup-sharepoint-mabs.md
+      - name: SQL Server
+        href: backup-azure-sql-mabs.md
+      - name: Skydda systemtillstånd och Bare Metal Recovery
+        href: backup-mabs-system-state-and-bmr.md
+    - name: Återställa data från Azure Backup Server
+      href: backup-azure-alternate-dpm-server.md
+  - name: Azure Backup Server på Azure Stack
+    items:
+    - name: Installera Azure Backup Server
+      href: backup-mabs-install-azure-stack.md
+    - name: Skydda filer och program
+      href: backup-mabs-files-applications-azure-stack.md
+    - name: Skydda SharePoint-grupp
+      href: backup-mabs-sharepoint-azure-stack.md
+    - name: Skydda SQL Server-databas
+      href: backup-mabs-sql-azure-stack.md
+  - name: Azure-filresurser
+    items:
+    - name: Säkerhetskopiera Azure-filresurser
+      href: backup-azure-files.md
+    - name: Vanliga frågor och svar om att säkerhetskopiera Azure-filresurser
+      href: backup-azure-files-faq.md
+  - name: Virtuella Azure-datorer
+    items:
+    - name: Förbereda den virtuella datorn
       items:
-        - name: Säkerhetskopiera Azure-filresurser
-          href: backup-azure-files.md
-        - name: Vanliga frågor och svar om att säkerhetskopiera Azure-filresurser
-          href: backup-azure-files-faq.md
-    - name: Virtuella Azure-datorer
+      - name: Förbereda Resource Manager-distribuerade virtuella datorer
+        href: backup-azure-arm-vms-prepare.md
+      - name: Programkonsekventa säkerhetskopior av virtuella Linux-datorer
+        href: backup-azure-linux-app-consistent.md
+    - name: Planera din miljö
       items:
-        - name: Förbereda den virtuella datorn
-          items:
-            - name: Förbereda Resource Manager-distribuerade virtuella datorer
-              href: backup-azure-arm-vms-prepare.md
-            - name: Programkonsekventa säkerhetskopior av virtuella Linux-datorer
-              href: backup-azure-linux-app-consistent.md
-        - name: Planera din miljö
-          items:
-            - name: Planera säkerhetskopiering av VM-infrastrukturen
-              href: backup-azure-vms-introduction.md
-        - name: Säkerhetskopiera virtuella datorer
-          items:
-            - name: Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
-              href: backup-azure-vms-first-look-arm.md
-            - name: Säkerhetskopiera krypterade virtuella datorer
-              href: backup-azure-vms-encryption.md
-            - name: Aktivera säkerhetskopiering av virtuella datorer när de virtuella datorerna skapas
-              href: backup-during-vm-creation.md
-            - name: Uppgradera till VM-säkerhetskopieringsstack V2
-              href: backup-upgrade-to-vm-backup-stack-v2.md
-        - name: Hantera och övervaka virtuella datorer
-          items:
-            - name: Hantera virtuella Azure-säkerhetskopieringar i Azure Portal
-              href: backup-azure-manage-vms.md
-            - name: Övervaka aviseringar för virtuella Azure-säkerhetskopieringar
-              href: backup-azure-monitor-vms.md
-        - name: Återställa data från virtuella datorer
-          items:
-            - name: Återställa filer från säkerhetskopierade virtuella Azure-datorer
-              href: backup-azure-restore-files-from-vm.md
-            - name: Återställa virtuella datorer på Azure Portal
-              href: backup-azure-arm-restore-vms.md
-            - name: Återställa krypterade virtuella datorer
-              href: backup-azure-vms-encryption.md
-            - name: Återställa nyckel och hemlighet för Key Vault för krypterade virtuella datorer
-              href: backup-azure-restore-key-secret.md
+      - name: Planera säkerhetskopiering av VM-infrastrukturen
+        href: backup-azure-vms-introduction.md
+    - name: Säkerhetskopiera virtuella datorer
+      items:
+      - name: Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
+        href: backup-azure-vms-first-look-arm.md
+      - name: Säkerhetskopiera krypterade virtuella datorer
+        href: backup-azure-vms-encryption.md
+      - name: Aktivera säkerhetskopiering av virtuella datorer när de virtuella datorerna skapas
+        href: backup-during-vm-creation.md
+      - name: Uppgradera till VM-säkerhetskopieringsstack V2
+        href: backup-upgrade-to-vm-backup-stack-v2.md
+    - name: Hantera och övervaka virtuella datorer
+      items:
+      - name: Hantera virtuella Azure-säkerhetskopieringar i Azure Portal
+        href: backup-azure-manage-vms.md
+      - name: Övervaka aviseringar för virtuella Azure-säkerhetskopieringar
+        href: backup-azure-monitor-vms.md
+    - name: Återställa data från virtuella datorer
+      items:
+      - name: Återställa filer från säkerhetskopierade virtuella Azure-datorer
+        href: backup-azure-restore-files-from-vm.md
+      - name: Återställa virtuella datorer på Azure Portal
+        href: backup-azure-arm-restore-vms.md
+      - name: Återställa krypterade virtuella datorer
+        href: backup-azure-vms-encryption.md
+      - name: Återställa nyckel och hemlighet för Key Vault för krypterade virtuella datorer
+        href: backup-azure-restore-key-secret.md
+  - name: Konfigurera Azure Backup-rapporter
+    items:
     - name: Konfigurera Azure Backup-rapporter
-      items:
-        - name: Konfigurera Azure Backup-rapporter
-          href: backup-azure-configure-reports.md
-        - name: Datamodell för Azure Backup-rapporter
-          href: backup-azure-reports-data-model.md
-        - name: Log Analytics-datamodell för Azure Backup
-          href: backup-azure-log-analytics-data-model.md
-        - name: Uppdatera Azure Backup-innehållspaketet för central rapportering
-          href: backup-azure-central-reporting-updates.md
-    - name: Data Protection Manager
-      items:
-        - name: Förbereda DPM-arbetsbelastningar i Azure Portal
-          href: backup-azure-dpm-introduction.md
-        - name: Använda DPM för att säkerhetskopiera Exchange-server
-          href: backup-azure-backup-exchange-server.md
-        - name: Återställa data till en annan DPM-server
-          href: backup-azure-alternate-dpm-server.md
-        - name: Använda DPM för att säkerhetskopiera SQL Server-arbetsbelastningar
-          href: backup-azure-backup-sql.md
-        - name: Använda DPM för att säkerhetskopiera en SharePoint-servergrupp
-          href: backup-azure-backup-sharepoint.md
-    - name: Använda Azure PowerShell
-      items:
-        - name: Virtuella Azure-datorer i Azure Portal
-          href: backup-azure-vms-automation.md
-        - name: DPM i Azure Portal
-          href: backup-dpm-automation.md
-        - name: Windows Server i Azure Portal
-          href: backup-client-automation.md
-    - name: SQL på virtuella Azure-datorer
-      items:
-        - name: Säkerhetskopiera SQL-databas i Azure
-          href: backup-azure-sql-database.md
-    - name: Windows Server
-      items:
-        - name: Säkerhetskopiera Windows Server-filer och -mappar
-          href: backup-configure-vault.md
-        - name: Säkerhetskopiera Windows Server System-tillstånd
-          href: backup-azure-system-state.md
-        - name: Återställa filer från Azure till Windows Server
-          href: backup-azure-restore-windows-server.md
-        - name: Återställa Windows Server System-tillstånd
-          href: backup-azure-restore-system-state.md
-        - name: Övervaka och hantera Recovery Services-valv
-          href: backup-azure-manage-windows-server.md
-    - name: Recovery Services-valv
-      items:
-        - name: Översikt över Recovery Services-valv
-          href: backup-azure-recovery-services-vault-overview.md
-        - name: Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet
-          href: backup-azure-upgrade-backup-to-recovery-services.md
-        - name: Ta bort ett Recovery Services-valv
-          href: backup-azure-delete-vault.md
-    - name: Felsöka
-      items:
-        - name: Azure VM
-          href: backup-azure-vms-troubleshoot.md
-        - name: Tidsgränsen uppnåddes för Azure Backup-agenten eller VM-tillägget
-          href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Säkerhetskopieringen av filer och mappar går långsamt
-          href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Azure Backup Server
-          href: backup-azure-mabs-troubleshoot.md
-        - name: System Center DPM
-          href: backup-azure-scdpm-troubleshooting.md
-        - name: Azure Backup-agent
-          href: backup-azure-mars-troubleshoot.md
-        - name: Azure-filresurs
-          href: troubleshoot-azure-files.md
-        - name: SQL Server
-          href: backup-sql-server-azure-troubleshoot.md
+      href: backup-azure-configure-reports.md
+    - name: Datamodell för Azure Backup-rapporter
+      href: backup-azure-reports-data-model.md
+    - name: Log Analytics-datamodell för Azure Backup
+      href: backup-azure-log-analytics-data-model.md
+    - name: Uppdatera Azure Backup-innehållspaketet för central rapportering
+      href: backup-azure-central-reporting-updates.md
+  - name: Data Protection Manager
+    items:
+    - name: Förbereda DPM-arbetsbelastningar i Azure Portal
+      href: backup-azure-dpm-introduction.md
+    - name: Använda DPM för att säkerhetskopiera Exchange-server
+      href: backup-azure-backup-exchange-server.md
+    - name: Återställa data till en annan DPM-server
+      href: backup-azure-alternate-dpm-server.md
+    - name: Använda DPM för att säkerhetskopiera SQL Server-arbetsbelastningar
+      href: backup-azure-backup-sql.md
+    - name: Använda DPM för att säkerhetskopiera en SharePoint-servergrupp
+      href: backup-azure-backup-sharepoint.md
+  - name: Använda Azure PowerShell
+    items:
+    - name: Virtuella Azure-datorer i Azure Portal
+      href: backup-azure-vms-automation.md
+    - name: DPM i Azure Portal
+      href: backup-dpm-automation.md
+    - name: Windows Server i Azure Portal
+      href: backup-client-automation.md
+  - name: SQL på virtuella Azure-datorer
+    items:
+    - name: Säkerhetskopiera SQL-databas i Azure
+      href: backup-azure-sql-database.md
+  - name: Windows Server
+    items:
+    - name: Säkerhetskopiera Windows Server-filer och -mappar
+      href: backup-configure-vault.md
+    - name: Säkerhetskopiera Windows Server System-tillstånd
+      href: backup-azure-system-state.md
+    - name: Återställa filer från Azure till Windows Server
+      href: backup-azure-restore-windows-server.md
+    - name: Återställa Windows Server System-tillstånd
+      href: backup-azure-restore-system-state.md
+    - name: Övervaka och hantera Recovery Services-valv
+      href: backup-azure-manage-windows-server.md
+  - name: Recovery Services-valv
+    items:
+    - name: Översikt över Recovery Services-valv
+      href: backup-azure-recovery-services-vault-overview.md
+    - name: Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet
+      href: backup-azure-upgrade-backup-to-recovery-services.md
+    - name: Ta bort ett Recovery Services-valv
+      href: backup-azure-delete-vault.md
+  - name: Felsöka
+    items:
+    - name: Azure VM
+      href: backup-azure-vms-troubleshoot.md
+    - name: Tidsgränsen uppnåddes för Azure Backup-agenten eller VM-tillägget
+      href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+    - name: Säkerhetskopieringen av filer och mappar går långsamt
+      href: backup-azure-troubleshoot-slow-backup-performance-issue.md
+    - name: Azure Backup Server
+      href: backup-azure-mabs-troubleshoot.md
+    - name: System Center DPM
+      href: backup-azure-scdpm-troubleshooting.md
+    - name: Azure Backup-agent
+      href: backup-azure-mars-troubleshoot.md
+    - name: Azure-filresurs
+      href: troubleshoot-azure-files.md
+    - name: SQL Server
+      href: backup-sql-server-azure-troubleshoot.md
 - name: Referens
   items:
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
-    - name: Azure CLI 2.0
-      href: /cli/azure/backup?view=azure-cli-latest
-    - name: PowerShell
-      href: /powershell/module/azurerm.recoveryservices.backup
-    - name: REST – säkerhetskopiering
-      href: /rest/api/backup/
-    - name: REST – Recovery Services-valv
-      href: /rest/api/recoveryservices/
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+  - name: Azure CLI
+    href: /cli/azure/backup?view=azure-cli-latest
+  - name: PowerShell
+    href: /powershell/module/azurerm.recoveryservices.backup
+  - name: REST – säkerhetskopiering
+    href: /rest/api/backup/
+  - name: REST – Recovery Services-valv
+    href: /rest/api/recoveryservices/
 - name: Resurser
   items:
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/backup/'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates/?product=backup'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/backup/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=backup
+  - name: Videoklipp
+    href: https://azure.microsoft.com/documentation/videos/index/?services=backup
+ms.openlocfilehash: d98a747f8805abdbef529a50c0b2c2d5a17e3106
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972629"

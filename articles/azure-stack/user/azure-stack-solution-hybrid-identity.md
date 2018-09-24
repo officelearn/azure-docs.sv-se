@@ -1,6 +1,6 @@
 ---
-title: Konfigurera hybrididentitet moln med Azure och Azure-stacken program | Microsoft Docs
-description: Lär dig hur du konfigurerar hybrididentitet moln med Azure och Azure-stacken program.
+title: Konfigurera hybrid cloud-identitet med Azure och Azure Stack | Microsoft Docs
+description: Lär dig hur du konfigurerar hybrid cloud-identitet med Azure och Azure Stack-program.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,65 +11,72 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/22/2018
+ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: a57afb4a90da5877879afddc35545e0bfef622a7
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: bed67c0213ed5715b8b3d8fd393d8d856e0ea15b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808170"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964998"
 ---
-# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Självstudier: Konfigurera hybrididentitet moln för Azure och Azure Stack-program
+# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Självstudie: Konfigurera hybrid cloud-identitet för Azure och Azure Stack-program
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Lär dig hur du konfigurerar en hybrid cloud identitet för dina Azure och Azure Stack-program.
+Lär dig hur du konfigurerar en hybrid cloud-identitet för dina Azure och Azure Stack-program.
 
-Har du två alternativ för att bevilja åtkomst till dina program i både globala Azure och Azure-stacken.
+Har du två alternativ för att bevilja åtkomst till dina program i både globala Azure och Azure Stack.
 
- * Om Azure-stacken är en kontinuerlig anslutning till Internet, kan du använda Azure Active Directory (AD Azure).
- * När Azure-stacken är bortkopplad från Internet, kan du använda Azure Directory Federation Services (AD FS).
+ * När Azure Stack har en kontinuerlig anslutning till Internet, kan du använda Azure Active Directory (AD Azure).
+ * När Azure Stack är bortkopplad från Internet, kan du använda Azure Directory Federation Services (AD FS).
 
-Du kan använda tjänstens huvudnamn för att bevilja åtkomst till dina Azure Stack-program för distribution eller konfigurationen med hjälp av Azure Resource Manager i Azure-stacken.
+Du kan använda tjänstens huvudnamn för att bevilja åtkomst till dina Azure Stack-program för distribution eller konfigurationen med hjälp av Azure Resource Manager i Azure Stack.
 
-I den här självstudiekursen skapar du en exempel-miljö till:
+I den här självstudien skapar du en exempel-miljö för att:
 
 > [!div class="checklist"]
-> * Upprätta en hybrididentitet i globala Azure och Azure-stacken
-> * Hämta en token för att komma åt Azure Stack-API.
+> - Upprätta en hybrididentitet i globala Azure och Azure Stack
+> - Hämta en token för att få åtkomst till Azure Stack-API.
 
-Du måste ha Azure Stack operatorn behörigheter för stegen i den här självstudiekursen.
+Du måste ha behörigheter för Azure Stack-operatör för stegen i den här självstudien.
 
-## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Skapa ett huvudnamn för tjänsten för Azure AD i portalen
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack är en utökning av Azure. Azure Stack får du flexibilitet och utvecklingsmöjligheterna med molnberäkning i din lokala miljö och aktivera det enda hybridmolnet som hjälper dig att skapa och distribuera hybridappar var som helst.  
+> 
+> Faktabladet [designöverväganden för Hybridtillämpningar](https://aka.ms/hybrid-cloud-applications-pillars) granskar grundpelare för programkvalitet (placering, skalbarhet, tillgänglighet, återhämtning, hantering och säkerhet) för att utforma, distribuera och driva hybrid program. Designöverväganden kan optimera hybrid programdesign, minimerar utmaningar i produktionsmiljöer.
 
-Om du har distribuerat Azure stacken använder Azure AD som Identitetslagret kan skapa du tjänstens huvudnamn precis som för Azure. Den [skapa tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals#create-service-principal-for-azure-ad) artikeln visar hur du utför steg via portalen. Se till att du har den [nödvändiga behörigheter för Azure AD](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) innan du börjar.
+
+## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Skapa ett tjänstobjekt för Azure AD i portalen
+
+Om du har distribuerat Azure Stack med Azure AD som Identitetslagret kan skapa du tjänstens huvudnamn precis som du gör för Azure. Den [skapa tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals#create-service-principal-for-azure-ad) artikeln visar hur du utför stegen via portalen. Kontrollera att du har den [Azure AD-behörigheter som krävs för](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) innan du börjar.
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>Skapa ett huvudnamn för tjänsten för AD FS med hjälp av PowerShell
 
-Om du har distribuerat Azure stacken med AD FS kan använda du PowerShell för att skapa ett huvudnamn för tjänsten, tilldela en roll för åtkomst och logga in från PowerShell den identiteten. [Skapa tjänstens huvudnamn för AD FS](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals#create-service-principal-for-ad-fs) visar hur du utför nödvändiga steg med hjälp av PowerShell.
+Om du har distribuerat Azure Stack med AD FS, kan du använda PowerShell för att skapa ett huvudnamn för tjänsten, tilldela en roll för åtkomst och logga in från PowerShell med hjälp av den identiteten. [Skapa tjänstens huvudnamn för AD FS](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals#create-service-principal-for-ad-fs) visar hur du utför de steg som krävs med hjälp av PowerShell.
 
-## <a name="using-the-azure-stack-api"></a>Med hjälp av Azure API-stacken
+## <a name="using-the-azure-stack-api"></a>Med hjälp av Azure Stack API
 
-Den [Azure Stack API](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-rest-api-use) självstudier vägleder dig genom processen att hämta en token för att komma åt Azure Stack-API.
+Den [Azure Stack API](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-rest-api-use) kursen vägleder dig genom processen för att hämta en token för att få åtkomst till Azure Stack-API.
 
-## <a name="connect-to-azure-stack-using-powershell"></a>Ansluta till Azure-stacken med hjälp av Powershell
+## <a name="connect-to-azure-stack-using-powershell"></a>Ansluta till Azure Stack med hjälp av Powershell
 
-Snabbstart [att komma igång med PowerShell i Azure-stacken](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart) vägleder dig genom stegen som behövs för att installera Azure PowerShell och ansluta till Azure Stack-installationen.
+Snabbstarten [att komma igång med PowerShell i Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart) vägleder dig genom de steg som krävs för att installera Azure PowerShell och ansluta till din Azure Stack-installation.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-En installation av Azure-stacken ansluten till Azure Active Directory med en prenumeration som du kan komma åt. Om du inte har en Azure-Stack-installation du kan använda dessa instruktioner för att ställa in en [Azure Stack Development Kit](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy).
+En installation av Azure Stack är anslutna till Azure Active Directory med en prenumeration som du kan komma åt. Om du inte har en Azure Stack-installation kan du använda dessa instruktioner för att ställa in en [Azure Stack Development Kit](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy).
 
-#### <a name="connect-to-azure-stack-using-code"></a>Ansluta till Azure-stacken med kod
+#### <a name="connect-to-azure-stack-using-code"></a>Ansluta till Azure Stack med hjälp av kod
 
-Använda slutpunkter för Azure Resource Manager API för att ansluta till Azure-stacken använder kod att hämta autentiserings- och diagram slutpunkter för din Azure Stack-installation och sedan autentisera med hjälp av REST-begäranden. Du hittar ett exempelprogram för klienten på [GitHub](https://github.com/shriramnat/HybridARMApplication).
+Om du vill ansluta till Azure Stack med hjälp av kod använder du Azure Resource Manager-slutpunkter API att hämta autentisering och graph-slutpunkter för Azure Stack-installationen och sedan autentisera med hjälp av REST-begäranden. Du hittar ett exempelklientprogram på [GitHub](https://github.com/shriramnat/HybridARMApplication).
 
 >[!Note]
->Om Azure SDK för din valda språket inte stöder Azure API-profiler, kanske SDK inte fungerar med Azure-stacken. Mer information om Azure API-profiler finns i [hantera profiler för API-version](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles) artikel.
+>Om inte Azure SDK för ditt språkval har stöd för Azure API-profiler, fungerar SDK: N inte med Azure Stack. Läs mer om Azure API-profiler i den [hantera API-versionsprofiler](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles) artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 
- - Läs mer om hur identitet hanteras i Azure-stacken i [identitet arkitektur för Azure-Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-architecture).
- - Läs mer om Azure Cloud mönster i [designmönster](https://docs.microsoft.com/azure/architecture/patterns).
+ - Läs mer om hur identitet hanteras i Azure Stack i [identitetsarkitektur för Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-architecture).
+ - Läs mer om Azure molnmönster i [Molndesignmönster](https://docs.microsoft.com/azure/architecture/patterns).

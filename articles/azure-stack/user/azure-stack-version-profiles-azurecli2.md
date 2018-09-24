@@ -13,20 +13,20 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ec3b1f43c7b89a545ee5bb26c4cc0d068a993021
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295861"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972818"
 ---
-# <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI 2.0 i Azure Stack
+# <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI i Azure Stack
 
 Du kan följa stegen i den här artikeln för att ställa in Azure kommandoradsgränssnitt (CLI) att hantera Azure Stack Development Kit-resurser från Linux, Mac och Windows-klientplattformar.
 
 ## <a name="install-cli"></a>Installera CLI
 
-Logga in på utvecklingsdatorn och installera CLI. Azure Stack kräver version 2.0 av Azure CLI. Du kan installera som med hjälp av stegen som beskrivs i den [installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) artikeln. Kontrollera om installationen lyckades, öppna en terminal eller Kommandotolken och kör följande kommando:
+Logga in på utvecklingsdatorn och installera CLI. Azure Stack kräver version 2.0 eller senare av Azure CLI. Du kan installera som med hjälp av stegen som beskrivs i den [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) artikeln. Kontrollera om installationen lyckades, öppna en terminal eller Kommandotolken och kör följande kommando:
 
 ```azurecli
 az --version

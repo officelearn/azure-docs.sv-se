@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: MT
+ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982161"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970302"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Hantera API-versionsprofiler i Azure Stack
 
@@ -79,8 +79,8 @@ Du kan hitta kodexempel för att integrera din lösning med det språk du föred
 
 - **PowerShell**  
 Du kan använda den **AzureRM.Bootstrapper** modulen i PowerShell-galleriet för att hämta PowerShell-cmdlets som krävs för att arbeta med API-versionsprofiler. Mer information finns i [Använd API-versionsprofiler för PowerShell](azure-stack-version-profiles-powershell.md).
-- **Azure CLI 2.0**  
-Du kan uppdatera din miljökonfiguration om du vill använda Azure Stack-profil för versionen av specifika API: et. Mer information finns i [Använd API-versionsprofiler för Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+- **Azure CLI**  
+Du kan uppdatera din miljökonfiguration om du vill använda Azure Stack-profil för versionen av specifika API: et. Mer information finns i [Använd API-versionsprofiler för Azure CLI](azure-stack-version-profiles-azurecli2.md).
 - **GO**  
 En profil är en kombination av olika resurstyper med olika versioner från olika tjänster i GO-SDK. profiler är tillgängliga under profilerna / sökväg med versionerna i den **åååå-MM-DD** format. Mer information finns i [Använd API-versionsprofiler för GO](azure-stack-version-profiles-go.md).
 - **Ruby**  

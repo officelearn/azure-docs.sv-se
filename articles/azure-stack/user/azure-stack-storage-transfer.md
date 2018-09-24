@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ms.openlocfilehash: 46bc043681bbba37a2dfb6476e1dd0784e1abf10
+ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139420"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46874035"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Använd verktyg för överföring av data för Azure Stack-lagring
 
@@ -246,7 +246,7 @@ Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Du kan 
 
 Azure CLI är optimerad för att hantera och administrera Azure-resurser från kommandoraden och för att skapa automatiseringsskript som fungerar mot Azure Resource Manager. Den innehåller många av funktionerna i Azure Stack-portalen, inklusive omfattande dataåtkomst.
 
-Azure Stack kräver Azure CLI version 2.0. Läs mer om att installera och konfigurera Azure CLI med Azure Stack, [installera och konfigurera Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). Mer information om hur du använder Azure CLI 2.0 för flera uppgifter ska arbeta med resurser i ditt lagringskonto i Azure Stack finns i [med hjälp av Azure-CLI2.0 med Azure storage](../../storage/storage-azure-cli.md)
+Azure Stack kräver Azure CLI version 2.0 eller senare. Läs mer om att installera och konfigurera Azure CLI med Azure Stack, [installera och konfigurera Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). Mer information om hur du använder Azure CLI för flera uppgifter ska arbeta med resurser i ditt lagringskonto i Azure Stack finns i [med hjälp av Azure CLI med Azure storage](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure CLI-exempelskriptet för Azure Stack
 

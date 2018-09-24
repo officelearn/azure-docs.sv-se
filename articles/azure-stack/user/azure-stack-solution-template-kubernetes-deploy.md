@@ -1,6 +1,6 @@
 ---
-title: Distribuera ett Kubernetes-kluster till Azure Stack | Microsoft Docs
-description: Lär dig hur du distribuerar ett Kubernetes-kluster till Azure Stack.
+title: Distribuera Kubernetes till Azure Stack | Microsoft Docs
+description: Lär dig hur du distribuerar Kubernetes i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,28 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 00c3fd0d1f637575904ebaa8031159344adf7e9f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: MT
+ms.openlocfilehash: a6e1acf3b9e69f32a8c175310134c534dbf8c561
+ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718584"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46876624"
 ---
-# <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Distribuera ett Kubernetes-kluster i Azure Stack
+# <a name="deploy-kubernetes-to-azure-stack"></a>Distribuera Kubernetes till Azure Stack
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
-> Motorn för AKS (Azure Kubernetes Service) på Azure Stack är i privat förhandsversion. Azure Stack-operator måste begära åtkomst till Kubernetes marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln.
+> Kubernetes på Azure Stack är en förhandsversion. Azure Stack-operator måste begära åtkomst till Kubernetes-kluster marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln.
 
 I följande artikel tittar på med hjälp av en lösningsmall för Azure Resource Manager-för att distribuera och etablera resurserna för Kubernetes i en enda, samordnad åtgärd. Du behöver samla in nödvändig information om installationen av Azure Stack, generera mallen, och sedan distribuera till molnet. Obs mallen inte är samma hanterade AKS-tjänsten som erbjuds i globala Azure, men närmare ACS-tjänsten.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes och behållare
 
-Du kan installera Kubernetes med Azure Resource Manager-mallar som skapas av motorn för Azure Kubernetes Services (AKS) på Azure Stack. [Kubernetes](https://kubernetes.io) är ett system med öppen källkod för att automatisera distribution, skalning och hantering av program i behållare. En [behållare](https://www.docker.com/what-container) finns i en avbildning, som en virtuell dator. Till skillnad från en virtuell dator innehåller behållaravbildningen endast de resurser den behöver för att köra ett program, till exempel kod, runtime för att köra koden, specifika bibliotek och inställningar.
+Du kan installera Kubernetes med Azure Resource Manager-mallar som genererats av ACS-Engine på Azure Stack. [Kubernetes](https://kubernetes.io) är ett system med öppen källkod för att automatisera distribution, skalning och hantering av program i behållare. En [behållare](https://www.docker.com/what-container) finns i en avbildning, som en virtuell dator. Till skillnad från en virtuell dator innehåller behållaravbildningen endast de resurser den behöver för att köra ett program, till exempel kod, runtime för att köra koden, specifika bibliotek och inställningar.
 
 Du kan använda Kubernetes:
 
@@ -59,7 +59,11 @@ Kom igång genom att kontrollera att du har rätt behörigheter och att Azure St
 ## <a name="create-a-service-principal-in-azure-ad"></a>Skapa ett huvudnamn för tjänsten i Azure AD
 
 1. Logga in på den globala [Azure-portalen](http://portal.azure.com).
-1. Kontrollera att du loggat in med Azure AD-klient som är associerade med Azure Stack-instans.
+
+1. Kontrollera att du loggat in med Azure AD-klient som är associerade med Azure Stack-instans. Du kan växla din inloggning genom att klicka på filter-ikonen i verktygsfältet i Azure.
+
+    ![Välj du AD-klient](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
+
 1. Skapa ett Azure AD-program.
 
     a. Välj **Azure Active Directory** > **+ Appregistreringar** > **ny programregistrering**.
@@ -83,26 +87,25 @@ Kom igång genom att kontrollera att du har rätt behörigheter och att Azure St
     c. Välj **Spara**. Kontrollera att Observera viktiga strängen. Du behöver strängen som nyckel när du skapar klustret. Nyckeln är refereras till som den **Klienthemlighet för tjänstens huvudnamn**.
 
 
-
 ## <a name="give-the-service-principal-access"></a>Ge tjänstens huvudnamn åtkomst
 
 Ge tjänstens huvudnamn åtkomst till din prenumeration så att huvudkontot kan skapa resurser.
 
 1.  Logga in på den [Azure Stack-portalen](https://portal.local.azurestack.external/).
 
-1. Välj **fler tjänster** > **prenumerationer**.
+1. Välj **alla tjänster** > **prenumerationer**.
 
-1. Välj den prenumeration som du skapade.
+1. Välj den prenumeration som skapats av din operatör för att använda Kubernetes-klustret.
 
 1. Välj **åtkomstkontroll (IAM)** > Välj **+ Lägg till**.
 
-1. Välj den **ägare** roll.
+1. Välj den **deltagare** roll.
 
 1. Välj namnet på programmet som skapats för tjänsten huvudnamn. Du kan behöva ange namnet i sökrutan.
 
 1. Klicka på **Spara**.
 
-## <a name="deploy-a-kubernetes-cluster"></a>Distribuera ett Kubernetes-kluster
+## <a name="deploy-a-kubernetes"></a>Distribuera ett Kubernetes
 
 1. Öppna den [Azure Stack-portalen](https://portal.local.azurestack.external).
 
@@ -110,7 +113,7 @@ Ge tjänstens huvudnamn åtkomst till din prenumeration så att huvudkontot kan 
 
     ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-1. Välj **grunderna** i den skapa Kubernetes-kluster.
+1. Välj **grunderna** i det skapar Kubernetes.
 
     ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
@@ -145,7 +148,6 @@ Ge tjänstens huvudnamn åtkomst till din prenumeration så att huvudkontot kan 
 
 1. Ange den **slutpunkt för Arm-klient**. Det här är Azure Resource Manager-slutpunkt att ansluta för att skapa resursgruppen för Kubernetes-klustret. Du behöver hämta slutpunkten från Azure Stack-operatör för ett integrerat system. För de Azure Stack Development Kit (ASDK), som du kan använda `https://management.local.azurestack.external`.
 
-1. Ange den **klient-ID** för klienten. Om du behöver hjälp med att hitta det här värdet kan se [hämta klient-ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
 
 ## <a name="connect-to-your-cluster"></a>Ansluta till ditt kluster
 
@@ -155,6 +157,6 @@ Du kan också hitta den **Helm** pakethanterare som är användbara för att ins
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lägga till ett Kubernetes-kluster i Marketplace (för Azure Stack-operatör)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Lägga till ett Kubernetes i Marketplace (för Azure Stack-operatör)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes på Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

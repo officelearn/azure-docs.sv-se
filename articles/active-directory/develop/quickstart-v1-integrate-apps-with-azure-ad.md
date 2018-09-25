@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3b799cde0a696b4a764893c545a8d55d363a4800
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188248"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989030"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrera program med Azure Active Directory
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 Utvecklare av företagsprogram och software-as-a-service (SaaS)-providers kan utveckla kommersiella molntjänster eller line-of-business-program som kan integreras med Azure Active Directory (Azure AD) för att tillhandahålla säker inloggning och auktorisering för sina tjänster. Om du vill integrera en app eller tjänst med Azure AD, måste en utvecklare först registrera programmet med Azure AD.
 
@@ -33,9 +34,11 @@ Den här artikeln visar hur du lägger till, uppdatera eller ta bort registrerin
 Läs mer om de två Azure AD-objekt som representerar ett registrerat program och relationen mellan dem i [programobjekt och tjänstobjekt](app-objects-and-service-principals.md); mer information om riktlinjer för varumärkesanpassning bör du använda när du utvecklar program med Azure Active Directory, se [anpassning riktlinjer för integrerade appar](howto-add-branding-in-azure-ad-apps.md).
 
 ## <a name="adding-an-application"></a>Lägga till ett program
+
 Alla program som vill använda funktioner i Azure AD måste först registreras i en Azure AD-klient. Registreringsprocessen innebär att du ger Azure AD-information om ditt program, till exempel URL: en där den finns, URL: en att skicka svar när en användare autentiseras den URI som identifierar appen och så vidare.
 
 ### <a name="to-register-a-new-application-using-the-azure-portal"></a>Registrera ett nytt program med Azure-portalen
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Om ditt konto får du tillgång till fler än en, klicka på ditt konto i det övre högra hörnet och ange portal sessionen med önskade Azure AD-klient.
 3. I det vänstra navigeringsfönstret klickar du på den **Azure Active Directory** tjänsten, klicka på **appregistreringar**, och klicka på **ny programregistrering**.
@@ -59,10 +62,9 @@ Alla program som vill använda funktioner i Azure AD måste först registreras i
 
   > [!NOTE]
   > Som standard ett nyligen registrerade program är konfigurerad för att tillåta **endast** användare från samma klient att logga in på ditt program.
-  > 
-  > 
 
 ## <a name="updating-an-application"></a>Uppdatera ett program
+
 När ditt program har registrerats med Azure AD, kan det behöva uppdateras för att tillhandahålla åtkomst till webb-API: er, vara tillgänglig i andra organisationer och mycket mer. Det här avsnittet beskrivs olika sätt som du kan konfigurera ytterligare ditt program. Först börjar vi med en översikt över ramverket för medgivande, vilket är viktigt att förstå när du skapar program som behöver som ska användas av andra användare eller program.
 
 ### <a name="overview-of-the-consent-framework"></a>Översikt över ramverket för medgivande
@@ -93,16 +95,17 @@ Följande steg visar hur samtycke uppleva fungerar för både programutvecklare 
    
   ![Användarupplevelsen för medgivande](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
-5. När användaren ger ditt medgivande, returneras en auktoriseringskod till programmet, som har löst in att hämta en åtkomsttoken och uppdatera token. Mer information om det här flödet finns i den [webbprogram till webb-API-avsnittet i Autentiseringsscenarier för Azure AD](authentication-scenarios.md#web-application-to-web-api).
+5. När användaren ger ditt medgivande, returneras en auktoriseringskod till programmet, som har löst in att hämta en åtkomsttoken och uppdatera token. Mer information om det här flödet finns i [Web API]](web-api.md).
 
 6. Som administratör kan också samtycker du till ett programs delegerade behörigheter för alla användare i din klient. Administratörs godkännande förhindrar att godkännande i dialogrutan visas för varje användare i klienten och kan göras i den [Azure-portalen](https://portal.azure.com) av användare med administratörsrollen. Från den **inställningar** för ditt program och klicka på **nödvändiga behörigheter** och klicka på den **bevilja** knappen. 
 
   ![Bevilja behörigheter för explicit administratörens godkännande](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
     
   > [!NOTE]
-  > Bevilja uttryckliga medgivande med hjälp av den **bevilja** knappen krävs för närvarande för en sida-program (SPA) som använder ADAL.js. Annars misslyckas programmet när åtkomsttoken begärs. 
+  > Bevilja uttryckliga medgivande med hjälp av den **bevilja** knappen krävs för närvarande för enkelsidigt program (SPA) som använder ADAL.js. Annars misslyckas programmet när åtkomsttoken begärs. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Konfigurera ett klientprogram för att få åtkomst till webb-API: er
+
 Det måste upprätta säkra autentiseringsuppgifter för ett webb-/ konfidentiell klientprogram för att kunna delta i ett flöde för auktorisering att bevilja som kräver autentisering (och få en åtkomsttoken). Standardmetoden för autentisering som stöds av Azure-portalen är klient-ID + hemlig nyckel. Det här avsnittet beskriver de konfigurationssteg som krävs för att tillhandahålla den hemliga nyckeln med klientens autentiseringsuppgifter.
 
 Dessutom innan en klient kan komma åt ett webb-API som exponeras av resursprogram (till exempel Microsoft Graph-API), ramverket för medgivande säkerställer klienten hämtar åtgärden bevilja behörigheter krävs, baserat på de behörigheter som begärdes. Som standard kan alla program Välj behörigheter från ”Windows Azure Active Directory” (Graph-API) och ”Windows Azure Service Management-API”. Den [Graph API ”logga in och Läs användarprofil” behörighet](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) har markerats som standard. Om klienten registreras i en klient som har konton som prenumererar på Office 365, kan webb-API: er och behörigheter för SharePoint och Exchange Online välja. Du kan välja från [två typer av behörigheter](developer-glossary.md#permissions) för var och en önskad webb-API:
@@ -115,6 +118,7 @@ Dessutom innan en klient kan komma åt ett webb-API som exponeras av resursprogr
   > Att lägga till en delegerad behörighet till ett program ger automatiskt ditt medgivande till användare i klienten. Användarna måste manuellt medgivande för de tillagda delegerade behörigheterna vid körning, om inte administratören tilldelar samtycke åt alla användare.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Om du vill lägga till webb autentiseringsuppgifter eller behörighet att komma åt-API: er
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Om ditt konto får du tillgång till fler än en, klicka på ditt konto i det övre högra hörnet och ange portal sessionen med önskade Azure AD-klient.
 3. I det vänstra navigeringsfönstret klickar du på den **Azure Active Directory** tjänsten, klicka på **appregistreringar**, sedan hitta/klickar du på programmet som du vill konfigurera.
@@ -213,8 +217,6 @@ En fullständig beskrivning på omfång som exponeras av Microsoft Graph API fin
 
 > [!NOTE]
 > På grund av en aktuell begränsning, kan interna klientprogram endast anropa Azure AD Graph-API om de använder behörigheten ”åt din organisations katalog”. Den här begränsningen gäller inte för webbprogram.
-> 
-> 
 
 ### <a name="configuring-multi-tenant-applications"></a>Konfigurera program för flera innehavare
 
@@ -260,9 +262,9 @@ Mer information om programändringar som krävs för att stödja finns åtkomst 
 - Listan över [kodexempel för flera innehavare](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant). 
 - [Snabbstart: Lägga till företagsprofilering för din inloggningssidan i Azure AD](../fundamentals/customize-branding.md)
 
-### <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Om du aktiverar OAuth beviljas 2.0 implicit för den enda sidan program
+### <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Om du aktiverar OAuth beviljas 2.0 implicit för enkelsidigt program
 
-Enskild sida programmets (SPA) är vanligtvis strukturerade med JavaScript-aktiverat klientdelen som körs i webbläsaren, som anropar programmets webb-API backend-server för att utföra affärslogik på dess. För SPA finns i Azure AD, använder du Implicit beviljande av OAuth 2.0 för att autentisera användare med Azure AD och få en token som du kan använda för att skydda anrop från programmets JavaScript-klient till dess backend-webb-API. 
+Enkelsidigt program (SPA) är vanligtvis strukturerade med JavaScript-aktiverat klientdelen som körs i webbläsaren, som anropar programmets webb-API backend-server för att utföra affärslogik på dess. För SPA finns i Azure AD, använder du Implicit beviljande av OAuth 2.0 för att autentisera användare med Azure AD och få en token som du kan använda för att skydda anrop från programmets JavaScript-klient till dess backend-webb-API. 
 
 När användaren har gett ditt medgivande, kan det här samma autentiseringsprotokoll användas till att hämta token för att skydda anrop mellan klienten och andra webb-API-resurserna som konfigurerats för programmet. Mer information om implicit auktoriseringsbeviljande och hjälper dig att avgöra om det är bäst för ditt program-scenario genom att se [förstå OAuth2 implicit ge flow i Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
@@ -272,7 +274,6 @@ Som standard inaktiveras implicit beviljande av OAuth 2.0 för program. Du kan a
 
 > [!NOTE]
 > För information om hur du redigerar applikationsmanifestet, bör du först granska föregående avsnitt, [konfigurera resursprogram att exponera webb-API: er](#configuring-a-resource-application-to-expose-web-apis).
->
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Om ditt konto får du tillgång till fler än en, klicka på ditt konto i det övre högra hörnet och ange portal sessionen med önskade Azure AD-klient.
@@ -285,12 +286,15 @@ Som standard inaktiveras implicit beviljande av OAuth 2.0 för program. Du kan a
 5. Spara det uppdaterade manifestet. När du har sparat har ditt webb-API nu konfigurerats för att använda Implicit beviljande av OAuth 2.0 för att autentisera användare.
 
 ## <a name="removing-an-application"></a>Ta bort ett program
+
 Det här avsnittet beskrivs hur du tar bort en programregistrering från Azure AD-klienten.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Ta bort ett program som skapats av din organisation
+
 Program som din organisation har registrerats visas under den ”Mina appar”-filter på sidan för din klient huvudsakliga ”appregistreringar”. Dessa program är de som du registrerade manuellt via Azure portal eller programmässigt via PowerShell eller Graph API. Mer specifikt representeras de av både ett program och tjänstens huvudnamn objekt i din klient. Mer information finns i [programobjekt och tjänstobjekt](app-objects-and-service-principals.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Ta bort en enda klient-program från din katalog
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Om ditt konto får du tillgång till fler än en, klicka på ditt konto i det övre högra hörnet och ange portal sessionen med önskade Azure AD-klient.
 3. I det vänstra navigeringsfönstret klickar du på den **Azure Active Directory** tjänsten, klicka på **appregistreringar**, sedan hitta/klickar du på programmet som du vill konfigurera. Du kommer till programmets huvudsakliga registreringssidan, vilket öppnar den **inställningar** för programmet.
@@ -298,6 +302,7 @@ Program som din organisation har registrerats visas under den ”Mina appar”-f
 5. Klicka på **Ja** i bekräftelsemeddelandet.
 
 #### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>Ta bort ett program med flera innehavare från sin hemkatalog
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Om ditt konto får du tillgång till fler än en, klicka på ditt konto i det övre högra hörnet och ange portal sessionen med önskade Azure AD-klient.
 3. I det vänstra navigeringsfönstret klickar du på den **Azure Active Directory** tjänsten, klicka på **appregistreringar**, sedan hitta/klickar du på programmet som du vill konfigurera. Du kommer till programmets huvudsakliga registreringssidan, vilket öppnar den **inställningar** för programmet.
@@ -306,15 +311,16 @@ Program som din organisation har registrerats visas under den ”Mina appar”-f
 6. Klicka på **Ja** i bekräftelsemeddelandet.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Ta bort ett program för flera klienter som godkänts av en annan organisation
+
 En delmängd av de program som visas under ”alla appar”-filter (förutom i ”Mina appar” registreringar) på din klient ”appregistreringar” huvudsidan är program för flera innehavare. Tekniskt sett dessa program för flera innehavare är från en annan klient och registrerades i din klient under medgivande. Mer specifikt representeras de av endast en tjänstens huvudnamnsobjekt i din klient med ingen motsvarande programobjektet. Läs mer om skillnaderna mellan program och tjänstobjekt [program och tjänstobjekt i Azure AD](app-objects-and-service-principals.md).
 
 Företagets administratör måste ta bort dess huvudnamn för tjänsten för att ta bort ett program med flera klienter åtkomst till din katalog (efter att ha godkänts). Administratören måste behörighet för global administratör, och kan ta bort den via Azure-portalen eller använda den [Azure AD PowerShell-Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Nästa steg
+
 - Mer information om hur autentisering fungerar i Azure AD finns i [Autentiseringsscenarier för Azure AD](authentication-scenarios.md).
 - Se den [anpassning riktlinjer för integrerade appar](howto-add-branding-in-azure-ad-apps.md) tips om visual vägledning för din app.
 - Mer information om relationen mellan program och tjänstens huvudnamn objekt i ett program finns i [programobjekt och tjänstobjekt](app-objects-and-service-principals.md).
 - Läs mer om rollen app manifest spelar i [förstå programmanifestet för Azure Active Directory](reference-app-manifest.md)
 - Se den [ordlista för Azure AD-utvecklare](developer-glossary.md) för definitioner av några av de viktigaste Azure AD-begreppen för utvecklare.
 - Gå till den [utvecklarguide för Active Directory](azure-ad-developers-guide.md) en översikt över alla developer-relaterat innehåll.
-

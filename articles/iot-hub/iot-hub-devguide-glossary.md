@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 1a5df1081edeb8b8e7520064a71534f70a9a9d33
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344308"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954406"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub-ordlista
 Den här artikeln innehåller några av de vanliga termer som används i IoT Hub-artiklar.
@@ -27,11 +27,11 @@ Automatisk hantering av enheter i Azure IoT Hub automatiserar repetitiva och kom
 ## <a name="automatic-device-configuration"></a>Automatisk enhetskonfiguration
 Lösningens serverdel kan använda [automatisk enhetskonfigurationer](iot-hub-auto-device-config.md) tilldela önskade egenskaper till en uppsättning [enhetstvillingar](#device-twin) och rapportera status med hjälp av systemmått och anpassade mått. 
 
-## <a name="azure-cli"></a>Azure CLI
-Den [Azure CLI](../cli-install-nodejs.md) är ett kommandoradsverktyg för flera plattformar, öppen källkod, shell-baserade, för att skapa och hantera resurser i Microsoft Azure. Den här versionen av CLI implementeras med hjälp av Node.js.
+## <a name="azure-classic-cli"></a>Klassisk Azure CLI
+Den [Azure klassiskt CLI](../cli-install-nodejs.md) är ett kommandoradsverktyg för flera plattformar, öppen källkod, shell-baserade, för att skapa och hantera resurser i Microsoft Azure. Den här versionen av CLI ska användas för endast klassiska distributioner.
 
-## <a name="azure-cli-20"></a>Azure CLI 2.0
-Den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) är ett kommandoradsverktyg för flera plattformar, öppen källkod, shell-baserade, för att skapa och hantera resurser i Microsoft Azure. Den här förhandsversionen av CLI implementeras med hjälp av Python.
+## <a name="azure-cli"></a>Azure CLI
+Den [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) är ett kommandoradsverktyg för flera plattformar, öppen källkod, shell-baserade, för att skapa och hantera resurser i Microsoft Azure.
 
 
 ## <a name="azure-iot-device-sdks"></a>Azure SDK: er för IoT-enheter
@@ -185,8 +185,8 @@ Du kan använda den [IoT Hub Resource REST API: et](https://docs.microsoft.com/r
 ## <a name="iot-solution-accelerators"></a>IoT-lösningsacceleratorer
 Azure IoT-Lösningsacceleratorer paketera samman flera Azure-tjänster till lösningar. Dessa lösningar kan du snabbt komma igång med slutpunkt till slutpunkt-implementeringar av vanliga IoT-scenarier. Mer information finns i [vad är Azure IoT-Lösningsacceleratorer?](../iot-accelerators/about-iot-accelerators.md)
 
-## <a name="the-iot-extension-for-azure-cli-20"></a>IoT-tillägget för Azure CLI 2.0
-[IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) är en plattformsoberoende, kommandorads-verktyget. Verktyget gör det möjligt att hantera enheter i den [identitetsregistret](#identity-registry), skicka och ta emot meddelanden och filer från dina enheter och övervaka din IoT hub-åtgärder.
+## <a name="the-iot-extension-for-azure-cli"></a>IoT-tillägget för Azure CLI 
+[IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) är en plattformsoberoende, kommandorads-verktyget. Verktyget gör det möjligt att hantera enheter i den [identitetsregistret](#identity-registry), skicka och ta emot meddelanden och filer från dina enheter och övervaka din IoT hub-åtgärder.
 
 ## <a name="job"></a>Jobb
 Lösningens serverdel kan använda [jobb](iot-hub-devguide-jobs.md) att schemalägga och spåra aktiviteter i en uppsättning enheter som registrerats med IoT-hubben. Aktiviteter är till exempel uppdatera enhetstvillingen [önskade egenskaper](#desired-properties), uppdatera enhetstvillingen [taggar](#tags), och anropa [direkta metoder](#direct-method). [IoT Hub](#iot-hub) använder också att [att importera och exportera](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) från den [identitetsregistret](#identity-registry).

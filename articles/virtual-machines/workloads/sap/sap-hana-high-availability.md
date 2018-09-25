@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: dfcb5c7c0b487b8379d89a9b285bae1ca1a9c774
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: e2e76e3cd058e5798b0159923118b050f38d077e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634531"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034645"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på SUSE Linux Enterprise Server
 
@@ -68,6 +68,7 @@ Läs följande SAP Notes och papers först:
 * SAP-kommentar [1984787] har allmän information om SUSE Linux Enterprise Server 12.
 * SAP-kommentar [1999351] innehåller ytterligare felsökningsinformation för Azure förbättrad övervakning av tillägget för SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP Notes för Linux.
+* [SAP HANA-certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Azure virtuella datorer, planering och implementering av SAP på Linux] [ planning-guide] guide.
 * [Azure Virtual Machines-distribution för SAP på Linux] [ deployment-guide] (den här artikeln).
 * [Azure Virtual Machines DBMS-distribution för SAP på Linux] [ dbms-guide] guide.
@@ -114,6 +115,10 @@ Om du vill distribuera mallen genom att följa dessa steg:
 
 ### <a name="manual-deployment"></a>Manuell distribution
 
+> [!IMPORTANT]
+> Kontrollera att Operativsystemet som du väljer är SAP-certifierade för SAP HANA på de specifika VM-typer som du använder. Listan över SAP HANA-certifierade VM-typer och OS-versioner för de som kan sökas i [SAP HANA certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Se till att klicka på information om den typ av virtuell dator i listan för att få en fullständig lista över SAP HANA OS-versioner som stöds för den specifika VM-typ
+>  
+
 1. Skapa en resursgrupp.
 1. Skapa ett virtuellt nätverk.
 1. Skapa en tillgänglighetsuppsättning.
@@ -121,12 +126,10 @@ Om du vill distribuera mallen genom att följa dessa steg:
 1. Skapa en belastningsutjämnare (internt).
    - Välj det virtuella nätverket som skapades i steg 2.
 1. Skapa virtuell dator 1.
-   - Använd minst SLES4SAP 12 SP1. Det här exemplet används SLES4SAP 12 SP2 avbildningen https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - Använda SLES för SAP 12 SP2 (Premium).
+   - Använd en SLES4SAP-avbildning i Azure-galleriet som stöds för SAP HANA på VM-typ du valt.
    - Välj tillgänglighetsuppsättning som skapades i steg 3.
 1. Skapa virtuell dator 2.
-   - Använd minst SLES4SAP 12 SP1. Det här exemplet används SLES4SAP 12 SP1 BYOS avbildningen https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - Använda SLES för SAP 12 SP2 (Premium).
+   - Använd en SLES4SAP-avbildning i Azure-galleriet som stöds för SAP HANA på VM-typ du valt.
    - Välj tillgänglighetsuppsättning som skapades i steg 3. 
 1. Lägga till datadiskar.
 1. Konfigurera belastningsutjämnaren. Börja med att skapa en IP-adresspool på klientsidan:
@@ -676,6 +679,9 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 ### <a name="suse-tests"></a>SUSE-tester
+
+> [!IMPORTANT]
+> Kontrollera att Operativsystemet som du väljer är SAP-certifierade för SAP HANA på de specifika VM-typer som du använder. Listan över SAP HANA-certifierade VM-typer och OS-versioner för de som kan sökas i [SAP HANA certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Se till att klicka på information om den typ av virtuell dator i listan för att få en fullständig lista över SAP HANA OS-versioner som stöds för den specifika VM-typ
 
 Kö alla testfall som listas i SAP HANA SR prestanda optimerade Scenario eller SAP HANA SR kostnaden optimerade scenariot handboken, beroende på ditt användningsområde. Du hittar guiderna på den [SLES for SAP bästa praxis sidan][sles-for-sap-bp].
 

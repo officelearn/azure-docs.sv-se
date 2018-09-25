@@ -1,34 +1,53 @@
+items:
 - name: Dokumentation om Virtual WAN
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Virtual WAN
-      href: virtual-wan-about.md
+  - name: Om Virtual WAN
+    href: virtual-wan-about.md
 - name: Självstudier
   items:
-    - name: Skapa en plats-till-plats-anslutning
-      href: virtual-wan-site-to-site-portal.md
+  - name: Skapa en plats-till-plats-anslutning
+    href: virtual-wan-site-to-site-portal.md
+  - name: Skapa en ExpressRoute-anslutning
+    href: virtual-wan-expressroute-portal.md
+  - name: Skapa en punkt-till-plats-anslutning
+    href: virtual-wan-point-to-site-portal.md
+- name: Begrepp
+  items:
+  - name: Platser och partners
+    href: virtual-wan-locations-partners.md
+  - name: Office 365-kontrollplanet i virtuellt WAN-nätverk
+    href: virtual-wan-office365-overview.md
 - name: Instruktionsguider
   items:
-    - name: Konfigurera automation – WAN-partner
-      href: virtual-wan-configure-automation-providers.md
+  - name: Virtuella WAN-partners - automatisering
+    href: virtual-wan-configure-automation-providers.md
+  - name: Dirigera trafik från en virtuell hubb till en NVA
+    href: virtual-wan-route-table.md
 - name: Referens
   items:
-    - name: REST
-      href: /rest/api/azure
+  - name: REST
+    href: /rest/api/azure
 - name: Resurser
   items:
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: virtual-wan-faq.md
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=networking'
-    - name: Blogg
-      href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Prenumerations- och tjänstbegränsningar
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/vpn-gateway'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: SLA
-      href: 'https://azure.microsoft.com/support/legal/sla'
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: virtual-wan-faq.md
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Blogg
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Prenumerations- och tjänstbegränsningar
+    href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/vpn-gateway
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: SLA
+    href: https://azure.microsoft.com/support/legal/sla
+ms.openlocfilehash: a8b9bf44a68e389547e08055e5036562457f6175
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957388"

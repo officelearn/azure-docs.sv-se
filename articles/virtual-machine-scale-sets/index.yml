@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: abf4aa9210b0d497b1f93361e05e2188d1ef3f6a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976638"
 documentType: LandingData
 title: Dokumentation för skalningsuppsättningar för virtuella datorer
 metadata:
@@ -12,12 +18,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/14/2018
   ms.author: carolz
-  ms.openlocfilehash: ea8437adf7224c4605f31ccdea281669b89bb7c9
-  ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/10/2018
-  ms.locfileid: "37949738"
 abstract:
   description: Med skalningsuppsättningar för virtuella Azure-datorer kan du skapa och hantera grupper med identiska, belastningsutjämnade virtuella datorer med automatisk skalning. Lär dig hur du skapar, konfigurerar, hanterar och automatiskt skalar VM-skalningsuppsättningar med våra snabbstarter, självstudier och exempel.
 sections:
@@ -34,7 +34,7 @@ sections:
       href: /azure/virtual-machine-scale-sets/quick-create-portal
     - image:
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI 2.0
+      text: Azure CLI
       href: /azure/virtual-machine-scale-sets/quick-create-cli
     - image:
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
@@ -47,11 +47,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Skapa och hantera skalningsuppsättningar med <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli">Azure CLI 2.0</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure Powershell</a>
-    - html: Använda datadiskar med <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-cli">Azure CLI 2.0</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure Powershell</a>
-    - html: Använda anpassade VM-avbildningar med <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI 2.0</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure Powershell</a>
-    - html: Distribuera appar till skalningsuppsättningar med <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI 2.0</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure Powershell</a>
-    - html: Autoskala skalningsuppsättningar med <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI 2.0</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure Powershell</a>
+    - html: Skapa och hantera skalningsuppsättningar med <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli">Azure CLI</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure Powershell</a>
+    - html: Använda datadiskar med <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-cli">Azure CLI</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure Powershell</a>
+    - html: Använda anpassade VM-avbildningar med <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure Powershell</a>
+    - html: Distribuera appar till skalningsuppsättningar med <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure Powershell</a>
+    - html: Autoskala skalningsuppsättningar med <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI</a> eller <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure Powershell</a>
 - title: Exempel
   items:
   - type: paragraph
@@ -60,5 +60,5 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/virtual-machine-scale-sets/cli-samples">Azure CLI 2.0</a>
+    - html: <a href="/azure/virtual-machine-scale-sets/cli-samples">Azure CLI</a>
     - html: <a href="/azure/virtual-machine-scale-sets/powershell-samples">Azure PowerShell</a>

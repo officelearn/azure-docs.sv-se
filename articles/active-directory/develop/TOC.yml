@@ -1,286 +1,381 @@
 items:
-- name: Översikt
-  href: azure-ad-developers-guide.md
-  items:
-  - name: Varför Azure AD
-    href: https://azure.microsoft.com/develop/identity/signin/
-  - name: Grundläggande om Auth
-    href: authentication-scenarios.md
-  - name: Typer av appar
-    href: authentication-scenarios.md#application-types-and-scenarios
-- name: Kom igång
-  items:
-  - name: Mobilappar och skrivbordsappar
-    items:
-    - name: Översikt
-      href: active-directory-authentication-scenarios.md#native-application-to-web-api
-    - name: iOS
-      href: quickstart-v1-ios.md
-    - name: Android
-      href: quickstart-v1-android.md
-    - name: .NET (Windows-skrivbordsversionen)
-      href: quickstart-v1-dotnet.md
-    - name: .NET (Xamarin)
-      href: quickstart-v1-xamarin.md
-    - name: OAuth 2.0
-      href: v1-protocols-oauth-code.md
-  - name: Webbappar
-    items:
-    - name: Översikt
-      href: active-directory-authentication-scenarios.md#web-browser-to-web-application
-    - name: ASP.NET
-      href: quickstart-v1-aspnet-webapp.md
-    - name: ASP.NET Core
-      href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore
-    - name: Java
-      href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
-    - name: Python
-      href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
-    - name: NodeJS
-      href: quickstart-v1-openid-connect-code.md
-    - name: OpenID Connect
-      href: v1-protocols-openid-connect-code.md
-  - name: Appar med en sida
-    items:
-    - name: Översikt
-      href: active-directory-authentication-scenarios.md#single-page-application-spa
-    - name: Angular JS
-      href: quickstart-v1-angularjs-spa.md
-    - name: Javascript
-      href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi
-  - name: Webb-API:er
-    items:
-    - name: Översikt
-      href: active-directory-authentication-scenarios.md#web-application-to-web-api
-    - name: ASP.NET
-      href: quickstart-v1-dotnet-webapi.md
-    - name: NodeJS
-      href: quickstart-v1-nodejs-webapi.md
-  - name: Tjänst till tjänst
-    items:
-    - name: Översikt
-      href: active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api
-    - name: .NET
-      href: sample-v1-code.md#server-or-daemon-application-to-web-api
-    - name: Autentiseringsuppgifter för OAuth 2.0-klient
-      href: v1-oauth2-client-creds-grant-flow.md
-- name: Guider
-  items:
-  - name: Programregistrering
-    href: quickstart-v1-integrate-apps-with-azure-ad.md
-  - name: Appar för flera klienter
-    href: howto-convert-app-to-be-multi-tenant.md
-  - name: Villkorlig åtkomst
-    href: conditional-access-dev-guide.md
-  - name: Behörigheter
-    displayName: Scopes
-    href: v1-permissions-and-consent.md
-  - name: OAuth och OpenID Connect
-    items:
-    - name: OpenID Connect-protokoll
-      href: v1-protocols-openid-connect-code.md
-    - name: Beviljande av OAuth 2.0-auktoriseringkod
-      href: v1-protocols-oauth-code.md
-    - name: Implicit beviljande av OAuth 2.0
-      href: v1-oauth2-implicit-grant-flow.md
-  - name: SAML 2.0
-    href: active-directory-saml-protocol-reference.md
-    items:
-    - name: Konfigurera rollanspråk
-      href: ../active-directory-enterprise-app-role-management.md
-    - name: Anpassa anspråk
-      href: active-directory-saml-claims-customization.md
-    - name: Felsöka SAML-baserad enkel inloggning
-      href: howto-v1-debug-saml-sso-issues.md
-    - name: SAML-protokoll för enkel inloggning
-      href: single-sign-on-saml-protocol.md
-    - name: SAML-protokoll för enkel utloggning
-      href: single-sign-out-saml-protocol.md
-  - name: Skapa en klient
-    href: quickstart-create-new-tenant.md
-  - name: Användningsvillkor och sekretesspolicy
-    href: howto-add-terms-of-service-privacy-statement.md
-  - name: Riktlinjer för anpassning
-    href: howto-add-branding-in-azure-ad-apps.md
-  - name: Enkel inloggning för mobilappar och skrivbordsappar
-    items:
-    - name: Aktivera enkel inloggning för Android
-      href: howto-v1-enable-sso-android.md
-    - name: Aktivera enkel inloggning för iOS
-      href: howto-v1-enable-sso-ios.md
-  - name: Azure AD B2B
-    href: ../active-directory-b2b-what-is-azure-ad-b2b.md
-  - name: Användaretablering med SCIM
-    href: ../active-directory-scim-provisioning.md
-  - name: Azure AD Graph API
-    href: active-directory-graph-api.md
-    items:
-    - name: Komma igång med AAD Graph
-      href: active-directory-graph-api-quickstart.md
-  - name: AppSource-certifiering
-    href: howto-get-appsource-certified.md
-  - name: Azure AD-appgalleri
-    href: howto-app-gallery-listing.md
-  - name: Office 365-instrumentpanel för försäljning
-    href: https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard
-  - name: Arbeta med Visual Studio
-    items:
-    - name: Använda den Active Directory-anslutna tjänsten
-      href: vs-active-directory-add-connected-service.md
-    - name: Komma igång med .NET MVC-projekt
-      href: vs-active-directory-dotnet-getting-started.md
-    - name: Vad hände med mitt .NET MVC-projekt?
-      href: vs-active-directory-dotnet-what-happened.md
-    - name: Komma igång med WebAPI-projekt
-      href: vs-active-directory-webapi-getting-started.md
-    - name: Vad hände med mitt WebAPI-projekt?
-      href: vs-active-directory-webapi-what-happened.md
-    - name: Fel vid identifiering av autentisering
-      href: vs-active-directory-error.md
-  - name: Windows Server ADFS
-    href: https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers
-  - name: ACS-migrering
-    href: active-directory-acs-migration.md
-  - name: Metodtips för felhantering för ADAL
-    href: active-directory-devhowto-adal-error-handling.md
-- name: Referens
-  items:
-  - name: Kodexempel
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory
-  - name: Auth-bibliotek (ADAL)
-    href: active-directory-authentication-libraries.md
-  - name: Kodexempel efter scenario
-    displayName: ADAL
-    href: sample-v1-code.md
-  - name: Ordlista
-    href: developer-glossary.md
-  - name: Autentiseringsprotokoll
-    href: active-directory-authentication-protocols.md
-    items:
-    - name: OpenID Connect
-      href: v1-protocols-openid-connect-code.md
-    - name: Oauth
-      href: v1-protocols-oauth-code.md
-    - name: Tjänst-till-tjänst-anrop
-      href: v1-oauth2-client-creds-grant-flow.md
-    - name: On-Behalf-Of-flöde
-      href: v1-oauth2-on-behalf-of-flow.md
-    - name: Token och anspråkstyper som stöds
-      href: v1-id-and-access-tokens.md
-    - name: Konfigurera valfria och anpassade anspråk för programmet
-      href: active-directory-optional-claims.md
-    - name: Förnyelse av signeringsnyckel
-      href: active-directory-signing-key-rollover.md
-    - name: Federationsmetadata
-      href: azure-ad-federation-metadata.md
-    - name: Autentiseringsuppgifter för certifikat
-      href: active-directory-certificate-credentials.md
-  - name: Programobjekt
-    href: app-objects-and-service-principals.md
-    items:
-    - name: Appar och Azure AD
-      href: active-directory-how-applications-are-added.md
-  - name: Programmanifest
-    href: reference-app-manifest.md
-  - name: Livslängder för token
-    href: ../active-directory-configurable-token-lifetimes.md
-  - name: Tjänstbegränsningar
-    href: ../active-directory-service-limits-restrictions.md
-- name: v2.0-slutpunkt
-  displayName: MSAL
+- name: Microsoft Identity Platform (Azure Active Directory för utvecklare)
+  href: index.yml
+- name: Om Microsoft Identity-plattformen
+  href: about-microsoft-identity-platform.md
+- name: V1.0
   items:
   - name: Översikt
-    href: active-directory-appmodel-v2-overview.md
+    href: azure-ad-developers-guide.md
+  - name: Snabbstarter
     items:
-    - name: Typer av appar
-      href: v2-app-types.md
-    - name: Begränsningar
-      href: active-directory-v2-limitations.md
-    - name: Jämförelse mellan v1 och v2
-      href: azure-ad-endpoint-comparison.md
-  - name: Kom igång
-    items:
-    - name: Mobilappar och skrivbordsappar
+    - name: Konfigurera en utvecklingsmiljö
+      href: quickstart-create-new-tenant.md
+    - name: Konfigurera ett program
       items:
-      - name: iOS
-        href: tutorial-v2-ios.md
-      - name: Android
-        href: tutorial-v2-android.md
-      - name: .NET för Windows-skrivbordet
-        href: tutorial-v2-windows-desktop.md
-      - name: Universell Windows-plattform
-        href: tutorial-v2-windows-uwp.md
+      - name: Registrera en app
+        href: quickstart-v1-add-azure-ad-app.md
+      - name: Uppdatera en app
+        href: quickstart-v1-update-azure-ad-app.md
+      - name: Ta bort en objekt
+        href: quickstart-v1-remove-azure-ad-app.md
+    - name: Enkelsidiga appar
+      items:
+      - name: AngularJS
+        href: quickstart-v1-angularjs-spa.md
+      - name: JavaScript
+        href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi
     - name: Webbappar
       items:
-      - name: ASP.NET
-        href: tutorial-v2-asp-webapp.md
+      - name: ASP .NET
+        href: quickstart-v1-aspnet-webapp.md
+      - name: Java
+        href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
+      - name: NodeJS
+        href: quickstart-v1-openid-connect-code.md
+      - name: Python
+        href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
+    - name: Webb-API:er
+      items:
+      - name: ASP .NET
+        href: quickstart-v1-dotnet-webapi.md
+      - name: NodeJS
+        href: quickstart-v1-nodejs-webapi.md
+    - name: Mobilappar och skrivbordsappar
+      items:
+      - name: Android
+        href: quickstart-v1-android.md
+      - name: iOS
+        href: quickstart-v1-ios.md
+      - name: .NET för Windows-skrivbordet
+        href: quickstart-v1-dotnet.md
+      - name: Xamarin
+        href: quickstart-v1-xamarin.md
+    - name: Tjänst till tjänst
+      href: sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity
+  - name: Exempel
+    href: sample-v1-code.md
+  - name: Begrepp
+    items:
+    - name: Programtyper
+      href: app-types.md
+      items:
+      - name: Enkelsidig app
+        href: single-page-application.md
+      - name: Webbapp
+        href: web-app.md
+      - name: Webb-API
+        href: web-api.md
+      - name: Mobilappar och skrivbordsappar
+        href: native-app.md
+      - name: Daemon- eller serverprogram
+        href: service-to-service.md
+    - name: Autentisering
+      href: authentication-scenarios.md
+      items:
+      - name: Protokoll
+        items:
+        - name: OAuth och OpenID Connect-protokoll
+          items:
+          - name: Implicit flöde för beviljande av OAuth 2.0
+            href: v1-oauth2-implicit-grant-flow.md
+          - name: Beviljande av OAuth 2.0-auktoriseringkod
+            href: v1-protocols-oauth-code.md
+          - name: On-Behalf-Of-flöde för OAuth 2.0
+            href: v1-oauth2-on-behalf-of-flow.md
+          - name: Beviljande av autentiseringsuppgifter för OAuth 2.0-klient
+            href: v1-oauth2-client-creds-grant-flow.md
+        - name: SAML 2.0
+          items:
+          - name: Enkel inloggning
+            href: single-sign-on-saml-protocol.md
+          - name: Utloggning
+            href: single-sign-out-saml-protocol.md
+        - name: WS-Federation
+          items:
+          - name: Federationsmetadata
+            href: azure-ad-federation-metadata.md
+        - name: Förnyelse av signeringsnyckel
+          href: active-directory-signing-key-rollover.md
+      - name: ID-tokens
+        href: id-tokens.md
+      - name: Åtkomsttokens
+        href: access-tokens.md
+      - name: Autentiseringsuppgifter för certifikat
+        href: active-directory-certificate-credentials.md
+      - name: SAML-token
+        href: reference-saml-tokens.md
+    - name: Tillämpningskonfiguration
+      href: app-objects-and-service-principals.md
+      items:
+      - name: Hur och varför program läggs till i Azure AD
+        href: active-directory-how-applications-are-added.md
+      - name: Appar för enskild klient eller flera klienter
+        href: single-and-multi-tenant-apps.md
+    - name: Behörigheter och samtycke
+      displayName: Scopes
+      href: v1-permissions-and-consent.md
+      items:
+      - name: Ramverk för medgivande
+        href: consent-framework.md
+      - name: Upplevelse för programmedgivande
+        href: ../application-consent-experience.md
+    - name: Villkorlig åtkomst
+      href: conditional-access-dev-guide.md
+    - name: Nationella moln
+      href: authentication-national-cloud.md
+  - name: Instruktionsguider
+    items:
+    - name: Autentisering
+      items:
+      - name: Konfigurera enkel inloggning
+        displayName: SSO
+        items:
+        - name: Aktivera enkel inloggning för Android
+          href: howto-v1-enable-sso-android.md
+        - name: Aktivera enkel inloggning för iOS
+          href: howto-v1-enable-sso-ios.md
+        - name: Felsöka SAML-baserad enkel inloggning
+          href: howto-v1-debug-saml-sso-issues.md
+      - name: Konfigurera anspråk
+        items:
+        - name: Konfigurera rollanspråk
+          href: ../active-directory-enterprise-app-role-management.md
+        - name: Anpassa anspråk
+          href: active-directory-saml-claims-customization.md
+    - name: Tillämpningskonfiguration
+      items:
+      - name: Konvertera en app för en enda klient till en app för flera klienter
+        href: howto-convert-app-to-be-multi-tenant.md
+      - name: Begränsa din app till en uppsättning användare
+        href: howto-restrict-your-app-to-a-set-of-users.md
+      - name: Lägg till roller i ditt program
+        href: howto-add-app-roles-in-azure-ad-apps.md
+      - name: Riktlinjer för anpassning
+        href: howto-add-branding-in-azure-ad-apps.md
+      - name: Användningsvillkor och sekretesspolicy
+        href: howto-add-terms-of-service-privacy-statement.md
+    - name: Arbeta med Visual Studio
+      items:
+      - name: Använda den Active Directory-anslutna tjänsten
+        href: vs-active-directory-add-connected-service.md
+      - name: Komma igång med .NET MVC-projekt
+        href: vs-active-directory-dotnet-getting-started.md
+      - name: Vad hände med mitt .NET MVC-projekt?
+        href: vs-active-directory-dotnet-what-happened.md
+      - name: Komma igång med WebAPI-projekt
+        href: vs-active-directory-webapi-getting-started.md
+      - name: Vad hände med mitt WebAPI-projekt?
+        href: vs-active-directory-webapi-what-happened.md
+      - name: Fel vid identifiering av autentisering
+        href: vs-active-directory-error.md
+    - name: Publicera en app på marknaden
+      items:
+      - name: Publicera i App Source
+        href: howto-get-appsource-certified.md
+      - name: Publicera i Azure AD-appgalleri
+        href: howto-app-gallery-listing.md
+      - name: Publicera i Office 365-instrumentpanel för försäljning
+        href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+    - name: Migrera från Azure Access Control Service
+      href: active-directory-acs-migration.md
+    - name: Använd Azure AD Graph API:n
+      href: active-directory-graph-api-quickstart.md
+    - name: AD FS För utvecklare
+      href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
+  - name: Referenser
+    items:
+    - name: Azure AD-autentiseringsbibliotek
+      displayName: ADAL
+      href: active-directory-authentication-libraries.md
+    - name: Azure AD Graph API
+      href: active-directory-graph-api.md
+    - name: Anspråk i säkerhetstoken för Azure AD
+      href: active-directory-optional-claims.md
+    - name: Programmanifest
+      href: reference-app-manifest.md
+    - name: Autentisering och felkoder vid autentisering
+      href: reference-aadsts-error-codes.md
+    - name: Icke-bakåtkompatibla ändringar
+      href: reference-breaking-changes.md
+  expanded: true
+- name: v2.0
+  items:
+  - name: Översikt
+    href: v2-overview.md
+  - name: Snabbstarter
+    items:
+    - name: Konfigurera en utvecklingsmiljö
+      href: quickstart-create-new-tenant.md
+    - name: Konfigurera ett program
+      items:
+      - name: Registrera en app
+        href: quickstart-v2-register-an-app.md
+      - name: Uppdatera en app
+        href: quickstart-v1-update-azure-ad-app.md
+      - name: Ta bort en objekt
+        href: quickstart-v1-remove-azure-ad-app.md
+    - name: Enkelsidiga appar
+      items:
+      - name: JavaScript
+        href: quickstart-v2-javascript.md
+    - name: Webbappar
+      items:
+      - name: ASP .NET
+        href: quickstart-v2-aspnet-webapp.md
       - name: ASP.NET Core
-        href: https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2
+        href: quickstart-v2-aspnet-core-webapp.md
       - name: NodeJS
         href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
     - name: Webb-API:er
       items:
-      - name: ASP.NET
+      - name: ASP .NET
         href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
       - name: ASP.NET Core
         href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
-      - name: NodeJS
-        href: https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2
-    - name: Appar med en sida
+    - name: Mobilappar och skrivbordsappar
+      items:
+      - name: Android
+        href: quickstart-v2-android.md
+      - name: iOS
+        href: quickstart-v2-ios.md
+      - name: Universell Windows-plattform
+        href: quickstart-v2-uwp.md
+      - name: .NET för Windows-skrivbordet
+        href: quickstart-v2-windows-desktop.md
+    - name: Tjänst-till-tjänst
+      items:
+      - name: ASP .NET
+        href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
+  - name: Självstudier
+    items:
+    - name: Enkelsidiga appar
       items:
       - name: JavaScript
         href: tutorial-v2-javascript-spa.md
-    - name: Tjänst till tjänst
+    - name: Webbappar
       items:
-      - name: ASP.NET
-        href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
-  - name: Guider
-    items:
-    - name: Registrera en app
-      href: quickstart-v2-register-an-app.md
-    - name: Referens för registrering av appar
-      href: active-directory-v2-registration-portal.md
-  - name: Referens
-    items:
-    - name: Autentiseringsbibliotek
-      displayName: MSAL
-      href: reference-v2-libraries.md
-    - name: v2.0-kodexempel efter scenario
-      displayName: MSAL
-      href: sample-v2-code.md
-    - name: v2.0 autentiseringsprotokoll
-      displayName: MSAL
-      href: active-directory-v2-protocols.md
+      - name: ASP .NET
+        href: tutorial-v2-asp-webapp.md
+    - name: Mobilappar och skrivbordsappar
       items:
-      - name: OpenID Connect
-        href: v2-protocols-oidc.md
-      - name: Beviljande av OAuth 2.0-auktoriseringskod
-        href: v2-oauth2-auth-code-flow.md
-      - name: Implicit beviljande av OAuth 2.0
-        href: v2-oauth2-implicit-grant-flow.md
-      - name: Beviljande av autentiseringsuppgifter för OAuth 2.0-klient
-        href: v2-oauth2-client-creds-grant-flow.md
-      - name: On-Behalf-Of-flöde för OAuth 2.0
-        href: v2-oauth2-on-behalf-of-flow.md
+      - name: Android
+        href: tutorial-v2-android.md
+      - name: iOS
+        href: tutorial-v2-ios.md
+      - name: Universell Windows-plattform
+        href: tutorial-v2-windows-uwp.md
+      - name: .NET för Windows-skrivbordet
+        href: tutorial-v2-windows-desktop.md
+  - name: Exempel
+    href: sample-v2-code.md
+  - name: Begrepp
+    items:
+    - name: Välja mellan v1.0 och v2.0
+      href: azure-ad-endpoint-comparison.md
+    - name: Programtyper
+      href: v2-app-types.md
+    - name: Autentisering
+      href: authentication-scenarios.md
+      items:
+      - name: Protokoll
+        items:
+        - name: OAuth och OpenID Connect-protokoll
+          items:
+          - name: Implicit flöde för beviljande av OAuth 2.0
+            href: v2-oauth2-implicit-grant-flow.md
+          - name: Beviljande av OAuth 2.0-auktoriseringkod
+            href: v2-oauth2-auth-code-flow.md
+          - name: On-Behalf-Of-flöde för OAuth 2.0
+            href: v2-oauth2-on-behalf-of-flow.md
+          - name: Beviljande av autentiseringsuppgifter för OAuth 2.0-klient
+            href: v2-oauth2-client-creds-grant-flow.md
+      - name: ID-tokens
+        href: id-tokens.md
+      - name: Åtkomsttokens
+        href: access-tokens.md
       - name: Autentiseringsuppgifter för certifikat
         href: active-directory-certificate-credentials.md
-      - name: Oauth 2.0-exempelkod
-        href: active-directory-protocols-oauth-get-jwt-token.md
-    - name: Token
-      href: v2-id-and-access-tokens.md
-    - name: Omfång och medgivande
+    - name: Tillämpningskonfiguration
+      href: app-objects-and-service-principals.md
+      items:
+      - name: Appar för enskild klient eller flera klienter
+        href: single-and-multi-tenant-apps.md
+    - name: Behörigheter och samtycke
+      displayName: Scopes
       href: v2-permissions-and-consent.md
+      items:
+      - name: Ramverk för medgivande
+        href: consent-framework.md
+      - name: Upplevelse för programmedgivande
+        href: ../application-consent-experience.md
+    - name: Nationella moln
+      href: authentication-national-cloud.md
+  - name: Instruktionsguider
+    items:
+    - name: Autentisering
+      items:
+      - name: Konfigurera rollanspråk
+        href: ../active-directory-enterprise-app-role-management.md
+      - name: Anpassa anspråk
+        href: active-directory-saml-claims-customization.md
+    - name: Tillämpningskonfiguration
+      items:
+      - name: Konvertera en app för en enda klient till en app för flera klienter
+        href: howto-convert-app-to-be-multi-tenant.md
+      - name: Begränsa din app till en uppsättning användare
+        href: howto-restrict-your-app-to-a-set-of-users.md
+      - name: Lägg till roller i ditt program
+        href: howto-add-app-roles-in-azure-ad-apps.md
+      - name: Riktlinjer för anpassning
+        href: howto-add-branding-in-azure-ad-apps.md
+      - name: Användningsvillkor och sekretesspolicy
+        href: howto-add-terms-of-service-privacy-statement.md
+    - name: Arbeta med Visual Studio
+      items:
+      - name: Använda den Active Directory-anslutna tjänsten
+        href: vs-active-directory-add-connected-service.md
+      - name: Komma igång med .NET MVC-projekt
+        href: vs-active-directory-dotnet-getting-started.md
+      - name: Vad hände med mitt .NET MVC-projekt?
+        href: vs-active-directory-dotnet-what-happened.md
+      - name: Komma igång med WebAPI-projekt
+        href: vs-active-directory-webapi-getting-started.md
+      - name: Vad hände med mitt WebAPI-projekt?
+        href: vs-active-directory-webapi-what-happened.md
+      - name: Fel vid identifiering av autentisering
+        href: vs-active-directory-error.md
+  - name: Referenser
+    items:
+    - name: Microsofts autentiseringsbibliotek
+      displayName: MSAL
+      href: reference-v2-libraries.md
+    - name: Azure AD API:er i Microsoft Graph
+      href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
+    - name: Programmanifest
+      href: reference-app-manifest.md
+    - name: Autentisering och felkoder vid autentisering
+      href: reference-aadsts-error-codes.md
+    - name: Icke-bakåtkompatibla ändringar
+      href: reference-breaking-changes.md
+  expanded: true
 - name: Resurser
   items:
-  - name: Få hjälp
-    href: developer-support-help-options.md
+  - name: Ordlista
+    href: developer-glossary.md
   - name: Azure-översikt
     href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 4bc0ff25b45da262d7db0bea3546edca23457ff6
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+  - name: Azure AD-blogg
+    href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+  - name: Prova att logga in med Microsoft
+    href: https://azure.microsoft.com/develop/identity/signin/
+  - name: Få hjälp
+    href: developer-support-help-options.md
+  - name: Hanterad tjänstidentitet (MSI) för Azure-resurser
+    href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
+ms.openlocfilehash: f43ff4699faaddb51a43ce6ea282c61b226729e3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41929618"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988536"

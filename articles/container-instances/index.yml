@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 613362471636b0f9de611bb0cd9580c89afec3b5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985936"
 documentType: LandingData
 title: Dokumentation om Azure Container Instances
 metadata:
@@ -13,14 +19,8 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: dc21a3a7a75035c253213bcb7f2e3f033c54b54c
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34609733"
 abstract:
-  description: Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva etablera några virtuella datorer och utan att behöva använda en tjänst på högre nivå. Lär dig hur du skapar och hanterar behållarinstanser med våra snabbstarter, självstudier och exempel.<p>Om du behöver en fullständig lösning för behållarinitiering kan du läsa <a href="/azure/aks/">dokumentationen om Azure Kubernetes Service (AKS)</a>.</p>
+  description: Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva etablera några virtuella datorer och utan att behöva använda en tjänst på högre nivå. Lär dig hur du skapar och hanterar containerinstanser med våra snabbstarter, självstudier och exempel.<p>Om du behöver en fullständig lösning för containerinitiering kan du läsa <a href="/azure/aks/">dokumentationen om Azure Kubernetes Service (AKS)</a>.</p>
 sections:
 - title: Snabbstarter på 5 minuter
   items:
@@ -44,13 +44,25 @@ sections:
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: Lär dig hur du paketerar kod i en behållaravbildning och kör den i en Azure-behållarinstans.
+    text: Lär dig hur du paketerar kod i en containeravbildning och kör den i en Azure-containerinstans.
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Paketera ett program i en behållaravbildning</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Paketera ett program i en containeravbildning</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Skapa ett register med Azure Container Registry och ladda upp behållaravbildningen</a>
-    - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Distribuera behållaravbildningen till en Azure-behållarinstans</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Distribuera containeravbildningen till en Azure-containerinstans</a>
+- title: Utveckla din kompetens med Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Kör Docker-behållare i Azure Container Instances
+      href: /learn/modules/run-docker-with-azure-container-instances/
+      image:
+        src: /learn/achievements/run-docker-with-azure-container-instances.svg
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-container-instances">Mer interaktiv utbildning...</a>
 - title: Referens
   items:
   - type: list

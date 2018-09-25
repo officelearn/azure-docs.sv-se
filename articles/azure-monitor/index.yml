@@ -1,0 +1,131 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 00cfbc814b3521dbab0ca602d6344183fd16e04b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994980"
+documentType: LandingData
+title: Dokumentation om Azure Monitor
+metadata:
+  title: Dokumentation för Azure Monitor | Microsoft Docs
+  description: Azure Monitor, vilket nu innefattar Log Analytics och Application Insights, innehåller avancerade verktyg för att samla in och analysera telemetri som gör det möjligt att maximera prestanda och tillgänglighet för dina molnresurser och lokala resurser och program.
+  services: azure-monitor
+  author: bwren
+  manager: carmonm
+  ms.service: azure-monitor
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/04/2018
+  ms.author: bwren
+abstract:
+  description: Azure Monitor, vilket nu innefattar Log Analytics och Application Insights, innehåller avancerade verktyg för att samla in och analysera telemetri som gör det möjligt att maximera prestanda och tillgänglighet för dina molnresurser och lokala resurser och program. Det hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och de resurser som de förlitar sig på.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig mer om att samla in och analysera mått och loggar som samlats in från Azure-resurser.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/Chart.svg
+      text: Övervaka mått
+      href: /azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal
+    - image:
+        src: /azure/azure-monitor/media/index/log-analytics.svg
+      text: Analysloggar
+      href: /azure/log-analytics/query-language/get-started-analytics-portal
+    - image:
+        src: https://docs.microsoft.com/azure/media/index/virtualmachine.svg
+      text: Virtuella Azure-datorer
+      href: /azure/log-analytics/log-analytics-quick-collect-azurevm
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+      text: Linux-dator
+      href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
+      text: Windows-dator
+      href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
+    - image:
+        src: https://docs.microsoft.com/media/common/i_alert.svg
+      text: Granskning och aviseringar för prenumeration
+      href: /azure/monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription
+  - type: paragraph
+    text: Lär dig att övervaka ditt program med Azure Application Insights.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/dotnet.svg
+      text: .NET
+      href: quick-monitor-portal
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
+      text: .NET Core
+      href: app-insights-dotnetcore-quick-start
+    - image:
+        src: https://docs.microsoft.com/media/common/nodejs.svg
+      text: Node.js
+      href: app-insights-nodejs-quick-start
+    - image:
+        src: https://docs.microsoft.com/media/common/java.svg
+      text: Java
+      href: app-insights-java-quick-start
+    - image:
+        src: /azure/application-insights/media/index/mobile-center.png
+      text: Mobil
+      href: app-insights-mobile-center-quickstart
+- title: Stegvisa självstudier
+  items:
+  - type: paragraph
+    text: Lär dig att analysera, visualisera och hantera insamlade data.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">Visa och analysera data som samlats in</a>
+    - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Skapa och dela instrumentpaneler</a>
+    - html: <a href="monitor-tutorial-autoscale-performance-schedule">Autoskala baserat på schema eller programprestanda</a>
+    - html: <a href="monitor-tutorial-archive-monitoring-data">Arkivera övervakningsdata</a>
+  - type: paragraph
+    text: Lär dig mer om att kontinuerligt förbättra prestanda och användning av dina webbappar.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="app-insights-tutorial-runtime-exceptions">Hitta och diagnostisera körningsundantag</a>
+    - html: <a href="app-insights-tutorial-performance">Hitta och diagnostisera prestandaproblem</a>
+    - html: <a href="app-insights-tutorial-alert">Övervakning och aviseringar om programmets hälsotillstånd</a>
+    - html: <a href="app-insights-tutorial-users">Analysera kundens användning och information</a>
+    - html: <a href="app-insights-tutorial-dashboards">Skapa anpassade KPI-instrumentpaneler</a>
+- title: Kostnadsfri videoutbildning för Pluralsight
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure-administratör
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
+- title: Exempel
+  items:
+  - type: paragraph
+    text: Använd följande exempel för att konfigurera och hantera Log Analytics.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Kommandorad
+      html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/loganalytics">REST API-referens</a></p>

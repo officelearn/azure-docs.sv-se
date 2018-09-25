@@ -25,7 +25,7 @@ items:
     href: app-service-web-get-started-java.md
   - name: Skapa en statisk HTML-webbplats
     href: app-service-web-get-started-html.md
-  - name: Kör anpassad Windows-container
+  - name: Kör Windows-behållare
     href: app-service-web-get-started-windows-container.md
   expanded: true
 - name: Självstudier
@@ -42,6 +42,8 @@ items:
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: Java med MySQL
       href: app-service-web-tutorial-java-mysql.md
+  - name: Anpassa Windows (Behållare)
+    href: app-service-web-tutorial-windows-containers-custom-fonts.md
   - name: Få åtkomst till SQL DB på ett säkert sätt
     href: app-service-web-tutorial-connect-msi.md
   - name: Agera värd åt RESTful-API
@@ -207,6 +209,8 @@ items:
     href: /rest/api/appservice/
 - name: Resurser
   items:
+  - name: Utveckla din kompetens med Microsoft Learn
+    href: /learn/browse/
   - name: Azure-översikt
     href: https://azure.microsoft.com/roadmap/
   - name: Prissättning
@@ -283,9 +287,9 @@ items:
       href: ip-address-change-outbound.md
     - name: SSL-adress
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 76411487d956b107097453a157993351c2ca8b1d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9fe97e720ed1f4807a9eb00ae88633bff7cbeaf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715252"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980329"

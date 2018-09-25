@@ -1,10 +1,11 @@
 items:
-- name: Dokumentation om bildsökning i Bing
+- name: Dokumentation om Bing-bildsöknings-API
   href: index.yml
 - name: Översikt
   items:
   - name: Vad är bildsökning i Bing?
     href: overview.md
+  expanded: true
 - name: Snabbstarter
   items:
   - name: Skicka sökfrågor med hjälp av REST API
@@ -21,7 +22,6 @@ items:
       href: quickstarts/python.md
     - name: Använda Ruby
       href: quickstarts/ruby.md
-    expanded: true
   - name: Söka efter bilder med hjälp av SDK
     items:
     - name: Använd C#
@@ -68,9 +68,9 @@ items:
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
   - name: API för bildsökning i Bing v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
-  - name: Azure Cognitive Services PowerShell-referens
+  - name: Azure PowerShell-referens
     href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: Referens för Azure Cognitive Services-kommandoradsgränssnitt
+  - name: Azure CLI-referens
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
 - name: Resurser
   items:
@@ -100,9 +100,9 @@ items:
     href: UseAndDisplayRequirements.md
   - name: Analys för API för bildsökning i Bing
     href: bing-image-stats.md
-ms.openlocfilehash: 74cc9f56aa4d559c7e2644fc6866ae3d97f158f6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2b7b4bc8fb79687d032de52e3ac2ecbe4e944a8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296302"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967361"

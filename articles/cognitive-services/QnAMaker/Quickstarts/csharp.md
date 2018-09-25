@@ -10,12 +10,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: eba6b82d9378d3dd9713a8d17284b5ceac0d1cde
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7c79a5c1b65391be1a100efa9e0dcf4e4a0d12ae
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717785"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040287"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Snabbstart för Microsoft QnA Maker API med C# 
 <a name="HOLTop"></a>
@@ -36,6 +36,8 @@ Den här artikeln visar hur du använder den [Microsoft QnA Maker API](../Overvi
 - [Återskapa de aktuella endpoint-nycklarna.](#PutKeys)
 - [Hämta den aktuella uppsättningen word förändras.](#GetAlterations)
 - [Ersätt den aktuella uppsättningen word förändras.](#PutAlterations)
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -438,7 +440,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Hämta status för begäran
 
-Du kan anropa den [åtgärden](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) metoden för att kontrollera status för en begäran om att skapa eller uppdatera en kunskapsbas. Om du vill se hur den här metoden används, se exempelkod för den [skapa](#Create) eller [uppdatering](#Update) metod.
+Du kan anropa den metoden [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Åtgärd) för att kontrollera status för en begäran om att skapa eller uppdatera en kunskapsbas. Om du vill se hur den här metoden används kan du titta på exempelkoden för metoden [Create](#Create) (Skapa) eller [Update](#Update) (Uppdatera).
 
 [Överst på sidan](#HOLTop)
 

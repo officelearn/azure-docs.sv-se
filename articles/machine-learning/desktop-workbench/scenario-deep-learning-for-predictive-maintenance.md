@@ -13,14 +13,19 @@ ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 83e1f14db317f59ab2063a9d020adbdb6fe78e5f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d52433a32d8dc764c7535dacf5872e55f0082ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650454"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995524"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Djupinlärning för förutsägande Underhåll verkliga scenarier
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Djupinlärning är en av de mest populära trenderna i machine learning och har program till många områden, inklusive:
 - Förarlösa bilar och robotteknik.
@@ -75,7 +80,7 @@ Det här kommandot ger en autentiseringsnyckel som ska användas med https:\\aka
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-Det är bättre att köra en [Data Science Virtual Machine (DSVM) för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) för minne och krav. När DSVM har konfigurerats kan du förbereda den fjärranslutna Docker-miljön med följande två kommandon:
+Det är bättre att köra en [Data Science Virtual Machine (DSVM) för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) för minne och krav. När DSVM har konfigurerats kan du förbereda den fjärranslutna Docker-miljön med följande två kommandon:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

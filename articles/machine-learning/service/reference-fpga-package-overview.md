@@ -1,21 +1,26 @@
 ---
 title: FPGA-paketet för maskinvaruacceleration för Azure Machine Learning
 description: Läs mer om de python-paket som är tillgängliga för Azure Machine Learning-användare.
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4f23e8987a3abd9cdace85b0a3dc52ca464245df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060351"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995439"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning-maskinvaruacceleration-paketet
+
+>[!Note]
+>**Den här artikeln är inaktuell.** Det här paketet FPGA upphörde. Stöd för den här funktionen har lagts till i Azure ML-SDK. Stöd för det här paketet går ut om inkrementellt. [Visa tidslinje för support](overview-what-happened-to-workbench.md#timeline). Lär dig om uppdateras [stöd för FPGA](concept-accelerate-with-fpgas.md).
 
 Maskinvaruacceleration för Azure Machine Learning-paket är ett Python-pip-installation tillägg för Azure Machine Learning som gör att dataanalytiker och AI-utvecklare att snabbt:
 
@@ -29,7 +34,7 @@ Maskinvaruacceleration för Azure Machine Learning-paket är ett Python-pip-inst
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-1. Du måste skapa ett konto i Azure Machine Learning-modellhantering. Mer information om hur du skapar kontot finns i den [installationen av Azure Machine Learning-Quickstart och Workbench](../service/quickstart-installation.md) dokumentet. 
+1. Du måste skapa ett konto i Azure Machine Learning-modellhantering. Mer information om hur du skapar kontot finns i den [installationen av Azure Machine Learning-Quickstart och Workbench](../desktop-workbench/quickstart-installation.md) dokumentet. 
 
 1. Paketet måste installeras. 
 

@@ -2,27 +2,27 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/27/2018
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: ee50a104a75d3cd5ff958bd49a1ff7010c5d5083
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: dc2e025cdd9fcc153f3cb81988a9ca3ec729c934
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144566"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47021156"
 ---
 <!-- N.B. no header, language-agnostic -->
 
 Microsoft Cognitive Services [tal SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) ger det enklaste sättet att använda **talöversättning** i ditt program.
 SDK innehåller alla funktioner i tjänsten. Den grundläggande processen för att utföra talöversättning omfattar följande steg:
 
-1. Skapa en datafabrik med tal och ge en prenumerationsnyckel för tal-tjänst eller en autentiseringstoken och en [region](~/articles/cognitive-services/speech-service/regions.md) som parametrar.
-   
-1. Skapa en översättning identifierare från tal fabriken. Du kan konfigurera språk för käll- och översättning, samt ange om du vill text eller tal utdata. Det finns olika varianter av översättning identifierare baserat på ljudkälla som du använder.
+1. Skapa en speech translation-konfiguration och ge en prenumerationsnyckel för tal-tjänst (eller en autentiseringstoken) och en [region](~/articles/cognitive-services/speech-service/regions.md) som parametrar. Ändra konfigurationen efter behov. Exempel: du kan konfigurera språk för käll- och översättning, samt ange om du vill text eller tal utdata.
+
+1. Skapa en översättning identifierare från tal fabriken. Ange en ljud-konfiguration om du vill att känna igen från en annan källa än mikrofonen standard (till exempel ljudström eller ljudfil).
 
 1. Koppla in händelser för asynkron åtgärd om du vill. Identifieraren anropar sedan din händelsehanterare när den har tillfälliga och slutliga resultaten, samt en syntes händelse för valfritt ljuduppspelning. Annars kan får ditt program endast en slutlig avskrift resultatet.
 
-1. Starta taligenkänning. Inleveransen translation använder den `RecognizeAsync()` metod som returnerar den första identifierade uttryck. För långvariga översättningar använder den `StartContinuousRecognitionAsync()` metoden och koppla upp händelser för asynkron igenkänningsresultat.
+1. Starta taligenkänning. Inleveransen translation använder den `RecognizeOnceAsync()` metod som returnerar den första identifierade uttryck. För långvariga översättningar använder den `StartContinuousRecognitionAsync()` metoden och koppla upp händelser för asynkron igenkänningsresultat.
 
 Se följande kodstycken för speech translation scenarier som använder SDK: N för tal.
 

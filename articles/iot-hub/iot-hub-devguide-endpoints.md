@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: bf23046b8a80b02bc1667f647cb1d475503a8feb
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e6b4ee3425f6a490f33f998cab4f33734b23df22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125784"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982111"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub-slutpunkter
 
@@ -61,7 +61,7 @@ Alla slutpunkter i IoT Hub använder den [TLS] [ lnk-tls] protokollet och ingen 
 
 ## <a name="custom-endpoints"></a>Anpassade slutpunkter
 
-Du kan länka befintliga Azure-tjänster i din prenumeration till din IoT hub så att den fungerar som slutpunkter för meddelanderoutning. De här slutpunkterna fungerar som slutpunkter och används som mottagare för meddelandevägar. Enheter kan inte skrivas direkt till ytterligare slutpunkter. Läs mer om meddelandevägar i posten developer guide på [skicka och ta emot meddelanden med IoT hub][lnk-devguide-messaging].
+Du kan länka befintliga Azure-tjänster i din prenumeration till din IoT hub så att den fungerar som slutpunkter för meddelanderoutning. De här slutpunkterna fungerar som slutpunkter och används som mottagare för meddelandevägar. Enheter kan inte skrivas direkt till ytterligare slutpunkter. Läs mer om [meddelanderoutning](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 IoT Hub stöder för närvarande följande Azure-tjänster som ytterligare slutpunkter:
 
@@ -70,32 +70,7 @@ IoT Hub stöder för närvarande följande Azure-tjänster som ytterligare slutp
 * Service Bus-köer
 * Avsnitt om Service Bus
 
-IoT Hub måste ha skrivbehörighet för dessa tjänstslutpunkter för meddelanderoutning för att fungera. Om du konfigurerar dina slutpunkter via Azure portal, läggs behörigheterna som krävs för dig. Kontrollera att du konfigurerar dina tjänster för att stödja det förväntade dataflödet. När du först konfigurera din IoT-lösning kan du behöva övervaka din ytterligare slutpunkter och gör eventuella ändringar för den faktiska belastningen.
-
-Om ett meddelande matchar flera vägar som alla pekar mot samma slutpunkt, IoT-hubb levererar meddelanden till denna slutpunkt bara en gång. Därför behöver du inte konfigurera deduplicering på din Service Bus-kö eller ämne. I partitionerade köer garanterar partition tillhörighet ordningsföljd för meddelanden.
-
 Gränser för antalet slutpunkter som du kan lägga till, se [kvoter och begränsningar][lnk-devguide-quotas].
-
-### <a name="when-using-azure-storage-containers"></a>När du använder Azure Storage-behållare
-
-IoT Hub stöder endast skriva data till Azure Storage-behållare som blobbar i den [Apache Avro](http://avro.apache.org/) format. IoT Hub slår ihop meddelanden och skriver data till en blob när:
-
-* Batch når en viss storlek.
-* Eller en viss tidsperiod har gått ut.
-
-IoT Hub skriver till en tom blob om det finns inga data att skriva.
-
-IoT Hub som standard följande namngivningskonvention för filen:
-
-```
-{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
-```
-
-Du kan använda oavsett fil naming convention som du vill, men du måste ha alla listade token.
-
-### <a name="when-using-service-bus-queues-and-topics"></a>När du använder Service Bus-köer och ämnen
-
-Service Bus-köer och ämnen som används som IoT Hub-slutpunkter inte får ha **sessioner** eller **dubblettidentifiering** aktiverat. Om något av dessa alternativ är aktiverade ändpunkt som **tillbaka** i Azure-portalen.
 
 ## <a name="field-gateways"></a>Fält-gateways
 

@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: f7299b9193c5ab24431feb9c73a0a3cf97596da3
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4e40a731530e9423c7be6f2e2449aad970bb327c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734949"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040252"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
 Appinställningar i en funktionsapp innehåller globala konfigurationsalternativ som påverkar alla funktioner för den funktionsappen. När du kör lokalt är dessa inställningar i miljövariabler. Den här artikeln innehåller appinställningar som är tillgängliga i funktionsappar.
 
-[! INKLUDERA [funktionsappinställningar] (.. /.. /Includes/Functions-App-Settings.MD]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Det finns andra globala konfigurationsalternativ i den [host.json](functions-host-json.md) fil och i den [local.settings.json](functions-run-local.md#local-settings-file) fil.
 
@@ -40,6 +40,9 @@ Valfritt lagringskontots anslutningssträng för att lagra loggar och visa dem i
 |Nyckel|Exempelvärde|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [key]|
+
+> [!TIP]
+> För prestanda och upplevelse rekommenderar vi att du använder APPINSIGHTS_INSTRUMENTATIONKEY och App Insights för övervakning i stället för AzureWebJobsDashboard
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -111,11 +114,19 @@ Giltiga värden är ”readwrite” och ”skrivskyddad”.
 
 ## <a name="functionsextensionversion"></a>FUNCTIONS\_TILLÄGGET\_VERSION
 
-Versionen av Azure Functions-körningen ska användas i den här funktionsappen. Tecknet tilde med huvudversion innebär att du använder den senaste versionen av den huvudsakliga versionen (till exempel ”~ 1”). När nya versioner för samma huvudversion är tillgängliga, installeras de automatiskt i funktionsappen. Om du vill fästa app på en specifik version, använder du det fullständiga versionsnumret (till exempel ”1.0.12345”). Standardvärdet är ”~ 1”.
+Versionen av Azure Functions-körningen ska användas i den här funktionsappen. Tecknet tilde med huvudversion innebär att du använder den senaste versionen av den huvudsakliga versionen (till exempel ”~ 2”). När nya versioner för samma huvudversion är tillgängliga, installeras de automatiskt i funktionsappen. Om du vill fästa app på en specifik version, använder du det fullständiga versionsnumret (till exempel ”2.0.12345”). Standardvärdet är ”~ 2”.
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|FUNCTIONS\_TILLÄGGET\_VERSION|~1|
+|FUNCTIONS\_TILLÄGGET\_VERSION|~ 2|
+
+## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
+
+Den worker CLR att läsa in i funktionsappen.  Detta motsvarar det språk som används i ditt program (till exempel ”dotnet”). För funktioner på flera språk behöver du publicera dem till flera appar, var och en med ett motsvarande värde för worker-runtime.  Giltiga värden är `dotnet`, `node`, och `java`.
+
+|Nyckel|Exempelvärde|
+|---|------------|
+|FUNCTIONS\_WORKER\_RUNTIME|DotNet|
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -138,19 +149,19 @@ För förbrukningsplaner. Sökvägen till funktionskod och konfiguration. Använ
 Det maximala antalet instanser som funktionsappen skalas ut. Standard finns ingen gräns.
 
 > [!NOTE]
-> Den här inställningen avser en förhandsgranskningsfunktion.
+> Den här inställningen är en förhandsversion funktion – och endast tillförlitliga om ett värde < = 5
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|WEBBPLATSEN\_MAX\_DYNAMISK\_PROGRAMMET\_SKALA\_UT|10|
+|WEBBPLATSEN\_MAX\_DYNAMISK\_PROGRAMMET\_SKALA\_UT|5|
 
 ## <a name="websitenodedefaultversion"></a>WEBBPLATSEN\_NODEN\_DEFAULT_VERSION
 
-Standardvärdet är ”6.5.0”.
+Standardvärdet är ”8.11.1”.
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|WEBBPLATSEN\_NODEN\_DEFAULT_VERSION|6.5.0|
+|WEBBPLATSEN\_NODEN\_DEFAULT_VERSION|8.11.1|
 
 ## <a name="websiterunfrompackage"></a>WEBBPLATSEN\_KÖR\_FROM\_PAKET
 

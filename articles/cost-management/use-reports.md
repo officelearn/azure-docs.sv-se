@@ -1,29 +1,31 @@
 ---
-title: Använda Cost Management-rapporter i Azure Cost Management | Microsoft Docs
-description: Den här artikeln beskriver hur du använder olika kostnadshantering rapporter i Cloudyn-portalen.
+title: Använda Cloudyn-rapporter i Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du använder olika rapporter i Cloudyn-portalen.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 055584bd27c978fb71e6c09995c28be7348acda8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908275"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976796"
 ---
-# <a name="use-cost-management-reports"></a>Använda kostnadshanteringsrapporter
+# <a name="use-cloudyn-reports"></a>Använda Cloudyn-rapporter
 
-Den här artikeln beskriver syftet med kostnadshanteringsrapporter som ingår i Cloudyn-portalen. Här beskrivs också hur du effektivt kan använda rapporterna. De flesta rapporter är intuitivt och har ett enhetligt utseende. De flesta av de åtgärder som du kan göra i en rapport, kan du också göra i andra rapporter. En översikt om hur du använder kostnadshanteringsrapporter, inklusive hur du anpassar och spara eller för att schemalägga rapporter finns i [förstå kostnadsrapporterna](understanding-cost-reports.md).
+Den här artikeln beskriver syftet med Cloudyn-rapporter som ingår i Cloudyn-portalen. Här beskrivs också hur du effektivt kan använda rapporterna. De flesta rapporter är intuitivt och har ett enhetligt utseende. De flesta av de åtgärder som du kan göra i en rapport, kan du också göra i andra rapporter. En översikt om hur du använder Cloudyn-rapporter, inklusive hur du anpassar och spara eller för att schemalägga rapporter finns i [förstå kostnadsrapporterna](understanding-cost-reports.md).
+
+Azure Cost Management innehåller liknande funktioner på Cloudyn. Azure Cost Management är en lösning för intern Azure kostnadshantering. Det hjälper dig att analysera kostnaderna, skapa och hantera budgetar, exportera data, och granska och vidta åtgärder för optimering rekommendationer för att spara pengar. Mer information finns i [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Rapporttyper
 
-Det finns tre typer av kostnadshanteringsrapporter:
+Det finns tre typer av Cloudyn-rapporter:
 
 - Tidrapporter över. Till exempel rapporten Cost Over Time. Tidrapporter över visar en tidsserie med data under en vald period med en fördefinierad upplösning och visa en veckovis upplösning för de senaste två månaderna. Du kan använda gruppering och filtrering för att zooma in på olika datapunkter.
   - Tidrapporter över kan du visa trender och identifiera toppar och avvikelser.
@@ -49,7 +51,7 @@ _Analys av kostnader_ rapporter visar faktureringsdata från cloud-providers. Me
 
 Vissa _analys av kostnader_ rapporter inte gruppen kostnader efter resurstaggar. Och det kodspråk faktureringsinformation visas bara i rapporter när du har allokerat kostnaderna genom att skapa en kostnad modellen med hjälp av [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-_Kostnadsallokering_ rapporter är tillgängliga när du har skapat en kostnad modellen med hjälp av [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Kostnadshantering bearbetar kostnad och faktureringsinformation och _matchar_ data till data för dina molnkonton användning och tagg. Om du vill matcha data kräver åtkomst till användningsdata i Cost Management. Om du har konton som saknar autentiseringsuppgifter, de är märkta som _okategoriserade resurser_.
+_Kostnadsallokering_ rapporter är tillgängliga när du har skapat en kostnad modellen med hjälp av [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn bearbetar kostnads- och fakturering och _matchar_ data till data för dina molnkonton användning och tagg. Om du vill matcha data kräver åtkomst till användningsdata i Cloudyn. Om du har konton som saknar autentiseringsuppgifter, de är märkta som _okategoriserade resurser_.
 
 ## <a name="dashboards"></a>Instrumentpaneler
 
@@ -57,7 +59,7 @@ Instrumentpaneler i Cloudy ger en översikt över rapporter. Instrumentpaneler b
 
 ## <a name="budget-information-in-reports"></a>Budgetinformation i rapporter
 
-Många kostnadsinformation management rapporter show budget när du har skapat en manuellt. Så att rapporter inte visar budgetinformation förrän du har skapat en budget. Mer information finns i [Budget inställningar](#budget-settings).
+Många Cloudyn-rapporter visar budgetinformation när du har skapat en manuellt. Så att rapporter inte visar budgetinformation förrän du har skapat en budget. Mer information finns i [Budget inställningar](#budget-settings).
 
 ## <a name="reports-and-reporting-features"></a>Rapporter och rapporteringsfunktioner
 
@@ -81,7 +83,7 @@ Cost Analysis-rapporten är en beräkning av showback och chargeback, baserat p�
 
 Principerna som angetts i [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) används i Cost Analysis-rapport och resultaten sedan kombineras med information från rådata i molnet leverantörens.
 
-Hur beräknas den här rapporten? Cost Management-tjänsten garanterar allokering behåller integriteten hos varje länkat konto genom att använda _konto tillhörighet_. Det innebär ett konto som inte använder en specifik tjänst inte har några kostnader för den här tjänsten som allokeras till den. Kostnader som ackumuleras i att kontot finns kvar i det kontot och beräknas inte av allokeringsprinciper för. Du kan till exempel ha fem länkade konton. Om det bara tre av dem använder storage-tjänster kan tilldelas endast kostnaden för lagringstjänster över taggar i de tre kontona.
+Hur beräknas den här rapporten? Cloudyn-tjänsten garanterar allokering behåller integriteten hos varje länkat konto genom att använda _konto tillhörighet_. Det innebär ett konto som inte använder en specifik tjänst inte har några kostnader för den här tjänsten som allokeras till den. Kostnader som ackumuleras i att kontot finns kvar i det kontot och beräknas inte av allokeringsprinciper för. Du kan till exempel ha fem länkade konton. Om det bara tre av dem använder storage-tjänster kan tilldelas endast kostnaden för lagringstjänster över taggar i de tre kontona.
 
 Använda Cost Analysis-rapporten för att:
 
@@ -147,7 +149,7 @@ Den här uppsättningen amorterad kostnad rapporter visar linjär icke-användni
 - Avgifter för köp av reserverade instanser
 - Vissa Azure Marketplace-objekt
 
-I filen fakturering engångsavgifter kännetecknas när tjänsteförbrukning börja och sluta datum (tidsstämpel) har samma värden. Cost Management-tjänsten identifierar dem sedan som engångsavgifter som är amorterad. Andra förbrukningsbaserad tjänster med kostnader för på begäran är inte amorterad.
+I filen fakturering engångsavgifter kännetecknas när tjänsteförbrukning börja och sluta datum (tidsstämpel) har samma värden. Cloudyn-tjänsten identifierar dem sedan som engångsavgifter som är amorterad. Andra förbrukningsbaserad tjänster med kostnader för på begäran är inte amorterad.
 
 Amorterad kostnadsrapporter är:
 
@@ -158,9 +160,9 @@ Amorterad kostnadsrapporter är:
 
 Rapporten Cost Analysis ger inblick i dina molnförbrukning och utgifter under en vald tidsperiod. Principerna som angetts i den [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) används i rapporten Cost Analysis.
 
-Hur beräknar den här rapporten i Cost Management?
+Hur beräknar den här rapporten i Cloudyn?
 
-Kostnadshantering garanterar att allokering behåller integriteten hos varje länkat konto genom att använda _konto tillhörighet_. Det innebär också inte har några kostnader för den här tjänsten som allokeras till den i ett konto som inte använder en specifik tjänst. Kostnader som ackumuleras i att kontot finns kvar i det kontot och inte beräknas genom att allokeringsprinciper. Du kan till exempel ha fem länkade konton. Om det bara tre av dem använder storage-tjänster kan tilldelas endast kostnaden för lagringstjänster över taggar i de tre kontona.
+Cloudyn ser till att allokering behåller integriteten hos varje länkat konto genom att använda _konto tillhörighet_. Det innebär också inte har några kostnader för den här tjänsten som allokeras till den i ett konto som inte använder en specifik tjänst. Kostnader som ackumuleras i att kontot finns kvar i det kontot och inte beräknas genom att allokeringsprinciper. Du kan till exempel ha fem länkade konton. Om det bara tre av dem använder storage-tjänster kan tilldelas endast kostnaden för lagringstjänster över taggar i de tre kontona.
 
 Använda Cost Analysis-rapporten för att:
 
@@ -206,7 +208,7 @@ Anpassade avgifter visas i kostnadsrapporter. Till exempel öppna sedan rapporte
 
 Du kan använda Cost Allocation 360 för att skapa anpassade allokering modeller för att tilldela kostnader till förbrukade molnresurser. Många rapporter visar information från anpassade modeller som du har skapat med anpassade modeller. Och vissa rapporter visar bara information när du har skapat en anpassad kostnadsmodell med kostnadsallokering.
 
-Mer information om hur du skapar anpassade modeller finns i [självstudie: hantera kostnader med Azure Cost Management](tutorial-manage-costs.md).
+Mer information om hur du skapar anpassade modeller finns i [självstudie: hantera kostnader med Cloudyn](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Cost vs. Rapport med budget över tid
 
@@ -248,11 +250,11 @@ När du är klar visas din budget i Cost Analysis-rapporter och i Cost vs. Rappo
 
 ### <a name="azure-resource-explorer-report"></a>Azure Resource Explorer-rapport
 
-Azure Resource Explorer rapporten visar en massinläsning lista över alla Azure-resurser tillgängliga i Cost Management. För att effektivt använda rapporten, måste dina Azure-konton har utökat mått som är aktiverad. Utökade mått har kostnadshantering åtkomst till virtuella datorer i Azure. Mer information finns i [Lägg till utökade mått för virtuella Azure-datorer](azure-vm-extended-metrics.md).
+Azure Resource Explorer rapporten visar en massinläsning lista över alla Azure-resurser tillgängliga i Cloudyn. För att effektivt använda rapporten, måste dina Azure-konton har utökat mått som är aktiverad. Utökade mått ge Cloudyn-åtkomst till virtuella datorer i Azure. Mer information finns i [Lägg till utökade mått för virtuella Azure-datorer](azure-vm-extended-metrics.md).
 
 ### <a name="azure-resources-over-time-report"></a>Rapport för Azure-resurser över tid
 
-Azure-resurser över tid rapporten visar en sammanfattning av alla resurser som körs under en viss period. För att effektivt använda rapporten, måste dina Azure-konton har utökat mått som är aktiverad. Utökade mått har kostnadshantering åtkomst till virtuella datorer i Azure. Mer information finns i [Lägg till utökade mått för virtuella Azure-datorer](azure-vm-extended-metrics.md).
+Azure-resurser över tid rapporten visar en sammanfattning av alla resurser som körs under en viss period. För att effektivt använda rapporten, måste dina Azure-konton har utökat mått som är aktiverad. Utökade mått ge Cloudyn-åtkomst till virtuella datorer i Azure. Mer information finns i [Lägg till utökade mått för virtuella Azure-datorer](azure-vm-extended-metrics.md).
 
 ### <a name="instance-explorer-report"></a>Instans Explorer rapport
 
@@ -355,7 +357,7 @@ Tre betalningsalternativ för Fjärrinstallationstjänster som är alla krav:
 - Inte förskott - erbjuder de lägsta rabatterna i som kostnaden för RI ställs i månaden under den reserverade VM-instansen.
 - Partiellt startavgift, vilka ¼ - ½ av priset betalas direkt, och övriga månatliga avbetalningar med en diskonteringsränta som är lägre, Stäng men genom att betala för alla frekvensen
 
-Kostnadshantering utvärderar drifttid för varje dator under de senaste 30 dagarna. Kostnadshantering rekommenderar att köpa reserverade instanser när det är mer kostnadseffektivt att köra datorn med en RI på den aktuella nivån drifttid.
+Cloudyn utvärderar drifttid för varje dator under de senaste 30 dagarna. Cloudyn rekommenderar att köpa reserverade instanser när det är mer kostnadseffektivt att köra datorn med en RI på den aktuella nivån drifttid.
 
 Rapporten visar anledningen för dess rekommendationer för att spara de flesta pengar under året. Rekommendationerna föreslår ersätta på begäran-instanser med reserverade VM-instanser. Du kan köpa reserverade instanser direkt från rapporten.
 
@@ -363,9 +365,9 @@ Varje flik öppnas som en fullständig rapport. Viktiga avsnitt på flikarna fin
 
 - **EC2 RI Purchase Impact** – det här avsnittet innehåller en simulering av skillnaden mellan på begäran vs reserverade instanser. Klicka på **Zooma in**, för att se den fullständiga EC2 RI Purchase Impact-rapporten med de filter som redan har definierats för din rekommendation. Den här rapporten visar köp effekten av alla potentiella RI-köp. Du kan justera den förväntade tillgänglighet för att se potentialen sparas när du köper reserverade EC2-instanser.
 
-- **Sparar Analysis** – det här avsnittet innehåller den potentiella besparingar uppnåddes och månaden besparingarna är actualized när du följer kostnadshantering rekommendationer. Faktiska besparingar och procent sparas i rött.
+- **Sparar Analysis** – det här avsnittet innehåller den potentiella besparingar uppnåddes och månaden besparingarna är actualized när du följer rekommendationer för Cloudyn. Faktiska besparingar och procent sparas i rött.
 
-- **EC2 RI-jämförelse** – det här avsnittet visar ROI höjdpunkter i Cost Management rekommenderad distribution, inklusive alla relevanta alternativ. Resultaten i den här rapporten förutsätter att datorn körs på 100% drifttid. Klicka på **Zooma In** att öppna den detaljerade rapporten.
+- **EC2 RI-jämförelse** – det här avsnittet visar ROI höjdpunkter i Cloudyns rekommenderad distribution, inklusive alla relevanta alternativ. Resultaten i den här rapporten förutsätter att datorn körs på 100% drifttid. Klicka på **Zooma In** att öppna den detaljerade rapporten.
 
 - **Instanser över tid** – det här avsnittet visas en sammanställning av alla instanser som är associerade med rekommendation, OnDemand, reserverade instanser och plats. Klicka på **Zooma In** att öppna den detaljerade rapporten.
 - **Breakeven punkter** – det här avsnittet innehåller en tabell med alla möjliga rekommenderade distributioner och avkastningen på investeringen och månaden när avkastningen på investeringen inträffar. Klicka på **Zooma In** att öppna den detaljerade rapporten.
@@ -394,7 +396,7 @@ RDS RI Buying Recommendations rapporten rekommenderar när du ska använda RDS r
 Varje flik öppnas som en fullständig rapport. Viktiga avsnitt på flikarna finns:
 
 - **RDS RI Purchase Impact** – det här avsnittet innehåller en simulering av skillnaden mellan på begäran jämfört med reserverade instanser. Klicka på **Zooma in** att se den fullständiga RDS RI Purchase Impact-rapporten med de filter som redan har definierats för din rekommendation. Den här rapporten kan du se köp effekten av alla potentiella RI-köp.  Du kan justera förväntade genomsnittliga drifttid och se potentialen sparar genom att köpa reserverade instanser.
-- **Sparar Analysis** – det här avsnittet innehåller den potentiella besparingar uppnåddes och månaden besparingarna är actualized när du följer kostnadshantering rekommendationer. Faktiska besparingar och procent sparas i rött.
+- **Sparar Analysis** – det här avsnittet innehåller den potentiella besparingar uppnåddes och månaden besparingarna är actualized när du följer rekommendationer för Cloudyn. Faktiska besparingar och procent sparas i rött.
 
 - **RDS RI-jämförelse** – det här avsnittet visar ROI höjdpunkter i rekommenderad distribution, inklusive alla relevanta alternativ. Resultaten i den här rapporten förutsätter att datorn körs på 100% drifttid. Klicka på **Zooma In** att öppna den detaljerade rapporten för den valda datorn.
 - **Instanser över tid** – det här avsnittet visas en sammanställning av alla instanser som är associerade med rekommendation, OnDemand, reserverade instanser och plats. Klicka på **Zooma In** att öppna den detaljerade rapporten.
@@ -417,7 +419,7 @@ Du kan inte hämta listan över instans-ID som rekommenderas lågsäsong i den h
 
 Överväg följande downsizing exempel:
 
-Du har sex m3.xlarge instanser som körs. Hantering av kostnadsanalys visar att fem av dem har låg CPU-användning. Överväg att downsizing dem.
+Du har sex m3.xlarge instanser som körs. Cloudyn analys visar att fem av dem har låg CPU-användning. Överväg att downsizing dem.
 
 I inverkan på kostnaden beräknas kostnaden effekten. I det här exemplet kan genom att expandera radartikeln, du se aktuella priset för en m3.xlarge instans (Linux/Unix) kostar $0.266 per timme och en m3.large instanskostnader (Linux/Unix) $0.133 per timme. Därför är årlig kostnad $11,651 för fem m3.xlarge instanser som körs på 100% användning. Årlig kostnad är $5,825 för fem m3.large instanser som körs på 100% användning. Potentiella besparingar är $5,825.
 
@@ -425,7 +427,7 @@ Klicka på om du vill visa kostnadseffektiv storleksändring berättiganden + f�
 
 - Den **rekommendation motivering** avsnittet visar den aktuella distributionen och antalet instanser som rekommenderas lågsäsong.
 - Den **kostnad** avsnittet visas den beräkning som används för att fastställa potentiella besparingar.
-- Den **potentiella årliga besparingar** avsnittet visas den potentiella årliga besparingar när downsizing per Cost Management rekommendation.
+- Den **potentiella årliga besparingar** avsnittet visas den potentiella årliga besparingar när downsizing per Cloudyns rekommendation.
 
 ### <a name="all-sizing-recommendations-report"></a>Alla Storleksrekommendationer rapport
 
@@ -483,11 +485,11 @@ Visa mått för en specifik instans över tid:
 
 ### <a name="rds-sizing-recommendations-report"></a>Storleksrekommendationer för RDS-rapport
 
-Storleksrekommendationer för RDS-rapporten innehåller Fjärrskrivbordstjänster som ändrar storlek på rekommendationer för att optimera din molnanvändning. Den innehåller en lista över underutnyttjade instanser som lämpar sig lågsäsong. Hantering av kostnadsrekommendationer baseras på data för användning och prestanda för de senaste 30 dagarna. Du kan filtrera rekommendationer efter kontonamn, Region, instanstyp och Status.
+Storleksrekommendationer för RDS-rapporten innehåller Fjärrskrivbordstjänster som ändrar storlek på rekommendationer för att optimera din molnanvändning. Den innehåller en lista över underutnyttjade instanser som lämpar sig lågsäsong. Cloudyn rekommendationer baserat på data för användning och prestanda för de senaste 30 dagarna. Du kan filtrera rekommendationer efter kontonamn, Region, instanstyp och Status.
 
 ### <a name="sizing-threshold-manager-report"></a>Sizing tröskelvärdet Manager-rapport
 
-Cost Management inbyggda storleksrekommendationer beräknas med en avancerad algoritm för att tillhandahålla korrekta storlek förslag. Du kan justera tröskelvärdena för downsizing rekommendationer.
+Cloudyns inbyggda storleksrekommendationer beräknas med en avancerad algoritm för att tillhandahålla korrekta storlek förslag. Du kan justera tröskelvärdena för downsizing rekommendationer.
 
 Justera tröskelvärdet storleksrekommendationer manuellt:
 

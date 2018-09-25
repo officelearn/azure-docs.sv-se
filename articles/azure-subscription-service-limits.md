@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: a24fc56bf455fbc487cb6f93e06678d52e5b1c0b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c67cc5cb13e2c1112c4752660c82c3ab18360b00
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295774"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056632"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker flera av plattformen.
@@ -71,6 +71,7 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [Azure-brandväggen](#azure-firewall-limits)
+* [Ytterdörren](#azure-front-door-service-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -88,6 +89,7 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [Scheduler](#scheduler-limits)
 * [Sök](#search-limits)
 * [Service Bus](#service-bus-limits)
+* [SignalR Service](#signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
@@ -156,6 +158,9 @@ I följande tabell beskrivs de funktioner och begränsningar för Basic, Standar
 
 #### <a name="azure-firewall-limits"></a>Azure-brandväggen begränsar
 [!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
+#### <a name="azure-front-door-service-limits"></a>Azure ytterdörren tjänstbegränsningar
+[!INCLUDE [azure-front-door-service-limits](../includes/front-door-limits.md)]
 
 ### <a name="storage-limits"></a>Lagringsgränser
 <!--like # storage accts -->
@@ -232,9 +237,6 @@ Azure Database för MySQL-gränser, se [begränsningar i Azure Database för MyS
 
 ### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
 Azure Database för PostgreSQL-gränser, se [begränsningar i Azure Database för PostgreSQL](postgresql/concepts-limits.md).
-
-### <a name="mobile-engagement-limits"></a>Mobile Engagement gränser
-[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 ### <a name="search-limits"></a>Sök gränser
 Prisnivåer avgör kapacitet och begränsningar för search-tjänsten. Nivåerna ingår:
@@ -315,6 +317,9 @@ Mer information om gränser för en mer detaljerad nivå, till exempel dokuments
 
 ### <a name="backup-limits"></a>Begränsningar för säkerhetskopiering
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+### <a name="signalr-service-limits"></a>SignalR tjänstbegränsningar
+[!INCLUDE [signalr-service-limits](../includes/signalr-service-limits.md)]
 
 ### <a name="site-recovery-limits"></a>Gränser för Site Recovery
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]

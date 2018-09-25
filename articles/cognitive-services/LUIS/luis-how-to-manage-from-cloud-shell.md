@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Lär dig mer om att hämta information om användningen i Azure Cloud Shell för LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: 95bd1e83b4a0ed08850862ec4f4addb3353a9481
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b0a02d2e5e0a1f1765098e1b1e258424b6443878
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052973"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039589"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Användningsdata för LUIS-tjänsten från Azure Cloud Shell
 Azure-portalen kan du använda PowerShell-cmdlets för att arbeta med LUIS-resurser. 

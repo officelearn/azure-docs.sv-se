@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1211241ec3a2b32647260d1a5c7dc561019cfdf
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1ebca858632a64b5822658182a3b83c48f310164
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092249"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953046"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostik i varaktiga funktioner (Azure Functions)
 
@@ -80,7 +80,7 @@ Så här aktiverar du sänder utförlig orchestration repetitionsattacker hände
 
 ### <a name="single-instance-query"></a>Instans-fråga
 
-Följande fråga visar av historiska spårningsdata för en enda instans av den [Hello sekvens](durable-functions-sequence.md) fungera dirigering. Den har skrivits med hjälp av den [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Filtreras bort repetitionsattacker körning så att endast den *logiska* exekveringsväg visas. Händelser kan beställas genom att sortera efter `timestamp` och `sequenceNumber` som visas i frågan nedan: 
+Följande fråga visar av historiska spårningsdata för en enda instans av den [Hello sekvens](durable-functions-sequence.md) fungera dirigering. Den har skrivits med hjälp av den [Application Insights Query Language (AIQL)](https://aka.ms/LogAnalyticsLanguageReference). Filtreras bort repetitionsattacker körning så att endast den *logiska* exekveringsväg visas. Händelser kan beställas genom att sortera efter `timestamp` och `sequenceNumber` som visas i frågan nedan: 
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";

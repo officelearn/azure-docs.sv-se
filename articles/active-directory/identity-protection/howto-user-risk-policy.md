@@ -16,128 +16,76 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: bcfab9ab95e41b723cb8a8e49d7390a2894d5219
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a54403b7794d26d87c810f5cd20050db35c078f1
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45581372"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054350"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Så här: Konfigurera riskprincip för användare
 
-Alla aktiva [riskhändelser](../reports-monitoring/concept-risk-events.md) som identifierades av Azure Active Directory för en användare bidra till ett logiskt koncept som kallas användarrisk. En användare som flaggats för risk är en indikator för ett användarkonto som kan ha komprometterats.
+Med användarrisk upptäcker Azure AD att sannolikheten att ett användarkonto har komprometterats. Som administratör kan konfigurera du en villkorlig åtkomst användarprincip, för att automatiskt svarar på en viss användare risknivå.
+ 
+Den här artikeln ger dig den information du behöver att konfigurera en princip för användarrisk.
 
-![Användare som har flaggats för risk](./media/howto-user-risk-policy/1200.png)
+
+## <a name="what-is-a-user-risk-policy"></a>Vad är en användarprincip?
+
+Azure AD analyserar varje inloggning för en användare. Målet med analysen är att identifiera misstänkta åtgärder som kommer med inloggningen. Systemet kan identifiera misstänkta åtgärderna är kallas även riskhändelser i Azure AD. När en risk händelser kan identifieras i realtid, det finns även riskhändelser som kräver mer tid. Till exempel kräver systemet för att identifiera en omöjlig resa till ovanliga platser, en inledande inlärningsperiod på 14 dagar för att lära dig om en användares vanligt beteende. Det finns flera alternativ för att lösa identifierade riskhändelserna. Exempelvis kan du kan lösa enskilda riskhändelser manuellt eller du kan hämta dem matchas med en inloggningsrisk eller en villkorlig åtkomstprincip för användarrisk.
+
+Alla riskhändelser som har identifierats för en användare och inte löses kallas active riskhändelser. De aktiva riskhändelser som är kopplade till användaren kallas användarrisk. Azure AD beräknar utifrån användarrisk en sannolikhet (låg, medelhög och hög) att en användare har komprometterats. Sannolikheten kallas risknivån.
+
+![Användaren risker](./media/howto-user-risk-policy/1031.png)
+
+Riskprincip för användare är en automatisk åtgärd som du kan konfigurera för en viss användare risknivå. Du kan använda en riskprincip för användare för att blockera åtkomst till resurser eller kräva ändring av lösenordet för att komma tillbaka ett användarkonto till ett rent tillstånd.
 
 
-## <a name="user-risk-level"></a>Användarisknivå
+## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Hur kommer jag åt inloggningsrisk principen?
+   
+Princip för inloggninsrisk-är i den **konfigurera** avsnittet på den [Azure AD Identity Protection-sidan](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+   
+![Riskprincip för användare](./media/howto-user-risk-policy/1014.png)
 
-En nivå för användarrisk är en indikation (hög, medel eller låg) på sannolikheten att användarens identitet har komprometterats. Det beräknas baserat på de riskhändelser för användaren som är associerade med en användares identitet.
 
-Status för en riskhändelse är antingen **Active** eller **stängd**. Endast riskhändelser som är **Active** bidra till den nivå riskberäkning för användaren.
 
-Risknivån beräknas med hjälp av följande indata:
+## <a name="policy-settings"></a>Principinställningar
 
-* Aktiva riskhändelser som påverkas av användaren
-* Risknivån för dessa händelser
-* Om eventuella åtgärder har vidtagits
+När du konfigurerar principen inloggningsrisk, måste du ange:
 
-![Användaren risker](./media/howto-user-risk-policy/1031.png "användaren risker")
+- Användare och grupper som principen gäller för:
 
-Du kan använda risknivåer för användare för att skapa principer för villkorlig åtkomst som blockerar riskabla användare från att logga in eller tvinga dem på ett säkert sätt ändra sina lösenord.
+    ![Användare och grupper](./media/howto-user-risk-policy/11.png)
 
-## <a name="closing-risk-events-manually"></a>Stänga riskhändelser manuellt
+- Nivå för inloggningsrisk som utlöser principen:
 
-I de flesta fall ska vi ta åtgärder, till exempel ett säkert lösenord för att automatiskt stänga riskhändelser. Men kanske det inte alltid är möjligt.  
-Detta gäller, till exempel när:
+    ![Användarisknivå](./media/howto-user-risk-policy/12.png)
 
-* En användare med aktiva riskhändelser har tagits bort
-* En undersökningen visar att en rapporterade riskhändelse utför av behöriga användare
+- Vilken typ av åtkomst som du vill tillämpas när din inloggning risknivån är uppfyllt:  
 
-Eftersom riskhändelser som är **Active** bidra till användaren riskberäkning, du kan behöva manuellt Sänk en risknivå genom att stänga riskhändelser manuellt.  
-Under loppet av undersökning, kan du vidta någon av dessa åtgärder för att ändra status för en riskhändelse:
+    ![Access](./media/howto-user-risk-policy/13.png)
 
-![Åtgärder](./media/howto-user-risk-policy/34.png "åtgärder")
+- Tillståndet för din princip:
 
-* **Lösa** – om när du undersöker en riskhändelse, du har gjort en lämpliga avhjälpande åtgärd utanför Identity Protection och du tror att riskhändelsen bör övervägas stängd, markera händelsen som löst. Matcha händelser som anger den riskhändelsen status till stängd och riskhändelsen kommer inte längre att bidra till användarrisk.
-* **Markera som FALSKT positiva** – i vissa fall kan du undersöka en riskhändelse och identifiera att det var felaktigt som flaggats som en riskfylld. Du kan minska antalet sådana händelser genom att markera riskhändelsen som FALSKT positiva. På så sätt maskininlärningsalgoritmer för att förbättra klassificeringen av liknande händelser i framtiden. Status för falsk-positiva händelser är att **stängd** och kommer inte längre att bidra till användarrisk.
-* **Ignorera** – om du inte har vidtagit några Reparationsåtgärd, men vill riskhändelsen som ska tas bort från listan över aktiva, kan du markera en riskhändelse Ignorera och händelsestatus för kommer att stängas. Ignorerade händelser bidrar inte till användarrisk. Det här alternativet bör endast användas under ovanliga omständigheter.
-* **Återaktivera** -riskhändelser som stängdes manuellt (genom att välja **lösa**, **falsklarm**, eller **Ignorera**) kan återaktiveras, ställa in händelsen tillbaka till **Active**. Återaktiverade riskhändelser bidra till den nivå riskberäkning för användaren. Riskhändelser stängda genom reparation (som en säker lösenordsåterställning) kan inte aktiveras.
+    ![Tillämpa princip](./media/howto-user-risk-policy/14.png)
 
-**Att öppna dialogrutan tillhörande konfigurationer**:
+Dialogrutan princip konfiguration får du ett alternativ för att beräkna effekten av din konfiguration.
 
-1. På den **Azure AD Identity Protection** bladet under **Undersök**, klickar du på **riskhändelser**.
+![Uppskattad påverkan](./media/howto-user-risk-policy/15.png)
 
-    ![Återställning av lösenord för manuell](./media/howto-user-risk-policy/1002.png "manuell för lösenordsåterställning")
-2. I den **riskhändelser** klickar du på en risk.
+## <a name="what-you-should-know"></a>Vad du bör känna till
 
-    ![Återställning av lösenord för manuell](./media/howto-user-risk-policy/1003.png "manuell för lösenordsåterställning")
-3. Högerklicka på en användare på bladet risk.
+Du kan ange en riskprincip för att blockera användare vid inloggning beroende på risknivån.
 
-    ![Återställning av lösenord för manuell](./media/howto-user-risk-policy/1004.png "manuell för lösenordsåterställning")
+![Blockerar](./media/howto-user-risk-policy/16.png)
 
-## <a name="closing-all-risk-events-for-a-user-manually"></a>Stänga alla riskhändelser för en användare manuellt
-I stället för att manuellt stänga riskhändelser för en användare individuellt, ger Azure Active Directory Identity Protection dig också med en metod för att Stäng alla händelser för en användare med ett enda klick.
 
-![Åtgärder](./media/howto-user-risk-policy/2222.png "åtgärder")
+Blockera en inloggning:
 
-När du klickar på **Ignorera alla händelser**, alla händelser är stängda och den berörda användaren inte längre är i fara.
+* Förhindrar generering av nya riskhändelser för användaren för den berörda användaren
+* Gör att administratörer kan manuellt åtgärdar riskhändelser som påverkar användarens identitet och återställer dem till ett säkert tillstånd
 
-## <a name="remediating-user-risk-events"></a>Åtgärda användarriskhändelser
-
-En reparation är en åtgärd för att skydda en identitet eller en enhet som har tidigare eller misstänks äventyras. En Reparationsåtgärd återställer identitet eller enhet till säkert läge och löser tidigare riskhändelser som är associerade med den identitet eller enhet.
-
-Om du vill åtgärda riskhändelser för användaren, kan du:
-
-* Utföra ett säkert lösenord för att åtgärda användarriskhändelser manuellt
-* Konfigurera en riskprincip för att minimera eller åtgärdar riskhändelser för användaren automatiskt
-* Spegla angripen enhet  
-
-### <a name="manual-secure-password-reset"></a>Manuell säker lösenordsåterställning
-En säker lösenordsåterställning är en effektiv justering av många riskhändelser och när utförs, automatiskt stängs dessa riskhändelser och beräknar om risknivån. Du kan använda Identity Protection-instrumentpanelen för att initiera en återställning av lösenord för en riskfylld användare.
-
-Relaterade dialogrutan innehåller två olika metoder för att återställa ett lösenord:
-
-**Återställ lösenord** – Välj **kräver att användaren återställer sitt lösenord** så att användaren kan själv återställa om användaren har registrerats för multifaktorautentisering. Vid användarens nästa inloggning, kommer användaren krävs för att lösa en multifaktorautentisering utmaning har och måste sedan ändra lösenordet. Det här alternativet är inte tillgängligt om användarkontot inte är redan registrerad multifaktorautentisering.
-
-**Tillfälligt lösenord** – Välj **skapa ett tillfälligt lösenord** du omedelbart ogiltigförklara det befintliga lösenordet och skapar ett nytt tillfälligt lösenord för användaren. Skicka ett nytt tillfälligt lösenord till en alternativ e-postadressen för användaren eller användarens chef. Eftersom lösenordet är tillfällig, uppmanas användaren att ändra lösenordet vid inloggning.
-
-![Principen](./media/howto-user-risk-policy/1005.png "princip")
-
-**Att öppna dialogrutan tillhörande konfigurationer**:
-
-1. På den **Azure AD Identity Protection** bladet klickar du på **användare som har flaggats för risk**.
-
-    ![Återställning av lösenord för manuell](./media/howto-user-risk-policy/1006.png "manuell för lösenordsåterställning")
-2. Välj en användare med minst en riskhändelser från listan över användare.
-
-    ![Återställning av lösenord för manuell](./media/howto-user-risk-policy/1007.png "manuell för lösenordsåterställning")
-3. Klicka på användarbladet **Återställ lösenord**.
-
-    ![Återställning av lösenord för manuell](./media/howto-user-risk-policy/1008.png "manuell för lösenordsåterställning")
-
-## <a name="user-risk-security-policy"></a>Riskprincip
-En riskprincip är en princip för villkorlig åtkomst som utvärderar risknivå till en specifik användare och vidtar åtgärder och minskning åtgärder baserat på fördefinierade villkor och regler.
-
-![Princip för användarrisk](./media/howto-user-risk-policy/1009.png "riskprincip för användare")
-
-Azure AD Identity Protection hjälper dig att hantera minskning och reparation av användare som har flaggats för risk genom att:
-
-* Ange de användare och grupper som principen gäller för:
-
-    ![Princip för användarrisk](./media/howto-user-risk-policy/1010.png "riskprincip för användare")
-* Ange användaren risk på tröskelvärdet (låg, medel eller hög) som utlöser principen:
-
-    ![Princip för användarrisk](./media/howto-user-risk-policy/1011.png "riskprincip för användare")
-* Ange kontroller som ska tillämpas när principen utlöser:
-
-    ![Princip för användarrisk](./media/howto-user-risk-policy/1012.png "riskprincip för användare")
-* Växla tillståndet för din princip:
-
-    ![Princip för användarrisk](./media/howto-user-risk-policy/403.png "MFA-registrering")
-* Granska och utvärdera effekten av en ändring innan du aktiverar det:
-
-    ![Princip för användarrisk](./media/howto-user-risk-policy/1013.png "riskprincip för användare")
+## <a name="best-practices"></a>Bästa praxis
 
 Välja en **hög** tröskelvärdet minskar antalet gånger som en princip har utlösts och minimerar påverkan för användare.
 Men det omfattar inte **låg** och **medel** användare som har flaggats för risk från principen som inte kanske att skydda identiteter eller enheter som har tidigare eller misstänks äventyras.
@@ -162,13 +110,7 @@ En översikt över relaterade användarupplevelsen finns:
 
     ![Princip för användarrisk](./media/howto-user-risk-policy/1009.png "riskprincip för användare")
 
-## <a name="mitigating-user-risk-events"></a>Minimera riskhändelser för användaren
-Administratörer kan ange en riskprincip för att blockera användare vid inloggning beroende på risknivån.
 
-Blockera en inloggning:
-
-* Förhindrar generering av nya riskhändelser för användaren för den berörda användaren
-* Gör att administratörer kan manuellt åtgärdar riskhändelser som påverkar användarens identitet och återställer dem till ett säkert tillstånd
 
 
 ## <a name="next-steps"></a>Nästa steg

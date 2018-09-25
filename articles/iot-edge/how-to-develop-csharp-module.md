@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7fec050f43ed6facef548ea19d1d67030458fbb1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b4e1e01d54f6e0043709e0dadef41d7ea513a9b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380258"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963295"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C#-moduler för Azure IoT Edge
 
@@ -48,7 +48,7 @@ Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edg
 
 ## <a name="create-a-new-solution-with-c-module"></a>Skapa en ny lösning med C#-modul
 
-Gör följande för att skapa en IoT Edge-modul som baseras på .NET Core 2.0 med hjälp av Visual Studio Code och Azure IoT Edge-tillägget. Först skapar du en lösning och sedan skapa den första modulen i lösningen. Varje lösning kan innehålla mer än en modul. 
+Gör följande för att skapa en IoT Edge-modul som baseras på .NET Core 2.1 med hjälp av Visual Studio Code och Azure IoT Edge-tillägget. Först skapar du en lösning och sedan skapa den första modulen i lösningen. Varje lösning kan innehålla mer än en modul. 
 
 1. I Visual Studio Code, Välj **visa** > **integrerade terminalen**.
 3. Välj **visa** > **kommandot paletten**. 

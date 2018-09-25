@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 73e046c153af5c69ab343a90d1f9027b84b4deb1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: c23fbf0af7d1a15b0efee8af123150feb42c708e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498461"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966927"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server 
 
-Azure SQL Database Managed Instance (förhandsversion) tillhandahåller hög kompatibilitet med en lokal SQL Server Database Engine. De flesta SQL Server Database Engine-funktioner stöds i hanterade instanser. Eftersom det finns fortfarande några skillnader i syntaxen och beteende, den här artikeln sammanfattar och förklarar skillnaderna.
+Azure SQL Database Managed Instance tillhandahåller hög kompatibilitet med en lokal SQL Server Database Engine. De flesta SQL Server Database Engine-funktioner stöds i hanterade instanser. Eftersom det finns fortfarande några skillnader i syntaxen och beteende, den här artikeln sammanfattar och förklarar skillnaderna.
  - [T-SQL skillnader och funktioner som inte stöds](#Differences)
  - [Funktioner som har olika beteenden i Managed Instance](#Changes)
  - [Temporära begränsningar och kända problem](#Issues)
@@ -89,7 +89,7 @@ Hanterad instans kan inte komma åt delade filer och mappar i Windows, så att f
  
 ### <a name="certificates"></a>Certifikat 
 
-Hanterad instans kan inte komma åt delade filer och mappar i Windows, så gäller följande begränsningar: 
+Managed Instance kan inte komma åt filresurser och Windows-mappar. Följande begränsningar gäller: 
 - `CREATE FROM`/`BACKUP TO` filen stöds inte för certifikat
 - `CREATE`/`BACKUP` certifikat från `FILE` / `ASSEMBLY` stöds inte. Privata nyckelfilerna kan inte användas.  
  
@@ -106,7 +106,7 @@ WITH PRIVATE KEY ( <private_key_options> )
  
 ### <a name="clr"></a>CLR 
 
-Hanterad instans kan inte komma åt delade filer och mappar i Windows, så gäller följande begränsningar: 
+Managed Instance kan inte komma åt filresurser och Windows-mappar. Följande begränsningar gäller: 
 - Endast `CREATE ASSEMBLY FROM BINARY` stöds. Se [skapa sammansättningen från binär](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` stöds inte. Se [skapa sammansättningen från filen](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` Det går inte att referera till filer. Se [ändring av sammansättningen](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
@@ -415,15 +415,58 @@ Kontrollera att du tar bort ledande `?` från SAS-nyckeln som genererades med hj
 
 SQL Server Management Studio och SQL Server Data Tools kan ha några problem vid anslutning till hanterad instans. Alla verktyg problem åtgärdas före den allmänt tillgängliga.
 
-### <a name="incorrect-database-names"></a>Felaktig databasnamn
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Felaktig databasnamn i vissa vyer, loggar och meddelanden
 
-Hanterad instans kan visa guid-värde i stället för databasens namn under återställningen eller i vissa felmeddelanden. De här problemen åtgärdas före den allmänt tillgängliga.
+Visa GUID databasidentifierare i stället för faktiska databasnamn flera systemvyer, prestandaräknare, felmeddelanden, XEvents och poster i felloggen. Förlita dig inte på dessa GUID-identifierare eftersom de skulle ersättas med faktiska databasnamn i framtiden.
 
 ### <a name="database-mail-profile"></a>Database mail-profilen
 Det kan vara endast en database mail-profilen och den måste anropas `AzureManagedInstance_dbmail_profile`. Det här är en tillfällig begränsning som kommer att tas bort snart.
+
+### <a name="error-logs-are-not-persisted"></a>Felloggar är inte beständiga
+Felloggarna som är tillgängliga i hanterade instansen har inte sparats och deras storlek ingår inte i den maximala lagringsgränsen. Felloggarna kan raderas automatiskt vid redundans.
+
+### <a name="error-logs-are-verbose"></a>Felloggar finns utförlig
+Hanterad instans placerar utförlig information i felloggarna och många av dem är inte relevanta. Att kommer minska mängden information i felloggarna i framtiden.
+
+**Lösning**: använda en anpassad procedur för att läsa felloggar som filter ut vissa icke-relevanta poster. Mer information finns i [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>Transaktions-Scope på två databaser inom samma instans stöds inte
+`TransactionScope` klassen i .net fungerar inte om två frågor skickas till de två databaserna inom samma instans under samma transaktionsomfattning:
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+Även om den här koden fungerar med data i samma instans krävs MSDTC.
+
+**Lösning**: använda [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) använda andra database i kontext och anslutning istället för att använda två anslutningar.
+
+### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR-moduler och en stund länkade servrar kan inte referera till lokal IP-adress
+CLR-moduler som placerats i Managed Instance och länkade servrar/distribuerade frågor som refererar till aktuell instans någon gång det går inte att matcha IP-Adressen för den lokala instansen. Det här är ett tillfälligt fel.
+
+**Lösning**: Använd kontext anslutningar i CLR-modulen om möjligt.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om Managed Instance finns [vad är en hanterad instans?](sql-database-managed-instance.md)
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
-- En självstudiekurs som visar hur du skapar en ny hanterad instans finns i [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
+- En Snabbstart som visar hur du skapar en ny hanterad instans, se [skapar en hanterad instans](sql-database-managed-instance-get-started.md).

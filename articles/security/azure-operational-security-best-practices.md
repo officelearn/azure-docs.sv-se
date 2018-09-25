@@ -3,7 +3,7 @@ title: Metodtips för Azure driftsäkerhet | Microsoft Docs
 description: Den här artikeln innehåller en uppsättning Metodtips för driftsäkerhet för Azure.
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: mbaldwin
 editor: tomsh
 ms.assetid: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: tomsh
-ms.openlocfilehash: d8f6ad48c62ff2021c91e593cee44dd6f5551247
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 09/20/2018
+ms.author: terrylan
+ms.openlocfilehash: d005dd01de0dff0136c0a4e9775001dbe018228f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297917"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035291"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metodtips för Azure driftsäkerhet
-Azure driftsäkerhet refererar till de tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Microsoft Azure. Azure driftsäkerhet bygger på ett ramverk som innehåller den kunskap som olika funktioner som är unika för Microsoft, inklusive på Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-program och djup medvetenhet om hotlandskapet.
+Azure driftsäkerhet refererar till de tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Azure. Azure driftsäkerhet bygger på ett ramverk som innehåller den kunskap som funktioner som är unika för Microsoft, inklusive den [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) programmet och djup medvetenhet om hotlandskapet.
 
-I den här artikeln diskuterar vi en samling med Azure database säkerhetsmetoder. Dessa metodtips härleds från vår erfarenhet med Azure database-säkerhet och erfarenheter från kunder som dig själv.
+I den här artikeln diskuterar vi en uppsättning rekommenderade säkerhetsmetoder. Dessa metodtips härleds från vår erfarenhet med Azure database-säkerhet och erfarenheter från kunder som dig själv.
 
 För varje rekommenderar förklarar vi:
 -   Vad den bästa metoden är
@@ -34,146 +34,99 @@ För varje rekommenderar förklarar vi:
 
 Den här artikeln för Azure Operational säkerhetsmetoder baseras på en konsensus-åsikter och funktioner för Azure-plattformen och funktioner, eftersom de finns när den här artikeln skrevs. Andras åsikter och tekniker som ändras med tiden och den här artikeln kommer att uppdateras regelbundet att återspegla dessa ändringar.
 
-Driftsäkerhet Metodtips för Azure beskrivs i den här artikeln är:
+## <a name="monitor-storage-services-for-unexpected-changes-in-behavior"></a>Övervaka lagringstjänster för oväntade ändringar i beteende
+Diagnostisera och felsöka problem i ett distribuerat program i en molnmiljö kan vara mer komplex än i traditionella miljöer. Program kan distribueras i en PaaS eller IaaS-infrastruktur lokalt, på en mobil enhet eller i en kombination av dessa miljöer. Ditt programs trafik kan bläddra i offentliga och privata nätverk och ditt program kan använda flera lagringstekniker.
 
--   Övervaka, hantera och skydda molninfrastruktur
--   Hantera identitet och implementera enkel inloggning (SSO)
--   Spåra förfrågningar, analysera användningstrender och diagnostisera problem
--   Övervaka tjänster med en centraliserad övervakningslösning
--   Förhindra, upptäcka och svara på hot
--   Slutpunkt till slutpunkt scenariobaserade nätverksövervakning
--   Säker distribution med beprövade DevOps-verktyg
+Kontinuerligt bör du övervaka de storage-tjänster som programmet använder för eventuella oväntade ändringar i beteende (till exempel längre svarstider). Använd loggning för att samla in mer detaljerade data och analysera ett problem i detalj. Diagnostikinformation som hämtas från övervakning och loggning hjälper dig att fastställa orsaken till problemet som påträffats i ditt program. Sedan kan du felsöka problemet och fastställa lämpliga åtgärder kan åtgärdas.
 
-## <a name="monitor-manage-and-protect-cloud-infrastructure"></a>Övervaka, hantera och skydda molninfrastruktur
-IT-avdelningen ansvarar för att hantera infrastruktur med datacenter, program och data, inklusive stabilitet och säkerheten för dessa system. Informationshämtning säkerhet över ökar komplexa IT-miljöer ofta kräver dock organisationer att cobble ihop data från flera system för säkerhet och hantering.
-
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur.
-
-[OMS säkerhet och Granskningslösning](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) möjliggör för IT att aktivt övervakar alla resurser som kan bidra till att minimera effekten av incidenter. Säkerhets- och Granskningslösningen har säkerhetsdomäner som kan användas för att övervaka resurser.
-
-Mer information om OMS finns i artikeln [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
-
-För att förhindra, upptäcka och svara på hot genom [Operations Management Suite (OMS) säkerhets- och Granskningslösningen](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) samlar in och bearbeta data om dina resurser, vilket innefattar:
-
--   Säkerhetshändelselogg
--   ETW-händelser (Event Tracing for Windows)
--   AppLocker-granskningshändelser
--   Windows-brandväggslogg
--   Advanced Threat Analytics-händelser
--   Resultat från utvärdering av säkerhetsbaslinje
--   Resultat från utvärdering av program mot skadlig kod
--   Resultat från utvärdering av uppdateringar/korrigeringar
--   Syslog-dataströmmar som uttryckligen har aktiverats på agenten
-
-
-## <a name="manage-identity-and-implement-single-sign-on"></a>Hantera identitet och implementera enkel inloggning
-[Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) är Microsofts flera innehavare molnbaserad katalog- och identity management-tjänsten.
-
-[Azure AD](https://azure.microsoft.com/services/active-directory/) innehåller också en komplett uppsättning [Identitetshantering](https://docs.microsoft.com/azure/security/security-identity-management-overview) funktioner, inklusive [multifaktorautentisering](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), enhetsregistrering, självbetjäning lösenordshantering grupphantering via självbetjäning, hantering av Privilegierade, rollbaserad åtkomstkontroll, övervakning, omfattande granskning och säkerhetsövervakning och avisering för programanvändning.
-
-Följande funktioner kan hjälpa att säkra molnbaserade program, effektivisera IT-processer, minska kostnaderna och bidrar till att säkerställa att företagets efterlevnadsbehov uppfylls:
-
--   Identitets- och åtkomsthantering för molnet
--   Förenkla användaråtkomsten till alla molnappar
--   Skydda känsliga data och program
--   Ge personalen möjlighet att arbeta självständigt
--   Integrera med Azure Active Directory
-
-### <a name="identity-and-access-management-for-the-cloud"></a>Identitets- och åtkomsthantering för molnet
-Azure Active Directory (Azure AD) är en omfattande [molnlösning för identitets- och](https://www.microsoft.com/cloud-platform/identity-management), som ger dig en robust uppsättning funktioner för att hantera användare och grupper. Det hjälper att säkra åtkomst till lokala och molnbaserade program, inklusive Microsoft webbtjänster som Office 365 och mycket icke-Microsoft-programvara som en tjänst (SaaS)-program.
-Läs mer hur du aktiverar du identity protection i Azure AD i [aktiverar Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable).
-
-### <a name="simplify-user-access-to-any-cloud-app"></a>Förenkla användaråtkomsten till alla molnappar
-[Aktivera enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps) att förenkla användarnas åtkomst till tusentals molnprogram från Windows, Mac, Android och iOS-enheter. Användarna kan starta program från en anpassad webbaserad åtkomstpanelen eller mobilapp med sin företagsinloggning. Använda Azure AD Application Proxy-modulen för att gå bortom SaaS-program och publicera lokala webbprogram för att tillhandahålla mycket säker fjärråtkomst och enkel inloggning.
-
-### <a name="protect-sensitive-data-and-applications"></a>Skydda känsliga data och program
-Aktivera [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) att förebygga obehörig åtkomst till lokala och molnprogram genom att tillhandahålla en ytterligare autentiseringsnivå. Skydda ditt företag och identifiera potentiella hot med säkerhetsövervakning, varningar och maskininlärningsbaserade rapporter som visar avvikande åtkomstmönster.
-
-### <a name="enable-self-service-for-your-employees"></a>Ge personalen möjlighet att arbeta självständigt
-Delegera viktiga uppgifter till dina anställda, t.ex. återställa lösenord eller skapa och hantera grupper. [Aktivera självbetjäning lösenordsändring](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), Återställ och självbetjäning grupphantering med Azure AD.
-
-### <a name="integrate-with-azure-active-directory"></a>Integrera med Azure Active Directory
-Utöka [Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate) och andra lokala kataloger till Azure AD för att aktivera enkel inloggning för alla molnbaserade program. Användarattributen kan automatiskt synkroniseras med din molnkatalog från alla typer av lokala kataloger.
-
-Mer information om integrering av Azure Active Directory och hur du aktiverar det finns i artikel [integrerar dina lokala kataloger med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
-
-## <a name="trace-requests-analyze-usage-trends-and-diagnose-issues"></a>Spåra förfrågningar, analysera användningstrender och diagnostisera problem
-[Azure Storage Analytics](https://docs.microsoft.com/azure/storage/storage-analytics) utför loggning och tillhandahåller mätvärden för ett lagringskonto. Du kan använda dessa data för att spåra förfrågningar, analysera användningstrender och diagnostisera problem med lagringskontot.
-
-Mätvärden i Storage Analytics är aktiverade som standard för nya storage-konton. Du kan aktivera loggning och konfigurera mått och loggar in på Azure-portalen; Mer information finns i [övervaka ett lagringskonto i Azure-portalen](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account). Du kan också aktivera Storage Analytics programmässigt via REST API eller klientbiblioteket. Du kan använda åtgärden Ange egenskaper för filtjänsten för att aktivera Storage Analytics individuellt för varje tjänst.
-
-Utförliga instruktioner om hur du använder Storage Analytics och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem, se [övervaka, diagnostisera och Felsök Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
-
-Läs artikeln om du vill veta mer om integrering av Azure Active Directory och hur du aktiverar det [aktivera och konfigurera Lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics?redirectedfrom=MSDN).
-
-## <a name="monitoring-services"></a>Övervakningstjänster
-Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att ditt program fungerar och körs i ett felfritt tillstånd. Det hjälper dig också att stave potentiella problem eller felsöka tidigare sådana. Du kan dessutom använda övervakningsdata för att få djupa insikter om ditt program. Denna kunskap kan hjälpa dig att förbättra programmets prestanda och underhåll eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
-
-### <a name="monitor-azure-resources"></a>Övervaka Azure-resurser
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) är plattformstjänst som tillhandahåller en enda källa för övervakning av Azure-resurser. Med Azure Monitor kan du visualisera, fråga, vidarebefordra, aktivera och vidta åtgärder för mått och loggar från resurser i Azure.  Du kan arbeta med dessa data med Monitor-portalbladet, [Monitor PowerShell Cmdlets](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples), [plattformsoberoende CLI](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples) eller [REST API:er för Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx).
-
-### <a name="enable-autoscale-with-azure-monitor"></a>Aktivera automatisk skalning med Azure monitor
-Aktivera [automatisk skalning i Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started) gäller enbart för VM-skalningsuppsättningar (VMSS), molntjänster, app service-planer och app service-miljöer.
-
-### <a name="manage-roles-permissions-and-security"></a>Hantera roller behörigheter och säkerhet
-Många team som behöver strikt [reglera åtkomst till övervakning](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security) data och inställningar. Till exempel om du har som fungerar endast om hur du övervakar (support-tekniker, devops-tekniker) eller om du använder en leverantör av hanterade tjänster kan du behöva ge dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser.
-
-Detta visar hur du snabbt gäller en inbyggd övervakning RBAC-roll för en användare i Azure eller skapa en egen anpassad roll för en användare behöver begränsade behörigheter för övervakning. Det diskuterar sedan säkerhetsaspekter för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till den data de innehåller.
+[Azure Storage Analytics](../storage/storage-analytics.md) utför loggning och tillhandahåller mätvärden för ett Azure storage-konto. Vi rekommenderar att du använder dessa data för att spåra förfrågningar, analysera användningstrender och diagnostisera problem med ditt lagringskonto.
 
 ## <a name="prevent-detect-and-respond-to-threats"></a>Förhindra, upptäcka och svara på hot
-Hotidentifieringen i Security Center sker genom automatisk insamling av säkerhetsinformation från Azure-resurser, nätverket och anslutna partnerlösningar. Det analyserar den här informationen kan korrelerar ofta information från flera källor för att identifiera hot. Säkerhetsaviseringar prioriteras i Security Center tillsammans med rekommendationer om hur hotet kan åtgärdas.
+[Azure Security Center](../security-center/security-center-intro.md) hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i (och kontroll över) säkerheten för dina Azure-resurser. Det ger integrerad säkerhet övervaka och hantera principer för alla Azure-prenumerationer, upptäcka hot som kan annars oupptäckta och fungerar med olika säkerhetslösningar.
 
--   [Konfigurera en säkerhetsprincip](https://docs.microsoft.com/azure/security-center/security-center-policies) för din Azure-prenumeration.
--   Använd den [rekommendationer i Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) att hjälpa dig att skydda dina Azure-resurser.
--   Granska och hantera din aktuella [säkerhetsaviseringar](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
+Security Centers kostnadsfria nivån ger begränsad säkerhet för dina Azure-resurser endast. Standard-nivån utökar funktionerna till lokala och andra moln. Med Security Center Standard kan du hitta och åtgärda säkerhetsproblem, tillämpa åtkomst- och programkontroller för att blockera skadlig aktivitet, upptäcka hot med analys och intelligens och svara snabbt under attacker. Du kan prova Security Center Standard utan kostnad under de första 60 dagarna. Vi rekommenderar att du [publicera din Azure-prenumeration till Security Center Standard](../security-center/security-center-get-started.md).
 
-Med hjälp av [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+Du kan använda Security Center för att få en central vy över säkerhetsläget hos alla dina Azure-resurser. Kontrollera att rätt säkerhetskontroller är på plats och korrekt konfigurerad och snabbt identifiera eventuella resurser som behöver åtgärdas på ett ögonblick.
 
-Security Center innehåller lättanvända och effektiva funktioner som finns inbyggda i Azure och som kan användas för att förebygga, upptäcka och åtgärda hot. Här är de viktigaste funktionerna:
+## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Övervaka slutpunkt till slutpunkt scenariobaserade nätverksövervakning
+Kunder skapar en slutpunkt till slutpunkt-nätverk i Azure genom att kombinera nätverksresurser som ett virtuellt nätverk, ExpressRoute, Application Gateway och belastningsutjämnare. Övervakning är tillgängliga på var och en av nätverksresurserna.
 
--   Förstå molnsäkerhetsläge
--   Ta kontroll över molnsäkerhet
--   Distribuera enkelt integrerade molnsäkerhetslösningar
--   Upptäck hot och svara snabbt
+[Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) är en regional tjänst. Använd dess verktyg för diagnostisering och visualisering för att övervaka och diagnostisera villkor på nätverksscenarienivå i, till och från Azure.
 
-### <a name="understand-cloud-security-state"></a>Förstå molnsäkerhetsläge
-Använd Azure Security Center för att få en central vy över säkerhetsläget hos alla dina Azure-resurser. Kontrollera att rätt säkerhetskontroller är på plats och korrekt konfigurerad på ett ögonblick, och identifiera snabbt eventuella resurser som kräver uppmärksamhet.
+Här följer bästa praxis för verktyg för övervakning och tillgänglig.
 
-### <a name="take-control-of-cloud-security"></a>Ta kontroll över molnsäkerhet
-Definiera [säkerhetsprinciper](https://docs.microsoft.com/azure/security-center/security-center-policies) för din Azure-prenumerationer utifrån företagets molnsäkerhetsbehov, anpassade till typen av program eller efter Känslighetsnivån på datauppgifterna i respektive prenumeration. Använd principdrivna rekommendationer för att leda resursägare genom processen att implementera nödvändiga kontroller – ta bort gissningarna kring molnsäkerhet.
+**Bästa praxis**: automatisera övervakning av fjärrnätverk med infångade paket.   
+**Information om**: övervaka och diagnostisera nätverksproblem utan att logga in till dina virtuella datorer med hjälp av Network Watcher. Utlösaren [paketfångsten](../network-watcher/network-watcher-alert-triggered-packet-capture.md) genom att konfigurera aviseringar och få åtkomst till prestandainformation i realtid på paketnivå. När du ser ett problem kan du undersöka i detalj för att få bättre diagnoser.
 
-### <a name="easily-deploy-integrated-cloud-security-solutions"></a>Distribuera enkelt integrerade molnsäkerhetslösningar
-[Aktivera säkerhetslösningar](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) från Microsoft och dess partner, inklusive branschledande brandväggar och program mot skadlig kod. Använd strömlinjeformad etablering för att distribuera säkerhetslösningar – även nätverksändringar konfigureras åt dig. Dina säkerhetshändelser från partnerlösningar samlas automatiskt in för analys och varning.
+**Bästa praxis**: få insikt i din nätverkstrafik med flödesloggar.   
+**Information om**: skapa trafikmönster för en djupare förståelse för nätverket med hjälp av [network flödesloggar för nätverkssäkerhetsgruppen](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Informationen i flödesloggar kan du samla in data för efterlevnad, granskning och övervakning av din nätverkssäkerhetsprofil.
 
-### <a name="detect-threats-and-respond-fast"></a>Upptäck hot och svara snabbt
-Ligg före aktuella och kommande molnhot med en integrerad, analysdriven metod. Genom att kombinera Microsoft global [hotinformation](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities) och expertis med insikter i säkerhetsrelaterade händelser i molnet i din Azure-installationer kan Security Center hjälper dig att upptäcka verkliga hot tidigt och minska falska positiva identifieringar. Molnsäkerhetsvarningar ger dig insikt i attackkampanjen, inklusive relaterade händelser och vilka resurser som påverkas, samt föreslår sätt att åtgärda problem och hur du snabbt Återhämtar.
+**Bästa praxis**: diagnostisera VPN-anslutningsproblem.   
+**Information om**: Använd Network Watcher till [diagnostisera dina vanligaste problem för VPN-Gateway och anslutning](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Du kan inte bara identifiera problemet, men också använda detaljerade loggar för att undersöka.
 
-## <a name="end-to-end-scenario-based-network-monitoring"></a>Slutpunkt till slutpunkt scenariobaserade nätverksövervakning
-Kunder kan du skapa en slutpunkt till slutpunkt-nätverk i Azure genom att samordna och skapa olika enskilda nätverksresurser, till exempel virtuella nätverk, ExpressRoute, Application Gateway, belastningsutjämnare och mer. Övervakning är tillgängliga på var och en av nätverksresurserna.
+## <a name="secure-deployment-by-using-proven-devops-tools"></a>Skydda distributionen genom att använda beprövade DevOps-verktyg
+Använd följande säkerhetsmetoder för DevOps för att säkerställa att ditt företag och team är produktiva och effektiv.
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) är en regional tjänst som hjälper dig att övervaka och diagnostisera villkor på scenariot för en nivå i, till och från Azure. Nätverksdiagnostik- och visualiseringsverktyg för Network Watcher hjälper dig att förstå, diagnostisera och få information om ditt nätverk i Azure.
+**Bästa praxis**: automatisera skapande och distribution av tjänster.   
+**Information om**: [infrastruktur som kod](https://en.wikipedia.org/wiki/Infrastructure_as_Code) är en uppsättning tekniker och metoder som hjälper IT-proffs kan du ta bort arbetet med dagliga build och hantering av modulära infrastrukturen. Det gör att IT-proffs att skapa och underhålla sina moderna server-miljö på ett sätt som liknar hur programvaruutvecklare att bygga och underhålla programkod.
 
-### <a name="automate-remote-network-monitoring-with-packet-capture"></a>Automatisera övervakning av fjärrnätverk med infångade paket
-Övervaka och diagnostisera nätverksproblem utan att logga in på dina virtuella datorer (VM) med Network Watcher. Utlösaren [paketfångsten](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) genom att konfigurera aviseringar och få åtkomst till prestandainformation i realtid på paketnivå. När du ser ett problem kan du undersöka i detalj för att få bättre diagnoser.
+Du kan använda [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) etablera dina program med hjälp av en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. Du kan använda samma mall för att upprepade gånger distribuera ditt program i varje fas av programmets livscykel.
 
-### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>Få insikt i din nätverkstrafik med flödesloggar
-Få en djupare förståelse av din trafik mönster med [flödesloggar för Nätverkssäkerhetsgruppen](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Information från flödesloggar kan du samla in data för efterlevnad, granskning och övervakning av din nätverkssäkerhetsprofil.
+**Bästa praxis**: automatiskt skapa och distribuera till Azure-webbappar eller molntjänster.   
+**Information om**: du kan konfigurera din teamprojekt i Visual Studio Team Services (VSTS) till [automatiskt skapa och distribuera](https://www.visualstudio.com/docs/build/overview) till Azure-webbappar eller molntjänster. VSTS distribuerar automatiskt binärfilerna när du har gjort en version till Azure efter varje checkar in ny kod. Paketet skapandeprocessen motsvarar kommandot paketet i Visual Studio och publicera stegen är likvärdiga med kommandot Publicera i Visual Studio.
 
-### <a name="diagnose-vpn-connectivity-issues"></a>Diagnostisera VPN-anslutningsproblem
-Network Watcher får du möjlighet att [diagnostisera dina vanligaste problem för VPN Gateway och anslutningar](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Så att du inte bara för att identifiera problemet, utan också för att använda de detaljerade loggar som skapats för att gräva.
+**Bästa praxis**: automatisera release management.   
+**Information om**: Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) är en lösning för att automatisera distribution av flera steg och hantera lanseringsprocessen. Skapa hanterade kontinuerlig distribution pipelines Frigör snabbt, enkelt och ofta. Du kan automatisera processer versionen med Release Management, och du kan har fördefinierade godkännandearbetsflöden. Distribuera lokalt till molnet, utöka och anpassa efter behov.
 
-Mer information om hur du konfigurerar Network watcher och hur du aktiverar det finns i artikel [konfigurera Network watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+**Bästa praxis**: Kontrollera din Apps prestanda innan du startar den eller distribuera uppdateringar till produktion.   
+**Information om**: kör molnbaserade [belastningstester](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) med VSTS till:
 
-## <a name="secure-deployment-using-proven-devops-tools"></a>Säker distribution med beprövade DevOps-verktyg
-Det här är några av de listan för Azure DevOps-metoder i det här utrymmet för Microsoft Cloud, som gör företag och team produktiva och effektivt.
+- Hitta prestandaproblem i din app.
+- Förbättra kvaliteten i distributionen.
+- Se till att dina appar alltid är tillgängliga.
+- Se till att din app kan hantera trafik för nästa start eller marknadsföring kampanjen.
 
--   **Infrastruktur som kod (IaC):** infrastruktur som kod är en uppsättning tekniker och metoder som hjälper IT-proffs att ta bort belastningen som är associerade med den dagliga bygg- och hantering av modulära infrastrukturen. Det gör att IT-proffs att skapa och underhålla sina moderna server-miljö på ett sätt som liknar hur programvaruutvecklare att bygga och underhålla programkod. För Azure, har vi [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) kan du etablera dina program med hjälp av en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. Du använder samma mall till att upprepade gånger distribuera ditt program i varje fas av programmets livscykel.
--   **Kontinuerlig integrering och distribution:** kan du konfigurera din Azure DevOps-projekt till [automatiskt skapa och distribuera](https://www.visualstudio.com/docs/build/overview) till Azure-webbappar eller molntjänster. Azure DevOps distribuerar automatiskt binärfilerna när du har gjort en version till Azure efter varje checkar in ny kod. Paketet genereringsprocessen som beskrivs här motsvarar att kommandot paketet i Visual Studio och publicera stegen är likvärdiga med kommandot Publicera i Visual Studio.
--   **Versionshantering:** Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) är en bra lösning för att automatisera distribution av flera steg och hantera lanseringsprocessen. Skapa hanterade kontinuerlig distribution pipelines Frigör snabbt, enkelt och ofta. Vi kan mycket automatisera vår lanseringsprocessen med Release Management, och vi kan fördefinierade godkännandearbetsflöden. Distribuera lokalt till molnet, utöka och anpassa efter behov.
--   **Prestandaövervakning för appen:** identifiera problem, lösa problem och kontinuerligt förbättra dina program. Diagnostisera snabbt problem i ditt liveprogram. Förstå vad användarna gör med det. Konfigurationen är enkelt bara att lägga till JS-kod och en webconfig-post och du ser resultaten inom några minuter i portalen med all information. [Appinsikter](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) hjälper företag att för snabbare identifiering av problem och åtgärder.
--   **Läsa in testning och automatisk skalning:** vi hittar problem med prestanda i vår app till att förbättra kvaliteten för distribution och appen alltid är igång eller vara tillgängliga för att serva verksamheten behöver. Kontrollera att din app kan hantera trafik för nästa start eller marknadsföring kampanjen. Börja köra molnbaserade [belastningstester](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) i nästan ingen tid med Azure DevOps.
+**Bästa praxis**: övervaka programmets prestanda.   
+**Information om**: [Azure Application Insights](../application-insights/app-insights-overview.md) är en utökningsbar (APM) Hanteringstjänst för programprestanda för webbutvecklare på flera plattformar. Du kan använda Application Insights för att övervaka ditt webbprogram. Den identifierar automatiskt prestandaavvikelser. Den innehåller analysverktyg för att hjälpa dig att diagnostisera problem och förstå vad användare faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
+
+## <a name="mitigate-and-protect-against-ddos"></a>Minimera och skydda mot DDoS
+Distribuerade överbelastningsattacker (DDoS) är en typ av angrepp som används för att få slut på resurser. Målet är att påverka programmets tillgänglighet och dess förmåga att hantera legitima begäranden. Dessa attacker blir allt mer sofistikerade och större i storlek och effekt. De kan riktas till valfri slutpunkt som kan nås offentligt via internet.
+
+Utforma och skapa DDoS-skydd kräver planering och design för en mängd olika fellägen.
+
+Följande är rekommenderade metoder för att skapa DDoS anpassningsbara tjänster i Azure.
+
+**Bästa praxis**: se till att säkerhet är en prioritet under hela livscykeln för ett program, från design och implementering till distribution och drift. Program kan ha buggar som gör att en relativt låg volym av begäranden om att använda en massa resurser, vilket resulterar i avbrott i tjänsten.    
+**Information om**: för att skydda en tjänst som körs på Microsoft Azure, bör du ha en god förståelse av programarkitekturen och fokusera på den [fem grundpelare för programkvalitet](https://docs.microsoft.com/azure/architecture/guide/pillars). Du bör känna till vanliga trafikvolymer modellen anslutning mellan programmet och andra program och Tjänsteslutpunkter som exponeras för det offentliga internet.
+
+Se till att ett program är tillräckligt flexibel för att hantera DOS-attacker som riktas mot själva programmet är viktigast. Säkerhet och sekretess är inbyggt i Azure-plattformen, från och med den [Security Development Lifecycle (SDL)](https://www.microsoft.com/en-us/sdl). SDL-processen hanterar säkerheten i varje utvecklingsfas och ser till att Azure uppdateras ständigt för att göra det ännu säkrare.
+
+**Bästa praxis**: programmen utformas för [skala horisontellt](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) att uppfylla behovet av en förstärkt belastning, särskilt i händelse av en DDoS-attack. Om ditt program är beroende av en enda instans av en tjänst, skapas en enskild felpunkt. Etablering av flera instanser kan systemet mer skalbart och återhämtningsbart mer.   
+**Information om**: för [Azure App Service](../app-service/app-service-value-prop-what-is.md)väljer en [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) som erbjuder flera instanser.
+
+Konfigurera var och en av dina roller att använda för Azure Cloud Services, [flera instanser](../cloud-services/cloud-services-choose-me.md).
+
+För [Azure Virtual Machines](../virtual-machines/windows/overview.md), se till att din VM-arkitektur innehåller fler än en virtuell dator och att varje virtuell dator ingår i en [tillgänglighetsuppsättning](../virtual-machines/virtual-machines-windows-manage-availability.md). Vi rekommenderar att du använder virtuella skalningsuppsättningar för funktioner för automatisk skalning.
+
+**Bästa praxis**: Skikta säkerhetsskyddet i ett program minskar risken för angrepp. Implementera säkra utformning för dina program med hjälp av de inbyggda funktionerna i Azure-plattformen.   
+**Information om**: risken för angrepp ökar i storlek (ytan) av programmet. Du kan minska ytan med hjälp av listan över tillåtna program ska stänga exponerade IP-adressutrymmet och lyssningsportar som inte behövs på belastningsutjämnarna ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) och [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)).
+
+[Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) är ett annat sätt att minska risken för angrepp. Du kan använda [tjänsttaggar](../virtual-network/security-overview.md#service-tags) och [programsäkerhetsgrupper](../virtual-network/security-overview.md#application-security-groups) att minska komplexiteten för att skapa säkerhetsregler och konfigurera nätverkssäkerhet, som en naturlig förlängning av ett programs struktur.
+
+Du bör distribuera Azure-tjänster i en [virtuellt nätverk](../virtual-network/virtual-networks-overview.md) när det är möjligt. Detta gör att service-resurser kommunicera via privata IP-adresser. Azure-tjänsttrafiken från ett virtuellt nätverk använder offentliga IP-adresser som käll-IP-adresser som standard.
+
+Med hjälp av [tjänstslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md) växlar tjänsten trafik för att använda privata vnet-adresser som käll-IP-adresser när de får åtkomst till Azure-tjänsten från ett virtuellt nätverk.
+
+Ofta ser vi kundernas lokala resurser komma angripna tillsammans med sina resurser i Azure. Om du ansluter en lokal miljö till Azure, minimera exponering av lokala resurser till det offentliga internet.
+
+Azure har två DDoS [Tjänsterbjudanden](../virtual-network/ddos-protection-overview.md) som ger skydd mot nätverksattacker:
+
+- Grundläggande skydd är integrerad i Azure som standard utan extra kostnad. Ger skydd mot vanliga attacker på nätverkslager via ständig övervakning och i realtid minskning skalbarhet och kapacitet för globalt distribuerade Azure-nätverket. Basic kräver konfiguration eller programmet användarändringar och hjälper dig att skydda alla Azure-tjänster, inklusive PaaS-tjänster som Azure DNS.
+- Standard protection tillhandahåller avancerade DDoS-skyddsfunktioner mot nätverksattacker. Det är automatiskt justerade för att skydda din specifika Azure-resurser. Skydd är enkelt att använda under genereringen av virtuella nätverk. Det kan också göras när du har skapat och kräver inga ändringar i programmet eller resursen.
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [Azure driftsäkerhet](https://docs.microsoft.com/azure/security/azure-operational-security).
-- Mer [Operations Management Suite | Säkerhet och efterlevnad](https://www.microsoft.com/cloud-platform/security-and-compliance).
-- [Komma igång med Operations Management Suite säkerhet och Granskningslösningen](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started).
+Se [säkerhet i Azure-metodtips och mönster](security-best-practices-and-patterns.md) för flera beprövade metoder för att använda när du utforma, distribuera och hantera dina molnlösningar med hjälp av Azure.
+
+Följande resurser är tillgängliga för att tillhandahålla mer allmän information om Azure-säkerhet och relaterade Microsoft-tjänster:
+* [Azure-Säkerhetsteamets blogg](https://blogs.msdn.microsoft.com/azuresecurity/) – uppdaterad information på senast inom Azure-säkerhet
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där kan du rapportera säkerhetsproblem i Microsoft, inklusive problem med Azure, eller mejla till secure@microsoft.com

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857107"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963397"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB Diagnostisk loggning
 
@@ -29,9 +29,9 @@ Följande bild visar de olika typerna av Azure-loggar som är tillgängliga:
 
 ![Olika typer av Azure-loggar](./media/logging/azurelogging.png)
 
-I bild, den **beräkningsresurser** representerar Azure-resurser som du kan komma åt Microsoft gäst-OS. Till exempel Azure-datorer, VM-skalningsuppsättningar, Azure Container Service, och så vidare är räknas som beräkningsresurser. Compute-resurser genererar aktivitetsloggar, diagnostikloggar och programloggar. Mer information finns i [Azure Monitoring: beräkningsresurser](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) artikeln.
+I bild, den **beräkningsresurser** representerar Azure-resurser som du kan komma åt Microsoft gäst-OS. Till exempel Azure-datorer, VM-skalningsuppsättningar, Azure Container Service, och så vidare är räknas som beräkningsresurser. Compute-resurser genererar aktivitetsloggar, diagnostikloggar och programloggar. Mer information finns i [källor för övervakningsdata i Azure](../monitoring/monitoring-data-sources.md#) artikeln.
 
-Den **icke-beräkningsresurser** finns resurser som du inte kan komma åt det underliggande Operativsystemet och arbeta direkt med resursen. Nätverkssäkerhetsgrupper, Logic Apps och så vidare. Azure Cosmos DB är en icke-compute-resurs. Du kan visa loggar för icke-beräkningsresurser i aktivitetsloggen eller aktiverar diagnostikloggar i portalen. Mer information finns i [Azure Monitoring: icke-compute resurser](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) artikeln.
+Den **icke-beräkningsresurser** finns resurser som du inte kan komma åt det underliggande Operativsystemet och arbeta direkt med resursen. Nätverkssäkerhetsgrupper, Logic Apps och så vidare. Azure Cosmos DB är en icke-compute-resurs. Du kan visa loggar för icke-beräkningsresurser i aktivitetsloggen eller aktiverar diagnostikloggar i portalen. Mer information finns i [datakällor i Azure Monitor](../monitoring/monitoring-data-sources.md) artikeln.
 
 Aktivitetsloggen registrerar åtgärderna på prenumerationsnivå för Azure Cosmos DB. Åtgärder som Listnycklar och skriva DatabaseAccounts loggas. Diagnostikloggar ger mer detaljerad loggning och kan du logga DataPlaneRequests (skapa, läsa, fråga och så vidare) och MongoRequests.
 
@@ -234,7 +234,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 ### <a id="access"></a>Komma åt loggarna
 Azure Cosmos DB-loggarna för den **DataPlaneRequests** kategori lagras i den **insights-logs-data-plan-begäranden** behållare i lagringskontot som du angav. 
 
-Börja med att skapa en variabel för behållarens namn. Variabeln används i hela genomgången.
+Börja med att skapa en variabel för containerns namn. Variabeln används i hela genomgången.
 
 ```powershell
     $container = 'insights-logs-dataplanerequests'
@@ -444,15 +444,15 @@ I följande tabell beskrivs innehållet i varje loggpost.
 | **Kategori** | **Kategori** | För Azure Cosmos DB-loggar är **DataPlaneRequests** är endast tillgängligt värde. |
 | **OperationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara något av följande åtgärder: skapa, uppdatera, Läs, ReadFeed, ta bort, Ersätt, kör, SQL-fråga, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
 | **Egenskaper** | Saknas | Innehållet i det här fältet beskrivs i de rader som följer. |
-| **aktivitets-ID** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
-| **userAgent** | **userAgent_s** | En sträng som anger klientanvändaragent som utför förfrågan. Formatet är {användarnamn för agenten} / {version}.|
-| **resourceType** | **ResourceType** | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: databasen, behållare, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
+| **Aktivitets-ID** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
+| **UserAgent** | **userAgent_s** | En sträng som anger klientanvändaragent som utför förfrågan. Formatet är {användarnamn för agenten} / {version}.|
+| **ResourceType** | **ResourceType** | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: databasen, behållare, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
 | **statusCode** | **statusCode_s** | Svarsstatus för åtgärden. |
 | **requestResourceId** | **Resurs-ID** | ResourceId som gäller för begäran. Värdet kan peka databaseRid, collectionRid eller documentRid beroende på de åtgärder som utförs.|
 | **clientIpAddress** | **clientIpAddress_s** | Klientens IP-adress. |
 | **requestCharge** | **requestCharge_s** | Antalet enheter för programbegäran som används av åtgärden |
 | **collectionRid** | **collectionId_s** | Unikt ID för samlingen.|
-| **varaktighet** | **duration_s** | Varaktighet för åtgärden, i ticken. |
+| **Varaktighet** | **duration_s** | Varaktighet för åtgärden, i ticken. |
 | **requestLength** | **requestLength_s** | Längden på begäran, i byte. |
 | **responseLength** | **responseLength_s** | Längden på svaret, i byte.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Det här värdet är inte tom när [resurstokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) används för autentisering. Värdet som pekar på resurs-ID för användaren. |

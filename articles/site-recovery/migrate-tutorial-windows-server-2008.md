@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/23/2018
+ms.date: 09/22/2018
 ms.author: bsiva
-ms.openlocfilehash: 6e5946f3f9dcf1c7d941054c844adcf683b485ab
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d15a5b62a148e971c0740f01744fce308e502340
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308651"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056044"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrera servrar som kör Windows Server 2008 till Azure
 
@@ -59,14 +59,11 @@ Resten av den här kursen visar hur du kan migrera lokala virtuella VMware-dator
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 
-- Den konfigurationsservern och ytterligare processervrar mobilitetstjänsten som används för att migrera servrar för Windows Server 2008 SP2 bör köra version 9.18.0.1 av Azure Site Recovery-programvaran. Enhetlig installationen av version 9.18.0.1 av konfigurationsservern och processervern kan laddas ned från [ https://aka.ms/asr-w2k8-migration-setup ](https://aka.ms/asr-w2k8-migration-setup).
-
-- En befintlig konfigurationsservern eller processervern kan inte användas för att migrera servrar som kör Windows Server 2008 SP2. En ny Configuration Server ska etableras med version 9.18.0.1 av Azure Site Recovery-programvaran. Den här konfigurationsservern bör endast användas för migrering av Windows-servrar till Azure.
+- Den konfigurationsservern och ytterligare processervrar mobilitetstjänsten som används för att migrera servrar för Windows Server 2008 SP2 bör köra version 9.19.0.0 eller senare av Azure Site Recovery-programvaran.
 
 - Programåterställningspunkter för konsekvent och funktionen konsekvens för flera virtuella datorer stöds inte för replikering av servrar som kör Windows Server 2008 SP2. Windows Server 2008 SP2 servrar ska migreras till en kraschkonsekventa återställningspunkten. Krascher konsekventa återställningspunkter genereras var femte minut som standard. Replikeringshälsa aktivera kritisk på grund av bristande konsekvent programåterställningspunkter genereras om du använder en replikeringsprincip med en frekvens för programkonsekventa ögonblicksbilder av konfigurerade programmet. Ange frekvensen för programkonsekventa ögonblicksbilder i replikeringsprincip på ”av” för att undvika falska positiva identifieringar.
 
 - De servrar som ska migreras bör ha .NET Framework 3.5 Service Pack 1 för mobilitetstjänsten ska fungera.
-
 
 - Om servern har dynamiska diskar, kanske du märker i vissa konfigurationer, som dessa diskar på den misslyckade över server markeras offline eller visas som externa diskar. Du kan också hända att speglade set-status för speglade volymer mellan diskar är markerad ”misslyckades redundans”. Du kan åtgärda det här problemet från diskmgmt.msc genom att importera de här diskarna och återaktivera dem manuellt.
 
@@ -109,48 +106,8 @@ Det nya valvet läggs till på **Instrumentpanelen** under **Alla resurser** och
 
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>Förbered din lokala miljö för migrering
 
-- Ladda ned installationsprogrammet till konfigurationsserver (enhetligt installationsprogram) från [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- Följ stegen som beskrivs nedan för att konfigurera källmiljön med hjälp av installationsfilen som hämtades i föregående steg.
-
-> [!IMPORTANT]
-> - Kontrollera att du använder installationsfilen hämtade i det första steget ovan för att installera och registrera konfigurationsservern. Hämta inte installationsfilen från Azure-portalen. Installationsfilen finns på [ https://aka.ms/asr-w2k8-migration-setup ](https://aka.ms/asr-w2k8-migration-setup) är den enda versionen som har stöd för Windows Server 2008-migrering.
->
-> - Du kan inte använda en befintlig Configuration Server för att migrera datorer som kör Windows Server 2008. Du måste installera en ny konfigurationsservern med hjälp av länken ovan.
->
-> - Följ stegen nedan för att installera konfigurationsservern. Försök inte att använda metoden GUI-baserad installation genom att köra det enhetliga installationsprogrammet direkt. Detta resulterar i installera försöket misslyckas med ett felaktigt felmeddelande om att det inte finns någon Internetanslutning.
-
- 
-1) Hämta valvautentiseringsfilen från portalen: på Azure-portalen väljer du skapade i föregående steg Recovery Services-valvet. På menyn på sidan valv väljer **Site Recovery-infrastruktur** > **Konfigurationsservrar**. Klicka sedan på **+ Server**. Välj *konfigurationsservern för fysisk* från nedrullningsbara menyn formuläret på sidan som öppnas. Klicka på knappen Hämta i steg 4 för att hämta valvautentiseringsfilen.
-
- ![Ladda ned valvregistreringsnyckel](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
-
-2) Kopiera filen med valvautentiseringsuppgifter som hämtades i föregående steg och enhetlig installationsfilen hämtade tidigare på skrivbordet för Configuration Server-datorn (Windows Server 2012 R2 eller Windows Server 2016-dator som där du ska installera den konfiguration av serverprogramvara.)
-
-3) Se till att konfigurationsservern är ansluten till internet och att systemklockan och tidszon inställningarna på datorn är rätt konfigurerade. Ladda ned den [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) installationsprogrammet och placera den på *C:\Temp\ASRSetup* (skapa katalogen om den inte finns.) 
-
-4) Skapa en fil för MySQL-autentiseringsuppgifter med följande rader och placera den på skrivbordet i **C:\Users\Administrator\MySQLCreds.txt** . Ersätt ”lösenordet ~ 1” nedan med ett lämpligt och starka lösenord:
-
-```
-[MySQLCredentials]
-MySQLRootPassword = "Password~1"
-MySQLUserPassword = "Password~1"
-```
-
-5) Extrahera innehållet i den hämta enhetlig installationsfilen på skrivbordet genom att köra följande kommando:
-
-```
-cd C:\Users\Administrator\Desktop
-
-MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
-```
-  
-6) Installera configuration server-programvara med hjälp av extraherade innehållet genom att köra följande kommandon:
-
-```
-cd C:\Users\Administrator\Desktop\9.18.1
-
-UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
-```
+- Att migrera Windows Server 2008 virtuella datorer som körs på VMware, [installera den lokala konfigurationsservern på VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
+- Om konfigurationsservern inte kan konfigureras som en virtuell VMware-dator, [installera konfigurationsservern på en lokal fysisk server eller virtuell dator](physical-azure-disaster-recovery.md#set-up-the-source-environment).
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
 

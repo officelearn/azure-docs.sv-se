@@ -5,33 +5,33 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/12/2018
+ms.date: 08/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b7e4665dc3579f357ce1e28bf34be35c931736bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 9c09f473f5d8b399c4fb1b1ad449c783c797f4dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647673"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968517"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Lägga till utökade mått för Azure-datorer
 
-Kostnadshantering används Azure måttdata från virtuella datorer i Azure för att visa du detaljerad information om sina resurser. Måttdata, även kallat prestandaräknare, används av Cost Management för att generera rapporter. Dock Cost Management inte automatiskt samla in alla Azure måttdata från virtuella gästdatorer – du måste aktivera mått samling. Den här artikeln hjälper dig att aktivera och konfigurera ytterligare diagnostik mått för virtuella datorer i Azure.
+Cloudyn använder Azure måttdata från virtuella datorer i Azure för att visa du detaljerad information om sina resurser. Måttdata, även kallat prestandaräknare, används av Cloudyn för att generera rapporter. Dock Cloudyn inte automatiskt samla in alla Azure måttdata från virtuella gästdatorer – du måste aktivera mått samling. Den här artikeln hjälper dig att aktivera och konfigurera ytterligare diagnostik mått för virtuella datorer i Azure.
 
 När du har aktiverat mått samling kan du:
 
 - Vet när dina virtuella datorer ansluter till deras minne, disk och CPU-gränser.
 - Identifiera användningstrender och avvikelser.
 - Styra kostnaderna genom storlek beroende på användningen.
-- Hämta kostnad effektiva Bedömningsrekommendationer optimering från Cost Management.
+- Hämta kostnad effektiva Bedömningsrekommendationer optimering från Cloudyn.
 
 Du kanske exempelvis vill övervaka processor och minne-% av virtuella datorer i Azure. Azure VM-mått som motsvarar _[värd] procent CPU_ och _[gäst] minnesprocent_.
 
 > [!NOTE]
-> Datainsamling för utökade mått stöds bara med Azure-övervakning på gästnivå. Kostnadshantering är inte kompatibel med Log Analytics VM-tillägg.
+> Datainsamling för utökade mått stöds bara med Azure-övervakning på gästnivå. Cloudyn är inte kompatibel med Log Analytics VM-tillägg.
 
 ## <a name="verify-that-metrics-are-enabled-on-vms"></a>Kontrollera att mått är aktiverat på virtuella datorer
 
@@ -68,7 +68,7 @@ När du skapar nya virtuella datorer kan du se till att du väljer **diagnostik 
 
 ## <a name="resource-manager-credentials"></a>Resource Manager-autentiseringsuppgifter
 
-När du aktiverar utökade mått, kontrollerar du att kostnadshantering har åtkomst till din [Resource Manager autentiseringsuppgifter](activate-subs-accounts.md). Dina autentiseringsuppgifter krävs för kostnadshantering att samla in och visa information om prestanda för dina virtuella datorer. De också används för att skapa kostnadsrekommendationer för optimering. Kostnadshantering måste minst tre dagar prestandadata från en instans för att avgöra om det är en kandidat för en downsizing rekommendation.
+När du aktiverar utökade mått, kontrollerar du att Cloudyn har åtkomst till din [Resource Manager autentiseringsuppgifter](activate-subs-accounts.md). Dina autentiseringsuppgifter krävs för Cloudyn att samla in och visa information om prestanda för dina virtuella datorer. De också används för att skapa kostnadsrekommendationer för optimering. Cloudyn måste minst tre dagar prestandadata från en instans för att avgöra om det är en kandidat för en downsizing rekommendation.
 
 ## <a name="enable-vm-metrics-with-a-script"></a>Aktivera VM-mått med ett skript
 

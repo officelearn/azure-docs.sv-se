@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 1321645d97e7f6ff2faed1e61ddb608afcb7b413
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 5087b8a1d675fb6fb2bbfb2b46a09c215bf5e9ae
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058157"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998771"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner och verktyg för Azure Cloud Shell
 
@@ -31,7 +31,7 @@ Azure Cloud Shell som körs på `Ubuntu 16.04 LTS`.
 
 ### <a name="secure-automatic-authentication"></a>Säker automatisk autentisering
 
-Cloudshell autentiserar på ett säkert sätt och automatiskt kontoåtkomst för Azure CLI 2.0 och Azure PowerShell.
+Cloudshell autentiserar på ett säkert sätt och automatiskt kontoåtkomst för Azure CLI och Azure PowerShell.
 
 ### <a name="home-persistence-across-sessions"></a>$Home bevarad mellan sessioner
 
@@ -60,7 +60,7 @@ Cloudshell innehåller förkonfigurerade autentisering för open source-verktyg 
 |Kategori   |Namn   |
 |---|---|
 |Linux-verktyg            |Bash<br> zsh<br> SH<br> tmux<br> fördjupa<br>               |
-|Azure-verktyg            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) och [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
+|Azure-verktyg            |[Azure CLI](https://github.com/Azure/azure-cli) och [Azure klassiskt CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Textredigerare           |VIM<br> nano<br> emacs       |
 |Källkontroll         |git                    |
 |Skapa verktyg            |Kontrollera<br> Maven<br> npm<br> PIP         |
@@ -82,5 +82,5 @@ Cloudshell innehåller förkonfigurerade autentisering för open source-verktyg 
 ## <a name="next-steps"></a>Nästa steg
 [Bash i Cloud Shell-Snabbstart](quickstart.md) <br>
 [PowerShell i Snabbstarta Cloud Shell (förhandsversion)](quickstart-powershell.md) <br>
-[Lär dig mer om Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Lär dig mer om Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [Lär dig mer om Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

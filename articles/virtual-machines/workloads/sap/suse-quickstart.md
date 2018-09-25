@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: cc4438a770a8092275373ccf8da9cc9951a1f906
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858620"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950054"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Köra SAP NetWeaver på virtuella SUSE Linux-datorer i Microsoft Azure
 Den här artikeln beskrivs olika saker att tänka på när du kör SAP NetWeaver på Microsoft Azure SUSE Linux-datorer (VM). Från och med den 19 maj 2016 stöds officiellt SAP NetWeaver på SUSE Linux virtuella datorer på Azure. All information om Linux-versioner, SAP kernel-versioner och andra krav finns i SAP anteckning 1928533 ”SAP-program i Azure: produkter som stöds och Azure VM-typer”.
@@ -70,7 +70,7 @@ Det är fortfarande möjligt att använda standardbilder för SLES för SAP-inst
 ## <a name="installing-walinuxagent-in-a-suse-vm"></a>Installera WALinuxAgent i en SUSE-VM
 Agenten kallas WALinuxAgent är en del av SLES-avbildningar på Azure Marketplace. Information om hur du installerar den manuellt (till exempel när du överför en SLES OS virtuell hårddisk (VHD) från en lokal plats) finns i:
 
-* [OpenSUSE](http://software.opensuse.org/package/WALinuxAgent)
+* [openSUSE](http://software.opensuse.org/package/WALinuxAgent)
 * [Azure](../../linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
@@ -119,7 +119,7 @@ Du bör skapa nya virtuella SUSE-datorer med hjälp av JSON-mallfiler i den nya 
    ```
 Läs mer om JSON-mallfiler [redigera Azure Resource Manager-mallar](../../../resource-group-authoring-templates.md) och [Azures snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
 
-Mer information om CLI och Azure Resource Manager finns i [använda Azure CLI för Mac, Linux och Windows med Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
+Mer information om Azure klassiskt CLI och Azure Resource Manager finns i [använder den klassiska Azure CLI för Mac, Linux och Windows med Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
 
 ## <a name="sap-license-and-hardware-key"></a>SAP licens- och nyckel
 För SAP-Azure officiell certifiering introducerades en ny mekanism för att beräkna SAP maskinvarunyckeln som används för SAP-licens. SAP-kernel var tvungen att anpassas till att kontrollera användning av den nya algoritmen. Tidigare SAP kernel-versioner för Linux innehöll inte ändringar i den här koden. Därför kan i vissa situationer (till exempel Azure VM storleksändring), ändras maskinvarunyckel SAP och SAP-licensen har inte längre vara giltiga. En lösning tillhandahålls med nyare SAP Linux-kernel.  Detaljerad SAP kernel korrigeringar dokumenteras i SAP-kommentar 1928533.

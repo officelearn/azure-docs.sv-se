@@ -2,5 +2,5 @@
 
 Två versioner av kommandoradsgränssnittet för Azure (CLI) är tillgängliga för tillfället:
 
-* [Azure CLI 2.0](../articles/storage/common/storage-azure-cli.md): vår nästa generations CLI som skrivits i Python för användning med distributionsmodellen resurshantering.
-* [Azure CLI 1.0](../articles/storage/common/storage-azure-cli-nodejs.md): vår CLI som skrivits i Node.js för både den klassiska distributionsmodellen och för resurshantering.
+* [Azure CLI](../articles/storage/common/storage-azure-cli.md): den aktuella versionen av Azure CLI, för användning med Resource Manager-distributionsmodellen.
+* [Azure klassiskt CLI](../articles/storage/common/storage-azure-cli-nodejs.md): en äldre version av Azure CLI, avsedd att användas endast med den klassiska distributionsmodellen.

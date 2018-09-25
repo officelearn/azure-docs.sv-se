@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: a5531ae256a263f1c34496819ac435ce67156b49
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649335"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996221"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Förebyggande underhåll för verkliga scenarier
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Följderna av oplanerade avbrott för utrustning kan vara skadliga för alla företag. Det är viktigt att hålla fältet utrustning som kör maximerar användning och prestanda och minimera dyra, oplanerade driftstopp. Tidig identifiering av problem kan allokera begränsad Underhåll resurser på ett kostnadseffektivt sätt och förbättra kvaliteten och ange kedja processer. 
 
@@ -41,10 +46,10 @@ Affärsproblem för den här simulerade data är att förutsäga problem som ors
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga).
-* En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Följ den [Snabbstart installationsguide](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta.
+* En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Följ den [Snabbstart installationsguide](quickstart-installation.md) att installera programmet och skapa en arbetsyta.
 * Azure Machine Learning Operationalization kräver en lokal distribution-miljö och en [Azure Machine Learning-modellhantering konto](model-management-overview.md).
 
-Det här exemplet körs på alla kontexter för beräkning av Machine Learning Workbench. Vi rekommenderar dock att du kör exemplet med minst 16 GB minne. Det här scenariot har skapats och testats på en Windows 10-dator som kör en fjärransluten DS4_V2 standard [Data Science Virtual Machine (DSVM) för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+Det här exemplet körs på alla kontexter för beräkning av Machine Learning Workbench. Vi rekommenderar dock att du kör exemplet med minst 16 GB minne. Det här scenariot har skapats och testats på en Windows 10-dator som kör en fjärransluten DS4_V2 standard [Data Science Virtual Machine (DSVM) för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Modellen driftsättning gjordes med hjälp av version 0.1.0a22 av Azure Machine Learning CLI.
 
@@ -71,7 +76,7 @@ Det här kommandot ger en autentiseringsnyckel ska användas med https:\\aka.ms\
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-Det är bättre att köra en [DSVM för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) för minne och krav. När DSVM har konfigurerats kan du förbereda den fjärranslutna Docker-miljön med följande två kommandon:
+Det är bättre att köra en [DSVM för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) för minne och krav. När DSVM har konfigurerats kan du förbereda den fjärranslutna Docker-miljön med följande två kommandon:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

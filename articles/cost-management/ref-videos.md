@@ -1,69 +1,69 @@
 ---
-title: Utbildning videoklipp om Azure kostnaden Management | Microsoft Docs
-description: Utbildningsvideor för Azure kostnaden Management vägleder dig genom att komma igång och använda dess funktioner.
+title: Utbilda dig videor Cloudyn i Azure | Microsoft Docs
+description: Utbildningsvideor för Cloudyn hjälpa dig att komma igång och använda dess funktioner.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: 197eac4b6904bbbf55e7233e113e64e3af528b3e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fb20661ddf8a92ac0f5ba4141c28111b117c85a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163341"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972223"
 ---
-# <a name="cost-management-training-videos"></a>Kostnad Management utbildning videor
+# <a name="cloudyn-training-videos"></a>Cloudyn utbildningsvideor
 
-Följande videoklipp ger demonstrationer om du vill får du hjälp att komma igång med kostnaden Management och dess funktioner. Kostnad Management stöder flera molnet Kostnadsuppföljning och optimering, inklusive Microsoft Azure, Amazon Web Services och Google Cloud Platform.
+I följande videoklipp ger demonstrationer för att hjälper dig att komma igång med Cloudyn och använda dess funktioner. Cloudyn stöder flera moln Kostnadsuppföljning och optimering, inklusive Microsoft Azure, Amazon Web Services och Google Cloud Platform.
 
-[Introduktion till hantering av Azure kostnad](https://youtu.be/NWIRny6Wpsk)
+[Introduktion till Cloudyn](https://youtu.be/NWIRny6Wpsk)
 
 >[!VIDEO https://www.youtube.com/embed/NWIRny6Wpsk]
 
-[Analysera dina molntjänster faktureringsinformation jämfört med Azure kostnaden Management](https://youtu.be/7LsVPHglM0g)
+[Analysera faktureringsinformation moln kontra tid med Cloudyn](https://youtu.be/7LsVPHglM0g)
 
 >[!VIDEO https://www.youtube.com/embed/7LsVPHglM0g]
 
-[Lägga till användare i Azure kostnad Management](https://youtu.be/Nzn7GLahx30)
+[Lägga till användare i Cloudyn](https://youtu.be/Nzn7GLahx30)
 
 >[!VIDEO https://www.youtube.com/embed/Nzn7GLahx30?ecver=1]
 
-[Skapa en kostnad enhetshierarki i Azure kostnad Management](https://youtu.be/dAd9G7u0FmU)
+[Skapar en kostnad i Cloudyn](https://youtu.be/dAd9G7u0FmU)
 
 >[!VIDEO https://www.youtube.com/embed/dAd9G7u0FmU?ecver=1]
 
-[Optimera VM-storlek i Azure kostnad hantering](https://youtu.be/1xaZBNmV704)
+[Optimera VM-storlek i Cloudyn](https://youtu.be/1xaZBNmV704)
 
 >[!VIDEO https://www.youtube.com/embed/1xaZBNmV704?ecver=1]
 
-[Definiera en modell för kostnad allokering i Azure kostnad Management](https://youtu.be/FJzof_agKHY)
+[Definiera en modell för kostnadsallokering i Cloudyn](https://youtu.be/FJzof_agKHY)
 
 >[!VIDEO https://www.youtube.com/embed/FJzof_agKHY?ecver=1]
 
-[Definiera anpassade tillägg i Azure kostnad Management](https://youtu.be/3HcgkGPQjXE)
+[Definiera anpassade kostnader i Cloudyn](https://youtu.be/3HcgkGPQjXE)
 
 >[!VIDEO https://www.youtube.com/embed/3HcgkGPQjXE?ecver=1]
 
-[Hitta din EA registrering ID och API-nyckeln för användning i Azure kostnaden Management](https://youtu.be/u_phLs_udig)
+[Hitta Your EA Enrollment ID och API-nyckel för användning i Cloudyn](https://youtu.be/u_phLs_udig)
 
 >[!VIDEO https://www.youtube.com/embed/u_phLs_udig?ecver=1]
 
-[Hitta din katalog GUID och hastighet ID för användning i Azure kostnaden Management](https://youtu.be/PaRjnyaNGMI)
+[Söka efter din Directory GUID och tariff-ID för användning i Cloudyn](https://youtu.be/PaRjnyaNGMI)
 
 >[!VIDEO https://www.youtube.com/embed/PaRjnyaNGMI?ecver=1]
 
-[Tilldela konton och -prenumerationer till kostnaden för entiteter i Azure kostnad Management](https://youtu.be/d9uTWSdoQYo)
+[Tilldela konton och prenumerationer till entiteter i Cloudyn](https://youtu.be/d9uTWSdoQYo)
 
 >[!VIDEO https://www.youtube.com/embed/d9uTWSdoQYo?ecver=1]
 
-[Ansluta till Azure Resource Manager med Azure kostnad Management](https://youtu.be/oCIwvfBB6kk)
+[Ansluta till Azure Resource Manager med Cloudyn](https://youtu.be/oCIwvfBB6kk)
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
-[Analysera dina faktureringsinformation för molnet med Azure kostnaden Management](https://youtu.be/G0pvI3iLH-Y)
+[Analysera data i molnet fakturering med Cloudyn](https://youtu.be/G0pvI3iLH-Y)
 
 >[!VIDEO https://www.youtube.com/embed/G0pvI3iLH-Y?ecver=1]

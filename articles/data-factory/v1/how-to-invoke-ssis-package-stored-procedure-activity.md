@@ -1,6 +1,6 @@
 ---
-title: Anropa SSIS-paket med hjälp av Azure Data Factory - lagrade Proceduraktiviteten | Microsoft Docs
-description: Den här artikeln beskriver hur du anropa ett SQL Server Integration Services (SSIS)-paket från ett Azure Data Factory-pipelinen med hjälp av den lagrade Proceduraktiviteten.
+title: Anropa SSIS-paket med Azure Data Factory - lagrade Proceduraktiviteten | Microsoft Docs
+description: Den här artikeln beskriver hur du anropar ett SQL Server Integration Services (SSIS)-paket från en Azure Data Factory-pipeline med hjälp av den lagrade Proceduraktiviteten.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,29 +13,29 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: bf91b1cb1e764c1350cead0c5dfb109b73e9dad3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: fe2b509b62884c1cea554bc8dc5df25489205264
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052723"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966970"
 ---
-# <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory
-Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
+# <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktivitet för lagrad procedur i Azure Data Factory
+Den här artikeln beskriver hur du anropar ett SSIS-paket från en Azure Data Factory-pipeline med hjälp av en lagrad procedur-aktivitet. 
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [anropa SSIS-paket med hjälp av aktiviteten lagrad procedur i](../how-to-invoke-ssis-package-stored-procedure-activity.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [anropa SSIS-paket med lagrad proceduraktivitet i](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-Den här genomgången i den här artikeln använder en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL-hanterade databasinstans (förhandsversion).
+I den här artikeln använder en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL Database Managed Instance.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Skapa en Azure-SSIS Integration Runtime
-Skapa en Azure-SSIS-integrering körning om du inte har någon av följande steg för steg-anvisningarna i den [genomgång: distribuera SSIS-paket](../tutorial-create-azure-ssis-runtime-portal.md). Du kan inte använda Data Factory version 1 för att skapa en Azure-SSIS-integrering körning. 
+Skapa en Azure-SSIS integration runtime om du inte har en genom att följa de stegvisa anvisningarna i den [självstudie: distribuera SSIS-paket](../tutorial-create-azure-ssis-runtime-portal.md). Du kan inte använda Data Factory version 1 för att skapa en Azure-SSIS integration runtime. 
 
 ## <a name="azure-portal"></a>Azure Portal
-I det här avsnittet använder du Azure-portalen för att skapa Data Factory-pipelinen med en lagrad procedur-aktivitet som anropar ett SSIS-paket.
+I det här avsnittet använder du Azure-portalen för att skapa en Data Factory-pipeline med en lagrad procedur-aktivitet som anropar ett SSIS-paket.
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 Första steget är att skapa en datafabrik med hjälp av Azure portal. 
@@ -68,33 +68,33 @@ Första steget är att skapa en datafabrik med hjälp av Azure portal.
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
     ![Datafabrikens startsida](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
-10. Klicka på **författare och distribuera** rutan för att starta Data Factory-redigeraren.
+10. Klicka på **författare och distribuera** att starta Data Factory-redigeraren.
 
     ![Data Factory-redigeraren](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-editor.png)
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Skapa en länkad Azure SQL Database-tjänst
-Skapa en länkad tjänst om du vill länka din Azure SQL-databas som är värd för SSIS-katalog till din data factory. Data Factory använder informationen i den här länkade tjänsten för att ansluta till SSIDB-databasen och kör en lagrad procedur om du vill köra ett SSIS-paket. 
+Skapa en länkad tjänst för att länka Azure SQL database som är värd för SSIS-katalogen till din datafabrik. Data Factory använder informationen i den här länkade tjänsten för att ansluta till SSISDB-databasen och kör en lagrad procedur om du vill köra ett SSIS-paket. 
 
-1. I den Data Factory-redigeraren, klicka på **Nytt datalager** på menyn och klicka på **Azure SQL Database**. 
+1. I Data Factory-redigeraren, klicka på **Nytt datalager** till menyn och klicka på **Azure SQL Database**. 
 
-    ![Azure SQL Database-Nytt datalager >](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-sql-database-linked-service-menu.png)
+    ![Nytt datalager -> Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-sql-database-linked-service-menu.png)
 2. I den högra rutan, gör du följande steg:
 
-    1. Ersätt `<servername>` med namnet på din Azure SQL-server. 
-    2. Ersätt `<databasename>` med **SSISDB** (namnet på katalogen SSIS-databasen). 
+    1. Ersätt `<servername>` med namnet på Azure SQL-servern. 
+    2. Ersätt `<databasename>` med **SSISDB** (namn på SSIS-katalogdatabasen). 
     3. Ersätt `<username@servername>` med namnet på den användare som har åtkomst till Azure SQL-servern. 
     4. Ersätt `<password>` med lösenordet för användaren. 
     5. Distribuera den länkade tjänsten genom att klicka på den **distribuera** i verktygsfältet. 
 
         ![Länkad Azure SQL Database-tjänst](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-definition.png)
 
-### <a name="create-a-dummy-dataset-for-output"></a>Skapa en dummy datamängd för utdata
-Denna datamängd för utdata är en dummy datamängd som schemat för pipeline-enheter. Observera att frekvensen är inställd på timme och intervall har angetts till 1. Därför körs pipelinen när en timme i pipeline- och sluttider. 
+### <a name="create-a-dummy-dataset-for-output"></a>Skapa en dummy datauppsättning för utdata
+Det här är en dummy datauppsättning som styr schemat för pipelinen. Lägg märke till att frekvensen är inställd på Hour och interval anges till 1. Därför körs pipelinen när en timme i pipeline- och sluttider. 
 
-1. I den vänstra rutan på den Data Factory-redigeraren, klickar du på **... Flera** -> **ny datamängd** -> **Azure SQL**.
+1. I den vänstra rutan i Data Factory-redigeraren klickar du på **... Mer** -> **ny datauppsättning** -> **Azure SQL**.
 
-    ![Flera -> ny datauppsättning](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-dataset-menu.png)
-2. Kopiera följande JSON-fragment till JSON-redigerare i den högra rutan. 
+    ![Mer -> ny datauppsättning](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-dataset-menu.png)
+2. Kopiera följande JSON-kodfragment i JSON-redigeraren i den högra rutan. 
     
     ```json
     {
@@ -112,14 +112,14 @@ Denna datamängd för utdata är en dummy datamängd som schemat för pipeline-e
     ```
 3. Klicka på **Distribuera** i verktygsfältet. Den här åtgärden distribuerar datauppsättningen till Azure Data Factory-tjänsten. 
 
-### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med aktiviteten lagrad procedur 
-I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktiviteten anropar sp_executesql lagrade proceduren för att köra SSIS-paket. 
+### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med en aktivitet för lagrad procedur 
+I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktiviteten anropar sp_executesql lagrade proceduren för att köra dina SSIS-paket. 
 
 1. I den vänstra rutan klickar du på **... More (Mer)** och sedan på **Ny pipeline**.
-2. Kopiera följande JSON-fragment till JSON-Redigerare: 
+2. Kopiera följande JSON-kodfragment i JSON-redigeraren: 
 
     > [!IMPORTANT]
-    > Ersätt &lt;mappnamn&gt;, &lt;projektnamn&gt;, &lt;paketnamnet&gt; med namn på mappen, projekt och paketet i katalogen SSIS innan du sparar filen.
+    > Ersätt &lt;mappnamn&gt;, &lt;projektnamn&gt;, &lt;paketnamn&gt; med namn på mapp, projekt och paket i SSIS-katalogen innan du sparar filen.
 
     ```json
     {
@@ -148,27 +148,27 @@ I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktivi
         }
     }    
     ```
-3. Klicka på **Distribuera** i verktygsfältet. Den här åtgärden distribuerar pipeline till Azure Data Factory-tjänsten. 
+3. Klicka på **Distribuera** i verktygsfältet. Den här åtgärden distribuerar pipelinen till Azure Data Factory-tjänsten. 
 
 ### <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
-Schemat på datamängd för utdata har definierats som en gång i timmen. Sluttid för pipelinen är fem timmar från starttiden. Därför kan se du fem pipelinen körs. 
+Schemat i datauppsättningen för utdata har definierats som per timme. Sluttid för pipelinen är fem timmar från starttiden. Därför kan se du fem pipelinekörningar. 
 
-1. Stäng fönstren redigeraren så att du ser sidan för data factory. Klicka på **övervaka och hantera** panelen. 
+1. Stäng fönstren redigeraren så att du kan se startsidan för datafabriken. Klicka på **övervaka och hantera** panelen. 
 
     ![Ikonen Diagram](./media/how-to-invoke-ssis-package-stored-procedure-activity/monitor-manage-tile.png)
-2. Uppdatering av **starttid** och **sluttiden** till **2018-01/18 08:30 AM** och **2018-01/20 08:30 AM**, och klicka på **tillämpa**. Du bör se den **aktivitet windows** som är kopplade till pipelinen körs. 
+2. Uppdatera den **starttid** och **sluttid** till **01/18/2018 kl. 08:30** och **2018-01-20 kl. 08:30**, och klicka på **tillämpa**. Du bör se den **aktivitetsfönster** som är associerade med pipelinekörningen. 
 
-    ![Aktiviteten windows](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-windows.png)
+    ![Aktivitetsfönster](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-windows.png)
 
-Mer information om hur du övervakar pipelines finns [övervaka och hantera Azure Data Factory pipelines med hjälp av övervakning och hantering av App](data-factory-monitor-manage-app.md).
+Mer information om hur du övervakar pipelines finns i [övervaka och hantera Azure Data Factory-pipelines med övervaknings- och Hanteringsappen](data-factory-monitor-manage-app.md).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-I det här avsnittet använder du Azure PowerShell för att skapa Data Factory-pipelinen med en lagrad procedur-aktivitet som anropar ett SSIS-paket.
+I det här avsnittet använder du Azure PowerShell för att skapa en Data Factory-pipeline med en lagrad procedur-aktivitet som anropar ett SSIS-paket.
 
 Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
-Följande procedur innehåller steg för att skapa en datafabrik. Du kan skapa en pipeline för med en lagrad procedur aktivitet i denna data factory. Aktiviteten lagrad procedur kör en lagrad procedur i SSIDB-databasen för att köra SSIS-paket.
+Följande procedur innehåller steg för att skapa en datafabrik. Du kan skapa en pipeline med en aktivitet för lagrad procedur i den här datafabriken. Lagrad procedur-aktivitet kör en lagrad procedur i SSISDB-databasen för att köra dina SSIS-paket.
 
 1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../../azure-resource-manager/resource-group-overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
    
@@ -192,7 +192,7 @@ Följande procedur innehåller steg för att skapa en datafabrik. Du kan skapa e
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. För att skapa datafabriken, kör du följande **ny AzureRmDataFactory** cmdlet, med hjälp av egenskapen plats och ResourceGroupName från $ResGrp-variabeln: 
+5. Om du vill skapa data factory, kör du följande **New-AzureRmDataFactory** cmdlet, med hjälp av den platsen och egenskapen ResourceGroupName från variabeln $ResGrp: 
     
     ```powershell       
     $df = New-AzureRmDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
@@ -208,12 +208,12 @@ Observera följande punkter:
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna **deltagare** eller **ägare**, eller vara **administratör** för Azure-prenumerationen.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Skapa en länkad Azure SQL Database-tjänst
-Skapa en länkad tjänst om du vill länka din Azure SQL-databas som är värd för SSIS-katalog till din data factory. Data Factory använder informationen i den här länkade tjänsten för att ansluta till SSIDB-databasen och kör en lagrad procedur om du vill köra ett SSIS-paket. 
+Skapa en länkad tjänst för att länka Azure SQL database som är värd för SSIS-katalogen till din datafabrik. Data Factory använder informationen i den här länkade tjänsten för att ansluta till SSISDB-databasen och kör en lagrad procedur om du vill köra ett SSIS-paket. 
 
-1. Skapa en JSON-fil med namnet **AzureSqlDatabaseLinkedService.json** i **C:\ADF\RunSSISPackage** mappen med följande innehåll: 
+1. Skapa en JSON-fil med namnet **AzureSqlDatabaseLinkedService.json** i **C:\ADF\RunSSISPackage** mapp med följande innehåll: 
 
     > [!IMPORTANT]
-    > Ersätt &lt;servername&gt;, &lt;användarnamn&gt;@&lt;servername&gt; och &lt;lösenord&gt; med värden för din Azure SQL-databas innan Spara filen.
+    > Ersätt &lt;servername&gt;, &lt;användarnamn&gt;@&lt;servername&gt; och &lt;lösenord&gt; med värdena för din Azure SQL Database innan sparar filen.
 
     ```json
     {
@@ -227,14 +227,14 @@ Skapa en länkad tjänst om du vill länka din Azure SQL-databas som är värd f
         }
     ```
 2. I **Azure PowerShell**, växla till den **C:\ADF\RunSSISPackage** mapp.
-3. Kör den **ny AzureRmDataFactoryLinkedService** för att skapa den länkade tjänsten: **AzureSqlDatabaseLinkedService**. 
+3. Kör den **New-AzureRmDataFactoryLinkedService** cmdlet för att skapa den länkade tjänsten: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
 ### <a name="create-an-output-dataset"></a>Skapa en datauppsättning för utdata
-Denna datamängd för utdata är en dummy datamängd som schemat för pipeline-enheter. Observera att frekvensen är inställd på timme och intervall har angetts till 1. Därför körs pipelinen när en timme i pipeline- och sluttider. 
+Det här är en dummy datauppsättning som styr schemat för pipelinen. Lägg märke till att frekvensen är inställd på Hour och interval anges till 1. Därför körs pipelinen när en timme i pipeline- och sluttider. 
 
 1. Skapa en OuputDataset.json-fil med följande innehåll: 
     
@@ -252,19 +252,19 @@ Denna datamängd för utdata är en dummy datamängd som schemat för pipeline-e
         }
     }
     ```
-2. Kör den **ny AzureRmDataFactoryDataset** för att skapa en datamängd. 
+2. Kör den **New AzureRmDataFactoryDataset** cmdlet för att skapa en datauppsättning. 
 
     ```powershell
     New-AzureRmDataFactoryDataset $df -File ".\OutputDataset.json"
     ```
 
-### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med aktiviteten lagrad procedur 
-I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktiviteten anropar sp_executesql lagrade proceduren för att köra SSIS-paket. 
+### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med en aktivitet för lagrad procedur 
+I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktiviteten anropar sp_executesql lagrade proceduren för att köra dina SSIS-paket. 
 
-1. Skapa en JSON-fil med namnet **MyPipeline.json** i den **C:\ADF\RunSSISPackage** mappen med följande innehåll:
+1. Skapa en JSON-fil med namnet **MyPipeline.json** i den **C:\ADF\RunSSISPackage** mapp med följande innehåll:
 
     > [!IMPORTANT]
-    > Ersätt &lt;mappnamn&gt;, &lt;projektnamn&gt;, &lt;paketnamnet&gt; med namn på mappen, projekt och paketet i katalogen SSIS innan du sparar filen.
+    > Ersätt &lt;mappnamn&gt;, &lt;projektnamn&gt;, &lt;paketnamn&gt; med namn på mapp, projekt och paket i SSIS-katalogen innan du sparar filen.
 
     ```json
     {
@@ -294,7 +294,7 @@ I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktivi
     }    
     ```
 
-2. Att skapa pipelinen: **RunSSISPackagePipeline**kör den **ny AzureRmDataFactoryPipeline** cmdlet.
+2. Att skapa pipelinen: **RunSSISPackagePipeline**, kör den **New AzureRmDataFactoryPipeline** cmdlet.
 
     ```powershell
     $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -302,7 +302,7 @@ I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktivi
 
 ### <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-2. Kör **Get-AzureRmDataFactorySlice** att få information om alla segment i den utgående dataset **, vilket är utdatatabellen för pipelinen.
+2. Kör **Get-AzureRmDataFactorySlice** att få information om alla sektorer av den utdata datauppsättning **, vilket är utdatatabellen för pipelinen.
 
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
@@ -316,12 +316,12 @@ I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktivi
 
     Du kan köra denna cmdlet tills du ser att sektorn har statusen **Klar** eller **Misslyckades**. 
 
-    Du kan köra följande fråga mot SSIDB-databasen i din Azure SQL-server för att kontrollera att paketet körs. 
+    Du kan köra följande fråga mot SSIDB-databasen i Azure SQL-servern att kontrollera att paketet körs. 
 
     ```sql
     select * from catalog.executions
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om aktiviteten lagrad procedur, finns det [lagrade proceduraktiviteten](data-factory-stored-proc-activity.md) artikel.
+Mer information om aktivitet för lagrad procedur, finns det [lagringsprocedur-aktivitet](data-factory-stored-proc-activity.md) artikeln.
 

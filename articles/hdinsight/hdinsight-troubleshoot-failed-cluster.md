@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: f18e667e86c310e4d2950ba195911307aec5426d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047033"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950725"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Felsöka ett långsamt eller felaktigt HDInsight-kluster
 
@@ -57,12 +57,13 @@ Azure-portalen kan ge den här informationen:
 
 ![HDInsight-Azure-portalen Information](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-Du kan också använda Azure CLI:
+Du kan också använda den klassiska Azure-CLI:
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Ett annat alternativ med hjälp av PowerShell. Mer information finns i [hantera Hadoop-kluster i HDInsight med Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -100,7 +101,7 @@ Jämför klusterversionen med den senaste versionen av HDInsight. Varje HDInsigh
 
 #### <a name="restart-your-cluster-services"></a>Starta om din klustertjänster
 
-Överväg att starta om dina tjänster via Ambari UI eller Azure CLI om du upplever fördröjningar i klustret. Klustret kan bero på tillfälliga fel och starta om är det snabbaste sättet att stabilisera din miljö och eventuellt förbättra prestanda.
+Överväg att starta om dina tjänster via Ambari UI eller den klassiska Azure-CLI om du upplever fördröjningar i klustret. Klustret kan bero på tillfälliga fel och starta om är det snabbaste sättet att stabilisera din miljö och eventuellt förbättra prestanda.
 
 ## <a name="step-3-view-your-clusters-health"></a>Steg 3: Visa din klusterhälsa
 

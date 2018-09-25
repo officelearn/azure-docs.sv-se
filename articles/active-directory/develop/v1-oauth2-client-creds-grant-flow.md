@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8f7c6c2bef747d00188cac2c3601fdad739b92a8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: eb43589b04be8b2b9c3be45d33c94592e97d308e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581853"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948272"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Tjänst till tjänst-anrop med klientautentiseringsuppgifter (delad hemlighet eller certifikat)
 Den OAuth 2.0-klientautentiseringsuppgifter tillåter en webbtjänst (*konfidentiell klient*) att använda sina egna autentiseringsuppgifter i stället för att personifiera en användare för att autentisera vid anrop av en annan webbtjänst. I det här scenariot är klienten vanligtvis en webbtjänst på mellannivå, en daemon-tjänst eller webbplats. Azure AD kan också anropa tjänsten att använda ett certifikat (i stället för en delad hemlighet) som en autentiseringsuppgift för en högre säkerhetsnivå.
@@ -61,7 +61,7 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begär
 | resurs |obligatorisk |Ange App-ID-URI för den mottagande webbtjänsten. För att hitta URI: N för App-ID i Azure portal, klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på tjänstprogrammet och klicka sedan på **inställningar** och  **Egenskaper för**. |
 
 #### <a name="example"></a>Exempel
-Följande HTTP POST begär en åtkomsttoken för den https://service.contoso.com/ webbtjänsten. Den `client_id` identifierar det webbtjänsttillägg som begär åtkomst-token.
+Följande HTTP POST-begäranden en [åtkomsttoken](access-tokens.md) för den https://service.contoso.com/ webbtjänsten. Den `client_id` identifierar det webbtjänsttillägg som begär åtkomst-token.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1

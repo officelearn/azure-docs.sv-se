@@ -1,31 +1,33 @@
 ---
-title: Hantera budgetar i Azure Cost Management | Microsoft Docs
-description: Den här artikeln hjälper dig att skapa och hantera budgetar i Cost Management.
+title: Hantera Cloudyn budgetar i Azure | Microsoft Docs
+description: Den här artikeln hjälper dig att skapa och hantera budgetar i Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/25/2018
+ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 106e8f082d148ed9a8c58313177be81ee074a2c3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: bbd232c819a11de691c4d3c3209273b064eddf62
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578471"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963448"
 ---
 # <a name="manage-budgets"></a>Hantera budgetar
 
-Inställningen upp budgetar och budget-baserade aviseringar bidra till att förbättra din cloud styrning och ansvar. Den här artikeln hjälper dig att snabbt skapa budgetar och börja hantera dem i Cost Management.
+Inställningen upp budgetar och budget-baserade aviseringar bidra till att förbättra din cloud styrning och ansvar. Den här artikeln hjälper dig att snabbt skapa budgetar och börja hantera dem i Cloudyn.
 
 När du har ett Enterprise- eller MSP-konto, kan du använda dina hierarkiska kostnadsstrukturen för entiteten ska tilldelas olika affärsenheter, avdelningar eller andra kostnadsenhet månatliga budget kvoter. När du har ett Premium-konto, kan du använda funktionen budget för hantering, som sedan appliceras till hela cloud-utgifter. Alla budgetar tilldelas manuellt.
 
 Baserat på tilldelade budgetar kan du ange tröskelvärde för aviseringar baserat på procentandelen av din budget som förbrukas och definiera allvarlighetsgraden för varje tröskelvärde.
 
 Budgetrapporter visar tilldelade budgeten. Användare kan visa när deras utgifter är över, under eller översättningsminnen med deras användning över tid. När du väljer **Visa/dölj fält** högst upp på rapportsidan budget du kan visa kostnaden, budget, ackumulerade kostnaden eller total budget.
+
+Azure Cost Management innehåller liknande funktioner på Cloudyn. Azure Cost Management är en lösning för intern Azure kostnadshantering. Det hjälper dig att analysera kostnaderna, skapa och hantera budgetar, exportera data, och granska och vidta åtgärder för optimering rekommendationer för att spara pengar. Läs mer om budgetar i Cost Management [skapa och hantera budgetar](tutorial-acm-create-budgets.md).
 
 ## <a name="create-budgets"></a>Skapa budgetar
 
@@ -83,5 +85,5 @@ I Cost vs. Budget över tid rapporten, klickar du på **åtgärder** och välj s
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte har redan slutfört första självstudierna om Cost Management kan du läsa den på [granska användning och kostnader](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage).
-- Läs mer om den [rapporter som är tillgängliga i Cost Management](use-reports.md).
+- Om du inte har redan slutfört den första självstudiekursen för Cloudyn, kan du läsa den på [granska användning och kostnader](tutorial-review-usage.md).
+- Läs mer om den [rapporter som är tillgängliga i Cloudyn](use-reports.md).

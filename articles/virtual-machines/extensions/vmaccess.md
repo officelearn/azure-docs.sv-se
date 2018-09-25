@@ -1,6 +1,6 @@
 ---
 title: Återställa åtkomst till en virtuell Linux-dator | Microsoft Docs
-description: Hur du hanterar administrativa användare och Återställ åtkomst på virtuella Linux-datorer med hjälp av VMAccess-tillägget och Azure CLI 2.0
+description: Hur du hanterar administrativa användare och Återställ åtkomst på virtuella Linux-datorer med hjälp av VMAccess-tillägget och Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: zroiy
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 51c203c746a5256924033ebe48d9ddfdc3823b16
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415073"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998635"
 ---
-# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Hantera administrativa användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget med Azure CLI 2.0
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Hantera administrativa användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget med Azure CLI
 ## <a name="overview"></a>Översikt
 Disken på din Linux-VM visar fel. Du på något sätt återställa rotlösenordet för din Linux-VM eller ta bort SSH-privata nyckeln av misstag. Om detta har inträffat i dagar i datacentret, skulle du behöva öka det och öppna sedan KVM att hämta vid servern. Tänk på Azure VMAccess-tillägget som denna KVM-växel som gör det möjligt att få åtkomst till konsolen för att återställa åtkomst till Linux eller genomför diskunderhåll nivå.
 
@@ -47,10 +47,10 @@ VM Access-tillägget kan köras mot dessa Linux-distributioner:
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Sätt att använda VMAccess-tillägget
 Det finns två sätt som du kan använda VMAccess-tillägget på din virtuella Linux-datorer:
 
-* Använd Azure CLI 2.0 och de obligatoriska parametrarna.
+* Använd Azure CLI och de obligatoriska parametrarna.
 * [Använda raw JSON-filer som VMAccess-tillägget bearbetar](#use-json-files-and-the-vmaccess-extension) och sedan agera utifrån.
 
-I följande exempel används [az vm user](/cli/azure/vm/user) kommandon. Om du vill utföra dessa steg du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+I följande exempel används [az vm user](/cli/azure/vm/user) kommandon. Om du vill utföra dessa steg du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 ## <a name="update-ssh-key"></a>Uppdatera SSH-nyckel
 I följande exempel uppdateras SSH-nyckel för användaren `azureuser` på den virtuella datorn med namnet `myVM`:

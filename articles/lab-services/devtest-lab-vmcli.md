@@ -1,6 +1,6 @@
 ---
 title: Skapa och hantera virtuella datorer i DevTest Labs med Azure CLI | Microsoft Docs
-description: Lär dig hur du använder Azure DevTest Labs för att skapa och hantera virtuella datorer med Azure CLI 2.0
+description: Lär dig hur du använder Azure DevTest Labs för att skapa och hantera virtuella datorer med Azure CLI
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5e50bc3c6804a6f3d3dafd07b2918605c4cbc6ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ccf9b08856fcc652e3ad4b2b31587d43d7ef9cca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434687"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995966"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Skapa och hantera virtuella datorer med DevTest Labs med Azure CLI
 Den här snabbstarten får du hjälp att skapa, starta, ansluta, uppdaterar och rensar en utvecklingsdator i labbet. 
@@ -27,7 +27,7 @@ Innan du börjar:
 
 * Om ett labb inte har skapat instruktioner finns [här](devtest-lab-create-lab.md).
 
-* [Installera CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Börja genom att köra az-inloggning för att skapa en anslutning till Azure. 
+* [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Börja genom att köra az-inloggning för att skapa en anslutning till Azure. 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>Skapa och verifiera den virtuella datorn 
 Skapa en virtuell dator från en marketplace-avbildning med ssh autentisering.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: ab085d6a5cb38c46cf46a51da6d294732e2fd879
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45978978"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060728"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Standard Storage med kostnadseffektiv lagring och ohanterade och hanterade Virtuella Azure-diskar
 
@@ -25,7 +25,7 @@ Den här artikeln handlar om användning av standard SSD och HDD-diskar. Mer inf
 
 Det finns två sätt att skapa standarddiskar för virtuella Azure-datorer:
 
-**Ohanterade diskar**: den här typen av disken är den ursprungliga metoden där du hanterar de lagringskonton som används för att lagra VHD-filerna som motsvarar VM-diskarna. VHD-filer som lagras som sidblobar i lagringskonton. Ohanterade diskar kan kopplas till valfri Azure VM-storlek, inklusive de virtuella datorer som främst använder Premium Storage kan till exempel DSv2 och GS-serien. Virtuella Azure-datorer stöd för att koppla flera standarddiskar, vilket gör att upp till 256 TB lagringsutrymme per virtuell dator.
+**Ohanterade diskar**: den här typen av disken är den ursprungliga metoden där du hanterar de lagringskonton som används för att lagra VHD-filerna som motsvarar VM-diskarna. VHD-filer som lagras som sidblobar i lagringskonton. Ohanterade diskar kan kopplas till valfri Azure VM-storlek, inklusive de virtuella datorer som främst använder Premium Storage kan till exempel DSv2 och GS-serien. Virtuella Azure-datorer stöd för att koppla flera standarddiskar, vilket gör att upp till 256 PiB lagringsutrymme per virtuell dator. Om du använder diskstorlekar förhandsversion måste ha du upp till cirka 2 PiB lagringsutrymme per virtuell dator. 
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): den här funktionen hanterar de lagringskonton som används för VM-diskarna åt dig. Du kan ange typ (Premium SSD-, Standard SSD- och Standard HDD) och storlek på disk och Azure skapar och hanterar disken åt dig. Du inte behöver bekymra dig om genom att diskarna placeras på flera lagringskonton för att säkerställa att du håller dig inom skalbarhetsgränserna för storage-konton – Azure hanterar det åt dig.
 
@@ -36,15 +36,15 @@ Om du vill komma igång med Azure standardlagring, besök [Kom igång kostnadsfr
 Information om hur du skapar en virtuell dator med Managed Disks finns i någon av följande artiklar.
 
 * [Skapa en virtuell dator med Resource Manager och PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
-* [Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Skapa en virtuell Linux-dator med hjälp av Azure CLI](../articles/virtual-machines/linux/quick-create-cli.md)
 
-## <a name="standard-storage-features"></a>Standardlagring funktioner 
+## <a name="standard-storage-features"></a>Standardlagring funktioner
 
 Låt oss ta en titt på några av funktionerna i Standard-lagring. Mer information finns i [introduktion till Azure Storage](../articles/storage/common/storage-introduction.md).
 
 **Standardlagring**: Azure standardlagring har stöd för Azure Disks, Azure Blobs, Azure Files, Azure-tabeller och Azure-köer. För att använda Standard Storage-tjänster måste börja med [skapa ett Azure Storage-konto](../articles/storage/common/storage-quickstart-create-account.md).
 
-**Standard SSD-diskar:** Standard SSD-diskar ger mer tillförlitlig prestanda än Standard HDD-diskar och är tillgängligt i förhandsversionen. Mer information om regiontillgänglighet för Standard SSD-diskar finns i [regiontillgänglighet för Standard SSD-diskar (förhandsversion)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+**Standard SSD-diskar:** Standard SSD-diskar ger mer tillförlitlig prestanda än Standard HDD-diskar och är tillgängliga. Mer information om regiontillgänglighet för Standard SSD-diskar finns i [regiontillgänglighet för Standard SSD-diskar](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
 **HDD-standarddiskar:** Standard HDD-diskar kan kopplas till alla Azure virtuella datorer, inklusive storlek-seriens virtuella datorer som används med Premium Storage, till exempel DSv2 och GS-serien. En Standard HDD-disk kan bara kopplas till en virtuell dator. Men kan du koppla en eller flera av dessa diskar till en virtuell dator, upp till maximalt Diskantalet som definierats för den VM-storleken. I följande avsnitt på Standard Storage skalbarhets- och prestandamål beskriver vi specifikationerna i detalj.
 
@@ -81,11 +81,11 @@ Till skillnad från Premiumdiskar, indata/utdataåtgärder per sekund (IOPS) och
 
 | **Nivå för virtuell dator**            | **Basic-nivån VM** | **Virtuell dator på standardnivå** |
 |------------------------|-------------------|----------------------|
-| Max diskens storlek          | 4 095 GB           | 4 095 GB              |
-| Maximalt antal 8 KB IOPS per disk | Upp till 300         | Upp till 500            |
-| Max Bandwidth per disk | Upp till 60 MB/s     | Upp till 60 MB/s        |
+| Max diskens storlek          | 32 767 giB           | 32 767 giB        |
+| Maximalt antal 8 KB IOPS per disk | Upp till 2 000         | Upp till 2 000        |
+| Max Bandwidth per disk | Upp till 500 MB/s     | Upp till 500 MB/s      |
 
-Om arbetsbelastningen kräver stöd för diskar med höga prestanda och låg latens, bör du överväga att använda Premium Storage. Om du vill veta mer fördelarna med Premium Storage finns [högpresterande Premium Storage och Azure VM-diskar](../articles/virtual-machines/windows/premium-storage.md). 
+Om arbetsbelastningen kräver stöd för diskar med höga prestanda och låg latens, bör du överväga att använda Premium Storage. Om du vill veta mer fördelarna med Premium Storage finns [högpresterande Premium Storage och Azure VM-diskar](../articles/virtual-machines/windows/premium-storage.md).
 
 ## <a name="snapshots-and-copy-blob"></a>Ögonblicksbilder och kopiering av blob
 
@@ -121,9 +121,9 @@ När du använder Standard-lagring, gäller följande för debitering:
 
 **Hanterade diskar:** faktureringen för hanterade standarddiskar beror på den etablerade storleken på disken. Azure maps-Allokerad storlek (avrundas uppåt) till närmaste Managed Disks-alternativ som anges i tabellerna nedan. Varje hanterad disk mappar till en av de etablerade storlekarna som stöds och debiteras därefter. Till exempel att om du skapar en hanterad disk som standard och ange en etablerad storlek på 200 GiB, kommer du att debiteras enligt priserna för S15 disktypen.
 
-| **Standard HDD hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
-| Diskstorlek        | 32 giB  | 64 giB  | 128 GiB | 256 GB | 512 GiB | 1 024 giB (1 TiB) | 2048 giB (2 TiB) | 4 095 giB (4 TiB) | 
+| **Standard HDD hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Diskstorlek        | 32 giB  | 64 giB  | 128 GiB | 256 GB | 512 GiB | 1 024 giB (1 TiB) | 2 048 giB (2 TiB) | 4 095 giB (4 TiB) | 8 192 giB (8 TiB) | 16,385 giB (16 TiB) | 32 767 giB (32 TiB) |
 
 
 **Ögonblicksbilder**: ögonblicksbilder av standarddiskar faktureras för ytterligare kapacitet som används av ögonblicksbilder. Information om ögonblicksbilder finns [skapa en ögonblicksbild av en Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
@@ -138,7 +138,7 @@ Detaljerad information om priser för Standard-lagring, virtuella datorer och ha
 * [Priser för virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Priser för Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks)
 
-## <a name="azure-backup-service-support"></a>Support för Azure Backup-tjänsten 
+## <a name="azure-backup-service-support"></a>Support för Azure Backup-tjänsten
 
 Virtuella datorer med ohanterade diskar kan säkerhetskopieras med Azure Backup. [Mer information om](../articles/backup/backup-azure-vms-first-look-arm.md).
 
@@ -154,4 +154,4 @@ Du kan också använda tjänsten Azure Backup med hanterade diskar för att skap
 
 * [Skapa en virtuell dator med Resource Manager och PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 
-* [Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Skapa en virtuell Linux-dator med hjälp av Azure CLI](../articles/virtual-machines/linux/quick-create-cli.md)

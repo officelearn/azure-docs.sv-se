@@ -1,6 +1,6 @@
 ---
-title: Ordlista för anpassad tal tjänsten i Azure | Microsoft Docs
-description: Terminologi i ordlistan definierar termer som du stöter på när du arbetar med tjänsten anpassad tal.
+title: Ordlista för Custom Speech Service på Azure | Microsoft Docs
+description: Termer i ordlistan definierar termer som du stöter på när du arbetar med Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,34 +9,35 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 2b6c54f023eccfa813817256bdcc1cbde83d49a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: f57809fee463213cbb427146325666656b022e41
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351669"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956752"
 ---
 # <a name="glossary"></a>Ordlista
 
 ## <a name="a"></a>A
 
-### <a name="acoustic-model"></a>Ljud modellen
+### <a name="acoustic-model"></a>Akustisk modell
 
-Ljud modellen är en klassificerare etikett kort fragment av ljud till någon av ett antal fonemen eller ljud enheter i ett visst språk. Ordet ”tal” består till exempel av tre fonem – ”t a l”. De här klassificeringarna görs för på 100 gånger per sekund
+Den akustiska modellen är en klassificerare som märker korta ljudfragment till ett av flera fonem, eller ljudenheter, på ett visst språk. Ordet ”tal” består till exempel av tre fonem – ”t a l”. Klassificeringarna görs för på 100 gånger per sekund
 
 ## <a name="b"></a>B
 
 ## <a name="c"></a>C
 
-### <a name="conversational-model"></a>Vardagliga samtalsuttryck modellen
+### <a name="conversational-model"></a>Konversationsanpassad modell
 
-En modell som är lämplig för igenkänning av tal talas i samtalston. Microsoft Conversational AM har anpassats för tal vanligtvis riktat mot en annan person.
+En modell som är lämpliga för att känna igen tal som sägs i ett konversationsanpassade format. Microsoft Conversational AM har anpassats för tal som vanligtvis riktat mot en annan person.
 
 ## <a name="d"></a>D
 
 ### <a name="deployment"></a>Distribution
 
-Processen som anpassats anpassade modellen blir en tjänst och visar en URI
+Processen som anpassats anpassade modellen blir en tjänst och Exponerar en URI
 
 ## <a name="e"></a>E
 
@@ -50,7 +51,7 @@ Processen som anpassats anpassade modellen blir en tjänst och visar en URI
 
 ### <a name="inverse-text-normalization"></a>Inverterade text normalisering
 
-Att konvertera ”raw” oformaterad text till formaterad text, d.v.s. med versaler och skiljetecken, kallas inverterade text normalisering (ITN).
+Att konvertera ”rådata” oformaterad text tillbaka till formaterad text, till exempel med versaler och skiljetecken, kallas inverterade text normalisering (ITN).
 
 ## <a name="j"></a>U
 
@@ -60,7 +61,7 @@ Att konvertera ”raw” oformaterad text till formaterad text, d.v.s. med versa
 
 ### <a name="language-model"></a>Språkmodell
 
-Språkmodellen är en sannolikhetsfördelning över sekvenser av ord. Språk-modellen hjälper systemet välja bland sekvenser av ord som låter, baserat på sannolikheten för word-sekvenser själva
+Språkmodellen är en sannolikhetsfördelning över sekvenser av ord. Språkmodellen hjälper systemet att välja bland ordsekvenser som låter lika, baserat på sannolikheten för word-sekvenser själva
 
 ## <a name="m"></a>M
 
@@ -68,31 +69,31 @@ Språkmodellen är en sannolikhetsfördelning över sekvenser av ord. Språk-mod
 
 ### <a name="normalization"></a>Normalisering
 
-Normalisering (Text): Transformering av resulterande text (d.v.s. skrivfel) till en standard, entydigt form som kan läsas av systemet.
+Normalisering (Text): Omvandling av resulterande text (d.v.s. avskrift) till en standard, entydiga format som kan läsas av systemet.
 
 ## <a name="o"></a>O
 
 ## <a name="p"></a>P
 
-## <a name="q"></a>Q
+## <a name="q"></a>FRÅGOR OCH
 
 ## <a name="r"></a>R
 
 ## <a name="s"></a>S
 
-### <a name="search-and-dictate-model"></a>Söka och styr modellen
+### <a name="search-and-dictate-model"></a>Sök och bestämmer modell
 
-Ett ljud modell är lämplig för bearbetning av kommandon. Microsoft Search och Dictation AM är lämplig för tal riktat mot ett program eller en enhet, som till exempel kommandon
+En akustisk modell är lämplig för bearbetning av kommandon. Microsoft Search och diktering AM är lämplig för tal riktat mot ett program eller en enhet, som till exempel kommandon
 
 ### <a name="subscription-key"></a>Prenumerationsnyckel
 
-Prenumerationen nyckeln är en sträng som du måste ange som en frågesträngsparameter för att anropa en anpassad tal tjänstmodell. En prenumeration för hämtas från [Azure Portal](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) och hämtas en gång finns i ”min prenumeration” i anpassade tal tjänstportalen.
+Prenumerationsnyckel är en sträng som du vill ange som en frågesträngsparameter för att kunna anropa någon Custom Speech Service-modell. En prenumerationsnyckel hämtas från [Azure-portalen](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) och hämtas en gång det finns i ”Mina prenumerationer” Custom Speech Service-portalen.
 
 ## <a name="t"></a>T
 
-### <a name="transcription"></a>Skrivfel
+### <a name="transcription"></a>Avskrift
 
-Skrivfel: Typ av text som resulterar från av en typ av ljud WAV-fil
+Transkription: Del av texten som resultat av processen för en typ av ljud WAV-fil
 
 ## <a name="u"></a>U
 

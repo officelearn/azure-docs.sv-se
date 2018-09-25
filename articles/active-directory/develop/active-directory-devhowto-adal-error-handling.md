@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: db1d2f16c6497ce3c14d162a9c354dda995058f6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593051"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974790"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Metodtips för felhantering för Azure Active Directory Authentication Library (ADAL) klienter
 
@@ -182,7 +182,7 @@ Operativsystemet kan också skapa en uppsättning med fel som kräver felhanteri
 
 - Interna klientprogram (iOS, Android, .NET Desktop eller Xamarin)
 - Webbprogram som anropar en resurs API (.NET)
-- En sida-program (JavaScript)
+- Enkelsidigt program (JavaScript)
 - Tjänst-till-tjänst-program (.NET, Java)
   - Alla scenarier, inklusive on-behalf-of
   - On-Behalf-of specifika scenarier
@@ -365,9 +365,9 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Fel och lämpliga åtgärder: den enda sidan program (adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Fel och lämpliga åtgärder: enkelsidigt program (adal.js)
 
-Om du bygger en ensidesapp med AcquireToken adal.js är koden för felhantering liknande den i en typisk tyst anrop. I synnerhet adal.js visar AcquireToken aldrig ett gränssnitt. 
+Om du bygger ett enkelsidigt program med AcquireToken adal.js är koden för felhantering liknande den i en typisk tyst anrop. I synnerhet adal.js visar AcquireToken aldrig ett gränssnitt. 
 
 En misslyckad AcquireToken har följande fall:
 

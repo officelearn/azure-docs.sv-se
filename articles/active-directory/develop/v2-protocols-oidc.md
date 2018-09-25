@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4c7b46972a8c07675e1318a900c1f07043beb3de
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591943"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971458"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 och OpenID Connect-protokoll
 
@@ -139,7 +139,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parameter | Beskrivning |
 | --- | --- |
-| id_token |ID-token som appen har begärt. Du kan använda den `id_token` parametern för att verifiera användarens identitet och starta en session med användaren. Mer information om ID-token och deras innehåll finns i den [v2.0-slutpunkten tokens referens](v2-id-and-access-tokens.md). |
+| id_token |ID-token som appen har begärt. Du kan använda den `id_token` parametern för att verifiera användarens identitet och starta en session med användaren. Mer information om ID-token och deras innehåll finns i den [ `id_tokens` referens](id-tokens.md). |
 | state |Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska. |
 
 ### <a name="error-response"></a>Felsvar
@@ -175,20 +175,18 @@ I följande tabell beskrivs felkoder som kan returneras i de `error` -parametern
 
 ## <a name="validate-the-id-token"></a>Verifiera ID-token
 
-Ta emot ett ID-token är inte tillräckliga för att autentisera användaren. Du måste också verifiera signaturen för ID-token och verifiera anspråken i token enligt krav för din app. V2.0-slutpunkten använder [JSON Web token (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
+Bara tar emot en id_token är inte tillräckliga för att autentisera användaren. Du måste verifiera den id_token signatur och verifiera anspråken i token enligt krav för din app. V2.0-slutpunkten använder [JSON Web token (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
 
-Du kan välja att verifiera ID-token i klientkoden, men en vanlig metod är att skicka ID-token till en backend-server och utföra valideringen det. När du har verifierat signaturen för ID-token, måste du kontrollera några anspråk. Mer information, inklusive information om [verifiera token](v2-id-and-access-tokens.md#validating-tokens) och [viktig information om signeringsnyckel](v2-id-and-access-tokens.md#validating-tokens), finns i den [v2.0 tokens referens](v2-id-and-access-tokens.md). Vi rekommenderar att du använder ett bibliotek parsa och validera token. Det finns minst en av dessa bibliotek för de flesta språk och plattformar.
+Du kan välja att verifiera den `id_token` i klienten kod, men en vanlig metod är att skicka den `id_token` till backend-servern och utföra valideringen det. När du har verifierat signaturen för id_token, finns det några anspråk uppmanas du att verifiera. Se den [ `id_token` referens](id-tokens.md) mer information inklusive [verifierar token](id-tokens.md#validating-idtokens) och [viktig Information om signering nyckel förnya](active-directory-signing-key-rollover.md). Vi rekommenderar att du utnyttjar ett bibliotek för parsning och validera token: det finns minst en tillgänglig för de flesta språk och plattformar.
 <!--TODO: Improve the information on this-->
 
-Du kanske också vill validera ytterligare anspråk, beroende på ditt scenario. Vissa vanliga verifieringar är:
+Du kan också välja att validera ytterligare anspråk beroende på ditt scenario. Vissa vanliga verifieringar är:
 
-* Se till att användaren eller organisationen har registrerat dig för appen.
-* Se till att användaren kräver auktorisering eller behörigheter.
-* Se till att en viss styrkan hos autentisering har inträffat, till exempel multifaktorautentisering.
+* Att se till att användaren/organisationen har registrerat sig för appen.
+* Se till att användaren har rätt auktorisering/behörighet
+* Att se till att en viss styrkan hos autentisering har inträffat, till exempel multifaktorautentisering.
 
-Mer information om anspråk i en ID-token finns i den [v2.0-slutpunkten tokens referens](v2-id-and-access-tokens.md).
-
-När du har godkänt ID-token, kan du börja en session med användaren. Använda anspråk i ID-token för att hämta information om användaren i din app. Du kan använda den här informationen för visning, poster, tillstånd och så vidare.
+När du har helt verifierat id_token, du starta en session med användaren och använder anspråken i id_token för att hämta information om användare i din app. Den här informationen kan användas för visning, poster, anpassning, osv.
 
 ## <a name="send-a-sign-out-request"></a>Skicka en förfrågan om utloggning
 
@@ -257,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Parameter | Beskrivning |
 | --- | --- |
-| id_token |ID-token som appen har begärt. Du kan använda ID-token för att verifiera användarens identitet och starta en session med användaren. Du hittar mer information om ID-token och deras innehåll i den [v2.0-slutpunkten tokens referens](v2-id-and-access-tokens.md). |
+| id_token |ID-token som appen har begärt. Du kan använda ID-token för att verifiera användarens identitet och starta en session med användaren. Du hittar mer information om ID-token och deras innehåll i den [ `id_tokens` referens](id-tokens.md). |
 | Kod |Auktoriseringskod som appen har begärt. Appen kan använda Auktoriseringskoden för att begära en åtkomsttoken för målresursen. En auktoriseringskod är mycket kortvariga. Vanligtvis en auktoriseringskod upphör att gälla om ungefär 10 minuter. |
 | state |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska. |
 
@@ -280,4 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 En beskrivning av felkoder och rekommenderade klientens svar finns i [felkoder för slutpunkt-auktoriseringsfel](#error-codes-for-authorization-endpoint-errors).
 
-När du har en auktoriseringskod och ett ID-token kan du logga in användaren och få åtkomst-token för deras räkning. Om du vill registrera användare i, måste du verifiera ID-token [exakt enligt](#validate-the-id-token). Om du vill få åtkomst-token, följer du stegen som beskrivs i [dokumentationen för OAuth-protokollet](v2-oauth2-auth-code-flow.md#request-an-access-token).
+När du har en auktoriseringskod och ett ID-token kan du logga in användaren och få åtkomst-token för deras räkning. Om du vill registrera användare i, måste du verifiera ID-token [exakt enligt](id-tokens.md#validating-idtokens). Om du vill få åtkomst-token, följer du stegen som beskrivs i [OAuth code flow-dokumentation](v2-oauth2-auth-code-flow.md#request-an-access-token).

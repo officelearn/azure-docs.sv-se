@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: c125d5a741331d5c9476da23766057ac0c42cdbf
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: ffd8a82fb03c23a661223e16e75d2964249d2b96
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493735"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965831"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Designen av ett system för innehållsskydd med åtkomstkontroll med Azure Media Services
 
@@ -312,9 +312,9 @@ Vad händer om förnyelse av nycklar händer när du genererar en JWT för Azure
 Eftersom en nyckel kan rullas när som helst, finns alltid mer än en giltig offentlig nyckel i federationsmetadatadokumentet. Media Services-licensleverans kan använda någon av nycklarna som anges i dokumentet. Eftersom en nyckel kan återställas snart, kanske en annan vara har ersatts och så vidare.
 
 ### <a name="where-is-the-access-token"></a>Var är den åtkomst-token?
-Om du tittar på hur en webbapp anropar en API-app under [Programidentitet med OAuth 2.0-klientautentiseringsuppgifter](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), autentiseringsflödet är följande:
+Om du tittar på hur en webbapp anropar en API-app under [Programidentitet med OAuth 2.0-klientautentiseringsuppgifter](../../active-directory/develop/web-api.md), autentiseringsflödet är följande:
 
-* En användare loggar in på Azure AD i webbprogrammet. Mer information finns i [webbläsarens webbprogram](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
+* En användare loggar in på Azure AD i webbprogrammet. Mer information finns i [webbläsarens webbprogram](../../active-directory/develop/web-app.md).
 * Auktoriseringsslutpunkten för Azure AD omdirigerar användaragenten tillbaka till klientprogrammet med en auktoriseringskod. Användaragenten returnerar Auktoriseringskoden klientprogrammets omdirigerings-URI.
 * Webbprogrammet måste hämta en åtkomsttoken så att den kan autentisera till webb-API och hämta önskad resurs. Den gör en begäran till tokenslutpunkten Azure AD och ger autentiseringsuppgifter, klient-ID och-API: er webbprogram-ID-URI. Den anger Auktoriseringskoden för att bevisa att användaren har godkänt.
 * Azure AD autentiserar programmet och returnerar en JWT åtkomst-token som används för att anropa webb-API.
@@ -331,7 +331,7 @@ För att registrera och konfigurera pekaren-app i Azure AD, gör du följande:
 1. I Azure AD-klient:
 
    * Lägg till ett program (resurs) med inloggnings-URL: en https://[resource_name].azurewebsites.net/. 
-   * Lägg till en app-ID med URL-https://[aad_tenant_name].onmicrosoft.com/[resource_name].
+   * Lägg till en app-ID med URL https://[aad_tenant_name].onmicrosoft.com/[resource_name].
 
 2. Lägg till en ny nyckel för resursappen.
 

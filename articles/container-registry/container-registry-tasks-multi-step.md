@@ -1,0 +1,177 @@
+---
+title: Automatisera bild skapa, testa och korrigera med Azure Container Registry flerstegstest uppgifter
+description: En introduktion flerstegstest uppgifter, en funktion i ACR uppgifter i Azure Container Registry med uppgiftsbaserade arbetsflöden för att skapa, testa och korrigeringar behållaravbildningar i molnet.
+services: container-registry
+author: mmacy
+ms.service: container-registry
+ms.topic: article
+ms.date: 09/24/2018
+ms.author: marsma
+ms.openlocfilehash: b88fbf927cff51d78d95ed9501921d528b22b455
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47047870"
+---
+# <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Köra flera steg skapa, testa och patch uppgifter i ACR-uppgifter
+
+Uppgifter i flera steg utöka enda avbildning build och push kapaciteten för ACR-aktiviteter med flera steg, flera container-baserade arbetsflöden. Använda aktiviteter med flera steg för att bygga och överföra flera bilder i serien eller parallellt och kör dessa avbildningar som kommandon i en enda aktivitet som körs. Varje steg definierar en behållaravbildning skapa eller skicka åtgärden och kan också definiera körningen av en behållare. Varje steg i en aktivitet med flera steg använder en behållare som dess körningsmiljö.
+
+> [!IMPORTANT]
+> Om du tidigare skapat uppgifter i förhandsversionen med de `az acr build-task` kommandot dessa aktiviteter måste skapas på nytt med hjälp av den [az acr uppgift] [ az-acr-task] kommando.
+
+Du kan till exempel köra en aktivitet för steg och automatiserar följande:
+
+1. Skapa en avbildning för web-program
+1. Kör webbprogramsbehållaren
+1. Skapa en avbildning för web application test
+1. Kör test webbprogramsbehållaren som utför tester mot löpande programbehållare
+1. Om testet lyckas, skapa ett Helm-diagram Arkiv-paket
+1. Utföra en `helm upgrade` med hjälp av nya Helm-diagram Arkiv-paketet
+
+Alla åtgärder utförs i Azure, avlastning av arbetet som Azure-beräkningsresurser och så att du från infrastrukturhantering. Förutom Azure container registry betalar du bara för de resurser du använder. Mer information om priser finns i den **bygg Container** i avsnittet [priser för Azure Container Registry][pricing].
+
+> [!IMPORTANT]
+> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+
+## <a name="common-task-scenarios"></a>Vanliga scenarier för uppgift
+
+Uppgifter i flera steg gör det möjligt för scenarier som följande:
+
+* Skapa tagg, och skicka en eller flera behållaravbildningar i serien eller parallellt.
+* Kör och samla in enhet test och kod täckning resultat.
+* Kör och samla in funktionella tester. ACR-aktiviteter har stöd för flera behållare som körs, köra ett antal begäranden mellan dem.
+* Utföra uppgiftsbaserade körningen, inklusive före/efter steg i en behållare bild build.
+* Distribuera en eller flera behållare med ditt favorit distributionsmotorn till målmiljön.
+
+## <a name="multi-step-task-definition"></a>Flera steg aktivitetsdefinition
+
+En uppgift för flera steg i ACR uppgifter definieras som en serie steg inom en YAML-fil. Varje steg kan ange beroenden när åtgärden har slutförts för en eller flera föregående steg. Följande typer av uppgiften steg är tillgängliga:
+
+* [`build`](container-registry-tasks-reference-yaml.md#build): Skapa en eller flera behållaravbildningar med välbekanta `docker build` syntax i serien eller parallellt.
+* [`push`](container-registry-tasks-reference-yaml.md#push): Push bygger avbildningar till ett behållarregister. Privata register som Azure Container Registry stöds som är den offentliga Docker Hub.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Köra en behållare, så att den kan fungera som en funktion inom ramen för aktiviteten som körs. Du kan skicka parametrar till behållarens `[ENTRYPOINT]`, och ange egenskaper som env, koppla bort, och andra välbekanta `docker run` parametrar. Den `cmd` stegtyp möjliggör enhet och funktionstestning med samtidiga behållare körning.
+
+Uppgifter i flera steg kan vara lika enkelt som att skapa och skicka en enda avbildning:
+
+```yaml
+version: 1.0-preview-1
+steps:
+  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+```
+
+Eller mer komplexa, till exempel den här uppgiften som innehåller stegen för att bygga, testa, helm-paketet och helm distribuera:
+
+```yaml
+version: 1.0-preview-1
+steps:
+  - id: build-web
+    build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+    when: ["-"]
+  - id: build-tests
+    build -t {{.Run.Registry}}/hello-world-tests ./funcTests
+    when: ["-"]
+  - id: push
+    push: ["{{.Run.Registry}}/helloworld:{{.Run.ID}}"]
+    when: ["build-web", "build-tests"]
+  - id: hello-world-web
+    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
+  - id: funcTests
+    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
+    env: ["host=helloworld:80"]
+  - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
+  - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
+```
+
+## <a name="run-a-sample-task"></a>Köra en exempelaktivitet
+
+Uppgifter stöder både manuell körning, kallas ett ”snabbt köra”, och uppdatera för automatisk körning på Git bekräftas eller base avbildning.
+
+Om du vill köra en uppgift du först definiera aktivitetens steg i en YAML-fil och sedan köra Azure CLI-kommandot [az acr kör][az-acr-run].
+
+Här är ett exempel på Azure CLI-kommando som kör en uppgift med hjälp av ett exempel uppgift YAML-fil. Steg skapar och skickar sedan en bild. Uppdatera `\<acrName\>` med namnet på din egen Azure-behållarregister innan du kör kommandot.
+
+```azurecli
+az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```
+
+När du kör uppgiften ska utdata Visa förloppet för varje steg som definierats i YAML-fil. I följande utdata visas steg som `acb_step_0` och `acb_step_1`.
+
+```console
+$ az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+Sending context to registry: myregistry...
+Queued a run with ID: yd14
+Waiting for an agent...
+2018/09/12 20:08:44 Using acb_vol_0467fe58-f6ab-4dbd-a022-1bb487366941 as the home volume
+2018/09/12 20:08:44 Creating Docker network: acb_default_network
+2018/09/12 20:08:44 Successfully set up Docker network: acb_default_network
+2018/09/12 20:08:44 Setting up Docker configuration...
+2018/09/12 20:08:45 Successfully set up Docker configuration
+2018/09/12 20:08:45 Logging in to registry: myregistry.azurecr-test.io
+2018/09/12 20:08:46 Successfully logged in
+2018/09/12 20:08:46 Executing step: acb_step_0
+2018/09/12 20:08:46 Obtaining source code and scanning for dependencies...
+2018/09/12 20:08:47 Successfully obtained source code and scanned for dependencies
+Sending build context to Docker daemon  109.6kB
+Step 1/1 : FROM hello-world
+ ---> 4ab4c602aa5e
+Successfully built 4ab4c602aa5e
+Successfully tagged myregistry.azurecr-test.io/hello-world:yd14
+2018/09/12 20:08:48 Executing step: acb_step_1
+2018/09/12 20:08:48 Pushing image: myregistry.azurecr-test.io/hello-world:yd14, attempt 1
+The push refers to repository [myregistry.azurecr-test.io/hello-world]
+428c97da766c: Preparing
+428c97da766c: Layer already exists
+yd14: digest: sha256:1a6fd470b9ce10849be79e99529a88371dff60c60aab424c077007f6979b4812 size: 524
+2018/09/12 20:08:55 Successfully pushed image: myregistry.azurecr-test.io/hello-world:yd14
+2018/09/12 20:08:55 Step id: acb_step_0 marked as successful (elapsed time in seconds: 2.035049)
+2018/09/12 20:08:55 Populating digests for step id: acb_step_0...
+2018/09/12 20:08:57 Successfully populated digests for step id: acb_step_0
+2018/09/12 20:08:57 Step id: acb_step_1 marked as successful (elapsed time in seconds: 6.832391)
+The following dependencies were found:
+- image:
+    registry: myregistry.azurecr-test.io
+    repository: hello-world
+    tag: yd14
+    digest: sha256:1a6fd470b9ce10849be79e99529a88371dff60c60aab424c077007f6979b4812
+  runtime-dependency:
+    registry: registry.hub.docker.com
+    repository: library/hello-world
+    tag: latest
+    digest: sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788
+  git: {}
+
+
+Run ID: yd14 was successful after 19s
+```
+
+Mer information om automatiska versioner på Git bekräftas eller base uppdateringar finns i den [automatisera avbildningar](container-registry-tutorial-build-task.md) och [baserar uppdateringen avbildningar](container-registry-tutorial-base-image-update.md) självstudiekursens artiklar.
+
+## <a name="preview-feedback"></a>Feedback från förhandsversionen
+
+Funktionen uppgift för flera steg i ACR uppgifter är i förhandsversion, erbjuder vi dig att ge feedback. Flera kanaler är tillgängliga:
+
+* [Problem med](https://aka.ms/acr/issues) – visa befintliga buggar och problem och logga nya
+* [UserVoice](https://aka.ms/acr/uservoice) -rösta på befintliga funktion begäranden eller skapa nya begäranden
+* [Diskutera](https://aka.ms/acr/feedback) -engagera i Azure Container Registry-diskussion i Stack Overflow-communityn
+
+## <a name="next-steps"></a>Nästa steg
+
+Du kan hitta referens för flera steg och exemplen här:
+
+* [Uppgift referens](container-registry-tasks-reference-yaml.md) -stegtyper, deras egenskaper och användning.
+* [Uppgift exempel] [ task-examples] -exempel `task.yaml` filer för flera enkla eller komplexa scenarier.
+
+<!-- IMAGES -->
+
+<!-- LINKS - External -->
+[pricing]: https://azure.microsoft.com/pricing/details/container-registry/
+[task-examples]: https://github.com/Azure-Samples/acr-tasks
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+
+<!-- LINKS - Internal -->
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-run]: /cli/azure/acr/run#az-acr-run
+[az-acr-task]: /cli/azure/acr#az-acr-task

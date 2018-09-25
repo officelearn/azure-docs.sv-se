@@ -13,14 +13,17 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: c0f51e47038737d6aa743be718ad6b28c161c766
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 07f8a31244acca48a0bbae8ad26b0c5b509f0c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649395"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959588"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning Model Management konto API-referens
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Information om hur du konfigurerar distributionsmiljön finns i [kontoinställning för modellhantering](deployment-setup-configuration.md).
 
@@ -34,7 +37,7 @@ Azure Machine Learning Model Management konto API implementerar följande åtgä
 Du kan använda den här bilden för att skapa en webbtjänst antingen lokalt eller på ett fjärranslutet Azure Container Service-kluster eller en annan Docker-stöd valfri miljö.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Kontrollera att du har gått igenom de installationssteg som beskrivs i den [installera snabbstarten och skapa](../service/quickstart-installation.md) dokumentet.
+Kontrollera att du har gått igenom de installationssteg som beskrivs i den [installera snabbstarten och skapa](quickstart-installation.md) dokumentet.
 
 Följande krävs innan du fortsätter:
 1. Modellera kontoetablering
@@ -248,10 +251,10 @@ Skapar en avbildning som en Docker-avbildning i Azure Container Registry.
 | Kontonamn | sökväg | Namnet på modellhanteringskontot. | Ja | sträng |
 | API-versionen | DocumentDB | Version av resursprovidern Microsoft.Machine.Learning API för att använda. | Ja | sträng |
 | Auktorisering | sidhuvud | Autentiseringstoken. Det bör vara något som liknar ”ägar XXXXXX”. | Ja | sträng |
-| imageRequest | brödtext | Nyttolasten som används för att skapa en avbildning. | Ja | [ImageRequest](#imagerequest) |
+| imageRequest | brödtext | Nyttolasten som används för att skapa en avbildning. | Ja | [imageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Svar
-| Kod | Beskrivning | Sidhuvuden | Schema |
+| Kod | Beskrivning | Rubriker | Schema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Asynkrona åtgärden plats-URL. Ett GET-anrop visar status för aktiviteten i avbildningen. | Åtgärden-plats |
 | standard | Felsvar som beskriver varför detta misslyckades. | [ErrorResponse](#errorresponse) |
@@ -333,7 +336,7 @@ Skapar en tjänst från en avbildning.
 | serviceRequest | brödtext | Nyttolasten som används för att skapa en tjänst. | Ja | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>Svar
-| Kod | Beskrivning | Sidhuvuden | Schema |
+| Kod | Beskrivning | Rubriker | Schema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Asynkrona åtgärden plats-URL. Ett GET-anrop visar status för aktiviteten i tjänsten. | Åtgärden-plats |
 | 409 | Det finns redan en tjänst med det angivna namnet. |
@@ -421,7 +424,7 @@ Uppdaterar en befintlig tjänst.
 | serviceUpdateRequest | brödtext | Nyttolasten som används för att uppdatera en befintlig tjänst. | Ja |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>Svar
-| Kod | Beskrivning | Sidhuvuden | Schema |
+| Kod | Beskrivning | Rubriker | Schema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Asynkrona åtgärden plats-URL. Ett GET-anrop visar status för aktivitet för update-tjänsten. | Åtgärden-plats |
 | 404 | Tjänsten med angivet ID finns inte. |

@@ -1,6 +1,6 @@
 ---
-title: Skapa ett Azure Application Gateway – Azure CLI 1.0 | Microsoft Docs
-description: Lär dig hur du skapar en Programgateway med hjälp av Azure CLI 1.0 i Resource Manager
+title: Skapa ett Azure Application Gateway – klassisk Azure CLI | Microsoft Docs
+description: Lär dig hur du skapar en Programgateway med hjälp av den klassiska Azure CLI i Resource Manager
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648984"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974433"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Skapa en Programgateway med hjälp av Azure CLI
 
@@ -29,8 +29,8 @@ ms.locfileid: "35648984"
 > * [PowerShell och Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-gateway.md)
 > * [Azure Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
-> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+> * [Klassisk Azure CLI](application-gateway-create-gateway-cli.md)
+> * [Azure CLI](application-gateway-create-gateway-cli.md)
 > 
 > 
 
@@ -38,7 +38,7 @@ Azure Application Gateway är en Layer 7-lastbalanserare. Den tillhandahåller r
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Förutsättning: Installera Azure CLI
 
-Om du vill utföra stegen i den här artikeln, måste du [installera Azure-kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)](../xplat-cli-install.md) och du behöver [logga in på Azure](/cli/azure/authenticate-azure-cli). 
+Om du vill utföra stegen i den här artikeln, måste du [installera Azure CLI](../xplat-cli-install.md) och du behöver [logga in på Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Om du inte har ett Azure-konto, behöver du en. Registrera dig för en [kostnadsfri utvärderingsversion här](../active-directory/fundamentals/sign-up-organization.md).

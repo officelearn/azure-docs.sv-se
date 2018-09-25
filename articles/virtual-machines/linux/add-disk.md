@@ -1,6 +1,6 @@
 ---
-title: Lägg till en datadisk till Linux-VM med hjälp av Azure CLI | Microsoft Docs
-description: Lär dig hur du lägger till en beständig datadisk för dina Linux VM i Azure
+title: Lägga till en datadisk till Linux VM med Azure CLI | Microsoft Docs
+description: Lär dig att lägga till en disk för beständiga data i din Linux-VM med Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,20 +15,20 @@ ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41090943e4053ddf0ea46e9da1b3b5c7dbbf132
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 578488163482dd0b7b486ca152455ff9686f1a43
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331231"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949221"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
-Den här artikeln visar hur du kopplar en beständig disk till den virtuella datorn så att du kan behålla data – även om den virtuella datorn etableras på grund av underhåll eller ändrar storlek på. 
+Den här artikeln visar hur du kopplar en permanent disk till den virtuella datorn så att du kan behålla dina data, även om den virtuella datorn är nätverkskonfigurationsinställningar på grund av underhåll eller ändra storlek på. 
 
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Koppla en ny disk till en virtuell dator
 
-Om du vill lägga till en ny, tom datadisk på den virtuella datorn använder den [az vm disk bifoga](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) kommandot med de `--new` parameter. Om den virtuella datorn finns i en zon för tillgänglighet, skapas disken automatiskt i samma zon som den virtuella datorn. Mer information finns i [översikt av tillgänglighet zoner](../../availability-zones/az-overview.md). I följande exempel skapas en disk med namnet *myDataDisk* som är 50 Gb i storlek:
+Om du vill lägga till en ny, tom datadisk på den virtuella datorn använder den [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) med den `--new` parametern. Om den virtuella datorn är i en Tillgänglighetszon, skapas disken automatiskt i samma zon som den virtuella datorn. Mer information finns i [översikt över Tillgänglighetszoner](../../availability-zones/az-overview.md). I följande exempel skapas en disk med namnet *myDataDisk* som är 50 Gb i storlek:
 
 ```azurecli
 az vm disk attach \
@@ -41,7 +41,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>Ansluta en befintlig disk 
 
-Om du vill koppla en befintlig disk, disk-ID: t och skickar ID som den [az vm disk bifoga](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) kommando. Följande Exempelfrågor för en disk med namnet *myDataDisk* i *myResourceGroup*, sedan kopplas till den virtuella datorn med namnet *myVM*:
+Om du vill koppla en befintlig disk, disk-ID: t och skicka ID som den [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) kommando. Följande Exempelfrågor för en disk med namnet *myDataDisk* i *myResourceGroup*, kopplar den till den virtuella datorn med namnet *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
@@ -50,14 +50,14 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Ansluta till Linux-VM för att montera den nya disken
-Att partitionera, formatera och montera den nya disken så att din Linux VM kan använda den SSH till den virtuella datorn. Mer information finns i [Så här använder du SSH med Linux på Azure](mac-create-ssh-keys.md). I följande exempel ansluter till en virtuell dator med offentliga DNS-posten för *mypublicdns.westus.cloudapp.azure.com* med användarnamnet *azureuser*: 
+## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Ansluta till Linux VM att montera den nya disken
+Att partitionera, formatera och montera den nya disken så att din Linux-VM kan använda den, SSH till den virtuella datorn. Mer information finns i [Så här använder du SSH med Linux på Azure](mac-create-ssh-keys.md). I följande exempel ansluter till en virtuell dator med offentliga DNS-posten för *mypublicdns.westus.cloudapp.azure.com* med användarnamnet *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-När du är ansluten till den virtuella datorn, är du redo att ansluta en disk. Ta först en disk med hjälp av `dmesg` (vilken metod du använder för att identifiera den nya disken kan variera). I följande exempel används dmesg för att filtrera på *SCSI* diskar:
+När du är ansluten till den virtuella datorn, är du redo att ansluta en disk. Ta först reda disk med hjälp av `dmesg` (vilken metod du använder för att identifiera den nya disken kan variera). I följande exempel används dmesg för att filtrera på *SCSI* diskar:
 
 ```bash
 dmesg | grep SCSI
@@ -73,13 +73,13 @@ Utdata ser ut ungefär så här:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Här, *sdc* är en disk som vi vill. Partitionera disk med `fdisk`, att den primära disken på partitionen 1 och Godkänn andra standardinställningarna. Följande exempel startar den `fdisk` på */dev/sdc*:
+Här kan *sdc* är den disk som vi vill. Partitionera disken med `fdisk`, gör det primär disk på partition 1 och Godkänn andra standardinställningar. Följande exempel startar den `fdisk` på */dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Använd den `n` kommando för att lägga till en ny partition. I det här exemplet vi också välja `p` för en primär partition av och accepterar du resten av standardinställningarna. Utdata blir liknar följande exempel:
+Använd den `n` att lägga till en ny partition. I det här exemplet vi också välja `p` för en primär partition av och accepterar du resten av standardinställningarna. Utdata ska vara detsamma som i följande exempel:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -101,7 +101,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Skriva ut partitionstabellen genom att skriva `p` och sedan använda `w` att skriva tabellen till disk och avsluta. Resultatet bör likna följande exempel:
+Skriva ut partitionstabellen genom att skriva `p` och sedan använda `w` att skriva tabellen till hårddisken och avsluta. Utdata bör se ut ungefär så här:
 
 ```bash
 Command (m for help): p
@@ -123,7 +123,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Nu kan skriva ett filsystem till partitionen med det `mkfs` kommando. Ange vilken typ av filsystem och namnet på enheten. I följande exempel skapas en *ext4* filsystemet på den */dev/sdc1* partition som skapades i föregående steg:
+Nu kan skapa ett filsystem på partitionen med den `mkfs` kommando. Ange din typ av filsystem och namnet på enheten. I följande exempel skapas en *ext4* filsystem på den */dev/sdc1* partition som skapades i föregående steg:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -154,25 +154,25 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-Nu ska du skapa en katalog för att montera filsystemet med `mkdir`. I följande exempel skapas en katalog på */datadrive*:
+Nu skapar du en katalog för att montera filsystemet med `mkdir`. I följande exempel skapas en katalog på */datadrive*:
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-Använd `mount` att montera filsystemet. I följande exempel monterar den */dev/sdc1* partitions till den */datadrive* monteringspunkt:
+Använd `mount` att montera filsystemet. I följande exempel monterar den */dev/sdc1* partitionera till den */datadrive* monteringspunkt:
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-För att säkerställa att enheten är på nytt automatiskt efter en omstart, måste den läggas till i */etc/fstab* fil. Även rekommenderas att UUID (universellt Unique IDentifier) används i */etc/fstab* att referera till enheten i stället för bara namnet på en enhet (t.ex, */dev/sdc1*). Om Operativsystemet upptäcker ett diskfel under Start, undviker med hjälp av UUID den felaktiga disken monteras på en viss plats. Återstående datadiskar sedan tilldelas de samma enhets-ID. Använd för att hitta UUID för den nya enheten i `blkid` verktyget:
+För att säkerställa att disken monteras automatiskt efter en omstart, måste du lägga till den */etc/fstab* fil. Det rekommenderas också starkt att UUID (universellt Unik identifierare) används i */etc/fstab* att referera till enheten i stället för bara namnet på enheten (t.ex, */dev/sdc1*). Om Operativsystemet upptäcker ett diskfel under Start, undviker med hjälp av UUID den felaktiga disken monteras på en viss plats. Återstående datadiskar sedan tilldelas dessa samma enhets-ID. Använd för att hitta UUID för den nya enheten i `blkid` verktyget:
 
 ```bash
 sudo -i blkid
 ```
 
-Utdata liknar följande exempel:
+Utdata ser ut ungefär så här:
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -181,7 +181,7 @@ Utdata liknar följande exempel:
 ```
 
 > [!NOTE]
-> Felaktigt redigering av **/etc/fstab** filen kan resultera i ett system som inte kan startas. Om du är osäker, i den distribution dokumentationen finns information om hur du ska redigera den här filen. Vi rekommenderar också att en säkerhetskopia av /etc/fstab-filen har skapats innan du redigerar.
+> Felaktigt redigerar den **/etc/fstab** filen kan resultera i ett system som inte kan startas. Om du är osäker, finns det distribution dokumentationen för information om hur du ska redigera den här filen. Vi rekommenderar också att en säkerhetskopia av/etc/fstab-filen har skapats innan du redigerar.
 
 Därefter öppnar den */etc/fstab* filen i en textredigerare på följande sätt:
 
@@ -189,28 +189,28 @@ Därefter öppnar den */etc/fstab* filen i en textredigerare på följande sätt
 sudo vi /etc/fstab
 ```
 
-I det här exemplet använder du UUID-värdet för den */dev/sdc1* enheten som skapades i föregående steg och monteringspunkt av */datadrive*. Lägg till följande rad i slutet av den */etc/fstab* fil:
+I det här exemplet använder UUID-värdet för den */dev/sdc1* enheten som skapades i föregående steg och monteringspunkten */datadrive*. Lägg till följande rad i slutet av den */etc/fstab* fil:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
 > [!NOTE]
-> Tar bort en datadisk senare utan att redigera fstab leda till den virtuella datorn inte startar. De flesta distributioner måste ange den *nofail* och/eller *nobootwait* fstab alternativ. Dessa alternativ kan ett system för att starta även om disken inte montera vid start. Se dokumentationen för din distribution för mer information om dessa parametrar.
+> Ta bort en datadisk senare utan att redigera fstab leda till den virtuella datorn inte kan starta. De flesta distributioner måste ange den *nofail* och/eller *nobootwait* fstab alternativ. De här alternativen kan ett system att starta även om disken inte kan montera när datorn startas. Mer information om dessa parametrar finns i dokumentationen för din distribution.
 > 
-> Den *nofail* alternativet ser du till att den virtuella datorn startar även om filsystemet är skadat eller disken finns inte vid start. Utan det här alternativet, du kan stöta på problem som beskrivs i [kan SSH för Linux VM på grund av FSTAB fel](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> Den *nofail* alternativet ser du till att den virtuella datorn startar även om filsystemet är skadat eller disken finns inte vid start. Utan det här alternativet kan du stöta på beteende enligt beskrivningen i [det går inte att SSH till Linux VM på grund av FSTAB-fel](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 
-### <a name="trimunmap-support-for-linux-in-azure"></a>TRIMNING/UNMAP stöd för Linux i Azure
-Vissa Linux kärnor stöd för TRIM/UNMAP åtgärder för att ta bort oanvända block på disken. Den här funktionen är i första hand användbart i standardlagring att meddela Azure som bort sidor som inte längre är giltig och kan tas bort och kan spara pengar om du skapar stora filer och ta bort dem.
+### <a name="trimunmap-support-for-linux-in-azure"></a>TRIM/UNMAP stöd för Linux i Azure
+Vissa Linux-kernel stöd för TRIM/UNMAP åtgärder för att ta bort oanvända block på disken. Den här funktionen är främst användbart för standardlagring att meddela Azure som tagits bort sidor som inte längre är giltig och kan bara ta bort och kan spara pengar, om du skapar stora filer och ta bort dem.
 
-Det finns två sätt att aktivera TRIMNING stöd i Linux-VM. Som vanligt, kontakta din distribution för den rekommenderade metoden:
+Det finns två sätt att aktivera TRIMNING stöd i din Linux-VM. Som vanligt finns distributionen för den rekommenderade metoden:
 
 * Använd den `discard` montera alternativ i */etc/fstab*, till exempel:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* I vissa fall kan den `discard` alternativet kanske prestanda. Du kan också köra den `fstrim` kommandot manuellt från kommandoraden eller lägga till den i din crontab att köras regelbundet:
+* I vissa fall kan den `discard` alternativet kanske prestanda. Du kan också köra den `fstrim` kommandot manuellt från kommandoraden eller lägga till den i din crontab ska köras regelbundet:
   
     **Ubuntu**
   
@@ -230,6 +230,6 @@ Det finns två sätt att aktivera TRIMNING stöd i Linux-VM. Som vanligt, kontak
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* För att säkerställa ditt Linux VM är korrekt konfigurerad, granska den [optimera prestanda ditt Linux-datorer](optimization.md) rekommendationer.
-* Expandera lagringskapaciteten genom att lägga till ytterligare diskar och [konfigurera RAID](configure-raid.md) för ytterligare prestanda.
+* För att säkerställa att din Linux-VM är korrekt konfigurerad, granska de [optimera din prestanda för Linux-datorer](optimization.md) rekommendationer.
+* Utöka lagringskapaciteten genom att lägga till ytterligare diskar och [konfigurera RAID](configure-raid.md) för ytterligare prestanda.
 

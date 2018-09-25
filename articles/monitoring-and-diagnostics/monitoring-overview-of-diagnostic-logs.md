@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248174"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983130"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -45,7 +45,7 @@ Här följer några av de saker som du kan göra med diagnostikloggar:
 Du kan använda ett lagringskonto eller Event Hubs-namnområde som inte är i samma prenumeration som det genererar loggar. Den användare som konfigurerar inställningen måste ha lämplig RBAC-åtkomst till båda prenumerationerna.
 
 > [!NOTE]
->  Du kan inte arkivera data till en storage-konto som bakom ett skyddat virtuellt nätverk.
+>  Du kan inte arkivera flödesloggar för nätverk till ett storage-konto som bakom ett skyddat virtuellt nätverk.
 
 > [!WARNING]
 > Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./monitor-diagnostic-logs-append-blobs.md) 
@@ -145,9 +145,9 @@ Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ fö
 
 Du kan inte för närvarande konfigurera inställningarna för diagnostik med Azure PowerShell.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Aktivera insamling av resursdiagnostikloggar via Azure CLI 2.0
+### <a name="enable-collection-of-resource-diagnostic-logs-via-the-azure-cli"></a>Aktivera insamling av resursdiagnostikloggar via Azure CLI
 
-Om du vill aktivera insamling av resursdiagnostikloggar via Azure CLI 2.0, använder du den [az monitor diagnostic-settings skapa](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) kommando.
+Om du vill aktivera insamling av resursdiagnostikloggar via Azure CLI, använder du den [az monitor diagnostic-settings skapa](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) kommando.
 
 Aktivera lagring av diagnostiska loggar i ett Lagringskonto:
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
-ms.openlocfilehash: c10ff022d54510c4fb81bf1f922aeaaf4e9036bb
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 33458794ad74b367f1278364d7b4ace30f7d13a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104862"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953603"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och pålitlighet för Hadoop-kluster i HDInsight
 
@@ -208,13 +208,13 @@ Ambari-Webbgränssnittet väljer du tjänsten som du vill visa loggarna för (ti
 
 Storleken på en nod kan endast väljas när klustret skapas. Du hittar en lista över de olika storlekarna som är tillgängliga för HDInsight på den [HDInsight prissättningssidan](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-När du skapar ett kluster kan ange du storleken på noderna. Följande information innehåller råd om hur du anger en storlek med hjälp av den [Azure-portalen][preview-portal], [Azure PowerShell][azure-powershell], och [Azure CLI][azure-cli]:
+När du skapar ett kluster kan ange du storleken på noderna. Följande information innehåller råd om hur du anger en storlek med hjälp av den [Azure-portalen][preview-portal], [Azure PowerShell][azure-powershell], och [Azure klassiskt CLI][azure-cli]:
 
 * **Azure-portalen**: du kan ange storleken på de noder som används av klustret när du skapar ett kluster:
 
     ![Bild av guiden med val av klusternod storlek för att skapa kluster](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI**: när du använder den `azure hdinsight cluster create` kommandot, du kan ange storleken på head, arbetsroller och ZooKeeper-noder med hjälp av den `--headNodeSize`, `--workerNodeSize`, och `--zookeeperNodeSize` parametrar.
+* **Azure klassiskt CLI**: när du använder den `azure hdinsight cluster create` kommandot, du kan ange storleken på head, arbetsroller och ZooKeeper-noder med hjälp av den `--headNodeSize`, `--workerNodeSize`, och `--zookeeperNodeSize` parametrar.
 
 * **Azure PowerShell**: när du använder den `New-AzureRmHDInsightCluster` cmdlet, du kan ange storleken på head, arbetsroller och ZooKeeper-noder med hjälp av den `-HeadNodeVMSize`, `-WorkerNodeSize`, och `-ZookeeperNodeSize` parametrar.
 
@@ -223,7 +223,7 @@ När du skapar ett kluster kan ange du storleken på noderna. Följande informat
 Använd följande länkar om du vill veta mer om saker som nämns i det här dokumentet.
 
 * [Ambari REST-referens](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Installera och konfigurera Azure CLI](../cli-install-nodejs.md)
+* [Installera och konfigurera den klassiska Azure-CLI](../cli-install-nodejs.md)
 * Installera och konfigurera [Azure PowerShell](/powershell/azure/overview)
 * [Hantera HDInsight med Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Etablera Linux-baserade HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)

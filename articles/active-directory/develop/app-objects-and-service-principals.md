@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-program och tjänstobjekt
-description: En beskrivning av relationen mellan program och tjänstobjekt i Azure Active Directory
+title: Program och tjänstobjekt i Azure Active Directory
+description: Läs mer om relationen mellan program och tjänstobjekt i Azure Active Directory.
 documentationcenter: dev-center-name
 author: CelesteDG
 manager: mtillman
@@ -10,70 +10,93 @@ ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/19/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
-ms.openlocfilehash: 057465567217cff080b189bcdabee3042f41468d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: sureshja
+ms.openlocfilehash: f73c4f7f606f264f899aeb6405ac7bfae71e518d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595883"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948068"
 ---
-# <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Program och tjänstobjekt i Azure Active Directory (AD Azure)
-Ibland innebörden av termen ”program” kan vara tror många när de används i samband med Azure AD. Målet med den här artikeln är att klargöra konceptuell och konkreta aspekter av integrering av Azure AD, med en illustration av registrering och medgivande för en [program med flera innehavare](developer-glossary.md#multi-tenant-application).
+# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Program och tjänstobjekt i Azure Active Directory
+
+Ibland innebörden av termen ”program” kan vara tror många när de används i samband med Azure Active Directory (AD Azure). Den här artikeln visar de termer och konkreta delarna av integrering av Azure AD, med en illustration av registrering och medgivande för en [program med flera innehavare](developer-glossary.md#multi-tenant-application).
 
 ## <a name="overview"></a>Översikt
-Ett program som har integrerats med Azure AD har effekter som sträcker sig utöver aspekten av programvara. ”Program” används ofta som en konceptuell termen avser inte bara program, men även dess Azure AD-registrering och roll i autentisering/auktorisering ”konversationer” vid körning. Per definition, ett program kan fungera i en [klienten](developer-glossary.md#client-application) roll (förbrukar en resurs), en [resursservern](developer-glossary.md#resource-server) roll vilket exponerade API: er (klienter) eller till och med båda. Konversations-protokollet som definieras av en [Auktoriseringsbeviljande för OAuth 2.0-flöde](developer-glossary.md#authorization-grant), vilket gör att klienten/resursen åtkomst/skydda en resurs data respektive. Nu ska vi ta en djupare nivå och se hur Azure AD-programmodell representerar ett program vid designtillfället och körning. 
+
+Ett program som har integrerats med Azure AD har effekter som sträcker sig utöver aspekten av programvara. ”Program” används ofta som en konceptuell termen avser inte bara program, men även dess Azure AD-registrering och roll i autentisering/auktorisering ”konversationer” vid körning.
+
+Ett program kan fungera i dessa roller per definition:
+
+- [Klienten](developer-glossary.md#client-application) roll (förbrukar en resurs)
+- [Resursservern](developer-glossary.md#resource-server) roll (visar API: er på klienter)
+- Både klienten roll och resurs-serverrollen
+
+En [Auktoriseringsbeviljande för OAuth 2.0-flöde](developer-glossary.md#authorization-grant) definierar Konversations-protokollet, vilket gör att klienten/resursen åtkomst/skydda data för en resurs, respektive.
+
+I följande avsnitt visas hur Azure AD-programmodell representerar ett program vid designtillfället och körning.
 
 ## <a name="application-registration"></a>Programregistrering
-När du registrerar en Azure AD-program i den [Azure-portalen][AZURE-Portal], skapas två objekt i din Azure AD-klient: ett programobjekt och en tjänstens huvudnamnsobjekt.
 
-#### <a name="application-object"></a>programobjekt
-Ett Azure AD-program har definierats med dess ett och endast programobjektet, som finns i Azure AD-klient där programmet har registrerats, kallas programmets ”startklientorganisation”. Azure AD Graph [program entitet] [ AAD-Graph-App-Entity] definierar schemat för ett programobjekt egenskaper. 
+När du registrerar en Azure AD-program i den [Azure-portalen][AZURE-Portal], skapas två objekt i Azure AD-klienten:
 
-#### <a name="service-principal-object"></a>tjänstens huvudnamnsobjekt
-För att komma åt resurser som skyddas av en Azure AD-klient, måste den entitet som kräver åtkomst representeras av ett säkerhetsobjekt. Det här gäller för både användare (användarens huvudnamn) och program (tjänstens huvudnamn). Säkerhetsobjektet definierar åtkomstprincip och behörigheter för användare/program i den klienten. På så sätt kan kärnfunktioner som autentisering av användare/programmet under inloggning och auktorisering vid åtkomst till resurser.
+- Ett programobjekt och
+- En tjänstens huvudnamnsobjekt
 
-När ett program ges behörighet att komma åt resurser i en klient (vid registreringen eller [godkänna](developer-glossary.md#consent)), en tjänstens huvudnamnsobjekt har skapats. Azure AD Graph [ServicePrincipal entitet] [ AAD-Graph-Sp-Entity] definierar schemat för en service principal objektets egenskaper. 
+### <a name="application-object"></a>programobjekt
 
-#### <a name="application-and-service-principal-relationship"></a>Program och tjänstens huvudnamn relation
-Överväg att programobjektet som den *globala* representation av ditt program för användning på alla klienter och tjänstens huvudnamn som den *lokala* representation för användning i en specifik klient. Programmet objektet fungerar som den mallen från vilka vanliga och standardegenskaperna är *härledda* som ska användas när motsvarande objekt för tjänstens huvudnamn. Ett programobjekt därför har en 1:1-relation med programmet och en 1:many relationer med dess motsvarande huvudnamn service-objekt.
+Ett Azure AD-program har definierats med dess ett och endast programobjektet, som finns i Azure AD-klient där programmet har registrerats, kallas programmets ”startklientorganisation”. Azure AD Graph [program entitet] [ AAD-Graph-App-Entity] definierar schemat för ett programobjekt egenskaper.
+
+### <a name="service-principal-object"></a>tjänstens huvudnamnsobjekt
+
+För att komma åt resurser som skyddas av en Azure AD-klient, måste den entitet som kräver åtkomst representeras av ett säkerhetsobjekt. Det här gäller för både användare (användarens huvudnamn) och program (tjänstens huvudnamn).
+
+Säkerhetsobjektet definierar åtkomstprincip och behörigheter för användare/program i Azure AD-klient. På så sätt kan kärnfunktioner som autentisering av användare/programmet under inloggning och auktorisering vid åtkomst till resurser.
+
+När ett program ges behörighet att komma åt resurser i en klient (vid registreringen eller [godkänna](developer-glossary.md#consent)), en tjänstens huvudnamnsobjekt har skapats. Azure AD Graph [ServicePrincipal entitet] [ AAD-Graph-Sp-Entity] definierar schemat för en service principal objektets egenskaper.
+
+### <a name="application-and-service-principal-relationship"></a>Program och tjänstens huvudnamn relation
+
+Överväg att programobjektet som den *globala* representation av ditt program för användning på alla klienter och tjänstens huvudnamn som den *lokala* representation för användning i en specifik klient.
+
+Programmet objektet fungerar som den mallen från vilka vanliga och standardegenskaperna är *härledda* som ska användas när motsvarande objekt för tjänstens huvudnamn. Ett programobjekt därför har en 1:1-relation med programmet och en 1:many relationer med dess motsvarande huvudnamn service-objekt.
 
 Ett huvudnamn för tjänsten måste skapas på varje klient där programmet används, så att systemet kan upprätta en identitet för inloggning och/eller åtkomst till resurser som skyddas av klienten. En enda klient-programmet har bara ett huvudnamn för tjänsten (i dess startklientorganisation) skapas och godkänt villkoren för användning under programregistrering. En flera innehavare Webbapp/API har också ett huvudnamn för tjänsten som skapats i varje klienter där en användare från den klientorganisationen har samtyckt för dess användning. 
 
 > [!NOTE]
-> Alla ändringar du gör att din programobjektet också avspeglas i dess tjänstens huvudnamnsobjekt i programmets startklientorganisation endast (klient där det har registrerats). För program med flera klienter, programobjektet ändringar återspeglas inte i några konsument innehavare tjänsthuvudnamnsobjekt, förrän åtkomst tas bort den [Programåtkomstpanelen](https://myapps.microsoft.com) och beviljat igen.
-><br>  
+> Alla ändringar du gör att din programobjektet också avspeglas i dess tjänstens huvudnamnsobjekt i programmets startklientorganisation endast (klient där det har registrerats). För program med flera klienter, programobjektet ändringar återspeglas inte i några konsument innehavare tjänsthuvudnamnsobjekt, förrän åtkomst tas bort via den [Programåtkomstpanelen](https://myapps.microsoft.com) och beviljat igen.
+>
 > Observera också att interna program är registrerade som flera innehavare som standard.
-> 
-> 
 
 ## <a name="example"></a>Exempel
-Följande diagram illustrerar förhållandet mellan ett programs programobjektet och motsvarande tjänst huvudnamn objekt i kontexten för ett exempelprogram för flera innehavare kallad **HR app**. Det finns tre Azure AD-klienter i det här scenariot: 
 
-* **Adatum** -klienten som används av det företag som har utvecklats i **HR-app**
-* **Contoso** -klienten som används av Contoso-organisationen som är konsumenter av den **HR-app**
-* **Fabrikam** -klienten som används av organisationen Fabrikam som använder också den **HR-app**
+Följande diagram illustrerar förhållandet mellan ett programs programobjektet och motsvarande tjänst huvudnamn objekt i kontexten för ett exempelprogram för flera innehavare kallad **HR app**. Det finns tre Azure AD-klienter i det här exemplet:
+
+- **Adatum** -klienten som används av det företag som har utvecklats i **HR-app**
+- **Contoso** -klienten som används av Contoso-organisationen som är konsumenter av den **HR-app**
+- **Fabrikam** -klienten som används av organisationen Fabrikam som använder också den **HR-app**
 
 ![Förhållandet mellan ett programobjekt och en tjänstens huvudnamnsobjekt](./media/app-objects-and-service-principals/application-objects-relationship.png)
 
-I diagrammet ovan är steg 1 processen för att skapa program och tjänstobjekt i programmets startklientorganisation.
+I det här exemplet:
 
-I steg 2, när Contoso och Fabrikam administratörer Slutför medgivande en tjänstens huvudnamnsobjekt skapas i företagets Azure AD-klient och tilldelas de behörigheter som administratören. Observera också att HR-appen kan konfigureras/utformade för att möjliggöra godkännande av användare för personligt bruk.
-
-I steg3 har HR programmet (Contoso och Fabrikam) varje konsument-klienter sina egna tjänstens huvudnamnsobjekt. Varje representerar deras användning av en instans av programmet vid körning, regleras av behörigheterna som godkänt av respektive administratören.
+| Steg | Beskrivning |
+|------|-------------|
+| 1    | Är processen för att skapa program och tjänstobjekt i programmets startklientorganisation. |
+| 2    | När Contoso och Fabrikam administratörer Slutför medgivande, en tjänstens huvudnamnsobjekt skapas i företagets Azure AD-klient och tilldelas de behörigheter som administratören. Observera också att HR-appen kan konfigureras/utformade för att möjliggöra godkännande av användare för personligt bruk. |
+| 3    | HR programmet (Contoso och Fabrikam) varje konsument-klienter har sina egna tjänstens huvudnamnsobjekt. Varje representerar deras användning av en instans av programmet vid körning, regleras av behörigheterna som godkänt av respektive administratören. |
 
 ## <a name="next-steps"></a>Nästa steg
-Programobjekt för ett program kan nås via Azure AD Graph-API i [Azure-portalens] [ AZURE-Portal] redigeringsprogrammet för applikationsmanifestet, eller [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData [program entitet][AAD-Graph-App-Entity].
 
-Ett programs tjänstens huvudnamnsobjekt kan nås via Azure AD Graph-API eller [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData [ServicePrincipal entitet] [ AAD-Graph-Sp-Entity].
-
-Den [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net/) är användbart för frågor till både programmet och objekt för tjänstens huvudnamn.
+- Du kan använda den [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net/) att fråga både programmet och objekt för tjänstens huvudnamn.
+- Du kan komma åt programobjektet för ett program med hjälp av Azure AD Graph-API i [Azure-portalens] [ AZURE-Portal] redigeringsprogrammet för applikationsmanifestet, eller [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData [program entitet][AAD-Graph-App-Entity].
+- Du kan komma åt ett program tjänstens huvudnamnsobjekt via Azure AD Graph-API eller [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData [ServicePrincipal entitet] [ AAD-Graph-Sp-Entity].
 
 <!--Image references-->
 

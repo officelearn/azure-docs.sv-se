@@ -1,6 +1,6 @@
 ---
 title: Ladda upp data för Hadoop-jobb i HDInsight
-description: Lär dig mer om att ladda upp och komma åt data för Hadoop-jobb i HDInsight med hjälp av Azure CLI, Azure Storage Explorer, Azure PowerShell, Hadoop-kommandoraden eller Sqoop.
+description: Lär dig mer om att ladda upp och komma åt data för Hadoop-jobb i HDInsight med hjälp av den klassiska Azure CLI, Azure Storage Explorer, Azure PowerShell, Hadoop-kommandoraden eller Sqoop.
 keywords: etl-hadoop, hämta data till hadoop, hadoop Läs in data
 services: hdinsight
 author: jasonwhowell
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 838444898500ce7127e1a9e999d0b5ee7b1e3687
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 44aaccee436011bd7d27bec87515fde0e898732e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051832"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985987"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Hadoop-jobb i HDInsight
 
@@ -38,22 +38,22 @@ Microsoft tillhandahåller följande verktyg att arbeta med Azure Storage:
 
 | Verktyg | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure-kommandoradsgränssnittet][azurecli] |✔ |✔ |✔ |
+| [Klassisk Azure CLI][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop-kommando](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> Azure CLI, Azure PowerShell och AzCopy kan alla användas från platser utanför Azure, är Hadoop-kommandot endast tillgänglig på HDInsight-klustret. Och kommandot tillåter endast läsa in data från det lokala filsystemet i Azure Storage.
+> Den klassiska Azure-CLI, Azure PowerShell och AzCopy kan alla användas från platser utanför Azure, finns bara kommandot Hadoop på HDInsight-kluster. Och kommandot tillåter endast läsa in data från det lokala filsystemet i Azure Storage.
 >
 >
 
-#### <a id="xplatcli"></a>Azure CLI
-Azure CLI är ett plattformsoberoende verktyg som hjälper dig att hantera Azure-tjänster. Använd följande steg för att ladda upp data till Azure Storage:
+#### <a id="xplatcli"></a>Klassisk Azure CLI
+Den klassiska Azure-CLI är ett plattformsoberoende verktyg som hjälper dig att hantera Azure-tjänster. Använd följande steg för att ladda upp data till Azure Storage:
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [Installera och konfigurera Azure CLI för Mac, Linux och Windows](../cli-install-nodejs.md).
+1. [Installera och konfigurera den klassiska Azure-CLI för Mac, Linux och Windows](../cli-install-nodejs.md).
 2. Öppna en kommandotolk, bash eller andra gränssnitt och Använd följande för att autentisera till din Azure-prenumeration.
 
     ```cli

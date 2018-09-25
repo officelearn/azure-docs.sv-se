@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor om tjänsten anpassad tal i Azure | Microsoft Docs
-description: Här är svaren på populäraste frågor om tjänsten anpassad tal.
+title: Vanliga frågor om Custom Speech Service på Azure | Microsoft Docs
+description: Här är några svar på de mest populära frågorna om Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,138 +9,139 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: panosper
-ms.openlocfilehash: a929869b36387b3257b672308ceca36c84ff8cae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5ab4adefbfbfa1a295f980fd31bffaeaa957ce0c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351858"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955290"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Vanliga och frågor svar om anpassade tal Service
+# <a name="custom-speech-service-frequently-asked-questions"></a>Vanliga och frågor svar om Custom Speech Service
 
-Om du inte hittar svar på frågor här, kan du pröva att besvara anpassad tal Service-communityn på [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) och [UserVoice](https://cognitive.uservoice.com/)
+Om du inte hittar svar på dina frågor i den här vanliga frågor och svar, kan du prova att fråga Custom Speech Service community på [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) och [UserVoice](https://cognitive.uservoice.com/)
 
 ## <a name="general"></a>Allmänt
 
-**Fråga**: hur vet jag när bearbetningen av datauppsättning eller modell har slutförts?
+**Fråga**: hur vet jag när bearbetningen av min datauppsättning eller en modell är klar?
 
-**Svaret**: status för modellen eller datamängd i tabellen är för närvarande bara vill veta.
+**Svar**: status för den modellen eller en uppsättning data i tabellen är för närvarande bara vill veta.
 När bearbetningen är klar blir statusen ”klar”.
 Vi arbetar på förbättrade metoder för kommunikation Bearbetningsstatus, till exempel e-postmeddelande.
 
 **Fråga**: kan jag skapa mer än en modell i taget?
 
-**Svaret**: det finns ingen gräns för hur många modeller finns i samlingen, men endast en kan skapas i taget på varje sida.
-Exempelvis starta du inte en språk modellen processen om det finns en språkmodell i processen steget.
-Du kan dock ha en ljud modell och en språkmodell bearbetning på samma gång. 
+**Svar**: det finns ingen gräns för hur många modeller som finns i din samling men endast en kan skapas i taget på varje sida.
+Till exempel starta du inte en språk modell processen om det finns för närvarande en språkmodell i processen steg.
+Du kan dock ha en akustisk modell och en språkmodell bearbetning på samma gång. 
 
-**Fråga**: jag insåg jag gjort ett misstag. Hur avbryta min import av data eller modell skapa pågår? 
+**Fråga**: jag insåg att jag har gjort ett misstag. Hur avbryter mitt dataimporten jag eller modellera skapa pågående? 
 
-**Svaret**: för närvarande du inte återställa en acoustic eller språk anpassning process.
-Importerade data kan tas bort när importen har slutförts
+**Svar**: för närvarande du inte återställa en akustiska eller språk anpassning process.
+Importerade data kan tas bort när importen är klar
 
-**Fråga**: Vad är skillnaden mellan sökningen & Dictation modeller och den vardagliga samtalsuttryck?
+**Fråga**: Vad är skillnaden mellan sökningen & diktering modeller och Konversationsanpassade modeller?
 
-**Svaret**: det finns två grundläggande ljud & språk modeller att välja mellan i tjänsten anpassad tal.
-sökfrågor eller dictation. Microsoft Conversational AM är lämplig för igenkänning av tal talas i samtalston.
-Den här typen av tal riktas vanligtvis mot en annan person som i call Center eller möten.
+**Svar**: det finns två grundläggande akustiska och Språkmodeller att välja bland i Custom Speech Service.
+sökfrågor eller diktering. Microsoft Conversational AM är lämpligt för att känna igen tal som sägs i ett konversationsanpassade format.
+Den här typen av tal är vanligtvis riktat mot en annan person som i call Center eller möten.
 
-**Fråga**: kan jag uppdatera Mina befintliga modellen (modellen stapling)?
+**Fråga**: kan jag uppdatera min befintliga modellen (model stapling)?
 
-**Svaret**: vi inte har möjlighet att uppdatera en befintlig modell med nya data.
-Om du har en ny datauppsättning och du vill anpassa en befintlig modell anpassa du nytt den med nya data och gamla datamängden som du använde.
-De gamla och nya uppgifter som måste kombineras i en enda ZIP (om det är ljud data) eller en txt-fil om den är språket data en gång anpassning görs nya uppdaterade modellen måste vara Frigör distribuerade du skaffar en ny slutpunkt
+**Svar**: Vi erbjuder inte kan uppdatera en befintlig modell med nya data.
+Om du har en ny datauppsättning och du vill anpassa en befintlig modell anpassa du igen den med nya data och gamla datauppsättningen som du använde.
+De gamla och nya uppgifter som måste kombineras i en enda ZIP (om det är akustiska data) eller en txt-fil om den är språk data en gång anpassning görs nya uppdaterade modellen måste vara ta bort distribuerade att hämta en ny slutpunkt
 
 **Fråga**: Vad händer om jag behöver högre samtidighet än standardvärdet. 
 
-**Svaret**: du kan skala upp din modell i steg 5 samtidiga begäranden som vi kallar skalenheter. Varje skalningsenhet garanterar att din modell kan bearbeta 5 ljudström samtidigt. Du kan köpa till 100 skalenheter (eller 500 samtidiga begäranden).
+**Svar**: du kan skala upp din modell i steg om 5 samtidiga begäranden som vi kallar Skalningsenheter. Varje skalningsenhet garanterar att din modell kan bearbeta 5 ljudström samtidigt. Du kan köpa till 100 skalningsenheter (eller 500 samtidiga begäranden).
 
-Kontakta oss om du behöver högre än.
+Kontakta oss om du behöver högre än så.
 
-**Fråga**: kan jag hämta Mina modellen och kör lokalt?
+**Fråga**: kan jag hämta Mina modellen och köra den lokalt?
 
-**Svaret**: vi aktivera inte modeller som ska hämtas och köras lokalt.
+**Svar**: vi aktiverar inte modeller för att hämtas och köras lokalt.
 
 **Fråga**: är Mina förfrågningar loggas?
 
-**Svaret**: du kan välja när du skapar en distribution för att inaktivera spårning, då ingen ljud eller transcriptions kommer att loggas. Annars loggas vanligtvis begäranden i Azure i säker lagring. Om du har fler sekretessfrågor som förhindrar att du använder anpassade tal tjänsten du kontakta oss.
+**Svar**: du kan välja när du skapar en distribution för att stänga av spårning, då ingen ljud eller avskrifter kommer att loggas. Annars är begäranden vanligtvis inloggad i Azure säker lagring. Om du har fler sekretessen som förhindrar med Custom Speech Service Kontakta oss.
 
 ## <a name="importing-data"></a>Importera Data
 
 **Fråga**: Vad är gränsen för storleken på datauppsättningen? Varför? 
 
-**Svaret**: den aktuella gränsen för en datauppsättning är 2 GB, på grund av begränsning på storleken på en fil för HTTP-överföring. 
+**Svar**: den aktuella gränsen för en datauppsättning är 2 GB på grund av begränsningen på storleken på en fil för HTTP-överföring. 
 
 **Fråga**: kan jag zip min textfiler för att ladda upp en större textfil? 
 
-**Svaret**: Nej, för närvarande endast okomprimerade textfiler tillåts.
+**Svar**: Nej, för närvarande endast okomprimerade textfiler tillåts.
 
-**Fråga**: data rapporten står det fanns misslyckade utterances. Är detta ett problem?
+**Fråga**: data rapporten står det fanns misslyckade yttranden. Är detta ett problem?
 
-**Svaret**: om endast några utterances kunde inte importeras, detta är inte ett problem.
-Om majoriteten av utterances i en acoustic eller språk (t.ex. > 95%) har importerats datauppsättningen kan användas. Det rekommenderas dock att du försöker förstå varför utterances misslyckades och åtgärda problem.
-De flesta vanliga problem, till exempel formateringsfel, är enkla att åtgärda. 
+**Svar**: om det bara ett par yttranden kunde importeras, detta är inte ett problem.
+Om det stora flertalet yttranden i en språkdata eller språk data (t.ex. > 95%) har importerats, kan datauppsättningen vara användbar. Vi rekommenderar dock att du försöker förstå varför talade misslyckades och åtgärda problem.
+De vanligaste problem, till exempel formateringsfel, är enkla att åtgärda. 
 
 ## <a name="creating-am"></a>Skapa AM
 
-**Fråga**: hur mycket ljud data behöver jag?
+**Fråga**: hur mycket akustiska data behöver jag?
 
-**Svaret**: Vi rekommenderar att börja med 30 minuter till en timme ljud data
+**Svar**: Vi rekommenderar att du börjar med 30 minuter att en timmes akustiska data
 
-**Fråga**: vilken typ av data ska jag in?
+**Fråga**: vilken typ av data ska jag samla in?
 
-**Svaret**: du bör samla in data som är så nära programscenariot och användningsfall som möjligt.
-Det innebär att datainsamlingen ska matcha målprogrammet och användare när det gäller enheter eller enheter, miljöer och typer av högtalare. I allmänhet du bör samla in data från som bred en uppsättning användare enligt möjligt. 
+**Svar**: du bör samla in data som ligger så nära programmet scenario och användningsfall som möjligt.
+Det innebär att insamling av data ska matcha målprogrammet och användare när det gäller enheter eller enheter, miljöer och typer av talare. I allmänhet du ska samla in data från som bred olika talare som möjligt. 
 
-**Fråga**: hur får jag in den? 
+**Fråga**: hur ska jag samla in den? 
 
-**Svaret**: du kan skapa ett fristående program för insamling av data eller använda en del av hylla ljudinspelning programmet.
+**Svar**: du kan skapa ett fristående program för insamling av data eller använda en del av hylla ljudinspelning programmet.
 Du kan också skapa en version av programmet som loggar ljuddata och används den. 
 
-**Fråga**: behöver jag transkribera anpassning data själv? 
+**Fråga**: behöver jag transkribera anpassning data mig? 
 
-**Svaret**: data måste vara sätt. Du kan transkribera själv eller använda en professional skrivfel-tjänst. Vissa av dessa Använd journalanteckningarna och andra använda gemensamt skapade. Vi rekommenderar också kan en tjänst skrivfel på begäran.
+**Svar**: måste vara transkriberas data. Du kan transkribera själv eller använda en professionell avskrift-tjänst. Vissa av dessa journalanteckningarna för användning och andra använder gemensamt skapade. Vi rekommenderar också kan en avskrift tjänst på begäran.
 
-**Fråga**: hur lång tid tar det för att skapa en anpassad ljud modell?
+**Fråga**: hur lång tid tar det för att skapa en anpassad akustisk modell?
 
-**Svaret**: bearbetningstid för att skapa en anpassad ljud modell är ungefär som längden på ljud datauppsättningen.
-Så, en anpassad ljud modell som skapas från en uppsättning med fem timme data tar cirka fem timmar att bearbeta. 
+**Svar**: bearbetningstid för att skapa en anpassad akustisk modell är ungefär densamma som längden på akustiska datauppsättningen.
+Därför en anpassad akustisk modell som skapats från en fem timme datauppsättningen tar cirka fem timmar att bearbeta. 
 
 ## <a name="offline-testing"></a>Offlinetestning
 
-**Fråga**: kan jag utföra offline testning av min anpassade ljud modellen med hjälp av en anpassad språk modellen?
+**Fråga**: kan jag utföra offline testning av min anpassad akustisk modell med hjälp av en anpassad språkmodell?
 
-**Svaret**: Ja, bara välja anpassade språkmodell i listrutan när du ställer in testet offline
+**Svar**: Ja, bara välja modellen med anpassat språk i listrutan när du ställer in offline testet
 
-**Fråga**: kan jag utföra offline testning av min anpassade språk modellen med hjälp av en anpassad ljud modellen?
+**Fråga**: kan jag utföra offline testning av mina anpassade språkmodell med hjälp av en anpassad akustisk modell?
 
-**Svaret**: Ja, markera bara anpassade ljud modellen i den nedrullningsbara menyn när du ställer in testet offline.
+**Svar**: Ja, markera bara anpassad akustisk modell i den nedrullningsbara menyn när du ställer in offline testet.
 
-**Fråga**: Vad är Word Felfrekvens och hur beräknas den?
+**Fråga**: Vad är ordet Felfrekvens och hur beräknas den?
 
-**Svaret**: Word Felfrekvens är utvärdering mått för taligenkänning. Den räknas som det totala antalet fel, vilket innefattar tillägg, borttagningar och ersättningar, dividerat med det totala antalet ord i referens skrivfel.
+**Svar**: Word Felfrekvens är utvärderingen mått för taligenkänning. Räknas den som det totala antalet fel, vilket innefattar tillägg, borttagningar och ersättningar, dividerat med det totala antalet ord i referens avskrift.
 
-**Fråga**: jag nu vet testresultaten i mina egna modellen, är det en bra eller dålig tal?
+**Fråga**: jag nu vet testresultaten i Mina anpassade modellen, är det ett bra eller dålig tal?
 
-**Svaret**: resultaten visar en jämförelse mellan baslinje och ett som du anpassat.
-Du bör sträva efter att slå baslinje-modellen för att göra anpassningen lönar
+**Svar**: resultatet visar en jämförelse mellan baslinje och de som du anpassat.
+Du bör syfta till att Microsoft baslinje-modellen för att göra anpassningen lönar
 
-**Fråga**: hur jag räkna ut WER grundläggande modeller så att jag kan se om det fanns improvement? 
+**Fråga**: hur jag ta reda på WER av de grundläggande modellerna så att jag kan se om det var improvement? 
 
-**Svaret**: offline testresultaten visar riktighet baslinjen riktighet anpassade modellen och förbättring under baslinjen
+**Svar**: offline testresultaten visa riktighet baslinje riktighet anpassade modellen och förbättring över baslinje
 
 ## <a name="creating-lm"></a>Skapa LM
 
-**Fråga**: hur mycket textdata som måste du överföra?
+**Fråga**: hur mycket textdata kan jag överföra?
 
-**Svaret**: handlar det svårt att ge ett exakt svar, eftersom det beror på hur olika ordförråd och fraser som används i ditt program är från början språk-modeller. För alla nya ord är det praktiskt att ge så många exempel som möjligt för förbrukning av orden. För vanliga fraser som används i ditt program, är inklusive de på språket data också användbart eftersom den anger att lyssna efter även dessa villkor.
-Det är vanligt att ha minst 100 och vanligtvis flera hundra utterances i datauppsättningen språk eller mer.
-Även om vissa typer * av frågor förväntas vara vanligare än andra, du kan infoga flera kopior av vanliga frågor i datauppsättningen.
+**Svar**: handlar det svårt att ge ett exakt svar, eftersom det beror på hur olika ordförråd och fraser som används i ditt program är från från språkmodeller. För alla nya ord är det praktiskt att ange så många exempel som möjligt av användningen av orden. För vanliga fraser som används i ditt program, är inklusive de på language-data också användbart eftersom det anger att lyssna efter även dessa villkor.
+Det är vanligt att ha minst 100 och vanligtvis flera hundra yttranden i datauppsättningen språk eller mer.
+Även om vissa typer * av frågor som förväntas vara vanligare än andra, du kan infoga flera kopior av de vanliga frågorna i datauppsättningen.
 
-**Fråga**: kan jag bara ladda upp en lista över ord?
+**Fråga**: kan bara överföra en lista över ord?
 
-**Svaret**: ladda upp en lista över ord kommer att hämta orden i ordförråd men inte lära systemet hur orden normalt används.
-Genom att tillhandahålla fullständig eller partiell utterances (meningar eller fraser av saker som användare kan komma att säga) Läs språk modellen nya ord och hur de används. Anpassade språk modellen är bra inte bara för att hämta nya ord i systemet, men också för att justera sannolikheten för kända ord för ditt program. Ger fullständig utterances hjälper Läs det här systemet. 
+**Svar**: ladda upp en lista över ord kommer att få ord i att ordförråd men inte lära systemet hur orden används vanligtvis för.
+Genom att tillhandahålla fullständigt eller partiellt yttranden (meningar eller satser saker som användare kan komma att säga) språkmodellen lära dig nya ord och hur de används. Anpassade språkmodellen är bra inte bara för att hämta nya ord i systemet, men också för att ändra sannolikheten för kända ord för ditt program. Att tillhandahålla fullständig yttranden hjälper systemet lära sig. 
 
 -----
 

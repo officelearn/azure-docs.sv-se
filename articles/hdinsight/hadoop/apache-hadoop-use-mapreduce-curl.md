@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: f497184b05432d6e32883bb3470f7e4da5fe550f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9941f442ad546155f58967fb3414eb2e7b7c3647
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047193"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973720"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Köra MapReduce-jobb med Hadoop på HDInsight med hjälp av REST
 
@@ -141,7 +141,7 @@ Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på ett
 
 6. När tillståndet för jobbet har ändrats till `SUCCEEDED`, kan du hämta resultatet av jobbet från Azure Blob storage. Den `statusdir` parametern som skickas med frågan innehåller platsen för utdatafilen. I det här exemplet platsen är `/example/curl`. Den här adressen lagrar utdata för jobbet i kluster standardlagring på `/example/curl`.
 
-Du kan visa och hämta dessa filer med hjälp av den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du arbetar med blobar med Azure CLI finns i den [med hjälp av Azure CLI 2.0 med Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) dokumentet.
+Du kan visa och hämta dessa filer med hjälp av den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du arbetar med blobar med Azure CLI finns i den [med Azure CLI med Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) dokumentet.
 
 ## <a id="nextsteps"></a>Nästa steg
 

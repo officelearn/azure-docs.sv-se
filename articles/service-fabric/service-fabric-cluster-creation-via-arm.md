@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: aab985270cf17b94d6353536c96a3825b5e3b73f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b71c1d75dc9d988c7b26f9720cc03d9fee9109b1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287350"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970319"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Om du skapar ett produktionskluster för att köra arbetsbelastningar i produkti
 I den här artikeln använder du Service Fabric RM powershell eller Azure CLI-moduler för att distribuera ett kluster:
 
 * [Azure PowerShell 4.1 och senare][azure-powershell]
-* [Azure CLI 2.0 och senare][azure-CLI]
+* [Azure CLI version 2.0 och senare][azure-CLI]
 
 Du kan hitta referensdokumentation för Service Fabric-moduler här:
 * [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)

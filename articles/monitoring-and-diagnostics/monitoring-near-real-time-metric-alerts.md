@@ -1,6 +1,6 @@
 ---
-title: Stöds resurser för nyare måttaviseringar i Azure Monitor
-description: Referens support mått och loggar för nyare Azure aviseringar i nära realtid mått.
+title: De resurser som stöds för måttaviseringar i Azure Monitor
+description: Referens för support mått och måttaviseringar i Azure Monitor-loggar
 author: snehithm
 services: monitoring
 ms.service: azure-monitor
@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 019f245a7cc1feedcbd520c336f53a60ed1e9ddc
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 102f087f31aa304aaaee49e0e39ff8c6874127b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579097"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966808"
 ---
-# <a name="supported-resources-for-newer-azure-monitor-metric-alerts"></a>Stöds resurser för nyare måttaviseringar i Azure Monitor
-Azure Monitor nu stöder en [nya måttaviseringstypen](monitoring-overview-unified-alerts.md) som har betydande fördelar över den äldre [klassiska måttaviseringar](insights-alerts-portal.md). Mått är tillgängliga för [lång lista med Azure-tjänster](monitoring-supported-metrics.md). En (växande) delmängd av resurstyperna som har stöd för nyare aviseringar. Den här artikeln innehåller dessa användare. 
+# <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>De resurser som stöds för måttaviseringar i Azure Monitor
 
-Du kan också använda nyare måttaviseringar på den populära Log Analytics loggar extraherade som mått som en del av mått från loggar (förhandsversion)  
+Azure Monitor nu stöder en [nya måttaviseringstypen](monitoring-overview-unified-alerts.md) som har betydande fördelar över den äldre [klassiska måttaviseringar](insights-alerts-portal.md). Mått är tillgängliga för [lång lista med Azure-tjänster](monitoring-supported-metrics.md). En (växande) delmängd av resurstyperna som har stöd för nyare aviseringar. Den här artikeln innehåller dessa användare.
+
+Du kan också använda nyare måttaviseringar på den populära Log Analytics loggar extraherade som mått som en del av mått från loggar 
 - [Prestandaräknare](../log-analytics/log-analytics-data-sources-performance-counters.md) för Windows och Linux-datorer
 - [Pulsslagsposter för Agenthälsa](../operations-management-suite/oms-solution-agenthealth.md)
 - [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md) poster
@@ -28,7 +29,7 @@ Du kan också använda nyare måttaviseringar på den populära Log Analytics lo
 > Specifika mått och/eller dimension endast visas om det finns data för den valda perioden. De här måtten är tillgängliga för kunder med Azure Log Analytics-arbetsytor i östra USA, västra centrala USA och Västeuropa. Mått från Log Analytics är för närvarande i offentlig förhandsversion och kan komma att ändras.
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST-stöd
-För närvarande kan du kan skapa nyare måttaviseringar endast i Azure-portalen [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) eller [Resource Manager-mallar](monitoring-create-metric-alerts-with-templates.md). Stöd för att konfigurera nyare aviseringar med PowerShell och kommandoradsgränssnittet (Azure CLI 2.0) kommer snart.
+För närvarande kan du kan skapa nyare måttaviseringar endast i Azure-portalen [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) eller [Resource Manager-mallar](monitoring-create-metric-alerts-with-templates.md). Stöd för att konfigurera nyare aviseringar med hjälp av PowerShell och Azure CLI version 2.0 och senare kommer snart.
 
 ## <a name="metrics-and-dimensions-supported"></a>Mått och dimensioner som stöds
 Nyare måttaviseringar stöd för aviseringar för mått med dimensioner. Du kan använda dimensioner för att filtrera dina mått till rätt nivå. Alla mått som stöds för tillsammans med tillämpliga dimensioner kan utforskas och visualiseras från [Azure Monitor - Metrics Explorer (förhandsversion)](monitoring-metric-charts.md).
@@ -66,7 +67,9 @@ Här är en fullständig lista över Azure monitor mått källor som stöds av d
 |Microsoft.Storage/storageAccounts/services     |     Ja    | [BLOB-tjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Filtjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [kö tjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) och [tabellen tjänster](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  Gäller inte       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 | Microsoft.Web/serverfarms | Ja | [App Service-planer](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
-|Microsoft.OperationalInsights/workspaces (förhandsversion) | Ja|[Log Analytics-arbetsytor](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
+| Microsoft.Web/sites | Ja | [App Services](monitoring-supported-metrics.md#microsoftwebsites-excluding-functions) och [funktioner](monitoring-supported-metrics.md#microsoftwebsites-functions)|
+| Microsoft.Web/sites/slots | Ja | [App Service-fack](monitoring-supported-metrics.md#microsoftwebsitesslots)|
+|Microsoft.OperationalInsights/workspaces| Ja|[Log Analytics-arbetsytor](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
 
 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b262f42fffdbfd00f0c57c987e36346957f0f25c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648822"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963604"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azures ordlista: en ordlista med termer i molnet på Azure-plattformen
 
@@ -47,7 +47,7 @@ Se [hantera tillgängligheten för Windows-datorer](virtual-machines/windows/man
 Någon av de två [distributionsmodeller](resource-manager-deployment-model.md) används för att distribuera resurser i Azure (den nya modellen är Azure Resource Manager). Vissa Azure-tjänster stöder endast Resource Manager-distributionsmodellen, vissa stöder den klassiska distributionsmodellen och vissa stöder både. I dokumentationen för varje Azure-tjänst anger vilka modell(er) som de stöder.
 
 ## <a name="cli"></a>Azure-kommandoradsgränssnittet (CLI)
-Ett kommandoradsgränssnitt som kan användas för att hantera Azure-tjänster från Windows, macOS och Linux.  Vissa tjänster eller service-funktioner kan hanteras endast via PowerShell eller CLI. Se [Azure CLI 2.0](/cli/azure)
+Ett kommandoradsgränssnitt som kan användas för att hantera Azure-tjänster från Windows, macOS och Linux.  Vissa tjänster eller service-funktioner kan hanteras endast via PowerShell eller CLI. Se [Azure CLI](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 Ett kommandoradsgränssnitt för att hantera Azure-tjänster via en kommandorad från Windows-datorer. Vissa tjänster eller service-funktioner kan hanteras endast via PowerShell eller CLI.

@@ -1,10 +1,9 @@
-
 Mer information om diskar finns i [Om diskar och virtuella hårddiskar för Virtual Machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
 ## <a name="attach-an-empty-disk"></a>Ansluta en tom disk
-1. Öppna Azure CLI 1.0 och [anslut till din Azure-prenumeration](/cli/azure/authenticate-azure-cli). Kontrollera att du är i läget för Azure-tjänsthantering (`azure config mode asm`).
+1. Öppna Azure klassiska CLI och [ansluta till din Azure-prenumeration](/cli/azure/authenticate-azure-cli). Kontrollera att du är i läget för Azure-tjänsthantering (`azure config mode asm`).
 2. Ange `azure vm disk attach-new` för att skapa och ansluta en ny disk enligt följande exempel. Ersätt *myVM* med namnet på din virtuella Linux-dator och ange diskens storlek i GB, vilken är *100GB* i det här exemplet:
 
     ```azurecli
@@ -37,7 +36,7 @@ Mer information om diskar finns i [Om diskar och virtuella hårddiskar för Virt
 ## <a name="attach-an-existing-disk"></a>Ansluta en befintlig disk
 För att kunna ansluta en befintlig disk måste du ha en VHD-fil tillgänglig i ett lagringskonto.
 
-1. Öppna Azure CLI 1.0 och [anslut till din Azure-prenumeration](/cli/azure/authenticate-azure-cli). Kontrollera att du är i läget för Azure-tjänsthantering (`azure config mode asm`).
+1. Öppna Azure klassiska CLI och [ansluta till din Azure-prenumeration](/cli/azure/authenticate-azure-cli). Kontrollera att du är i läget för Azure-tjänsthantering (`azure config mode asm`).
 2. Kontrollera om den virtuella hårddisken som du vill ansluta redan har överförts till din Azure-prenumeration:
    
     ```azurecli

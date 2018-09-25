@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 4b584dfa49c42328a44fff0645dcdec2504abaa2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 78578197c5f764c8e197d3426506cb1eb13b838f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904228"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956805"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -35,7 +35,7 @@ Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här art
 - Om du inte redan har ett Azure-konto, registrera dig för en [kostnadsfritt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppnar du https://portal.azure.com, och logga in med ditt Azure-konto.
 - Om du utför uppgifterna i den här artikeln med hjälp av PowerShell-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudien kräver Azure PowerShell-Modulversion 5.4.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
-- Om du utför uppgifterna i den här artikeln med hjälp av Azure-kommandoradsgränssnittet (CLI)-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här självstudien krävs Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
+- Om du utför uppgifterna i den här artikeln med hjälp av Azure-kommandoradsgränssnittet (CLI)-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här självstudien krävs Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
 
 Kontot du loggar in på eller ansluta till Azure med, måste tilldelas den [nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som tilldelas de åtgärder som anges i [behörigheter ](#permissions).
 
@@ -164,7 +164,7 @@ Du kan ändra undernätet, men inte det virtuella nätverket, som ett nätverksg
 Du kan bara lägga till ett nätverksgränssnitt för eller ta bort ett nätverksgränssnitt från en programsäkerhetsgrupp med hjälp av portalen om nätverksgränssnittet är kopplat till en virtuell dator. Du kan använda PowerShell eller Azure CLI för att lägga till ett nätverksgränssnitt för eller ta bort ett nätverksgränssnitt från en programsäkerhetsgrupp om nätverksgränssnittet är ansluten till en virtuell dator eller inte. Läs mer om [programsäkerhetsgrupper](security-overview.md#application-security-groups) och hur du [skapa en programsäkerhetsgrupp](manage-network-security-group.md#create-an-application-security-group).
 
 1. I den *Sök efter resurser, tjänster och dokument* rutan längst upp i portalen, börjar du skriva namnet på en virtuell dator som har ett nätverksgränssnitt som du vill lägga till eller ta bort från en programsäkerhetsgrupp. När namnet på den virtuella datorn visas i sökresultatet väljer du den.
-2. Under **inställningar**väljer **nätverk**.  Välj **konfigurera programmet säkerhetsgrupper**väljer programsäkerhetsgrupper som du vill lägga till nätverksgränssnittet till, eller avmarkera programsäkerhetsgrupper som du vill ta bort nätverksgränssnittet från, Välj sedan **spara**. Endast nätverksgränssnitt som finns i samma virtuella nätverk kan läggas till i säkerhetsgruppen för samma program. Programsäkerhetsgruppen måste finnas på samma plats som nätverksgränssnittet.
+2. Under **INSTÄLLNINGAR** väljer du **Nätverk**.  Välj **konfigurera programmet säkerhetsgrupper**väljer programsäkerhetsgrupper som du vill lägga till nätverksgränssnittet till, eller avmarkera programsäkerhetsgrupper som du vill ta bort nätverksgränssnittet från, Välj sedan **spara**. Endast nätverksgränssnitt som finns i samma virtuella nätverk kan läggas till i säkerhetsgruppen för samma program. Programsäkerhetsgruppen måste finnas på samma plats som nätverksgränssnittet.
 
 **Kommandon**
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 05a7dda67ca9747c5d6205952bc9337af628de8f
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296745"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972564"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina storage-konton till en specifik uppsättning tillåtna nätverk.  Om Nätverksregler har konfigurerats endast program från tillåtna nätverk kan komma åt ett storage-konto.  När du anropar från ett tillåtna nätverk programmen kräver rätt auktorisering (en giltig åtkomstnyckel eller SAS-token) att komma åt lagringskontot.
@@ -70,7 +70,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 ```    
 
 #### <a name="cliv2"></a>CLIv2
-1. [Installera Azure CLI 2.0](/cli/azure/install-azure-cli) och [inloggning](/cli/azure/authenticate-azure-cli).
+1. [Installera Azure CLI](/cli/azure/install-azure-cli) och [inloggning](/cli/azure/authenticate-azure-cli).
 2. Visa status för Standardregeln för storage-kontot.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
@@ -152,7 +152,7 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Installera Azure CLI 2.0](/cli/azure/install-azure-cli) och [inloggning](/cli/azure/authenticate-azure-cli).
+1. [Installera Azure CLI](/cli/azure/install-azure-cli) och [inloggning](/cli/azure/authenticate-azure-cli).
 2. Lista över virtuella Nätverksregler
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -243,7 +243,7 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Installera Azure CLI 2.0](/cli/azure/install-azure-cli) och [inloggning](/cli/azure/authenticate-azure-cli).
+1. [Installera Azure CLI](/cli/azure/install-azure-cli) och [inloggning](/cli/azure/authenticate-azure-cli).
 2. Lista över IP-Nätverksregler
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
@@ -290,7 +290,9 @@ När undantaget ”betrodda Microsoft-tjänster” är aktiverad, beviljas åtko
 |Azure Event Grid|Microsoft.EventGrid|Aktivera publicering av Blob Storage-händelser.  [Läs mer](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Arkivera data med Event Hubs Capture.  [Läs mer](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure-nätverk|Microsoft.Networking|Store och analysera loggar med webbtrafik.  [Läs mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-||||
+|Azure Monitor|Microsoft.Insights| Tillåter skrivning av övervakning av data till ett konto för säker storaage [mer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|
+
 
 ### <a name="storage-analytics-data-access"></a>Dataåtkomst för Storage analytics
 I vissa fall kan krävs åtkomst till Läs diagnostikloggar och mått från utanför nätverksgränsen för.  Undantag från reglerna för nätverk kan beviljas för att tillåta läsåtkomst till Storage konto loggfiler, mått tabeller eller båda. [Läs mer om hur du arbetar med storage analytics.](/azure/storage/storage-analytics)
@@ -327,7 +329,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Installera Azure CLI 2.0](/cli/azure/install-azure-cli) och [inloggning](/cli/azure/authenticate-azure-cli).
+1. [Installera Azure CLI](/cli/azure/install-azure-cli) och [inloggning](/cli/azure/authenticate-azure-cli).
 2. Visa undantag för Nätverksregler för storage-konto.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass

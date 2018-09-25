@@ -1,5 +1,5 @@
 ---
-title: Översikt över vanliga Autoskala mönster
+title: Översikt över vanliga autoskalningsmönster
 description: Läs om några av de vanliga mönster för att automatiskt skala din resurs i Azure.
 author: anirudhcavale
 services: azure-monitor
@@ -8,57 +8,57 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 84727ec3694f64d40ad002a248a255df9074d7f4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c7084a10aceafcdd1039893b810fcbd8b74b874b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263271"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967412"
 ---
-# <a name="overview-of-common-autoscale-patterns"></a>Översikt över vanliga Autoskala mönster
+# <a name="overview-of-common-autoscale-patterns"></a>Översikt över vanliga autoskalningsmönster
 Den här artikeln beskrivs några vanliga mönster för att skala din resurs i Azure.
 
-Azure övervakaren Autoskala gäller enbart för Virtual Machine Scale uppsättningar (VMSS), cloud services, apptjänstplaner och apptjänstmiljöer. 
+Automatisk skalning i Azure Monitor gäller endast [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 # <a name="lets-get-started"></a>Kan komma igång
 
-Den här artikeln förutsätter att du är bekant med automatisk skalning. Du kan [starta här att skala din resurs][1]. Följande är några av de vanliga skala mönster.
+Den här artikeln förutsätter att du är bekant med automatisk skalning. Du kan [Kom igång här för att skala din resurs][1]. Följande är några av de vanliga mönster i skala.
 
 ## <a name="scale-based-on-cpu"></a>Skala baserat på CPU
 
-Du har ett webbprogram (/ VMSS/molnet rolltjänst) och 
+Du har en webbapp (/ VMSS/molntjänstroll) och
 
-- Du vill skala ut/skala i baserat på CPU.
-- Dessutom kan vill du se till att det finns ett minsta antal instanser. 
-- Du också se till att du anger en övre gräns för antalet instanser som kan skalas till.
+- Du vill skala ut/skala in baserat på CPU.
+- Dessutom kan du se till att det finns ett minsta antal instanser.
+- Dessutom bör du se till att du ställer in en övre gräns för antalet instanser som du kan skala till.
 
 ![Skala baserat på CPU][2]
 
-## <a name="scale-differently-on-weekdays-vs-weekends"></a>Skala annorlunda veckodagar vs helger
+## <a name="scale-differently-on-weekdays-vs-weekends"></a>Skala på olika sätt på vardagar vs helger
 
-Du har ett webbprogram (/ VMSS/molnet rolltjänst) och
+Du har en webbapp (/ VMSS/molntjänstroll) och
 
-- Du vill 3 instanser som standard (på vardagar)
-- Du förväntar dig inte trafik på helger och därför du vill skala ned 1 instans på helger.
+- Du vill ha 3 instanser som standard (på vardagar)
+- Du förväntar dig inte att trafik på helger och kan därför du vill skala ned till 1 instans på helger.
 
-![Skala annorlunda veckodagar vs helger][3]
+![Skala på olika sätt på vardagar vs helger][3]
 
-## <a name="scale-differently-during-holidays"></a>Skala annorlunda under helgdagar
+## <a name="scale-differently-during-holidays"></a>Skalas annorlunda under helger
 
-Du har ett webbprogram (/ VMSS/molnet rolltjänst) och 
+Du har en webbapp (/ VMSS/molntjänstroll) och
 
-- Du vill skala upp/ned baserat på CPU-användning som standard
-- Dock under köpstarka jul (eller särskilda dagar som är viktiga för ditt företag) vill du åsidosätta standardvärdena och dina anställda har mer kapacitet.
+- Du vill skala upp och ned baserat på CPU-användning som standard
+- Men under Rean (eller särskilda dagar som är viktiga för ditt företag) vill du åsidosätta standardinställningarna och har mer kapacitet till ditt förfogande.
 
-![Skala annorlunda på helgdagar][4]
+![Skala på olika sätt på helger][4]
 
-## <a name="scale-based-on-custom-metric"></a>Skala baserat på anpassade mått
+## <a name="scale-based-on-custom-metric"></a>Skala baserat på anpassat mått
 
-Du har en frontwebb och en API-nivå som kommunicerar med serverdelen. 
+Du har en frontwebb och en API-nivå som kommunicerar med serverdelen.
 
-- Du vill skala API-nivå som baseras på anpassade händelser i klientdelen (exempel: du vill skala utcheckningen processen baserat på antalet objekt i kundvagnen)
+- Du vill skala API-nivå som baseras på anpassade händelser i klientdelen (exempel: du vill skala ditt kassan baserat på antalet objekt i kundvagnen)
 
-![Skala baserat på anpassade mått][5]
+![Skala baserat på anpassat mått][5]
 
 <!--Reference-->
 [1]: ./monitoring-autoscale-get-started.md

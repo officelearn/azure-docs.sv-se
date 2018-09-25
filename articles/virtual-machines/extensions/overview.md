@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: ec201f7f82aea97b9927b85a6b185fad51f6081d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c54bcc1239c2d8b8a88d5e30b06f8856b73b47ae
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412608"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960693"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure virtuella datorer, tillägg och funktioner
 Azure-dator (VM)-tillägg är litet program som ger efter distributionen konfiguration och automatisering av uppgifter på Azure Virtual Machines, du kan använda befintliga avbildningar och sedan anpassa dem som en del av distributionen, hämta din verksamhet för anpassad att skapa avbildningen.
@@ -41,7 +41,7 @@ Tillägg kan kopplas samman med en ny VM-distribution. De kan till exempel vara 
 Du kan visa tillgängliga tillägg i VM-bladet i portalen under tillägg, representerar bara lite, för en fullständig lista kan du använda CLI-verktyg, se [identifiering av VM-tillägg för Linux](features-linux.md) och [ Identifiering av VM-tillägg för Windows](features-windows.md).
 
 ## <a name="how-can-i-install-an-extension"></a>Hur kan jag installera ett tillägg?
-Azure VM-tillägg kan hanteras med hjälp av Azure CLI 2.0, Azure PowerShell, Azure Resource Manager-mallar och Azure-portalen. Om du vill prova ett tillägg, kan du gå till Azure portal, Välj det anpassade Skripttillägget, skicka in ett kommando / skript och köra tillägg.
+Azure VM-tillägg kan hanteras med hjälp av Azure CLI, Azure PowerShell, Azure Resource Manager-mallar och Azure-portalen. Om du vill prova ett tillägg, kan du gå till Azure portal, Välj det anpassade Skripttillägget, skicka in ett kommando / skript och köra tillägg.
 
 Om du vill att samma filnamnstillägg som du lade till i portalen med CLI eller Resource Manager-mall, se annat tillägg dokumentation, till exempel [Windows-tillägget för anpassat skript](custom-script-windows.md) och [Linux anpassade skripttillägg](custom-script-linux.md).
 

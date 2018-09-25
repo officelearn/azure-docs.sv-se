@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 7d37a60ad3ae3bea8490006bdd35dc47d728b88e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: bdf4c7527e2c0056b2de2321fbae280e9008cb1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103862"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990685"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägga till ytterligare lagringskonton till HDInsight
 
@@ -58,7 +58,7 @@ __Krav för__:
 
 ## <a name="to-use-the-script"></a>Du använder skriptet
 
-Det här skriptet kan användas från Azure-portalen, Azure PowerShell eller Azure CLI 1.0. Mer information finns i den [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) dokumentet.
+Det här skriptet kan användas från Azure-portalen, Azure PowerShell eller den klassiska Azure-CLI. Mer information finns i den [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) dokumentet.
 
 > [!IMPORTANT]
 > När du använder stegen i dokumentet anpassning, kan du använda följande information för att tillämpa det här skriptet:
@@ -71,7 +71,7 @@ Det här skriptet kan användas från Azure-portalen, Azure PowerShell eller Azu
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Storage-konton som inte visas i Azure-portalen eller verktyg
 
-När du visar HDInsight-kluster i Azure portal, välja den __Lagringskonton__ posten under __egenskaper__ visas inte storage-konton som har lagts till via den här skriptåtgärden. Azure PowerShell och Azure CLI visas inte ytterligare storage-konto.
+När du visar HDInsight-kluster i Azure portal, välja den __Lagringskonton__ posten under __egenskaper__ visas inte storage-konton som har lagts till via den här skriptåtgärden. Azure PowerShell och Azure klassiskt CLI visas inte ytterligare storage-konto.
 
 Information om visas inte eftersom skriptet ändras endast core-site.xml-konfigurationen för klustret. Den här informationen används inte vid hämtning av klusterinformationen med hjälp av API: er för Azure hantering.
 

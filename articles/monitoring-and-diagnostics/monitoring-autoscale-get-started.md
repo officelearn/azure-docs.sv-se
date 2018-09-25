@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
 ms.component: autoscale
-ms.openlocfilehash: b303632c236e492bbf57ee60d5e7b0cc7b2f9e5c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e96e3abc05353aa3ea134b7d11256a29fe64c300
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448976"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989234"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med automatisk skalning i Azure
 Den här artikeln beskriver hur du konfigurerar dina inställningar för automatisk skalning för din resurs i Microsoft Azure-portalen.
 
-Automatisk skalning i Azure Monitor gäller enbart för skalningsuppsättningar för virtuella datorer, molntjänster, Azure App Service-planer och App Service-miljöer. 
+Automatisk skalning i Azure Monitor gäller endast [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Identifiera inställningarna för automatisk skalning i din prenumeration
 Du kan identifiera alla resurser som automatisk skalning gäller i Azure Monitor. Använd följande steg för en stegvis genomgång:
@@ -47,8 +47,8 @@ Nu ska vi gå via en enkel stegvis genomgång för att skapa din första autoska
 1. Ange ett namn för skalinställningen och klicka sedan på **lägga till en regel**. Observera regeln skalningsalternativ som öppnas som en kontext-rutan på höger sida. Som standard anger det här alternativet för att skala din instansantalet med 1 om CPU-procent på resursen överskrider 70 procent. Lämnar det på standardvärdena och klicka på **Lägg till**.
   ![Skapa skalinställningen för en webbapp][6]
 1. Nu har du skapat din första skalningsregeln. Observera att UX rekommenderar metodtips och säger att ”rekommenderar vi att du har minst en skala i regeln”. Gör så här:
-  
-    a. Klicka på **lägga till en regel**. 
+
+    a. Klicka på **lägga till en regel**.
 
     b. Ange **operatorn** till **mindre än**.
 
@@ -62,7 +62,7 @@ Nu ska vi gå via en enkel stegvis genomgång för att skapa din första autoska
 
 Grattis! Du har nu har skapat din första skalinställningen för automatisk skalning webbappen baserat på CPU-användning.
 
-> [!NOTE] 
+> [!NOTE]
 > Samma steg kan användas för att komma igång med en skalningsuppsättning för virtuell dator eller ett molnkluster rollen.
 
 ## <a name="other-considerations"></a>Annat att tänka på
@@ -105,8 +105,8 @@ Det kan finnas tillfällen när du vill inaktivera din aktuella skalinställning
 Klicka på den **inaktivera automatisk skalning** längst upp.
 ![Inaktivera automatisk skalning][13]
 
-> [!NOTE] 
-> Det här alternativet inaktiverar din konfiguration. Men kan du gå tillbaka till den när du har aktiverat automatisk skalning igen. 
+> [!NOTE]
+> Det här alternativet inaktiverar din konfiguration. Men kan du gå tillbaka till den när du har aktiverat automatisk skalning igen.
 
 Du kan nu ange antalet instanser som du vill skala till manuellt.
 
@@ -133,4 +133,3 @@ Du kan alltid återgå till automatisk skalning genom att klicka på **aktivera 
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
-

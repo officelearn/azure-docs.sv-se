@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8533023a16cb350828127d0603e6add0876b37a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057109"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948857"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Intäktsklassificering med Team Data Science Process (TDSP)-projekt
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="introduction"></a>Introduktion
 
@@ -55,7 +60,7 @@ Se [Team Data Science Process (TDSP)-livscykeln](https://github.com/Azure/Micros
 1. En Azure [prenumeration](https://azure.microsoft.com). Du kan få en [kostnadsfri prenumeration](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) att köra det här exemplet också.
 2. En [Azure Data Science Virtual Machine (DSVM) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm), (VM-storlek: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)med 4 virtuella processorer och 14 Gb RAM-minne). Även om testas på en Azure-DSVM, är det troligt att arbeta i valfri Windows 10-dator.
 3. Granska dokumentation om Azure Machine Learning och dess relaterade tjänster (se nedan för länkar).
-4. Se till att du har installerat korrekt Azure Machine Learning genom den [installation snabbstartsguiden](../service/quickstart-installation.md).
+4. Se till att du har installerat korrekt Azure Machine Learning genom den [installation snabbstartsguiden](quickstart-installation.md).
 
 Datauppsättningen för det här exemplet är från UCI ML databasen [[länk]](https://archive.ics.uci.edu/ml/datasets/adult). Den kommer från 1994 oss insamlade databasen och innehåller information om inventering och intäkter för ungefär 50 000 personer. Det här är strukturerade datauppsättning med numeriska och kategoriska funktioner och ett kategoriskt mål som består av två inkomst kategorier ('> 50 K' eller ' < = 50 K ”). 
 
@@ -65,7 +70,7 @@ Om du vill spara och version ditt projekt och dess innehåll, du måste ha en ve
 ### <a name="informational-about-azure-machine-learning"></a>Information: Om Azure Machine Learning
 * [Vanliga frågor och svar – hur du kommer igång](frequently-asked-questions.md)
 * [Översikt](../service/overview-what-is-azure-ml.md)
-* [Installation](../service/quickstart-installation.md)
+* [Installation](quickstart-installation.md)
 * [Körning](experimentation-service-configuration.md)
 * [Använda TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Läsa och skriva filer](how-to-read-write-files.md)

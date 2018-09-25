@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: ca6d36a4f06865b630e869623752bc5d488b6251
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 46789f5f3449baead12133522997936c8a992d3b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732948"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964777"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas
 
@@ -84,7 +84,7 @@ För enskilda databaser i följande tabeller visar resurserna som är tillgängl
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Minne (GB)|7|14|28|56|112|168|
-|Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
+|Stöd för Columnstore|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |InMemory-OLTP-lagring (GB)|1|2|4|8|20|36|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |Maximal datastorlek (GB)|1024|1024|1024|1024|1024|1024|
@@ -122,8 +122,52 @@ För enskilda databaser i följande tabeller visar resurserna som är tillgängl
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 |||
 
+### <a name="hyperscale-service-tier-preview"></a>Hyperskala tjänstnivå (förhandsversion)
+
+#### <a name="generation-4-compute-platform"></a>Beräkningsplattform generation 4
+|Prestandanivå|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |--: |
+|Maskinvaran generation|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Minne (GB)|7|14|28|56|112|168|
+|Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
+|InMemory-OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
+|Maximal datastorlek (TB)|100 |100 |100 |100 |100 |100 |
+|Maximal storlek (TB)|1 |1 |1 |1 |1 |1 |
+|TempDB-storlek (GB)|32|64|128|256|384|384|
+|Mål-IOPS (64 KB)|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|
+|I/o-svarstid (ungefärlig)|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|
+|Maximalt antal samtidiga arbetare (begäranden)|200|400|800|1600|3200|4800|
+|Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
+|Antal repliker|2|2|2|2|2|2|
+|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|
+|Inkluderad lagring av säkerhetskopior|7|7|7|7|7|7|
+|||
+### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
+|Prestandanivå|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|Maskinvaran generation|5|5|5|5|5|5|5|5|
+|vCores|2|4|8|16|24|32|40|80|
+|Minne (GB)|11|22|44|88|132|176|220|440|
+|Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
+|InMemory-OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
+|Maximal datastorlek (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
+|Maximal storlek (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
+|TempDB-storlek (GB)|64|128|256|384|384|384|384|384|
+|Mål-IOPS (64 KB)|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|
+|I/o-svarstid (ungefärlig)|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|Fastställas|
+|Maximalt antal samtidiga arbetare (begäranden)|200|400|800|1600|2400|3200|4000|8000|
+|Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
+|Antal repliker|2|2|2|2|2|2|2|2|
+|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
+|Inkluderad lagring av säkerhetskopior (förhandsversion gräns)|7|7|7|7|7|7|7|7|
+|||
+
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga frågor och svar.
-- Se [översikt över Azure SQL Database-resursgränser](sql-database-resource-limits.md) information om begränsningar på de server och prenumeration.
 - Information om allmänna Azure-begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).

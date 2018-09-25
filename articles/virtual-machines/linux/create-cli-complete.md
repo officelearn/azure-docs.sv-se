@@ -1,6 +1,6 @@
 ---
-title: Skapa en Linux-miljö med Azure CLI 2.0 | Microsoft Docs
-description: Skapa storage, en Linux VM, ett virtuellt nätverk och undernät, en belastningsutjämnare, ett nätverkskort, en offentlig IP-adress och en nätverkssäkerhetsgrupp, allt från grunden med hjälp av Azure CLI 2.0.
+title: Skapa en Linux-miljö med Azure CLI | Microsoft Docs
+description: Skapa storage, en Linux VM, ett virtuellt nätverk och undernät, en belastningsutjämnare, ett nätverkskort, en offentlig IP-adress och en nätverkssäkerhetsgrupp, allt från grunden med hjälp av Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: c566c747d393dbfa3225faf6f8ad78fa8abfa3ac
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e618bce78a3a3ce080b6c24cc34a27c2f5fb39e9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929713"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977561"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en fullständig Linux-dator med Azure CLI
 För att snabbt skapa en virtuell dator (VM) i Azure, kan du använda en enda Azure CLI-kommando som använder standardvärden för att skapa alla nödvändiga resurser. Resurser, till exempel ett virtuellt nätverk, offentlig IP-adress och reglerna för nätverkssäkerhetsgruppen skapas automatiskt. Använd för mer kontroll över din miljö i produktion, du kan skapa de här resurserna förbereds i förväg och sedan lägga till de virtuella datorerna i dem. Den här artikeln vägleder dig genom hur du skapar en virtuell dator och var och en av de stödjande resurserna i taget.
 
-Se till att du har installerat senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och inloggad på en Azure-konto med [az-inloggning](/cli/azure/reference-index#az_login).
+Se till att du har installerat senast [Azure CLI](/cli/azure/install-az-cli2) och inloggad på en Azure-konto med [az-inloggning](/cli/azure/reference-index#az_login).
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar *myResourceGroup*, *myVnet*, och *myVM*.
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
-En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas innan en virtuell dator och virtuella nätverksresurser. Skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas innan en virtuell dator och virtuella nätverksresurser. Skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

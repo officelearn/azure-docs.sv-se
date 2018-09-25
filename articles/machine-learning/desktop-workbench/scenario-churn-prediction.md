@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 7c7b50098cfd1bcac534156dd905b37affab80bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0210e65c0859b00caac0fe66baa1c73063f644c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648220"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947949"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Prognostiserad kundomsättning med hjälp av Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Att behålla befintliga kunder är i genomsnitt fem gånger billigare än kostnaden för rekrytering nya. Därför marknadsföringschefer ofta själva försöker bedöma sannolikheten till kundomsättning och hitta rätt åtgärder för att minska omsättningsfrekvensen.
 
@@ -61,7 +66,7 @@ I den här lösningen använder vi ett konkreta exempel för att skapa en föreb
 
 * En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga)
 
-* En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta
+* En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](quickstart-installation.md) att installera programmet och skapa en arbetsyta
 
 * Det är bäst för driftsättning, om du har Docker-motorn installerad och köras lokalt. Om inte, du kan använda klusteralternativet men tänk på att köra ett Azure Container Service (ACS) kan vara dyrt.
 

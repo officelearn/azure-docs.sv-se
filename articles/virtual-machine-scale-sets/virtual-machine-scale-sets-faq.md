@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9ec049ebbfaa8e6ee5dbf585488d5c2e8ff25802
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715071"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949714"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -49,7 +49,7 @@ Få svar på vanliga frågor och svar om skalningsuppsättningar för virtuella 
 
 **F.** Hur skapar jag en skalningsuppsättning med en anpassad avbildning?
 
-**S.** Skapa och hämta en datoravbildning av virtuell och sedan använda det som källa för din skalningsuppsättning. En självstudiekurs om hur du skapar och använder en anpassad virtuell datoravbildning som du kan använda den [Azure CLI 2.0](tutorial-use-custom-image-cli.md) eller [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+**S.** Skapa och hämta en datoravbildning av virtuell och sedan använda det som källa för din skalningsuppsättning. En självstudiekurs om hur du skapar och använder en anpassad virtuell datoravbildning som du kan använda den [Azure CLI](tutorial-use-custom-image-cli.md) eller [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **F.** Vilka virtuella datorer tas bort om jag minskar skalningsuppsättningens kapacitet från 20 till 15?
 
@@ -129,7 +129,7 @@ Du kan välja valfri VM-prestandaräknaren som mått som ska ställa in en avise
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Hur konfigurerar jag autoskalning i en VM-skalningsuppsättning med PowerShell?
 
-Om du vill konfigurera automatisk skalning på en VM-skalningsuppsättning med hjälp av PowerShell, se [automatiskt skala en VM-skalningsuppsättning](tutorial-autoscale-powershell.md). Du kan också konfigurera automatisk skalning med den [Azure CLI 2.0](tutorial-autoscale-cli.md) och [Azure-mallar](tutorial-autoscale-template.md)
+Om du vill konfigurera automatisk skalning på en VM-skalningsuppsättning med hjälp av PowerShell, se [automatiskt skala en VM-skalningsuppsättning](tutorial-autoscale-powershell.md). Du kan också konfigurera automatisk skalning med den [Azure CLI](tutorial-autoscale-cli.md) och [Azure-mallar](tutorial-autoscale-template.md)
 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Om jag har stoppat (frigjort) är den virtuella datorn igång som en del av en åtgärd för automatisk skalning för en virtuell dator?

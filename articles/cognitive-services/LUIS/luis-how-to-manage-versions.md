@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Versioner kan du skapa och publicera olika modeller. Ett bra tips är att klona den aktuella aktiva modellen till en annan version av appen innan du gör ändringar i modellen.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: dcb7f47ae7ade4ee0a18801934f36576fc75f4ae
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: db461191b70aabc322e570ecc814a076c21206f2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629482"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033795"
 ---
 # <a name="manage-versions"></a>Hantera versioner
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca089672cf645af58952205dada66aa96ba0b65d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e8bd5ddab4553807f59b7afdf32fbfc1703e3d75
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578251"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949544"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business en på Azure-datorer
 Det här dokumentet innehåller riktlinjer för att distribuera SAP Business One på Azure Virtual Machines. Dokumentationen är inte en ersättning för dokumentationen för installation av ett företag för SAP. Dokumentationen bör omfatta grundläggande riktlinjer för planering och distribution för Azure-infrastrukturen att köra Business One program på.
@@ -39,7 +39,7 @@ Om du vill använda den här guiden behöver du grundläggande kunskaper om föl
 - [Azure-datorer i Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Azure-nätverk och virtuella datornätverk hantering med PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
 - [Azure-nätverk och virtuella nätverk med CLI ](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Hantera Azure-diskar med Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Hantera Azure-diskar med Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Även om du är intresserad av företag en, dokumentet [Azure Virtual Machines planering och implementering av SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) kan vara en bra informationskälla.
 

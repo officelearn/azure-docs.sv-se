@@ -8,20 +8,20 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 8f01130d46bce1e3b3e0b37f26e25d552c6002e5
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498121"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032435"
 ---
 # <a name="speech-service-rest-apis"></a>Taltjänst REST API: er
 
-REST-API: er av enhetliga Speech-tjänsten som liknar de API: er som tillhandahålls av den [taligenkänning för Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Slutpunkterna skiljer sig från de slutpunkter som används av tjänsten för Bing-tal. Regionala slutpunkter är tillgängliga och du måste använda en prenumerationsnyckel som motsvarar den slutpunkt som du använder.
+REST-API: er för Azure Cognitive Services enhetliga Speech service liknar API: er som tillhandahålls av den [taligenkänning för Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Slutpunkterna skiljer sig från de slutpunkter som används av tjänsten för Bing-tal. Regionala slutpunkter är tillgängliga och du måste använda en prenumerationsnyckel som motsvarar den slutpunkt som du använder.
 
 ## <a name="speech-to-text"></a>Tal till text
 
-Slutpunkter för tal till Text REST API visas i tabellen nedan. Använd det som matchar din region för prenumerationen.
+Slutpunkter för tal till Text REST API visas i följande tabell. Använd det som matchar din region för prenumerationen.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -51,11 +51,11 @@ Följande fält skickas i HTTP-frågehuvudet.
 |`Content-type`|Beskriver format och codec för ljuddata. För närvarande kan det här värdet måste vara `audio/wav; codec=audio/pcm; samplerate=16000`.|
 |`Transfer-Encoding`|Valfri. Om du måste vara `chunked` att tillåta ljuddata skickas i flera små segment i stället för en enskild fil.|
 |`Expect`|Om du använder med chunked skicka `Expect: 100-continue`. Med taltjänsten medvetna om den första begäran och väntar på dig ytterligare data.|
-|`Accept`|Valfri. Om anges måste innehålla `application/json`, som tal-tjänst ger resultat i JSON-format. (Vissa webbramverk för begäran innehåller ett inkompatibelt standardvärdet om du inte anger något, så det är bra att alltid `Accept`)|
+|`Accept`|Valfri. Om anges måste innehålla `application/json`, som tal-tjänst ger resultat i JSON-format. (Vissa webbramverk för begäran innehåller ett inkompatibelt standardvärdet om du inte anger något, så det är bra att alltid `Accept`.)|
 
 ### <a name="audio-format"></a>Ljudformatet
 
-Ljudet skickas i brödtexten i HTTP `PUT` begära och måste vara i formatet för 16-bitars WAV med det enda PCM-kanal (mono) på 16 KHz.
+Ljudet skickas i brödtexten i HTTP `PUT` begäran. Det bör vara 16-bitars WAV format med det enda PCM-kanal (mono) på 16 KHz.
 
 ### <a name="chunked-transfer"></a>Segmentvis överföring
 
@@ -139,6 +139,7 @@ Den `RecognitionStatus` fältet kan innehålla följande värden.
 > [!NOTE]
 > Om ljudet består endast av svordomar, och `profanity` Frågeparametern anges till `remove`, tjänsten inte returnerar ett tal resultat. 
 
+
 Den `detailed` format innehåller samma fält som den `simple` format tillsammans med en `NBest` fält. Den `NBest` fält är en lista över alternativ tolkningar av samma tal, rangordnas från mest sannolikt minst sannolikt. Den första posten är samma som den huvudsakliga igenkänningsresultatet. Varje post innehåller följande fält:
 
 |Fältnamn|Innehåll|
@@ -162,7 +163,7 @@ Följande är ett typiskt svar för `simple` erkännande.
 }
 ```
 
-Nedan visas en typisk svar för `detailed` erkännande.
+Följande är ett typiskt svar för `detailed` erkännande.
 
 ```json
 {
@@ -221,8 +222,8 @@ Tillgängliga ljudet utdataformat (`X-Microsoft-OutputFormat`) en bithastighet o
 
 |||
 |-|-|
-`raw-16khz-16bit-mono-pcm`         | `audio-16khz-16kbps-mono-siren`
-`riff-16khz-16kbps-mono-siren`     | `riff-16khz-16bit-mono-pcm`
+`raw-16khz-16bit-mono-pcm`         | `raw-8khz-8bit-mono-mulaw`
+`riff-8khz-8bit-mono-mulaw`     | `riff-16khz-16bit-mono-pcm`
 `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3`
 `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm`
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
@@ -266,23 +267,23 @@ HTTP-kod|Betydelse|Möjlig orsak
 413|Begäran om entiteten är för stor|SSML-indata är längre än 1024 tecken.
 |502|Felaktig gateway    | Problem med nätverket eller servern. Kan också vara ogiltiga sidhuvuden.
 
-Om HTTP-status är `200 OK`, brödtexten i svaret innehåller en ljudfil i det begärda formatet. Den här filen kan spelas upp när den överförs, eller spara till en buffert eller fil för senare uppspelning eller annan användning.
+Om HTTP-status är `200 OK`, brödtexten i svaret innehåller en ljudfil i det begärda formatet. Den här filen kan spelas upp när den överförs eller sparas till en buffert eller fil för senare uppspelning eller annan användning.
 
 ## <a name="authentication"></a>Autentisering
 
-Skicka en begäran till tal-tjänstens REST-API krävs en prenumerationsnyckel eller en åtkomst-token. I allmänhet är enklast det att skicka prenumerationsnyckeln direkt; med taltjänsten hämtar sedan åtkomsttoken för dig. Men om du vill minimera svarstiden, kan du använda en åtkomst-token i stället.
+Skicka en begäran till tal-tjänstens REST-API krävs en prenumerationsnyckel eller en åtkomst-token. I allmänhet är det enklast att skicka prenumerationsnyckeln direkt. Med taltjänsten hämtar sedan åtkomsttoken för dig. För att minimera svarstiden, kanske du vill använda en åtkomst-token i stället.
 
-Du hämtar en token genom att presentera din prenumerationsnyckel till en regional taltjänst `issueToken` slutpunkt kan visas i tabellen nedan. Använd den slutpunkt som matchar din region för prenumerationen.
+Du kan hämta en token genom att presentera din prenumerationsnyckel till en regional taltjänst `issueToken` slutpunkt, som visas i följande tabell. Använd den slutpunkt som matchar din region för prenumerationen.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
-Varje åtkomsttoken är giltig i 10 minuter. Du kan hämta en ny token när som helst – om du vill, inklusive, precis innan varje tal REST API-begäran. För att minimera nätverkstrafiken och svarstid, men bör du använda samma token i nio minuter.
+Varje åtkomsttoken är giltig i 10 minuter. Du kan hämta en ny token när som helst. Om du vill kan du hämta en token precis innan varje tal REST API-begäran. För att minimera nätverkstrafiken och svarstid, bör du använda samma token i nio minuter.
 
 I följande avsnitt visas hur du får en token och hur du använder den i en begäran.
 
-### <a name="getting-a-token-http"></a>Få en token: HTTP
+### <a name="get-a-token-http"></a>Hämta en token: HTTP
 
-Nedan visas ett exempel HTTP-begäran för att hämta en token. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerationsnyckel för tal-tjänst. Om prenumerationen inte är i regionen USA, västra, ersätter den `Host` huvud med värdnamnet för din region.
+I följande exempel är en HTTP-begäran för exemplet för att hämta en token. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerationsnyckel för tal-tjänst. Om prenumerationen inte är i regionen USA, västra, ersätter den `Host` huvud med värdnamnet för din region.
 
 ```
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -294,9 +295,9 @@ Content-Length: 0
 
 Brödtexten i svaret på den här begäran är den åtkomst-token i Java Web Token (JWT)-format.
 
-### <a name="getting-a-token-powershell"></a>Få en token: PowerShell
+### <a name="get-a-token-powershell"></a>Hämta en token: PowerShell
 
-Windows PowerShell-skriptet nedan visar hur du kan hämta en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerationsnyckel för tal-tjänst. Om prenumerationen inte är i regionen USA, västra, ändras värdnamnet för den angivna URI: N.
+Följande Windows PowerShell-skript visar hur du kan hämta en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerationsnyckel för tal-tjänst. Om prenumerationen inte är i regionen USA, västra, ändras namnet på den angivna URI: N.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -313,12 +314,12 @@ $OAuthToken
 
 ```
 
-### <a name="getting-a-token-curl"></a>Få en token: cURL
+### <a name="get-a-token-curl"></a>Hämta en token: cURL
 
-cURL är ett kommandoradsverktyg som är tillgängliga i Linux (och i Windows-undersystem för Linux). CURL-kommandot nedan visar hur du kan hämta en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerationsnyckel för tal-tjänst. Om prenumerationen inte är i regionen USA, västra, ändras värdnamnet för den angivna URI: N.
+cURL är ett kommandoradsverktyg som är tillgängliga i Linux (och i Windows-undersystem för Linux). Följande cURL-kommando visar hur du kan hämta en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerationsnyckel för tal-tjänst. Om prenumerationen inte är i regionen USA, västra, ändras namnet på den angivna URI: N.
 
 > [!NOTE]
-> Kommandot visas på flera rader för läsbarhet, men bör anges på en enda rad i en shell-prompten.
+> Kommandot visas på flera rader för läsbarhet, men ange den på en enda rad i en shell-prompten.
 
 ```
 curl -v -X POST 
@@ -328,9 +329,9 @@ curl -v -X POST
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-### <a name="getting-a-token-c"></a>Få en token: C#
+### <a name="get-a-token-c"></a>Hämta en token: C#
 
-C# klassen nedan visar hur du kan hämta en åtkomsttoken. Skicka din prenumerationsnyckel för tal-tjänst när instanser skapades av klassen. Om prenumerationen inte är i regionen USA, västra, ändrar du värdnamnet för `FetchTokenUri` på rätt sätt.
+Följande C#-klass illustrerar hur du skaffar en åtkomst-token. Skicka din prenumerationsnyckel för tal-tjänst när du skapa en instans av klassen. Om prenumerationen inte är i regionen USA, västra, ändra värdnamnet för `FetchTokenUri` på rätt sätt.
 
 ```cs
 /*
@@ -369,9 +370,9 @@ public class Authentication
 }
 ```
 
-### <a name="using-a-token"></a>Med hjälp av en token
+### <a name="use-a-token"></a>Använda en token
 
-Om du vill använda en token i en REST API-begäran, kan du ange den i den `Authorization` rubrik som följer efter ordet `Bearer`. Här, till exempel är ett exempel Text till tal-REST-begäran som innehåller en token. Ersätta din faktiska token för `YOUR_ACCESS_TOKEN` och använder rätt värdnamnet i den `Host` rubrik.
+Om du vill använda en token i en REST API-begäran, kan du ange den i den `Authorization` rubrik som följer efter ordet `Bearer`. Här är ett exempel Text till tal-REST-begäran som innehåller en token. Ersätta din faktiska token för `YOUR_ACCESS_TOKEN`. Använd rätt värdnamnet i den `Host` rubrik.
 
 ```xml
 POST /cognitiveservices/v1 HTTP/1.1
@@ -387,16 +388,16 @@ Connection: Keep-Alive
 </voice></speak>
 ```
 
-### <a name="renewing-authorization"></a>Förnya auktorisering
+### <a name="renew-authorization"></a>Förnya auktorisationen
 
-Autentiseringstoken upphör att gälla efter 10 minuter. Förnya din behörighet genom att hämta en ny token innan den upphör att gälla, till exempel efter nio minuter. 
+Autentiseringstoken upphör att gälla efter 10 minuter. Förnya din behörighet genom att hämta en ny token innan den upphör. Exempelvis kan du skaffa en ny token efter nio minuter.
 
 Följande C#-kod är en lättillgänglig ersättning till den klass som presenteras tidigare. Den `Authentication` klass automatiskt hämtar en ny åtkomsttoken varje nio minuter med hjälp av en timer. Den här metoden garanterar att en giltig token alltid är tillgänglig medan programmet körs.
 
 > [!NOTE]
-> Du kan lagra en tidsstämpel i när den sista token har hämtats och sedan begära en ny endast om den är nära upphör att gälla istället för att använda en timer. Den här metoden undviker begär nya token onödigt och kanske passar bättre för program som begär tal sporadiska.
+> Du kan lagra en tidsstämpel för när den sista token hämtades istället för att använda en timer. Sedan kan du begära en ny endast om den är nära upphör att gälla. Den här metoden undviker begär nya token onödigt och kan passa bättre för program som begär tal sporadiska.
 
-Som tidigare se till att den `FetchTokenUri` värdet matchar din region för prenumerationen. Skicka din prenumerationsnyckel när instanser skapades av klassen.
+Som tidigare se till att den `FetchTokenUri` värdet matchar din region för prenumerationen. Skicka din prenumerationsnyckel när du skapa en instans av klassen.
 
 ```cs
 /*

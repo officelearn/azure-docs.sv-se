@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525475"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954559"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Hur du disenroll en enhet från Azure IoT Hub Device Provisioning-tjänsten
 
@@ -34,9 +34,12 @@ Tillfälligt svartlista enheten genom att inaktivera dess registreringspost:
 2. Välj etableringstjänsten som du vill svartlista enheten från i listan över resurser.
 3. Välj i etableringstjänsten **hantera registreringar**, och välj sedan den **enskilda registreringar** fliken.
 4. Välj posten registreringen för den enhet som du vill blockeringslista. 
-5. Bläddra längst ned och välj **inaktivera** på den **aktivera post** växla och markera **spara**.  
 
-   [![Inaktivera posten för enskild registrering i portalen](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+    ![Välj din enskild registrering](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. Bläddra längst ned på sidan med registrering och välj **inaktivera** för den **aktivera post** växla och markera **spara**.  
+
+   ![Inaktivera posten för enskild registrering i portalen](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 Att blockeringslista enheten permanent genom att ta bort registreringsposten:
 
@@ -47,7 +50,8 @@ Att blockeringslista enheten permanent genom att ta bort registreringsposten:
 5. Välj **ta bort** högst upp i fönstret och välj sedan **Ja** att bekräfta att du vill ta bort registreringen. 
 
    ![Ta bort posten för enskild registrering i portalen](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 När du har slutfört proceduren bör du se ditt bidrag som tagits bort från listan över enskilda registreringar.  
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Svartlista ett mellanliggande X.509-certifikat eller ett rotcertifikatutfärdarcertifikat med hjälp av en grupp för registrering
@@ -91,14 +95,18 @@ Följ dessa steg för att svartlista en enskild enhet i en grupp för registreri
 1. Logga in på Azure portal och väljer **alla resurser** menyn till vänster.
 2. Välj etableringstjänsten som innehåller grupp för registrering för den enhet som du vill svartlista från listan över resurser.
 3. Välj i etableringstjänsten **hantera registreringar**, och välj sedan den **enskilda registreringar** fliken.
-4. Välj den **Lägg till** längst upp. 
-5. Välj **X.509** som attesteringsmetod för enheten och ladda upp enhetens certifikat. Det här är den signerade slutentitetscertifikat installerad på enheten. Enheten använder den för att generera certifikat för autentisering.
-6. För **enhets-ID för IoT Hub**, ange ID för enheten. 
-7. Välj **inaktivera** på den **aktivera post** växla och markera **spara**. 
+4. Välj den **Lägg till enskild registrering** längst upp. 
+5. På den **Lägg till registrering** väljer **X.509** som bestyrkande **mekanism** för enheten.
+
+    Ladda upp enhetens certifikat och ange enhets-ID för enheten att vara Svartlistad. Använda signerade slutenhet certifikat har installerats på enheten för certifikatet. Enheten använder den signerade slutentitetscertifikat för autentisering.
+
+    ![Ange egenskaper för enhet för svartlistade enheten](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+
+6. Bläddra till slutet av den **Lägg till registrering** och välj **inaktivera** på den **aktivera post** växla och markera **spara**. 
 
     [![Använd inaktiverad individuell registreringspost för att inaktivera enheten från gruppregistrering i portalen](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-När du har skapat din registrering, bör du se enheten visas på den **enskilda registreringar** fliken.
+När du har skapat din registrering, bör du se din inaktiverad registrering visas på den **enskilda registreringar** fliken. 
 
 ## <a name="next-steps"></a>Nästa steg
 

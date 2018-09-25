@@ -11,12 +11,13 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: d2fe951a97b18c95e647b45d799843a982100367
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 094fd6d8c6c6d647533cf5409d1a85283c71c80e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35966624"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953250"
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Hitta körningar med bäst Precision och lägst varaktighet
 Får flera körningar är användningsfall att hitta körningar med bäst noggrannhet. En metod är att använda kommandoradsgränssnittet (CLI) med en [JMESPath](http://jmespath.org/) fråga. Mer information om hur du använder JMESPath i Azure CLI finns i [använda JMESPath-frågor med Azure CLI](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). I följande exempel skapas fyra körs med Precision värden 0, 0,98, 1 och 1. Körningar filtreras om de är i intervallet `[MaxAccuracy-Threshold, MaxAccuracy]` där `Threshold = .03`.

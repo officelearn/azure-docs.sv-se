@@ -10,12 +10,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: 3fc9ab0505fda84464ead01b4937756707993cf0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 21cd1b171f25d5abdaa89f631ac5bab8e4a351af
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649149"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968888"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Hantera utskalade molndatabaser
 
@@ -46,11 +46,11 @@ Enkelt gör schemaändringar, hantering av autentiseringsuppgifter, uppdateringa
 
 **Rapporter**
 
-Samla in data från en samling med Azure SQL-databaser till en enda måltabell.
+Sammanställ data från en samling Azure SQL-databaser till en enskild måltabell.
 
 **Minska omkostnaderna**
 
-Vanligtvis måste du ansluta till varje databas separat för att köra Transact-SQL-instruktioner eller utföra andra administrativa uppgifter. Ett jobb hanterar uppgiften att logga in på varje databas i målgruppen. Du också definiera, underhålla och bevara Transact-SQL-skript som ska köras i en grupp med Azure SQL-databaser.
+Vanligtvis måste du ansluta till varje databas separat för att köra Transact-SQL-instruktioner eller utföra andra administrativa uppgifter. Ett jobb hanterar uppgiften att logga in på varje databas i målgruppen. Du definierar, underhåller och bevarar även Transact-SQL-skript som ska köras över en grupp Azure SQL-databaser.
 
 **Redovisning**
 
@@ -58,7 +58,7 @@ Jobb kör skript och status för körning för varje databas. Du kan även få a
 
 **Flexibilitet**
 
-Definiera anpassade grupper med Azure SQL-databaser och definiera scheman för att köra ett jobb.
+Definiera anpassade grupper av Azure SQL-databaser och definiera scheman för att köra ett jobb.
 
 > [!NOTE]
 > Reducerad uppsättning funktioner som är begränsad till SQL Azure elastiska pooler finns i Azure-portalen. Använd PowerShell APIs för att få åtkomst till den fullständiga uppsättningen aktuella funktionerna.

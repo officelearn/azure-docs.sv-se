@@ -1,6 +1,6 @@
 När du har [distribuerat ett Azure Container Service-kluster](../articles/container-service/dcos-swarm/container-service-deployment.md) kanske du behöver ändra antalet agentnoder. Till exempel kan du behöva fler agenter så att du kan köra flera containerprogram eller instanser. 
 
-Du kan ändra antalet agentnoder i ett DC/OS-, Docker Swarm- eller Kubernetes-kluster med Azure Portal eller Azure CLI 2.0. 
+Du kan ändra antalet agentnoder i ett DC/OS, Docker Swarm eller Kubernetes-kluster med hjälp av Azure portal eller Azure CLI. 
 
 ## <a name="scale-with-the-azure-portal"></a>Skala med Azure Portal
 
@@ -12,9 +12,9 @@ Du kan ändra antalet agentnoder i ett DC/OS-, Docker Swarm- eller Kubernetes-kl
 
 4. Spara konfigurationen genom att klicka på **Spara**.
 
-## <a name="scale-with-the-azure-cli-20"></a>Skala med Azure CLI 2.0
+## <a name="scale-with-the-azure-cli"></a>Skala med Azure CLI
 
-Se till att du [installerat](/cli/azure/install-az-cli2) senaste Azure CLI 2.0 och loggat in på en Azure-konto (`az login`).
+Se till att du [installerat](/cli/azure/install-az-cli2) senaste Azure CLI och loggat in till ett Azure-konto (`az login`).
 
 ### <a name="see-the-current-agent-count"></a>Visa det aktuella antalet agenter
 För att se antalet agenter i klustret kör du kommandot `az acs show`. Detta visar klusterkonfigurationen. Följande kommando visar till exempel konfigurationen av containertjänsten som heter `containerservice-myACSName` i resursgruppen `myResourceGroup`:
@@ -34,7 +34,7 @@ Om du till exempel vill ändra antalet agenter i föregående kluster till 10 sk
 az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-Azure CLI 2.0 returnerar en JSON-sträng som representerar den nya konfigurationen av containertjänsten, inklusive det nya agentantalet.
+Azure CLI returnerar en JSON-sträng som representerar den nya konfigurationen av behållartjänsten, inklusive det nya agentantalet.
 
 Om du vill ha fler kommandoalternativ kör du `az acs scale --help`.
 
@@ -50,6 +50,6 @@ Om du vill ha fler kommandoalternativ kör du `az acs scale --help`.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [fler exempel](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) på att använda kommandon i Azure CLI 2.0 med Azure Container Service.
+* Se [fler exempel](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) med att använda Azure CLI-kommandon med Azure Container Service.
 * Läs mer om [DC/OS-agentpooler](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) i Azure Container Service.
 

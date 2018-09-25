@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 7fe4fdbf6c6b3cbbd6d01ef5309699c3d3991d53
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3a74450ca8025f07b00dc18c9b81b147afa7439c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003822"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975306"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett gränssnitt för Azure-nätverk
 
@@ -35,7 +35,7 @@ Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här art
 - Om du inte redan har ett Azure-konto, registrera dig för en [kostnadsfritt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppnar du https://portal.azure.com, och logga in med ditt Azure-konto.
 - Om du utför uppgifterna i den här artikeln med hjälp av PowerShell-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudiekursen kräver Azure PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
-- Om du utför uppgifterna i den här artikeln med hjälp av Azure-kommandoradsgränssnittet (CLI)-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här självstudien krävs Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
+- Om du utför uppgifterna i den här artikeln med hjälp av Azure-kommandoradsgränssnittet (CLI)-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här självstudien krävs Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
 
 Kontot du loggar in på eller ansluta till Azure med, måste tilldelas den [nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som tilldelas de åtgärder som anges i [nätverk gränssnitt behörigheter](virtual-network-network-interface.md#permissions).
 
@@ -92,7 +92,7 @@ Du kan ta bort [privata](#private) och [offentliga](#public) IP-adresser från e
 1. I rutan som innehåller texten *Sök efter resurser* högst upp på Azure-portalen, Skriv *nätverksgränssnitt*. När **nätverksgränssnitt** visas i sökresultaten, markerar du den.
 2. Välj det nätverksgränssnitt som du vill ta bort IP-adresser i listan.
 3. Under **inställningar**väljer **IP-konfigurationer**.
-4. Höger-Välj en [sekundära](#secondary) IP-konfiguration (du kan inte ta bort den [primära](#primary) configuration) som du vill ta bort, väljer **ta bort**och välj sedan ** Ja**, för att bekräfta borttagningen. Om konfigurationen har haft en offentlig IP-adressresurs som är associerade med den, resursen har kopplats bort från IP-konfiguration, men resursen tas inte bort.
+4. Höger-Välj en [sekundära](#secondary) IP-konfiguration (du kan inte ta bort den [primära](#primary) configuration) som du vill ta bort, väljer **ta bort**och välj sedan  **Ja**, för att bekräfta borttagningen. Om konfigurationen har haft en offentlig IP-adressresurs som är associerade med den, resursen har kopplats bort från IP-konfiguration, men resursen tas inte bort.
 
 **Kommandon**
 
@@ -188,7 +188,7 @@ Varje nätverksgränssnitt måste ha ett [primära](#primary) IP-konfiguration m
 Du kan tilldela noll eller en privat [IPv6](#ipv6) adress till en sekundär IP-konfiguration för ett nätverksgränssnitt. Ett nätverksgränssnitt kan inte ha någon befintlig sekundära IP-konfigurationer. Du kan inte lägga till en IP-konfiguration med en IPv6-adress med hjälp av portalen. Använd PowerShell eller CLI för att lägga till en IP-konfiguration med en privat IPv6-adress till en befintlig nätverksgränssnitt. Ett nätverksgränssnitt kan inte kopplas till en befintlig virtuell dator.
 
 > [!NOTE]
-> Om du kan skapa ett nätverksgränssnitt med en IPv6-adress med hjälp av portalen, du kan inte lägga till en befintlig nätverksgränssnitt till en ny eller befintlig virtuell dator med hjälp av portalen. Använda PowerShell eller Azure CLI 2.0 för att skapa ett nätverksgränssnitt med en privat IPv6-adress och bifogar nätverksgränssnittet när du skapar en virtuell dator. Du kan inte koppla ett nätverksgränssnitt med en privat IPv6-adress som tilldelats till en befintlig virtuell dator. Du kan inte lägga till en privat IPv6-adress till en IP-konfiguration för alla nätverksgränssnitt som är kopplat till en virtuell dator med verktyg från någon (portal, CLI eller PowerShell).
+> Om du kan skapa ett nätverksgränssnitt med en IPv6-adress med hjälp av portalen, du kan inte lägga till en befintlig nätverksgränssnitt till en ny eller befintlig virtuell dator med hjälp av portalen. Använda PowerShell eller Azure CLI för att skapa ett nätverksgränssnitt med en privat IPv6-adress och bifogar nätverksgränssnittet när du skapar en virtuell dator. Du kan inte koppla ett nätverksgränssnitt med en privat IPv6-adress som tilldelats till en befintlig virtuell dator. Du kan inte lägga till en privat IPv6-adress till en IP-konfiguration för alla nätverksgränssnitt som är kopplat till en virtuell dator med verktyg från någon (portal, CLI eller PowerShell).
 
 Du kan inte tilldela en offentlig IPv6-adress till en primär eller sekundär IP-konfigurationen.
 

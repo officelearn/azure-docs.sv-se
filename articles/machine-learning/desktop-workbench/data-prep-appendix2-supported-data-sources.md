@@ -13,14 +13,18 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 88ed4fa43e5724cfe1d6f1555db947d77045cd2e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c4686bf01031e30bd9dc94f42d80da524db82931
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650451"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969265"
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Datakällor som stöds för förberedelse av data i Azure Machine Learning 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 Den här artikeln beskriver de datakällor som för närvarande stöds för förberedelse av data i Azure Machine Learning.
 
 Datakällor som stöds för den här versionen är som följer.
@@ -62,7 +66,7 @@ Läs en fil med kommatecken avgränsade värden från lagringen.
 #### <a name="options"></a>Alternativ
 - Avgränsare
 - Kommentar
-- Sidhuvuden
+- Rubriker
 - Decimaltecken
 - Filkodning
 - Rader att hoppa över
@@ -72,7 +76,7 @@ Läs en fil med fliken avgränsade värden från lagringen.
 
 #### <a name="options"></a>Alternativ
 - Kommentar
-- Sidhuvuden
+- Rubriker
 - Filkodning
 - Rader att hoppa över
 
@@ -81,7 +85,7 @@ Läsa ett Excel-fil, ett blad i taget genom att ange namn eller en siffra.
 
 #### <a name="options"></a>Alternativ
 - Arknamnet eller en siffra
-- Sidhuvuden
+- Rubriker
 - Rader att hoppa över
 
 ### <a name="json-file"></a>JSON-fil

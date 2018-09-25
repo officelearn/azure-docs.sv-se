@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 08/30/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: b4ed1c8b5079ad0984879db6f84138bfdb579d49
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: d87747e60c375f844681ed6cfd40dba84f46a9b2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542607"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963619"
 ---
 # <a name="transparent-data-encryption-with-bring-your-own-key-support-for-azure-sql-database-and-data-warehouse"></a>Transparent datakryptering med Bring Your Own Key-stöd för Azure SQL Database och Data Warehouse
 
@@ -57,17 +57,17 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
 
 ### <a name="general-guidelines"></a>Allmänna riktlinjer
 - Se till att Azure Key Vault och Azure SQL Database kommer att vara i samma klientorganisation.  Flera klienter key vault och server interaktioner **stöds inte**.
-- Bestäm vilka prenumerationer kommer att användas för resurserna som krävs – flytta servern över prenumerationer senare måste en ny installation av TDE med BYOKs. Läs mer om [flyttar resurser](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-move-resources)
-- När du konfigurerar transparent Datakryptering med BYOK, är det viktigt att ha i åtanke placeras i nyckelvalvet av upprepade radbyte/packa upp åtgärder. Exempelvis kan utlösa en redundansväxling av den här servern eftersom många viktiga åtgärder mot valvet eftersom det är databaser på servern eftersom alla databaser som är associerade med en logisk server använder samma TDE-skyddet. Baserat på vår erfarenhet och dokumenteras [nyckeln vault-tjänstbegränsningar](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-service-limits), rekommenderar vi kopplar högst 500 Standard / generell användning eller 200 Premium / affärskritiska databaser med en Azure Key Vault för en enskild prenumeration så konsekvent hög tillgänglighet vid åtkomst till TDE-skydd i valvet. 
-- Rekommenderat: Behåll en kopia av TDE-skydd lokalt.  Detta kräver en HSM-enheten för att skapa ett TDE-skydd lokalt och en nyckel escrow-systemet för att lagra en lokal kopia av TDE-skydd.  Lär dig [hur du överför en nyckel från en lokal HSM till Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-hsm-protected-keys).
+- Bestäm vilka prenumerationer kommer att användas för resurserna som krävs – flytta servern över prenumerationer senare måste en ny installation av TDE med BYOKs. Läs mer om [flyttar resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+- När du konfigurerar transparent Datakryptering med BYOK, är det viktigt att ha i åtanke placeras i nyckelvalvet av upprepade radbyte/packa upp åtgärder. Exempelvis kan utlösa en redundansväxling av den här servern eftersom många viktiga åtgärder mot valvet eftersom det är databaser på servern eftersom alla databaser som är associerade med en logisk server använder samma TDE-skyddet. Baserat på vår erfarenhet och dokumenteras [nyckeln vault-tjänstbegränsningar](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits), rekommenderar vi kopplar högst 500 Standard / generell användning eller 200 Premium / affärskritiska databaser med en Azure Key Vault för en enskild prenumeration så konsekvent hög tillgänglighet vid åtkomst till TDE-skydd i valvet. 
+- Rekommenderat: Behåll en kopia av TDE-skydd lokalt.  Detta kräver en HSM-enheten för att skapa ett TDE-skydd lokalt och en nyckel escrow-systemet för att lagra en lokal kopia av TDE-skydd.  Lär dig [hur du överför en nyckel från en lokal HSM till Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Riktlinjer för att konfigurera Azure Key Vault
 
-- Skapa ett nyckelvalv med [mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) aktiverad för att skydda mot data går förlorade vid oavsiktlig nyckel- eller key vault-borttagning.  Du måste använda [PowerShell för att aktivera egenskapen ”mjuk borttagning”](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-powershell) i nyckelvalvet (det här alternativet inte är tillgängliga från AKV-Portal ännu – men krävs av SQL):  
+- Skapa ett nyckelvalv med [mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) aktiverad för att skydda mot data går förlorade vid oavsiktlig nyckel- eller key vault-borttagning.  Du måste använda [PowerShell för att aktivera egenskapen ”mjuk borttagning”](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) i nyckelvalvet (det här alternativet inte är tillgängliga från AKV-Portal ännu – men krävs av SQL):  
   - Ej permanent borttagna resurser finns kvar för en angiven tidsperiod, 90 dagar, såvida inte de återställs eller rensas.
   - Den **återställa** och **Rensa** åtgärder har sina egna behörigheter som är associerade i en åtkomstprincip för nyckelvalvet. 
-- Ange ett lås för nyckelvalvet för att kontrollera vem som kan ta bort den här kritisk resurs och bidra till att förhindra oavsiktliga eller obehöriga borttagning.  [Mer information om resurslås](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources)
+- Ange ett lås för nyckelvalvet för att kontrollera vem som kan ta bort den här kritisk resurs och bidra till att förhindra oavsiktliga eller obehöriga borttagning.  [Mer information om resurslås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
 - Bevilja logisk server-åtkomst till nyckelvalvet med sin identitet med Azure Active Directory (AD Azure).  När du använder Användargränssnittet i Portal, Azure AD-identitet skapas automatiskt och åtkomstbehörigheter för nyckelvalv har beviljats till servern.  Använda PowerShell för att konfigurera transparent Datakryptering med BYOK, Azure AD-identitet måste skapas och slutförande bör verifieras. Se [konfigurera transparent Datakryptering med BYOK](transparent-data-encryption-byok-azure-sql-configure.md) stegvisa anvisningar när du använder PowerShell.
 
@@ -93,11 +93,11 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
     
 - Använda en nyckel utan ett förfallodatum – och aldrig har ett utgångsdatum på en nyckel redan: **när nyckeln upphör att gälla krypterade databaser att förlora åtkomst till sina TDE-skydd och tas bort inom 24 timmar**.
 - Kontrollera att nyckeln är aktiverad och har behörighet att utföra *hämta*, *omsluta nyckel*, och *nyckelomslutning* åtgärder.
-- Skapa en säkerhetskopiering av Azure Key Vault nycklar innan du använder nyckeln i Azure Key Vault för första gången. Läs mer om den [Backup-AzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) kommando.
+- Skapa en säkerhetskopiering av Azure Key Vault nycklar innan du använder nyckeln i Azure Key Vault för första gången. Läs mer om den [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) kommando.
 - Skapa en ny säkerhetskopia varje gång några ändringar görs till nyckeln (till exempel lägga till ACL: er, lägga till taggar, lägga till viktiga attribut).
 - **Behåll tidigare versioner** för nyckeln i nyckelvalvet när du roterar nycklar, så äldre säkerhetskopior av databasen kan återställas. När TDE-skyddet ändras för en databas, gamla säkerhetskopior av databasen **uppdateras inte** att använda den senaste TDE-skydd.  Varje säkerhetskopiering måste TDE-skydd som den skapades vid en återställning. Nyckelrotationer kan utföras följa anvisningarna i [rotera Transparent Data Encryption skydd med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - Behåll alla tidigare nycklar i Azure Key Vault när du har ändrat till tjänst-hanterade nycklar.  Detta säkerställer att säkerhetskopior av databasen kan återställas med TDE-skydd som lagras i Azure Key Vault.  TDE-skydd som skapats med Azure Key Vault måste finnas kvar tills alla lagrade säkerhetskopior har skapats med tjänst-hanterade nycklar.  
-- Säkerhetskopiera återställningsbara nycklarna på [Backup-AzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
+- Säkerhetskopiera återställningsbara nycklarna på [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
 - Om du vill ta bort en potentiellt komprometterade nyckel under en säkerhetsincident utan risk för dataförlust, följer du stegen i [tar bort en potentiellt komprometterade nyckel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
 
@@ -123,14 +123,14 @@ I följande avsnitt får du gå igenom stegen för installation och konfiguratio
 
 ### <a name="azure-key-vault-configuration-steps"></a>Konfigurationsstegen för Azure Key Vault
 
-- Installera [PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0) 
-- Skapa två Azure-Nyckelvalv i två olika regioner med hjälp av [PowerShell för att aktivera egenskapen ”mjuk borttagning”](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-powershell) på nyckelvalven (det här alternativet inte är tillgängliga från AKV-Portal ännu – men krävs av SQL).
-- Både Azure-Nyckelvalv måste befinna sig i två regioner som är tillgängliga på samma Azure-geoplats för säkerhetskopiering och återställning av nycklar för att fungera.  Om du behöver två nyckelvalven finnas i olika geografiska områden till uppfyller kraven för SQL-Geohaveriberedskap, följer du de [BYOK processen](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-hsm-protected-keys) som gör det möjligt för nycklar som ska importeras från en lokal HSM.
+- Installera [PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0) 
+- Skapa två Azure-Nyckelvalv i två olika regioner med hjälp av [PowerShell för att aktivera egenskapen ”mjuk borttagning”](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) på nyckelvalven (det här alternativet inte är tillgängliga från AKV-Portal ännu – men krävs av SQL).
+- Både Azure-Nyckelvalv måste befinna sig i två regioner som är tillgängliga på samma Azure-geoplats för säkerhetskopiering och återställning av nycklar för att fungera.  Om du behöver två nyckelvalven finnas i olika geografiska områden till uppfyller kraven för SQL-Geohaveriberedskap, följer du de [BYOK processen](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) som gör det möjligt för nycklar som ska importeras från en lokal HSM.
 - Skapa en ny nyckel i det första nyckelvalvet:  
   - RSA/RSA-HSA 2048 nyckel 
   - Inget förfallodatum 
   - Nyckeln är aktiverad och har behörighet att utföra get, wrap key och packa upp nyckelåtgärder 
-- Säkerhetskopiera den primära nyckeln och återställa nyckeln till andra nyckelvalvet.  Se [BackupAzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) och [Restore-AzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0). 
+- Säkerhetskopiera den primära nyckeln och återställa nyckeln till andra nyckelvalvet.  Se [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) och [Restore-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0). 
 
 ### <a name="azure-sql-database-configuration-steps"></a>Konfigurationsstegen för Azure SQL Database
 
@@ -141,9 +141,9 @@ Steg för att en ny distribution:
 - Välj den logiska server TDE-rutan, och för varje logisk SQL-server:  
    - Välj AKV i samma region 
    - Välj nyckeln som ska användas som TDE-skydd – varje server ska använda den lokala kopian av TDE-skydd. 
-   - Detta i portalen skapas en [AppID](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) för den logiska SQL-servern, som används för att tilldela de logiska SQL Server-behörigheterna för åtkomst till key vault – ta inte bort den här identiteten. Åtkomsten kan återkallas genom att ta bort behörigheter i Azure Key Vault i stället för den logiska SQL-servern, som används för att tilldela de logiska SQL Server-behörigheterna för att få åtkomst till nyckelvalvet.
+   - Detta i portalen skapas en [AppID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) för den logiska SQL-servern, som används för att tilldela de logiska SQL Server-behörigheterna för åtkomst till key vault – ta inte bort den här identiteten. Åtkomsten kan återkallas genom att ta bort behörigheter i Azure Key Vault i stället för den logiska SQL-servern, som används för att tilldela de logiska SQL Server-behörigheterna för att få åtkomst till nyckelvalvet.
 - Skapa den primära databasen. 
-- Följ den [aktiv geo-replikering vägledning](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) för att slutföra scenariot, det här steget skapar den sekundära databasen.
+- Följ den [aktiv geo-replikering vägledning](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) för att slutföra scenariot, det här steget skapar den sekundära databasen.
 
 ![Redundansgrupper och -geohaveriberedskap](./media/transparent-data-encryption-byok-azure-sql/Geo_DR_Config.PNG)
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a48b3ff9769e2757ac7930feb14d6537d96fae3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109246"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961322"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig flera olika sätt att skapa Azure HDInsigh
 Om du vill följa anvisningarna i den här artikeln behöver du:
 
 * En [Azure-prenumeration](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell och/eller Azure CLI.
+* Azure PowerShell och/eller Azure klassiskt CLI.
 
 ### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 En Resource Manager-mallen gör det enkelt att skapa följande resoruces för ditt program i en enda, samordnad åtgärd:
@@ -49,7 +49,7 @@ Resource Manager kan du exportera en Resource Manager-mall från befintliga resu
 
 - Azure-portalen: se [exportera en Azure Resource Manager-mall från befintliga resurser](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: Se [exportera Azure Resource Manager-mallar med PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Azure CLI: Se [exportera Azure Resource Manager-mallar med Azure CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
+- Klassisk Azure CLI: Se [exportera Azure Resource Manager-mallar med klassiska Azure-CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## <a name="deploy-using-the-portal"></a>Distribuera med hjälp av portalen
@@ -60,9 +60,9 @@ Du kan distribuera en Resource Manager-mall med Azure portal. Mer information fi
 
 Du kan distribuera en Resource Manager-mall med Azure PowerShell. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) och [distribuera privat Resource Manager-mall med SAS-token och Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
 
-## <a name="deploy-using-cli"></a>Distribuera med hjälp av CLI
+## <a name="deploy-using-azure-cli"></a>Distribuera med hjälp av Azure CLI
 
-Du kan distribuera en Resource Manager-mall med Azure CLI. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) och [distribuera privat Resource Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
+Du kan distribuera en Resource Manager-mall med klassisk CLI. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) och [distribuera privat Resource Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
 
 ## <a name="deploy-using-the-rest-api"></a>Distribuera med hjälp av REST-API
 Du kan distribuera en Resource Manager-mall med hjälp av REST API. Mer information finns i [distribuera resurser med Resource Manager-mallar och Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).

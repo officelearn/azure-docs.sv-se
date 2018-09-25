@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 224f017decc3f48a23cb3fbf14f9a4e744bfaded
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9fbbbb4f73b5295b648008878c8145fe926fbaad
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007013"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974399"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild 
 
@@ -26,7 +26,7 @@ Ta en ögonblicksbild av en OS- eller datadisken för säkerhetskopiering eller 
 
 ## <a name="use-azure-cli"></a>Använda Azure CLI 
 
-I följande exempel kräver att du använder [Cloud Shell](https://shell.azure.com/bash) eller Azure CLI 2.0 är installerat. Kör **az --version** om du vill se versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
+I följande exempel kräver att du använder [Cloud Shell](https://shell.azure.com/bash) eller ha Azure CLI installerat.
 
 Följande steg visar hur du tar en ögonblicksbild med hjälp av den **az snapshot skapa** med den **--källdisken** parametern. I följande exempel förutsätter att det finns en virtuell dator som kallas *myVM* i den *myResourceGroup* resursgrupp.
 
@@ -60,7 +60,7 @@ az snapshot list \
    - table
 ```
 
-## <a name="use-azure-portal"></a>Använd Azure Portal 
+## <a name="use-azure-portal"></a>Använda Azure-portalen 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Börja längst upp till vänster och klicka på **skapa en resurs** och Sök efter **ögonblicksbild**. Välj **ögonblicksbild** från sökresultaten.

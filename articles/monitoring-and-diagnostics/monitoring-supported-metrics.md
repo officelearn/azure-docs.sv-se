@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: b7e18d943bea179cb6163d7f91a0761311ecf38e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 15cac40e743f44ea7e0954c94683674ad9372a7a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985251"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962955"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inklusive diagram dem i portalen, få åtkomst till dem via REST API eller frågor till dem med PowerShell eller CLI. Nedan visas en fullständig lista över alla mått som är tillgänglig med Azure Monitor mått pipeline. Andra mått kan finnas i portalen eller med äldre API: er. Listan nedan innehåller endast mått som är tillgängliga med hjälp av konsoliderade pipelinen för Azure Monitor-mått. Fråga efter och komma åt de här måtten Använd den [2018-01-01 api-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -520,6 +520,24 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |WriteRequests|Skrivförfrågningar|Antal|Totalt|Antal data diskskrivningsbegäranden till kontot.|Inga dimensioner|
 |ReadRequests|Läsbegäranden|Antal|Totalt|Antal data diskläsningsbegäranden till kontot.|Inga dimensioner|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
+|memory_percent|Minne|Procent|Medel|Minne|Inga dimensioner|
+|io_consumption_percent|IO-procent|Procent|Medel|IO-procent|Inga dimensioner|
+|storage_percent|Storage-procent|Procent|Medel|Storage-procent|Inga dimensioner|
+|storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
+|storage_limit|Gränsen för lagring|Byte|Medel|Gränsen för lagring|Inga dimensioner|
+|serverlog_storage_percent|Procent för lagring av Server-loggen|Procent|Medel|Procent för lagring av Server-loggen|Inga dimensioner|
+|serverlog_storage_usage|Server logglagring som används|Byte|Medel|Server logglagring som används|Inga dimensioner|
+|serverlog_storage_limit|Log storage gränsen|Byte|Medel|Log storage gränsen|Inga dimensioner|
+|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Inga dimensioner|
+|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga dimensioner|
+|network_bytes_egress|Nätverk ut|Byte|Totalt|Nätverk ut över aktiva anslutningar|Inga dimensioner|
+|network_bytes_ingress|Nätverk in|Byte|Totalt|Nätverk i över aktiva anslutningar|Inga dimensioner|
+
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
@@ -748,6 +766,41 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |ObservedCapacity|Observerad kapacitet|Antal|Medel|Den kapacitet som rapporteras till autoskalning vid körning.|Inga dimensioner|
 |ScaleActionsInitiated|Skalningsåtgärder har initierats|Antal|Totalt|Riktningen på skalningsåtgärden.|ScaleDirection|
 
+## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+(Förhandsversion)
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|availabilityResults/varaktighet|Testlängd|Millisekunder|Medel|Testlängd|availabilityResult/name, availabilityResult/plats, availabilityResult/lyckades|
+|billingMeters/telemetryCount|Antal datapunkter|Antal|Totalt|Antalet datapunkter som skickas till den här Application Insights-resursen. Det här måttet bearbetas med en fördröjning på upp till två timmar.|fakturering/telemetryItemType, fakturering/telemetryItemSource|
+|billingMeters/telemetrySize|Datapunktsvolym|Byte|Totalt|Mängden data som skickas till den här Application Insights-resursen. Det här måttet bearbetas med en fördröjning på upp till två timmar.|fakturering/telemetryItemType, fakturering/telemetryItemSource|
+|browserTimings/networkDuration|Nätverksanslutningstid för sidhämtning|Millisekunder|Medel|Tiden mellan användarförfrågning och användaranslutning. Innehåller DNS-sökning och transportanslutning anslutning.|Inga dimensioner|
+|browserTimings/processingDuration|Klientbehandlingstid|Millisekunder|Medel|Tiden mellan ta emot de sista byten av ett dokument till dess att DOM har lästs. Asynkrona begäranden kan fortfarande vara under bearbetning.|Inga dimensioner|
+|browserTimings/receiveDuration|Tar emot svarstid|Millisekunder|Medel|Tiden mellan de första och de sista byten, eller till frånkoppling.|Inga dimensioner|
+|browserTimings/sendDuration|Tid för att skicka förfrågan|Millisekunder|Medel|Tiden mellan nätverksanslutning och mottagande av de första byten.|Inga dimensioner|
+|browserTimings/totalDuration|Sidhämtningstid för webbläsare|Millisekunder|Medel|Tiden från användarförfrågan till dess att DOM, formatmallar, skript och bilder har lästs in.|Inga dimensioner|
+|beroenden/antal|Beroendeanrop|Antal|Antal|Antal anrop gjorda av programmet till externa resurser|beroendetyp /, beroende/performanceBucket, beroende/lyckades, åtgärden/syntetiska, molnet/Rollinstans, molnet/roleName|
+|beroenden/varaktighet|Beroendevaraktighet|Millisekunder|Medel|Varaktigheten för anrop gjorda av programmet till externa resurser.|beroendetyp /, beroende/performanceBucket, beroende/lyckades, åtgärden/syntetiska, molnet/Rollinstans, molnet/roleName|
+|beroenden/misslyckades|Beroendefel|Antal|Antal|Antal misslyckade beroendeanrop från programmet till externa resurser.|beroendetyp /, beroende/performanceBucket, åtgärden/syntetiska, molnet/Rollinstans, molnet/roleName|
+|pageViews/antal|Sidvisning|Antal|Antal|Antal sidvisningar.|åtgärden/syntetiska|
+|pageViews/varaktighet|Inläsningstid för sidvisning|Millisekunder|Medel|Inläsningstid för sidvisning|åtgärden/syntetiska|
+|performanceCounters/requestExecutionTime|Körningstid för HTTP-begäranden|Millisekunder|Medel|Körningstid för de senaste förfrågningarna.|molnet/Rollinstans|
+|performanceCounters/requestsInQueue|HTTP-begäranden i programkön|Antal|Medel|Programfrågeköns längd|molnet/Rollinstans|
+|performanceCounters/requestsPerSecond|Hastighet för HTTP-begäranden|CountPerSecond|Medel|Hastigheten per sekund för alla förfrågningar till programmet från ASP.NET.|molnet/Rollinstans|
+|performanceCounters/exceptionsPerSecond|Antal undantag|CountPerSecond|Medel|Antalet hanterade och ohanterade undantag som rapporterats till Windows, inklusive .NET-undantag och ohanterade undantag som har konverterats till .NET-undantag.|molnet/Rollinstans|
+|performanceCounters/processIOBytesPerSecond|IO-frekvens för process|BytesPerSecond|Medel|Totalt antal byte per sekund som har lästs och skrivits till filer, nätverk och enheter.|molnet/Rollinstans|
+|performanceCounters/processCpuPercentage|Processoranvändning för process|Procent|Medel|Procentandelen av förfluten tid som alla processtrådar använde i processorn för att köra instruktioner. Detta kan variera mellan 0 och 100. Det här måttet indikerar prestandan för w3wp-processen ensam.|molnet/Rollinstans|
+|performanceCounters/processorCpuPercentage|Processortid|Procent|Medel|Den procentandel av tiden som processorn ägnat åt icke-inaktiva trådar|molnet/Rollinstans|
+|performanceCounters/memoryAvailableBytes|Ledigt minne|Byte|Medel|Fysiskt minne som är omedelbart tillgängligt för att tilldelas en process eller för att användas av systemet.|molnet/Rollinstans|
+|performanceCounters/processPrivateBytes|Privata byte för process|Byte|Medel|Minne som har tilldelats exklusivt för att övervaka programprocesser.|molnet/Rollinstans|
+|begäranden/varaktighet|Serversvarstid |Millisekunder|Medel|Tid från det att en HTTP-förfrågning mottagits till dess att svaret har skickats.|begäran/performanceBucket, begäran/Resultatkod, åtgärden/syntetiska, molnet/Rollinstans, begäran/lyckades, molnet/roleName|
+|antal och tjänstbegäranden|Serverförfrågningar|Antal|Antal|Antal slutförda HTTP-förfrågningar.|begäran/performanceBucket, begäran/Resultatkod, åtgärden/syntetiska, molnet/Rollinstans, begäran/lyckades, molnet/roleName|
+|begäranden/misslyckades|Misslyckade förfrågningar|Antal|Antal|Antal HTTP-begäranden markeras som misslyckat. I de flesta fall är detta förfrågningar med svarskoden > = 400 och inte lika med 401.|begäran/performanceBucket, begäran/Resultatkod, åtgärden/syntetiska, molnet/Rollinstans, molnet/roleName|
+|undantag/antal|Undantag|Antal|Totalt|Kombinerat antal undantagsfel utan felhantering.|molnet/roleName, molnet/Rollinstans, klient/typ|
+|undantag/webbläsare|Webbläsarundantag|Antal|Totalt|Antal undantagsfel utan felhantering som har utlösts i webbläsaren.|Inga dimensioner|
+|undantag/server|Serverundantag|Antal|Totalt|Antal undantagsfel utan felhantering som har utlösts i serverprogrammet.|molnet/roleName, molnet/Rollinstans|
+|spårningar/antal|Antal spårningar|Antal|Totalt|Antal spårningsdokument|spårningen/severityLevel, åtgärden/syntetiska, molnet/roleName, molnet/Rollinstans|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
@@ -755,6 +808,20 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |ServiceApiHit|Totalt antal Service API-träffar|Antal|Antal|Totalt antal Service API-träffar|ActivityType, ActivityName|
 |ServiceApiLatency|Total svarstid för Service API|Millisekunder|Medel|Total svarstid för Service API-begäranden|ActivityType, ActivityName, StatusCode|
 |ServiceApiResult|Totalt antal Service API-resultat|Antal|Antal|Totalt antal Service API-resultat|ActivityType, ActivityName, StatusCode|
+
+## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|ClusterDataCapacityFactor|Cache-användning|Procent|Medel|På en nivå i omfånget för kluster|Inga dimensioner|
+|QueryDuration|Frågevaraktighet|Millisekunder|Medel|Frågor varaktighet i sekunder|QueryStatus|
+|IngestionsLoadFactor|Datainmatning användning|Procent|Medel|Förhållandet mellan används inmatning kortplatser i klustret|Inga dimensioner|
+|IsEngineAnsweringQuery|Keep Alive|Antal|Medel|Kontrollera förstånd anger kluster respondes till frågor|Inga dimensioner|
+|IngestCommandOriginalSizeInMb|Datainmatning volymen (i MB)|Antal|Totalt|Totala mängden insamlade data i klustret (i MB)|Inga dimensioner|
+|EventAgeSeconds|Datainmatningssvarstid (i sekunder)|Sekunder|Medel|Datainmatning tid från källan (t.ex. meddelandet är EventHub) till klustret i sekunder|Inga dimensioner|
+|EventRecievedFromEventHub|Händelser som bearbetas (för Event Hubs)|Antal|Totalt|Antalet händelser som bearbetas av klustret om mata in från Event Hub|Inga dimensioner|
+|IngestionResult|Datainmatning resultat|Antal|Antal|Antal åtgärder för inmatning|IngestionResultDetails|
+|EngineCPU|Processor|Procent|Medel|Processor på en nivå|Inga dimensioner|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -963,6 +1030,19 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |ProbesFailedPercent|% Avsökningar misslyckades|Procent|Medel|% av tiden har anslutning övervakningsavsökningar misslyckades|Inga dimensioner|
 |AverageRoundtripMs|Genomsn. Fram och åter tid (ms)|Millisekunder|Medel|Genomsnittlig nätverk fram och åter tid (ms) för anslutning övervakningsavsökningar som skickas mellan källa och mål|Inga dimensioner|
 
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|RequestCount|Antal begäranden|Antal|Totalt|Antalet klientbegäranden som hanteras av HTTP/S-proxy|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|RequestSize|Begärandestorlek|Byte|Totalt|Antalet byte som skickas när begäranden från klienter till HTTP/S-proxy|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|ResponseSize|Svarsstorlek|Byte|Totalt|Antalet byte som skickas som svar från HTTP/S-proxy till klienter|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|BackendRequestCount|Antal förfrågningar för serverdel|Antal|Totalt|Antalet begäranden som skickas från HTTP/S-proxy till serverdelar|HttpStatus, HttpStatusGroup, serverdel|
+|BackendRequestLatency|Svarstid för backend-begäran|Millisekunder|Medel|Tid som beräknas från när begäran har skickats av HTTP/S-proxyn till serverdelen tills HTTP/S-proxyn fick den sista byten av svaret från serverdelen|Serverdel|
+|TotalLatency|Total svarstid|Millisekunder|Medel|Tid som beräknas från när klientbegäran togs emot av HTTP/S-proxyn tills klienten godkänt den sista byten svar från HTTP/S-proxy|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|BackendHealthPercentage|Serverdelens hälsotillstånd procent|Procent|Medel|Procentandelen av lyckade hälsorapporter avsökningar från HTTP/S-proxy till serverdelar|Serverdelen, BackendPool|
+|WebApplicationFirewallRequestCount|Web Application Firewall begäran antal|Antal|Totalt|Antalet klientbegäranden bearbetas av Brandvägg för webbaserade program|PolicyName, RuleName, åtgärd|
+
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
@@ -1031,72 +1111,80 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |Incoming.all.failedrequests|Alla inkommande misslyckade förfrågningar|Antal|Totalt|Totalt antal inkommande misslyckade förfrågningar för en meddelandehubb|Inga dimensioner|
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
-(Förhandsversion)
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-Average_ % Ledigai|% Ledigai-noder|Antal|Medel|Average_ % Ledigai|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ % ledigt utrymme|Ledigt utrymme i procent|Antal|Medel|Average_ % ledigt utrymme|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ % Användai-noder|% Användai-noder|Antal|Medel|Average_ % Användai-noder|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Använt utrymme i procent för Average_|Använt utrymme i procent|Antal|Medel|Använt utrymme i procent för Average_|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Disk lästa byte/sek|Disk – lästa byte/sek|Antal|Medel|Average_Disk lästa byte/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Disk Diskläsningar/sek|Diskläsningar/sek|Antal|Medel|Average_Disk Diskläsningar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Disk disköverföringar/sek|Disköverföringar/sek|Antal|Medel|Average_Disk disköverföringar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Disk skrivna byte/sek|Disk – skrivna byte/sek|Antal|Medel|Average_Disk skrivna byte/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Disk Diskskrivningar/sek|Diskskrivningar/sek|Antal|Medel|Average_Disk Diskskrivningar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Free megabyte|Ledigt utrymme i MB|Antal|Medel|Average_Free megabyte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Logical Disk byte/sek|Logisk Disk byte/sek|Antal|Medel|Average_Logical Disk byte/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ tillgängligt minne i procent|Tillgängligt minne i procent|Antal|Medel|Average_ tillgängligt minne i procent|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Tillgängligt växlingsutrymme i Average_ %|Tillgängligt växlingsutrymme i procent|Antal|Medel|Tillgängligt växlingsutrymme i Average_ %|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Använt minne i procent för Average_|Använt minne i procent|Antal|Medel|Använt minne i procent för Average_|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ % använt växlingsutrymme|Använt växlingsutrymme i procent|Antal|Medel|Average_ % använt växlingsutrymme|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Available minne i megabyte|Tillgängligt minne i megabyte|Antal|Medel|Average_Available minne i megabyte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Available megabyte växlingsutrymme|Tillgängliga megabyte växlingsutrymme|Antal|Medel|Average_Available megabyte växlingsutrymme|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Page Diskläsningar/sek|Sidläsningar/sek|Antal|Medel|Average_Page Diskläsningar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Page Diskskrivningar/sek|Sidskrivningar/sek|Antal|Medel|Average_Page Diskskrivningar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Pages/sek|Sidor/sek|Antal|Medel|Average_Pages/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Used megabyte växlingsutrymme i procent|Tillgängligt minne i megabyte|Antal|Medel|Average_Used megabyte växlingsutrymme i procent|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Used minne i megabyte|Tillgängliga megabyte växlingsutrymme|Antal|Medel|Average_Used minne i megabyte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Överförda Average_Total byte|Totalt antal överförda byte|Antal|Medel|Överförda Average_Total byte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Total byte som tagits emot|Totalt antal byte mottaget|Antal|Medel|Average_Total byte som tagits emot|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Total byte|Totalt antal byte|Antal|Medel|Average_Total byte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Total antal skickade paket|Totalt antal skickade paket|Antal|Medel|Average_Total antal skickade paket|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Total paket som tas emot|Totalt antal mottagna paket|Antal|Medel|Average_Total paket som tas emot|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Total Rx fel|Totalt antal Rx-fel|Antal|Medel|Average_Total Rx fel|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Total Tx-fel|Totalt antal Tx-fel|Antal|Medel|Average_Total Tx-fel|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Total kollisioner|Totalt antal kollisioner|Antal|Medel|Average_Total kollisioner|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Avg. S/diskläsning|Genomsn. S/diskläsning|Antal|Medel|Average_Avg. S/diskläsning|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Avg. S/disköverföring|Genomsn. S/disköverföring|Antal|Medel|Average_Avg. S/disköverföring|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Avg. S/diskskrivning|Genomsn. S/diskskrivning|Antal|Medel|Average_Avg. S/diskskrivning|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Physical Disk byte/sek|Fysisk Disk byte/sek|Antal|Medel|Average_Physical Disk byte/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Privilegierad tid i Average_Pct|PCT privilegierad tid|Antal|Medel|Privilegierad tid i Average_Pct|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Pct användartid|PCT användartid|Antal|Medel|Average_Pct användartid|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Used minne kB|Använt minne kB|Antal|Medel|Average_Used minne kB|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Virtual delat minne|Virtuella delat minne|Antal|Medel|Average_Virtual delat minne|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ % DPC-tid|% DPC-tid|Antal|Medel|Average_ % DPC-tid|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ inaktivitetstid i procent|Inaktivitetstid i procent|Antal|Medel|Average_ inaktivitetstid i procent|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ avbrottstid i procent|Avbrottstid i procent|Antal|Medel|Average_ avbrottstid i procent|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ % / o-väntetid|Väntetid i procent i/o|Antal|Medel|Average_ % / o-väntetid|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ Nice Time|Nice Time|Antal|Medel|Average_ Nice Time|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Privilegierad tid i procent för Average_|Privilegierad tid i procent|Antal|Medel|Privilegierad tid i procent för Average_|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ % processortid|Tid i procent för processor|Antal|Medel|Average_ % processortid|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ Användartid i procent|Användartid i procent|Antal|Medel|Average_ Användartid i procent|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Free fysiskt minne|Ledigt fysiskt minne|Antal|Medel|Average_Free fysiskt minne|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Free utrymme i växlingsfiler|Ledigt utrymme i växlingsfiler|Antal|Medel|Average_Free utrymme i växlingsfiler|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Free virtuellt minne|Ledigt virtuellt minne|Antal|Medel|Average_Free virtuellt minne|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Processes|Processer|Antal|Medel|Average_Processes|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Size lagrad i växlingsfiler|Storlek lagrad i växlingsfiler|Antal|Medel|Average_Size lagrad i växlingsfiler|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Uptime|Drifttid|Antal|Medel|Average_Uptime|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Users|Användare|Antal|Medel|Average_Users|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Current diskkölängd|Aktuell diskkölängd|Antal|Medel|Average_Current diskkölängd|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Available megabyte|Tillgängliga megabyte|Antal|Medel|Average_Available megabyte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_ % allokerade byte som används|% Allokerade byte som används|Antal|Medel|Average_ % allokerade byte som används|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Bytes per sekund|Mottagna byte/sek|Antal|Medel|Average_Bytes per sekund|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Bytes/sek|Skickade byte/sek|Antal|Medel|Average_Bytes/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Average_Bytes totalt/sek|Byte totalt/sek|Antal|Medel|Average_Bytes totalt/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
-Pulsslag|Pulsslag|Antal|Medel|Pulsslag|Datorn, OSType, Version, SourceComputerId|
-Uppdatering|Uppdatering|Antal|Medel|Uppdatering|Dator, produkt, klassificering, UpdateState, valfritt, godkända|
-Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory, EventLevel, EventLevelName, händelse-ID|
+|Average_ % Ledigai|% Ledigai-noder|Antal|Medel|Average_ % Ledigai|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ % ledigt utrymme|Ledigt utrymme i procent|Antal|Medel|Average_ % ledigt utrymme|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ % Användai-noder|% Användai-noder|Antal|Medel|Average_ % Användai-noder|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Använt utrymme i procent för Average_|Använt utrymme i procent|Antal|Medel|Använt utrymme i procent för Average_|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Disk lästa byte/sek|Disk – lästa byte/sek|Antal|Medel|Average_Disk lästa byte/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Disk Diskläsningar/sek|Diskläsningar/sek|Antal|Medel|Average_Disk Diskläsningar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Disk disköverföringar/sek|Disköverföringar/sek|Antal|Medel|Average_Disk disköverföringar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Disk skrivna byte/sek|Disk – skrivna byte/sek|Antal|Medel|Average_Disk skrivna byte/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Disk Diskskrivningar/sek|Diskskrivningar/sek|Antal|Medel|Average_Disk Diskskrivningar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Free megabyte|Ledigt utrymme i MB|Antal|Medel|Average_Free megabyte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Logical Disk byte/sek|Logisk Disk byte/sek|Antal|Medel|Average_Logical Disk byte/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ tillgängligt minne i procent|Tillgängligt minne i procent|Antal|Medel|Average_ tillgängligt minne i procent|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Tillgängligt växlingsutrymme i Average_ %|Tillgängligt växlingsutrymme i procent|Antal|Medel|Tillgängligt växlingsutrymme i Average_ %|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Använt minne i procent för Average_|Använt minne i procent|Antal|Medel|Använt minne i procent för Average_|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ % använt växlingsutrymme|Använt växlingsutrymme i procent|Antal|Medel|Average_ % använt växlingsutrymme|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Available minne i megabyte|Tillgängligt minne i megabyte|Antal|Medel|Average_Available minne i megabyte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Available megabyte växlingsutrymme|Tillgängliga megabyte växlingsutrymme|Antal|Medel|Average_Available megabyte växlingsutrymme|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Page Diskläsningar/sek|Sidläsningar/sek|Antal|Medel|Average_Page Diskläsningar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Page Diskskrivningar/sek|Sidskrivningar/sek|Antal|Medel|Average_Page Diskskrivningar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Pages/sek|Sidor/sek|Antal|Medel|Average_Pages/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Used megabyte växlingsutrymme i procent|Använt växlingsutrymme i megabyte|Antal|Medel|Average_Used megabyte växlingsutrymme i procent|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Used minne i megabyte|Använt minne Mbyte|Antal|Medel|Average_Used minne i megabyte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Överförda Average_Total byte|Totalt antal överförda byte|Antal|Medel|Överförda Average_Total byte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Total byte som tagits emot|Totalt antal byte mottaget|Antal|Medel|Average_Total byte som tagits emot|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Total byte|Totalt antal byte|Antal|Medel|Average_Total byte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Total antal skickade paket|Totalt antal skickade paket|Antal|Medel|Average_Total antal skickade paket|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Total paket som tas emot|Totalt antal mottagna paket|Antal|Medel|Average_Total paket som tas emot|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Total Rx fel|Totalt antal Rx-fel|Antal|Medel|Average_Total Rx fel|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Total Tx-fel|Totalt antal Tx-fel|Antal|Medel|Average_Total Tx-fel|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Total kollisioner|Totalt antal kollisioner|Antal|Medel|Average_Total kollisioner|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Avg. S/diskläsning|Genomsn. S/diskläsning|Antal|Medel|Average_Avg. S/diskläsning|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Avg. S/disköverföring|Genomsn. S/disköverföring|Antal|Medel|Average_Avg. S/disköverföring|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Avg. S/diskskrivning|Genomsn. S/diskskrivning|Antal|Medel|Average_Avg. S/diskskrivning|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Physical Disk byte/sek|Fysisk Disk byte/sek|Antal|Medel|Average_Physical Disk byte/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Privilegierad tid i Average_Pct|PCT privilegierad tid|Antal|Medel|Privilegierad tid i Average_Pct|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Pct användartid|PCT användartid|Antal|Medel|Average_Pct användartid|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Used minne kB|Använt minne kB|Antal|Medel|Average_Used minne kB|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Virtual delat minne|Virtuella delat minne|Antal|Medel|Average_Virtual delat minne|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ % DPC-tid|% DPC-tid|Antal|Medel|Average_ % DPC-tid|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ inaktivitetstid i procent|Inaktivitetstid i procent|Antal|Medel|Average_ inaktivitetstid i procent|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ avbrottstid i procent|Avbrottstid i procent|Antal|Medel|Average_ avbrottstid i procent|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ % / o-väntetid|Väntetid i procent i/o|Antal|Medel|Average_ % / o-väntetid|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ Nice Time|Nice Time|Antal|Medel|Average_ Nice Time|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Privilegierad tid i procent för Average_|Privilegierad tid i procent|Antal|Medel|Privilegierad tid i procent för Average_|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ % processortid|Tid i procent för processor|Antal|Medel|Average_ % processortid|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ Användartid i procent|Användartid i procent|Antal|Medel|Average_ Användartid i procent|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Free fysiskt minne|Ledigt fysiskt minne|Antal|Medel|Average_Free fysiskt minne|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Free utrymme i växlingsfiler|Ledigt utrymme i växlingsfiler|Antal|Medel|Average_Free utrymme i växlingsfiler|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Free virtuellt minne|Ledigt virtuellt minne|Antal|Medel|Average_Free virtuellt minne|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Processes|Processer|Antal|Medel|Average_Processes|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Size lagrad i växlingsfiler|Storlek lagrad i växlingsfiler|Antal|Medel|Average_Size lagrad i växlingsfiler|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Uptime|Drifttid|Antal|Medel|Average_Uptime|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Users|Användare|Antal|Medel|Average_Users|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Avg. S/diskläsning|Genomsn. S/diskläsning|Antal|Medel|Average_Avg. S/diskläsning|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Avg. S/diskskrivning|Genomsn. S/diskskrivning|Antal|Medel|Average_Avg. S/diskskrivning|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Current diskkölängd|Aktuell diskkölängd|Antal|Medel|Average_Current diskkölängd|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Disk Diskläsningar/sek|Diskläsningar/sek|Antal|Medel|Average_Disk Diskläsningar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Disk disköverföringar/sek|Disköverföringar/sek|Antal|Medel|Average_Disk disköverföringar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Disk Diskskrivningar/sek|Diskskrivningar/sek|Antal|Medel|Average_Disk Diskskrivningar/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Free megabyte|Ledigt utrymme i MB|Antal|Medel|Average_Free megabyte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ % ledigt utrymme|Ledigt utrymme i procent|Antal|Medel|Average_ % ledigt utrymme|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Available megabyte|Tillgängliga megabyte|Antal|Medel|Average_Available megabyte|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ % allokerade byte som används|% Allokerade byte som används|Antal|Medel|Average_ % allokerade byte som används|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Bytes per sekund|Mottagna byte/sek|Antal|Medel|Average_Bytes per sekund|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Bytes/sek|Skickade byte/sek|Antal|Medel|Average_Bytes/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Bytes totalt/sek|Byte totalt/sek|Antal|Medel|Average_Bytes totalt/sek|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_ % processortid|Tid i procent för processor|Antal|Medel|Average_ % processortid|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Average_Processor Kölängd|Kölängd för processor|Antal|Medel|Average_Processor Kölängd|Datorn ObjectName, InstanceName, räknarsökväg, SourceSystem|
+|Pulsslag|Pulsslag|Antal|Totalt|Pulsslag|Datorn, OSType, Version, SourceComputerId|
+|Uppdatering|Uppdatering|Antal|Medel|Uppdatering|Dator, produkt, klassificering, UpdateState, valfritt, godkända|
+|Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory, EventLevel, EventLevelName, händelse-ID|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
@@ -1205,6 +1293,18 @@ Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory
 |eDTU_used|edtu: er används|Antal|Medel|edtu: er används|Inga dimensioner|
 |storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
 |xtp_storage_percent|Procent för in-Memory OLTP-lagring|Procent|Medel|Procent för in-Memory OLTP-lagring|Inga dimensioner|
+
+## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|virtual_core_count|Antal virtuella kärnor|Antal|Medel|Antal virtuella kärnor|Inga dimensioner|
+|avg_cpu_percent|Genomsnittlig CPU-procent|Procent|Medel|Genomsnittlig CPU-procent|Inga dimensioner|
+|reserved_storage_mb|Reserverat lagringsutrymme|Antal|Medel|Reserverat lagringsutrymme|Inga dimensioner|
+|storage_space_used_mb|Lagringsutrymme som används|Antal|Medel|Lagringsutrymme som används|Inga dimensioner|
+|io_requests|Antal för i/o-begäranden|Antal|Medel|Antal för i/o-begäranden|Inga dimensioner|
+|io_bytes_read|Lästa byte i i/o|Byte|Medel|Lästa byte i i/o|Inga dimensioner|
+|io_bytes_written|Skrivna i/o-byte|Byte|Medel|Skrivna i/o-byte|Inga dimensioner|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 

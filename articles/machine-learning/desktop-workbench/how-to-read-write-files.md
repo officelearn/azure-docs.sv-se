@@ -11,14 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 5a772f8792c02139e45977e207b5be4bebc63a9c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a2dff4dd57bdb0b010bbb4568d796f1e197a728
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908240"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971509"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Spara ändringarna och arbeta med stora filer
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Du kan konfigurera en mängd olika körningsmål med tjänsten Azure Machine Learning-experimentering. Vissa riktar sig lokala, till exempel en lokal dator eller en Docker-behållare på en lokal dator. Andra är fjärransluten, till exempel en Docker-behållare på en fjärrdator eller ett HDInsight-kluster. Mer information finns i [översikt av Azure Machine Learning experimentera körningstjänsten](experimentation-service-configuration.md). 
 
 Innan du kan köra på ett mål, måste du kopiera projektmappen till beräkningsmål. Du måste göra och med en lokal körning som använder en lokal temporär mapp för detta ändamål. 
@@ -48,6 +52,9 @@ Vanliga användningsområden är:
 * Träna en modell
 * Skapa en datauppsättning
 * Ett diagram skrivs ut som en bildfil som en del av modellträning körningar 
+
+>[!Note]
+> Maxstorlek på spårade fil i mappen för utdata efter en körning är 512 MB. Det innebär att om skriptet genererar en fil som är större än 512 MB i mappen utdata, den inte har samlats in det. 
 
 Dessutom kan du jämföra utdata från körningarna väljer en utdatafil (till exempel en modell) som tillhandahålls av en tidigare kör och sedan använder den för en efterföljande aktivitet (till exempel bedömning).
 

@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10e0df78d75763dfcf8636983c9f9092b78b9c3b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d5a67cdcef7f39830b747dec5f2c980483e1ab91
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437661"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978343"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Visa aktivitetsloggar för RBAC ändringar
 
@@ -125,7 +125,7 @@ Här är de grundläggande stegen för att komma igång:
 
    ![Log Analytics-alternativet i portalen](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Du kan också använda den [Loggsökning](../log-analytics/log-analytics-log-search.md) sidan eller [Advanced Analytics-portalen](https://docs.loganalytics.io/docs/Learn) att fråga efter och visa loggarna. Mer information om de här två alternativen finns i [loggsökningssidan eller Advanced Analytics-portalen](../log-analytics/log-analytics-log-search-portals.md).
+1. Du kan också använda den [Loggsökning](../log-analytics/log-analytics-log-search.md) sidan eller [Advanced Analytics-portalen](../log-analytics/query-language/get-started-analytics-portal.md) att fråga efter och visa loggarna. Mer information om de här två alternativen finns i [loggsökningssidan eller Advanced Analytics-portalen](../log-analytics/log-analytics-log-search-portals.md).
 
 Här är en fråga som returnerar nya rolltilldelningar ordnade efter mål-resursprovidern:
 

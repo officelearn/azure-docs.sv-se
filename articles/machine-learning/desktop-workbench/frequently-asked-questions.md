@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 94a1f3bbba83e8e71cf9440b5ded0784f4616c99
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4785f87515663831b1177c6c0958d3d965351797
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674163"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996578"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Azure Machine Learning är en fullständigt hanterad Azure-tjänst som hjälper dig att skapa, testa, hantera och distribuera machine learning och AI-modeller. Våra tjänster och hämtningsbart program erbjuder en metod som prioriterar kod som utnyttjar molnet, lokalt och edge för att tillhandahålla tåget, distribuera, hantera och övervaka modeller med power, hastighet och flexibilitet. Azure Machine Learning Studio erbjuder också en webbläsarbaserad, visuella dra och släpp utvecklingsmiljön där ingen kodning krävs. 
 
@@ -31,10 +34,6 @@ Azure Blob Storage och Azure Container Registry som används av Azure Machine Le
 **Hur relaterar Azure Machine Learning till Microsoft Machine Learning Services i SQL Server 2017?**   
 
 Machine Learning Services i SQL Server 2017 är en utökningsbar och skalbar plattform för att integrera maskininlärning i databas-arbetsflöden. Det är passar perfekt för scenarier där en lokal lösning krävs, till exempel där dataförflyttning är dyra eller ohållbara. Moln eller hybrid arbetsbelastningar är däremot passade bra för våra nya Azure-tjänster. 
-
-**Har du stöd för både Python och R? Vad gäller andra programmeringsspråk som C++**
-
-Vi stöder för närvarande Python endast. Vi arbetar med R-integrering och förväntar sig att den är tillgänglig snart. 
 
 **Hur Azure Machine Learning är relaterade till Microsoft Machine Learning för Spark?**
 
@@ -172,4 +171,4 @@ Våra förhandsversion produkter och tjänster är bäst från communityn för �
 
 **Hur relaterar Azure Machine Learning till Microsoft Cognitive Toolkit?**
 
-Den [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) är en av många ramverk som stöds av våra nya verktyg och tjänster. Cognitive Toolkit är ett enhetligt djupinlärningsverktyg som gör det möjligt att förbruka och kombinera populära maskininlärningsmodeller inklusive Feed-Forward djupa Neurala nätverk, Konvolutionella nät Sequence-Sequence och återkommande nätverk. Mer information om Microsoft Cognitive Toolkit, Besök vår [produktdokumentationen](https://docs.microsoft.com/cognitive-toolkit/). 
+Den [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) är en av många ramverk som stöds av våra nya verktyg och tjänster. Cognitive Toolkit är ett enhetligt djupinlärningsverktyg som gör det möjligt att förbruka och kombinera populära maskininlärningsmodeller inklusive Feed-Forward djupa Neurala nätverk, Konvolutionella nät Sequence-Sequence och återkommande nätverk. Mer information om Microsoft Cognitive Toolkit, Besök vår [produktdokumentationen](https://docs.microsoft.com/cognitive-toolkit/). 

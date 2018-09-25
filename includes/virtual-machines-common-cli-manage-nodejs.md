@@ -5,11 +5,12 @@ Om du inte redan har installerat Azure CLI och anslutit till din prenumeration k
 ## <a name="cli-versions-to-complete-the-task"></a>CLI-versioner för att slutföra uppgiften
 Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
-- Azure CLI 10 – vårt CLI för den klassiska distributionsmodellen och Resource Manager-distributionsmodellen (den här artikeln)
-- [Azure CLI 2.0](../articles/virtual-machines/linux/cli-manage.md) – vår nästa generations CLI för distributionsmodellen resurshantering
+- Azure klassiskt CLI – vår CLI för de klassiska distributionsmodellen och resource Manager-distributionsmodellerna (den här artikeln)
+- [Azure CLI](../articles/virtual-machines/linux/cli-manage.md) – vår nästa generations CLI för distributionsmodellen i resource management
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Grundläggande Azure Resource Manager-kommandon i Azure CLI
-Den här artikeln beskriver grundläggande kommandon för att använda Azure CLI för att hantera och interagera med resurser (främst virtuella datorer) i Azure-prenumerationen.  Om du behöver mer ingående hjälp med särskilda kommandoradsväxlingar och alternativ kan du använda hjälp och alternativ för onlinekommandon genom att skriva `azure <command> <subcommand> --help` eller `azure help <command> <subcommand>`.
+## <a name="basic-azure-resource-manager-commands-in-azure-classic-cli"></a>Grundläggande Azure Resource Manager-kommandon i Azure klassiska CLI
+
+Den här artikeln beskriver grundläggande kommandon som du vill använda med Azure klassiskt CLI för att hantera och interagera med dina resurser (främst virtuella datorer) i din Azure-prenumeration.  Om du behöver mer ingående hjälp med särskilda kommandoradsväxlingar och alternativ kan du använda hjälp och alternativ för onlinekommandon genom att skriva `azure <command> <subcommand> --help` eller `azure help <command> <subcommand>`.
 
 > [!NOTE]
 > De här exemplen omfattar inte mallbaserade åtgärder som brukar rekommenderas för distribueringar av virtuella datorer i Resource Manager. Mer information finns i [Use the Azure CLI with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) (Använda Azure CLI med Azure Resource Manager) och [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Distribuera och hantera virtuella datorer med Azure Resource Manager-mallar och Azure CLI).

@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0df08eaa2de27dbcc1ea93db1e040d81d071bf80
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ac117994140f96ec993e4fed739626f736ad7efc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126011"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965287"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Använd en avisering för att utlösa en Azure Automation-runbook
 
-Du kan använda [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md?toc=%2fazure%2fautomation%2ftoc.json) att övervaka beroende på mått och loggar för de flesta tjänster i Azure. Du kan anropa Azure Automation-runbooks med hjälp av [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) eller genom att använda klassiska aviseringar för att automatisera uppgifter baserat på varningar. Den här artikeln visar hur du konfigurerar och kör en runbook med hjälp av aviseringar.
+Du kan använda [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) att övervaka beroende på mått och loggar för de flesta tjänster i Azure. Du kan anropa Azure Automation-runbooks med hjälp av [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) eller genom att använda klassiska aviseringar för att automatisera uppgifter baserat på varningar. Den här artikeln visar hur du konfigurerar och kör en runbook med hjälp av aviseringar.
 
 ## <a name="alert-types"></a>Aviseringstyper
 
@@ -32,8 +32,8 @@ När en avisering anropar en runbook, är det faktiska anropet en HTTP POST-beg�
 |Varning  |Beskrivning|Nyttolast-schema  |
 |---------|---------|---------|
 |[Klassisk måttavisering](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande om vilka mått som helst på plattformsnivå uppfyller ett visst villkor. Till exempel när värdet för **CPU %** på en virtuell dator är större än **90** under de senaste 5 minuterna.| [Klasschema för metrisk varning nyttolast](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
-|[Aktivitetsloggavisering](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande när en ny händelse i aktivitetsloggen för Azure matchar specifika villkor. Till exempel när en `Delete VM` åtgärden sker i **myProductionResourceGroup** eller när en ny Azure Service Health-händelse med en **Active** status visas.| [Aviseringen nyttolast för aktivitetslogg](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)        |
-|[Nära realtid metrisk varning](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande snabbare än måttaviseringar när ett eller flera på plattformsnivå mått uppfyller angivna villkor. Till exempel när värdet för **CPU %** på en virtuell dator är större än **90**, och värdet för **nätverk i** är större än **500 MB** under senaste 5 : e minut.| [Nära realtid metrisk varning nyttolast schema](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
+|[Aktivitetsloggavisering](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande när en ny händelse i aktivitetsloggen för Azure matchar specifika villkor. Till exempel när en `Delete VM` åtgärden sker i **myProductionResourceGroup** eller när en ny Azure Service Health-händelse med en **Active** status visas.| [Aviseringen nyttolast för aktivitetslogg](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)        |
+|[Nära realtid metrisk varning](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande snabbare än måttaviseringar när ett eller flera på plattformsnivå mått uppfyller angivna villkor. Till exempel när värdet för **CPU %** på en virtuell dator är större än **90**, och värdet för **nätverk i** är större än **500 MB** under senaste 5 : e minut.| [Nära realtid metrisk varning nyttolast schema](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
 
 Eftersom de data som tillhandahålls av varje typ av avisering är olika, hanteras annorlunda varje typ av avisering. I nästa avsnitt lär du dig att skapa en runbook för att hantera olika typer av aviseringar.
 

@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: f6959e0fec77ff046e4db86bad30502259775a49
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022847"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952485"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för tvillingar för enheten och modulen, jobb och meddelanderoutning
 
 IoT Hub tillhandahåller ett kraftfullt SQL-liknande språk för att hämta information om [enhetstvillingar] [ lnk-twins] och [jobb][lnk-jobs], och [meddelanderoutning][lnk-devguide-messaging-routes]. Den här artikeln beskriver vi:
 
 * En introduktion till de viktigaste funktionerna i frågespråket IoT Hub och
-* Detaljerad beskrivning av språket.
+* Detaljerad beskrivning av språket. Mer information om frågespråk för meddelanderoutning finns [frågor i meddelanderoutning](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -305,126 +305,6 @@ För närvarande frågar på **devices.jobs** har inte stöd för:
 * Villkor som refererar till enhetstvillingen förutom jobbegenskaper (se föregående avsnitt).
 * Utföra aggregeringar, till exempel antal, avg, gruppera efter.
 
-## <a name="device-to-cloud-message-routes-query-expressions"></a>Enhet-till-moln meddelandevägar fråga uttryck
-
-Med hjälp av [enhet till moln vägar][lnk-devguide-messaging-routes], du kan konfigurera IoT Hub för att skicka meddelanden från enheten till molnet till olika slutpunkter. Skicka är baserad på uttryck som utvärderas mot enskilda meddelanden.
-
-Vägen [villkor] [ lnk-query-expressions] använder IoT Hub-frågesyntax för språk som villkor i frågor mot enhetstvillingar och jobb, men endast en delmängd av funktionerna är tillgängliga. Väg villkoren utvärderas på meddelanderubriker och brödtext. Din routning frågeuttryck kan omfatta endast meddelandehuvudena, endast brödtext, eller båda meddelande rubriker och meddelandetext. IoT Hub förutsätter att ett visst schema för rubriker och brödtext för att dirigera meddelanden och i följande avsnitt beskrivs vad som krävs för IoT Hub för att dirigera korrekt.
-
-### <a name="routing-on-message-headers"></a>Routning på meddelandehuvudena
-
-IoT Hub förutsätter meddelandehuvudena för meddelanderoutning följande JSON-återgivning:
-
-```json
-{
-  "message": {
-    "systemProperties": {
-      "contentType": "application/json",
-      "contentEncoding": "utf-8",
-      "iothub-message-source": "deviceMessages",
-      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
-    },
-    "appProperties": {
-      "processingPath": "<optional>",
-      "verbose": "<optional>",
-      "severity": "<optional>",
-      "testDevice": "<optional>"
-    },
-    "body": "{\"Weather\":{\"Temperature\":50}}"
-  }
-}
-```
-
-Meddelandet Systemegenskaper föregås den `'$'` symbolen.
-Användaregenskaper nås alltid med deras namn. Om ett användarnamn för egenskapen är i linje med en systemegenskap (till exempel `$contentType`), Användaregenskapen hämtas med den `$contentType` uttryck.
-Du kan alltid komma åt Systemegenskapen med hakparenteser `{}`: du kan exempelvis använda uttrycket `{$contentType}` att komma åt Systemegenskapen `contentType`. Inom hakparenteser egenskapsnamn hämta alltid motsvarande Systemegenskapen.
-
-Kom ihåg att egenskapsnamn är skiftlägeskänsliga.
-
-> [!NOTE]
-> Alla meddelandeegenskaper är strängar. Systemegenskaper, enligt beskrivningen i den [utvecklarguide][lnk-devguide-messaging-format], är för närvarande inte tillgängliga för användning i frågor.
->
-
-Exempel: Om du använder en `messageType` egenskapen kanske du vill dirigera all telemetri till en slutpunkt och alla aviseringar till en annan slutpunkt. Du kan skriva följande uttryck för att dirigera telemetri:
-
-```sql
-messageType = 'telemetry'
-```
-
-Och att dirigera aviseringarna som följande uttryck:
-
-```sql
-messageType = 'alert'
-```
-
-Booleskt uttryck och funktioner stöds också. Den här funktionen kan du skilja mellan allvarlighetsgrad, till exempel:
-
-```sql
-messageType = 'alerts' AND as_number(severity) <= 2
-```
-
-Referera till den [uttryck och villkor] [ lnk-query-expressions] avsnittet för en fullständig lista över stöds operatorer och funktioner.
-
-### <a name="routing-on-message-bodies"></a>Routning på meddelandetext
-
-IoT Hub kan endast dirigerar baserat på meddelandetexten innehållet om meddelandets brödtext är korrekt formaterad JSON-kodad i UTF-8, UTF-16- eller UTF-32. Ange innehållstyp för meddelandet att `application/json`. Ange det innehåll som kodning till en av stöds UTF-kodningar i meddelandehuvudena. Om något av rubrikerna som har angetts försöker IoT Hub inte att utvärdera eventuella frågeuttryck som involverar texten mot meddelandet. Om meddelandet inte är ett JSON-meddelande, eller om meddelandet inte anger den innehållstyp och Innehållskodning, kan du fortfarande använda meddelanderoutning för att dirigera meddelandet utifrån meddelandehuvudena.
-
-I följande exempel visas hur du skapar ett meddelande med en korrekt formaterad och kodade JSON-texten:
-
-```csharp
-string messageBody = @"{ 
-                            ""Weather"":{ 
-                                ""Temperature"":50, 
-                                ""Time"":""2017-03-09T00:00:00.000Z"", 
-                                ""PrevTemperatures"":[ 
-                                    20, 
-                                    30, 
-                                    40 
-                                ], 
-                                ""IsEnabled"":true, 
-                                ""Location"":{ 
-                                    ""Street"":""One Microsoft Way"", 
-                                    ""City"":""Redmond"", 
-                                    ""State"":""WA"" 
-                                }, 
-                                ""HistoricalData"":[ 
-                                    { 
-                                    ""Month"":""Feb"", 
-                                    ""Temperature"":40 
-                                    }, 
-                                    { 
-                                    ""Month"":""Jan"", 
-                                    ""Temperature"":30 
-                                    } 
-                                ] 
-                            } 
-                        }"; 
- 
-// Encode message body using UTF-8 
-byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
- 
-using (var message = new Message(messageBytes)) 
-{ 
-    // Set message body type and content encoding. 
-    message.ContentEncoding = "utf-8"; 
-    message.ContentType = "application/json"; 
- 
-    // Add other custom application properties.  
-    message.Properties["Status"] = "Active";    
- 
-    await deviceClient.SendEventAsync(message); 
-}
-```
-
-Du kan använda `$body` i frågeuttrycket att vidarebefordra meddelandet. Du kan använda en enkel brödtext-referens, brödtext matrisreferens eller flera brödtext referenser i frågeuttrycket. Din frågeuttryck kan också kombinera en brödtext-referens med en referens för rubriken. Följande är alla giltiga frågeuttryck:
-
-```sql
-$body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
-length($body.Weather.Location.State) = 2
-$body.Weather.Temperature = 50 AND Status = 'Active'
-```
-
 ## <a name="basics-of-an-iot-hub-query"></a>Grunderna i en IoT Hub-fråga
 Varje IoT Hub-fråga består av väljer och från satser med valfritt var och en GROUP BY-satser. Varje fråga som körs på en samling av JSON-dokument, till exempel enhetstvillingar. FROM-satsen anger dokumentsamling itereras på (**enheter** eller **devices.jobs**). Sedan tillämpas filtret i WHERE-satsen. Resultatet av det här steget är grupperade med aggregeringar, som angetts i GROUP BY-satsen. En rad skapas för varje grupp som angetts i SELECT-satsen.
 
@@ -614,8 +494,7 @@ Lär dig att köra frågor i dina appar med hjälp av [Azure IoT SDK: er][lnk-hu
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

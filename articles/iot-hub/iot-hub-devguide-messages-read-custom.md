@@ -1,6 +1,6 @@
 ---
 title: Förstå Azure IoT Hub anpassade slutpunkter | Microsoft Docs
-description: Utvecklarhandbok - använder regler för routning för att vidarebefordra meddelanden från enhet till moln till anpassade slutpunkter.
+description: Utvecklarguide – använder Routning frågor för att dirigera meddelanden från enheten till molnet till anpassade slutpunkter.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,60 +8,54 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: b035c7ef6dfe56c4b4534e081e70d95ea7c14847
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: af0b819c6c60835089c174a1f9f7c3a6215e362c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808034"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956975"
 ---
-# <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använd meddelandevägar och anpassade slutpunkter för meddelanden från enhet till moln
+# <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använd meddelandevägar och anpassade slutpunkter för meddelanden från enheten till molnet
 
-IoT-hubb kan du dirigera [meddelanden från enhet till moln] [ lnk-device-to-cloud] till IoT-hubb service-riktade slutpunkter baserat på Egenskaper. Regler för routning ger dig möjlighet att skicka meddelanden när de behöver gå utan att behöva ytterligare tjänster eller anpassad kod. Varje regel för vidarebefordran av du konfigurerar har följande egenskaper:
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+IoT Hub [meddelanderoutning](iot-hub-devguide-routing-query-syntax.md) gör att användarna kan dirigera meddelanden från enheten till molnet till tjänst-slutpunkter. Routning innehåller också en förfrågningar till möjlighet att filtrera data innan du skicka det till slutpunkterna. Varje routning fråga som du konfigurerar har följande egenskaper:
 
 | Egenskap       | Beskrivning |
 | ------------- | ----------- |
-| **Namn**      | Unika namn som identifierar regeln. |
-| **Källa**    | Ursprung för dataström som ska användas. Till exempel enhetstelemetrin. |
-| **Villkor** | Frågeuttrycket för regel för vidarebefordran som körs mot meddelandets sidhuvuden och brödtext och avgör om det finns en matchning för slutpunkten. Mer information om hur du skapar en väg villkor finns i [referens - frågespråket för jobb och enheten twins][lnk-devguide-query-language]. |
-| **slutpunkt**  | Namnet på slutpunkten där IoT-hubb skickar meddelanden som matchar villkoret. Slutpunkter måste vara i samma region som IoT-hubben, får annars du debiteras för cross-region skrivningar. |
+| **Namn**      | Det unika namnet som identifierar frågan. |
+| **Källa**    | Ursprunget för dataström som ska åtgärdas. Till exempel enhetstelemetri. |
+| **villkor** | Frågeuttryck för routning frågan som körs mot meddelande programegenskaper, Systemegenskaper, meddelandetexten, device twin taggar och tvillingegenskaper att avgöra om det finns en matchning för slutpunkten. Mer information om hur du skapar en fråga finns i [meddelande frågesyntax för Routning](iot-hub-devguide-routing-query-syntax.md) |
+| **Slutpunkt**  | Namnet på slutpunkten där IoT Hub skickar meddelanden som matchar frågan. Vi rekommenderar att du väljer en slutpunkt i samma region som din IoT-hubb. |
 
-Ett enda meddelande kan matchar villkoret på flera routningsregler fallet IoT-hubb skickar meddelandet till slutpunkten som är associerade med varje matchade regel. IoT-hubb också automatiskt deduplicates meddelandeleverans, så om ett meddelande matchar flera regler som har samma mål, det är bara skriva en gång till denna destination.
+Ett enskilt meddelande som kan matcha tillståndet på flera routning frågor om IoT-hubb levererar meddelandet till slutpunkten som är associerade med varje matchade fråga. IoT Hub automatiskt deduplicates meddelandeleverans, så om ett meddelande matchar flera frågor som har samma mål, de endast skrivs en gång till destinationen.
 
 ## <a name="endpoints-and-routing"></a>Slutpunkter och Routning
 
-En IoT-hubb har standard [inbyggd slutpunkt][lnk-built-in]. Du kan skapa anpassade slutpunkter skicka meddelanden till andra tjänster i din prenumeration länkar till hubben. IoT-hubb stöder för närvarande Azure Storage-behållare, Event Hubs, Service Bus-köer och Service Bus-ämnen som anpassade slutpunkter.
+En IoT-hubb har en standard [inbyggd slutpunkt][lnk-built-in]. Du kan skapa anpassade slutpunkter skicka meddelanden till genom att länka andra tjänster i din prenumeration till hubben. IoT Hub stöder för närvarande Azure Storage-behållare, Event Hubs, Service Bus-köer och Service Bus-ämnen som anpassade slutpunkter.
 
-När du använder Routning och anpassade slutpunkter, levereras endast meddelanden till inbyggda slutpunkten om de inte matchar alla regler. För att leverera meddelanden till inbyggda slutpunkten även om en egen slutpunkt, lägga till en väg som skickar meddelanden till den **händelser** slutpunkt.
+När du använder Routning och anpassade slutpunkter levereras endast meddelanden till den inbyggda slutpunkten om de inte matchar alla frågor. Om du vill skicka meddelanden till den inbyggda slutpunkten även om en anpassad slutpunkt, lägger du till ett flöde som skickar meddelanden till den **händelser** slutpunkt.
 
 > [!NOTE]
-> IoT-hubb endast stöd för skrivning av data till Azure Storage-behållare som blobar.
+> IoT Hub stöder endast skriva data till Azure Storage-behållare som blobar.
 
 > [!WARNING]
-> Service Bus-köer och ämnen med **sessioner** eller **dubblettidentifiering** aktiverat som anpassade slutpunkter stöds inte.
+> Service Bus-köer och ämnen med **sessioner** eller **dubblettidentifiering** aktiverat stöds inte som anpassade slutpunkter.
 
-Mer information om hur du skapar anpassade slutpunkter i IoT-hubb finns [IoT-hubbslutpunkter][lnk-devguide-endpoints].
+Mer information om hur du skapar anpassade slutpunkter i IoT Hub finns i [IoT Hub-slutpunkter][lnk-devguide-endpoints].
 
-För mer information om läsning från anpassade slutpunkter, se:
+Mer information om läsning från anpassade slutpunkter finns:
 
-* Läsning från [Azure Storage-behållare][lnk-getstarted-storage].
-* Läsning från [Händelsehubbar][lnk-getstarted-eh].
-* Läsning från [Service Bus-köer][lnk-getstarted-queue].
-* Läsning från [Service Bus-ämnen][lnk-getstarted-topic].
-
-## <a name="latency"></a>Svarstid
-
-När du dirigerar enhet till moln telemetri meddelanden med hjälp av inbyggda slutpunkter är det den ökade i fördröjningen slutpunkt till slutpunkt efter skapandet av den första vägen.
-
-I de flesta fall är genomsnittliga ökningen av svarstiden mindre än en sekund. Du kan övervaka svarstid med **d2c.endpoints.latency.builtIn.events** [IoT-hubb mått](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics). Skapa eller ta bort någon väg efter den första inte påverkar fördröjningen slutpunkt till slutpunkt.
+* Läsa från [Azure Storage-behållare][lnk-getstarted-storage].
+* Läsa från [Händelsehubbar][lnk-getstarted-eh].
+* Läsa från [Service Bus-köer][lnk-getstarted-queue].
+* Läsa från [Service Bus-ämnen][lnk-getstarted-topic].
 
 ### <a name="next-steps"></a>Nästa steg
 
-Läs mer om IoT-hubbslutpunkter [IoT-hubbslutpunkter][lnk-devguide-endpoints].
-
-Mer information om frågespråket som du använder för att definiera regler för routning finns [IoT-hubb frågespråk för enheten twins, jobb och meddelanderoutning][lnk-devguide-query-language].
-
-Den [processen IoT Hub-enhet till moln meddelanden med hjälp av vägar] [ lnk-d2c-tutorial] kursen visar hur du använder regler för Routning och anpassade slutpunkter.
+* Läs mer om IoT Hub-slutpunkter, [IoT Hub-slutpunkter][lnk-devguide-endpoints].
+* Mer information om frågespråket som du använder för att definiera routning frågor finns i [frågesyntax för routning till meddelandet](iot-hub-devguide-routing-query-syntax.md).
+* Den [Process IoT Hub enhet-till-moln-meddelanden med vägar] [ lnk-d2c-tutorial] självstudiekursen visar hur du använder Routning frågor och anpassade slutpunkter.
 
 [lnk-built-in]: iot-hub-devguide-messages-read-builtin.md
 [lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md

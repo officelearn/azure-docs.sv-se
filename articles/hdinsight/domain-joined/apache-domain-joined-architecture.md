@@ -1,6 +1,6 @@
 ---
-title: Domänansluten Azure HDInsight-arkitektur
-description: Lär dig hur du planerar för domänansluten HDInsight.
+title: Azure HDInsight-arkitektur med Enterprise Security Package
+description: Lär dig hur du planerar HDInsight säkerhet med Enterprise Security Package.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
@@ -8,15 +8,15 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.openlocfilehash: efdc9cfbbe9a78571e0a56437e512d0cbbc18b3e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.date: 09/24/2018
+ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297287"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998946"
 ---
-# <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planera Azure-domänanslutna Hadoop-kluster i HDInsight
+# <a name="use-enterprise-security-package-in-hdinsight"></a>Använda Enterprise Security Package i HDInsight
 
 Standard Azure HDInsight-kluster är en enskild användare-kluster. Det är lämpligt för de flesta företag som har små applikationsteam som att skapa stora arbetsbelastningar. Varje användare kan skapa ett dedikerat kluster på begäran och förstöra det när det inte behövs längre. 
 
@@ -29,7 +29,7 @@ Virtuella datorer (VM) i HDInsight är domänansluten till den angivna domänen.
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrera HDInsight med Active Directory
 
-Hadoop för öppen källkod använder Kerberos för autentisering och säkerhet. Därför är HDInsight-klusternoder anslutna till en domän till en domän som hanteras av Azure AD DS. Säkerhet för Kerberos har konfigurerats för Hadoop-komponenter på klustret. 
+Hadoop för öppen källkod använder Kerberos för autentisering och säkerhet. Därför är HDInsight-klusternoder med Enterprise Security Package (ESP) anslutna till en domän som hanteras av Azure AD DS. Säkerhet för Kerberos har konfigurerats för Hadoop-komponenter på klustret. 
 
 För varje komponent i Hadoop skapas automatiskt ett huvudnamn för tjänsten. En motsvarande dator huvudnamn skapas också för varje dator som är ansluten till domänen. För att lagra dessa service och datorn säkerhetsobjekt, måste du ange en organisationsenhet (OU) i domänkontrollanten (Azure AD DS), där dessa säkerhetsobjekt är placerade. 
 
@@ -45,7 +45,7 @@ Sammanfattningsvis, måste du konfigurera en miljö med:
 
 I följande skärmbild visas en Organisationsenhet som skapats i contoso.com. Den visar även vissa av tjänstens huvudnamn och datorn säkerhetsobjekt.
 
-![Organisationsenhet för domänanslutna HDInsight-kluster](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
+![Organisationsenhet för HDInsight-kluster med ESP](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>Konfigurera olika domänkontrollanter
 HDInsight stöder för närvarande endast Azure AD DS som den huvudsakliga domänkontrollant som klustret använder för Kerberos-kommunikation. Men andra avancerade inställningar för Active Directory är möjligt, så länge som en sådan konfiguration leder till att aktivera Azure AD DS för HDInsight-åtkomst.
@@ -55,7 +55,7 @@ HDInsight stöder för närvarande endast Azure AD DS som den huvudsakliga domä
 
 Användare, grupper och lösenord synkroniseras från Azure Active Directory (AD Azure). Enkelriktad synkronisering från din Azure AD-instans till Azure AD DS gör det möjligt för användare att logga in till klustret med hjälp av samma företagets autentiseringsuppgifter. 
 
-Mer information finns i [konfigurera domänanslutna HDInsight-kluster med Azure AD DS](./apache-domain-joined-configure-using-azure-adds.md).
+Mer information finns i [konfigurera HDInsight-kluster med hjälp av Azure AD DS ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
 ### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>Den lokala Active Directory eller Active Directory på virtuella IaaS-datorer
 
@@ -63,9 +63,10 @@ Om du har en lokal Active Directory-instans eller mer komplexa Active Directory-
 
 Eftersom Kerberos är beroende av hashvärden för lösenord, måste du [aktivera lösenordshashsynkronisering på Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Om du använder federation med Active Directory Federation Services (AD FS), kan du också konfigurera lösenordshashsynkronisering som en säkerhetskopia om det inte går att AD FS-infrastrukturen. Mer information finns i [aktivera lösenordshashsynkronisering med Azure AD Connect-synkronisering](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
-Med hjälp av en lokal Active Directory eller Active Directory på virtuella IaaS-datorer separat, utan Azure AD och Azure AD DS, inte är en konfiguration som stöds för domänanslutna HDInsight-kluster.
+Använda en lokal Active Directory eller Active Directory på egen hand utan Azure AD och Azure AD DS, IaaS-datorer är inte en konfiguration som stöds för HDInsight-kluster med ESP.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Konfigurera domänanslutna HDInsight-kluster](apache-domain-joined-configure-using-azure-adds.md)
-* [Konfigurera Hive-principer för domänanslutna HDInsight-kluster](apache-domain-joined-run-hive.md)
-* [Hantera domänanslutna HDInsight-kluster](apache-domain-joined-manage.md) 
+
+* [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md)
+* [Konfigurera Hive-principer för HDInsight-kluster med ESP](apache-domain-joined-run-hive.md)
+* [Hantera HDInsight-kluster med ESP](apache-domain-joined-manage.md) 

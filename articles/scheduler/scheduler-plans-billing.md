@@ -1,83 +1,87 @@
 ---
-title: Planer och fakturering i Azure Scheduler
-description: Planer och fakturering i Azure Scheduler
+title: Planer och fakturering – Azure Scheduler
+description: Lär dig mer om prenumerationer och fakturering för Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 03f335634b7ce1fe4aa6251d6ec21922ed9b84c8
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 74f13628b62d53a84b4d19255a30a6bc4a7367ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887495"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974297"
 ---
-# <a name="plans-and-billing-in-azure-scheduler"></a>Planer och fakturering i Azure Scheduler
-## <a name="job-collection-plans"></a>Jobbet Samlingsplaner
-Jobbsamlingar är fakturerbara entiteten i Azure Scheduler. Jobbsamlingar innehåller ett antal jobb och träder i tre planer – Standard, P10 Premium eller P20 Premium – som beskrivs nedan.
+# <a name="plans-and-billing-for-azure-scheduler"></a>Planer och fakturering för Azure Scheduler
 
-| **Samlingsplan för jobbet** | **Max antal jobb per Jobbsamling** | **Max antal upprepningar** | **Maximalt antal Jobbsamlingar per prenumeration** | **Begränsningar** |
+> [!IMPORTANT]
+> [Med Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras. Att schemalägga jobb, [prova Azure Logic Apps i stället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+## <a name="job-collection-plans"></a>Jobbet samlingsplaner
+
+En jobbsamling innehåller ett visst antal jobb i Azure Scheduler. Jobbsamlingen är fakturerbar enhet och ingår i Standard, P10 Premium eller P20 Premium-planer, som beskrivs här: 
+
+| Samlingsplan för jobbet | Max antal jobb per samling | Max antal upprepningar | Maximalt antal jobbsamlingar per prenumeration | Begränsningar | 
 |:--- |:--- |:--- |:--- |:--- |
-| **Standard** |50 jobb per jobbsamling |En gång per minut. Det går inte att köra jobb oftare än en gång i minuten |Upp till 100 jobbsamlingar som standard tillåts i en prenumeration |Åtkomst till fullständiga funktionsuppsättningen för Scheduler |
-| **P10 Premium** |50 jobb per jobbsamling |En gång per minut. Det går inte att köra jobb oftare än en gång i minuten |En prenumeration kan upp till 10 000 P10 Premium-jobbsamlingar. <a href="mailto:wapteams@microsoft.com">Kontakta oss</a> mer. |Åtkomst till fullständiga funktionsuppsättningen för Scheduler |
-| **P20 Premium** |1000 jobb per jobbsamling |En gång per minut. Det går inte att köra jobb oftare än en gång i minuten |En prenumeration kan upp till 10 000 P20 Premium-jobbsamlingar. <a href="mailto:wapteams@microsoft.com">Kontakta oss</a> mer. |Åtkomst till fullständiga funktionsuppsättningen för Scheduler |
-
-## <a name="upgrades-and-downgrades-of-job-collection-plans"></a>- Och nedgraderingar av jobbet Samlingsplaner
-Du kan uppgradera eller nedgradera en jobbet samlingsplanen när som helst mellan Standard, P10 Premium eller P20 Premium-planer.
-
-## <a name="billing-and-azure-plans"></a>Fakturerings- och Azure-prenumerationer
-Om du har fler än 100 standard jobbsamlingar (10 standard faktureringsenheter), är det en bättre affär ha alla jobbsamlingar i premium-prenumerationen.
-
-Om du har en jobbsamling som standard och premium för en jobbsamling, du är faktureras en standard faktureringsenheten *och* fakturering premiumenhet. Scheduler-tjänsten räkningarna baserat på antalet aktiva jobbsamlingar som är inställda på antingen standard eller premium; Detta beskrivs närmare i följande två avsnitt.
-
-## <a name="standard-billable-units"></a>Standard faktureringsbara enheter
-En standardenhet för fakturerbar kan innehålla upp till 10 standard jobbsamlingar. Eftersom en jobbsamling som standard kan ha upp till 50 jobb per jobbsamling, kan en prenumeration har upp till 500 jobb – upp till nästan 22 miljoner jobbkörningar per månad i en standardenhet för fakturering.
-
-Om du har mellan 1 och 10 standard jobbsamlingar, kommer du att debiteras för en standardenhet för fakturering. Om du har mellan 11 och 20 standard jobbsamlingar, debiteras du för två standardenheter för fakturering. Om du har mellan 21 och 30 standard jobbsamlingar, du debiteras för tre standardenheter för fakturering och så vidare.
-
-## <a name="p10-premium-billable-units"></a>P10 Premium-faktureringsbara enheter
-En P10 premium faktureringsbar enhet kan innehålla upp till 10 000 P10 premium-jobbsamlingar. Eftersom en P10 premium jobbsamling kan ha upp till 50 jobb per jobbsamling, kan en premium-faktureringsenheten en prenumeration har upp till 500 000 jobb – upp till nästan 22 miljarder jobbkörningar per månad.
-
-Om du har mellan 1 och 10 000 premium-jobbsamlingar, kommer du att debiteras för en P10 premium Faktureringsenhet. Om du har mellan 10,001 och 20 000 premium-jobbsamlingar, du debiteras för 2 P10 premium faktureringsenheter och så vidare.
-
-Därför P10 premium-jobbsamlingar har samma funktioner som standard jobbsamlingar men ger en prisskillnad om programmet kräver många jobbsamlingar.
-
-## <a name="p20-premium-billable-units"></a>P20 Premium faktureringsbara enheter
-En P20 premium faktureringsbar enhet kan innehålla upp till 5 000 P20 premium-jobbsamlingar. Eftersom en P20 premium jobbsamling kan ha upp till 1 000 jobb per jobbsamling, kan en premium-faktureringsenheten en prenumeration har upp till 5 000 000 jobb – upp till nästan 220 miljarder jobbkörningar per månad.
-
-P20 premium-jobbsamlingar innehåller samma funktioner som P10 premium-jobbsamlingar, men också stöder ett större antal jobb per jobbsamling och större totala antal jobb övergripande än P10 premium så att du har mer skalbarhet.
-
-## <a name="billing-and-active-status"></a>Fakturerings- och aktiv Status
-Jobbsamlingar är alltid aktiva om inte din hela prenumerationen har gått till vissa tillfälligt inaktiverat tillstånd på grund av fakturering problem. Det enda sättet att se till att en jobbsamling, inte faktureras är att ta bort jobbsamlingen.
-
-Men du kan inaktivera alla jobb i en jobbsamling i en enda åtgärd, ändras inte fakturering status för jobbsamlingen – jobbsamlingen kommer *fortfarande* debiteras. På samma sätt tom jobbsamlingar betraktas active och kommer att debiteras.
+| **Standard** | 50 jobb per samling | En per minut. Jobb kan inte köras oftare än en per minut. | Varje Azure-prenumeration kan ha upp till 100 jobbsamlingar som Standard. | Åtkomst till fullständiga funktionsuppsättningen för Scheduler | 
+| **P10 Premium** | 50 jobb per samling | En per minut. Jobb kan inte köras oftare än en per minut. | Varje Azure-prenumeration kan ha upp till 10 000 P10 Premium-jobbsamlingar. För mer samlingar <a href="mailto:wapteams@microsoft.com">Kontakta oss</a>. | Åtkomst till fullständiga funktionsuppsättningen för Scheduler |
+| **P20 Premium** | 1000 jobb per samling | En per minut. Jobb kan inte köras oftare än en per minut. | Varje Azure-prenumeration kan ha upp till 5 000 P20 Premium-jobbsamlingar. För mer samlingar <a href="mailto:wapteams@microsoft.com">Kontakta oss</a>. | Åtkomst till fullständiga funktionsuppsättningen för Scheduler |
+|||||| 
 
 ## <a name="pricing"></a>Prissättning
+
 Information om prissättning finns i [Scheduler priser](https://azure.microsoft.com/pricing/details/scheduler/).
 
-## <a name="see-also"></a>Se även
- [Vad är Scheduler?](scheduler-intro.md)
+## <a name="upgrade-or-downgrade-plans"></a>Uppgradera eller nedgradera planer
 
- [Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler](scheduler-concepts-terms.md)
+Du kan uppgradera eller nedgradera en jobbet samlingsplanen mellan Standard, P10 Premium eller P20 Premium-planer när som helst.
 
- [Komma igång med Scheduler på Azure-portalen](scheduler-get-started-portal.md)
+## <a name="active-status-and-billing"></a>Status för aktiva och fakturering
 
- [Referens för REST-API:et för Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
+Jobbsamlingar är alltid aktiv, såvida inte hela Azure-prenumerationen hamnar i ett tillfälligt inaktiverat tillstånd på grund av fakturaärenden. Och även om du inaktivera alla jobb i en jobbsamling via en enda åtgärd, den här åtgärden inte ändras status för jobb-samling fakturering så jobbsamlingen är *fortfarande* faktureras. Tom jobbsamlingar betraktas active och faktureras.
 
- [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)
+För att säkerställa en jobbsamling inte är faktureras, måste du ta bort jobbsamlingen.
 
- [Hög tillgänglighet och tillförlitlighet i Azure Scheduler](scheduler-high-availability-reliability.md)
+## <a name="standard-billable-units"></a>Standard faktureringsbara enheter
 
- [Gränser, standardinställningar och felkoder i Azure Scheduler](scheduler-limits-defaults-errors.md)
+En standardenhet för fakturerbar kan ha upp till 10 Standard jobbsamlingar. Eftersom en jobbsamling som Standard kan ha upp till 50 jobb per samling, en standardenhet för fakturering kan din Azure-prenumeration har upp till 500 jobb eller upp till nästan 22 *miljoner* jobbkörningar per månad. Den här listan förklaras hur du faktureras baserat på olika mängder Standard jobbsamlingar:
 
- [Utgående autentisering i Azure Scheduler](scheduler-outbound-authentication.md)
+* Om du har mellan 1 och 10 Standard jobbsamlingar kan faktureras du för en standardenhet för fakturering. 
 
+* Om du har mellan 11 och 20 Standard jobbsamlingar faktureras du för två standardenheter för fakturering. 
+
+* Om du har mellan 21 och 30 Standard jobbsamlingar du faktureras för tre standardenheter för fakturering och så vidare.
+
+## <a name="p10-premium-billable-units"></a>Premium P10-faktureringsbara enheter
+
+En P10 premium faktureringsbar enhet kan ha upp till 10 000 P10 Premium-jobbsamlingar. Eftersom en P10 Premium jobbsamling kan ha upp till 50 jobb per samling, en P10 premium faktureringsenheten kan din Azure-prenumeration har upp till 500 000 jobb eller upp till nästan 22 *miljard* jobbkörningar per månad. 
+
+P10 Premium-jobbsamlingar innehåller samma funktioner som Standard jobbsamlingar, men erbjuder en prisskillnad för appar som kräver många jobbsamlingar och ge mer skalbarhet. Den här listan förklaras hur du faktureras baserat på olika mängder P10 Premium-jobbsamlingar:
+
+* Om du har mellan 1 och 10 000 jobbsamlingar för P10 Premium faktureras du för en P10 premium Faktureringsenhet. 
+
+* Om du har mellan 10,001 och 20 000 P10 Premium-jobbsamlingar du faktureras för 2 P10 premium faktureringsenheter och så vidare.
+
+## <a name="p20-premium-billable-units"></a>P20 premium faktureringsbara enheter
+
+En P20 premium faktureringsbar enhet kan ha upp till 5 000 P20 Premium-jobbsamlingar. Eftersom en P20 Premium jobbsamling kan ha upp till 1 000 jobb per jobbsamling, en P20 premium faktureringsenheten kan din Azure-prenumeration har upp till 5 000 000 jobb eller upp till nästan 220 *miljard* jobbkörningar per månad.
+
+P20 Premium-jobbsamlingar ger samma funktioner som P10 Premium-jobbsamlingar men stöder ett större antal jobb per samling och ett större totala antal jobb övergripande än P10 Premium, erbjuder mer skalbarhet.
+
+## <a name="plan-comparison"></a>Jämförelse av avtal
+
+* Om du har fler än 100 Standard jobbsamlingar (10 standard faktureringsenheter), kan du få en bättre affär genom att låta alla jobbsamlingar i en premiumplan.
+
+* Om du har en jobbsamling som Standard och en Premium-jobbsamlingen kommer du faktureras för en standardenhet för fakturering *och* fakturering premiumenhet.
+
+  Scheduler-tjänsten fakturerar baserat på antalet aktiva jobbsamlingar som är antingen standard eller premium.
+
+## <a name="see-also"></a>Se också
+
+* [Vad är Azure Scheduler?](scheduler-intro.md)
+* [Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler](scheduler-concepts-terms.md)
+* [Gränser, standardinställningar och felkoder i Azure Scheduler](scheduler-limits-defaults-errors.md)

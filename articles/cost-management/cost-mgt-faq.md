@@ -1,31 +1,31 @@
 ---
-title: Vanliga frågor om Azure Cost Management | Microsoft Docs
-description: Innehåller svar på några vanliga frågor om Azure Cost Management.
+title: Vanliga frågor om Cloudyn i Azure | Microsoft Docs
+description: Innehåller svar på några vanliga frågor om Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/20/2018
+ms.date: 09/18/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 255056390cdbdbee49eba47f8168618929b386c8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 2126875a18d4a6581629ea1c8362236242a666a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187265"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961033"
 ---
-# <a name="frequently-asked-questions-for-azure-cost-management"></a>Vanliga frågor om Azure Cost Management
+# <a name="frequently-asked-questions-for-cloudyn"></a>Vanliga frågor om Cloudyn
 
-Den här artikeln tar upp några vanliga frågor om Azure Cost Management (även kallat Cloudyn). Om du har frågor om Cost Management kan du be dem på [frågor och svar om Azure Cost Management](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+Den här artikeln tar upp några vanliga frågor om Cloudyn. Om du har frågor om Cloudyn kan du be dem på [vanliga frågor och svar för Cloudyn](https://social.msdn.microsoft.com/Forums/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Hur kan jag för att lösa vanliga problem med klientinstallationen indirekt enterprise?
 
 När du börjar använda Cloudyn-portalen kan du se följande meddelanden om du använder en Enterprise-avtal eller Cloud Solution Provider (CSP):
 
-- ”Den angivna API-nyckeln inte är en nyckel för övre nivå registrering” visas i den **ställa in Azure Cost Management** guiden.
+- ”Den angivna API-nyckeln inte är en nyckel för övre nivå registrering” visas i den **upp Cloudyn** guiden.
 - ”Direktregistrering – inte” visas i portalen för Enterprise-avtal.
 - ”Inga användningsdata hittades för de senaste 30 dagarna. Kontakta din återförsäljare för att försäkra markup har aktiverats för ditt Azure-konto ”visas i Cloudyn-portalen.
 
@@ -35,9 +35,9 @@ Så här löser du problemen:
 
 1. Återförsäljaren måste aktivera _pålägg_ för ditt konto. Mer information finns i [guiden för indirekt kundregistrering](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
-2. Du skapar Azure Enterprise Agreement-nyckel för användning med Cloudyn. Anvisningar finns i [att lägga till din Azure EA](https://support.cloudyn.com/hc/en-us/articles/210429585-Adding-Your-AZURE-EA) eller [hitta Your EA Enrollment ID och API-nyckel](https://youtu.be/u_phLs_udig).
+2. Du skapar Azure Enterprise Agreement-nyckel för användning med Cloudyn. Anvisningar finns i [att lägga till din Azure EA](https://support.cloudyn.com/hc/articles/210429585-Adding-Your-AZURE-EA) eller [hitta Your EA Enrollment ID och API-nyckel](https://youtu.be/u_phLs_udig).
 
-Endast en Azure-tjänstadministratör kan aktivera Cost Management. Det räcker inte att vara medadministratör.
+Endast en Azure service-administratör kan aktivera Cloudyn. Det räcker inte att vara medadministratör.
 
 Innan du kan generera Azure Enterprise-avtal API-nyckeln att ställa in Cloudyn, måste du aktivera Azure Billing-API genom att följa anvisningarna på:
 
@@ -74,7 +74,7 @@ När du har slutfört föregående steg kan du visa rekommendationer för optime
 
 Först ska vi titta på de vanligaste scenariot som orsakar användarkonton att hämta *initiallySuspended*.
 
-> Admin1 kanske Microsoft Cloud Solution Provider- eller Enterprise Agreement-användare. Företaget är redo att börja använda Cost Management.  Han registreras via Azure portal och loggar in på Cloudyn-portalen. Som den person som registrerar Cost Management-tjänsten och loggar in på Cloudyn-portalen, han blir den *primära administratörskonto*. Admin1 skapar inte alla användarkonton. Men med Cloudyn-portalen kan han skapar Azure-konton och ställer in en entitetshierarki. Admin1 informerar Admin2, en Innehavaradministratör som han behöver för att registrera med Cost Management och logga in på Cloudyn-portalen.
+> Admin1 kanske Microsoft Cloud Solution Provider- eller Enterprise Agreement-användare. Företaget är redo att börja använda Cloudyn.  Han registreras via Azure portal och loggar in på Cloudyn-portalen. Som den person som registrerar Cloudyn-tjänsten och loggar in på Cloudyn-portalen, han blir den *primära administratörskonto*. Admin1 skapar inte alla användarkonton. Men med Cloudyn-portalen kan han skapar Azure-konton och ställer in en entitetshierarki. Admin1 informerar Admin2, en Innehavaradministratör som han behöver för att registrera med Cloudyn och logga in på Cloudyn-portalen.
 
 > Admin2 registreras via Azure portal. Men när han försöker att logga in på Cloudyn-portalen, han får ett felmeddelande om kontot är **pausats**. Den primära administratörskonto Admin1, är ett meddelande om detta konto. Admin1 måste aktivera Admin2's konto och bevilja *entitet administratörsåtkomst* för enheterna som är lämplig och tillåter användaråtkomst för hantering och aktiv användarkontot.
 
@@ -94,13 +94,13 @@ Om du ändrar din e-postadress i Cloudyn från standardadress i Azure måste kan
 
 Vi rekommenderar att du skapar minst två Cloudyn-administratörskonton om något av konton som hämtar utelåsta.
 
-Om du inte logga in på Cloudyn-portalen, kontrollerar du att du använder rätt Azure Cost Management URL: en för att logga in på Cloudyn. Använd [ https://azure.cloudyn.com ](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Om du inte logga in på Cloudyn-portalen, kontrollerar du att du använder rätt Webbadress för att logga in på Cloudyn. Använd [ https://azure.cloudyn.com ](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Undvik att använda Cloudyn direkt URL: en https://app.cloudyn.com.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Hur aktiverar jag inaktiverade konton med autentiseringsuppgifter för Azure?
 
-När dina Azure-konton har identifierats av Cloudyn, tillhandahålla kostnadsdata direkt i rapporter baserade på kostnaden. Men för Cloudyn att tillhandahålla data för användning och prestanda behöver du registrera dina Azure-autentiseringsuppgifter för konton. Anvisningar finns i [lägga till Azure Resource Manager](https://support.cloudyn.com/hc/en-us/articles/212784085-Adding-Azure-Resource-Manager).
+När dina Azure-konton har identifierats av Cloudyn, tillhandahålla kostnadsdata direkt i rapporter baserade på kostnaden. Men för Cloudyn att tillhandahålla data för användning och prestanda behöver du registrera dina Azure-autentiseringsuppgifter för konton. Anvisningar finns i [lägga till Azure Resource Manager](https://support.cloudyn.com/hc/articles/212784085-Adding-Azure-Resource-Manager).
 
 Välj Redigera symbolen till höger om namnet på kontot, inte prenumerationen för att lägga till Azure-autentiseringsuppgifter för ett konto i Cloudyn-portalen.
 
@@ -110,8 +110,8 @@ Tills du dina autentiseringsuppgifter för Azure har lagts till Cloudyn kan kont
 
 Ytterligare enheter används för att lägga till ytterligare Enterprise-avtal i en Cloudyn-prenumeration. Följande länkar beskriver hur du lägger till ytterligare enheter:
 
-- [Lägga till en entitet](https://support.cloudyn.com/hc/en-us/articles/212016145-Adding-an-Entity) artikel
-- [Definiera din hierarki med kostnadsenheter](https://support.cloudyn.com/hc/en-us/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) video
+- [Lägga till en entitet](https://support.cloudyn.com/hc/articles/212016145-Adding-an-Entity) artikel
+- [Definiera din hierarki med kostnadsenheter](https://support.cloudyn.com/hc/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) video
 
 För CSP: er:
 
@@ -141,7 +141,7 @@ Om det finns en fördröjning som skickar data från Azure till Cloudyn, registr
 
 ## <a name="cost-fluctuations-in-cloudyn-cost-reports"></a>Kostnad variationer i Cloudyn-kostnadsrapporter
 
-Kostnadsrapporter kan visa kostnaden variationer när molntjänstleverantörer skickar uppdaterade filer för fakturering. Kostnaderna varierar inträffa när nya filer tas emot från en molntjänstleverantör utanför den vanliga dagliga och månatliga reporting schema. Kostnad ändringar inte beror på Cloudyn-omberäkning. 
+Kostnadsrapporter kan visa kostnaden variationer när molntjänstleverantörer skickar uppdaterade filer för fakturering. Kostnaderna varierar inträffa när nya filer tas emot från en molntjänstleverantör utanför den vanliga dagliga och månatliga reporting schema. Kostnad ändringar inte beror på Cloudyn-omberäkning.
 
 Under hela månaden är alla fakturering filer som skickas av din molntjänstleverantör en uppskattning av dina dagliga kostnader. Ibland data uppdateras ofta – ibland flera gånger per dag. Uppdateringarna är oftare med AWS än Azure. Kostnad summor hållas stabil när faktureringsberäkning för den föregående månaden är klar och den slutgiltiga fakturering filen tas emot. Vanligtvis av 10 i månaden.
 
@@ -155,7 +155,7 @@ Anvisningar finns i [konfigurera indirekt CSP-åtkomst i Cloudyn](quick-register
 
 När du lägger till Azure Resource Manager-åtkomst och data samlas in, bör du se den **optimering** alternativet. Om du vill aktivera åtkomst till Azure Resource Manager finns i [hur aktiverar jag inaktiverade konton med autentiseringsuppgifter för Azure?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
 
-## <a name="is-cost-managementcloudyn-agent-based"></a>Baseras Cost Management/Cloudyn-agenten?
+## <a name="is-cloudyn-agent-based"></a>Baseras Cloudyn-agenten?
 
 Nej. Agenter som inte används. Azure-dator måttdata för virtuella datorer har samlats in från Microsoft Insights-API. Om du vill samla in mått data från virtuella Azure-datorer som de behöver ha inställningarna för startdiagnostik aktiverat.
 

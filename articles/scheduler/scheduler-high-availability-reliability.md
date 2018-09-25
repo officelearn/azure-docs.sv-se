@@ -1,82 +1,78 @@
 ---
-title: Schemaläggaren hög tillgänglighet och tillförlitlighet
-description: Schemaläggaren hög tillgänglighet och tillförlitlighet
+title: Hög tillgänglighet och tillförlitlighet – Azure Scheduler
+description: Lär dig mer om hög tillgänglighet och tillförlitlighet i Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.author: deli
-ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866095"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947932"
 ---
-# <a name="scheduler-high-availability-and-reliability"></a>Schemaläggaren hög tillgänglighet och tillförlitlighet
-## <a name="azure-scheduler-high-availability"></a>Azure Scheduler hög tillgänglighet
-Som en kärna Azure-plattformstjänsten Azure Schemaläggaren har hög tillgänglighet och funktioner både geo-redundant service-distributionen och geo regionala jobbet replikering.
+# <a name="high-availability-and-reliability-for-azure-scheduler"></a>Hög tillgänglighet och tillförlitlighet för Azure Scheduler
+
+> [!IMPORTANT]
+> [Med Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras. Att schemalägga jobb, [prova Azure Logic Apps i stället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+Azure Scheduler erbjuder både [hög tillgänglighet](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) och tillförlitligheten för dina jobb. Mer information finns i [SLA för Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
+
+## <a name="high-availability"></a>Hög tillgänglighet
+
+Azure Scheduler är [högtillgänglig] och använder både tjänstdistributionen geo-redundant och geo-regionala jobbet replikering.
 
 ### <a name="geo-redundant-service-deployment"></a>GEO-redundant tjänstdistribution
-Azure Schemaläggaren är tillgänglig via Användargränssnittet i nästan alla geografisk region som är i Azure idag. Listan över regioner som Azure Schemaläggaren finns i är [som listas här](https://azure.microsoft.com/regions/#services). Om ett datacenter i en värdbaserad region återges inte tillgänglig, är funktioner för redundans av Azure-schemaläggare så att tjänsten är tillgänglig från en annan datacenter.
+
+Azure Scheduler är tillgängliga i Azure-portalen i nästan [varje geografisk region som stöds av Azure i dag](https://azure.microsoft.com/global-infrastructure/regions/#services). Så om ett Azure-datacenter i en värdbaserad region blir otillgänglig, kan du fortfarande använda Azure Scheduler eftersom tjänstens växling tillgängliggöra Scheduler från ett annat datacenter.
 
 ### <a name="geo-regional-job-replication"></a>GEO-regionala jobbet replikering
-Är inte bara Azure Schemaläggaren frontend tillgänglig för av hanteringsbegäranden, men din egen jobbet är också georeplikerad. När det finns ett avbrott i en region, Azure Scheduler växlas över och ser till att jobbet körs från en annan datacenter i parad geografiska region.
 
-Till exempel om du har skapat ett jobb i södra centrala USA, replikerar Azure Scheduler automatiskt det jobbet i norra centrala USA. När det finns ett fel i södra centrala USA, säkerställer Azure Schemaläggaren att jobbet körs från norra centrala USA. 
+Dina egna jobb i Azure Scheduler replikeras i Azure-regioner. Så om en region har ett avbrott, Azure Scheduler växlas över och ser till att jobbet körs från ett annat datacenter i parad geografiska område.
 
-![][1]
+Till exempel om du skapar ett jobb i södra centrala USA, replikering Azure Scheduler automatisk av jobbet i norra centrala USA. Om det inträffar ett fel i södra centrala USA, körs jobbet i Azure Scheduler i norra centrala USA. 
 
-Därför garanterar Azure Scheduler att dina data håller sig inom samma bredare geografiska region om ett fel uppstår på Azure. Därför kan du inte behöver duplicera jobbet bara att lägga till hög tillgänglighet – Azure Scheduler innehåller automatiskt funktioner för hög tillgänglighet för dina jobb.
+![GEO-regionala jobbet replikering](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png)
 
-## <a name="azure-scheduler-reliability"></a>Azure Scheduler tillförlitlighet
-Azure Scheduler garanterar sin egen hög tillgänglighet och använder en annan metod till användarskapade jobb. Jobbet kan till exempel anropa en HTTP-slutpunkt som inte är tillgänglig. Azure Schemaläggaren försöker dock köras ditt jobb, genom att ge dig alternativ att åtgärda felet. Azure Scheduler gör detta på två sätt:
+Azure Scheduler gör också att dina data håller sig inom samma men bredare geografisk region, i händelse av ett programvarufel i Azure. Därför har du inte duplicera dina jobb när du bara vill ha hög tillgänglighet. Azure Scheduler ger automatiskt hög tillgänglighet för dina jobb.
 
-### <a name="configurable-retry-policy-via-retrypolicy"></a>Konfigurerbar försök princip via ”retryPolicy”
-Azure Schemaläggaren kan du konfigurera en princip för återförsök. Som standard om ett jobb misslyckas försöker Schemaläggaren jobbet igen fyra gånger, med 30 sekunders intervall. Du kan konfigurera principen så att mer aggressivt (till exempel tio gånger med 30 sekunders mellanrum) försök igen eller glesare (till exempel två gånger med daglig intervall.)
+## <a name="reliability"></a>Tillförlitlighet
 
-Som ett exempel på när det kan hjälpa dig, kan du skapa ett jobb som körs en gång i veckan och anropar en HTTP-slutpunkt. Om HTTP-slutpunkten avser några timmar när jobbet körs, kan du inte vill vänta en mer vecka för jobbet ska köras igen eftersom även standardprincipen för nytt försök kommer att misslyckas. I sådana fall kan du konfigurera om principen standard försök att försöka igen var tredje timme (till exempel) i stället för med 30 sekunders mellanrum.
+Azure Scheduler garanterar en egen hög tillgänglighet men tar en annan metod för jobben som skapats av användare. Anta exempelvis att jobbet anropar en HTTP-slutpunkt som inte är tillgänglig. Azure Scheduler försöker fortfarande att kunna köras ditt jobb genom att ge alternativa metoder för att hantera fel: 
 
-Om du vill veta hur du konfigurerar en återförsöksprincip avser [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+* Konfigurera principer för återförsök.
+* Konfigurera alternativa slutpunkter.
 
-### <a name="alternate-endpoint-configurability-via-erroraction"></a>Den alternativa slutpunkten konfigurationsmöjligheter via ”errorAction”
-Mål-slutpunkten för din Azure Scheduler-jobbet är inte kan nås, faller Azure Scheduler tillbaka till den alternativa slutpunkten felhantering när du har följt av dess återförsöksprincip. Om en annan felhantering slutpunkt har konfigurerats, anropar det Azure Schemaläggaren. Med en annan slutpunkt är egna jobb hög tillgänglighet i händelse av fel.
+<a name="retry-policies"></a>
 
-Exempelvis i diagrammet nedan, följer Azure Scheduler policyn försök igen om du vill nådde en New York-webbtjänst. När de nya försök misslyckas kontrollerar om det finns ett alternativ. Sedan går vidare och startar gör begäranden till alternativa med samma återförsöksprincip.
+### <a name="retry-policies"></a>Återförsöksprinciper
 
-![][2]
+Azure Scheduler kan du konfigurera principer för återförsök. Om det inte går, sedan som standard försöker Scheduler jobbet fyra gånger med 30 sekunders mellanrum. Du kan göra en sådan återförsöksprincip mer Aggressivt, till exempel 10 gånger med 30 sekunders mellanrum eller mindre aggressiva, till exempel två gånger på varje dag intervall.
 
-Observera att samma återförsöksprincip gäller både den ursprungliga åtgärden och den alternativa felåtgärden. Du kan också har den alternativa felåtgärd åtgärdstyp skilja sig från den huvudsakliga åtgärden åtgärdstyp. Till exempel när huvudåtgärden kan anropa en HTTP-slutpunkt, kanske felåtgärden i stället queue storage, service bus-kö och service bus avsnittet åtgärd som har fel-loggning.
+Anta exempelvis att du skapar ett veckovis jobb som anropar en HTTP-slutpunkt. Om HTTP-slutpunkten är tillgänglig i några timmar när jobbet körs kanske vill du inte vänta ytterligare en vecka för att jobbet ska köras igen, vilket inträffar eftersom standardprincipen för återförsök inte fungerar i det här fallet. Därför kan du ändra återförsöksprincipen som standard så att nya försök inträffa, till exempel var tredje timme, snarare än var 30: e sekund. 
 
-Information om hur du konfigurerar en annan slutpunkt, referera till [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
+Läs hur du ställer in en återförsöksprincip i [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
-## <a name="see-also"></a>Se även
- [Vad är Scheduler?](scheduler-intro.md)
+### <a name="alternate-endpoints"></a>Alternativa slutpunkter
 
- [Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler](scheduler-concepts-terms.md)
+Om ditt Azure Scheduler-jobb kräver att en slutpunkt som inte kan nås, även när du har genomfört återförsöksprincipen, använder Scheduler till en annan slutpunkt som kan hantera sådana fel. Om du har konfigurerat den här slutpunkten anropar Scheduler så att slutpunkten, vilket gör dina egna jobb med hög tillgänglighet när fel uppstår.
 
- [Komma igång med Scheduler på Azure-portalen](scheduler-get-started-portal.md)
+Det här diagrammet visar till exempel hur Scheduler följer återförsöksprincipen när du anropar en webbtjänst i New York. Om återförsöken misslyckas kontrollerar Scheduler för en annan slutpunkt. Om slutpunkten finns Scheduler startar begäranden skickas till den alternativa slutpunkten. Samma återförsöksprincipen gäller för både den ursprungliga åtgärden och den alternativa åtgärden.
 
- [Prenumerationer och fakturering i Azure Scheduler](scheduler-plans-billing.md)
+![Scheduler beteende med återförsöksprincipen och alternativa slutpunkten](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png)
 
- [Skapa komplexa scheman och avancerad upprepning med Azure Scheduler](scheduler-advanced-complexity.md)
+Åtgärdstyp för åtgärden alternativa kan skilja sig från den ursprungliga åtgärden. Även om den ursprungliga åtgärden kräver att en HTTP-slutpunkt, kan åtgärden alternativa exempelvis logga fel med en lagringskö, Service Bus-kö eller Service Bus-ämnesåtgärd.
 
- [Referens för REST-API:et för Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
+Läs hur du ställer in en annan slutpunkt i [errorAction](scheduler-concepts-terms.md#error-action).
 
- [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)
+## <a name="see-also"></a>Se också
 
- [Gränser, standardinställningar och felkoder i Azure Scheduler](scheduler-limits-defaults-errors.md)
-
- [Utgående autentisering i Azure Scheduler](scheduler-outbound-authentication.md)
-
-[1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
-
-[2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
+* [Vad är Azure Scheduler?](scheduler-intro.md)
+* [Begrepp, terminologi och entitetshierarki](scheduler-concepts-terms.md)
+* [Skapa komplexa scheman och avancerad upprepning](scheduler-advanced-complexity.md)
+* [Gränser, kvoter, standardvärden och felkoder](scheduler-limits-defaults-errors.md)

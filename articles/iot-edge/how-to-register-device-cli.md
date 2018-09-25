@@ -1,6 +1,6 @@
 ---
 title: Registrera en ny Azure IoT Edge-enhet (CLI) | Microsoft Docs
-description: Använd IoT-tillägget för Azure CLI 2.0 för att registrera en ny IoT Edge-enhet
+description: Använd IoT-tillägget för Azure CLI för att registrera en ny IoT Edge-enhet
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 451f4df31cd1c520b14227829923f72fe80c38c3
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: ee5e68d45c7d966619238312dabedc1628a4bf61
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325504"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998040"
 ---
-# <a name="register-a-new-azure-iot-edge-device-with-azure-cli-20"></a>Registrera en ny Azure IoT Edge-enhet med Azure CLI 2.0
+# <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Registrera en ny Azure IoT Edge-enhet med Azure CLI
 
 Innan du kan använda dina IoT-enheter med Azure IoT Edge, måste du registrera dem med IoT-hubben. När du registrerar en enhet får du en anslutningssträng som kan användas för att konfigurera din enhet för Edge-arbetsbelastningar. 
 
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommandoradsverktyg med öppen källkod för flera plattformar, för hantering av Azure-resurser som IoT Edge. Det gör det möjligt för dig att hantera Azure IoT Hub-resurser, tjänstinstanser för enhetsetablering och länkade hubbar rutan. Med det nya IoT-tillägget får Azure CLI 2.0 enhetshantering och fullständig IoT Edge-funktionalitet.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är en öppen källkod för flera plattformar kommandoradsverktyget för att hantera Azure-resurser som IoT Edge. Det gör det möjligt för dig att hantera Azure IoT Hub-resurser, tjänstinstanser för enhetsetablering och länkade hubbar rutan. Det nya IoT-tillägget får Azure CLI med funktioner som enhetshantering och full IoT Edge-funktion.
 
-Den här artikeln visar hur du registrerar en ny IoT Edge-enhet med Azure CLI 2.0.
+Den här artikeln visar hur du registrerar en ny IoT Edge-enhet med hjälp av Azure CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i Azure-prenumerationen. 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Din Azure CLI 2.0-version måste vara 2.0.24 eller senare. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
-* Den [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Azure CLI-version måste minst vara 2.0.24 eller senare. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
+* Den [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="create-a-device"></a>Skapa en enhet
 
@@ -67,4 +67,4 @@ Enhetens ID-parametern är skiftlägeskänsligt. Kopiera inte citattecknen runt 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [distribuerar moduler på en enhet med Azure CLI 2.0](how-to-deploy-modules-cli.md)
+Lär dig hur du [distribuerar moduler på en enhet med Azure CLI](how-to-deploy-modules-cli.md)

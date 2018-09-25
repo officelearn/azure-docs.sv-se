@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 548c94ce502da8c6a8d208daafb5b0fb624de1e1
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b56a75074af239f60b82edbe1d074c6384c4aef1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603948"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982995"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Kom igång med frågor i Log Analytics
 
@@ -50,7 +50,7 @@ Frågor kan börja med antingen ett tabellnamn eller *search* kommando. Du bör 
 ### <a name="table-based-queries"></a>Tabell-baserade frågor
 Azure Log Analytics ordnas data i tabeller, var och en består av flera kolumner. Alla tabeller och kolumner som visas i fönstret schemat i Analytics-portalen. Identifiera en tabell att du är intresserad av och sedan ta en titt på en del data:
 
-```KQL
+```Kusto
 SecurityEvent
 | take 10
 ```
@@ -66,7 +66,7 @@ Det gick att köra frågan faktiskt även utan att lägga till `| take 10` – s
 ### <a name="search-queries"></a>Sökfrågor
 Sökfrågor är mindre strukturerad och allmänt mer lämpliga för att söka efter poster som innehåller ett specifikt värde i någon av sina kolumner:
 
-```KQL
+```Kusto
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
@@ -79,7 +79,7 @@ Den här frågan söker den *SecurityEvent* tabellen för poster som innehåller
 ## <a name="sort-and-top"></a>Sortera och upp
 Medan **ta** är användbar för att hämta några poster, resultatet är valt och visas i någon särskild ordning. Om du vill ha en ordnad vy, kan du **sortera** efter kolumnen önskade:
 
-```
+```Kusto
 SecurityEvent   
 | sort by TimeGenerated desc
 ```
@@ -88,7 +88,7 @@ Som kan returnera för många resultat om och kan ta lite tid. Frågan ovan sort
 
 Det bästa sättet att få endast de senaste 10 posterna är att använda **upp**, som sorterar hela tabellen på serversidan och returnerar de översta posterna:
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
@@ -103,7 +103,7 @@ Filter, som anges av deras namn, filtrera informationen efter ett visst villkor.
 
 Lägg till ett filter till en fråga genom att använda den **där** operatorn följt av ett eller flera villkor. Till exempel följande fråga returnerar endast *SecurityEvent* poster där _nivå_ är lika med _8_:
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8
 ```
@@ -119,14 +119,14 @@ När du skriver filtervillkor ska använda du följande uttryck:
 
 Om du vill filtrera efter flera villkor, du kan använda **och**:
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
 eller skicka flera **där** element som efter varandra:
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8 
 | where EventID == 4672
@@ -146,7 +146,7 @@ Tidsväljare är i det övre vänstra hörnet, vilket betyder att vi frågar end
 ### <a name="time-filter-in-query"></a>Tidsfiltret i frågan
 Du kan också definiera egna tidsintervall genom att lägga till ett tidsfilter i frågan. Det är bäst att placera tidsfiltret omedelbart efter tabellnamnet: 
 
-```KQL
+```Kusto
 SecurityEvent
 | where TimeGenerated > ago(30m) 
 | where toint(Level) >= 10
@@ -158,7 +158,7 @@ I ovanstående tidsfiltret `ago(30m)` innebär ”30 minuter tidigare” så att
 ## <a name="project-and-extend-select-and-compute-columns"></a>Projekt och utöka: Välj och compute kolumner
 Använd **projekt** att markera specifika kolumner ska inkluderas i resultatet:
 
-```KQL
+```Kusto
 SecurityEvent 
 | top 10 by TimeGenerated 
 | project TimeGenerated, Computer, Activity
@@ -175,7 +175,7 @@ Du kan också använda **projekt** att byta namn på kolumner och definiera nya.
 * Skapa en ny kolumn med namnet *EventCode*. Den **substring()** funktion används för att hämta endast de första fyra tecken från fältet aktivitet.
 
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated 
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
@@ -183,7 +183,7 @@ SecurityEvent
 
 **utöka** behålls alla ursprungliga kolumner i resultatuppsättningen och definierar fler håller på att. Följande fråga använder **utöka** att lägga till en *lokal tid* kolumn som innehåller ett lokaliserat TimeGenerated-värde.
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 | extend localtime = TimeGenerated-8h
@@ -193,7 +193,7 @@ SecurityEvent
 Använd **sammanfatta** identifiera grupper av poster, enligt en eller flera kolumner och tillämpliga aggregeringar. De vanligaste Använd os **sammanfatta** är *antal*, vilket returnerar antalet resultat i varje grupp.
 
 Följande fråga granskar alla *Perf* poster från den senaste timmen, grupperas av *ObjectName*, och räknar posterna i varje grupp: 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
@@ -201,7 +201,7 @@ Perf
 
 Ibland bra det att definiera grupper med flera dimensioner. Varje unik kombination av dessa värden definierar en separat grupp:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName, CounterName
@@ -209,7 +209,7 @@ Perf
 
 Ett annat vanligt användningsområde är att utföra matematiska eller statistiska beräkningar på varje grupp. Till exempel följande beräknar medelvärdet *CounterValue* för varje dator:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer
@@ -217,7 +217,7 @@ Perf
 
 Resultatet av den här frågan är tyvärr meningslöst eftersom vi blandat ihop olika prestandaräknare. Om du vill göra detta mer beskrivande, man kan beräkna medelvärdet separat för varje kombination av *CounterName* och *datorn*:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer, CounterName
@@ -228,7 +228,7 @@ Gruppera resultat kan också baseras på en time-kolumn eller en annan kontinuer
 
 För att skapa grupper baserat på kontinuerlig värden, det är bäst att bryta intervallet i hanterbara enheter med hjälp av **bin**. Följande fråga analyserar *Perf* poster som mäter ledigt minne (*tillgängliga megabyte*) på en specifik dator. Den beräknar medelvärdet för varje om 1 timme under de senaste 2 dagarna:
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(2d)
 | where Computer == "ContosoAzADDS2" 

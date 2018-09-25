@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 70ce30bdc5a12aec198a2bb1b78c9bdfa8a18882
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: cfbebf8570ee044698b0f4e0abdd58370b04f759
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42059259"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992872"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Hur du använder Azure CLI och IoT-tillägget för att hantera IoT Hub Device Provisioning-tjänsten
 
@@ -29,7 +29,7 @@ I den här självstudien får slutföra du först konfigurationen av Azure CLI o
 
 [Python 2.7x eller Python 3.x](https://www.python.org/downloads/) krävs.
 
-### <a name="step-2---install-azure-cli"></a>Steg 2 – installera Azure CLI
+### <a name="step-2---install-the-azure-cli"></a>Steg 2 – installera Azure CLI
 
 Följ den [installationsinstruktionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) att konfigurera Azure CLI i din miljö. Azure CLI-version måste minst vara 2.0.24 eller senare. Validera med `az –version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. Ett enkelt sätt att installera i Windows är att hämta och installera [MSI](https://aka.ms/InstallAzureCliWindows).
 

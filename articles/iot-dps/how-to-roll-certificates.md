@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056763"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976762"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Hur du ska distribuera X.509-enhetscertifikat
 
@@ -41,7 +41,7 @@ Certifikat på en enhet ska alltid lagras på en säker plats som en [maskinvaru
 
 Om du har fått ditt certifikat från en tredje part måste du se över hur de distribuera sina certifikat. Processen kan ingå i en ordning med dem eller det kan vara en separat tjänst som de erbjuder. 
 
-Om du hanterar din egen enhetscertifikat, måste du skapa din egen pipeline för att uppdatera certifikat. Kontrollera att både gamla och nya löv-certifikat har samma nätverksnamn (CN). Genom att använda samma CN enheten kan etablera om själva utan att skapa en duplicerad registreringspost.
+Om du hanterar din egen enhetscertifikat, måste du skapa din egen pipeline för att uppdatera certifikat. Kontrollera att både gamla och nya löv-certifikat har samma nätverksnamn (CN). Genom att använda samma CN enheten kan etablera om själva utan att skapa en duplicerad registreringspost. 
 
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Distribuera certifikatet i IoT hub
@@ -78,10 +78,13 @@ Om du rullar certifikat som svar på en säkerhetsöverträdelse, bör du använ
 
     ![Hantera enskilda registreringar](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
-3. När komprometterade certifikatet har tagits bort från etableringstjänsten, navigera till din IoT-hubb och ta bort enhetsregistreringen som är associerade med det komprometterade certifikatet.     
+3. När det komprometterade certifikatet har tagits bort från etableringstjänsten, kan certifikatet fortfarande användas för att göra enhetsanslutningar till IoT hub så länge en enhetsregistrering för den finns det. Du kan lösa detta på två sätt: 
+
+    Den första metoden är att manuellt går du till din IoT-hubb och omedelbart ta bort enhetsregistreringen som är associerade med det komprometterade certifikatet. Sedan när enheten etableras igen med ett uppdaterat certifikat, skapas en ny enhetsregistrering.     
 
     ![Ta bort IoT hub-enhetsregistrering](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
+    Det andra sättet är att använda reprovisioning stöd för att etablera om enheten till samma IoT-hubb. Den här metoden kan användas för att ersätta certifikatet för registrering av enheten på IoT-hubb. Mer information finns i [hur du etablera om enheter](how-to-reprovision.md).
 
 ## <a name="individual-enrollments-and-certificate-expiration"></a>Enskilda registreringar och förfallodatum för certifikat
 
@@ -118,9 +121,14 @@ Om du vill uppdatera en gruppregistrering som svar på en säkerhetsöverträdel
 
     ![Välj det nya rotcertifikatet för Certifikatutfärdaren](./media/how-to-roll-certificates/select-new-root-cert.png)
 
-6. När komprometterade certifikatet har tagits bort från etableringstjänsten, navigera till den länkade IoT-hubben som innehåller de komprometterade enhetsregistreringar och ta bort registreringarna som är associerade med det komprometterade certifikatet.
+6. När det komprometterade certifikatet har tagits bort från etableringstjänsten, kan certifikatet fortfarande användas för att göra enhetsanslutningar till IoT hub så länge registreringar för enhet för den finns det. Du kan lösa detta på två sätt: 
+
+    Den första metoden är att manuellt går du till din IoT-hubb och omedelbart ta bort enhetsregistreringen som är associerade med det komprometterade certifikatet. När dina enheter etablerar igen med uppdaterade certifikat kan sedan skapas en ny enhetsregistrering för var och en.     
 
     ![Ta bort IoT hub-enhetsregistrering](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    Det andra sättet är att använda reprovisioning stöd för att etablera om dina enheter till samma IoT hub. Den här metoden kan användas för att ersätta för registreringar för enhet på IoT-hubb. Mer information finns i [hur du etablera om enheter](how-to-reprovision.md).
+
 
 
 #### <a name="update-compromised-intermediate-certificates"></a>Uppdatera komprometterade mellanliggande certifikat
@@ -134,9 +142,13 @@ Om du vill uppdatera en gruppregistrering som svar på en säkerhetsöverträdel
     ![Hantera enskilda registreringar](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
-3. När komprometterade certifikatet har tagits bort från etableringstjänsten, navigera till den länkade IoT-hubben som innehåller enhetsregistreringen och ta bort registreringen som är associerade med det komprometterade certifikatet.
+3. När det komprometterade certifikatet har tagits bort från etableringstjänsten, kan certifikatet fortfarande användas för att göra enhetsanslutningar till IoT hub så länge registreringar för enhet för den finns det. Du kan lösa detta på två sätt: 
+
+    Den första metoden är att manuellt går du till din IoT-hubb och omedelbart ta bort enhetsregistreringen som är associerade med det komprometterade certifikatet. När dina enheter etablerar igen med uppdaterade certifikat kan sedan skapas en ny enhetsregistrering för var och en.     
 
     ![Ta bort IoT hub-enhetsregistrering](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    Det andra sättet är att använda reprovisioning stöd för att etablera om dina enheter till samma IoT hub. Den här metoden kan användas för att ersätta för registreringar för enhet på IoT-hubb. Mer information finns i [hur du etablera om enheter](how-to-reprovision.md).
 
 
 ## <a name="enrollment-groups-and-certificate-expiration"></a>Registrering av grupper och förfallodatum för certifikat

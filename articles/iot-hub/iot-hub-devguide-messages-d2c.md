@@ -1,89 +1,93 @@
 ---
-title: Förstå Azure IoT Hub-enhet till moln-meddelanden | Microsoft Docs
-description: Developer guide – hur du använder enhet-till-moln-meddelanden med IoT Hub. Innehåller information om skicka både telemetri och icke-telemtry data och använda routning för att leverera meddelanden.
-author: dominicbetts
-manager: timlt
+title: Förstå Azure IoT Hub meddelanderoutning | Microsoft Docs
+description: Developer guide – hur du använder meddelanderoutning för att skicka meddelanden från enheten till molnet. Innehåller information om hur du skickar telemetri-och icke-telemtry.
+author: ash2017
+manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: be87b00f27f0d0b25cd77a0634ab1c653a85e5ac
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.date: 08/13/2018
+ms.author: asrastog
+ms.openlocfilehash: 7c36ab2f0d4d3e5c772f8ef62c13161a2649362f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126450"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966749"
 ---
-# <a name="send-device-to-cloud-messages-to-iot-hub"></a>Skicka meddelanden från enhet till moln till IoT Hub
+# <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slutpunkter
 
-Skicka meddelanden från enheten till molnet för att skicka time series-telemetri och aviseringar från dina enheter till lösningens backend-servrar, från en enhet till IoT hub. En beskrivning av andra alternativ för enhet-till-moln som stöds av IoT Hub finns i [enhet till molnet kommunikation vägledning][lnk-d2c-guidance].
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Du skickar meddelanden från enheten till molnet via en enhet-riktade slutpunkt (**/devices/ {deviceId} / meddelanden/händelser**). Regler för vidarebefordran och vidarebefordra meddelandena till en tjänst-slutpunkter på IoT hub. Routningsregler Använd rubriker och brödtext för enhet-till-moln-meddelanden för att avgöra var du vill dirigera dem. Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**), som är kompatibel med [Händelsehubbar][lnk-event-hubs]. Du kan därför använda standard [Event Hubs-integrering och SDK: er] [ lnk-compatible-endpoint] att ta emot meddelanden från enheten till molnet i lösningens backend-servrar.
+Meddelanderoutning kan du skicka meddelanden från dina enheter till molntjänster i ett automatiserade, skalbart och tillförlitligt sätt. Meddelanderoutning kan användas för: 
 
-IoT Hub implementerar enhet-till-moln-meddelanden med hjälp av en strömmande meddelandemönster. Meddelanden från IoT Hub-enhet till molnet är mer som [Händelsehubbar] [ lnk-event-hubs] *händelser* än [Service Bus] [ lnk-servicebus] *meddelanden* eftersom det finns ett stort antal händelser som passerar genom den tjänst som kan läsas av flera läsare.
+* **Skickar enheter telemetri meddelanden samt händelser** nämligen Livscykelhändelser för enhet och enhetstvillingen ändra händelser till inbyggda – slutpunkt och anpassade slutpunkter. Lär dig mer om [routning slutpunkter](##routing-endpoints).
 
-Meddelanden med IoT Hub enhet-till-molnet har följande egenskaper:
+* **Filtrera data innan du skicka det till olika slutpunkter** genom att använda komplexa frågor. Meddelanderoutning kan du fråga på meddelandeegenskaperna och meddelandetexten som enheten twin taggar och tvillingegenskaper. Läs mer om hur du använder [frågor i meddelanderoutning](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-* Meddelanden från enheten till molnet är hållbar och sparade i en IoT-hubb standard **meddelanden/händelser** slutpunkt för upp till sju dagar.
-* Meddelanden från enheten till molnet får innehålla högst 256 KB och kan grupperas i batchar att optimera skickar. Batchar får innehålla högst 256 KB.
-* Enligt beskrivningen i den [styra åtkomsten till IoT Hub] [ lnk-devguide-security] avsnittet, IoT Hub kan per enhet autentisering och åtkomstkontroll.
-* IoT Hub kan du skapa upp till 10 anpassade slutpunkter. Meddelanden levereras till slutpunkterna baserat på vägar som konfigurerats på din IoT-hubb. Mer information finns i [regler för routning](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
-* IoT Hub kan miljontals simultant kopplade enheter (se [kvoter och begränsningar][lnk-quotas]).
-* IoT Hub tillåter inte godtyckliga partitionering. Meddelanden från enheten till molnet partitioneras baserat på deras ursprung **deviceId**.
+IoT Hub måste ha skrivbehörighet för dessa tjänstslutpunkter för meddelanderoutning för att fungera. Om du konfigurerar dina slutpunkter via Azure portal, läggs behörigheterna som krävs för dig. Kontrollera att du konfigurerar dina tjänster för att stödja det förväntade dataflödet. När du först konfigurera din IoT-lösning kan du behöva övervaka din ytterligare slutpunkter och gör eventuella ändringar för den faktiska belastningen.
 
-Mer information om skillnaderna mellan IoT Hub och Event Hubs finns i [jämförelse av Azure IoT Hub och Azure Event Hubs][lnk-comparison].
+IoT-hubben som definierar en [vanligt format](../iot-hub/iot-hub-devguide-messages-construct.md) för alla enhet till moln-meddelanden för interoperatbility oavsett protokoll. Om ett meddelande matchar flera routningstabeller som pekar på samma slutpunkt, IoT-hubb levererar meddelanden till denna slutpunkt bara en gång. Därför behöver du inte konfigurera deduplicering på din Service Bus-kö eller ämne. I partitionerade köer garanterar partition tillhörighet ordningsföljd för meddelanden. Använd den här självstudien Lär dig hur du [konfigurera meddelanderoutning] (https://docs.microsoft.com/azure/iot-hub/tutorial-routing).
 
-## <a name="send-non-telemetry-traffic"></a>Skicka icke-telemetritrafik
+## <a name="routing-endpoints"></a>Routning slutpunkter
 
-Ofta skicka enheter förutom telemetri, meddelanden och förfrågningar som kräver separat körning och hantering i lösningens serverdel. Till exempel kritiska aviseringar som måste utlösa en specifik åtgärd i serverdelen. Du kan skriva en [routningsregel] [ lnk-devguide-custom] att skicka dessa typer av meddelanden till en slutpunkt för bearbetningen baserat på antingen ett sidhuvud på meddelandet eller ett värde i meddelandetexten.
+En IoT-hubb har en inbyggd-i-standardslutpunkten (**meddelanden/händelser**) som är kompatibel med Event Hubs. Du kan skapa [anpassade slutpunkter](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints) skicka meddelanden till genom att länka andra tjänster i din prenumeration till IoT Hub. IoT Hub stöder för närvarande följande tjänster som anpassade slutpunkter:
 
-Läs mer om det bästa sättet att bearbeta den här typen av meddelande i [självstudien: hur du bearbetar meddelanden från IoT Hub-enhet till molnet] [ lnk-d2c-tutorial] självstudien.
+### <a name="built-in-endpoint"></a>Inbyggd slutpunkt
+Du kan använda standard [Event Hubs-integrering och SDK: er](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) att ta emot meddelanden från enheten till molnet från den inbyggda slutpunkten (**meddelanden/händelser**). Observera att när en väg har skapats kan data slutar flöda till inbyggda-i-slutpunkten, såvida inte en väg skapas till denna slutpunkt.
 
-## <a name="route-device-to-cloud-messages"></a>Dirigera meddelanden från enheten till molnet
+### <a name="azure-blob-storage"></a>Azure Blob Storage
+IoT Hub stöder endast skriva data till Azure Blob Storage i den [Apache Avro](http://avro.apache.org/) format. IoT Hub slår ihop meddelanden och skriver data till en blob när batchen når en viss storlek eller en viss tidsperiod har gått ut.
 
-Har du två alternativ för att dirigera enhet-till-moln-meddelanden till dina backend-appar:
-
-* Använda inbyggda [Event Hub-kompatibla slutpunkten] [ lnk-compatible-endpoint] aktivera backend-appar att läsa enhet-till-moln-meddelandena som tagits emot av hubben. Läs om den inbyggda Event Hub-kompatibla slutpunkten i [läsa meddelanden från enheten till molnet från den inbyggda slutpunkten][lnk-devguide-builtin].
-* Använda regler för routning för att skicka meddelanden till anpassade slutpunkter i IoT hub. Anpassade slutpunkter konfigurera dina backend-appar kan läsa meddelanden från enhet till molnet med hjälp av Event Hubs, Service Bus-köer och Service Bus-ämnen. Läs om Routning och anpassade slutpunkter i [använda anpassade slutpunkter och routningsregler för meddelanden från enheten till molnet][lnk-devguide-custom].
-
-## <a name="anti-spoofing-properties"></a>Egenskaper för skydd mot förfalskning
-
-För att undvika enheten förfalskning i meddelanden från enheten till molnet, IoT Hub stämplar alla meddelanden med följande egenskaper:
-
-* **ConnectionDeviceId**
-* **ConnectionDeviceGenerationId**
-* **ConnectionAuthMethod**
-
-De första två innehåller den **deviceId** och **generationId** för den ursprungliga enheten enligt [identitet enhetsegenskaper][lnk-device-properties].
-
-Den **ConnectionAuthMethod** egenskapen innehåller ett JSON-serialiserat objekt med följande egenskaper:
-
-```json
-{
-  "scope": "{ hub | device }",
-  "type": "{ symkey | sas | x509 }",
-  "issuer": "iothub"
-}
+IoT Hub som standard följande namngivningskonvention för filen:
+```
+{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
+Du kan använda alla filnamnskonvention, men du måste använda alla listade token. IoT Hub skriver till en tom blob om det finns inga data att skriva.
+
+### <a name="service-bus-queues-and-service-bus-topics"></a>Service Bus-köer och Service Bus-ämnen
+Service Bus-köer och ämnen som används som IoT Hub-slutpunkter inte får ha **sessioner** eller **dubblettidentifiering** aktiverat. Om något av dessa alternativ är aktiverade ändpunkt som **tillbaka** i Azure-portalen.
+
+### <a name="event-hubs"></a>Event Hubs
+Du kan också vidarebefordra data till anpassade slutpunkter av typen Event Hubs förutom kompatibel slutpunkt inbyggda – Event Hubs. 
+
+När du använder Routning och anpassade slutpunkter levereras endast meddelanden till den inbyggda slutpunkten om de inte matchar några regler. Lägg till ett flöde som skickar meddelanden till slutpunkten händelser för att skicka meddelanden till den inbyggda slutpunkten och anpassade slutpunkter.
+
+## <a name="reading-data-that-has-been-routed"></a>Läsning av data som har dirigerats
+Du kan konfigurera en väg genom att följa det här [självstudien](https://docs.microsoft.com/azure/iot-hub/tutorial-routing).
+
+Använd följande självstudier om du vill veta hur du läser meddelandet från en slutpunkt.
+
+* Läsa från [inbyggda-slutpunkt](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node)
+* Läsa från [Blob-lagring](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart)
+* Läsa från [Händelsehubbar](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+* Läsa från [Service Bus-köer](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues)
+* Läsa från [Service Bus-ämnen](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
+
+## <a name="fallback-route"></a>Återställningsplats väg
+Återställningsplats vägen skickar alla meddelanden som inte uppfyller villkoren för frågan på någon av de befintliga vägarna till inbyggda-Event-Hubs (**meddelanden/händelser**), som är kompatibel med [Händelsehubbar](https://docs.microsoft.com/azure/event-hubs/). Om meddelanderoutning är aktiverat kan du aktivera funktionen återställningsplats väg. Observera att när en väg har skapats kan data slutar flöda till inbyggda-i-slutpunkten, såvida inte en väg skapas till denna slutpunkt. Om det finns inga vägar till inbyggda-i-slutpunkten och en återställningsplats väg är aktiverad, skickas endast meddelanden som inte matchar någon fråga villkoren på vägar till inbyggda-i-slutpunkten. Även om alla befintliga vägar tas bort måste återställningsplats väg aktiveras att ta emot alla data i inbyggda-i-slutpunkten. 
+
+Du kan aktivera/inaktivera återställningsplats vägen i Azure Portal -> meddelanderoutning bladet. Du kan också använda Azure Resource Manager för [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) att använda en anpassad slutpunkt för återställningsplats vägen.
+
+## <a name="non-telemetry-events"></a>Icke-telemetrihändelser
+Förutom enhetstelemetri kan meddelanderoutning också skicka enheten Ändringshändelser för tvilling och Livscykelhändelser för enhet. Exempel: om en väg som har skapats med konfigurationen av datakällan **enhet Ändringshändelser för tvilling**, IoT Hub skickar meddelanden till slutpunkten som innehåller ändringen i enhetstvillingen. På samma sätt, om ett flöde skapas med datakällan som har angetts till **Livscykelhändelser för enhet**, IoT Hub skickar ett meddelande som anger om enheten har tagits bort eller skapas. 
+[IoT Hub är integrerat med Azure Event Grid](iot-hub-event-grid.md) att publicera enhetshändelser för att stödja realtid integreringar och automatisering av arbetsflöden baserat på dessa händelser. Se nyckeln [skillnaderna mellan meddelanderoutning och Event Grid](iot-hub-event-grid-routing-comparison.md) vill veta vilken som fungerar bäst för ditt scenario.
+
+## <a name="testing-routes"></a>Testa vägar
+När du skapar en ny väg eller redigera ett befintligt flöde, bör du testa vägen frågan med ett exempelmeddelande. Du kan testa enskilda vägar eller testa alla vägar på samma gång och inga meddelanden dirigeras till slutpunkterna under testet. Azure-portalen, Azure Resource Manager, Azure PowerShell och Azure CLI kan användas för testning. Resultat att identifiera om exempelmeddelande matchar frågan, meddelande matchade inte frågan eller test gick inte att köra eftersom exempelsyntax för meddelande eller fråga är felaktiga. Mer information finns i [testa flödet](https://docs.microsoft.com/rest/api/iothub/iothubresource/testroute) och [testa alla vägar](https://docs.microsoft.com/rest/api/iothub/iothubresource/testallroutes).
+
+## <a name="latency"></a>Svarstid
+När du vidarebefordra telemetrimeddelanden från enheten till molnet med hjälp av inbyggda slutpunkter finns en liten ökning i svarstiden slutpunkt till slutpunkt när du har skapat för den första rutten.
+
+I de flesta fall är den genomsnittliga ökningen av svarstiden mindre än 500ms. Du kan övervaka svarstid med **routning: meddelande svarstiden för meddelanden/händelser** eller **d2c.endpoints.latency.builtIn.events** IoT Hub-mått. Skapa eller ta bort någon väg efter den första påverkar inte svarstiden slutpunkt till slutpunkt.
+
+## <a name="monitoring-and-troubleshooting"></a>Övervakning och felsökning
+IoT Hub innehåller flera Routning och slutpunkten relaterade mått för att ge dig en översikt över hälsotillståndet för din hubb och meddelanden som skickas. Du kan kombinera information från flera mått för att identifiera rotorsaken till problem. Till exempel använda mått **routning: telemetrimeddelanden bort** eller **d2c.telemetry.egress.dropped** att identifiera hur många meddelanden som har tagits bort när de inte matchade frågor på någon av vägarna och återställningsplats vägen har inaktiverats. [IoT Hub mått](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) visar en lista över alla mått som är aktiverade som standard för din IoT-hubb.
+
+Med hjälp av den **vägar** diagnostikloggar i Azure Monitor [diagnostikinställningar](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health), kan du spårar fel som uppstår under utvärderingen av ett routning hälsa för frågan och slutpunkten som uppfattas av IoT Hub, till exempel När en slutpunkt är inaktiv. Dessa diagnostikloggar kan skickas till Log Analytics, Event Hubs eller Azure Storage för anpassad bearbetning.
+
 ## <a name="next-steps"></a>Nästa steg
-
-Information om SDK: erna som du kan använda för att skicka meddelanden från enheten till molnet finns i [Azure IoT SDK: er][lnk-sdks].
-
-Den [Snabbstarter] [ lnk-get-started] visar hur du skickar meddelanden från enheten till molnet från simulerade enheter. Mer information finns i den [Process IoT Hub enhet-till-moln-meddelanden med vägar] [ lnk-d2c-tutorial] självstudien.
-
-[lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
-[lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-comparison]: iot-hub-compare-event-hubs.md
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-
-[lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
-[lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-compatible-endpoint]: iot-hub-devguide-messages-read-builtin.md
-[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
-[lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-d2c-tutorial]: tutorial-routing.md
+* Läs hur du skapar meddelandevägar i den [Process IoT Hub enhet-till-moln-meddelanden med vägar](../iot-hub/tutorial-routing.md) självstudien.
+* Den [Snabbstarter](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node) visar hur du skickar meddelanden från enheten till molnet från simulerade enheter.
+* Information om SDK: erna som du kan använda för att skicka meddelanden från enheten till molnet finns i [Azure IoT SDK: er](../iot-hub/iot-hub-devguide-sdks.md).

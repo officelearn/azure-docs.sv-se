@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 274f9d89113f583cc7b65ae01f3132d35b82b920
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 6257f1f9c237422174d695489b8ed39c7c37ebe2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380428"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969163"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -372,7 +372,7 @@ Följande ytterligare guider finns tillgängliga för avsnittet om SAP-distribut
 
 Följande SAP-information är relaterade till ämnet med SAP på Azure:
 
-| Nummer | Namn |
+| Nummer | Titel |
 | --- | --- |
 | [1928533] |SAP-program i Azure: produkter och storlek som stöds |
 | [2015553] |SAP på Microsoft Azure: supportkrav |
@@ -823,9 +823,9 @@ Azure CLI innehåller en uppsättning med öppen källkod plattformsoberoende ko
 
 Information om installation, konfiguration och hur du använder CLI-kommandon för att utföra uppgifter för Azure finns i
 
-* [Installera Azure CLI][xplat-cli]
+* [Installera den klassiska Azure CLI][xplat-cli]
 * [Distribuera och hantera virtuella datorer med hjälp av Azure Resource Manager-mallar och Azure CLI] [../../linux/create-ssh-secured-vm-from-template.md]
-* [Använd Azure CLI för Mac, Linux och Windows med Azure Resource Manager][xplat-cli-azure-resource-manager]
+* [Använd den klassiska Azure CLI för Mac, Linux och Windows med Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 Läs även kapitel [Azure CLI för virtuella Linux-datorer] [ deployment-guide-4.5.2] i den [Distributionsguide] [ planning-guide] om hur du använder Azure CLI för att distribuera Azure-övervakning Tillägg för SAP.
 
@@ -959,7 +959,7 @@ I det här fallet vill vi att ladda upp en virtuell Hårddisk, med eller utan et
 * Skapa en ny virtuell dator från VM-konfigurationen med *New-AzureRmVM* -finns i <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 * Lägga till en datadisk till en ny virtuell dator med *Add-AzureRmVMDataDisk* -finns i <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
 
-**Azure CLI 2.0**
+**Azure CLI**
 
 * Logga in på din prenumeration med *az-inloggning*
 * Välj din prenumeration med *az-kontogrupper--subscription `<subscription name or id`>*
@@ -987,7 +987,7 @@ Ladda upp en befintlig virtuell dator eller virtuell Hårddisk från det lokala 
   * Hanterade diskavbildning *Set-AzureRmVMSourceImage* -finns i <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage>
 * Skapa en ny virtuell dator från VM-konfigurationen med *New-AzureRmVM* -finns i <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 
-**Azure CLI 2.0**
+**Azure CLI**
 
 * Använd *sysprep* på Windows eller *waagent-avetablering* på Linux för att generalisera den virtuella datorn – Se [Teknisk referens för Sysprep](https://technet.microsoft.com/library/cc766049.aspx) för Windows eller [så här avbildar du en Linux-dator ska användas som en Resource Manager-mall] [ capture-image-linux-step-2-create-vm-image] för Linux
 * Logga in på din prenumeration med *az-inloggning*
@@ -1008,7 +1008,7 @@ Azure-infrastruktur som en tjänst är inte en enkelriktad gata endast att kunna
 
 Under tiden för hämtningen kan inte virtuella hårddiskar eller hanterade diskar aktiveras. Även vid hämtning av diskar som är monterade till virtuella datorer, måste den virtuella datorn stängs av och frigörs. Om du bara vill ladda ned databasinnehållet som ska användas för att ställa in ett nytt system på plats och om du accepterar den under tiden för hämtningen och installationen av det nya systemet som systemet i Azure kan fortfarande finnas operativa , du kan undvika ett långt avbrott genom att utföra en komprimerad databassäkerhetskopia till en disk och bara hämta disken istället för att också hämta den grundläggande OS-VM.
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 
   * Ladda ned en hanterad Disk  
   Du måste först få åtkomst till den underliggande blobben för den hanterade disken. Du kan sedan kopiera underliggande bloben till ett nytt lagringskonto och ladda ned bloben från det här lagringskontot.
@@ -1036,7 +1036,7 @@ Under tiden för hämtningen kan inte virtuella hårddiskar eller hanterade disk
 
   Mer information om cmdleten Save-AzureRmVhd finns här <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>.
 
-#### <a name="cli-20"></a>CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
   * Ladda ned en hanterad Disk  
   Du måste först få åtkomst till den underliggande blobben för den hanterade disken. Du kan sedan kopiera underliggande bloben till ett nytt lagringskonto och ladda ned bloben från det här lagringskontot.
   ```
@@ -1066,7 +1066,7 @@ Datadiskar kan sparas som VHD-filer i ett Azure Storage-konto och kan kopplas di
 
 Datadiskar kan också vara Managed Disks. I det här fallet används den hanterade disken för att skapa en ny hanterad Disk innan som kopplas till den virtuella datorn. Namnet på den hanterade disken måste vara unika inom en resursgrupp.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 Du kan använda Azure PowerShell-cmdletar för att kopiera en virtuell Hårddisk som du ser i [i den här artikeln][storage-powershell-guide-full-copy-vhd]. Använda New-AzureRmDiskConfig och New-AzureRmDisk för att skapa en ny hanterad Disk, som visas i följande exempel.
 
 ```powershell
@@ -1074,7 +1074,7 @@ $config = New-AzureRmDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<s
 New-AzureRmDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk $config
 ```
 
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>Azure CLI
 Du kan använda Azure CLI för att kopiera en virtuell Hårddisk som du ser i [i den här artikeln][storage-azure-cli-copy-blobs]. Du kan skapa en ny hanterad Disk med *az disk skapa* som visas i följande exempel.
 
 ```
@@ -1091,7 +1091,7 @@ Professionella utgåvor av Azure Storage-Utforskare finns här:
 
 Kopia av en virtuell Hårddisk själva i ett lagringskonto är en process som tar bara några sekunder (liknar SAN-maskinvaran skapa ögonblicksbilder med lazy kopia och kopiering vid skrivning). När du har en kopia av VHD-filen kan du koppla den till en virtuell dator eller använda den som en bild för att bifoga kopior av den virtuella Hårddisken till virtuella datorer.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 ```powershell
 # attach a vhd to a vm
 $vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
@@ -1115,7 +1115,7 @@ $disk = New-AzureRmDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupNa
 $vm = Add-AzureRmVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
 $vm | Update-AzureRmVM
 ```
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>Azure CLI
 ```
 
 # attach a vhd to a vm
@@ -1135,7 +1135,7 @@ az vm disk attach --disk <new disk name or managed disk id> --resource-group <re
 #### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Kopierar diskar mellan Azure Storage-konton
 Den här uppgiften kan inte utföras på Azure portal. Du kan använda Azure PowerShell-cmdletar, Azure CLI eller en webbläsare för lagringssystem från tredje part. PowerShell-cmdlets eller CLI-kommandon kan skapa och hantera blobbar, bland annat möjligheten att kopiera BLOB asynkront mellan Lagringskonton och mellan regioner inom samma Azure-prenumeration.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 Du kan också kopiera virtuella hårddiskar mellan prenumerationer. Mer information finns i [i den här artikeln][storage-powershell-guide-full-copy-vhd].
 
 Det grundläggande flödet av logik för PS-cmdlet: en ut så här:
@@ -1158,7 +1158,7 @@ Get-AzureStorageBlobCopyState -Blob <target blob name> -Container <target contai
 
 Exempel finns i [i den här artikeln][storage-powershell-guide-full-copy-vhd].
 
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>Azure CLI
 * Starta kopieringen med
 
 ```
@@ -1364,7 +1364,7 @@ Antas att du skapat en VM-avbildning som beskrivs i vissa avsnitt i kapitel [fö
 
 En händelsesekvens att implementera scenariot ser ut så här:
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 * Skapa en ny resursgrupp för varje utbildning/demo liggande
 
 ```powershell

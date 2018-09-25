@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: e83d51a18c7ab5861699114e4622bda167dab41d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a90ec3102f3ce821193d58b6d14ca119f6d7e916
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042105"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959690"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Använda interaktiv fråga med HDInsight
 Interaktiv fråga (kallas även Hive-LLAP eller [med låg latens Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) är ett Azure HDInsight [klustertyp](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interaktiv fråga har stöd för cachelagring i minnet, vilket gör Hive-frågor snabbare och mycket mer interaktivt.
@@ -24,7 +24,7 @@ Interaktiv fråga (kallas även Hive-LLAP eller [med låg latens Analytical Proc
 Ett interaktivt frågekluster skiljer sig från ett Hadoop-kluster. Den innehåller endast Hive-tjänsten. 
 
 > [!NOTE]
-> Du kan komma åt tjänsten Hive i klustret för interaktiv fråga endast via Ambari Hive-vy, Beeline och Microsoft Hive Open Database Connectivity-drivrutinen (Hive ODBC). Du kan inte komma åt den via Hive-konsolen, Templeton, Azure kommandoradsverktyget (Azure CLI) eller Azure PowerShell. 
+> Du kan komma åt tjänsten Hive i klustret för interaktiv fråga endast via Ambari Hive-vy, Beeline och Microsoft Hive Open Database Connectivity-drivrutinen (Hive ODBC). Du kan inte komma åt den via Hive-konsolen, Templeton, klassiska Azure-CLI eller Azure PowerShell. 
 > 
 > 
 

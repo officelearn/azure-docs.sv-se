@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/08/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: b21afecc27f1550cf557305ef069278ed66acaf0
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3a15cfeb39cea31a24d27fd8b350d7e8a6696f31
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005325"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955375"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Partnerintegrering i Azure Monitor
 | Partner |  |  |
@@ -21,8 +21,8 @@ ms.locfileid: "40005325"
 | [**AlertLogic**<br/>![Partner logotyp][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![Partner logotyp][appdynamics-logo]][appdynamics-anchor]  | [**Atlassians**<br/>![Partner logotyp][atlassian-logo]][atlassian-anchor] 
 | [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![Partner logotyp][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![Partner logotyp][cloudhealth-logo]][cloudhealth-anchor] 
 | [**CloudMonix** <br/> ![Partner logotyp][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![Partner logotyp][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![Partner logotyp][datadog-logo]][datadog-anchor] 
-| [**Dynatrace** <br/> ![Partner logotyp][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![Partner logotyp][grafana-logo]][grafana-anchor] | [**Övervakare för Logic**<br/>![Partner logotyp][logicmonitor-logo]][logicmonitor-anchor] 
-| [**Moogsoft**<br/>![Partner logotyp][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![Partner logotyp][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Partner logotyp][opsgenie-logo]][opsgenie-anchor] 
+| [**Dynatrace** <br/> ![Partner logotyp][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![Partner logotyp][grafana-logo]][grafana-anchor] | [**Influxdata**<br/>![Partner logotyp][influxdata-logo]][influxdata-anchor]
+| [**Övervakare för Logic**<br/>![Partner logotyp][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![Partner logotyp][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![Partner logotyp][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Partner logotyp][opsgenie-logo]][opsgenie-anchor] 
 | [**PagerDuty**<br/>![Partner logotyp][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![Partner logotyp][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![Partner logotyp][sciencelogic-logo]][sciencelogic-anchor] 
 | [**SignalFx**<br/>![Partner logotyp][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4**<br/>![Partner logotyp][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
 | [**Splunk** <br/> ![Partner logotyp][splunk-logo]][splunk-anchor] | [**Sumo Logic**<br/>![Partner logotyp][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![Partner logotyp][turbonomic-logo]][turbonomic-anchor] 
@@ -82,6 +82,12 @@ Grafana är ett program med öppen källkod som hjälper dig att visualisera må
 
 [Gå till dokumentationen.][grafana-doc]
 
+## <a name="influxdata"></a>InfluxData
+InfluxData skaparen av InfluxDB, levererar en modern öppen källkod plattform som har byggts från grunden för att analysera mått och händelser (time series-data) för DevOps och IoT-program. Om data kommer från människor, sensorer eller datorer, hjälper InfluxData utvecklare att skapa nästa generations övervakning, analyser och IoT-program snabbare, enklare och skala snabbt leverera nytta. I San Francisco, InfluxData bland fler än 420 kunderna Cisco, eBay, IBM och Siemens.
+
+[Gå till dokumentationen.][influxdata-doc]
+
+
 ## <a name="logic-monitor"></a>Logic-Övervakare
 LogicMonitor® är ledande SaaS-baserade prestandaövervakning plattform för komplexa IT-infrastruktur. Med täckning för tusentals tekniker ger LogicMonitor detaljerade insyn i infrastrukturen och programmets prestanda. LM molnet omfattande Azure-övervakning kan du jämföra prestanda för Azure-molnet, lokalt och hybrid cloud-resurser – allt från en enda plattform. Automatiserad Resursidentifiering, inbyggd övervakning mallar, förkonfigurerade tröskelvärden för aviseringar och anpassningsbara instrumentpaneler kan kombineras för att ge IT hastigheten, flexibilitet och synlighet krävs för att lyckas.
 
@@ -94,7 +100,10 @@ Microsoft Azure Automation and Control verktygen innehåller ett i realtid föns
 
 Moogsoft AIOps automatiserar händelsen till reparation arbetsflöde utan att ändra befintliga processer och organisationens struktur. 
 
-Moogsoft körs i din Azure fastigheter med integrering till verktyg för övervakning och automation mellan hybrid-infrastrukturen. Den aktivt identifierar programmet påverkar incidenter tidigare dynamiskt samordnar lämpliga resurser för att göra dem situationen medveten och minskar tiden för att åtgärda och negativ inverkan på kundupplevelsen. 
+Moogsoft körs i din Azure fastigheter med integrering till verktyg för övervakning och automation mellan hybrid-infrastrukturen. Moogsoft 
+ - aktivt identifierar programmet påverkar incidenter tidigare 
+ - dynamiskt samordnar lämpliga resurser för att göra dem situationen medveten 
+ - minskar tiden för att åtgärda och negativ inverkan på kundupplevelsen. 
 
 [Gå till dokumentationen.][moogsoft-doc]
 
@@ -107,7 +116,7 @@ OpsGenie fungerar som en dispatcher för aviseringar som genereras av Azure. Ops
 [Gå till dokumentationen.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-PagerDuty, den ledande lösningen för hantering av incidenter, har tillhandahållit förstklassig support för Azure-aviseringar för mått. PagerDuty stöder meddelanden i Azure Monitor-aviseringar, meddelanden om autoskalning, logga granskningshändelser och på plattformsnivå mätvärden för Azure-tjänster. Dessa förbättringar-ger dig bättre insyn i viktigaste Azure-plattformen. Du kan dra full nytta av Pagerdutys incidenthantering funktioner för svar i realtid. Den utökade Azure-integreringen är möjlig tack vare webhooks. Webhooks kan du konfigurera och anpassa lösningen snabbt och enkelt.
+PagerDuty, den ledande lösningen för hantering av incidenter, har tillhandahållit förstklassig support för Azure-aviseringar för mått. PagerDuty stöder meddelanden i Azure Monitor-aviseringar, automatisk skalning meddelanden, händelser i aktivitetsloggen och på plattformsnivå mätvärden för Azure-tjänster. Dessa förbättringar-ger dig bättre insyn i viktigaste Azure-plattformen. Du kan dra full nytta av Pagerdutys incidenthantering funktioner för svar i realtid. Den utökade Azure-integreringen är möjlig tack vare webhooks. Webhooks kan du konfigurera och anpassa lösningen snabbt och enkelt.
 
 [Gå till dokumentationen.][pagerduty-doc]
 
@@ -144,7 +153,7 @@ Sumo Logic är en dator för säkra, molnbaserade, data analytics-tjänsten, i r
 [Lära sig mer.][sumologic-doc]
 
 ## <a name="turbonomic"></a>Turbonomic
-Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att samtidigt optimera prestanda, kostnad och efterlevnad i realtid. Turbonomic hjälper organisationer att elastiska i sina Azure-innehåll genom att optimera kontinuerligt hela skärmens utrymme för att kontrollera program ständigt få de resurser som de behöver för att leverera sina SLA och inget mer över databearbetning, lagring och nätverk för IaaS och PaaS lager. Organisationer kan simulera migreringar korrekt skala arbetsbelastningar och datacenterresurser för att ett ansvarsfullt sätt migrera till Azure i tid och inom budget, samtidigt som avveckla både prestanda och efterlevnad. Turbonomic drivs med hjälp av API och körs som en virtuell dator utan agent i Azure och lokalt.
+Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att samtidigt optimera prestanda, kostnad och efterlevnad i realtid. Turbonomic hjälper organisationer att vara flexibelt i sina Azure-innehåll genom att optimera kontinuerligt hela skärmens utrymme för att säkerställa att programmen ständigt få de resurser som de behöver för att leverera sina SLA och inget mer över beräkning, lagring och nätverk för IaaS och PaaS lager. Organisationer kan simulera migreringar korrekt skala arbetsbelastningar och datacenterresurser för att ett ansvarsfullt sätt migrera till Azure i tid och inom budget, samtidigt som avveckla både prestanda och efterlevnad. Turbonomic drivs med hjälp av API och körs som en virtuell dator utan agent i Azure och lokalt.
 
 [Lära sig mer.][turbonomic-doc]
 
@@ -168,6 +177,7 @@ Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att s
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
+[influxdata-anchor]: #Influxdata "Influxdata"
 [logicmonitor-anchor]: #logic-monitor "Logic-Övervakare"
 [moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
@@ -193,6 +203,7 @@ Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att s
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
 [newrelic-logo]: ./media/partner-logos/newrelic.png
 [grafana-logo]: ./media/partner-logos/grafana.png
+[influxdata-logo]: ./media/partner-logos/influxdata.png
 [logicmonitor-logo]: ./media/partner-logos/logicmonitor.png
 [moogsoft-logo]: ./media/partner-logos/moogsoft.png
 [opsgenie-logo]: ./media/partner-logos/opsgenie.png
@@ -217,6 +228,7 @@ Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att s
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog dokumentation."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace dokumentation."
 [grafana-doc]: ./monitor-send-to-grafana.md "Integrering med Azure Monitor Grafana."
+[influxdata-doc]: ./metrics-store-custom-linux-telegraf.md "Integrering med Azure Monitor Influxdata Telegraf."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Dokumentation om Logic-Övervakare."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft dokumentation."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic dokumentation."

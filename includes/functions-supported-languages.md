@@ -6,27 +6,27 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 05/03/2018
+ms.date: 08/29/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: 1df19bd70713b9da0bc894b372655ed8057948d1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 9407ba43dc154bcfaf4d0a3894a99bc3a3d52e92
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33901252"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47019732"
 ---
 |Språk                                 |1.x         |2.x|
 |-----------------------------------------|------------|---|
-|[C#](../articles/azure-functions/functions-reference-csharp.md)|Allmän tillgänglighet (GA)|Förhandsversion|
-|[JavaScript](../articles/azure-functions/functions-reference-node.md)|Allmän tillgänglighet (GA)|Förhandsversion|
-|[F#](../articles/azure-functions/functions-reference-fsharp.md)|Allmän tillgänglighet (GA)|Förhandsversion|
-|[Java](../articles/azure-functions/functions-reference-java.md)|Gäller inte|Förhandsversion|
+|[C#](../articles/azure-functions/functions-reference-csharp.md)|Allmän tillgänglighet (.NET Framework 4.7)|Allmän tillgänglighet (.NET Core 2)|
+|[JavaScript](../articles/azure-functions/functions-reference-node.md)|Allmän tillgänglighet (Node 6)|Allmän tillgänglighet (Node 8 & 10)|
+|[F#](../articles/azure-functions/functions-reference-fsharp.md)|Allmän tillgänglighet (.NET Framework 4.7)|Allmän tillgänglighet (.NET Core 2)|
+|[Java](../articles/azure-functions/functions-reference-java.md)|Gäller inte|Förhandsversion (Java 8)|
 |Python              |Experimentell|Gäller inte|
+|TypeScript          |Experimentell|Stöds via transpiling till JavaScript|
 |PHP                 |Experimentell|Gäller inte|
-|TypeScript          |Experimentell|Gäller inte|
 |Batch (.cmd, .bat)  |Experimentell|Gäller inte|
 |Bash                |Experimentell|Gäller inte|
 |PowerShell          |Experimentell|Gäller inte|
 
-Information om språkstöd planerade ändringar finns [Azure översikt över](https://azure.microsoft.com/roadmap/?tag=functions).
+Information om planerade ändringar till stöd för språk finns i [Azure-översikt](https://azure.microsoft.com/roadmap/?tag=functions).

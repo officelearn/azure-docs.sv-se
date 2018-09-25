@@ -1,6 +1,6 @@
 ---
-title: Spara en avbildning av en Linux-VM i Azure med hjälp av CLI 2.0 | Microsoft Docs
-description: Spara en avbildning av en Azure-dator som ska användas för drivrutiner för masslagring distributioner med Azure CLI 2.0.
+title: Spara en avbildning av en Linux-VM i Azure med Azure CLI | Microsoft Docs
+description: Spara en avbildning av en Azure-dator som ska användas för drivrutiner för masslagring distributioner med Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: ea202cad06130cfaaa134cad94ac08bede2f41a9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 98d98c1337830ce54c7ff96c19812169be129584
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867709"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946824"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en avbildning av en virtuell dator eller virtuell Hårddisk
 
@@ -38,7 +38,7 @@ Se till att du uppfyller följande krav:
 
 * Du behöver en Azure-dator som skapats i Resource Manager-distributionsmodellen som använder hanterade diskar. Om du inte har skapat en Linux VM, kan du använda den [portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), eller [Resource Manager-mallar](create-ssh-secured-vm-from-template.md). Konfigurera den virtuella datorn efter behov. Till exempel [lägga till datadiskar](add-disk.md), tillämpa uppdateringar och installera program. 
 
-* Du måste också ha senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och vara inloggad på ett Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+* Du måste också ha senast [Azure CLI](/cli/azure/install-az-cli2) installerad och vara inloggad på ett Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Snabbkommandon
 
@@ -62,7 +62,7 @@ Du avetablera den virtuella datorn, med hjälp av Azure VM-agenten att ta bort s
 4. När kommandot har slutförts, skriver **avsluta**. Det här steget stängs SSH-klienten.
 
 ## <a name="step-2-create-vm-image"></a>Steg 2: Skapa VM-avbildning
-Använda Azure CLI 2.0 för att markera den virtuella datorn som generaliserad och spara avbildningen. I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar *myResourceGroup*, *myVnet*, och *myVM*.
+Använda Azure CLI för att markera den virtuella datorn som generaliserad och spara avbildningen. I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar *myResourceGroup*, *myVnet*, och *myVM*.
 
 1. Frigör den virtuella datorn som du tagit bort etableringen med [az vm deallocate](/cli//azure/vm#deallocate). I följande exempel bort den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup*:
    
@@ -146,4 +146,4 @@ Du kan skapa flera virtuella datorer från din käll-avbildning. Om du behöver 
 - Följ stegen igen för att avetablera, frigöra, generalisera och skapa en avbildning.
 - Använd den nya avbildningen för framtida distributioner. Om du vill kan du ta bort den ursprungliga avbildningen.
 
-Mer information om hur du hanterar dina virtuella datorer med CLI finns i [Azure CLI 2.0](/cli/azure).
+Mer information om hur du hanterar dina virtuella datorer med CLI finns i [Azure CLI](/cli/azure).

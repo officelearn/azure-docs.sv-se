@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2b94496895c0ab06127b6c556b1240e3279e572f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 40eb0e8133626e77a1f61ddfc5df69ecf1b958f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504421"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950802"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Ansluta en Windows Server-dator till en hanterad domän med en Resource Manager-mall
 Den här artikeln visar hur du kopplar en Windows Server-dator till en Azure AD Domain Services-hanterad domän med hjälp av Resource Manager-mallar.
@@ -39,7 +39,7 @@ Om du vill utföra åtgärderna i den här artikeln behöver du:
 ## <a name="install-and-configure-required-tools"></a>Installera och konfigurera verktyg som krävs
 Du kan använda något av följande alternativ för att utföra de steg som beskrivs i det här dokumentet:
 * **Azure PowerShell**: [installera och konfigurera](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Azures plattformsoberoende kommandoradsgränssnitt**: [installera och konfigurera](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **Azure CLI**: [installera och konfigurera](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Alternativ 1: Etablera en ny Windows Server VM och ansluta den till en hanterad domän

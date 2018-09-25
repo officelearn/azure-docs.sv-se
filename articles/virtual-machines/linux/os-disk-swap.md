@@ -1,6 +1,6 @@
 ---
-title: Växlingen OS-disk för en virtuell Azure-dator med hjälp av CLI | Microsoft Docs
-description: Ändra operativsystemets disk som används av en virtuell Azure-dator med hjälp av CLI.
+title: Växla OS-disk för en Azure-dator med CLI | Microsoft Docs
+description: Ändra operativsystemets disk som används av virtuella Azure-datorer med hjälp av CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 1732b60ee135b765cdeea43f981bcef9575ff32c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 983c2e6d03735ba26f7660fc07dcf1a05ef88189
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32196212"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960404"
 ---
-# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Ändra OS-disk som används av en virtuell Azure-dator med hjälp av CLI
+# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Ändra OS-disken som används av en Azure-dator med hjälp av CLI
 
 
-Om du har en befintlig virtuell dator, men du vill byta disken för en säkerhetskopiering disk eller en annan OS-disk, kan du använda Azure CLI för att växla OS-diskar. Du behöver ta bort och återskapa den virtuella datorn. Du kan även använda en hanterade diskar i en annan resursgrupp, så länge det inte redan används.
+Om du har en befintlig virtuell dator, men du vill växla disken för en säkerhetskopiering disk eller en annan OS-disk, kan du använda Azure CLI för att växla OS-diskar. Du behöver ta bort och återskapa den virtuella datorn. Du kan även använda en hanterad disk i en annan resursgrupp, förutsatt att den inte redan används.
 
-Den virtuella datorn måste vara stopped\deallocated och resurs-ID för hanterade diskar kan ersättas med resurs-ID för en annan hanterad disk. 
+Den virtuella datorn måste vara stopped\deallocated och resurs-ID för hanterad disk kan ersättas med resurs-ID för en annan hanterad disk. 
 
-Kontrollera att typen VM storlek och lagring är kompatibla med den disk som du vill bifoga. Till exempel om disken som du vill använda i Premium-lagring, måste sedan den virtuella datorn kunna Premium-lagring (t.ex. en DS-storlek).
+Kontrollera att typ av virtuell dator och är kompatibla med den disk du vill bifoga. Till exempel om det är den disk du vill använda i Premium-lagring, måste den virtuella datorn kunna Premium Storage (t.ex. en storlek i DS-serien).
 
-Den här artikeln kräver Azure CLI version 2.0.25 eller högre. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Den här artikeln kräver Azure CLI version 2.0.25 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 
-Använd [az Disklista](/cli/azure/disk#list) att hämta en lista över diskarna i resursgruppen.
+Använd [az disk list](/cli/azure/disk#list) att hämta en lista över diskarna i resursgruppen.
 
 ```azurecli-interactive
 az disk list \
@@ -44,7 +44,7 @@ az disk list \
 ```
 
 
-Använd [az vm stoppa](/cli/azure/vm#stop) till stop\deallocate den virtuella datorn innan du byter diskarna.
+Använd [az vm stop](/cli/azure/vm#stop) till stop\deallocate den virtuella datorn innan du växlar diskarna.
 
 ```azurecli-interactive
 az vm stop \
@@ -53,7 +53,7 @@ az vm stop \
 ```
 
 
-Använd [az vm-uppdateringen](/cli/azure/vm#az-vm-update) med fullständiga resurs-ID för den nya disken för den `--osdisk` parameter 
+Använd [az vm update](/cli/azure/vm#az-vm-update) med fullständiga resurs-ID för den nya disken för den `--osdisk` parameter 
 
 ```azurecli-interactive 
 az vm update \
@@ -73,4 +73,4 @@ az vm start \
    
 **Nästa steg**
 
-För att skapa en kopia av en disk, se [ögonblicksbild en disk](snapshot-copy-managed-disk.md).
+För att skapa en kopia av en disk, se [ögonblicksbild av en disk](snapshot-copy-managed-disk.md).

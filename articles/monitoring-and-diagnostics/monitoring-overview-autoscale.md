@@ -1,121 +1,122 @@
 ---
-title: Översikt över Autoskala i virtuella datorer och molntjänster Web Apps
-description: Autoskala i Microsoft Azure. Gäller för virtuella datorer, virtuella skalningsuppsättningarna, Cloud Services och Web Apps.
+title: Översikt över automatisk skalning i virtuella datorer, molntjänster och Web Apps
+description: Automatisk skalning i Microsoft Azure. Gäller för virtuella datorer, Virtual machine Scale sets, molntjänster och Web Apps.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2016
+ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: 4eeca81e08a0ecae9ba41ccdd2bf8a2f395f579c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fe63ce931da9fbe94b47d00805820affddfb1bc1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264678"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946994"
 ---
-# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Översikt över Autoskala i virtuella datorer i Microsoft Azure Cloud Services och Web Apps
-Den här artikeln beskriver vilka Microsoft Azure-Autoskala är, dess fördelar, och hur du kommer igång med hjälp av den.  
+# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Översikt över automatisk skalning i Microsoft Azure Virtual Machines, Cloud Services och Web Apps
+Den här artikeln beskriver vilka Microsoft Azure automatisk skalning är, dess fördelar, och hur du kommer igång med hjälp av den.  
 
-Azure övervakaren Autoskala gäller enbart för [Skalningsuppsättningar i virtuella](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), och [App Service - Webbappar](https://azure.microsoft.com/services/app-service/web/).
+Automatisk skalning i Azure Monitor gäller endast [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 > [!NOTE]
-> Azure har två Autoskala metoder. En äldre version av Autoskala gäller för virtuella datorer (tillgänglighetsuppsättningar). Den här funktionen har begränsad support och rekommenderar vi migrering till skalningsuppsättningar i virtuella datorer för snabbare och mer tillförlitlig Autoskala support. En länk på hur du använder äldre teknik ingår i den här artikeln.  
+> Azure har två metoder för automatisk skalning. En äldre version av automatisk skalning gäller för virtuella datorer (tillgänglighetsuppsättningar). Den här funktionen har begränsad support och vi rekommenderar att du migrerar till VM-skalningsuppsättningar för stöd för snabbare och mer tillförlitlig autoskalning. En länk om hur du använder den äldre tekniken som ingår i den här artikeln.  
 >
 >
 
-## <a name="what-is-autoscale"></a>Vad är Autoskala?
-Autoskalningsfunktionen kan du ha rätt antal resurser som körs för att hantera belastningen på ditt program. Det kan du lägga till resurser för att hantera belastningen ökar och även spara pengar genom att ta bort resurser som placerad inaktiv. Du kan ange lägsta och högsta antal instanser som du vill köra och lägga till eller ta bort virtuella datorer automatiskt baserat på en uppsättning regler. Med en minsta gör att körs programmet alltid även under ingen belastning. Med en begränsar din totalkostnaden möjliga varje timme. Du skalar automatiskt mellan dessa två yttersta med regler som du skapar.
+## <a name="what-is-autoscale"></a>Vad är automatisk skalning?
+Automatisk skalning kan du har rätt mängd resurser som körs för att hantera belastningen på programmet. Det kan du lägga till resurser för att hantera ökad belastning och sparar du pengar genom att ta bort resurser som sitter inaktiv. Du kan ange ett lägsta och högsta antal instanser för att köra och lägga till eller ta bort virtuella datorer automatiskt baserat på en uppsättning regler. Med en minsta gör att körs ditt program alltid även utan belastning. Med en begränsar den totala möjliga timkostnad. Du skalar automatiskt mellan dessa två extremval med hjälp av regler som du skapar.
 
- ![Autoskala beskrivs. Lägga till och ta bort virtuella datorer](./media/monitoring-overview-autoscale/AutoscaleConcept.png)
+ ![Automatisk skalning beskrivs. Lägga till och ta bort virtuella datorer](./media/monitoring-overview-autoscale/AutoscaleConcept.png)
 
-När villkor uppfylls, utlöses en eller flera automatiska åtgärder. Du kan lägga till och ta bort virtuella datorer, eller utföra andra åtgärder. Följande konceptuellt diagram visar den här processen.  
+När regelvillkor uppfylls utlöses en eller flera åtgärder för automatisk skalning. Du kan lägga till och ta bort virtuella datorer, eller utföra andra åtgärder. Följande konceptuellt diagram visar den här processen.  
 
- ![Flödesdiagram för Autoskala](./media/monitoring-overview-autoscale/Autoscale_Overview_v4.png)
+ ![Flödesdiagram för automatisk skalning](./media/monitoring-overview-autoscale/Autoscale_Overview_v4.png)
 
-Följande förklaring gäller för de olika delarna i föregående diagram.   
+Följande förklaring gäller för de olika delarna i diagrammet ovan.   
 
-## <a name="resource-metrics"></a>Resurs-mått
-Resurser genererar mått, de här måtten bearbetas senare av regler. Mått levereras via olika metoder.
-Skaluppsättningar för den virtuella datorn använder telemetridata från Azure diagnostics agenter telemetri för webbprogram och molntjänster kommer direkt från Azure-infrastrukturen. Några vanliga statistiken omfattar processoranvändning, minnesanvändning, antalet trådar, kölängd och diskanvändning. En lista över vilka telemetridata som du kan använda finns [Autoskala vanliga mått](insights-autoscale-common-metrics.md).
+## <a name="resource-metrics"></a>Resursmått
+Resurser genererar mått, de här måtten bearbetas senare av regler. Mått komma via olika metoder.
+VM-skalningsuppsättningar använder dessa data från Azure-diagnostik agenter telemetri för webbappar och molntjänster som kommer direkt från Azure-infrastrukturen. Vissa vanliga statistiken omfattar processoranvändning, minnesanvändning, antalet trådar, kölängden och diskanvändning. En lista över vilka telemetridata som du kan använda finns i [vanliga mått för autoskalning](insights-autoscale-common-metrics.md).
 
 ## <a name="custom-metrics"></a>Anpassade mått
-Du kan också utnyttja dina egna anpassade mått som dina program kan avger. Om du har konfigurerat dina program att skicka mått till Application Insights kan du utnyttja dessa mått för att fatta beslut om att skala eller inte. 
+Du kan även använda dina egna anpassade mått som kan avger dina program. Om du har konfigurerat din programmen för att skicka mått till Application Insights kan du använda dessa mått för att fatta beslut på om du vill skala eller inte.
 
 ## <a name="time"></a>Tid
 Schema-baserade regler baserat på UTC. Du måste ange tidszonen korrekt när du konfigurerar dina regler.  
 
 ## <a name="rules"></a>Regler
-Diagrammet visar endast en Autoskala regeln, men du kan ha många av dem. Du kan skapa komplexa överlappande regler som behövs för din situation.  Typer av regel  
+Diagrammet visar endast en regel för automatisk skalning, men du kan ha många av dem. Du kan skapa komplexa överlappande regler som behövs för din situation.  Typer av regel  
 
-* **Mått-baserade** – till exempel göra den här åtgärden när CPU-användning är över 50%.
-* **Tidsbaserade** – till exempel utlösaren webhook var 8: 00 på lördag i en viss tidszon.
+* **Måttbaserad** – till exempel göra den här åtgärden när processoranvändningen är över 50%.
+* **Tidsbaserade** – till exempel utlösaren en webhook var 8: 00 på lördagar i en viss tidszon.
 
-Mått-baserade regler mäta programinläsning och lägga till eller ta bort virtuella datorer baserat på att belastningen. Schema-baserade regler kan du skala när du se klockslag i din belastning och vill skala innan ett möjligt belastningen ökar eller minskar inträffar.  
+Mått-baserade regler mäta programinläsning och lägga till eller ta bort virtuella datorer utifrån belastningen. Schema-baserade regler kan du skala när du ser klockslag i inläsningen och vill skala innan en möjlig belastningen ökning eller minskning inträffar.  
 
-## <a name="actions-and-automation"></a>Åtgärder och automatisering
+## <a name="actions-and-automation"></a>Åtgärder och automation
 Regler kan utlösa en eller flera typer av åtgärder.
 
-* **Skala** -skala VMs in eller ut
-* **E-post** – skicka e-post till prenumerationsadministratörer, medadministratörer eller en extra e-postadress som du anger
-* **Automatisera via webhooks** -anropa webhooks, som kan utlösa flera komplexa åtgärder i eller utanför Azure. Du kan starta en Azure Automation-runbook, Azure-funktion eller Azure Logikappen i Azure. Exempel-URL från tredje part utanför Azure innehåller tjänster som Slack och Twilio.
+* **Skala** -skala virtuella datorer in eller ut
+* **E-post** – skicka e-post till prenumerationsadministratörer, medadministratörer och/eller ytterligare e-postadress du specificerar
+* **Automatisera via webhooks** -anropa webhooks, som kan utlösa flera komplexa åtgärder i eller utanför Azure. Du kan starta en Azure Automation-runbook, Azure Function eller Azure Logic App i Azure. Exempel-URL från tredje part utanför Azure innehåller tjänster som Slack och Twilio.
 
-## <a name="autoscale-settings"></a>Autoskala inställningar
-Autoskala använder följande termer och struktur.
+## <a name="autoscale-settings"></a>Autoskalningsinställningar
+Automatisk skalning använder följande termer och struktur.
 
-- En **autoskalningsinställning** läses av Autoskala-motorn att avgöra om du vill skala upp eller ned. Den innehåller en eller flera profiler, information om målresurs och inställningar för meddelanden.
+- En **autoskalningsinställning** läses av motorn för automatisk skalning att avgöra om du vill skala upp eller ned. Den innehåller en eller flera profiler, information om målresurs och Meddelandeinställningar.
 
-    - En **Autoskala profil** är en kombination av a:
+    - En **autoskalningsprofilen** är en kombination av a:
 
-        - **kapacitet**, vilket anger lägsta och högsta och standardvärdena för antalet instanser.
-        - **uppsättning regler**, som innehåller en utlösare (tid eller mått) och en skalningsåtgärd (uppåt eller nedåt).
-        - **återkommande**, vilket anger att när Autoskala ska införas den här profilen.
+        - **kapacitet inställningen**, vilket anger lägsta och högsta och standardvärdena för antalet instanser.
+        - **uppsättning regler**, som innehåller en utlösare (tid eller mått) och en skalningsåtgärd (upp eller ned).
+        - **upprepning**, vilket betyder att när automatisk skalning bör vidta den här profilen.
 
-        Du kan ha flera profiler, så att du kan ta hand om olika överlappande krav. Du kan ha olika autoskalningsprofiler för olika tidpunkter på dagen eller dagar i veckan, till exempel.
+        Du kan ha flera profiler som gör att du kan ta hand om olika överlappande krav. Du kan ha olika autoskalningsprofiler för olika tidpunkter på dagen eller dagar i veckan, till exempel.
 
-    - En **inställning för händelseavisering** definierar vilka meddelanden som ska utföras när Autoskala händelse inträffar baserat på uppfyller villkoren för någon av den autoskalningsinställning profiler. Autoskala kan meddela en eller flera e-postadresser eller göra anrop till en eller flera webhook.
+    - En **meddelandeinställningen** definierar vilka meddelanden som ska utföras när en händelse med automatisk skalning sker utifrån uppfyller kriterierna i någon av de autoskalningsinställning profilerna. Automatisk skalning kan meddela en eller flera e-postadresser eller göra anrop till en eller flera webhook.
 
 
-![Azure autoskalningsinställning, profil och regelstruktur](./media/monitoring-overview-autoscale/AzureResourceManagerRuleStructure3.png)
+![Inställningen för automatisk skalning i Azure, profilen och regelstruktur](./media/monitoring-overview-autoscale/AzureResourceManagerRuleStructure3.png)
 
-En fullständig lista över konfigurerbara fält och beskrivningar som är tillgängliga i den [Autoskala REST API](https://msdn.microsoft.com/library/dn931928.aspx).
+En fullständig lista över konfigurerbara fält och beskrivningar finns i den [REST-API för automatisk skalning](https://msdn.microsoft.com/library/dn931928.aspx).
 
-Kodexempel finns
+Kodexempel, se
 
-* [Avancerade Autoskala konfigurationen med hjälp av Resource Manager-mallar för Skalningsuppsättningar](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
-* [Autoskala REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
+* [REST-API för automatisk skalning](https://msdn.microsoft.com/library/dn931953.aspx)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Vågrät eller lodrät skalning
-Autoskala endast skalas vågrätt, vilket ökar (”out”) eller minska (”i”) i antal VM-instanser.  Vågrät är mer flexibelt i en situation med molnet som du kan köra potentiellt tusentals virtuella datorer för att hantera belastningen.
+Automatisk skalning endast skalas vågrätt, vilket är en ökning (”ut”) eller minska (”in”) i antalet Virtuella datorinstanser.  Vågrätt är mer flexibel i en situation med molnet eftersom den låter dig köra potentiellt tusentals virtuella datorer för att hantera belastningen.
 
-Däremot är lodrät skalning olika. Det behåller samma antal virtuella datorer, men det gör de virtuella datorerna mer (”upp”) eller mindre (”nedåt”) kraftfulla. Power mäts i minne, processorhastighet, diskutrymme osv.  Lodrät skalning har flera begränsningar. Det är beroende av tillgängligheten för större maskinvara, vilket snabbt träffar en övre gräns och kan variera beroende på region. Lodrät skalning kräver också vanligtvis en VM att stoppa och starta om.
+Däremot är vertikal skalning olika. Det ser till att samma antal virtuella datorer, men det gör att de virtuella datorerna mer (”dig”) eller mindre (”av”) kraftfulla. Power mäts i minne, processorhastighet, diskutrymme osv.  Vertikal skalning har flera begränsningar. Det är beroende av tillgängligheten för större maskinvara, vilket snabbt når en övre gräns och kan variera beroende på region. Lodrät skalning kräver också vanligtvis en virtuell dator för att stoppa och starta om.
 
-Mer information finns i [lodrätt skala virtuella Azure-datorn med Azure Automation](../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Mer information finns i [lodrätt skalning av Azure-dator med Azure Automation](../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="methods-of-access"></a>Åtkomstmetoder
-Du kan ställa in autoskalning via
+Du kan ställa in automatisk skalning via
 
 * [Azure Portal](insights-how-to-scale.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
-* [Plattformsoberoende kommandoradsgränssnittet (CLI)](insights-cli-samples.md#autoscale)
-* [Azure-Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
+* [Plattformsoberoende kommandoradsgränssnitt (CLI):](insights-cli-samples.md#autoscale)
+* [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
-## <a name="supported-services-for-autoscale"></a>Tjänster som stöds för Autoskala
-| Tjänst | Schemat & Docs |
+## <a name="supported-services-for-autoscale"></a>Tjänster som stöds för autoskalning
+| Tjänst | Schemat och dokument |
 | --- | --- |
-| Web Apps |[Skalning av webbprogram](insights-how-to-scale.md) |
-| Cloud Services |[Autoskala en tjänst i molnet](../cloud-services/cloud-services-how-to-scale-portal.md) |
-| Virtuella datorer: klassiska |[Skalning klassiska virtuella Tillgänglighetsuppsättningar](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtuella datorer: Skalningsuppsättningar Windows |[Skalning virtuella datorn anger i Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtuella datorer: Skalningsuppsättningarna Linux |[Skalning virtuella datorn anger i Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
-| Virtuella datorer: Windows-exempel |[Avancerade Autoskala konfigurationen med hjälp av Resource Manager-mallar för Skalningsuppsättningar](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Web Apps |[Skalning av Webbappar](insights-how-to-scale.md) |
+| Cloud Services |[Skala en molntjänst](../cloud-services/cloud-services-how-to-scale-portal.md) |
+| Virtuella datorer: klassisk |[Skala Tillgänglighetsuppsättningar för klassiska virtuella datorer](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Virtuella datorer: Skalningsuppsättningar Windows |[Skala VM scale anger i Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
+| Virtuella datorer: Skalningsuppsättningar för Linux |[Skala VM scale anger i Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Virtuella datorer: Windows-exempel |[Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| API Management-tjänst|[Skala automatiskt en Azure API Management-instans](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Autoskala Autoscale Walkthroughs som angavs tidigare eller finns i följande resurser:
+Mer information om automatisk skalning, Använd Autoscale Walkthroughs som angavs tidigare eller finns i följande resurser:
 
-* [Azure övervakaren Autoskala vanliga mått](insights-autoscale-common-metrics.md)
-* [Metodtips för Azure-Monitor Autoskala](insights-autoscale-best-practices.md)
-* [Använda automatiska åtgärder för att skicka e-post och webhook aviseringar](insights-autoscale-to-webhook-email.md)
-* [Autoskala REST API](https://msdn.microsoft.com/library/dn931953.aspx)
-* [Felsökning virtuella skala anger Autoskala](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+* [Azure Monitor autoscale vanliga mått](insights-autoscale-common-metrics.md)
+* [Metodtips för automatisk skalning i Azure Monitor](insights-autoscale-best-practices.md)
+* [Använda automatisk skalning åtgärder för att skicka e-post och webhook varningsmeddelanden](insights-autoscale-to-webhook-email.md)
+* [REST-API för automatisk skalning](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Felsökning VM Scale Sets automatisk skalning](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)

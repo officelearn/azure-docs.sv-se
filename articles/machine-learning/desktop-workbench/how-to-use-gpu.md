@@ -11,18 +11,22 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 09d8e3da543cdf4433d986b321697abcad88eb22
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8e8944a9bdfa2b75f6442e03d45dfb6977c2a122
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157998"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974365"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Hur du använder GPU i Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Grafiska grafikprocessor (GPU) används ofta för att bearbeta beräkningsintensiva uppgifter som vanligtvis kan inträffa vid utbildning av vissa modeller för djupa neurala nätverk. Genom att använda GPU: er kan minska du utbildning tidpunkten för modellerna avsevärt. I det här dokumentet har du lära dig hur du konfigurerar Azure ML Workbench för att använda [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) utrustad med GPU: er som körningsmål. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-- För att gå igenom den här guiden, måste du först [installera Azure ML Workbench](../service/quickstart-installation.md).
+- För att gå igenom den här guiden, måste du först [installera Azure ML Workbench](quickstart-installation.md).
 - Du måste ha åtkomst till datorer med NVidia GPU: er.
     - Du kan köra dina skript direkt på den lokala datorn (Windows eller Mac OS) med GPU: er.
     - Du kan också köra skript i en Docker-behållare på en Linux-dator med GPU: er...

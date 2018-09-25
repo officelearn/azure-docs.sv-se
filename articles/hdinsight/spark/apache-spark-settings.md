@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/26/2018
-ms.openlocfilehash: 5678cc17cde833c02c21090a7b5f7b70c01eec9e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 926ce58872b06b41a0c7942b7090dcb4d5c8df03
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045321"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956499"
 ---
 # <a name="configure-spark-settings"></a>Konfigurera Spark-inställningar
 
@@ -37,7 +37,7 @@ När du skapar ett nytt kluster, är här de aktuella Spark-versionerna att väl
 Spark 2.x kan köra mycket bättre än Spark 1.x. Spark 2.x har ett antal prestandaoptimeringarna, till exempel volfram och Catalyst Frågeoptimeringen.  
 
 > [!NOTE]
-> Standardversionen av Apache Spark i HDInsight-tjänsten kan ändras utan föregående meddelande. Om du har ett inbyggt beroende, rekommenderar Microsoft att du anger den specifika versionen när du skapar kluster med .NET SDK/Azure PowerShell och Azure CLI.
+> Standardversionen av Apache Spark i HDInsight-tjänsten kan ändras utan föregående meddelande. Om du har ett inbyggt beroende rekommenderar Microsoft att du anger den specifika versionen när du skapar kluster med .NET SDK, Azure PowerShell och Azure klassiskt CLI.
 
 Apache Spark har tre system configuration platser:
 

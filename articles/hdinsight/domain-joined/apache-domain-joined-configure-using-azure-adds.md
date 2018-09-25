@@ -1,79 +1,82 @@
 ---
-title: Konfigurera ett domänanslutet HDInsight-kluster med hjälp av Azure AD DS
-description: Lär dig att installera och konfigurera ett domänanslutet HDInsight-kluster med hjälp av Azure Active Directory Domain Services
+title: Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure AD-DS
+description: Lär dig att installera och konfigurera ett Enterprise-säkerhetspaketet för HDInsight-kluster med hjälp av Azure Active Directory Domain Services
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 07/17/2018
-ms.openlocfilehash: 17924b0a00f4605d41492768b0124c583664aca6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: a5b377381fd540c2a9f1d85e0cb7edce32c2dae8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042149"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968381"
 ---
-# <a name="configure-a-domain-joined-hdinsight-cluster-by-using-azure-active-directory-domain-services"></a>Konfigurera ett domänanslutet HDInsight-kluster med hjälp av Azure Active Directory Domain Services
+# <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services
 
-Domänanslutna kluster ger flera användare åtkomst i Azure HDInsight-kluster. Domänanslutna HDInsight-kluster är anslutna till en domän så att domänanvändare kan använda sina domänautentiseringsuppgifter för att autentisera med kluster och köra jobb för stordata. 
+Enterprise Security Package (ESP)-kluster tillhandahåller flera användare åtkomst i Azure HDInsight-kluster. HDInsight-kluster med hjälp av ESP är anslutna till en domän så att domänanvändare kan använda sina domänautentiseringsuppgifter för att autentisera med kluster och köra jobb för stordata. 
 
-I den här artikeln får du lära dig hur du konfigurerar ett domänanslutet HDInsight-kluster med hjälp av Azure Active Directory Domain Services (Azure AD DS).
+I den här artikeln får du lära dig hur du konfigurerar ett HDInsight-kluster med ESP med hjälp av Azure Active Directory Domain Services (Azure AD DS-).
+
+>[!NOTE]
+>ESP är tillgänglig i HDI 3.6 + för Spark, interaktiv och Hadoop. ESP för HBase-kluster-typer finns i förhandsversion.
+
 
 ## <a name="enable-azure-ad-ds"></a>Aktivera Azure AD DS
 
-Aktivera Azure AD DS är en förutsättning innan du kan skapa ett domänanslutet HDInsight-kluster. Mer information finns i [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+Aktivera Azure AD-DS är en förutsättning innan du kan skapa ett HDInsight-kluster med ESP. Mer information finns i [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Endast klientadministratörer ha behörighet att skapa en Azure AD DS-instans. Om du använder Azure Data Lake Storage Gen1 som standardlagringen för HDInsight, se till att standard Azure AD-klient för Data Lake Storage Gen1 är densamma som domänen för HDInsight-klustret. Eftersom Hadoop är beroende av Kerberos- och grundläggande autentisering, måste multifaktorautentisering inaktiveras för användare som ska få åtkomst till klustret.
+> Endast klientadministratörer ha behörighet att skapa en Azure AD-DS-instans. Om du använder Azure Data Lake Storage Gen1 som standardlagringen för HDInsight, se till att standard Azure AD-klient för Data Lake Storage Gen1 är densamma som domänen för HDInsight-klustret. Eftersom Hadoop är beroende av Kerberos- och grundläggande autentisering, måste multifaktorautentisering inaktiveras för användare som ska få åtkomst till klustret.
 
-När du etablerar Azure AD DS-instans, kan du skapa ett tjänstkonto i Azure Active Directory (Azure AD) med rätt behörigheter. Om det här service-kontot redan finns, återställa dess lösenord och vänta tills programmet synkroniseras till Azure AD DS. Den här återställningen resulterar i skapandet av Kerberos lösenords-hash och det kan ta upp till 30 minuter att synkronisera till Azure AD DS. 
+Det är säkert LDAP för en hanterad Azure AD-DS-domän. När du aktiverar LDAPS placera domännamnet i ämnesnamnet eller det alternativa ämnesnamnet i certifikatet. Mer information finns i [konfigurera säkert LDAP för en Azure AD DS-domän hanterad](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
-Service-kontot måste ha följande behörigheter:
+## <a name="add-managed-identity"></a>Lägg till hanterad identitet
 
-- Ansluta datorer till domänen och placera datorn säkerhetsobjekt i den Organisationsenhet som du anger när klustret skapas.
-- Skapa tjänstens huvudnamn i Organisationsenheten som du anger när klustret skapas.
+När du har aktiverat Azure AD-DS skapar en hanterad identitet och kopplar den till den **HDInsight Domain Services deltagare** roll i Azure AD DS-åtkomstkontroll.
 
-> [!NOTE]
-> Eftersom Apache Zeppelin använder domännamnet för att autentisera administrationskontot tjänstkontot *måste* har samma domännamn som UPN-suffix för Apache Zeppelin ska fungera korrekt.
+![Active Directory Domain Services Access control i Azure](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
-Läs mer om organisationsenheter och hur du hanterar dem i [skapa en OU på en hanterad Azure AD DS-domän](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md). 
+Mer information finns i [vad är hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Det är säkert LDAP för en hanterad Azure AD DS-domän. Mer information finns i [konfigurera säkert LDAP för en Azure AD DS en domän hanterad](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
+## <a name="create-a-hdinsight-cluster-with-esp"></a>Skapa ett HDInsight-kluster med ESP
 
-## <a name="create-a-domain-joined-hdinsight-cluster"></a>Skapa ett domänanslutet HDInsight-kluster
+Nästa steg är att skapa HDInsight-kluster med ESP aktiverat med Azure AD-DS.
 
-Nästa steg är att skapa HDInsight-kluster med hjälp av Azure AD DS och det tjänstkonto som du skapade i föregående avsnitt.
+Det är lättare att placera både Azure AD-DS-instans och HDInsight-klustret i samma Azure-nätverk. Om du vill placera dem i olika virtuella nätverk måste du peerkoppla de virtuella nätverk så att HDInsight virtuella datorer har åtkomst till domänkontrollanten för att ansluta till de virtuella datorerna. Mer information finns i [peerkoppling av virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md).
 
-Det är lättare att placera både Azure AD DS-instans och HDInsight-klustret i samma Azure-nätverk. Om du vill placera dem i olika virtuella nätverk måste du peerkoppla de virtuella nätverk så att HDInsight virtuella datorer har åtkomst till domänkontrollanten för att ansluta till de virtuella datorerna. Mer information finns i [peerkoppling av virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md).
+När du skapar ett HDInsight-kluster, har du möjlighet att aktivera Enterprise Security Package att ansluta ditt kluster med Azure AD DS. 
 
-När du skapar ett domänanslutet HDInsight-kluster måste du ange följande parametrar:
+![Azure HDInsight-säkerhet och nätverk](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-security-networking.png)
 
-- **Domännamn**: det domännamn som är associerat med Azure AD DS. Ett exempel är contoso.onmicrosoft.com.
+När du har aktiverat ESP upptäckte vanliga felkonfigureringar relaterade till Azure AD DS-automatiskt och godkänts.
 
-- **Domänanvändarnamn**: tjänstkontot i domänkontrollanten lägger Azure till en domän hanterad som du skapade i föregående avsnitt. Ett exempel är hdiadmin@contoso.onmicrosoft.com. Den här domänanvändare ska vara administratör för det här HDInsight-klustret.
+![Azure HDInsight Enterprise security package domänverifiering](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 
-- **Domänlösenord**: lösenordet för tjänstkontot.
+Tidig upptäckt sparar tid genom att du kan åtgärda fel innan du skapar klustret.
 
-- **Organisationsenhet**: det unika namnet på den Organisationsenhet som du vill använda med HDInsight-kluster. Ett exempel är OU = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com. Om den här Organisationsenheten inte finns, försöker HDInsight-klustret skapa en Organisationsenhet med hjälp av de privilegier som tjänstkontot har. Till exempel om kontot tillhör administratörsgruppen på Azure AD DS, har den rätt behörighet för att skapa en Organisationsenhet. I annat fall måste du först skapa Organisationsenheten och ger service-konto fullständig kontroll över denna Organisationsenhet. Mer information finns i [skapa en OU på en hanterad Azure AD DS-domän](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
+![Azure HDInsight Enterprise security package det gick inte att verifiera domänen](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate-failed.png)
 
-    > [!IMPORTANT]
-    > Inkludera alla domänkontrollanter, avgränsade med kommatecken, efter Organisationsenheten (t.ex, OU = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com).
+När du skapar ett HDInsight-kluster med ESP måste du ange följande parametrar:
+
+- **Kluster-administratörsanvändare**: Välj en administratör för ditt kluster från din synkroniserad Azure AD DS-.
+
+- **Kluster åtkomstgrupper**: vars användare som du vill synkronisera till klustret ska vara synkroniserade och är tillgängliga i Azure AD DS-säkerhetsgrupper. Till exempel HiveUsers. Om du vill ange flera användargrupper avgränsa dem med semikolon (;). I grupperna måste finnas i katalogen före etablering. Mer information finns i [skapar en grupp och Lägg till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Om gruppen inte finns uppstår ett fel: ”grupp HiveUsers hittades inte i Active Directory”.
 
 - **LDAPS-URL**: ett exempel är ldaps://contoso.onmicrosoft.com:636.
 
     > [!IMPORTANT]
     > Ange den fullständiga URL, inklusive ”ldaps: / /” och portnummer (: 636).
 
-- **Ha åtkomst till användargrupper**: säkerhetsgrupperna vars användare som du vill synkronisera till klustret. Till exempel HiveUsers. Om du vill ange flera användargrupper avgränsa dem med semikolon (;). I grupperna måste finnas i katalogen före etablering. Mer information finns i [skapar en grupp och Lägg till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Om gruppen inte finns uppstår ett fel: ”grupp HiveUsers hittades inte i Active Directory”.
-
 Följande skärmbild visar konfigurationerna i Azure portal:
 
-   ![Azure HDInsight domänanslutna Active Directory Domain Services-konfiguration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+   ![Azure HDInsight ESP Active Directory Domain Services-konfiguration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Konfigurera Hive-principer och köra Hive-frågor finns i [konfigurera Hive-principer för domänanslutna HDInsight-kluster](apache-domain-joined-run-hive.md).
-* Använda SSH för att ansluta till domänanslutna HDInsight-kluster, finns i [använda SSH med Linux-baserat Hadoop i HDInsight från Linux, Unix eller OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Konfigurera Hive-principer och köra Hive-frågor finns i [konfigurera Hive-principer för HDInsight-kluster med ESP](apache-domain-joined-run-hive.md).
+* Använda SSH för att ansluta till HDInsight-kluster med hjälp av ESP, finns i [använda SSH med Linux-baserat Hadoop i HDInsight från Linux, Unix eller OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

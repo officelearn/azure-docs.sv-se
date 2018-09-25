@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: jdial
-ms.openlocfilehash: 95fc257485aeea396185089b2b73a6e73ee2bfee
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f25da8c1eedc31209a67ae05aef9dded45b706e0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056957"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962410"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Översikt över Azure DDoS Protection Standard
 
@@ -28,10 +28,10 @@ Distribuerade attacker denial of service (DDoS) är några av de största tillg�
 
 Azure DDoS protection, tillsammans med programmet Metodtips för design, ger skydd mot DDoS-attacker. Azure DDoS protection får du med följande tjänstnivåer:
 
-- **Grundläggande**: aktiveras automatiskt som en del av Azure-plattformen, utan extra kostnad. Ständigt aktiverad övervakning och i realtid minskning av vanliga attacker på nätverksnivå, ger samma försvar som används av Microsoft online services. Hela skalan för Azures globala nätverket kan användas för att distribuera och minimera attack trafik mellan regioner. Skydd tillhandahålls för IPv4 och IPv6 Azure [offentliga IP-adresser](virtual-network-public-ip-address.md).
-- **Standard**: ger ytterligare skyddsfunktioner över grundläggande tjänstenivå som är finjusterade specifikt för Azure Virtual Network-resurser. DDoS Protection Standard är enkelt att använda, och kräver inga ändringar i programmet. Appskyddsprinciper är justerade via dedikerade övervaknings- och machine learning-algoritmer. Principer som används för den offentliga IP-adresser som är kopplade till resurser som har distribuerats i virtuella nätverk, till exempel Azure Load Balancer Azure Application Gateway och Azure Service Fabric-instanser. I realtid telemetri är tillgängligt via Azure Monitor vyer under ett angrepp, och för historik. Skydd på programnivå kan läggas till via den [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Skydd tillhandahålls för IPv4 Azure [offentliga IP-adresser](virtual-network-public-ip-address.md).
+- **Grundläggande**: aktiveras automatiskt som en del av Azure-plattformen. Ständigt aktiverad övervakning och i realtid minskning av vanliga attacker på nätverksnivå, ger samma försvar som används av Microsoft online services. Hela skalan för Azures globala nätverket kan användas för att distribuera och minimera attack trafik mellan regioner. Skydd tillhandahålls för IPv4 och IPv6 Azure [offentliga IP-adresser](virtual-network-public-ip-address.md).
+- **Standard**: ger ytterligare skyddsfunktioner över grundläggande tjänstenivå som är finjusterade specifikt för Azure Virtual Network-resurser. DDoS Protection Standard är enkelt att använda, och kräver inga ändringar i programmet. Appskyddsprinciper är justerade via dedikerade övervaknings- och machine learning-algoritmer. Principer som används för den offentliga IP-adresser som är kopplade till resurser som har distribuerats i virtuella nätverk, till exempel Azure Load Balancer Azure Application Gateway och Azure Service Fabric-instanser. I realtid telemetri är tillgängligt via Azure Monitor vyer under ett angrepp, och för historik. Omfattande attack minskning analyser är tillgängliga via diagnostikinställningar. Skydd på programnivå kan läggas till via den [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller genom att installera en brandvägg för 3 från Azure Marketplace. Skydd tillhandahålls för IPv4 Azure [offentliga IP-adresser](virtual-network-public-ip-address.md).
 
-![Azure DDoS Protection Standard](./media/ddos-protection-overview/ddospic.png)
+![Azure DDoS Protection grundläggande mot. Standard](./media/ddos-protection-overview/ddoscomparison.png)
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Typer av DDoS-attacker som DDoS Protection Standard minskar
 
@@ -53,8 +53,9 @@ DDoS Protection standardfunktioner omfattar:
 - **NYCKELFÄRDIGT skydd:** förenklad konfiguration skyddar direkt alla resurser i ett virtuellt nätverk när DDoS Protection Standard är aktiverat. Det krävs inga åtgärder eller användaren definition. DDoS Protection Standard attacken omedelbart och automatiskt, när den identifieras.
 - **Ständigt aktiverad övervakning:** din mönster i programtrafiken övervakas 24 timmar per dag, 7 dagar i veckan letar du efter indikatorer för DDoS-attacker. Minskning utförs när appskyddsprinciper överskrids.
 - **Anpassningsbar justering:** Intelligent trafik profilering lär sig programmets trafik över tid, och väljer och uppdaterar den profil som är mest lämplig för din tjänst. Profilen justerar allt trafik ändras med tiden.
-- **Nivå 3 till nivå 7-skydd:** ger fullständig stack DDoS-skydd, när det används med en brandvägg för webbaserade program.
+- **Skydd i flera lager:** ger fullständig stack DDoS-skydd, när det används med en brandvägg för webbaserade program.
 - **Omfattande minskning skala:** över 60 olika angreppstyper kan undvikas med globala kapacitet att skydda mot största kända DDoS-attacker.
+- **Angrepp analytics:** hämta detaljerade rapporter i femminutersintervall under en attack och en fullständig sammanfattning efter attack ut. Stream minskning flödet loggar på en offline och händelsehantering säkerhetshantering (SIEM) system för nära realtidsövervakning under ett angrepp.
 - **Angrepp mått:** Summarized mått från varje attack är tillgängliga via Azure Monitor.
 - **Attack avisering:** aviseringar kan konfigureras vid start och stopp av ett angrepp, och med hjälp av inbyggda attack mätvärden över den attack varaktighet. Aviseringar integrera i din operational programvara som Microsoft Azure Log Analytics, Splunk, Azure Storage, e-post och Azure-portalen.
 - **Kostnad garanti:** överföra Data och program skalbar tjänstkrediter för dokumenterad DDoS-attacker.

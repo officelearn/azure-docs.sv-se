@@ -9,14 +9,15 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: 4fa8341b4d1953e3c59d345f45853f4c9a4a2941
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 8f5c33a63fd932bedd7f1de3d3ae47306b3ea3e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715462"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954491"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Om disklagring för virtuella Azure Windows-datorer
+
 Precis som alla andra datorer Använd virtuella datorer i Azure diskar som en plats för att lagra ett operativsystem, program och data. Alla Azure virtuella datorer har minst två diskar – en operativsystemdisk för Windows och en tillfällig disk. Operativsystemdisken har skapats från en avbildning och både operativsystemdisken och avbildningen är virtuella hårddiskar (VHD) lagras i ett Azure storage-konto. Virtuella datorer kan också ha en eller flera datadiskar som lagras också som virtuella hårddiskar. 
 
 I den här artikeln ska vi prata om olika användningsområden för diskarna och beskrivs de olika typerna av diskar som du kan skapa och använda. Den här artikeln är också tillgängligt för [Linux-datorer](../linux/about-disks-and-vhds.md).
@@ -28,22 +29,23 @@ I den här artikeln ska vi prata om olika användningsområden för diskarna och
 Låt oss ta en titt på hur diskarna som används av de virtuella datorerna.
 
 ### <a name="operating-system-disk"></a>Operativsystemdisk
-Varje virtuell dator har en ansluten operativsystemdisk. Den har registrerats som en SATA-enhet och märkta som C:-enheten som standard. Den här disken har en maxkapacitet på 2 048 GB (Gigabyte). 
+
+Varje virtuell dator har en ansluten operativsystemdisk. Den har registrerats som en SATA-enhet och märkta som C:-enheten som standard. Den här disken har en maxkapacitet på 2 048 GB (Gigabyte).
 
 ### <a name="temporary-disk"></a>Temporär disk
+
 Varje virtuell dator innehåller en tillfällig disk. Den temporära disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel växlingsfiler. Data på den temporära disken kan gå förlorade under en [underhållshändelse](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuera om en virtuell dator](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Data på den temporära enheten behålls under en lyckad standard omstart av den virtuella datorn. 
 
 Den temporära disken är märkta som enheten D: som standard och det används för att lagra pagefile.sys. Om du vill mappa om den här disken till en annan enhetsbeteckning, se [ändra enhetsbeteckningen för den temporära disken Windows](change-drive-letter.md). Storleken på den temporära disken varierar baserat på storleken på den virtuella datorn. Mer information finns i [storlekar för Windows-datorer](sizes.md).
 
 Läs mer om hur Azure använder den temporära disken [förstå den temporära enheten på Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-
 ### <a name="data-disk"></a>Datadisk
-En datadisk är en virtuell Hårddisk som är kopplad till en virtuell dator för att lagra programdata eller andra data som du behöver. Datadiskar är registrerade som SCSI-enheter och är märkta med en bokstav som du väljer. Varje datadisk har en maxkapacitet på 4 095 GB. Storleken på den virtuella datorn avgör hur många datadiskar som du kan koppla till det och vilken typ av lagring som du kan använda som värd för diskarna.
+
+En datadisk är en virtuell Hårddisk som är kopplad till en virtuell dator för att lagra programdata eller andra data som du behöver. Datadiskar är registrerade som SCSI-enheter och är märkta med en bokstav som du väljer. Varje datadisk har en maxkapacitet på 4095 GB, hanterade diskar har en maxkapacitet på 32 767 TiB. Storleken på den virtuella datorn avgör hur många datadiskar som du kan koppla till det och vilken typ av lagring som du kan använda som värd för diskarna.
 
 > [!NOTE]
 > Mer information om kapacitet för virtuella datorer finns i [storlekar för Windows-datorer](sizes.md).
-> 
 
 När du skapar en virtuell dator från en avbildning skapar Azure en operativsystemdisk. Om du använder en avbildning som innehåller datadiskar, skapar Azure även på diskar när den virtuella datorn skapas. Annars kan du lägga till datadiskar när du har skapat den virtuella datorn.
 
@@ -52,12 +54,11 @@ Du kan lägga till datadiskar till en virtuell dator när som helst av **koppla*
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
-## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>En senaste rekommendation: Använd TRIM med ohanterade standarddiskar 
+## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>En senaste rekommendation: Använd TRIM med ohanterade standarddiskar
 
-Om du använder ohanterade standarddiskar (HDD), bör du aktivera TRIMNING. TRIM ignorerar oanvända block på disken så att du debiteras endast för lagring som du faktiskt använder. Detta kan sänka kostnaderna om du skapar stora filer och ta bort dem. 
+Om du använder ohanterade standarddiskar (HDD), bör du aktivera TRIMNING. TRIM ignorerar oanvända block på disken så att du debiteras endast för lagring som du faktiskt använder. Detta kan sänka kostnaderna om du skapar stora filer och ta bort dem.
 
 Du kan köra detta kommando för att kontrollera TRIM inställningen. Öppna en kommandotolk på din virtuella Windows-datorn och skriv:
-
 
 ```
 fsutil behavior query DisableDeleteNotify

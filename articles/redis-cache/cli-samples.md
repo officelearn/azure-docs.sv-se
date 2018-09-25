@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Redis cache-exempel | Microsoft Docs
-description: Azure CLI-exempel för Azure Redis-Cache.
+description: Azure CLI-exempel för Azure Redis Cache.
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: wesmc
-ms.openlocfilehash: 4450a8f7f16e3503626c9ee0ca125fc2b1ed9052
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 01773e1ec24e6ab7d1899df6774230b7ce5b5676
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27909847"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957905"
 ---
 # <a name="azure-cli-samples-for-azure-redis-cache"></a>Azure CLI-exempel för Azure Redis-Cache
 
@@ -28,14 +28,14 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 | | |
 |---|---|
 |**Skapa cachen**||
-| [Skapa ett cacheminne](./scripts/create-cache.md) | Skapar en resursgrupp och en grundläggande nivå Azure Redis-Cache. |
-| [Skapa en premium-cache med kluster](./scripts/create-premium-cache-cluster.md) | Skapar en resursgrupp och premium-nivån cache med aktiverad klustring.|
-| [Hämta information om cache](./scripts/show-cache.md) | Hämtar information om Azure Redis-Cache-instans, inklusive Etableringsstatus. |
-| [Hämta värdnamnet, portarna och nycklarna](./scripts/cache-keys-ports.md) | Hämtar värdnamnet, portarna och nycklarna för en Azure Redis-Cache-instans. |
-|**Webbprogrammet plus cache**||
-| [Ansluta en webbapp till ett redis-cache](./../app-service/scripts/app-service-cli-app-service-redis.md) | Skapar ett Azure webbapp och ett redis-cache sedan lägger till redis-anslutningsinformation till app-inställningar. |
+| [Skapa ett cacheminne](./scripts/create-cache.md) | Skapar en resursgrupp och en basic-nivån Azure Redis Cache. |
+| [Skapa en premium-cache med klustring](./scripts/create-premium-cache-cluster.md) | Skapar en resursgrupp och premium-nivån cache med klustring aktiverat.|
+| [Hämta information om cache](./scripts/show-cache.md) | Hämtar information om en Azure Redis Cache-instans, inklusive Etableringsstatus. |
+| [Hämta värdnamn, portar och nycklar](./scripts/cache-keys-ports.md) | Hämtar de värdnamn, portar och nycklar för en Azure Redis Cache-instans. |
+|**Webbapp plus cache**||
+| [Ansluta en webbapp till en redis-cache](./../app-service/scripts/app-service-cli-app-service-redis.md) | Skapar en Azure webbapp och en redis-cache och sedan lägger du till redis-anslutningsinformation inställningarna för appen. |
 |**Ta bort cache**||
-| [Ta bort en cache](./scripts/delete-cache.md) | Tar bort en instans av Azure Redis-Cache  |
+| [Ta bort en cache](./scripts/delete-cache.md) | Tar bort en Azure Redis Cache-instans  |
 | | |
 
-Läs mer om Azure CLI 2.0 [installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) och [Kom igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Läs mer om Azure CLI, [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).

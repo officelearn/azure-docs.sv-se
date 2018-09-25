@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Lär dig vad förutsägelse poäng innebär i LUIS
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a7ac747f52ab355c4d611ec3634b19e98f349476
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: dc19151e82f44159533050e60ba2f1c6d65466fe
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632599"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032245"
 ---
 # <a name="prediction-score"></a>Förutsägelseresultat
 En förutsägelse poäng indikerar grad av säkerhet som LUIS har för förutsägelser. 

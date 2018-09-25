@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 026ffed925606e2fdf31461035c9a0d73ad609e9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ROBOTS: NOINDEX
+ms.openlocfilehash: 311fd39792274ef01b1b03fdf8252eb7ac93c922
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060574"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978870"
 ---
 # <a name="derive-column-by-example-transformation"></a>Härled kolumner med exempel transformering
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Den **Härled kolumner med exempel** transformeringen kan du skapa ett derivat av en eller flera befintliga kolumner med exempel anges av användaren på härledda resultatet. Härledda kan vara valfri kombination av stöds sträng, datum och taltransformeringar. 
 
@@ -89,7 +94,7 @@ En användare kan redigera en befintlig **härleda av Kolumnexempel** omvandla g
 
 Antal exempel som krävs för det här fallet: 2
 
-|Indata|Utdata|
+|Indata|Resultat|
 |:-----|:-----|
 |C:\Python35\Tools\pynche\TypeinViewer.PY|**TypeinViewer.py**|
 |C:\Python35\Tools\pynche\webcolors.txt|webcolors.txt|
@@ -106,7 +111,7 @@ Antal exempel som krävs för det här fallet: 2
 
 Antal exempel som krävs för det här fallet: 3
 
-|Indata|Utdata|
+|Indata|Resultat|
 |:-----|:-----|
 |RENAR CT & DEAD mål.  NY HANNOVER; Station 332; 2015-12-10 \@ 17:10:52.|**Ny Hannover**|
 |BRIAR sökväg & WHITEMARSH LN;  HATFIELD TOWNSHIP; Station 345; 2015-12-10 \@ 17:29:21.|Hatfield Township|
@@ -125,7 +130,7 @@ Antal exempel som krävs för det här fallet: 3
 
 Antal exempel som krävs för det här fallet: 1
 
-|Indata|Utdata|
+|Indata|Resultat|
 |:-----|:-----|
 |MONTGOMERY para & WOODSIDE RD;  LÄGRE MERION; Station 313; 2015-12-11 \@ 04:11:35.|**Den 12 november 2015 4 AM**|
 |DREYCOTT LN & W LANCASTER ARA;  LÄGRE MERION; Station 313; 2015-12-11 \@ 01:29:52.|Den 12 november 2015 01: 00|
@@ -143,7 +148,7 @@ Antal exempel som krävs för det här fallet: 1
 >[!NOTE] 
 >I det här exemplet, specialtecken · representerar blanksteg i utdatakolumnen.
 
-|Förnamn|Mellannamn|Efternamn|Utdata|
+|Förnamn|Mellannamn|Efternamn|Resultat|
 |:-----|:-----|:-----|:-----|
 |Laquanda||Lohmann|Laquanda·· Lohmann|
 |Claudio|A|Huvudet|**Claudio·A·Chew**|
@@ -154,7 +159,7 @@ Antal exempel som krävs för det här fallet: 1
 |Anne Marie|W|Jones|Anne Marie· W· Jones|
 |Rico||Ropp|Rico·· Ropp|
 |Lauren maj||Fullmer|Lauren May·· Fullmer|
-|Marc|t|Maine|Marc· T· Maine|
+|Marc|T|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie··Adelman|
 |John Paul||Smith|John Paul·· Smith|
 |Låt|W|Staller|Song· W· Staller|
@@ -165,7 +170,7 @@ Antal exempel som krävs för det här fallet: 1
 
 Antal exempel som krävs för det här fallet: 2
 
-|Fullständigt namn|Utdata|
+|Fullständigt namn|Resultat|
 |:-----|:-----|
 |Laquanda Lohmann|**L.L.**|
 |Claudio huvudet|C.C.|
@@ -188,7 +193,7 @@ Antal exempel som krävs för det här fallet: 2
 
 Antal exempel som krävs för det här fallet: 3
 
-|Administrativa kön|Utdata|
+|Administrativa kön|Resultat|
 |:-----|:-----:|
 |Man|**0**|
 |Kvinna|**1**|
@@ -210,7 +215,7 @@ Antal exempel som krävs för det här fallet: 3
 
 Antal exempel som krävs för det här fallet: 1
 
-|Indata|Utdata|
+|Indata|Resultat|
 |-----:|-----:|
 |112|**110**|
 |117|120|
@@ -222,7 +227,7 @@ Antal exempel som krävs för det här fallet: 1
 
 Antal exempel som krävs för det här fallet: 2
 
-|Indata|Utdata|
+|Indata|Resultat|
 |-----:|-----:|
 |112|**110**|
 |117|**110**|
@@ -234,7 +239,7 @@ Antal exempel som krävs för det här fallet: 2
 
 Antal exempel som krävs för det här fallet: 2
 
-|Indata|Utdata|
+|Indata|Resultat|
 |-----:|-----:|
 |-75.5812935|**-75.60**|
 |-75.2646799|-75.25|
@@ -247,7 +252,7 @@ Antal exempel som krävs för det här fallet: 2
 
 Antal exempel som krävs för det här fallet: 1
 
-|Indata|Utdata|
+|Indata|Resultat|
 |-----:|:-----:|
 |20.16|**20-25**|
 |14.32|10-15|
@@ -260,7 +265,7 @@ Antal exempel som krävs för det här fallet: 1
 
 Antal exempel som krävs för det här fallet: 1
 
-|Indata|Utdata|
+|Indata|Resultat|
 |-----:|-----:|
 |-243|**-243000**|
 |-12.5|-12500|
@@ -272,7 +277,7 @@ Antal exempel som krävs för det här fallet: 1
 
 Antal exempel som krävs för det här fallet: 1
 
-|Programmera|Utdata|
+|Kod|Resultat|
 |-----:|-----:|
 |5828|**05828**|
 |44130|44130|
@@ -292,7 +297,7 @@ Antal exempel som krävs för det här fallet: 1
 
 Dessa datum-delar extraherades med olika av exempel transformationer på samma datauppsättning. Fet strängar representerar exemplen som har beviljats i sin respektive omvandling.
 
-|DateTime|Veckodag|Datum|Månad|År|Timme|Minut|Sekund|
+|DateTime|Veckodag|Date|Månad|År|Timme|Minut|Sekund|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**Fre**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|Ons|17|Jan|1990|13|32|01|

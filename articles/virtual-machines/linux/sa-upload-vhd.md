@@ -1,6 +1,6 @@
 ---
-title: Ladda upp en anpassad Linux-disk med Azure CLI 2.0 | Microsoft Docs
-description: Skapa och ladda upp en virtuell hårddisk (VHD) till Azure med hjälp av Resource Manager-distributionsmodellen och Azure CLI 2.0
+title: Ladda upp en anpassad Linux-disk med Azure CLI | Microsoft Docs
+description: Skapa och ladda upp en virtuell hårddisk (VHD) till Azure med hjälp av Resource Manager-distributionsmodellen och Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,22 +15,23 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 4b05c4c7db1e1c1953af2466d2c6a277baa07082
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1926f0bcf7efca786e97bd973601888e5a8d4463
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737353"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966511"
 ---
-# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Ladda upp och skapa en Linux VM från anpassad disk med Azure CLI 2.0
-Den här artikeln visar hur du överför en virtuell hårddisk (VHD) till ett Azure storage-konto med Azure CLI 2.0 och skapa virtuella Linux-datorer från den här anpassade disken. Den här funktionen kan du installera och konfigurera en Linux-distribution enligt dina behov och sedan använda den virtuella Hårddisken för att snabbt skapa virtuella Azure-datorer (VM).
+# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Ladda upp och skapa en Linux VM från anpassad disk med Azure CLI
+
+Den här artikeln visar hur du överför en virtuell hårddisk (VHD) till ett Azure storage-konto med Azure CLI och skapa virtuella Linux-datorer från den här anpassade disken. Den här funktionen kan du installera och konfigurera en Linux-distribution enligt dina behov och sedan använda den virtuella Hårddisken för att snabbt skapa virtuella Azure-datorer (VM).
 
 Det här avsnittet använder storage-konton för de sista virtuella hårddiskarna, men du kan också utföra dessa steg med [hanterade diskar](upload-vhd.md). 
 
 ## <a name="quick-commands"></a>Snabbkommandon
 Om du behöver att snabbt utföra uppgiften, de följande avsnittet beskriver grundläggande kommandon för att ladda upp en virtuell Hårddisk till Azure. Mer detaljerad information och kontext för varje steg finns resten av dokumentet, [börjar visningen här](#requirements).
 
-Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Se till att du har senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen ingår `myResourceGroup`, `mystorageaccount`, och `mydisks`.
 
@@ -96,7 +97,7 @@ Du behöver följande för att slutföra följande steg:
   * Skapa ett lagringskonto och en behållare för både din anpassade disk och skapade virtuella datorer
   * När du har skapat dina virtuella datorer, kan du ta bort disken
 
-Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Se till att du har senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen ingår `myResourceGroup`, `mystorageaccount`, och `mydisks`.
 

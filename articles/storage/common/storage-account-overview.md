@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c0d028b2e6f5e759b46293bc3e1cbef6902ea8ea
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b942b85c954bb765833426f3f9a010a66f016a90
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740854"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972325"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -94,8 +94,8 @@ Tänk på dessa regler när du namnger lagringskontot:
 
 Allmänna lagringskonton kan konfigureras för något av följande prestandanivåer:
 
-* Standardlagring prestandanivån för att lagra blobar, filer, tabeller, köer och Azure-datordiskar.
-* En premiumnivån för lagringsprestanda för att lagra virtuell dator i Azure-diskar. En detaljerad översikt över Premium-lagring finns i [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../../virtual-machines/windows/premium-storage.md).
+* En standard prestandanivån för att lagra blobar, filer, tabeller, köer och Azure-datordiskar.
+* En premium-prestandanivån för att lagra virtuell dator i Azure-diskar. En detaljerad översikt över Premium-lagring finns i [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../../virtual-machines/windows/premium-storage.md).
 
 ## <a name="access-tiers-for-block-blob-data"></a>Åtkomstnivåerna för block blob-data
 
@@ -107,12 +107,15 @@ Tillgängliga åtkomstnivåer är:
 * Den **lågfrekvent** åtkomstnivå, vilket är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Lagra data i den lågfrekventa nivån är mer kostnadseffektivt, men åtkomsten till dessa data kan vara något dyrare än att komma åt data på frekvent lagringsnivå.
 * Den **Arkiv** åtkomstnivå, vilket är endast tillgänglig för enskilda blockblob-objekt. Arkivnivån är optimerad för data som kan tolerera flera timmars svarstid för hämtning och finns kvar på arkivnivån i minst 180 dagar. Arkivnivån är det mest kostnadseffektiva alternativet för att lagra data, men åtkomsten till dessa data är dyrare än åtkomst till data i nivåer för frekvent eller lågfrekvent. 
 
+> [!NOTE]
+> Den [Premium åtkomstnivå](../blobs/storage-blob-storage-tiers.md#premium-access-tier) är tillgänglig i en begränsad förhandsversion som ett lokalt redundant lagring (LRS)-konto i Nordeuropa, USA, Öst 2, centrala USA och västra USA-regioner. Läs hur du registrera dig för förhandsversionen i [introduktion till Azure Premium-Bloblagring](http://aka.ms/premiumblob).
+
 Om det finns en ändring i användningsmönstret för dina data, kan du växla mellan de olika nivåerna när som helst. 
 
 > [!IMPORTANT]
 > Ändra åtkomstnivå för ett befintligt lagringskonto eller blob kan resultera i ytterligare avgifter.
 
-Läs mer om åtkomstnivåerna [Azure Blob storage: frekvent, lågfrekvent och arkivlagringsnivå](../blobs/storage-blob-storage-tiers.md).
+Läs mer om åtkomstnivåerna [Azure Blob storage: Premium (förhandsversion), frekvent, lågfrekvent och arkivlagringsnivå](../blobs/storage-blob-storage-tiers.md).
 
 ## <a name="replication"></a>Replikering
 

@@ -1,0 +1,2 @@
+>[!Note]
+>**Den här artikeln är inaktuell.** Stöd för tidigare versioner av den här tjänsten upphör inkrementellt. [Visa tidslinje för support](../articles/machine-learning/service/overview-what-happened-to-workbench.md#timeline). Börja använda den senaste versionen med den här [snabbstarten](../articles/machine-learning/service/index.yml).

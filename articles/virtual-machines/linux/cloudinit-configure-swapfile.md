@@ -1,6 +1,6 @@
 ---
 title: Använda cloud-init för att konfigurera en växlingsfil på en Linux VM | Microsoft Docs
-description: Hur du använder cloud-init för att konfigurera en växlingsfil i en Linux VM när skapas med Azure CLI 2.0
+description: Hur du använder cloud-init för att konfigurera en växlingsfil i en Linux VM när skapas med Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: d58795182e432ef75604e4db18d05e8d2231e215
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 2a5a878b7c8c3b6126d90b978241fbcb237d8db7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35755826"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946314"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Använda cloud-init för att konfigurera en växlingsfil på en Linux VM
 Den här artikeln visar hur du använder [cloud-init](https://cloudinit.readthedocs.io) att konfigurera växlingsfil på olika Linux-distributioner. Växlingsfil konfigurerades traditionellt genom den Linux Agent (WALA) baserat på vilka distributioner krävs en.  Det här dokumentet beskriver processen för att skapa växlingsfil på begäran under etableringstid med cloud-init.  Mer information om hur cloud-init fungerar internt i Azure och Linux-distributioner som stöds finns i [cloud-init-översikt](using-cloud-init.md)

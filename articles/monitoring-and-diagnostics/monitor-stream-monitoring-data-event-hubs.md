@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049132"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954848"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
@@ -76,7 +76,7 @@ Azure-resurser genererar två typer av övervakning av data:
 Båda typerna av data skickas till en händelsehubb med en resursdiagnostikinställning. [Den här guiden](./monitoring-stream-diagnostic-logs-to-event-hubs.md) att ställa in en resursdiagnostikinställning på en viss resurs. Ange en resursdiagnostikinställning för varje resurs som du vill samla in loggar.
 
 > [!TIP]
-> Du kan använda Azure Policy för att säkerställa att alla resurser inom ett visst omfång alltid är konfigurerad med en diagnostikinställning [med effekten DeployIfNotExists i principregeln](../azure-policy/policy-definition.md#policy-rule). Idag stöds DeployIfNotExists bara på inbyggda principer.
+> Du kan använda Azure Policy för att säkerställa att alla resurser inom ett visst omfång alltid är konfigurerad med en diagnostikinställning [med effekten DeployIfNotExists i principregeln](../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="guest-os-data"></a>Gäst-OS-data
 

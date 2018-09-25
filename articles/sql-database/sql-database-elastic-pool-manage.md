@@ -7,16 +7,16 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 08/01/2018
+ms.date: 09/20/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: 4c5bb0ab3431fa951871e64d7bdd8a3a313f480f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ab37a714635b716a80bd869cffd2d5a37d76aff0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721508"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040371"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Skapa och hantera elastiska pooler i Azure SQL Database
 
@@ -70,12 +70,12 @@ Skapa och hantera elastiska pooler i SQL Database med de [Azure CLI](/cli/azure)
 
 | Cmdlet | Beskrivning |
 | --- | --- |
-|[Skapa AZ sql elastic-pool](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Skapar en elastisk pool.|
-|[AZ sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Returnerar en lista med elastiska pooler på en server.|
-|[AZ sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Returnerar en lista över databaser i en elastisk pool.|
-|[AZ sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Innehåller också tillgänglig pool-DTU inställningar, Lagringsgränser och per databasinställningar. För att minska detaljnivå ytterligare gränser och per databas inställningar döljs som standard.|
-|[AZ sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Uppdaterar en elastisk pool.|
-|[AZ sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Tar bort den elastiska poolen.|
+|[Skapa AZ sql elastic-pool](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Skapar en elastisk pool.|
+|[AZ sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Returnerar en lista med elastiska pooler på en server.|
+|[AZ sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Returnerar en lista över databaser i en elastisk pool.|
+|[AZ sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Innehåller också tillgänglig pool-DTU inställningar, Lagringsgränser och per databasinställningar. För att minska detaljnivå ytterligare gränser och per databas inställningar döljs som standard.|
+|[AZ sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Uppdaterar en elastisk pool.|
+|[AZ sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Tar bort den elastiska poolen.|
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Hantera databaser i en pool
 

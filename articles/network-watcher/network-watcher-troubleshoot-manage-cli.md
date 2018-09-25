@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure Vnet-Gateway och anslutningar – Azure CLI 2.0 | Microsoft Docs
-description: Den här sidan förklaras hur du använder Azure Network Watcher felsöka Azure CLI 2.0
+title: Felsöka Azure Vnet-Gateway och anslutningar – Azure CLI | Microsoft Docs
+description: Den här sidan förklaras hur du använder Azure Network Watcher felsöka Azure CLI
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 5f843b42a108968e2fbefacddcd22f331a04691e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5a8ac32f43ecadb8908582fa853fc3f2bec7ac55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091109"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970999"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>Felsöka virtuella nätverkets Gateway och anslutningar med Azure Network Watcher Azure CLI 2.0
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Felsöka virtuella nätverkets Gateway och anslutningar som använder Azure Network Watcher Azure CLI
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
@@ -31,9 +31,7 @@ ms.locfileid: "39091109"
 
 Network Watcher innehåller många funktioner som den relaterar till att förstå nätverksresurserna i Azure. En av dessa funktioner är resurs felsökning. Felsökning av resursen kan anropas via portal, PowerShell, CLI eller REST API. När den anropas, Network Watcher kontrollerar hälsotillståndet för en virtuell nätverksgateway eller en anslutning och returnerar resultatet.
 
-Den här artikeln använder vår nästa generations CLI för resource management-distributionsmodellen, Azure CLI 2.0, som är tillgängligt för Windows, Mac och Linux.
-
-Om du vill utföra stegen i den här artikeln, måste du [installera Azure-kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Om du vill utföra stegen i den här artikeln, måste du [installera Azures kommandoradsgränssnitt för Mac, Linux och Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

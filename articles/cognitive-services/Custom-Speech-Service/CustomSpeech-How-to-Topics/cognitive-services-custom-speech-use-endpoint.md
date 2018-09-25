@@ -1,6 +1,6 @@
 ---
-title: Använda en anpassad tal slutpunkt med anpassade tal tjänsten i Azure | Microsoft Docs
-description: Lär dig hur du använder en anpassad till text till tal-slutpunkt med anpassade tal tjänsten i kognitiva tjänster.
+title: Använda en anpassad slutpunkt med Custom Speech Service på Azure | Microsoft Docs
+description: Lär dig hur du använder en anpassad tal till text-slutpunkt med Custom Speech Service i Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,40 +9,41 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: d28065d7962ee660cafd4b3321abdd6a8f94abcb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 55583952df3b83331f1f622a4fce269713ecf2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351813"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966528"
 ---
-# <a name="use-a-custom-speech-to-text-endpoint"></a>Använda en anpassad till text till tal-slutpunkt
-Du kan skicka begäranden till en Azure anpassad tal Service till text till tal-slutpunkt på ett liknande sätt som du kan i standardslutpunkten kognitiva Services tal. De här slutpunkterna är funktionellt identiska standardslutpunkterna för tal-API. Därför är samma funktioner som är tillgängliga via klientbiblioteket eller REST API för tal-API: T också tillgängligt för anpassade slutpunkten.
+# <a name="use-a-custom-speech-to-text-endpoint"></a>Använd en anpassad slutpunkt för tal till text
+Du kan skicka begäranden till en Azure Custom Speech Service tal till text-slutpunkt på ett liknande sätt som du kan i standardslutpunkten Cognitive Services tal. De här slutpunkterna är funktionellt identiska med standardslutpunkterna för API för taligenkänning. Därför finns även på samma sätt som är tillgänglig via klientbiblioteket eller REST-API för API för taligenkänning för din anpassade slutpunkt.
 
-Slutpunkter som du skapar med den här tjänsten kan bearbeta olika antal samtidiga begäranden. Volymen är beroende av den prisnivå som är associerad med din prenumeration. Ett fel uppstår om för många begäranden tas emot. Den kostnadsfria nivån har en månatlig begränsning av förfrågningar.
+Slutpunkter som du skapar med hjälp av den här tjänsten kan bearbeta olika antal samtidiga begäranden. Volymen beror på prisnivå som är associerade med prenumerationen. Ett fel inträffar om för många begäranden tas emot. Den kostnadsfria nivån har en månatliga gräns för begäranden.
 
-Tjänsten förutsätter att data skickas i realtid. Om den skickas snabbare anses begäran körs förrän varaktigheten ljud i realtid har passerat.
+Tjänsten förutsätter att data överförs i realtid. Om det har skickats snabbare, anses begäran köras tills dess ljud varaktighet i realtid har passerat.
 
 > [!NOTE]
-> Vi stöder den [nya webbsocketar](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) ännu. Om du planerar att använda web sockets med anpassade tal-slutpunkt följer du anvisningarna här.
+> Vi stöder den [nya webbsockets](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) ännu. Om du planerar att använda webbsockets med din slutpunkt för anpassat tal, följer du instruktionerna här.
 >
-> Den nya [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) stöd kommer snart. Om du planerar att anropa anpassade tal slutpunkten via HTTP, följer du anvisningarna här.
+> Den nya [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) stöd kommer snart. Om du planerar att anropa din slutpunkt för anpassat tal via HTTP, följer du instruktionerna här.
 >
 
-## <a name="send-requests-by-using-the-speech-client-library"></a>Skicka begäranden med hjälp av klientbiblioteket tal
+## <a name="send-requests-by-using-the-speech-client-library"></a>Skicka begäranden med hjälp av talklientbiblioteket
 
-Starta recognition klienten för att skicka begäranden till din anpassade slutpunkt med hjälp av klientbiblioteket tal. Använder klienten tal SDK från [NuGet](http://nuget.org/). Sök efter *taligenkänning*, och välj speech recognition paket från Microsoft för din plattform. Vissa exempelkod finns på [GitHub](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). Klienten tal SDK tillhandahåller en klassen **SpeechRecognitionServiceFactory**, som innehåller följande metoder:
+Starta klienten för att skicka begäranden till din anpassade slutpunkt med hjälp av talklientbiblioteket. Använd klienten tal SDK från [NuGet](http://nuget.org/). Sök efter *taligenkänning*, och välj det tal igenkänning av paketet från Microsoft för din plattform. Exempelkod finns på [GitHub](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). Klient-SDK för taligenkänning erbjuder en klass för factory **SpeechRecognitionServiceFactory**, där du får följande metoder:
 
-  *   ```CreateDataClient(...)```: En klient som recognition data.
-  *   ```CreateDataClientWithIntent(...)```: En data recognition klient med avsikt.
-  *   ```CreateMicrophoneClient(...)```: En mikrofon recognition klient.
-  *   ```CreateMicrophoneClientWithIntent(...)```: En mikrofon recognition klient med avsikt.
+  *   ```CreateDataClient(...)```: En data igenkänning av klienten.
+  *   ```CreateDataClientWithIntent(...)```: Klient en data-taligenkänning med avsikt.
+  *   ```CreateMicrophoneClient(...)```: En mikrofon igenkänning av klienten.
+  *   ```CreateMicrophoneClientWithIntent(...)```: En mikrofon igenkänning av klienten med avsikt.
 
-Mer detaljerad dokumentation finns på [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home). Anpassad tal Tjänsteslutpunkter stöder samma SDK.
+Detaljerad dokumentation finns i den [taligenkänning för Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home). Custom Speech Service-slutpunkterna stöder samma SDK.
 
-Data recognition klienten är lämpligt för taligenkänning från data, till exempel en fil eller någon annan ljud. Mikrofon recognition klienten är lämpligt för taligenkänning från mikrofonens. Användning av avsikt i antingen klienten kan returnera strukturerade avsiktshantering resultat från den [språk förstå Intelligent Service](https://www.luis.ai/) (THOMAS) om du har skapat ett THOMAS program för ditt scenario.
+Det är lämpligt för taligenkänning från data, till exempel en fil eller annan ljudkälla data igenkänning av klienten. Mikrofon igenkänning av klienten är lämpligt för taligenkänning från mikrofonen. Användning av avsikt i antingen klienten kan returnera strukturerade avsikt resultat från den [Language Understanding Intelligent Service](https://www.luis.ai/) (LUIS), om du har skapat en LUIS-program för ditt scenario.
 
-Alla fyra typer av klienter kan initieras på två sätt. Den första metoden använder standard kognitiva Services tal API. Det andra sättet kan du ange en URL som motsvarar din anpassade slutpunkt som skapats med anpassade tal-tjänsten.
+Alla fyra typer av klienter kan skapas på två sätt. Den första metoden använder standard Cognitive Services API för taligenkänning. Det andra sättet kan du ange en URL som motsvarar din anpassade slutpunkt som skapats med Custom Speech Service.
 
 Du kan till exempel skapa en **DataRecognitionClient** som skickar begäranden till en anpassad slutpunkt med hjälp av följande metod:
 
@@ -50,11 +51,11 @@ Du kan till exempel skapa en **DataRecognitionClient** som skickar begäranden t
 public static DataRecognitionClient CreateDataClient(SpeeechRecognitionMode speechRecognitionMode, string language, string primaryOrSecondaryKey, **string url**);
 ```
 
-Den **your_subscriptionId** och **endpointURL** referera till nyckeln för prenumeration och sockets Webbadress, på den **distributionsinformation** sidan.
+Den **your_subscriptionId** och **endpointURL** avser prenumerationsnyckeln och URL: en för web sockets, på den **distributionsinformation** sidan.
 
-Den **AuthenticationUri** används för att ta emot en token från Autentiseringstjänsten. Den här URI måste anges separat, som visas i följande exempelkod.
+Den **AuthenticationUri** används för att ta emot en token från Autentiseringstjänsten. URI: N måste anges separat, enligt följande exempelkod.
 
-Den här exempelkod visar hur du använder klient-SDK:
+Den här exempelkoden visar hur du använder klient-SDK:
 
 ```csharp
 var dataClient = SpeechRecognitionServiceFactory.CreateDataClient(
@@ -68,20 +69,20 @@ dataClient.AuthenticationUri = "https://westus.api.cognitive.microsoft.com/sts/v
 ```
 
 > [!NOTE]
-> När du använder **skapa** metoder i SDK, du måste ange prenumerations-ID för två gånger på grund av överbelastning av den **skapa** metoder.
+> När du använder **skapa** metoder i SDK, måste du ange prenumerations-ID två gånger på grund av överbelastning av de **skapa** metoder.
 >
 
-Tjänsten anpassad tal använder två olika URL: er för kortform och långa. Både visas på den **distributioner** sidan. Använd rätt slutpunkts-URL för specifika formuläret du vill använda.
+Custom Speech Service använder två olika URL: er för igenkänning av korta former och långa. Båda visas på den **distributioner** sidan. Använd rätt slutpunkts-URL för specifika formuläret du vill använda.
 
-Mer information om anropar olika recognition klienterna med din egen slutpunkt, finns det [SpeechRecognitionServiceFactory](https://www.microsoft.com/cognitive-services/Speech-api/documentation/GetStarted/GetStartedCSharpDesktop) klass. Dokumentationen på den här sidan refererar till ljud modellen anpassning, men det gäller för alla slutpunkter har skapats med hjälp av anpassade tal-tjänsten.
+Mer information om hur du anropar olika igenkänning av klienterna med din anpassade slutpunkt finns i den [SpeechRecognitionServiceFactory](https://www.microsoft.com/cognitive-services/Speech-api/documentation/GetStarted/GetStartedCSharpDesktop) klass. Dokumentation om den här sidan hänvisar till akustisk modellanpassning, men den gäller för alla slutpunkter som skapats med hjälp av Custom Speech Service.
 
-## <a name="send-requests-by-using-the-speech-protocol"></a>Skicka begäranden via protokollet tal
+## <a name="send-requests-by-using-the-speech-protocol"></a>Skicka begäranden med hjälp av tal-protokollet
 
-Slutpunkter som visas för den [tal protokollet](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) är slutpunkter för öppen källa Web Socket tal-protokollet.
+Slutpunkter som visas för den [tal protokollet](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) är slutpunkter för öppen källkod Web Socket tal-protokollet.
 
-Endast officiella klientimplementeringen är för närvarande för [JavaScript](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Om du vill börja med exemplet som anges, gör följande ändringar i koden och bygga exemplet igen:
+Endast officiella klientimplementeringen är för närvarande för [JavaScript](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Om du vill börja med exemplet som anges där, gör följande ändringar i koden och skapa exemplet igen:
 
-1. I _src\sdk\speech.browser\SpeechConnectionFactory.ts_, ersätter värden namnet ”wss://speech.platform.bing.com” med värdnamn som visas på informationssidan för din distribution. Infoga inte den fullständiga URI men bara *wss* protokollet schema och värdnamnet. Exempel:
+1. I _src\sdk\speech.browser\SpeechConnectionFactory.ts_, ersätta värden namnet ”wss://speech.platform.bing.com” med värdnamn som visas på sidan för din distribution. Infoga inte den fullständiga URI men bara *wss* protokollet schema och värdnamnet. Exempel:
 
     ```JavaScript
     private get Host(): string {
@@ -89,48 +90,48 @@ Endast officiella klientimplementeringen är för närvarande för [JavaScript](
     }
     ```
 
-2. Ange den _recognitionMode_ parameter i _samples\browser\Samples.html_ enligt dina behov:
-    * _RecognitionMode.Interactive_ stöder förfrågningar upp till 15 sekunder.
-    * _RecognitionMode.Conversation_ och _RecognitionMode.Dictation_ (båda är likvärdiga i anpassade tal Service) support begär upp till 10 minuter.
+2. Ange den _recognitionMode_ parameter i _samples\browser\Samples.html_ baserat på dina krav:
+    * _RecognitionMode.Interactive_ stöder begär upp till 15 sekunder.
+    * _RecognitionMode.Conversation_ och _RecognitionMode.Dictation_ (båda är motsvarande Custom Speech Service) supportförfrågningar upp till 10 minuter.
 
-3. Bygga exemplet med hjälp av ”gulp build” innan du använder den.
+3. Skapa exemplet med hjälp av ”gulp build” innan du använder den.
 
 > [!NOTE]
-> Kontrollera att du använder rätt URI: N för det här protokollet. Det nödvändiga schemat är *wss* (inte *http* som klienten protocol). 
+> Se till att du använder rätt URI: N för det här protokollet. Följande nödvändiga schema *wss* (inte *http* som klienten protocol). 
 
-Mer information finns i [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedclientlibraries) dokumentation.
+Mer information finns i den [taligenkänning för Bing](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedclientlibraries) dokumentation.
 
-## <a name="send-requests-by-using-http"></a>Skicka begäranden via HTTP
+## <a name="send-requests-by-using-http"></a>Skicka förfrågningar via HTTP
 
-En begäran skickades till din anpassade slutpunkt med hjälp av en HTTP post liknar skickar en begäran med HTTP kognitiva Services Bing tal-API: et. Ändra URL: en för att återspegla adressen för din egen distribution.
+Skicka en begäran till din anpassade slutpunkt med hjälp av en HTTP post liknar skickar en begäran från HTTP till Cognitive Services Bing-Taligenkänning. Ändra URL: en för att återspegla adressen för din anpassade distribution.
 
-Det finns vissa begränsningar på förfrågningar som skickas via HTTP för både kognitiva Services tal slutpunkten och de anpassade slutpunkter har skapats med den här tjänsten. HTTP-begäran kan inte returnera ofullständiga resultat under igenkänningsprocessen. Dessutom begränsas varaktigheten för begäranden till 10 sekunder för ljud och 14 sekunder övergripande.
+Det finns vissa begränsningar för förfrågningar som skickas via HTTP för både Cognitive Services tal slutpunkten och de anpassade slutpunkter som skapats med den här tjänsten. HTTP-begäran kan inte returnera ofullständiga resultat under igenkänning av processen. Varaktigheten för begäranden är dessutom begränsad till 10 sekunder tills ljudinnehållet och 14 sekunder övergripande.
 
-Följ samma process som du använder kognitiva Services tal-API: t för att skapa en post-begäran.
+Följ samma process som du använder för Cognitive Services tal-API för att skapa en post-begäran.
 
-1. Hämta en åtkomst-token med ditt prenumerations-ID. Denna token krävs för att komma åt recognition slutpunkten. Det kan återanvändas i 10 minuter.
+1. Hämta en åtkomsttoken med hjälp av ditt prenumerations-ID. Den här token krävs för att få åtkomst till slutpunkt för taligenkänning. Det kan återanvändas i 10 minuter.
 
     ```
     curl -X POST --header "Ocp-Apim-Subscription-Key:<subscriptionId>" --data "" "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
     ```
-      Den **subscriptionId** ska vara inställd på prenumerations-ID som du använder för den här distributionen. Svaret är vanlig token som du behöver för nästa begäran.
+      Den **subscriptionId** ska vara inställd på prenumerations-ID som du använder för den här distributionen. Svaret är en vanlig token som du behöver för nästa begäran.
 
-2. Bokför ljud till slutpunkten genom att använda POST igen.
+2. Publicera ljud till slutpunkten med hjälp av POST igen.
 
     ```
     curl -X POST --data-binary @example.wav -H "Authorization: Bearer <token>" -H "Content-Type: application/octet-stream" "<https_endpoint>"
     ```
 
-    Den **token** är den åtkomst-token som du fick med det föregående anropet. Den **https_endpoint** är full-adressen för din anpassade till text till tal-slutpunkt som visas på den **distributionsinformation** sidan.
+    Den **token** är den åtkomsttoken som du fick med det föregående anropet. Den **https_endpoint** är den fullständiga adressen för din anpassade tal till text-slutpunkt som visas på den **distributionsinformation** sidan.
 
-Mer information om HTTP post parametrar och svarsformatet finns i [Microsoft kognitiva Services Bing tal HTTP API](https://www.microsoft.com/cognitive-services/speech-api/documentation/API-Reference-REST/BingVoiceRecognition#SampleImplementation).
+Mer information om HTTP post-parametrar och svarsformat finns i den [Microsoft Cognitive Services Bing Speech HTTP API](https://www.microsoft.com/cognitive-services/speech-api/documentation/API-Reference-REST/BingVoiceRecognition#SampleImplementation).
 
-## <a name="send-requests-by-using-the-service-library"></a>Skicka begäranden genom att använda Service-bibliotek
-Biblioteket tjänsten gör det möjligt för din tjänst så att användning av Microsoft Speech skrivfel molnet för att konvertera talas till text i realtid, så att klientappen kan skicka ljud och ta emot partiella resultat tillbaka samtidigt och asynkront. Information om SDK-tjänsten kan hittas [här](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedcsharpservicelibrary)
+## <a name="send-requests-by-using-the-service-library"></a>Skicka begäranden med hjälp av tjänsten-biblioteket
+Tjänstbiblioteket möjliggör tjänsten att använda Microsoft Speech avskrift molnet för att konvertera talspråk till text i realtid, så att din klientapp kan skicka ljud och ta emot delvisa igenkänningsresultat tillbaka samtidigt och asynkront. Information för SDK finns [här](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedcsharpservicelibrary)
 
 > [!NOTE]
-> När du använder tjänsten biblioteket du behöver ändra URI för auktoriseringsprovider i implementeringen av **IAuthorizationProvider** till https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken.
+> När du använder Tjänstbiblioteket du behöva ändra URI för auktoriseringsprovider i implementeringen av **IAuthorizationProvider** till https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken.
 
 ## <a name="next-steps"></a>Nästa steg
-* Noggrannhet kan förbättras med din [anpassade ljud modellen](cognitive-services-custom-speech-create-acoustic-model.md).
-* Noggrannhet kan förbättras med en [anpassade språk modellen](cognitive-services-custom-speech-create-language-model.md).
+* Förbättra noggrannheten med din [anpassad akustisk modell](cognitive-services-custom-speech-create-acoustic-model.md).
+* Förbättra noggrannheten med en [anpassad språkmodell](cognitive-services-custom-speech-create-language-model.md).

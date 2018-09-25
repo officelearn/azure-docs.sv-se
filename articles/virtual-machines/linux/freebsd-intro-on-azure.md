@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: dfbdc9e3091255267afe6c60363b7f93c4623e02
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 0eab96d85aa9cc8bea8d30c5a36c8489b8ea652e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055616"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974178"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introduktion till FreeBSD på Azure
 Den här artikeln innehåller en översikt över kör en FreeBSD-dator i Azure.
@@ -45,8 +45,8 @@ Distribuera en FreeBSD virtuell dator är enkelt att använda en avbildning frå
 - [FreeBSD 10.4 på Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeBSD104)
 - [FreeBSD 11.1 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
-### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>Skapa en FreeBSD virtuell dator via Azure CLI 2.0 på FreeBSD
-Du måste först installera [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) trots att följande kommando på en FreeBSD-dator.
+### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Skapa en FreeBSD virtuell dator via Azure CLI på FreeBSD
+Du måste först installera [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) trots att följande kommando på en FreeBSD-dator.
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash

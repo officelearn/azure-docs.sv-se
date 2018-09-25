@@ -1,6 +1,6 @@
 ---
-title: Hantera Hadoop-kluster med Azure CLI - Azure HDInsight
-description: Lär dig hur du använder Azure-kommandoradsgränssnittet för att hantera Hadoop-kluster i Azure HDInsight. Azure CLI fungerar på Windows, Mac och Linux.
+title: Hantera Hadoop-kluster med Azure klassiska CLI - Azure HDInsight
+description: Lär dig hur du använder den klassiska Azure CLI för att hantera Hadoop-kluster i Azure HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
 author: jasonwhowell
@@ -9,32 +9,32 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 8d77f6f902ad0d1f6ee2b3dd1da5a38364f1da9b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2586b9219eb145b2033fe2d8fc64b8ae72f34eda
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103752"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958296"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Hantera Hadoop-kluster i HDInsight med Azure CLI
+# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Hantera Hadoop-kluster i HDInsight med hjälp av den klassiska Azure-CLI
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Lär dig hur du använder den [Azure-kommandoradsgränssnittet](../cli-install-nodejs.md) att hantera Hadoop-kluster i Azure HDInsight. Azure CLI är implementerat i Node.js. Det kan användas på alla plattformar som har stöd för Node.js, inklusive Windows, Mac- och Linux. För närvarande stöder inte HDInsight [Azure CLI 2.0](https://docs.microsoft.com/cli/azure).
+Lär dig hur du använder den [klassiska Azure-CLI](../cli-install-nodejs.md) att hantera Hadoop-kluster i Azure HDInsight. Klassisk CLI är implementerat i Node.js. Det kan användas på alla plattformar som har stöd för Node.js, inklusive Windows, Mac- och Linux.
 
-Den här artikeln beskriver bara med Azure CLI med HDInsight. En allmän vägledning om hur du använder Azure CLI, se [installera och konfigurera Azure CLI][azure-command-line-tools].
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här artikeln måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Azure CLI** - Se [Installera och konfigurera Azure CLI](../cli-install-nodejs.md) för information om installation och konfiguration.
+* **Azure klassiskt CLI** – Se [installera och konfigurera den klassiska Azure-CLI](../cli-install-nodejs.md) för information om installation och konfiguration.
 * **Ansluta till Azure**, med följande kommando:
 
     ```cli
     azure login
     ```
   
-    Mer information om autentisering med ett arbets- eller skolkonto finns i [Anslut till en Azure-prenumeration från Azure CLI](/cli/azure/authenticate-azure-cli).
+    Mer information om autentisering med ett arbets- eller skolkonto konto finns i [Anslut till en Azure-prenumeration från den klassiska Azure-CLI](/cli/azure/authenticate-azure-cli).
 * **Växla till läget Azure Resource Manager**, med följande kommando:
   
     ```cli
@@ -48,7 +48,7 @@ azure hdinsight cluster create -h
 ```
 
 ## <a name="create-clusters-with-the-cli"></a>Skapa kluster med CLI
-Se [Skapa kluster i HDInsight med Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+Se [Skapa kluster i HDInsight med hjälp av den klassiska Azure-CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="list-and-show-cluster-details"></a>Visa information om kluster
 Använd följande kommandon för att visa information om kluster:
@@ -101,7 +101,7 @@ I den här artikeln har du lärt dig hur du utför olika HDInsight-kluster admin
 * [Administrera HDInsight med hjälp av Azure-portalen][hdinsight-admin-portal]
 * [Administrera HDInsight med hjälp av Azure PowerShell][hdinsight-admin-powershell]
 * [Kom igång med Azure HDInsight][hdinsight-get-started]
-* [Hur du använder Azure CLI][azure-command-line-tools]
+* [Hur du använder den klassiska Azure-CLI][azure-command-line-tools]
 
 [azure-command-line-tools]: ../cli-install-nodejs.md
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md

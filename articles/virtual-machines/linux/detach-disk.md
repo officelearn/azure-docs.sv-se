@@ -1,6 +1,6 @@
 ---
 title: Koppla ifrån en datadisk från en Linux VM – Azure | Microsoft Docs
-description: Lär dig att koppla ifrån en datadisk från en virtuell dator i Azure med hjälp av CLI 2.0 eller Azure-portalen.
+description: Lär dig att koppla ifrån en datadisk från en virtuell dator i Azure med hjälp av Azure CLI eller Azure-portalen.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: cynthn
-ms.openlocfilehash: 0225c6605109489c4b9b599918dc09983ae25ac8
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b087040e5d219941ec0b2ee0f58dfe0058a1ad04
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144082"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968364"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Hur du koppla ifrån en datadisk från en Linux-dator
 
@@ -99,7 +99,7 @@ sudo umount /dev/sdc1 /datadrive
 ```
 
 
-## <a name="detach-a-data-disk-using-cli-20"></a>Koppla ifrån en datadisk med hjälp av CLI 2.0
+## <a name="detach-a-data-disk-using-azure-cli"></a>Koppla ifrån en datadisk med hjälp av Azure CLI 
 
 Det här exemplet kopplar från den *myDataDisk* disk från virtuell dator med namnet *myVM* i *myResourceGroup*.
 

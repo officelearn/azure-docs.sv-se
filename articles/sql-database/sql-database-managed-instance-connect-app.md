@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 5e4d96df7d6a43418aad92fdf6509a5ca7ec623a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4eaf615de712715d35021aa2ba9eba4141d41e51
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734672"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952502"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Anslut ditt program till Azure SQL Database Managed Instance
 
@@ -22,7 +22,7 @@ Idag har du flera alternativ när du bestämmer hur och var värd för ditt prog
  
 Du kan välja att vara värd för program i molnet antingen med hjälp av Azure App Service eller vissa av Azures virtuella nätverk (VNet) integrerade alternativ som Azure App Service Environment, virtuell dator, Virtual Machine Scale Sets. Du kan också ta hybridmolnlösning och behålla ditt program lokalt. 
  
-Vilka alternativ som du valde ansluta du den till en hanterad instans (förhandsversion).  
+Vilka alternativ som du valde ansluta du den till en hanterad instans.  
 
 ![hög tillgänglighet](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 ## <a name="connect-an-application-inside-the-same-vnet"></a>Ansluta ett program i samma virtuella nätverk 
@@ -136,7 +136,7 @@ Följande minsta versioner av verktyg och drivrutiner rekommenderas om du vill a
 |JDBC-drivrutinen    | 6.4.0 |
 |Node.js-drivrutinen | 2.1.1 |
 |OLEDB-drivrutin   | 18.0.2.0 |
-|SSMS   | 17.8.1 eller [högre](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
+|SSMS   | 17.8.1 eller [högre](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Nästa steg
 

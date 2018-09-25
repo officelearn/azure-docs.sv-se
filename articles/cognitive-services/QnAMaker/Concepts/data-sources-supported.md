@@ -3,19 +3,19 @@ title: Datakällor som stöds – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker extrahera automatiskt frågor svar par från vanliga halvstrukturerade innehåll format, till exempel vanliga frågor och svar och produkthandböcker. Innehållet kan också läggas till i knowledge base från strukturerade filer.
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: saneppal
-ms.openlocfilehash: 0436d5015ee4b369aeead7691f87ef313259d391
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.date: 09/24/2018
+ms.author: tulasim
+ms.openlocfilehash: b9214d44061edad967212a1f904c2cdb6687dba2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544004"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039062"
 ---
 # <a name="data-sources"></a>Datakällor 
 QnA Maker extrahera automatiskt frågor svar par från vanliga halvstrukturerade innehåll format, till exempel vanliga frågor och svar och produkthandböcker. Innehållet kan också läggas till i knowledge base från strukturerade filer.
@@ -71,7 +71,7 @@ Om du inte har redan befintliga innehåll för att fylla i knowledge base, du ka
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Ställ in QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md)
+> [Lägg till personlighet i svar med chit-chatt personer](../How-To/chit-chat-knowledge-base.md)
 
 ## <a name="see-also"></a>Se också 
 

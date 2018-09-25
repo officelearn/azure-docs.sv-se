@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3161715ac2ff212e2de8a27ff8f8eb53fb858b92
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7d41732103bd76e281c2a669a649645c8ff5bc73
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186813"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957990"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Schemalägg och Sänd jobb (Java)
 
@@ -61,7 +61,7 @@ För att slutföra den här kursen behöver du:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Du kan också använda den [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) verktyg för att lägga till en enhet till IoT hub.
+Du kan också använda den [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) verktyg för att lägga till en enhet till IoT hub.
 
 ## <a name="create-the-service-app"></a>Skapa service-app
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a7a4e4b487c324bada818d4815f253110f7f7a60
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235084"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060837"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Standard SSD Managed Disks för virtuella Azure-datorbelastningar
 
@@ -39,9 +39,12 @@ I följande tabell innehåller diskstorlekar som för närvarande erbjuds för S
 |E10     |128 GiB         |Upp till 500         |Upp till 60 MiB per sekund         |
 |E15     |256 GB         |Upp till 500         |Upp till 60 MiB per sekund         |
 |E20     |512 GiB         |Upp till 500         |Upp till 60 MiB per sekund         |
-|E30     |1024 giB         |Upp till 500         |Upp till 60 MiB per sekund         |
-|E40     |2 048 giB         |Upp till 500         |Upp till 60 MiB per sekund         |
-|E50     |4 095 giB         |Upp till 500         |Upp till 60 MiB per sekund         |
+|E30     |1 024 giB       |Upp till 500         |Upp till 60 MiB per sekund         |
+|E40     |2 048 giB       |Upp till 500         |Upp till 60 MiB per sekund         |
+|E50     |4095 giB       |Upp till 500         |Upp till 60 MiB per sekund         |
+|E60     |8 192 giB       |Upp till 1 300       |Upp till 300 MiB per sekund        |
+|E70     |16 384 giB      |Upp till 2 000       |Upp till 500 MiB per sekund        |
+|E80     |32 767 giB      |Upp till 2 000       |Upp till 500 MiB per sekund        |
 
 Standard SSD-enheter är utformade för att tillhandahålla ensiffrig svarstid för de flesta i/o-åtgärder och leverera IOPS och dataflöde upp till de gränser som beskrivs i tabellen ovan. Faktiska IOPS och dataflöden varierar ibland beroende på trafikmönster. Standard SSD-enheter ger mer konsekventa prestanda än HDD-diskar med kortare svarstider.
 

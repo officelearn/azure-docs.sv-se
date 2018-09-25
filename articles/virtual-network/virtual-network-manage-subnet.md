@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 26e01ccab3693c672130462104078c16526aa921
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 04c7b521ad13db9f5ec9573fd1ab966ad1282e8e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991539"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954321"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett virtuellt nätverksundernät
 
@@ -33,7 +33,7 @@ Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här art
 - Om du inte redan har ett Azure-konto, registrera dig för en [kostnadsfritt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppnar du https://portal.azure.com, och logga in med ditt Azure-konto.
 - Om du utför uppgifterna i den här artikeln med hjälp av PowerShell-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudiekursen kräver Azure PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
-- Om du utför uppgifterna i den här artikeln med hjälp av Azure-kommandoradsgränssnittet (CLI)-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här självstudien krävs Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
+- Om du utför uppgifterna i den här artikeln med hjälp av Azure-kommandoradsgränssnittet (CLI)-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här självstudien krävs Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
 
 Kontot du loggar in på eller ansluta till Azure med, måste tilldelas den [nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som tilldelas de åtgärder som anges i [behörigheter ](#permissions).
 
@@ -49,6 +49,7 @@ Kontot du loggar in på eller ansluta till Azure med, måste tilldelas den [nät
     - **Nätverkssäkerhetsgrupp**: du kan associera noll eller en befintlig nätverkssäkerhetsgrupp till ett undernät för att filtrera inkommande och utgående nätverkstrafik för undernätet. Nätverkssäkerhetsgruppen måste finnas i samma prenumeration och plats som det virtuella nätverket. Läs mer om [nätverkssäkerhetsgrupper](security-overview.md) och [hur du skapar en nätverkssäkerhetsgrupp](tutorial-filter-network-traffic.md).
     - **Routningstabellen**: du kan associera noll eller en befintlig routningstabellen till ett undernät för att styra trafikdirigering till andra nätverk. Routningstabellen måste finnas i samma prenumeration och plats som det virtuella nätverket. Läs mer om [Azure routning](virtual-networks-udr-overview.md) och [så här skapar du en routningstabell](tutorial-create-route-table-portal.md)
     - **Tjänstens slutpunkter:** ett undernät kan ha noll eller flera aktiverat Tjänsteslutpunkter för den. Om du vill aktivera en tjänstslutpunkt för en tjänst, Välj den eller de tjänster som du vill aktivera Tjänsteslutpunkter för från den **Services** lista. Platsen konfigureras automatiskt för en slutpunkt. Tjänstslutpunkter konfigureras som standard för det virtuella nätverkets region. För Azure Storage, för att stödja regionala redundansscenarier konfigureras slutpunkter automatiskt till [parade Azure-regioner](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+    - **Undernät delegering:** ett undernät kan ha noll till flera delegeringar aktiverat. Undernät delegering ger behörighet till tjänsten för att skapa tjänstspecifika resurser i undernätet med hjälp av en unik identifierare när du distribuerar tjänsten. Om du vill delegera för en tjänst, markera den tjänst som du vill delegera till från den **Services** lista. 
 
     Om du vill ta bort en tjänstslutpunkt, avmarkerar du tjänsten som du vill ta bort tjänstens slutpunkt för. Läs mer om tjänstslutpunkter och de tjänster som de kan aktiveras för i [virtuella nätverk översikt över tjänstslutpunkter](virtual-network-service-endpoints-overview.md). När du har aktiverat en tjänstslutpunkt för en tjänst måste du också aktivera nätverksåtkomst för undernätet för en resurs som skapas med tjänsten. Exempel: Om du aktiverar tjänstslutpunkten för *Microsoft.Storage*, måste du också aktivera nätverksåtkomst till alla Azure Storage-konton som du vill bevilja åtkomst till. Mer information om hur du aktiverar åtkomst till undernät som en tjänstslutpunkt är aktiverad för finns i dokumentationen för den enskilda tjänsten aktiverad tjänstslutpunkt för.
 
@@ -71,6 +72,7 @@ Kontot du loggar in på eller ansluta till Azure med, måste tilldelas den [nät
     - **Användare**: du kan styra åtkomsten till undernätet med hjälp av inbyggda roller eller dina egna anpassade roller. Läs mer om att tilldela roller och användare åtkomst till undernätet i [använda rolltilldelning för att hantera åtkomst till dina Azure-resurser](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access).
     - **Nätverkssäkerhetsgrupp** och **routningstabellen**: finns i steg 5 i [lägga till ett undernät](#add-a-subnet).
     - **Tjänstslutpunkter**: Se tjänstslutpunkter i steg 5 i [lägga till ett undernät](#add-a-subnet). När du aktiverar en tjänstslutpunkt för ett befintligt undernät, se till att inga kritiska uppgifter körs på alla resurser i undernätet. Tjänstslutpunkter växla vägar på varje nätverksgränssnitt i undernätet från att använda standardvägen med den *0.0.0.0/0* -prefix och nexthop-typen *Internet*, med en ny väg med den -adressprefix för tjänsten och en nästa hopptyp av *VirtualNetworkServiceEndpoint*. Under växeln avslutas eventuella öppna TCP-anslutningar. Tjänsteslutpunkt aktiveras inte förrän trafikflöden till tjänsten för alla nätverksgränssnitt har uppdaterats med den nya vägen. Mer information om routning finns [routningsöversikten](virtual-networks-udr-overview.md).
+    - **Undernät delegering:** finns i Tjänsteslutpunkter i steg 5 i [lägga till ett undernät](#add-a-subnet). Undernät delegering kan ändras till noll eller flera delegeringar aktiverat. Om en resurs för en tjänst har redan distribuerats i undernätet, undernät delegering kan inte tas bort förrän alla resurser för tjänsten har tagits bort. Om du vill delegera för en annan tjänst, markera den tjänst som du vill delegera till från den **Services** lista. 
 5. Välj **Spara**.
 
 **Kommandon**

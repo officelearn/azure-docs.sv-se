@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: e172b9d6a59f14f741a09450d31602b0d2d9ee5a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 66c3da4f14141bdb5c357dbabfaec5dabf0ab521
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412635"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971390"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Virtuella datorer, tillägg och funktioner i Linux
 
@@ -83,7 +83,7 @@ Azure VM-tillägg som kör på befintliga virtuella datorer, vilket är användb
 
 Följande metoder kan användas för att köra ett tillägg mot en befintlig virtuell dator.
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Azure VM-tillägg kan köras mot en befintlig virtuell dator med den [az vm-tilläggsuppsättningen](/cli/azure/vm/extension#az-vm-extension-set) kommando. Följande exempel kör tillägget för anpassat skript mot en virtuell dator med namnet *myVM* i en resursgrupp med namnet *myResourceGroup*:
 

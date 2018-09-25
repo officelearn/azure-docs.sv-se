@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: d97766b0a8c0df3b414d78f563406530f67c313b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 38d73f38a5e04a42ee15c9206ce760936e3e10c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125382"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980312"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
 I Azure Functions dela några tekniska nyckelkoncept och komponenter, oavsett språk eller bindning som du använder specifika funktioner. Innan du sätter igång till learning information som gäller för ett visst språk eller en bindning, bör du läsa igenom den här översikten som gäller för alla.
@@ -55,12 +55,15 @@ Den `bindings` egenskapen är där du konfigurerar både utlösare och bindninga
 | `name` |sträng |Namnet som används för bundna data i funktionen. Detta är ett argument-name; för C# för JavaScript är det nyckeln i en nyckel/värde-lista. |
 
 ## <a name="function-app"></a>Funktionsapp
-En funktionsapp består av en eller flera enskilda funktioner som hanteras tillsammans med Azure App Service. Alla funktioner i en funktionsapp delar samma prisplanen, kontinuerlig distribution och runtime-versionen. Funktioner som skrivits på flera språk kan dela samma funktionsapp. Tänk på en funktionsapp som ett sätt att ordna och hantera dina funktioner gemensamt. 
+En funktionsappen är en körningskontexten i Azure där dina funktioner körs. En funktionsapp består av en eller flera enskilda funktioner som hanteras tillsammans med Azure App Service. Alla funktioner i en funktionsapp delar samma prisplanen, kontinuerlig distribution och runtime-versionen. Tänk på en funktionsapp som ett sätt att ordna och hantera dina funktioner gemensamt. 
 
-## <a name="runtime-script-host-and-web-host"></a>Körning (skriptvärden och värd)
-Runtime eller skriptvärden, är den underliggande WebJobs SDK-värden som lyssnar efter händelser, samlar in och skickar data och slutligen Kör koden. 
+> [!NOTE]
+> Från och med [version 2.x](functions-versions.md) av Azure Functions-runtime alla funktioner i en funktionsapp måste skrivas i samma språk.
 
-För att underlätta HTTP-utlösare, finns det också en värd som har utformats för att sitta framför skriptvärden i produktionsscenarier. Med två värdar avslutas bidrar till att isolera skriptvärden framifrån trafik som hanteras av webbvärd.
+## <a name="runtime"></a>Körmiljö
+Azure Functions-körningen eller skriptvärden, är den underliggande värden som lyssnar efter händelser, samlar in och skickar data och slutligen Kör koden. Det här samma värd används av WebJobs SDK.
+
+Det finns också en värd som hanterar begäranden för HTTP-utlösare för körningen. Med två värdar avslutas bidrar till att isolera runtime framifrån trafik som hanteras av webbvärd.
 
 ## <a name="folder-structure"></a>mappstruktur
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
@@ -75,21 +78,12 @@ Funktionen redigeraren inbyggda i Azure-portalen kan du uppdatera den *function.
 
 Funktionsappar bygger på App Service, så att alla de [tillgängliga distributionsalternativen till standard web apps](../app-service/app-service-deploy-local-git.md) kan också användas för funktionsappar. Här följer några metoder som du kan använda för att överföra eller uppdatera funktionen app-filer. 
 
-#### <a name="to-use-app-service-editor"></a>Du använder App Service Editor
-1. I Azure Functions-portalen klickar du på **plattformsfunktioner**.
-2. I den **UTVECKLINGSVERKTYG** klickar du på **App Service Editor**.   
-   När App Service Editor har lästs in visas den *host.json* fil- och funktionen mappar under *wwwroot*. 
-5. Öppna filer som ska redigeras, eller dra och släpp från utvecklingsdatorn ladda upp filer.
-
-#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>Att använda funktionsappens SCM (Kudu)-slutpunkten
-1. Gå till: `https://<function_app_name>.scm.azurewebsites.net`.
-2. Klicka på **felsöka konsolen > CMD**.
-3. Gå till `D:\home\site\wwwroot\` att uppdatera *host.json* eller `D:\home\site\wwwroot\<function_name>` att uppdatera filer för en funktion.
-4. Dra och släpp en fil som du vill ladda upp till mappen i rutnätet för filen. Det finns två områden i rutnätet fil där du kan släppa en fil. För *.zip* filer, en ruta visas med etiketten ”dra hit om du vill ladda upp och packa upp”. Ta bort i rutnätet för filen men utanför rutan ”packa upp” för andra filtyper.
+#### <a name="use-local-tools-and-publishing"></a>Använd lokala verktyg och publicering
+Funktionsappar kan skapas och publicerade med hjälp av olika verktyg, bland annat [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md), och [Azure Functions Core Tools](./functions-develop-local.md). Mer information finns i [kod och testa Azure Functions lokalt](./functions-develop-local.md).
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-#### <a name="to-use-continuous-deployment"></a>Använda kontinuerlig distribution
+#### <a name="continuous-deployment"></a>Kontinuerlig distribution
 Följ anvisningarna i avsnittet [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md).
 
 ## <a name="parallel-execution"></a>Parallell körning
@@ -97,7 +91,7 @@ När flera utlösande händelser inträffar snabbare än en single-threaded funk
 
 ## <a name="functions-runtime-versioning"></a>Functions runtime versionshantering
 
-Du kan konfigurera version av Functions runtime med den `FUNCTIONS_EXTENSION_VERSION` appinställningen. Till exempel anger värdet ”~ 1” att Funktionsappen ska använda 1 som dess huvudversionen. Funktionsappar uppgraderas till varje ny delversion när de blir tillgängliga. Läs mer om, inklusive hur du visar den exakta versionen av din funktionsapp [hur du Azure Functions runtime versioner](set-runtime-version.md).
+Du kan konfigurera version av Functions runtime med den `FUNCTIONS_EXTENSION_VERSION` appinställningen. Till exempel anger värdet ”~ 2” att Funktionsappen ska använda 2.x enligt dess huvudversionen. Funktionsappar uppgraderas till varje ny delversion när de blir tillgängliga. Läs mer om, inklusive hur du visar den exakta versionen av din funktionsapp [hur du Azure Functions runtime versioner](set-runtime-version.md).
 
 ## <a name="repositories"></a>Centrallager
 Koden för Azure Functions är öppen källkod och lagrats i GitHub-databaser:

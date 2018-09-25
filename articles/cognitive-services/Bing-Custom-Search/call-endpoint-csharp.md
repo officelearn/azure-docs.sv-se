@@ -9,44 +9,45 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 32644fe0cf0a6e1666d2d1ee6efb826bf753f001
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ed00b75fa956d0197d3672d84b097f99ec3c35ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814871"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956398"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Anropa anpassad sökning i Bing slutpunkt (C#)
 
-Den här snabbstarten visar hur du begär sökresultat från din anpassade Sökinstans med C# för att anropa anpassad sökning i Bing-slutpunkten. 
+Den här snabbstarten visar hur du begär sökresultat från din anpassade Sökinstans som använder C# för att anropa anpassad sökning i Bing-slutpunkten. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
--  En färdiga att använda anpassad Sökinstans. Se [skapar din första Bing Custom Search-instans](quick-start.md).
--  [.NET core](https://www.microsoft.com/net/download/core) installerad.
-- En [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API: er för Bing-sökresultat**. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) är tillräcklig för den här snabbstarten. Du behöver åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumerationsnyckel från instrumentpanelen i Azure.  
+Följande krävs för att slutföra den här snabbstarten:
 
-  >[!NOTE]  
-  >Befintliga Bing Custom Search-kunder som har en förhandsversion av nyckel som etablerats på eller före den 15 oktober 2017 kommer att kunna använda sina nycklar till den 30 November 2017 eller tills de har förbrukat det maximala antalet frågor tillåts. Därefter måste de migrera till den allmänt tillgängliga versionen på Azure. 
- 
+- En färdiga att använda anpassad Sökinstans. Se [skapar din första Bing Custom Search-instans](quick-start.md).
+- [.NET core](https://www.microsoft.com/net/download/core) installerad.
+- En prenumerationsnyckel. Du kan få en prenumerationsnyckel när du aktiverar din [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), eller du kan använda en betald prenumerationsnyckel från instrumentpanelen i Azure (se [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+
+
 ## <a name="run-the-code"></a>Kör koden
 
 Följ dessa steg om du vill köra det här exemplet:
 
-1. Skapa en mapp för din kod.
-2. Navigera till mappen som du nyss skapade från en kommandotolk eller terminal.
+1. Skapa en mapp för din kod.  
+  
+2. Navigera till mappen som du nyss skapade från en kommandotolk eller terminal.  
+  
 3. Kör följande kommandon:
     ```
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
     dotnet add package Newtonsoft.Json
     dotnet restore
-   ```
+    ```
+  
+4. Kopiera följande kod till Program.cs. Ersätt **YOUR-SUBSCRIPTION-KEY** och **YOUR-anpassad-CONFIG-ID** med din prenumerationsnyckel och konfiguration-ID.
 
-4. Kopiera följande kod till Program.cs.
-5. Ersätt **YOUR-SUBSCRIPTION-KEY** och **YOUR-anpassad-CONFIG-ID** med din nyckel och configuration-ID.
-
-    ``` CSharp
+    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
@@ -118,13 +119,13 @@ Följ dessa steg om du vill köra det här exemplet:
         }
     }
     ```
-6. Skapa programmet med följande kommando. Observera dll-sökväg som refereras av kommandoutdata.
+6. Skapa programmet med följande kommando. Observera DLL-sökväg som refereras av kommandoutdata.
 
     <pre>
     dotnet build 
     </pre>
     
-7. Kör programmet med följande kommando ersätter **SÖKVÄGEN till utdata** med sökvägen refererar till ett byggsteg.
+7. Kör programmet med följande kommando ersätter **SÖKVÄGEN till utdata** med DLL-sökväg som refereras till i steg 6.
 
     <pre>    
     dotnet **PATH TO OUTPUT**

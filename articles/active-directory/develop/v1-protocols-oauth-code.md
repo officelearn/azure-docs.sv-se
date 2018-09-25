@@ -16,14 +16,15 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6dc156e94ee8b30bef8c25b3dcaa1d70f76e26e5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: bd9d3a677d9fea54331200258d4b9b8e07a54312
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581940"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956905"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Bevilja åtkomst till Azure Active Directory-webbprogram med hjälp av kod grant-flöde för OAuth 2.0
+
 Azure Active Directory (Azure AD) används OAuth 2.0 att bevilja åtkomst till webbprogram och webb-API: er i Azure AD-klienten. Den här handboken är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra [bibliotek med öppen källkod](active-directory-authentication-libraries.md).
 
 OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749#section-4.1). Den används för att utföra autentisering och auktorisering i de flesta programtyper, bland annat web apps och internt installerade appar.
@@ -31,11 +32,13 @@ OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifika
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## <a name="oauth-20-authorization-flow"></a>Flöde för OAuth 2.0-auktorisering
+
 På en hög nivå ut hela auktorisering flödet för ett program lite så här:
 
 ![Kodflöde för OAuth-autentisering](./media/v1-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>Begär en auktoriseringskod
+
 Auktoriseringskodsflödet börjar med klienten dirigera användare till den `/authorize` slutpunkt. I den här begäran anger klienten de behörigheter som krävs för att läsa från användaren. Du kan hämta slutpunkten för OAuth 2.0-auktorisering för din klient genom att välja **appregistreringar > slutpunkter** i Azure-portalen.
 
 ```
@@ -56,15 +59,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_id |obligatorisk |Program-ID som tilldelats din app när du registrerade med Azure AD. Du hittar du i Azure Portal. Klicka på **Azure Active Directory** i sidopanelen tjänster klickar du på **appregistreringar**, och välj programmet. |
 | response_type |obligatorisk |Måste innehålla `code` för auktoriseringskodsflödet. |
 | redirect_uri |Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. För interna & mobila appar, bör du använda standardvärdet för `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara `query`, `fragment`, eller `form_post`. `query` innehåller koden som en frågesträngsparameter på din omdirigerings-URI. Om du ska få en ID-token med hjälp av det implicita flödet, du kan inte använda `query` som angetts på den [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du ska få enbart koden, kan du använda `query`, `fragment`, eller `form_post`. `form_post` Kör ett INLÄGG som innehåller koden omdirigerings-URI. |
+| response_mode |valfri |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara `query`, `fragment`, eller `form_post`. `query` innehåller koden som en frågesträngsparameter på din omdirigerings-URI. Om du ska få en ID-token med hjälp av det implicita flödet, du kan inte använda `query` som angetts på den [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du ska få enbart koden, kan du använda `query`, `fragment`, eller `form_post`. `form_post` Kör ett INLÄGG som innehåller koden omdirigerings-URI. Standardvärdet är `query` för ett kodflöde.  |
 | state |Rekommenderas |Ett värde i begäran som returneras också i token-svaret. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 | resurs | Rekommenderas |App-ID URI för mål-webb-API (säker resurs). För att hitta URI: N för App-ID i Azure Portal, klickar du på **Azure Active Directory**, klickar du på **programregistreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta är nödvändigt i en av auktorisering eller tokenbegäranden. Om du vill kontrollera att färre authentication placeras anvisningarna den begäran om godkännande för att kontrollera medgivande tas emot från användaren. |
 | omfång | **ignoreras** | För v1 Azure AD-appar, scope statiskt konfigureras i Azure Portal under programmen **inställningar**, **nödvändiga behörigheter**. |
 | fråga |valfri |Ange vilken typ av interaktion från användaren som krävs.<p> Giltiga värden är: <p> *logga in*: användaren bör bli ombedd att autentiseras på nytt. <p> *select_account*: användaren uppmanas att välja ett konto att avbryta enkel inloggning på. Användaren kan välja ett befintligt inloggade konto, ange sina autentiseringsuppgifter för ett konto som är sparade eller välja att använda ett annat konto helt och hållet. <p> *godkänna*: användargodkännande har beviljats, men behöver uppdateras. Användaren ska uppmanas att godkänna. <p> *admin_consent*: en administratör ska uppmanas att ge samtycke åt alla användare i organisationen |
 | login_hint |valfri |Kan användas för att fylla förväg adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sina användarnamn i tid. Appar som ofta använda den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare logga in med den `preferred_username` anspråk. |
 | domain_hint |valfri |Anger ett tips om klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klienten. Om klienten är federerat till en lokal katalog, omdirigerar AAD till den angivna innehavare federationsservern. |
-| code_challenge_method | valfri    | Den metod som används för att koda den `code_verifier` för den `code_challenge` parametern. Kan vara något av `plain` eller `S256`. Om undantas identifieras `code_challenge` antas vara klartext om `code_challenge` ingår. Azure AAD v1.0 stöder både `plain` och `S256`. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| code_challenge        | valfri    | Används för att skydda auktoriseringsbeviljanden kod via Proof-nyckel för kod Exchange (PKCE) från en intern eller offentlig klient. Krävs om `code_challenge_method` ingår. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | Rekommenderas    | Den metod som används för att koda den `code_verifier` för den `code_challenge` parametern. Kan vara något av `plain` eller `S256`. Om undantas identifieras `code_challenge` antas vara klartext om `code_challenge` ingår. Azure AAD v1.0 stöder både `plain` och `S256`. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | Rekommenderas    | Används för att skydda auktoriseringsbeviljanden kod via Proof-nyckel för kod Exchange (PKCE) från en intern eller offentlig klient. Krävs om `code_challenge_method` ingår. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Om användaren är en del av en organisation, kan en administratör för organisationen godkänna eller neka för användarens räkning eller Tillåt användaren att godkänna. Användaren har möjlighet att godkänna endast när administratören tillåter den.
@@ -149,7 +152,7 @@ grant_type=authorization_code
 För att hitta URI: N för App-ID i Azure Portal, klickar du på **Azure Active Directory**, klickar du på **programregistreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**.
 
 ### <a name="successful-response"></a>Lyckat svar
-Azure AD returnerar en åtkomsttoken vid ett lyckat svar. Om du vill minimera nätverksanrop från klientprogrammet och deras associerade svarstiden bör klientprogrammet cacheåtkomsttokens för livslängd för token som anges i OAuth 2.0-svar. För att fastställa livslängd för token, kan du använda antingen den `expires_in` eller `expires_on` parametervärden.
+Azure AD-returnerar en [åtkomsttoken](access-tokens.md) vid ett lyckat svar. Om du vill minimera nätverksanrop från klientprogrammet och deras associerade svarstiden bör klientprogrammet cacheåtkomsttokens för livslängd för token som anges i OAuth 2.0-svar. För att fastställa livslängd för token, kan du använda antingen den `expires_in` eller `expires_on` parametervärden.
 
 Om ett webb-API-resursen returnerar en `invalid_token` felkoden detta kan tyda på att resursen har fastställt att token har upphört att gälla. Om klienten och resurs klockan tiderna är olika (kallas en ”tidssnedställning”), resursen kan överväga att token har upphört att gälla innan token har raderats från klientens cacheminne. Om detta inträffar kan du avmarkera token från cacheminnet, även om det är fortfarande inom livslängden beräknade.
 
@@ -171,59 +174,16 @@ Ett lyckat svar kan se ut så här:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| access_token |Den begärda åtkomst-token som en signerad JSON Web Token (JWT). Appen kan använda den här token för att autentisera till den säkra resursen, till exempel ett webb-API. |
+| access_token |Den begärda [åtkomsttoken](access-tokens.md) som en signerad JSON Web Token (JWT). Appen kan använda den här token för att autentisera till den säkra resursen, till exempel ett webb-API. |
 | token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar. Läs mer om ägar-token, [OAuth2.0 auktorisering Framework: ägar-Token användning (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
 | expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
 | resurs |App-ID URI för webb-API (säker resurs). |
 | omfång |Personifiering behörigheter till klientprogrammet. Standardbehörigheten är `user_impersonation`. Ägaren till den skyddade resursen kan registrera ytterligare värden i Azure AD. |
 | refresh_token |OAuth 2.0-uppdateringstoken. Appen kan använda den här token för att hämta ytterligare åtkomst-token när den aktuella åtkomst-token upphör att gälla. Uppdatera token är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. |
-| id_token |En osignerad JSON Web Token (JWT). Appen kan base64Url avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. |
+| id_token |En osignerad JSON Web Token (JWT) som representerar en [ID-token](id-tokens.md). Appen kan base64Url avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. |
 
-### <a name="jwt-token-claims"></a>JWT-Token anspråk
-JWT-token i värdet för den `id_token` parametern kan avkodas till följande anspråk:
-
-```
-{
- "typ": "JWT",
- "alg": "none"
-}.
-{
- "aud": "2d4d11a2-f814-46a7-890a-274a72a7309e",
- "iss": "https://sts.windows.net/7fe81447-da57-4385-becb-6de57f21477e/",
- "iat": 1388440863,
- "nbf": 1388440863,
- "exp": 1388444763,
- "ver": "1.0",
- "tid": "7fe81447-da57-4385-becb-6de57f21477e",
- "oid": "68389ae2-62fa-4b18-91fe-53dd109d74f5",
- "upn": "frank@contoso.com",
- "unique_name": "frank@contoso.com",
- "sub": "JWvYdCWPhhlpS1Zsf7yYUxShUwtUm5yzPmw_-jX3fHY",
- "family_name": "Miller",
- "given_name": "Frank"
-}.
-```
-
-Mer information om JSON web token finns i den [JWT IETF utkast till en specifikation](http://go.microsoft.com/fwlink/?LinkId=392344). Mer information om typer av token och anspråk [stöds Token och anspråkstyper](v1-id-and-access-tokens.md)
-
-Den `id_token` parametern innehåller följande anspråkstyper:
-
-| Anspråkstyp | Beskrivning |
-| --- | --- |
-| aud |Målgruppen för token. När token utfärdas till ett klientprogram, den är den `client_id` av klienten. |
-| EXP |Upphör att gälla. Den tid när token upphör att gälla. För token ska vara giltigt aktuellt datum och tid vara mindre än eller lika med den `exp` värde. Tiden representeras som hur många sekunder från 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills giltigheten token upphör att gälla.|
-| family_name |Användarens senaste eller efternamn. Programmet kan visa det här värdet. |
-| given_name |Användarens förnamn. Programmet kan visa det här värdet. |
-| IAT |Utfärdat på gång. Den tid då JWT utfärdades. Tiden representeras som hur många sekunder från 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token utfärdats. |
-| ISS |Identifierar tokenutfärdaren |
-| NBF |Inte innan tiden. Den tid när token träder i kraft. Aktuellt datum och tid måste vara större än eller lika med Nbf-värde för token ska vara giltigt. Tiden representeras som hur många sekunder från 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token utfärdats. |
-| OID |Användarobjektets objektidentifierare (ID) i Azure AD. |
-| Sub |Token ämne identifierare. Det här är en permanent eller inte kan ändras identifierare för användaren som beskriver token. Använd det här värdet i cachelagring logik. |
-| tid |Klient-ID (ID) för Azure AD-klienten som utfärdade token. |
-| unique_name |En unik identifierare för som kan visas för användaren. Detta är vanligtvis en användarens huvudnamn (UPN). |
-| UPN |Användarens huvudnamn för användaren. |
-| ver |Version. Versionen av JWT-token, vanligtvis 1.0. |
+Mer information om JSON web token finns i den [JWT IETF utkast till en specifikation](http://go.microsoft.com/fwlink/?LinkId=392344).   Mer information om `id_tokens`, finns i den [v1.0 OpenID Connect-flöde](v1-protocols-openid-connect-code.md).
 
 ### <a name="error-response"></a>Felsvar
 Utfärdande endpoint felen är HTTP-felkoder, eftersom klienten anropar utfärdande slutpunkten direkt. Utöver HTTP-statuskod returnerar Azure AD-slutpunkten för utfärdande också ett JSON-dokument med objekt som beskriver felet.
@@ -313,6 +273,7 @@ Specifikationen RFC 6750 definierar följande fel för resurser som använder WW
 | 403 |insufficient_access |Ämnet för token har inte de behörigheter som krävs för att få åtkomst till resursen. |Uppmana användaren att använda ett annat konto eller begär behörighet till den angivna resursen. |
 
 ## <a name="refreshing-the-access-tokens"></a>Uppdatera åtkomsttoken
+
 Åtkomsttoken är tillfällig och måste uppdateras när de går ut om du vill fortsätta få åtkomst till resurser. Du kan uppdatera den `access_token` genom att skicka in en annan `POST` begäran till den `/token` slutpunkt, men den här tiden att tillhandahålla den `refresh_token` i stället för den `code`.
 
 Uppdatera token har inte angiven livslängd. Livslängd för uppdateringstoken är oftast relativt lång. Men i vissa fall kan uppdaterings-tokens upphör att gälla, har återkallats eller saknar tillräcklig behörighet för den önskade åtgärden. Programmet behöver för att förvänta sig och hantera fel som returneras av utfärdande-slutpunkten på rätt sätt.

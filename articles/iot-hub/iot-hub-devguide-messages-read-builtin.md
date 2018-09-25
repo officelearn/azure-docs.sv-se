@@ -1,6 +1,6 @@
 ---
 title: Förstå den inbyggda slutpunkten i Azure IoT Hub | Microsoft Docs
-description: Utvecklarguide – beskriver hur du använder inbyggda, Event Hubs-kompatibla slutpunkten toread enhet till moln meddelanden.
+description: Utvecklarguide – beskriver hur du använder den inbyggda, Event Hubs-kompatibla slutpunkten kan läsa meddelanden från enhet till molnet.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 767c91e4926e553b63b8331ac99edcd7823d2c13
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 02624b4f3b0fceb1816f4f43b1f435356f8d5235
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055023"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984049"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
 
@@ -26,7 +26,7 @@ Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten
 
 IoT Hub hjälper dig att hantera konsumentgrupper på det inbyggda enhet till molnet får slutpunkt.
 
-Som standard skrivs alla meddelanden som inte uttryckligen matchar en regel för vidarebefordran av meddelande till den inbyggda slutpunkten. Om du inaktiverar den här vägen som återställningsplats, hamnar meddelanden som inte matchar några regler för meddelandedirigering uttryckligen.
+Om du använder [meddelanderoutning](iot-hub-devguide-messages-d2c.md) och [återställningsplats väg](iot-hub-devguide-messages-d2c.md#fallback-route) är aktiverat, skrivs alla meddelanden som inte matchar en fråga på någon väg till den inbyggda slutpunkten. Om du inaktiverar den här vägen som återställningsplats, hamnar meddelanden som inte matchar alla frågor.
 
 Du kan ändra kvarhållningstiden, antingen via programmering med hjälp av den [resursprovidern i IoT Hub REST API: er][lnk-resource-provider-apis], eller med den [Azure-portalen] [ lnk-management-portal].
 
@@ -39,9 +39,8 @@ När du använder den [Azure Service Bus SDK för .NET] [ lnk-servicebus-sdk] el
 När du använder SDK: er (eller produktintegreringar) som inte känner till IoT Hub, måste du hämta en Event Hub-kompatibla slutpunkten och Händelsehubb-kompatibelt namn:
 
 1. Logga in på den [Azure-portalen] [ lnk-management-portal] och navigera till din IoT-hubb.
-1. Klicka på **Slutpunkter**.
-1. I den **inbyggda slutpunkter** klickar du på **händelser**. 
-1. En egenskapssida öppnas som innehåller följande värden: **Event Hub-kompatibla slutpunkten**, **Event Hub-kompatibla namnet**, **partitioner**,  **Kvarhållningstid**, och **konsumentgrupper**.
+1. Klicka på **inbyggda slutpunkter**.
+1. Den **händelser** avsnittet innehåller följande värden: **Event Hub-kompatibla slutpunkten**, **Event Hub-kompatibla namnet**, **partitioner**, **Kvarhållningstid**, och **konsumentgrupper**.
 
     ![Inställningar för enhet till moln][img-eventhubcompatible]
 
@@ -63,11 +62,9 @@ SDK: er och integreringar som du kan använda med Event Hubs-kompatibla slutpunk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om IoT Hub-slutpunkter, [IoT Hub-slutpunkter][lnk-endpoints].
-
-Den [Snabbstarter] [ lnk-get-started] visar hur du skickar meddelanden från enheten till molnet från simulerade enheter och läsa meddelanden från den inbyggda slutpunkten. Mer information finns i den [Process IoT Hub enhet-till-moln-meddelanden med vägar] [ lnk-d2c-tutorial] självstudien.
-
-Om du vill dirigera din enhet till moln-meddelanden till anpassade slutpunkter finns i [använder meddelandevägar och anpassade slutpunkter för meddelanden från enheten till molnet][lnk-custom].
+* Läs mer om IoT Hub-slutpunkter, [IoT Hub-slutpunkter][lnk-endpoints].
+* Den [Snabbstarter] [ lnk-get-started] visar hur du skickar meddelanden från enheten till molnet från simulerade enheter och läsa meddelanden från den inbyggda slutpunkten. Mer information finns i den [Process IoT Hub enhet-till-moln-meddelanden med vägar] [ lnk-d2c-tutorial] självstudien.
+* Om du vill dirigera din enhet till moln-meddelanden till anpassade slutpunkter finns i [använder meddelandevägar och anpassade slutpunkter för meddelanden från enheten till molnet][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2c35d71d127903a67dce2280b2d0ab335079b480
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3bcc5368a99dc7c7c32381ca0226119d81fc2c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604475"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978207"
 ---
 # <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Kom igång med Log Analytics i Azure portal
 
@@ -47,7 +47,7 @@ Sidan Log Analytics är ett webbverktyg som används för att skriva och köra A
 ## <a name="basic-queries"></a>Grundläggande frågor
 Frågor kan användas för att söka villkoren, identifiera trender, analysera mönster och ger många andra insikter utifrån dina data. Börja med en grundläggande fråga:
 
-```KQL
+```Kusto
 Event | search "error"
 ```
 
@@ -57,7 +57,7 @@ Frågor kan börja med antingen ett tabellnamn eller en **search** kommando. Exe
 
 Ett annat sätt att skriva samma frågan är:
 
-```KQL
+```Kusto
 search in (Event) "error"
 ```
 
@@ -81,7 +81,7 @@ I varje tabell ordnas data i kolumner med olika datatyper som anges av ikonerna 
 ## <a name="filter-the-results"></a>Filtrera resultaten
 Börja med att hämta allt den _händelse_ tabell.
 
-```KQL
+```Kusto
 Event
 ```
 
@@ -135,7 +135,7 @@ Om frågan uttryckligen innehåller ett filter för _TimeGenerated_tidpunkten v�
 ## <a name="charts"></a>Diagram
 Förutom att returnera resultat i en tabell, kan frågeresultat presenteras i visual format. Använd följande fråga som ett exempel:
 
-```KQL
+```Kusto
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

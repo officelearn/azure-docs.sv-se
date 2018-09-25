@@ -11,19 +11,23 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 712cdaa65487620b2f8af4a0ad57c01c24b9a965
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c59969d5a56bd2eb4eb8c490d4f1b5af20d7f056
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649962"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998703"
 ---
 # <a name="use-jupyter-notebooks-in-azure-machine-learning-workbench"></a>Använd Jupyter-anteckningsböcker i Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Azure Machine Learning Workbench stöder interaktiva data science experimentering via dess integrering med Jupyter-anteckningsböcker. Den här artikeln beskriver hur du gör effektiv användning av den här funktionen för att öka frekvensen och kvaliteten på dina interaktiva data science experimentering.
 
 ## <a name="prerequisites"></a>Förutsättningar
-- [Skapa Azure Machine Learning-konton och installera Azure Machine Learning Workbench](../service/quickstart-installation.md).
+- [Skapa Azure Machine Learning-konton och installera Azure Machine Learning Workbench](quickstart-installation.md).
 - Känna till de [Jupyter Notebook](http://jupyter.org/). Den här artikeln är inte om hur du använder Jupyter.
 
 ## <a name="jupyter-notebook-architecture"></a>Jupyter Notebook-arkitektur

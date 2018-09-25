@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 827c80a70047fd0f1ad67e4f19cb2300e45b2c6b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 804b7c0ff31575e6d62497fd5166e1a38a273076
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606214"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965593"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Detaljerade steg: skapa och hantera SSH-nycklar för autentisering till en Linux-VM i Azure 
 Du kan skapa en Linux-dator på Azure som använder SSH-nycklar för autentisering, vilket eliminerar behovet av lösenord för att logga in med ett secure shell (SSH)-nyckelpar. Virtuella datorer som har skapats med Azure portal, Azure CLI, Resource Manager mallar eller andra verktyg kan inkludera din offentliga SSH-nyckel som en del av distributionen, som konfigurerar SSH-nyckelautentisering för SSH-anslutningar. 
@@ -130,11 +130,11 @@ Det är *starkt* bör du lägga till en lösenfras för den privata nyckeln. Vem
 
 ## <a name="generate-keys-automatically-during-deployment"></a>Generera nycklar automatiskt under distributionen
 
-Om du använder den [Azure CLI 2.0](/cli/azure) för att skapa den virtuella datorn, kan du också generera SSH offentliga och privata nyckelfiler genom att köra den [az vm skapa](/cli/azure/vm#az_vm_create) med den `--generate-ssh-keys` alternativet. Nycklarna lagras i katalogen ~/.ssh. Observera att det här kommandoalternativet skriver inte över nycklar om de redan finns på den platsen.
+Om du använder den [Azure CLI](/cli/azure) för att skapa den virtuella datorn, kan du också generera SSH offentliga och privata nyckelfiler genom att köra den [az vm skapa](/cli/azure/vm#az_vm_create) med den `--generate-ssh-keys` alternativet. Nycklarna lagras i katalogen ~/.ssh. Observera att det här kommandoalternativet skriver inte över nycklar om de redan finns på den platsen.
 
 ## <a name="provide-ssh-public-key-when-deploying-a-vm"></a>Ange offentlig SSH-nyckel när du distribuerar en virtuell dator
 
-Om du vill skapa en Linux-VM som använder SSH-nycklar för autentisering, ange din offentliga SSH-nyckel när du skapar den virtuella datorn med hjälp av Azure portal, CLI, Resource Manager-mallar eller andra metoder. När du använder portalen, kan du ange den offentliga nyckeln själv. Om du använder den [Azure CLI 2.0](/cli/azure) för att skapa den virtuella datorn med en befintlig offentlig nyckel, anger du värdet eller platsen för den offentliga nyckeln genom att köra den [az vm skapa](/cli/azure/vm#az_vm_create) med den `--ssh-key-value` alternativet. 
+Om du vill skapa en Linux-VM som använder SSH-nycklar för autentisering, ange din offentliga SSH-nyckel när du skapar den virtuella datorn med hjälp av Azure portal, CLI, Resource Manager-mallar eller andra metoder. När du använder portalen, kan du ange den offentliga nyckeln själv. Om du använder den [Azure CLI](/cli/azure) för att skapa den virtuella datorn med en befintlig offentlig nyckel, anger du värdet eller platsen för den offentliga nyckeln genom att köra den [az vm skapa](/cli/azure/vm#az_vm_create) med den `--ssh-key-value` alternativet. 
 
 Om du inte är bekant med formatet för en offentlig SSH-nyckel kan du se din offentliga nyckel genom att köra `cat` enligt följande, där du ersätter `~/.ssh/id_rsa.pub` med din egen plats för offentlig nyckelfil:
 

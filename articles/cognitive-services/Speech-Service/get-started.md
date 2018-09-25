@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: cbb73b199255af7e7a91b1586b331acde035bfd7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 601588e0c7257fc939f884b2e9b2774ab12ea872
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124520"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950850"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prova Speech Service kostnadsfritt
 
@@ -36,7 +36,7 @@ Att registrera dig för en 30-dagars kostnadsfri utvärderingsversion:
 
    ![Fliken för tal-tjänster](media/index/try-speech-api-free-trial1.png)
    
-1. Under **taltjänster <sup>FÖRHANDSVERSION</sup>** väljer den **hämta API-nyckel** knappen.
+1. Under **taltjänster**väljer den **hämta API-nyckel** knappen.
 
    ![API-nyckel](media/index/try-speech-api-free-trial2.png)
 
@@ -75,11 +75,11 @@ Lägga till en tal-tjänstresurs (kostnadsfritt eller betalt nivå) på Azure-ko
 
 1. I den **New** letar **tal**.
 
-1. I sökresultaten väljer **tal (förhandsversion)**.
+1. I sökresultaten väljer **tal**.
 
-    ![Välj tal (förhandsversion)](media/index/try-speech-api-create-speech2.png)
+    ![Välj tal](media/index/try-speech-api-create-speech2.png)
 
-1. Under **tal (förhandsversion)**, klickar du på den **skapa** knappen.
+1. Under **tal**väljer den **skapa** knappen.
 
     ![Välj knappen Skapa](media/index/try-speech-api-create-speech3.png)
 

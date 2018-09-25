@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a93467404232b0fff51136cb7648d84a81165bdb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ae9d8053f7463c069a7305bbd07a91a387e31d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697967"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972308"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala automatiskt en VM-skalningsuppsättning i Azure portal
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app.
 
-Den här artikeln visar hur du skapar regler för automatisk skalning i Azure-portalen som övervakar prestandan för de Virtuella datorinstanserna i din skalningsuppsättning. Dessa regler för automatisk skalning öka eller minska antalet Virtuella datorinstanser som svar på dessa prestandamått. Du kan också utföra dessa steg med [Azure PowerShell](tutorial-autoscale-powershell.md) eller [Azure CLI 2.0](tutorial-autoscale-cli.md).
+Den här artikeln visar hur du skapar regler för automatisk skalning i Azure-portalen som övervakar prestandan för de Virtuella datorinstanserna i din skalningsuppsättning. Dessa regler för automatisk skalning öka eller minska antalet Virtuella datorinstanser som svar på dessa prestandamått. Du kan också utföra dessa steg med [Azure PowerShell](tutorial-autoscale-powershell.md) eller [Azure CLI](tutorial-autoscale-cli.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
-För att skapa regler för automatisk skalning, behöver du en befintlig virtuell dator skalningsuppsättning. Du kan skapa en skalningsuppsättning med den [Azure-portalen](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), eller [Azure CLI 2.0](quick-create-cli.md).
+För att skapa regler för automatisk skalning, behöver du en befintlig virtuell dator skalningsuppsättning. Du kan skapa en skalningsuppsättning med den [Azure-portalen](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), eller [Azure CLI](quick-create-cli.md).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Skapa en regel för att automatiskt skala ut
-Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstanserna i din skalningsuppsättning. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen. När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via belastningsutjämnaren. Du kan styra vilka mått som ska övervakas, som CPU eller disk, hur länge programbelastningen måste uppfylla ett visst tröskelvärde och hur många virtuella datorinstanser som ska läggas till skalningsuppsättningen.
+Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstanserna i din skalningsuppsättning. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen. När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via lastbalanseraren. Du kan styra vilka mått som ska övervakas, som CPU eller disk, hur länge programbelastningen måste uppfylla ett visst tröskelvärde och hur många virtuella datorinstanser som ska läggas till skalningsuppsättningen.
 
 1. Öppna Azure portal och väljer **resursgrupper** på menyn till vänster på instrumentpanelen.
 2. Välj den resursgrupp som innehåller din skalningsuppsättning och välj din skalningsuppsättning i listan över resurser.

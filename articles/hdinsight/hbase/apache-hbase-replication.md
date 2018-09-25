@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 0d675b3efa165f36b93d791975a8007a68b02e12
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cfc71f34f4b1d8027714c9fb610beebf8cd3be47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734766"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978547"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera HBase-kluster-replikering i Azure-nätverk
 
@@ -277,7 +277,7 @@ Skapa en **kontakter** tabellen och infoga data i tabellen, följ instruktionern
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
-Följande steg beskriver hur du anropar åtgärdsskriptet skriptet från Azure-portalen. Information om hur du kör en skriptåtgärd med hjälp av Azure PowerShell och Azure kommandoradsverktyget (Azure CLI) finns i [anpassa HDInsight-kluster med skriptåtgärd](../hdinsight-hadoop-customize-cluster-linux.md).
+Följande steg beskriver hur du anropar åtgärdsskriptet skriptet från Azure-portalen. Information om hur du kör en skriptåtgärd med hjälp av Azure PowerShell och den klassiska Azure-CLI finns i [anpassa HDInsight-kluster med skriptåtgärd](../hdinsight-hadoop-customize-cluster-linux.md).
 
 **Att aktivera HBase-replikering från Azure portal**
 

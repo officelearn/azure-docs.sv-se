@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b6d548183cfa548f9ad35f06922752c929e318ac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343737"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041963"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Konfigurera mitt konto för tvåstegsverifiering
 Tvåstegsverifiering är ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in. Om du läser den här artikeln fick du förmodligen ett e-postmeddelande från din arbets- eller skolkonto administratör om Multi-Factor Authentication. Eller kanske du försökte logga in och fick ett meddelande som ber dig att ställa in ytterligare säkerhetsverifiering. Om så är fallet, **du inte logga in förrän du har slutfört den automatiska registreringen**.
@@ -47,6 +47,9 @@ Den första frågan i registreringen är hur du vill att vi ska kontakta dig. Ta
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Använda en mobilapp som kontaktmetod
 Med den här metoden kräver att du installerar en authenticator-appen på din telefon eller surfplatta. Stegen i den här artikeln baseras på Microsoft Authenticator-appen, som är tillgänglig för [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), och [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+
+>[!NOTE]
+>Du behöver inte använda Microsoft Authenticator-appen. Om du redan använder en annan autentiseringsapp kan fortsätta du att använda den.
 
 1. Välj **mobilappen** från den nedrullningsbara listan.
 2. Välj antingen **ta emot meddelanden för verifiering** eller **Använd Verifieringskod**och välj sedan **konfigurera**.

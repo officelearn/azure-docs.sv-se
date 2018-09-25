@@ -5,23 +5,29 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 04/06/2018
+ms.date: 09/21/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d166a77a0636efea3b63660fde2187e3f2ec15c0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f1b53c53b1e5fb089eb9b8a9b816b11a1eea126d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38941458"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044517"
 ---
-När du utvecklar funktioner lokalt kan installera du de tillägg som du behöver med hjälp av Azure Functions Core Tools från terminalen eller från en kommandotolk. 
+När du utvecklar funktioner lokalt kan installera du de tillägg som du behöver med hjälp av Azure Functions Core Tools från terminalen eller från en kommandotolk.
 
-När du har uppdaterat din *function.json* filen för att inkludera alla bindningar som din funktion måste, kör den `func extensions install` i projektmappen. Kommandot läser den *function.json* fil för att se vilka paket som du behöver och installerar dem sedan.
+När du har uppdaterat din *function.json* filen för att inkludera alla bindningar som din funktion behöver, kör följande kommando i projektmappen.
+
+```bash
+func extensions install
+```
+
+Kommandot läser den *function.json* fil för att se vilka paket som du behöver, installerar dem och återskapar tillägg-projektet. Den lägger till några nya bindningar på den aktuella versionen men uppdaterar inte befintliga bindningar. Använd den `--force` alternativet för att uppdatera befintliga bindningar till den senaste versionen när du installerar nya.
 
 Om du vill installera en viss version av ett paket eller om du vill installera paket innan du redigerar den *function.json* fil ska du använda den `func extensions install` kommandot med namnet på paketet, som visas i följande exempel:
 
-```
+```bash
 func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 ```
 

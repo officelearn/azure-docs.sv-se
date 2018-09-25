@@ -1,6 +1,6 @@
 ---
-title: Analysera nätverkssäkerhet med Azure Network Watcher Säkerhetsgruppvy – Azure CLI 2.0 | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Azure CLI 2.0 för att analysera en säkerhet för virtuella datorer med Säkerhetsgruppvy.
+title: Analysera nätverkssäkerhet med Azure Network Watcher Säkerhetsgruppvy – Azure CLI | Microsoft Docs
+description: Den här artikeln beskriver hur du använder Azure CLI för att analysera en säkerhet för virtuella datorer med Säkerhetsgruppvy.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 82cd0d97a64819ae8528850ba9a44800bf960afc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2b96c82f92ea49fa5bcb35d180240eb939d29d04
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090572"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962903"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>Analysera din säkerhet för virtuella datorer med Säkerhetsgruppvy med Azure CLI 2.0
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analysera din säkerhet för virtuella datorer med Säkerhetsgruppvy med Azure CLI
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
@@ -30,10 +30,7 @@ ms.locfileid: "39090572"
 
 Säkerhetsgruppvy returnerar konfigurerade och gällande säkerhetsregler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera Nätverkssäkerhetsgrupper och regler som är konfigurerade på en virtuell dator för att se till att trafik som ska tillåtas eller nekas. I den här artikeln har visar vi hur du hämtar de konfigurerade och gällande säkerhetsreglerna som en virtuell dator med Azure CLI
 
-
-Den här artikeln använder vår nästa generations CLI för resource management-distributionsmodellen, Azure CLI 2.0, som är tillgängligt för Windows, Mac och Linux.
-
-Om du vill utföra stegen i den här artikeln, måste du [installera Azure-kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Om du vill utföra stegen i den här artikeln, måste du [installera Azures kommandoradsgränssnitt för Mac, Linux och Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

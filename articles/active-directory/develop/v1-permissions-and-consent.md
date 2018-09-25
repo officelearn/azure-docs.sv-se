@@ -12,27 +12,32 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/27/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 735c5a3645f5e2e0f31bac4d4b2f61d73dfe069e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 93bc3db2b7cf3002efc93f1e8006c5362eddab9f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128787"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959979"
 ---
-# <a name="permissions-in-azure-active-directory"></a>Behörigheter i Azure Active Directory
+# <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Behörigheter och godkännande i Azure Active Directory v1.0 slutpunkten
 
-Azure Active Directory (Azure AD) använder sig av behörigheter för både OAuth-flöden och OIDC-flöden (OpenID Connect). När appen tar emot en åtkomsttoken från Azure AD innehåller åtkomsttoken anspråk som beskriver de behörigheter som appen har för en viss resurs. Behörigheter, även kallat omfång, gör auktoriseringen enkel för resursen, eftersom resursen endast behöver kontrollera att token innehåller lämplig behörighet för det API som appen anropar. 
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
+Azure Active Directory (Azure AD) använder sig av behörigheter för både OAuth-flöden och OIDC-flöden (OpenID Connect). När appen tar emot en åtkomsttoken från Azure AD innehåller åtkomsttoken anspråk som beskriver de behörigheter som appen har för en viss resurs.
+
+*Behörigheter*, även kallat *scope*, gör auktorisering enkelt för resursen eftersom resursen bara behöver kontrollera att token innehåller rätt behörighet för den appen anropar API: et.
 
 ## <a name="types-of-permissions"></a>Typer av behörigheter
 
-Azure AD definierar två typer av behörigheter: 
-* **Delegerade behörigheter** – Används av appar som har en inloggad användare. För dessa appar godkänner antingen användaren eller administratören de behörigheter som appen begär, och appen delegeras behörighet att agera som den inloggade användaren när ett API anropas. Beroende på API kan användaren kanske inte godkänna API:n direkt. Det kan i stället [krävas att en administratör ger sitt ”administratörsmedgivande”.](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
-* **Programbehörigheter** – Används av appar som körs utan någon inloggad användare, t.ex, appar som körs som en bakgrundstjänst eller daemon. Programbehörigheter kan bara [godkännas av en administratör](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) eftersom de vanligtvis är kraftfulla och ger åtkomst till data över användarens gränser, eller data som annars skulle vara begränsad till administratörer. 
+Azure AD definierar två typer av behörigheter:
+
+* **Delegerade behörigheter** – Används av appar som har en inloggad användare. För dessa appar godkänner antingen användaren eller administratören de behörigheter som appen begär, och appen delegeras behörighet att agera som den inloggade användaren när ett API anropas. Beroende på API: et, användaren kanske inte kan samtycka till API: et direkt och skulle i stället [kräver en administratör att tillhandahålla ”administratörsmedgivande”](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+* **Programbehörigheter** – Används av appar som körs utan någon inloggad användare, t.ex, appar som körs som en bakgrundstjänst eller daemon. Programbehörigheter kan bara [godkännas av en administratör](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) eftersom de vanligtvis är kraftfulla och ger åtkomst till data över användarens gränser, eller data som annars skulle vara begränsad till administratörer.
 
 Gällande behörigheter är de behörigheter som din app har vid begäranden till en API. 
 

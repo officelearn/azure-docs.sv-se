@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fe8b2cc09c7a08ab6d897a0fe1f1204d1903eca
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dbb21e63a25d6e357287f2f91181f2326850a898
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090871"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952859"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet i Azure Functions
 
@@ -73,6 +73,10 @@ Dra nytta av försvarsåtgärder som redan ges för komponenter som du använder
 ## <a name="scalability-best-practices"></a>Metodtips för skalbarhet
 
 Det finns ett antal faktorer som påverkar hur instanser av din funktionsapp skala. Information finns i dokumentationen för [funktionen skalning](functions-scale.md).  Här följer några rekommendationer för att säkerställa optimal skalbarheten i en funktionsapp.
+
+### <a name="share-and-manage-connections"></a>Dela och hantera anslutningar
+
+Återanvända anslutningar till externa resurser när det är möjligt.  Se [hur du hanterar anslutningar i Azure Functions](./manage-connections.md).
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Blanda inte koden för testning och produktion i samma funktionsapp
 

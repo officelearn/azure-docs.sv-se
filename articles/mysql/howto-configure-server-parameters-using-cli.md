@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 07/18/2018
-ms.openlocfilehash: 61fee0771d6847a0ec56de656057409bbcdcba16
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b45975bc019da2859da87a40e46970d849312e38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433769"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957065"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Anpassa konfigurationsparametrar för server med hjälp av Azure CLI
 Du kan visa, visa och uppdatera konfigurationsparametrar för en Azure Database for MySQL-server med hjälp av Azure CLI, Azure kommandoradsverktyget. En delmängd av motorkonfigurationer är exponerad på servernivå och kan ändras. 
@@ -23,7 +23,7 @@ Du kan visa, visa och uppdatera konfigurationsparametrar för en Azure Database 
 ## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom den här guiden, måste du:
 - [En Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-cli.md)
-- [Azure CLI 2.0](/cli/azure/install-azure-cli) -kommandoradsverktyget eller Använd Azure Cloud Shell i webbläsaren.
+- [Azure CLI](/cli/azure/install-azure-cli) -kommandoradsverktyget eller Använd Azure Cloud Shell i webbläsaren.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Lista konfigurationsparametrar för server för Azure Database för MySQL-server
 Om du vill visa alla ändringsbar parametrar i en server och deras värden, kör den [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) kommando.

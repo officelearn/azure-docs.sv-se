@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fb0fb4e0f23413cb56b1bb5ec419c44dfc52e7b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445219"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996850"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Utöka behörighet för Global administratör i Azure Active Directory
 
@@ -37,7 +37,9 @@ Höjningen ska vara tillfällig och endast när det behövs.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Utöka behörighet för Global administratör med hjälp av Azure portal
+## <a name="azure-portal"></a>Azure Portal
+
+Följ stegen nedan för att utöka behörighet för Global administratör med hjälp av Azure portal.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) eller [Azure Active Directory Administrationscenter](https://aad.portal.azure.com).
 
@@ -59,7 +61,9 @@ Höjningen ska vara tillfällig och endast när det behövs.
 
 1. Utföra uppgifter som du behöver göra på den utökade behörigheten. Ange växeln när du är klar, tillbaka till **nr**.
 
-## <a name="list-role-assignment-at-the-root-scope--using-powershell"></a>Lista rolltilldelning vid rotscopet (/) med hjälp av PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
+
+### <a name="list-role-assignment-at-the-root-scope-"></a>Lista rolltilldelning vid rotscopet (/)
 
 Visa en lista över administratör för användaråtkomst rolltilldelning för en användare vid rotscopet (`/`), använder den [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) kommando.
 
@@ -79,7 +83,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>Ta bort en rolltilldelning vid rotscopet (/) med hjälp av PowerShell
+### <a name="remove-a-role-assignment-at-the-root-scope-"></a>Ta bort en rolltilldelning vid rotscopet (/)
 
 Ta bort en administratör för användaråtkomst rolltilldelning för en användare vid rotscopet (`/`), använder den [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) kommando.
 
@@ -88,7 +92,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Utöka behörighet för Global administratör med hjälp av REST-API
+## <a name="rest-api"></a>REST-API
+
+### <a name="elevate-access-for-a-global-administrator"></a>Utöka behörighet för Global administratör
 
 Använd följande grundläggande steg för att utöka behörighet för Global administratör med hjälp av REST-API.
 
@@ -117,7 +123,7 @@ Använd följande grundläggande steg för att utöka behörighet för Global ad
 
 1. Ta bort din administratör för användaråtkomst privilegier förrän de behövs igen.
 
-## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>Lista över rolltilldelningar vid rotscopet (/) med hjälp av REST-API
+### <a name="list-role-assignments-at-the-root-scope-"></a>Lista rolltilldelningar vid rotscopet (/)
 
 Du kan lista alla rolltilldelningar för en användare vid rotscopet (`/`).
 
@@ -127,7 +133,17 @@ Du kan lista alla rolltilldelningar för en användare vid rotscopet (`/`).
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-## <a name="remove-elevated-access-using-the-rest-api"></a>Ta bort utökad åtkomst med hjälp av REST-API
+### <a name="list-deny-assignments-at-the-root-scope-"></a>Lista neka tilldelningar vid rotscopet (/)
+
+Du kan visa en lista över neka tilldelningar för en användare vid rotscopet (`/`).
+
+- Anropa GET denyAssignments där `{objectIdOfUser}` är objekt-ID för användaren vars neka tilldelningar som du vill hämta.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   ```
+
+### <a name="remove-elevated-access"></a>Ta bort utökad åtkomst
 
 När du anropar `elevateAccess`, som du skapar en rolltilldelning själv, så för att återkalla de behörigheterna som du behöver ta bort tilldelningen.
 

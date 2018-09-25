@@ -16,14 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460249"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964709"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognostisering av serverns arbetsbelastning i terabyte med data
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Den här artikeln beskriver hur datatekniker kan använda Azure Machine Learning Workbench för att utveckla lösningar som kräver användning av stordata. Du kan starta från ett exempel på en stor datauppsättning, gå igenom databearbetning, funktionsframställning och maskininlärning och utöka sedan processen för att hela stor datauppsättning. 
 
@@ -49,11 +52,11 @@ I det här scenariot kan fokusera du på arbetsbelastningen förutsägelser för
 Förutsättningar för att kunna köra det här exemplet är följande:
 
 * En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga).
-* En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Om du vill installera programmet och skapa en arbetsyta, se den [Snabbstart installationsguide](../service/quickstart-installation.md). Om du har flera prenumerationer kan du [ange den önskade prenumerationen ska vara den aktuella aktiva prenumerationen](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+* En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Om du vill installera programmet och skapa en arbetsyta, se den [Snabbstart installationsguide](quickstart-installation.md). Om du har flera prenumerationer kan du [ange den önskade prenumerationen ska vara den aktuella aktiva prenumerationen](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (anvisningarna i det här exemplet är vanligtvis samma för macOS-system).
 * En Data Science Virtual Machine (DSVM) för Linux (Ubuntu), helst i regionen USA, östra där data hittar. Du kan etablera en Ubuntu DSVM genom att följa [instruktionerna](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Du kan också se [snabbstarten](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Vi rekommenderar att du använder en virtuell dator med minst 8 kärnor och 32 GB minne. 
 
-Följ den [instruktionen](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) att aktivera lösenord utan sudoer åtkomst på den virtuella datorn för AML-arbetsstationen.  Du kan välja att använda [SSH-nyckel-baserad autentisering för att skapa och använda den virtuella datorn i AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). I det här exemplet använder vi lösenord för att få åtkomst till den virtuella datorn.  Spara tabellen nedan med DSVM information i efterföljande steg:
+Följ den [instruktionen](../desktop-workbench/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) att aktivera lösenord utan sudoer åtkomst på den virtuella datorn för AML-arbetsstationen.  Du kan välja att använda [SSH-nyckel-baserad autentisering för att skapa och använda den virtuella datorn i AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). I det här exemplet använder vi lösenord för att få åtkomst till den virtuella datorn.  Spara tabellen nedan med DSVM information i efterföljande steg:
 
  Fältnamn| Värde |  
  |------------|------|

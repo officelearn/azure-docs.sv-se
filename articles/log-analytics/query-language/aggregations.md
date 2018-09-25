@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: f72fb6f654b4699214a22a7f96431c605af52f2d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 764c43a382442096a5d130334e54afdc135ba419
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603681"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966694"
 ---
 # <a name="aggregations-in-log-analytics-queries"></a>Aggregeringar i Log Analytics-frågor
 
@@ -37,13 +37,13 @@ Den här artikeln beskriver aggregeringsfunktioner i Log Analytics-frågor som e
 Räkna antalet rader i resultatmängden efter eventuella filter har använts. I följande exempel returneras det totala antalet rader i den _Perf_ tabell från de senaste 30 minuterna. Resultatet returneras i en kolumn med namnet *count_* om du inte tilldelar den ett visst namn:
 
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -51,7 +51,7 @@ Perf
 
 En tidsdiagram visualisering kan vara användbart att se en trend över tid:
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -66,7 +66,7 @@ Utdata från det här exemplet visar perf antalet poster i trendlinjen i 5 minut
 ### <a name="dcount-dcountif"></a>DCount dcountif
 Använd `dcount` och `dcountif` att räkna distinkta värden i en viss kolumn. Följande fråga utvärderar hur många olika datorer skickat pulsslag under den senaste timmen:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -74,7 +74,7 @@ Heartbeat
 
 Om du vill räkna endast de Linux-datorer som har skickat pulsslag, använda `dcountif`:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -83,7 +83,7 @@ Heartbeat
 ### <a name="evaluating-subgroups"></a>Utvärdera undergrupper
 Om du vill utföra ett antal eller andra aggregeringar på undergrupper i dina data kan du använda den `by` nyckelord. Till exempel vill räkna antalet olika Linux-datorer som har skickat pulsslag i varje land/region:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -100,7 +100,7 @@ Heartbeat
 
 Om du vill analysera ännu mindre undergrupper av dina data, lägger du till ytterligare en kolumn som ska den `by` avsnittet. Du kanske vill räkna distinkta datorer från varje land/region per OSType:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -112,7 +112,7 @@ När du utvärderar numeriska värden, det är vanligt att genomsnittlig dem med
 ### <a name="percentile"></a>Percentil
 Hitta medianvärdet i `percentile` funktion med ett värde för att ange den: e percentilen:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -121,7 +121,7 @@ Perf
 
 Du kan också ange olika percentilerna för att få ett aggregerat resultat för varje:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -133,7 +133,7 @@ Detta kan visa att en dator CPU: er har liknande median värden, men vissa är k
 ### <a name="variance"></a>Varians
 För att utvärdera direkt variansen för ett värde, använder du standardavvikelse och varians metoder:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -142,7 +142,7 @@ Perf
 
 Ett bra sätt att analysera stabiliteten för CPU-användningen är att kombinera stdev med median beräkningen:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

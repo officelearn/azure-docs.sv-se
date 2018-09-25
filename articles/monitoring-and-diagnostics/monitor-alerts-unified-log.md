@@ -8,33 +8,31 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd1fb978fb47c69b2eb672bc27baee73dfdd0a29
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2e2db54f4c356a754144e17b11cf25fdf3f12d9f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057021"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994011"
 ---
-# <a name="log-alerts-in-azure-monitor---alerts"></a>Loggaviseringar i Azure Monitor - aviseringar 
-Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den nya [Azure Alerts](monitoring-overview-unified-alerts.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
+# <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
+Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](monitoring-overview-unified-alerts.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
 
+Log aviseringen består av Loggsökning regler som har skapats för [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Läs mer om användningen i [skapar loggaviseringar i Azure](alert-log.md)
 
-Log aviseringen består av Loggsökning regler som har skapats för [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Information om priser för loggvarningar är tillgängligt på den [priser för Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/) sidan. I Azure-fakturor loggvarningar representeras som typ `microsoft.insights/scheduledqueryrules` med:
-- Aviseringar i Application Insights visas med exakt aviseringsnamn tillsammans med resursgruppen och egenskaper för aviseringen
-- Loggaviseringar på Log Analytics som visas med aviseringsnamn som `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` tillsammans med resursgruppen och egenskaper för aviseringen
+> [!NOTE]
+> Populära loggdata från [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](monitoring-metric-alerts-logs.md)
 
-    > [!NOTE]
-    > Namnet på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics-API måste vara i gemener. Om ogiltiga tecken som `<, >, %, &, \, ?, /` är används – de kommer att ersättas med `_` på fakturan.
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Sök loggvarningsregel - definitions- och typer
 
 Loggsökningsregler skapas av Azure-aviseringar för att automatiskt köra angivna loggfrågor med jämna mellanrum.  Om resultatet av loggfrågan matchar särskilda villkor skapas en aviseringspost. Regeln kan sedan automatiskt köra en eller flera åtgärder med hjälp av [Åtgärdsgrupper](monitoring-action-groups.md). 
 
 Regler för log search definieras av följande information:
-- **Loggar frågor**.  Den fråga som körs varje gång regeln utlöses.  Poster som returneras av den här frågan används för att avgöra om en avisering skapas. *Azure Application Insights* fråga kan också innehålla [schemaläggningskapacitet mellan program anrop](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), förutsatt att användaren har behörighet att externa program. 
+- **Loggar frågor**.  Den fråga som körs varje gång regeln utlöses.  Poster som returneras av den här frågan används för att avgöra om en avisering skapas. Analytics-fråga kan även inkludera [schemaläggningskapacitet mellan program anrop](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), [mellan arbetsytan anrop och [mellan resurser anrop](../log-analytics/log-analytics-cross-workspace-search.md) förutsatt att användaren har behörighet att externa program. 
 
     > [!IMPORTANT]
-    > Stöd för [mellan application-fråga för Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) är i förhandsgranskning – begränsad funktionerna ska användas med 2 eller fler appar och användarupplevelse kan komma att ändras. Användning av [mellan arbetsytan fråga](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) och [mellan resurser frågan för Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) är för närvarande **stöds inte** i Azure-aviseringar.
+    > Användaren måste ha [Azure Monitoring deltagare](monitoring-roles-permissions-security.md) roll för att skapa, ändra och uppdatera loggaviseringar i Azure Monitor, tillsammans med åtkomst & fråga körningsbehörigheter för analytics-mål i varningsregeln eller aviseringsfråga. Om användaren skapar inte har åtkomst till alla analytics mål i varningsregeln eller aviseringsfråga - regeln skapades kan misslyckas eller loggvarningsregel körs med ofullständiga resultat.
 
 - **Tidsperiod**.  Anger tidsintervallet för frågan. Frågan returnerar bara de poster som har skapats i det här intervallet för den aktuella tiden. Tidsperiod begränsar de data som hämtats för loggfråga att förhindra missbruk och kringgår alla tid-kommandon (t.ex. sedan) används i loggen frågan. <br>*Till exempel om hur lång tid har angetts till 60 minuter och frågan körs klockan 13:15, returneras endast de poster som har skapats mellan 12:15 PM och 1:15 log frågan. Om log frågan använder tid kommandot som sedan nu 7d, log frågan skulle köras endast för data mellan 12:15 PM och 1:15 – som om det finns data för endast de senaste 60 minuterna. Och inte för sju dagarnas data som anges i loggfråga.*
 - **Frekvens**.  Anger hur ofta frågan ska köras. Kan vara ett värde mellan 5 minuter och 24 timmar. Ska vara lika med eller mindre än tidsperioden.  Om värdet är större än hur lång tid, riskerar du poster som saknas.<br>*Anta exempelvis att en tidsperiod på 30 minuter och en frekvens på 60 minuter.  Om frågan körs i 1:00, returnerar poster mellan 12:30 och 1:00.  Nästa gång frågan körs är 2:00 när den skulle returnera poster mellan 1:30 och 2:00.  Alla poster som skapats mellan 01:00 och 1:30 skulle aldrig ska utvärderas.*
@@ -59,7 +57,7 @@ För att skicka en enskild händelse, ange hur många resultat till större än 
 
 I vissa fall kan du skapa en avisering om en händelse.  En process kan exempelvis logga regelbundna händelser som indikerar att den fungerar korrekt.  Om det inte logga en av dessa händelser inom en viss tidsperiod, ska en avisering skapas.  I det här fallet kan du ange tröskelvärde för **mindre än 1**.
 
-#### <a name="example"></a>Exempel
+#### <a name="example-of-number-of-records-type-log-alert"></a>Exempel på antal poster typ log avisering
 Tänk dig ett scenario där du vill veta när en webbaserad App får ett svar till användare med kod 500 (det vill säga) internt serverfel. Du skapar en aviseringsregel med följande uppgifter:  
 - **Fråga:** begäranden | där Resultatkod == ”500”<br>
 - **Tidsperiod:** 30 minuter<br>
@@ -80,11 +78,11 @@ Sedan skulle aviseringen köra frågan var femte minut, med 30 minuters data –
 - **Intervall**: definierar det tidsintervall som aggregeras dina data.  Exempel: Om du har angett **fem minuter**, skapas en post för varje instans av gruppfältet samman med 5 minuters mellanrum under den tidsperiod som angetts för aviseringen.
 
     > [!NOTE]
-    > Bin-funktionen måste användas i frågan för att ange intervall. Eftersom bin() kan leda till olika tidsintervall - omvandlas avisering automatiskt bin-kommando till bin_at kommandot med lämplig tidpunkt vid körning, för att säkerställa att resultaten med en fast tidpunkt
+    > Bin-funktionen måste användas i frågan för att ange intervall. Eftersom bin() kan leda till olika tidsintervall - omvandlas avisering automatiskt bin-kommando till bin_at kommandot med lämplig tidpunkt vid körning, för att säkerställa att resultaten med en fast tidpunkt. Metrisk måttenhet typen av avisering för log har utformats för att arbeta med frågor som har rapportanvändare bin() kommando
     
 - **Tröskelvärde för**: tröskelvärde för metriska måttenheter Varningsregler definieras av ett samlat värde och ett antal intrång.  Om en datapunkt i loggsökningen överskrider detta värde, den betraktas som ett intrång.  Om antalet överträdelser i för alla objekt i resultatet överskrider det angivna värdet, skapas en avisering för objektet.
 
-#### <a name="example"></a>Exempel
+#### <a name="example-of-metric-measurement-type-log-alert"></a>Exempel på mått mätning typ log avisering
 Tänk dig ett scenario där du vill ha en avisering om en dator har överskridits processoranvändning 90% tre gånger under 30 minuter.  Du skapar en aviseringsregel med följande uppgifter:  
 
 - **Fråga:** Perf | där ObjectName == ”Processor” och CounterName == ”% processortid” | sammanfatta AggregatedValue = avg(CounterValue) efter bin (TimeGenerated, 5 m), dator<br>
@@ -97,45 +95,31 @@ Frågan skapar ett genomsnittligt värde för varje dator med 5 minuters mellanr
 
 ![Exemplet frågeresultat](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
 
-I det här exemplet skulle separata aviseringar skapas för srv02 och srv03 eftersom de brott mot tröskelvärdet 90% 3 gånger under tidsperioden.  Om den **Utlös aviseringen baserat på:** ändrades till **sidordning** och sedan skapas en avisering bara för srv03 eftersom den har brutit mot tröskelvärdet för tre på varandra följande prover.
+I det här exemplet skulle separata aviseringar skapas för srv02 och srv03 eftersom de brott mot tröskelvärdet 90% tre gånger under tidsperioden.  Om den **Utlös aviseringen baserat på:** ändrades till **sidordning** och sedan skapas en avisering bara för srv03 eftersom den har brutit mot tröskelvärdet för tre på varandra följande prover.
+
+## <a name="log-search-alert-rule---firing-and-state"></a>Sök loggvarningsregel - den utlösts och tillstånd
+Sök aviseringsregeln fungerar på logiken vinstmöjligheter av användaren enligt konfiguration och anpassade analytics-fråga som används. Utlösare är inkapslad i en Analytics-fråga – som kan skilja sig i varje loggvarningsregel sedan logiken för exakta villkoret eller orsak varför varningsregeln ska. Azure-aviseringar har begränsade-information för den specifika underliggande grundorsaken i loggen resultaten när villkoret tröskelvärdet för log search varningsregel uppnåtts eller överskridits. Därför loggvarningar refereras till som tillstånd utan och utlöses varje gång resultatet är tillräckligt för att överstiga tröskelvärdet som angetts i loggaviseringar av *antal resultat* eller *metriska måttenheter* typ för villkoret. Och loggaviseringsregler kommer hela tiden hålla, så länge som aviseringstillståndet uppfylls av resultatet av anpassade analysfråga angav; utan aviseringen var komma löst. Som logik på den exakta orsaken till övervakning fel maskeras i analytics-frågan som angetts av användaren. Det finns inga innebär som vilka Azure-aviseringar definitivt härleda om resultatet uppfyller inte tröskelvärdet anger lösning av problemet.
+
+Nu antar vi att vi har en loggvarningsregel som kallas *Contoso-Log-avisering*, enligt konfigurationen i den [exempel som angetts för många resultat typ log avisering](#example-of-number-of-records-type-log-alert). 
+- Klockan 13:05 när Contoso-Log-avisering utfördes av Azure-aviseringar, gav resultatet från 0 poster; under tröskelvärdet och kan därför inte startas aviseringen. 
+- I nästa iteration klockan 13:10 när Contoso-Log-avisering utfördes av Azure-aviseringar tillhandahålls resultatet från 5 posterna; som överskrider tröskeln och aktiveringen aviseringen strax efter genom att utlösa den [åtgärdsgrupp](monitoring-action-groups.md) som är associerade. 
+- Klockan 13:15 när Contoso-Log-avisering utfördes av Azure-aviseringar, får resultatet 2 poster; som överskrider tröskeln och aktiveringen aviseringen strax efter genom att utlösa den [åtgärdsgrupp](monitoring-action-groups.md) som är associerade.
+- Nu får resultatet i nästa iteration klockan 13:20 när Contoso-Log-aviseringen har utförts genom Azure avisering igen 0 poster; under tröskelvärdet och kan därför inte startas aviseringen.
+
+Men ovan listade om klockan 13:15 - Azure-aviseringar kan inte fastställa att de underliggande problem som kan uppstå vid 1:10 kvarstår och om det finns net nya fel; När frågan som användaren kan hänsyn till tidigare poster – kan Azure-aviseringar vara säker på att. Därför för att ta till en viss försiktighet, Contoso-Log-aviseringen skickas igen klockan 13:15 via konfigurerats [åtgärdsgrupp](monitoring-action-groups.md). Klockan 13:20 när inga poster ses: Azure-aviseringar får inte vara säker på att har nu orsaken posterna åtgärdats; Contoso-Log-aviseringen ska därför inte ändras till löst i aviseringen om Azure-instrumentpanel och/eller meddelanden som skickas ut om upplösning av avisering.
 
 
-## <a name="log-search-alert-rule---creation-and-modification"></a>Sök loggvarningsregel - skapandet och ändringar av
+## <a name="pricing-and-billing-of-log-alerts"></a>Priser och fakturering av aviseringar
+Priser för loggvarningar anges på den [priser för Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/) sidan. I Azure-fakturor loggvarningar representeras som typ `microsoft.insights/scheduledqueryrules` med:
+- Aviseringar i Application Insights visas med exakt aviseringsnamn tillsammans med resursgruppen och egenskaper för aviseringen
+- Loggaviseringar på Log Analytics som visas med aviseringsnamn som `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` tillsammans med resursgruppen och egenskaper för aviseringen
 
-Log avisering samt dess consisting search loggvarningsregel kan visas, skapas eller ändras från:
-- Azure Portal
-- REST API: er (inklusive via PowerShell)
-- Azure Resource Manager-mallar
-
-### <a name="azure-portal"></a>Azure Portal
-Ända sedan den [nya Azure-aviseringar](monitoring-overview-unified-alerts.md), nu användarna kan hantera alla typer av aviseringar i Azure-portalen från en enda plats och med liknande steg för användning. Läs mer om [med nya Azure-aviseringar](monitor-alerts-unified-usage.md).
-
-Användare kan dessutom förbättrar deras frågor i Analytics plattform i Azure och sedan *importera dem för användning i aviseringar genom att spara frågan*. Steg att följa:
-- *För Application Insights*: ska analysportalen verifiera frågan och dess resultat. Spara med unikt namn i *delade frågor*.
-- *För Log Analytics*: ska Loggsökning verifiera frågan och dess resultat. Använd spara med unikt namn i valfri kategori.
-
-Sedan när [skapar en avisering om log i aviseringar ](monitor-alerts-unified-usage.md), visas den sparade fråga som listas som signaltyp **Log (sparad fråga)**, vilket visas i exemplet nedan: ![sparad fråga som importerats till aviseringar](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
-
-> [!NOTE]
-> Med hjälp av **Log (sparad fråga)** resulterar i en import till aviseringar. Eventuella ändringar som görs efter i Analytics kommer därför inte att reflekterande i loggen aviseringsreglerna och vice versa.
-
-### <a name="rest-apis"></a>REST API:er
-API: er tillhandahålls för logg aviseringar är RESTful och kan nås via Azure Resource Manager REST API. Därför kan nås via PowerShell, samt andra alternativ för att utnyttja API: erna.
-
-För information samt exempel med REST API: et, se:
-- [Logga avisering REST API: et](../log-analytics/log-analytics-api-alerts.md) – om du vill skapa och hantera log aviseringsreglerna för Azure Log Analytics
-- [Azure Monitor schemalagda fråga regler REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) – om du vill skapa och hantera log aviseringsreglerna för Azure Application Insights
-
-### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
-Användarna kan också använda den flexibilitet som tillhandahålls av [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) att skapa och uppdatera resurser – för att skapa eller uppdatera loggaviseringar.
-
-För information samt exempel om hur du använder Resource Manager-mallar, se:
-- [Spara sökning och aviseringar](monitor-alerts-unified-log-template.md#managing-log-alert-on-log-analytics) för aviseringar baserat på Azure Log Analytics
-- [Schemalagd Frågeregel](monitor-alerts-unified-log-template.md#managing-log-alert-on-application-insights) för aviseringar baserat på Azure Application Insights
- 
+    > [!NOTE]
+    > Namnet på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics-API måste vara i gemener. Om ogiltiga tecken som `<, >, %, &, \, ?, /` är används – de kommer att ersättas med `_` på fakturan.
 
 ## <a name="next-steps"></a>Nästa steg
+* Lär dig mer om [skapa i loggaviseringar i Azure](alert-log.md).
 * Förstå [webhooks i loggaviseringar i Azure](monitor-alerts-unified-log-webhook.md).
-* Lär dig mer om den nya [Azure Alerts](monitoring-overview-unified-alerts.md).
+* Lär dig mer om [Azure-aviseringar](monitoring-overview-unified-alerts.md).
 * Läs mer om [Application Insights](../application-insights/app-insights-analytics.md).
 * Läs mer om [Log Analytics](../log-analytics/log-analytics-overview.md).    

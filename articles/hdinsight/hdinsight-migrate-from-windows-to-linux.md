@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: jasonh
-ms.openlocfilehash: cb2ca9ac3be0034f5a90add58249a2c2043975d0
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ee97d2005752c9e0cd40de238d1f4a946bb9ee3d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094092"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948425"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrera från ett Windows-baserade HDInsight-kluster till ett Linux-baserade kluster
 
@@ -97,7 +97,7 @@ Alternativt kan du använda den `Start-AzureStorageBlobCopy` Azure PowerShell-cm
 
 ## <a name="client-side-technologies"></a>Klientsidan tekniker
 
-Klientsidan tekniker som [Azure PowerShell-cmdlets](/powershell/azureps-cmdlets-docs), [Azure CLI](../cli-install-nodejs.md), eller [.NET SDK för Hadoop](https://hadoopsdk.codeplex.com/) fortsätter att fungera Linux-baserade kluster. Dessa tekniker är beroende av REST API: er som är gemensamma för båda typerna av klusteroperativsystem.
+Klientsidan tekniker som [Azure PowerShell-cmdlets](/powershell/azureps-cmdlets-docs), [klassiska Azure-CLI](../cli-install-nodejs.md), eller [.NET SDK för Hadoop](https://hadoopsdk.codeplex.com/) fortsätter att fungera Linux-baserade kluster. Dessa tekniker är beroende av REST API: er som är gemensamma för båda typerna av klusteroperativsystem.
 
 ## <a name="server-side-technologies"></a>Tekniker för serversidan
 
@@ -106,7 +106,7 @@ I följande tabell innehåller råd om migrera server-komponenter som är specif
 | Om du använder den här tekniken... | Gör den här åtgärden... |
 | --- | --- |
 | **PowerShell** (serverskript, inklusive skriptåtgärder användas när klustret skapas) |Omarbetning som Bash-skript. Skriptåtgärder, se [anpassa Linux-baserade HDInsight med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md) och [Skriptåtgärdsutveckling för Linux-baserade HDInsight](hdinsight-hadoop-script-actions-linux.md). |
-| **Azure CLI** (serverskript) |Azure CLI är tillgängligt i Linux, kommer det inte förinstallerade på HDInsight-klustrets huvudnoder. Mer information om hur du installerar Azure CLI finns i [Kom igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). |
+| **Azure klassiskt CLI** (serverskript) |Den klassiska Azure-CLI är tillgängligt i Linux, kommer det inte förinstallerade på HDInsight-klustrets huvudnoder. Mer information om hur du installerar den klassiska Azure-CLI finns i [Kom igång med klassiska Azure-CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). |
 | **.NET-komponenter** |.NET stöds på Linux-baserade HDInsight via [Mono](https://mono-project.com). Mer information finns i [migrera .NET-lösningar till Linux-baserade HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
 | **Win32-komponenter eller andra endast Windows-teknik** |Vägledning beror på vilken komponent eller teknik. Du kan hitta en version som är kompatibel med Linux. Om inte, måste du hitta en alternativ lösning eller skriva om den här komponenten. |
 

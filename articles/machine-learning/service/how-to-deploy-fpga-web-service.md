@@ -1,6 +1,6 @@
 ---
-title: Så här distribuerar du en modell som en webbtjänst på en då FPGA med Azure Machine Learning
-description: Lär dig hur du distribuerar en webbtjänst med en modell som körs på en då FPGA med Azure Machine Learning.
+title: Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning
+description: Lär dig hur du distribuerar en webbtjänst med en modell som körs på en FPGA med Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,166 +8,212 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 05/07/2018
-ms.openlocfilehash: f3237980a1ad1969b5cf8d42d547ddf96608dd97
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 09/24/2018
+ms.openlocfilehash: ee67585a523ab96b1442d9eee3e9dfd55a758d32
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33789399"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971492"
 ---
-# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Distribuera en modell som en webbtjänst på en då FPGA med Azure Machine Learning
+# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning
 
-I det här dokumentet du lär dig hur du konfigurerar miljön arbetsstation och distribuera en modell som en webbtjänst på [fältet programmable gate matriser (då FPGA)](concept-accelerate-with-fpgas.md). Webbtjänsten använder projektet Brainwave för att köra modellen på då FPGA.
+Du kan distribuera en modell som en webbtjänst på [fältet programmable gate matriser (FPGA)](concept-accelerate-with-fpgas.md).  FPGA ger extremt låg latens inferensjobb, även med en enda gruppstorlek.   
 
-Med hjälp av FPGAs ger mycket låg latens inferencing, även om en enskild batch-storlek.
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="create-an-azure-machine-learning-model-management-account"></a>Skapa ett konto i Azure Machine Learning modellen Management
+- En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-1. Gå till sidan för att skapa modellen Hanteringskontot på den [Azure Portal](https://aka.ms/aml-create-mma).
+- En Azure Machine Learning-arbetsyta och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
+ 
+  - Din arbetsyta måste finnas i den *östra USA 2* region.
 
-2. I portalen, skapa ett konto för hantering av modellen i den **östra USA 2** region.
+  - Installera contrib-tillägg:
 
-   ![Bild av skapa modellen Hanteringskontot skärmen](media/how-to-deploy-fpga-web-service/azure-portal-create-mma.PNG)
+    ```shell
+    pip install --upgrade azureml-sdk[contrib]
+    ```  
 
-3. Namnge ditt konto för hantering av modellen, Välj en prenumeration och välja en resursgrupp.
+## <a name="create-and-deploy-your-model"></a>Skapa och distribuera din modell
+Skapa en pipeline för att Förbearbeta inmatad bild, förtränade med ResNet-50 på en FPGA och kör sedan funktionerna via en classifer tränats på ImageNet-datauppsättning.
 
-   >[!IMPORTANT]
-   >Du måste välja för plats **östra USA 2** som region.  Inga andra regioner är tillgängliga.
+Följ anvisningarna för att:
 
-4. Välj en prisnivå (S1 räcker, men också fungera S2 och S3).  DevTest-nivån stöds inte.  
-
-5. Klicka på **Välj** bekräfta prisnivån.
-
-6. Klicka på **skapa** i ML-modell Management till vänster.
-
-## <a name="get-model-management-account-information"></a>Hämta information om hantering av modellen
-
-Få information om din modell Management konto (MMA) klickar du på den __modellen Hanteringskontot__ på Azure-portalen.
-
-Kopiera värdena för följande objekt:
-
-+ Modellnamn för Hanteringskontot (i på det övre vänstra hörnet)
-+ Resursgruppsnamn
-+ Prenumerations-ID:t
-+ Plats (Använd ”eastus2”)
-
-![Modellen Management kontoinformation](media/how-to-deploy-fpga-web-service/azure-portal-mma-info.PNG)
-
-## <a name="set-up-your-machine"></a>Konfigurera din dator
-
-Följ dessa steg om du vill konfigurera din arbetsstation för då FPGA distribution:
-
-1. Hämta och installera den senaste versionen av [Git](https://git-scm.com/downloads).
-
-2. Installera [Anaconda (Python 3,6)](https://conda.io/miniconda.html).
-
-3. Om du vill hämta Anaconda-miljön, använder du följande kommando från en kommandotolk med Git:
-
-    ```
-    git clone https://aka.ms/aml-real-time-ai
-    ```
-
-4. För att skapa miljön, öppna ett **Anaconda Prompt** (inte en Azure Machine Learning arbetsstationen fråga) och kör följande kommando:
-
-    > [!IMPORTANT]
-    > Den `environment.yml` filen har git-lagringsplats som du har klonat i föregående steg. Ändra sökvägen som behövs för att peka till filen på din arbetsstation.
-
-    ```
-    conda env create -f environment.yml
-    ```
-
-5. Om du vill aktivera miljön, använder du följande kommando:
-
-    ```
-    conda activate amlrealtimeai
-    ```
-
-6. Om du vill starta Jupyter Notebook-server, använder du följande kommando:
-
-    ```
-    jupyter notebook
-    ```
-
-    Kommandots utdata liknar följande:
-
-    ```text
-    Copy/paste this URL into your browser when you connect for the first time, to login with a token:
-        http://localhost:8888/?token=bb2ce89cc8ae931f5df50f96e3a6badfc826ff4100e78075
-    ```
-
-    > [!TIP]
-    > Du får en annan token varje gång du kör kommandot.
-
-    Om din webbläsare inte öppnas automatiskt i Jupyter-anteckningsboken, öppna sidan med HTTP-URL som returneras av kommandot tidigare.
-
-    ![Bild av sidan Jupyter-anteckningsbok](./media/how-to-deploy-fpga-web-service/jupyter-notebook.png)
-
-## <a name="deploy-your-model"></a>Distribuera din modell
-
-Öppna från Jupyter-anteckningsbok den `00_QuickStart.ipynb` bärbar dator från den `notebooks/resnet50` directory. Följ instruktionerna i den bärbara datorn att:
-
-* Definiera tjänsten
+* Definiera modellen pipelinen
 * Distribuera modellen
-* Använda distribuerade modellen
+* Använd distribuerade modell
 * Ta bort distribuerade tjänster
 
 > [!IMPORTANT]
-> Om du vill optimera svarstid och genomströmning måste din arbetsstation vara i samma Azure-region som slutpunkt.  För närvarande skapas för API: er i East oss Azure-region.
+> Din klient ska vara i samma Azure-region som slutpunkt för att optimera svarstid och dataflöde.  För närvarande skapas av API: er i regionen östra USA Azure.
 
-## <a name="ssltls-and-authentication"></a>SSL/TLS- och autentisering
+### <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Azure Machine Learning ger stöd för SSL- och nyckel för autentisering. På så sätt kan du begränsa åtkomsten till tjänsten och säkra data som skickats av klienterna.
+Den här självstudien är tillgänglig som en Jupyter-anteckningsbok för din bekvämlighet. Använda någon av dessa metoder för att köra den `project-brainwave/project-brainwave-quickstart.ipynb` anteckningsboken:
 
-> [!NOTE]
-> Stegen i det här avsnittet gäller bara för Azure Machine Learning maskinvara snabbare modeller. Standard Azure Machine Learning-tjänster finns i [hur du konfigurerar SSL på Azure Machine Learning Compute](https://docs.microsoft.com/azure/machine-learning/preview/how-to-setup-ssl-on-mlc) dokumentet.
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+
+### <a name="preprocess-image"></a>Förbearbeta bild
+Det första steget i pipelinen är att Förbearbeta bilderna.
+
+```python
+import os
+import tensorflow as tf
+
+# Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
+import azureml.contrib.brainwave.models.utils as utils
+in_images = tf.placeholder(tf.string)
+image_tensors = utils.preprocess_array(in_images)
+print(image_tensors.shape)
+```
+### <a name="add-featurizer"></a>Lägg till Upplärda
+Initiera modellen och ladda ned en TensorFlow kontrollpunkt för den quantized versionen av ResNet50 som ska användas som en upplärda.
+
+```python
+from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
+model_path = os.path.expanduser('~/models')
+model = QuantizedResnet50(model_path, is_frozen = True)
+feature_tensor = model.import_graph_def(image_tensors)
+print(model.version)
+print(feature_tensor.name)
+print(feature_tensor.shape)
+```
+
+### <a name="add-classifier"></a>Lägg till klassificerare
+Den här klassificerare har tränats på ImageNet-datauppsättning.
+
+```python
+classifier_input, classifier_output = Resnet50.get_default_classifier(feature_tensor, model_path)
+```
+
+### <a name="create-service-definition"></a>Skapa tjänstdefinition
+Nu när du har definied bild Förbearbeta, upplärda och klassificerare som körs på tjänsten, kan du skapa en tjänstdefinition. Tjänstdefinitionen är en uppsättning filer som genereras från den modell som har distribuerats till FPGA-tjänsten. Tjänstdefinitionen består av en pipeline. Pipelinen är en serie steg som körs i ordning.  TensorFlow faser, Keras faser och steg BrainWave stöds.  Stegen körs på tjänsten, med utdata för varje steg som indata i efterföljande steg i ordning.
+
+Att skapa ett TensorFlow-steg, ange en session som innehåller diagrammet (i det här fallet används standard-graph) och indata och utdata tensors till den här fasen.  Den här informationen används för att spara diagrammet så att den kan köras på tjänsten.
+
+```python
+from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
+
+save_path = os.path.expanduser('~/models/save')
+model_def_path = os.path.join(save_path, 'service_def.zip')
+
+model_def = ModelDefinition()
+with tf.Session() as sess:
+    model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
+    model_def.pipeline.append(BrainWaveStage(sess, model))
+    model_def.pipeline.append(TensorflowStage(sess, classifier_input, classifier_output))
+    model_def.save(model_def_path)
+    print(model_def_path)
+```
+
+### <a name="deploy-model"></a>Distribuera modell
+Skapa en tjänst från tjänstdefinitionen.  Din arbetsyta måste vara på plats i USA, östra 2.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
+
+from azureml.core.model import Model
+model_name = "resnet-50-rtai"
+registered_model = Model.register(ws, model_def_path, model_name)
+
+from azureml.core.webservice import Webservice
+from azureml.exceptions import WebserviceException
+from azureml.contrib.brainwave import BrainwaveWebservice, BrainwaveImage
+service_name = "imagenet-infer"
+service = None
+try:
+    service = Webservice(ws, service_name)
+except WebserviceException:
+    image_config = BrainwaveImage.image_configuration()
+    deployment_config = BrainwaveWebservice.deploy_configuration()
+    service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
+    service.wait_for_deployment(true)
+```
+
+### <a name="test-the-service"></a>Testa tjänsten
+Att skicka en bild-API: et och testa svaret, lägga till en mappning från utdata klass-ID till ImageNet klassnamn.
+
+```python
+import requests
+classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
+```
+
+Anropar din tjänst och Ersätt ”your image.jpg” filnamnet nedan med en avbildning från din dator. 
+
+```python
+with open('your-image.jpg') as f:
+    results = service.run(f)
+# map results [class_id] => [confidence]
+results = enumerate(results)
+# sort results by confidence
+sorted_results = sorted(results, key=lambda x: x[1], reverse=True)
+# print top 5 results
+for top in sorted_results[:5]:
+    print(classes_entries[top[0]], 'confidence:', top[1])
+``` 
+
+### <a name="clean-up-service"></a>Rensa service
+Ta bort tjänsten.
+
+```python
+service.delete()
+    
+registered_model.delete()
+```
+
+## <a name="secure-fpga-web-services"></a>Skydda FPGA-webbtjänster
+
+Azure Machine Learning-modeller som körs på FPGA ger stöd för SSL- och nyckel för autentisering. På så sätt kan du begränsa åtkomsten till din tjänst och säkra data som skickats av klienterna.
 
 > [!IMPORTANT]
-> Autentisering är endast aktiverad för tjänster som har angett ett SSL-certifikat och nyckel. 
+> Autentisering är bara aktiverat för tjänster som har angetts ett SSL-certifikat och nyckel. 
 >
 > Om du inte aktiverar SSL kan kommer alla användare på internet att kunna göra anrop till tjänsten.
 >
-> Om du aktiverar SSL och autentiseringsnyckel krävs vid åtkomst till tjänsten.
+> Om du aktiverar SSL och autentiseringsnyckeln krävs vid åtkomst till tjänsten.
 
 SSL krypterar data som skickas mellan klienten och tjänsten. Det används också av klienten för att verifiera identiteten för servern.
 
-Du kan distribuera en tjänst med SSL aktiverat eller uppdatera en redan distribuerad tjänst för att aktivera den. Stegen är samma:
+Du kan distribuera en tjänst med SSL aktiverat eller uppdatera en redan distribuerad tjänst för att aktivera den. Stegen är desamma:
 
 1. Hämta ett domännamn.
 
 2. Skaffa ett SSL-certifikat.
 
-3. Distribuera om eller uppdatera tjänsten med SSL aktiverat.
+3. Distribuera eller uppdatera tjänsten med SSL aktiverat.
 
 4. Uppdatera din DNS så att den pekar till tjänsten.
 
 ### <a name="acquire-a-domain-name"></a>Skaffa ett domännamn
 
-Om du inte redan äger ett domännamn kan du köpa ett från en __domännamnsregistratorn__. Processen skiljer sig mellan registratorer, som kostar. Registratorn också ger dig verktyg för att hantera domännamnet. Verktygen används för att mappa ett fullständigt kvalificerat domännamn (t.ex www.contoso.com) till IP-adressen som finns på din tjänst.
+Om du inte redan har ett domännamn kan du köpa en från en __domännamnsregistratorn__. Processen skiljer sig mellan registratorer, precis kostnaden. Registratorn ger dig också med verktyg för att hantera domännamnet. Dessa verktyg används för att mappa ett fullständigt kvalificerat domännamn (t.ex www.contoso.com) till IP-adressen som din tjänst finns i.
 
 ### <a name="acquire-an-ssl-certificate"></a>Skaffa ett SSL-certifikat
 
-Det finns många sätt att få ett SSL-certifikat. De vanligaste är att köpa ett från en __certifikatutfärdare__ (CA). Oavsett om du har fått certifikatet, behöver du följande filer:
+Det finns många sätt att få ett SSL-certifikat. De vanligaste är att köpa en från en __certifikatutfärdare__ (CA). Oavsett om du har fått certifikatet, behöver du följande filer:
 
-* En __certifikat__. Certifikatet måste innehålla den fullständiga certifikatkedjan och måste vara PEM-kodat.
-* En __nyckeln__. Nyckeln måste vara PEM-kodad.
+* En __certifikat__. Certifikatet måste innehålla fullständig certifikatkedjan och måste vara PEM-kodat.
+* En __nyckeln__. Nyckeln måste vara PEM-kodat.
 
 > [!TIP]
-> Om certifikatutfärdaren inte kan tillhandahålla certifikatet och nyckel som PEM-kodade filer, kan du använda ett verktyg som [OpenSSL](https://www.openssl.org/) ändra formatet.
+> Om certifikatutfärdaren inte kan tillhandahålla certifikat och nyckel som PEM-kodat filer, kan du använda ett verktyg som [OpenSSL](https://www.openssl.org/) att ändra format.
 
 > [!IMPORTANT]
-> Självsignerade certifikat ska användas endast för utveckling. De bör inte användas i produktionen.
+> Självsignerat certifikat ska användas endast för utveckling. De bör inte användas i produktion.
 >
-> Om du använder ett självsignerat certifikat, finns det [förbrukar tjänster med självsignerade certifikat](#self-signed) avsnittet specifika instruktioner.
+> Om du använder ett självsignerat certifikat, se den [förbrukar tjänster med självsignerade certifikat](#self-signed) för specifika anvisningar.
 
 > [!WARNING]
-> När du begär ett certifikat måste du ange det fullständigt kvalificerade domännamnet (FQDN) i den adress som du planerar att använda för tjänsten. Till exempel www.contoso.com. Adressen stämplad i certifikatet och den adress som används av klienterna jämförs att verifiera identiteten för tjänsten.
+> När du begär ett certifikat, måste du ange det fullständigt kvalificerade domännamnet (FQDN) för den adress som du planerar att använda för tjänsten. Till exempel www.contoso.com. Den adressen stämplad i certifikatet och den adress som används av klienterna jämförs vid verifiering av identiteten för tjänsten.
 >
-> Om adresserna inte matchar, kommer klienterna får ett felmeddelande. 
+> Om adresserna som inte matchar får klienterna ett felmeddelande. 
 
-### <a name="deploy-or-update-the-service-with-ssl-enabled"></a>Distribuera om eller uppdatera tjänsten med SSL aktiverat
+### <a name="deploy-or-update-the-service-with-ssl-enabled"></a>Distribuera eller uppdatera tjänsten med SSL aktiverat
 
-Om du vill distribuera tjänsten med SSL aktiverat, ange den `ssl_enabled` parameter till `True`. Ange den `ssl_certificate` parametern med värdet för den __certifikat__ fil och `ssl_key` till värdet för den __nyckeln__ fil. I följande exempel beskrivs hur du distribuerar en tjänst med SSL aktiverat:
+Om du vill distribuera tjänsten med SSL aktiverat, ange den `ssl_enabled` parameter `True`. Ange den `ssl_certificate` parametern till värdet för den __certifikat__ fil och `ssl_key` till värdet för den __nyckel__ fil. I följande exempel beskrivs hur du distribuerar en tjänst med SSL aktiverat:
 
 ```python
 from amlrealtimeai import DeploymentClient
@@ -189,23 +235,23 @@ with open('cert.pem','r') as cert_file:
         service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
 ```
 
-Svaret från den `create_service` åtgärden innehåller IP-adressen för tjänsten. IP-adressen används när du kartlägger DNS-namn till IP-adressen för tjänsten.
+Svaret på den `create_service` åtgärden innehåller IP-adressen för tjänsten. IP-adressen används när du kartlägger DNS-namn till IP-adressen för tjänsten.
 
-Svaret innehåller också en __primärnyckel__ och __sekundärnyckeln__ som används för att använda tjänsten.
+Svaret innehåller även en __primärnyckel__ och __sekundärnyckel__ som används för att använda tjänsten.
 
-### <a name="update-your-dns-to-point-to-the-service"></a>Uppdatera din DNS så att den pekar till tjänsten
+### <a name="update-your-dns-to-point-to-the-service"></a>Uppdatera din DNS-server så att den pekar till tjänsten
 
-Använda de verktyg som tillhandahålls av din domännamnsregistrator för att uppdatera DNS-post för ditt domännamn. Posten måste peka på IP-adressen för tjänsten.
-
-> [!NOTE]
-> Beroende på Registratorn och tiden på live (TTL) som konfigurerats för domännamnet på, det kan ta flera minuter till flera timmar innan klienter kan matcha domännamnet.
-
-### <a name="consuming-authenticated-services"></a>Förbrukar autentiserade tjänster
-
-Följande exempel visar hur du använder en autentiserad av Python och C#-tjänst:
+Använd de verktyg som tillhandahålls av din domänregistrator för att uppdatera DNS-posten för ditt domännamn. Posten måste peka på IP-adressen för tjänsten.
 
 > [!NOTE]
-> Ersätt `authkey` returneras när du skapar tjänsten med de primära och sekundära nycklarna.
+> Beroende på Registratorn och hur lång tid att live (TTL) som är konfigurerad för domännamnet så det kan ta flera minuter till flera timmar innan klienter kan matcha domännamnet.
+
+### <a name="consume-authenticated-services"></a>Använda autentiserade tjänster
+
+Följande exempel visar hur du använder en autentiserad med Python och C#-tjänst:
+
+> [!NOTE]
+> Ersätt `authkey` med den primära eller sekundära nyckeln returneras när du skapar tjänsten.
 
 ```python
 from amlrealtimeai import PredictionClient
@@ -224,9 +270,9 @@ using (var content = File.OpenRead(image))
     }
 ```
 
-Andra gRPC klienter kan autentisera begäranden genom att ange ett authorization-huvud. Det allmänna tillvägagångssättet är att skapa en `ChannelCredentials` objekt som kombinerar `SslCredentials` med `CallCredentials`. Detta läggs till authorization-huvud i begäran. Mer information om hur du implementerar stöd för din specifika huvuden finns [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
+Andra gRPC-klienter kan autentisera begäranden genom att ange en auktoriseringsrubrik. Den allmänna riktlinjen att skapa en `ChannelCredentials` objekt som kombinerar `SslCredentials` med `CallCredentials`. Detta har lagts till auktoriseringshuvudet för begäran. Läs mer om hur du implementerar stöd för din specifika rubriker, [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
 
-Följande exempel visar hur du ställer in rubriken i C# och gå:
+Följande exempel visar hur du ställer in rubriken i C# och Go:
 
 ```csharp
 creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
@@ -259,15 +305,15 @@ func (c *authCreds) RequireTransportSecurity() bool {
 }
 ```
 
-### <a id="self-signed"></a>Förbrukar-tjänster med självsignerade certifikat
+### <a id="self-signed"></a>Använda tjänster med självsignerade certifikat
 
-Det finns två sätt att aktivera klienten autentisera till en server som skyddas med ett självsignerat certifikat:
+Det finns två sätt att aktivera klienten för att autentisera mot en server som skyddas med ett självsignerat certifikat:
 
-* På klientdatorn, ange den `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` -miljövariabeln på klientdatorn så att den pekar till certifikatfilen.
+* På klientsystemet, ange den `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` miljövariabeln på klientsystemet så att den pekar till certifikatfilen.
 
-* När man skapar en `SslCredentials` objekt, skicka innehållet i certifikatfilen till konstruktorn.
+* När en `SslCredentials` objekt, skicka innehållet i certifikatfilen till konstruktorn.
 
-Med någon av metoderna gör gRPC ska kunna använda certifikatet som rot-certifikat.
+Med någon av metoderna gör gRPC ska kunna använda certifikatet som rotcertifikatet.
 
 > [!IMPORTANT]
-> gRPC accepterar inte icke betrodda certifikat. Med hjälp av ett icke betrott certifikat misslyckas med ett `Unavailable` statuskod. Innehåller information om felet `Connection Failed`.
+> gRPC accepterar inte icke betrodda certifikat. Med ett icke betrott certifikat misslyckas med ett `Unavailable` statuskod. Innehåller information om felet `Connection Failed`.

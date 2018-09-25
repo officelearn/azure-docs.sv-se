@@ -1,22 +1,22 @@
 ---
-title: Apache Hadoop Oozie arbetsflöden i Azure HDInsight domänanslutna kluster
-description: Använd Hadoop Oozie i en Linux-baserade HDInsight domänanslutna-Enterprise Security Package. Lär dig hur du definierar ett Oozie-arbetsflöde och skicka en Oozie-jobb.
+title: Apache Hadoop Oozie arbetsflöden i Azure HDInsight-kluster med Enterprise Security Package
+description: Använda Oozie med Hadoop i en Linux-baserade HDInsight Enterprise Security Package. Lär dig hur du definierar ett Oozie-arbetsflöde och skicka en Oozie-jobb.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.openlocfilehash: 69bf885ad5d6244997c7ce9cf61bdee9e05c1826
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: 563a4c14d78b7edd228c998817f44c6b3f14efe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048982"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947509"
 ---
-# <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>Kör Apache Oozie i domänanslutna HDInsight Hadoop-kluster
+# <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Kör Apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package
 Oozie är ett arbetsflöde och koordination system som hanterar Hadoop-jobb. Oozie är integrerad med Hadoop-stacken och stöder följande jobb:
 - Apache MapReduce
 - Apache Pig
@@ -26,12 +26,12 @@ Oozie är ett arbetsflöde och koordination system som hanterar Hadoop-jobb. Ooz
 Du kan också använda Oozie för att schemalägga jobb som är specifika för ett system, t.ex. Java-program eller kommandoskript.
 
 ## <a name="prerequisite"></a>Krav
-- En domänansluten Azure HDInsight Hadoop-kluster. Se [konfigurera domänanslutna HDInsight-kluster](./apache-domain-joined-configure-using-azure-adds.md).
+- Ett Azure HDInsight Hadoop-kluster med Enterprise Security Package (ESP). Se [konfigurera HDInsight-kluster med ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
-    > Detaljerade anvisningar om hur du använder Oozie på icke-domänanslutna kluster finns i [Använd Hadoop Oozie arbetsflöden i Linux-baserade Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
+    > Detaljerade anvisningar om hur du använder Oozie på icke-ESP-kluster finns i [Använd Hadoop Oozie arbetsflöden i Linux-baserade Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
 
-## <a name="connect-to-a-domain-joined-cluster"></a>Ansluta till ett domänanslutet kluster
+## <a name="connect-to-an-esp-cluster"></a>Ansluta till ett ESP-kluster
 
 Läs mer på SSH (Secure Shell), [Anslut till HDInsight (Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -262,7 +262,7 @@ Du kan skapa två Hive-skript för Hive-servern 1 och Hive server 2 som visas i 
     ```
 
 ## <a name="submit-oozie-jobs"></a>Skicka Oozie-jobb
-Skicka Oozie-jobb för domänanslutna kluster är som att skicka Oozie-jobb i icke-domänanslutna kluster.
+Skicka Oozie-jobb för ESP-kluster är som att skicka Oozie-jobb i icke-ESP-kluster.
 
 Mer information finns i [Använd Oozie med Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
 
@@ -311,7 +311,7 @@ Mer information finns i [Oozie Installation och konfiguration](https://oozie.apa
 För komponenter som Hive-servern där Ranger plugin-programmet inte är tillgänglig eller så stöds 1 är endast coarse-grained HDFS auktorisering möjligt. Detaljerade auktorisering är bara tillgänglig via Ranger plugin-program.
 
 ## <a name="get-the-oozie-web-ui"></a>Hämta Oozie-webbgränssnittet
-Oozie webbgränssnittet ger en webbaserad översikt över statusen för Oozie-jobb i klustret. För att få åtkomst till webbgränssnittet, gör du följande i domänanslutna kluster:
+Oozie webbgränssnittet ger en webbaserad översikt över statusen för Oozie-jobb i klustret. För att få åtkomst till webbgränssnittet, gör du följande i ESP-kluster:
 
 1. Lägg till en [kantnoden](../hdinsight-apps-use-edge-node.md) och aktivera [SSH Kerberos-autentisering](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

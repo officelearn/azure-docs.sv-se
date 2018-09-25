@@ -1,6 +1,6 @@
 ---
-title: 'Bing anpassad sökning: Dela sökningen anpassad | Microsoft Docs'
-description: Beskriver hur du delar en anpassad sökning-instans
+title: 'Anpassad sökning i Bing: Dela din anpassade sökning | Microsoft Docs'
+description: Beskriver hur du delar en anpassad Sökinstans
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,21 +9,30 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7e513b3e565e5edf06dae8f11404203b4154e182
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4a9761ce0671b57d802fe332c92e32d1f410fa6f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352854"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960965"
 ---
-# <a name="share-your-custom-search-instance"></a>Dela anpassad sökning-instans
-Du kan dela din anpassad sökning-instans med alla som använder bara sina e-postadress. Delar kan andra ska kunna ändra anpassad sökning-instanser. Logga in på [anpassad sökning](https://customsearch.ai), välja en anpassad sökning-instans och klicka på ikonen för inställningar (visas som en växel). I den **dela din instans** ange e-postadress för personen att dela din instans med och på **dela**. E-postadressen visas i listan med titeln **instans delas med**. Upprepa för varje person som du vill dela sökningen anpassad med. 
+# <a name="share-your-custom-search-instance"></a>Dela din anpassade Sökinstans
 
-Om du vill lägga till en persons e-post i listan är det inte behövs att skapa en anpassad sökning-konto. De måste registrera dig för anpassad sökning innan de gör ändringar i konfigurationen. När du har delat en instans med någon visas de den i listan med anpassad sökning instanser. Endast en person kan ändra en instans i taget. Om du försöker ändra en instans som någon annan redigerar visas en varning. En instans kan delas med högst 10 användare.
+Du kan enkelt samarbetsfunktioner redigering och testning av din instans genom att dela den med medlemmar i ditt team. Du kan dela din instans med alla som använder bara sin e-postadress. Dela en instans:
+
+- Logga in på [anpassad sökning](https://customsearch.ai)
+- Välj en anpassad Sökinstans
+- Klicka på ikonen för inställningar (visas som ett kugghjul). 
+- Under **dela din instans**, ange den e-postadressen för personen att dela din instans med och klicka på **dela**. 
+
+När du lägger till den e-postadressen, läggs den till den **instans delas med** lista. Upprepa processen för varje person som du vill dela din instans med. 
+
+Om du vill lägga till en persons e-post i listan, den inte är nödvändiga att skapa ett Custom Search-konto. De måste registrera dig för anpassad sökning innan de göra ändringar i dock. När du delar en instans med någon visas även den i sin lista över anpassade sökinstanser. Endast en person kan ändra en instans i taget. Om du försöker ändra en instans som någon annan redigerar visas en varning. En instans kan delas med högst 10 användare.
 
 ## <a name="stop-sharing"></a>Sluta dela
-Om du vill sluta dela en instans med någon, ta bort deras e-postadress i listan med hjälp av ikonen Ta bort.
+
+Om du vill sluta dela en instans med någon, ta bort sin e-postadress i listan med hjälp av ikonen Ta bort. Detta tar också bort instansen från sin lista över instanser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera din egen Autosuggest](define-custom-suggestions.md)
+- [Konfigurera din anpassade automatiska förslag](define-custom-suggestions.md)

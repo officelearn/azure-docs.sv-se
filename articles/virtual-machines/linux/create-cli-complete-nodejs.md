@@ -1,6 +1,6 @@
 ---
-title: Skapa en fullständig Linux-miljö med Azure CLI 1.0 | Microsoft Docs
-description: Skapa storage, en Linux VM, ett virtuellt nätverk och undernät, en belastningsutjämnare, ett nätverkskort, en offentlig IP-adress och en nätverkssäkerhetsgrupp, allt från grunden med hjälp av Azure CLI 1.0.
+title: Skapa en fullständig Linux-miljö med den klassiska Azure-CLI | Microsoft Docs
+description: Skapa storage, en Linux VM, ett virtuellt nätverk och undernät, en belastningsutjämnare, ett nätverkskort, en offentlig IP-adress och en nätverkssäkerhetsgrupp, allt från grunden med hjälp av den klassiska Azure-CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 1fb5542af77fbb584effca24a74b9e233359cf0e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 560d1c55b159ed817c0b080171862c28ebe73f3e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932352"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952808"
 ---
-# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Skapa en fullständig Linux-miljö med Azure CLI 1.0
+# <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Skapa en fullständig Linux-miljö med den klassiska Azure-CLI
 I den här artikeln skapar vi ett enkelt nätverk med en belastningsutjämnare och ett par med virtuella datorer som är användbara för utveckling och enkel databehandling. Vi går igenom processen kommandot av kommandot förrän du har två arbetar, säker virtuella Linux-datorer som du kan ansluta från var som helst på Internet. Du kan sedan gå vidare till mer komplexa nätverk och miljöer.
 
 Under tiden får du lära dig om beroende hierarkin att Resource Manager-distributionsmodellen ger dig och starta den om hur mycket ger. När du ser hur systemet har skapats, kan du återskapa det mycket snabbare genom att använda [Azure Resource Manager-mallar](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). När du lär dig hur delarna av din miljö fungerar ihop, blir hur du skapar mallar för att automatisera dem också enklare.
@@ -33,20 +33,20 @@ Miljön innehåller:
 * En belastningsutjämnare med en regel för belastningsutjämning på port 80.
 * Nätverks-regler för nätverkssäkerhetsgrupper (NSG) till att skydda den virtuella datorn från oönskad trafik.
 
-Om du vill skapa den här anpassade miljön, du behöver senast [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) i Resource Manager-läge (`azure config mode arm`). Du behöver också en JSON-parsningsverktyg. Det här exemplet används [jq](https://stedolan.github.io/jq/).
+Om du vill skapa den här anpassade miljön, du behöver senast [klassiska Azure-CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) i Resource Manager-läge (`azure config mode arm`). Du behöver också en JSON-parsningsverktyg. Det här exemplet används [jq](https://stedolan.github.io/jq/).
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>CLI-versioner för att slutföra uppgiften
 Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
-- [Azure CLI 1.0](#quick-commands) – vår CLI för de klassiska distributionsmodellen och resource Manager-distributionsmodellerna (den här artikeln)
-- [Azure CLI 2.0](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – vår nästa generations CLI för distributionsmodellen resurshantering
+- [Azure klassiskt CLI](#quick-commands) – vår CLI för de klassiska distributionsmodellen och resource Manager-distributionsmodellerna (den här artikeln)
+- [Azure CLI](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – vår nästa generations CLI för distributionsmodellen i resource management
 
 
 ## <a name="quick-commands"></a>Snabbkommandon
 Om du behöver att snabbt utföra uppgiften, de följande avsnittet beskriver grundläggande kommandon för att ladda upp en virtuell dator till Azure. Mer detaljerad information och kontext för varje steg finns i resten av dokumentet, med början [här](#detailed-walkthrough).
 
-Se till att du har [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) loggat in och använda Resource Manager-läge:
+Se till att du har [den klassiska Azure-CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) loggat in och använda Resource Manager-läge:
 
 ```azurecli
 azure config mode arm
@@ -270,7 +270,7 @@ azure group export myResourceGroup
 ## <a name="detailed-walkthrough"></a>Detaljerad genomgång
 Detaljerade anvisningar som följer beskrivs vad varje kommando gör när du skapar i din miljö. De här koncepten är till hjälp när du skapar dina egna anpassade miljöer för utveckling eller produktion.
 
-Se till att du har [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) loggat in och använda Resource Manager-läge:
+Se till att du har [den klassiska Azure-CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) loggat in och använda Resource Manager-läge:
 
 ```azurecli
 azure config mode arm
@@ -796,7 +796,7 @@ data:    Backend address pool id         : /subscriptions/guid/resourceGroups/my
 info:    network lb rule create command OK
 ```
 
-## <a name="create-a-load-balancer-health-probe"></a>skapa en hälsoavsökning för belastningsutjämnaren
+## <a name="create-a-load-balancer-health-probe"></a>skapa en hälsoavsökning för lastbalanseraren
 En hälsoavsökning med jämna mellanrum kontroller på de virtuella datorerna som finns bakom våra load balancer för att se till att de fungerar och svara på begäranden som har definierats. Om inte, de har tagits bort från att se till att användare inte dirigeras till dem-åtgärd. Du kan definiera egna kontroller för hälsoavsökningen, tillsammans med intervall och timeout-värden. Läs mer om hälsoavsökningar [Load Balancer kontrollerar](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). I följande exempel skapas en TCP hälsotillstånd avlästes namngivna `myHealthProbe`:
 
 ```azurecli

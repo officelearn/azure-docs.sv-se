@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 89f222d28a284abff50e60b12c691be2f8691255
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: fb9de98a80d348c3ba1e84ae19551c7ca080628b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718958"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966851"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -530,9 +530,9 @@ Om du har aktiverat Application Insights tidigare, men nu vill du gå tillbaka t
 
 ### <a name="real-time-monitoring"></a>Övervakning i realtid
 
-Du kan strömma loggfiler till en kommandorad session på en lokal arbetsstation med hjälp av den [Azure kommandoradsgränssnitt (CLI) 2.0](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).  
+Du kan strömma loggfiler till en kommandorad session på en lokal arbetsstation med hjälp av den [Azure kommandoradsgränssnitt (CLI)](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).  
 
-För Azure CLI 2.0, använder du följande kommandon för att logga in, väljer din prenumeration och loggfiler för stream:
+För Azure CLI, använder du följande kommandon att logga in, väljer din prenumeration och loggfiler för stream:
 
 ```
 az login

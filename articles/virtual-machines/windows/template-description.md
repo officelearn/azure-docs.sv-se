@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 18a9709893533c2c0b606077a126437282f9195e
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056958"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987704"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
 
@@ -164,7 +164,7 @@ Använd dessa möjligheter för att få de senaste API-versionerna:
 
 - REST-API – [lista alla resursprovidrar](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell – [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## <a name="parameters-and-variables"></a>Parametrar och variabler
 
@@ -442,7 +442,7 @@ Du kan se status för de installerade tilläggen från inställningarna för til
 
 ![Hämta Tilläggsstatus för](./media/template-description/virtual-machines-show-extensions.png)
 
-Du kan också få tilläggsinformation med hjälp av den **Get-AzureRmVMExtension** PowerShell-kommando i **vm-tillägget get** Azure CLI 2.0-kommandot, eller **hämta tilläggsinformation** REST-API.
+Du kan också få tilläggsinformation med hjälp av den **Get-AzureRmVMExtension** PowerShell-kommando i **vm-tillägget get** Azure CLI-kommando eller **hämta tilläggsinformation**REST-API.
 
 ## <a name="deployments"></a>Distributioner
 

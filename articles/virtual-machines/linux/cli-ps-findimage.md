@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1091b9d252f32086c237e7c62f11c166eb558a6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 33ffb9d1685f3d76e884ae0d90545f659b5ec87c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345165"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953364"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hur du hitta Linux VM-avbildningar på Azure Marketplace med Azure CLI
-Det här avsnittet beskriver hur du använder Azure CLI 2.0 för att hitta VM-avbildningar på Azure Marketplace. Använd informationen för att ange en Marketplace-avbildning när du skapar en virtuell dator via programmering med CLI, Resource Manager-mallar eller andra verktyg.
+Det här avsnittet beskriver hur du använder Azure CLI för att hitta VM-avbildningar på Azure Marketplace. Använd informationen för att ange en Marketplace-avbildning när du skapar en virtuell dator via programmering med CLI, Resource Manager-mallar eller andra verktyg.
 
 Även bläddra bland tillgängliga avbildningar och erbjudanden med hjälp av den [Azure Marketplace](https://azuremarketplace.microsoft.com/) storefront, den [Azure-portalen](https://portal.azure.com), eller [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
-Se till att du installerat senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och är inloggad på ett Azure-konto (`az login`).
+Se till att du installerat senast [Azure CLI](/cli/azure/install-azure-cli) och är inloggad på ett Azure-konto (`az login`).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 

@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 97e3a621e291935db2e0c70eb2b596e77c7bffb7
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: e2fbb0b7b0dede198be0e57ffcd2b58a7da7fce7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650286"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947779"
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Attitydanalys med Djupinlärning med Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Attitydanalys är en välkänd aktivitet inom ramen för bearbetning av naturligt språk. Med en uppsättning texter är syftet att avgöra känslan i texten. Målet med den här lösningen är att använda Djupinlärning för att förutsäga sentiment från filmrecensioner.
 
@@ -45,7 +50,7 @@ Om du vill få ut värde av attitydanalys måste företag ha möjlighet att utvi
 
 * En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga).
 
-* En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta.
+* En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](quickstart-installation.md) att installera programmet och skapa en arbetsyta.
 
 * Det är bäst för driftsättning, om du har Docker-motorn installerad och köras lokalt. Om inte, du kan använda alternativet för klustret. Kör ett Azure Container Service (ACS) kan dock vara dyra.
 

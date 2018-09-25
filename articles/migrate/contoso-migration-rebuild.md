@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: 58ea0859af42f7614e69d1693bbd9f8e3a17ccb8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f0dc199f8a91ac06993f4ccbc9dff7dfad9f8a19
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300553"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042490"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso-migrering: återskapa en lokal app till Azure
 
@@ -55,7 +55,7 @@ Contoso cloud-teamet har fästs ned appars krav för den här migreringen. Dessa
  - Appen bör inte använda IaaS-komponenter. Allt ska byggas om du vill använda PaaS och serverlös tjänster.
  - App-versioner som ska köras i cloud services och behållare ska placeras i ett privat företagsomfattande behållarregister i molnet.
  - API-tjänst som används för Husdjurets foton ska vara korrekta och tillförlitliga i verkligheten, eftersom beslut som görs av appen som måste hanteras i sina hotell. Alla husdjur beviljas åtkomst tillåts att hålla sig i hotell.
- - För att uppfylla kraven för en pipeline för DevOps, använder Contoso Visual Studio Team Services (VSTS) för Source Code Management (SCM) för med Git-lagringsplatser.  Automatiserade versioner och versioner används för att skapa kod och distribuera den till Azure Web Apps, Azure Functions och AKS.
+ - För att uppfylla kraven för en pipeline för DevOps, använder Contoso Azure DevOps för Source Code Management (SCM) för med Git-lagringsplatser.  Automatiserade versioner och versioner används för att skapa kod och distribuera den till Azure Web Apps, Azure Functions och AKS.
  - Olika CI/CD-pipelines behövs för mikrotjänster på serverdelen och för webbplatsen på klientdelen.
  - Backend-tjänster har en annan version växla från frontend-webbapp.  För att uppfylla detta krav kan distribuerar de två olika DevOps-pipelines.
  - Contoso behöver management godkännande för alla webbplatsdistribution för klientdelen och CI/CD-pipeline måste ange den här.
@@ -81,7 +81,7 @@ Efter att fästa ned mål och krav, Contoso utformar och granska en distribution
 - Funktionen Husdjurets foto använder Cognitive Services API för visuellt innehåll och CosmosDB.
 - Serverdelen av webbplatsen har skapats med mikrotjänster. Dessa kommer att distribueras till behållare som hanteras i Azure Kubernetes service (AKS).
 - Behållare kommer skapats med Azure DevOps och push-överfört till Azure Container Registry (ACR).
-- För tillfället distribuera Contoso manuellt Web-app och funktionen kod med Visual Studio.
+- För tillfället distribuerar Contoso manuellt Web app och funktionen kod med Visual Studio
 - Mikrotjänster distribueras med hjälp av ett PowerShell-skript som anropar Kubernetes kommandoradsverktyg.
 
     ![Scenariots arkitektur](./media/contoso-migration-rebuild/architecture.png) 
@@ -224,15 +224,15 @@ Contoso skapar ett Azure DevOps-projekt och konfigurerar en CI skapa för att sk
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts1.png) 
 
 
-3. De importerar GitHub-lagringsplatsen.
+3. De importerar den [GitHub-lagringsplatsen](https://github.com/Microsoft/SmartHotel360-Azure-backend.git).
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
     
-4. I **Build and Release**, de skapar en ny pipeline med hjälp av Git för Azure-lagringsplatser som en källa från importerade **smarthotel** lagringsplats. 
+4. I **Pipelines**, de klickar på **skapa**, och skapa en ny pipeline med hjälp av Git för Azure-lagringsplatser som en källa från databasen. 
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts3.png)
 
-6. De välja för att starta med en tom pipeline.
+6. De välja för att starta med en tom jobb.
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts4.png)  
 
@@ -252,7 +252,7 @@ Contoso skapar ett Azure DevOps-projekt och konfigurerar en CI skapa för att sk
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts8.png)
 
-9. De ange sökvägen till den **Toysmart.com compose.yaml** filen den **src** mappen på lagringsplatsen. De väljer att skapa underhålla avbildningar och inkludera den senaste taggen. När åtgärden ändras till **skapa underhålla avbildningar**, namnet på Azure DevOps-aktiviteten ändras till **skapa tjänster automatiskt**
+9. De ange sökvägen till den **docker compose.yaml** filen den **src** mappen på lagringsplatsen. De väljer att skapa underhålla avbildningar och inkludera den senaste taggen. När åtgärden ändras till **skapa underhålla avbildningar**, namnet på Azure DevOps-aktiviteten ändras till **skapa tjänster automatiskt**
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts9.png)
 
@@ -303,7 +303,7 @@ Nu kan göra Contoso administratörer följande:
 
 - Distribuera NGINX ingress-kontrollanten för att tillåta inkommande trafik till tjänsterna.
 - Distribuera mikrotjänster till AKS-klustret.
-- Som ett första steg uppdatera de anslutningssträngar till mikrotjänster med VSTS. De kan sedan konfigurera en ny version av VSTS-pipeline för att distribuera mikrotjänster.
+- Som ett första steg uppdatera de anslutningssträngar till mikrotjänster med hjälp av Azure DevOps. De kan sedan konfigurera en ny version av Azure DevOps-pipeline för att distribuera mikrotjänster.
 - Anvisningarna i det här avsnittet används den [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) lagringsplatsen.
 - Observera att några av konfigurationsinställningarna (till exempel Active Directory B2C) inte tas upp i den här artikeln. Läs mer om de här inställningarna i lagringsplatsen.
 
@@ -313,17 +313,14 @@ De skapar du en pipeline:
 
     ![DB-anslutningar](./media/contoso-migration-rebuild/back-pipe1.png)
 
-2. De öppnas VSTS och i SmartHotel360 projektet i **versioner**, de klickar på **+ ny Pipeline**.
+2. De öppnas Azure DevOps och i SmartHotel360 projektet i **versioner**, de klickar på **+ ny Pipeline**.
 
     ![Ny pipeline](./media/contoso-migration-rebuild/back-pipe2.png)
 
 3. De klickar på **tom jobbet** att starta pipelinen utan en mall.
+4. De tillhandahåller namnen på scenen och pipeline.
 
-    ![Tom jobb](./media/contoso-migration-rebuild/back-pipe3.png)
-
-4. De tillhandahåller namnen på miljö och pipeline.
-
-      ![Miljönamn](./media/contoso-migration-rebuild/back-pipe4.png)
+      ![Namn på etapp](./media/contoso-migration-rebuild/back-pipe4.png)
 
       ![Namn på pipeline](./media/contoso-migration-rebuild/back-pipe5.png)
 
@@ -339,7 +336,7 @@ De skapar du en pipeline:
 
     ![Aktivitetslänk](./media/contoso-migration-rebuild/back-pipe8.png)
 
-8. De lägger till en ny uppgift Auzre PowerShell så att de kan köra ett PowerShell-skript i en Azure-miljö.
+8. De lägger till en ny uppgift för Azure PowerShell så att de kan köra ett PowerShell-skript i en Azure-miljö.
 
     ![PowerShell i Azure](./media/contoso-migration-rebuild/back-pipe9.png)
 
@@ -465,18 +462,18 @@ Contoso-administratörer etablera Funktionsappen i Azure-portalen.
 
 Contoso-administratörer skapa två olika projekt för frontend-platsen. 
 
-1. De skapa ett projekt i VSTS, **SmartHotelFrontend**.
+1. De skapa ett projekt i Azure DevOps **SmartHotelFrontend**.
 
     ![Frontend-projekt](./media/contoso-migration-rebuild/function-app1.png)
 
 2. De importerar den [SmartHotel360 frontend](https://github.com/Microsoft/SmartHotel360-public-web.git) Git-lagringsplats till det nya projektet.
-3. De skapar en annan VSTS-projekt (SmartHotelPetChecker) för Funktionsappen, och importera den [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) Git-lagringsplats i det här projektet.
+3. De skapa en annan Azure DevOps-projekt (SmartHotelPetChecker) för Funktionsappen, och importera den [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) Git-lagringsplats i det här projektet.
 
 ### <a name="configure-the-web-app"></a>Konfigurera Webbappen
 
 Contoso-administratörer kan nu konfigurera Webbappen för att använda Contoso-resurser.
 
-1. De ansluter till VSTS-projekt och klona lagringsplatsen lokalt för att utvecklingsdator.
+1. De ansluta till Azure DevOps-projekt och klona lagringsplatsen lokalt för att utvecklingsdator.
 2. I Visual Studio, kan de öppna mapp för att visa alla filer i lagringsplatsen.
 
     ![Lagringsplats-filer](./media/contoso-migration-rebuild/configure-webapp1.png)
@@ -513,23 +510,20 @@ Contoso-administratörer kan nu konfigurera Webbappen för att använda Contoso-
 Contoso-administratörer kan nu publicera webbplatsen.
 
 
-1. De öppnar VSTS, och i den **SmartHotelFrontend** projektet i **byggen och publiceringar**, de klickar på **+ ny Pipeline**.
-2. De väljer **VSTS Git** som källa.
-
-    ![Ny pipeline](./media/contoso-migration-rebuild/vsts-publishfront1.png)
-
+1. De öppnar Azure DevOps, och i den **SmartHotelFrontend** projektet i **byggen och publiceringar**, de klickar på **+ ny Pipeline**.
+2. De väljer **Azure DevOps Git** som källa.
 3. De väljer den **ASP.NET Core** mall.
 4. De granska pipelinen och kontrollera att **publicera webbprojekt** och **Zip publicerade projekt** har valts.
 
     ![Pipelineinställningarna](./media/contoso-migration-rebuild/vsts-publishfront2.png)
 
-5. I **utlösare**, de aktiverar du kontinuerlig integrering och lägga till huvudgrenen. Detta säkerställer att varje tim lösningen har ny kod som allokerats till huvudgrenen, build-pipelinen startar.
+5. I **utlösare**, de aktiverar du kontinuerlig integrering och lägga till huvudgrenen. Detta säkerställer att varje gång lösningen har ny kod som allokerats till huvudgrenen build pipelinen startar.
 
     ![Kontinuerlig integrering](./media/contoso-migration-rebuild/vsts-publishfront3.png)
 
 6. De klickar på **spara och köa** att starta en version.
 7. När bygget har slutförts, de konfigurerar en produktionspipeline med den **Azure App Service-distribution**.
-8. De tillhandahåller en miljönamn **mellanlagring**.
+8. Du får ett namn på etapp **mellanlagring**.
 
     ![Miljönamn](./media/contoso-migration-rebuild/vsts-publishfront4.png)
 
@@ -537,28 +531,24 @@ Contoso-administratörer kan nu publicera webbplatsen.
 
      ![Lägg till artefakt](./media/contoso-migration-rebuild/vsts-publishfront5.png)
 
-6. De klickar du på blixtikonen på artifcat och aktivera kontinuerlig distribution.
+10. De klickar du på blixtikonen i artefakten och aktivera kontinuerlig distribution.
 
     ![Kontinuerlig distribution](./media/contoso-migration-rebuild/vsts-publishfront6.png)
-
-7. I **miljö**, de klickar på **fas 1, 1 aktivitet** under **mellanlagring**.
-8. När du har valt prenumerationen och appnamn, de öppnar den **distribuera Azure App Service** uppgift. Distributionen är konfigurerad för att använda den **mellanlagring** distributionsplats. Detta skapar automatiskt kod för granskning och godkännande i den här platsen.
+11. I **miljö**, de klickar på **1 jobb, 1 aktivitet** under **mellanlagring**.
+12. När du har valt prenumerationen och appnamn, de öppnar den **distribuera Azure App Service** uppgift. Distributionen är konfigurerad för att använda den **mellanlagring** distributionsplats. Detta skapar automatiskt kod för granskning och godkännande i den här platsen.
 
      ![Plats](./media/contoso-migration-rebuild/vsts-publishfront7.png)
 
-9. I den **New viktig pipeline**, de lägger till en ny miljö.
+13. I den **Pipeline**, de lägger till en ny fas.
 
     ![Ny miljö](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
-10. De väljer **Azure App Service-distributionen med platsen**, och namnge miljö **Prod**.
-
-    ![Miljönamn](./media/contoso-migration-rebuild/vsts-publishfront9.png)
-
-11. De klickar på **fas 1, 2 uppgifter**, och välj den prenumeration, app service-namn och **mellanlagring** fack.
+14. De väljer **Azure App Service-distributionen med platsen**, och namnge miljö **Prod**.
+15. De klickar på **1 jobb, 2 aktiviteter**, och välj den prenumeration, app service-namn och **mellanlagring** fack.
 
     ![Miljönamn](./media/contoso-migration-rebuild/vsts-publishfront10.png)
 
-12. De tar bort den **distribuera Azure App Service till facket** från pipeline. Det har placerats där av föregående steg.
+16. De tar bort den **distribuera Azure App Service till facket** från pipeline. Det har placerats där av föregående steg.
 
     ![Ta bort från pipelinen](./media/contoso-migration-rebuild/vsts-publishfront11.png)
 
@@ -571,8 +561,8 @@ Contoso-administratörer kan nu publicera webbplatsen.
     ![Efter distributionen godkännande](./media/contoso-migration-rebuild/vsts-publishfront13.png)
 
 15. I Build-pipelinen startar de manuellt en version. Detta utlöser nya versionspipelinen, som distribuerar den till mellanlagringsplatsen. För Contoso, URL-Adressen för facket är **https://smarthotelcontoso-staging.azurewebsites.net/**.
-16. När bygget har slutförts och versionen distribuerar till facket, VSTS e-postmeddelanden dev lead för godkännande.
-17. Dev lead klick **visa godkännande**, och kan godkänna eller Avvisa begäran i VSTS-portal.
+16. När bygget har slutförts och versionen distribuerar till facket, Azure DevOps e-postmeddelanden dev lead för godkännande.
+17. Dev lead klick **visa godkännande**, och kan godkänna eller Avvisa begäran i Azure DevOps-portalen.
 
     ![E-post för godkännande](./media/contoso-migration-rebuild/vsts-publishfront14.png)
 
@@ -591,19 +581,19 @@ Contoso-administratörer kan nu publicera webbplatsen.
 
 Contoso-administratörer distribuera appen på följande sätt.
 
-1. De klona lagringsplatsen lokalt till den dev-datorn genom att ansluta till VSTS-projekt.
+1. De klona lagringsplatsen lokalt till den dev-datorn genom att ansluta till Azure DevOps-projekt.
 2. I Visual Studio, kan de öppna mapp för att visa alla filer i lagringsplatsen.
 3. De öppnar den **src/PetCheckerFunction/local.settings.json** filen och Lägg till appinställningar för lagring, Cosmos-databasen och den API för visuellt innehåll.
 
     ![Distribuera funktionen](./media/contoso-migration-rebuild/function5.png)
 
-4. De kan koppla koden och synkronisera den VSTS, push-överföra ändringarna.
-5. De Lägg till en ny Build-pipeline och välj **VSTS Git** för källan.
+4. De kan koppla koden och synkronisera den Azure DevOps, push-överföra ändringarna.
+5. De Lägg till en ny Build-pipeline och välj **Azure DevOps Git** för källan.
 6. De väljer den **ASP.NET Core (.NET Framework)** mall.
 7. De accepterar standardinställningarna för mallen.
 8. I **utlösare**och välj sedan att **möjliggöra kontinuerlig integration**, och klicka på **spara och köa** att starta en version.
 9. När den har byggts de skapar en releasepipeline att lägga till den **Azure App Service-distributionen med platsen**.
-10. De namnge miljön **Prod**, och välj prenumerationen. De har den **apptyp** till **funktionen Ap**, och app service-namn som **smarthotelpetchecker**.
+10. De namnge miljön **Prod**, och välj prenumerationen. De har den **apptyp** till **Funktionsapp**, och app service-namn som **smarthotelpetchecker**.
 
     ![Funktionsapp](./media/contoso-migration-rebuild/petchecker2.png)
 

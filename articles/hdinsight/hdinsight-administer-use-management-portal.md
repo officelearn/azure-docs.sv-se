@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7b39724c3d382637a048dc4fb9a3436ac1dbeae8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 130f684b69a9cfa1936c2a9aa5175f3d5a7631ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108032"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970285"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Windows-baserade Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
@@ -207,7 +207,7 @@ Det finns många sätt som du kan programmera processen:
 
 * Användaren Azure Data Factory. Se [länkad Azure HDInsight-tjänst](../data-factory/compute-linked-services.md) och [transformera och analysera med Azure Data Factory](../data-factory/transform-data.md) för HDInsight på begäran och själva definierade länkade tjänster.
 * Använd Azure PowerShell.  Se [analysera flygförseningsdata](hdinsight-analyze-flight-delay-data.md).
-* Använda Azure CLI. Se [hantera HDInsight-kluster med Azure CLI](hdinsight-administer-use-command-line.md).
+* Använda Azure klassiska CLI. Se [hantera HDInsight-kluster med klassiska Azure-CLI](hdinsight-administer-use-command-line.md).
 * Använda HDInsight .NET SDK. Se [skicka Hadoop-jobb](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Prisinformationen, se [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/). Om du vill ta bort ett kluster från portalen, se [ta bort kluster](#delete-clusters)
@@ -364,7 +364,7 @@ Mappnamnet har Hadoop-versionsnumret som är inbäddad i föregående skärmbild
 I den här artikeln har du lärt dig hur du skapar ett HDInsight-kluster med hjälp av portalen och hur du öppnar kommandoradsverktyget Hadoop. Mer information finns i följande artiklar:
 
 * [Administrera HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Administrera HDInsight med hjälp av Azure CLI](hdinsight-administer-use-command-line.md)
+* [Administrera HDInsight med hjälp av Azure klassiskt CLI](hdinsight-administer-use-command-line.md)
 * [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
 * [Skicka Hadoop-jobb programmässigt](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

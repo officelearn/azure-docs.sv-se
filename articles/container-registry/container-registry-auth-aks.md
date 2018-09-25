@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: d2f7769469c9f3ebdbef5fc6ee1f09b1acd573ef
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: c9ade4d61a1b95d5041a13f9436f0d02a7951758
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715837"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981695"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes Service
 
@@ -21,7 +21,7 @@ När du använder Azure Container Registry (ACR) med Azure Kubernetes Service (A
 
 ## <a name="grant-aks-access-to-acr"></a>Grant AKS åtkomst till ACR.
 
-När du skapar ett AKS-kluster, skapar Azure även en tjänst huvudnamn för klustret funktionalitet med andra Azure-resurser. Du kan använda den här automatiskt genererade tjänstens huvudnamn för autentisering med en ACR-registret. Om du vill göra det måste du skapa en Azure AD [rolltilldelning](../role-based-access-control/overview.md#role-assignment) som beviljar klustrets tjänstens huvudnamn åtkomst till behållarregistret.
+När du skapar ett AKS-kluster, skapar Azure även en tjänst huvudnamn för klustret funktionalitet med andra Azure-resurser. Du kan använda den här automatiskt genererade tjänstens huvudnamn för autentisering med en ACR-registret. Om du vill göra det måste du skapa en Azure AD [rolltilldelning](../role-based-access-control/overview.md#role-assignments) som beviljar klustrets tjänstens huvudnamn åtkomst till behållarregistret.
 
 Använd följande skript för att bevilja AKS-genererade tjänstens huvudnamn åtkomst till ett Azure container registry. Ändra den `AKS_*` och `ACR_*` variabler för din miljö innan du kör skriptet.
 

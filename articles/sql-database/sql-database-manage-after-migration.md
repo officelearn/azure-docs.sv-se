@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 7cad09a3fc02d0c25f164f7e45974019ff9bbb71
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b34aca8d8aaf9e2c7dbdd092e14a1ebe1e04963d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367924"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985831"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -170,7 +170,7 @@ Expressroute kan du utöka upp till 2 x Bandbreddsgräns som du köper för utan
 - [Arbetsflöden](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Är SQL-databas som är kompatibel med alla efterlevnadskrav och vad som bidrar med min egen organisation efterlevnad?
-SQL Database är kompatibla med en mängd efterlevnadskraven. Om du vill visa den senaste uppsättningen efterlevnadskraven som har uppfyllts, Besök den [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) och öka detaljnivån för de efterlevnadskraven som är viktiga för din organisation att se om SQL-databas ingår under kompatibla Azure-tjänster. Det är viktigt att Observera att även om SQL Database kan vara certifierat kompatibla tjänster, det hjälper till med kompatibiliteten för tjänsten för din organisation, men inte automatiskt garanterar den.
+SQL Database är kompatibla med en mängd efterlevnadskraven. Om du vill visa den senaste uppsättningen efterlevnadskraven som har uppfyllts, Besök den [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) och öka detaljnivån för de efterlevnadskraven som är viktiga för din organisation att se om SQL-databas ingår under kompatibla Azure-tjänster. Det är viktigt att Observera att även om SQL Database kan vara certifierat kompatibla tjänster, det hjälper till med kompatibiliteten för tjänsten för din organisation, men inte automatiskt garanterar den.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Intelligent database-övervakning och underhåll efter migreringen
 

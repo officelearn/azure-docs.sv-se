@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: e79817ffad139e0a3bcb0ba32b9bc6e5666319d0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c5084e548bbb72fa38aae8b60aa46fb4d462dca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646766"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990356"
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurera Azure Machine Learning-experimentering
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>Översikt
 Azure Machine Learning Experimentation Service gör det möjligt för dataexperter att köra sina experiment med hjälp av Azure Machine Learning-körningen och köra hanteringsfunktioner. Det ger ett ramverk för flexibel experiment med snabba iterationer. Azure Machine Learning Workbench kan du börja med lokala körs på din dator och ett enkelt sätt för att skala uppåt och utåt till andra miljöer, till exempel remote virtuella datorer för datavetenskap med GPU eller HDInsight-kluster som kör Spark.
@@ -325,5 +328,5 @@ az ml experiment prepare -c remotevm
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa och installera Azure Machine Learning](../service/quickstart-installation.md)
+* [Skapa och installera Azure Machine Learning](quickstart-installation.md)
 * [Modellhantering](model-management-overview.md)

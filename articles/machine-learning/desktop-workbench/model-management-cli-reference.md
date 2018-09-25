@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 9e69f2e71cce6d689669838785ce992fbbcfa940
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 326f71ef18934d95771e6de99faeedc437139d9e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650658"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949255"
 ---
 # <a name="model-management-command-line-interface-reference"></a>Referens för objektmodell management kommandoradsgränssnittet
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 
 ## <a name="base-cli-concepts"></a>Grundläggande begrepp för CLI:
 

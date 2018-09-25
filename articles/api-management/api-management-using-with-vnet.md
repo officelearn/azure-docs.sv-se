@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18b9e4eac6b183cd02ad2bb93463b4cc043f303a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093200"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040343"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks börjar med den här informationen: [Azure översikt över Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
 | Källa / målportar | Riktning | Transport-protokoll | Källa / mål | Syfte (*) | Typ av virtuellt nätverk |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Klientkommunikation till API Management|Extern |
-| * / 3443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Hanteringsslutpunkten för Azure-portalen och Powershell |Externa och interna |
+| * / 3443 |Inkommande |TCP |APIMANAGEMENT / VIRTUAL_NETWORK|Hanteringsslutpunkten för Azure-portalen och Powershell |Externa och interna |
 | * / 80, 443 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|**Beroende på Azure Storage**, Azure Service Bus och Azure Active Directory (om tillämpligt).|Externa och interna |
 | * / 1433 |Utgående |TCP |VIRTUAL_NETWORK / SQL|**Åtkomst till Azure SQL-slutpunkter** |Externa och interna |
 | * / 5672 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Beroende för logg till Event Hub-principen och övervakningsagent |Externa och interna |
@@ -158,8 +158,6 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
 * **Inkrementella uppdateringar**: när du gör ändringar i nätverket, referera till [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), för att verifiera att API Management-tjänsten inte har förlorat åtkomst till någon av de viktiga resurser som den är beroende. Statusen ska uppdateras var 15: e minut.
 
 * **Resursnavigeringslänkar**: när du distribuerar till Resource Manager style vnet-undernät, API Management reserverar undernät, genom att skapa en länk-resursnavigeringen. Om undernätet innehåller redan en resurs från en annan leverantör, distributionen ska **misslyckas**. När du flyttar en API Management-tjänsten till ett annat undernät eller ta bort det, kommer vi på samma sätt kan ta bort den resursnavigeringslänken.
-
-* **API: et testning från Azure portal**: när du testar ett API från Azure portal och API Management-instansen är integrerad med ett internt virtuellt nätverk, DNS-servrar som konfigurerats på det virtuella nätverket ska användas för namnmatchning. Om du får ett 404 när du testar från Azure-portalen kan du kontrollera att DNS-servrar för det virtuella nätverket korrekt kan matcha namnet på din API Management-instans. 
 
 ## <a name="subnet-size"> </a> Nödvändiga storleken för undernät
 Azure reserverar vissa IP-adresser i varje undernät och det går inte att använda dessa adresser. Första och sista IP-adresserna i undernäten är reserverade för protokollöverensstämmelse, tillsammans med tre fler adresser som används för Azure-tjänster. Mer information finns i [finns det några begränsningar med IP-adresser inom dessa undernät?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)

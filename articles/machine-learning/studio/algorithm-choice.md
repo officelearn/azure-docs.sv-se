@@ -1,8 +1,7 @@
 ---
-title: Så här väljer du algoritmer för maskininlärning | Microsoft Docs
-description: Så här väljer du Azure Machine Learning algoritmer för övervakad och oövervakad inlärning i kluster-, klassificerings- eller regressionsmodell experiment.
+title: Så här väljer du maskininlärningsalgoritmer | Microsoft Docs
+description: Så här väljer du Azure Machine Learning Studio-algoritmer för övervakad och oövervakad inlärning i kluster-, klassificerings- eller regressionsmodell experiment.
 services: machine-learning
-documentationcenter: ''
 author: pakalra
 ms.author: pakalra
 manager: cgronlun
@@ -11,40 +10,40 @@ tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.component: studio
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 12/18/2017
-ms.openlocfilehash: 79b2cc3951fa8a48282f42f7180ec831050508f8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 92db2a86f5f698945cd2252476e951d658dc75ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834390"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959214"
 ---
-# <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Så här väljer du algoritmer för Microsoft Azure Machine Learning
-Besvara frågan ”vad maskininlärningsalgoritmen ska jag använda”? är alltid ”det beror”. Det beror på storleken, kvaliteten och typen av uppgift. Det beror på vad du vill göra med svaret. Det beror på hur matematiska av algoritmen översattes till instruktioner för den dator som du använder. Och det beror på hur lång tid som du har. Även de mest erfarna datavetare går inte att avgöra vilken algoritm utför bäst innan du försöker dem.
+# <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Så här väljer du algoritmer för Azure Machine Learning Studio
 
-## <a name="the-machine-learning-algorithm-cheat-sheet"></a>Machine Learning-algoritmen Cheat blad
-Den **Microsoft Azure Machine Learning algoritmen Cheat blad** val höger datorn Inlärningsalgoritmen för förutsägelseanalyslösningar från Microsoft Azure Machine Learning-biblioteket med algoritmer.
-Den här artikeln får du veta hur du använder den.
+Besvara frågan ”vad maskininlärningsalgoritmen ska jag använda”? är alltid ”det beror på”. Det beror på storleken, kvalitet och typen av uppgift. Det beror på vad du vill göra med svaret. Det beror på hur matematiska av algoritmen har översatts till anvisningar för den dator som du använder. Och det beror på hur lång tid som du har. Även de mest erfarna dataexperter kan inte se bästa utförs innan du försöker dem med vilken algoritm.
+
+## <a name="the-machine-learning-algorithm-cheat-sheet"></a>Lathund för Machine Learning-algoritm
+
+Den **Microsoft Azure Machine Learning-algoritm facit blad** hjälper till att du väljer rätt machine learning-algoritm för dina lösningar för förutsägande analyser från Azure Machine Learning Studio-bibliotek med algoritmer.
+Den här artikeln vägleder dig igenom hur du använder den.
 
 > [!NOTE]
-> Om du vill hämta fusklapp och följa den här artikeln, gå till [maskin learning algoritmen fusklapp för Microsoft Azure Machine Learning Studio](algorithm-cheat-sheet.md).
+> Ladda ner facit och följa den här artikeln genom att gå till [Machine learning-algoritmfacit för Microsoft Azure Machine Learning Studio](algorithm-cheat-sheet.md).
 > 
 > 
 
-Den här fusklapp har en särskild målgrupp i åtanke: en början data forskare med undergraduate nivå machine learning som försöker välja börja med en algoritm i Azure Machine Learning Studio. Det innebär att den gör vissa generaliseringar och oversimplifications, men den pekar du i en säker riktning. Det innebär också att det finns många av algoritmer som inte visas här. När Azure Machine Learning växer och omfattar en fullständig uppsättning tillgängliga metoder kan vi lägger till dem.
+Den här lathunden har en mycket specifik målgrupp i åtanke: början dataexpert med gymnasiet på servernivå machine learning, försök välja en algoritm till att börja med i Azure Machine Learning Studio. Det innebär att det gör vissa generaliseringar och oversimplifications, men den pekar du i en säker riktning. Det innebär också att det finns många olika algoritmer som inte visas här. När Azure Machine Learning växer och omfattar en fullständig uppsättning tillgängliga metoder vi lägger till dem.
 
-De här rekommendationerna är kompilerade feedback och tips från många dataanalytiker och machine learning experter. Vi har inte accepterar allt, men jag har försökt harmonisera våra åsikter i en grov konsensus. De flesta av instruktionerna avvikelser som börjar med ”det beror...”
+De här rekommendationerna är kompilerade feedback och tips från många datatekniker och machine learning-experter. Vi kunde inte komma överens om allt, men jag har försökt harmonisera våra åsikter i en ungefärlig konsensus. De flesta av rapporterna avvikelser som börjar med ”det beror...”
 
-### <a name="how-to-use-the-cheat-sheet"></a>Hur du använder fusklapp
+### <a name="how-to-use-the-cheat-sheet"></a>Hur du använder facit
+
 Läsa sökvägen och algoritmen etiketterna i diagrammet som ”för  *&lt;sökväg etikett&gt;*, använda  *&lt;algoritmen&gt;*”. Till exempel ”för *hastighet*, använda *två klassen logistic regression*”. Ibland mer än en gren gäller.
-Ibland är ingen av dem en perfekt passning. De är avsedda att regeln för USB rekommendationer så oroa dig inte om det är exakt.
-Flera datavetare jag pratade med dessa som det enda säkra sättet att hitta algoritmen mycket bästa är att prova alla.
+Ibland är ingen av dem en perfekt passning. De är avsedda att vara regeln av USB-rekommendationer, så oroa dig inte om den är exakt.
+Flera datatekniker som jag pratade med dessa som det enda säkra sättet att hitta den allra bästa algoritmen är att försöka dem alla.
 
-Här är ett exempel från den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [jämför flera klassen klassificerare: enhetsbokstaven recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Här är ett exempel från den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [jämföra flera klassificerare: enhetsbokstaven för](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.
@@ -52,189 +51,206 @@ Här är ett exempel från den [Azure AI-galleriet](http://gallery.cortanaintell
 > 
 
 ## <a name="flavors-of-machine-learning"></a>Varianter av machine learning
-### <a name="supervised"></a>Övervakad
-Övervakad inlärning algoritmer göra förutsägelser baserat på en uppsättning exempel. Historiska lager priser kan till exempel användas för att risk gissningar i framtida priser. Varje exempel som används för träning är märkt med värdet för intresse – i det här fallet lager priset. En övervakad inlärningsalgoritm söker efter mönster i dessa värdeetiketter. Det kan använda all information som kan vara relevanta – dag i veckan, säsongen, företagets ekonomiska data, typ av bransch, förekomst av geopolitiska avbrott, och varje algoritm ser ut för olika typer av mönster. När algoritmen har hittat bästa mönstret den kan, mönstret används för att göra förutsägelser för namnlösa tester data – framtidens priser.
 
-Övervakad inlärning är ett populärt och praktiskt typ av maskininlärning. Med ett undantag är alla moduler i Azure Machine Learning övervakad inlärning algoritmer. Det finns flera specifika typer av övervakad inlärning som representeras i Azure Machine Learning: klassificering, regression och avvikelseidentifiering identifiering.
+### <a name="supervised"></a>Övervakat
 
-* **Klassificering**. När data används för att förutsäga en kategori, kallas även övervakad inlärning klassificering. Detta är fallet när du tilldelar en avbildning som en bild av en katt eller en hund. När det finns två alternativ, kallas **tvåklass** eller **binomial klassificering**. När det finns flera kategorier som när förutsäga vinnaren av NCAA mars Madness turnering, problemet kallas **flera klassen klassificering**.
-* **Regression**. När ett värde är att förutsade, precis som med lagrets priser, kallas övervakad inlärning regression.
-* **Avvikelseidentifiering**. Ibland är målet att identifiera datapunkter som är helt enkelt ovanliga. Att upptäcka bedrägerier, till exempel alla sällsynt kreditkort utgiftsgränsen mönstren är tveksam. Möjliga varianter är så många och utbildning exemplen så några att det inte är möjligt att veta vilka bedrägliga aktiviteten ser ut. Den metod som tar avvikelseidentifiering är att bara veta vilken normal aktivitet ser ut som (med en tidigare icke-olagliga transaktioner) och identifiera något som skiljer sig avsevärt.
+Övervakad inlärning algoritmer göra förutsägelser utifrån en uppsättning exempel. Historiska aktiekurser kan till exempel användas för att risk gissningar till framtida priser. Varje exempel som används för träning är märkt med värdet intressanta – i det här fallet aktiekursen. En algoritm för övervakad inlärning söker efter mönster i värdet etiketterna. Den kan använda all information som kan vara relevanta – dagen i veckan, säsongen, företagets finansiella data, typ av bransch, förekomsten av geopolitiska avbrottshändelser, och varje algoritm ser ut för olika typer av mönster. När algoritmen har hittat bästa mönstret kan den, mönstret används för att göra förutsägelser för utan etikett testdata – morgondagens priser.
 
-### <a name="unsupervised"></a>Oövervakad
-I oövervakade learning har datapunkterna inga etiketter. Målet med en algoritm för oövervakad inlärning är i stället att ordna data på något sätt eller för att beskriva strukturen. Detta kan innebära att gruppera i kluster eller för att hitta olika sätt att granska komplexa data så att den visas enklare och mer organiserad.
+Övervakad inlärning är en populär och användbart typ av machine learning. Med ett undantag är alla moduler i Azure Machine Learning övervakade algoritmer. Det finns flera specifika typer av övervakad inlärning som representeras i Azure Machine Learning: klassificering, regression och avvikelseidentifiering.
 
-### <a name="reinforcement-learning"></a>Förstärkning learning
-I förstärkning learning, hämtar algoritmen att välja en åtgärd som svar på varje datapunkt. Inlärningsalgoritmen får också en ersättning signal en kort stund senare, som anger hur bra beslutet.
-Baserat på den här ändrar algoritmen sin strategi för att uppnå högsta ersättning. Det finns inga förstärkning learning algoritmen moduler i Azure Machine Learning. Förstärkning learning är vanligt i robotics, där en uppsättning sensoravläsningar vid en punkt i tiden är en datapunkt och algoritmen måste välja av roboten nästa åtgärd. Det är också en fysisk plats för sakernas Internet program.
+* **Klassificering**. När data som används för att förutsäga en kategori, kallas även övervakad inlärning klassificering. Detta är fallet när du tilldelar en avbildning som en bild av en katt eller en hund. När det finns två alternativ, kallas **tvåklassförhöjt** eller **binominal klassificering**. När det finns fler kategorier som när förutse vinnare av NCAA March Madness-turneringen, det här problemet kallas **flera klassificering**.
+* **Regression**. När ett värde som förväntas, precis som med aktiekurser, kallas regression med övervakad inlärning.
+* **Avvikelseidentifiering**. Ibland är målet att identifiera datapunkter som är helt enkelt ovanliga. Upptäcka bedrägerier, till exempel alla sällsynta kreditkort utgiftsgränsen mönster är tveksam. Det finns så många möjliga varianter och utbildning exemplen så liten att det inte är möjligt att lära dig vilka bedrägliga aktivitet ser ut. Den metod som tar avvikelseidentifiering är att bara Lär dig vilka normal aktivitet ut (med en icke-olagliga historiktransaktioner) och identifiera vad som helst som skiljer sig avsevärt.
+
+### <a name="unsupervised"></a>Oövervakade
+
+Oövervakad inlärning har datapunkterna inga etiketter. Målet med en oövervakad Inlärningsalgoritmen är istället att ordna data på något sätt eller för att beskriva dess struktur. Detta kan innebära att gruppera den i kluster eller hitta olika sätt att titta på komplexa data så att den visas enklare eller mer organiserad.
+
+### <a name="reinforcement-learning"></a>Förstärkande inlärning
+
+I förstärkande inlärning, hämtar algoritmen att välja en åtgärd som svar på varje datapunkt. Inlärningsalgoritmen får också en utmärkelse signal en kort tid senare, som anger hur bra beslutet var.
+Baserat på den här ändrar algoritmen sin strategi för att uppnå högsta trafik. Det finns för närvarande inga förstärkt inlärningsmoduler algoritmen i Azure Machine Learning. Förstärkande inlärning är vanligt i robotteknik, där uppsättningen sensoravläsningar vid en punkt i tiden är en datapunkt och algoritmen måste välja den robot nästa åtgärd. Det är också en fysisk som passar för sakernas Internet program.
 
 ## <a name="considerations-when-choosing-an-algorithm"></a>Att tänka på när du väljer en algoritm
-### <a name="accuracy"></a>Tillförlitlighet
-Hämtar det mest korrekta svaret möjliga är inte alltid nödvändigt.
-Ibland är en uppskattning lämplig, beroende på vad du vill använda den för. Om så är fallet kan du klippa ut din bearbetningstid kraftigt av skulle fastna för fler ungefärliga metoder. En annan fördel med flera ungefärliga metoder är att de naturligt tenderar att undvika [overfitting](https://youtu.be/DQWI1kvmwRg).
 
-### <a name="training-time"></a>Utbildning
-Hur många minuter eller timmar som krävs för att träna en modell varierar mycket mellan algoritmer. Utbildning tid är ofta beroende av noggrannhet – en vanligtvis medföljer den andra. Dessutom kan är vissa algoritmer mer känslig för antalet datapunkter än andra.
-När tiden begränsas hinner valet av algoritmen, särskilt när de uppgifter som är stor.
+### <a name="accuracy"></a>Tillförlitlighet
+
+Hämta det mest korrekta svaret möjliga är inte alltid nödvändigt.
+Ibland är ett approximativt värde lämplig, beroende på vad du vill använda den för. Om så är fallet kan du kunna klippa ut din bearbetningstid avsevärt genom fastna mer ungefärliga metoder. En annan fördel med mer ungefärliga metoder är att de naturligt tenderar att undvika [overfitting](https://youtu.be/DQWI1kvmwRg).
+
+### <a name="training-time"></a>Utbildningstid
+
+Hur många minuter eller timmar som behövs för att träna en modell varierar mycket mellan algoritmer. Utbildning tid är ofta beroende av Precision – en vanligtvis medföljer den andra. Dessutom kan är vissa algoritmer mer känsliga för antalet datapunkter än andra.
+När tid är begränsad hinner valet av algoritmen, särskilt när datauppsättningen är stor.
 
 ### <a name="linearity"></a>Linearitet
-Många maskininlärningsalgoritmer Se användning av linearitet. Linjär klassificering algoritmer förutsätter att klasser kan avgränsas med rakt (eller dess högre dimension analoga). Dessa inkluderar logistic regression och stöd för vector datorer (som implementeras i Azure Machine Learning).
-Linjär regression algoritmer förutsätter att datatrender följer rakt. Dessa förutsättningar är inte bra för vissa problem, men på andra de avslutar noggrannhet.
 
-![Icke-linjära klassen gräns][1]
+Se massor av machine learning-algoritmer använder linearitet. Linjär klassificering algoritmer förutsätter att klasser kan separeras med en rak linje (eller dess högre dimension analoga). Dessa inkluderar logistic regression och stöd för vektor-datorer (som implementeras i Azure Machine Learning).
+Linjär regression algoritmer förutsätter att datatrender följer en rak linje. Dessa antaganden är inte dåligt för vissa problem, men på andra de påverkar precision.
 
-***Icke-linjära klassen gräns*** *-förlita dig på en linjär klassificeringsalgoritm skulle resultera i sämre Precision*
+![Icke-linjära klass gräns][1]
 
-![Data med en icke-linjär trend][2]
+***Icke-linjära klass gräns*** *-förlita sig på en linjär klassificeringsalgoritm skulle resultera i sämre Precision*
 
-***Data med en icke-linjär trend*** *-metoden linjär regression skulle generera mycket större fel än nödvändigt*
+![Data med en icke-linjära trend][2]
 
-Trots sina farorna är linjär algoritmer mycket populär första raden för angrepp. De brukar vara algoritmiskt snabbt och enkelt att träna.
+***Data med en icke-linjära trend*** *-metoden linjär regression skulle generera mycket större fel än nödvändigt*
+
+Trots sitt farorna är linjär algoritmer mycket populär som en första rad av angrepp. De brukar vara algoritmiskt enkelt och snabbt att träna.
 
 ### <a name="number-of-parameters"></a>Antalet parametrar
-Parametrarna är rattar en data-forskare hämtar aktivera när du konfigurerar en algoritm. De är siffror som påverkar den algoritm beteende, till exempel feltolerans eller antal iterationer eller alternativ mellan varianter av hur algoritmen fungerar. Utbildning och korrektheten i algoritmen kan ibland vara ganska känslig för hämtning av precis rätt inställningar. Vanligtvis krävs algoritmer med många parametrar i de flesta och annat försök att hitta en bra kombination.
 
-Du kan också finns en [parametern omfattande](algorithm-parameters-optimize.md) modulen block i Azure Machine Learning som försöker automatiskt alla parameterkombinationer på oavsett granularitet som du väljer. Detta är ett bra sätt att kontrollera omfattas av parameter-utrymme, ökar den tid som krävs för att träna en modell exponentiellt med antalet parametrar.
+Parametrar är rattar inom data Science hämtar aktivera när du konfigurerar en algoritm. De är värden som påverkar den algoritmen fungerar, till exempel feltolerans eller antalet iterationer eller alternativ mellan varianter av hur algoritmen fungerar. Utbildning och korrektheten i algoritmen kan ibland vara ganska känsliga för att hämta bara rätt inställningar. Normalt kräver algoritmer med stort parametrar i de flesta och annat försök att hitta en bra kombination.
 
-Den upp och är att med många parametrar vanligtvis anger att en algoritm har större flexibilitet. Det kan ofta uppnå mycket bra precision. Du kan hitta rätt kombination av parameterinställningar för har angetts.
+Du kan också det finns en [parametern oinskränkt](algorithm-parameters-optimize.md) modulen block i Azure Machine Learning som försöker automatiskt alla parameterkombinationer av med den precision som du väljer. Även om det är ett bra sätt att kontrollera att omfattas av området parametern ökar exponentiellt den tid som krävs för att träna en modell med parametrar.
+
+Den upp och är att ha många parametrar vanligtvis anger att en algoritm har större flexibilitet. Det kan ofta få mycket bra precision. Som du kan hitta rätt kombination av parameterinställningar för.
 
 ### <a name="number-of-features"></a>Antal funktioner
-För vissa typer av data, antal funktioner kan vara mycket stora jämfört med antal datapunkter. Detta är ofta fallet med genetics eller textdata. Ett stort antal funktioner kan bog ned vissa algoritmer för maskininlärning gör utbildning tid unfeasibly lång. Support Vector datorer är särskilt väl lämpade för det här fallet (se nedan).
 
-### <a name="special-cases"></a>Särskilda fall
-Vissa algoritmer för maskininlärning gör viss antaganden om strukturen för data eller önskat resultat. Om du hittar en som passar dina behov, får den du bättre resultat, mer korrekta förutsägelser eller snabbare utbildning.
+För vissa typer av data, antal funktioner kan vara mycket stora jämfört med antalet datapunkter. Det här är ofta fallet med genetik eller textdata. Det stora antalet funktioner kan göra ned vissa learning-algoritmer, vilket gör utbildning tid unfeasibly lång. Support Vector datorer är särskilt väl lämpade för att det här fallet (se nedan).
 
-| **Algoritm** | **Noggrannhet** | **Utbildning** | **Linearitet** | **Parametrar** | **Anteckningar** |
+### <a name="special-cases"></a>Specialfall
+
+Vissa learning-algoritmer göra viss antaganden om strukturen för data eller det önskade resultatet. Om du hittar en som passar dina behov kan den ge dig mer användbara resultat eller mer exakta förutsägelser snabbare till utbildning.
+
+| **Algoritm** | **Precision** | **Utbildningstid** | **Linearitet** | **Parametrar** | **Anteckningar** |
 | --- |:---:|:---:|:---:|:---:| --- |
-| **Tvåklass klassificering** | | | | | |
+| **Två klassificering** | | | | | |
 | [Logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
-| [beslut skog](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
-| [beslut Djungel](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Låg minneskrav |
-| [tvåklassförhöjda beslutsträdet](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Stora minneskrav |
-| [neurala nätverket](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [beslutsskog](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
+| [beslutet Djungel](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Låg minneskrav |
+| [beslutsträd](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Stora minneskrav |
+| [neuralt nätverk](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Genomsnittlig perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
-| [support vector machine](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Bra för stora funktionsuppsättningar |
-| [lokalt djup support vector machine](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Bra för stora funktionsuppsättningar |
-| ['Bayes point-dator](https://msdn.microsoft.com/library/azure/dn905930.aspx) | |○ |● |3 | |
-| **Flera klassen klassificering** | | | | | |
+| [dator för vektorstöd](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Bra för stora funktionsuppsättningar |
+| [lokalt djup dator för vektorstöd](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Bra för stora funktionsuppsättningar |
+| [Bayes' datorn](https://msdn.microsoft.com/library/azure/dn905930.aspx) | |○ |● |3 | |
+| **Flera klassificering** | | | | | |
 | [Logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
-| [beslut skog](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [beslut Djungel ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Låg minneskrav |
-| [neurala nätverket](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [ett-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visa egenskaper för vald metod två-klass |
+| [beslutsskog](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
+| [beslutet Djungel ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Låg minneskrav |
+| [neuralt nätverk](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [en v alla](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visa egenskaper för metoden tvåklassförhöjt valt |
 | **Regression** | | | | | |
-| [linjär](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
+| [Linjär](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Linjär Bayesian](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
-| [beslut skog](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
-| [tvåklassförhöjda beslutsträdet](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Stora minneskrav |
-| [snabb skog quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributioner i stället för punkt förutsägelser |
-| [neurala nätverket](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tekniskt sett log-linjär. För att förutsäga antalet |
-| [ordningstalet](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |För att förutsäga rang ordning |
+| [beslutsskog](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
+| [beslutsträd](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Stora minneskrav |
+| [snabb skog quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributioner i stället för punkt-förutsägelser |
+| [neuralt nätverk](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tekniskt sett log-linjära. För att förutsäga antalet |
+| [Ordningstal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |För att förutsäga rangordning-axel |
 | **Avvikelseidentifiering** | | | | | |
-| [support vector machine](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Särskilt bra för stora funktionsuppsättningar |
+| [dator för vektorstöd](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Särskilt bra för stora funktionsuppsättningar |
 | [PCA-baserad avvikelseidentifiering](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
-| [K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |En algoritm för kluster |
+| [K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |En algoritm för klustring |
 
 **Algoritmen egenskaper:**
 
-**●** -visar hög precision, snabb utbildning gånger och användning av linearitet
+**●** -visar hög precision, snabb utbildning gånger och användningen av linearitet
 
 **○** -visar bra Precision och måttlig utbildning gånger
 
 ## <a name="algorithm-notes"></a>Algoritmen anteckningar
+
 ### <a name="linear-regression"></a>Linjär regression
-Som nämnts tidigare [linjär regression](https://msdn.microsoft.com/library/azure/dn905978.aspx) passar en rad (eller plan eller hyperplane) i datauppsättningen. Det är en bestämmer hög grad, snabbt och enkelt, men det kan vara alltför simplistic för vissa problem.
-Här en [linjär regression kursen](linear-regression-in-azure.md).
+
+Som nämnts tidigare [linjär regression](https://msdn.microsoft.com/library/azure/dn905978.aspx) anpassar en rad (eller plan eller hyperplane) till datauppsättningen. Det är en bestämmer hög grad, enkelt och snabbt, men det kan vara alltför enkelt för vissa problem.
+Här en [linjär regression självstudien](linear-regression-in-azure.md).
 
 ![Data med en linjär trend][3]
 
 ***Data med en linjär trend***
 
 ### <a name="logistic-regression"></a>Logistic regression
-Även om den innehåller förvirrande 'regression ”i namnet, logistic regression är faktiskt ett kraftfullt verktyg för [tvåklass](https://msdn.microsoft.com/library/azure/dn905994.aspx) och [multiclass](https://msdn.microsoft.com/library/azure/dn905853.aspx) klassificering. Det går snabbt och enkelt. Det faktum att den använder en '-formad kurva i stället för rakt är det en naturlig anpassning för att dela data i grupper. Logistic regression ger linjär klassgränser, så se när du använder den, till en linjär uppskattning är något som du kan live med.
 
-![Logistic regression till tvåklass data med just en funktion][4]
+Även om det innehåller något ”regression” i namnet, logistic regression är verkligen ett kraftfullt verktyg för [tvåklassförhöjt](https://msdn.microsoft.com/library/azure/dn905994.aspx) och [multiclass](https://msdn.microsoft.com/library/azure/dn905853.aspx) klassificering. Det är snabbt och enkelt. Det faktum att den använder en '-formade kurvan i stället för en rak linje gör det passar för att dela upp data i grupper. Logistic regression ger linjär klassgränser, så kontrollera när du använder den, att en linjär uppskattning är något du kan existera med.
 
-***En logistic regression tvåklass data med ett enda funktionen*** *-klassen gräns är den punkt då logistic kurvan är precis som nära båda klasserna*
+![Logistic regression till två data med bara en funktion][4]
+
+***En logistisk regression till två data med bara ett funktionen*** *-klassen gränsen är den punkt då logistic kurvan är bara så nära båda klasserna*
 
 ### <a name="trees-forests-and-jungles"></a>Träd och skogar jungles
-Decision skogar ([regression](https://msdn.microsoft.com/library/azure/dn905862.aspx), [tvåklass](https://msdn.microsoft.com/library/azure/dn906008.aspx), och [multiclass](https://msdn.microsoft.com/library/azure/dn906015.aspx)), beslut jungles ([tvåklass](https://msdn.microsoft.com/library/azure/dn905976.aspx) och [ multiclass](https://msdn.microsoft.com/library/azure/dn905963.aspx)), och förstärkta beslutsträd ([regression](https://msdn.microsoft.com/library/azure/dn905801.aspx) och [tvåklass](https://msdn.microsoft.com/library/azure/dn906025.aspx)) baseras på beslutsträd, en grundläggande koncept för maskininlärning. Det finns många varianter av beslutsträd, men alla gör samma sak, dela in funktionen utrymme i regioner med mestadels samma etikett. Dessa kan vara områden av konsekvent kategori eller konstant värde, beroende på om du gör klassificerings- eller regressionsmodell.
 
-![Beslutsträdet delar upp en funktion utrymme][5]
+Beslut skogar ([regression](https://msdn.microsoft.com/library/azure/dn905862.aspx), [tvåklassförhöjt](https://msdn.microsoft.com/library/azure/dn906008.aspx), och [multiclass](https://msdn.microsoft.com/library/azure/dn906015.aspx)), beslut jungles ([tvåklassförhöjt](https://msdn.microsoft.com/library/azure/dn905976.aspx) och [ multiclass](https://msdn.microsoft.com/library/azure/dn905963.aspx)), och förstärkta beslutsträd ([regression](https://msdn.microsoft.com/library/azure/dn905801.aspx) och [tvåklassförhöjt](https://msdn.microsoft.com/library/azure/dn906025.aspx)) baseras på beslutsträd, grundläggande machine learning-begrepp. Det finns många varianter av beslutsträd, men de kan göra samma sak – dela in funktionen utrymme i regioner med huvudsakligen samma etikett. Det kan vara regioner för konsekvent kategori eller konstant värde, beroende på om du gör klassificerings- eller regressionsmodell.
 
-***Ett beslutsträd delar upp kan funktionen i områden av ungefär uniform värden***
+![Beslutsträd delar upp ett utrymme för funktionen][5]
 
-Eftersom funktionen kan kan delas in i godtyckligt små områden, är det enkelt att tro att dividera tillräckligt buffertstorleken för att ha en datapunkt per region. Detta är ett ytterst exempel på overfitting. För att undvika detta, skapas en stor mängd träd med matematiska vidtas att träd inte korrelerade. Medelvärde för den här ”beslut skogen” är ett träd som undviker overfitting. Beslut skogar kan använda mycket minne. Beslutsdjungler är en variant som förbrukar mindre minne på bekostnad av en längre utbildningstid.
+***Ett beslutsträd delar upp ett utrymme för funktionen i regioner med ungefär uniform värden***
 
-Förstärkta beslutsträd undvika overfitting genom att begränsa hur många gånger som de kan du dela upp och hur många datapunkter är tillåtna i varje region. Algoritmen skapar en sekvens med träd, där varje lär sig att kompensera för fel som har lämnat trädet innan. Resultatet är en mycket noggrann deltagaren som tenderar att använda mycket minne. Fullständig teknisk beskrivning kolla [Friedmans ursprungliga dokumentet](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
+Eftersom funktionen kan kan delas in i godtyckligt små regioner, är det enkelt att föreställa sig dividera tillräckligt noggrant för att skapa en datapunkt per region. Det här är ett extrem exempel på overfitting. För att undvika detta skapas ett stort antal träd med särskilda matematiska försiktighet vidtas att träd inte kopplas ihop. Genomsnittet för det här ”beslutsskog” är ett träd som undviker overfitting. Beslutet skogar kan använda mycket minne. Beslutsdjungler är en variant som förbrukar mindre minne på bekostnad av en något längre utbildningstid.
 
-[Snabb skog quantile regression](https://msdn.microsoft.com/library/azure/dn913093.aspx) är en variation av beslutsträd för särskilda fall där du vill veta inte bara vanliga () medianvärdet för data i en region men dess distributionsplatsen i form av quantiles.
+Förbättrat beslutsträd undvika overfitting genom att begränsa hur många gånger som de kan du dela upp och hur datapunkter är tillåtna i varje region. Algoritmen skapar en sekvens av träd, som lär sig att kompensera för fel i trädet innan du har lämnat. Resultatet är en mycket noggrann learner som ofta använder mycket minne. Fullständig teknisk beskrivning finns i [Friedmans ursprungliga dokumentet](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
+
+[Snabb skog quantile regression](https://msdn.microsoft.com/library/azure/dn913093.aspx) är en variant av beslutsträd för särskilda fall där du vill veta det vanliga (median) värdet av data inom en region, utan även dess distribution i form av quantiles.
 
 ### <a name="neural-networks-and-perceptrons"></a>Neurala nätverk och perceptrons
-Neurala nätverk är hjärna-inspirerat learning algoritmer som täcker [multiclass](https://msdn.microsoft.com/library/azure/dn906030.aspx), [tvåklass](https://msdn.microsoft.com/library/azure/dn905947.aspx), och [regression](https://msdn.microsoft.com/library/azure/dn905924.aspx) problem. De kommer i en rad, men neurala nätverk i Azure Machine Learning är någon form av riktat acykliskt diagram. Det innebär att inkommande funktioner skickas framåt (aldrig bakåt) via en sekvens av lager innan aktiveras i utdata. I varje lager är indata viktas i olika kombinationer summeras och skickas till nästa säkerhetslager. Den här kombinationen av enkla beräkningar ger möjlighet att få mer avancerade klassen gränser och data trender till synes genom Magiskt tal för. Många lager nätverk för den här typen utföra i ”djupt learning” som bränslen så mycket rapportering av teknisk och vetenskaplig fiktion.
 
-Den här högpresterande finns inte gratis men. Neurala nätverk kan ta lång tid att träna, särskilt för stora datamängder med många funktioner. De kan också ha fler parametrar än de flesta algoritmer, vilket innebär att parametern omfattande expanderar utbildningstid en hel del.
-Och för de overachievers som vill [ange sina egna nätverksstrukturen](http://go.microsoft.com/fwlink/?LinkId=402867), du kan använda inexhaustible.
+Neurala nätverk är hjärna-inspirerat algoritmer som täcker [multiclass](https://msdn.microsoft.com/library/azure/dn906030.aspx), [tvåklassförhöjt](https://msdn.microsoft.com/library/azure/dn905947.aspx), och [regression](https://msdn.microsoft.com/library/azure/dn905924.aspx) problem. De kommer in en rad, men neurala nätverk i Azure Machine Learning är alla slags dirigerad acykliska diagram. Det innebär att indatafunktionerna skickas vidare (aldrig bakåt) via en sekvens av lager innan ha varit i utdata. I varje skikt är indata viktad i olika kombinationer, summeras och överföras till nästa lager. Den här kombinationen av enkla beräkningar innebär möjlighet att lära dig avancerade klass gränser och data trender, till synes genom magic. Många nivåer nätverk på den här typen utför den ”deep learning” som skapar förutsättningar för mycket teknisk reporting och science fiction.
+
+Den här högpresterande gratis inte, men. Neurala nätverk kan ta lång tid att träna, särskilt för stora mängder data med många funktioner. De har också fler parametrar än de flesta algoritmer, vilket innebär att parametern oinskränkt expanderar utbildningstid ett bra pris.
+Och för de overachievers som vill [ange sina egna nätverksstrukturen](http://go.microsoft.com/fwlink/?LinkId=402867), möjligheterna är inexhaustible.
 
 ![Gränser som upptäckts av neurala nätverk][6]
-***gränser som upptäckts av neurala nätverk kan vara komplicerat och oregelbundna***
+***de gränser som upptäckts av neurala nätverk kan vara komplexa och oregelbundna***
 
-Den [tvåklass var i genomsnitt perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx) är neurala nätverk svaret skjuter utbildning gånger. Den använder en nätverksinfrastruktur som ger linjär klassgränser. Det är nästan primitiva dagens standarder, men den har en lång historik över fungerar robustly och är tillräckligt små för att lära dig snabbt.
+Den [tvåklassförhöjt i genomsnitt perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx) är neurala nätverk svaret skjuter utbildning gånger. Den använder en nätverksinfrastruktur som ger linjär klassgränser. Det är nästan primitiva av dagens standarder, men den har lång erfarenhet av att arbeta kraftigare och är tillräckligt liten för att lära dig snabbt.
 
 ### <a name="svms"></a>SVMs
-Support vector datorer (SVMs) hitta gräns som avgränsar klasser av som bred en marginal som möjligt. När två klasser inte kan vara klart åtskilda, hitta algoritmerna bästa gräns som de kan. Som skrivits i Azure Machine Learning i [tvåklass SVM](https://msdn.microsoft.com/library/azure/dn905835.aspx) gör detta med en rak linje. (I SVM tala används en linjär kernel.) Eftersom det gör det här linjär uppskattning, går det att köra ganska snabbt. Där det sin verkliga styrka är med funktionen intensiva data, t.ex. text eller genom. I dessa fall kan SVMs separata klasser snabbare och med mindre overfitting än de flesta andra algoritmer, förutom kräver bara en liten mängd minne.
 
-![Support vector machine klassen gräns][7]
+Support vector datorer (SVMs) hitta gränsen som avgränsar klasser av som en marginal som möjligt. När två klasser inte kan vara klart åtskilda, hitta algoritmerna bästa gräns som de kan. Som skrivits i Azure Machine Learning, den [tvåklassförhöjt SVM](https://msdn.microsoft.com/library/azure/dn905835.aspx) gör detta med en rak linje. (I SVM talar används en linjär kernel.) Eftersom det gör den här linjär uppskattning, är det att köra ganska snabbt. Där det är som bäst är med funktionen intensiv data, som text eller stora uppsättningar genomiska. I dessa fall kan SVMs att separera klasser snabbare och med mindre overfitting än de flesta andra algoritmer, förutom att begära mycket små mängden minne.
 
-***En typisk support vector machine klass gräns maximerar marginalen avgränsa två klasser***
+![Support vector machine klass gräns][7]
 
-En annan produkt från Microsoft Research den [tvåklass lokalt djup SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) är en icke-linjär variant av SVM som behåller de flesta av den linjära versionen hastighet och minne effektivitet. Det är perfekt för fall där den linjära metoden inte får tillräckligt aktuell svar. Utvecklare sparas det snabbt genom att bryta ned problemet till flera mindre linjär SVM problem. Läs den [fullständig beskrivning](http://proceedings.mlr.press/v28/jose13.html) information om hur de hämtas av den här lura.
+***En typisk support vector machine klass gräns maximerar marginal att ange två klasser***
 
-Med en smarta i linjära SVMs den [en klass SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) ritar en gräns som beskriver nära hela datauppsättningen. Det är användbart för identifiering av avvikelse. Alla nya datapunkter som långt hamnar utanför gränsen är ovanligt att anmärkningsvärda.
+En annan produkt av Microsoft Research, den [tvåklassförhöjt lokalt djup SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) är en icke-linjära variant av SVM som behåller de flesta av den linjära versionen hastighet och minne effektivitet. Det är perfekt i de fall där den linjära metoden inte ger tillräckligt exakta svar på. Utvecklare sparas den snabbt genom att bryta ned problemet i en massa mindre linjär SVM problem. Läs den [fullständig beskrivning](http://proceedings.mlr.press/v28/jose13.html) mer information om hur de hämtas av den här knep.
+
+Med hjälp av en smarta förlängning av icke-linjära SVMs den [en klass SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) ritar en gräns som tätt visar hela datauppsättningen. Det är användbart för identifiering av avvikelser. Alla nya datapunkter som inte omfattas av mycket gränsen är ovanlig vara anmärkningsvärda.
 
 ### <a name="bayesian-methods"></a>Bayesian metoder
-Bayesian metoder har en hög önskvärt kvalitet: de undvika overfitting. De kan göra detta genom att göra några antaganden i förväg om sannolikt fördelningen av svaret. En annan byproduct med den här metoden är att de har mycket några parametrar. Azure Machine Learning har båda Bayesian algoritmer för båda klassificering ([Two-class Bayes point-dator](https://msdn.microsoft.com/library/azure/dn905930.aspx)) och regression ([Bayesian linjär regression](https://msdn.microsoft.com/library/azure/dn906022.aspx)).
-Observera att detta förutsätter att data kan dela eller ryms inom rakt.
 
-På en historisk anteckning utvecklades Bayes' point datorer Microsoft Research. De har vissa undantagsfall snygg teoretisk arbete bakomliggande. Den berörda studenten omdirigeras till den [ursprungliga artikeln i JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) och en [insiktsfulla blogg av Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+Bayesian metoderna har en mycket önskvärt kvalitet: de undvika overfitting. De kan göra detta genom att göra några antaganden i förväg om sannolikt fördelningen av svaret. En annan byproduct med den här metoden är att de har mycket få parametrar. Azure Machine Learning har båda Bayesian algoritmer för båda klassificering ([tvåklassförhöjt Bayes datorn](https://msdn.microsoft.com/library/azure/dn905930.aspx)) och regression ([Bayesian linjär regression](https://msdn.microsoft.com/library/azure/dn906022.aspx)).
+Observera att dessa förutsätts att data kan dela eller ryms inom en rak linje.
 
-### <a name="specialized-algorithms"></a>Särskilda algoritmer
-Om du har en särskild målet kanske tur. I Azure Machine Learning-samlingen finns algoritmer som specialiserade på:
+På en historisk anteckning utvecklades 'Bayes point datorer på Microsoft Research. De har vissa presterar exceptionellt bra teoretisk work bakom dem. Intresserad av elevens dirigeras till den [ursprungliga artikeln i JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) och en [insiktsfulla blogg av Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+
+### <a name="specialized-algorithms"></a>Specialiserade algoritmer
+Om du har ett mycket specifik mål du i så fall. Det finns algoritmer som specialiserar sig på i Azure Machine Learning-samling:
 
 - rangordnas förutsägelse ([ordningstal regression](https://msdn.microsoft.com/library/azure/dn906029.aspx)),
 - Räkna förutsägelse ([Poisson regression](https://msdn.microsoft.com/library/azure/dn905988.aspx)),
-- avvikelseidentifiering (en baserat på [huvudkomponenter analysis](https://msdn.microsoft.com/library/azure/dn913102.aspx) och baserat på ett [support vector machine](https://msdn.microsoft.com/library/azure/dn913103.aspx)s)
-- kluster ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
+- avvikelseidentifiering (en utifrån [huvudkomponenter analysis](https://msdn.microsoft.com/library/azure/dn913102.aspx) och en baserat på [stöd vektor datorer](https://msdn.microsoft.com/library/azure/dn913103.aspx))
+- klustring ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
 
 ![PCA-baserad avvikelseidentifiering][8]
 
-***PCA-baserad avvikelseidentifiering*** *-majoriteten av data hamnar i en stereotypical distributionsplats; punkter kraftigt avviker från att distributionsplatsen är tveksam*
+***PCA-baserad avvikelseidentifiering*** *-merparten av data hamnar i en stereotypical distribution; punkter kraftigt avviker från den distributionsplatsen är tveksam*
 
-![Datauppsättning grupperas med K-means][9]
+![Datauppsättning som är grupperade med K-means][9]
 
-***En datauppsättning är grupperade i fem kluster med hjälp av K-means***
+***En datauppsättning är grupperade i fem kluster med K-means***
 
-Det finns också en ensemble [en v alla multiklass-baserad klassificerare](https://msdn.microsoft.com/library/azure/dn905887.aspx), vilket bryter klassificeringsproblem N-klass N-1 tvåklass klassificering problem. Noggrannhet, utbildning och linearitet egenskaper bestäms av tvåklass-klassificerare som används.
+Det finns också en ensemble [en v alla inom klassificerare](https://msdn.microsoft.com/library/azure/dn905887.aspx), som skadar klassificeringsproblem N-klassen i N-1 tvåklassförhöjt klassificering problem. Den precision, utbildning och linearitet egenskaper bestäms av tvåklassförhöjt-klassificerare som används.
 
-![Två-klass, klassificerare kombineras för att bilda en klassificerare tre-klass][10]
+![Två klassificerare kombineras för att bilda en tre-class-klassificerare][10]
 
-***Ett par med två-klass, klassificerare kombineras till en klassificerare tre-klass***
+***Ett par med två klassificerare kan kombineras för att bilda en tre-class-klassificerare***
 
-Azure Machine Learning även åtkomst till en kraftfull maskininlärning framework under namnet på [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf).
-VW lekfull kategorisering här, eftersom den kan lära dig klassificerings- och regression problem och kan även lära sig från delvis omärkta data. Du kan konfigurera den att använda någon av ett antal learning, förlust funktioner och optimering algoritmer. Det har utformats från grunden in vara effektiva, parallella och mycket snabba. Den hanterar funktionen löjligt stora mängder med mycket tydligt ansträngning.
-Igång och lett av Microsoft Researchs egna John Langford är VW en formel en post i ett fält av börs bil algoritmer. Inte alla problem som passar VW, men om den det kan vara värt att din stund att klara inlärningskurvan på dess gränssnitt. Det är också tillgängliga som [fristående öppen källkod](https://github.com/JohnLangford/vowpal_wabbit) på flera språk.
+Azure Machine Learning innehåller också åtkomst till ett kraftfullt machine learning-ramverk under namnet på [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf).
+VW lekfull kategorisering här, eftersom det kan lära dig klassificerings- och regressionsmodeller problem och kan även lära sig från delvis omärkta data. Du kan konfigurera den att använda någon av flera olika algoritmer, förlust av funktioner och algoritmerna för prisoptimering. Det har utformats från grunden upp för att vara effektiv, parallella och mycket snabba. Den hanterar löjligt stort funktionsuppsättningar utan besvär tydligt.
+Igång och leds av Microsoft Researchs egen John Langford, är VW en formel en post i ett fält av lager bil algoritmer. Inte alla problem som passar VW, men om den kan det vara värt din tag att klara inlärningskurvan i dess gränssnitt. Det är också tillgängliga som [fristående öppen källkod](https://github.com/JohnLangford/vowpal_wabbit) på flera språk.
 
-## <a name="more-help-with-algorithms"></a>Mer hjälp med algoritmer
-* En nedladdningsbar infographic som beskriver algoritmer och exempel finns [nedladdningsbara Infographic: maskin lär du dig grunderna med algoritmen exempel](basics-infographic-with-algorithm-examples.md).
-* En lista efter kategori av alla de tillgängliga maskininlärningsalgoritmer i Azure Machine Learning Studio finns [initiera modell] [ initialize-model] i Machine Learning Studio algoritmen modulen hjälpen och.
-* En fullständig alfabetisk lista över algoritmer och moduler i Azure Machine Learning Studio finns [A-Ö-listan över Machine Learning Studio moduler] [ a-z-list] i Machine Learning Studio algoritmen och hjälpa till att modulen.
-* Om du vill hämta och skriva ut ett diagram som ger en översikt över funktionerna i Azure Machine Learning Studio finns [Översiktsdiagram över funktioner i Azure Machine Learning Studio i](studio-overview-diagram.md).
+## <a name="next-steps"></a>Nästa steg
 
+* En nedladdningsbar infografik som beskriver algoritmer och ger exempel, se [nedladdningsbar Infografik: Machine learning-grunder med algoritmexempel](basics-infographic-with-algorithm-examples.md).
 
-<!-- Reference links -->
-[initialize-model]: https://msdn.microsoft.com/library/azure/dn905812.aspx
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
+* En lista efter kategori av alla de tillgängliga maskininlärningsalgoritmer i Machine Learning Studio finns i [initiera modell](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) i Machine Learning Studio-algoritmen och modulen hjälpa.
+
+* En fullständig alfabetisk lista över algoritmer och moduler i Machine Learning Studio finns i [A-Z-lista över Machine Learning Studio-moduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) i modulen hjälpen och Machine Learning Studio-algoritm.
+
+* Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.
 
 <!-- Media -->
 

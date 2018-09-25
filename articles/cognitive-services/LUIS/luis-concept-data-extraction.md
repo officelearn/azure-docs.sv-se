@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Lär dig vilka typer av data kan extraheras från Språkförståelse (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d857767e5d94daa0a32997474722cec608e513b0
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 717d02947c4ea74d5805749157d6a691888be72c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630553"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031361"
 ---
 # <a name="data-extraction"></a>Extrahering av data
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan. 

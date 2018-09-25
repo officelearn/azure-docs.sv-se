@@ -8,24 +8,20 @@ ms.service: firewall
 ms.topic: article
 ms.date: 7/11/2018
 ms.author: victorh
-ms.openlocfilehash: 1a732e22d72c36afe11030e42bae529baa35df1a
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d32e6e29c287d140c28206743e36dc025b26158b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991551"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991342"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Distribuera Azure-brandväggen med hjälp av en mall
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
+Den här mallen skapar en brandvägg och en testmiljö för nätverket. Nätverket har ett virtuellt nätverk med tre undernät: *AzureFirewallSubnet*, *ServersSubnet*, och en *JumpboxSubnet*. ServersSubnet och JumpboxSubnet har var sin Windows Server med två kärnor.
 
-Exemplen i brandväggen för Azure-artiklar förutsätter att du redan har aktiverat den offentliga förhandsversionen av Azure-brandvägg. Mer information finns i [aktivera offentliga förhandsversionen av Azure-brandvägg](public-preview.md).
+Brandväggen ligger i AzureFirewallSubnet och är konfigurerad med en programregelsamling som har en enda regel för att tillåta åtkomst till www.microsoft.com.
 
-Den här mallen skapar en brandvägg och en testmiljö för nätverket. Nätverket har ett virtuellt nätverk med tre undernät: *AzureFirewallSubnet*, *ServersSubnet*, och en *JumpboxSubnet*. ServersSubnet och JumpboxSubnet har du en kärnor 2 Windows Server i dem.
-
-Brandväggen är i AzureFirewallSubnet och är konfigurerad med en regelsamling för program med en enda regel som tillåter åtkomst till www.microsoft.com.
-
-En användardefinierad väg skapas som pekar nätverkstrafiken från ServersSubnet genom brandväggen, där brandväggsreglerna tillämpas.
+Dessutom skapas en användardefinierad väg som skickar nätverkstrafik från ServersSubnet via brandväggen där brandväggsreglerna tillämpas.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -48,5 +44,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Därefter kan du övervaka Azure brandväggsloggar:
 
-- [Självstudie: Övervaka Azure brandväggsloggar](./tutorial-diagnostics.md)
+- [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)
 

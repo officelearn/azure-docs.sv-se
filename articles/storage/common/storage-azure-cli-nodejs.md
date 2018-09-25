@@ -1,6 +1,6 @@
 ---
-title: Använda Azure CLI 1.0 med Azure Storage | Microsoft Docs
-description: Lär dig hur du använder Azure-kommandoradsgränssnittet (Azure CLI) 1.0 med Azure Storage för att skapa och hantera storage-konton och arbeta med Azure-blobar och filer. Azure CLI är ett plattformsoberoende verktyg
+title: Använda den klassiska Azure CLI med Azure Storage | Microsoft Docs
+description: Lär dig hur du använder Azure klassiska kommandoradsgränssnittet (CLI) med Azure Storage för att skapa och hantera storage-konton och arbeta med Azure-blobar och filer.
 services: storage
 author: seguler
 ms.service: storage
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: f406f12b3313670e8e2d89296f7c24478bb58c6c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e563c7000b600bed917f42d8ffb87df883564ef8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521514"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979336"
 ---
-# <a name="using-the-azure-cli-10-with-azure-storage"></a>Använda Azure CLI 1.0 med Azure Storage
+# <a name="using-the-azure-classic-cli-with-azure-storage"></a>Använda den klassiska Azure CLI med Azure Storage
 
 ## <a name="overview"></a>Översikt
 
-Azure CLI innehåller en uppsättning med öppen källkod plattformsoberoende kommandon för att arbeta med Azure-plattformen. Det ger stor del samma funktioner som finns i den [Azure-portalen](https://portal.azure.com) samt som omfattande funktioner för dataåtkomst.
+Den klassiska Azure CLI innehåller en uppsättning med öppen källkod plattformsoberoende kommandon för att arbeta med Azure-plattformen. Det ger stor del samma funktioner som finns i den [Azure-portalen](https://portal.azure.com) samt som omfattande funktioner för dataåtkomst.
 
-I den här guiden kommer vi att utforska hur du använder [Azure-kommandoradsgränssnittet (Azure CLI)](../../cli-install-nodejs.md) att utföra olika utvecklings- och uppgifter med Azure Storage. Vi rekommenderar att du ladda ned och installera eller uppgradera till den senaste Azure-CLI innan du använder den här guiden.
+I den här guiden kommer vi att utforska hur du använder [Azure klassiskt CLI](../../cli-install-nodejs.md) att utföra olika utvecklings- och uppgifter med Azure Storage. Vi rekommenderar att du ladda ned och installera eller uppgradera till den senaste versionen av klassiska CLI innan du använder den här guiden.
 
-Den här guiden förutsätter att du förstår de grundläggande principerna för Azure Storage. Handboken innehåller ett antal skript som demonstrerar användningen av Azure CLI med Azure Storage. Glöm inte att uppdatera skriptvariabler utifrån din konfiguration innan du kör varje skript.
+Den här guiden förutsätter att du förstår de grundläggande principerna för Azure Storage. Handboken innehåller ett antal skript som demonstrerar användningen av klassiska CLI med Azure Storage. Glöm inte att uppdatera skriptvariabler utifrån din konfiguration innan du kör varje skript.
 
 > [!NOTE]
-> Guiden tillhandahåller Azure CLI-exempel för gränssnittskommandon och skript för klassiska lagringskonton. Se [med Azure CLI för Mac, Linux och Windows med Azure Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) för Azure CLI-kommandon för Resource Manager-lagringskonton.
+> Guiden visar de Azure klassiska CLI kommando- och exempel för klassiska lagringskonton. Se [med Azure CLI för Mac, Linux och Windows med Azure Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) för Azure klassiska CLI-kommandon för Resource Manager-lagringskonton.
 >
 >
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Kom igång med Azure Storage och Azure CLI på 5 minuter
+## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Kom igång med Azure Storage och Azure klassiskt CLI på 5 minuter
 Den här guiden använder Ubuntu exempel, men andra OS-plattformar som ska utföras på samma sätt.
 
 **Nybörjare på Azure:** får en Microsoft Azure-prenumeration och ett Microsoft-konto som är associerade med den aktuella prenumerationen. Information om köpalternativ för Azure finns i [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/), [Inköpsalternativ](https://azure.microsoft.com/pricing/purchase-options/), och [Medlemserbjudanden](https://azure.microsoft.com/pricing/member-offers/) (för medlemmar i MSDN, Microsoft Partner Network och BizSpark och andra Microsoft-program).
@@ -41,12 +41,12 @@ Se [Tilldela administratörsroller i Azure Active Directory (Azure AD)](https://
 
 **När du har skapat en Microsoft Azure-prenumeration och ett konto:**
 
-1. Ladda ned och installera Azure CLI följa anvisningarna som beskrivs i [installera Azure CLI](../../cli-install-nodejs.md).
-2. När Azure CLI har installerats, kommer du att kunna använda kommandot azure från ditt kommandoradsgränssnitt (Bash, Terminal, Kommandotolken) att komma åt Azure CLI-kommandon. Skriv den _azure_ kommandot och du bör se följande utdata.
+1. Ladda ned och installera Azure klassiska CLI följa anvisningarna som beskrivs i [installera Azure CLI för klassiska](../../cli-install-nodejs.md).
+2. När klassiskt CLI har installerats, kommer du att kunna använda kommandot azure från ditt kommandoradsgränssnitt (Bash, Terminal, Kommandotolken) att komma åt de klassiska CLI-kommandona. Skriv den _azure_ kommandot och du bör se följande utdata.
 
     ![Azure kommandoutdata](./media/storage-azure-cli/azure_command.png)   
-3. Skriv i kommandoradsgränssnittet, `azure storage` lista med alla azure storage-kommandon och få en första intryck av funktionerna Azure CLI tillhandahåller. Du kan skriva kommandonamn med **-h** parameter (till exempel `azure storage share create -h`) att visa information om kommandosyntax.
-4. Nu måste vi ge ett enkelt skript som visar grundläggande Azure CLI-kommandon för att få åtkomst till Azure Storage. Skriptet först ber dig att ställa in två variabler för ditt lagringskonto och nyckel. Sedan skriptet skapar en ny behållare i den här nya storage-konto och ladda upp en befintlig fil (blob) till behållaren. När skriptet visar en lista över alla blobar i behållaren, hämtas image-filen till målkatalogen som finns på den lokala datorn.
+3. Skriv i kommandoradsgränssnittet, `azure storage` lista med alla azure storage-kommandon och få en första intryck av funktionerna klassiskt CLI tillhandahåller. Du kan skriva kommandonamn med **-h** parameter (till exempel `azure storage share create -h`) att visa information om kommandosyntax.
+4. Nu måste vi ge ett enkelt skript som visar grundläggande klassiska CLI-kommandon för att få åtkomst till Azure Storage. Skriptet först ber dig att ställa in två variabler för ditt lagringskonto och nyckel. Sedan skriptet skapar en ny behållare i den här nya storage-konto och ladda upp en befintlig fil (blob) till behållaren. När skriptet visar en lista över alla blobar i behållaren, hämtas image-filen till målkatalogen som finns på den lokala datorn.
 
     ```azurecli
     #!/bin/bash
@@ -88,9 +88,9 @@ Se [Tilldela administratörsroller i Azure Active Directory (Azure AD)](https://
 
 När skriptet har körts, bör du ha en lokal destination-mapp som innehåller den hämtade image-filen.
 
-## <a name="manage-storage-accounts-with-the-azure-cli"></a>Hantera lagringskonton med Azure CLI
+## <a name="manage-storage-accounts-with-the-azure-classic-cli"></a>Hantera lagringskonton med den klassiska Azure CLI
 ### <a name="connect-to-your-azure-subscription"></a>Ansluta till din Azure-prenumeration
-Även om de flesta av kommandona storage fungerar utan en Azure-prenumeration, rekommenderar vi att du ansluter till din prenumeration från Azure CLI. Om du vill konfigurera Azure CLI för att arbeta med din prenumeration följer du stegen i [Anslut till en Azure-prenumeration från Azure CLI](/cli/azure/authenticate-azure-cli).
+Även om de flesta av kommandona storage fungerar utan en Azure-prenumeration, rekommenderar vi att du ansluter till din prenumeration från klassiskt CLI.
 
 ### <a name="create-a-new-storage-account"></a>Skapa ett nytt lagringskonto
 Om du vill använda Azure storage, behöver du ett lagringskonto. Du kan skapa ett nytt Azure storage-konto när du har konfigurerat datorn för att ansluta till din prenumeration.
@@ -102,7 +102,7 @@ azure storage account create <account_name>
 Namnet på ditt lagringskonto måste vara mellan 3 och 24 tecken och siffror och gemener.
 
 ### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>Ange ett standardkonto för Azure storage i miljövariabler
-Du kan ha flera lagringskonton i din prenumeration. Du kan välja en av dem och ange den i miljövariabler för storage-kommandon i samma session. På så sätt kan du köra Azure CLI-kommandona för lagring utan att ange lagringskontot och nyckeln uttryckligen.
+Du kan ha flera lagringskonton i din prenumeration. Du kan välja en av dem och ange den i miljövariabler för storage-kommandon i samma session. Detta gör att du kan köra CLI-kommandon för klassiska lagring utan att ange lagringskontot och nyckeln uttryckligen.
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -177,7 +177,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Skapa och hantera filresurser
-Azure Files erbjuder delad lagring för program som använder SMB-standardprotokollet. Microsoft Azure-datorer och molntjänster, samt lokala program kan dela fildata via monterade resurser. Du kan hantera filresurser och fildata via Azure CLI. Mer information om Azure Files finns i [introduktion till Azure Files](../files/storage-files-introduction.md).
+Azure Files erbjuder delad lagring för program som använder SMB-standardprotokollet. Microsoft Azure-datorer och molntjänster, samt lokala program kan dela fildata via monterade resurser. Du kan hantera filresurser och fildata via klassiska CLI. Mer information om Azure Files finns i [introduktion till Azure Files](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Skapa en filresurs
 En Azure-filresurs är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en filresurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till kapacitetsbegränsningen för lagringskontot. I följande exempel skapas en filresurs med namnet **myshare**.
@@ -214,7 +214,7 @@ azure storage file list myshare myDir
 Observera att katalognamnet är valfritt för liståtgärden. Om det utelämnas används visar kommandot innehållet i rotkatalogen för resursen.
 
 ### <a name="copy-files"></a>Kopiera filer
-Från och med version 0.9.8 av Azure CLI kan kopiera du en fil till en annan fil, en fil till en blobb eller en blobb till en fil. Nedan ser du hur du utför dessa kopieringsåtgärder med CLI-kommandon. Kopiera en fil till den nya katalogen:
+Från och med version 0.9.8 av klassisk CLI kan kopiera du en fil till en annan fil, en fil till en blobb eller en blobb till en fil. Nedan ser du hur du utför dessa kopieringsåtgärder med CLI-kommandon. Kopiera en fil till den nya katalogen:
 
 ```azurecli
 azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare
@@ -230,9 +230,9 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du hittar Azure CLI 1.0-kommandoreferens för att arbeta med Storage-resurser här:
+Du hittar Azure klassiska CLI-kommandoreferens för att arbeta med Storage-resurser här:
 
-* [Azure CLI-kommandon i Resource Manager-läge](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Azure CLI-kommandon i Azure Service Management-läge](../../cli-install-nodejs.md)
+* [Azure klassiska CLI-kommandon i Resource Manager-läge](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Azure klassiska CLI-kommandon i Azure Service Management-läge](../../cli-install-nodejs.md)
 
-Du kanske också tycker att testa den [Azure CLI 2.0](../storage-azure-cli.md), vår nästa generations CLI som skrivits i Python för användning med Resource Manager-distributionsmodellen.
+Du kanske också tycker att testa den senaste versionen av den [Azure CLI](../storage-azure-cli.md), för användning med Resource Manager-distributionsmodellen.

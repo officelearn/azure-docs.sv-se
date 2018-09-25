@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 76b0bab0f2eb34d7283d38eb0442f4f2f2083db3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42059205"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995400"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Förstå Azure IoT Edge-moduler
 
@@ -67,7 +67,7 @@ Twin twin = await client.GetTwinAsync();
 
 ## <a name="offline-capabilities"></a>Offlinefunktionerna
 
-Azure IoT Edge stöder offline åtgärder på IoT Edge-enheter. Dessa funktioner är begränsade för tillfället och ytterligare scenarier håller på att utvecklas. 
+Azure IoT Edge stöder offline åtgärder på IoT Edge-enheter. De här funktionerna är begränsade för tillfället. 
 
 IoT Edge-moduler kan vara offline under långa perioder, förutsatt att följande krav är uppfyllda: 
 
@@ -75,6 +75,8 @@ IoT Edge-moduler kan vara offline under långa perioder, förutsatt att följand
 * **Moduler som inte behöver autentiseras på nytt med IoT Edge hub när du är offline**. Moduler kan endast autentisera med Edge-hubbar som har en aktiv anslutning till en IoT-hubb. Moduler som behöver autentisera igen om de startas om av någon anledning. Moduler kan fortfarande skicka meddelanden till Edge hub när deras SAS-token har upphört att gälla. När anslutningen återställs Edge hub begär en ny token från modulen och validerar den med IoT hub. Om detta lyckas vidarebefordrar Edge hub modulen meddelanden lagras, även de meddelanden som skickades när modulens token har upphört att gälla. 
 * **Den modul som skickade meddelanden när offline fungerar fortfarande när anslutningen återställs**. Edge hub behöver verifiera en ny modul-token (om det tidigare har gått ut) innan den kan vidarebefordra meddelandena som modulen när de återansluter till IoT Hub. Om modulen inte är tillgängliga för att tillhandahålla en ny token kan inte Edge hub fungera på modulens lagrade meddelanden. 
 * **Edge hub har ledigt diskutrymme för att lagra meddelanden**. Som standard lagras meddelanden i Edge hub behållarens filsystem. Det finns ett konfigurationsalternativ för att ange en monterad volym för att lagra meddelanden i stället. I båda fallen måste det finnas utrymme att lagra meddelanden för uppskjutna leverans till IoT Hub.  
+
+Ytterligare funktioner som är offline finns i offentlig förhandsversion. Mer information finns i [förstå utökat offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Nästa steg
  - [Förstå Azure IoT Edge-körningen och dess arkitektur][lnk-runtime]

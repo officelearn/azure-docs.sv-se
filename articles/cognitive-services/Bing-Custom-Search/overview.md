@@ -1,6 +1,6 @@
 ---
-title: Vad är Bing anpassad sökning? | Microsoft Docs
-description: Innehåller en översikt över Bing anpassad sökning
+title: Vad är Anpassad sökning i Bing? | Microsoft Docs
+description: Innehåller en översikt över Bing Custom Search
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,39 +9,55 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7cd61fc63d0d7734b842ed222c67c6753da9a418
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352881"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948085"
 ---
-# <a name="what-is-bing-custom-search"></a>Vad är Bing anpassad sökning?
+# <a name="what-is-bing-custom-search"></a>Vad är Anpassad sökning i Bing?
 
-Bing anpassad sökning kan du skapa en anpassad sökning upplevelser efter avsnitt som intresserar dig. Till exempel om du har en webbplats som ger en sökinställningar kan kan du ange domäner, webbplatser och webbsidor som Bing söker. Användarna ser sökresultat som är skräddarsydda för de är intresserad av i stället för att innehållet till sidan via sökresultat som har irrelevanta innehåll.
+Bing Custom Search kan du skapa skräddarsydda sökmöjligheter för ämnen som intresserar dig. Till exempel, om du äger en webbplats som ger en sökfunktion kan kan du ange de domäner, webbplatser och webbsidor som söker i Bing. Användarna ser sökresultat som skräddarsys för det innehåll som de bryr dig om slipper att bläddra igenom sökresultat som har inte relevant innehåll.
 
-Använd Bing anpassad sökning för att skapa den anpassade vyn för webben [portal](https://customsearch.ai). Portalen kan du skapa en anpassad sökning-instans som anger domäner, webbplatser och webbsidor som du vill använda Bing för att söka och de webbplatser som du inte vill att söka. Ange URL: er för det innehåll som du vet om, kan du också använda portalen för att hitta relevant innehåll som du kanske vill lägga till.
+Använd Bing Custom Search för att skapa den anpassade vyn webb-, [portal](https://customsearch.ai). Portalen kan du skapa en anpassad Sökinstans som anger domänerna, webbplatser och webbsidor som du vill att Bing för att söka och vilka webbplatser som du inte vill att söka. Förutom att ange URL: er för det innehåll som du vet om använda du också portalen för att hitta relevant innehåll som du kanske vill lägga till.
 
-Portalen kan du fästa en specifik webbsida överst i sökresultatet om användaren anger en specifik sökterm. 
+Portalen kan du fästa en specifik webbsida längst upp i sökresultatet om användaren anger ett specifikt sökord. 
 
-När du har definierat din instans kan du integrera anpassad sökning i din webbplats, skrivbordsapp eller mobilapp genom att anropa API: et för anpassad sökning. Om du har en webbaserad webbplats eller program kan låta du värdbaserade Användargränssnittet återge search-gränssnittet för dig.
+När du har definierat din instans integrera du anpassad sökning i din webbplats, skrivbordsapp eller mobila appar genom att anropa API: et för anpassad sökning. Om du har en webbaserad webbplats eller ett program kan låta du värdbaserade Användargränssnittet rendera gränssnittet search åt dig.
 
-Följande bild visar enkelhet anpassad sökning-integrering.
+Följande bild visar enkelheten med anpassad sökning i integrationen.
 
-![bild alt](./media/bcs-overview.png "hur Bing anpassad sökning fungerar.")
+![bild alt](./media/bcs-overview.png "hur Bing Custom Search fungerar.")
 
-## <a name="customize-search-suggestions"></a>Anpassa sökförslag
+## <a name="adding-custom-search-box-suggestions"></a>Att lägga till anpassade box sökförslag
 
-Om du prenumererar på anpassad sökning på lämplig nivå (finns i [priser sidor](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), kan du anpassa sökförslag som gjorts i din upplevelse för anpassad sökning. Anpassad Autosuggest API returnerar en lista över föreslagna frågor baserat på en partiell frågesträng som användaren anger. Med anpassade Autosuggest kan du ange anpassade sökförslag som är relevanta för dina sökinställningar. Du ange om du vill returnera endast anpassade förslag eller att inkludera Bing förslag. Om Bing förslag ingår visas anpassade förslag innan förslag Bing tillhandahåller. Bing förslag är begränsade till kontexten för anpassad sökning-instans.
+Du kan utöka din anpassade sökupplevelse med anpassad sökning i rutan förslag. Den här funktionen kan du tillhandahålla anpassade sökförslag som är relevanta för din sökupplevelse. När användaren skriver i sökrutan i listrutan innehåller föreslagna frågesträngar baserat på användarens partiella frågesträngen. Du kan ange om du vill returnera endast dina anpassade förslag eller också innehålla förslag för Bing. [Läs mer](define-custom-suggestions.md).
+
+## <a name="adding-custom-image-search-experience"></a>Sökfunktion för att lägga till anpassad avbildning
+
+Du kan utöka din anpassade sökupplevelse med bilder. Liknar Webbresultat, har stöd för anpassad sökning söker efter bilder i din instans listan över webbplatser. [Läs mer](get-images-from-instance.md).
+
+## <a name="adding-custom-video-search-experience"></a>Att lägga till anpassade video sökupplevelse
+
+Du kan utöka din anpassade sökupplevelse med videor. Liknar Webbresultat, har stöd för anpassad sökning söker efter videor i din instans listan över webbplatser. [Läs mer](get-videos-from-instance.md).
+
+## <a name="sharing-your-custom-search-instance-with-others"></a>Dela din anpassade Sökinstans med andra
+
+Du kan enkelt samarbetsfunktioner redigering och testning av din instans genom att dela den med medlemmar i ditt team. [Läs mer](share-your-custom-search.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill komma igång snabbt se [skapa din första Bing anpassad sökning instans](quick-start.md).
+Kom igång snabbt, se [skapar din första Bing Custom Search-instans](quick-start.md).
 
-Mer information om tillgängliga alternativ för att anpassa search-instansen finns [definiera en anpassad sökning instans](define-your-custom-view.md).
+Mer information om hur du anpassar din search-instans finns i [definiera en anpassad Sökinstans](define-your-custom-view.md).
 
-Bekanta dig med de [anpassad sökning API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) referens. Referensen innehåller listan över slutpunkter, rubriker och frågeparametrar som du vill använda för att begära sökresultat. Den omfattar också definitioner av objekt som svar.
+Bekanta dig med referensinnehållet för var och en av slutpunkterna för anpassad sökning. Referensen innehåller slutpunkter, rubriker och frågeparametrar som du använder för att begära sökresultat. Den omfattar även definitioner av svarsobjekten.
 
-Information om hur du anpassar förslag finns [definiera anpassade sökförslag](define-custom-suggestions.md).
+- [API för anpassad sökning](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
+- [API för anpassad avbildning](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
+- [Anpassade Vidoe API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [Anpassade automatiska förslag API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
 
-Se till att läsa [Bing användas och visa krav](./use-and-display-requirements.md) så att du inte delar någon av reglerna om hur du använder sökresultatet.
+
+Se till att läsa [Bing Use and Display Requirements](./use-and-display-requirements.md) (Krav för användning och visning i Bing) så att du inte bryter mot någon av reglerna om användning av sökresultat.

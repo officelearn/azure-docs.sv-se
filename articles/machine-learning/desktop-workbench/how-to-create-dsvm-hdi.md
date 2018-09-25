@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 211f60b9c25b4bd20769f6a4840afaecf8373b9f
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ROBOTS: NOINDEX
+ms.openlocfilehash: 60abe46670353121ad308f8926a7ee178c76e74e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782353"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951669"
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Skapa DSVM och HDI Spark-kluster som beräkningsmål
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Du kan enkelt skala upp eller skala ut din machine learning-experiment genom att lägga till ytterligare beräkningsmål som Ubuntu-baserad DSVM (Data Science Virtual Machine) och Apache Spark för Azure HDInsight-kluster. Den här artikeln får du hjälp med att skapa dessa beräkningsmål i Azure. Mer information om Azure ML beräkningsmål som avser [översikt över Azure Machine Learning-experimentering](experimentation-service-configuration.md).
 

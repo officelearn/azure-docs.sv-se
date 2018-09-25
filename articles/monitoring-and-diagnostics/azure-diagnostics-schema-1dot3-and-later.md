@@ -6,25 +6,25 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 06/20/2018
+ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: d9d61762a2e7956c95356cb4e884675e38deeb1b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: a1f6aae69580f2afe5aceabd70cfe8e6fd3151b8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145391"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977952"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare konfigurationsschema
 > [!NOTE]
 > Azure Diagnostics-tillägget är den komponent som används för att samla in prestandaräknare och annan statistik från:
-> - Azure Virtual Machines 
+> - Azure Virtual Machines
 > - Virtual Machine Scale Sets
-> - Service Fabric 
-> - Cloud Services 
+> - Service Fabric
+> - Cloud Services
 > - Nätverkssäkerhetsgrupper
-> 
+>
 > Den här sidan gäller endast om du använder någon av dessa tjänster.
 
 Den här sidan är giltig för versioner 1.3 och senare (Azure SDK 2.4 och nyare). Nyare konfigurationsavsnitt kommenterade ska visas i vilken version de har lagts till.  
@@ -53,7 +53,7 @@ Läs mer om hur du använder Azure Diagnostics [Azure Diagnostics-tillägget](az
     <WadCfg>  
       <DiagnosticMonitorConfiguration overallQuotaInMB="10000">  
 
-        <PerformanceCounters scheduledTransferPeriod="PT1M">  
+        <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
           <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
         </PerformanceCounters>  
 
@@ -105,13 +105,19 @@ Läs mer om hur du använder Azure Diagnostics [Azure Diagnostics-tillägget](az
           <CrashDumpConfiguration processName="badapp.exe"/>  
         </CrashDumps>  
 
-        <DockerSources> <!-- Added in 1.9 --> 
+        <DockerSources> <!-- Added in 1.9 -->
           <Stats enabled="true" sampleRate="PT1M" scheduledTransferPeriod="PT1M" />
         </DockerSources>
 
       </DiagnosticMonitorConfiguration>  
 
       <SinksConfig>   <!-- Added in 1.5 -->  
+        <Sink name="AzureMonitorSink">
+            <AzureMonitor> <!-- Added in 1.11 -->
+                <resourceId>{insert resourceId}</ResourceId> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs-->
+                <Region>{insert Azure region of resource}</Region> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs -->
+            </AzureMonitor>
+        </Sink>
         <Sink name="ApplicationInsights">   
           <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>   
           <Channels>   
@@ -139,11 +145,18 @@ Läs mer om hur du använder Azure Diagnostics [Azure Diagnostics-tillägget](az
   <PrivateConfig>  <!-- Added in 1.3 -->  
     <StorageAccount name="" key="" endpoint="" sasToken="{sas token}"  />  <!-- sasToken in Private config added in 1.8.1 -->  
     <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
-   
+
+    <AzureMonitorAccount>
+        <ServicePrincipalMeta> <!-- Added in 1.11; only needed for classic VMs and Classic cloud services -->
+            <PrincipalId>{Insert service principal clientId}</PrincipalId>
+            <Secret>{Insert service principal client secret}</Secret>
+        </ServicePrincipalMeta>
+    </AzureMonitorAccount>
+
     <SecondaryStorageAccounts>
        <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net" sasToken="{sas token}" />
     </SecondaryStorageAccounts>
-   
+
     <SecondaryEventHubs>
        <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
     </SecondaryEventHubs>
@@ -153,10 +166,14 @@ Läs mer om hur du använder Azure Diagnostics [Azure Diagnostics-tillägget](az
 </DiagnosticsConfiguration>  
 
 ```  
+> [!NOTE]
+> Offentliga konfig definition för Azure Monitor-mottagare har två egenskaper, resourceId och region. Detta är endast krävs för klassiska virtuella datorer och klassiskt molntjänster. De här egenskaperna ska inte användas för Resource Manager Virtual Machines eller skalningsuppsättningar för virtuella datorer.
+> Det finns också ett ytterligare privata Config-element för Azure Monitor-mellanlagringsplatsen, som skickas i ett huvudkonto-Id och hemlighet. Detta är endast krävs för klassiska virtuella datorer och klassiskt molntjänster. För Resource Manager virtuella datorer och VMSS i Azure Monitor kan-definitionen i det privata config-elementet undantas.
+>
 
-JSON motsvarande tidigare XML-konfigurationsfilen. 
+JSON motsvarande tidigare XML-konfigurationsfilen.
 
-PublicConfig och PrivateConfig är åtskilda eftersom json användning oftast de skickas som olika variabler. Dessa objekt omfattar ofta Resource Manager-mallar, VM-skalningsuppsättningen PowerShell och Visual Studio. 
+PublicConfig och PrivateConfig är åtskilda eftersom json användning oftast de skickas som olika variabler. Dessa objekt omfattar ofta Resource Manager-mallar, VM-skalningsuppsättningen PowerShell och Visual Studio.
 
 ```json
 "PublicConfig" {
@@ -168,6 +185,7 @@ PublicConfig och PrivateConfig är åtskilda eftersom json användning oftast de
             },
             "PerformanceCounters": {
                 "scheduledTransferPeriod": "PT1M",
+                "sinks": "AzureMonitorSink",
                 "PerformanceCounterConfiguration": [
                     {
                         "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
@@ -278,6 +296,14 @@ PublicConfig och PrivateConfig är åtskilda eftersom json användning oftast de
         "SinksConfig": {
             "Sink": [
                 {
+                    "name": "AzureMonitorSink",
+                    "AzureMonitor":
+                    {
+                        "ResourceId": "{insert resourceId if a classic VM or cloud service, else property not needed}",
+                        "Region": "{insert Azure region of resource if a classic VM or cloud service, else property not needed}"
+                    }
+                },
+                {
                     "name": "ApplicationInsights",
                     "ApplicationInsights": "{Insert InstrumentationKey}",
                     "Channels": {
@@ -324,6 +350,11 @@ PublicConfig och PrivateConfig är åtskilda eftersom json användning oftast de
 }
 ```
 
+> [!NOTE]
+> Offentliga konfig definition för Azure Monitor-mottagare har två egenskaper, resourceId och region. Detta är endast krävs för klassiska virtuella datorer och klassiskt molntjänster.
+> De här egenskaperna ska inte användas för Resource Manager Virtual Machines eller skalningsuppsättningar för virtuella datorer.
+>
+
 ```json
 "PrivateConfig" {
     "storageAccountName": "diagstorageaccount",
@@ -334,6 +365,12 @@ PublicConfig och PrivateConfig är åtskilda eftersom json användning oftast de
         "Url": "https://myeventhub-ns.servicebus.windows.net/diageventhub",
         "SharedAccessKeyName": "SendRule",
         "SharedAccessKey": "{base64 encoded key}"
+    },
+    "AzureMonitorAccount": {
+        "ServicePrincipalMeta": {
+            "PrincipalId": "{Insert service principal client Id}",
+            "Secret": "{Insert service principal client secret}"
+        }
     },
     "SecondaryStorageAccounts": {
         "StorageAccount": [
@@ -357,6 +394,11 @@ PublicConfig och PrivateConfig är åtskilda eftersom json användning oftast de
 }
 
 ```
+
+> [!NOTE]
+> Det finns en ytterligare privata Config-element för Azure Monitor-mellanlagringsplatsen, som skickas i ett huvudkonto-Id och hemlighet. Detta är endast krävs för klassiska virtuella datorer och klassiskt molntjänster. För Resource Manager virtuella datorer och VMSS i Azure Monitor kan-definitionen i det privata config-elementet undantas.
+>
+
 
 ## <a name="reading-this-page"></a>Läsa den här sidan  
  De taggar som följer är ungefär i ordning som visas i föregående exempel.  Om du inte ser en fullständig beskrivning där du förväntar dig, söksida för elementet eller attributet.  
@@ -396,14 +438,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG*
- 
+
  Identifierar och konfigurerar telemetridata som ska samlas in.  
 
 
-## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration Element 
+## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration Element
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
- Krävs 
+ Krävs
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
@@ -422,14 +464,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**EtwProviders**|Se beskrivning någon annanstans på den här sidan.|  
 |**Mått**|Se beskrivning någon annanstans på den här sidan.|  
 |**PerformanceCounters**|Se beskrivning någon annanstans på den här sidan.|  
-|**WindowsEventLog**|Se beskrivning någon annanstans på den här sidan.| 
-|**DockerSources**|Se beskrivning någon annanstans på den här sidan. | 
+|**WindowsEventLog**|Se beskrivning någon annanstans på den här sidan.|
+|**DockerSources**|Se beskrivning någon annanstans på den här sidan. |
 
 
 
 ## <a name="crashdumps-element"></a>CrashDumps Element  
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
- 
+
  Aktivera insamling av kraschdumpar.  
 
 |Attribut|Beskrivning|  
@@ -442,7 +484,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**CrashDumpConfiguration**|Krävs. Definierar konfigurationsvärden för varje process.<br /><br /> Det krävs också följande attribut:<br /><br /> **processName** -namnet på processen som du vill att Azure-diagnostik för att samla in en kraschdumpfil för.|  
 
-## <a name="directories-element"></a>Kataloger Element 
+## <a name="directories-element"></a>Kataloger Element
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - kataloger*
 
  Aktiverar insamlingen av innehållet i en katalog, IIS misslyckades åtkomstloggar för begäran och/eller IIS-loggar.  
@@ -453,7 +495,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**IISLogs**|Inkludera det här elementet i konfigurationen aktiverar insamlingen av IIS-loggar:<br /><br /> **containerName** -namnet på blobbehållaren i ditt Azure Storage-konto som används för att lagra IIS-loggar.|   
 |**FailedRequestLogs**|Inkludera det här elementet i konfigurationen kan loggsamlingar om misslyckade förfrågningar till ett IIS-webbplats eller ett program. Du måste även aktivera spårningsalternativ under **system. Webbserver** i **Web.config**.|  
-|**Datakällor**|En lista över kataloger som ska övervaka.| 
+|**Datakällor**|En lista över kataloger som ska övervaka.|
 
 
 
@@ -541,14 +583,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnat Element|Beskrivning|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Det krävs följande attribut:<br /><br /> - **counterSpecifier** -namnet på prestandaräknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestandaräknare på din värd kör du kommandot `typeperf`.<br /><br /> - **sampleRate** -hur ofta räknaren ska aktiveras.<br /><br /> Valfritt attribut:<br /><br /> **enhet** -måttenhet för räknaren.|  
+|**PerformanceCounterConfiguration**|Det krävs följande attribut:<br /><br /> - **counterSpecifier** -namnet på prestandaräknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestandaräknare på din värd kör du kommandot `typeperf`.<br /><br /> - **sampleRate** -hur ofta räknaren ska aktiveras.<br /><br /> Valfritt attribut:<br /><br /> **enhet** -måttenhet för räknaren.|
+|**mottagare** | Har lagts till i 1.5. Valfri. Pekar på en plats för mottagaren att också skicka diagnostikdata. Azure Monitor eller Event Hubs.|    
 
 
 
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
- 
+
  Aktiverar insamlingen av Windows-händelseloggar.  
 
  Valfritt **scheduledTransferPeriod** attribut. Se tidigare förklaring.  
@@ -632,7 +675,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Namn**|**sträng**|Ett unikt namn för kanalen att referera till|  
 
 
-## <a name="privateconfig-element"></a>PrivateConfig Element 
+## <a name="privateconfig-element"></a>PrivateConfig Element
  *Trädet: Rot - DiagnosticsConfiguration - PrivateConfig*
 
  Har lagts till i version 1.3.  

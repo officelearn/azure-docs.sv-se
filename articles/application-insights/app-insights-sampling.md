@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/24/2017
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: b1dd37c07f3c887005d87e3231f62a4bca2f4a3d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 893495a5c37495438d9620595719ca6e733df012
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093123"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958126"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -35,7 +35,7 @@ Sampling minskar kostnader och trafik och hjälper dig att undvika begränsning.
 * Du kan också ange sampling manuellt, antingen i portalen på användning och uppskattade kostnader sida. eller i ASP.NET SDK i .config-fil. eller i Java-SDK i filen ApplicationInsights.xml också minska nätverkstrafiken.
 * Om du loggar anpassade händelser och du vill kontrollera att en uppsättning händelser är antingen bevaras eller tas bort tillsammans, se till att de har samma åtgärds-ID-värde.
 * Sampling divisorn *n* rapporteras i varje post i egenskapen `itemCount`, som i sökningen visas under namnet ”begäran antal” eller ”händelseantal”. När sampling inte är i drift, `itemCount==1`.
-* Om du skriver analysfrågor, bör du [ta hänsyn till sampling](app-insights-analytics-tour.md#counting-sampled-data). I synnerhet i stället för bara räkna poster, du bör använda `summarize sum(itemCount)`.
+* Om du skriver analysfrågor, bör du [ta hänsyn till sampling](../log-analytics/query-language/aggregations.md). I synnerhet i stället för bara räkna poster, du bör använda `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Typer av sampling
 Det finns tre alternativ sampling metoder:

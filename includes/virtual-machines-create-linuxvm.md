@@ -1,5 +1,5 @@
 
-1. Logga in på din Azure-prenumeration med hjälp av anvisningarna i [Connect to Azure from the Azure CLI 1.0](/cli/azure/authenticate-azure-cli) (Ansluta till Azure från Azure CLI 1.0).
+1. Logga in på Azure-prenumerationen med hjälp av anvisningarna i [Anslut till Azure från den klassiska Azure CLI](/cli/azure/authenticate-azure-cli).
 
 2. Se till att du använder läget för klassisk distribution:
 
@@ -52,5 +52,5 @@
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om alla dessa Azure CLI 1.0-kommandon för virtuella datorer finns i [Using the Azure CLI 1.0 with the Classic deployment API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (Använda Azure CLI 1.0 med klassisk API-distribution).
+Mer information om alla dessa Azure klassiska CLI kommandon för virtuella datorer finns den [med hjälp av Azure klassiska CLI med klassisk distribution API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 

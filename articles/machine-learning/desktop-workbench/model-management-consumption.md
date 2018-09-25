@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ROBOTS: NOINDEX
+ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972637"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950643"
 ---
 # <a name="consuming-web-services"></a>Konsumera webbtjänster
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 När du distribuerar en modell som en webbtjänst i realtid kan du skicka data och få förutsägelser från en mängd olika plattformar och program. Webbtjänsten i realtid visar ett REST-API för att få förutsägelser. Du kan skicka data till webbtjänsten i formatet för en eller flera rader att hämta en eller flera förutsägelser i taget.
 
 Med den [Azure Machine Learning-webbtjänster](model-management-service-deploy.md), kommunicerar ett externt program synkront med en förebyggande modell genom att göra HTTP POST-anrop till tjänstens URL. Om du vill göra ett webbtjänstanrop måste klientprogrammet att ange API-nyckel som skapas när du distribuerar en förutsägelse och placerar begärandedata i begärandetexten INLÄGG.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: e180f0912bdb9145f3d36492fb9bcdcb551037f0
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 56c66418b9f47e0ae0d345cd6e8a7d3ef2914b82
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022924"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986684"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
 
@@ -360,6 +360,12 @@ Granskningsloggarna är tillgängliga för Application Gateway. I portalen klick
 **FRÅGOR OCH. Kan jag ställa in aviseringar med Application Gateway?**
 
 Ja, Application Gateway har stöd för varningar, aviseringar har konfigurerats av mått. Application Gateway har för närvarande ett mått på ”dataflöde”, vilket kan konfigureras för aviseringen. Läs mer om aviseringar [Varningsaviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+
+**FRÅGOR OCH. Hur jag för att analysera trafik statistik för Application Gateway?**
+
+Du kan visa och analysera loggar för åtkomst via ett antal metoder, till exempel Azure Log Analytics, Excel, Power BI osv.
+
+Vi har också publicerat en Resource Manager-mall som installerar och kör populära [GoAccess](https://goaccess.io/) logga analyzer för Åtkomstloggar för Application Gateway. GoAccess ger värdefull HTTP-trafik statistik, till exempel unika besökare, begärt filer, värdar, operativsystem, webbläsare, HTTP-statuskoder och mycket mer. Mer information finns i den [Readme-filen i mallmappen för Resource Manager-i GitHub](https://aka.ms/appgwgoaccessreadme).
 
 **FRÅGOR OCH. Serverdelens hälsotillstånd returnerar okänd status, vad som kan vara orsaken denna status?**
 

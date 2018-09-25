@@ -19,7 +19,7 @@ Följ stegen nedan för att installera och konfigurera `kubectl` på datorn.
 > 
 
 ### <a name="install-kubectl"></a>Installera kubectl
-Ett sätt att installera det här verktyget är att använda kommandot `az acs kubernetes install-cli` från Azure CLI 2.0. Om du vill köra det här kommandot, se till att du [installerat](/cli/azure/install-az-cli2) senaste Azure CLI 2.0 och logga ut från ett Azure-konto (`az login`).
+Ett sätt att installera det här verktyget är att använda den `az acs kubernetes install-cli` Azure CLI-kommando. Om du vill köra det här kommandot, se till att du [installerat](/cli/azure/install-az-cli2) den senaste versionen av Azure CLI och är inloggad på ett Azure-konto (`az login`).
 
 ```azurecli
 # Linux or macOS
@@ -32,7 +32,7 @@ az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 Du kan också hämta den senaste `kubectl`-klienten direkt på [Kubernetes-sidan med versioner](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Mer information finns i [Installera och konfigurera kubectl](https://kubernetes.io/docs/tasks/kubectl/install/).
 
 ### <a name="download-cluster-credentials"></a>Hämta autentiseringsuppgifter för kluster
-När du har installerat `kubectl` måste du kopiera klustrets autentiseringsuppgifter till datorn. Ett sätt att hämta autentiseringsuppgifterna är att använda kommandot `az acs kubernetes get-credentials`. Ange namnet på resursgruppen och namnet på behållartjänstens resurs:
+När du har installerat `kubectl` måste du kopiera klustrets autentiseringsuppgifter till datorn. Ett sätt att hämta autentiseringsuppgifterna är att använda kommandot `az acs kubernetes get-credentials`. Ange namnet på resursgruppen och namnet på containertjänstens resurs:
 
 ```azurecli
 az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
@@ -79,13 +79,13 @@ Om du vill använda DC/OS- och Docker Swarm-kluster som distribueras av Azure Co
 Det första du ska göra när du ska skapa en SSH-tunnel i Linux eller macOS är att leta upp det offentliga DNS-namnet på belastningsutjämnade huvudservrar. Följ de här stegen:
 
 
-1. På [Azure Portal](https://portal.azure.com) bläddrar du till resursgruppen som innehåller behållartjänstens kluster. Expandera resursgruppen så att varje resurs visas. 
+1. På [Azure Portal](https://portal.azure.com) bläddrar du till resursgruppen som innehåller containertjänstens kluster. Expandera resursgruppen så att varje resurs visas. 
 
 2. Klicka på resursen för **Container Service** och klicka sedan på **Översikt**. **Master-FQDN** för klustret visas under **Essentials**. Spara det här namnet för senare användning. 
 
     ![Offentligt DNS-namn](./media/container-service-connect/pubdns.png)
 
-    Du kan också köra `az acs show`-kommandot i behållartjänsten. Leta reda på egenskapen **Master Profile:fqdn** i utdata från kommandot.
+    Du kan också köra `az acs show`-kommandot i containertjänsten. Leta reda på egenskapen **Master Profile:fqdn** i utdata från kommandot.
 
 3. Öppna ett gränssnitt och kör `ssh`-kommandot genom att ange följande värden: 
 
@@ -194,7 +194,7 @@ När du har konfigurerat tunneln för DC/OS kan du komma åt de relaterade slutp
 När du har konfigurerat tunneln för Docker Swarm öppnar du Windows-inställningarna och konfigurerar en systemmiljövariabel med namnet `DOCKER_HOST` och värdet `:2375`. Därefter kan du använda Swarm-klustret via Docker CLI.
 
 ## <a name="next-steps"></a>Nästa steg
-Distribuera och hantera behållare i klustret:
+Distribuera och hantera containrar i klustret:
 
 * [Arbeta med Azure Container Service och Kubernetes](../articles/container-service/kubernetes/container-service-kubernetes-ui.md)
 * [Arbeta med Azure Container Service och DC/OS](../articles/container-service//dcos-swarm/container-service-mesos-marathon-rest.md)

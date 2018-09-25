@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 395080409b06ef868b28550a21dc177e9dd28a05
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580539"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033931"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Vad du gör om ett avbrott i Azure Storage inträffar?
 På Microsoft arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga. Ibland tvingar utöver vårt styr hur oss på ett sätt som kan leda till oplanerade driftstopp i en eller flera regioner. För att hjälpa dig att hantera dessa sällsynta förekomster, tillhandahåller vi följande övergripande riktlinjer för Azure Storage-tjänster.
@@ -43,18 +43,16 @@ Om du har valt [Read-access geo-redundant lagring (RA-GRS)](storage-redundancy-g
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Vad som händer om det uppstår redundans lagring
 Om du har valt [Geo-redundant lagring (GRS)](storage-redundancy-grs.md) eller [Read-access geo-redundant lagring (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (rekommenderas), Azure Storage håller dina data varaktiga i två regioner (primär eller sekundär). I båda regionerna underhåller Azure Storage ständigt flera kopior av dina data.
 
-När ett regionalt haveri påverkar den primära regionen, försöker vi först återställa tjänsten i den regionen att ge den bästa kombinationen av RTO och RPO. Beroende på typen av katastrofen och dess påverkan, i vissa sällsynta fall visar vi kanske inte kan återställa den primära regionen. Då ska vi köra en geo-redundansväxling. Replikering av data över flera regioner är en asynkron åtgärd som inbegriper en fördröjning, så det är möjligt att ändringar som ännu inte har replikerats till den sekundära regionen kan gå förlorade. Du kan fråga den [”senaste synkroniseringstid” som för ditt lagringskonto](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) att få information om replikeringsstatus.
+När ett regionalt haveri påverkar den primära regionen, försöker vi först återställa tjänsten i den regionen att ge den bästa kombinationen av RTO och RPO. Beroende på typen av katastrofen och dess påverkan, i vissa sällsynta fall visar vi kanske inte kan återställa den primära regionen. Då ska vi köra en geo-redundansväxling. Replikering av data över flera regioner är en asynkron åtgärd som inbegriper en fördröjning, så det är möjligt att ändringar som ännu inte har replikerats till den sekundära regionen kan gå förlorade.
 
 Ett antal punkter angående lagring geo-redundansväxling upplevelse:
 
 * Storage geo-redundansväxling aktiveras endast av Azure Storage-teamet – det finns ingen kundåtgärd krävs. Redundansen utlöses när Azure Storage-teamet har uttömt alla alternativ för återställning av data i samma region, vilket ger den bästa kombinationen av RTO och RPO.
 * Din befintliga lagring Tjänsteslutpunkter för blobbar, tabeller, köer och filer förblir detsamma efter redundansen; från Microsoft DNS-posten måste uppdateras om du vill växla från den primära regionen till den sekundära regionen. Microsoft utför den här uppdateringen automatiskt som en del av geo-redundansväxling.
 * Före och under geo-redundansväxling du har inte skrivbehörighet till storage-kontot på grund av effekten av katastrofen, men du kan ändå läsa från sekundärt om ditt lagringskonto har konfigurerats som RA-GRS.
-* När geo-redundansväxling har slutförts och DNS-ändringarna spridits, kommer Läs- och skrivåtkomst till ditt storage-konto att återupptas; Detta pekar på det som brukade vara din sekundära slutpunkten. 
-* Observera att du har skrivbehörighet om du har GRS eller RA-GRS som konfigurerats för lagringskontot. 
-* Du kan fråga [”Geo redundans senast” på ditt lagringskonto](https://msdn.microsoft.com/library/azure/ee460802.aspx) att få mer information.
+* När geo-redundansväxling har slutförts och DNS-ändringarna spridits, återställs Läs- och skrivåtkomst till ditt storage-konto om du har GRS eller RA-GRS. Den slutpunkt som tidigare var den sekundära slutpunkten blir den primära slutpunkten. 
+* Du kan kontrollera status för den primära platsen och frågan senast geo-redundans för ditt lagringskonto. Mer information finns i [Lagringskonton – hämta egenskaper](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/getproperties).
 * Efter redundansen kan ditt storage-konto kommer att fungera helt och hållet, men i ett ”försämrat” tillstånd eftersom den är värd för en fristående region med ingen geo-replikering möjligt. För att minska denna risk avslöjar vi återställer den ursprungliga primära regionen och gör sedan en geo-återställning efter fel för att återställa det ursprungliga tillståndet. Om den ursprungliga primära regionen är ett oåterkalleligt, kommer vi tilldela en annan sekundär region.
-  Mer information om infrastrukturen i Azure Storage geo-replikering finns i artikeln om Storage-teamets blogg om [alternativ för dataredundans och RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ## <a name="best-practices-for-protecting-your-data"></a>Metodtips för att skydda dina data
 Det finns några rekommenderade metoder för att säkerhetskopiera dina storage-data med jämna mellanrum.

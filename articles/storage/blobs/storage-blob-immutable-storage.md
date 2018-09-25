@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: e6b016d437011f8e9ebe3e2d3a6f3c9f737f6ecc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 14b5dfb0a12df6c5251ee9f9e6b35a7ce527a1d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129581"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961985"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store verksamhetskritiska data i Azure Blob storage
 
@@ -95,7 +95,7 @@ Det finns ingen extra kostnad för att använda den här funktionen. Oföränder
 
 ## <a name="getting-started"></a>Komma igång
 
-De senaste versionerna av den [Azure-portalen](http://portal.azure.com) och [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) samt förhandsversionen av [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) stöder inte kan ändras lagring för Azure Blob storage.
+De senaste versionerna av den [Azure-portalen](http://portal.azure.com) och [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) samt förhandsversionen av [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) stöder inte kan ändras lagring för Azure Blob storage.
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -131,7 +131,7 @@ De senaste versionerna av den [Azure-portalen](http://portal.azure.com) och [Azu
 
 8. Om du vill ta bort ett bevarande av juridiska skäl, helt enkelt ta bort taggen.
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Funktionen ingår i följande kommando grupper: `az storage container immutability-policy` och `az storage container legal-hold`. Kör `-h` på dem för att se kommandona.
 

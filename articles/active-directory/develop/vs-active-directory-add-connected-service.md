@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 2e446bad042965e8466e74b9b1abd8661ea88f8b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 9b61362525962c5e01d7fef6d317cf9861dfd0a3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056459"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977901"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Att lägga till en Azure Active Directory med hjälp av Connected Services i Visual Studio
 
@@ -35,7 +35,7 @@ För närvarande stöder inte tjänsten Active Directory-anslutna ASP.NET Core-p
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Ansluta till Azure Active Directory genom att använda dialogen Connected Services
 
-1. Skapa eller öppna ett ASP.NET MVC-projekt eller ett ASP.NET Web API-projekt i Visual Studio. Du kan använda MVC, webb-API, den enda sidan program, Azure API Apps, Azure Mobile-appen och mallar för Azure mobila tjänster.
+1. Skapa eller öppna ett ASP.NET MVC-projekt eller ett ASP.NET Web API-projekt i Visual Studio. Du kan använda MVC, webb-API, Single-Page Application, Azure API Apps, Azure Mobile-appen och mallar för Azure mobila tjänster.
 
 1. Välj den **projekt > Lägg till Connected Service...**  menyalternativ eller dubbelklicka på den **Connected Services** nod finns under projektet i Solution Explorer.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: f81ef3c231874f314d6fe023ba247a0bcff61e90
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 6535eee93b0fcaa2c0888fc6b647811c21e564d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42055381"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971917"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>Konfigurera och övervaka IoT-enheter i stor skala med Azure CLI
 
@@ -34,8 +34,8 @@ Automatisk konfigurationer arbete genom att uppdatera en uppsättning enhetstvil
 ## <a name="cli-prerequisites"></a>CLI-krav
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i Azure-prenumerationen. 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Din Azure CLI 2.0-version måste vara 2.0.24 eller senare. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
-* Den [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Azure CLI-version måste minst vara 2.0.24 eller senare. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
+* Den [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implementera enhetstvillingar för att konfigurera enheter
 
@@ -56,7 +56,7 @@ Innan du kan skapa en konfiguration, måste du ange vilka enheter som du vill p�
 
 ## <a name="define-the-target-content-and-metrics"></a>Definiera rikta innehåll och mått
 
-Rikta innehåll och mått frågor har angetts som JSON-dokument som beskriver enheten twin önskade egenskaper i vara uppsättning och rapporterade egenskaper som ska mätas.  Om du vill skapa en automatisk konfiguration med Azure CLI 2.0, spara rikta innehåll och mått lokalt som .txt-filer. Du kan använda sökvägarna i ett senare nästa avsnitt när du kör kommandot för att tillämpa konfigurationen på din enhet. 
+Rikta innehåll och mått frågor har angetts som JSON-dokument som beskriver enheten twin önskade egenskaper i vara uppsättning och rapporterade egenskaper som ska mätas.  Om du vill skapa en automatisk konfiguration med hjälp av Azure CLI, spara rikta innehåll och mått lokalt som .txt-filer. Du använder sökvägarna i ett senare nästa avsnitt när du kör kommandot för att tillämpa konfigurationen på din enhet. 
 
 Här är ett grundläggande mål innehåll exempel:
 

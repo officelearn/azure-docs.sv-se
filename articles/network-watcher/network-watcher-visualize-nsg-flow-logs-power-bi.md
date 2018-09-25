@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 8f5bb54e12348fd915b2c4413bbacdc083a2a879
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bcd67d2e879d199296289dbaef2141ba659b2412
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056224"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032692"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizing Nätverkssäkerhetsgrupp flödesloggar med Power BI
 
@@ -54,7 +54,7 @@ Du måste också ha Power BI Desktop klienten är installerad på din dator och 
 1. Ladda ned och öppna följande Power BI-mall i Power BI Desktop programmet [flödesloggarna i Network Watcher PowerBI mall](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Ange de obligatoriska parametrarna i frågan
     1. **StorageAccountName** – anger namnet på lagringskontot som innehåller NSG-flödesloggar som du vill läsa in och visualisera.
-    1. **NumberOfLogFiles** – anger hur många loggfiler som du vill ladda ned och visualisera i Power BI. Om 50 anges, till exempel de 50 senaste loggfilerna. FF har vi 2 NSG: er aktiveras och konfigureras att skicka NSG-flödesloggar till det här kontot och de senaste 25 timmarna av loggar kan visas.
+    1. **NumberOfLogFiles** – anger hur många loggfiler som du vill ladda ned och visualisera i Power BI. Om 50 anges, till exempel de 50 senaste loggfilerna. Om vi har 2 NSG: er aktiveras och konfigureras att skicka NSG-flödesloggar till det här kontot kan de senaste 25 timmarna av loggar ses.
 
     ![Power BI main][2]
 

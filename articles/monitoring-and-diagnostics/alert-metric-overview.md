@@ -1,0 +1,96 @@
+---
+title: Förstå hur arbetet aviseringar i mått i Azure Monitor.
+description: Få en översikt över vad du kan göra med måttaviseringar och hur de fungerar i Azure Monitor.
+author: snehithm
+ms.author: snmuvva
+ms.date: 9/18/2018
+ms.topic: conceptual
+ms.service: azure-monitor
+ms.component: alerts
+ms.openlocfilehash: 1ec47ddf5769dd8ed624277a86db57f449581b90
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948697"
+---
+# <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur arbetet aviseringar i mått i Azure Monitor
+
+Måttaviseringar i Azure Monitor ovanpå flerdimensionella mått. De här måtten kan vara plattform mått, anpassade mått (förhandsversion), populära loggar från Log Analytics konverteras till mått, standardmått i Application Insights. Måttaviseringar utvärderar med jämna mellanrum för att kontrollera om villkor på ett mått eller en tidsserie är sanna och meddelar dig när utvärderingarna är uppfyllda. Måttaviseringar är tillståndskänsliga det vill säga de endast skicka ut meddelanden när tillståndet ändras.
+
+## <a name="how-do-metric-alerts-work"></a>Hur fungerar måttaviseringar
+
+Du kan definiera en måttaviseringsregel genom att ange en målresurs används för att vara övervakade mått namn och villkoret (en operator och ett tröskelvärde) och en åtgärdsgrupp att utlösas när aviseringsregeln utlöses.
+Anta att du har skapat en enkel måttaviseringsregel på följande sätt:
+
+- Målresurs (Azure-resursen du vill övervaka): myVM
+- Mått: Procent CPU
+- Tidsmängd (statistik som körs över råa måttvärden. Stöds tid aggregeringar är Min, Max, Avg, totalt): genomsnittlig
+- Period (titt tillbaka fönstret över vilka mått värden kontrolleras): under de senaste 5 minuterna
+- Frequency (frekvens som kontrollerar metrisk varning om villkoren uppfylls): 1 min
+- Operatorn: Är större än
+- Tröskelvärde: 70
+
+Från den tidpunkt som regeln har skapats körs var 1 min övervakaren och tittar på måttvärden under de senaste 5 minuterna och kontrollerar om medelvärdet för de här värdena överskrider 70. Om villkoret är uppfyllt det vill säga, den genomsnittliga CPU procent under de senaste 5 minuterna överskrider 70, aviseringsregeln utlöses ett meddelande om aktiverad. Om du har konfigurerat ett e-postmeddelande eller en web hook-åtgärd i åtgärdsgruppen som associeras med varningsregeln, får du ett meddelande som är aktiverad på båda.
+
+Den här specifika instansen av varningsregel detonation kan även visas i Azure portal på bladet alla aviseringar.
+
+T.ex, användningen på ”myVM” fortsätter att tröskelvärdet i efterföljande kontroller, aviseringsregeln utlöses inte igen tills villkoret har åtgärdats.
+
+När om en stund, om användningen på ”myVM” kommer tillbaka till normal det vill säga sjunker till under det angivna tröskelvärdet. Varningsregeln övervakar villkoret för två gånger, skicka ut en löst avisering. Varningsregeln skickar ut ett meddelande som löst/inaktiveras när aviseringstillståndet inte uppfylls för tre punkter att minska bruset vid växlar villkor.
+
+Som lösts meddelandet skickas via webhooks eller e-postmeddelandet, anges status för aviseringsinstansen (kallas övervakningstillstånd) i Azure-portalen också till löst.
+
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Övervakning i stor skala med måttaviseringar i Azure Monitor
+
+### <a name="using-dimensions"></a>Med hjälp av dimensioner
+
+Måttaviseringar i Azure Monitor har också stöd för övervakning av flera kombinationer av dimension värden med en regel. Låt oss se varför du kanske använder flera dimensionskombinationer av med hjälp av ett exempel.
+
+Anta att du har en apptjänstplan för din webbplats. Du vill övervaka CPU-användningen på flera instanser som kör appen/webbplatsen. Du kan göra det med en måttaviseringsregel enligt följande
+
+- Målresurs: myAppServicePlan
+- Mått: Procent CPU
+- Dimensioner
+  - Instans = InstanceName1 InstanceName2
+- Tidsmängd: genomsnittlig
+- Period: under de senaste 5 minuterna
+- Frekvens: 1 min
+- Operatorn: GreaterThan
+- Tröskelvärde: 70
+
+Som innan den här regeln övervakar om den genomsnittliga CPU-användningen under de senaste 5 minuterna överskrider 70%. Du kan dock övervaka två instanser som kör din webbplats med samma regel. Varje instans kommer få övervakas individuellt och du får meddelanden individuellt.
+
+Anta att att du har en webbapp som ser enorma begäran och du behöver du lägga till fler instanser. Ovanstående övervakar fortfarande bara två instanser. Du kan dock skapa en regel på följande sätt.
+
+- Målresurs: myAppServicePlan
+- Mått: Procent CPU
+- Dimensioner
+  - Instans = *
+- Tidsmängd: genomsnittlig
+- Period: under de senaste 5 minuterna
+- Frekvens: 1 min
+- Operatorn: GreaterThan
+- Tröskelvärde: 70
+
+Den här regeln kommer automatiskt att övervaka alla värden för instans-dvs Du kan övervaka dina instanser när de uppstår utan att behöva ändra dina måttaviseringsregel igen.
+
+### <a name="monitoring-multiple-resource-using-metric-alerts"></a>Övervakning av flera resursen med hjälp av måttaviseringar
+
+När du har sett i föregående avsnitt, är det möjligt att ha en enda måttaviseringsregel som övervakar varje dimensionskombination för enskilda (dvs.) en metrisk tidsserie). Du är fortfarande begränsad till det utförs på en resurs i taget. Måttaviseringar nu stöd också för övervakning av flera resurser med en regel i en förhandsversion. Om du har 100-tal för virtuella datorer i din prenumeration kan den här nya funktionen hjälper dig att snabbt ställa in övervakning för dem. 
+
+Den här funktionen är för närvarande en förhandsversion. Skapa måttvarningsregler som övervakar flera resurser stöds inte för närvarande via Azure-portalen. Du kan skapa dessa regler via Azure Resource Manager-mallar.
+
+## <a name="typical-latency"></a>Typisk svarstid
+
+För måttaviseringar, vanligtvis meddelas du inom 5 minuter om du ställer in frekvensen varningsregeln ska vara 1 min. Du kan se en längre svarstid i fall av hård belastning för meddelandesystem.
+
+## <a name="supported-resource-types-for-metric-alerts"></a>Resurstyper som stöds för måttaviseringar
+
+Du hittar en fullständig lista över resurstyper som stöds i den här [artikel](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Lär dig att skapa, visa och hantera aviseringar för mått i Azure](alert-metric.md)
+- [Lär dig hur du distribuerar måttaviseringar med hjälp av Azure Resource Manager-mallar](monitoring-create-metric-alerts-with-templates.md)
+- [Läs mer om åtgärdsgrupper](monitoring-action-groups.md)

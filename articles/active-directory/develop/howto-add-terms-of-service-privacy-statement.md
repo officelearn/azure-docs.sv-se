@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: cb05139241f92eb930a99c387e2f06cabac35caf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581736"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990509"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Användningsvillkor och sekretesspolicy för registrerade Azure Active Directory-appar
 
@@ -54,12 +54,14 @@ Exempel: `https://myapp.com/terms-of-service` och `https://myapp.com/privacy-sta
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Att lägga till användningsvillkor och sekretesspolicy
 
 När användningsvillkor och sekretesspolicy är redo kan du lägga till länkar till dessa dokument i din app med någon av följande metoder:
+
 * [Via Azure portal](#registered-in-azure-portal)
 * [I Programregistreringsportalen eller Dev Center](#registered-in-app-reg-portal)
 * [Med det app-objektet JSON](#app-object-json)
 * [Med hjälp av MSGraph beta REST API](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Om du har registrerat din app i Azure portal
+
 Följ dessa steg om du har registrerat din app i Azure-portalen.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/).
@@ -68,9 +70,10 @@ Följ dessa steg om du har registrerat din app i Azure-portalen.
 4. Fyll i **villkoren av tjänstens URL** och **URL till sekretesspolicy** fält.
 5. Spara ändringarna.
 
-![App properties-avsnittet med villkor för och sekretesspolicy instruktionen URL: er](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![App properties-avsnittet med villkor för och sekretesspolicy instruktionen URL: er](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>Om du har registrerat din app i portalen för registrering av program
+
 Följ dessa steg om du registrerade din app på Programregistreringsportalen eller Dev Center.
 
 1. Logga in på den [Programregistreringsportalen](https://apps.dev.microsoft.com/).
@@ -78,9 +81,10 @@ Följ dessa steg om du registrerade din app på Programregistreringsportalen ell
 3. Fyll i **villkoren av tjänstens URL** och **URL till sekretesspolicy** fält.
 4. Spara ändringarna.
 
-![App profilavsnittet med villkor för och sekretesspolicy instruktionen URL: er](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![App profilavsnittet med villkor för och sekretesspolicy instruktionen URL: er](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Med det app-objektet JSON
+
 Om du föredrar att ändra objektet app JSON direkt, kan du använda manifest-redigeraren i Azure portal eller Programregistreringsportalen för att innehålla länkar till appens användningsvillkor och sekretesspolicy.
 
 ```json
@@ -91,6 +95,7 @@ Om du föredrar att ändra objektet app JSON direkt, kan du använda manifest-re
 ```
 
 ### <a name="msgraph-beta-rest-api"></a>Med hjälp av MSGraph beta REST API
+
 För att programmässigt uppdatera alla dina appar, kan du använda MSGraph beta REST API för att uppdatera alla dina appar för att innehålla länkar till tillhörande användningsvillkor och sekretesspolicy instruktionen dokument.
 
 ```

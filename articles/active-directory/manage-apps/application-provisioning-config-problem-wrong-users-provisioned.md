@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2c2dd2208cf910456fa8f94ca739b7ef8875d475
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: df32ed7a6d3bc0c9e349f576f5f48832bf9906dd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357595"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041931"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Fel uppsättning användare etableras till en Azure AD-galleriprogram
 
@@ -109,7 +109,7 @@ Om etablering har konfigurerats och körs redan för en app kan nya användare s
 >
 >
 
-Om etablering grupper är aktiverad, bör du granska attributmappningar för att säkerställa att ett lämpligt fält som används för ”matchande ID”. Detta kan vara namnet eller e-post alias, som gruppen och dess medlemmar inte etableras om matchning av egenskap är tom eller inte fyllts i för en grupp i Azure AD.
+Om etablering grupper är aktiverad, bör du granska attributmappningar för att säkerställa att ett lämpligt fält som används för ”matchande ID”. Den här matchande ID kan vara Visa namn eller e-postalias. Gruppen och dess medlemmar tillhandahålls inte om egenskapen matchande är tom eller inte fylls i automatiskt för en grupp i Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md)

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 8bebec23d7a0199d8efbc55b3cde50c628306f01
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970302"
+ms.locfileid: "47034376"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Hantera API-versionsprofiler i Azure Stack
 
@@ -86,7 +86,7 @@ En profil är en kombination av olika resurstyper med olika versioner från olik
 - **Ruby**  
 Ruby SDK för Azure Stack Resource Manager innehåller verktyg som hjälper dig att skapa och hantera infrastrukturen. Resursprovidrar i SDK innehåller beräkning, virtuella nätverk och lagring med Ruby-språket. Mer information finns i [Använd API-versionsprofiler med Ruby](azure-stack-version-profiles-ruby.md)
 - **Python**  
-- Python SDK har stöd för API-versionsprofiler för att rikta olika plattformar, till exempel Azure Stack och globala Azure. Du kan använda API-profiler i att skapa lösningar för ett hybridmoln. Mer information finns i [Använd API-versionsprofiler med Python](azure-stack-version-profiles-python.md)
+Python SDK har stöd för API-versionsprofiler för att rikta olika plattformar, till exempel Azure Stack och globala Azure. Du kan använda API-profiler i att skapa lösningar för ett hybridmoln. Mer information finns i [Använd API-versionsprofiler med Python](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

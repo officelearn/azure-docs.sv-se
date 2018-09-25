@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 10e39a205950d50794169e9bedaa65f480f1e9b5
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 91e9cb6b436cc78a0c5bd4769d38622abda4c04d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35756047"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977578"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att göra från kommandoraden eller från portalen att skapa en Linux-dator (VM). Den här självstudien Lär dig att se till att du har konfigurerat den för att optimera prestanda på Microsoft Azure-plattformen. Det här avsnittet använder en dator med Ubuntu Server, men du kan också skapa Linux virtuell dator med hjälp av [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Förutsättningar
-Det här avsnittet förutsätter att du redan har ett aktivt Azure-prenumeration ([kostnadsfria registreringsstegen](https://azure.microsoft.com/pricing/free-trial/)) och redan har etablerat en virtuell dator på Azure-prenumerationen. Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerat och loggat in på Azure-prenumerationen med [az-inloggning](/cli/azure/reference-index#az_login) innan du [skapa en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Det här avsnittet förutsätter att du redan har ett aktivt Azure-prenumeration ([kostnadsfria registreringsstegen](https://azure.microsoft.com/pricing/free-trial/)) och redan har etablerat en virtuell dator på Azure-prenumerationen. Se till att du har senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in på Azure-prenumerationen med [az-inloggning](/cli/azure/reference-index#az_login) innan du [skapa en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS-Disk
 När du skapar en Linux VM i Azure har två diskar som är kopplade till den. **/ dev/sda** är din OS-disk, **/dev/sdb** din temporär disk.  Använd inte den huvudsakliga OS-disken (**/dev/sda**) för något annat än operativsystemet som det är optimerat för snabb VM boot-tid och ger inte bra prestanda för dina arbetsbelastningar. Du vill koppla en eller flera diskar till den virtuella datorn ska hämta beständiga och optimerad lagring för dina data. 
@@ -42,7 +42,7 @@ Att uppnå högsta IOps på Premium-lagringsdiskar där cacheinställningarna ha
 * Om du använder **XFS**, inaktivera hinder med alternativet montera `nobarrier` (Använd alternativet för att aktivera hinder `barrier`)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Överväganden för ohanterade lagring-konto
-Standardåtgärden när du skapar en virtuell dator med Azure CLI 2.0 är att använda Azure Managed Disks.  De här diskarna hanteras av Azure-plattformen och kräver inte någon förberedelser eller plats för att lagra dem.  Ohanterade diskar kräver ett lagringskonto och har några ytterligare prestandaöverväganden.  Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md).  I följande avsnitt beskrivs prestandaöverväganden bara när du använder ohanterade diskar.  Igen, standard och rekommenderade lagringslösning är att använda hanterade diskar.
+Standardåtgärden när du skapar en virtuell dator med Azure CLI är att använda Azure Managed Disks.  De här diskarna hanteras av Azure-plattformen och kräver inte någon förberedelser eller plats för att lagra dem.  Ohanterade diskar kräver ett lagringskonto och har några ytterligare prestandaöverväganden.  Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md).  I följande avsnitt beskrivs prestandaöverväganden bara när du använder ohanterade diskar.  Igen, standard och rekommenderade lagringslösning är att använda hanterade diskar.
 
 Om du skapar en virtuell dator med ohanterade diskar, se till att koppla diskar från storage-konton som finns i samma region som den virtuella datorn ska kontrollera nära varandra och minimerar svarstiden i nätverket.  Varje lagringskonto av standardtyp har högst 20 k IOps och en kapacitet på 500 TB storlek.  Den här gränsen fungerar till cirka 40 hårt belastat diskar både för OS-disken och eventuella datadiskar som du skapar. Det finns ingen högsta IOps-gräns för Premium Storage-konton, men det finns en storleksgräns för 32 TB. 
 

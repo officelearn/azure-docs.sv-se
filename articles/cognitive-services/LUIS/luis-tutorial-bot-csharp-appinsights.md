@@ -1,24 +1,26 @@
 ---
-title: Lägg till LUIS-data till Application Insights med C# | Microsoft Docs
-titleSuffix: Azure
+title: Application Insights-data från LUIS med C#
+titleSuffix: Azure Cognitive Services
 description: Skapa en robot som är integrerad med en LUIS-programmet och Application Insights med C#.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: f1efe305f5659bfab50cee13ac30d56531cc6093
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 83ad70e1242af1e01af06206a3a141f455072a44
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237799"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038960"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>Lägg till LUIS resultaten till Application Insights från en web app-robot
-Den här självstudien lägger till LUIS Svarsinformation till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller PowerBi aggregeras, om du vill analysera och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
+# <a name="add-luis-results-to-application-insights"></a>Lägg till LUIS resultaten till Application Insights
+Den här självstudien lägger till LUIS Svarsinformation till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller PowerBi aggregeras, om du vill analysera och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen. 
+
+Roboten har byggts med Bot Framework 3.x och Azure Web app-robot.
 
 I den här guiden får du lära dig att:
 
@@ -231,7 +233,7 @@ Application Insights ger dig möjlighet att fråga efter data med den [Kusto](ht
     ![Anpassade analysrapporten](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
 
-Läs mer om den [Kusto-frågespråket](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) eller [exportera data till Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Läs mer om den [Kusto-frågespråket](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) eller [exportera data till Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 
 ## <a name="learn-more-about-bot-framework"></a>Läs mer om Bot Framework

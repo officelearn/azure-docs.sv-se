@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 1fee9e511b251648adb412fe3e4ca01c20c7edc5
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 8a4016a227f4f464d839c01cea38965aa06932c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058466"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963721"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Skapa en Programgateway med intern omdirigering med Azure CLI
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

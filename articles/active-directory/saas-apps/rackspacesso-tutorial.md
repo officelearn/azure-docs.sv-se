@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/20/2018
 ms.author: jeedes
-ms.openlocfilehash: e7a4dd57c7da3350e610b5f005aa59ea9d51dd56
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b825fb1d7f56aae923f6760c4fd6384e03274b7a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607789"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Självstudier: Azure Active Directory-integration med Rackspace SSO
 
@@ -49,12 +49,14 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
+
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Rackspace SSO från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-rackspace-sso-from-the-gallery"></a>Att lägga till Rackspace SSO från galleriet
+
 Om du vill konfigurera integreringen av Rackspace SSO till Azure AD, som du behöver lägga till Rackspace SSO från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Rackspace SSO från galleriet:**
@@ -66,7 +68,7 @@ Om du vill konfigurera integreringen av Rackspace SSO till Azure AD, som du beh�
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
-    
+
 3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
@@ -100,7 +102,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning för länken][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning för dialogrutan](./media/rackspacesso-tutorial/tutorial_rackspacesso_samlbase.png)
 
 3. På den **Rackspace SSO domän och URL: er** avsnittet, utför följande steg:
@@ -111,7 +113,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/rackspacesso-tutorial/tutorial_rackspacesso_certificate.png) 
+    ![Länk för hämtning av certifikat](./media/rackspacesso-tutorial/tutorial_rackspacesso_certificate.png)
 
 5. Klicka på **spara** knappen.
 
@@ -150,16 +152,16 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
 
     d. Klicka på **Skapa**.
- 
+
 ### <a name="create-a-rackspace-sso-test-user"></a>Skapa en testanvändare Rackspace SSO
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Rackspace SSO. Arbeta med [Rackspace SSO-supportteamet](https://support.rackspace.com/) att lägga till användare i Rackspace SSO-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet ska du arbetar med [Rackspace SSO-supportteamet](https://support.rackspace.com/) att publicera ditt konto i Rackspace SSO-plattformen.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Rackspace SSO.
 
-![Tilldela rollen][200] 
+![Tilldela rollen][200]
 
 **Om du vill tilldela Britta Simon Rackspace SSO, utför du följande steg:**
 
@@ -184,7 +186,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
 7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
@@ -196,8 +198,6 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 
 * [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -212,4 +212,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 [201]: ./media/rackspacesso-tutorial/tutorial_general_201.png
 [202]: ./media/rackspacesso-tutorial/tutorial_general_202.png
 [203]: ./media/rackspacesso-tutorial/tutorial_general_203.png
-

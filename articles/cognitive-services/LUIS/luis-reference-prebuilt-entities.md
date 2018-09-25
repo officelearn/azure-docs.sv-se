@@ -1,21 +1,21 @@
 ---
-title: LUIS fördefinierade entitetsreferenser – Azure | Microsoft Docs
-titleSuffix: Azure
+title: Fördefinierade entiteter - LUIS
+titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller en lista över de fördefinierade entiteter som ingår i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 731ac279b4b0c162809d8e0638b9337924859b3d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6e38718f14fa5c7cb8455d6c6e7bd5421d70b553
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238837"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034493"
 ---
 # <a name="entities-per-culture"></a>Entiteter per kultur
 
@@ -28,17 +28,19 @@ Fördefinierade entitet   |   Engelska (USA)<br>```En-us```   |   Franska (Frank
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>DateRange<br>time<br>timerange   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   -   |   ✔   |   -   |   -   |   -   |   -   |   -   |
 [Dimensionen](luis-reference-prebuilt-dimension.md):<br>volym<br>området<br>vikt<br>information (t.ex.: bitars/byte)<br>längden (ex: mätaren)<br>hastighet (ex: mil per timme)  |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   |   ✔   |   ✔   |   ✔   |   -   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |
 [Antal](luis-reference-prebuilt-number.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   |    -   |    -   |    -   |    ✔   |    -   |    -   |    -   |   -   |   -   |   -   |   -   |
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>rankine<br>delisle<br>Celsius   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 
 Se information på [inaktuell fördefinierade entiteter](luis-reference-prebuilt-deprecated.md)
 
-KeyPhrase är inte tillgänglig i alla underordnade kulturer av portugisiska (Brasilien) - ```pt-BR```.
+KeyPhrase är inte tillgänglig i alla subkulturer av portugisiska (Brasilien) - ```pt-BR```.
 
 <!--
 ## Examples of prebuilt entities in en-us culture
@@ -66,7 +68,7 @@ Prebuilt entity   |   Example utterance   |   JSON
 -->
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Bidra till fördefinierade entitet kulturer
-Fördefinierade entiteter har utvecklats i identifierare fulltext open source-projektet. . [Bidra](https://github.com/Microsoft/Recognizers-Text) i projektet. Det här projektet innehåller exempel på valuta per kultur. 
+Fördefinierade entiteter har utvecklats i identifierare fulltext open source-projektet. [Bidra](https://github.com/Microsoft/Recognizers-Text) i projektet. Det här projektet innehåller exempel på valuta per kultur. 
 
 ## <a name="next-steps"></a>Nästa steg
 

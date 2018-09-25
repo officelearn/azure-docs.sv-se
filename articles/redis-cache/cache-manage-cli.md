@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure Redis-Cache med hjälp av Azure CLI | Microsoft Docs
-description: Lär dig hur du installerar Azure CLI på valfri plattform, hur du ansluter till ditt Azure-konto och skapa och hantera ett Redis-cache från Azure CLI.
+title: Hantera Azure Redis Cache med Azure klassiskt CLI | Microsoft Docs
+description: Lär dig hur du installerar Azure klassiska CLI på valfri plattform, använda den för att ansluta till ditt Azure-konto och skapa och hantera en Redis-cache från klassiska CLI.
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -14,58 +14,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0e8bbaad920f35028c51641779a3272f73f81f37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27911286"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978445"
 ---
-# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Skapa och hantera Azure Redis-Cache med hjälp av Azure-kommandoradsgränssnittet (Azure CLI)
+# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-classic-cli"></a>Skapa och hantera Azure Redis Cache med den klassiska Azure CLI
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-> * [Azure CLI](cache-manage-cli.md)
->
+> * [Klassisk Azure CLI](cache-manage-cli.md)
 >
 
-Azure CLI är ett bra sätt att hantera dina Azure-infrastrukturen från valfri plattform. Den här artikeln visar hur du skapar och hanterar din Azure Redis-Cache-instanser som använder Azure CLI.
+Den klassiska Azure CLI är ett bra sätt att hantera Azure-infrastrukturen från valfri plattform. Den här artikeln visar hur du skapar och hanterar din Azure Redis Cache-instanser som använder den klassiska Azure CLI.
 
+[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 > [!NOTE]
-> Den här artikeln gäller för en tidigare version av Azure CLI. De senaste Azure CLI 2.0 exempelskript finns [Azure Redis-CLI cache exempel](cli-samples.md).
-> 
-> 
+> Läs de senaste Azure CLI-exempelskript [exempel på Azure CLI-Redis-cache](cli-samples.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
-Om du vill skapa och hantera Azure Redis-Cache-instanser som använder Azure CLI, måste du slutföra följande steg.
+Om du vill skapa och hantera Azure Redis Cache-instanser med Azure klassiska CLI, måste du slutföra följande steg.
 
-* Du måste ha ett Azure-konto. Om du inte har någon, kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) i en liten stund.
-* [Installera Azure CLI](../cli-install-nodejs.md).
-* Anslut Azure CLI-installationen med ett personligt konto i Azure, eller med ett arbets eller skolan Azure-konto och logga in från Azure CLI med hjälp av den `azure login` kommando. Om du vill förstå skillnaderna och väljer, se [Anslut till en Azure-prenumeration från Azure-kommandoradsgränssnittet (Azure CLI)](/cli/azure/authenticate-azure-cli).
-* Innan du kan köra följande kommandon för att växla Azure CLI i Resource Manager-läge genom att köra den `azure config mode arm` kommando. Mer information finns i [använda Azure CLI för att hantera Azure-resurser och resursgrupper](../xplat-cli-azure-resource-manager.md).
+* Du måste ha ett Azure-konto. Om du inte har någon kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) efter en liten stund.
+* [Installera Azure CLI för klassiska](../cli-install-nodejs.md).
+* Ansluta Azure CLI-installationen med ett personligt konto i Azure, eller med ett arbets eller skolkonto för Azure och logga in från den klassiska CLI med den `azure login` kommando.
+* Innan du kör något av följande kommandon för att växla klassiskt CLI i Resource Manager-läge genom att köra den `azure config mode arm` kommando. Mer information finns i [använda klassiska Azure CLI för att hantera Azure-resurser och resursgrupper](../xplat-cli-azure-resource-manager.md).
 
-## <a name="redis-cache-properties"></a>Redis-Cache-egenskaper
-Följande egenskaper används när du skapar och uppdaterar Redis-Cache-instanser.
+## <a name="redis-cache-properties"></a>Redis Cache-egenskaper
+Följande egenskaper som används när du skapar och uppdaterar Redis Cache-instanser.
 
-| Egenskap | Växel | Beskrivning |
+| Egenskap  | Växel | Beskrivning |
 | --- | --- | --- |
-| namn |-n,--namn |Namnet på Redis-Cache. |
-| Resursgrupp |-g, --resource-group |Namnet på resursgruppen. |
-| location |-l,--plats |Plats för att skapa cache. |
-| storlek |-z,--storlek |Storleken på Redis-Cache. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
-| sku |-x, --sku |Redis-SKU. Ska vara någon av: [Basic, Standard, Premium] |
-| EnableNonSslPort |-e, --enable-non-ssl-port |EnableNonSslPort-egenskapen för Redis-Cache. Lägg till den här flaggan om du vill aktivera icke-SSL-Port för ditt cacheminne |
-| Redis-konfiguration |-c,--redis-konfiguration |Redis-konfiguration. Ange en JSON-formaterad sträng konfigurationsnycklar och värden här. Format ”: {” ”:” ””, ””: ”}” |
-| Redis-konfiguration |-f, --redis-configuration-file |Redis-konfiguration. Ange en sökväg till en fil som innehåller konfigurationsnycklar och värden här. Formatet för posten fil: {””: ”” ”,” ”:”} |
-| Fragmentera antal |-r,--Fragmentera antal |Antalet delar för att skapa på Premium klustret Cache med kluster. |
-| Virtual Network |-v, --virtual-network |När värd för ditt cacheminne i ett virtuellt nätverk, anger du exakt ARM resurs-ID för det virtuella nätverket för att distribuera redis-cache i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Nyckeltyp |-t, --key-type |Typ av nyckel att förnya. Giltiga värden: [primära, sekundära] |
-| StaticIP |-p,--statiska ip-< statiska IP-> |När värd för ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om inte är en valt i undernätet. |
-| Undernät |t,--undernät<subnet> |När värd för ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du vill distribuera cachen. |
-| VirtualNetwork |-v, --virtual-network <virtual-network> |När värd för ditt cacheminne i ett virtuellt nätverk, anger du exakt ARM resurs-ID för det virtuella nätverket för att distribuera redis-cache i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Prenumeration |-s, -prenumeration |Prenumerations-ID. |
+| namn |-n, – namn |Namnet på Redis-Cache. |
+| Resursgrupp |-g,--resursgrupp |Namnet på resursgruppen. |
+| location |l-,--plats |Plats för att skapa cache. |
+| storlek |z-,--storlek |Storleken på Redis-Cache. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| SKU: n |-x-,--sku |Redis-SKU. Bör vara något av: [Basic, Standard, Premium] |
+| enableNonSslPort |e-,--aktivera icke-ssl-port |EnableNonSslPort egenskapen för Redis-Cache. Lägg till den här flaggan om du vill aktivera icke-SSL-porten för din cachelagring |
+| Redis-konfiguration |c-,--redis-konfiguration |Redis-konfiguration. Ange en JSON-formaterad sträng med konfigurationsnycklar och värden här. Format ”: {” ”:” ””, ””: ”}” |
+| Redis-konfiguration |f-,--redis-konfigurationsfil |Redis-konfiguration. Ange sökvägen till en fil som innehåller konfigurationsnycklar och värden här. Formatet för posten fil: {””: ”” ”,” ”:”} |
+| Shardantal |r-,--shardantal |Antal fragment för att skapa på Premium-kluster Cache med klustring. |
+| Virtual Network |v-,--virtuellt nätverk |När du har ditt cacheminne i ett virtuellt nätverk, anger du exakt ARM resurs-ID för det virtuella nätverket för att distribuera redis-cache i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Nyckeltyp |-t,--key-typ |Typen av nyckel att förnya. Giltiga värden: [primär, sekundär] |
+| StaticIP |-p, – statisk ip < statisk ip > |När du har ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om du inte är något valt från undernätet. |
+| Undernät |t,--undernät <subnet> |När du har ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du kan distribuera cacheminnet. |
+| VirtualNetwork |v-,--virtuellt nätverk < virtuellt nätverk > |När du har ditt cacheminne i ett virtuellt nätverk, anger du exakt ARM resurs-ID för det virtuella nätverket för att distribuera redis-cache i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Prenumeration |-s,--prenumeration |Prenumerations-ID. |
 
-## <a name="see-all-redis-cache-commands"></a>Visa alla kommandon som Redis-Cache
-Om du vill se alla Redis-Cache-kommandon och deras parametrar i `azure rediscache -h` kommando.
+## <a name="see-all-redis-cache-commands"></a>Se alla kommandon för Redis Cache
+Om du vill se alla Redis Cache-kommandon och deras parametrar, använda den `azure rediscache -h` kommando.
 
     C:\>azure rediscache -h
     help:    Commands to manage your Azure Redis Cache(s)
@@ -97,7 +95,7 @@ Om du vill se alla Redis-Cache-kommandon och deras parametrar i `azure rediscach
     help:    Current Mode: arm (Azure Resource Management)
 
 ## <a name="create-a-redis-cache"></a>Skapa en Redis-cache
-Om du vill skapa ett Redis-Cache, använder du följande kommando:
+Om du vill skapa en Redis-Cache, använder du följande kommando:
 
     azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]
 
@@ -130,7 +128,7 @@ Mer information om det här kommandot Kör den `azure rediscache create -h` komm
     help:    Current Mode: arm (Azure Resource Management)
 
 ## <a name="delete-an-existing-redis-cache"></a>Ta bort en befintlig Redis-Cache
-Om du vill ta bort ett Redis-Cache, använder du följande kommando:
+Om du vill ta bort Redis Cache, använder du följande kommando:
 
     azure rediscache delete [--name <name> --resource-group <resource-group> ]
 
@@ -152,8 +150,8 @@ Mer information om det här kommandot Kör den `azure rediscache delete -h` komm
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## <a name="list-all-redis-caches-within-your-subscription-or-resource-group"></a>Visa en lista med alla Redis-cache i din prenumeration eller resursgrupp
-Om du vill visa en lista med alla Redis-cache i din prenumeration eller resursgrupp, använder du följande kommando:
+## <a name="list-all-redis-caches-within-your-subscription-or-resource-group"></a>Lista alla Redis-cacheminnen inom din prenumeration eller resursgrupp
+Om du vill visa alla Redis-cacheminnen inom din prenumeration eller resursgrupp, använder du följande kommando:
 
     azure rediscache list [options]
 
@@ -175,7 +173,7 @@ Mer information om det här kommandot Kör den `azure rediscache list -h` komman
     help:    Current Mode: arm (Azure Resource Management)
 
 ## <a name="show-properties-of-an-existing-redis-cache"></a>Visa egenskaperna för en befintlig Redis-Cache
-Om du vill visa egenskaperna för en befintlig Redis-Cache, använder du följande kommando:
+För att visa egenskaperna för en befintlig Redis-Cache, använder du följande kommando:
 
     azure rediscache show [--name <name> --resource-group <resource-group>]
 
@@ -224,7 +222,7 @@ Mer information om det här kommandot Kör den `azure rediscache set -h` kommand
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## <a name="renew-the-authentication-key-for-an-existing-redis-cache"></a>Förnya autentiseringsnyckel för en befintlig Redis-Cache
+## <a name="renew-the-authentication-key-for-an-existing-redis-cache"></a>Förnya autentiseringsnyckeln för en befintlig Redis-Cache
 Om du vill förnya autentiseringsnyckeln för en befintlig Redis-Cache, använder du följande kommando:
 
     azure rediscache renew-key [--name <name> --resource-group <resource-group> --key-type <key-type>]
@@ -250,8 +248,8 @@ Mer information om det här kommandot Kör den `azure rediscache renew-key -h` k
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## <a name="list-primary-and-secondary-keys-of-an-existing-redis-cache"></a>Lista över primära och sekundära nycklarna i en befintlig Redis-Cache
-Lista över primära och sekundära nycklarna för en befintlig Redis-Cache, använder du följande kommando:
+## <a name="list-primary-and-secondary-keys-of-an-existing-redis-cache"></a>Lista över primära och sekundära nycklarna för en befintlig Redis-Cache
+Att lista primära och sekundära nycklarna för en befintlig Redis-Cache, använder du följande kommando:
 
     azure rediscache list-keys [--name <name> --resource-group <resource-group>]
 

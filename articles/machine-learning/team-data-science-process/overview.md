@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 2cce0b883c18a813aed386186c825c26b0e4b674
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e6e6b8e03102825a15035adbea80ac5e9f3fa404
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303786"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996459"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Vad är TDSP (Team Data Science Process)?
 
@@ -89,10 +89,10 @@ Katalogstrukturen kan klonas från [Github](https://github.com/Azure/Azure-TDSP-
 
 TDSP innehåller rekommendationer för hantering av delade analyser och lagringsinfrastruktur som:
 
-- filsystem för molnet för att lagra datamängder 
+- filsystem för molnet för att lagra datauppsättningar 
 - databaser
 - Big data-kluster (Hadoop- eller Spark) 
-- Machine learning-tjänster. 
+- Machine learning-tjänsten 
 
 Infrastruktur för analys och lagring kan finnas i molnet eller lokalt. Det här är där rådata och bearbetade datauppsättningar lagras. Den här infrastrukturen kan reproducerbar analys. Det förhindrar också duplicering, vilket kan leda till inkonsekvenser och onödiga infrastrukturkostnader. Verktyg som etablerar de delade resurserna, spåra dem och att varje medlem i gruppen att ansluta till dessa resurser på ett säkert sätt. Det är också en bra idé att ha projektmedlemmar skapa en konsekvent beräkningsmiljö. Olika teammedlemmar kan replikera och validera experiment.
 

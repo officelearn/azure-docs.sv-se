@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dbda4b7b6d82e8cf1e89dc78ce82efbac08b9933
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0a5cbca114b220686d656f93edb00a199e3cbeeb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650343"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989829"
 ---
 # <a name="expand-json-transformation"></a>Expandera JSON-transformering
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Den **Expandera JSON** transformeringen kan du expandera en befintlig kolumn som innehåller giltig JSON-texten i flera kolumner.
 
 ## <a name="how-to-perform-this-transformation"></a>Hur du utför den här omvandlingen
@@ -33,7 +38,7 @@ Nya kolumner läggs till bredvid källkolumnen. Dessa kolumner innehåller egens
 
 ## <a name="examples"></a>Exempel
 
-Käll-columnn *kunden* utökas i två kolumner *Customer.Name* och *Customer.Phone*.
+Källkolumnen *kunden* utökas i två kolumner *Customer.Name* och *Customer.Phone*.
 
 | Kund                                                | Customer.Name   | Customer.Phone |
 |---------------------------------------------------------|-----------------|----------------|

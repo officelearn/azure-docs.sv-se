@@ -1,6 +1,6 @@
 ---
-title: Konfigurera prestanda för Azure-SSIS-integrering Runtime | Microsoft Docs
-description: Lär dig hur du konfigurerar egenskaperna för Azure-SSIS-integrering Runtime för hög prestanda
+title: Konfigurera prestanda för Azure-SSIS Integration Runtime | Microsoft Docs
+description: Lär dig hur du konfigurerar egenskaper för din Azure-SSIS Integration Runtime för höga prestanda
 services: data-factory
 ms.date: 01/10/2018
 ms.topic: conceptual
@@ -10,23 +10,23 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ac53e1a8a7c6c1b2c2959b92e14c7911065aed6d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2592c81947f48c10891fe920647612d5c30af64f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052036"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989100"
 ---
-# <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure SSIS-integrering Runtime för hög prestanda
+# <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure-SSIS Integration Runtime för höga prestanda
 
-Den här artikeln beskriver hur du konfigurerar en Azure-SSIS Integration Runtime (IR) för hög prestanda. Azure-SSIS-IR kan du distribuera och köra SQL Server Integration Services (SSIS) paket i Azure. Läs mer om Azure-SSIS IR [integrering runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) artikel. Information om distribution och körning av SSIS-paket i Azure finns [Lift och SKIFT SQL Serverintegration Services-arbetsbelastningar till molnet](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
+Den här artikeln beskriver hur du konfigurerar en Azure-SSIS Integration Runtime (IR) för hög prestanda. Azure-SSIS IR kan du distribuera och kör SQL Server Integration Services (SSIS)-paket i Azure. Mer information om Azure-SSIS IR finns i [integreringskörningen](concepts-integration-runtime.md#azure-ssis-integration-runtime) artikeln. Information om att distribuera och köra SSIS-paket på Azure finns i [Lift and shift SQL Serverintegration Services-arbetsbelastningar till molnet](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
 > [!IMPORTANT]
-> Den här artikeln innehåller prestandaresultat och observationer från interna testning av medlemmar i SSIS-Utvecklingsteamet. Resultatet kan variera. Göra egna tester innan du avslutar dina konfigurationsinställningar som påverkar både kostnad och prestanda.
+> Den här artikeln innehåller prestandaresultat och observationer från interna testning målserverkonfigureringen medlemmar i SSIS-Utvecklingsteamet. Resultaten kan variera. Göra egna tester innan du avslutar konfigurationsinställningarna, vilket kan påverkar både kostnad och prestanda.
 
-## <a name="properties-to-configure"></a>Egenskaperna för att konfigurera
+## <a name="properties-to-configure"></a>Egenskaper för att konfigurera
 
-Följande delen av ett konfigurationsskript visar de egenskaper som du kan konfigurera när du skapar en Azure-SSIS-integrering körning. Fullständig PowerShell-skript och beskrivning finns [distribuera SQL Server Integration Services-paket till Azure](tutorial-deploy-ssis-packages-azure-powershell.md).
+Följande delen av ett konfigurationsskript visar de egenskaper som du kan konfigurera när du skapar en Azure-SSIS Integration Runtime. Fullständig PowerShell-skript och beskrivning finns i [distribuera SQL Server Integration Services-paket till Azure](tutorial-deploy-ssis-packages-azure-powershell.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
@@ -51,16 +51,16 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Database Managed Instance
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>"
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation** är platsen för integrering runtime arbetsnoden. Arbetsnoden upprätthåller en anslutning till katalogen SSIS-databasen (SSISDB) på en Azure SQL database. Ange den **AzureSSISLocation** på samma plats som SQL Database-server som är värd för SSISDB som gör att körningen integrering ska fungera effektivt som möjligt.
+**AzureSSISLocation** är platsen för noden för integration runtime-worker. Arbetsnoden upprätthåller en anslutning till SSIS-katalogdatabasen (SSISDB) på en Azure SQL database. Ange den **AzureSSISLocation** till samma plats som SQL Database-server som är värd för SSISDB, vilket gör att integreringskörningen ska fungera så effektivt som möjligt.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
-Data Factory, inklusive Azure SSIS-IR stöder följande alternativ:
+Data Factory, inklusive Azure-SSIS IR, stöder följande alternativ:
 -   Standard\_A4\_v2
 -   Standard\_A8\_v2
 -   Standard\_D1\_v2
@@ -68,32 +68,32 @@ Data Factory, inklusive Azure SSIS-IR stöder följande alternativ:
 -   Standard\_D3\_v2
 -   Standard\_D4\_v2.
 
-I den inofficiella interna tester av SSIS teknikteamet D-serien som verkar vara lämpligare för körning av SSIS-paket än A-serien.
+I den inofficiella interna testning av SSIS-teknikerna, D-serien som verkar vara lämpligast för körning av SSIS-paket än A-serien.
 
--   Förhållandet mellan prestanda och pris i D-serien är högre än A-serien.
--   Dataflöde för D-serien är högre än A-series till samma pris.
+-   Prestanda/pris förhållandet mellan D-serien är högre än A-serien.
+-   Dataflöde för D-serien är högre än A-serien till samma pris.
 
-### <a name="configure-for-execution-speed"></a>Konfigurera för körning av hastighet
-Om du inte har många paket ska köras och du vill att paket ska köras snabbt, använda informationen i följande diagram för att välja en typ av virtuell dator som är lämpliga för ditt scenario.
+### <a name="configure-for-execution-speed"></a>Konfigurera för körning hastighet
+Om du inte har många paket för att köra och du vill paket för att köra snabbt, Använd informationen i följande diagram för att välja en typ av virtuell dator som är lämpliga för ditt scenario.
 
-Dessa data representerar en enda paket körning på en enskild worker-nod. Paketet läses in 10 miljoner poster med förnamn och senaste kolumner från Azure Blob Storage, genererar en fullständig namnkolumn och skriver de poster som har det fullständiga namnet som är längre än 20 tecken till Azure Blob Storage.
+Dessa data representerar en och samma paketetkörning på en enskild worker-nod. Paketet läses in 10 miljoner poster med förnamn och senaste kolumner från Azure Blob Storage, genererar en kolumn för fullständigt namn och skriver poster som har det fullständiga namnet som är längre än 20 tecken till Azure Blob Storage.
 
-![SSIS-integrering Runtime paketet körning hastighet](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speed.png)
+![SSIS Integration Runtime-paketet körning hastighet](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speed.png)
 
-### <a name="configure-for-overall-throughput"></a>Konfigurera för totala genomflödet
+### <a name="configure-for-overall-throughput"></a>Konfigurera för hela dataflödet
 
-Om du har många paket ska köras och du är mest intresserad av det totala genomflödet, använda informationen i följande diagram för att välja en typ av virtuell dator som är lämpliga för ditt scenario.
+Om du har massor av paket för att köra och du är mest intresserad det totala arbetsflödet, Använd informationen i följande diagram för att välja en typ av virtuell dator som är lämpliga för ditt scenario.
 
-![SSIS-integrering Runtime maximala totala genomflödet](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughput.png)
+![SSIS-Integreringskörning högsta totala arbetsflödet](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughput.png)
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** justerar skalbarhet av integration körningsmiljön. Dataflöde för integrering körningen är proportionell mot den **AzureSSISNodeNumber**. Ange den **AzureSSISNodeNumber** övervaka genomströmning av körningsmiljön integrering till ett mindre värde först och sedan justera värdet för ditt scenario. Om du vill konfigurera om antalet worker noden finns [hantera en Azure-SSIS-integrering körning](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** justerar skalbarhet för integreringskörningen. Dataflödet för integration runtime är proportionell mot den **AzureSSISNodeNumber**. Ange den **AzureSSISNodeNumber** övervaka genomflödet av integration runtime till ett litet värde först och sedan justera värdet för ditt scenario. Om du vill konfigurera om nodantal worker, se [hantera en Azure-SSIS integration runtime](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-När du redan använder en kraftfull arbetsnod och köra paket, öka **AzureSSISMaxParallelExecutionsPerNode** kan öka det totala genomflödet av körningsmiljön integrering. Standard_D1_v2 noder stöder 1-4 parallella körningar per nod. För andra typer av noder stöds 1 – 8 parallella körningar per nod.
-Du kan beräkna rätt värde baserat på paketet och följande konfigurationer för arbetarnoder kostnad. Mer information finns i [allmänna virtuella datorstorlekar](../virtual-machines/windows/sizes-general.md).
+När du redan använder en kraftfull arbetsnod för att köra paket, vilket ökar **AzureSSISMaxParallelExecutionsPerNode** kan öka det totala arbetsflödet av integration runtime. 1 – 4 parallella körningar per nod stöds för Standard_D1_v2 noder. För alla andra typer av noder stöds 1-8 parallella körningar per nod.
+Du kan beräkna lämpligt värde baserat på kostnaden för ditt paket och följande konfigurationer för arbetsnoderna. Mer information finns i [allmänna virtuella datorstorlekar](../virtual-machines/windows/sizes-general.md).
 
 | Storlek             | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -104,24 +104,24 @@ Du kan beräkna rätt värde baserat på paketet och följande konfigurationer f
 | Standard\_A4\_v2 | 4    | 8           | 40                     | 4 000 / 80 / 40                                             | 8 / 8 x 500                         | 4/1 000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8 000 / 160 / 80                                            | 16 / 16 x 500                       | 8/2 000                                       |
 
-Här följer riktlinjer för att ange rätt värde för den **AzureSSISMaxParallelExecutionsPerNode** egenskapen: 
+Här följer riktlinjerna för att ange rätt värde för den **AzureSSISMaxParallelExecutionsPerNode** egenskapen: 
 
-1. Ange ett mindre värde först.
-2. Öka det med ett litet för att kontrollera om det totala genomflödet förbättrats.
-3. Stoppa öka värdet när det totala genomflödet når det högsta värdet.
+1. Ange den till ett litet värde först.
+2. Öka det med en viss att kontrollera om det totala arbetsflödet har förbättrats.
+3. Stoppa öka värdet när det totala arbetsflödet når det högsta värdet.
 
 ## <a name="ssisdbpricingtier"></a>SSISDBPricingTier
 
-**SSISDBPricingTier** är prisnivå för katalogen SSIS-databasen (SSISDB) på en Azure SQL database. Den här inställningen påverkar det maximala antalet arbetare i IR-instans, hastighet till kön en paket-körning och hastighet för att läsa in körningsloggen.
+**SSISDBPricingTier** är prisnivån för SSIS-katalogdatabasen (SSISDB) på en Azure SQL database. Den här inställningen påverkar det maximala antalet arbeten i IR-instans, hur snabbt i kö för körning av ett paket och hastighet för att läsa in körningsloggen.
 
--   Om du inte bryr dig om hastigheten till kön paketet körningen och att läsa in körningsloggen, kan du välja den lägsta databasprisnivå. Azure SQL Database med grundläggande priser stöder 8 arbetare i en integration runtime-instans.
+-   Om du inte bryr dig om hastighet för körning av kön paket och inläsning körningsloggen, kan du välja den lägsta prisnivån för databasen. Azure SQL Database med priser för grundläggande stöder 8 arbetare i en integration runtime-instans.
 
--   Välj en kraftigare databas än grundläggande om antalet worker är mer än 8 eller antal kärnor är mer än 50. Annars databasen blir flaskhals för integrering runtime-instansen och prestanda påverkas negativt.
+-   Välj en kraftfullare databas än grundläggande om antal arbeten är mer än 8 eller antal kärnor är mer än 50. Annars blir flaskhals av integration runtime-instans för databasen och serverns prestanda påverkas negativt.
 
-Du kan också justera databasprisnivå baserat på [database transaction unit](../sql-database/sql-database-what-is-a-dtu.md) (DTU) användningsinformation finns på Azure-portalen.
+Du kan också justera databasprisnivå utifrån [database-transaktionsenhet](../sql-database/sql-database-what-is-a-dtu.md) (DTU) användning-information är tillgänglig på Azure portal.
 
 ## <a name="design-for-high-performance"></a>Design för hög prestanda
-Designa ett SSIS-paket ska köras på Azure skiljer sig från skapar ett paket för lokal körning. I stället för att kombinera flera oberoende aktiviteter i samma paket, dela in dem i flera paket för effektivare körning i Azure-SSIS-IR. Skapa ett paket-körning för varje paket så att de inte behöver vänta på att slutföras. Den här metoden fördelar från skalbarhet i Azure-SSIS-integrering runtime och förbättras det totala genomflödet.
+Designa ett SSIS-paket för att köra i Azure skiljer sig från utforma ett paket för lokal körning. I stället för att kombinera flera oberoende aktiviteter i samma paket kan dela in dem i flera paket för effektivare körning i Azure-SSIS IR. Skapa en körning av paket för varje paket så att de inte behöver vänta på varandra för att slutföra. Den här metoden dra nytta av skalbarheten i Azure-SSIS integration runtime och förbättrar hela dataflödet.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om Azure-SSIS-integrering Runtime. Se [Azure SSIS-integrering Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime).
+Läs mer om Azure-SSIS Integration Runtime. Se [Azure SSIS-Integreringskörning](concepts-integration-runtime.md#azure-ssis-integration-runtime).

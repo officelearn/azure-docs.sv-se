@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426701"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989302"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
-När en [aviseringen har skapats i Azure ](monitor-alerts-unified-usage.md), har möjlighet att [konfigurera med åtgärdsgrupper](monitoring-action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
+När en [log aviseringen har skapats i Azure](alert-log.md), har möjlighet att [konfigurera med åtgärdsgrupper](monitoring-action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
 
 
 ## <a name="webhook-actions"></a>Webhook-åtgärder
 
-Webhook-åtgärder kan du anropa en extern process via en HTTP POST-begäran.  Tjänsten som anropas ska stödja webhooks och bestämma hur den använder alla nyttolast tas emot.   Exempel på användning av en webhook som svar på en avisering skickas ett meddelande [Slack](http://slack.com) eller skapar en incident i [PagerDuty](http://pagerduty.com/).  
+Webhook-åtgärder kan du anropa en extern process via en HTTP POST-begäran.  Tjänsten som anropas ska stödja webhooks och bestämma hur den använder alla nyttolast tas emot.    
 
 Webhook-åtgärder kräver egenskaperna i följande tabell:
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
 | Webhook-URL |URL till webhooken. |
-| Anpassad JSON-nyttolast |Anpassad nyttolast ska skicka med webhook, när det här alternativet väljs under skapande av varning. Information som är tillgängliga på [Hantera aviseringar med hjälp av Azure-aviseringar ](monitor-alerts-unified-usage.md) |
+| Anpassad JSON-nyttolast |Anpassad nyttolast ska skicka med webhook, när det här alternativet väljs under skapande av varning. Information som är tillgängliga på [Hantera aviseringar](alert-log.md) |
 
 > [!NOTE]
-> Testa Webhook knappen tillsammans med *inkludera anpassad JSON-nyttolast för webhook* för Log avisering, utlöser dummy anrop för att testa en webhook-URL. Den innehåller inte faktiska data och representativ för JSON-schema används för aviseringar. 
+> Visa Webhook-knappen bredvid *inkludera anpassad JSON-nyttolast för webhook* för Log aviseringar kommer att visa exempel webhook-nyttolasten för anpassning som tillhandahålls. Den innehåller inte faktiska data och representativ för JSON-schema används för aviseringar. 
 
 Webhooks är en URL och en nyttolast som formaterats i JSON som är data som skickas till den externa tjänsten.  Som standard nyttolasten innehåller värdena i tabellen nedan: du kan välja att ersätta den här nyttolasten med en anpassad på egen hand.  Du kan i så fall använda variabler i tabellen för var och en av parametrarna ta sina värdet i din anpassade nyttolast.
 
@@ -54,7 +54,7 @@ Webhooks är en URL och en nyttolast som formaterats i JSON som är data som ski
 | Prenumerations-ID:t |#subscriptionid |ID för din Azure-prenumeration som används med Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults skickar parametrar som SearchQuery, Sök intervall StartTime & intervallslut för sökning i URL: en till Azure-portalen för visning i Analytics-avsnittet. Azure-portalen har URI storleksgräns på cirka 2 000 tecken så öppnas om parametervärdena överskrider denna gräns. Användarna kan manuellt ange information om du vill visa resultatet i Analytics-portalen eller använda den [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) eller [Log Analytics REST API](https://dev.loganalytics.io/reference) att hämta resultat programmässigt 
+> LinkToSearchResults skickar parametrar som SearchQuery, Sök intervall StartTime & intervallslut för sökning i URL: en till Azure-portalen för visning i Analytics-avsnittet. Azure-portalen har URI storleksgränsen för ungefärlig 2000 tecken och kommer *inte* öppna länken i aviseringar om parametervärdena överskrider denna gräns. Användarna kan manuellt ange information om du vill visa resultatet i Analytics-portalen eller använda den [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) eller [Log Analytics REST API](https://dev.loganalytics.io/reference) att hämta resultat programmässigt 
 
 Du kan till exempel ange följande anpassade nyttolasten som innehåller en enda parameter med namnet *text*.  Den tjänst som denna webhook-anrop skulle förväntas den här parametern.
 
@@ -198,6 +198,7 @@ Följande är ett exempel på en nyttolast för en anpassad webhook-åtgärd fö
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [Loggaviseringar i Azure-aviseringar ](monitor-alerts-unified-log.md)
+- Förstå [managaing loggaviseringar i Azure](alert-log.md)
 - Skapa och hantera [åtgärdsgrupper i Azure](monitoring-action-groups.md)
 - Läs mer om [Application Insights](../application-insights/app-insights-analytics.md)
 - Läs mer om [Log Analytics](../log-analytics/log-analytics-overview.md). 

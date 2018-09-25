@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Key Vault med CLI | Microsoft Docs
-description: Använd den här artikeln för att automatisera vanliga uppgifter i Key Vault med hjälp av CLI 2.0
+description: Använd den här artikeln för att automatisera vanliga uppgifter i Key Vault med hjälp av Azure CLI
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: f88e98561a88380fbe40ecc9627ffabe39b0071c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 00d79462fcaad785820e3879079414c88c958a89
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295182"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961492"
 ---
-# <a name="manage-key-vault-using-cli-20"></a>Hantera Nyckelvalv med hjälp av CLI 2.0
+# <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Nyckelvalv med hjälp av Azure CLI 
 
-Den här artikeln beskriver hur du kommer igång med att arbeta med Azure Key Vault med hjälp av Azure CLI 2.0. Du kan se information på:
+Den här artikeln beskriver hur du kommer igång med att arbeta med Azure Key Vault med hjälp av de Azure CLI.  Du kan se information på:
 
-- Förutsättningar
 - Så här skapar du en säker behållare (ett valv) i Azure
 - Att lägga till en nyckel eller hemlighet certifikatet till nyckelvalvet
 - Registrerar ett program med Azure Active Directory
@@ -50,7 +49,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Om du vill använda Azure CLI-kommandon i den här artikeln, måste du ha följande objekt:
 
 * En prenumeration på Microsoft Azure. Om du inte har ett konto kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial).
-* Kommandoradsgränssnitt 2.0 eller senare. Om du vill installera den senaste versionen, se [installerar och konfigurerar Azure plattformsoberoende kommandoradsgränssnitt 2.0](/cli/azure/install-azure-cli).
+* Azure-kommandoradsgränssnittet 2.0 eller senare. Om du vill installera den senaste versionen, se [installera Azure CLI](/cli/azure/install-azure-cli).
 * Ett program som ska konfigureras för att använda nyckeln eller lösenordet som du skapar i den här artikeln. Ett exempelprogram är tillgängligt från [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). Anvisningar finns i den inkluderade filen Viktigt-filen.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Få hjälp med kommandoradsgränssnittet för Azure plattformsoberoende
@@ -67,7 +66,7 @@ az account set -h
 Du kan också läsa följande artiklar för att bekanta dig med Azure Resource Manager i kommandoradsgränssnittet för Azure plattformsoberoende:
 
 * [Installera Azure CLI](/cli/azure/install-azure-cli)
-* [Kom igång med Azure CLI 2.0](/cli/azure/get-started-with-azure-cli)
+* [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli)
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Så här skapar du en säker behållare (ett valv) i Azure
 
@@ -200,7 +199,7 @@ Program som använder ett nyckelvalv måste autentiseras med hjälp av en token 
 
 Programmet måste presentera båda dessa värden för Azure Active Directory för att få en token. Hur ett program är konfigurerad för att få en token beror på programmet. I [Key Vault-exempelprogrammet](https://www.microsoft.com/download/details.aspx?id=45343) anger programmets ägare dessa värden i filen app.config.
 
-Detaljerade anvisningar om hur du registrerar ett program med Azure Active Directory bör du läsa igenom artiklarna med rubriken [integrera program med Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md), [Använd portalen för att skapa Azure Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../azure-resource-manager/resource-group-create-service-principal-portal.md), och [skapa Azure-tjänstens huvudnamn med Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli).
+Detaljerade anvisningar om hur du registrerar ett program med Azure Active Directory bör du läsa igenom artiklarna med rubriken [integrera program med Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [Använd portalen för att skapa Azure Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../azure-resource-manager/resource-group-create-service-principal-portal.md), och [skapa Azure-tjänstens huvudnamn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Du registrerar ett program i Azure Active Directory:
 

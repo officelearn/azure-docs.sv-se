@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 09/24/2018
 ms.author: jonbeck
-ms.openlocfilehash: 5ee3d29ceada238c5e4a633b501f63ed307ba76e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 16a9b4118202cb0f796693f8f392c68939e89899
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900875"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035733"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Storlekar för Linux-datorer i Azure
 Den här artikeln beskrivs tillgängliga storlekar och alternativ för Azure-datorer som du kan använda för att köra Linux-appar och arbetsbelastningar. Det ger också distributionsöverväganden ska tänka på när du planerar att använda de här resurserna. Den här artikeln är också tillgängligt för [Windows virtuella datorer](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -32,7 +32,7 @@ Den här artikeln beskrivs tillgängliga storlekar och alternativ för Azure-dat
 | [Beräkningsoptimerad](sizes-compute.md)        | Fsv2, Fs, F             | Högt förhållande mellan processor och minne. Bra för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.        |
 | [Minnesoptimerad](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Högt minne att CPU-förhållande. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 | [Lagringsoptimerad](sizes-storage.md)        | Ls                | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
-| [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Särskilda virtuella datorer avsedda för tung grafisk rendering och videoredigering samt modellera utbildnings- och inferensjobb (IV) med djupinlärning. Tillgängligt med en eller flera GPU: er.       |
+| [GPU](sizes-gpu.md)            | NV, NVv2, NC, NCv2, NCv3, ND            | Särskilda virtuella datorer avsedda för tung grafisk rendering och videoredigering samt modellera utbildnings- och inferensjobb (IV) med djupinlärning. Tillgängligt med en eller flera GPU: er.       |
 | [Databehandling med höga prestanda](sizes-hpc.md) | H       | Våra virtuella datorer med de snabbaste och mest kraftfulla processorerna med nätverksgränssnitt för stora dataflöden (RDMA). 
 
 <br>

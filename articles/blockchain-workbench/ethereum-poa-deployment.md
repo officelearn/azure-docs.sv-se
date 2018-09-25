@@ -1,5 +1,5 @@
 ---
-title: Ethereum Proof-of-Authority Consortium
+title: Ethereum Proof-of-Authority Consortium - Azure
 description: Använda Etherereum Proof-of-Authority Consortium-lösning för att distribuera och konfigurera ett flera medlem consortium Ethereum-nätverk
 services: azure-blockchain
 keywords: ''
@@ -10,15 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: fcb35f23be384b3625e4e17e5dc2285b7eeb341a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b594a9b1cf6ab0ab2c4c57b35ee79218b65f80b6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531330"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039045"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
+## <a name="overview"></a>Översikt
 [Den här lösningen](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) har utformats för att göra det enklare att distribuera, konfigurera och reglerar ett flera medlem Proof-of-authority Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum.
 
 Med en handfull användarindata och en enda musklick distribution via Azure-portalen, kan varje medlem etablera ett nätverk fotavtryck, med hjälp av Microsoft Azure Compute, nätverk och lagringstjänster över hela världen. Varje medlem nätverk fotavtryck består av en uppsättning noder för Utjämning av nätverksbelastning verifieraren med som ett program eller en användare kan interagera om du vill skicka Ethereum transaktioner.
@@ -74,8 +75,6 @@ Ofta vill delta i nätverket styrning medlem consortium men vill inte använda o
 
 5.  **Consortium medlem** använder sin privata nyckel för att logga en begäran som tar emot verifieraren noderna **operatorn** har distribuerat för att delta för deras räkning
 
-![Ta med din egen operator](./media/ethereum-poa-deployment-guide/bring-you-own-operator.png)
-
 ### <a name="azure-monitor"></a>Azure Monitor
 
 Den här lösningen levereras också med Azure Monitor för att spåra noden statistik. Detta ger insyn i den underliggande blockchain att spåra block generation statistik för programutvecklare. Nätverksadministratörer kan använda Azure Monitor för att snabbt identifiera och förhindra avbrott i nätverket via infrastruktur statistik och frågningsbart loggar. Se [tjänsten övervakning](#service-monitoring) för mer information.
@@ -90,7 +89,7 @@ Den här lösningen kan distribuera en enda eller flera regioner baserat flera m
 
 Varje consortium medlem distributionen omfattar:
 
--   Virtuella M Scale Sets (VMSS) för att köra PoA systemhälsoverifierare
+-   Virtuella datorer för att köra PoA systemhälsoverifierare
 
 -   Azure Load Balancer för att distribuera RPC, peering och styrning DApp begäranden
 
@@ -128,9 +127,10 @@ Vi använda Docker-behållare för tillförlitlighet och modularitet. Vi använd
 
     -   Webbgränssnitt för att interagera med styrning kontrakt
 
-## <a name="governance-dapp"></a>Styrning DApp
+## <a name="how-to-guides"></a>Instruktionsguider
+### <a name="governance-dapp"></a>Styrning DApp
 
-I centrum för proof-of-authority är decentraliserad styrning. Styrning DApp är en uppsättning redan distribuerade smarta kontrakt och ett webbprogram som används för att styra myndigheterna i nätverket.
+I centrum för proof-of-authority är decentraliserad styrning. Styrning DApp är en uppsättning redan distribuerat [smarta kontrakt](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) och ett webbprogram som används för att styra myndigheterna i nätverket.
 Myndigheter har delats upp i Admin-identiteter och verifieraren noder.
 Administratörer har möjlighet att delegera konsensus deltagande till en uppsättning verifieraren noder. Administratörer kan också rösta andra administratörer i eller utanför nätverket.
 
@@ -142,7 +142,41 @@ Administratörer har möjlighet att delegera konsensus deltagande till en uppsä
 
 -   **Granskningsbara ändringshistorik -** varje ändring registreras på den blockkedja som tillhandahåller transparens och revision.
 
-## <a name="how-to-guides"></a>Instruktionsguider
+#### <a name="getting-started-with-governance"></a>Komma igång med styrning
+För att utföra alla typer av transaktioner via styrning DApp, behöver du använda en Ethereum-wallet.  Den enklaste metoden är att använda en i webbläsaren wallet som [MetaMask](https://metamask.io), men eftersom dessa smarta kontrakt som distribueras i nätverket kan du även automatisera dina interaktioner på styrning avtalet.
+
+När du har installerat MetaMask, navigerar du till styrning DApp i webbläsaren.  Du kan hitta URL: en i bekräftelsemeddelandet distribution eller via Azure-portalen i utdata för distribution.  Om du inte har en i webbläsaren wallet installerad du kommer inte att kunna utföra några åtgärder. Du kommer dock fortfarande att kunna läsa administratör tillstånd.  
+
+#### <a name="becoming-an-admin"></a>Bli en administratör
+Om du är den första medlemmen som distribuerats i nätverket, sedan du blir automatiskt en administratör och paritet noderna visas som systemhälsoverifierare.  Om du ansluter till nätverket, kommer du behöva hämta röstade en administratör med majoritet (större än 50%) av den befintliga administratören ange.  Om du väljer att inte bli administratör sedan dina noder fortfarande synkronisera och validera blockchain; de kommer dock inte deltar i block skapandeprocessen. Starta röstande processen för att bli administratör, klicka på __Nominate__ och ange ditt Ethereum-adress och alias.
+
+![Nominera](./media/ethereum-poa-deployment-guide/governance-dapp-nominate.png)
+
+#### <a name="candidates"></a>Kandidater
+Att välja den __kandidater__ fliken visar den aktuella uppsättningen kandidat administratörer.  När en kandidat når en majoritet av aktuella administratörer, ska kandidaten få befordras till en administratör.  För att rösta på en kandidat, Välj raden och klicka på ”röst” högst upp.  Om du ändrar dig på en röst, kan du välja kandidaten och klicka på ”Rescind röst”.
+
+![Kandidater](./media/ethereum-poa-deployment-guide/governance-dapp-candidates.png)
+
+
+#### <a name="admins"></a>Administratörer
+Den __administratörer__ fliken visas den aktuella uppsättningen av administratörer och ger dig möjlighet att rösta mot.  När en administratör förlorar mer än 50%-support, tas de bort som administratör på nätverket.  Verifieraren noder som äger den här administratören kommer att förlora verifieraren status och bli transaktion noder i nätverket.  En administratör kan tas bort av olika skäl. men är det upp till consortium att komma överens om en princip i förväg.
+
+![Administratörer](./media/ethereum-poa-deployment-guide/governance-dapp-admins.png)
+
+#### <a name="validators"></a>Systemhälsoverifierare
+Att välja den __systemhälsoverifierare__ fliken på den vänstra menyn visar aktuella distribuerade paritet noderna för den här instansen och deras aktuella status (nodtyp).  Observera att varje consortium medlem har en annan uppsättning systemhälsoverifierare i den här listan, eftersom den här vyn visar den aktuella medlemmen distribuerade consortium.  Om det är en nyligen distribuerade instans och du har inte har lagt till din systemhälsoverifierare, visas alternativet att lägga till systemhälsoverifierare.  Om du väljer detta automatiskt väljer en regionalt belastningsutjämnad uppsättning paritet noder och tilldela dem till din verifieraren uppsättning.  Om du har distribuerat fler noder än den tillåtna kapaciteten blir de återstående noderna transaktion noder i nätverket.
+
+Adressen för varje verifieraren tilldelas automatiskt den [identitetsarkiv](#identity-store) i Azure.  Om en nod stängs av, kommer den ifrån sig sin identitet, vilket gör att en annan nod i distributionen ta dess plats.  Detta garanterar att ditt deltagande konsensus har hög tillgänglighet.
+
+![Systemhälsoverifierare](./media/ethereum-poa-deployment-guide/governance-dapp-validators.png)
+
+#### <a name="consortium-name"></a>Consortium namn
+En administratör kan uppdatera Consortium-namnet som visas överst på sidan.  Välj kugghjulsikonen i det övre vänstra hörnet att uppdatera namnet Consortium.
+
+#### <a name="account-menu"></a>Kontomeny
+I det övre högerkant hörnet är dina Ethereum-kontoalias och identicon.  Om du är administratör har du möjlighet att uppdatera ditt alias.
+
+![Konto](./media/ethereum-poa-deployment-guide/governance-dapp-account.png)
 
 ### <a name="deploy-ethereum-proof-of-authority"></a>Distribuera Ethereum Proof-of-Authority
 
@@ -160,7 +194,7 @@ Här är ett exempel på en flerparti distributionsflödet:
 
 6.  *Medlem A* och *medlem B* båda röst *medlem C* som administratör
 
-Den här processen kräver en Azure-prenumeration som har stöd för distribution av flera skalningsuppsättningar för virtuella datorer och hanterade diskar. Om det behövs [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) att börja.
+Den här processen kräver en Azure-prenumeration som har stöd för distribution av flera virtuella datorer och hanterade diskar. Om det behövs [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) att börja.
 
 När en prenumeration är skyddad, går du till Azure-portalen. Välj ”+”, Marketplace (”Visa alla”), och Sök efter Ethereum PoA Consortium.
 
@@ -172,7 +206,7 @@ Under **grunderna**, ange värden för standard parametrar för alla distributio
 
 En detaljerad beskrivning av varje parameter visas nedan:
 
-Parameternamn|Beskrivning|Tillåtna värden|Standardvärden    
+Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
 ---|---|---|---
 Skapa ett nytt nätverk eller ansluta till befintliga nätverk?|Skapa ett nytt nätverk eller ansluta till en befintlig consortium-nätverk|Skapa ny koppling befintliga|Skapa ny
 E-postadress (valfritt)|Du får ett e-postmeddelande när distributionen är klar med information om din distribution.|Giltig e-postadress|Ej tillämpligt
@@ -203,7 +237,7 @@ En detaljerad beskrivning av varje parameter visas nedan:
 
 En exempeldistribution visas nedan: ![distribution regioner](./media/ethereum-poa-deployment-guide/deployment-regions.png)
 
-#### <a name="network-size-and-performance"></a>Nätverkets storlek och prestanda 
+#### <a name="network-size-and-performance"></a>Nätverkets storlek och prestanda
 
 Ange indata för storleken på consortium-nätverket, till exempel antal och storlek för systemhälsoverifierarens noder under ”nätverkets storlek och prestanda”.
 Verifieraren storage nodstorlek bestämmer potentiella storleken på blockchain. Detta kan ändras efter distributionen.
@@ -213,8 +247,20 @@ En detaljerad beskrivning av varje parameter visas nedan:
   Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
   ---|---|---|---
   Antalet belastningsutjämnade verifieraren noder|Antalet noder som verifieraren kan etablera som en del av nätverket|2-15|2
-  Verifieraren noden lagringsprestanda|Typ av hanterad disk säkerhetskopiering varje distribuerade verifieraren nod.|Standard- eller Premium|Standard
+  Verifieraren noden lagringsprestanda|Typ av hanterad disk säkerhetskopiering varje distribuerade verifieraren nod.|Standard SSD- eller Premium|Standard SSD
   Verifieraren nodstorlek för virtuell dator|VM-storleken som används för systemhälsoverifierarens noder.|Standard A Standard D, Standard D-v2, Standard F-serien, Standard DS och Standard FS|Standard D1 v2
+
+[Prisinformation om lagring](https://azure.microsoft.com/pricing/details/managed-disks/)
+
+[Prisinformation för virtuell dator](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+
+Observera att virtuella datorer och lagringsnivå påverkar nätverkets prestanda.  Vi rekommenderar följande SKU: er baserat på önskad kostnadseffektivitet:
+
+  SKU för virtuell dator|Lagringsnivå|Pris|Dataflöde|Svarstid
+  ---|---|---|---|---
+  F1|Standard SSD|Låg|Låg|Hög
+  D2_v3|Standard SSD|medel|medel|medel
+  F16s|Premium SSD|Hög|Hög|Låg
 
 En exempeldistribution visas nedan: ![storlek och prestanda](./media/ethereum-poa-deployment-guide/network-size-and-performance.png)
 
@@ -231,21 +277,23 @@ Nätverks-ID|Nätverks-ID för consortium Ethereum-nätverk som ska distribueras
 Administratören Ethereum-adress|Ethereum kontoadress som används för att delta i PoA styrning.  Vi rekommenderar att du använder MetaMask för att generera en Ethereum-adress.|42 alfanumeriska tecken som börjar med 0 x|Ej tillämpligt
 Avancerade alternativ|Avancerade alternativ för Ethereum-inställningar|Aktivera eller inaktivera|Inaktivera
 Offentlig IP-adress (avancerade alternativ = Enable)|Distribuerar nätverket bakom en VNet-Gateway och tar bort peering åtkomst. Om det här alternativet väljs, måste alla medlemmar använda en VNet-Gateway för anslutningen för att vara kompatibel.|Privat virtuellt nätverk för offentlig IP-adress|Offentlig IP-adress
+Blockera Gas gränsen (avancerade alternativ = Enable)|Startar block gas gränsen på nätverket|Numerisk|50,000,00
+Reseal Blockeringsperiod (sek)|Frekvensen som tomt block skapas när det finns inga transaktioner i nätverket. Tätare har snabbare avveckling överföring men ökade lagringskostnader.|Numerisk|15
 Transaktionen behörighet kontraktet (avancerade alternativ = Enable)|ByteCode för transaktionen ge behörighet till kontraktet. Begränsar smarta kontrakt distribution och körning i en permissioned lista över Ethereum-konton.|Kontraktet bytecode|Ej tillämpligt
 
 En exempeldistribution visas nedan: ![ethereum-inställningar](./media/ethereum-poa-deployment-guide/ethereum-settings.png)
 
-#### <a name="azure-monitor"></a>Azure Monitor
+#### <a name="monitoring"></a>Övervakning
 
-Bladet Azure Monitor kan du konfigurera en Azure Monitor-resurs för nätverket. Samlar in Azure Monitor och surface användbart mått och loggar från ditt nätverk, ger möjligheten att snabbt kontrollera nätverkets tillstånd eller felsöka problem.
+Bladet övervakning kan du konfigurera en Log Analytics-resurs för ditt nätverk. Övervakningsagenten samlar in och surface användbart mått och loggar från ditt nätverk, ger möjligheten att snabbt kontrollera nätverkets tillstånd eller felsöka problem.
 
   Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
   ---|---|---|---
-Övervakning|Möjlighet att aktivera Azure Monitor|Aktivera eller inaktivera|Aktivera
-Anslut till befintliga Log Analytics|Skapa en ny Log Analytics-instans som en del av Azure Monitor eller Anslut till en befintlig instans|Skapa en ny eller ansluta till befintliga|Skapa ny
-Azure Monitor Location(Connect to Existing Azure Monitor = Create new)|Den region där den nya Azure Monitor kommer att distribueras|Alla regioner för Azure Monitor|Ej tillämpligt
-Befintliga Log Analytics arbetsyte-Id (ansluta till befintliga Azure Monitor = Join befintlig)|Arbetsyte-ID för den befintliga Log Analytics-instansen||Ej tillämpligt
-Befintliga Log Analytics primär nyckel (ansluta till befintliga Azure Monitor = Join befintlig)|Den primära nyckeln som används för att ansluta till den befintliga Azure Monitor-instansen||Ej tillämpligt
+Övervakning|Möjlighet att aktivera övervakning|Aktivera eller inaktivera|Aktivera
+Anslut till befintliga Log Analytics|Skapa en ny Log Analytics-instans eller Anslut till en befintlig instans|Skapa en ny eller ansluta till befintliga|Skapa ny
+Övervaka plats (Anslut till befintliga Log Analytics = Skapa ny)|Den region där den nya Log Analytics-instansen ska distribueras|Alla regioner för Log Analytics|Ej tillämpligt
+Befintliga Log Analytics arbetsyte-Id (Anslut till befintliga Log Analytics = ansluta befintliga)|Arbetsyte-ID för den befintliga Log Analytics-instansen||Ej tillämpligt
+Primärnyckeln för befintliga Log Analytics (Anslut till befintliga Log Analytics = ansluta befintliga)|Den primära nyckeln som används för att ansluta till den befintliga Log Analytics-instansen||Ej tillämpligt
 
 
 En exempeldistribution visas nedan: ![med azure monitor](./media/ethereum-poa-deployment-guide/azure-monitor.png)
@@ -258,7 +306,7 @@ Läs juridisk information och sekretess licensvillkoren och klicka på Köp om d
 
 #### <a name="post-deployment"></a>Efter distributionen
 
-##### <a name="deployment-output"></a>Utdata för distribution 
+##### <a name="deployment-output"></a>Utdata för distribution
 
 När distributionen är klar kommer du att kunna komma åt de nödvändiga parametrarna via e-postbekräftelsen eller via Azure portal. I de här parametrarna hittar du:
 
@@ -270,9 +318,9 @@ När distributionen är klar kommer du att kunna komma åt de nödvändiga param
 
 -   Webbadressen för data
 
--   VNet-Gateway resurs-Id (valfritt)
+-   VNet-Gateway resurs-ID (valfritt)
 
-##### <a name="confirmation-email"></a>E-postbekräftelsen 
+##### <a name="confirmation-email"></a>E-postbekräftelsen
 
 Om du anger en e-postadress ([grunderna avsnittet](#basics)), ett e-postmeddelande skickas till e-postadress med distributionsinformation för utdata.
 
@@ -293,21 +341,9 @@ När distributionen har slutförts och alla resurser som har etablerats kommer d
 ### <a name="growing-the-consortium"></a>Växande consortium
 
 Om du vill expandera din consortium, måste du först ansluta det fysiska nätverket.
-Med hjälp av den offentliga IP-baserad distributionen är den här första steget sömlös. Om du distribuerar bakom en VPN-anslutning, se avsnittet [ansluter VNet-Gateway](#connecting-vnet-gateways) att utföra nätverksanslutning som en del av [steg 2](#step-2-new-admin-deployment).
+Med hjälp av den offentliga IP-baserad distributionen är den här första steget sömlös. Om du distribuerar bakom en VPN-anslutning, se avsnittet [ansluter VNet-Gateway](#connecting-vnet-gateways) att utföra nätverksanslutning som en del av den nya medlemmen-distributionen.  När distributionen har slutförts används den [styrning DApp](#governance-dapp) att bli ett nätverk som administratör.
 
-#### <a name="step-1-add-the-new-admin"></a>Steg 1: Lägg till nya
-
-1.  Samla in ny administratör offentlig Ethereum-adress.
-
-2.  Navigera till styrning DApp och skapa en ny administratör med Ethereum-adress och ett lämpligt alias
-
-3.  Meddela andra befintliga medlemmar i den nya förfrågan så att de kan rösta för att lägga till den här nya administratören
-
-4.  När rösten når 51% medlemmen kommer att läggas till som administratör
-
-![att lägga till administratören](./media/ethereum-poa-deployment-guide/adding-admin.png)
-
-#### <a name="step-2-new-admin-deployment"></a>Steg 2: Ny admin-distribution
+#### <a name="new-member-deployment"></a>Ny medlem distribution
 
 1.  Dela följande information med den anslutande medlemmen. Den här informationen kan hittas i din efter distributionen e-post eller portaldistribuering utdata.
 
@@ -315,7 +351,7 @@ Med hjälp av den offentliga IP-baserad distributionen är den här första steg
 
     -  Antalet noder som du har distribuerat
 
-    -  VNet-Gateway resurs-Id (om du använder VPN)
+    -  VNet-Gateway resurs-ID (om du använder VPN)
 
 2.  Distribuera medlemmen ska använda den [samma lösning](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) vid distribution av sin nätverksanvändning med Tänk på följande:
 
@@ -329,29 +365,13 @@ Med hjälp av den offentliga IP-baserad distributionen är den här första steg
 
     -  Om resten av nätverket är bakom en VPN-anslutning väljer *privata VNet* under avsnittet avancerade
 
-#### <a name="step-3-delegate-validators"></a>Steg 3: Ombud systemhälsoverifierare
-
-Nya måste auktorisera systemhälsoverifierare att delta å deras vägnar. Detta kan inte utföras automatiskt eftersom endast medlemmen styr sina nycklar.\*
-
-_\*Den första medlemmen noder i nätverket kan automatiskt läggas till eftersom vi kan förkompilera verifieraren noderna i det genesis blocket i nätverket._
-
-Nya måste utföra följande steg:
-
-1.  Öppna den styrning DApp som distribueras som en del av *sina* distribution
-
-2.  Gå till fliken systemhälsoverifierare
-
-3.  Markerar du varje systemhälsoverifierare som har distribuerats och klicka på **Lägg till**
-
-![att lägga till systemhälsoverifierare](./media/ethereum-poa-deployment-guide/adding-validators.png)
-
 #### <a name="connecting-vnet-gateways"></a>Ansluta VNet-gatewayer
 
-När det gäller ett privat nätverk är i olika medlemmar anslutna via VNet-gateway-anslutningar. Innan en medlem kan ansluta till nätverket och se transaktion trafik, måste en befintlig medlem utföra en slutgiltig konfiguration på sina VPN-gateway för att godkänna anslutningen. Det innebär att Ethereum-noder för anslutande medlem inte kan köras förrän en anslutning har upprättats. Vi rekommenderar att skapa överflödiga nätverksanslutningar (nät) till consortium att minska risken för en enskild felpunkt.
+Du kan ignorera det här steget om du har distribuerat med hjälp av standardinställningarna för offentlig IP-adress. När det gäller ett privat nätverk är i olika medlemmar anslutna via VNet-gateway-anslutningar. Innan en medlem kan ansluta till nätverket och se transaktion trafik, måste en befintlig medlem utföra en slutgiltig konfiguration på sina VPN-gateway för att godkänna anslutningen. Det innebär att Ethereum-noder för anslutande medlem inte kan köras förrän en anslutning har upprättats. Vi rekommenderar att skapa överflödiga nätverksanslutningar (nät) till consortium att minska risken för en enskild felpunkt.
 
-Efter den nya medlemmen distribuerar utföra befintliga medlemmen dubbelriktad anslutning genom att konfigurera en VNet-gateway-anslutning till den nya medlemmen. För att uppnå den här befintliga medlemmen måste:
+Efter den nya medlemmen distribuerar utföra befintliga medlemmen dubbelriktad anslutning genom att konfigurera en VNet-gateway-anslutning till den nya medlemmen. För att uppnå detta behöver befintlig medlem:
 
-1.  VNet-gateway ResourceId medlemmens anslutning (se distribution utdata)
+1.  VNet-gateway ResourceID medlemmens anslutning (se distribution utdata)
 
 2.  Nyckeln för delad anslutning
 
@@ -359,7 +379,7 @@ Befintlig medlem måste köra följande PowerShell-skript för att slutföra ans
 
 ![cloudshell](./media/ethereum-poa-deployment-guide/cloud-shell.png)
 
-```bash
+```Powershell
 $MyGatewayResourceId = "<EXISTING_MEMBER_RESOURCEID>"
 $OtherGatewayResourceId = "<NEW_MEMBER_RESOURCEID]"
 $ConnectionName = "Leader2Member"
@@ -425,19 +445,19 @@ ParityLog_CL
 | where Computer == "vl-devn3lgdm-reg1000001"
 | project RawData, TimeGenerated
 | where RawData matches regex PeerCountRegex
-| extend ActivePeers = extract(PeerCountRegex, 1, RawData, typeof(int)) 
+| extend ActivePeers = extract(PeerCountRegex, 1, RawData, typeof(int))
 | summarize avg(ActivePeers) by bin(TimeGenerated, 5m)
 ```
 
 ### <a name="ssh-access"></a>SSH-åtkomst
 
-Av säkerhetsskäl nekas SSH-portåtkomst av en regel för säkerhet som standard. Åtkomst till VM-skalningsuppsättningen skalningsuppsättningsinstanser i PoA nätverk måste du ändra den här regeln för att \"Tillåt\"
+Av säkerhetsskäl nekas SSH-portåtkomst av en regel för säkerhet som standard. För att komma åt de virtuella datorinstanserna i PoA nätverk, behöver du ändra den här regeln till \"Tillåt\"
 
 1.  Starta i översiktsavsnittet för distribuerade resursgruppen från Azure-portalen.
 
     ![SSH översikt](./media/ethereum-poa-deployment-guide/ssh-overview.png)
 
-2.  Välj den nya Nätverkssäkerhetsgruppen
+2.  Välj Nätverkssäkerhetsgrupp för regionen för den virtuella datorn som du vill komma åt
 
     ![SSH nsg](./media/ethereum-poa-deployment-guide/ssh-nsg.png)
 
@@ -452,7 +472,7 @@ Av säkerhetsskäl nekas SSH-portåtkomst av en regel för säkerhet som standar
 5.  Klicka på \"spara\" (ändringar kan ta några minuter att tillämpa)
 
 Du kan nu fjärransluta till de virtuella datorerna för systemhälsoverifierarens noder via SSH med ditt angivna admin användarnamn och lösenord/SSH-nyckel.
-SSH-kommando för att köra för att komma åt den första noden i verifieraren visas i output-mallparameter för distribution enligt följande ”: SSH\_till\_första\_VL\_NODEN\_område 1” (för exempeldistribution: ssh - p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com). Gå till ytterligare transaktionsloggar noder genom att öka portnumret med ett (till exempel den första noden i transaktionen är på port 4000).
+SSH-kommando för att köra för att komma åt den första noden i verifieraren visas i output-mallparameter för distribution enligt följande ”: SSH\_till\_första\_VL\_NODEN\_område 1” (för exempeldistribution: ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com). Gå till ytterligare transaktionsloggar noder genom att öka portnumret med ett (till exempel den första noden i transaktionen är på port 4000).
 
 Om du har distribuerat till flera regioner kan du ändra kommandot ovan till DNS-namn eller IP-adressen för belastningsutjämnaren i den regionen. Hitta resursen med namngivningskonventionen för att hitta den DNS-namn eller IP-adressen för de andra regionerna, \* \* \* \* \*- lbpip reg\#, och visa dess DNS-namn och IP-egenskaper.
 
@@ -474,7 +494,7 @@ Sök efter och välj \"Traffic Manager-profil\" när du klickar på den \"skapa 
 
 ![Sök efter azure traffic manager](./media/ethereum-poa-deployment-guide/traffic-manager-search.png)
 
-Ge profilen ett unikt namn och välj den resursgrupp som skapades under distributionen av PoA.
+Ge profilen ett unikt namn och välj den resursgrupp som skapades under distributionen av PoA. Distribuera genom att klicka på ”Skapa”.
 
 ![Skapa traffic manager](./media/ethereum-poa-deployment-guide/traffic-manager-create.png)
 
@@ -482,13 +502,13 @@ När den har distribuerats väljer du instansen i resursgruppen. DNS-namn till t
 
 ![Leta upp traffic manager DNS](./media/ethereum-poa-deployment-guide/traffic-manager-dns.png)
 
-Välj fliken slutpunkter och klicka på knappen Lägg till. Sedan ändra resource måltypen till offentliga IP-adress. Välj sedan den offentliga IP-adressen för den första regionen\'s belastningsutjämnare.
+Välj fliken slutpunkter och klicka på knappen Lägg till. Ge slutpunkten ett unikt namn. Ändra resource måltypen till offentliga IP-adressen. Välj sedan den offentliga IP-adressen för den första regionen\'s belastningsutjämnare.
 
 ![Routning traffic manager](./media/ethereum-poa-deployment-guide/traffic-manager-routing.png)
 
 Upprepa för varje region i distribuerade nätverk. När slutpunkterna är i den \"aktiverat\" status, de kommer att läsa in och region balanserade på DNS-namnet på traffic manager. Du kan nu använda den här DNS-namnet i stället för den \[CONSORTIUM\_DATA\_URL\] parameter i andra steg i dokumentet.
 
-## <a name="data-api"></a>Data API
+### <a name="data-api"></a>Data API
 
 Varje consortium medlem är värd för nödvändig information för att andra kan ansluta till nätverket. Den befintliga medlemmen ger [CONSORTIUM_DATA_URL] innan den medlemmens distribueras. Vid distribution, att slå samman medlemmar hämta information från JSON-gränssnittet på följande slutpunkt:
 
@@ -497,102 +517,102 @@ Varje consortium medlem är värd för nödvändig information för att andra ka
 Svaret innehåller information som är användbar för att ansluta till medlemmar (Genesis block, verifieraren inställd på kontraktet ABI bootnodes) tillsammans med information som är användbar för att den befintliga medlemmen (verifieraren adresser). Vi rekommenderar användning av den här standardisering att utöka consortium över molnleverantörer. Den här API: et returnerar ett JSON-formaterade svar med följande struktur:
 ```json
 {
-  "$id": "", 
-  "type": "object", 
-  "definitions": {}, 
-  "$schema": "http://json-schema.org/draft-07/schema#", 
+  "$id": "",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "properties": {
     "majorVersion": {
-      "$id": "/properties/majorVersion", 
-      "type": "integer", 
-      "title": "This schema’s major version", 
-      "default": 0, 
+      "$id": "/properties/majorVersion",
+      "type": "integer",
+      "title": "This schema’s major version",
+      "default": 0,
       "examples": [
         0
       ]
-    }, 
+    },
     "minorVersion": {
-      "$id": "/properties/minorVersion", 
-      "type": "integer", 
-      "title": "This schema’s minor version", 
-      "default": 0, 
+      "$id": "/properties/minorVersion",
+      "type": "integer",
+      "title": "This schema’s minor version",
+      "default": 0,
       "examples": [
         0
       ]
-    }, 
+    },
     "bootnodes": {
-      "$id": "/properties/bootnodes", 
-      "type": "array", 
+      "$id": "/properties/bootnodes",
+      "type": "array",
       "items": {
-        "$id": "/properties/bootnodes/items", 
-        "type": "string", 
-        "title": "This member’s bootnodes", 
-        "default": "", 
+        "$id": "/properties/bootnodes/items",
+        "type": "string",
+        "title": "This member’s bootnodes",
+        "default": "",
         "examples": [
-          "enode://a348586f0fb0516c19de75bf54ca930a08f1594b7202020810b72c5f8d90635189d72d8b96f306f08761d576836a6bfce112cfb6ae6a3330588260f79a3d0ecb@10.1.17.5:30300", 
+          "enode://a348586f0fb0516c19de75bf54ca930a08f1594b7202020810b72c5f8d90635189d72d8b96f306f08761d576836a6bfce112cfb6ae6a3330588260f79a3d0ecb@10.1.17.5:30300",
           "enode://2d8474289af0bb38e3600a7a481734b2ab19d4eaf719f698fe885fb239f5d33faf217a860b170e2763b67c2f18d91c41272de37ac67386f80d1de57a3d58ddf2@10.1.17.4:30300"
         ]
       }
-    }, 
+    },
     "valSetContract": {
-      "$id": "/properties/valSetContract", 
-      "type": "string", 
-      "title": "The ValidatorSet Contract Source", 
-      "default": "", 
+      "$id": "/properties/valSetContract",
+      "type": "string",
+      "title": "The ValidatorSet Contract Source",
+      "default": "",
       "examples": [
         "pragma solidity 0.4.21;\n\nimport \"./SafeMath.sol\";\nimport \"./Utils.sol\";\n\ncontract ValidatorSet …"
       ]
-    }, 
+    },
     "adminContract": {
-      "$id": "/properties/adminContract", 
-      "type": "string", 
-      "title": "The AdminSet Contract Source", 
-      "default": "", 
+      "$id": "/properties/adminContract",
+      "type": "string",
+      "title": "The AdminSet Contract Source",
+      "default": "",
       "examples": [
         "pragma solidity 0.4.21;\nimport \"./SafeMath.sol\";\nimport \"./SimpleValidatorSet.sol\";\nimport \"./Admin.sol\";\n\ncontract AdminValidatorSet is SimpleValidatorSet { …"
       ]
-    }, 
+    },
     "adminContractABI": {
-      "$id": "/properties/adminContractABI", 
-      "type": "string", 
-      "title": "The Admin Contract ABI", 
-      "default": "", 
+      "$id": "/properties/adminContractABI",
+      "type": "string",
+      "title": "The Admin Contract ABI",
+      "default": "",
       "examples": [
         "[{\"constant\":false,\"inputs\":[{\"name\":\"proposedAdminAddress\",\"type\":\"address\"},…"
       ]
-    }, 
+    },
     "paritySpec": {
-      "$id": "/properties/paritySpec", 
-      "type": "string", 
-      "title": "The Parity client spec file", 
-      "default": "", 
+      "$id": "/properties/paritySpec",
+      "type": "string",
+      "title": "The Parity client spec file",
+      "default": "",
       "examples": [
         "\n{\n \"name\": \"PoA\",\n \"engine\": {\n \"authorityRound\": {\n \"params\": {\n \"stepDuration\": \"2\",\n \"validators\" : {\n \"safeContract\": \"0x0000000000000000000000000000000000000006\"\n },\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\"\n }\n }\n },\n \"params\": {\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\",\n \"wasmActivationTransition\": \"0x0\"\n },\n \"genesis\": {\n \"seal\": {\n \"authorityRound\": {\n \"step\": \"0x0\",\n \"signature\": \"0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\"\n }\n },\n \"difficulty\": \"0x20000\",\n \"gasLimit\": \"0x2FAF080\"\n },\n \"accounts\": {\n \"0x0000000000000000000000000000000000000001\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ecrecover\", \"pricing\": { \"linear\": { \"base\": 3000, \"word\": 0 } } } },\n \"0x0000000000000000000000000000000000000002\": { \"balance\": \"1\", \"builtin\": { \"name\": \"sha256\", \"pricing\": { \"linear\": { \"base\": 60, \"word\": 12 } } } },\n \"0x0000000000000000000000000000000000000003\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ripemd160\", \"pricing\": { \"linear\": { \"base\": 600, \"word\": 120 } } } },\n \"0x0000000000000000000000000000000000000004\": { \"balance\": \"1\", \"builtin\": { \"name\": \"identity\", \"pricing\": { \"linear\": { \"base\": 15, \"word\": 3 } } } },\n \"0x0000000000000000000000000000000000000006\": { \"balance\": \"0\", \"constructor\" : \"…\" }\n }\n}"
       ]
-    }, 
+    },
     "errorMessage": {
-      "$id": "/properties/errorMessage", 
-      "type": "string", 
-      "title": "Error message", 
-      "default": "", 
+      "$id": "/properties/errorMessage",
+      "type": "string",
+      "title": "Error message",
+      "default": "",
       "examples": [
         ""
       ]
-    }, 
+    },
     "addressList": {
-      "$id": "/properties/addressList", 
-      "type": "object", 
+      "$id": "/properties/addressList",
+      "type": "object",
       "properties": {
         "addresses": {
-          "$id": "/properties/addressList/properties/addresses", 
-          "type": "array", 
+          "$id": "/properties/addressList/properties/addresses",
+          "type": "array",
           "items": {
-            "$id": "/properties/addressList/properties/addresses/items", 
-            "type": "string", 
-            "title": "This member’s validator addresses", 
-            "default": "", 
+            "$id": "/properties/addressList/properties/addresses/items",
+            "type": "string",
+            "title": "This member’s validator addresses",
+            "default": "",
             "examples": [
-              "0x00a3cff0dccc0ecb6ae0461045e0e467cff4805f", 
+              "0x00a3cff0dccc0ecb6ae0461045e0e467cff4805f",
               "0x009ce13a7b2532cbd89b2d28cecd75f7cc8c0727"
             ]
           }
@@ -603,7 +623,7 @@ Svaret innehåller information som är användbar för att ansluta till medlemma
 }
 
 ```
-## <a name="development"></a>Utveckling
+## <a name="tutorials"></a>Självstudier
 
 ### <a name="programmatically-interacting-with-a-smart-contract"></a>Interagera programmässigt med ett smarta kontrakt
 
@@ -619,7 +639,7 @@ pragma solidity ^0.4.11;
 contract postBox {
     string message;
     function postMsg(string text) public {
-        message = text; 
+        message = text;
     }
     function getMsg() public view returns (string) {
         return message;
@@ -655,23 +675,23 @@ var account = wallet.generate();
 var accountAddress = account.getAddressString()
 var privateKey = account.getPrivateKey();
 
- // TODO Replace with your RPC endpoint
- var web3 = new Web3(new Web3.providers.HttpProvider(
+// TODO Replace with your RPC endpoint
+var web3 = new Web3(new Web3.providers.HttpProvider(
     "http://testzvdky-dns-reg1.eastus.cloudapp.azure.com:8545"));
- 
+
 // Get the current nonce of the account
- web3.eth.getTransactionCount(accountAddress, function (err, nonce) {
+web3.eth.getTransactionCount(accountAddress, function (err, nonce) {
    var data = web3.eth.contract(abi).at(address).postMsg.getData("Hello World");
    var rawTx = {
      nonce: nonce,
-     gasPrice: '0x00', 
+     gasPrice: '0x00',
      gasLimit: '0x2FAF080',
-     to: address, 
-     value: '0x00', 
+     to: address,
+     value: '0x00',
      data: data
    }
    var tx = new ethereumjs(rawTx);
-   
+
    tx.sign(privateKey);
 
    var raw = '0x' + tx.serialize().toString('hex');
@@ -682,7 +702,47 @@ var privateKey = account.getPrivateKey();
  });
 ```
 
-### <a name="debug-a-smart-contract-truffle-develop"></a>Felsöka ett smarta kontrakt (Truffle utveckla)
+### <a name="deploy-smart-contract-with-truffle"></a>Distribuera smarta kontrakt med Truffle
+
+-   Installera nödvändiga bibliotek
+
+```javascript
+npm init
+
+npm install truffle-hdwallet-provider --save
+```
+-   I truffle.js, lägger du till följande kod för att låsa upp kontot MetaMask och konfigurera noden PoA som posten pekar genom att tillhandahålla mnemoteknisk frasen (MetaMask / inställningar / avslöja Seed ord)
+
+```javascript
+var HDWalletProvider = require("truffle-hdwallet-provider");
+
+var rpc_endpoint = "XXXXXX";
+var mnemonic = "twelve words you can find in metamask/settings/reveal seed words";
+
+module.exports = {
+  networks: {
+    development: {
+      host: "localhost",
+      port: 8545,
+      network_id: "*" // Match any network id
+    },
+    poa: {
+      provider: new HDWalletProvider(mnemonic, rpc_endpoint),
+      network_id: 3,
+      gasPrice : 0
+    }
+  }
+};
+
+```
+
+-   Distribuera till PoA nätverk
+
+```javascript
+$ truffle migrate --network poa
+```
+
+### <a name="debug-smart-contract-with-truffle"></a>Felsöka smarta kontrakt med Truffle
 
 Truffle har en lokal utveckla nätverk som är tillgänglig för felsökning smarta kontrakt. Du hittar den fullständiga självstudien [här](http://truffleframework.com/tutorials/debugging-a-smart-contract).
 
@@ -694,28 +754,46 @@ WebAssembly support har redan aktiverats för dig i den nyligen distribuerade Po
 
 -   Självstudien från paritet Tech- <https://github.com/paritytech/pwasm-tutorial>
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="reference"></a>Referens
 
-### <a name="i-notice-a-bunch-of-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Jag har sett en massa transaktioner i nätverket som jag fungerade\'t skicka. Var kommer dessa från?
+### <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-Det är säkert att låsa upp den [personliga API](https://web3js.readthedocs.io/en/1.0/web3-eth-personal.html). Bot konton lyssnar efter upplåst Ethereum-konton och försök att tömma pengar. Roboten förutsätter dessa konton innehåller verkliga ether och försöker var först med att siphon balans. Aktivera inte personliga API: et i nätverket. I stället logga förväg transaktioner antingen manuellt med hjälp av en wallet som MetaMask eller programmässigt som beskrivs i avsnittet interagera programmässigt med ett smarta kontrakt.
+#### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Jag Observera att det finns många transaktioner i nätverket som jag fungerade\'t skicka. Var kommer dessa från?
 
-### <a name="how-to-ssh-onto-a-vm"></a>Hur SSH till en virtuell dator?
+Det är säkert att låsa upp den [personliga API](https://web3js.readthedocs.io/en/1.0/web3-eth-personal.html). Robotar lyssna efter upplåst Ethereum-konton och försök att tömma pengar. Roboten förutsätter dessa konton innehåller verkliga ether och försöker var först med att siphon balans. Aktivera inte personliga API: et i nätverket. I stället Logga transaktioner antingen manuellt med hjälp av en wallet som MetaMask eller programmässigt som beskrivs i avsnittet före [interagera programmässigt med ett smarta kontrakt](#programmatically-interacting-with-a-smart-contract).
 
-Vi Lås SSH-porten av säkerhetsskäl. Följ [den här handboken för att aktivera SSH-porten](#_Accessing_Nodes_via).
+#### <a name="how-to-ssh-onto-a-vm"></a>Hur SSH till en virtuell dator?
 
-### <a name="how-do-i-set-up-an-audit-member-or-transaction-nodes"></a>Hur konfigurerar jag en granskning medlem eller transaktionen noder?
+SSH-porten exponeras inte av säkerhetsskäl. Följ [den här handboken för att aktivera SSH-porten](#ssh-access).
+
+#### <a name="how-do-i-set-up-an-audit-member-or-transaction-nodes"></a>Hur konfigurerar jag en granskning medlem eller transaktionen noder?
 
 Transaktionen noder är en uppsättning paritet klienter som är peer-kopplade med nätverket men inte deltar i konsensus. Dessa noder kan användas för att skicka in Ethereum-transaktioner och läsa smarta kontrakt-tillstånd.
-Detta fungerar även som en mekanism för att tillhandahålla revision för reglering av nätverket. För att uppnå detta bara följa steg 2 växer Consortium.
+Detta fungerar även som en mekanism för att tillhandahålla revision för icke-authority consortium medlemmar i nätverket. För att uppnå detta bara följa steg 2 växer Consortium.
 
-### <a name="why-are-metamask-transactions-taking-a-long-time"></a>Varför är MetaMask transaktioner tar lång tid?
+#### <a name="why-are-metamask-transactions-taking-a-long-time"></a>Varför är MetaMask transaktioner tar lång tid?
 
 För att säkerställa transaktioner tas emot i rätt ordning, kommer varje Ethereum-transaktion med en stegvis ökande nonce. Om du har använt ett konto i MetaMask i ett annat nätverk, måste du återställa det tillfälligt. Klicka på ikonen för inställningar (3-staplar), inställningar, Återställ konto. Transaktionshistoriken kommer att tas bort och du kan nu skicka om transaktionen.
 
-### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>Är offentlig IP-distributioner som är kompatibla med privat nätverksdistributioner?
+#### <a name="do-i-need-to-specify-gas-fee-in-metamask"></a>Behöver jag ange gas avgift i MetaMask?
+
+Ether har inte ett syfte i proof-of-authority consortium. Det är därför behöver inte ange gas avgift när du skickar in transaktioner i MetaMask.
+
+#### <a name="what-should-i-do-if-my-deployment-fails-due-to-failure-to-provision-azure-oms"></a>Vad ska jag göra om distributionen misslyckas på grund av det gick inte att etablera Azure OMS?
+
+Övervakning är en valfri funktion. I sällsynta fall där distributionen misslyckas på grund av oförmåga att har etablera Azure Monitor-resurs som du kan distribuera om utan Azure Monitor.
+
+#### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>Är den offentliga IP-distributioner som är kompatibla med privat nätverksdistributioner?
 
 Nej, peering krävs dubbelriktad kommunikation så att hela nätverket måste vara antingen offentliga eller privata.
+
+#### <a name="what-is-the-expected-transaction-throughput-of-proof-of-authority"></a>Vad är den förväntade transaktionsdataflöde för Proof-of-Authority?
+
+Transaktionen dataflödet blir mycket beroende på vilka typer av transaktioner och nätverkets topologi.  Med hjälp av enkla transaktioner, har vi jämfört genomsnitt 400 transaktioner per sekund med ett nätverk som distribueras över flera regioner.
+
+#### <a name="how-do-i-subscribe-to-smart-contract-events"></a>Hur jag prenumererar på smarta kontrakt händelser?
+
+Ethereum Proof-of-Authority har nu stöd för web sockets.  Kontrollera distributionen e-post eller distribution av utdata för att hitta den uttag Webb-URL och portnummer.
 
 ## <a name="next-steps"></a>Nästa steg
 

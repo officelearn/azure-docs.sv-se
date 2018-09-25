@@ -4,24 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: Programmässigt hitta publicera region med slutpunktsnyckeln och program-ID för LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 2b978b8459bbf248f7702076c78c1948b036aec6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 193872d03dde1d5c620acca1b7aba99b60db238d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057382"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034084"
 ---
 # <a name="find-endpoint-region-with-nodejs"></a>Hitta endpoint region med Node.js
 Om du har LUIS app-ID och prenumerations-ID LUIS kan du vilken region du ska använda för slutpunkten frågor.
 
 > [!NOTE] 
-> Den fullständiga lösningen till Node.js är tillgänglig från den [ **LUIS-Samples** Github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
+> Den fullständiga Node.js-lösningen finns i [**LUIS-Samples** Github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS endpoint fråga strategi
 Varje slutpunkt LUIS-fråga kräver:

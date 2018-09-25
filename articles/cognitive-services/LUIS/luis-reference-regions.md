@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Den region där du publicerar appen LUIS motsvarar den region eller plats som du anger i Azure-portalen när du skapar en Azure-LUIS slutpunktsnyckeln. När du publicerar en app genererar LUIS automatiskt en slutpunkts-URL för den region som är kopplat till nyckeln. Om du vill publicera en LUIS-app till flera regioner, behöver du minst en nyckel per region.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: diberry
-ms.openlocfilehash: eb7a6e86dc9628c8e981dbad7678d552d2ea587b
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 205a17a985986aab8039afe824e7e872a9885169
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363540"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039419"
 ---
 # <a name="regions-and-keys"></a>Regioner och nycklar
 

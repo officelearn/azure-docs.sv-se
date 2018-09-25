@@ -4,19 +4,19 @@ description: Använd Azure Event Grid prenumererar du på Media Services jobbet 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/20/2018
 ms.author: juliako
-ms.openlocfilehash: e9df0cd24ef890765b78c25a073d671889be10a7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e7268a066acf41c454de0c66aa21603199d85a60
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724066"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034849"
 ---
 # <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Dirigera Azure Media Services-händelser till en anpassad webbslutpunkt med CLI
 
@@ -26,17 +26,14 @@ Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, ex
 
 När du slutför stegen som beskrivs i den här artikeln ser du att händelsedata har skickats till en slutpunkt.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="prerequisites"></a>Förutsättningar
 
-Logga in i [Azure Portal](http://portal.azure.com) och starta **CloudShell** för att köra CLI-kommandon som visas i nästa steg.
+- Ha en aktiv Azure-prenumeration.
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+    Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-konto.
 
-Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI](/cli/azure/install-azure-cli). 
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
-
-Se till att komma ihåg de värden som du använde för den Media Services-kontonamn och namnet på storage-resursnamnet.
+- Installera den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Den här artikeln kräver Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Du kan också använda den [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## <a name="enable-event-grid-resource-provider"></a>Aktivera Event Grid-resursprovider
 
@@ -132,7 +129,7 @@ Tryck på **spara och kör** överst i fönstret.
 
 Du prenumererar på en artikel som talar om Event Grid vilka händelser som du vill spåra. I följande exempel prenumererar vi på Media Services-konto du just skapat, och URL: en från Azure Function-webhook som du har skapat som slutpunkt för händelseavisering. 
 
-Ersätt `<event_subscription_name>` med ett unikt namn för din händelseprenumeration. För `<resource_group_name>` och `<ams_account_name>` använder du det värde du skapade tidigare.  För den `<endpoint_URL>` klistra in din slutpunkts-URL. Ta bort *& clientID = standard* från URL: en. Genom att ange en slutpunkt när du prenumererar kan Event Grid hantera omdirigeringen av händelser till denna slutpunkt. 
+Ersätt `<event_subscription_name>` med ett unikt namn för din händelseprenumeration. För `<resource_group_name>` och `<ams_account_name>`, använder du värden som du använde när du skapar Media Services-kontot. För den `<endpoint_URL>` klistra in din slutpunkts-URL. Ta bort *& clientID = standard* från URL: en. Genom att ange en slutpunkt när du prenumererar kan Event Grid hantera omdirigeringen av händelser till denna slutpunkt. 
 
 ```cli
 amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -145,7 +142,9 @@ az eventgrid event-subscription create \
 
 Media Services-konto resource ID-värdet ser ut ungefär så här:
 
+```
 /subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
+```
 
 ## <a name="test-the-events"></a>Testa händelser
 
@@ -153,7 +152,7 @@ Kör ett kodningsjobb. Till exempel som beskrivs i den [Stream videofiler](strea
 
 Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt du konfigurerade när du startade prenumerationen. Bläddra till webhooken som du skapade tidigare. Klicka på **övervakaren** och **uppdatera**. Du ser ändras tillståndet för jobbets händelser: ”i kö”, ”schemalagd”, ”bearbetnings”, ”klar”, ”Error”, ”har avbrutits”, ”avbryter”.  Mer information finns i [Media Services Händelsescheman](media-services-event-schemas.md).
 
-Exempel:
+I följande exempel visar schemat för händelsen JobStateChange:
 
 ```json
 [{
@@ -172,16 +171,6 @@ Exempel:
 ```
 
 ![Testa händelser](./media/job-state-events-cli-how-to/test_events.png)
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-Om du planerar att fortsätta arbeta med det här lagringskontot och händelseprenumerationen ska du inte rensa upp bland de resurser som skapades i den här artikeln. Om du inte planerar att fortsätta kan du använda kommandona nedan för att ta bort alla resurser som har skapats i den här artikeln.
-
-Ersätt `<resource_group_name>` med resursgruppen du skapade ovan.
-
-```azurecli-interactive
-az group delete --name <resource_group_name>
-```
 
 ## <a name="next-steps"></a>Nästa steg
 

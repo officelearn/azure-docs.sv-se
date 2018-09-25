@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Redigera åtkomst är tillgänglig för ägare och medarbetare. För en privat app är slutpunkt för åtkomst tillgänglig för ägare och medarbetare. För en app för offentlig är åtkomst för slutpunkten tillgänglig för alla som har sina egna LUIS-konto och har den offentliga app-ID.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ca179dc845930bd0cbc89f8bf700bd1650ecf7fc
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 8a7ecac3776d767160b07f550251c54793926056
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633117"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033200"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Skriv- och slutpunkt användaråtkomst
 Redigera åtkomst är tillgänglig för ägare och medarbetare. För en privat app är slutpunkt för åtkomst tillgänglig för ägare och medarbetare. För en app för offentlig är åtkomst för slutpunkten tillgänglig för alla som har sina egna LUIS-konto och har den offentliga app-ID. 

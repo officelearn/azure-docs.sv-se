@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: yeki
-ms.openlocfilehash: 6b20ef98e008d9c5d984ba29eed894b1c5ec8c09
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 935b3ff0fe03984b02dc2e1137f48e53b06ce0c2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263256"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995117"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Automatisk operativsystemuppgradering för Azure VM-skalningsuppsättningen
 
@@ -199,7 +199,7 @@ az policy assignment create --display-name "Enforce automatic OS upgrades with a
 ```
 
 ## <a name="configure-auto-updates"></a>Konfigurera automatiska uppdateringar
-Om du vill konfigurera automatiska uppgraderingar, kontrollerar du att den *automaticOSUpgrade* är inställd på *SANT* i skalningsuppsättningen principuppsättningsdefinition modell. Du kan konfigurera den här egenskapen med Azure PowerShell eller Azure CLI 2.0.
+Om du vill konfigurera automatiska uppgraderingar, kontrollerar du att den *automaticOSUpgrade* är inställd på *SANT* i skalningsuppsättningen principuppsättningsdefinition modell. Du kan konfigurera den här egenskapen med Azure PowerShell eller Azure CLI.
 
 ### <a name="powershell"></a>PowerShell
 I följande exempel används Azure PowerShell (4.4.1 eller senare) att konfigurera automatiska uppgraderingar för skalningsuppsättningen *myVMSS* i resursgruppen med namnet *myResourceGroup*:
@@ -223,7 +223,7 @@ az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.Aut
 
 
 ## <a name="check-the-status-of-an-automatic-os-upgrade"></a>Kontrollera status för en automatisk uppgradering av operativsystem
-Du kan kontrollera status för senaste OS uppgraderingen utförs på din skalningsuppsättning med Azure PowerShell, Azure CLI 2.0 eller REST-API: er.
+Du kan kontrollera status för senaste OS uppgraderingen utförs på din skalningsuppsättning med Azure PowerShell, Azure CLI eller REST-API: er.
 
 ### <a name="powershell"></a>PowerShell
 I följande exempel används Azure PowerShell (4.4.1 eller senare) att kontrollera status för skalningsuppsättningen *myVMSS* i resursgruppen med namnet *myResourceGroup*:
@@ -232,7 +232,8 @@ I följande exempel används Azure PowerShell (4.4.1 eller senare) att kontrolle
 Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS
 ```
 
-### <a name="cli-20"></a>CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
+
 I följande exempel används Azure CLI (2.0.20 eller senare) att kontrollera status för skalningsuppsättningen *myVMSS* i resursgruppen med namnet *myResourceGroup*:
 
 ```azurecli

@@ -5,20 +5,20 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 09/10/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 1527ea5fbd97527312600e74417ac444422ab614
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e9f88a018ba0f40d41bf7ad17a74850a9edf8ae6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369377"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47043869"
 ---
 GPU-optimerad VM storlekar är specialiserade virtuella datorer som är tillgängliga med en eller flera NVIDIA GPU: er. De här storlekarna är utformade för arbetsbelastningar för beräkningsintensiva, grafik och visualisering. Den här artikeln innehåller information om antalet och typen av GPU: er, virtuella processorer, diskar och nätverkskort. Storage dataflöde och nätverket bandbredd ingår också för varje storlek i den här grupperingen. 
 
-* **NC, NCv2, NCv3 och ND** storlekarna är optimerade för beräkningsintensiva och nätverksintensiva program och algoritmer. Några exempel är CUDA - och OpenCL-baserade program och simuleringar, AI och Djupinlärning. NC-serien fokuserar på högpresterande arbetsbelastningar med NVIDIA: s Tesla V100 GPU.  ND-serien fokuserar på utbildning och inferensscenarier för djupinlärning. I serien används NVIDIA Tesla P40 GPU:er
-* **NV** storlekar optimerade och utformade för fjärrvisualiserings, streaming, spel, kodning och VDI-scenarier med ramverk som OpenGL och DirectX.  Dessa virtuella datorer backas upp av NVIDIA Tesla M60 GPU.
+* **NC, NCv2, NCv3 och ND** storlekarna är optimerade för beräkningsintensiva och nätverksintensiva program och algoritmer. Några exempel är CUDA - och OpenCL-baserade program och simuleringar, AI och Djupinlärning. NCv3-serien fokuserar på högpresterande arbetsbelastningar med NVIDIA: s Tesla V100 GPU.  ND-serien fokuserar på utbildning och inferensscenarier för djupinlärning. I serien används NVIDIA Tesla P40 GPU:er
+* **NV och NVv2** storlekar optimerade och utformade för fjärrvisualiserings, streaming, spel, kodning och VDI-scenarier med ramverk som OpenGL och DirectX.  Dessa virtuella datorer backas upp av NVIDIA Tesla M60 GPU.
 
 
 ## <a name="nc-series"></a>NC-serien
@@ -125,6 +125,24 @@ Varje GPU i NV-instanserna levereras med en GRID-licens. Denna licens ger dig fl
 | Standard_NV6 |6 |56 |340 | 1 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
+
+1 GPU = ett halvt M60-kort.
+
+## <a name="nvv2-series-preview"></a>NVv2-serien (förhandsversion)
+
+Premium Storage: stöds
+
+Cachelagring för Premium Storage: stöds
+
+De virtuella datorerna NVv2-serien drivs av [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU: er och NVIDIA GRID teknik med Intel Broadwell-processorer. Dessa virtuella datorer är avsedda för GPU accelerated grafikprogram och virtuella skrivbord där kunder vill visualisera sina data, simulera resultat att visa, arbeta med CAD- eller rendering och stream-innehåll. Dessutom kan dessa virtuella datorer köra arbetsbelastningar med enkel precision som kodning och rendering. NVv2 virtuella datorer stöd för Premium Storage och levereras med två gånger systemminne (RAM) jämfört med föregångaren NV-serien.  
+
+Varje GPU i NVv2 instanser levereras med en GRID-licens. Denna licens ger dig flexibiliteten att använda en NV-instans som en virtuell dator för en enskild användare eller 25 samtidiga användare kan ansluta till den virtuella datorn för ett scenario med virtuella program.
+
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | Maximalt antal datadiskar | Maximalt antal nätverkskort | Virtuella arbetsstationer | Virtuella program | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6s_v2 |6 |112 |320 | 1 | 12 | 4 | 1 | 25 |
+| Standard_NV12s_v2 |12 |224 |640 | 2 | 24 | 8 | 2 | 50 |
+| Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 8 | 4 | 100 |
 
 1 GPU = ett halvt M60-kort.
 

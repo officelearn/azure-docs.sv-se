@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2ccef960378190f10e64318f91039871657a1a46
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 250eddb043ccf9fa0b1bb92a298900f8ad820140
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603761"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992277"
 ---
 # <a name="search-queries-in-log-analytics"></a>Sökfrågor i Log Analytics
 
@@ -36,7 +36,7 @@ Tabell-baserade frågor starta genom att ange omfång frågan och därmed tender
 ## <a name="search-a-term"></a>Sök efter en term
 Den **search** normalt används för att söka efter en viss tidsperiod. Alla kolumner i alla tabeller genomsöks efter termen ”error” i exemplet nedan:
 
-```KQL
+```Kusto
 search "error"
 | take 100
 ```
@@ -46,13 +46,13 @@ När de inte är lätt att använda sökndexet frågor som den visade ovan är i
 ### <a name="table-scoping"></a>Tabellen omfång
 Om du vill söka efter en term i en viss tabell, lägger du till `in (table-name)` precis efter den **search** operator:
 
-```KQL
+```Kusto
 search in (Event) "error"
 | take 100
 ```
 
 eller i flera tabeller:
-```KQL
+```Kusto
 search in (Event, SecurityEvent) "error"
 | take 100
 ```
@@ -60,7 +60,7 @@ search in (Event, SecurityEvent) "error"
 ### <a name="table-and-column-scoping"></a>Tabell- och kolumnen omfång
 Som standard **search** utvärderas alla kolumner i datauppsättningen. Om du vill söka i bara en viss kolumn, använder du följande syntax:
 
-```KQL
+```Kusto
 search in (Event) Source:"error"
 | take 100
 ```
@@ -71,7 +71,7 @@ search in (Event) Source:"error"
 ## <a name="case-sensitivity"></a>Skiftlägeskänslighet
 Termen search är skiftlägeskänslig som standard, så söker ”dns” kan ge resultat som DNS-”,” dns ”eller” Dns ”. För att göra sökningen skiftlägeskänsliga, använda den `kind` alternativet:
 
-```KQL
+```Kusto
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
@@ -80,26 +80,26 @@ search kind=case_sensitive in (Event) "DNS"
 Den **search** kommandot stöder jokertecken i början, slut eller mitten av en term.
 
 Så här söker villkor som börjar med ”win”:
-```KQL
+```Kusto
 search in (Event) "win*"
 | take 100
 ```
 
 Så här söker villkor som slutar med ”.com”:
-```KQL
+```Kusto
 search in (Event) "*.com"
 | take 100
 ```
 
 Så här söker villkor som innehåller ”www”:
-```KQL
+```Kusto
 search in (Event) "*www*"
 | take 100
 ```
 
 Sök efter villkor som börjar med ”corp” och slutar med ”.com”, till exempel ”corp.mydomain.com” ”
 
-```KQL
+```Kusto
 search in (Event) "corp*.com"
 | take 100
 ```
@@ -112,21 +112,21 @@ Du kan också få allt i en tabell med bara ett jokertecken: `search in (Event) 
 ## <a name="add-and--or-to-search-queries"></a>Lägg till *och* / *eller* att söka efter frågor
 Använd **och** att söka efter poster som innehåller flera villkor:
 
-```KQL
+```Kusto
 search in (Event) "error" and "register"
 | take 100
 ```
 
 Använd **eller** att hämta poster som innehåller minst ett av villkoren:
 
-```KQL
+```Kusto
 search in (Event) "error" or "register"
 | take 100
 ```
 
 Om du har flera sökvillkor kan kombinera du dem i samma fråga med hjälp av parenteser:
 
-```KQL
+```Kusto
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
@@ -136,7 +136,7 @@ Resultatet av det här exemplet är poster som innehåller termen ”error” oc
 ## <a name="pipe-search-queries"></a>Skicka sökfrågor
 Precis som andra kommandon, **search** kan skickas så sökresultat kan filtreras, sorteras och aggregeras. Till exempel för att få en *händelse* poster som innehåller ”win”:
 
-```KQL
+```Kusto
 search in (Event) "win"
 | count
 ```
@@ -146,4 +146,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se ytterligare självstudier på den [Log Analytics query language plats](https://docs.loganalytics.io)
+- Se ytterligare självstudier på den [Log Analytics query language plats](https://aka.ms/LogAnalyticsLanguage).

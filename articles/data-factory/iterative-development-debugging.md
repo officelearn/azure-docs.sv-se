@@ -4,7 +4,7 @@ description: Lär dig hur du utvecklar och felsöker Data Factory-pipelines uppr
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 05/14/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: a4d3f991dbba8a686c7242aabff11d9228300777
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ca1ca616fdd097811b3f02285706b3ae8977d737
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865173"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034149"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Iterativ utveckling och felsökning med Azure Data Factory
 
@@ -40,13 +40,21 @@ När en testkörning lyckas, lägga till fler aktiviteter i din pipeline och for
 
 ![Avbryt en testkörning](media/iterative-development-debugging/iterative-development-image3.png)
 
-När du testar körs kan du inte behöver publicera ändringarna till data factory innan du väljer **felsöka**. Det här är användbart i scenarier där du vill se till att ändringarna fungerar som förväntat innan du uppdaterar data factory-arbetsflöde.
+När du testar körs kan du inte behöver publicera ändringarna till data factory innan du väljer **felsöka**. Den här funktionen är användbart i scenarier där du vill se till att ändringarna fungerar som förväntat innan du uppdaterar data factory-arbetsflöde.
 
 ## <a name="more-info-about-debugging"></a>Mer information om felsökning
 
 1. Testet körs initierades med den **felsöka** funktionen är inte tillgängliga i listan på den **övervakaren** fliken. Du kan bara se körs utlösta med **Utlös nu**, **schema**, eller **rullande fönster** utlöser i den **övervakaren** fliken. Du kan se den senaste testkörning initierades med den **felsöka** kapaciteten i den **utdata** tidsfönster rityta för pipelinen.
 
 2. Att välja **felsöka** faktiskt kör pipelinen. Så till exempel kopierar om det innehåller kopieringsaktiviteten i pipelinen, test-körningen data från källa till mål. Därför rekommenderar vi att du använder test mappar i dina kopieringsaktiviteter och andra aktiviteter när du felsöker. När du har den felsöks pipelinen, byta till de mappar som du vill använda under normal drift.
+
+## <a name="visualizing-debug-runs"></a>Visualiserar debug körs
+
+Du kan visualisera alla debug-körningar som pågår för din datafabrik i ett och samma ställe. Välj **visa debug körs** i det övre högra hörnet på sidan. Den här funktionen är användbart i scenarier där du har master pipelines drog debug körningar för underordnade pipelines och du vill att en enda vy för att se alla aktiva debug körs.
+
+![Välj ikonen Visa aktiva debug körningar](media/iterative-development-debugging/view-debug-runs-image1.png)
+
+![Exempellistan över aktiva debug körningar](media/iterative-development-debugging/view-debug-runs-image2.png)
 
 ## <a name="setting-breakpoints-for-debugging"></a>Ange brytpunkter för felsökning
 

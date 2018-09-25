@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Språkförståelse (LUIS) tillhandahåller fördefinierade domäner som är färdiga uppsättningar av avsikter och entiteter som samverkar för domäner eller vanliga kategorier av klientprogram. Fördefinierade domäner har redan tränats och är redo att lägga till i din LUIS-app.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 80a83fdb1e2b84ac03d0ae0cf969f1635f00cca0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1aa7e1bf9c1a584803a60a5061b4ae4cc8664ff4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053731"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037379"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>Använda fördefinierade domäner i LUIS-appar  
 
@@ -26,7 +26,7 @@ Bläddra i **fördefinierade domäner** fliken för att se andra fördefinierade
 > [!TIP]
 > Du hittar en fullständig lista över fördefinierade domäner i den [fördefinierade domäner referens](./luis-reference-prebuilt-domains.md).
 
-![Lägg till fördefinierade domän](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
+![Lägga till fördefinierad domän](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
 
 
 ## <a name="add-a-prebuilt-domain"></a>Lägga till en fördefinierad domän

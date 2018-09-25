@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Den här artikeln innehåller fördefinierade entitetsinformation om telefonnummer i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 1ae14f72f0dc610b9399e675f49ef5fff51a6965
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: bacb09b50c4b1d82daa6be1ef4fc79c88269cf7a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238999"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035461"
 ---
 # <a name="phonenumber-entity"></a>Entitet för telefonnummer
 Den `phonenumber` entiteten extraherar en mängd olika telefonnummer inklusive landskoden. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden i programmet. Den `phonenumber` entitet stöds i `en-us` kultur endast. 

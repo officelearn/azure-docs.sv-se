@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 5ce80e85f00c4c3542bf61e910baec9ccd635bcd
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 6355a7ce203f2bf75b5c93d225502f961deeee43
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161313"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032095"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Snabbstart: Manuell installation av en instans SAP HANA på Azure Virtual Machines
 ## <a name="introduction"></a>Introduktion
@@ -93,6 +93,11 @@ Azure VM-typer som är certifierade av SAP för SAP NetWeaver och S/4HANA progra
 >SAP-Linux Azure-integration stöds endast på Azure Resource Manager och inte den klassiska distributionsmodellen. 
 
 ## <a name="manual-installation-of-sap-hana"></a>Manuell installation av SAP HANA
+
+> [!IMPORTANT]
+> Kontrollera att Operativsystemet som du väljer är SAP-certifierade för SAP HANA på de specifika VM-typer som du använder. Listan över SAP HANA-certifierade VM-typer och OS-versioner för de som kan sökas i [SAP HANA certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Se till att klicka på information om den typ av virtuell dator i listan för att få en fullständig lista över SAP HANA OS-versioner som stöds för en viss typ av virtuell dator. Tänk på att i det här exemplet i det här dokumentet vi använde en SLES OS-version som inte stöds av SAP för SAP HANA på virtuella datorer i M-serien.
+>
+
 Den här guiden beskriver hur du manuellt installera SAP HANA på Azure virtuella datorer på två olika sätt:
 
 * Genom att använda SAP Software etablering Manager (SWPM) som en del av en distribuerad installation NetWeaver i ”installera databasinstansen” steg

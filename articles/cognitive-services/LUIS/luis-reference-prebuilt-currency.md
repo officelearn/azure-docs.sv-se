@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Den här artikeln innehåller valuta fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: b383e21f870d15818c540b79a9a56c1dd65fa342
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 89350ad6a49ceef8169d1693dafdedf702992504
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236830"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033897"
 ---
 # <a name="currency-entity"></a>Entitet för valuta
 Valutaentiteten fördefinierade identifierar valuta i många benämningar och länder/regioner, oavsett LUIS app kultur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller den valuta som programmet avsikter. Valuta entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 

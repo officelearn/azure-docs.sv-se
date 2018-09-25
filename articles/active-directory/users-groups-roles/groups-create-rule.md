@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9a2eb8ab4e3ee65e97de578c825bf106aee1b829
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: e418316a74ccf27ec730261957a8b6c64de5d063
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480348"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040609"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Skapa en dynamisk grupp och kontrollera status
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du konfigurerar en regel i Azure-portalen för d
 
 ## <a name="to-create-a-group-membership-rule"></a>Skapa en regel för medlemskap
 
-1. Logga in på den [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör eller en Användaradministratör för kontot.
+1. Logga in på den [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som har rollen Global administratör, Intune Service-administratör eller Användaradministratör för kontot i klienten.
 2. Välj **grupper**.
 3. Välj **alla grupper**, och välj **ny grupp**.
 

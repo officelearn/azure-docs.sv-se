@@ -20,7 +20,7 @@ I följande tabell visas de begränsningar som gäller för IoT Hub-resurser:
 | Maximalt antal enhetsidentiteter<br/> som returneras i ett enskilt anrop |1000 |
 | Maximal kvarhållning av IoT Hub-meddelanden för enhet-till-moln-meddelanden |7 dagar |
 | Maximal storlek för enhet-till-moln-meddelande |256 kB |
-| Maximal storlek för enhet-till-moln-batch |256 kB |
+| Maximal storlek för enhet-till-moln-batch |AMQP och http-: 256 KB för hela batchen <br/>MQTT: 256 KB för varje meddelande |
 | Maximalt antal meddelanden för enhet-till-moln-batch |500 |
 | Maximal storlek för moln-till-enhet-meddelande |64 kB |
 | Maximalt TTL-värde för moln-till-enhet-meddelanden |2 dagar |

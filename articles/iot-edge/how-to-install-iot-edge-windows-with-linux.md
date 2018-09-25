@@ -9,14 +9,14 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: d6852b5b1fe3d0b3c248fc1948fa4c3a9428de89
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2ff7c3482100545c476040ba556d464b9f44e434
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125416"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031126"
 ---
-# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Installera Azure IoT Edge-körningen på Windows för användning med Linux-behållare
+# <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Installera Azure IoT Edge-körningen på Windows för användning med Linux-behållare
 
 Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter som är så litet som en Raspberry Pi eller stora som industriella-server. När en enhet konfigureras med IoT Edge-körningen, kan du börja distribuera affärslogik till den från molnet. 
 
@@ -107,6 +107,10 @@ Och listan körs moduler med:
 ```powershell
 iotedge list
 ```
+
+## <a name="tips-and-suggestions"></a>Användbara tips och råd
+
+Om nätverket har en proxyserver, följer du stegen i [konfigurerar IoT Edge-enheten att kommunicera via en proxyserver](how-to-configure-proxy-support.md) att installera och starta IoT Edge-körningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

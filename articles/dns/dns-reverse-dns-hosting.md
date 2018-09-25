@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: b1c55e054d1113871e4f3753a11cd2bf62e42e67
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e45b3bde0d5077a5d18369236e81bcd467527940
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173599"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990152"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Värden DNS-zoner för omvänd sökning i Azure DNS
 
@@ -27,7 +27,7 @@ För att konfigurera omvänd DNS för en Azure-ägda IP-adress som är tilldelad
 
 Innan du läser den här artikeln bör du är bekant med den [översikt över omvänd DNS- och stöd i Azure](dns-reverse-dns-overview.md).
 
-Den här artikeln vägleder dig igenom stegen för att skapa din första DNS-zon för omvänd sökning och -post med hjälp av Azure portal, Azure PowerShell, Azure CLI 1.0 eller Azure CLI 2.0.
+Den här artikeln vägleder dig igenom stegen för att skapa din första DNS-zon för omvänd sökning och -post med hjälp av Azure portal, Azure PowerShell, Azure klassiskt CLI eller Azure CLI.
 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Skapa en DNS-zon för omvänd sökning
 
@@ -63,13 +63,13 @@ I följande exempel visas hur du utför den här uppgiften med hjälp av Azure P
 New-AzureRmDnsZone -Name 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
 ```azurecli
 azure network dns zone create MyResourceGroup 2.0.192.in-addr.arpa
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n 2.0.192.in-addr.arpa
@@ -94,13 +94,13 @@ I följande exempel visas hur du utför den här uppgiften med hjälp av Azure P
 New-AzureRmDnsZone -Name 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
 ```azurecli
 azure network dns zone create MyResourceGroup 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
@@ -138,13 +138,13 @@ I följande exempel visas hur du utför den här uppgiften med hjälp av PowerSh
 ```powershell
 New-AzureRmDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc1.contoso.com")
 ```
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup 2.0.192.in-addr.arpa 15 PTR --ptrdname dc1.contoso.com  
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.arpa -n 15 --ptrdname dc1.contoso.com
@@ -175,13 +175,13 @@ I följande exempel visas hur du utför den här uppgiften med hjälp av PowerSh
 New-AzureRmDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc2.contoso.com")
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
 ```
 azure network dns record-set add-record MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f PTR --ptrdname dc2.contoso.com 
 ```
  
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -n e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f --ptrdname dc2.contoso.com
@@ -205,13 +205,13 @@ I följande exempel visas hur du visar PTR-poster med hjälp av PowerShell eller
 Get-AzureRmDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
 ```azurecli
     azure network dns record-set list MyResourceGroup 2.0.192.in-addr.arpa
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     azure network dns record-set list -g MyResourceGroup -z 2.0.192.in-addr.arpa
@@ -231,13 +231,13 @@ I följande exempel visas hur du visar poster med hjälp av PowerShell eller Azu
 Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
 ```azurecli
     azure network dns record-set list MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     azure network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: a17c08cc66b13a5ec15d32be7e9ec738da73e219
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 698a85244d5341224dd9f513c5617b9086e36844
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129062"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033081"
 ---
 # <a name="scaling-media-processing-overview"></a>Bearbetning av Media översikt över skalning
 Den här sidan ger en översikt över hur och varför att skala mediebearbetning. 
@@ -30,12 +30,12 @@ Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestäm
 Förutom att ange typ av reserverad enhet kan ange du att etablera ditt konto med reserverade enheter. Antalet etablerade reserverade enheter anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto. Till exempel om ditt konto har fem reserverade enheter, och sedan fem medieuppgifter körs samtidigt så länge som det finns aktiviteter som ska bearbetas. De återstående aktiviteterna ska vänta i kön och ska få hämtas för bearbetning av sekventiellt när en aktivitet är klar. Om ett konto inte har några mediereserverade enheter etablerade sedan hämtas uppgifter sekventiellt. I det här fallet beror väntetiden mellan en uppgift slutförs och nästa start på tillgängligheten för resurser i systemet.
 
 ## <a name="choosing-between-different-reserved-unit-types"></a>Välja mellan olika reserverade enhetstyper
-Tabellen nedan hjälper dig att fatta beslut när du väljer mellan olika kodning hastigheter. Den innehåller några benchmark-fall och ger SAS URL: er som du kan använda för att ladda ned videor som du kan utföra egna test:
+Tabellen nedan hjälper dig att fatta ett beslut när du väljer mellan olika kodning hastigheter. Det ger också några benchmark-fall på [en video som du kan hämta](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) att utföra egna test:
 
 | Scenarier | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | Avsedda användning |Enkel bithastighet kodning. <br/>Filer på SD eller under lösningar, tid inte känsliga, låg kostnad. |Enkel bithastighet och flera bithastigheter kodning.<br/>Normal användning för både SD och HD encoding. |Enkel bithastighet och flera bithastigheter kodning.<br/>Fullständig HD och 4K högupplöst video. Tid känsliga och snabbare arbetet kodning. |
-| Prestandamått för 5 minuter långa videon |Koda till en enda bithastighet MP4-fil med samma upplösning tar ungefär 11 minuter. |Kodning med ”H264, enkel bithastighet, 720p” förinställda tar cirka 5 minuter.<br/><br/>Kodning med ”H264, flera bithastigheter, 720p” förinställning tar ca 11,5 minuter. |Kodning med ”H264, enkel bithastighet, 1080p” förinställda tar cirka 2.7 minuter.<br/><br/>Kodning med ”H264 Multibithastighet 1080p” förinställning tar cirka 5.7 minuter. |
+| Prestandamått för 7 minuter långa videon |Koda till en enda bithastighet MP4-fil med samma upplösning tar cirka 5 minuter. |Kodning med ”H264, enkel bithastighet, 720p” förinställda tar cirka åtta minuter.<br/><br/>Kodning med ”H264, flera bithastigheter, 720p” förinställning tar cirka 16,8 minuter. |Kodning med ”H264, enkel bithastighet, 1080p” förinställda tar cirka 4 minuter.<br/><br/>Kodning med ”H264 Multibithastighet 1080p” förinställning tar cirka 8 minuter. |
 
 
 ## <a name="considerations"></a>Överväganden

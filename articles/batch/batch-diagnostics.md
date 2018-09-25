@@ -15,16 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122475"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965542"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
-Den här artikeln förklarar hur du övervakar ett Batch-konto med hjälp av funktionerna i [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor samlar in [mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md) och [diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) för resurser i Batch-kontot. Samla in och använda dessa data i en mängd olika sätt att övervaka ditt Batch-konto och diagnostisera problem. Du kan också konfigurera [måttaviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) så att du att få meddelanden när ett mått överskrider ett angivet värde. 
+ 
+Den här artikeln förklarar hur du övervakar ett Batch-konto med hjälp av funktionerna i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [mått](../monitoring/monitoring-data-collection.md#metrics) och [diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) för resurser i Batch-kontot. Samla in och använda dessa data i en mängd olika sätt att övervaka ditt Batch-konto och diagnostisera problem. Du kan också konfigurera [måttaviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) så att du att få meddelanden när ett mått överskrider ett angivet värde. 
 
 ## <a name="batch-metrics"></a>Batch-mått
 
@@ -64,7 +65,8 @@ Konfigurera en metrisk varning i portalen:
 2. Under **övervakning**, klickar du på **Aviseringsregler** > **Lägg till metrisk varning**.
 3. Välj ett mått, en varningsvillkor (till exempel när ett mått överskrider ett visst värde under en period) och en eller flera meddelanden.
 
-Du kan också konfigurera en nästan i realtid aviseringen med hjälp av den [REST API](https://docs.microsoft.com/rest/api/monitor/). Mer information finns i [använda nyare måttaviseringar för Azure-tjänster i Azure-portalen](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+Du kan också konfigurera en nästan i realtid aviseringen med hjälp av den [REST API](https://docs.microsoft.com/rest/api/monitor/). Mer information finns i [översikt över aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 ## <a name="batch-diagnostics"></a>Batch-diagnostik
 
 Diagnostikloggar innehåller information som genereras av Azure-resurser som beskrivs åtgärden för varje resurs. För Batch, kan du samla in följande loggar:

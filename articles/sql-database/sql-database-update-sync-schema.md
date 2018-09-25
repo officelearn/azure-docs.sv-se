@@ -2,7 +2,7 @@
 title: Automatisera replikeringen av schemaändringar i Azure SQL Data Sync | Microsoft Docs
 description: Lär dig att automatisera replikeringen av schemaändringar i Azure SQL Data Sync.
 services: sql-database
-ms.date: 06/19/2018
+ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6859784dcb3b3905459e83cfcb7812d7f23ac630
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 6e3f1710d342d97312cfd764726904c1d70ce199
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721865"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035036"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatisera replikeringen av schemaändringar i Azure SQL Data Sync
 
@@ -30,7 +30,7 @@ Den här artikeln introducerar en lösning för att replikera ändringar av enti
 Den här artikeln använder ALTER TABLE som ett exempel på en schemaändring, men den här lösningen fungerar även för andra typer av ändringar av entitetsschemat.
 
 > [!IMPORTANT]
-> Vi rekommenderar att du läser den här artikeln noggrant, särskilt i avsnitten om [felsökning](#troubleshooting) och [annat att tänka på](#other), innan du börjar implementera automatiserade ändringen schemareplikeringen i miljön synkronisering. Vi rekommenderar också att du läser [synkronisera data i flera moln och lokala databaser med SQL Data Sync](sql-database-sync-data.md). Vissa databasåtgärder kan bryta lösningen som beskrivs i den här artikeln. Ytterligare en kunskaper om SQL Server och Transact-SQL kan krävas för att felsöka problemen.
+> Vi rekommenderar att du läser den här artikeln noggrant, särskilt i avsnitten om [felsökning](#troubleshoot) och [annat att tänka på](#other), innan du börjar implementera automatiserade ändringen schemareplikeringen i miljön synkronisering. Vi rekommenderar också att du läser [synkronisera data i flera moln och lokala databaser med SQL Data Sync](sql-database-sync-data.md). Vissa databasåtgärder kan bryta lösningen som beskrivs i den här artikeln. Ytterligare en kunskaper om SQL Server och Transact-SQL kan krävas för att felsöka problemen.
 
 ![Automatisera replikeringen av schemaändringar](media/sql-database-update-sync-schema/automate-schema-changes.png)
 

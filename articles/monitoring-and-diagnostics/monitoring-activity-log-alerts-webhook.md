@@ -1,6 +1,6 @@
 ---
-title: Förstå webhook-schemat som används i aktiviteten loggen aviseringar
-description: Läs mer om schemat för JSON som skickas till en Webhooksadressen när en aktivitet loggen avisering aktiveras.
+title: Förstå webhook-schema som används i aktivitetsloggaviseringar
+description: Läs mer om schemat för JSON som publiceras till en webhook-URL när en aktivitetsloggavisering aktiverar.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 3935da72cb747a642ee1f360dc5318fc2d34e763
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e989406c852b7c87123681dd875f9cd8229524c1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263250"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971934"
 ---
-# <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks för Azure aktiviteten Logga varningar
-Som en del av definitionen för en grupp, kan du konfigurera webhook slutpunkter för att ta emot aviseringar för aktiviteten loggen. Du kan använda webhooks, för att vidarebefordra meddelandena till andra system för efterbearbetning eller anpassade åtgärder. Den här artikeln visar hur nyttolasten för HTTP POST till en webhook ser ut.
+# <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks för aviseringar för Azure-aktivitetsloggar
+Som en del av definitionen av en åtgärdsgrupp kan konfigurera du webhook-slutpunkter för att få aviseringar för aktiviteten log. Du kan använda webhooks, för att vidarebefordra dessa meddelanden till andra system för efterbearbetning eller anpassade åtgärder. Den här artikeln visar hur nyttolast för HTTP-POST till en webhook som ser ut.
 
-Mer information om aktiviteten loggen aviseringar finns så [skapa Azure aktivitet Logga varningar](monitoring-activity-log-alerts.md).
+Läs mer på aktivitetsloggsaviseringar så [skapa aviseringar för Azure aktivitetsloggen](monitoring-activity-log-alerts.md).
 
-Mer information om åtgärdsgrupper finns så [skapa åtgärdsgrupper](monitoring-action-groups.md).
+Information om åtgärdsgrupper finns i så här [skapa åtgärdsgrupper](monitoring-action-groups.md).
 
 ## <a name="authenticate-the-webhook"></a>Autentisera webhooken
-Webhooken kan du använda tokenbaserad auktorisering för autentisering. Webhooken URI sparas med ett token ID, till exempel `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
+Webhooken kan du kan också använda tokenbaserad auktorisering för autentisering. Webhooken URI sparas med ett token-ID, till exempel `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
 
-## <a name="payload-schema"></a>Nyttolasten i schemat
-JSON-nyttolast som ingår i POST-åtgärden skiljer sig baserat på den nyttolasten data.context.activityLog.eventSource fält.
+## <a name="payload-schema"></a>Nyttolast-schema
+JSON-nyttolasten i POST-åtgärden skiljer sig beroende på den nyttolast data.context.activityLog.eventSource fält.
 
 ### <a name="common"></a>Common
 ```json
@@ -124,43 +124,80 @@ JSON-nyttolast som ingår i POST-åtgärden skiljer sig baserat på den nyttolas
 }
 ```
 
-Specifika schemainformation om tjänsten notification aktivitet loggen hälsovarningar, finns [tjänsten meddelanden om hälsostatus](monitoring-service-notifications.md). Dessutom lär dig hur du [konfigurera tjänstmeddelanden hälsa webhook med din befintliga problem](../service-health/service-health-alert-webhook-guide.md).
+### <a name="resourcehealth"></a>ResourceHealth
+```json
+{
+    "schemaId": "Microsoft.Insights/activityLogs",
+    "data": {
+        "status": "Activated",
+        "context": {
+            "activityLog": {
+                "channels": "Admin, Operation",
+                "correlationId": "a1be61fd-37ur-ba05-b827-cb874708babf",
+                "eventSource": "ResourceHealth",
+                "eventTimestamp": "2018-09-04T23:09:03.343+00:00",
+                "eventDataId": "2b37e2d0-7bda-4de7-ur8c6-1447d02265b2",
+                "level": "Informational",
+                "operationName": "Microsoft.Resourcehealth/healthevent/Activated/action",
+                "operationId": "2b37e2d0-7bda-489f-81c6-1447d02265b2",
+                "properties": {
+                    "title": "Virtual Machine health status changed to unavailable",
+                    "details": "Virtual machine has experienced an unexpected event",
+                    "currentHealthStatus": "Unavailable",
+                    "previousHealthStatus": "Available",
+                    "type": "Downtime",
+                    "cause": "PlatformInitiated",
+                },
+                "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+                "resourceGroupName": "<resource group>",
+                "resourceProviderName": "Microsoft.Resourcehealth/healthevent/action",
+                "status": "Active",
+                "subscriptionId": "<subscription Id",
+                "submissionTimestamp": "2018-09-04T23:11:06.1607287+00:00",
+                "resourceType": "Microsoft.Compute/virtualMachines"
+            }
+        }
+    }
+}
+```
 
-Information om specifika schemat på alla andra aktiviteten loggen aviseringar finns [översikt över Azure aktivitetsloggen](monitoring-overview-activity-logs.md).
+Visst schemainformation om service health meddelande aktivitetsloggaviseringar, finns i [Service health meddelanden](monitoring-service-notifications.md). Läs dessutom hur du [konfigurera service health webhook-aviseringar med din befintliga lösningar på problem management](../service-health/service-health-alert-webhook-guide.md).
+
+Information om specifika schemat på alla andra aktivitetsloggaviseringar, se [översikt över Azure-aktivitetsloggen](monitoring-overview-activity-logs.md).
 
 | Elementnamn | Beskrivning |
 | --- | --- |
-| status |Används för mått aviseringar. Alltid inställt på ”aktiverad” för aktiviteten loggen aviseringar. |
-| Kontexten |Kontexten för händelsen. |
-| resourceProviderName |Resursprovidern för resursen påverkas. |
-| conditionType |Alltid ”Event”. |
+| status |Används för aviseringar för mått. Alltid inställt på ”aktiverad” för aktivitetsloggaviseringar. |
+| Kontext |Kontext för händelsen. |
+| resourceprovidername får |Resursprovidern för resursen som påverkas. |
+| conditionType |Alltid ”händelse”. |
 | namn |Namnet på regeln. |
 | id |Resurs-ID för aviseringen. |
-| description |Aviseringsbeskrivningen när aviseringen har skapats. |
-| subscriptionId |Azure prenumerations-ID. |
-| tidsstämpel |Tid då händelsen skapades av Azure-tjänsten som bearbetade förfrågan. |
-| resourceId |Resurs-ID för resursen påverkas. |
-| resourceGroupName |Namnet på resursgruppen för resursen påverkas. |
-| properties |En uppsättning `<Key, Value>` par (det vill säga `Dictionary<String, String>`) som innehåller information om händelsen. |
+| beskrivning |Aviseringsbeskrivningen när aviseringen har skapats. |
+| subscriptionId |Azure-prenumerations-ID. |
+| tidsstämpel |Tid då händelsen genererades av Azure-tjänsten som bearbetade förfrågan. |
+| resourceId |Resurs-ID för resursen som påverkas. |
+| resourceGroupName |Namnet på resursgruppen för resursen som påverkas. |
+| properties |Uppsättning `<Key, Value>` par (det vill säga `Dictionary<String, String>`) som innehåller information om händelsen. |
 | händelse |Element som innehåller metadata om händelsen. |
-| Auktorisering |Rollbaserad åtkomstkontroll egenskaperna för händelsen. Dessa egenskaper innehåller vanligtvis åtgärden rollen och omfång. |
-| category |Kategori för händelsen. Värden som stöds omfattar administrativa, varning, säkerhet, ServiceHealth och rekommendation. |
-| uppringare |E-postadressen för användaren som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. Kan vara null för vissa system-anrop. |
-| correlationId |Vanligtvis ett GUID i strängformat. Händelser med correlationId tillhör samma större åtgärd och vanligtvis delar en correlationId. |
+| Auktorisering |Role-Based Access Control-egenskaper för händelsen. Dessa egenskaper innehåller vanligtvis åtgärden, rollen och omfång. |
+| category |Händelsens kategori. Värden som stöds omfattar administrativa, varning, säkerhet, ServiceHealth och rekommendation. |
+| uppringare |E-postadressen för användaren som utförde åtgärden, UPN-anspråket och SPN-anspråk baserat på tillgänglighet. Kan vara null för vissa systemanrop. |
+| correlationId |Vanligtvis ett GUID i strängformat. Händelser med correlationId tillhör samma större åtgärd och vanligtvis dela en correlationId. |
 | eventDescription |Statisk textbeskrivning av händelsen. |
 | eventDataId |Unik identifierare för händelsen. |
-| eventSource |Namnet på Azure-tjänsten eller infrastruktur som genererade händelsen. |
+| Händelsekälla |Namnet på Azure-tjänst eller infrastruktur som genererade händelsen. |
 | httpRequest |Begäran innehåller vanligtvis clientRequestId, clientIpAddress och HTTP-metoden (till exempel PLACERA). |
-| nivå |Ett av följande värden: kritisk, fel, varningar och information. |
+| nivå |Något av följande värden: kritiskt, fel, varning och information. |
 | operationId |Vanligtvis ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | operationName |Åtgärdens namn. |
 | properties |Egenskaper för händelsen. |
-| status |Sträng. Status för åtgärden. Vanliga värden är igång, pågår, slutfört, misslyckades, aktiv och löst. |
-| subStatus |Normalt innehåller HTTP-statuskod för motsvarande REST-anrop. Det kan även innehålla andra strängar som beskriver en sådan. Vanliga understatus värden är OK (HTTP-statuskod: 200), skapade (HTTP-statuskod: 201), godkända (HTTP-statuskod: 202), inte innehåll (HTTP-statuskod: 204), felaktig begäran (HTTP-statuskod: 400), det gick inte att hitta (HTTP-statuskod: 404), konflikt (HTTP-statuskod: 409 ), Internt serverfel (HTTP-statuskod: 500), tjänsten inte tillgänglig (HTTP-statuskod: 503), och Gateway-Timeout (HTTP-statuskod: 504). |
+| status |sträng. Status för åtgärden. Vanliga värden är startad, pågår, slutfört, misslyckades, aktiv och löst. |
+| understatus |Innefattar vanligtvis HTTP-statuskod för motsvarande REST-anropet. Det kan även innehålla andra strängar som beskriver en understatus. Vanliga understatus värden är OK (HTTP-statuskod: 200), skapade (HTTP-statuskod: 201), godkända (HTTP-statuskod: 202), inte innehåll (HTTP-statuskod: 204), felaktig begäran (HTTP-statuskod: 400), hittades inte (HTTP-statuskod: 404), konflikt (HTTP-statuskod: 409 ), Ett internt serverfel (HTTP-statuskod: 500), så är tjänsten inte tillgänglig (HTTP-statuskod: 503), och Gateway-Timeout (HTTP-statuskod: 504). |
 
 ## <a name="next-steps"></a>Nästa steg
-* [Mer information om aktivitetsloggen](monitoring-overview-activity-logs.md).
-* [Köra Azure automation-skript (Runbooks) på Azure-aviseringar](http://go.microsoft.com/fwlink/?LinkId=627081).
-* [Använd en logikapp för att skicka ett SMS via Twilio från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Det här exemplet är för mått aviseringar, men den kan ändras för att fungera med en varning för loggen.
-* [Använd en logikapp för att skicka en Slack-meddelande från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Det här exemplet är för mått aviseringar, men den kan ändras för att fungera med en varning för loggen.
-* [Använd en logikapp för att skicka ett meddelande till en Azure-kö i en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Det här exemplet är för mått aviseringar, men den kan ändras för att fungera med en varning för loggen.
+* [Läs mer om aktivitetsloggen](monitoring-overview-activity-logs.md).
+* [Köra automatiseringsskript i Azure (Runbooks) på Azure-aviseringar](http://go.microsoft.com/fwlink/?LinkId=627081).
+* [Använd en logikapp för att skicka ett SMS via Twilio från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Det här exemplet är för måttaviseringar, men den kan ändras för att fungera med en aktivitetsloggavisering.
+* [Använd en logikapp för att skicka ett Slack-meddelande från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Det här exemplet är för måttaviseringar, men den kan ändras för att fungera med en aktivitetsloggavisering.
+* [Använd en logikapp för att skicka ett meddelande till en Azure-kö från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Det här exemplet är för måttaviseringar, men den kan ändras för att fungera med en aktivitetsloggavisering.

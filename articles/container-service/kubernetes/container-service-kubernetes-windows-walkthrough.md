@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b20f19c504a7967d01d51d976315fa49c2317885
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 24659f60e44dc306451528cc7bfb823ad14268a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424810"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946161"
 ---
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Distribuera Kubernets-kluster för Windows-containrar
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
 > Stöd för Windows-behållare med Kubernetes i Azure Container Service är tillgängligt som en förhandsversion. 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 7297633b5a8954eb39e0a40bfd45b02d3838a734
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 18d9a2dade271e61fa3db423da610a7f982aa47b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055620"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949680"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skalningsuppsättning för virtuella datorer som använder Tillgänglighetszoner
 
@@ -64,8 +64,8 @@ När du skapar en skalningsuppsättning i en enskild zon, du bestämmer vilken z
 
 Om du vill använda Tillgänglighetszoner, måste din skalningsuppsättning skapas i en [stöds Azure-region](../availability-zones/az-overview.md#regions-that-support-availability-zones). Du kan skapa en skalningsuppsättning som använder Tillgänglighetszoner med någon av följande metoder:
 
-- [Azure-portalen](#use-the-azure-portal)
-- [Azure CLI 2.0](#use-the-azure-cli-20)
+- [Azure Portal](#use-the-azure-portal)
+- [Azure CLI](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager-mallar](#use-azure-resource-manager-templates)
 
@@ -77,7 +77,7 @@ Processen för att skapa en skalningsuppsättning som använder en Tillgängligh
 
 Skalningsuppsättningen och kompletterande resurser, till exempel Azure load balancer och offentliga IP-adressen skapas i samma zon som du anger.
 
-## <a name="use-the-azure-cli-20"></a>Använda Azure CLI 2.0
+## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
 Processen för att skapa en skalningsuppsättning som använder en Tillgänglighetszon är samma som beskrivs i den [komma igång artikel](quick-create-cli.md). Om du vill använda Tillgänglighetszoner, måste du skapa din skalningsuppsättning i en Azure-region.
 

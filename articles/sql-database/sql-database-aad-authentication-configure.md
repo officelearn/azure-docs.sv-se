@@ -2,21 +2,22 @@
 title: Konfigurera Azure Active Directory-autentisering - SQL | Microsoft Docs
 description: Lär dig hur du ansluter till SQL Database Managed Instance och SQL Data Warehouse med hjälp av Azure Active Directory-autentisering - när du har konfigurerat Azure AD.
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: data warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
-ms.openlocfilehash: f04846275fbad1673a00d820e8b44adc402b0242
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: efec5b3d8ac2ec3f757d06e88df65fe5f50aae17
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294211"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064313"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL Database Managed Instance eller SQL Data Warehouse
 
@@ -195,10 +196,10 @@ Du kan också etablera en Azure Active Directory-administratör med hjälp av RE
 Du kan också etablera en Azure AD-administratör genom att anropa följande CLI-kommandon:
 | Kommando | Beskrivning |
 | --- | --- |
-|[Skapa AZ sql server ad-administratör](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) |Etablerar en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. (Måste vara från den aktuella prenumerationen.) |
-|[ta bort AZ sql server ad-administratör](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) |Tar bort en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. |
-|[AZ sql server ad-administratörslistan](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) |Returnerar information om en Azure Active Directory-administratör som har konfigurerats för Azure SQL-server eller Azure SQL Data Warehouse. |
-|[Uppdatera för AZ sql server ad-administratör](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) |Uppdaterar Active Directory-administratör för en Azure SQL-server eller Azure SQL Data Warehouse. |
+|[Skapa AZ sql server ad-administratör](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Etablerar en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. (Måste vara från den aktuella prenumerationen.) |
+|[ta bort AZ sql server ad-administratör](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) |Tar bort en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. |
+|[AZ sql server ad-administratörslistan](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) |Returnerar information om en Azure Active Directory-administratör som har konfigurerats för Azure SQL-server eller Azure SQL Data Warehouse. |
+|[Uppdatera för AZ sql server ad-administratör](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) |Uppdaterar Active Directory-administratör för en Azure SQL-server eller Azure SQL Data Warehouse. |
 
 Mer information om CLI-kommandon finns i [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
 

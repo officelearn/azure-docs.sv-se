@@ -5,22 +5,21 @@ services: active-directory
 keywords: ''
 author: CelesteDG
 manager: mtillman
-editor: PatAltimore
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 07/19/2017
+ms.date: 09/24/2018
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ab6936d62aac5502d70239bacfbfd15bd6b793ab
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 229f74367262e07128fa9ea6c895d448b854ae0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059924"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958262"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för villkorlig åtkomst i Azure Active Directory
 
@@ -40,9 +39,9 @@ Kunskap om [enda](quickstart-v1-integrate-apps-with-azure-ad.md) och [flera inne
 
 ### <a name="app-types-impacted"></a>Apptyper som påverkas
 
-I de vanligaste fall villkorlig åtkomst ändra inte appens beteende eller kräver ändringar från utvecklaren. Endast i vissa fall kräver en app kodändringar att hantera villkorlig åtkomst ”utmaningar” när en app, indirekt eller obevakat begär en token för en tjänst. Det kan vara så enkla som utför en interaktiv inloggningsbegäran. 
+I de vanligaste fall villkorlig åtkomst ändra inte appens beteende eller kräver ändringar från utvecklaren. Endast i vissa fall kräver en app kodändringar att hantera villkorlig åtkomst ”utmaningar” när en app, indirekt eller obevakat begär en token för en tjänst. Det kan vara så enkla som utför en interaktiv inloggningsbegäran.
 
-Mer specifikt kan kräver följande scenarier kod för att hantera villkorlig åtkomst ”utmaningar”: 
+Mer specifikt kan kräver följande scenarier kod för att hantera villkorlig åtkomst ”utmaningar”:
 
 * Appar får åtkomst till Microsoft Graph
 * Appar som utför on-behalf-of-flöde
@@ -147,7 +146,7 @@ Kodexempel som visar hur du hanterar anspråk utmaningen, finns det [On-behalf-o
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App fungerar on-behalf-of-flöde
 
-I detta scenario går vi igenom fall där en inbyggd app anropar ett webb-/ API. I sin tur den här tjänsten har [”on-behalf-of” flödet](authentication-scenarios.md#application-types-and-scenarios) att anropa en underordnad tjänst. I vårt fall vi har tillämpat vår princip för villkorlig åtkomst till tjänsten underordnade (Web API 2) och använder en inbyggd app i stället för en server/daemon-app. 
+I detta scenario går vi igenom fall där en inbyggd app anropar ett webb-/ API. I sin tur har den här tjänsten [he ”on-behalf-of” flöde för att anropa en underordnad tjänst. I vårt fall vi har tillämpat vår princip för villkorlig åtkomst till tjänsten underordnade (Web API 2) och använder en inbyggd app i stället för en server/daemon-app. 
 
 ![App fungerar on-behalf-of-flödesdiagram](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -190,7 +189,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 Om appen använder ADAL-biblioteket, görs om det gick inte att hämta token alltid ett nytt interaktivt. När den här interaktiva begäran sker, har användaren möjlighet att uppfylla villkorlig åtkomst. Detta är SANT om inte begäran är en `AcquireTokenSilentAsync` eller `PromptBehavior.Never` då appen behöver utföra en interaktiv ```AcquireToken``` begäran och ge slutanvändningen möjlighet att följa principen. 
 
-## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: Enkel sidan App (SPA) med hjälp av ADAL.js
+## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: Ensidesapp (SPA) med hjälp av ADAL.js
 
 I det här scenariot kan gå vi igenom fallet när vi har en ensidesapp (SPA) med hjälp av ADAL.js för att anropa en villkorlig åtkomst i skyddade webb-API. Detta är en enkel arkitektur men har vissa nyanser som måste beaktas när du utvecklar runt villkorlig åtkomst.
 
@@ -202,7 +201,7 @@ Det finns några funktioner som hämta token i ADAL.js,: `login()`, `acquireToke
 
 När en app behöver en åtkomsttoken att anropa ett webb-API, försöker den en `acquireToken(…)`. Om token sessionen har upphört att gälla eller vi behöver att följa en princip för villkorlig åtkomst kommer *acquireToken* funktionen misslyckas och appen använder `acquireTokenPopup()` eller `acquireTokenRedirect()`.
 
-![Ensidesappen använder ADAL flödesdiagram](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
+![Program med hjälp av ADAL flödesdiagram](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
 Låt oss gå igenom ett exempel med vår scenariot för villkorlig åtkomst. Användaren bara hamnade på platsen och har inte en session. Vi utför en `login()` anropa, hämta ett ID-token utan multifaktorautentisering. Sedan kommer du till en knapp som kräver appen att begärandedata från ett webb-API. Appen försöker att göra en `acquireToken()` anrop men misslyckas eftersom användaren inte har utfört Multi-Factor authentication ännu och behov att följa principen för villkorlig åtkomst.
 

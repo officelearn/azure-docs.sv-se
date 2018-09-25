@@ -9,14 +9,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 7938eaa0e06c9a33034a7388d02845d60967774e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 24ed164f4a1dfdb9a3913efa78fe58fab2b53696
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059679"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991971"
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Konfigurera tjänsten Azure Machine Learning-experimentering
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>Översikt
 Azure Machine Learning Experimentation Service-konto, arbetsytan och projekt är Azure-resurser. De kan därför distribueras med hjälp av Resources Manager-mallar. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
@@ -158,4 +161,4 @@ Det finns tre värden som du kan ändra.
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa och installera Azure Machine Learning](../service/quickstart-installation.md)
+* [Skapa och installera Azure Machine Learning](quickstart-installation.md)

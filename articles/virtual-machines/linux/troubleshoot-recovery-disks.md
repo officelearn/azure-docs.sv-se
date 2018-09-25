@@ -1,6 +1,6 @@
 ---
-title: Använda en Linux felsöknings-VM med Azure CLI 2.0 | Microsoft Docs
-description: Lär dig att felsöka problem med Linux VM genom att ansluta operativsystemdisken till en virtuell dator med hjälp av Azure CLI 2.0 för återställning
+title: Använda en Linux felsöknings-VM med Azure CLI | Microsoft Docs
+description: Lär dig att felsöka problem med Linux VM genom att ansluta operativsystemdisken till en virtuell dator med hjälp av Azure CLI för återställning
 services: virtual-machines-linux
 documentationCenter: ''
 authors: cynthn
@@ -13,18 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: 8e164393b58604d74b9a794479f6e614b8da3d6c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7f15e0b63b5f3635bba44184fc057231213a7e0f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931403"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990883"
 ---
-# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Felsöka en Linux-VM genom att koppla OS-disken till en virtuell dator med Azure CLI 2.0 för återställning
-Om din Linux-dator (VM) påträffar ett fel vid start- eller disk, kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är ett ogiltigt värde i `/etc/fstab` som förhindrar den virtuella datorn från att kunna starta. Den här artikeln beskriver hur du använder Azure CLI 2.0 för att ansluta den virtuella hårddisken till en annan Linux VM att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn. 
+# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Felsöka en Linux-VM genom att koppla OS-disken till en virtuell dator med Azure CLI för återställning
 
+Om din Linux-dator (VM) påträffar ett fel vid start- eller disk, kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är ett ogiltigt värde i `/etc/fstab` som förhindrar den virtuella datorn från att kunna starta. Den här artikeln beskriver hur du använder Azure CLI för att ansluta den virtuella hårddisken till en annan Linux VM att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn. 
 
 ## <a name="recovery-process-overview"></a>Översikt över återställningsprocessen
+
 Så här ser felsökningsprocessen ut:
 
 1. Ta bort den virtuella datorn uppstår några problem, som de virtuella hårddiskarna.
@@ -35,7 +36,7 @@ Så här ser felsökningsprocessen ut:
 
 För den virtuella datorn som använder hanterade diskar, se [felsöka en hanterad Disk i virtuell dator genom att koppla en ny OS-disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
-Om du vill utföra de här felsökningsstegen du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Om du vill utföra de här felsökningsstegen du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 I följande exempel, ersätter du parameternamn med dina egna värden. Parametern exempelnamnen inkluderar `myResourceGroup`, `mystorageaccount`, och `myVM`.
 

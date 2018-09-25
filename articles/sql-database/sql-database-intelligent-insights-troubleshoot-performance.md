@@ -8,50 +8,50 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: v-daljep
-ms.openlocfilehash: 9c2bb85d9c0bb02b7eb698dbee07f488c2ad0b62
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b6e619f75ebf6ee58f3c259b665cd38c3546d2ff
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733199"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040643"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med intelligenta insikter
 
-Den här sidan innehåller information om Azure SQL Database prestandaproblem som upptäcks vid den [smarta insikter](sql-database-intelligent-insights.md) diagnostiklogg för databas prestanda. Den här diagnostikloggen kan skickas till [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), eller en lösning från tredje part för anpassad DevOps avisering och rapportering funktioner.
+Den här sidan innehåller information om Azure SQL Database och prestandaproblem för hanterad instans har identifierats genom den [smarta insikter](sql-database-intelligent-insights.md) diagnostiklogg för databas prestanda. Diagnostiklogg telemetri kan strömmas till [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), eller en lösning från tredje part för anpassade DevOps-varningar och rapporteringsfunktioner.
 
 > [!NOTE]
-> En SQL-databas prestanda felsökning snabbguide via Intelligent Insights, finns det [rekommenderas felsöka flöde](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flödesschema i det här dokumentet.
+> En snabb SQL Database-prestanda med hjälp av Intelligent Insights felsökningsguide finns den [rekommenderas felsöka flöde](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flödesschema i det här dokumentet.
 >
 
 ## <a name="detectable-database-performance-patterns"></a>Flashminnet mönster i prestanda
 
-Intelligent Insights identifierar automatiskt prestandaproblem med SQL Database baserat på frågan körningstider vänta, fel eller timeout. Sedan returnerar den identifierade prestandamönster in diagnostik. Flashminnet prestandamönster kan sammanfattas i följande tabell:
+Intelligent Insights identifierar automatiskt prestandaproblem med SQL-databas och Managed Instance databaser baserat på frågan körningstider vänta, fel eller timeout. Den returnerar identifierade prestandamönster in diagnostik. Flashminnet prestandamönster sammanfattas i tabellen nedan.
 
-| Prestandamönster för flashminnet | Information för utdata |
-| :------------------- | ------------------- |
-| [Nådde resursbegränsningar](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Användning av tillgängliga resurser (dtu: er), databasen arbetstrådar eller databasen inloggningssessioner som är tillgängliga på den övervakade prenumerationen har nått gränserna, som orsakar prestandaproblem i SQL-databas. |
-| [Ökning av arbetsbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Ökning av arbetsbelastning eller kontinuerlig anhopning av arbetsbelastningen för databasen har identifierats, vilket orsakar prestandaproblem i SQL-databas. |
-| [Minnesbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Arbetare som begärt minne beviljar måste vänta tills minnesallokeringar statistiskt signifikanta mängder tid. Eller arbetare som begärt minne ger ökad ackumulerade finns, vilket påverkar prestandan för SQL Database. |
-| [Låsning](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Långa databasen låsning har identifierats, vilket påverkar prestandan för SQL Database. |
-| [Ökad MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Högsta grad av parallellitet (MAXDOP) har ändrats och den påverkar frågans körning effektiviteten. |
-| [Pagelatch konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Pagelatch konkurrens har identifierats, vilket påverkar prestandan för SQL Database. Flera trådar försöker samtidigt komma åt samma data i minnet bufferten sidor. Detta resulterar i ökad väntetider som påverkar prestandan för SQL Database. |
-| [Index som saknas](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | En saknas index problemet upptäcktes, som påverkar prestandan för SQL Database. |
-| [Ny fråga](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | En ny fråga har identifierats, vilket påverkar prestandan för SQL-databas. |
-| [Ovanlig vänta statistik](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Ovanlig databasen väntetider identifierades som påverkar prestandan för SQL Database. |
-| [TempDB konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Flera trådar försöker komma åt samma tempDB-resurser, vilket gör att en flaskhals som påverkar prestandan för SQL Database. |
-| [Elastisk pool DTU brist](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Brist på tillgängliga edtu: er i den elastiska poolen påverkar prestandan för SQL Database. |
-| [Planera Regression](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | En ny plan eller en ändring i arbetsbelastningen för en befintlig plan har identifierats, vilket påverkar prestandan för SQL Database. |
-| [Databasbegränsade konfigurationen ändras](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Ändra konfigurationen för databasen påverkar prestandan för SQL Database. |
-| [Långsam klienten](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | En långsam program-klient som inte kan använda utdata från SQL-databasen tillräckligt fort har identifierats, vilket påverkar prestandan för SQL Database. |
-| [Priser för nedgradering av nivå](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | En prisnivå nivå nedgradering åtgärd minskade tillgängliga resurser som påverkar prestandan för SQL Database. |
+| Prestandamönster för flashminnet | Beskrivning för Azure SQL Database och elastiska pooler | Beskrivning för databaser i Managed Instance |
+| :------------------- | ------------------- | ------------------- |
+| [Nådde resursbegränsningar](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Användning av tillgängliga resurser (dtu: er), databasen arbetstrådar eller databasen inloggningssessioner som är tillgängliga på den övervakade prenumerationen har nått gränserna. Detta påverkar prestandan för SQL Database. | Förbrukning av processorresurserna når Managed Instance gränser. Detta påverkar prestanda för databasen. |
+| [Ökning av arbetsbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Ökning av arbetsbelastning eller kontinuerlig anhopning av arbetsbelastningen för databasen har identifierats. Detta påverkar prestandan för SQL Database. | Ökning av arbetsbelastning har identifierats. Detta påverkar prestanda för databasen. |
+| [Minnesbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Arbetare som begärt minne beviljar måste vänta tills minnesallokeringar statistiskt signifikanta mängder tid. Eller arbetare som begärt minne ger ökad ackumulerade finns. Detta påverkar prestandan för SQL Database. | Arbetare som har begärt minne beviljar väntar minnesallokeringar för en statistiskt betydande tidsperiod. Detta påverkar prestanda för databasen. |
+| [Låsning](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Långa databasen låsning upptäcktes påverkar prestandan för SQL Database. | Långa databasen låsning upptäcktes påverka databasens prestanda. |
+| [Ökad MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Högsta grad av parallellitet (MAXDOP) har ändrats påverkar frågans körning effektiviteten. Detta påverkar prestandan för SQL Database. | Högsta grad av parallellitet (MAXDOP) har ändrats påverkar frågans körning effektiviteten. Detta påverkar prestanda för databasen. |
+| [Pagelatch konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Flera trådar försöker samtidigt komma åt samma data i minnet bufferten sidorna vilket resulterar i ökad väntetider och orsakar pagelatch konkurrens. Detta påverkar prestanda för SQL-databas. | Flera trådar försöker samtidigt komma åt samma data i minnet bufferten sidorna vilket resulterar i ökad väntetider och orsakar pagelatch konkurrens. Detta påverkar databas prestanda. |
+| [Index som saknas](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Index som saknas upptäcktes att det påverkar prestanda för SQL-databas. | Index som saknas har identifierats som påverkar prestanda för databasen. |
+| [Ny fråga](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Ny fråga har identifierats som påverkar prestandan för SQL-databas. | Ny fråga har identifierats som påverkar prestandan i databasen. |
+| [Ovanlig vänta statistik](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Ovanlig databasen väntetider har identifierats som påverkar prestanda för SQL-databas. | Ovanlig databasen väntetider identifierades påverka databasens prestanda. |
+| [TempDB konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Flera trådar försöker komma åt samma TempDB-resurs som orsakar en flaskhals. Detta påverkar prestandan för SQL Database. | Flera trådar försöker komma åt samma TempDB-resurs som orsakar en flaskhals. Detta påverkar prestanda för databasen. |
+| [Brist för elastisk Pool-DTU](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Brist på tillgängliga edtu: er i den elastiska poolen påverkar prestandan för SQL Database. | Inte tillgängligt för hanterad instans som den använder vCore-modellen. |
+| [Planera Regression](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Ny plan eller en ändring i arbetsbelastningen för en befintlig plan har identifierats. Detta påverkar prestandan för SQL Database. | Ny plan eller en ändring i arbetsbelastningen för en befintlig plan har identifierats. Detta påverkar prestanda för databasen. |
+| [Databasbegränsade konfigurationen ändras](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Konfigurationsändring på SQL-databasen har identifierats som påverkar prestanda för databasen. | Konfigurationsändring på databasen har identifierats som påverkar prestanda för databasen. |
+| [Långsam klienten](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | Långsamma programklienten kan inte använda utdata från databasen tillräckligt snabbt. Detta påverkar prestandan för SQL Database. | Långsamma programklienten kan inte använda utdata från databasen tillräckligt snabbt. Detta påverkar prestanda för databasen. |
+| [Priser för nedgradering av nivå](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Priser nivån nedgradering åtgärd minskade tillgängliga resurser. Detta påverkar prestandan för SQL Database. | Priser nivån nedgradering åtgärd minskade tillgängliga resurser. Detta påverkar prestanda för databasen. |
 
 > [!TIP]
 > Kontinuerlig prestandaoptimering i SQL Database, aktivera [automatisk justering i Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Den här unika funktionen i SQL Database inbyggd intelligens kontinuerligt övervakar din SQL-databas, automatiskt justerar index och gäller fråga körning plan korrigeringar.
 >
 
-I följande avsnitt beskrivs de ovanstående flashminnet prestandamönster i detalj.
+I följande avsnitt beskrivs flashminnet prestandamönster i detalj.
 
 ## <a name="reaching-resource-limits"></a>Nådde resursbegränsningar
 
@@ -59,11 +59,11 @@ I följande avsnitt beskrivs de ovanstående flashminnet prestandamönster i det
 
 Det här mönstret flashminnet prestanda kombinerar prestandaproblem som är relaterade till når tillgängliga resursbegränsningar, worker begränsningar och tidsgränser för sessioner. Om det här prestandaproblemet har identifierats, anger en beskrivningsfält för diagnostikloggen om prestandaproblemet är relaterat till resursen, worker eller tidsgränser för sessioner.
 
-Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). De består av ett blandat mått av CPU- och IO (data- och transaktionslogg loggning i/o). Mönstret för att nå resursgränser kan identifieras när identifierats fråga prestandaförsämring orsakas av når någon av de uppmätta resursbegränsningar.
+Resurser på SQL-databas är normalt refererade till [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) eller [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore) resurser. Mönstret för att nå resursgränser kan identifieras när identifierats fråga prestandaförsämring orsakas av når någon av de uppmätta resursbegränsningar.
 
 Sessionen gränser resursen avser antalet tillgängliga samtidiga inloggningar till SQL-databasen. Det här mönstret prestanda känns igen när program som är anslutna till SQL-databaser har nått antalet tillgängliga samtidiga inloggningar till databasen. Om program försöker att använda fler sessioner än vad som finns på en databas, påverkas prestanda för frågor.
 
-Nå worker gränser är ett specialfall nå resursbegränsningar eftersom tillgängliga arbeten inte räknas i DTU-användningen. Nå worker gränser för en databas kan orsaka röstfunktion resursspecifika väntetider, vilket resulterar i fråga prestandaförsämring.
+Nå worker gränser är ett specialfall nå resursbegränsningar eftersom tillgängliga arbeten inte räknas i DTU eller vCore användningen. Nå worker gränser för en databas kan orsaka röstfunktion resursspecifika väntetider, vilket resulterar i fråga prestandaförsämring.
 
 ### <a name="troubleshooting"></a>Felsökning
 
@@ -229,7 +229,7 @@ Diagnostikloggen visar tempDB konkurrens information. Du kan använda informatio
 
 Mer information finns i [introduktion till minnesoptimerade tabeller](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
-## <a name="elastic-pool-dtu-shortage"></a>Elastisk pool DTU brist
+## <a name="elastic-pool-dtu-shortage"></a>Brist för elastisk Pool-DTU
 
 ### <a name="what-is-happening"></a>Vad händer
 
@@ -283,7 +283,7 @@ Databasbegränsade konfigurationsändringar kan ställas in för varje enskild d
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostiklogg utdata databasbegränsade konfigurationsändringar som gjorts nyligen som orsakade försämring jämfört med det tidigare beteendet i sju dagar arbetsbelastning. Du kan återställa konfigurationsändringar i tidigare värden. Du kan även finjustera värde med värde tills önskad beräkningsstorleken har uppnåtts. Du kan kopiera konfigurationsvärden för databas-omfång från en liknande databas med tillfredsställande prestanda. Om det inte går att felsöka prestanda återgå till standardvärden för standard-SQL-databas och försök att finjustera från och med den här baslinjen.
+Diagnostiklogg utdata databasbegränsade konfigurationsändringar som gjorts nyligen som orsakade försämring jämfört med det tidigare beteendet i sju dagar arbetsbelastning. Du kan återställa konfigurationsändringar i tidigare värden. Du kan även finjustera värde med värde tills den önskade prestandanivån har uppnåtts. Du kan kopiera konfigurationsvärden för databas-omfång från en liknande databas med tillfredsställande prestanda. Om det inte går att felsöka prestanda återgå till standardvärden för standard-SQL-databas och försök att finjustera från och med den här baslinjen.
 
 Läs mer om hur du optimerar databasbegränsade konfigurationen och T-SQL-syntax för att ändra konfigurationen för [Alter database scoped configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

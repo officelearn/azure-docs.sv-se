@@ -3,19 +3,22 @@ title: 'Alltid krypterad: SQL-databas – Azure Key Vault | Microsoft Docs'
 description: Den här artikeln visar hur du skyddar känsliga data i en SQL-databas med datakryptering guiden alltid krypterad i SQL Server Management Studio.
 keywords: kryptering av data, krypteringsnyckel, moln-kryptering
 services: sql-database
-author: VanMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: 5149b4cbd1e86bfca3ad7d628d129a08aff60a98
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: d944ead01da81e2fec49d256a4da939067bcceee
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604321"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064420"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Alltid krypterad: Skydda känsliga data i SQL Database och lagra krypteringsnycklarna i Azure Key Vault
 

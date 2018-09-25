@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: 58ab1d77218595344c899dff654ba5b7a5bfb0d8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 16c102641321117f4776d761aba6c2148d15f1f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296644"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995658"
 ---
 # <a name="use-a-git-repo-with-a-machine-learning-workbench-project"></a>Använda en Git-lagringsplats med ett Machine Learning Workbench-projekt
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Lär dig hur Azure Machine Learning Workbench använder Git för att tillhandahålla versionskontroll och säkerställa reproducerbarhet i din dataexperiment. Lär dig hur du kopplar ditt projekt till ett moln Git-lagringsplats (lagringsplats).
 
 Machine Learning Workbench är utformat för Git-integrering. När du skapar ett nytt projekt är projektmappen automatiskt ”Git-initieras” som en lokal Git-lagringsplats. En andra, dolda lokal Git-lagringsplats också skapas med en gren med namnet AzureMLHistory /\<projektet GUID\>. Grenen håller reda på mappen ändringarna för varje körning. 
@@ -42,7 +47,7 @@ Kom igång med en fjärransluten Git-lagringsplats, slutför du stegen som beskr
 > Azure Machine Learning stöder för närvarande Git-lagringsplatser endast på Azure DevOps-organisationer.
 
 ## <a name="step-1-create-a-machine-learning-experimentation-account"></a>Steg 1. Skapa ett konto för Machine Learning-experimentering
-Skapa en Machine Learning-experimenteringskonto och installera Azure Machine Learning Workbench-appen. Mer information finns i [installera snabbstarten och skapa](../service/quickstart-installation.md).
+Skapa en Machine Learning-experimenteringskonto och installera Azure Machine Learning Workbench-appen. Mer information finns i [installera snabbstarten och skapa](quickstart-installation.md).
 
 ## <a name="step-2-create-an-azure-devops-project-or-use-an-existing-project"></a>Steg 2. Skapa ett Azure DevOps-projekt eller Använd ett befintligt projekt
 I den [Azure-portalen](https://portal.azure.com/), skapa ett nytt projekt:

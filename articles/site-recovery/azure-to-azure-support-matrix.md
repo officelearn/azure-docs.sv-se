@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 1fa5451b852a564ef3f0858fdfe0ab0091117508
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1db54cfd32a0d598d0079ddaec9aab5d6b2f84c1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296036"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039300"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -69,7 +69,7 @@ Den nedan support som gäller för alla arbetsbelastningar som körs på den nä
 - SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versioner som stöds)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
-- Oracle Enterprise Linux 6.4, 6.5 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3)
+- Oracle Enterprise Linux 6.4, 6.5, 6.6, 6.7 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3)
 
 (För att replikera datorer från SLES 11 SP3 till SLES 11 SP4 kan inte uppgradera. Om en replikerad dator har uppgraderats från SLES 11SP3 till SLES 11 SP4, måste du du inaktivera replikering och skydda datorn igen efter uppgraderingen.)
 

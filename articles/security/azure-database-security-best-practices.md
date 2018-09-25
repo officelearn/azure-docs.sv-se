@@ -1,6 +1,6 @@
 ---
-title: Säkerhetsmetoder för Azure-databas | Microsoft Docs
-description: Den här artikeln innehåller en uppsättning Metodtips för säkerhet i Azure-databas.
+title: Azure database säkerhetsmetoder | Microsoft Docs
+description: Den här artikeln innehåller en uppsättning Metodtips för Azure database-säkerhet.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -12,162 +12,173 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: 81acf90f0d600c0c3dafa2a4ccd2f8564fd18c9a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0f738348dd0a000df8b1da299bb7b58ebc5a1165
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893899"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040113"
 ---
-# <a name="azure-database-security-best-practices"></a>Säkerhetsmetoder för Azure-databas
+# <a name="azure-database-security-best-practices"></a>Metodtips för Azure database-säkerhet
+Säkerhet är ett viktigt mål för hantering av databaser och den har alltid varit en prioritet för [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Dina databaser kan skyddas nära för att hjälpa uppfyller de flesta juridiska eller säkerhetskrav, inklusive HIPAA, ISO 27001/27002 och PCI DSS Level 1. En aktuell lista över security efterlevnadscertifieringar är tillgänglig på den [Microsoft Trust Center plats](http://azure.microsoft.com/support/trust-center/services/). Du kan också välja att placera dina databaser i specifika Azure-datacenter som baseras på myndighetskrav.
 
-Säkerhet är ett viktigt mål vid hantering av databaser och det har alltid en prioritet för Azure SQL Database. Databaserna kan skyddas nära för att uppfylla de flesta reglerande eller säkerhetskrav, bland annat HIPAA, ISO 27001/27002 och PCI DSS nivå 1. En lista över efterlevnad Säkerhetscertifieringar är tillgänglig på den [Microsoft Trust Center plats](http://azure.microsoft.com/support/trust-center/services/). Du kan också välja att placera dina databaser i specifika Azure-Datacenter baserat på föreskrifter.
+I den här artikeln diskuterar vi en samling med Azure database säkerhetsmetoder. Dessa metodtips härleds från vår erfarenhet med Azure database-säkerhet och erfarenheter från kunder som dig själv.
 
-I den här artikeln diskuteras en samling Azure-databas säkerhetsmetoder. Följande rekommendationer härleds från våra upplevelse med säkerhet på Azure-databas och erfarenheter från kunder som dig själv.
+För varje rekommenderar förklarar vi:
 
-För varje bästa praxis förklarar vi:
-
--   Vad som är bästa praxis
+-   Vad den bästa metoden är
 -   Varför du vill aktivera den bästa praxis
--   Vad kan vara resultatet om du inte aktivera bästa praxis
--   Hur du kan lära dig att aktivera bästa praxis
+-   Vad kan vara resultatet om du inte aktivera den bästa metoden
+-   Hur du kan lära dig att aktivera ett metodtips
 
-Den här artikeln säkerhetsmetoder för Azure-databas är baserad på en konsensus åsikt och Azure plattformsfunktioner och funktionerna som de finns på den tid som den här artikeln skrevs. Åsikter och tekniker ändras med tiden och den här artikeln kommer att uppdateras regelbundet så att dessa ändringar.
+Den här säkerhetsmetoder för Azure Database-artikeln är baserad på en konsensus åsikter och funktioner för Azure-plattformen och funktionen anger eftersom de finns när den här artikeln skrevs. Andras åsikter och tekniker som ändras med tiden och den här artikeln kommer att uppdateras regelbundet att återspegla dessa ändringar.
 
-Azure-databas Metodtips om säkerhet i den här artikeln omfattar:
+## <a name="use-firewall-rules-to-restrict-database-access"></a>Använd brandväggsregler för att begränsa databasåtkomst
+Microsoft Azure SQL Database tillhandahåller en relationsdatabastjänst för Azure och andra Internetbaserade program. För att ge åtkomstsäkerhet, kontrollerar SQL Database åtkomsten med:
 
--   Använd brandväggsreglerna för att begränsa åtkomst till databasen
--   Aktivera Databasautentisering
--   Skydda dina data med hjälp av kryptering
--   Skydda data under överföring
--   Aktivera granskning för databasen
--   Aktivera hotidentifiering för databasen
+- Brandväggsregler som begränsar anslutning efter IP-adress.
+- Autentiseringsmekanismer som kräver att användare bevisar sin identitet.
+- Auktoriseringsmekanismer som begränsar användare till specifika åtgärder och data.
 
+Förhindrar brandväggar all åtkomst till din databasserver tills du anger vilka datorer som har behörighet. Brandväggen ger åtkomst till databaser baserat på vilken IP-adress som varje begäran kommer från.
 
-## <a name="use-firewall-rules-to-restrict-database-access"></a>Använd brandväggsreglerna för att begränsa åtkomst till databasen
-
-Microsoft Azure SQL Database tillhandahåller en relationsdatabastjänst för Azure och andra Internetbaserade program. För att ge åtkomstsäkerhet, kontrollerar SQL-databas åtkomsten med brandväggsregler begränsa anslutningsbarhet med IP-adress, autentiseringsmekanismer som kräver att användare att bevisa sin identitet och auktorisering mekanismer för att begränsa användare till specifika åtgärder och data. Brandväggar förhindrar all åtkomst till databasservern förrän du anger vilka datorer som har behörighet. Brandväggen ger åtkomst till databaser baserat på vilken IP-adress som varje begäran kommer från.
+I följande bild visas där du anger en serverbrandvägg i SQL-databas:
 
 ![Brandväggsregler](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
 
-Azure SQL Database-tjänsten är endast tillgänglig via TCP-port 1433. Se till att klientdatorns brandvägg tillåter utgående TCP-kommunikation på TCP-port 1433 för att komma åt en SQL Database från datorn. Om det behövs inte för andra program, blockera inkommande anslutningar på TCP-port 1433 med hjälp av brandväggsregler.
+Azure SQL Database-tjänsten är bara tillgänglig via TCP-port 1433. Se till att klientdatorns brandvägg tillåter utgående TCP-kommunikation på TCP-port 1433 för att komma åt en SQL-databas från datorn. Blockera inkommande anslutningar på TCP-port 1433 med hjälp av brandväggsregler, om du inte behöver de här anslutningarna för andra program.
 
-Som en del av anslutningen omdirigeras anslutningar från virtuella Azure-datorer till en annan IP-adress och port, som är unik för varje arbetsroll. Portnumret är i intervallet 11000 till 11999. Mer information om TCP-portar finns [portar utöver 1433 för ADO.NET 4.5 och SQL Database2](https://docs.microsoft.com/azure/sql-database/sql-database-develop-direct-route-ports-adonet-v12).
+Som del av anslutningen omdirigeras anslutningar från Azure-datorer till en IP-adress och port som är unika för varje arbetsroll. Portnumret är i intervallet 11000 till 11999. Mer information om TCP-portar finns i [portar utöver 1433 för ADO.NET 4.5](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+
+Mer information om brandväggsregler i SQL Database finns [SQL Database-brandväggsregler](../sql-database/sql-database-firewall-configure.md).
 
 > [!Note]
-> Mer information om brandväggsregler i SQL Database finns [SQL Database-brandväggsregler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
+> Förutom IP-regler hanterar virtual network-regler i brandväggen. Virtuella Nätverksregler baseras på vnet-tjänstslutpunkter. Regler för virtuellt nätverk kan vara bättre att IP-regler i vissa fall. Mer information finns i [tjänstslutpunkter i virtuella nätverk och regler för Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## <a name="enable-database-authentication"></a>Aktivera Databasautentisering
-SQL Database stöder två typer av autentisering, SQL-autentisering och Azure Active Directory-autentisering (Azure AD-autentisering).
+SQL Database stöder två typer av autentisering, SQL Server-autentisering och Azure AD-autentisering.
 
-**SQL-autentisering** rekommenderas i följande fall:
+### <a name="sql-server-authentication"></a>*SQL Server-autentisering*
 
--   Det gör SQL Azure som stöd för miljöer med blandad operativsystem där inte alla användare autentiseras med en Windows-domän.
--   Tillåter SQL Azure som stöd för äldre program och program från tredje part som kräver SQL Server-autentisering.
--   Tillåter användare att ansluta från okänd eller ej betrodda domäner. Ett program där etablerade kunder ansluter med tilldelade till exempel SQL Server-inloggningar för att få status för sina order.
--   Tillåter SQL Azure som stöd för webbaserade program där användare kan skapa sina egna identiteter.
--   Gör det möjligt för programutvecklare att distribuera sina program med hjälp av en komplex behörighet hierarki baserat på kända, förinställda SQL Server-inloggningar.
+Följande: fördelar
 
-> [!Note]
-> SQL Server-autentisering kan dock använda Kerberos-säkerhetsprotokoll.
+- Det gör att SQL-databas till stöd för miljöer med blandad operativsystem, där alla användare inte autentiseras med en Windows-domän.
+- Kan SQL-databas till stöd för äldre program och tillhandahålls av partner program som kräver SQL Server-autentisering.
+- Tillåter användare att ansluta från okänd eller icke betrodda domäner. Ett exempel är ett program där etablerade kunder ansluta med tilldelade SQL Server-inloggningar för att ta emot status för sina order.
+- Kan SQL-databas för webbaserade program där användare kan skapa sina egna identiteter.
+- Kan utvecklare distribuera sina program med hjälp av en hierarki för komplexa behörighet baserat på kända, förinställda SQL Server-inloggningar.
 
-Om du använder **SQL-autentisering** måste du:
+> [!NOTE]
+> SQL Server-autentisering kan inte använda Kerberos-säkerhetsprotokoll.
+>
+>
 
--   Hantera starka autentiseringsuppgifter själv.
--   Skydda autentiseringsuppgifter i anslutningssträngen.
--   (Möjligen) skydda autentiseringsuppgifterna som skickas över nätverket från webbservern till databasen. Mer information finns i [så här: ansluta till SQL Server med hjälp av SQL-autentisering i ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
+Om du använder SQL Server-autentisering, måste du:
 
-**Azure Active Directory-autentisering** är en mekanism för anslutning till Microsoft Azure SQL Database och [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) med hjälp av identiteter i Azure Active Directory (AD Azure). Med Azure AD-autentisering kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster på en central plats. Central hantering av ID innehåller en enda plats för att hantera användare och förenklar hantering av behörighet. Följande: fördelar
+- Hantera starka autentiseringsuppgifter själv.
+- Skydda autentiseringsuppgifter i anslutningssträngen.
+- (Eventuellt) skydda autentiseringsuppgifterna som skickas över nätverket från webbservern till databasen. Mer information finns i [så här: ansluta till SQL Server med hjälp av SQL-autentisering i ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
 
--   Det ger ett alternativ till SQL Server-autentisering.
--   Hjälper till att stoppa spridning av användaridentiteter över databasservrar.
--   Tillåter lösenord rotation i en enda plats.
--   Kunder kan hantera databasen med hjälp av externa (AAD)-grupper.
--   Men du kan inte lagra lösenord genom att aktivera integrerad Windows-autentisering och andra former av autentisering som stöds av Azure Active Directory.
--   Azure AD-autentisering använder oberoende databasanvändare för att autentisera identiteter på databasnivå.
--   Azure AD stöder tokenbaserad autentisering för program som ansluter till SQL-databas.
--   Azure AD authentication stöder AD FS (domänfederation) eller intern användarlösenord autentisering för en lokal Active Directory med Azure utan domänsynkronisering.
--   Azure AD stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal-autentisering, vilket innefattar Multi-Factor Authentication (MFA). MFA ingår stark autentisering med ett antal alternativ för enkel verifiering – telefonsamtal, textmeddelande, smartkort och PIN-kod eller meddelande i mobilappen. Mer information finns i [SSMS stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-ssms-mfa-authentication).
+### <a name="azure-active-directory-ad-authentication"></a>*Azure Active Directory (AD)-autentisering*
+Azure AD-autentisering är en mekanism för att ansluta till Azure SQL Database och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure AD. Med Azure AD-autentisering kan du Hantera identiteter för databasanvändare och andra Microsoft-tjänster på en central plats. Central hantering av ID innehåller en enda plats för att hantera databasanvändare och förenklar hanteringen av behörighet.
 
-Konfigurationsstegen innehåller följande procedurer för att konfigurera och använda Azure Active Directory-autentisering.
+> [!NOTE]
+> Vi rekommenderar användning av Azure AD-autentisering över användningen av SQL Server-autentisering.
+>
+>
 
--   Skapa och fylla i Azure AD.
--   Valfritt: Koppla eller ändra active directory som associeras med din Azure-prenumeration.
--   Skapa en Azure Active Directory-administratör för Azure SQL server eller [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+Följande: fördelar
+
+- Det är ett alternativ till SQL Server-autentisering.
+- Det hjälper dig att stoppa spridning av användaridentiteter över databasservrar.
+- Det gör att lösenordsrotation i en och samma plats.
+- Kunder kan hantera databasbehörigheter med hjälp av externa (Azure AD)-grupper.
+- Men kan inte lagra lösenord genom att aktivera integrerad Windows-autentisering och andra former av autentisering som stöds av Azure Active Directory.
+- Den använder oberoende databasanvändare för att autentisera identiteter på databasnivå.
+- Det har stöd för tokenbaserad autentisering för program som ansluter till SQL-databas.
+- Det stöder AD FS (domän federation) eller interna användare/lösenord autentisering för en lokal Azure Active Directory-instans utan domänsynkronisering.
+- Azure AD stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal-autentisering, inklusive Multi-Factor Authentication. Multi-Factor Authentication ger stark autentisering med en rad verifieringsalternativ – telefonsamtal, textmeddelande, smartkort och PIN-kod eller mobilapp. Mer information finns i [SSMS-stöd för Azure AD Multi-Factor Authentication med SQL Database och SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+
+Konfigurationen omfattar följande procedurer för att konfigurera och använda Azure AD-autentisering:
+
+- Skapa och fylla i Azure AD.
+- Valfritt: Koppla eller ändra Active Directory-instans som för närvarande är associerat med din Azure-prenumeration.
+- Skapa en Azure Active Directory-administratör för Azure SQL Database eller [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 - Konfigurera klientdatorer.
--   Skapa oberoende databasanvändare i din databas som mappats till Azure AD identiteter.
--   Ansluta till databasen med hjälp av Azure AD identiteter.
+- Skapa oberoende databasanvändare i databasen som mappats till Azure AD-identiteter.
+- Ansluta till databasen med hjälp av Azure AD-identiteter.
 
-Du hittar information information [här](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
+Du hittar detaljerad information i [Använd Azure Active Directory-autentisering för autentisering med SQL Database Managed Instance eller SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
-## <a name="protect-your-data-using-encryption"></a>Skydda dina data med hjälp av kryptering
+## <a name="protect-your-data-by-using-encryption"></a>Skydda dina data med hjälp av kryptering
+[Azure SQL Database transparent datakryptering](https://msdn.microsoft.com/library/dn948096.aspx) hjälper dig att skydda data på disken och skyddar mot obehörig åtkomst till maskinvara. Den utför i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet. Transparent datakryptering krypteras lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln.
 
-[Azure SQL Database transparent datakryptering (TDE)](https://msdn.microsoft.com/library/dn948096.aspx) skyddar mot hot från skadlig aktivitet genom att utföra realtid kryptering och dekryptering av databas, tillhörande säkerhetskopior och transaktionsloggfiler utan vilande kräver ändringar i programmet. TDE krypterar lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln.
+Även om hela lagringen är krypterad, är det viktigt att även kryptera själva databasen. Det här är en implementering av metoden skydd på djupet för dataskydd. Om du använder Azure SQL Database och vill skydda känsliga data (till exempel kreditkort eller personnummer), kan du kryptera databaser med FIPS 140-2-verifierade 256-bitars AES-kryptering. Den här krypteringen uppfyller kraven för många branschstandarder (till exempel HIPAA och PCI).
 
-Även om hela lagring krypteras är det mycket viktigt att kryptera även själva databasen. Det här är en implementering av skydd på djupet metod för att skydda data. Om du använder Azure SQL Database och vill skydda känsliga data, till exempel kreditkort eller personnummer, kan du kryptera databaser med FIPS 140-2-validerade 256-bitars AES-kryptering som uppfyller kraven för många branschstandarder (till exempel HIPAA, PCI).
+Filer som är relaterade till [buffra pool-tillägget (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) krypteras inte när du krypterar en databas med hjälp av transparent datakryptering. Du måste använda filsystemnivå-kryptering verktyg som [BitLocker](https://technet.microsoft.com/library/cc732774) eller [Krypterande filsystem (EFS)]() för BPE-relaterade filer.
 
-Det är viktigt att förstå att filer relaterade till [bufferten pool-tillägg (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) krypteras inte när en databas är krypterat med TDE. Du måste använda filen kryptering på Systemverktyg som [BitLocker](https://technet.microsoft.com/library/cc732774) eller [EFS (ENCRYPTING File System)](https://technet.microsoft.com/library/cc700811.aspx) för BPE relaterade filer.
+Eftersom en behörig användare som en administratör eller en databasadministratör kan komma åt data även om databasen är krypterad med transparent datakryptering, bör du även följa dessa rekommendationer:
 
-Eftersom en behörig användare som en administratör eller en databasadministratör kan komma åt data även om databasen är krypterad med TDE, bör du också följa rekommendationerna nedan:
-
--   Aktivera SQL-autentisering på databasnivå.
--   Använda Azure AD för autentisering med [RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/overview).
--   Användare och program bör använda separata konton för att autentisera. Det här sättet kan du begränsa behörigheterna för användare och program och minska riskerna med skadlig aktivitet.
--   Implementera databasen säkerhetsnivå via fasta databasroller (till exempel db_datareader eller db_datawriter) eller du kan skapa anpassade roller för programmet att bevilja explicit behörighet till valda databasobjekt.
+- Aktivera SQL Server-autentisering på databasnivå.
+- Använd Azure AD-autentisering med hjälp av [RBAC-roller](../role-based-access-control/overview.md).
+- Se till att användare och program använder separata konton för autentisering. På så sätt kan du begränsa behörigheterna för användare och program och minska risken för skadlig aktivitet.
+- Implementera säkerhet på databasnivå med hjälp av fasta databasroller (till exempel db_datareader och db_datawriter). Eller så kan du skapa anpassade roller för programmet att bevilja behörighet till valda databasobjekt.
 
 För andra sätt att kryptera dina data, kan du överväga:
 
--   [Kryptering på cellnivå](https://msdn.microsoft.com/library/ms179331.aspx) för att kryptera vissa kolumner eller även celler av data med olika krypteringsnycklar.
--   Kryptering används med hjälp av Always Encrypted: [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) tillåter klienter att kryptera känsliga data i klientprogram och aldrig avslöja krypteringsnycklarna till databasmotorn (SQL Database eller SQL Server). Därför Always Encrypted ger dig en åtskillnad mellan dem som äger data (och visa det) och de som hanterar data (men bör har ingen åtkomst).
--   Använder säkerhet på radnivå: säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell på grund av egenskaper för den användare som kör en fråga (t.ex. gruppen medlemskap eller köra sammanhang). Mer information finns i [Säkerhet på radnivå](https://msdn.microsoft.com/library/dn765131).
+- [Kryptering på cellnivå](https://msdn.microsoft.com/library/ms179331.aspx) för att kryptera vissa kolumner eller även celler av data med olika krypteringsnycklar.
+- [Alltid krypterad](https://msdn.microsoft.com/library/mt163865.aspx), vilket gör att klienter att kryptera känsliga data i klientprogram och aldrig avslöja krypteringsnycklarna till databasmotorn (SQL Database eller SQL Server). Därför Always Encrypted ger dig en åtskillnad mellan den som äger data (och kan visa den) och de som hanterar data (men inte har åtkomsträttigheter).
+- [Säkerhet på radnivå](https://msdn.microsoft.com/library/dn765131), som ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för den användare som kör en fråga. (Exempel egenskaper är gruppen medlemskap och körning kontexten.)
 
-## <a name="protect-data-in-transit"></a>Skydda data under överföring
-Skydda data under överföringen ska väsentlig del av strategin för skydd av data. Eftersom data flyttar fram och tillbaka från många platser, vi Allmänt rekommenderar att du alltid använder SSL/TLS-protokoll för att utbyta data mellan olika platser. I vissa fall kanske du vill isolera hela kommunikationskanalen mellan din lokala och moln infrastruktur med hjälp av ett virtuellt privat nätverk (VPN).
+Organisationer som inte använder kryptering på databasnivå kan vara mer sårbar för attacker som kan äventyra data som finns i SQL-databaser.
 
-För data som flyttas mellan din lokala infrastruktur och Azure, bör du lämpliga skyddsåtgärder, till exempel HTTPS eller VPN.
+Du kan lära dig mer om SQL Database transparent datakryptering genom att läsa artikeln [Transparent datakryptering med Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
-För organisationer som behöver för att skydda åtkomst från flera arbetsstationer som finns lokalt till Azure kan använda [Azure plats-till-plats-VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create).
+## <a name="enable-database-auditing"></a>Aktivera database-granskning
+Granskning av en instans av SQL Server Database Engine eller en individuell databas innebär att spåra och loggning av händelser. Du kan skapa granskningar som innehåller specifikationer för servernivå händelser och specifikationer för händelser på databasnivå för SQL Server. Granskade händelser kan skrivas till händelseloggarna eller granska filer.
 
-För organisationer som behöver för att skydda åtkomst från enskilda arbetsstationer som finns lokalt eller utanför företagets lokaler till Azure, Överväg att använda [punkt-till-plats VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create).
+Det finns flera nivåer för granskning för SQL Server, beroende på myndigheter eller standarder krav för installationen. Granskning av SQL Server innehåller verktyg och processer för att aktivera, lagra och visa granskningar på olika server- och databasobjekt.
 
-Större datauppsättningar kan flyttas dedikerade snabba WAN-länk som [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Om du väljer att använda ExpressRoute kan du också kryptera data på programnivå med hjälp av [SSL/TLS](https://support.microsoft.com/kb/257591) eller andra protokoll för extra skydd.
+[Azure SQL Database-granskning](../sql-database/sql-database-auditing.md) spårar databasen händelser och skriver dem till en granskningslogg i ditt Azure storage-konto.
 
-Om du interagerar med Azure Storage via Azure Portal, alla transaktioner ska ske via HTTPS. [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) över HTTPS kan också användas för att interagera med [Azure Storage](https://azure.microsoft.com/services/storage/) och [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+Granskning kan hjälpa dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och hitta avvikelser och fel som kan peka på affärsproblem eller säkerhetsöverträdelser. Granskning underlättar infört efterlevnadsstandarder men garanterar inte efterlevnad.
 
-Organisationer som inte kan skydda data under överföringen är mer känslig för [man-in-the-middle-attacker](https://technet.microsoft.com/library/gg195821.aspx), [avlyssning](https://technet.microsoft.com/library/gg195641.aspx) och sessionskapning. Dessa attacker kan vara det första steget i att komma åt känsliga data.
-
-Läs mer om Azure VPN-alternativet genom att läsa artikeln [planering och design för VPN-Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
-
-## <a name="enable-database-auditing"></a>Aktivera granskning för databasen
-Granskning av en instans av SQL Server Database Engine eller en individuell databas innebär att spåra och loggning av händelser som inträffar i databasmotorn. SQL Server audit kan du skapa server granskningar som kan innehålla server audit specifikationer för serverhändelser och databasen audit specifikationer för databashändelser. Granskade händelser kan skrivas till händelseloggarna eller granska filer.
-
-Det finns flera nivåer av granskning för SQL Server, beroende på myndigheter eller standarder dina krav. SQL Server Audit innehåller de verktyg och processer som du ska kunna aktivera, lagra och visa granskningar på olika objekt för server och databas.
-
-[Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) spårar databashändelser och skriver dem till en granskningslogg logga in i ditt Azure Storage-konto-databas.
-
-Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
-
-Granskning kan och underlättar anslutning till efterlevnadsstandarder men garantera inte efterlevnad.
-
-Mer information om granskning för databasen och hur du aktiverar det finns i artikel [aktivera granskning och hotidentifiering identifiering på SQL-servrar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-servers).
+Läs mer om database-granskning och hur du aktiverar det i [Kom igång med SQL-databasgranskning](../sql-database/sql-database-auditing.md).
 
 ## <a name="enable-database-threat-detection"></a>Aktivera hotidentifiering för databasen
-SQL-Hotidentifiering kan du identifiera och svara på potentiella hot allteftersom de sker genom att tillhandahålla säkerhetsaviseringar på avvikande aktiviteter. Du får en avisering vid misstänkt databasaktiviteter, potentiella säkerhetsproblem och SQL injection attacker samt avvikande databasen åtkomstmönster. SQL-Hotidentifiering aviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärd att undersöka och minska risken.
+Skydd mot hot är mer omfattande än identifiering. Skydd mot hot på databasen innehåller:
 
-Till exempel är SQL injection en av säkerhetsproblem för vanliga Web program på Internet, används till att attackera datadrivna program. Angripare dra nytta av programmet säkerhetsproblem att mata in skadlig SQL-instruktioner i programmet fält, brott mot eller ändra data i databasen.
+- Identifiera och klassificera dina mest känsliga data så att du kan skydda dina data.
+- Implementera säkra konfigurationer på din databas så att du kan skydda databasen.
+- Identifiera och svara på potentiella hot allteftersom de sker så att du kan snabbt svara och reparera.
 
-Mer information om hur du ställer in hotidentifiering för din databas i Azure portal finns [Hotidentifiering för SQL-databasen](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
+**Bästa praxis**: identifiera, klassificera och märka känslig data i dina databaser.   
+**Information om**: klassificera data i din SQL-databas genom att aktivera [Dataidentifiering och klassificering](../sql-database/sql-database-data-discovery-and-classification.md) i Azure SQL Database. Du kan övervaka åtkomsten till känsliga data i Azure-instrumentpanelen eller ladda ned rapporter.
 
-Dessutom kan SQL Hotidentifiering integreras med [Azure Security Center](https://azure.microsoft.com/services/security-center/). Vi erbjuder dig att testa kostnadsfritt i 60 dagar.
+**Bästa praxis**: spåra säkerhetsrisker i databasen så att du proaktivt kan förbättra din databassäkerhet.   
+**Information om**: använda Azure SQL Database [Sårbarhetsbedömning](../sql-database/sql-vulnerability-assessment.md) -tjänsten, som söker efter säkerhetsrisker i databasen. Tjänsten används en kunskapsbas med regler som flagga säkerhetsrisker och visa avvikelser från regelverk som felkonfigurationer, onödigt generösa behörigheter och oskyddade känsliga data.
 
-Mer information om databasen Hotidentifiering och hur du aktiverar det finns i artikel [aktivera granskning och hotidentifiering identifiering på SQL-servrar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-servers).
+Reglerna är baserade på Microsofts bästa praxis och fokusera på säkerhetsproblem som presenterar de största riskerna för din databas och dess värdefulla data. De täcker både på databasnivå problem och servernivå säkerhetsproblem som serverbrandväggsinställningarna och behörigheter på servernivå. De här reglerna representerar många av kraven från reglerande organ för att uppfylla sina efterlevnadsstandarder.
 
-## <a name="conclusion"></a>Sammanfattning
-Azure-databas är en robust databasplattform, med en fullständig uppsättning funktioner som uppfyller kraven för många organisationens och regelmässig efterlevnad. Du kan skydda data genom att kontrollera fysisk tillgång till dina data och använda en mängd olika alternativ för datasäkerhet på fil-, kolumn- eller radnivå med Transparent datakryptering, cellnivå kryptering eller säkerhet på radnivå. Alltid gör krypterat också att åtgärder mot krypterade data, förenkla processen för programuppdateringar. I sin tur ger åtkomst till granskningsloggar för SQL-databas aktivitet dig den information du behöver, så att du vet hur och när data används.
+**Bästa praxis**: aktivera identifiering av hot.  
+**Information om**: aktivera Azure SQL Database [Hotidentifiering](../sql-database/sql-database-threat-detection.md) få säkerhetsaviseringar och rekommendationer om hur du undersöka och åtgärda hot. Du får aviseringar om misstänkta databasaktiviteter, potentiella svagheter, SQL-inmatningsattacker och avvikande mönster för dataåtkomst och frågeprestanda.
+
+[Avancerat skydd](../sql-database/sql-advanced-threat-protection.md) en enhetlig paket för avancerade funktioner för SQL-säkerhet. Den innehåller de tjänster som tidigare nämnts: Dataidentifiering och klassificering, Sårbarhetsbedömning och Hotidentifiering. Det ger en enda plats för att aktivera och hantera dessa funktioner.
+
+Att dessa funktioner som hjälper dig att:
+
+- Uppfyll data sekretesstandarder och efterlevnadskrav.
+- Kontrollera åtkomsten till dina databaser och förstärka säkerhet.
+- Övervaka en dynamisk databasmiljö där ändringar är svåra att spåra.
+- Identifiera och svara på potentiella hot.
+
+Dessutom integreras Hotidentifiering aviseringar med Azure Security Center för en central vy över säkerhetsläget hos alla dina Azure-resurser.
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om brandväggsregler finns [regler i brandväggen](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
-- Mer information om användare och inloggningar finns i [Hantera inloggningar](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
-- En självstudiekurs finns [skydda din Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial).
+Se [säkerhet i Azure-metodtips och mönster](security-best-practices-and-patterns.md) för flera beprövade metoder för att använda när du utforma, distribuera och hantera dina molnlösningar med hjälp av Azure.
+
+Följande resurser är tillgängliga för att tillhandahålla mer allmän information om Azure-säkerhet och relaterade Microsoft-tjänster:
+* [Azure-Säkerhetsteamets blogg](https://blogs.msdn.microsoft.com/azuresecurity/) – uppdaterad information på senast inom Azure-säkerhet
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där kan du rapportera säkerhetsproblem i Microsoft, inklusive problem med Azure, eller mejla till secure@microsoft.com

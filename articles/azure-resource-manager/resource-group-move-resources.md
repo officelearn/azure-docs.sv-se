@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2448b1f799c5253b36a18f108af1ff2de8b6ced3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e79419c764229e7dc52a32389b8b1116668dddfc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127456"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039743"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -204,6 +204,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Log Analytics
 * Logic Apps
 * Maskininlärning – Machine Learning Studio-webbtjänster kan flyttas till en resursgrupp i samma prenumeration, men inte en annan prenumeration. Andra Machine Learning-resurser kan flyttas mellan prenumerationer.
+* Managed Disks – Se [begränsningar för virtuella datorer för begränsningar](#virtual-machines-limitations)
 * Hanterad identitet - användartilldelade
 * Media Services
 * Mobile Engagement
@@ -254,7 +255,6 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Lab Services – flytta till ny resursgrupp i samma prenumeration har aktiverats, men flytta över prenumerationer har inte aktiverats.
 * Belastningsutjämnare – Se [belastningsutjämnaren begränsningar](#lb-limitations)
 * Managed Applications
-* Managed Disks – Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Microsoft Genomics
 * NetApp
 * Offentliga IP - Se [offentliga IP-begränsningar](#pip-limitations)
@@ -267,22 +267,36 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 
 ## <a name="virtual-machines-limitations"></a>Begränsningar för virtuella datorer
 
-Hanterade diskar stöder inte flytt. Den här begränsningen innebär att flera relaterade resurser inte kan flyttas för. Du kan inte flytta:
+Hanterade diskar stöds för flytt från och med den 24 September 2018. Du måste registrera dig för att aktivera den här funktionen
 
-* Hanterade diskar
+#### <a name="powershell"></a>PowerShell
+`Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute`
+#### <a name="cli"></a>CLI
+`az feature register Microsoft.Compute ManagedResourcesMove`
+
+
+Det innebär att du kan också flytta:
+
 * Virtuella datorer med hanterade diskar
-* Bilder som skapats från hanterade diskar
-* Ögonblicksbilder som skapats från hanterade diskar
+* Hanterade avbildningar
+* Hanterade ögonblicksbilder
 * Tillgänglighetsuppsättningar med virtuella datorer med hanterade diskar
 
-Även om du inte kan flytta en hanterad disk, kan du skapa en kopia och sedan skapa en ny virtuell dator från en befintlig hanterad disk. Mer information finns i:
+Här följer de begränsningar som ännu inte stöds
 
-* Kopiera hanterade diskar i samma prenumeration eller annan prenumeration med [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) eller [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
-* Skapa en virtuell dator med en befintlig hanterad operativsystemsdisk med [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) eller [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
+* Virtuella datorer med certifikat som lagras i Key Vault kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
+* Virtuella datorer som konfigurerats med Azure Backup. Använd den under en lösning för att flytta de virtuella datorerna
+  * Leta upp platsen för den virtuella datorn.
+  * Leta reda på en resursgrupp med följande namngivningsmönstret ”: AzureBackupRG_<location of your VM>_1” AzureBackupRG_westus2_1 t.ex.
+  * Azure-portalen, sedan kontrollera om ”Visa dolda typer”
+  * Om du är i PowerShell, använder de `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+  * Om du är i CLI, använder den `az resource list -g AzureBackupRG_<location of your VM>_1`
+  * Nu letar du upp resursen med typen `Microsoft.Compute/restorePointCollections` som har namngivningsmönstret `AzureBackup_<name of your VM that you're trying to move>_###########`
+  * Ta bort den här resursen
+  * När Delete är klar kan kan du flytta den virtuella datorn
+* Virtual Machine Scale Sets med Standard-SKU-belastningsutjämnare eller SKU offentlig IP kan inte flyttas
+* Virtuella datorer som skapats från Marketplace-resurser med anslutna-planer kan inte flyttas mellan resursgrupper eller prenumerationer. Avetablera den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
 
-Virtuella datorer som skapats från Marketplace-resurser med anslutna-planer kan inte flyttas mellan resursgrupper eller prenumerationer. Avetablera den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
-
-Virtuella datorer med certifikat som lagras i Key Vault kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
 
 ## <a name="virtual-networks-limitations"></a>Begränsningar för virtuellt nätverk
 

@@ -1,6 +1,6 @@
 ---
-title: Använd Azures kommandoradsgränssnitt 2.0-gränssnittet för att komma igång med Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Använd Azure plattformsoberoende kommandoradsgränssnitt 2.0 för att skapa ett Data Lake Storage Gen1-konto och utföra grundläggande åtgärder
+title: Använda Azure CLI för att komma igång med Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Använda Azure CLI för att skapa ett Data Lake Storage Gen1-konto och utföra grundläggande åtgärder
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -10,26 +10,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: b75fc3a96ce4e46fbd9efb03aa2ea9c2c4aaa15c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d8232b1e29a3d2585e79cf56d0f180a5084fd13e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124787"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979074"
 ---
-# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-cli-20"></a>Kom igång med Azure Data Lake Storage Gen1 med Azure CLI 2.0
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Kom igång med Azure Data Lake Store med Azure CLI
 > [!div class="op_single_selector"]
 > * [Portalen](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+Lär dig mer om att använda Azure CLI för att skapa ett Azure Data Lake Storage Gen1-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta datafiler, ta bort ditt konto, osv. Läs mer om Data Lake Storage Gen1 [översikt av Data Lake Storage Gen1](data-lake-store-overview.md).
 
-Lär dig mer om att använda Azure CLI 2.0 för att skapa ett Azure Data Lake Storage Gen1-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta datafiler, ta bort ditt konto, osv. Läs mer om Data Lake Storage Gen1 [översikt av Data Lake Storage Gen1](data-lake-store-overview.md).
-
-Azure CLI 2.0 är Azures nya kommandoradsmiljö för att hantera Azure-resurser. Den kan användas i Mac OS, Linux och Windows. Mer information finns i [Översikt över Azure CLI 2.0](https://docs.microsoft.com/cli/azure). Du kan också titta på den [Azure Data Lake Storage Gen1 CLI 2.0-referensen](https://docs.microsoft.com/cli/azure/dls) för en fullständig lista över kommandon och syntax.
+Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Den kan användas i Mac OS, Linux och Windows. Mer information finns i [översikt av Azure CLI](https://docs.microsoft.com/cli/azure). Du kan också titta på den [Azure Data Lake Storage Gen1 CLI-referensen](https://docs.microsoft.com/cli/azure/dls) för en fullständig lista över kommandon och syntax.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -37,7 +35,7 @@ Innan du påbörjar den här artikeln måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure CLI 2.0** – Anvisningar finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* **Azure CLI** – Se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) anvisningar.
 
 ## <a name="authentication"></a>Autentisering
 
@@ -164,7 +162,7 @@ Resultatet av detta ska se ut ungefär så här:
 
 ## <a name="work-with-permissions-and-acls-for-a-data-lake-storage-gen1-account"></a>Arbeta med behörigheter och ACL: er för ett Data Lake Storage Gen1-konto
 
-I det här avsnittet lär du dig hur du hanterar ACL:er och behörigheter med hjälp av Azure CLI 2.0. Detaljerad information om hur ACL: er implementeras i Azure Data Lake Storage Gen1, se [åtkomstkontroll i Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
+I det här avsnittet lär du dig hur du hanterar ACL: er och behörigheter med Azure CLI. Detaljerad information om hur ACL: er implementeras i Azure Data Lake Storage Gen1, se [åtkomstkontroll i Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
 
 * **Om du vill uppdatera ägaren till en fil/mapp** använder du följande kommando:
 

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera portar för hög tillgänglighet för Azure belastningsutjämnare | Microsoft Docs
-description: Lär dig mer om hög tillgänglighet portar för intern trafik på alla portar för belastningsutjämning
+title: Konfigurera portar med hög tillgänglighet för Azure Load Balancer | Microsoft Docs
+description: Lär dig hur du använder portar med hög tillgänglighet för intern trafik på alla portar för belastningsutjämning
 services: load-balancer
 documentationcenter: na
 author: rdhillon
@@ -15,48 +15,48 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 117e73c35bb66578976ef990e61eea606e2e8e36
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9661722c5d35e4336d5e42374a1444cf50734fba
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736889"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998346"
 ---
-# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Konfigurera portar för hög tillgänglighet för en intern belastningsutjämnare
+# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Konfigurera portar med hög tillgänglighet för en intern belastningsutjämnare
 
-Den här artikeln innehåller ett exempel på distribution med hög tillgänglighet portar på en intern belastningsutjämnare. Mer information om konfigurationer som är specifika för nätverks-virtuella installationer (NVAs) finns på motsvarande provider-webbplatser.
+Den här artikeln innehåller ett exempel på distribution av portar med hög tillgänglighet på en intern belastningsutjämnare. Mer information om konfigurationer som är specifika för virtuella nätverksinstallationer (Nva) finns på motsvarande provider-webbplatser.
 
 >[!NOTE]
->Azures Load Balancer stöder två typer: grundläggande och standard. Den här artikeln beskrivs Standard belastningsutjämnaren. Läs mer om grundläggande belastningsutjämnaren [belastningsutjämnaren översikt](load-balancer-overview.md).
+>Azures Load Balancer stöder två typer: grundläggande och standard. Den här artikeln beskriver Standard Load Balancer. Läs mer om grundläggande belastningsutjämnare [översikt över Load Balancer](load-balancer-overview.md).
 
-Bilden visar exempel för distribution som beskrivs i den här artikeln följande konfiguration:
+Bilden visar följande konfiguration för distribution till exempel i den här artikeln:
 
-- NVAs distribueras i backend-pool med en intern belastningsutjämnare bakom portkonfiguration för hög tillgänglighet. 
-- Användardefinierad väg (UDR) tillämpas på undernätsvägar DMZ all trafik NVAs genom att göra nästa hopp som den interna belastningsutjämnarens virtuella IP-Adressen för att läsa in. 
-- Den interna belastningsutjämnaren distribuerar trafik till en aktiv NVAs enligt algoritmen för belastningsutjämnaren.
-- En NVA bearbetar trafiken och vidarebefordrar det till det ursprungliga målet i backend-undernät.
-- Returnerar sökvägen kan ta samma flöde om motsvarande UDR konfigureras på backend-undernät. 
+- Nva: erna har distribuerats i backend-poolen med en intern belastningsutjämnare bakom konfigurationen portar med hög tillgänglighet. 
+- Den användardefinierade vägen (UDR) tillämpats på undernätvägar DMZ all trafik till nva-enheterna genom att göra nästa hopp som den interna läsa in belastningsutjämnare virtuell IP-adress. 
+- Den interna belastningsutjämnaren distribuerar trafik till en aktiv nva: erna enligt algoritmen load balancer.
+- NVA behandlar trafiken och vidarebefordrar det till det ursprungliga målet i backend-undernät.
+- Den returnera sökvägen kan ta samma väg om en motsvarande UDR konfigureras på backend-undernät. 
 
-![Exempel på distribution portar för hög tillgänglighet](./media/load-balancer-configure-ha-ports/haports.png)
-
-
-
-## <a name="configure-high-availability-ports"></a>Konfigurera portar för hög tillgänglighet
-
-Ställ in en intern belastningsutjämnare med NVAs i backend-poolen för att konfigurera portar för hög tillgänglighet. Ställ in en motsvarande hälsa avsökningen belastningsutjämningskonfigurationen identifiera NVA hälsa och belastningsutjämningsregeln med hög tillgänglighet portar. Den allmänna belastning rör belastningsutjämning konfigurationen beskrivs i [Kom igång](load-balancer-get-started-ilb-arm-portal.md). Den här artikeln visar portkonfiguration för hög tillgänglighet.
-
-Konfigurationen i praktiken innebär frontend porten och backend-portvärde till **0**. Värdet protokollet **alla**. Den här artikeln beskriver hur du konfigurerar portar för hög tillgänglighet med hjälp av Azure-portalen, PowerShell och Azure CLI 2.0.
-
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Konfigurera en regel för belastningsutjämnare portar för hög tillgänglighet med Azure-portalen
-
-För att konfigurera portar för hög tillgänglighet med hjälp av Azure portal, Välj den **HA portar** kryssrutan. När du väljer fylls automatiskt relaterade konfigurationen för port och protokoll. 
-
-![Hög tillgänglighet portkonfiguration via Azure portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
+![Exempel på distribution portar med hög tillgänglighet](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Konfigurera en hög tillgänglighet portar belastningsutjämning regel via Resource Manager-mall
 
-Du kan konfigurera portar för hög tillgänglighet med hjälp av API-versionen 2017-08-01 för Microsoft.Network/loadBalancers i resursen belastningsutjämnaren. Följande JSON-fragment visar ändringarna i belastningsutjämningskonfigurationen för hög tillgänglighet portar via REST-API:
+## <a name="configure-high-availability-ports"></a>Konfigurera portar med hög tillgänglighet
+
+Konfigurera portar med hög tillgänglighet genom att ställa in en intern belastningsutjämnare med nva: erna i backend-poolen. Konfigurera en motsvarande hälsotillstånd avsökningen belastningsutjämningskonfigurationen att identifiera NVA hälso- och belastningsutjämningsregel med portar med hög tillgänglighet. Den allmänna belastningsutjämningen konfigurationen beskrivs i [börjar](load-balancer-get-started-ilb-arm-portal.md). Den här artikeln visar hur portar med hög tillgänglighet.
+
+Konfigurationen innebär i stort sett frontend-porten och backend-Portvärdet till **0**. Ange Protokollvärdet **alla**. Den här artikeln beskriver hur du konfigurerar portar med hög tillgänglighet med hjälp av de Azure-portalen, PowerShell och Azure CLI.
+
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Konfigurera en belastningsutjämningsregel för portar med hög tillgänglighet med Azure portal
+
+Om du vill konfigurera portar med hög tillgänglighet med hjälp av Azure portal, Välj den **HA Ports** markerar du kryssrutan. När du väljer fylls den relaterade port och protokoll-konfigurationen i automatiskt. 
+
+![Konfiguration för portar med hög tillgänglighet via Azure portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
+
+
+### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Konfigurera en portar med hög tillgänglighet regel belastningsutjämning via Resource Manager-mall
+
+Du kan konfigurera portar med hög tillgänglighet med hjälp av API-version 2017-08-01 för Microsoft.Network/loadBalancers i Load Balancer-resursen. Följande JSON-kodfragmentet visar ändringarna i belastningsutjämningskonfigurationen för portar med hög tillgänglighet via REST API:
 
 ```json
     {
@@ -87,17 +87,17 @@ Du kan konfigurera portar för hög tillgänglighet med hjälp av API-versionen 
     }
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Konfigurera en regel för belastningsutjämnare portar för hög tillgänglighet med PowerShell
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Konfigurera en belastningsutjämningsregel för portar med hög tillgänglighet med PowerShell
 
-Använd följande kommando för att skapa hög tillgänglighet portar belastningsutjämningsregeln när du skapar den interna belastningsutjämnaren med PowerShell:
+Använd följande kommando för att skapa belastningsutjämningsregel för portar med hög tillgänglighet när du skapar den interna belastningsutjämnaren med PowerShell:
 
 ```powershell
 lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli-20"></a>Konfigurera en regel för belastningsutjämnare portar för hög tillgänglighet med Azure CLI 2.0
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Konfigurera en belastningsutjämningsregel för portar med hög tillgänglighet med Azure CLI
 
-Steg 4 i [skapa en intern belastningsutjämnare](load-balancer-get-started-ilb-arm-cli.md), Använd följande kommando för att skapa hög tillgänglighet portar belastningsutjämningsregeln:
+Steg 4 i [skapa en intern belastningsutjämningsuppsättning](load-balancer-get-started-ilb-arm-cli.md), Använd följande kommando för att skapa belastningsutjämningsregel för portar med hög tillgänglighet:
 
 ```azurecli
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
@@ -105,4 +105,4 @@ azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb -
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [hög tillgänglighet portar](load-balancer-ha-ports-overview.md).
+Läs mer om [portar med hög tillgänglighet](load-balancer-ha-ports-overview.md).

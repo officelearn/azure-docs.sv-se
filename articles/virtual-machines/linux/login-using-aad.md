@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 2201455477af2bd871f8e8e401536d45af4a02f7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294666"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993569"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en Linux-dator i Azure med Azure Active Directory-autentisering (förhandsversion)
 
@@ -59,7 +59,7 @@ Följande Azure-regioner stöds för närvarande i förhandsversionen av den hä
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-linux-virtual-machine"></a>Skapa en virtuell Linux-dator
 
@@ -117,7 +117,7 @@ az role assignment create \
 > [!NOTE]
 > Om din AAD-domän och användarnamn inloggningsdomän inte matchar, måste du ange objekt-ID för ditt konto med den *--tilldelad person-objekt-id*, inte bara användarnamnet för *--tilldelad person*. Du kan hämta objekt-ID för ditt konto med [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
-Mer information om hur du använder RBAC för att hantera åtkomst till din Azure-prenumerationsresurser finns i använda den [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure-portalen](../../role-based-access-control/role-assignments-portal.md), eller [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Mer information om hur du använder RBAC för att hantera åtkomst till din Azure-prenumerationsresurser finns i använda den [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure-portalen](../../role-based-access-control/role-assignments-portal.md), eller [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Du kan också konfigurera Azure AD för att kräva multifaktorautentisering för en viss användare att logga in på Linux-datorn. Mer information finns i [Kom igång med Azure Multi-Factor Authentication i molnet](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 

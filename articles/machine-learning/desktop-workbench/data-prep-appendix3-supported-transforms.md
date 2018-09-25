@@ -13,14 +13,17 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: c47d9bc72ad1d197b5030076456f9dc9efc422bc
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 26674648217e01b66fbe722cd013d51d867e9ba9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647219"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984404"
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Använd data transformeringar för förberedelse av data i Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 En *transformera* i Azure Machine Learning använder data i ett visst format, utför en åtgärd på data (till exempel ändra datatypen) och sedan skapar data i det nya formatet. Varje transformering har sina egna gränssnitt och beteende. Du kan utföra komplexa och repeterbar transformationer på dina data genom att länkning flera transformeringar tillsammans via steg i dataflödet. Det här är kärnan i funktioner för förberedelse av data.
 

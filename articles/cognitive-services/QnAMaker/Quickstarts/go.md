@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: diberry
 ms.openlocfilehash: 320eb7b643d785899482a00bfc0bda1d89e61b3b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714878"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042388"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Snabbstart för Microsoft QnA Maker API med Go 
 <a name="HOLTop"></a>
@@ -401,7 +401,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Hämta status för begäran
 
-Du kan anropa den [åtgärden](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) metoden för att kontrollera status för en begäran om att skapa eller uppdatera en kunskapsbas. Om du vill se hur den här metoden används, se exempelkod för den [skapa](#Create) eller [uppdatering](#Update) metod.
+Du kan anropa den metoden [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Åtgärd) för att kontrollera status för en begäran om att skapa eller uppdatera en kunskapsbas. Om du vill se hur den här metoden används kan du titta på exempelkoden för metoden [Create](#Create) (Skapa) eller [Update](#Update) (Uppdatera).
 
 [Överst på sidan](#HOLTop)
 

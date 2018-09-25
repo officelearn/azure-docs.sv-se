@@ -12,14 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 33d95e0c17e8b9b18313cb0854532337ec76cfd1
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: e0f6148e1fb28838bf99c63fbfbfbfe8cd127c8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057694"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973216"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Frågor och svar en matchande med hjälp av Azure Machine Learning workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Svarar öppna avslutade frågorna är svår och kräver ofta manuellt arbete från ämnesexperter (SME). För att minska kraven på interna små och medelstora företag kan skapa företag ofta en lista över vanliga frågor och svar (FAQ) för att hjälpa användare. Det här exemplet visar olika effektiva machine learning-metoder för att matcha öppna avslutade frågor till befintlig fråga/svar-par för vanliga frågor och svar. Det här exemplet visar en enkel utveckling process för att skapa en lösning med hjälp av Azure Machine Learning Workbench. 
 
 ## <a name="link-to-the-gallery-github-repository"></a>Länka till GitHub-lagringsplatsen galleriet
@@ -42,7 +47,7 @@ Viktiga steg som krävs för att leverera den här lösningen är följande:
 Förutsättningar för att kunna köra det här exemplet är följande:
 
 1. En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga).
-2. En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta.
+2. En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](quickstart-installation.md) att installera programmet och skapa en arbetsyta.
 3. Det här exemplet kan köras på alla beräkningskontexten. Men det rekommenderas att köra den på en dator med flera kärnor med minst 16GB minne och 5GB ledigt diskutrymme.
 
 ## <a name="create-a-new-workbench-project"></a>Skapa ett nytt workbench-projekt
@@ -89,7 +94,7 @@ Dataschema och direkt nedladdningslänkarna av de tre datauppsättningarna finns
 |  | Text0 | Sträng | Rå textdata inklusive dupliceringen rubrik och brödtext
 |  | CreationDate | Tidsstämpel | Tidsstämpel för när risken har ombetts
 | [svar](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | Sträng | Unika svar-ID (primärnyckel)
-|  | text0 | Sträng | Rå textdata för svaret
+|  | Text0 | Sträng | Rå textdata för svaret
 
 
 ## <a name="scenario-structure"></a>Scenario-struktur

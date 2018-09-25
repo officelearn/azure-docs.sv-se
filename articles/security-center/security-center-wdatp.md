@@ -1,5 +1,5 @@
 ---
-title: Windows Defender Advanced Threat Protection (ATP) med Azure Security Center (förhandsversion) | Microsoft Docs
+title: Windows Defender Avancerat skydd (ATP) med Azure Security Center | Microsoft Docs
 description: Det här dokumentet introducerar integrering mellan Azure Security Center och Windows Defender ATP.
 services: security-center
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
+ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: f2cb4edd469d76f79e4134ca261bac5263bf3ce4
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5f604583aeb9a633d34bad633008e0c2ddeb3ef2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296065"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032044"
 ---
-# <a name="windows-defender-advanced-threat-protection-atp-with-azure-security-center-public-preview"></a>Windows Defender Advanced Threat Protection (ATP) med Azure Security Center (förhandsversion)
+# <a name="windows-defender-advanced-threat-protection-atp-with-azure-security-center"></a>Windows Defender Avancerat skydd (ATP) med Azure Security Center
 
 Azure Security Center utöka utbudet molnet arbetsbelastning Protection plattformar (CWPP) genom att integrera med [Windows Defender ATP](https://www.microsoft.com/WindowsForBusiness/windows-atp).
 Den här ändringen ger dig omfattande funktioner för slutpunktsidentifiering och svar (EDR). Det kan du upptäcka avvikelser, identifiera och svara på avancerade attacker på serverslutpunkter som övervakas av ASC.
@@ -43,7 +43,7 @@ Dessa funktioner är nu tillgängliga i Azure Security Center:
 
 ![* Bild 1 se hela bilden när du undersöker inklusive aviseringar som genereras av ASC *](media/security-center-wdatp/image1.png)
 
-Du kan undersöka aviseringen i Azure Security Center:
+Du kan [undersöka](security-center-investigation.md) aviseringen i Azure Security Center:
 
 ![Bild 2 - undersökning i Azure Security Center](media/security-center-wdatp/image2.png)
 
@@ -59,7 +59,15 @@ Endast servrar i prenumerationer på standardnivån
 
 ## <a name="onboarding-instructions"></a>Registreringsanvisningar
 
-- Om du redan har integrerats servrar till ASC standardnivån - ingen åtgärd krävs ASC kommer publicerar automatiskt servrar till WDATP.
+För att visa om Windows Defender ATP-integrering aktiverat, kan du välja Security center > säkerhetsprincip > prenumeration > Redigera inställningar
+
+  ![Visa principen](media/security-center-wdatp/policy-management.png)
+
+Här kan du se integreringar som aktiverats
+
+  ![Aktiverade integreringar](media/security-center-wdatp/enable-integrations.png)
+
+- Om du redan har integrerats servrar till ASC standardnivån - ingen åtgärd krävs ASC kommer automatiskt publicera servrarna till WDATP. Det kan ta upp till 24 timmar.
 
 - Om du aldrig har integrerats servrar till ASC-standard-nivån – publicera till ASC som vanligt.
 
@@ -81,7 +89,7 @@ Om du har en proxy eller brandvägg som blockerar anonym trafik, som Windows Def
 
 1. RDP till någon av Windows Server-datorer (2012 R2 eller 2016) för den prenumerationen och öppna ett kommandotolksfönster
 
-2. Kopiera i Kommandotolken och kör du kommandot nedan. Observera att Kommandotolkens fönster stängs automatiskt.
+2. Kopiera i Kommandotolken och kör du kommandot nedan. Kommandotolkens fönster stängs automatiskt.
 
     **PowerShell.exe - NoExit - ExecutionPolicy kringgå - WindowStyle dolda (New-Object System.Net.WebClient). DownloadFile (”http://127.0.0.1/1.exe” ”, C:\\test-WDATP-test\\invoice.exe”); Starta processen ”C:\\test-WDATP-test\\invoice.exe” **
 
@@ -95,6 +103,6 @@ Om du har en proxy eller brandvägg som blockerar anonym trafik, som Windows Def
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
-* [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
-* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
+- [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
+- [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
+- [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.

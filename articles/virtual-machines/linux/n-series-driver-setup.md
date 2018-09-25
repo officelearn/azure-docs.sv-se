@@ -1,5 +1,5 @@
 ---
-title: N-serien drivrutinen konfigurationen av Azure för Linux | Microsoft Docs
+title: N-serien GPU-drivrutinen konfigurationen av Azure för Linux | Microsoft Docs
 description: Hur du ställer in NVIDIA GPU-drivrutiner för virtuella datorer i N-serien som kör Linux i Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d85bc79ddd08cb051b2e4d978a931f460020c10
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 822261e74f7da941ac89090e5d493c4be18bc307
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364508"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038892"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på N-serien virtuella datorer som kör Linux
 
@@ -55,7 +55,7 @@ Sedan kör installationskommandon som är specifika för din distribution.
 
 1. Hämta och installera CUDA-drivrutiner.
   ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -99,7 +99,7 @@ sudo reboot
 
 ### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS eller Red Hat Enterprise Linux 7.3 eller 7.4
 
-1. Uppdatera kernel.
+1. Uppdatera kernel (rekommenderas). Om du väljer att inte uppdatera kerneln, kontrollera att versionerna av `kernel-devel` och `dkms` är lämpliga för din kernel.
 
   ```
   sudo yum install kernel kernel-tools kernel-headers kernel-devel
@@ -127,7 +127,7 @@ sudo reboot
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-9.1.85-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -170,9 +170,9 @@ Distribuera RDMA-kompatibla N-serien virtuella datorer från en avbildning i Azu
 
 * **CentOS-baserade 7.4 HPC** -drivrutiner för RDMA och Intel MPI 5.1 är installerade på den virtuella datorn.
 
-## <a name="install-grid-drivers-on-nv-series-vms"></a>Installera GRID-drivrutiner på NV-serien virtuella datorer
+## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>Installera GRID-drivrutiner på NV eller NVv2-seriens virtuella datorer
 
-Om du vill installera NVIDIA GRID-drivrutiner på NV-serien virtuella datorer, skapar du en SSH-anslutning till varje virtuell dator och följ anvisningarna för din Linux-distribution. 
+Om du vill installera NVIDIA GRID-drivrutiner på NV eller NVv2-seriens virtuella datorer, skapar du en SSH-anslutning till varje virtuell dator och följ anvisningarna för din Linux-distribution. 
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
@@ -189,7 +189,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på NV-serien virtuella datorer, s
 
   sudo apt-get install build-essential ubuntu-desktop -y
   ```
-3. Inaktivera Nouveau kernel-drivrutin som inte är kompatibel med NVIDIA-drivrutin. (Endast använda NVIDIA-drivrutin på NV virtuella datorer.) Gör detta genom att skapa en fil i `/etc/modprobe.d `med namnet `nouveau.conf` med följande innehåll:
+3. Inaktivera Nouveau kernel-drivrutin som inte är kompatibel med NVIDIA-drivrutin. (Endast använda NVIDIA-drivrutin på NV eller NVv2 virtuella datorer.) Gör detta genom att skapa en fil i `/etc/modprobe.d `med namnet `nouveau.conf` med följande innehåll:
 
   ```
   blacklist nouveau
@@ -232,7 +232,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på NV-serien virtuella datorer, s
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS eller Red Hat Enterprise Linux 
 
-1. Uppdatera kernel och DKMS.
+1. Uppdatera kernel och DKMS (rekommenderas). Om du väljer att inte uppdatera kerneln, kontrollera att versionerna av `kernel-devel` och `dkms` är lämpliga för din kernel.
  
   ```bash  
   sudo yum update
@@ -244,7 +244,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på NV-serien virtuella datorer, s
   sudo yum install dkms
   ```
 
-2. Inaktivera Nouveau kernel-drivrutin som inte är kompatibel med NVIDIA-drivrutin. (Endast använda NVIDIA-drivrutin på NV virtuella datorer.) Gör detta genom att skapa en fil i `/etc/modprobe.d `med namnet `nouveau.conf` med följande innehåll:
+2. Inaktivera Nouveau kernel-drivrutin som inte är kompatibel med NVIDIA-drivrutin. (Endast använda NVIDIA-drivrutin på NV eller NV2 virtuella datorer.) Gör detta genom att skapa en fil i `/etc/modprobe.d `med namnet `nouveau.conf` med följande innehåll:
 
   ```
   blacklist nouveau
@@ -304,7 +304,7 @@ Om drivrutinen har installerats, visas utdata som liknar följande. Observera at
  
 
 ### <a name="x11-server"></a>X11 server
-Om du behöver en X11 server för fjärranslutningar till en virtuell dator i NV, [x11vnc](http://www.karlrunge.com/x11vnc/) rekommenderas eftersom det tillåter maskinvaruacceleration av grafik. BusID M60-enhetens måste läggas till manuellt i X11 konfigurationsfilen (vanligtvis `etc/X11/xorg.conf`). Lägg till en `"Device"` avsnittet som liknar följande:
+Om du behöver en X11 server för fjärranslutningar till en NV eller NVv2 VM [x11vnc](http://www.karlrunge.com/x11vnc/) rekommenderas eftersom det tillåter maskinvaruacceleration av grafik. BusID M60-enhetens måste läggas till manuellt i X11 konfigurationsfilen (vanligtvis `etc/X11/xorg.conf`). Lägg till en `"Device"` avsnittet som liknar följande:
  
 ```
 Section "Device"

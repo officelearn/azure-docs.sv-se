@@ -1,60 +1,74 @@
 ---
-title: Schemaläggaren utgående autentisering
-description: Schemaläggaren utgående autentisering
+title: Utgående autentisering – Azure Scheduler
+description: Lär dig hur du ställer in eller ta bort utgående autentisering för Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.author: deli
-ms.openlocfilehash: e345b2e22daae5b24c23645f7d2636f66df630ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23926510"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993348"
 ---
-# <a name="scheduler-outbound-authentication"></a>Schemaläggaren utgående autentisering
-Jobb för Schemaläggaren kan behöva anropa till tjänster som kräver autentisering. På så sätt kan en kallas tjänsten kan avgöra om jobb i Schemaläggaren kan komma åt sina resurser. Dessa tjänster bland andra Azure-tjänster, Salesforce.com, Facebook och säker anpassade webbplatser.
+# <a name="outbound-authentication-for-azure-scheduler"></a>Utgående autentisering för Azure Scheduler
 
-## <a name="adding-and-removing-authentication"></a>Lägga till och ta bort autentisering
-Lägga till autentisering till ett jobb i Schemaläggaren är enkel – Lägg till ett underordnat element JSON `authentication` till den `request` elementet när du skapar eller uppdaterar ett jobb. Hemligheter skickades till Schemaläggaren i en PUT, KORRIGERINGSFIL eller POST-begäran – som en del av den `authentication` objekt – aldrig returneras i svar. I svar, hemlig information anges till null eller har en token för offentlig som representerar den autentiserade enheten.
+> [!IMPORTANT]
+> [Med Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras. Att schemalägga jobb, [prova Azure Logic Apps i stället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-Om du vill ta bort autentisering, SPÄRRA eller korrigering jobbet explicit, ange den `authentication` objekt till null. Alla egenskaper för autentisering av tillbaka som svar visas inte.
+Azure Scheduler-jobb kan behöva anropa tjänster som kräver autentisering, till exempel andra Azure-tjänster, Salesforce.com, Facebook och säker anpassade webbplatser. Tjänsten kallas kan fastställa om Scheduler-jobb kan komma åt de begärda resurserna. 
 
-Vilka typer av autentiseringsmetoder som endast stöds för närvarande den `ClientCertificate` modellen (för att använda klientcertifikat för SSL/TLS), den `Basic` modellen (för grundläggande autentisering), och `ActiveDirectoryOAuth` modellen (för Active Directory-OAuth-autentisering.)
+Scheduler har stöd för dessa autentiseringsmodeller: 
 
-## <a name="request-body-for-clientcertificate-authentication"></a>Begäran för ClientCertificate autentisering
-När du lägger till autentisering med hjälp av den `ClientCertificate` modellen, ange följande ytterligare element i begärandetexten.  
+* *Klientcertifikatet* autentisering när du använder SSL/TLS-klientcertifikat
+* *Grundläggande* autentisering
+* *Active Directory-OAuth* autentisering
 
-| Element | Beskrivning |
-|:--- |:--- |
-| *autentisering (överordnat element)* |Autentiseringsobjekt för att använda ett SSL-klientcertifikat. |
-| *typ* |Krävs. Typ av autentisering. För SSL-klientcertifikat, värdet måste vara `ClientCertificate`. |
-| *pfx* |Krävs. Base64-kodade innehåll PFX-filen. |
-| *lösenord* |Krävs. Lösenord för åtkomst till PFX-filen. |
+## <a name="add-or-remove-authentication"></a>Lägg till eller ta bort autentisering
 
-## <a name="response-body-for-clientcertificate-authentication"></a>Svarstexten för ClientCertificate autentisering
-När en begäran skickas med autentisering-information, innehåller svaret följande autentisering-relaterade element.
+* Lägg till autentisering i Scheduler-jobb när du skapar eller uppdaterar jobbet genom att lägga till den `authentication` JavaScript Object Notation (JSON) underordnat element till den `request` element. 
 
-| Element | Beskrivning |
-|:--- |:--- |
-| *autentisering (överordnat element)* |Autentiseringsobjekt för att använda ett SSL-klientcertifikat. |
-| *typ* |Typ av autentisering. Värdet är för SSL-klientcertifikat, `ClientCertificate`. |
-| *certificateThumbprint* |Tumavtrycket för certifikatet. |
-| *certificateSubjectName* |Det unika ämnesnamnet för certifikatet. |
-| *certificateExpiration* |Förfallodatum för certifikatet. |
+  Svar aldrig returneras hemligheter som skickas till tjänsten Scheduler via en PUT, PATCH eller POST-begäran i den `authentication` objekt. 
+  Svar ange hemlig information till null eller använda en token för offentlig som representerar den autentiserade enheten. 
 
-## <a name="sample-rest-request-for-clientcertificate-authentication"></a>Exempel på REST-begäran för ClientCertificate autentisering
-```
-PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+* Om du vill ta bort autentisering från ett Scheduler-jobb, uttryckligen kör en PUT eller PATCH-begäran på jobbet, och ange den `authentication` objektet till null. Svaret innehåller inte egenskaper för autentisering.
+
+## <a name="client-certificate"></a>Klientcertifikat
+
+### <a name="request-body---client-certificate"></a>Begärandetexten - klientcertifikat
+
+När du lägger till autentisering med den `ClientCertificate` modellera, ange dessa ytterligare objekt i begärandetexten.  
+
+| Element | Krävs | Beskrivning |
+|---------|----------|-------------|
+| **autentisering** (överordnade element) | Autentiseringsobjektet för att använda ett SSL-klientcertifikat |
+| **typ** | Ja | Autentiseringstypen. Värdet är för SSL-klientcertifikat `ClientCertificate`. |
+| **pfx** | Ja | Base64-kodad innehållet i PFX-filen |
+| **Lösenord** | Ja | Lösenord för åtkomst till PFX-filen |
+||| 
+
+### <a name="response-body---client-certificate"></a>Svarstexten - klientcertifikat 
+
+När en begäran skickas med autentiseringsinformation, innehåller svaret de här elementen för autentisering.
+
+| Element | Beskrivning | 
+|---------|-------------| 
+| **autentisering** (överordnade element) | Autentiseringsobjektet för att använda ett SSL-klientcertifikat |
+| **typ** | Autentiseringstypen. Värdet är för SSL-klientcertifikat `ClientCertificate`. |
+| **certificateThumbprint** |Certifikatets tumavtryck |
+| **certificateSubjectName** |Det unika ämnesnamnet för certifikatet |
+| **certificateExpiration** | Certifikatets förfallodatum |
+||| 
+
+### <a name="sample-rest-request---client-certificate"></a>Exempel på REST-begäran - klientcertifikat
+
+```json
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -83,15 +97,15 @@ Content-Type: application/json; charset=utf-8
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "enabled"
   }
 }
 ```
 
-## <a name="sample-rest-response-for-clientcertificate-authentication"></a>RESTEN av Exempelsvar för ClientCertificate autentisering
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
+### <a name="sample-rest-response---client-certificate"></a>Exempelsvaret för REST - klientcertifikat
+
+```json
+HTTP/1.1 200 OKCache-Control: no-cache
 Pragma: no-cache
 Content-Length: 858
 Content-Type: application/json; charset=utf-8
@@ -107,7 +121,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 {
-  "id": "/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+  "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
   "type": "Microsoft.Scheduler/jobCollections/jobs",
   "name": "southeastasiajc/httpjob",
   "properties": {
@@ -144,28 +158,35 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## <a name="request-body-for-basic-authentication"></a>Begärandetexten för grundläggande autentisering
-När du lägger till autentisering med hjälp av den `Basic` modellen, ange följande ytterligare element i begärandetexten.
+## <a name="basic"></a>Basic
 
-| Element | Beskrivning |
-|:--- |:--- |
-| *autentisering (överordnat element)* |Autentiseringsobjekt för att använda grundläggande autentisering. |
-| *typ* |Krävs. Typ av autentisering. För grundläggande autentisering, värdet måste vara `Basic`. |
-| *användarnamn* |Krävs. Användarnamn för autentisering. |
-| *lösenord* |Krävs. Lösenord för att autentisera. |
+### <a name="request-body---basic"></a>Begärandetext – Basic
 
-## <a name="response-body-for-basic-authentication"></a>Svarstexten för grundläggande autentisering
-När en begäran skickas med autentisering-information, innehåller svaret följande autentisering-relaterade element.
+När du lägger till autentisering med den `Basic` modellera, ange dessa ytterligare objekt i begärandetexten.
 
-| Element | Beskrivning |
-|:--- |:--- |
-| *autentisering (överordnat element)* |Autentiseringsobjekt för att använda grundläggande autentisering. |
-| *typ* |Typ av autentisering. Värdet är för grundläggande autentisering, `Basic`. |
-| *användarnamn* |Autentiserade användarnamnet. |
+| Element | Krävs | Beskrivning |
+|---------|----------|-------------|
+| **autentisering** (överordnade element) | Autentiseringsobjektet för att använda grundläggande autentisering | 
+| **typ** | Ja | Autentiseringstypen. För grundläggande autentisering, är värdet `Basic`. | 
+| **användarnamn** | Ja | Användarnamnet för att autentisera | 
+| **Lösenord** | Ja | Lösenordet för autentisering |
+|||| 
 
-## <a name="sample-rest-request-for-basic-authentication"></a>Exempel på REST-begäran för grundläggande autentisering
-```
-PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+### <a name="response-body---basic"></a>Svarstexten – Basic
+
+När en begäran skickas med autentiseringsinformation, innehåller svaret de här elementen för autentisering.
+
+| Element | Beskrivning | 
+|---------|-------------|
+| **autentisering** (överordnade element) | Autentiseringsobjektet för att använda grundläggande autentisering |
+| **typ** | Autentiseringstypen. För grundläggande autentisering, är värdet `Basic`. |
+| **användarnamn** | Det autentiserade användarnamnet |
+||| 
+
+### <a name="sample-rest-request---basic"></a>REST exempelförfrågan – Basic
+
+```json
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -195,13 +216,14 @@ Content-Type: application/json; charset=utf-8
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "enabled"
   }
 }
 ```
 
-## <a name="sample-rest-response-for-basic-authentication"></a>RESTEN av Exempelsvar för grundläggande autentisering
-```
+### <a name="sample-rest-response---basic"></a>Exempel på REST-svar – Basic
+
+```json
 HTTP/1.1 200 OK
 Cache-Control: no-cache
 Pragma: no-cache
@@ -219,7 +241,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 {  
-   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "id":"/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
    "type":"Microsoft.Scheduler/jobCollections/jobs",
    "name":"southeastasiajc/httpjob",
    "properties":{  
@@ -236,14 +258,14 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
                "type":"Basic"
             }
          },
-         "type":"http"
+         "type":"Http"
       },
       "recurrence":{  
-         "frequency":"minute",
+         "frequency":"Minute",
          "endTime":"2016-04-10T08:00:00Z",
          "interval":1
       },
-      "state":"enabled",
+      "state":"Enabled",
       "status":{  
          "nextExecutionTime":"2016-03-16T19:06:00Z",
          "executionCount":0,
@@ -254,35 +276,39 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 }
 ```
 
-## <a name="request-body-for-activedirectoryoauth-authentication"></a>Begäran för ActiveDirectoryOAuth autentisering
-När du lägger till autentisering med hjälp av den `ActiveDirectoryOAuth` modellen, ange följande ytterligare element i begärandetexten.
+## <a name="active-directory-oauth"></a>Active Directory OAuth
+
+### <a name="request-body---active-directory-oauth"></a>Begärandetext - Active Directory-OAuth 
+
+När du lägger till autentisering med den `ActiveDirectoryOAuth` modellera, ange dessa ytterligare objekt i begärandetexten.
+
+| Element | Krävs | Beskrivning |
+|---------|----------|-------------|
+| **autentisering** (överordnade element) | Ja | Autentiseringsobjektet för att använda ActiveDirectoryOAuth autentisering |
+| **typ** | Ja | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering, `ActiveDirectoryOAuth`. |
+| **klient** | Ja | Klient-ID för Azure AD-klient. Du hittar klient-ID för Azure AD-klienten genom att köra `Get-AzureAccount` i Azure PowerShell. |
+| **Målgrupp** | Ja | Det här värdet anges till `https://management.core.windows.net/`. | 
+| **ClientId** | Ja | Klient-ID för Azure AD-programmet | 
+| **Hemlighet** | Ja | Hemligheten för den klient som begär token | 
+|||| 
+
+### <a name="response-body---active-directory-oauth"></a>Svarstexten - Active Directory-OAuth
+
+När en begäran skickas med autentiseringsinformation, innehåller svaret de här elementen för autentisering.
 
 | Element | Beskrivning |
-|:--- |:--- |
-| *autentisering (överordnat element)* |Autentiseringsobjekt för att använda ActiveDirectoryOAuth autentisering. |
-| *typ* |Krävs. Typ av autentisering. Värdet måste vara för ActiveDirectoryOAuth autentisering `ActiveDirectoryOAuth`. |
-| *klient* |Krävs. Klient-ID för Azure AD-klient. |
-| *målgrupp* |Krävs. Detta är inställt på https://management.core.windows.net/. |
-| *clientId* |Krävs. Ange klient-ID för Azure AD-program. |
-| *hemligt* |Krävs. Hemligheten för klienten som begär token. |
+|---------|-------------|
+| **autentisering** (överordnade element) | Autentiseringsobjektet för att använda ActiveDirectoryOAuth autentisering |
+| **typ** | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering, `ActiveDirectoryOAuth`. | 
+| **klient** | Klient-ID för Azure AD-klient |
+| **Målgrupp** | Det här värdet anges till `https://management.core.windows.net/`. |
+| **ClientId** | Klient-ID för Azure AD-programmet |
+||| 
 
-### <a name="determining-your-tenant-identifier"></a>Fastställa din klient-ID.
-Du hittar klient-ID för Azure AD-klienten genom att köra `Get-AzureAccount` i Azure PowerShell.
+### <a name="sample-rest-request---active-directory-oauth"></a>Exempel på REST-begäran - Active Directory-OAuth
 
-## <a name="response-body-for-activedirectoryoauth-authentication"></a>Svarstexten för ActiveDirectoryOAuth autentisering
-När en begäran skickas med autentisering-information, innehåller svaret följande autentisering-relaterade element.
-
-| Element | Beskrivning |
-|:--- |:--- |
-| *autentisering (överordnat element)* |Autentiseringsobjekt för att använda ActiveDirectoryOAuth autentisering. |
-| *typ* |Typ av autentisering. Värdet är för ActiveDirectoryOAuth autentisering `ActiveDirectoryOAuth`. |
-| *klient* |Klient-ID för Azure AD-klient. |
-| *målgrupp* |Detta är inställt på https://management.core.windows.net/. |
-| *clientId* |Klient-ID för Azure AD-program. |
-
-## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>Exempel på REST-begäran för ActiveDirectoryOAuth autentisering
-```
-PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+```json
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -307,20 +333,21 @@ Content-Type: application/json; charset=utf-8
           "type":"ActiveDirectoryOAuth"
         }
       },
-      "type": "http"
+      "type": "Http"
     },
     "recurrence": {
-      "frequency": "minute",
+      "frequency": "Minute",
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "Enabled"
   }
 }
 ```
 
-## <a name="sample-rest-response-for-activedirectoryoauth-authentication"></a>RESTEN av Exempelsvar för ActiveDirectoryOAuth autentisering
-```
+### <a name="sample-rest-response---active-directory-oauth"></a>Exempel på REST-svar – Active Directory-OAuth
+
+```json
 HTTP/1.1 200 OK
 Cache-Control: no-cache
 Pragma: no-cache
@@ -337,59 +364,49 @@ x-ms-routing-request-id: WESTUS:20160316T191003Z:5183bbf4-9fa1-44bb-98c6-6872e3f
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:10:02 GMT
 
-{  
-   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
-   "type":"Microsoft.Scheduler/jobCollections/jobs",
-   "name":"southeastasiajc/httpjob",
-   "properties":{  
-      "startTime":"2015-05-14T14:10:00Z",
-      "action":{  
-         "request":{  
-            "uri":"https://mywebserviceendpoint.com",
-            "method":"GET",
-            "headers":{  
-               "x-ms-version":"2013-03-01"
+{
+   "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "type": "Microsoft.Scheduler/jobCollections/jobs",
+   "name": "southeastasiajc/httpjob",
+   "properties": {
+      "startTime": "2015-05-14T14:10:00Z",
+      "action": {  
+         "request": {
+            "uri": "https://mywebserviceendpoint.com",
+            "method": "GET",
+            "headers": {  
+               "x-ms-version": "2013-03-01"
             },
-            "authentication":{  
-               "tenant":"microsoft.onmicrosoft.com",
-               "audience":"https://management.core.windows.net/",
-               "clientId":"dc23e764-9be6-4a33-9b9a-c46e36f0c137",
-               "type":"ActiveDirectoryOAuth"
+            "authentication": {  
+               "tenant": "microsoft.onmicrosoft.com",
+               "audience": "https://management.core.windows.net/",
+               "clientId": "dc23e764-9be6-4a33-9b9a-c46e36f0c137",
+               "type": "ActiveDirectoryOAuth"
             }
          },
-         "type":"http"
+         "type": "Http"
       },
-      "recurrence":{  
-         "frequency":"minute",
-         "endTime":"2016-04-10T08:00:00Z",
-         "interval":1
+      "recurrence": {  
+         "frequency": "minute",
+         "endTime": "2016-04-10T08:00:00Z",
+         "interval": 1
       },
-      "state":"enabled",
-      "status":{  
-         "lastExecutionTime":"2016-03-16T19:10:00.3762123Z",
-         "nextExecutionTime":"2016-03-16T19:11:00Z",
-         "executionCount":5,
-         "failureCount":5,
-         "faultedCount":1
+      "state": "Enabled",
+      "status": {  
+         "lastExecutionTime": "2016-03-16T19:10:00.3762123Z",
+         "nextExecutionTime": "2016-03-16T19:11:00Z",
+         "executionCount": 5,
+         "failureCount": 5,
+         "faultedCount": 1
       }
    }
 }
 ```
 
-## <a name="see-also"></a>Se även
- [Vad är Scheduler?](scheduler-intro.md)
+## <a name="see-also"></a>Se också
 
- [Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler](scheduler-concepts-terms.md)
-
- [Komma igång med Scheduler på Azure-portalen](scheduler-get-started-portal.md)
-
- [Prenumerationer och fakturering i Azure Scheduler](scheduler-plans-billing.md)
-
- [Referens för REST-API:et för Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
-
- [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)
-
- [Hög tillgänglighet och tillförlitlighet i Azure Scheduler](scheduler-high-availability-reliability.md)
-
- [Gränser, standardinställningar och felkoder i Azure Scheduler](scheduler-limits-defaults-errors.md)
-
+* [Vad är Azure Scheduler?](scheduler-intro.md)
+* [Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler](scheduler-concepts-terms.md)
+* [Gränser, standardinställningar och felkoder i Azure Scheduler](scheduler-limits-defaults-errors.md)
+* [Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143)
+* [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)

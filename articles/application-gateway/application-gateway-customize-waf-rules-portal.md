@@ -1,6 +1,6 @@
 ---
-title: Anpassa web application brandväggsregler i Azure Application Gateway - Azure-portalen | Microsoft Docs
-description: Den här artikeln innehåller information om hur du anpassar web application brandväggsregler i Programgateway med Azure-portalen.
+title: Anpassa brandväggsregler för webbaserade program i Azure Application Gateway – Azure-portalen | Microsoft Docs
+description: Den här artikeln innehåller information om hur du anpassar web application brandväggsregler i Application Gateway med Azure-portalen.
 documentationcenter: na
 services: application-gateway
 author: vhorne
@@ -15,45 +15,45 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: victorh
-ms.openlocfilehash: ae61e3a8308e95c16ccde71de37fb10666ef0df9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 30df26dc3a9697d3435779f91c32b2d99a747b88
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769128"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990475"
 ---
-# <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Anpassa web application brandväggsregler via Azure portal
+# <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Anpassa brandväggsregler för webbaserade program via Azure portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
+> * [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 
-Den Azure Programgateway brandväggen för webbaserade program (Brandvägg) ger skydd för webbprogram. Dessa skydd tillhandahålls genom att öppna Web Application säkerhet projekt (OWASP) Core regeln ange (CR). Vissa regler kan leda till falska positiva identifieringar och blockera verkliga trafik. Därför ger Programgateway möjlighet att anpassa regelgrupper och regler. Mer information om specifik regelgrupper och regler finns [listan över web brandväggen CR regeln programgrupper och regler](application-gateway-crs-rulegroups-rules.md).
+Azure Application Gateway brandväggen för webbaserade program (WAF) ger skydd för webbprogram. Dessa skydd tillhandahålls av OWASP Open Web Application Security Project () Core regeln ange (CRS). Vissa regler kan leda till falska positiva identifieringar och blockera verklig trafik. Därför ger Application Gateway möjlighet att anpassa regelgrupper och -regler. Läs mer på den specifika regelgrupper och regler, [lista över web application firewall tillhandahållna CRS-regelgrupper och -regler](application-gateway-crs-rulegroups-rules.md).
 
 >[!NOTE]
-> Om din Programgateway inte använder Brandvägg nivån, visas alternativet att uppgradera Programgateway Brandvägg nivån i den högra rutan. 
+> Om din application gateway inte använder WAF-nivån, visas möjlighet att uppgradera application gateway WAF-nivån i den högra rutan. 
 
-![Aktivera Brandvägg][fig1]
+![Aktivera WAF][fig1]
 
-## <a name="view-rule-groups-and-rules"></a>Visa grupper av regeln och regler
+## <a name="view-rule-groups-and-rules"></a>Visa regelgrupper och regler
 
-**Visa regelgrupper och regler**
-   1. Bläddra till programgatewayen och välj sedan **Brandvägg för webbaserade program**.  
-   2. Välj **avancerade regelkonfigurationen**.  
-   Den här vyn visas en tabell på sidan alla regelgrupper som ingår i den valda regeluppsättningen. Alla regelns kryssrutorna är markerade.
+**Visa regelgrupper och -regler**
+   1. Bläddra till application gateway och välj sedan **Brandvägg för webbaserade program**.  
+   2. Välj **avancerad Regelkonfiguration**.  
+   Den här vyn visar en tabell på sidan alla regelgrupper som medföljer valda regeluppsättningen. Alla regelns kryssrutorna är markerade.
 
 ![Konfigurera inaktiverade regler][1]
 
-## <a name="search-for-rules-to-disable"></a>Sök efter regler ska inaktiveras
+## <a name="search-for-rules-to-disable"></a>Sök efter regler för att inaktivera
 
-Den **Web application brandväggsinställningar** bladet ger dig möjlighet att filtrera regler via textsökning. Resultatet visar endast regelgrupper och regler som innehåller den text du söker efter.
+Den **brandväggsinställningar för webbprogram** bladet ger dig möjlighet att filtrera regler via en textsökning. Resultatet visar endast regelgrupper och regler som innehåller den text du söker efter.
 
 ![Sök efter regler][2]
 
-## <a name="disable-rule-groups-and-rules"></a>Inaktivera regelgrupper och regler
+## <a name="disable-rule-groups-and-rules"></a>Inaktivera regelgrupper och -regler
 
-När din är inaktivera regler, du kan inaktivera en hel grupp eller särskilda regler under en eller flera regelgrupper. 
+När din är inaktiverar regler kan du kan inaktivera en för hela regelgruppen eller särskilda regler under en eller flera regelgrupper. 
 
 **Inaktivera regelgrupper eller särskilda regler**
 
@@ -65,7 +65,7 @@ När din är inaktivera regler, du kan inaktivera en hel grupp eller särskilda 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har konfigurerat din inaktiverade regler du lära dig hur du visar Brandvägg loggarna. Mer information finns i [Programgateway diagnostik](application-gateway-diagnostics.md#diagnostic-logging).
+När du har konfigurerat din inaktiverade regler för kan du lära dig hur du visar dina WAF-loggar. Mer information finns i [Application Gateway-diagnostik](application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

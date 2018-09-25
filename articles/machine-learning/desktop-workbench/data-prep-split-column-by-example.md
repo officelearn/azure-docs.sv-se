@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 5fe292b92557b4786d638ac21c7adb1f50566feb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3edf49484e5bc05a297b8d8969632fb902aa1714
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650262"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953743"
 ---
 # <a name="split-column-by-example-transformation"></a>Dela upp kolumn efter exempel transformering
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Den här transformeringen predictively delar upp innehållet i en kolumn i meningsfulla gränser utan användarindata från. Split-algoritmen väljer gränserna när du har analyserat innehållet i kolumnen. Dessa gränser kan definieras av
 * En fast avgränsare
 * Flera, valfri avgränsare som visas i synnerhet när det gäller kan eller,
@@ -182,4 +187,4 @@ I följande exempel vill vi separera viktningsvärden från enheterna. Igen dela
 
 ## <a name="technical-notes"></a>Teknisk information
 
-Funktionen Split transformeringen baserat på den **förutsägande Program syntes** teknik. Den här tekniken lärs data transformation program automatiskt baserat på indata. Programmen syntetiskt på ett domänspecifika språk. DSL baseras på avgränsare och fält som uppstår i synnerhet när det gäller reguljärt uttryck. Mer information om den här tekniken finns i en [senaste publikationen på det här avsnittet](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 
+Funktionen Split transformeringen baserat på den **förutsägande Program syntes** teknik. Den här tekniken lärs data transformation program automatiskt baserat på indata. Programmen syntetiskt på ett domänspecifika språk. DSL baseras på avgränsare och fält som uppstår i synnerhet när det gäller reguljärt uttryck. Mer information om den här tekniken finns i en [senaste publikationen på det här avsnittet](https://www.microsoft.com/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 

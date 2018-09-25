@@ -2,22 +2,22 @@
 title: QnA-roboten med Azure Bot Service – QnA Maker
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nstulasi
-ms.openlocfilehash: 0c6feb67b273ec30afba89f2d4d9b59a8a9f5acf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.author: tulasim
+ms.openlocfilehash: 74c7bc5c601cd36a8dd2454506745406bc00dac0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731424"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031296"
 ---
-# <a name="create-a-qna-bot-with-azure-bot-service"></a>Skapa en QnA-roboten med Azure Bot Service
-Den här självstudien vägleder dig genom att skapa en QnA-roboten med Azure Bot service i Azure-portalen.
+# <a name="create-a-qna-bot-with-azure-bot-service-v3"></a>Skapa en QnA-roboten med Azure Bot Service v3
+Den här självstudien vägleder dig genom att skapa en QnA-roboten med Azure Bot service v3 på Azure portal.
 
 ## <a name="prerequisite"></a>Krav
 Innan du skapar, följer du stegen i [skapa en kunskapsbas](../How-To/create-knowledge-base.md) att skapa en QnA Maker-tjänsten med frågor och svar.
@@ -33,16 +33,24 @@ Roboten svarar på frågor från kunskapsbas som du skapade via QnAMakerDialog.
 
     ![val för bot-tjänst](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
 
-3. I den **Bot Service bladet**, ange nödvändig information och välj **skapa**. Detta skapar och distribuerar bot-tjänst med QnAMakerDialog till Azure.
+3. I den **Bot Service bladet**, ange nödvändig information:
 
     - Ange **appnamn** till din robot namn. Namnet används som underdomänen när din robot distribueras till molnet (exempelvis mynotesbot.azurewebsites.net).
     - Välj prenumeration, resursgrupp, App service-plan och plats.
-    - Välj den **frågor och svar** (Node.js eller C#)-mall för fältet Bot mall.
-    - Markera kryssrutan bekräftelse för juridiskt meddelande. Villkoren i juridiskt meddelande är lägre än kryssrutan.
 
-        ![val för bot-tjänst](../media/qnamaker-tutorials-create-bot/bot-service-qna-template.PNG)
+4. Att se instruktionerna för att skapa en QnA-roboten med SDK v4 - Se [QnA v4 bot mallen](https://aka.ms/qna-bot-v4). Välj för att använda v3-mallar, SDK-version i **SDK v3** och språk du SDK **C#** eller **Node.js**.
 
-4. Bekräfta att bot-tjänsten har distribuerats.
+    ![inställningar för bot-sdk](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+
+5. Välj den **frågor och svar** mall för fältet Bot mall och sedan spara ändringarna genom att välja mallen **Välj**.
+
+    ![val för bot-tjänst](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+
+6. Granska dina inställningar och välj sedan **skapa**. Detta skapar och distribuerar bot-tjänst med QnAMakerDialog till Azure.
+
+    ![val för bot-tjänst](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+
+7. Bekräfta att bot-tjänsten har distribuerats.
 
     - Välj **meddelanden** (klockikonen finns längs överkanten av Azure portal). Meddelandet kommer att ändras från **distributionen har påbörjats** till **distributionen lyckades**.
     - När ändras meddelandet och **distributionen lyckades**väljer **gå till resurs** på som meddelanden.

@@ -1,6 +1,6 @@
 ---
 title: Skapa en Linux-VM i Azure med flera nätverkskort | Microsoft Docs
-description: Lär dig hur du skapar en Linux VM med flera nätverkskort som är kopplade till den med hjälp av Azure CLI 2.0 eller Resource Manager-mallar.
+description: Lär dig hur du skapar en Linux VM med flera nätverkskort som är kopplade till den med hjälp av Azure CLI eller Resource Manager-mallar.
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -14,21 +14,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 77feb52a4ba2013bd6ec0afcd30a20f05227031e
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4982de352af2ce33f4dbf6dba00ff9296cc9b873
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060947"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999763"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en Linux-dator i Azure med flera nätverkskort
-Du kan skapa en virtuell dator (VM) i Azure som har flera virtuella nätverksgränssnitt (NIC) kopplade till den. Ett vanligt scenario är att ha olika undernät för frontend och backend-anslutning eller ett nätverk som är dedikerad till en lösning för övervakning eller säkerhetskopiering. Den här artikeln beskriver hur du skapar en virtuell dator med flera nätverkskort som är kopplade till den och lägga till eller ta bort nätverkskort från en befintlig virtuell dator. Olika [VM-storlekar](sizes.md) stöd för olika antal nätverkskort, storlek, så den virtuella datorn i enlighet med detta.
 
-Den här artikeln beskriver hur du skapar en virtuell dator med flera nätverkskort med Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](multiple-nics-nodejs.md).
 
+Den här artikeln beskriver hur du skapar en virtuell dator med flera nätverkskort med Azure CLI.
 
 ## <a name="create-supporting-resources"></a>Skapa resurser
-Installera senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in på Azure med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Installera senast [Azure CLI](/cli/azure/install-az-cli2) och logga in på Azure med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen ingår *myResourceGroup*, *mystorageaccount*, och *myVM*.
 
@@ -104,7 +103,7 @@ az vm create \
 Lägg till routningstabeller i gästoperativsystemet genom att följa stegen i [konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for- multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Lägg till ett nätverkskort till en virtuell dator
-I föregående steg skapade en virtuell dator med flera nätverkskort. Du kan också lägga till nätverkskort till en befintlig virtuell dator med Azure CLI 2.0. Olika [VM-storlekar](sizes.md) stöd för olika antal nätverkskort, storlek, så den virtuella datorn i enlighet med detta. Om det behövs kan du [ändra storlek på en virtuell dator](change-vm-size.md).
+I föregående steg skapade en virtuell dator med flera nätverkskort. Du kan också lägga till nätverkskort till en befintlig virtuell dator med Azure CLI. Olika [VM-storlekar](sizes.md) stöd för olika antal nätverkskort, storlek, så den virtuella datorn i enlighet med detta. Om det behövs kan du [ändra storlek på en virtuell dator](change-vm-size.md).
 
 Skapa ett annat nätverkskort med [az network nic skapa](/cli/azure/network/nic#az_network_nic_create). I följande exempel skapas ett nätverkskort med namnet *myNic3* är anslutna till backend-undernät och gruppen skapades i föregående steg:
 

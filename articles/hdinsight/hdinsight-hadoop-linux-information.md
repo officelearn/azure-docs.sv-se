@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 0b22e51814f79b00257433a7e601349ad25cd2b7
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d725bbe31de0f93d1b741ffd008bf39086904b61
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104308"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997513"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -29,7 +29,7 @@ Många av stegen i det här dokumentet använder följande verktyg, som kan beh�
 
 * [cURL](https://curl.haxx.se/) – används för att kommunicera med webbtjänster
 * [jq](https://stedolan.github.io/jq/) – används för att parsa JSON-dokument
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) – används för att hantera Azure-tjänster
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) – används för att hantera Azure-tjänster
 
 ## <a name="users"></a>Användare
 
@@ -55,7 +55,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och seda
 
 ## <a name="remote-access-to-services"></a>Fjärråtkomst till tjänster
 
-* **Ambari (webb)** -https://&lt;klusternamn >. azurehdinsight.net
+* **Ambari (webb)** - https://&lt;klusternamn >. azurehdinsight.net
 
     Autentisera med hjälp av kluster-administratörsanvändare och lösenord och sedan logga in på Ambari.
 
@@ -66,14 +66,14 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och seda
     >
     > Om du vill använda den fullständiga funktionaliteten hos Ambari-webbgränssnittet, använda en SSH-tunnel för proxy webbtrafik till klustrets huvudnod. Se [Använd SSH-tunnlar för att komma åt Ambari-webbgränssnittet, resurshanteraren, JobHistory, NameNode, Oozie och andra web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** -https://&lt;klusternamn >.azurehdinsight.net/ambari
+* **Ambari (REST)** - https://&lt;klusternamn >.azurehdinsight.net/ambari
 
     > [!NOTE]
     > Autentisera med klustret administratörsanvändare och lösenord.
     >
     > Autentisering är klartext - alltid använda HTTPS för att säkerställa att anslutningen är säker.
 
-* **WebHCat (Templeton)** -https://&lt;klusternamn >.azurehdinsight.net/templeton
+* **WebHCat (Templeton)** - https://&lt;klusternamn >.azurehdinsight.net/templeton
 
     > [!NOTE]
     > Autentisera med klustret administratörsanvändare och lösenord.
@@ -176,7 +176,7 @@ Det finns en olika sätt att komma åt data från utanför HDInsight-kluster. H�
 
 Om du använder __Azure Storage__, se följande länkar för sätt att du kan komma åt dina data:
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): kommandoradsgränssnittet kommandon för att arbeta med Azure. När installationen är klar att använda den `az storage` kommandot för att få hjälp om hur du använder lagring, eller `az storage blob` för blob-fil.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): kommandoradsgränssnittet kommandon för att arbeta med Azure. När installationen är klar att använda den `az storage` kommandot för att få hjälp om hur du använder lagring, eller `az storage blob` för blob-fil.
 * [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): ett python-skript för att arbeta med blobar i Azure Storage.
 * Olika SDK: er:
 
@@ -192,7 +192,7 @@ Om du använder __Azure Data Lake Store__, se följande länkar för sätt att d
 
 * [Webbläsare](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [Azure CLI 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
+* [Azure CLI](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Data Lake Tools för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)

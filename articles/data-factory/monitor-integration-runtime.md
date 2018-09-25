@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 59c2f865ae5e056b0fabb360712f6eb622943145
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4f1e6e7e61cdfd72251120f3c03df7a689aecafe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574631"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997462"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integration runtime i Azure Data Factory  
 **Integreringskörningen** är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla olika funktioner för dataintegrering i olika nätverksmiljöer. Det finns tre typer av integration Runtime som erbjuds av Data Factory:
@@ -168,10 +168,10 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure v
 | NodeSize | Storleken på varje nod i din Azure-SSIS integration runtime. |
 | NodeCount | Antalet noder i din Azure-SSIS integration runtime. |
 | MaxParallelExecutionsPerNode | Antalet parallella körningar per nod i din Azure-SSIS integration runtime. |
-| CatalogServerEndpoint | Slutpunkten för din befintliga Azure SQL Database/hanterad instans (förhandsversion)-server som värd för SSISDB. |
-| CatalogAdminUserName | Administratörens användarnamn för din befintliga Azure SQL Database/hanterad instans (förhandsversion)-server. Data Factory-tjänsten använder denna information för att förbereda och hantera SSISDB för din räkning. |
-| CatalogAdminPassword | Administratörslösenordet för din befintliga Azure SQL Database/hanterad instans (förhandsversion)-server. |
-| CatalogPricingTier | Prisnivå för SSISDB som värd för din befintliga Azure SQL Database-server.  Ej tillämpligt för Azure SQL Managed Instance (förhandsversion) som är värd för SSISDB. |
+| CatalogServerEndpoint | Slutpunkten för din befintliga Azure SQL Database/hanterad instans-server som värd för SSISDB. |
+| CatalogAdminUserName | Administratörens användarnamn för din befintliga Azure SQL Database/hanterad instans-server. Data Factory-tjänsten använder denna information för att förbereda och hantera SSISDB för din räkning. |
+| CatalogAdminPassword | Administratörslösenordet för din befintliga Azure SQL Database/hanterad instans-server. |
+| CatalogPricingTier | Prisnivå för SSISDB som värd för din befintliga Azure SQL Database-server.  Ej tillämpligt för Azure SQL Database Managed Instance som är värd för SSISDB. |
 | VNetId | Det virtuella resource ID för din Azure-SSIS integration runtime att ansluta till. |
 | Undernät | Namnet på undernätet för din Azure-SSIS integration runtime kan anslutas till. |
 | ID | Resurs-ID för din Azure-SSIS integration runtime. |
@@ -223,7 +223,7 @@ Se följande artiklar för att lära dig mer om Azure-SSIS integration runtime:
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln innehåller information om integreringskörningar i allmänhet, inklusive Azure-SSIS IR. 
 - [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL-databas som värd för SSIS-katalogen. 
-- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln kan utökas med självstudien och innehåller instruktioner för hur du använder Azure SQL-hanterade instanser (förhandsversion) och ansluter IR till ett virtuellt nätverk. 
+- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln utökas med självstudien och innehåller instruktioner för hur du använder Azure SQL Database Managed Instance och ansluter IR till ett virtuellt nätverk. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den också visar hur du skalar ut Azure-SSIS IR genom att lägga till fler noder i IR. 
 - [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk. Det ger också steg för att konfigurera det virtuella nätverket så att Azure-SSIS IR kan ansluta till det virtuella nätverket med hjälp av Azure portal. 
 

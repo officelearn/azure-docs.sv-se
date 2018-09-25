@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cherylmc
-ms.openlocfilehash: 98cd606ce930624ec5c591ffd8f13e0feae1a6c4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 657cad69fff66aaaeba9819569442981d229f644
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688565"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971135"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Hur du konfigurerar BGP på Azure VPN gateway med hjälp av CLI
 
@@ -55,7 +55,7 @@ Det här avsnittet krävs innan du utför stegen i de andra två konfigurationsa
 
 ### <a name="before-you-begin"></a>Innan du börjar
 
-Installera den senaste versionen av CLI-kommandona (2.0 eller senare). Information om att installera CLI-kommandona finns i [Installera Azure CLI 2.0](/cli/azure/install-azure-cli) och [Kom igång med Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
+Installera den senaste versionen av CLI-kommandona (2.0 eller senare). Information om hur du installerar CLI-kommandon finns i [installera Azure CLI](/cli/azure/install-azure-cli) och [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ### <a name="step-1-create-and-configure-testvnet1"></a>Steg 1: Skapa och konfigurera TestVNet1
 

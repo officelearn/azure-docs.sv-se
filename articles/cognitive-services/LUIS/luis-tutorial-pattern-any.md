@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Använd entiteten pattern.any för att extrahera data från yttranden där talade är välutformat och där slutet av data kan förväxlas enkelt med återstående ord av uttryck.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: dce75710137f4d4160cb2f55f856066c7c93ac78
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a5b964877f1c089015812abdf365b22c57267bb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628995"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031382"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Självstudie: 5. Extrahera fri form-data
+# <a name="tutorial-5-extract-free-form-data"></a>Självstudie: 5. Extrahera friformsdata
 
 I den här självstudien använder du entiteten pattern.any för att extrahera data från yttranden där talade är välutformat och där slutet av data kan förväxlas enkelt med återstående ord av uttryck. 
 

@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 76567820a3d0fcd7dbd27cc7bc1afd09da94715c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f3bc64bd010bed9e177fd18cc6cb238b94669248
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129853"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990243"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
-Application Insights-SDK: er består av ett antal NuGet-paket. Den [core-paketet](http://www.nuget.org/packages/Microsoft.ApplicationInsights) tillhandahåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) ger telemetri *moduler* och *fältparameterbindningar* för att spåra automatiskt telemetri från ditt program och dess kontext. Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetri moduler och initierare och ställa in parametrar för några av dem.
+Application Insights .NET SDK består av ett antal NuGet-paket. Den [core-paketet](http://www.nuget.org/packages/Microsoft.ApplicationInsights) tillhandahåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) ger telemetri *moduler* och *fältparameterbindningar* för att spåra automatiskt telemetri från ditt program och dess kontext. Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetri moduler och initierare och ställa in parametrar för några av dem.
 
-Konfigurationsfilen har namnet `ApplicationInsights.config` (.NET) eller `ApplicationInsights.xml` (Java), beroende på vilken typ av ditt program. Läggs automatiskt till ditt projekt när du [installera de flesta versioner av SDK][start]. Det läggs också till en webbapp med [statusövervakaren på en IIS-server][redfield], eller när du väljer Application Insights [-tillägg för en Azure-webbplats eller virtuell dator](app-insights-azure-web-apps.md).
+Konfigurationsfilen har namnet `ApplicationInsights.config` eller `ApplicationInsights.xml`, beroende på vilken typ av ditt program. Läggs automatiskt till ditt projekt när du [installera de flesta versioner av SDK][start]. Det läggs också till en webbapp med [statusövervakaren på en IIS-server][redfield], eller när du väljer Application Insights [-tillägg för en Azure-webbplats eller virtuell dator](app-insights-azure-web-apps.md).
 
 Det finns inte en motsvarande fil att styra den [SDK på en webbsida][client].
 
@@ -173,6 +173,8 @@ Det finns också en standard [samlar telemetri processor](app-insights-api-filte
 
 ```
 
+
+
 ## <a name="channel-parameters-java"></a>Kanalparametrar (Java)
 Dessa parametrar påverkar hur Java SDK ska lagra och tömma den samlar in telemetridata.
 
@@ -229,6 +231,30 @@ Anger den maximala storleken i MB som tilldelas till beständig lagring på den 
       ...
    </ApplicationInsights>
 ```
+
+#### <a name="local-forwarder"></a>Lokal vidarebefordrare
+
+[Lokala vidarebefordrare](https://docs.microsoft.com/azure/application-insights/local-forwarder) är en agent som samlar in Application Insights eller [OpenCensus](https://opencensus.io/) telemetri från en mängd olika SDK: er och ramverk och den vidare till Application Insights. Det kan köras under Windows och Linux. 
+
+```xml
+<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
+<DeveloperMode>false</DeveloperMode>
+<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+<!-- The properties below are optional. The values shown are the defaults for each property -->
+<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
+<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
+</Channel>
+```
+
+Om du använder SpringBoot starter, lägger du till följande konfigurationsfilen (application.properies):
+
+```yml
+azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
+azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
+azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
+```
+
+Standardvärden är desamma för SpringBoot application.properties och applicationinsights.xml konfiguration.
 
 ## <a name="instrumentationkey"></a>InstrumentationKey
 Detta avgör den Application Insights-resurs där dina data visas. Vanligtvis skapar du en separat resurs med en separat nyckel för var och en av dina program.

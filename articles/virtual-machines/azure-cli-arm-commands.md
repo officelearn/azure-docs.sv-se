@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-kommandona i Resource Manager-läget | Microsoft Docs
-description: Azure kommandoradsgränssnittet (CLI)-kommandon för att hantera resurser i Resource Manager-distributionsmodellen
+title: Azure CLI-kommandon i Resource Manager-läge | Microsoft Docs
+description: Azure kommandoradsgränssnitt (CLI)-kommandon för att hantera resurser i distributionsmodellen för Resource Manager
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: ''
 author: dlepow
@@ -15,47 +15,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5aecb218b66c06c87446e35e5c7c9ca8108b956c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30839152"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995558"
 ---
-# <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-kommandona i Resource Manager-läge
-Den här artikeln innehåller syntax och alternativ för Azure-kommandoradsgränssnittet (CLI)-kommandon som du ofta använder för att skapa och hantera Azure-resurser i Azure Resource Manager-distributionsmodellen. Du har åtkomst till dessa kommandon genom att köra CLI i Resource Manager (arm)-läge. Detta är inte en fullständig referens och CLI-versionen kan indikera att något annorlunda kommandon eller parametrar. En allmän översikt över Azure-resurser och resursgrupper finns i [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
+# <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-kommandon i Resource Manager-läge
+Den här artikeln innehåller syntax och alternativ för Azure-kommandoradsgränssnittet (CLI)-kommandon som du ofta använder för att skapa och hantera Azure-resurser i Azure Resource Manager-distributionsmodellen. Du har åtkomst till dessa kommandon genom att köra CLI i Resource Manager (arm)-läge. Detta är inte en fullständig referens och din CLI-version kan indikera att något annorlunda kommandon eller parametrar. En allmän översikt över Azure-resurser och resursgrupper finns [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
-> Detta kallas ibland artikeln visar Resource Manager kommandon läge i Azure CLI, Azure CLI 1.0. Om du vill arbeta i Resource Manager-modellen, du kan också prova den [Azure CLI 2.0](/cli/azure/install-az-cli2), våra nästa generation flera plattformar CLI.
->Lär dig mer om den [gamla och nya Azure CLIs](/cli/azure/old-and-new-clis).
+> Detta kallas ibland artikeln visar Resource Manager läge kommandon i Azure-CLI Azure klassiskt CLI. Om du vill arbeta i Resource Manager-modellen, kan du även försöka den [Azure CLI](/cli/azure/install-az-cli2), vår nästa generations plattform flera CLI.
+>Lär dig mer om den [gamla och nya Azure CLI: erna](/cli/azure/old-and-new-clis).
 >
 
-Starta först [installerar Azure CLI](../cli-install-nodejs.md) och [ansluta till din Azure-prenumeration](/cli/azure/authenticate-azure-cli).
+Du kommer igång först [installera Azure CLI](../cli-install-nodejs.md) och [ansluta till din Azure-prenumeration](/cli/azure/authenticate-azure-cli).
 
-Skriv den aktuella kommandosyntax och alternativ på kommandoraden i Resource Manager-läget `azure help` eller, för att visa hjälp för ett visst kommando `azure help [command]`. Även kan hitta CLI exemplen i dokumentationen för att skapa och hantera specifika Azure-tjänster.
+Den aktuella kommandosyntax och alternativ på kommandoraden i Resource Manager-läge, Skriv `azure help` eller, för att visa hjälp för ett visst kommando `azure help [command]`. Också hitta CLI-exempel i dokumentationen för att skapa och hantera specifika Azure-tjänster.
 
-Valfria parametrar visas inom hakparentes (till exempel `[parameter]`). Alla andra parametrar är obligatoriska.
+Valfria parametrar visas inom hakparenteser (till exempel `[parameter]`). Alla andra parametrar måste anges.
 
-Förutom kommandot specifika valfria parametrar dokumenteras här, finns det tre valfria parametrar som kan användas för att visa detaljerade utdata, till exempel alternativen och statuskoder. Den `-v` parametern innehåller utförliga data och `-vv` parametern innehåller även detaljerad utförlig utdata. Den `--json` alternativet visas resultatet i raw json-format.
+Förutom kommandospecifik valfria parametrar dokumenteras här, finns det tre valfria parametrar som kan användas för att visa detaljerade utdata, till exempel alternativ för begäran och statuskoder. Den `-v` parametern innehåller utförliga data och `-vv` parametern visar ännu mer detaljerad utförliga utdata. Den `--json` alternativet matar ut resultatet i raw json-format.
 
-## <a name="setting-the-resource-manager-mode"></a>Ange Resource Manager-läget
+## <a name="setting-the-resource-manager-mode"></a>Ange Resource Manager-läge
 Använd följande kommando för att aktivera kommandon för Azure CLI Resource Manager-läge.
 
     azure config mode arm
 
 > [!NOTE]
-> Av CLI Azure Resource Manager och Azure Service Management-läge kan inte anges samtidigt. Det vill säga kan resurser som skapats i ett läge inte hanteras från andra läge.
+> Är ömsesidigt uteslutande av CLI Azure Resource Manager och Azure Service Management-läge. Det vill säga kan resurser som skapades i ett läge inte hanteras från det andra läget.
 > 
 > 
 
 ## <a name="azure-account-manage-your-account-information"></a>Azure-konto: hantera din kontoinformation
 Din Azure-prenumerationsinformationen används av verktyget för att ansluta till ditt konto.
 
-**Visa de importera prenumerationerna**
+**Lista över importerade prenumerationer**
 
     account list [options]
 
-**Visa information om en prenumeration**  
+**Visa detaljerad information om en prenumeration**  
 
     account show [options] [subscriptionNameOrId]
 
@@ -63,11 +63,11 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
 
     account set [options] <subscriptionNameOrId>
 
-**Ta bort en prenumeration eller miljö, eller avmarkera alla lagrad information om kontot och miljö**  
+**Ta bort en prenumeration eller miljö eller rensa alla lagrade information om kontot och miljö**  
 
     account clear [options]
 
-**Kommandon för att hantera din miljö för kontot**  
+**Kommandon för att hantera miljön konto**  
 
     account env list [options]
     account env show [options] [environment]
@@ -90,7 +90,7 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
 
     ad group member list [options] [objectId]
 
-**Kommandon för att visa active directory-tjänstens huvudnamn**
+**Kommandon för att visa active directory-tjänstobjekt**
 
     ad sp list [options]
     ad sp show [options]
@@ -102,29 +102,29 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
     ad user list [options]
     ad user show [options]
 
-## <a name="azure-availset-commands-to-manage-your-availability-sets"></a>Azure availset: kommandon för att hantera din tillgänglighetsuppsättningar
-**Skapar en tillgänglighetsuppsättning inom en resursgrupp**
+## <a name="azure-availset-commands-to-manage-your-availability-sets"></a>Azure availset: kommandon för att hantera dina tillgänglighetsuppsättningar
+**Skapar en tillgänglighetsuppsättning i en resursgrupp**
 
     availset create [options] <resource-group> <name> <location> [tags]
 
-**Visar en lista över tillgänglighetsuppsättningar inom en resursgrupp**
+**Visar en lista över tillgänglighetsuppsättningar i en resursgrupp**
 
     availset list [options] <resource-group>
 
-**Hämtar en tillgänglighetsuppsättning inom en resursgrupp**
+**Hämtar en tillgänglighetsuppsättning i en resursgrupp**
 
     availset show [options] <resource-group> <name>
 
-**Tar bort en tillgänglighetsuppsättning inom en resursgrupp**
+**Tar bort en tillgänglighetsuppsättning i en resursgrupp**
 
     availset delete [options] <resource-group> <name>
 
 ## <a name="azure-config-commands-to-manage-your-local-settings"></a>Azure config: kommandon för att hantera dina lokala inställningar
-**Konfigurationsinställningar för listan Azure CLI**
+**Lista över inställningar för Azure CLI**
 
     config list [options]
 
-**Ta bort en konfigurationsinställning**
+**Ta bort en config-inställning**
 
     config delete [options] <name>
 
@@ -132,13 +132,13 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
 
     config set <name> <value>
 
-**Anger arbetsläge Azure CLI antingen `arm` eller `asm`**
+**Anger arbetsläge för Azure CLI till antingen `arm` eller `asm`**
 
     config mode [options] <modename>
 
 
-## <a name="azure-feature-commands-to-manage-account-features"></a>Azure-funktionen: kommandon för att hantera kontofunktioner
-**Visa en lista över alla funktioner som är tillgänglig för din prenumeration**
+## <a name="azure-feature-commands-to-manage-account-features"></a>funktionen Azure: kommandon för att hantera kontofunktioner
+**Visa alla funktioner som är tillgänglig för din prenumeration**
 
     feature list [options]
 
@@ -146,7 +146,7 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
 
     feature show [options] <providerName> <featureName>
 
-**Registrerar en förhandsgranskade funktion i en resursleverantör**
+**Registrerar en förhandsgranskade funktion i en resursprovider**
 
     feature register [options] <providerName> <featureName>
 
@@ -155,7 +155,7 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
 
     group create [options] <name> <location>
 
-**Ange taggar till en resursgrupp**
+**Ställ in taggar till en resursgrupp**
 
     group set [options] <name> <tags>
 
@@ -163,7 +163,7 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
 
     group delete [options] <name>
 
-**Listar resursgrupper för din prenumeration**
+**Visar resursgrupper för prenumerationen**
 
     group list [options]
 
@@ -171,7 +171,7 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
 
     group show [options] <name>
 
-**Kommandon för att hantera resurs loggar**
+**Kommandon för att hantera resource group-loggar**
 
     group log show [options] [name]
 
@@ -182,7 +182,7 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
     group deployment show [options] <resource-group> [deployment-name]
     group deployment stop [options] <resource-group> [deployment-name]
 
-**Kommandon för att hantera lokala eller gallery resource grupp mallen**
+**Kommandon för att hantera din lokala eller galleri resursgruppsmall**
 
     group template list [options]
     group template show [options] <name>
@@ -190,18 +190,18 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
     group template validate [options] <resource-group>
 
 ## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>Azure hdinsight: kommandon för att hantera dina HDInsight-kluster
-**Kommandon för att skapa eller lägga till en konfigurationsfil för kluster**
+**Kommandon för att skapa eller lägga till en konfigurationsfil för klustret**
 
     hdinsight config create [options] <configFilePath> <overwrite>
     hdinsight config add-config-values [options] <configFilePath>
     hdinsight config add-script-action [options] <configFilePath>
 
-Exempel: Skapa en konfigurationsfil som innehåller en skriptåtgärd ska köras när du skapar ett kluster.
+Exempel: Skapa en konfigurationsfil som innehåller en skriptåtgärd för att köra när du skapar ett kluster.
 
     hdinsight config create "C:\myFiles\configFile.config"
     hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
 
-**Kommandot för att skapa ett kluster i en resursgrupp**
+**Kommando för att skapa ett kluster i en resursgrupp**
 
     hdinsight cluster create [options] <clusterName>
 
@@ -221,7 +221,7 @@ Exempel: Skapa ett kluster med en skriptåtgärd
     + Submitting the request to create cluster...
     info:    hdinsight cluster create command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                                                 output usage information
     -v, --verbose                                              use verbose output
@@ -275,19 +275,19 @@ Parameteralternativ:
     For example, --tags tag1=value1;tag2
 
 
-**Kommandot för att ta bort ett kluster**
+**Kommando för att ta bort ett kluster**
 
     hdinsight cluster delete [options] <clusterName>
 
-**Kommandot för att visa information om kluster**
+**Kommando för att visa information om kluster**
 
     hdinsight cluster show [options] <clusterName>
 
-**Kommandot för att visa en lista med alla kluster (i en viss resursgrupp, om angett)**
+**Kommando för att lista alla kluster (i en specifik resursgrupp, om anges)**
 
     hdinsight cluster list [options]
 
-**Kommandot för att ändra storlek på ett kluster**
+**Kommando för att ändra storlek på ett kluster**
 
     hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
 
@@ -307,13 +307,13 @@ Parameteralternativ:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>Azure insikter: kommandon som rör övervakning insikter (händelser, Varningsregler, Autoskala inställningar, mått)
-**Hämta åtgärdsloggar för en prenumeration, en correlationId, en resursgrupp, resurs eller resursprovidern**
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>Azure insights: kommandon som är relaterade till övervakning insikter (händelse, Varningsregler, inställningarna för automatisk skalning, mått)
+**Hämta loggar för en prenumeration, en Korrelations-ID, en resursgrupp, resurs eller provider för nätverksresurser**
 
     insights logs list [options]
 
-## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>Azure-plats: kommandon för att hämta tillgängliga platser för alla typer av resurser
-**Visa en lista över tillgängliga platser**
+## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>Azure-plats: kommandon för att hämta de tillgängliga platserna för alla resurstyper
+**Lista över tillgängliga platser**
 
     location list [options]
 
@@ -321,7 +321,7 @@ Parameteralternativ:
 **Kommandon för att hantera virtuella nätverk**
 
     network vnet create [options] <resource-group> <name> <location>
-Skapar ett virtuellt nätverk. I följande exempel skapar vi ett virtuellt nätverk med namnet newvnet för resursen grupp myresourcegroup i USA, västra region.
+Skapar ett virtuellt nätverk. I följande exempel skapar vi ett virtuellt nätverk med namnet newvnet för resursgruppen myresourcegroup i regionen USA, västra.
 
     azure network vnet create myresourcegroup newvnet "west us"
     info:    Executing command network vnet create
@@ -342,7 +342,7 @@ Skapar ett virtuellt nätverk. I följande exempel skapar vi ett virtuellt nätv
     info:    network vnet create command OK
 
 
-Parameteralternativ:
+Parameteralternativ för:
 
      -h, --help                                 output usage information
      -v, --verbose                              use verbose output
@@ -364,7 +364,7 @@ Parameteralternativ:
 
     network vnet set [options] <resource-group> <name>
 
-Uppdaterar en konfiguration av virtuellt nätverk inom en resursgrupp.
+Uppdaterar en konfiguration av virtuellt nätverk i en resursgrupp.
 
     azure network vnet set myresourcegroup newvnet
 
@@ -385,7 +385,7 @@ Uppdaterar en konfiguration av virtuellt nätverk inom en resursgrupp.
     data:
     info:    network vnet set command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
        -h, --help                                 output usage information
        -v, --verbose                              use verbose output
@@ -412,7 +412,7 @@ Parameteralternativ:
 
     network vnet list [options] <resource-group>
 
-Kommandot listar alla virtuella nätverk i en resursgrupp.
+Kommandot visar en lista över alla virtuella nätverk i en resursgrupp.
 
     C:\>azure network vnet list myresourcegroup
 
@@ -426,7 +426,7 @@ Kommandot listar alla virtuella nätverk i en resursgrupp.
     wvnet   newvnet   westus    10.0.0.0/8
     info:    network vnet list command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
       -h, --help                             output usage information
       -v, --verbose                          use verbose output
@@ -468,7 +468,7 @@ Kommandot tar bort ett virtuellt nätverk.
     + Deleting virtual network "newvnetX"
     info:    network vnet delete command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
@@ -479,7 +479,7 @@ Parameteralternativ:
      -s, --subscription <subscription>      the subscription identifier
 
 
-**Kommandon för att hantera virtuella nätverk undernät**
+**Kommandon för att hantera virtuella nätverks undernät**
 
     network vnet subnet create [options] <resource-group> <vnet-name> <name>
 
@@ -498,7 +498,7 @@ Lägger till ett annat undernät i ett befintligt virtuellt nätverk.
     data:    Address prefix:            10.0.1.0/24
     info:    network vnet subnet create command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
      -h, --help                                                       output usage information
      -v, --verbose                                                    use verbose output
@@ -516,7 +516,7 @@ Parameteralternativ:
 
     network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
-Anger ett specifikt virtuellt undernät inom en resursgrupp.
+Anger ett specifikt virtuellt nätverksundernät inom en resursgrupp.
 
     C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
@@ -534,7 +534,7 @@ Anger ett specifikt virtuellt undernät inom en resursgrupp.
 
     network vnet subnet list [options] <resource-group> <vnet-name>
 
-Visar en lista över alla undernät för virtuellt nätverk för ett virtuellt nätverk inom en resursgrupp.
+Visar en lista över alla undernät för virtuella nätverk för ett specifikt virtuellt nätverk i en resursgrupp.
 
     azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
@@ -551,7 +551,7 @@ Visar en lista över alla undernät för virtuellt nätverk för ett virtuellt n
 <BR>
 
     network vnet subnet show [options] <resource-group> <vnet-name> <name>
-Visar egenskaper för undernät för virtuellt nätverk
+Visar egenskaper för virtuellt nätverk undernät
 
     azure network vnet subnet show -g myresourcegroup --vnet-name newvnet -n subnet1
 
@@ -565,7 +565,7 @@ Visar egenskaper för undernät för virtuellt nätverk
     data:    Address prefix:            10.0.1.0/24
     info:    network vnet subnet show command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -587,7 +587,7 @@ Tar bort ett undernät från ett befintligt virtuellt nätverk.
     + Deleting subnet "subnet1"
     info:    network vnet subnet delete command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
@@ -601,7 +601,7 @@ Parameteralternativ:
 **Kommandon för att hantera belastningsutjämnare**
 
     network lb create [options] <resource-group> <name> <location>
-Skapar en belastningen belastningsutjämnaren mängd.
+Skapar en belastningsutjämningsuppsättning.
 
     azure network lb create -g myresourcegroup -n mylb -l westus
 
@@ -616,7 +616,7 @@ Skapar en belastningen belastningsutjämnaren mängd.
     data:    Provisioning state:           Succeeded
     info:    network lb create command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -631,7 +631,7 @@ Parameteralternativ:
 <BR>
 
     network lb list [options] <resource-group>
-Visar belastning belastningsutjämnaren resurser inom en resursgrupp.
+Visar en lista över resurser för belastningsutjämning i en resursgrupp.
 
     azure network lb list myresourcegroup
 
@@ -642,7 +642,7 @@ Visar belastning belastningsutjämnaren resurser inom en resursgrupp.
     data:    mylb  westus
     info:    network lb list command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -653,7 +653,7 @@ Parameteralternativ:
 
     network lb show [options] <resource-group> <name>
 
-Visar att läsa in information om belastningsutjämning för en särskild belastningsutjämnare inom en resursgrupp
+Visar läsa in information om belastningsutjämning för en särskild belastningsutjämnare i en resursgrupp
 
     azure network lb show myresourcegroup mylb -v
 
@@ -666,7 +666,7 @@ Visar att läsa in information om belastningsutjämning för en särskild belast
     data:    Provisioning state:           Succeeded
     info:    network lb show command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -679,7 +679,7 @@ Parameteralternativ:
 
     network lb delete [options] <resource-group> <name>
 
-Ta bort belastningen belastningsutjämnaren resurser.
+Ta bort resurser för belastningsutjämning.
 
     azure network lb delete  myresourcegroup mylb
 
@@ -689,7 +689,7 @@ Ta bort belastningen belastningsutjämnaren resurser.
     + Deleting load balancer "mylb"
     info:    network lb delete command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
@@ -703,7 +703,7 @@ Parameteralternativ:
 
     network lb probe create [options] <resource-group> <lb-name> <name>
 
-Skapa avsökningen konfigurationen för hälsostatus i belastningsutjämnaren. Tänk på att köra det här kommandot, din belastningsutjämnare kräver en frontend-ip-resurs (checka ut ”azure-nätverk klientdels-ip” att tilldela en ip-adress till belastningsutjämnaren).
+Skapa avsökningskonfiguration för hälsostatus i belastningsutjämnaren. Tänk på att köra det här kommandot, belastningsutjämnaren kräver en frontend-ip-resurs (Kolla in kommando ”azure network frontend-ip” för att tilldela en ip-adress till belastningsutjämnaren).
 
     azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 -i 300
 
@@ -712,7 +712,7 @@ Skapa avsökningen konfigurationen för hälsostatus i belastningsutjämnaren. T
     + Updating load balancer "mylb"
     info:    network lb probe create command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
@@ -731,7 +731,7 @@ Parameteralternativ:
 
     network lb probe set [options] <resource-group> <lb-name> <name>
 
-Uppdaterar en befintlig belastningsutjämningsavsökning med nya värden för den.
+Uppdaterar en befintlig belastningsutjämnaravsökning med nya värden för den.
 
     azure network lb probe set -g myresourcegroup -l mylb -n mylbprobe -p mylbprobe1 -p TCP -o 443 -i 300
 
@@ -740,7 +740,7 @@ Uppdaterar en befintlig belastningsutjämningsavsökning med nya värden för de
     + Updating load balancer "mylb"
     info:    network lb probe set command OK
 
-Parameteralternativ för
+Parameteralternativ
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -759,7 +759,7 @@ Parameteralternativ för
 
     network lb probe list [options] <resource-group> <lb-name>
 
-Visa avsökning egenskaperna för belastningsutjämnaren belastningen.
+Visa avsökning egenskaperna för en belastningsutjämningsuppsättning.
 
     C:\>azure network lb probe list -g myresourcegroup -l mylb
 
@@ -770,7 +770,7 @@ Visa avsökning egenskaperna för belastningsutjämnaren belastningen.
     data:    mylbprobe  Tcp       443         300       2
     info:    network lb probe list command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -781,7 +781,7 @@ Parameteralternativ:
 
 
     network lb probe delete [options] <resource-group> <lb-name> <name>
-Tar bort avsökningen skapas för belastningsutjämnaren.
+Tar bort avsökningen skapade för belastningsutjämnaren.
 
     azure network lb probe delete -g myresourcegroup -l mylb -n mylbprobe
 
@@ -791,10 +791,10 @@ Tar bort avsökningen skapas för belastningsutjämnaren.
     + Updating load balancer "mylb"
     info:    network lb probe delete command OK
 
-**Kommandon för att hantera klientdelens ip-konfigurationer för en belastningsutjämnare**
+**Kommandon för att hantera frontend ip-konfigurationer för en belastningsutjämnare**
 
     network lb frontend-ip create [options] <resource-group> <lb-name> <name>
-Skapar en klientdel IP-konfiguration till en befintlig load balancer uppsättning.
+Skapar en frontend-IP-konfiguration till en befintlig belastningsutjämningsuppsättningen.
 
     azure network lb frontend-ip create -g myresourcegroup --lb-name mylb -n myfrontendip -o Dynamic -e subnet -m newvnet
 
@@ -822,7 +822,7 @@ Skapar en klientdel IP-konfiguration till en befintlig load balancer uppsättnin
 
     network lb frontend-ip set [options] <resource-group> <lb-name> <name>
 
-Uppdaterar en befintlig konfiguration av en klientdel IP-adress. Kommandot nedan lägger till en offentlig IP-adress som kallas mypubip5 till en befintlig belastningen belastningsutjämnaren klientdelens IP-med namnet myfrontendip.
+Uppdaterar en befintlig konfiguration av en frontend-IP. Kommandot nedan lägger till en offentlig IP-adress som kallas mypubip5 till en befintlig frontend IP-load balancer med namnet myfrontendip.
 
     azure network lb frontend-ip set -g myresourcegroup --lb-name mylb -n myfrontendip -i mypubip5
 
@@ -845,7 +845,7 @@ Uppdaterar en befintlig konfiguration av en klientdel IP-adress. Kommandot nedan
     data:
     info:    network lb frontend-ip set command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                                                         output usage information
     -v, --verbose                                                      use verbose output
@@ -872,7 +872,7 @@ Parameteralternativ:
 
     network lb frontend-ip list [options] <resource-group> <lb-name>
 
-Listar alla klientdelens IP-resurser som konfigurerats för belastningsutjämnaren.
+Visar en lista över alla frontend IP-resurser som konfigurerats för belastningsutjämnaren.
 
     azure network lb frontend-ip list -g myresourcegroup -l mylb
 
@@ -883,7 +883,7 @@ Listar alla klientdelens IP-resurser som konfigurerats för belastningsutjämnar
     data:    myprivateip  Succeeded           Dynamic
     info:    network lb frontend-ip list command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -894,7 +894,7 @@ Parameteralternativ:
 <BR>
 
     network lb frontend-ip delete [options] <resource-group> <lb-name> <name>
-Tar bort klientdelens IP-objekt som behövs för att belastningsutjämnaren
+Tar bort klientdelens IP-objektet kopplad till belastningsutjämnaren
 
     network lb frontend-ip delete -g myresourcegroup -l mylb -n myfrontendip
     info:    Executing command network lb frontend-ip delete
@@ -902,7 +902,7 @@ Tar bort klientdelens IP-objekt som behövs för att belastningsutjämnaren
     Delete frontend ip configuration "myfrontendip"? [y/n] y
     + Updating load balancer "mylb"
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -913,7 +913,7 @@ Parameteralternativ:
     -q, --quiet                            quiet mode, do not ask for delete confirmation
     -s, --subscription <subscription>      the subscription identifier
 
-**Kommandon för att hantera serverdelsadresspooler för belastningsutjämning**
+**Kommandon för att hantera serverdelsadresspooler för en belastningsutjämnare**
 
     network lb address-pool create [options] <resource-group> <lb-name> <name>
 
@@ -934,7 +934,7 @@ Skapa en backend-adresspool för en belastningsutjämnare.
     data:
     info:    network lb address-pool create command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -959,7 +959,7 @@ Lista backend IP-adressintervallet för en viss resursgrupp
     data:    mybackendpool  Succeeded
     info:    network lb address-pool list command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
@@ -969,9 +969,9 @@ Parameteralternativ:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    lb-nätverksadresspool ta bort [alternativ] < resursgrupp >< lb-name > <name>
+    lb-nätverksadresspool ta bort [alternativ] < resource-group >< lb-name > <name>
 
-Tar bort backend IP-adresspool intervallet resursen från belastningsutjämnaren.
+Tar bort den IP-pool intervallet serverdelsresurs från belastningsutjämnaren.
 
     azure network lb address-pool delete -g myresourcegroup -l mylb -n mybackendpool
 
@@ -981,7 +981,7 @@ Tar bort backend IP-adresspool intervallet resursen från belastningsutjämnaren
     + Updating load balancer "mylb"
     info:    network lb address-pool delete command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -992,14 +992,14 @@ Parameteralternativ:
     -q, --quiet                            quiet mode, do not ask for delete confirmation
     -s, --subscription <subscription>      the subscription identifier
 
-**Kommandon för att hantera belastningsutjämningsreglerna**
+**Kommandon för att hantera load balancer-regler**
 
     network lb rule create [options] <resource-group> <lb-name> <name>
-Skapa regler för inläsning av belastningsutjämnaren.
+Skapa regler för belastningsutjämnaren.
 
-Du kan skapa en regel för belastningsutjämnare Konfigurera frontend-slutpunkten för belastningsutjämnaren och backend-adressintervallet för att ta emot inkommande nätverkstrafik. Inställningarna omfattar också portar för klientdelens IP-slutpunkt och portar för intervall för backend-adresspool.
+Du kan skapa en regel för belastningsutjämnaren konfigurerar frontend-slutpunkt för belastningsutjämnaren och backend-poolen adressintervall för att ta emot inkommande nätverkstrafik. Inställningarna omfattar också portar för frontend-IP-slutpunkten och portar för intervall för backend-adresspool.
 
-I följande exempel visas hur du skapar en regel för belastningsutjämnare, klientdel slutpunkten lyssna på port 80 TCP och läsa in belastningsutjämning nätverkstrafiken som skickas till port 8080 för intervall för backend-adresspool.
+I följande exempel visas hur du skapar en regel för belastningsutjämnaren, slutpunkten klientdel lyssna på port 80 TCP och läsa in belastningsutjämning trafik skickas till port 8080 för intervall för backend-adresspool.
 
     azure network lb rule create -g myresourcegroup -l mylb -n mylbrule -p tcp -f 80 -b 8080 -i 10
 
@@ -1027,7 +1027,7 @@ I följande exempel visas hur du skapar en regel för belastningsutjämnare, kli
 
     network lb rule set [options] <resource-group> <lb-name> <name>
 
-Uppdaterar en befintlig regel för belastningsutjämnare i en viss resursgrupp. I följande exempel ändras vi Regelnamnet från mylbrule till mynewlbrule.
+Uppdaterar en befintlig belastningsutjämningsregel som angetts i en specifik resursgrupp. I följande exempel ändras vi Regelnamnet från mylbrule till mynewlbrule.
 
     azure network lb rule set -g myresourcegroup -l mylb -n mylbrule -r mynewlbrule -p tcp -f 80 -b 8080 -i 10 -t myfrontendip -o mybackendpool
 
@@ -1050,7 +1050,7 @@ Uppdaterar en befintlig regel för belastningsutjämnare i en viss resursgrupp. 
     data:
     info:    network lb rule set command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                                         output usage information
     -v, --verbose                                      use verbose output
@@ -1072,7 +1072,7 @@ Parameteralternativ:
 
     network lb rule list [options] <resource-group> <lb-name>
 
-Visar alla belastningsutjämningsreglerna som konfigurerats för en belastningsutjämnare i en viss resursgrupp.
+Visar alla load balancer-regler som konfigurerats för en belastningsutjämnare i en specifik resursgrupp.
 
     azure network lb rule list -g myresourcegroup -l mylb
 
@@ -1083,7 +1083,7 @@ Visar alla belastningsutjämningsreglerna som konfigurerats för en belastningsu
     data:    mynewlbrule  Succeeded           Tcp       80             8080          false               10                       /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
     info:    network lb rule list command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1094,7 +1094,7 @@ Parameteralternativ:
 
     network lb rule delete [options] <resource-group> <lb-name> <name>
 
-Tar bort en regel för belastningsutjämnare.
+Tar bort en regel för belastningsutjämnaren.
 
     azure network lb rule delete -g myresourcegroup -l mylb -n mynewlbrule
 
@@ -1104,7 +1104,7 @@ Tar bort en regel för belastningsutjämnare.
     + Updating load balancer "mylb"
     info:    network lb rule delete command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1115,12 +1115,12 @@ Parameteralternativ:
     -q, --quiet                            quiet mode, do not ask for delete confirmation
     -s, --subscription <subscription>      the subscription identifier
 
-**Kommandon för att hantera belastningsutjämnaren inkommande NAT-regler**
+**Kommandon för att hantera belastningsutjämnaren ingående NAT-regler**
 
     network lb inbound-nat-rule create [options] <resource-group> <lb-name> <name>
-Skapar en inkommande NAT-regel för belastningsutjämning.
+Skapar en inkommande NAT-regel för belastningsutjämnaren.
 
-I följande exempel skapade vi en NAT-regel från klientdel IP (som definierades tidigare med hjälp av kommandot ”azure-nätverk klientdels-ip”) med en lyssningsport för inkommande och utgående port som belastningsutjämnaren skickar nätverkstrafik.
+I följande exempel skapat vi en NAT-regel från frontend-IP (som definierades tidigare med hjälp av kommandot ”azure network frontend-ip”) med en lyssningsport för inkommande och utgående port som används av belastningsutjämnaren att skicka nätverkstrafik.
 
     azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
 
@@ -1140,7 +1140,7 @@ I följande exempel skapade vi en NAT-regel från klientdel IP (som definierades
     data:    Enable floating IP         false
     info:    network lb inbound-nat-rule create command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                                     output usage information
     -v, --verbose                                  use verbose output
@@ -1182,7 +1182,7 @@ Uppdaterar en befintlig inkommande nat-regel. I följande exempel ändras vi ink
     data:    Enable floating IP         false
     info:    network lb inbound-nat-rule set command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                                     output usage information
     -v, --verbose                                  use verbose output
@@ -1205,7 +1205,7 @@ Parameteralternativ:
 
     network lb inbound-nat-rule list [options] <resource-group> <lb-name>
 
-Visar alla inkommande nat-regler för belastningsutjämning.
+Visar en lista över alla inkommande nat-regler för belastningsutjämnaren.
 
     azure network lb inbound-nat-rule list -g myresourcegroup -l mylb
 
@@ -1218,7 +1218,7 @@ Visar alla inkommande nat-regler för belastningsutjämning.
 
     info:    network lb inbound-nat-rule list command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1230,7 +1230,7 @@ Parameteralternativ:
 
     network lb inbound-nat-rule delete [options] <resource-group> <lb-name> <name>
 
-Tar bort NAT-regel för belastningsutjämnare i en viss resursgrupp.
+Tar bort NAT-regel för belastningsutjämnaren i en specifik resursgrupp.
 
     azure network lb inbound-nat-rule delete -g myresourcegroup -l mylb -n myinboundnat
 
@@ -1240,7 +1240,7 @@ Tar bort NAT-regel för belastningsutjämnare i en viss resursgrupp.
     + Updating load balancer "mylb"
     info:    network lb inbound-nat-rule delete command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1254,7 +1254,7 @@ Parameteralternativ:
 **Kommandon för att hantera offentliga ip-adresser**
 
     network public-ip create [options] <resource-group> <name> <location>
-Skapar en offentlig ip-resurs. Du skapar den offentliga ip-resursen och koppla till ett domännamn.
+Skapar en offentlig ip-resurs. Du skapar den offentliga ip-resursen och associera till ett domännamn.
 
     azure network public-ip create -g myresourcegroup -n mytestpublicip1 -l eastus -d azureclitest -a "Dynamic"
     info:    Executing command network public-ip create
@@ -1273,7 +1273,7 @@ Skapar en offentlig ip-resurs. Du skapar den offentliga ip-resursen och koppla t
     info:    network public-ip create command OK
 
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                                   output usage information
     -v, --verbose                                use verbose output
@@ -1294,7 +1294,7 @@ Parameteralternativ:
 <br>
 
     network public-ip set [options] <resource-group> <name>
-Uppdaterar egenskaperna för en befintlig offentlig ip-resurs. I följande exempel ändras vi den offentliga IP-adressen från dynamisk till statisk.
+Uppdaterar egenskaperna för en befintlig offentlig ip-resurs. I följande exempel ändrat vi offentliga IP-adress från dynamisk till statisk.
 
     azure network public-ip set -g group-1 -n mytestpublicip1 -d azureclitest -a "Static"
     info:    Executing command network public-ip set
@@ -1313,7 +1313,7 @@ Uppdaterar egenskaperna för en befintlig offentlig ip-resurs. I följande exemp
     data:    FQDN:                 azureclitest.eastus.cloudapp.azure.com
     info:    network public-ip set command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                                   output usage information
     -v, --verbose                                use verbose output
@@ -1333,7 +1333,7 @@ Parameteralternativ:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    listan över offentliga ip-nätverk [alternativ] < resursgrupp > listar alla offentliga IP-resurser inom en resursgrupp.
+    listan över offentliga ip-nätverk [alternativ] < resursgrupp > visar en lista över alla offentliga IP-resurser inom en resursgrupp.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1346,7 +1346,7 @@ Parameteralternativ:
     data:    mytestpublicip   eastus    Dynamic                   4             "domain name".eastus.cloudapp.azure.com
     data:    mytestpublicip1  eastus   Static (Static IP address) 4             azureclitest.eastus.cloudapp.azure.com
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1354,9 +1354,9 @@ Parameteralternativ:
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-    nätverket offentliga IP-visa [alternativ] < resursgrupp > <name>
+    nätverket offentliga ip-visa [alternativ] < resursgrupp > <name>
 
-Visar offentliga ip-egenskaper för en offentlig ip-resurs i en resursgrupp.
+Visar egenskaper för offentliga IP-adressen för en offentlig ip-resurs i en resursgrupp.
 
     azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1374,7 +1374,7 @@ Visar offentliga ip-egenskaper för en offentlig ip-resurs i en resursgrupp.
     data:    FQDN:                 azureclitest.eastus.cloudapp.azure.com
     info:    network public-ip show command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1395,7 +1395,7 @@ Tar bort offentlig ip-resurs.
     + Deleting public ip address "mypublicipname"
     info:    network public-ip delete command OK
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -1409,7 +1409,7 @@ Parameteralternativ:
 **Kommandon för att hantera nätverksgränssnitt**
 
     network nic create [options] <resource-group> <name> <location>
-Skapar en resurs med namnet nätverksgränssnitt (NIC) som kan användas för belastningsutjämning eller koppla till en virtuell dator.
+Skapar en resurs med namnet nätverksgränssnitt (NIC) som kan användas för belastningsutjämnare eller koppla till en virtuell dator.
 
     azure network nic create -g myresourcegroup -l eastus -n testnic1 --subnet-name subnet-1 --subnet-vnet-name myvnet
 
@@ -1430,7 +1430,7 @@ Skapar en resurs med namnet nätverksgränssnitt (NIC) som kan användas för be
     data:       Private IP Allocation Method: Dynamic
     data:       Subnet:                       /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/virtualNetworks/myVNET/subnets/Subnet-1
 
-Parameteralternativ:
+Parameteralternativ för:
 
     -h, --help                                                       output usage information
     -v, --verbose                                                    use verbose output
@@ -1477,7 +1477,7 @@ Parameteralternativ:
     network nsg show [options] <resource-group> <name>
     network nsg delete [options] <resource-group> <name>
 
-**Kommandon för att hantera nätverk regler för nätverkssäkerhetsgrupper**
+**Kommandon för att hantera nätverk reglerna för nätverkssäkerhetsgrupper**
 
     network nsg rule create [options] <resource-group> <nsg-name> <name>
     network nsg rule set [options] <resource-group> <nsg-name> <name>
@@ -1485,7 +1485,7 @@ Parameteralternativ:
     network nsg rule show [options] <resource-group> <nsg-name> <name>
     network nsg rule delete [options] <resource-group> <nsg-name> <name>
 
-**Kommandon för att hantera trafikhanterarprofilen**
+**Kommandon för att hantera traffic manager-profil**
 
     network traffic-manager profile create [options] <resource-group> <name>
     network traffic-manager profile set [options] <resource-group> <name>
@@ -1500,16 +1500,16 @@ Parameteralternativ:
     network traffic-manager profile endpoint set [options] <resource-group> <profile-name> <name>
     network traffic-manager profile endpoint delete [options] <resource-group> <profile-name> <name>
 
-**Kommandon för att hantera virtuella nätverk gateways**
+**Kommandon för att hantera virtuella nätverks-gatewayer**
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>Azure-providern: kommandon för att hantera resource provider registreringar
-**Visa en lista över providers som är registrerade i Resource Manager**
+## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>Azure-leverantören: kommandon för att hantera resource provider registreringar
+**Lista över providers som är registrerade i Resource Manager**
 
     provider list [options]
 
-**Visa information om begärda leverantörens namnrymd**
+**Visa detaljerad information om begärda providernamnområde**
 
     provider show [options] <namespace>
 
@@ -1517,7 +1517,7 @@ Parameteralternativ:
 
     provider register [options] <namespace>
 
-**Avregistrera provider med prenumerationen**
+**Avregistrera providern med prenumerationen**
 
     provider unregister [options] <namespace>
 
@@ -1526,11 +1526,11 @@ Parameteralternativ:
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
 
-**Uppdaterar en resurs i en resursgrupp utan parametrar eller mallar**
+**Uppdaterar en resurs i en resursgrupp utan mallar eller parametrar**
 
     resource set [options] <resource-group> <name> <resource-type> <properties> <api-version>
 
-**Visar en lista över resurser**
+**Visar en lista över resurserna**
 
     resource list [options] [resource-group]
 
@@ -1542,12 +1542,12 @@ Parameteralternativ:
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Azure roll: kommandon för att hantera dina Azure roller
+## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Azure-roll: kommandon för att hantera dina Azure-roller
 **Hämta alla tillgängliga rolldefinitioner**
 
     role list [options]
 
-**Hämta en tillgänglig rolldefinitionen**
+**Hämta en tillgänglig rolldefinition**
 
     role show [options] [name]
 
@@ -1557,7 +1557,7 @@ Parameteralternativ:
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>Azure storage: kommandon för att hantera din lagring-objekt
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>Azure storage: kommandon för att hantera din lagringsobjekt
 **Kommandon för att hantera dina lagringskonton**
 
     storage account list [options]
@@ -1566,7 +1566,7 @@ Parameteralternativ:
     storage account set [options] <name>
     storage account delete [options] <name>
 
-**Kommandon för att hantera dina nycklar för Lagringskonto**
+**Kommandon för att hantera dina lagringskontonycklar**
 
     storage account keys list [options] <name>
     storage account keys renew [options] <name>
@@ -1575,7 +1575,7 @@ Parameteralternativ:
 
     storage account connectionstring show [options] <name>
 
-**Kommandon för att hantera behållare för lagring**
+**Kommandon för att hantera dina Storage-behållare**
 
     storage container list [options] [prefix]
     storage container show [options] [container]
@@ -1583,11 +1583,11 @@ Parameteralternativ:
     storage container delete [options] [container]
     storage container set [options] [container]
 
-**Kommandon för att hantera delade åtkomst till signaturer för Storage-behållare**
+**Kommandon för att hantera delade åtkomstsignaturer för din lagringsbehållare**
 
     storage container sas create [options] [container] [permissions] [expiry]
 
-**Kommandon för att hantera lagrade åtkomstprinciper för Storage-behållare**
+**Kommandon för att hantera lagrade åtkomstprinciper för din lagringsbehållare**
 
     storage container policy create [options] [container] [name]
     storage container policy show [options] [container] [name]
@@ -1595,7 +1595,7 @@ Parameteralternativ:
     storage container policy set [options] [container] [name]
     storage container policy delete [options] [container] [name]
 
-**Kommandon för att hantera Storage-blobbar**
+**Kommandon för att hantera ditt Storage-blobbar**
 
     storage blob list [options] [container] [prefix]
     storage blob show [options] [container] [blob]
@@ -1603,47 +1603,47 @@ Parameteralternativ:
     storage blob upload [options] [file] [container] [blob]
     storage blob download [options] [container] [blob] [destination]
 
-**Kommandon för att hantera din blob kopiera åtgärder**
+**Kommandon för att hantera din blob kopieringsåtgärder**
 
     storage blob copy start [options] [sourceUri] [destContainer]
     storage blob copy show [options] [container] [blob]
     storage blob copy stop [options] [container] [blob] [copyid]
 
-**Kommandon för att hantera delade åtkomst till signaturen för Storage-blob**
+**Kommandon för att hantera delade komma åt signaturen för Storage-blob**
 
     storage blob sas create [options] [container] [blob] [permissions] [expiry]
 
-**Kommandon för att hantera din lagringsfilresurser**
+**Kommandon för att hantera dina filresurser för lagring**
 
     storage share create [options] [share]
     storage share show [options] [share]
     storage share delete [options] [share]
     storage share list [options] [prefix]
 
-**Kommandon för att hantera lagring-filer**
+**Kommandon för att hantera dina Storage-filer**
 
     storage file list [options] [share] [path]
     storage file delete [options] [share] [path]
     storage file upload [options] [source] [share] [path]
     storage file download [options] [share] [path] [destination]
 
-**Kommandon för att hantera din lagring filkatalogen**
+**Kommandon för att hantera din fil Arkivkatalog**
 
     storage directory create [options] [share] [path]
     storage directory delete [options] [share] [path]
 
-**Kommandon för att hantera din lagring-köer**
+**Kommandon för att hantera ditt Storage-köer**
 
     storage queue create [options] [queue]
     storage queue list [options] [prefix]
     storage queue show [options] [queue]
     storage queue delete [options] [queue]
 
-**Kommandon för att hantera delade åtkomst till signaturer för Storage-kö**
+**Kommandon för att hantera delade åtkomstsignaturer för Storage-kö**
 
     storage queue sas create [options] [queue] [permissions] [expiry]
 
-**Kommandon för att hantera lagrade åtkomstprinciper för Storage-kö**
+**Kommandon för att hantera lagrade åtkomstprinciper för ditt Storage-kö**
 
     storage queue policy create [options] [queue] [name]
     storage queue policy show [options] [queue] [name]
@@ -1656,23 +1656,23 @@ Parameteralternativ:
     storage logging show [options]
     storage logging set [options]
 
-**Kommandon för att hantera din lagring mått egenskaper**
+**Kommandon för att hantera dina mått lagringsegenskaper**
 
     storage metrics show [options]
     storage metrics set [options]
 
-**Kommandon för att hantera Storage-tabeller**
+**Kommandon för att hantera dina Storage-tabeller**
 
     storage table create [options] [table]
     storage table list [options] [prefix]
     storage table show [options] [table]
     storage table delete [options] [table]
 
-**Kommandon för att hantera delade åtkomst till signaturer för din tabell för lagring**
+**Kommandon för att hantera delade åtkomstsignaturer för Storage-tabell**
 
     storage table sas create [options] [table] [permissions] [expiry]
 
-**Kommandon för att hantera lagrade åtkomstprinciper din tabell för lagring**
+**Kommandon för att hantera lagrade åtkomstprinciper för ditt Storage-tabell**
 
     storage table policy create [options] [table] [name]
     storage table policy show [options] [table] [name]
@@ -1680,7 +1680,7 @@ Parameteralternativ:
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>Azure-taggen: kommandon för att hantera din resource manager-tagg
+## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>Azure-tagg: kommandon för att hantera dina resource manager-tagg
 **Lägga till en tagg**
 
     tag create [options] <name> <value>
@@ -1689,7 +1689,7 @@ Parameteralternativ:
 
     tag delete [options] <name> <value>
 
-**Innehåller tagginformation som**
+**Visar en lista över Tagginformationen**
 
     tag list [options]
 
@@ -1697,7 +1697,7 @@ Parameteralternativ:
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>Azure vm: kommandon för att hantera dina Azure virtuella datorer
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>Azure vm: kommandon för att hantera dina Azure-datorer
 **Skapa en virtuell dator**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1707,11 +1707,11 @@ Parameteralternativ:
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
 
 > [!TIP]
-> Från och med CLI version 0.10 kan du ange ett kort alias, till exempel ”UbuntuLTS” eller ”Win2012R2Datacenter” som den `image-urn` för vissa populära Marketplace-bilder. Kör `azure help vm quick-create` för alternativ. Dessutom från och med version 0.10, `azure vm quick-create` använder premium-lagring som standard om den är tillgänglig i den valda regionen.
+> Från och med CLI version 0.10 kan du ange en kort alias, till exempel ”UbuntuLTS” eller ”Win2012R2Datacenter” som den `image-urn` för några populära Marketplace-avbildningar. Kör `azure help vm quick-create` för alternativ. Dessutom från och med version 0.10, `azure vm quick-create` använder premium storage som standard om den är tillgänglig i den valda regionen.
 > 
 > 
 
-**Visa en lista med virtuella datorer i ett konto**
+**Lista över de virtuella datorerna i ett konto**
 
     vm list [options]
 
@@ -1723,7 +1723,7 @@ Parameteralternativ:
 
     vm delete [options] <resource-group> <name>
 
-**Avsluta en virtuell dator i en resursgrupp**
+**Stäng av en virtuell dator i en resursgrupp**
 
     vm stop [options] <resource-group> <name>
 
@@ -1735,19 +1735,19 @@ Parameteralternativ:
 
     vm start [options] <resource-group> <name>
 
-**Avsluta en virtuell dator i en resursgrupp och frigör beräkningsresurser**
+**Stäng av en virtuell dator i en resursgrupp och frigör beräkningsresurser**
 
     vm deallocate [options] <resource-group> <name>
 
-**Lista över tillgängliga virtuella storlekar**
+**Lista över tillgängliga VM-storlekar**
 
     vm sizes [options]
 
-**Spela in VM som OS-avbildningen eller VM-avbildning**
+**Avbilda virtuell dator som OS-avbildning eller VM-avbildning**
 
     vm capture [options] <resource-group> <name> <vhd-name-prefix>
 
-**Ange tillstånd för den virtuella datorn på generaliserad**
+**Anger du tillståndet för den virtuella datorn på generaliserad**
 
     vm generalize [options] <resource-group> <name>
 
@@ -1755,7 +1755,7 @@ Parameteralternativ:
 
     vm get-instance-view [options] <resource-group> <name>
 
-**Gör att du vill återställa fjärråtkomst till skrivbordet eller SSH-inställningar på en virtuell dator och för att återställa lösenordet för det konto som har administratör eller sudo-behörighet**
+**Hjälper dig att återställa fjärråtkomst till skrivbordet eller SSH-inställningar på en virtuell dator och återställa lösenordet för det konto som har administratören eller sudo-behörighet**
 
     vm reset-access [options] <resource-group> <name>
 
@@ -1763,22 +1763,22 @@ Parameteralternativ:
 
     vm set [options] <resource-group> <name>
 
-**Kommandon för att hantera dina virtuella hårddiskar**
+**Kommandon för att hantera dina virtuella datordiskar data**
 
     vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]
     vm disk detach [options] <resource-group> <vm-name> <lun>
     vm disk attach [options] <resource-group> <vm-name> [vhd-url]
 
-**Kommandon för att hantera Virtuella resurstillägg**
+**Kommandon för att hantera tillägg för VM-resurs**
 
     vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>
     vm extension get [options] <resource-group> <vm-name>
 
-**Kommandon för att hantera den virtuella datorn Docker**
+**Kommandon för att hantera din Docker-dator**
 
     vm docker create [options] <resource-group> <name> <location> <os-type>
 
-**Kommandon för att hantera VM-avbildningar**
+**Kommandon för att hantera avbildningar av Virtuella datorer**
 
     vm image list-publishers [options] <location>
     vm image list-offers [options] <location> <publisher>

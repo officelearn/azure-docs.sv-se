@@ -9,43 +9,40 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 5d9391cc486dc868a1a291ccc7095291cddd3e4c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 73c31c7175bd4dfcb182fb76784937c176ac7702
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858467"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977884"
 ---
 # <a name="call-bing-custom-search-endpoint-nodejs"></a>Anropa anpassad sökning i Bing slutpunkt (Node.js)
 
-Den här snabbstarten visar hur du begär sökresultat från din anpassade Sökinstans genom att använda Node.js för att anropa anpassad sökning i Bing-slutpunkten. 
+Den här snabbstarten visar hur du begär sökresultat från din anpassade Sökinstans med Node.js för att anropa anpassad sökning i Bing-slutpunkten. 
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 Följande krävs för att slutföra den här snabbstarten:
 
-- En anpassad Sökinstans. Se [skapar din första Bing Custom Search-instans](quick-start.md).
-
+- En färdiga att använda anpassad Sökinstans. Se [skapar din första Bing Custom Search-instans](quick-start.md).
 - [Node.js](https://www.nodejs.org/) installerad.
-
--  [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API: er för Bing-sökresultat**. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) är tillräcklig för den här snabbstarten. Du behöver åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
+- En prenumerationsnyckel. Du kan få en prenumerationsnyckel när du aktiverar din [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), eller du kan använda en betald prenumerationsnyckel från instrumentpanelen i Azure (se [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Kör koden
 
-Följ dessa steg för att anropa Bing Custom Search-slutpunkten:
+Följ dessa steg om du vill köra det här exemplet:
 
-1. Skapa en mapp för din kod.
-
-2. Navigera till mappen som du nyss skapade från en kommandotolk eller terminal.
-
+1. Skapa en mapp för din kod.  
+  
+2. Navigera till mappen som du nyss skapade från en kommandotolk eller terminal.  
+  
 3. Installera den **begäran** nod-modulen:
     <pre>
     npm install request
-    </pre>
+    </pre>  
     
-4. Skapa filen BingCustomSearch.js och kopiera följande kod till den.
-
-5. Ersätt **YOUR-SUBSCRIPTION-KEY** och **YOUR-anpassad-CONFIG-ID** med ditt ID för nyckeln och konfigurationsdata (se steg 1).
-
+4. Skapa en fil med namnet BingCustomSearch.js i den mapp du skapade och kopiera följande kod till den. Ersätt **YOUR-SUBSCRIPTION-KEY** och **YOUR-anpassad-CONFIG-ID** med din prenumerationsnyckel och konfiguration-ID.  
+  
     ``` javascript
     var request = require("request");
     
@@ -74,11 +71,13 @@ Följ dessa steg för att anropa Bing Custom Search-slutpunkten:
             console.log();
         }
     })
-    ```
-6. Kör kod med följande kommando.
+    ```  
+  
+6. Kör koden med följande kommando:  
+  
     ```    
     node BingCustomSearch.js
-   ``` 
+    ``` 
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera din värdbaserade användargränssnitt](./hosted-ui.md)

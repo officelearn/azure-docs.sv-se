@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 93b017482006507d616d9125cd17fd2f14389d59
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 6c8790110b0ecb8ea7d38756661774b3526f7a7c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983054"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983403"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Välja tjänstnivå vCore beräkning, minne, lagring och IO-resurser
 
 Den vCore-baserade inköpsmodellen kan du oberoende skala beräknings- och lagringsresurser, matcha lokala prestanda och optimera pris. Du kan också välja maskinvarusystem:
 - Gen 4 – upp till 24 logiska processorer bygger på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, vCore = 1 sidor (fysiska kärnor), 7 GB per kärna, anslutna SSD
-- Gen 5 – upp till 80 logiska processorer som baseras på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer, vCore = 1 LP (hyper-tråd), 5.1. GB per kärna, snabb eNVM SSD
+- Gen 5 – upp till 80 logiska processorer som baseras på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer, vCore = 1 LP (hyper-tråd), 5.5. GB per kärna, snabb eNVM SSD
 
 vCore-modellen kan du använda [Azure Hybrid Use-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) att få kostnadsbesparingar.
 
@@ -30,19 +30,19 @@ VCore-modellen innehåller två tjänstnivåer generell användning och affärsk
 
 Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 
-||**Generell användning**|**Affärskritisk**|
-|---|---|---|
-|Bäst för|De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|
-|Compute|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|
-|Minne|Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna | Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna |
-|Storage|[Premium Fjärrlagring](../virtual-machines/windows/premium-storage.md),<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB 8 TB |Lokal SSD-lagring<br/>Databas: 5 GB-1 TB<br/>Hanterad instans: 32 GB 4 TB |
-|I/o-genomströmning (ungefärlig)|Databas: 500 IOPS per vCore med 7000 högsta IOPS</br>Hanterad instans: Beror på [storleken på filen](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per kärna med 200000 högsta IOPS|
-|Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala repliken](sql-database-read-scale-out.md),<br/>zonen redundant hög tillgänglighet|
-|Säkerhetskopior|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|
-|I minnet|Gäller inte|Stöds|
+||**Generell användning**|**Affärskritisk**|**Hyperskala (förhandsversion)**|
+|---|---|---|---|
+|Bäst för|De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|De flesta företags arbetsbelastningar med mycket skalbar lagring och läs-och skalningskrav|
+|Compute|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|
+|Minne|Gen4: 7 GB per kärna<br>Gen5: 5.5 GB per kärna | Gen4: 7 GB per kärna<br>Gen5: 5.5 GB per kärna |Gen4: 7 GB per kärna<br>Gen5: 5.5 GB per kärna|
+|Storage|[Premium Fjärrlagring](../virtual-machines/windows/premium-storage.md),<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB 8 TB |Lokal SSD-lagring<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB 4 TB |Flexibel, auto-väx lagring efter behov. Har stöd för upp till 100 TB lagring och mycket mer. Lokal SSD-lagring för lokala buffertminne för poolen och lokal datalagring. Azure Fjärrlagring sista långsiktig datalagring. |
+|I/o-genomströmning (ungefärlig)|Databas: 500 IOPS per vCore med 7000 högsta IOPS</br>Hanterad instans: Beror på [storleken på filen](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per kärna med 200 000 högsta IOPS|TBD|
+|Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala repliken](sql-database-read-scale-out.md),<br/>zonen redundant hög tillgänglighet|?|
+|Säkerhetskopior|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|ögonblicksbild-baserad säkerhetskopiering i Azure Fjärrlagring och återställningar kan du använda de här ögonblicksbilderna för snabb återställning. Säkerhetskopior är omedelbara och påverkar inte i/o-prestanda för databearbetning. Återställningar är mycket snabbt och inte av storleken på dataåtgärder (i minuter inte tidpunkter/dagar).|
+|I minnet|Stöds inte|Stöds|Stöds inte|
 |||
 
-Mer information finns i [vCore resursbegränsningar i databasen för Singelton](sql-database-vcore-resource-limits-single-databases.md) och [vCore resursbegränsningar i Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model). 
+Mer information finns i [vCore resursbegränsningar i enkel databas](sql-database-vcore-resource-limits-single-databases.md) och [vCore resursbegränsningar i Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model). 
 
 > [!IMPORTANT]
 > Om du behöver mindre än 1 vCore för beräkningskapacitet kan använda den DTU-baserade inköpsmodellen.
@@ -51,6 +51,7 @@ Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga
 
 ## <a name="storage-considerations"></a>Överväganden för lagring
 
+### <a name="general-purpose-and-business-critical-service-tiers"></a>Allmänt syfte och affärskritisk-tjänstnivåer
 Tänk också på följande:
 - Allokerat lagringsutrymme används av datafiler (MDF) och loggfiler för filer (LDF).
 - Varje enskild databas beräkna storleken stöder den maximala databasstorleken med en maximal standardstorlek på 32 GB.
@@ -70,12 +71,22 @@ Du övervakar den aktuella totala storleken på MDF-filen och IDF med [sp_spaceu
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
+### <a name="hyperscale-service-tier-preview"></a>Hyperskala tjänstnivå (förhandsversion)
+
+Lagring är automatisk hanteras för storskalig databas. Storage växer efter behov. ”Oändlig logg” lagring på snabbt Azure premium storage SSD med inga återkommande loggtrunkering som behövs.
+
 ## <a name="backups-and-storage"></a>Säkerhetskopiering och lagring
+
+### <a name="general-purpose-and-business-critical-service-tiers"></a>Allmänt syfte och affärskritisk-tjänstnivåer
 
 Lagring för säkerhetskopior av databasen har allokerats för att stödja punkten i tiden återställa (PITR) och [Long Term Retention (LTR)](sql-database-long-term-retention.md) funktionerna i SQL-databas. Den här lagringen är tilldelat separat för varje databas och faktureras som två separata per databas avgifter. 
 
 - **PITR**: säkerhetskopiering av enskilda databaser kopieras till [RA-GRS-lagring](../storage/common/storage-designing-ha-apps-with-ragrs.md) automatiskt. Storlek ökar dynamiskt när nya säkerhetskopior har skapats.  Lagringsutrymmet används av veckovisa, fullständiga säkerhetskopior, dagliga differentiella säkerhetskopior och säkerhetskopior av transaktionsloggar var femte minut. Lagringsanvändningen beror på ändringsfrekvensen i databasen och kvarhållningsperioden. Du kan konfigurera en separat kvarhållningsperiod för varje databas mellan 7 och 35 dagar. En minimimängd lagringsutrymme som är lika med 1 x av storleken på data tillhandahålls utan extra kostnad. För de flesta databaser är beloppet tillräckligt för att lagra säkerhetskopiorna i 7 dagar.
 - **LTR**: SQL Database erbjuder alternativet att konfigurera långsiktig kvarhållning av fullständiga säkerhetskopior för upp till 10 år. Om LTR principen är aktiverad, dessa säkerhetskopior lagras i RA-GRS-lagring automatiskt, men du kan styra hur ofta säkerhetskopiorna kopieras. Du kan välja olika kvarhållningsperioder för veckovisa, månatliga och årliga säkerhetskopior för att uppfylla olika krav. Den här konfigurationen definierar hur mycket lagringsutrymme som ska användas för LTR-säkerhetskopieringar. Du kan använda LTR priskalkylatorn för att beräkna kostnaden för LTR-lagring. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
+
+### <a name="hyperscale-service-tier-preview"></a>Hyperskala tjänstnivå (förhandsversion)
+
+ögonblicksbild-baserad säkerhetskopiering i Azure Fjärrlagring och återställningar kan du använda de här ögonblicksbilderna för snabb återställning. Säkerhetskopior är omedelbara och påverkar inte i/o-prestanda för databearbetning. Återställningar är mycket snabbt och inte av storleken på dataåtgärder (i minuter inte tidpunkter/dagar).
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid-förmånen
 

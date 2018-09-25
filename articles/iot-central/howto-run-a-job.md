@@ -1,19 +1,19 @@
 ---
 title: Skapa och köra jobb i ditt program med Azure IoT Central | Microsoft Docs
 description: Azure IoT Central-jobb gör det möjligt att bulk hanteringsfunktioner för enheter, till exempel uppdaterar en enhetsegenskap, inställning eller ett kommando har körts.
+ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 09/15/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ce003eba07950a56fe178a19655a9059416b69b7
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 35db7bf87c7b72fc31d820c9058b1df8415bd553
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46468783"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031313"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i din Azure IoT Central-App
 

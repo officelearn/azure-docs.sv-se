@@ -13,14 +13,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 07b9ac8389a2bf06e0356f65d816d75d49cc0cf5
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9168ac1d26432ca3eee5a59b63aa0cec3ae72856
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650394"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989064"
 ---
 # <a name="supported-matrix-for-this-release"></a>Matris som stöds för den här versionen 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 När din kod läser in data med hjälp av Azure Machine Learning-datakällor eller Azure Machine Learning Dataförberedelser, komma antingen Pandas eller Spark dataframe följande kombinationer av experimentet compute miljöer och platser stöds:
 
 |     |Lokala filer  |Azure Blob Storage  |SQL Server-databasen ***  |

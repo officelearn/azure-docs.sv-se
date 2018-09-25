@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database köpa modeller | Microsoft Docs
-description: Lär dig mer om hur du köper modell för Azure SQL Database.
+description: Läs mer om den inköpsmodellen modeller som är tillgängliga databaser i Azure SQL Database-tjänsten.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
@@ -9,18 +9,21 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 4fe75d8d350ee2d2a97b9d7efb10ff3c1675168d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 651f80c8b8f4bc5f8aa8cf117e3208f4126e964c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737122"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961084"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database köpa modeller och resurser 
 
 Azure SQL Database kan du enkelt köpa helt hanterad PaaS-databasmotor som passar ditt behov av prestanda och kostnader. Beroende på distributionsmodell för Azure SQL Database, kan du välja den inköpsmodellen som passar dina behov: 
- - [Logiska servrar](sql-database-logical-servers.md) i [Azure SQL Database](sql-database-technical-overview.md) finns i två inköpschef modeller för beräkning, lagring och IO-resurser: en DTU-baserade inköpsmodellen och en [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). 
+ - [Logiska servrar](sql-database-logical-servers.md) i [Azure SQL Database](sql-database-technical-overview.md) finns i två inköpschef modeller för beräkning, lagring och IO-resurser: en [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och en [vCore-baserade inköpsmodell](sql-database-service-tiers-vcore.md). I den här inköpsmodellen kan du välja [enkla databaser](sql-database-single-databases-manage.md) eller [elastiska pooler](sql-database-elastic-pool.md).
  - [Hanterade instanser](sql-database-managed-instance.md) i Azure SQL Database endast erbjudandet den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
+
+> [!IMPORTANT]
+> [Hyperskala databaser (förhandsversion)](sql-database-hyperscale.md) är bara tillgängliga med den vCore-baserade inköpsmodellen för enskilda databaser med en logisk server eller i en hanterad instans. 
 
 Följande tabell och diagrammet Jämför och kontrastera dessa två inköpschef modeller.
 
@@ -34,17 +37,12 @@ Följande tabell och diagrammet Jämför och kontrastera dessa två inköpschef 
 
 ## <a name="vcore-based-purchasing-model"></a>vCore-baserade inköpsmodellen 
 
-En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara och fysiska egenskaper av maskinvara (till exempel antal kärnor, minne, lagringsstorlek). Den vCore-baserade inköpsmodellen ger den flexibilitet, kontroll, transparens av enskild resursförbrukning och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du välja beräkning, minne och lagring utifrån deras arbetsbelastningsbehov. I den vCore-baserade inköpsmodellen, kunderna kan välja mellan [generella](sql-database-high-availability.md#standardgeneral-purpose-availability) och [affärskritisk](sql-database-high-availability.md#premiumbusiness-critical-availability) tjänstnivåer för både [enkla databaser](sql-database-single-database-scale.md), [hanterade instanser](sql-database-managed-instance.md), och [elastiska pooler](sql-database-elastic-pool.md). 
+En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara och fysiska egenskaper av maskinvara (till exempel antal kärnor, minne, lagringsstorlek). Den vCore-baserade inköpsmodellen ger den flexibilitet, kontroll, transparens av enskild resursförbrukning och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du välja beräkning, minne och lagring utifrån deras arbetsbelastningsbehov. I den vCore-baserade inköpsmodellen, kan du välja mellan [generella](sql-database-high-availability.md#standardgeneral-purpose-availability) och [affärskritisk](sql-database-high-availability.md#premiumbusiness-critical-availability) tjänstnivåer för både [enkla databaser](sql-database-single-database-scale.md), [ hanterade instanser](sql-database-managed-instance.md), och [elastiska pooler](sql-database-elastic-pool.md). För enskilda databaser du kan också välja den [hyperskala (förhandsversion)](sql-database-hyperscale.md) tjänstnivå.
 
 Den vCore-baserade inköpsmodellen kan du välja beräknings- och lagringsresurser, matcha lokala prestanda och optimera priset oberoende av varandra. I den vCore-baserade inköpsmodellen, kunder som betalar för:
-- Compute (tjänstnivå + antalet virtuella kärnor och mängden minne + maskinvarusystem) *
+- Compute (tjänstnivå + antalet virtuella kärnor och mängden minne + maskinvarusystem)
 - Typ och mängden lagringsutrymme för data och loggfiler 
-- Antal IOs ** – gäller för [logiska servrar](sql-database-logical-servers.md) endast
-- Säkerhetskopiera lagring (RA-GRS) ** 
-
-\* I den första offentliga förhandsversionen kan den Gen 4 logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer.
-
-\*\* Sju dagar efter säkerhetskopior och IOs är kostnadsfria i förhandsversionen.
+- Backup storage (RA-GRS) 
 
 > [!IMPORTANT]
 > Beräknings-, IOs, data och logglagring debiteras per databas eller elastisk pool. Lagring för säkerhetskopior debiteras per varje databas. Information av avgifter för hanterad instans i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).

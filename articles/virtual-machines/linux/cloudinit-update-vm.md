@@ -1,6 +1,6 @@
 ---
-title: Använda molnet init för att uppdatera och installera paket i en Linux-VM på Azure | Microsoft Docs
-description: Hur du använder molntjänster init för att uppdatera och installera paket i en Linux-VM under skapande av med Azure CLI 2.0
+title: Använda cloud-init för att uppdatera och installera paket i en Linux-VM på Azure | Microsoft Docs
+description: Hur du använder cloud-init för att uppdatera och installera paket i en Linux VM när skapas med Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,20 +14,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: 8d5835b5d1b0c2f77bdf5e1a2b808478b8f4de22
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 84fab18d4e1f385f8770db52b18ac85151f48afd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186162"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988061"
 ---
-# <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Använda molntjänster init för att uppdatera och installera paket i en Linux-VM i Azure
-Den här artikeln visar hur du använder [moln init](https://cloudinit.readthedocs.io) för att uppdatera paket på en Linux virtuella dator (VM) eller virtuella datorn anger (VMSS) vid etablering tid i Azure. Skripten molnet init körs vid den första starten när resurserna som har etablerats genom Azure. Mer information om hur molnet init internt fungerar i Azure- och Linux-distributioner som stöds finns [moln init-översikt](using-cloud-init.md)
+# <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Använda cloud-init för att uppdatera och installera paket i en Linux-VM i Azure
+Den här artikeln visar hur du använder [cloud-init](https://cloudinit.readthedocs.io) för att uppdatera paket på en Linux-dator (VM) eller VM-skalningsuppsättning anger (VMSS) vid etableringstid i Azure. Skripten cloud-init körs vid den första starten när resurserna har etablerats med Azure. Mer information om hur cloud-init fungerar internt i Azure och Linux-distributioner som stöds finns i [cloud-init-översikt](using-cloud-init.md)
 
-## <a name="update-a-vm-with-cloud-init"></a>Uppdatera en virtuell dator med molnet initiering
-Av säkerhetsskäl kanske du vill konfigurera en virtuell dator för att tillämpa de senaste uppdateringarna på första start. Som molntjänster init fungerar även över olika Linux-distributioner, det finns ingen anledning att ange `apt` eller `yum` för package manager. I stället kan du definiera `package_upgrade` och låta molnet init processen fastställa rätt mekanism för distro används. Det här arbetsflödet kan du använda samma molnet init skripten över distributioner.
+## <a name="update-a-vm-with-cloud-init"></a>Uppdatera en virtuell dator med cloud-init
+Av säkerhetsskäl kanske du vill konfigurera en virtuell dator för att tillämpa de senaste uppdateringarna vid första start. Eftersom cloud-init fungerar över olika Linux-distributioner, det finns ingen anledning att ange `apt` eller `yum` för package manager. I stället definierar du `package_upgrade` och låta cloud-init-processen bestämma lämpliga mekanism för distribution används. Det här arbetsflödet kan du använda samma cloud-init-skripten för distributioner.
 
-Om du vill se uppgraderingsprocessen i praktiken kan du skapa en fil i din aktuella shell med namnet *cloud_init_upgrade.txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i molnet Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_upgrade.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 att använda den **nano** editor. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden.  
+Om du vill se uppgraderingsprocessen i praktiken kan du skapa en fil i ditt nuvarande gränssnitt med namnet *cloud_init_upgrade.txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_upgrade.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 för att använda den **nano** redigeraren. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden.  
 
 ```yaml
 #cloud-config
@@ -36,13 +36,13 @@ packages:
 - httpd
 ```
 
-Innan du distribuerar den här avbildningen måste du skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group#az_group_create) kommando. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+Innan du distribuerar den här avbildningen måste du skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group#az_group_create) kommando. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Nu ska du skapa en virtuell dator med [az vm skapa](/cli/azure/vm#az_vm_create) och ange molnet init-fil med `--custom-data cloud_init_upgrade.txt` på följande sätt:
+Nu skapar du en virtuell dator med [az vm skapa](/cli/azure/vm#az_vm_create) och ange cloud-init-fil med `--custom-data cloud_init_upgrade.txt` på följande sätt:
 
 ```azurecli-interactive 
 az vm create \
@@ -53,19 +53,19 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-SSH till den offentliga IP-adressen på den virtuella datorn visas i utdata från kommandot ovan. Ange en egen **publicIpAddress** på följande sätt:
+SSH till den offentliga IP-adressen för den virtuella datorn visas i utdata från föregående kommando. Ange ett eget **publicIpAddress** på följande sätt:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-Kör verktyget för hantering av paket och Sök efter uppdateringar.
+Kör paketet hanteringsverktyg och Sök efter uppdateringar.
 
 ```bash
 sudo yum update
 ```
 
-När molnet init kontrolleras för och installerade uppdateringar på Start, bör det finnas några ytterligare uppdateringar ska tillämpas.  Du ser uppdateringsprocessen, antal ändrade paket samt installation av `httpd` genom att köra `yum history` och granska utdata som liknar den nedan.
+Eftersom cloud-init markerat för och installerade uppdateringar vid starten, bör det finnas inga ytterligare uppdateringar tillämpas.  Du ser uppdateringsprocessen, antal ändrade paket samt installation av `httpd` genom att köra `yum history` och granska utdata som liknar den som visas nedan.
 
 ```bash
 Loaded plugins: fastestmirror, langpacks
@@ -77,9 +77,9 @@ ID     | Command line             | Date and time    | Action(s)      | Altered
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Ytterligare molnet initiering exempel av konfigurationsändringar finns i följande:
+Ytterligare cloud-init exempel av konfigurationsändringar finns i följande:
  
-- [Lägga till en ytterligare Linux-användare till en virtuell dator](cloudinit-add-user.md)
-- [Kör en package manager för att uppdatera befintliga paket på första starten](cloudinit-update-vm.md)
-- [Ändra lokala värdnamnet för VM](cloudinit-update-vm-hostname.md) 
+- [Lägg till en ytterligare Linux-användare till en virtuell dator](cloudinit-add-user.md)
+- [Kör en pakethanterare för att uppdatera befintliga paket vid första start](cloudinit-update-vm.md)
+- [Ändra lokala värdnamnet för virtuell dator](cloudinit-update-vm-hostname.md) 
 - [Installera ett programpaket, uppdatera konfigurationsfiler och mata in nycklar](tutorial-automate-vm-deployment.md)

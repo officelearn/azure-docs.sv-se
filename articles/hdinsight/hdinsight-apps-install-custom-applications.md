@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9df3b20cd72236d7001aac94bae302b5a6f9eb8d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5e3194b856766502e4cc8c68ffa4bb936634adfa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110580"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983148"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Installera anpassade Hadoop-program i Azure HDInsight
 
@@ -66,7 +66,7 @@ Filer som behövs för att distribuera programmet (Hue):
     När du klickar på den här knappen öppnas en Resource Manager-mall i Azure Portal.  Resource Manager-mallen finns på [ https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json ](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  Information om hur du skriver Resource Manager-mallen finns i [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx).
 2. Följ anvisningarna för att skapa kluster och installera Hue. Mer information om hur du skapar HDInsight-kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-Utöver Azure Portal kan du också använda [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) och [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-cli) för att anropa Resource Manager-mallar.
+Utöver Azure-portalen kan du också använda [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) och [klassiska Azure-CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-azure-cli) du anropar Resource Manager-mallar.
 
 ## <a name="validate-the-installation"></a>Verifiera installationen
 Du kan validera programinstallationen genom att kontrollera statusen för programmet på Azure Portal. Dessutom kan du verifiera att alla HTTP-slutpunkter visats som förväntat och webbsidan om det finns en:
@@ -117,8 +117,8 @@ Via portalen kan du också ta bort klustret eller resursgruppen som innehåller 
 ### <a name="use-azure-powershell"></a>Använda Azure PowerShell
 Med Azure PowerShell kan du ta bort klustret eller resursgruppen. Se [Ta bort kluster med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### <a name="use-azure-cli"></a>Använda Azure CLI
-Med Azure CLI kan du ta bort klustret eller resursgruppen. Se [Ta bort kluster med hjälp av Azure CLI](hdinsight-administer-use-command-line.md#delete-clusters).
+### <a name="use-azure-classic-cli"></a>Använda Azure klassiska CLI
+Med klassiska Azure-CLI kan du ta bort klustret eller ta bort resursgruppen. Se [ta bort kluster med hjälp av klassiska Azure-CLI](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## <a name="next-steps"></a>Nästa steg
 * [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): Läs mer om hur du utvecklar Resource Manager-mallar för distribution av HDInsight-program.

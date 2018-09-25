@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: 0ff14ec2100d47e0edc5288f1c46f4fdd63fa683
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: cbd1a7a3a797cc20be92583bbb5ac163333729fc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171535"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969809"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurera omvänd DNS för tjänster som hanteras i Azure
 
@@ -51,7 +51,7 @@ Samma begränsningar gäller för att omvänd DNS för molntjänster.
 
 ## <a name="reverse-dns-for-publicipaddress-resources"></a>Omvänd DNS för PublicIpAddress-resurser
 
-Det här avsnittet innehåller detaljerade anvisningar för hur du konfigurerar omvänd DNS för PublicIpAddress-resurser i Resource Manager-distributionsmodellen, med hjälp av Azure PowerShell, Azure CLI 1.0 eller Azure CLI 2.0. Konfigurera omvänd DNS för PublicIpAddress-resurser stöds inte för närvarande via Azure portal.
+Det här avsnittet innehåller detaljerade anvisningar för hur du konfigurerar omvänd DNS för PublicIpAddress-resurser i Resource Manager-distributionsmodellen, med hjälp av Azure PowerShell, Azure klassiskt CLI eller Azure CLI. Konfigurera omvänd DNS för PublicIpAddress-resurser stöds inte för närvarande via Azure portal.
 
 Azure för närvarande har stöd för omvänd DNS endast för IPv4 PublicIpAddress-resurser. Det finns inte stöd för IPv6.
 
@@ -77,7 +77,7 @@ $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
 Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
 Lägga till omvänd DNS i en befintlig PublicIpAddress:
 
@@ -91,7 +91,7 @@ Om du vill lägga till omvänd DNS i en befintlig PublicIpAddress som inte redan
 azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 Lägga till omvänd DNS i en befintlig PublicIpAddress:
 
@@ -115,13 +115,13 @@ Skapa en ny PublicIpAddress med omvänd DNS-egenskapen har redan angetts:
 New-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "WestUS" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
 ```azurecli
 azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d contosoapp3 -f contosoapp3.westus.cloudapp.azure.com.
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip create --name PublicIp --resource-group MyResourceGroup --location westcentralus --dns-name contosoapp1 --reverse-fqdn contosoapp1.westcentralus.cloudapp.azure.com
@@ -137,13 +137,13 @@ Visa det konfigurerade värdet för en befintlig PublicIpAddress:
 Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
 ```azurecli
 azure network public-ip show -n PublicIp -g MyResourceGroup
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
@@ -161,13 +161,13 @@ $pip.DnsSettings.ReverseFqdn = ""
 Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup –f ""
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn ""
@@ -176,7 +176,7 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 
 ## <a name="configure-reverse-dns-for-cloud-services"></a>Konfigurera omvänd DNS för Cloud Services
 
-Det här avsnittet innehåller detaljerade anvisningar för hur du konfigurerar omvänd DNS för molntjänster i den klassiska distributionsmodellen med hjälp av Azure PowerShell. Konfigurera omvänd DNS för Cloud Services stöds inte via Azure-portalen, Azure CLI 1.0 eller Azure CLI 2.0.
+Det här avsnittet innehåller detaljerade anvisningar för hur du konfigurerar omvänd DNS för molntjänster i den klassiska distributionsmodellen med hjälp av Azure PowerShell. Konfigurera omvänd DNS för Cloud Services stöds inte via Azure-portalen, Azure klassiskt CLI eller Azure CLI.
 
 ### <a name="add-reverse-dns-to-existing-cloud-services"></a>Lägg till omvänd DNS i befintliga Cloud Services
 

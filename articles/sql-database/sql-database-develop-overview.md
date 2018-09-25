@@ -2,20 +2,22 @@
 title: Översikt över SQL Database-programutveckling | Microsoft Docs
 description: Läs mer om tillgängliga anslutningsbibliotek och bästa praxis för program som ansluter till SQL Database.
 services: sql-database
-author: stevestein
-manager: craigg
-ms.reviewer: genemi
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 4236372370858e940d7e3a1671c0e8a8278796fb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.reviewer: genemi
+manager: craigg
+ms.date: 06/20/2018
+ms.openlocfilehash: 58f902edcd417809d1bb47a231cb1c2ac2f579d1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057654"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063599"
 ---
 # <a name="sql-database-application-development-overview"></a>Översikt över SQL Database-programutveckling
 Den här artikeln beskriver grundläggande överväganden som utvecklare bör tänka på då de skriver kod för att ansluta till Azure SQL Database.

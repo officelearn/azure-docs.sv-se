@@ -2,20 +2,22 @@
 title: Automatisk justering i Azure SQL Database e-meddelanden instruktionsguide - | Microsoft Docs
 description: Aktivera e-postaviseringar för Azure SQL Database fråga automatisk justering.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/19/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: 546a21c4be13fdd0d06e29253d73c6b67cb8c91c
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498478"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064109"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-postmeddelanden för automatisk justering
 
@@ -205,12 +207,12 @@ Nästa steg är att lägga till tre jobb (skapa, är get-utdata och skicka e-pos
 1. Skapa åtgärd för att köra PowerShell-skript för att hämta justeringsrekommendationer
 - Välj ”**+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
 - I fältet söktyp ”**automation**” och välj ”**Azure Automation – skapa jobb**” från sökresultaten
-- Konfigurera jobbegenskaper för i fönstret Skapa jobbet. För den här konfigurationen behöver du information om dina Azure-prenumeration-ID, resursgrupp och ett Automation-konto **tidigare inspelade** på den **Automation-konto fönstret**. Mer information om tillgängliga alternativ i det här avsnittet finns [Azure Automation - skapa jobbet](https://docs.microsoft.com/connectors/azureautomation/#Create_job).
+- Konfigurera jobbegenskaper för i fönstret Skapa jobbet. För den här konfigurationen behöver du information om dina Azure-prenumeration-ID, resursgrupp och ett Automation-konto **tidigare inspelade** på den **Automation-konto fönstret**. Mer information om tillgängliga alternativ i det här avsnittet finns [Azure Automation - skapa jobbet](https://docs.microsoft.com/connectors/azureautomation/#create-job).
 - Slutför att skapa den här åtgärden genom att klicka på ”**spara flöde**”
 
 2. Skapa åtgärd för att hämta utdata från utförda PowerShell-skript
 - Välj ”**+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
-- I rutan Sök datatyper ”**automation**” och välj ”**Azure Automation – Get-jobbutdata**” från sökresultaten. Mer information om tillgängliga alternativ i det här avsnittet finns [Azure Automation – Get-jobbutdata](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output).
+- I rutan Sök datatyper ”**automation**” och välj ”**Azure Automation – Get-jobbutdata**” från sökresultaten. Mer information om tillgängliga alternativ i det här avsnittet finns [Azure Automation – Get-jobbutdata](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
 - Fyll i fälten obligatoriskt (liknar skapar det föregående jobbet) – Fyll i din Azure-prenumeration-ID, resursgrupp och ett Automation-konto (som angetts i fönstret Automation-konto)
 - Klicka i fältet ”**jobb-ID**” för den ”**dynamiskt innehåll**” menyn visas. Från den här menyn väljer alternativet ”**jobb-ID**”.
 - Slutför att skapa den här åtgärden genom att klicka på ”**spara flöde**”

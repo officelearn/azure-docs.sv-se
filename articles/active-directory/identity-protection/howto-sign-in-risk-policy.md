@@ -16,89 +16,79 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 7350cbd3e8aed6098f24d0edaa5807d241890287
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: bae71c55bdea838d0ef5e0ae3acbac3e98a92fa0
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45581477"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055072"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Så här: Konfigurera princip för inloggningsrisk
 
 Azure Active Directory identifierar [riskhändelsetyper](../reports-monitoring/concept-risk-events.md#risk-event-types) i realtid och offline. Varje riskhändelsen har upptäckts för en inloggning för en användare bidrar till ett logiskt koncept som kallas riskfyllda inloggningen. En riskfylld inloggning är du en indikator för en inloggningsförsök som inte kanske har utförts av är tillförlitligt ägare för ett användarkonto.
 
 
-## <a name="sign-in-risk-level"></a>Risknivå för inloggning
+## <a name="what-is-the-sign-in-risk-policy"></a>Vad är inloggningsrisk principen?
 
-En nivå för inloggningsrisk är en indikation (hög, medel eller låg) på sannolikheten att en inloggningsförsök inte har utförts av är tillförlitligt ägare för ett användarkonto.
+Azure AD analyserar varje inloggning för en användare. Målet med analysen är att identifiera misstänkta åtgärder som kommer med inloggningen. Till exempel är inloggningen klar med hjälp av en anonym IP-adress eller är inloggning som initieras från en okänd plats? Systemet kan identifiera misstänkta åtgärderna är kallas även riskhändelser i Azure AD. Baserat på de riskhändelser som har identifierats under inloggning, Azure AD beräknar ett värde. Värdet som representerar sannolikheten (låg, medelhög och hög) att inloggningen inte utförs av behöriga användare. Sannolikheten kallas **risknivå för inloggning**.
 
-## <a name="mitigating-sign-in-risk-events"></a>Minimera riskhändelser som inloggning
+Princip för inloggningsrisk är en automatisk åtgärd som du kan konfigurera för en specifik inloggning risknivå. Du kan blockera åtkomst till resurser eller kräver skicka multifaktorautentisering (MFA) svårt att få åtkomst i ditt svar.
 
-En lösning är en åtgärd för att begränsa möjligheten för en angripare att utnyttja en komprometterad identitet eller en enhet utan att återställa den identitet eller enhet till säkert läge. En lösning kan inte matchas tidigare inloggningsrisk händelser som är associerade med den identitet eller enhet.
-
-Du kan konfigurera säkerhetsprinciper för inloggningsrisk för att minimera riskfyllda inloggningar automatiskt. Med dessa principer kan du överväga att risknivån för användaren eller logga in att blockera riskfyllda inloggningar eller kräva att användaren att utföra multifaktorautentisering. De här åtgärderna kan hindra en angripare utnyttjar en stulen identitet för att skada och kan ge dig tid att skydda identitet.
-
-## <a name="sign-in-risk-security-policy"></a>Säkerhetsprincip för inloggningsrisk
-En princip för inloggningsrisk är en villkorlig åtkomstprincip som utvärderar risken för angrepp på en specifik inloggning och tillämpar åtgärder baserat på fördefinierade villkor och regler.
-
+   
+## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Hur kommer jag åt inloggningsrisk principen?
+   
+Princip för inloggninsrisk-är i den **konfigurera** avsnittet på den [Azure AD Identity Protection-sidan](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+   
 ![Riskprincip för inloggning](./media/howto-sign-in-risk-policy/1014.png "inloggning riskprincipen")
 
-Azure AD Identity Protection hjälper dig att hantera minskning av riskfyllda inloggningar genom att:
 
-* Ange de användare och grupper som principen gäller för:
+## <a name="policy-settings"></a>Principinställningar
 
-    ![Riskprincip för inloggning](./media/howto-sign-in-risk-policy/1015.png "inloggning riskprincipen")
-* Ange inloggningsrisk nivå tröskelvärdet (låg, medel eller hög) som utlöser principen:
+När du konfigurerar principen inloggningsrisk, måste du ange:
 
-    ![Riskprincip för inloggning](./media/howto-sign-in-risk-policy/1016.png "inloggning riskprincipen")
-* Ange kontroller som ska tillämpas när principen utlöser:  
+- Användare och grupper som principen gäller för:
 
-    ![Riskprincip för inloggning](./media/howto-sign-in-risk-policy/1017.png "inloggning riskprincipen")
-* Växla tillståndet för din princip:
+    ![Användare och grupper](./media/howto-sign-in-risk-policy/11.png)
 
-    ![MFA-registrering](./media/howto-sign-in-risk-policy/403.png "MFA-registrering")
-* Granska och utvärdera effekten av en ändring innan du aktiverar det:
+- Nivå för inloggningsrisk som utlöser principen:
 
-    ![Riskprincip för inloggning](./media/howto-sign-in-risk-policy/1018.png "inloggning riskprincipen")
+    ![Risknivå för inloggning](./media/howto-sign-in-risk-policy/12.png)
 
-## <a name="what-you-need-to-know"></a>Vad du behöver veta
-Du kan konfigurera en säkerhetsprincip för inloggningsrisk för att kräva multifaktorautentisering:
+- Vilken typ av åtkomst som du vill tillämpas när din inloggning risknivån är uppfyllt:  
 
-![Riskprincip för inloggning](./media/howto-sign-in-risk-policy/1017.png "inloggning riskprincipen")
+    ![Access](./media/howto-sign-in-risk-policy/13.png)
 
-Men av säkerhetsskäl fungerar den här inställningen bara för användare som redan har registrerats för multifaktorautentisering. Om villkoret för att kräva multifaktorautentisering uppfylls för en användare som ännu inte har registrerats för multifaktorautentisering, är användaren blockerad.
+- Tillståndet för din princip:
 
-Som bästa praxis, om du vill kräva multifaktorautentisering för riskfyllda inloggningar, bör du:
+    ![Tillämpa princip](./media/howto-sign-in-risk-policy/14.png)
+
+
+Dialogrutan princip konfiguration får du ett alternativ för att beräkna effekten av omkonfiguration.
+
+![Uppskattad påverkan](./media/howto-sign-in-risk-policy/15.png)
+
+## <a name="what-you-should-know"></a>Vad du bör känna till
+
+Du kan konfigurera en säkerhetsprincip för inloggningsrisk för att kräva MFA:
+
+![Kräv MFA](./media/howto-sign-in-risk-policy/16.png)
+
+Men av säkerhetsskäl fungerar den här inställningen bara för användare som redan har registrerats för MFA. Identitetsskydd blockerar användare med en MFA-kravet om de inte är ännu registrerats för MFA.
+
+Om du vill kräva MFA för riskfyllda inloggningar, bör du:
 
 1. Aktivera den [registreringsprincip för multi-Factor authentication](#multi-factor-authentication-registration-policy) för de berörda användarna.
-2. Kräv att berörda användare att logga in i en icke-riskfyllda session för att utföra en MFA-registrering
+
+2. Kräv att berörda användare att logga in i en icke-riskfyllda session för att utföra en MFA-registrering.
 
 Gör så här säkerställer att multifaktorautentisering krävs för en riskfylld inloggning.
 
-## <a name="best-practices"></a>Bästa praxis
-Välja en **hög** tröskelvärdet minskar antalet gånger som en princip har utlösts och minimerar påverkan för användare.  
-
-Men det omfattar inte **låg** och **medel** inloggningar som har flaggats för risk från principen som inte blockerar en angripare utnyttjar en komprometterad identitet.
-
-När du ställer in principen
-
-* Undanta användare som inte / kan inte ha multifaktorautentisering
-* Exkludera användare i nationella inställningar där aktiverar principen inte är en praktisk (till exempel ingen åtkomst till supportavdelningen)
-* Exkludera användare som sannolikt inte kommer att skapa ett stort antal falskpositiva resultat (utvecklare, säkerhetsanalytiker)
-* Använd en **hög** tröskelvärde under inledande skala ut, eller om du måste minimera utmaningar som setts av slutanvändare.
-* Använd en **låg** tröskelvärdet om din organisation kräver ökad säkerhet. Att välja en **låg** tröskelvärdet introducerar ytterligare användare logga in utmaningar, men ökad säkerhet.
-
-Rekommenderad standard för de flesta organisationer är att konfigurera en regel för en **medel** tröskelvärdet för att få en balans mellan användbarhet och säkerhet.
-
 Princip för inloggningsrisk är:
 
-* Tillämpas på alla webbläsartrafik och inloggningar som använder modern autentisering.
-* Inte användas av program med äldre säkerhetsprotokoll genom att inaktivera den WS-Trust-slutpunkten på federerade IDP: N, till exempel AD FS.
+- Tillämpas på alla webbläsartrafik och inloggningar som använder modern autentisering.
 
-Den **riskhändelser** i Identity Protection-konsolen visar en lista över alla händelser:
+- Inte användas av program med äldre säkerhetsprotokoll genom att inaktivera den WS-Trust-slutpunkten på federerade IDP: N, till exempel AD FS.
 
-* Den här principen har tillämpats på
-* Du kan granska aktiviteten och fastställa om åtgärden var rätt eller inte
 
 En översikt över relaterade användarupplevelsen finns:
 
@@ -106,11 +96,27 @@ En översikt över relaterade användarupplevelsen finns:
 * [Riskfylld inloggning blockerad](flows.md#risky-sign-in-blocked)  
 * [Logga in upplevelser med Azure AD Identity Protection](flows.md)  
 
-**Att öppna dialogrutan tillhörande konfigurationer**:
+## <a name="best-practices"></a>Bästa praxis
 
-- På den **Azure AD Identity Protection** bladet i den **konfigurera** klickar du på **inloggning riskprincipen**.
+Välja en **hög** tröskelvärdet minskar antalet gånger som en princip har utlösts och minimerar påverkan för användare.  
 
-    ![Princip för användarrisk](./media/howto-sign-in-risk-policy/1014.png "riskprincip för användare")
+Men det omfattar inte **låg** och **medel** inloggningar som har flaggats för risk från principen som inte blockerar en angripare utnyttjar en komprometterad identitet.
+
+När du ställer in principen
+
+- Undanta användare som inte / kan inte ha multifaktorautentisering
+
+- Exkludera användare i nationella inställningar där aktiverar principen inte är en praktisk (till exempel ingen åtkomst till supportavdelningen)
+
+- Exkludera användare som sannolikt inte kommer att generera många falskpositiva resultat (utvecklare, säkerhetsanalytiker)
+
+- Använd en **hög** tröskelvärde under inledande princip lansering, eller om du måste minimera utmaningar som setts av slutanvändare.
+
+- Använd en **låg** tröskelvärdet om din organisation kräver ökad säkerhet. Att välja en **låg** tröskelvärdet introducerar ytterligare användare logga in utmaningar, men ökad säkerhet.
+
+Rekommenderad standard för de flesta organisationer är att konfigurera en regel för en **medel** tröskelvärdet för att få en balans mellan användbarhet och säkerhet.
+
+
 
 
 

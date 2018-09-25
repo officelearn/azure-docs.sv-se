@@ -3,23 +3,26 @@ title: Migrering av SQL Server-databas till Azure SQL Database | Microsoft Docs
 description: Lär dig migrering av SQL Server-databas till Azure SQL Database i molnet.
 keywords: databasmigrering, sql server-databasmigrering, databasmigreringsverktyg, migrera databas, migrera sql-databas
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 88b46fbda3bd459d5ec66b5c9d6eb443e8d275ed
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 65258622c006cc384df24898c18b154b4c523a7f
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735300"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064296"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrering av SQL Server-databas till Azure SQL Database
 
-I den här artikeln får du lära dig om metoder för att migrera en SQL Server 2005 eller senare databas till en enda eller grupperade databas i Azure SQL Database. Information om hur du migrerar till en hanterad instans finns i [migrera till SQL Server-instans till Azure SQL Database Managed Instance (förhandsversion)](sql-database-managed-instance-migrate.md). 
+I den här artikeln får du lära dig om metoder för att migrera en SQL Server 2005 eller senare databas till en enda eller grupperade databas i Azure SQL Database. Information om hur du migrerar till en hanterad instans finns i [migrera till SQL Server-instans till Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). 
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrera till en enkel databas eller en databas i pool
 Det finns två huvudsakliga sätt för att migrera en SQL Server 2005 eller senare databas till en enda eller grupperade databas i Azure SQL Database. Den första metoden är enklare, men kräver viss till omfattande stilleståndstid under migreringen. Den andra metoden är mer komplicerad, men kräver mycket kortare stilleståndstid under migreringen.

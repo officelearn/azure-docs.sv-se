@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: d717737bc2b15e57ae32faffaece96f78a7cc013
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d75a91ea0925ef0860b8e6dee310156bef21a1ba
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577828"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056829"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data. 
@@ -63,7 +63,7 @@ Förnya auktorisering, **stoppa** jobbet > Gå till ditt Data Lake Store-utdata 
 ![Auktorisera Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) kan användas som utdata för data som är relationell natur och för program som är beroende av innehållet finns i en relationsdatabas. Stream Analytics-jobb att skriva till en befintlig tabell i en Azure SQL Database.  Tabellschemat måste exakt matcha fälten och deras typer som utdata från jobbet. En [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) kan också anges som utdata via SQL-databas output-alternativet samt. I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa en SQL Database-utdata.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) kan användas som utdata för data som är relationell natur och för program som är beroende av innehållet finns i en relationsdatabas. Stream Analytics-jobb att skriva till en befintlig tabell i en Azure SQL Database.  Tabellschemat måste exakt matcha fälten och deras typer som utdata från jobbet. En [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) kan också anges som utdata via SQL-databas output-alternativet samt. Mer information om hur du kan förbättra genomströmning för skrivning, referera till den [Stream Analytics med Azure SQL DB som utdata](stream-analytics-sql-output-perf.md) artikeln. I tabellen nedan visas vilka egenskapsnamn och deras beskrivning för att skapa en SQL Database-utdata.
 
 | Egenskapsnamn | Beskrivning |
 | --- | --- |
@@ -297,7 +297,7 @@ I följande tabell sammanfattas partition-stöd och antalet skrivare för utdata
 | Utdatatyp | Partitionering | Partitionsnyckeln  | Antalet utdata-skrivare | 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Ja | Använd {date} och {time}-token i prefixmönster för sögväg. Välj datumformat, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ, MM-DD-ÅÅÅÅ. HH används för tidsformatet. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). | 
-| Azure SQL Database | Nej | Ingen | Ej tillämpligt. | 
+| Azure SQL Database | Ja | Baserat på PARTITION BY-sats i frågan | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). | 
 | Azure Blob Storage | Ja | Använd {date} och {time}-token från dina event fält i mönstret för sökvägen. Välj datumformat, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ, MM-DD-ÅÅÅÅ. HH används för tidsformatet. Som en del av den [förhandsversion](https://aka.ms/ASAPreview), blob-utdata kan partitioneras av en enda anpassad händelseattribut {fieldname} eller {datetime:\<specificerare >}. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). | 
 | Azure händelsehubb | Ja | Ja | Varierar beroende på partitionen justering.</br> När utdata utdata Event Hub partitionsnyckel justeras lika med överordnad (föregående) frågesteg, antalet skrivare är samma antalet händelsehubbspartitioner. Varje skrivare använder Eventhub's [EventHubSender klass](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) att skicka händelser till en specifik partition. </br> När utdata Event Hub partitionsnyckel inte är justerad med överordnad (föregående) frågesteg, antalet skrivare är samma som antalet partitioner i det föregående steget. Varje skrivare använder EventHubClient [SendBatchAsync klass](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) att skicka händelser till utdata-partitionerna. |
 | Power BI | Nej | Ingen | Ej tillämpligt. | 

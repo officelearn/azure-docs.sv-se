@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: fcc57ea7729f8a907fd39fe346270cc52c148f07
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605597"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981380"
 ---
 # <a name="batch-transcription"></a>Batch-transkription
 
@@ -100,7 +100,7 @@ När du har fått en token måste du ange SAS-URI som pekar på filen kräver av
 ```cs
    static async Task TranscribeAsync()
         { 
-            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
+            private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
@@ -169,7 +169,7 @@ När du har fått en token måste du ange SAS-URI som pekar på filen kräver av
 ```
 
 > [!NOTE]
-> I den föregående koden är prenumerationsnyckeln från Speech(Preview) resursen som du skapar på Azure-portalen. Nycklar som hämtats från resursen Custom Speech Service fungerar inte.
+> I den föregående koden är prenumerationsnyckeln från tal-resurs som du skapar på Azure-portalen. Nycklar som hämtats från resursen Custom Speech Service fungerar inte.
 
 Lägg märke till asynkron konfigurationen för att skicka ljud och ta emot avskrift status. Klienten som skapade är en .NET-Http-klient. Det finns en `PostTranscriptions` metod för att skicka ljud filinformation, och en `GetTranscriptions` metoden för att hämta resultaten. `PostTranscriptions` Returnerar en referens och `GetTranscriptions` använder den här referensen för att skapa en referens för att hämta statusen avskrift.
 

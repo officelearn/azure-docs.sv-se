@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: efd512395b49d3c274bb5aa409d1cbd527673659
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 35cd773c2a30549dde10a73b2fbe6db1a0c8b34a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781895"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989387"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Network Watcher-Agent-tillägg för virtuell dator för Linux
 
@@ -87,7 +87,7 @@ Följande JSON visar schemat för Network Watcher-Agent-tillägget. Tillägget i
 
 Du kan distribuera Azure VM-tillägg med en Azure Resource Manager-mall. Använd föregående json-schemat i mallen för att distribuera Network Watcher-Agent-tillägget.
 
-## <a name="azure-cli-10-deployment"></a>Azure CLI 1.0-distribution
+## <a name="azure-classic-cli-deployment"></a>Klassiska Azure CLI-distributionen
 
 I följande exempel distribueras Network Watcher-Agent VM-tillägget till en befintlig virtuell dator distribueras via den klassiska distributionsmodellen:
 
@@ -96,7 +96,7 @@ azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## <a name="azure-cli-20-deployment"></a>Azure CLI 2.0-distribution
+## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
 I följande exempel distribueras Network Watcher-Agent VM-tillägget till en befintlig virtuell dator distribueras via Resource Manager:
 
@@ -110,7 +110,7 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 Du kan hämta data om tillståndet för tillägget för distributioner med hjälp av Azure portal eller Azure CLI.
 
-I följande exempel visas distributionsstatusen för tillägg för en virtuell dator distribueras via den klassiska distributionsmodellen med hjälp av Azure CLI 1.0:
+I följande exempel visas distributionsstatusen för tillägg för en virtuell dator distribueras via den klassiska distributionsmodellen med hjälp av Azure klassiska CLI:
 
 ```azurecli
 azure config mode asm
@@ -122,7 +122,7 @@ Tillägget utförande-utdatan loggas till filer som finns i följande katalog:
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
-I följande exempel visas distributionsstatusen för tillägget NetworkWatcherAgentLinux för en virtuell dator distribueras via Resource Manager med hjälp av Azure CLI 2.0:
+I följande exempel visas distributionsstatusen för tillägget NetworkWatcherAgentLinux för en virtuell dator distribueras via Resource Manager med hjälp av Azure-CLI:
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1

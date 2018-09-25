@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 7e7e9d078bf9339beb2ad5ac53ea858e843242ce
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a1cd25012461ae8bb445dcb1de8fe5be49e04760
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293595"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060411"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Logga in användare och anropa Microsoft Graph från en Android-app
 

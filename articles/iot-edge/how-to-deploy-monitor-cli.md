@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b90c26eaa36c906dda904106b104c3dbf04a55ce
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257988"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998516"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure CLI
 
@@ -24,20 +24,20 @@ Azure IoT Edge kan du flytta analys vid gränsen och tillhandahåller ett molngr
 
 Du kan hantera enskilda enheter och distribuera moduler till dem i taget. Om du vill göra ändringar på enheter i stor skala, du kan dock skapa en **IoT Edge automatisk distribution**, vilket är en del av automatisk hantering av enheter i IoT Hub. Distributioner är dynamisk processer som gör att du kan distribuera flera moduler till flera enheter på samma gång, spåra status och hälsa moduler och göra ändringar när det behövs. 
 
-I den här artikeln konfigurerar du Azure CLI 2.0 och IoT-tillägget. Sedan får du lära dig hur du distribuerar moduler till en uppsättning IoT Edge-enheter och övervaka förloppet med hjälp av de tillgängliga CLI-kommandona.
+I den här artikeln kan du ställa in Azure CLI och IoT-tillägget. Sedan får du lära dig hur du distribuerar moduler till en uppsättning IoT Edge-enheter och övervaka förloppet med hjälp av de tillgängliga CLI-kommandona.
 
 ## <a name="cli-prerequisites"></a>CLI-krav
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i Azure-prenumerationen. 
 * [IoT Edge-enheter](how-to-register-device-cli.md) med IoT Edge-körningen installerad.
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Din Azure CLI 2.0-version måste vara 2.0.24 eller senare. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
-* Den [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Azure CLI-version måste minst vara 2.0.24 eller senare. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
+* Den [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
 
 Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Mer information om hur distribution manifest fungerar och hur du skapar dem finns i [förstå hur IoT Edge-moduler kan användas, konfigurerats och återanvändas](module-composition.md).
 
-Om du vill distribuera moduler med Azure CLI 2.0, spara manifestet distribution lokalt som en txt-fil. Du använder sökvägen till filen i nästa avsnitt när du kör kommandot för att tillämpa konfigurationen på din enhet. 
+Om du vill distribuera moduler med Azure CLI, spara manifestet distribution lokalt som en txt-fil. Du använder sökvägen till filen i nästa avsnitt när du kör kommandot för att tillämpa konfigurationen på din enhet. 
 
 Här är ett manifest för grundläggande distribution med en modul som exempel:
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: magoedte; bwren
+ms.date: 09/17/2018
+ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 996502ffe5a31fcfa1b73dab9a041c336c4ea98f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4677b8d5601dcafbf4760e6f185ef70393229b1a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45602639"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961067"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Visa och analysera data i Log Analytics
 Det finns två alternativ som är tillgängliga i Azure-portalen för att analysera data som lagras i Log analytics och för att skapa frågor för ad hoc-analyser. Frågor som du skapar med hjälp av dessa portaler kan användas för andra funktioner, till exempel aviseringar och instrumentpaneler.
@@ -27,7 +27,7 @@ Det finns två alternativ som är tillgängliga i Azure-portalen för att analys
 ## <a name="log-analytics-page"></a>Sidan för log Analytics
 Öppna sidan Log Analytics från **loggar** i Log Analytics-menyn. Det här är en ny upplevelse för att arbeta med loggdata och skapa frågor. Du kan få en introduktion till den här portalen och granska dess funktioner på [Kom igång med Log Analytics-sidan i Azure-portalen](query-language/get-started-analytics-portal.md).
 
-Sidan Log Analytics innehåller följande förbättringar över den [loggsökning](#log-search) upplevelse.
+Sidan Log Analytics innehåller följande förbättringar över den [loggsökning (klassisk)](#log-search-classic) upplevelse.
 
 * Flera flikar – skapa separata flikar för att arbeta med flera frågor.
 * Visualiseringar – olika diagramalternativ.
@@ -44,6 +44,18 @@ Sidan Log Analytics innehåller följande förbättringar över den [loggsöknin
 
 ![Avancerade analysportalen](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
+### <a name="resource-logs"></a>Resurs-loggar
+Den nya Log Analytics-upplevelsen kan integreras med olika Azure-resurser som virtuella datorer. Det innebär att du kan öppna sidan Log Analytics direkt via övervakning resursmenyn utan att växla till Azure Monitor eller Log Analytics och att förlora resurs-kontext. **Loggar** har ännu inte aktiverats för alla Azure-resurser, men den börjar visas i portalmenyn för olika resurser typer.
+
+När du öppnar Log Analytics från en specifik resurs, begränsas den automatiskt för att logga poster för den resursen endast.   Om du vill skriva en fråga som innehåller andra poster, skulle du måste öppna menyn Log Analytics och Azure Monitor.
+
+Följande alternativ är ännu inte tillgängliga via vyn av Log Analytics:
+
+- Spara
+- Ställ in en avisering
+- Frågeutforskaren
+- Växling till annan arbetsyta/resurs (för närvarande inte planerad)
+
 
 ### <a name="firewall-requirements"></a>Brandväggskrav
 Din webbläsare kräver åtkomst till följande adresser för åtkomst till Log Analytics-sidan och Advanced Analytics-portalen.  Om webbläsaren har åtkomst till Azure-portalen via en brandvägg, måste du aktivera åtkomst till dessa adresser.
@@ -56,7 +68,8 @@ Din webbläsare kräver åtkomst till följande adresser för åtkomst till Log 
 
 
 ## <a name="log-search-classic"></a>Loggsökning (klassisk)
-Öppna sidan Log search från **loggar (klassisk)** i Log Analytics-menyn eller från **Log Analytics** i Azure Monitor-menyn. Detta är lämpligt för att analysera loggdata med hjälp av grundläggande frågor. Det finns flera funktioner för redigering frågor utan fullständiga kunskaper om frågespråket.  Du kan få en sammanfattning av dessa funktioner i [skapa loggsökningar i Azure Log Analytics med hjälp av Loggsökning](log-analytics-log-search-log-search-portal.md). 
+Öppna sidan Log search från **loggar (klassisk)** i Log Analytics-menyn eller från **Log Analytics** i Azure Monitor-menyn. Det här är sidan klassiska används för att arbeta med Log Analytics-frågor som saknar de ytterligare funktionerna i den [sidan Log Analytics](#log-analytics-page) ovan.
+
 
 
 ![Logga söksidan](media/log-analytics-log-search-portals/log-search-portal.png)

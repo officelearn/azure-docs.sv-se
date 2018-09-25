@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB-bindningar för Functions 2.x (förhandsversion)
+title: Azure Cosmos DB-bindningar för Functions 2.x
 description: Förstå hur du använder Azure Cosmos DB-utlösare och bindningar i Azure Functions.
 services: functions
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ea1403ed8afe6e84a3118d891e8c2d34b390d158
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093438"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953488"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure Cosmos DB-bindningar för Azure Functions 2.x (förhandsversion)
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindningar för Azure Functions 2.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1 – allmänt tillgänglig](functions-bindings-cosmosdb.md)
@@ -27,7 +27,7 @@ ms.locfileid: "44093438"
 Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindningar i Azure Functions 2.x. Azure Functions stöder utlösa, indata och utdata-bindningar för Azure Cosmos DB.
 
 > [!NOTE]
-> Den här artikeln är [Azure Functions version 2.x](functions-versions.md), vilket är i förhandsversion.  Information om hur du använder dessa bindningar i Functions 1.x, se [Azure Cosmos DB-bindningar för Azure Functions 1.x](functions-bindings-cosmosdb.md).
+> Den här artikeln är [Azure Functions version 2.x](functions-versions.md).  Information om hur du använder dessa bindningar i Functions 1.x, se [Azure Cosmos DB-bindningar för Azure Functions 1.x](functions-bindings-cosmosdb.md).
 >
 > Den här bindningen hette ursprungligen DocumentDB. I funktioner version är 2.x, utlösare, bindningar och paketet alla namngivna Cosmos DB.
 

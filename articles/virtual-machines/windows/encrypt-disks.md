@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 9d8e868eb11e45a01b3992022b729369da6b42e4
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 20d3568fa3f583c190f087de861d857fe3e793a9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931498"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985457"
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Kryptera virtuella diskar på en virtuell Windows-dator
-För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella diskar i Azure krypteras. Diskar krypteras med hjälp av kryptografiska nycklar som skyddas i ett Azure Key Vault. Du kontrollerar dessa kryptografiska nycklar och kan granska deras användning. Den här artikeln beskriver hur du krypterar virtuella diskar på en Windows-VM med Azure PowerShell. Du kan också [kryptera en Linux VM med Azure CLI 2.0](../linux/encrypt-disks.md).
+För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella diskar i Azure krypteras. Diskar krypteras med hjälp av kryptografiska nycklar som skyddas i ett Azure Key Vault. Du kontrollerar dessa kryptografiska nycklar och kan granska deras användning. Den här artikeln beskriver hur du krypterar virtuella diskar på en Windows-VM med Azure PowerShell. Du kan också [kryptera en Linux VM med Azure CLI](../linux/encrypt-disks.md).
 
 ## <a name="overview-of-disk-encryption"></a>Översikt över diskkryptering
 Virtuella diskar på Windows virtuella datorer krypteras i vila med Bitlocker. Det är kostnadsfritt för att kryptera virtuella diskar i Azure. Kryptografiska nycklar lagras i Azure Key Vault med hjälp av software protection eller kan du importera eller generera dina nycklar i Maskinvarusäkerhetsmoduler (HSM) som är certifierade enligt standarderna FIPS 140-2 nivå 2-standarder. Dessa kryptografiska nycklar används för att kryptera och dekryptera virtuella diskar som är anslutna till den virtuella datorn. Du kan behålla kontrollen över dessa kryptografiska nycklar och kan granska deras användning. En Azure Active Directory-tjänstens huvudnamn är en säker mekanism för att utfärda dessa kryptografiska nycklar som virtuella datorer tillhandahålls av och sätts på.

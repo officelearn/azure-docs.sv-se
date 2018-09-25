@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: carlrab
-ms.openlocfilehash: e14f65c16706f8285b6ce390e75f95ea1a8bede6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 59ec4b109c01a027ce440d3f7749d69af3351571
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295526"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037719"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet
 
@@ -28,7 +28,7 @@ Du kan köpa Azure SQL Database reserverad kapacitet den [Azure-portalen](https:
 - För Enterprise-prenumerationer Azure reservation inköp måste aktiveras i den [EA-portalen](https://ea.azure.com).
 -  För Cloud Solution Provider (CSP)-programmet kan endast admin-agenter eller försäljning agents köpa SQL Database reserverad kapacitet.
 
-Information om hur företagskunder och kunder med användningsbaserad betalning debiteras för reservation köp täcks i [vanliga frågor och svar](#frequently-asked-questions).
+Information om hur företagskunder och kunder med användningsbaserad betalning debiteras för reservation inköp i [förstå Azure reservation användning för din Enterprise-registrering](../billing/billing-understand-reserved-instance-usage-ea.md) och [förstå Azure reservation användning för prenumerationen med användningsbaserad betalning](../billing/billing-understand-reserved-instance-usage.md).
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Fastställa lämplig storlek enligt SQL före köp
 

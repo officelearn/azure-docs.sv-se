@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 1f3a24cebe5061f7e3ca3897692b068531780431
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 405c85c24ca3a956a3d75733c5dd13a6f12de46a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668129"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042422"
 ---
 # <a name="how-to-use-perfinsights"></a>Hur du använder PerfInsights
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) är ett verktyg för självhjälp diagnostik som samlar in och analyserar diagnostiska data och ger en rapport för att felsöka prestandaproblem för Windows-dator i Azure. PerfInsights kan köras på virtuella datorer som ett fristående verktyg eller direkt från portalen genom att installera [Diagnostiktillägget för virtuell dator på Azure prestanda](performance-diagnostics-vm-extension.md).
+[PerfInsights](http://aka.ms/perfinsightsdownload) är ett verktyg för självhjälp diagnostik som samlar in och analyserar diagnostiska data och ger en rapport för att felsöka prestandaproblem för Windows-dator i Azure. PerfInsights kan köras på virtuella datorer som ett fristående verktyg, direkt från portalen med hjälp av [Prestandadiagnostik för Azure virtual machines](performance-diagnostics.md), eller genom att installera [Azure prestanda diagnostik VM-tillägg ](performance-diagnostics-vm-extension.md).
 
 Om du har problem med prestanda för virtuella datorer, innan du kontaktar support kan du köra det här verktyget.
 

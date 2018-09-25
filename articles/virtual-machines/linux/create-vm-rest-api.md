@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f77b46be0207b0ce96e6dc2562fb5298afbe36b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 11d9f5efb452d46e5ca30169861582f6f2bbbd1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928190"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969401"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en Linux-dator som använder SSH-autentisering med REST API
 
@@ -32,7 +32,7 @@ Om du vill skapa eller uppdatera en virtuell dator, använder du följande *PLAC
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-## <a name="create-a-request"></a>Skapa en begäran
+## <a name="create-a-request"></a>Skapa en förfrågan
 
 Att skapa den *PLACERA* begäran, den `{subscription-id}` parametern är obligatorisk. Om du har flera prenumerationer, se [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). Du definierar en `{resourceGroupName}` och `{vmName}` för dina resurser, tillsammans med den `api-version` parametern. Den här artikeln använder `api-version=2017-12-01`.
 
@@ -141,9 +141,9 @@ Ett komprimerat *201 Skapad* svar från föregående exempel begärandetexten so
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure REST API: er eller andra hanteringsverktyg, till exempel Azure CLI 2.0 eller Azure PowerShell finns i följande:
+Mer information om Azure REST API: er eller andra hanteringsverktyg, till exempel Azure CLI eller Azure PowerShell finns i följande:
 
 - [Azure Compute-providern REST API](/rest/api/compute/)
 - [Kom igång med Azure REST API](/rest/api/azure/)
-- [Azure CLI 2.0](/cli/azure/)
+- [Azure CLI](/cli/azure/)
 - [Azure PowerShell-modul](/powershell/azure/overview)

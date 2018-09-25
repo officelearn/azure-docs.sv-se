@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: marsma
-ms.openlocfilehash: 6ff83885ba80f0399f7b085970b1191e8e4cd999
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 4b29804690b951083810d4f75b68ff23fca44a44
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746516"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039623"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>Snabbstart: Skicka container registerhändelser till Event Grid
 
@@ -141,20 +141,20 @@ När prenumerationen är slutförd kan ut du ungefär så här:
 
 ## <a name="trigger-registry-events"></a>Utlösarhändelser för registret
 
-Nu när exempelappen är igång och körs och att du prenumererar på registret med Event Grid, är du redo att skapa vissa händelser. I det här avsnittet ska använda du ACR Build att bygga och överföra en behållaravbildning till registret. ACR Build är en funktion i Azure Container Registry som hjälper dig att skapa behållaravbildningar i molnet, utan att behöva Docker-motorn installerad på den lokala datorn.
+Nu när exempelappen är igång och körs och att du prenumererar på registret med Event Grid, är du redo att skapa vissa händelser. I det här avsnittet använder du ACR uppgifter för att bygga och överföra en behållaravbildning till registret. ACR uppgifter är en funktion i Azure Container Registry som hjälper dig att skapa behållaravbildningar i molnet, utan att behöva Docker-motorn installerad på den lokala datorn.
 
 ### <a name="build-and-push-image"></a>Skapa och skicka avbildning
 
-Kör följande Azure CLI-kommando för att skapa en behållaravbildning från innehållet i en GitHub-lagringsplats. Som standard ACR Build automatiskt skickar en har skapade avbildningen till registret, vilket genererar den `ImagePushed` händelse.
+Kör följande Azure CLI-kommando för att skapa en behållaravbildning från innehållet i en GitHub-lagringsplats. Som standard ACR uppgifter automatiskt skickar en har skapade avbildningen till registret, vilket genererar den `ImagePushed` händelse.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-Du bör se utdata som liknar följande medan ACR Build skapar och skickar sedan din avbildning. Följande exempel på utdata har trunkerats av utrymmesskäl.
+Du bör se utdata som liknar följande medan ACR aktiviteter skapar och skickar din avbildning. Följande exempel på utdata har trunkerats av utrymmesskäl.
 
 ```console
-$ az acr build -r $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -227,10 +227,10 @@ Du hittar Azure Container Registry händelsen meddelande-Schemareferens i Event 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten du distribuerat ett behållarregister, skapat en avbildning med ACR Build, tar bort den och har förbrukat registrets händelser från Event Grid med ett exempelprogram. Sedan gå vidare till självstudiekursen om ACR Build att lära dig mer om hur du skapar behållaravbildningar i molnet, inklusive automatiserad utveckling på grundläggande uppdateringar:
+I den här snabbstarten du distribuerat ett behållarregister, skapat en avbildning med ACR uppgifter, tog bort den och har förbrukat registrets händelser från Event Grid med ett exempelprogram. Sedan gå vidare till självstudiekursen om ACR uppgifter att lära dig mer om hur du skapar behållaravbildningar i molnet, inklusive automatiserad utveckling på grundläggande uppdateringar:
 
 > [!div class="nextstepaction"]
-> [Skapa behållaravbildningar i molnet med ACR Build](container-registry-tutorial-quick-build.md)
+> [Skapa behållaravbildningar i molnet med ACR-uppgifter](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

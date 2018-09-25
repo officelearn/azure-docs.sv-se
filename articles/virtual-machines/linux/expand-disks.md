@@ -1,6 +1,6 @@
 ---
 title: Expandera virtuella hårddiskar på en Linux-VM i Azure | Microsoft Docs
-description: Lär dig hur du expanderar virtuella hårddiskar på en Linux VM med Azure CLI 2.0
+description: Lär dig hur du expanderar virtuella hårddiskar på en Linux VM med Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
@@ -14,21 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: 96d50260663f00f5ae2e9b2e0495c91ecb5da4b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0c2d4d1413b6cfd0b5e457e720b59c6c7b575092
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421196"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974552"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Hur du expanderar virtuella hårddiskar på en Linux VM med Azure CLI
-Standardstorleken för virtuell hårddisk för operativsystemet (OS) är vanligtvis 30 GB på en Linux-dator (VM) i Azure. Du kan [lägga till datadiskar](add-disk.md) att tillhandahålla för ytterligare lagringsutrymme, men du kan också välja att expandera en befintlig datadisk. Den här artikeln beskriver hur du expanderar hanterade diskar för en Linux VM med Azure CLI 2.0. 
+
+Standardstorleken för virtuell hårddisk för operativsystemet (OS) är vanligtvis 30 GB på en Linux-dator (VM) i Azure. Du kan [lägga till datadiskar](add-disk.md) att tillhandahålla för ytterligare lagringsutrymme, men du kan också välja att expandera en befintlig datadisk. Den här artikeln beskriver hur du expanderar hanterade diskar för en Linux VM med Azure CLI. 
 
 > [!WARNING]
 > Kontrollera alltid att du säkerhetskopierar dina data innan du utför disk ändra storlek på åtgärder. Mer information finns i [säkerhetskopiera virtuella Linux-datorer i Azure](tutorial-backup-vms.md).
 
 ## <a name="expand-azure-managed-disk"></a>Expandera Azure hanterade diskar
-Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Se till att du har senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 Den här artikeln kräver en befintlig virtuell dator i Azure med minst en datadisk som är anslutna och förberett. Om du inte redan har en virtuell dator som du kan använda finns i [skapa och Förbered en virtuell dator med datadiskar](tutorial-manage-disks.md#create-and-attach-disks).
 

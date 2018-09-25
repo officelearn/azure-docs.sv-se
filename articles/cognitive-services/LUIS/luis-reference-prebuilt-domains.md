@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Referens för de fördefinierade domäner som är färdiga samlingar av avsikter och entiteter från Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238904"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040048"
 ---
 # <a name="prebuilt-domain-reference"></a>Fördefinierad domänreferens
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
@@ -180,7 +180,7 @@ Händelser-domänen ger avsikter och entiteter relaterade till bokning biljetter
 | Adress | Händelsens plats eller -adress. |Palo Alto<br/>300 112th para SE <br/> Seattle |
 | Namn | Namnet på en händelse.|Shakespeare i parken|
 | PlaceName| Händelsens plats namn.|Louvre<br/>Opera House<br/>Broadway|
-| PlaceType | Typ av plats händelsen ska lagras på.|Cafe<br/>THEATRE<br/>Bibliotek|
+| PlaceType | Typ av plats händelsen ska lagras på.|Café<br/>THEATRE<br/>Bibliotek|
 | Typ | Typ av en händelse.|Evenemang<br/>Sport spel|
 
 ## <a name="fitness"></a>Lämplighet 
@@ -197,7 +197,7 @@ Lämplighet domänen innehåller avsikter och entiteter som rör spårning lämp
 ### <a name="entities"></a>Entiteter
 | Entitetsnamnet | Beskrivning | Exempel |
 | ---------------- |-----------------------|----|
-| ActivityType | Typ av aktivitet som spårar. |Kör<br/>Gå igenom<br/>Simma<br/>Cykel |
+| ActivityType | Typ av aktivitet som spårar. |Kör<br/>Gå<br/>Simma<br/>Cykel |
 | Livsmedel | En typ av mat ska spåras i en lämplighet-app. |Bananer<br/>Laxrosa<br/>Skaka om protein|
 | MealType| Måltid-typ som kan spåras i en hälsotillstånd eller lämplighet app.|Bra<br/>Middag<br/>Lunch<br/>Supper|
 | Mått| En typ av mått för tid, avståndet eller vikt för användning i en lämplighet eller health-app.|Kilometer<br/>Miles<br/>Minuter<br/>Kg|
@@ -234,7 +234,7 @@ HomeAutomation domänen innehåller avsikter och entiteter relaterade till att s
 | Entitetsnamn | Beskrivning | Exempel |
 | ---------------- |-----------------------|----|
 | Enhet | En typ av enhet som kan vara aktiverat eller inte.|Kaffe maker<br/>Termostat<br/>ljus|
-| Åtgärd | Tillstånd att ställa in på enheten.|Lås<br/>öppna<br/>på<br/>inaktiverade|
+| Åtgärd | Tillstånd att ställa in på enheten.|Lås<br/>open (öppen)<br/>på<br/>inaktiverade|
 | Utrymme | Plats- eller enheten är i rummet.|Vardagsrum<br/>sovrum<br/>Se|
 
 ## <a name="movietickets"></a>MovieTickets 
@@ -430,13 +430,13 @@ restart|
 | Atmosfär | Luft på en plats.|barn-vänlig<br/>informell restaurang<br/>Sportig|
 | Köket med alla dess | Den köket med alla dess för en plats. |Medelhavet<br/>Italienska<br/>Territoriet i indiska|
 | DestinationAddress| En målplats eller adress.|Palo Alto<br/>300 112th para SE<br/>Seattle|
-| DestinationPlaceName| Namnet på ett mål som är ett företag, restaurang, offentliga finns eller institution.|Central park<br/>safeway<br/>walmart|
+| DestinationPlaceName| Namnet på ett mål som är ett företag, restaurang, offentliga finns eller institution.|Central park<br/>Safeway<br/>Walmart|
 | DestinationPlaceType | Typ av ett mål som är en lokal företag, restaurang, offentliga finns eller institution. |Restaurang<br/>Opera<br/>biografer|
 | Avstånd | Avståndet till en plats.|15 mil<br/>5 mil<br/>10 långt bort|
 | MealType | Typ av Måltid som bra eller lunch. |Bra<br/>Middag<br/>Lunch<br/>Supper|
 | OpenStatus | Anger om en plats är öppna eller stängda.|Öppet<br/>Stängd<br/>Öppna|
 | PlaceName | Namnet på en plats.|Tårtbitar Factory|
-| PlaceType | Typ av en plats.|Cafe<br/>THEATRE<br/>Bibliotek|
+| PlaceType | Typ av en plats.|Café<br/>THEATRE<br/>Bibliotek|
 | PreferredRoute | Den prioriterade vägen som angetts av användaren. | 101 <br/>202 <br/>Väg 401|
 | Produkt | Produkten som erbjuds av en plats. | Kläder<br/>Digitala ASR kameror<br/>Ny fisheye | 
 | PublicTransportationRoute | Namnet på den kollektivtrafik väg som du söker efter. | Nordöstra korridoren train<br/>Bus dirigera 3 X |
@@ -494,7 +494,7 @@ Table for 3 in Palo Alto at 7
 | Köket med alla dess | En typ av mat, köket med alla dess eller köket med alla dess medborgarskap. |Kinesiska<br/>Italienska<br/>Mexikanska|
 | MealType | En måltid typ som är associerade med en reservation.|Bra<br/>Middag<br/>Lunch<br/>Supper|
 | PlaceName | Namnet på en lokal företag, restaurang, offentliga finns eller institution.|IHOP<br/>Tårtbitar Factory<br/>Louvre|
-| PlaceType | Typ av en lokal företag, restaurang, offentliga finns eller institution.|restaurang<br/>Opera<br/>biografer|
+| PlaceType | Typ av en lokal företag, restaurang, offentliga finns eller institution.|Restaurang<br/>Opera<br/>biografer|
 | Klassificering | Klassificering av en plats eller en restaurang.|5 stjärnor<br/>3 stjärnor<br/>4 stjärnor|
 
 ## <a name="taxi"></a>Taxi 

@@ -11,14 +11,19 @@ ms.component: core
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: eb788f56825166ccaa376d32b07371db0588edc8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35963847"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967616"
 ---
 # <a name="aerial-image-classification"></a>Klassificering av Flygfoto
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Det här exemplet visar hur du använder Azure Machine Learning Workbench för att samordna distribuerade utbildnings- och driftsättning av avbildningsklassificeringsmodeller. Vi använder två metoder för utbildning: (i) förfina en djupa neurala nätverk med hjälp av en [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) GPU-kluster och (ii) med hjälp av den [Microsoft Machine Learning för Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) paket till funktionalisera bilder med hjälp av tränats CNTK-modeller och för att träna klassificerare härledda funktioner. Vi sedan använda de tränade modellerna i parallella sätt för stor bild uppsättningar i molnet med en [Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) kluster, vilket gör att vi kan skala hastighet utbildnings-och driftsättning genom att lägga till eller ta bort arbetsnoder.
 
@@ -61,7 +66,7 @@ Följande anvisningar hjälper dig genom processen för att ställa in körnings
        - Om du har färre kärnor tillgängliga, kan du ändra mallen för HDInsight-kluster för att minska antalet arbetare som etablerats. Instruktioner för detta visas under avsnittet ”Skapa HDInsight Spark-kluster”.
     - Det här exemplet skapar ett Batch AI Training-kluster med två NC6 (1 GPU, 6 vCPU) virtuella datorer. Kontrollera att ditt konto har tillräckligt många tillgängliga kärnor i regionen USA, östra genom att granska ”användning + kvoter” fliken för din prenumeration i Azure-portalen.
 - [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)
-    - Följ den [installera och skapa Quickstart](../service/quickstart-installation.md) att installera Azure Machine Learning Workbench och skapa experimentering och konton för modellhantering.
+    - Följ den [installera och skapa Quickstart](../desktop-workbench/quickstart-installation.md) att installera Azure Machine Learning Workbench och skapa experimentering och konton för modellhantering.
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK och Azure CLI
     - Gå igenom följande avsnitt i den [Batch AI-recept README](https://github.com/Azure/BatchAI/tree/master/recipes):
         - ”Förutsättningar”

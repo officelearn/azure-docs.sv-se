@@ -3,19 +3,19 @@ title: Språk som stöds – QnA Maker
 titlesuffix: Azure Cognitive Services
 description: Språk för en kunskapsbas påverkar QnA Maker möjligheten att automatiskt extrahera frågor och svar från källor samt relevans resultatets QnA Maker ger svar på användarfrågor.
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: saneppal
-ms.openlocfilehash: ee04733064ec4e3d131b800fe1f18b27e5127fe8
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: tulasim
+ms.openlocfilehash: f690a620988135fe1347934a2b394021aa0bd334
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45572948"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036005"
 ---
 # <a name="supported-languages"></a>Språk som stöds
 
@@ -24,7 +24,7 @@ Språk för en kunskapsbas påverkar QnA Maker möjligheten att automatiskt extr
 ## <a name="auto-extraction"></a>Automatisk extrahering
 QnA Maker stöder extrahering av fråga/svar i alla på sidan, men effektiviteten i extraheringen är mycket högre för följande språk som QnA Maker använder nyckelord för att identifiera frågor.
 
-|Språk som stöds| Nationella inställningar|
+|Språk som stöds| Nationell inställning|
 |-----|----|
 |Svenska|SV-*|
 |Franska|fr-*|

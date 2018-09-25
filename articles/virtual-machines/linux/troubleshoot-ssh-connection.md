@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 5d2544ec9ef758cf34a846562fa659b28044c52d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b170a675482f69f8188894f8503703c235497503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932695"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982621"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsök SSH-anslutningar till en virtuell Linux-dator som misslyckas, fel, eller nekas
 Det finns olika orsaker till att det uppstår fel för Secure Shell (SSH), SSH-anslutningsfel, eller SSH nekas när du försöker ansluta till en Linux-dator (VM). Den här artikeln hjälper dig att hitta och korrigera problemet. Du kan använda Azure-portalen, Azure CLI eller VM Access-tillägg för Linux för att felsöka och lösa problem med anslutning.
@@ -50,7 +50,7 @@ Läs vidare för mer detaljerad felsökning och förklaringar.
 Du kan återställa autentiseringsuppgifter eller SSH-konfigurationen med någon av följande metoder:
 
 * [Azure-portalen](#use-the-azure-portal) – det är bra om du behöver snabbt återställa SSH-konfigurationen eller SSH-nyckeln och du inte har Azure-verktygen installerats.
-* [Azure CLI 2.0](#use-the-azure-cli-20) – om du redan är på kommandoraden, snabbt återställa SSH-konfigurationen eller autentiseringsuppgifter. Du kan också använda den [Azure CLI 1.0](#use-the-azure-cli-10)
+* [Azure CLI](#use-the-azure-cli-20) – om du redan är på kommandoraden, snabbt återställa SSH-konfigurationen eller autentiseringsuppgifter. Du kan också använda den [Azure klassiskt CLI](#use-the-azure-cli-10)
 * [Azure VMAccessForLinux-tillägget](#use-the-vmaccess-extension) – skapa och återanvända json definitionsfiler för att återställa SSH-konfiguration eller autentiseringsuppgifter.
 
 När du har varje fel, försök att ansluta till den virtuella datorn igen. Om du fortfarande inte kan ansluta kan du försöka nästa steg.
@@ -78,8 +78,8 @@ Använd [IP-flödesverifieringen](../../network-watcher/network-watcher-check-ip
 
 Använda Network Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte förhindrar trafik dirigeras till eller från en virtuell dator. Du kan också gå igenom effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [använda effektiva vägar för felsökning av VM infrastrukturtrafiken rör](../../virtual-network/diagnose-network-routing-problem.md).
 
-## <a name="use-the-azure-cli-20"></a>Använda Azure CLI 2.0
-Om du inte redan gjort installera senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in på Azure med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+## <a name="use-the-azure-cli"></a>Använda Azure CLI
+Om du inte redan gjort installera senast [Azure CLI](/cli/azure/install-az-cli2) och logga in på Azure med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 Om du har skapat och laddat upp en anpassad avbildning för Linux-disk, se till att den [Microsoft Azure Linux Agent](../extensions/agent-windows.md) version 2.0.5 eller senare är installerat. För virtuella datorer som skapas med hjälp av avbildningar i galleriet, access-tillägg redan installerat och konfigurerat åt dig.
 
@@ -149,8 +149,8 @@ az vm extension set --resource-group philmea --vm-name Ubuntu \
     --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
-## <a name="use-the-azure-cli-10"></a>Använda Azure CLI 1.0
-Om du inte redan gjort [installera Azure CLI 1.0 och ansluta till din Azure-prenumeration](../../cli-install-nodejs.md). Kontrollera att du använder Resource Manager-läge på följande sätt:
+## <a name="use-the-azure-classic-cli"></a>Använda den klassiska Azure CLI
+Om du inte redan gjort [installerar Azure klassiska CLI och ansluter till din Azure-prenumeration](../../cli-install-nodejs.md). Kontrollera att du använder Resource Manager-läge på följande sätt:
 
 ```azurecli
 azure config mode arm
@@ -192,14 +192,14 @@ Om du vill starta om en virtuell dator med Azure portal, Välj den virtuella dat
 
 ![Starta om en virtuell dator i Azure portal](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
-### <a name="azure-cli-10"></a>Azure CLI 1.0
+### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 I följande exempel startar om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
 
 ```azurecli
 azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 I följande exempel används [az vm restart](/cli/azure/vm#az_vm_restart) att starta om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
 
 ```azurecli
@@ -220,14 +220,14 @@ Om du vill distribuera om en virtuell dator med Azure portal, Välj den virtuell
 
 ![Distribuera om en virtuell dator i Azure portal](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
-### <a name="azure-cli-10"></a>Azure CLI 1.0
+### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 I följande exempel distribuerar om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 Följande exempel används [az vm omdistribution](/cli/azure/vm#az_vm_redeploy) att distribuera om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
 
 ```azurecli

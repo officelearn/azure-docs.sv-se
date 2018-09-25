@@ -1,27 +1,27 @@
 ---
-title: Konfigurera lagringskonton för Azure Cost Management | Microsoft Docs
-description: Den här artikeln beskrivs hur du konfigurerar Azure storage-konton och AWS storage buckets för Azure Cost Management.
+title: Konfigurera lagringskonton för Cloudyn i Azure | Microsoft Docs
+description: Den här artikeln beskrivs hur du konfigurerar Azure storage-konton och AWS storage buckets för Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: dab7100c97fab7e086352916ec222ec70a0d0400
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 829995d40a73dc181a28a467e4d16fef0bdeb454
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058235"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990662"
 ---
-# <a name="configure-storage-accounts-for-cost-management"></a>Konfigurera lagringskonton för kostnadshantering
+# <a name="configure-storage-accounts-for-cloudyn"></a>Konfigurera lagringskonton för Cloudyn
 
-<!--- intent: As a Cost Management user, I want to configure Cost Management to use my cloud service provider storage account to store my reports. -->
+<!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
-Du kan spara kostnadshantering rapporter i Cloudyn-portalen, Azure storage eller AWS storage buckets. Det är kostnadsfritt att spara dina rapporter på Cloudyn-portalen. Men spara dina rapporter till din molntjänstleverantör lagring är valfritt och tillkommer ytterligare kostnader. Den här artikeln hjälper dig att konfigurera Azure storage-konton och Amazon Web Services (AWS) lagring buckets för att lagra dina rapporter.
+Du kan spara Cloudyn-rapporter i Cloudyn-portalen, Azure storage eller AWS storage buckets. Det är kostnadsfritt att spara dina rapporter på Cloudyn-portalen. Men spara dina rapporter till din molntjänstleverantör lagring är valfritt och tillkommer ytterligare kostnader. Den här artikeln hjälper dig att konfigurera Azure storage-konton och Amazon Web Services (AWS) lagring buckets för att lagra dina rapporter.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -33,7 +33,7 @@ Om du inte har en AWS bucket för enkel service (S3), måste du skapa en. Läs m
 
 ## <a name="configure-your-azure-storage-account"></a>Konfigurera ditt Azure storage-konto
 
-Konfigurerar du är Azure storage för användning av Cost Management enkelt. Samla in information om storage-konto och kopiera dem i Cloudyn-portalen.
+Konfigurerar du är Azure storage för användning av Cloudyn enkelt. Samla in information om storage-konto och kopiera dem i Cloudyn-portalen.
 
 1. Logga in på Azure Portal på http://portal.azure.com.
 2. Klicka på **alla tjänster**väljer **lagringskonton**, bläddra till det lagringskonto som du vill använda och välj sedan kontot.
@@ -163,4 +163,4 @@ Du kan nu spara rapporter till Azure storage. I en rapport klickar du på **åtg
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [förstå kostnad rapporter](understanding-cost-reports.md) vill veta mer om grundläggande struktur och funktioner i kostnadshanteringsrapporter.
+- Granska [förstå Cloudyn rapporterar](understanding-cost-reports.md) vill veta mer om grundläggande struktur och funktioner i Cloudyn-rapporter.

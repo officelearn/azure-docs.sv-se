@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ROBOTS: NOINDEX
+ms.openlocfilehash: 762955103aeb48eb8a9b62f4e3ffe193bba71a38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861926"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947225"
 ---
 # <a name="document-collection-analysis"></a>Analys av dokumentsamling
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Det här scenariot visar hur du sammanfatta och analysera en stor samling dokument, inklusive tekniker som frasen learning, avsnittet modellering och avsnittet modellen analys med Azure ML Workbench. Azure Machine Learning Workbench tillhandahåller för att enkelt skala upp för mycket stora dokumentsamling och tillhandahåller mekanismer för att träna och finjustera modeller i en mängd olika beräkningskontext sträcker sig från lokala beräkning till virtuella datorer för datavetenskap till Spark-kluster. Enkel utveckling tillhandahålls via Jupyter notebooks i Azure Machine Learning Workbench.
 
@@ -60,7 +65,7 @@ De tekniker/maskininlärningsalgoritmer används i det här scenariot omfattar:
 
 Förutsättningar för att kunna köra det här exemplet är följande:
 
-* Se till att du har installerat korrekt [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) genom att följa den [installera snabbstarten och skapa](../service/quickstart-installation.md).
+* Se till att du har installerat korrekt [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) genom att följa den [installera snabbstarten och skapa](quickstart-installation.md).
 
 * Det här exemplet kan köras på alla beräkningskontexten. Men det rekommenderas att köra den på en dator med flera kärnor med minst 16GB minne och 5GB ledigt diskutrymme.
 

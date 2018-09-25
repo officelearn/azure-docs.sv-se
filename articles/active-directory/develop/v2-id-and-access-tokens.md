@@ -17,22 +17,22 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 815311797e1897259b961debc8a0f81157495570
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 23d041311c33110bf11efc78d162243a4bb25778
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596508"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997768"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 token-referens
+
 V2.0-slutpunkten Azure Active Directory (Azure AD) genererar flera typer av säkerhetstoken i varje [autentiseringsflödet](v2-app-types.md). Den här referensen beskriver format, security egenskaperna och innehållet i varje typ av token.
 
 > [!NOTE]
 > V2.0-slutpunkten har inte stöd för alla Azure Active Directory-scenarier och funktioner. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
->
->
 
 ## <a name="types-of-tokens"></a>Typer av token
+
 V2.0-slutpunkten har stöd för den [OAuth 2.0-protokollet för auktorisering](active-directory-v2-protocols.md), som använder åtkomsttoken och uppdateringstoken. V2.0-slutpunkten stöder också autentisering och inloggning via [OpenID Connect](active-directory-v2-protocols.md). OpenID Connect introducerar en tredje typ av token, ID-token. Var och en av dessa token representeras som en *ägar* token.
 
 En ägartoken är en förenklad säkerhetstoken som ger ägar-åtkomst till en skyddad resurs. Innehavaren är en part som kan utgöra en token. Även om en part måste autentisera med Azure AD för att ta emot ägartoken om stegen inte vidtas för att skydda token under överföringen och lagringen, kan den fångas upp och används av en oavsiktlig part. Vissa säkerhetstoken har en inbyggd mekanism för att förhindra att obehöriga personer från att använda dem, men inte ägar-token. Ägar-token måste transporteras i en säker kanal, till exempel transport layer security (HTTPS). Om en ägartoken överförs utan den här typen av säkerhet, en obehörig part kan använda en ”man-in-the-middle attack” hämta token och använder den för obehörig åtkomst till en skyddad resurs. Samma säkerhetsprinciper gäller när du lagrar eller cachelagring ägar-token för senare användning. Se alltid till att din app på ett säkert sätt skickar och lagrar ägar-token. Mer säkerhet för ägartoken, finns i [RFC 6750 avsnitt 5](http://tools.ietf.org/html/rfc6750).
@@ -40,6 +40,7 @@ En ägartoken är en förenklad säkerhetstoken som ger ägar-åtkomst till en s
 Många av de token som utfärdas av v2.0-slutpunkten är implementerade som JSON Web token (JWTs). En JWT är ett kompakt, URL-säkert sätt att överföra information mellan två parter. Informationen i en JWT kallas en *anspråk*. Det är ett intyg om ägar- och ämnet för token. Anspråk i en JWT är JavaScript Object Notation (JSON)-objekt som är kodade och serialiseras för överföring. Eftersom JWTs som utfärdats av v2.0-slutpunkten är signerad, men krypteras inte, kan du enkelt granska innehållet i en JWT för felsökning. Mer information om JWTs finns i den [JWT-specifikationen](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### <a name="id-tokens"></a>ID-token
+
 Ett ID-token är en typ av inloggning säkerhetstoken som din app tar emot när autentisering utförs med hjälp av [OpenID Connect](active-directory-v2-protocols.md). ID-token visas i form av [JWTs](#types-of-tokens), och de innehåller anspråk som du kan använda för att logga in användaren till din app. Du kan använda anspråken i en ID-token på olika sätt. Normalt använder administratörer ID-token att visa kontoinformation eller gör besluten om åtkomstkontroll i en app. V2.0-slutpunkten utfärdar bara en typ av ID-token som har en konsekvent uppsättning anspråk, oavsett vilken typ av användare som är inloggad. Formatera och innehållet i ID-token är samma för användare med personliga Microsoft-konton och arbets-eller skolkonto.
 
 ID-token är för närvarande registrerat men inte är krypterade. När din app tar emot ett ID-token, måste den [källpaketets signatur](#validating-tokens) token för autentisering och validera några anspråken i token för att bevisa dess giltighet. De anspråk som verifierats av en app varierar beroende på krav, men din app måste utföra några [vanliga anspråk verifieringar](#validating-tokens) i alla scenarier.
@@ -47,16 +48,16 @@ ID-token är för närvarande registrerat men inte är krypterade. När din app 
 Vi ger dig fullständig information om anspråk i ID-token i följande avsnitt, förutom en exempel-ID-token. Observera att anspråk i ID-token inte returneras i en viss ordning. Dessutom kan du introduceras nya anspråk i ID-token när som helst. Din app ska inte bryter när nya anspråk introduceras. Följande lista innehåller de anspråk som för närvarande på ett tillförlitligt sätt tolka din app. Du hittar mer information finns i den [OpenID Connect-specifikationen](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### <a name="sample-id-token"></a>Exemplet ID-token
+
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
 ```
 
 > [!TIP]
 > Klistra in exemplet ID-token till om du vill kontrollera anspråk i exemplet ID-token för bör [jwt.ms](http://jwt.ms/).
->
->
 
 #### <a name="claims-in-id-tokens"></a>Anspråk i ID-token
+
 | Namn | Begär | Exempelvärde | Beskrivning |
 | --- | --- | --- | --- |
 | Målgrupp |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifierar den avsedda mottagaren av token. I ID-token är målgruppen appens program-ID som tilldelats din app i portalen för registrering av Microsoft-program. Din app ska verifiera det här värdet och avvisa token om värdet inte matchar. |
@@ -82,22 +83,25 @@ V2.0-slutpunkten kan appar från tredje part som är registrerade i Azure AD fö
 När du begär en åtkomsttoken från v2.0-slutpunkten returnerar v2.0-slutpunkten även metadata om åtkomsttoken för din app ska använda. Informationen omfattar förfallotiden för åtkomst-token och de omfattningar som den är giltig. Din app använder dessa metadata för att utföra intelligent cachelagring av åtkomsttoken utan att behöva parsa öppna den åtkomst-token.
 
 ### <a name="refresh-tokens"></a>Uppdatera token
+
 Uppdatera token är säkerhetstoken som din app kan använda för att hämta nya åtkomsttoken i ett flöde för OAuth 2.0. Din app kan använda uppdaterings-tokens för att uppnå långsiktig åtkomst till resurser för en användares räkning utan att användaren interagerar med.
 
 Uppdateringstoken är flera resurs. En uppdateringstoken som togs emot under en Tokenbegäran för en resurs kan lösas in för åtkomst-token till en helt annan resurs.
 
 För att få en uppdatering i ett token svar, din app måste begära och beviljas den `offline_access` omfång. Mer information om den `offline_access` omfång kan du läsa den [medgivande och scope](v2-permissions-and-consent.md) artikeln.
 
-Uppdatera token är det alltid är, helt täckande för din app. De kan har utfärdats av Azure AD v2.0-slutpunkten och endast kontrolleras och tolkas av v2.0-slutpunkten. De är långlivade, men appen inte att skriva förväntar sig att varar en uppdateringstoken för varje tidsperiod. Uppdateringstoken kan vara inaktuella när som helst av olika anledningar - mer information finns i [token återkallade](v1-id-and-access-tokens.md#token-revocation). Det enda sättet för din app att veta om en uppdateringstoken är giltig är att försöka lösa in den genom att göra en tokenbegäran till v2.0-slutpunkten.
+Uppdatera token är det alltid är, helt täckande för din app. De kan har utfärdats av Azure AD v2.0-slutpunkten och endast kontrolleras och tolkas av v2.0-slutpunkten. De är långlivade, men appen inte att skriva förväntar sig att varar en uppdateringstoken för varje tidsperiod. Uppdateringstoken kan vara inaktuella när som helst av olika anledningar - mer information finns i [token återkallade](access-tokens.md#revocation). Det enda sättet för din app att veta om en uppdateringstoken är giltig är att försöka lösa in den genom att göra en tokenbegäran till v2.0-slutpunkten.
 
 När du har löst in en uppdateringstoken för en ny åtkomsttoken (och om din app har beviljats den `offline_access` omfång), du får en ny uppdateringstoken i token-svaret. Spara den nyligen utfärdade uppdateringstoken för att ersätta den som du använde i begäran. Detta garanterar att dina uppdateringstoken förblir giltigt så länge som möjligt.
 
 ## <a name="validating-tokens"></a>Verifiera token
+
 För närvarande verifieras endast tokenvalidering dina appar behöver utföra ID-token. För att verifiera en ID-token kan bör din app verifiera både signatur för ID-token och anspråk i ID-token.
 
 <!-- TODO: Link --> Microsoft tillhandahåller bibliotek och kodexempel som visar hur du enkelt hantera tokenvalidering. I nästa avsnitt beskriver vi underliggande processen. Bibliotek för flera från tredje part öppen källkod är tillgängliga för JWT-verifiering. Det finns minst ett bibliotek alternativ för nästan alla plattformar och språk.
 
 ### <a name="validate-the-signature"></a>Verifiera signaturen
+
 En JWT innehåller tre segment som avgränsas med den `.` tecken. Det första segmentet kallas den *rubrik*, det andra segmentet är den *brödtext*, och det tredje segmentet är den *signatur*. Signatur-segment kan användas för att verifiera äkthet ID-token så att det kan vara betrott av din app.
 
 ID-token signeras med hjälp av branschstandard asymmetriska krypteringsalgoritmer, till exempel RSA-256. Rubriken för ID-token innehåller information om metoden nyckel och kryptering används för att signera token. Exempel:
@@ -131,6 +135,7 @@ Det här Metadatadokumentet är ett JSON-objekt som har flera användbara uppgif
 Utföra verifiera signaturen är utanför omfattningen för det här dokumentet. Många bibliotek med öppen källkod är tillgängliga som hjälper dig med detta.
 
 ### <a name="validate-the-claims"></a>Validera anspråk
+
 När din app tar emot ett ID-token när användaren loggar in, bör det också utföra några kontroller mot anspråken i ID-token. Dessa inkludera, men är inte begränsade till:
 
 * **publik** anspråk, kontrollera att ID-token ska tilldelas till din app
@@ -143,6 +148,7 @@ En fullständig lista över anspråk verifieringar som din app ska utföra finns
 Information om de förväntade värdena för dessa anspråk som ingår i den [ID-token](# ID tokens) avsnittet.
 
 ## <a name="token-lifetimes"></a>Livslängder för token
+
 Vi tillhandahåller följande tokenlivslängder endast i informationssyfte. Informationen kan hjälpa dig när du utvecklar och felsöker appar. Dina appar bör inte skrivas som händer något av dessa livslängd ska ändras. Token kan livslängd och kommer att ändras när som helst.
 
 | Token | Livslängd | Beskrivning |

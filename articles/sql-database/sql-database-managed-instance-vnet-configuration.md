@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: c2caa9ebbc3a4e6b9180466950775524986fd244
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: dfcd61abd9f995a9bb848c23143adb99b0620956
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364575"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042167"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett virtuellt nätverk för Azure SQL Database Managed Instance
 
-Azure SQL Database Managed Instance (förhandsversion) måste distribueras i en Azure [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Den här distributionen gör det möjligt för följande scenarier: 
+Azure SQL Database Managed Instance måste distribueras i en Azure [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Den här distributionen gör det möjligt för följande scenarier: 
 - Ansluta till en hanterad instans direkt från ett lokalt nätverk 
 - Ansluta en hanterad instans till länkad server eller en annan lokala datalager 
 - Ansluta en hanterad instans till Azure-resurser  
@@ -34,7 +34,7 @@ Planera hur du distribuerar en hanterad instans i virtuellt nätverk med dina sv
 
    Om du planerar att använda ett befintligt virtuellt nätverk måste du ändra den nätverkskonfigurationen för att hantera din hanterade instans. Mer information finns i [ändra befintligt virtuellt nätverk för hanterad instans](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Om du tänker skapa nytt virtuellt nätverk finns i [Skapa nytt virtuellt nätverk för hanterad instans](#create-a-new-virtual-network-for-managed-instances).
+   Om du tänker skapa nytt virtuellt nätverk finns i [Skapa nytt virtuellt nätverk för hanterad instans](#create-a-new-virtual-network-for-a-managed-instance).
 
 ## <a name="requirements"></a>Krav
 
@@ -84,7 +84,7 @@ Om du planerar att distribuera flera hanterade instanser i undernätet och behö
 > [!IMPORTANT]
 > Beräkningen ovan kommer att bli föråldrad med ytterligare förbättringar. 
 
-## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Skapa ett nytt virtuellt nätverk för hanterad instans med Azure Resource Manager-distribution
+## <a name="create-a-new-virtual-network-for-a-managed-instance"></a>Skapa ett nytt virtuellt nätverk för en hanterad instans
 
 Det enklaste sättet att skapa och konfigurera ett virtuellt nätverk är att använda Azure Resource Manager-mall för distribution.
 
@@ -143,8 +143,6 @@ Förberedelse av undernät görs i tre enkla steg:
 **Har du anpassad DNS-server konfigurerad?** 
 
 Om Ja, gå [konfigurera en anpassad DNS](sql-database-managed-instance-custom-dns.md). 
-
-- Skapa nödvändiga routningstabellen och associera den: se [skapar nödvändiga routningstabell och associerar den](#create-the-required-route-table-and-associate-it)
 
 ## <a name="next-steps"></a>Nästa steg
 

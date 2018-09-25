@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a30c6a8d02b46656a0d76cf8438bdf0b3361ae91
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: c99186d73886041d92bea38b0dd4dc17f55001e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248469"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977868"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure Monitor
 Många team behöver strikt reglera åtkomst till övervakningsdata och inställningar. Till exempel om du har som fungerar endast om hur du övervakar (support-tekniker, devops-tekniker) eller om du använder en leverantör av hanterade tjänster kan du behöva ge dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser. Den här artikeln visar hur du snabbt gäller en inbyggd övervakning RBAC-roll för en användare i Azure eller skapa en egen anpassad roll för en användare behöver begränsade behörigheter för övervakning. Det diskuterar sedan säkerhetsaspekter för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till den data de innehåller.
@@ -171,6 +171,24 @@ Ett liknande mönster kan följas med event hubs, men först måste du skapa en 
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
    New-AzureRmRoleDefinition -Role $role 
    ```
+
+## <a name="monitoring-within-a-secured-virtual-network"></a>Övervakning i ett skyddat virtuellt nätverk
+
+Azure Monitor behöver åtkomst till dina Azure-resurser för att tillhandahålla tjänster som du aktiverar. Om du vill övervaka dina Azure-resurser när du fortfarande skydda dem från åtkomst till det offentliga Internet, kan du aktivera följande inställningar.
+
+### <a name="secured-storage-accounts"></a>Skyddade konton 
+
+Övervakning av data skrivs ofta till ett lagringskonto. Du kanske vill kontrollera att de data som kopieras till ett Lagringskonto inte kan nås av obehöriga användare. För ytterligare säkerhet, kan du låsa nätverksåtkomst för att endast tillåta dina behöriga resurser och betrodda Microsoft-tjänster åtkomst till ett lagringskonto genom att begränsa ett storage-konto om du vill använda ”valda nätverk”.
+![Azure Storage-inställningsdialogrutan](./media/monitoring-roles-permissions-security/secured-storage-example.png) Azure Monitor anses vara en av dessa ”betrodda Microsoft-tjänster” om du tillåter att betrodda Microsoft-tjänster åtkomst till dina skyddade lagring, Azure monitor får åtkomst till skyddade Storage-kontot; att aktivera skriver diagnostikloggar för Azure Monitor, aktivitetsloggen och mått till ditt Storage-konto med dessa skyddade villkor. Detta gör även att Log Analytics för att läsa loggar från säker lagring.   
+
+Mer information finns i [Network security och Azure Storage](../storage/common/storage-network-security.md)
+ 
+### <a name="secured-virtual-networks-with-service-endpoints"></a>Skyddade virtuella nätverk med tjänstslutpunkter 
+
+Virtuella nätverk (Vnet) kan du begränsa trafik om du vill tillåta endast angivna trafik att kommunicera med dina Azure-resurser. Du kan ange Tjänsteslutpunkter för att utöka ditt VNet med Azure Monitor; Detta aktiverar dina resurser till conitinue att skicka information om loggning och mått på ett säkert sätt till Azure Monitor från virtuella nätverk.  
+
+Mer information finns i [virtuella nätverksslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md). 
+
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om RBAC och behörigheter i Resource Manager](../role-based-access-control/overview.md)

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: spelluru
-ms.openlocfilehash: b4865c1ba7532910ef0b4a41a5a19d2880e37d6e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d141ac284b1ed8e128588e1a49a0594e0c61707f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698969"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974059"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-mått i Azure Monitor (förhandsversion)
 
@@ -27,7 +27,7 @@ Azure Monitor innehåller enhetligt användargränssnitt för övervakning över
 
 ## <a name="access-metrics"></a>Åtkomst-mått
 
-Azure Monitor innehåller flera sätt att åtkomst mått. Du kan antingen åtkomst mätvärden via den [Azure-portalen](https://portal.azure.com), eller använda Azure Monitor-API: er (REST och .NET) och lösningar för dataanalys, till exempel Log Analytics och Event Hubs. Mer information finns i [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure Monitor innehåller flera sätt att åtkomst mått. Du kan antingen åtkomst mätvärden via den [Azure-portalen](https://portal.azure.com), eller använda Azure Monitor-API: er (REST och .NET) och lösningar för dataanalys, till exempel Log Analytics och Event Hubs. Mer information finns i [övervakningsdata som samlas in av Azure Monitor](../monitoring/monitoring-data-collection.md).
 
 Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) i Azure Monitor.
 

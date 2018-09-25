@@ -1,6 +1,6 @@
 ---
-title: Använd molnet init för att ange värdnamnet för en Linux-VM på Azure | Microsoft Docs
-description: Hur du använder molntjänster init för att anpassa en Linux VM under genereringen av med Azure CLI 2.0
+title: Använda cloud-init för att ange värdnamnet för en Linux-VM på Azure | Microsoft Docs
+description: Hur du använder cloud-init för att anpassa en Linux VM när skapas med Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,33 +14,33 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: a858a12ec81db7ae1c0a7b7cfea06fa2abdcdcc6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e985111a28805f861242240a5c2e3d7b6664be4e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29124032"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996119"
 ---
-# <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Använd molnet init för att ange värdnamnet för en Linux-VM i Azure
-Den här artikeln visar hur du använder [moln init](https://cloudinit.readthedocs.io) för att konfigurera specifika värdnamn på en virtuell dator (VM) eller virtuella datorn anger skala (VMSS) vid etablering tid i Azure. Skripten molnet init körs vid den första starten när resurserna som har etablerats genom Azure. Mer information om hur molnet init internt fungerar i Azure- och Linux-distributioner som stöds finns [moln init-översikt](using-cloud-init.md)
+# <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Använda cloud-init för att ange värdnamnet för en Linux-VM i Azure
+Den här artikeln visar hur du använder [cloud-init](https://cloudinit.readthedocs.io) för att konfigurera ett visst värdnamn på en virtuell dator (VM) eller en virtuell dator av skalningsuppsättningar (VMSS) etableringstid i Azure. Skripten cloud-init körs vid den första starten när resurserna har etablerats med Azure. Mer information om hur cloud-init fungerar internt i Azure och Linux-distributioner som stöds finns i [cloud-init-översikt](using-cloud-init.md)
 
-## <a name="set-the-hostname-with-cloud-init"></a>Ange värdnamnet med molnet initiering
-Som standard är värdnamnet samma som namnet på virtuella datorn när du skapar en ny virtuell dator i Azure.  Att köra ett moln init-skript om du vill ändra standard värdnamnet när du skapar en virtuell dator i Azure med [az vm skapa](/cli/azure/vm#az_vm_create), ange molnet init-filen med den `--custom-data` växla.  
+## <a name="set-the-hostname-with-cloud-init"></a>Ange värdnamnet med cloud-init
+Som standard är värdnamnet samma som VM-namnet när du skapar en ny virtuell dator i Azure.  Att köra ett skript för cloud-init för att ändra den här Standardvärdnamn när du skapar en virtuell dator i Azure med [az vm skapa](/cli/azure/vm#az_vm_create), ange cloud-init-filen med den `--custom-data` växla.  
 
-Om du vill se uppgraderingsprocessen i praktiken kan du skapa en fil i din aktuella shell med namnet *cloud_init_hostname.txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i molnet Shell inte på den lokala datorn. Du kan använda valfri redigerare som du vill. Ange `sensible-editor cloud_init_hostname.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 att använda den **nano** editor. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden.  
+Om du vill se uppgraderingsprocessen i praktiken kan du skapa en fil i ditt nuvarande gränssnitt med namnet *cloud_init_hostname.txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i Cloud Shell inte på den lokala datorn. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud_init_hostname.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 för att använda den **nano** redigeraren. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden.  
 
 ```yaml
 #cloud-config
 hostname: myhostname
 ```
 
-Innan du distribuerar den här avbildningen måste du skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group#az_group_create) kommando. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+Innan du distribuerar den här avbildningen måste du skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group#az_group_create) kommando. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Nu ska du skapa en virtuell dator med [az vm skapa](/cli/azure/vm#az_vm_create) och ange molnet init-fil med `--custom-data cloud_init_hostname.txt` på följande sätt:
+Nu skapar du en virtuell dator med [az vm skapa](/cli/azure/vm#az_vm_create) och ange cloud-init-fil med `--custom-data cloud_init_hostname.txt` på följande sätt:
 
 ```azurecli-interactive 
 az vm create \
@@ -51,28 +51,28 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-När du skapat visas information om den virtuella datorn i Azure CLI. Använd den `publicIpAddress` till SSH till den virtuella datorn. Ange din egen adress enligt följande:
+När du skapat visar Azure CLI information om den virtuella datorn. Använd den `publicIpAddress` SSH till den virtuella datorn. Ange din egen adress enligt följande:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-Namnet på virtuella datorn, Använd den `hostname` kommandot på följande sätt:
+Visa VM-namnet, använda den `hostname` -kommandot enligt följande:
 
 ```bash
 hostname
 ```
 
-Den virtuella datorn bör rapportera värdnamnet som det värde som anges i molnet init-filen som visas i följande exempel utdata:
+Den virtuella datorn ska rapportera värdnamnet som det värde som angetts i cloud-init-fil som du ser i följande Exempelutdata:
 
 ```bash
 myhostname
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Ytterligare molnet initiering exempel av konfigurationsändringar finns i följande:
+Ytterligare cloud-init exempel av konfigurationsändringar finns i följande:
  
-- [Lägga till en ytterligare Linux-användare till en virtuell dator](cloudinit-add-user.md)
-- [Kör en package manager för att uppdatera befintliga paket på första starten](cloudinit-update-vm.md)
-- [Ändra lokala värdnamnet för VM](cloudinit-update-vm-hostname.md) 
+- [Lägg till en ytterligare Linux-användare till en virtuell dator](cloudinit-add-user.md)
+- [Kör en pakethanterare för att uppdatera befintliga paket vid första start](cloudinit-update-vm.md)
+- [Ändra lokala värdnamnet för virtuell dator](cloudinit-update-vm-hostname.md) 
 - [Installera ett programpaket, uppdatera konfigurationsfiler och mata in nycklar](tutorial-automate-vm-deployment.md)

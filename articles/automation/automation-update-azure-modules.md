@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bee1c5c48242b69ee33fedd358a83e0580d19942
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 278f21713712e346648553642adf0d072c9f1b98
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498067"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063429"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Så här uppdaterar du Azure PowerShell-moduler i Azure Automation
 
@@ -30,6 +30,9 @@ Eftersom modulerna uppdateras regelbundet av produktgruppen, kan ändras med ink
 1. På sidan moduler i ditt Automation-konto är ett alternativ som heter **uppdatera Azure-moduler**. Det är alltid aktiverat.<br><br> ![Uppdatera Azure-moduler alternativ i moduler sidan](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
 2. Klicka på **uppdatera Azure-moduler**, ett meddelande om bekräftelse visas som frågar om du vill fortsätta.<br><br> ![Uppdatera Azure-moduler meddelande](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+
+   > [!NOTE]
+   > Den **uppdatera Azure-moduler** knappen är endast tillgänglig i det offentliga molnet. Det är inte tillgänglig i den [landsbaserade regioner](https://azure.microsoft.com/global-infrastructure/).
 
 3. Klicka på **Ja** och uppdateringsprocessen modulen börjar. Uppdateringen tar ungefär 15-20 minuter för att uppdatera följande moduler:
 

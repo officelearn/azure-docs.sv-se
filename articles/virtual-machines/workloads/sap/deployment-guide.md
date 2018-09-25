@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: a2daf75e5a75a4fb0be06986903a2f4f9be8adf0
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c6d7b4515546ea51264b094316c5da52dbb321c2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634854"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957031"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -919,9 +919,7 @@ Utdata från skriptet innehåller följande information:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI för virtuella Linux-datorer
 Installera Azure förbättrad övervakning av tillägget för SAP med hjälp av Azure CLI:
 
-1. Installera med hjälp av Azure CLI 1.0
-
-   1. Installera Azure CLI 1.0, enligt beskrivningen i [installera Azure CLI 1.0][azure-cli].
+   1. Installera Azure klassiska CLI, enligt beskrivningen i [installera Azure CLI för klassiska][azure-cli].
    1. Logga in med ditt Azure-konto:
 
       ```

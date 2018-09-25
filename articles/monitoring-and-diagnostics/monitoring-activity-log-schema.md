@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d267ffd5085c27c60e9eb229e2d9026fa83ef848
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003839"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998256"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Händelseschema för aktivitetslogg
 Den **Azure-aktivitetsloggen** är en logg som ger insikt i alla händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data. Schemat för data skiljer sig beroende på om du läser data i portalen, PowerShell, CLI, eller direkt via REST API jämfört med [strömmande data till lagring eller Event Hubs med en Loggprofil](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Exemplen nedan visar schemat som gjorts tillgängliga via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper så att den [Azure diagnostisk loggar schemat](./monitoring-diagnostic-logs-schema.md) tillhandahålls i slutet av artikeln.
@@ -192,6 +192,95 @@ Den här kategorin innehåller en post för alla service health incidenter som h
 }
 ```
 Referera till den [service health meddelanden](./monitoring-service-notifications.md) artikeln efter dokumentation om värdena i egenskaperna.
+
+## <a name="resource-health"></a>Resurshälsa
+Den här kategorin innehåller en post för eventuella resource health-händelser som har inträffat för dina Azure-resurser. Ett exempel på typen av händelse som du ser i den här kategorin är ”virtuell dator hälsostatus ändrats till inte tillgänglig”. Resource health-händelser kan representera en av fyra health-status: tillgänglig, är inte tillgänglig, Degraderad och okänd. Dessutom kan resurshälsotillståndshändelser kategoriseras som användaren startat eller plattform initieras.
+
+### <a name="sample-event"></a>Exempelhändelse
+
+```json
+{
+    "channels": "Admin, Operation",
+    "correlationId": "28f1bfae-56d3-7urb-bff4-194d261248e9",
+    "description": "",
+    "eventDataId": "a80024e1-883d-37ur-8b01-7591a1befccb",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "ResourceHealth",
+        "localizedValue": "Resource Health"
+    },
+    "eventTimestamp": "2018-09-04T15:33:43.65Z",
+    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "level": "Critical",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Resourcehealth/healthevent/Activated/action",
+        "localizedValue": "Health Event Activated"
+    },
+    "resourceGroupName": "<resource group>",
+    "resourceProviderName": {
+        "value": "Microsoft.Resourcehealth/healthevent/action",
+        "localizedValue": "Microsoft.Resourcehealth/healthevent/action"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
+    "subscriptionId": "<subscription Id>",
+    "properties": {
+        "stage": "Active",
+        "title": "Virtual Machine health status changed to unavailable",
+        "details": "Virtual machine has experienced an unexpected event",
+        "healthStatus": "Unavailable",
+        "healthEventType": "Downtime",
+        "healthEventCause": "PlatformInitiated",
+        "healthEventCategory": "Unplanned"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="property-descriptions"></a>Egenskapsbeskrivningar
+| Elementnamn | Beskrivning |
+| --- | --- |
+| kanaler | Alltid ”Admin, åtgärd” |
+| correlationId | Ett GUID i formatet för strängen. |
+| beskrivning |Statisk textbeskrivning av händelsen avisering. |
+| eventDataId |Unik identifierare för händelsen avisering. |
+| category | Alltid ”ResourceHealth” |
+| eventTimestamp |Tidsstämpel när händelsen skapades av tjänsten Azure behandlingen av begäran som motsvarande händelsen. |
+| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”Error”, ”varning”, ”information” och ”utförlig” |
+| operationId |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
+| operationName |Åtgärdens namn. |
+| resourceGroupName |Namnet på resursgruppen som innehåller resursen. |
+| resourceprovidername får |Alltid ”Microsoft.Resourcehealth/healthevent/action”. |
+| ResourceType | Typ av resurs som påverkades av en Resource Health-händelse. |
+| resourceId | Namn på resurs-ID för resursen som påverkas. |
+| status |Sträng som anger status för hälsohändelsen. Värdena kan vara: aktiv, löst, pågår, uppdaterad. |
+| understatus | Vanligtvis null för aviseringar. |
+| submissionTimestamp |Tidsstämpel när händelsen blev tillgängliga för frågor. |
+| subscriptionId |Azure-prenumerations-Id. |
+| properties |Uppsättning `<Key, Value>` par (det vill säga en ordlista) som beskriver informationen om händelsen.|
+| Properties.title | En användarvänlig-sträng som beskriver resursen hälsostatus. |
+| Properties.details | En användarvänlig-sträng som innehåller ytterligare information om händelsen. |
+| properties.currentHealthStatus | Aktuellt tillstånd för resursen. Något av följande värden: ”tillgänglig”, ”ej tillgänglig”, ”Degraderad” och ”okänt”. |
+| properties.previousHealthStatus | Föregående hälsostatus för resursen. Något av följande värden: ”tillgänglig”, ”ej tillgänglig”, ”Degraderad” och ”okänt”. |
+| properties.type | En beskrivning av typen av resource health händelse. |
+| Properties.Cause | En beskrivning av orsaken till hälsohändelsen resurs. ”UserInitiated” och ”PlatformInitiated”. |
+
 
 ## <a name="alert"></a>Varning
 Den här kategorin innehåller en post för alla Azure-aviseringar-aktiveringar. Ett exempel på typen av händelse som du ser i den här kategorin är ”processor på myVM har varit över 80 under de senaste 5 minuterna”. En mängd olika Azure-system har en datastyrd begrepp – du kan definiera en regel av något slag och få ett meddelande när villkoren matchar regeln. Varje gång en stöds Azure aviseringstyp ”aktiverar,' eller villkoren uppfylls för att generera ett meddelande, en post med aktiveringen skickas också till den här kategorin för aktivitetsloggen.

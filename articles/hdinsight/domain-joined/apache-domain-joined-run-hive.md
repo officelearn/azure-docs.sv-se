@@ -1,26 +1,26 @@
 ---
-title: Konfigurera Hive-policyer i domänanslutna HDInsight - Azure
-description: Lär dig hur du konfigurerar Apache Ranger-principer för Hive i en domänansluten Azure HDInsight-tjänst.
+title: Konfigurera Hive-principer i HDInsight med Enterprise Security Package - Azure
+description: Lär dig hur du konfigurerar Apache Ranger-principer för Hive i ett Azure HDInsight-tjänst med Enterprise Security Package.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.openlocfilehash: 55abb5331da24c3914075c21579e5082853b3c1f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: bdad0bac0d320b641359df4093ae10c9505b7de2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042088"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993433"
 ---
-# <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Konfigurera Hive-policyer i domänanslutna HDInsight
+# <a name="configure-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera Hive-principer i HDInsight med Enterprise Security Package
 Ta reda på mer om hur du konfigurerar Apache Ranger-principer för Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna kan du använda Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Ett domänanslutet HDInsight-kluster. Se [Konfigurera domänanslutna HDInsight-kluster](apache-domain-joined-configure.md).
+* Ett HDInsight-kluster med Enterprise Security Package. Se [konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
 * En arbetsstation med Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, fristående Excel 2013 eller Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Anslut till Apache Ranger Admin-gränssnittet
@@ -34,15 +34,15 @@ Ta reda på mer om hur du konfigurerar Apache Ranger-principer för Hive. I den 
    >
 2. Logga in med klusteradministratörens domänanvändarnamn och lösenord:
 
-    ![Startsida för HDInsight domänanslutet Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
+    ![Startsida för HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
 
     För närvarande fungerar Ranger bara med Yarn och Hive.
 
 ## <a name="create-domain-users"></a>Skapa domänanvändare
-Se [skapa ett domänanslutet HDInsight-kluster](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster), information om hur du skapar hiveruser1 och hiveuser2. Du kan använda två användarkonton i den här självstudien.
+Se [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), information om hur du skapar hiveruser1 och hiveuser2. Du kan använda två användarkonton i den här självstudien.
 
 ## <a name="create-ranger-policies"></a>Skapa Ranger-principer
-I det här avsnittet skapar du två Ranger-principer för att komma åt hivesampletable. Du kan ge select-behörighet för olika uppsättningar med kolumner. Båda användarna skapades med hjälp av [skapa ett domänanslutet HDInsight-kluster](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). I nästa avsnitt ska du testa två principer i Excel.
+I det här avsnittet skapar du två Ranger-principer för att komma åt hivesampletable. Du kan ge select-behörighet för olika uppsättningar med kolumner. Båda användarna skapades med hjälp av [skapa ett HDInsight-kluster med ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). I nästa avsnitt ska du testa två principer i Excel.
 
 **Skapa Ranger-principer**
 
@@ -57,7 +57,7 @@ I det här avsnittet skapar du två Ranger-principer för att komma åt hivesamp
    * Välj användare: hiveuser1
    * Behörigheter: select
 
-     ![Konfigurera Ranger Hive-princip för domänansluten HDInsight](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+     ![Konfigurera HDInsight ESP Ranger Hive-princip](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
      > [!NOTE]
      > Om en domänanvändare inte är ifylld i Välj användare, vänta en stund för att Ranger ska synkronisera med AAD.
@@ -131,9 +131,9 @@ Om du vill testa den andra principen (read-hivesampletable-devicemake) skapade d
     När det är klart bör du se två kolumner med importerade data.
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill konfigurera ett domänanslutet HDInsight-kluster kan du läsa i [Konfigurera domänanslutna HDInsight-kluster](apache-domain-joined-configure.md).
-* Hantera ett domänanslutet HDInsight-kluster finns i [hantera domänanslutna HDInsight-kluster](apache-domain-joined-manage.md).
-* För att köra Hive-frågor med SSH på domänanslutna HDInsight-kluster, se [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Konfigurera ett HDInsight-kluster med Enterprise Security Package finns i [konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
+* För att hantera ett HDInsight-kluster med ESP, se [hantera HDInsight-kluster med ESP](apache-domain-joined-manage.md).
+* För att köra Hive-frågor med SSH på HDInsight-kluster med hjälp av ESP Se [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Om du vill ansluta Hive med Hive JDBC kan du läsa i [Anslut till Hive på Azure HDInsight med Hive JDBC-drivrutin](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
 * Om du vill ansluta Excel till Hadoop med Hive ODBC kan du läsa i [Anslut Excel till Hadoop med Microsoft Hive ODBC-drivrutin](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
 * Om du vill ansluta Excel till Hadoop med Power Query kan du läsa i [Anslut Excel till Hadoop med hjälp av Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md)

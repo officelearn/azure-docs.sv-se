@@ -4,18 +4,18 @@ description: Lär dig hur du lägger till en lista över entitet för att hjälp
 services: cognitive-services
 author: diberry
 titleSuffix: Azure
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 12a6cfbe7267d3575fbb33978d7ea6e743802d12
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237170"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036787"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Använd en entitet i listan för att öka entitet identifiering 
 Den här självstudien visar hur du använder en [lista entitet](luis-concept-entity-types.md) att öka entitet identifiering. Lista enheter behöver inte märkta som de är en exakt matchning av villkor.  

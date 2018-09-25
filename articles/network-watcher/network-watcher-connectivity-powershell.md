@@ -1,6 +1,6 @@
 ---
-title: Felsöka anslutningar med Azure Nätverksbevakaren - PowerShell | Microsoft Docs
-description: Lär dig hur du använder anslutningen felsöka möjligheterna för Nätverksbevakaren i Azure med hjälp av PowerShell.
+title: Felsök anslutningar med Azure Network Watcher – PowerShell | Microsoft Docs
+description: Lär dig hur du använder anslutningen felsöka funktion i Azure Network Watcher med hjälp av PowerShell.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,34 +13,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 7e8c04fd2284a3a00d4847f39fd34982a543cc29
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aac23f616cb9d7c3fb29e516cfa2daa47c00e8e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181869"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989268"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Felsöka anslutningar med Azure Nätverksbevakaren med hjälp av PowerShell
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Felsöka anslutningar med Azure Network Watcher med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST-API](network-watcher-connectivity-rest.md)
 
 Lär dig hur du använder anslutning felsöka för att kontrollera om en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt kan upprättas.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* En instans av Nätverksbevakaren i regionen som du vill felsöka en anslutning.
+* En instans av Network Watcher i regionen som du vill felsöka en anslutning.
 * Virtuella datorer för att felsöka anslutningar med.
 
 > [!IMPORTANT]
-> Felsökning av anslutning kräver att den virtuella datorn som du felsöker från den `AzureNetworkWatcherExtension` VM-tillägget installeras. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på målslutpunkten.
+> Felsökning av anslutning kräver att den virtuella datorn som du felsöker från har den `AzureNetworkWatcherExtension` VM-tillägget installerat. Installera tillägget på en Windows-VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och Linux VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på slutpunkten för målet.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Kontrollera anslutningen till en virtuell dator
 
-Det här exemplet kontrollerar en anslutning till en virtuell dator för målet via port 80. Det här exemplet kräver att du har aktiverat i den region som innehåller den Virtuella källdatorn Nätverksbevakaren.  
+Det här exemplet kontrollerar en anslutning till en mål-dator via port 80. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den Virtuella källdatorn.  
 
 ### <a name="example"></a>Exempel
 
@@ -62,7 +62,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Svar
 
-Följande svar är från föregående exempel.  I det här svaret på `ConnectionStatus` är **inte åtkomlig**. Du kan se att alla avsökningar skickas misslyckades. Anslutningen misslyckades på den virtuella installationen på grund av ett användardefinierat `NetworkSecurityRule` med namnet **UserRule_Port80**, konfigurerad för att blockera inkommande trafik på port 80. Den här informationen kan användas för att utreda problem med anslutningen.
+Följande svar är från föregående exempel.  I det här svaret den `ConnectionStatus` är **tillbaka**. Du kan se att alla avsökningar skickas misslyckades. Anslutningen misslyckades på den virtuella installationen på grund av ett användardefinierat `NetworkSecurityRule` med namnet **UserRule_Port80**, konfigurerat att blockera inkommande trafik på port 80. Den här informationen kan användas för att undersöka problem med anslutningen.
 
 ```
 ConnectionStatus : Unreachable
@@ -133,9 +133,9 @@ Hops             : [
                    ]
 ```
 
-## <a name="validate-routing-issues"></a>Validera routning problem
+## <a name="validate-routing-issues"></a>Verifiera routningsproblem
 
-Det här exemplet kontrollerar anslutningen mellan en virtuell dator och en fjärrslutpunkten. Det här exemplet kräver att du har aktiverat i den region som innehåller den Virtuella källdatorn Nätverksbevakaren.  
+Det här exemplet kontrollerar anslutningen mellan en virtuell dator och en fjärrslutpunkten. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den Virtuella källdatorn.  
 
 ### <a name="example"></a>Exempel
 
@@ -154,7 +154,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Svar
 
-I följande exempel visas den `ConnectionStatus` visas som **inte åtkomlig**. I den `Hops` information hittar du `Issues` som trafiken har blockerats på grund av en `UserDefinedRoute`. 
+I följande exempel visas den `ConnectionStatus` visas som **tillbaka**. I den `Hops` information som du kan se `Issues` som trafiken har blockerats på grund av en `UserDefinedRoute`. 
 
 ```
 ConnectionStatus : Unreachable
@@ -199,7 +199,7 @@ Hops             : [
 
 ## <a name="check-website-latency"></a>Kontrollera svarstid för webbplats
 
-I följande exempel kontrollerar anslutningen till en webbplats. Det här exemplet kräver att du har aktiverat i den region som innehåller den Virtuella källdatorn Nätverksbevakaren.  
+I följande exempel kontrollerar anslutningen till en webbplats. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den Virtuella källdatorn.  
 
 ### <a name="example"></a>Exempel
 
@@ -219,7 +219,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Svar
 
-I följande svar, kan du se den `ConnectionStatus` visas som **nåbar**. När en anslutning lyckas tillhandahålls svarstider.
+I följande svar, kan du se den `ConnectionStatus` som **nåbar**. När en anslutning lyckas tillhandahålls svarstider.
 
 ```
 ConnectionStatus : Reachable
@@ -252,7 +252,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>Kontrollera anslutningen till en slutpunkt för lagring
 
-I följande exempel kontrollerar anslutningen från en virtuell dator till en blogg lagringskontot. Det här exemplet kräver att du har aktiverat i den region som innehåller den Virtuella källdatorn Nätverksbevakaren.  
+I följande exempel kontrollerar anslutningen från en virtuell dator till en blog storage-konto. Det här exemplet kräver att du har Network Watcher aktiverat i den region som innehåller den Virtuella källdatorn.  
 
 ### <a name="example"></a>Exempel
 
@@ -272,7 +272,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Svar
 
-Följande json är exempel svaret från att köra cmdlet tidigare. Eftersom målet kan nås, den `ConnectionStatus` egenskapen visas som **nåbar**.  Information om antalet hopp som krävs för att nå lagringsblob och fördröjning finns.
+Följande json är exempelsvar från att köra cmdleten tidigare. Eftersom målet kan nås, den `ConnectionStatus` egenskapen visas som **nåbar**.  Du får information om antalet hopp som krävs för att nå lagringsblob och svarstid.
 
 ```json
 ConnectionStatus : Reachable
@@ -305,6 +305,6 @@ Hops             : [
 
 ## <a name="next-steps"></a>Nästa steg
 
-Avgöra om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera IP-flöde Kontrollera](diagnose-vm-network-traffic-filtering-problem.md).
+Ta reda på om vissa trafik tillåts i eller utanför din virtuella dator genom att besöka [Kontrollera IP-flödesverifieringen](diagnose-vm-network-traffic-filtering-problem.md).
 
-Om trafik blockeras och får inte vara, se [hantera Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md) att spåra de grupp och säkerhet Nätverkssäkerhetsregler som har definierats.
+Om trafik blockeras och det får inte vara, se [hantera Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md) att spåra de och Nätverkssäkerhetsregler som har definierats.

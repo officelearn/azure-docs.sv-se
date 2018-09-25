@@ -1,6 +1,6 @@
 ---
-title: Länka Azure-konto att samarbeta ID | Microsoft Docs
-description: Spåra Användarsegmentet med Azure-kunder genom att länka partner-ID till det användarkonto som du hanterar kundens resurser.
+title: Länka Azure-konto och partner ID | Microsoft Docs
+description: Spåra arbete med Azure-kunder genom att länka partner-ID till det användarkonto som används för att hantera kundens resurser.
 services: billing
 author: dhirajgandhi
 ms.author: dhgandhi
@@ -10,59 +10,59 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a48298668e2297cb95f2a2f16eac6387ff509781
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ddfe83bf4d10eb3ee9b61ee1f60e60a965047cf9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608720"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980224"
 ---
-# <a name="link-partner-id-to-your-azure-accounts"></a>Länken partner-ID till dina Azure-konton
+# <a name="link-partner-id-to-your-azure-accounts"></a>Länka partner-ID till dina Azure-konton
 
-Som partner kan spåra du din påverkan mellan kunden Användarsegmentet genom att länka ditt partner-ID till de konton som används för att hantera kundens resurser.
+Som partner kan spåra du din inverkan mellan dina kundrelationer genom att länka ditt partner-ID till de konton som används för att hantera kundens resurser.
 
-Den här funktionen är tillgänglig i en förhandsversion.
+Den här funktionen är tillgänglig i en offentlig förhandsversion.
 
 ## <a name="get-access-from-your-customer"></a>Hämta från kunden
 
-Innan du länka ditt partner-ID måste kunden får du åtkomst till sina Azure-resurser med hjälp av något av följande alternativ:
+Innan du länka ditt partner-ID, måste kunden får du åtkomst till sina Azure-resurser med hjälp av något av följande alternativ:
 
-- **Gästanvändare:** kunden kan lägga till dig som gästanvändare och tilldela några RBAC-roller. Mer information finns i [lägga till gästanvändare från en annan katalog](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Gästanvändaren:** kunden kan lägga till dig som en gästanvändare och tilldela alla RBAC-roller. Mer information finns i [lägga till gästanvändare från en annan katalog](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Directory-konto:** kunden kan skapa en ny användare från din organisation i sina kataloger och tilldela någon RBAC-roll.
+- **Directory-konto:** kunden kan skapa en ny användare från din organisation i sin katalog och tilldela en RBAC-roll.
 
-- **Tjänstens huvudnamn:** kunden kan lägga till en app eller skript från din organisation i sina kataloger och tilldela någon RBAC-roll. Identiteten för den app eller skript kallas tjänstens huvudnamn.
+- **Tjänstens huvudnamn:** kunden kan lägga till en app eller ditt skript från din organisation i sin katalog och tilldela en RBAC-roll. Identiteten för den app eller ditt skript kallas för tjänstens huvudnamn.
 
 ## <a name="link-partner-id"></a>Länka partner-ID
 
-När du har åtkomst till resurser i kundens använda Azure-portalen, PowerShell eller CLI för att länka ditt Microsoft Partner Network-ID (MPN ID) till användar-ID eller tjänstens huvudnamn. Du måste länka partner-ID i varje kund-klient.
+När du har åtkomst till kundens resurser, Använd Azure portal, PowerShell eller CLI för att länka ditt Microsoft Partner Network-ID (MPN-ID) till dina användar-ID eller tjänstens huvudnamn. Du måste länka partner-ID i varje kundklient.
 
-### <a name="use-azure-portal-to-link-new-partner-id"></a>Använda Azure-portalen för att länka nya partner-ID
+### <a name="use-azure-portal-to-link-new-partner-id"></a>Använd Azure-portalen för att länka ny partner-ID
 
-1. Gå till [länk till en partner-ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) i Azure-portalen.
+1. Gå till [länk till ett partner-ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) i Azure-portalen.
 
 2. Logga in på Azure Portal.
 
-3. Ange Microsoft-partner-ID. Partner-ID är den [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID för din organisation.
+3. Ange Microsoft partner-ID. Partner-ID är den [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID: T för din organisation.
 
-  ![Skärmbild som visar länken partner-ID](./media/billing-link-partner-id/link-partner-ID.PNG)
+  ![Skärmbild som visar länka partner-ID](./media/billing-link-partner-id/link-partner-ID.PNG)
 
-4. Använd directory switcher om du vill länka partner-ID för en annan kund. Välj din katalog under växeln katalog.
+4. Använd katalogväxlaren för att länka partner-ID för en annan kund. Under växla katalog väljer du din katalog.
 
-  ![Skärmbild som visar länken partner-ID](./media/billing-link-partner-id/directory-switcher.png)
+  ![Skärmbild som visar länka partner-ID](./media/billing-link-partner-id/directory-switcher.png)
 
-### <a name="use-powershell-to-link-new-partner-id"></a>Använd PowerShell för att länka nya partner-ID
+### <a name="use-powershell-to-link-new-partner-id"></a>Använd PowerShell för att länka ny partner-ID
 
 1. Installera den [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell-modulen.
 
-2. Logga in på kundens klient med det användarkonto eller tjänstens huvudnamn, mer information, se [logga in med Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Logga in till kundens klient antingen med det användarkonto eller tjänstens huvudnamn, för mer information, se [logga in med Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  
    ```azurepowershell-interactive
     C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
 
 
-3. Länka nya partner-ID. Partner-ID är den [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID för din organisation.
+3. Länka ny partner-ID. Partner-ID är den [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID: T för din organisation.
 
     ```azurepowershell-interactive
     C:\> new-AzureRmManagementPartner -PartnerId 12345 
@@ -82,20 +82,20 @@ C:\> Update-AzureRmManagementPartner -PartnerId 12345
 C:\> remove-AzureRmManagementPartner -PartnerId 12345 
 ```
 
-### <a name="use-cli-to-link-new-partner-id"></a>Använda CLI för att länka nya partner-ID
-1.  Installera tillägget CLI.
+### <a name="use-cli-to-link-new-partner-id"></a>Använd CLI för att länka ny partner-ID
+1.  Installera CLI-tillägg.
 
     ```azurecli-interactive
     C:\ az extension add --name managementpartner
     ``` 
 
-2.  Logga in på kundens klient med det användarkonto eller tjänstens huvudnamn. Mer information finns i [logga in med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+2.  Logga in på kundens klient med det användarkonto eller tjänstens huvudnamn. Mer information finns i [logga in med Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
     ``` 
 
-3.  Länka nya partner-ID. Partner-ID är den [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID för din organisation.
+3.  Länka ny partner-ID. Partner-ID är den [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID: T för din organisation.
 
      ```azurecli-interactive
      C:\ az managementpartner create --partner-id 12345
@@ -118,22 +118,22 @@ C:\ az managementpartner delete --partner-id 12345
 
 ## <a name="next-steps"></a>Nästa steg
 
-Anslut diskussionen den [Microsoft Partner Community](https://aka.ms/PALdiscussion) ta emot uppdateringar eller skicka feedback.
+Gå med i diskussionen den [Microsoft Partner Community](https://aka.ms/PALdiscussion) ta emot uppdateringar eller skicka feedback.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-**Vem som kan koppla partner-ID?**
+**Vem kan länka partner-ID?**
 
-Alla användare från partnerorganisationen som hanterar kundens resurs kan länkas partner-ID till kontot.
+Alla användare från partnerorganisationen som hanterar kundens resurs kan länka partner-ID till kontot.
 
-**När en partner-ID är länkad kan det ändras?**
+**När ett partner-ID är länkad kan den ändras?**
 
-Ja, länkade partner-ID kan ändras, lägga till, eller tas bort.
+Ja, länkade partner-ID kan ändras, har lagts till, eller tas bort.
 
-**Vad händer om en användare med ett konto i flera kunden klienter?**
+**Vad händer om en användare har ett konto i flera kund klienter?**
 
-Länken mellan partner-ID och kontot görs för varje kund-klient.  Du måste länka partner-ID i varje kund-klient.
+Länken mellan partner-ID och konton som görs för varje kundklient.  Du måste länka partner-ID i varje kundklient.
 
-**Kan andra partner eller kund redigera eller ta bort länk till partner-ID?**
+**Kan andra partner eller kund redigera eller ta bort länken till partner-ID?**
 
-Länken är associerade på kontonivå. Du kan bara redigera eller ta bort länken till partner-ID. Kunden och andra partnern kan inte ändra länken till partner-ID. 
+Länken är associerade på kontonivå. Endast kan du redigera eller ta bort länken till partner-ID. Kunden och andra partner kan inte ändra länken till partner-ID. 

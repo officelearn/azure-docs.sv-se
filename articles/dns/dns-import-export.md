@@ -1,6 +1,6 @@
 ---
-title: Importera och exportera en zonfil domän till Azure DNS med Azure CLI 2.0 | Microsoft Docs
-description: Lär dig att importera och exportera en DNS-zonfil till Azure DNS med hjälp av Azure CLI 2.0
+title: Importera och exportera en zonfil domän till Azure DNS med Azure CLI | Microsoft Docs
+description: Lär dig att importera och exportera en DNS-zonfil till Azure DNS med hjälp av Azure CLI
 services: dns
 documentationcenter: na
 author: vhorne
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 7578d078b147b5c4bf42f5343d3fdfdf6f0bc42e
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171613"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956361"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Importera och exportera en DNS-zonfil med Azure CLI 2.0 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importera och exportera en DNS-zonfil med Azure CLI 
 
-Den här artikeln vägleder dig igenom hur du importera och exportera DNS-zonfiler för Azure DNS med Azure CLI 2.0.
+Den här artikeln vägleder dig igenom hur du importera och exportera DNS-zonfiler för Azure DNS med Azure CLI.
 
 ## <a name="introduction-to-dns-zone-migration"></a>Introduktion till DNS-zon migrering
 
@@ -30,7 +30,7 @@ En DNS-zonfil är en textfil som innehåller information om varje Domain Name Sy
 
 Azure DNS stöder import och export av filer med hjälp av kommandoradsgränssnittet (CLI). Zonens filimport är **inte** stöds för närvarande via Azure PowerShell eller Azure-portalen.
 
-Azure CLI 2.0 är ett kommandoradsverktyg för flera plattformar som används för att hantera Azure-tjänster. Den är tillgänglig för Windows, Mac och Linux-plattformar från den [Azure hämtningssidan](https://azure.microsoft.com/downloads/). Support för alla plattformar är viktigt för import och export av filer, eftersom namnet vanligaste serverprogramvaran [BINDA](https://www.isc.org/downloads/bind/), vanligtvis körs på Linux.
+Azure CLI är ett kommandoradsverktyg för flera plattformar som används för att hantera Azure-tjänster. Den är tillgänglig för Windows, Mac och Linux-plattformar från den [Azure hämtningssidan](https://azure.microsoft.com/downloads/). Support för alla plattformar är viktigt för import och export av filer, eftersom namnet vanligaste serverprogramvaran [BINDA](https://www.isc.org/downloads/bind/), vanligtvis körs på Linux.
 
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Hämta din befintliga DNS-zonfil

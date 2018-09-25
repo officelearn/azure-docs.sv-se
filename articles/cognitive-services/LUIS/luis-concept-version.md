@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Lär dig hur du använder versioner för att hantera ändringar i Språkförståelse (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: dd8c521d4f9e76026d4651be24d784c3115d4856
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 5d78172ae441300cdc39df8b911fd7ecaa42df9f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632706"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032703"
 ---
 # <a name="versions"></a>Versioner
 Skapa olika modeller av samma app med [versioner](luis-how-to-manage-versions.md). 

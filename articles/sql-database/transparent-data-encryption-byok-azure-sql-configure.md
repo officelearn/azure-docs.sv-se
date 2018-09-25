@@ -15,15 +15,15 @@ ms.service: sql-database
 ms.tgt_pltfrm: ''
 ms.devlang: azurecli, powershell
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 09/20/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 11e190e1a4d0309bdbdcb7a578fccaf84fabb8e3
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 65f9384bb0ceedd6c2bde8ef513040e198ccc4d2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543785"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036379"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell och CLI: aktivera Transparent datakryptering med hjälp av en egen nyckel från Azure Key Vault
 
@@ -35,11 +35,11 @@ Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault fö
 - (Rekommenderas men valfria) Ha en maskinvarusäkerhetsmodul (HSM) eller lokal nyckel lagra för att skapa en lokal kopia av nyckelmaterial TDE-skydd.
 - Du måste ha Azure PowerShell-version 4.2.0 eller senare installerat och körs. 
 - Skapa en Azure Key Vault och en nyckel som ska användas för TDE.
-   - [PowerShell-instruktioner från Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
-   - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [PowerShell-instruktioner från Key Vault](../key-vault/key-vault-get-started.md)
+   - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - Nyckelvalvet måste ha följande egenskap som ska användas för transparent Datakryptering:
-   - [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [Så här använder du Key Vault mjuk borttagning med PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) 
+   - [Mjuk borttagning](../key-vault/key-vault-ovw-soft-delete.md)
+   - [Så här använder du Key Vault mjuk borttagning med PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - Nyckeln måste ha följande attribut som ska användas för transparent Datakryptering:
    - Inga upphör att gälla
    - Inte inaktiverat
@@ -201,11 +201,11 @@ Kontrollera följande om ett problem inträffar:
 - (Rekommenderas men valfria) Ha en maskinvarusäkerhetsmodul (HSM) eller lokal nyckel lagra för att skapa en lokal kopia av nyckelmaterial TDE-skydd.
 - Kommandoradsgränssnitt 2.0 eller senare. Om du vill installera den senaste versionen och ansluter till din Azure-prenumeration, se [installerar och konfigurerar Azure plattformsoberoende kommandoradsgränssnitt 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 - Skapa en Azure Key Vault och en nyckel som ska användas för TDE.
-   - [Hantera Nyckelvalv med hjälp av CLI 2.0](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2)
-   - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [Hantera Nyckelvalv med hjälp av CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
+   - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - Nyckelvalvet måste ha följande egenskap som ska användas för transparent Datakryptering:
-   - [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [Så här använder du Key Vault mjuk borttagning med CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli) 
+   - [Mjuk borttagning](../key-vault/key-vault-ovw-soft-delete.md)
+   - [Så här använder du Key Vault mjuk borttagning med CLI](../key-vault/key-vault-soft-delete-cli.md) 
 - Nyckeln måste ha följande attribut som ska användas för transparent Datakryptering:
    - Inga upphör att gälla
    - Inte inaktiverat

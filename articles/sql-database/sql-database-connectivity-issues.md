@@ -3,19 +3,22 @@ title: Åtgärda en SQL-anslutningsfel, tillfälligt fel | Microsoft Docs
 description: Lär dig mer om att felsöka, diagnostisera och förhindra att en SQL-anslutningsfel eller tillfälligt fel i Azure SQL Database.
 keywords: SQL-anslutning, anslutningssträngen, problem med nätverksanslutningen, tillfälligt fel, anslutningsfel
 services: sql-database
-author: dalechen
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: dalechen
 ms.author: ninarn
-ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 08/01/2018
+ms.openlocfilehash: f381eaad61c98228ea9be2665ebed5878b666317
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398945"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064245"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Felsöka, diagnostisera och förhindra SQL-anslutningsfel och tillfälliga fel för SQL Database
 Den här artikeln beskriver hur du förhindrar, felsöka, diagnostisera och lösa anslutningsfel och tillfälliga fel som klientprogrammet som påträffar när det interagerar med Azure SQL Database. Lär dig hur du konfigurerar logik för omprövning, bygga anslutningssträngen och justera andra anslutningsinställningar.

@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 09/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665442"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039011"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Konfigurera Azure AD directory rollinställningar i PIM
 
@@ -63,24 +63,23 @@ Använd den **Multifaktorautentisering** växel för att ange om användarna ska
 * Användare som har Microsoft-konton för sina e-postadresser (vanligtvis @outlook.com, men inte alltid) det går inte att registrera dig för Azure MFA. Om du vill tilldela roller till användare med Microsoft-konton bör du göra dem permanenta administratörer eller inaktivera MFA för rollen.
 * Du kan inte inaktivera MFA för mycket Privilegierade roller för Azure AD och Office 365. Det här är en säkerhetsfunktion eftersom dessa roller noggrant ska skyddas:  
   
-  * Programadministratör
-  * Programadministratör Proxy server
-  * Faktureringsadministratör  
-  * Efterlevnadsadministratör  
-  * CRM-tjänstadministratör
-  * Customer LockBox åtkomst godkännaren
-  * Directory-skrivare  
-  * Exchange-administratör  
+  * Faktureringsadministratör
+  * Molnprogramadministratör
+  * Efterlevnadsadministratör
+  * Administratör för villkorsstyrd åtkomst
+  * Administratör för CRM-tjänst
+  * Godkännare av åtkomst till Customer LockBox
+  * Katalogskrivare
+  * Exchange-administratör
   * Global administratör
+  * Information Protection-administratör
   * Administratör för Intune-tjänsten
-  * Postlådeadministratör  
-  * Partnersupport, nivå 1  
-  * Partnersupport, nivå 2  
+  * Power BI-tjänstadministratör
   * Privilegierad rolladministratör
-  * Säkerhetsadministratör  
-  * SharePoint-administratör  
-  * Skype for Business-administratör  
-  * Användarkonto-administratör  
+  * Säkerhetsadministratör
+  * SharePoint-tjänstadministratör
+  * Skype för Business Administrator
+  * Användaradministratör
 
 Mer information finns i [multifaktorautentisering (MFA) och PIM](pim-how-to-require-mfa.md).
 

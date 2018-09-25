@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: f4253d4259d66b0c5746ef61cfc3cf4f4f2caad3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f48bab5cec1e8c3836ab5044fbff1a843ede249b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448923"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978393"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Hur du säkerhetskopierar och återställer en server i Azure Database for MySQL med Azure CLI
 
@@ -31,7 +31,7 @@ Du behöver följande för att slutföra den här guiden:
  
 
 > [!IMPORTANT]
-> Den här guiden kräver att du använder Azure CLI version 2.0 eller senare. För att bekräfta versionen på Azure CLI-kommandotolk och ange `az --version`. Om du vill installera eller uppgradera, se [installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> Den här guiden kräver att du använder Azure CLI version 2.0 eller senare. För att bekräfta versionen på Azure CLI-kommandotolk och ange `az --version`. Om du vill installera eller uppgradera, se [installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="set-backup-configuration"></a>Konfiguration av säkerhetskopiering
 

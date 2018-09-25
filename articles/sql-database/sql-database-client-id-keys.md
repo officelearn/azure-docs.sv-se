@@ -1,26 +1,29 @@
 ---
-title: Hämta värden för app - autentisering i Azure SQL Database | Microsoft Docs
+title: Hämta värden för appautentisering – Azure SQL Database | Microsoft Docs
 description: Skapa ett huvudnamn för tjänsten för att komma åt SQL-databas från kod.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: f6d3599425669a6717a58bb1e5ac0af4b291d4d6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: f9b66a430e1ca5b24853a5ff31ce13393b12b0c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646345"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063803"
 ---
-# <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Hämta värden som krävs för att verifiera ett program för att komma åt SQL-databas från kod
-Om du vill skapa och hantera SQL-databas från kod måste du registrera din app i Azure Active Directory (AAD)-domän i prenumerationen där resurserna i Azure har skapats.
+# <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Hämta värdena som krävs för att autentisera ett program för att få åtkomst till SQL-databas från kod
+Du måste registrera din app i Azure Active Directory (AAD)-domän i prenumerationen där dina Azure-resurser har tagits fram för att skapa och hantera SQL-databas från kod.
 
-## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Skapa en tjänstens huvudnamn för åtkomst av resurser från ett program
-Du måste ha senast [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) installerad och körs. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs).
+## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Skapa tjänstens huvudnamn för åtkomst till resurser från ett program
+Du måste ha senast [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) installerade och körs. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Följande PowerShell-skript skapar Active Directory-programmet (AD) och tjänstobjektet som vi behöver för att autentisera vår C#-app. Skriptet matar ut värden som vi behöver för det föregående C#-exemplet. Detaljerad information finns i [Skapa ett tjänstobjekt med Azure PowerShell för att komma åt resurser](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
@@ -67,5 +70,5 @@ Följande PowerShell-skript skapar Active Directory-programmet (AD) och tjänsto
 
 ## <a name="see-also"></a>Se också
 * [Skapa en SQL-databas med C#](sql-database-get-started-csharp.md)
-* [Ansluter till SQL-databas med hjälp av Azure Active Directory-autentisering](sql-database-aad-authentication.md)
+* [Ansluta till SQL Database med hjälp av Azure Active Directory-autentisering](sql-database-aad-authentication.md)
 

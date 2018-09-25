@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Lägga till funktioner till en språkmodell ge tips om hur du identifierar indata som du vill märka eller klassificera. Funktionerna bidrar LUIS kunna identifiera både avsikter och entiteter.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 906e63c94666d2e24b486f5ae34f99133408c4dc
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 015679b6020e9d2a4d702f9d6e723ecd9499d8dc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628717"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034475"
 ---
 # <a name="phrase-list-features-in-luis"></a>Fras funktioner i LUIS
 

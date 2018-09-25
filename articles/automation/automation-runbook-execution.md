@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982988"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032537"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -145,7 +145,8 @@ Detta är att skydda tjänsten från runbooks som körs på obestämd tid utan a
 
 Om runbooken har inga kontrollpunkter eller jobbet hade inte nå den första kontrollpunkten innan tas bort från minnet, startas sedan om från början.
 
-För tidskrävande aktiviteter rekommenderar vi att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av tidsfördelningsgränser och en runbook kan köras under obegränsad tid.
+För tidskrävande aktiviteter rekommenderar vi att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av tidsfördelningsgränser och en runbook kan köras under obegränsad tid. Det andra jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) gäller både Azure sandbox-miljöer och Hybrid Runbook Worker.
+
 
 Om du använder en PowerShell Workflow-runbook i Azure, när du skapar en runbook, bör du kontrollera att tiden för att köra alla aktiviteter mellan två kontrollpunkter inte överskrider tre timmar. Du kan behöva lägga till kontrollpunkter till din runbook så att den inte uppnår sin gräns för den här tre timmar eller dela upp långa åtgärder. Din runbook kan till exempel utföra en reindex på en stor SQL-databas. Om den här enda åtgärden inte slutförs inom gränsen på rättmätiga del, tas bort från minnet jobbet och startas om från början. I det här fallet bör du dela upp reindex åtgärden i flera steg, t.ex omindexering en tabell i taget, och infoga en kontrollpunkt efter varje åtgärd så att jobbet återupptas efter den senaste åtgärden har slutförts.
 

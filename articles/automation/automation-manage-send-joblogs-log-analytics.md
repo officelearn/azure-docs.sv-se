@@ -9,15 +9,16 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 12628b5a552b864784d780e5f2adc00aac579911
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 13ba4d774cbc347830c32385ba4927a0df687159
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215041"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035478"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Vidarebefordra jobbstatus och jobbströmmar från Automation till Log Analytics
-Automation kan skicka runbook jobbet status och jobbströmmar till Log Analytics-arbetsytan. Jobbloggar och jobbströmmar är synliga i Azure portal eller med PowerShell, för enskilda jobb och detta gör att du kan utföra enkla undersökningar. Med Log Analytics kan du nu:
+
+Automation kan skicka runbook jobbet status och jobbströmmar till Log Analytics-arbetsytan. Den här processen inbegriper inte arbetsytan länkar och är helt oberoende. Jobbloggar och jobbströmmar är synliga i Azure portal eller med PowerShell, för enskilda jobb och detta gör att du kan utföra enkla undersökningar. Med Log Analytics kan du nu:
 
 * Få insikt i dina Automation-jobb.
 * Utlösa ett e-post eller en avisering baserat på din runbook jobbstatus (till exempel växlas eller har pausats).
@@ -26,12 +27,12 @@ Automation kan skicka runbook jobbet status och jobbströmmar till Log Analytics
 * Visualisera jobbets historik över tid.
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Krav och överväganden vid distribution
+
 Om du vill börja skicka loggarna Automation till Log Analytics, behöver du:
 
 * November 2016 eller senare versionen av [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
 * En Log Analytics-arbetsyta. Mer information finns i [Kom igång med Log Analytics](../log-analytics/log-analytics-get-started.md). 
 * Resurs-ID för ditt Azure Automation-konto.
-
 
 Hitta resurs-ID för ditt Azure Automation-konto:
 
@@ -97,7 +98,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics oc
 | SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
 | ResultDescription |Beskriver jobbstatusen för runbook. Möjliga värden:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes |
 | CorrelationId |GUID som är korrelations-Id för runbook-jobbet. |
-| Resurs-ID |Anger Azure Automation-konto resurs-id för runbook. |
+| ResourceId |Anger Azure Automation-konto resurs-id för runbook. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resursgruppen för Automation-kontot. |
 | ResourceProvider | MICROSOFT. AUTOMATION |
@@ -120,7 +121,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics oc
 | SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
 | ResultDescription |Innehåller utdataströmmen från runbook. |
 | CorrelationId |GUID som är korrelations-Id för runbook-jobbet. |
-| Resurs-ID |Anger Azure Automation-konto resurs-id för runbook. |
+| ResourceId |Anger Azure Automation-konto resurs-id för runbook. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resursgruppen för Automation-kontot. |
 | ResourceProvider | MICROSOFT. AUTOMATION |
@@ -159,7 +160,18 @@ Slutligen kan du visualisera jobbets historik över tid. Du kan använda den hä
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
 <br> ![Statusdiagram för log Analytics historiska jobb](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
+## <a name="remove-diagnostic-settings"></a>Ta bort diagnostikinställningar
+
+Om du vill ta bort diagnostikinställningen från Automation-kontot, kör du följande kommandon:
+
+```powershell-interactive
+$automationAccountId = "[resource id of your automation account]"
+
+Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+```
+
 ## <a name="summary"></a>Sammanfattning
+
 Genom att skicka din status och stream jobbdata Automation till Log Analytics kan få du bättre insikt i status för dina Automation-jobb genom att:
 + Ställa in aviseringar som meddelar dig när det har uppstått problem.
 + Använder anpassade vyer och sökfrågor för att visualisera dina runbook-resultat, relaterade runbook jobbstatus och andra viktiga indikatorer eller mått.  

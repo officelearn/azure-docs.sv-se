@@ -1,6 +1,6 @@
 ---
-title: Använda Azure CLI 2.0 med Azure Storage | Microsoft Docs
-description: Lär dig hur du använder Azure-kommandoradsgränssnittet (Azure CLI) 2.0 med Azure Storage för att skapa och hantera storage-konton och arbeta med Azure-blobar och filer. Azure CLI 2.0 är ett plattformsoberoende verktyg som skrivits i Python.
+title: Med hjälp av Azure CLI med Azure Storage | Microsoft Docs
+description: Lär dig hur du använder Azure-kommandoradsgränssnittet (Azure CLI) med Azure Storage för att skapa och hantera storage-konton och arbeta med Azure-blobar och filer.
 services: storage
 author: roygara
 ms.service: storage
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 10b0d475113e5fcd413c7e62f88dcd434fc72a52
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cd2399e25889cdc9c885b76e002e47415c0629e5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732779"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984402"
 ---
-# <a name="using-the-azure-cli-20-with-azure-storage"></a>Använda Azure CLI 2.0 med Azure Storage
+# <a name="using-the-azure-cli-with-azure-storage"></a>Använda Azure CLI med Azure Storage
 
-Av öppen källkod, plattformsoberoende Azure CLI 2.0 innehåller en uppsättning kommandon för att arbeta med Azure-plattformen. Det ger stor del samma funktioner som finns i den [Azure-portalen](https://portal.azure.com), inklusive omfattande dataåtkomst.
+Öppen källkod, plattformsoberoende Azure CLI innehåller en uppsättning kommandon för att arbeta med Azure-plattformen. Det ger stor del samma funktioner som finns i den [Azure-portalen](https://portal.azure.com), inklusive omfattande dataåtkomst.
 
-I den här guiden visar vi dig hur du använder den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) för flera uppgifter ska arbeta med resurserna i ditt Azure Storage-konto. Vi rekommenderar att du ladda ned och installera eller uppgradera till den senaste versionen av CLI 2.0 innan du använder den här guiden.
+I den här guiden visar vi dig hur du använder den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) för flera uppgifter ska arbeta med resurserna i ditt Azure Storage-konto. Vi rekommenderar att du ladda ned och installera eller uppgradera till den senaste versionen av CLI innan du använder den här guiden.
 
 Exemplen i handboken förutsätter användning av Bash-gränssnittet på Ubuntu, men andra plattformar som ska utföras på samma sätt. 
 
@@ -33,9 +33,9 @@ Den här guiden förutsätter att du förstår de grundläggande principerna fö
 * **Azure-konto**: Om du inte redan har en Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/).
 * **Lagringskonto**: Se [skapar ett lagringskonto](storage-quickstart-create-account.md) i [Om Azure-lagringskonton](storage-create-storage-account.md).
 
-### <a name="install-the-azure-cli-20"></a>Installera Azure CLI 2.0
+### <a name="install-the-azure-cli"></a>Installera Azure CLI
 
-Ladda ned och installera Azure CLI 2.0 genom att följa anvisningarna som beskrivs i [installera Azure CLI 2.0](/cli/azure/install-az-cli2).
+Ladda ned och installera Azure CLI genom att följa anvisningarna som beskrivs i [installera Azure CLI](/cli/azure/install-az-cli2).
 
 > [!TIP]
 > Om du har problem med installationen kan ta en titt på [Installation felsökning](/cli/azure/install-az-cli2#installation-troubleshooting) i artikeln, och [installera felsökning](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide på GitHub.
@@ -96,9 +96,9 @@ Om du vill arbeta med resurserna i din Azure-prenumeration måste du logga in p�
   * Detta fungerar inte med Microsoft-konton eller konton som använder multifaktorautentisering.
 * **Logga in med ett huvudnamn för tjänsten**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
-## <a name="azure-cli-20-sample-script"></a>Exempelskript för Azure CLI 2.0
+## <a name="azure-cli-sample-script"></a>Skriptexempel för Azure CLI-exempel
 
-Nu ska arbetar vi med ett litet kommandoskript som utfärdar några grundläggande Azure CLI 2.0-kommandon för att interagera med Azure Storage-resurser. Skriptet kan du först skapar en ny behållare i ditt storage-konto och sedan överför en befintlig fil (som en blob) till behållaren. Den visar en lista över alla blobar i behållaren och slutligen laddar ned filen till ett mål på din lokala dator som du anger.
+Nu ska arbetar vi med ett litet kommandoskript som utfärdar några grundläggande Azure CLI-kommandon för att interagera med Azure Storage-resurser. Skriptet kan du först skapar en ny behållare i ditt storage-konto och sedan överför en befintlig fil (som en blob) till behållaren. Den visar en lista över alla blobar i behållaren och slutligen laddar ned filen till ett mål på din lokala dator som du anger.
 
 ```bash
 #!/bin/bash
@@ -519,8 +519,8 @@ Exempel på utdata
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Här följer några ytterligare resurser för att lära dig mer om att arbeta med Azure CLI 2.0.
+Här följer några ytterligare resurser för att lära dig mer om hur du arbetar med Azure CLI. 
 
-* [Kom igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Azure CLI 2.0-kommandoreferens](/cli/azure)
-* [Azure CLI 2.0 på GitHub](https://github.com/Azure/azure-cli)
+* [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Azure CLI-kommandoreferens](/cli/azure)
+* [Azure CLI på GitHub](https://github.com/Azure/azure-cli)

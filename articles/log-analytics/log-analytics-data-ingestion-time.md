@@ -11,23 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2018
+ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: 97cf5c06372d416037b875078809aebb7e633456
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542845"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955270"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tid för inmatning av data i Log Analytics
-Azure Log Analytics är en hög skala tjänst som hanterar tusentals kunder skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om den tid det tar innan data blir tillgängliga i Log Analytics när den har samlats in. Den här artikeln beskrivs de olika faktorer som påverkar den här fördröjningen.
+Azure Log Analytics är en tjänst för hög skala i Azure Monitor som hanterar tusentals kunder skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om den tid det tar innan data blir tillgängliga i Log Analytics när den har samlats in. Den här artikeln beskrivs de olika faktorer som påverkar den här fördröjningen.
 
 ## <a name="typical-latency"></a>Typisk svarstid
 Svarstid refererar till den tid som data skapas på den övervakade datorn och den tid som det blir tillgängliga för analys i Log Analytics. Typisk svarstid mata in data i Log Analytics är mellan 2 och 5 minuter. Specifika svarstiden för specifika data varierar beroende på en mängd olika faktorer som beskrivs nedan.
 
-## <a name="sla-for-log-analytics"></a>SERVICEAVTALET för Log Analytics
-Den [Log Analytics serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) är en juridiskt bindande avtal som definierar när Microsoft återbetalningar kunder när tjänsten inte uppfyller dess mål. Detta är inte baserad på vanliga prestanda för systemet, men dess värsta fall som-konton för potentiella kritiska situationer.
 
 ## <a name="factors-affecting-latency"></a>Faktorer som påverkar svarstid
 Totalt antal inmatning tiden för en viss uppsättning data kan delas upp i följande övergripande områden. 

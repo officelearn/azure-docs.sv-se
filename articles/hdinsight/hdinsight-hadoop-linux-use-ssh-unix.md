@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: f7e6651e0aa776c4bbcac1fc70017139c21a7512
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 7054bf34fea5b499fdec167667242d918cc01c8e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105028"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981737"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Ansluta till HDInsight (Hadoop) med hjälp av SSH
 
@@ -102,7 +102,7 @@ Du uppmanas att ange information när nyckeln skapas. Till exempel var nycklarna
 | ------- | ------- |
 | **Azure Portal** | Avmarkera __Använd samma lösenord som klusterinloggning__ och välj sedan __Offentlig nyckel__ som SSH-autentiseringstyp. Välj slutligen filen för den offentliga nyckeln eller klistra in textinnehållet från filen i fältet __Offentlig SSH-nyckel__.</br>![Dialogrutan Offentlig SSH-nyckel vid generering av HDInsight-kluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | **Azure PowerShell** | Använd `-SshPublicKey`-parametern för cmdleten `New-AzureRmHdinsightCluster` och skicka innehållet i den offentliga nyckeln som en sträng.|
-| **Azure CLI 1.0** | Använd `--sshPublicKey`-parametern för kommandot `azure hdinsight cluster create` och skicka innehållet i den offentliga nyckeln som en sträng. |
+| **Klassisk Azure CLI** | Använd `--sshPublicKey`-parametern för kommandot `azure hdinsight cluster create` och skicka innehållet i den offentliga nyckeln som en sträng. |
 | **Resource Manager-mall** | Ett exempel på hur du använder SSH-nycklar med en mall finns i avsnittet [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) (Distribuera HDInsight i Linux med en SSH-nyckel). `publicKeys`-elementet i filen [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) används för att skicka nycklarna till Azure när klustret skapas. |
 
 ## <a id="sshpassword"></a>Autentisering: lösenord
@@ -121,7 +121,7 @@ SSH-konton kan skyddas med ett lösenord. När du ansluter till HDInsight med hj
 | --------------- | ---------------- |
 | **Azure Portal** | SSH-användarkontot har som standard samma lösenord som kontot för klusterinloggning. Om du vill använda ett annat lösenord avmarkerar du __Använd samma lösenord som klusterinloggning__ och anger sedan lösenordet i fältet __SSH-lösenord__.</br>![Dialogrutan SSH-lösenord när ett HDInsight-kluster skapas](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | **Azure PowerShell** | Använd `--SshCredential`-parametern för cmdleten `New-AzureRmHdinsightCluster` och skicka ett `PSCredential`-objekt som innehåller SSH-användarkontonamnet och SSH-lösenordet. |
-| **Azure CLI 1.0** | Använd `--sshPassword`-parametern för `azure hdinsight cluster create`-kommandot och ange lösenordsvärdet. |
+| **Klassisk Azure CLI** | Använd `--sshPassword`-parametern för `azure hdinsight cluster create`-kommandot och ange lösenordsvärdet. |
 | **Resource Manager-mall** | Ett exempel på hur du använder ett lösenord med en mall finns i [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) (Distribuera HDInsight i Linux med SSH-lösenord). `linuxOperatingSystemProfile`-elementet i filen [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) används för att skicka SSH-kontonamnet och SSH-lösenordet till Azure när klustret skapas.|
 
 ### <a name="change-the-ssh-password"></a>Ändra SSH-lösenordet

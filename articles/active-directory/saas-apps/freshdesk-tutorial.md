@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/17/2018
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: db4750e01b62835cf08fd52e3288e94aea539b26
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ce302db74f831e67b576e4c0001f21473fd7f2e0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161330"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037532"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Självstudier: Azure Active Directory-integration med FreshDesk
 
@@ -85,7 +85,7 @@ I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med 
 
 För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i FreshDesk är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i FreshDesk upprättas.
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i FreshDesk.
+Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **e-postadress** i FreshDesk.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med FreshDesk, måste du utföra följande byggblock:
 
@@ -116,47 +116,46 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<tenant-name>.freshdesk.com` eller ett annat värde som har föreslagits Freshdesk.
 
     > [!NOTE]
-    > Observera att detta inte är det verkliga värdet. Du måste uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [FreshDesk klienten supportteamet](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) att hämta det här värdet.  
+    > Observera att detta inte är det verkliga värdet. Du måste uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [FreshDesk klienten supportteamet](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) att hämta det här värdet.
 
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+4. Ditt program förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel för detta. Standardvärdet för **användaridentifierare** är **user.userprincipalname** men **FreshDesk** förväntar sig detta mappas med användarens e-postadress. Som du kan använda **user.mail** attribut i listan eller Använd rätt attribut-värde baserat på konfigurationen för din organisation.
+
+    ![Konfigurera enkel inloggning](./media/freshdesk-tutorial/tutorial_attribute.png)
+
+5. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png)
 
     > [!NOTE]
     > Om du har problem, finns det [länk](https://support.freshdesk.com/support/discussions/topics/317543).
 
-5. Klicka på **spara** knappen.
+6. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/freshdesk-tutorial/tutorial_general_400.png)
 
-6. Installera **OpenSSL** i systemet om du inte har installerat i systemet.
+7. Installera **OpenSSL** i systemet om du inte har installerat i systemet.
 
-7. Öppna **kommandotolk** och kör följande kommandon:
+8. Öppna **kommandotolk** och kör följande kommandon:
 
     a. Ange `openssl x509 -inform DER -in FreshDesk.cer -out certificate.crt` värdet i Kommandotolken.
 
     > [!NOTE]
     > Här **FreshDesk.cer** är det certifikat som du har hämtat från Azure-portalen.
 
-    b. Ange `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` värdet i Kommandotolken. Här **certificate.crt** är utdata-certifikat som har genererats i föregående steg.
+    b. Ange `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` värdet i Kommandotolken. 
+    
+    > [!NOTE]
+    > Här **certificate.crt** är utdata-certifikat som har genererats i föregående steg.
 
     c. Kopiera den **tumavtryck** värde och klistra in den i anteckningar. Ta bort kolon från tumavtryck och hämta det slutliga värdet för tumavtryck.
 
-8. På den **FreshDesk Configuration** klickar du på **konfigurera FreshDesk** öppna Konfigurera inloggnings-fönstret. Kopiera SAML enkel inloggning för tjänstens URL och URL: en för utloggning från den **Snabbreferens** avsnittet.
+9. På den **FreshDesk Configuration** klickar du på **konfigurera FreshDesk** öppna Konfigurera inloggnings-fönstret. Kopiera SAML enkel inloggning för tjänstens URL och URL: en för utloggning från den **Snabbreferens** avsnittet.
 
     ![Konfigurera enkel inloggning](./media/freshdesk-tutorial/tutorial_freshdesk_configure.png)
 
-9. Logga in på webbplatsen Freshdesk företag som en administratör i ett annat webbläsarfönster.
+10. Logga in på webbplatsen Freshdesk företag som en administratör i ett annat webbläsarfönster.
 
-10. Klicka på menyn längst upp **Admin**.
-
-    ![Administratören](./media/freshdesk-tutorial/IC776768.png "Admin")
-
-11. I den **allmänna inställningar** fliken **Security**.
-  
-    ![Security](./media/freshdesk-tutorial/IC776769.png "säkerhet")
-
-12. I den **Security** avsnittet, utför följande steg:
+11. Välj den **inställningsikonen** och i den **Security** avsnittet, utför följande steg:
 
     ![Enkel inloggning](./media/freshdesk-tutorial/IC776770.png "enkel inloggning")
   
@@ -229,22 +228,19 @@ När det gäller FreshDesk är etablering en manuell aktivitet.
 
    ![Agentinformation](./media/freshdesk-tutorial/IC776775.png "agentinformation")
 
-   a. I den **fullständigt namn** textrutan skriver du namnet på Azure AD-konto som du vill etablera.
+   a. I den **e-post** textrutan Ange Azure AD-e-postadress för Azure AD-konto som du vill etablera.
 
-   b. I den **e-post** textrutan Ange Azure AD-e-postadress för Azure AD-konto som du vill etablera.
+   b. I den **fullständigt namn** textrutan skriver du namnet på Azure AD-konto som du vill etablera.
 
    c. I den **rubrik** textrutan skriver du namnet på Azure AD-konto som du vill etablera.
 
-   d. Välj **agenter rollen**, och klicka sedan på **tilldela**.
-
-   e. Klicka på **Spara**.
+   d. Klicka på **Spara**.
 
     >[!NOTE]
     >Azure AD-kontoinnehavare får ett e-postmeddelande som innehåller en länk för att bekräfta kontot innan det aktiveras.
     >
     >[!NOTE]
-    >Du kan använda alla andra Freshdesk användare konto verktyg för att skapa eller API: er som tillhandahålls av Freshdesk att etablera AAD-användarkonton.
-    till FreshDesk.
+    >Du kan använda alla andra Freshdesk användare konto verktyg för att skapa eller API: er som tillhandahålls av Freshdesk att etablera AAD-användarkonton till FreshDesk.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

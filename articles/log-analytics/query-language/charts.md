@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: acf51056a084abc08bda2d7f73b561f442f57784
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e63345c0265d52fdd80fe4542efb7f13324926cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605545"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989626"
 ---
 # <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Skapar diagram och diagram från Log Analytics-frågor
 
@@ -34,7 +34,7 @@ Den här artikeln beskrivs olika visualiseringar i Azure Log Analytics för att 
 ## <a name="charting-the-results"></a>Diagram resultaten
 Starta genom att granska hur många datorer som finns under den senaste timmen per operativsystem:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | summarize count(Computer) by OSType  
@@ -52,7 +52,7 @@ Välj för att få en bättre vy **diagram**, och välj den **cirkel** alternati
 ## <a name="timecharts"></a>Timecharts
 Visa medelvärde, 50: e och 95: e percentilerna för processortid i lagerplatser 1 timme. Frågan genererar flera serier och sedan kan du välja vilka serien för att visa i diagrammet tid:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -67,7 +67,7 @@ Välj den **rad** diagrammets Visningsalternativ:
 
 Med hjälp av en referensrad kan du lätt att identifiera om måttet överskrider ett visst tröskelvärde. Utöka datauppsättningen med en konstant kolumn för att lägga till en rad i ett diagram:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -80,7 +80,7 @@ Perf
 ## <a name="multiple-dimensions"></a>Flera dimensioner
 Flera uttryck i den `by` -satsen för `summarize` skapa flera rader i resultatet, en för varje kombination av värden.
 
-```KQL
+```Kusto
 SecurityEvent
 | where TimeGenerated > ago(1d)
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)

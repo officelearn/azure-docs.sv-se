@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/05/2018
+ms.date: 09/24/2018
 ms.author: jonbeck
-ms.openlocfilehash: 25dec8388c02e834ff3d35965ab9288aca23946d
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 47253fd05cb1df96841b30357ac6e7cfe75c12c5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840843"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039692"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Storlekar för Windows-datorer i Azure
 
@@ -33,7 +33,7 @@ Den här artikeln beskrivs tillgängliga storlekar och alternativ för Azure-dat
 | [Beräkningsoptimerad](sizes-compute.md)        | Fsv2, Fs, F             | Högt förhållande mellan processor och minne. Bra för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.        |
 | [Minnesoptimerad](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Högt minne att CPU-förhållande. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 | [Lagringsoptimerad](../virtual-machines-windows-sizes-storage.md)        | Ls                | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
-| [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Särskilda virtuella datorer avsedda för tung grafisk rendering och videoredigering samt modellera utbildnings- och inferensjobb (IV) med djupinlärning. Tillgängligt med en eller flera GPU: er.       |
+| [GPU](sizes-gpu.md)            | NV, NVv2, NC, NCv2, NCv3, ND            | Särskilda virtuella datorer avsedda för tung grafisk rendering och videoredigering samt modellera utbildnings- och inferensjobb (IV) med djupinlärning. Tillgängligt med en eller flera GPU: er.       |
 | [Databehandling med höga prestanda](sizes-hpc.md) | H       | Våra virtuella datorer med de snabbaste och mest kraftfulla processorerna med nätverksgränssnitt för stora dataflöden (RDMA). 
 
 

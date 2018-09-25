@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: f7216cffcb54dd03ef2ff69788c7aac16d9fe658
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: eb8ec68bc7e19af77e94bdf38f8e2bc3322d7fc6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347859"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993518"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med Azure CLI
 
@@ -37,15 +37,17 @@ I den här artikeln får du lära dig hur du utför följande hanterade identite
 - Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Ditt konto måste följande Azure rollbaserad åtkomstkontroll tilldelningar för att utföra vilka hanteringsåtgärder i den här artikeln:
+
     > [!NOTE]
     > Inga ytterligare Azure AD directory rolltilldelningar krävs.
+
     - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) att skapa en skalningsuppsättning för virtuell dator och aktivera och ta bort system och/eller användartilldelade hanterad identitet från en skalningsuppsättning för virtuell dator.
     - [Hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roll för att skapa en Användartilldelad hanterad identitet.
     - [Hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll att tilldela och ta bort en Användartilldelad hanterad identitet från och till en VM-skalningsuppsättning.
 - Om du vill köra CLI-exempelskript, finns det tre alternativ:
     - Använd [Azure Cloud Shell](../../cloud-shell/overview.md) från Azure-portalen (se nästa avsnitt).
     - Använd inbäddad Azure Cloud Shell via ”Prova” knappen, finns i det övre högra hörnet av varje kodblock.
-    - [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) om du föredrar att använda den lokala CLI-konsolen. 
+    - [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 eller senare) om du föredrar att använda den lokala CLI-konsolen. 
       
       > [!NOTE]
       > Kommandon har uppdaterats för att återspegla den senaste versionen av den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -131,7 +133,7 @@ Det här avsnittet vägleder dig genom skapandet av en VMSS och tilldelningen av
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Skapa en Användartilldelad hanterad identitet med hjälp av [az identitet skapa](/cli/azure/identity#az-identity-create).  Den `-g` parametern anger resursgruppen där den hanterade Användartilldelad identitet skapas, och `-n` parametern anger dess namn. Ersätt parametervärdena `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden:
+2. Skapa en användartilldelad hanterad identitet med hjälp av [az identity create](/cli/azure/identity#az-identity-create).  Parametern `-g` anger resursgruppen där den användartilldelade hanterade identiteten skapas, och parametern `-n` anger dess namn. Ersätt parametervärdena `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden:
 
    [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -163,7 +165,7 @@ Det här avsnittet vägleder dig genom skapandet av en VMSS och tilldelningen av
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>Tilldela en hanterad Användartilldelad identitet till en befintlig VM-skalningsuppsättning
 
-1. Skapa en Användartilldelad hanterad identitet med hjälp av [az identitet skapa](/cli/azure/identity#az-identity-create).  Den `-g` parametern anger resursgruppen där den hanterade Användartilldelad identitet skapas, och `-n` parametern anger dess namn. Ersätt parametervärdena `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden:
+1. Skapa en användartilldelad hanterad identitet med hjälp av [az identity create](/cli/azure/identity#az-identity-create).  Parametern `-g` anger resursgruppen där den användartilldelade hanterade identiteten skapas, och parametern `-n` anger dess namn. Ersätt parametervärdena `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden:
 
     > [!IMPORTANT]
     > Skapa användartilldelade hanterade identiteter med specialtecken (t.ex. understreck) i namnet stöds inte för närvarande. Använd alfanumeriska tecken. Kom tillbaka om för att få uppdateringar.  Mer information finns i [vanliga frågor och kända problem](known-issues.md)

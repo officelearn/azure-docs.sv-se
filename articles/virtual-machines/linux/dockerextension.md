@@ -1,6 +1,6 @@
 ---
 title: Använda tillägget Azure Docker VM | Microsoft Docs
-description: Lär dig hur du använder Docker VM-tillägget för att snabbt och säkert distribuera en Docker-miljö i Azure med hjälp av Resource Manager-mallar och Azure CLI 2.0
+description: Lär dig hur du använder Docker VM-tillägget för att snabbt och säkert distribuera en Docker-miljö i Azure med hjälp av Resource Manager-mallar och Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 44c307a5f21937cd2a3ef345fd4573c67efdaf59
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 59dbbb8374455088d759a5e837b8d3bc22145d3e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928626"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981305"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Skapa en Docker-miljö i Azure med Docker VM-tillägget
-Docker är en populär behållarhantering- och avbildningsplattform som gör att du snabbt kan arbeta med behållare på Linux. I Azure finns det olika sätt som du kan distribuera Docker efter dina behov. Den här artikeln handlar om hur du använder Docker VM-tillägget och Azure Resource Manager-mallar med Azure CLI 2.0. 
+
+Docker är en populär behållarhantering- och avbildningsplattform som gör att du snabbt kan arbeta med behållare på Linux. I Azure finns det olika sätt som du kan distribuera Docker efter dina behov. Den här artikeln handlar om hur du använder Docker VM-tillägget och Azure Resource Manager-mallar med Azure CLI. 
 
 > [!WARNING]
 > Azure Docker VM-tillägg för Linux är inaktuell och kommer att dras tillbaka November 2018.
@@ -38,7 +39,7 @@ Mer information om olika distributionsmetoder, inklusive användning av Docker-d
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Distribuera en mall med tillägget Azure Docker VM
-Vi använda en befintlig snabbstartsmall för för att skapa en Ubuntu VM som använder Azure Docker VM-tillägget för att installera och konfigurera Docker-värd. Du kan visa den här mallen: [enkel distribution av ett Ubuntu-VM med Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Vi använda en befintlig snabbstartsmall för för att skapa en Ubuntu VM som använder Azure Docker VM-tillägget för att installera och konfigurera Docker-värd. Du kan visa den här mallen: [enkel distribution av ett Ubuntu-VM med Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 

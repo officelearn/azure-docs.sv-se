@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/20/2018
 ms.author: vanto
-ms.openlocfilehash: 118911687326bfa938c7276337377e3d3cb66bf2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 698014c24d6a3af3fb79980a07e25483554b1007
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715405"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042439"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL Database och SQL Data Warehouse brandväggsregler 
 
@@ -75,7 +75,7 @@ Om du vill tillåta att program från Azure ansluter till din Azure SQL-server m
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>Skapa och hantera brandväggsregler
-Första brandväggsinställningen på servernivå kan skapas med den [Azure-portalen](https://portal.azure.com/) eller programmässigt med [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules). Efterföljande brandväggsregler på servernivå kan skapas och hanteras med hjälp av dessa metoder samt via Transact-SQL. 
+Första brandväggsinställningen på servernivå kan skapas med den [Azure-portalen](https://portal.azure.com/) eller programmässigt med [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules). Efterföljande brandväggsregler på servernivå kan skapas och hanteras med hjälp av dessa metoder samt via Transact-SQL. 
 
 > [!IMPORTANT]
 > Brandväggsregler på databasnivå kan bara skapas och hanteras med hjälp av Transact-SQL. 
@@ -167,11 +167,11 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Hantera brandväggsregler med hjälp av Azure CLI
 | Cmdlet | Nivå | Beskrivning |
 | --- | --- | --- |
-|[Skapa AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Server|Skapar en brandväggsregel|
-|[AZ sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Server|Visar en lista över brandväggsreglerna på en server|
-|[AZ sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Server|Visar information om en brandväggsregel|
-|[AZ sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Server|Uppdaterar en brandväggsregel|
-|[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Server|Tar bort en brandväggsregel|
+|[Skapa AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Skapar en brandväggsregel|
+|[AZ sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Visar en lista över brandväggsreglerna på en server|
+|[AZ sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Server|Visar information om en brandväggsregel|
+|[AZ sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Server|Uppdaterar en brandväggsregel|
+|[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Server|Tar bort en brandväggsregel|
 
 I följande exempel anger en regel för brandvägg på servernivå med hjälp av Azure-CLI: 
 

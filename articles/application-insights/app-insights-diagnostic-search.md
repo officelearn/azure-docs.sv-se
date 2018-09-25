@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7ba278a244327e717c114177cd8878cd00dfd7b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497917"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038786"
 ---
 # <a name="using-search-in-application-insights"></a>Använda sökning i Application Insights
 Search är en funktion i [Application Insights](app-insights-overview.md) att du använder för att hitta och utforska enskilda telemetri-objekt, till exempel sidvisningar, undantag, eller webb-begäranden. Och du kan visa loggspårningar och händelser som du har kodat.
@@ -123,8 +123,8 @@ Här följer sökuttryck som du kan använda:
 | Exempelfråga | Verkan |
 | --- | --- |
 | `apple` |Hitta alla händelser i tidsintervallet vars fält innehåller ordet ”äpple” |
-| `apple AND banana` <br/>`apple banana` |Hitta händelser som innehåller båda orden. Använda kapital ”och” inte ”och”. |
-| `apple OR banana` |Söka efter händelser som innehåller antingen word. Använda ”eller”, inte ”eller”.<br/>Kortformat. |
+| `apple AND banana` <br/>`apple banana` |Hitta händelser som innehåller båda orden. Använda kapital ”och” inte ”och”. <br/>Kortformat. |
+| `apple OR banana` |Söka efter händelser som innehåller antingen word. Använda ”eller”, inte ”eller”. |
 | `apple NOT banana` |Söka efter händelser som innehåller ett ord, men inte på den andra. |
 
 ## <a name="sampling"></a>Samling

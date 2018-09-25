@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: 5d058059f523d3567817cad8ac11e837fb4a0a49
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: fb9b50ecb16bd37d005403a14ea11c6d89f50dfe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714263"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983658"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Hur du använder hanterade identiteter för App Service och Azure Functions
 
@@ -52,7 +52,7 @@ Om du vill konfigurera en hanterad identitet med hjälp av Azure CLI, behöver d
 
 - Använd [Azure Cloud Shell](../cloud-shell/overview.md) från Azure-portalen.
 - Använd inbäddad Azure Cloud Shell via ”Prova” knappen, finns i det övre högra hörnet av varje kodblocket nedan.
-- [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 eller senare) om du föredrar att använda den lokala CLI-konsolen. 
+- [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 eller senare) om du föredrar att använda den lokala CLI-konsolen. 
 
 Följande steg beskriver hur du skapar en webbapp och tilldela den en identitet med hjälp av CLI:
 
@@ -157,7 +157,7 @@ Det finns ett enkelt REST-protokoll för att hämta en token i App Service och A
 
 ### <a name="asal"></a>Med hjälp av Microsoft.Azure.Services.AppAuthentication-klientbiblioteket för .NET
 
-För .NET-program och funktioner är det enklaste sättet att arbeta med en hanterad identitet via Microsoft.Azure.Services.AppAuthentication-paketet. Det här biblioteket gör också att du kan testa din kod lokalt på utvecklingsdatorn, använder användarkontot från Visual Studio, den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), eller Active Directory-integrerad autentisering. Mer information om alternativ för lokal utveckling med det här biblioteket finns i den [Microsoft.Azure.Services.AppAuthentication referens]. Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
+För .NET-program och funktioner är det enklaste sättet att arbeta med en hanterad identitet via Microsoft.Azure.Services.AppAuthentication-paketet. Det här biblioteket gör också att du kan testa din kod lokalt på utvecklingsdatorn, använder användarkontot från Visual Studio, den [Azure CLI](/cli/azure), eller Active Directory-integrerad autentisering. Mer information om alternativ för lokal utveckling med det här biblioteket finns i den [Microsoft.Azure.Services.AppAuthentication referens]. Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
 
 1. Lägg till referenser till den [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-paket till ditt program.
 

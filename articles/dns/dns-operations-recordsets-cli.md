@@ -1,6 +1,6 @@
 ---
-title: Hantera DNS-poster i Azure DNS med Azure CLI 2.0 | Microsoft Docs
-description: Hantera DNS-postuppsättningar och poster i Azure DNS när du har din domän i Azure DNS. Alla CLI 2.0-kommandon för åtgärder på postuppsättningar och poster.
+title: Hantera DNS-poster i Azure DNS med Azure CLI | Microsoft Docs
+description: Hantera DNS-postuppsättningar och poster i Azure DNS när du har din domän i Azure DNS.
 services: dns
 documentationcenter: na
 author: vhorne
@@ -14,23 +14,23 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: victorh
-ms.openlocfilehash: 41366f29ecf5dcd6ffe23148acd61100681620df
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 1f1ee4f69cc1ab656df04ed30cae6f4c3e55bfa7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174390"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963823"
 ---
-# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Hantera DNS-poster och postuppsättningar i Azure DNS med Azure CLI 2.0
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Hantera DNS-poster och postuppsättningar i Azure DNS med Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+> * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-Den här artikeln visar hur du hanterar DNS-poster för din DNS-zon med hjälp av det plattformsoberoende kommandoradsgränssnittet (CLI) 2.0, som är tillgänglig för Windows, Mac och Linux. Du kan också hantera DNS-posterna med [Azure PowerShell](dns-operations-recordsets.md) eller [Azure-portalen](dns-operations-recordsets-portal.md).
+Den här artikeln visar hur du hanterar DNS-poster för din DNS-zon med hjälp av plattformsoberoende Azure CLI, som är tillgängligt för Windows, Mac och Linux. Du kan också hantera DNS-posterna med [Azure PowerShell](dns-operations-recordsets.md) eller [Azure-portalen](dns-operations-recordsets-portal.md).
 
-Exemplen i den här artikeln förutsätter att du redan har [installerat Azure CLI 2.0, loggat in och skapat en DNS-zon](dns-operations-dnszones-cli.md).
+Exemplen i den här artikeln förutsätter att du redan har [installerat Azure CLI, loggat in och skapat en DNS-zon](dns-operations-dnszones-cli.md).
 
 ## <a name="introduction"></a>Introduktion
 

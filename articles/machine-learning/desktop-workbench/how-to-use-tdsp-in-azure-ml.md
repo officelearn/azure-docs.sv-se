@@ -8,7 +8,6 @@ ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
@@ -16,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 05cb2a62cf0f001012f5faa022de233d7cbdce97
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42062091"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970932"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Strukturera projekt med mallen Team Data Science Process
 
-Det här dokumentet innehåller instruktioner om hur du skapar dataforskningsprojekt i Azure Machine Learning med mallar för Team Data Science Process (TDSP). Dessa mallar hjälpa dig att strukturera projekt för samarbete och reproducerbarhet. 
+Det här dokumentet innehåller instruktioner om hur du skapar dataforskningsprojekt i en tidigare version av Azure Machine Learning med hjälp av mallar för Team Data Science Process (TDSP). Dessa mallar hjälpa dig att strukturera projekt för samarbete och reproducerbarhet. 
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 ## <a name="what-is-the-team-data-science-process"></a>Vad är TDSP (Team Data Science Process)?
 TDSP är en flexibel, iterativ, data science process för att köra och leverera lösningar för avancerade analyser. Det är utformat för att förbättra samarbete och effektiviteten för data science team i företagsorganisationer. Den stöder dessa mål med fyra nyckelkomponenter:
@@ -52,7 +53,7 @@ Granska följande *innan* du skapar ett nytt projekt:
 * Granska TDSP Machine Learning [mallen](https://aka.ms/tdspamlgithubrepo).
 * Innehållet (annat än vad som redan finns i dokumentmappen ””) måste vara mindre än 25 MB i storlek. Se anmärkningen efter den här listan.
 * Exemplet\_datamapp är endast avsedd för små filer (mindre än 5 MB) som du kan använda för att testa din kod eller starta tidig utveckling.
-* Lagring av filer, till exempel Word och PowerPoint-filer, öka storleken på dokumentmappen ”” avsevärt. Vi rekommenderar att som du kan söka efter en samarbetsfunktioner Wiki [SharePoint](https://products.office.com/en-us/sharepoint/collaboration), eller annan samarbetsfunktioner resurs att lagra dessa filer.
+* Lagring av filer, till exempel Word och PowerPoint-filer, öka storleken på dokumentmappen ”” avsevärt. Vi rekommenderar att som du kan söka efter en samarbetsfunktioner Wiki [SharePoint](https://products.office.com/sharepoint/collaboration), eller annan samarbetsfunktioner resurs att lagra dessa filer.
 * Läs hur du hanterar stora filer och utdata i Machine Learning, [spara ändringar och ta itu med stora filer](http://aka.ms/aml-largefiles).
 
 > [!NOTE]

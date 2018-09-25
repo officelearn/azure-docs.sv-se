@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35968029"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992210"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visa topologi för Azure-nätverk
 
@@ -52,7 +52,7 @@ Resurserna som visas i diagrammet är en delmängd av nätverkskomponenter i det
 
 Du kan köra kommandon i stegen nedan:
 - I Azure Cloud Shell, genom att välja **prova** längst upp höger på alla kommandon. Azure Cloud Shell är ett interaktivt gränssnitt som har vanliga Azure-verktyg förinstallerat och har konfigurerats för att använda med ditt konto.
-- Genom att köra CLI från datorn. Om du kör CLI från datorn i den här artikeln kräver Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
+- Genom att köra CLI från datorn. Om du kör CLI från datorn i den här artikeln kräver Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
 
 Det konto som du använder måste ha nödvändiga [behörigheter](required-rbac-permissions.md).
 

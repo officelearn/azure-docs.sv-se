@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 5a321ef7dca86993a913a283fe7b9b076c127d94
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 885deca5efbd72b3d641c8c94837851340d752b9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171263"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957837"
 ---
 # <a name="monitor-batch-solutions"></a>Övervaka Batch-lösningar
 
@@ -34,7 +34,7 @@ Ett sätt att hämta händelser från din aktivitetslogg är att använda Azure-
 
 ## <a name="batch-account-level-monitoring"></a>Övervakning av batch-konto på
 
-Övervaka varje Batch-konto med hjälp av funktionerna i [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor samlar in [mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md) och eventuellt [diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) för resurser som är begränsade på nivån för ett Batch-konto, till exempel pooler, jobb och aktiviteter. Samla in och använda dessa data manuellt eller programmässigt att övervaka aktiviteter i Batch-kontot och diagnostisera problem. Mer information finns i [Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning](batch-diagnostics.md).
+Övervaka varje Batch-konto med hjälp av funktionerna i [Azure Monitor](../azure-monitor/overview.md). Azure Monitor samlar in [mått](../monitoring/monitoring-data-collection.md#metrics) och eventuellt [diagnostikloggar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) för resurser som är begränsade på nivån för ett Batch-konto, till exempel pooler, jobb och aktiviteter. Samla in och använda dessa data manuellt eller programmässigt att övervaka aktiviteter i Batch-kontot och diagnostisera problem. Mer information finns i [Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning](batch-diagnostics.md).
  
 > [!NOTE]
 > Mått är tillgängliga som standard i ditt Batch-konto utan ytterligare konfiguration och de har en rullande 30-dagars historik. Du måste aktivera Diagnostisk loggning för ett Batch-konto och du kan medföra ytterligare kostnader för att lagra eller bearbeta diagnostiklogg data. 

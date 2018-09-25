@@ -2,20 +2,22 @@
 title: ActiveDirectoryInteractive ansluter till SQL | Microsoft Docs
 description: C#-kod exempel med förklaringar för att ansluta till Azure SQL Database med hjälp av SqlAuthenticationMethod.ActiveDirectoryInteractive läget.
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
+ms.subservice: security
 ms.custom: active directory
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/06/2018
+author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.openlocfilehash: 3d6eb70b3ce9072dc2c51220af89549022b5dacf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.date: 04/06/2018
+manager: craigg
+ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238276"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055534"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Använda ActiveDirectoryInteractive läge för att ansluta till Azure SQL Database
 
@@ -122,13 +124,13 @@ C#-program som förlitar sig på namnområdet **Microsoft.IdentityModel.Clients.
 
 En namnområden som C#-exempel som förlitar sig på är **System.Data.SqlClient**. Är särskilt intressanta i uppräkningen **SqlAuthenticationMethod**. Den här uppräkningen har följande värden:
 
-- **SqlAuthenticationMethod.ActiveDirectory*interaktiv ***:&nbsp; Använd det här med ett användarnamn för Azure AD för att uppnå multifaktorautentisering MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * interaktiv ***:&nbsp; Använd det här med ett användarnamn för Azure AD för att uppnå multifaktorautentisering MFA.
     - Det här värdet är fokus i den här artikeln. Den genererar en interaktiv upplevelse genom att visa dialogrutor för användarens lösenord och sedan för MFA-verifieringen om MFA har införts på den här användaren.
     - Det här värdet är tillgängliga från och med .NET Framework version 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory*integrerad ***:&nbsp; Använd detta för en *federerad* konto. Användarnamnet är ett federerat konto kända till Windows-domän. Den här metoden har inte stöd för MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * integrerad ***:&nbsp; Använd detta för en *federerad* konto. Användarnamnet är ett federerat konto kända till Windows-domän. Den här metoden har inte stöd för MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory*lösenord ***:&nbsp; använder detta för autentisering som kräver en Azure AD-användare och användarens lösenord. Azure SQL Database utför autentiseringen. Den här metoden har inte stöd för MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * lösenord ***:&nbsp; använder detta för autentisering som kräver en Azure AD-användare och användarens lösenord. Azure SQL Database utför autentiseringen. Den här metoden har inte stöd för MFA.
 
 
 

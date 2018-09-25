@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/17/2018
 git ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 7770f4c45d974e8ce5750dbd3aee0d8393281151
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 1adfef9c679ccbe7a56178a041175713f4932aac
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984449"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056547"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Viktig information om Azure Stack Development Kit  
 Den här artikeln innehåller information om förbättringar, korrigeringar och kända problem i Azure Stack Development Kit. Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -289,7 +289,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
 - <!-- 2368581 - IS. ASDK --> Azure Stack-operatör, om du får en avisering om ont om minne och virtuella datorer inte att distribueras med en *fel vid skapande av Fabric VM*, är det möjligt att Azure Stack-stämpel har tillräckligt med tillgängligt minne. Använd den [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) så att den tillgängliga kapaciteten för dina arbetsbelastningar.
 
-- <!-- TBD - IS. ASDK --> När du kör cmdleten Test-AzureStack på behörighet slutpunkt (program) kan felmeddelande testet ett WARN/MISSLYCKAS för ERCS VM. Du kan fortsätta att använda ASDK.
+- <!-- TBD - IS. ASDK --> När du kör den **Test-AzureStack** cmdlet på privilegierad slutpunkt (program), den **instans för Azure Stack-infrastruktur Rollprestanda** test genererar ett WARN-meddelande för ERCS VM. På ett säkert sätt kan du ignorera WARN-meddelandet och fortsätta att använda ASDK.
 
 #### <a name="compute"></a>Compute
 - <!-- 2494144 - IS, ASDK --> När du väljer en VM-storlek för en distribution av virtuella datorer, vissa F-seriens storlekar visas inte som en del av storlek Väljaren när du skapar en virtuell dator. Storlek på följande Virtuella datorer visas inte i Väljaren: *F8s_v2*, *F16s_v2*, *F32s_v2*, och *F64s_v2*.  

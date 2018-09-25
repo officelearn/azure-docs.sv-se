@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 85a7b133655a3b1e4ca60c28e695e3057b293fdc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 91f75fdbe7bc7c66bbe581e9d4b295467acd4cd5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504523"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989676"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Så här aktiverar du ursprungliga klientappar kan interagera med proxy-program
 
@@ -30,7 +30,7 @@ Ursprungliga klientappar av tar emot Azure AD som utfärdade token som skickas i
 
 ![Förhållandet mellan användare och Azure Active Directory publicerade program](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Använd Azure AD Authentication Library, som tar hand om autentisering och har stöd för många klientmiljöer att publicera interna program. Programproxy passar in i den [internt program för webb-API-scenario](../develop/authentication-scenarios.md#native-application-to-web-api). 
+Använd Azure AD Authentication Library, som tar hand om autentisering och har stöd för många klientmiljöer att publicera interna program. Programproxy passar in i den [internt program för webb-API-scenario](../develop/native-app.md). 
 
 Den här artikeln vägleder dig igenom fyra stegen för att publicera ett internt program med Application Proxy och Azure AD-Autentiseringsbiblioteket. 
 
@@ -96,6 +96,6 @@ När ADAL har redigerats med följande parametrar måste kunna användarna auten
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om flödet internt program finns i [internt program till webb-API](../develop/authentication-scenarios.md#native-application-to-web-api)
+Mer information om flödet internt program finns i [internt program till webb-API](../develop/native-app.md)
 
 Läs om hur du konfigurerar [enkel inloggning för Application Proxy](application-proxy-single-sign-on.md)

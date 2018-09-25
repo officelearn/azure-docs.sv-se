@@ -11,20 +11,24 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 0abc5e34d2bfa1cf2a9fc0569831e21ed295891c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 07a9d46dff17b43d01a6b411292cf240c32476f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296507"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983726"
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming och samarbete i Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 Den här artikeln beskrivs hur du kan använda Azure Machine Learning Workbench för att konfigurera projekt för växling mellan datorer och samarbeta med teammedlemmar. 
 
 När du skapar en Azure Machine Learning-projekt som har en fjärransluten Git-lagringsplats (lagringsplats) länk lagras projekt metadata och ögonblicksbilder i molnet. Du kan använda cloud-länk för åtkomst till projektet från en annan dator (centrala). Du kan också samarbeta med teammedlemmar genom att ge dem tillgång till projektet. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-1. Installera de Machine Learning Workbench-appen. Kontrollera att du har åtkomst till ett konto i Azure Machine Learning-experimentering. Mer information finns i den [installationsguide](../service/quickstart-installation.md).
+1. Installera de Machine Learning Workbench-appen. Kontrollera att du har åtkomst till ett konto i Azure Machine Learning-experimentering. Mer information finns i den [installationsguide](quickstart-installation.md).
 
 2. Åtkomst [Azure DevOps](https://www.visualstudio.com) och skapa sedan en lagringsplats för att länka ditt projekt. Mer information finns i [med en Git-lagringsplats med ett Machine Learning Workbench-projekt](using-git-ml-project.md).
 

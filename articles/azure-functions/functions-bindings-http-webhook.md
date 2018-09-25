@@ -1,6 +1,6 @@
 ---
-title: Azure Functions HTTP och webhook-bindningar
-description: Förstå hur du använder HTTP och webhook-utlösare och bindningar i Azure Functions.
+title: Azure Functions HTTP-utlösare och bindningar
+description: Förstå hur du använder HTTP-utlösare och bindningar i Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: eef84e8c5fb67faef99beec934f29e55365ce811
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a1b34484978ad95f0945e93411ac2e2a74fff238
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715966"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980982"
 ---
-# <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP och webhook-bindningar
+# <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
-Den här artikeln förklarar hur du arbetar med HTTP-utlösare och utdatabindningar i Azure Functions. Azure Functions har stöd för HTTP-utlösare och utdatabindningar.
+Den här artikeln förklarar hur du arbetar med HTTP-utlösare och utdatabindningar i Azure Functions.
 
-En HTTP-utlösare kan anpassas för att svara på [webhooks](https://en.wikipedia.org/wiki/Webhook). En webhooksutlösare accepterar endast en JSON-nyttolast och validerar JSON. Det finns särskilda versioner av webhook-utlösaren som gör det enklare att hantera webhooks från vissa leverantörer, till exempel GitHub och Slack.
+En HTTP-utlösare kan anpassas för att svara på [webhooks](https://en.wikipedia.org/wiki/Webhook).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -312,164 +312,6 @@ public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"
     }
 }
 ```
-     
-## <a name="trigger---webhook-example"></a>Utlösare – webhook-exempel
-
-Se exempel språkspecifika:
-
-* [C#](#webhook---c-example)
-* [C#-skript (.csx)](#webhook---c-script-example)
-* [F#](#webhook---f-example)
-* [JavaScript](#webhook---javascript-example)
-
-### <a name="webhook---c-example"></a>Webhook – C#-exempel
-
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som skickar en HTTP 200 som svar på en allmän JSON-begäran.
-
-```cs
-[FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
-{
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-### <a name="webhook---c-script-example"></a>Webhook – C#-skript-exempel
-
-I följande exempel visas en webhook-utlösaren bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen loggar GitHub problemet kommentarer.
-
-Här är den *function.json* fil:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
-
-Här är C#-skriptkoden:
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System;
-using System.Net;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
-{
-    string jsonContent = await req.Content.ReadAsStringAsync();
-    dynamic data = JsonConvert.DeserializeObject(jsonContent);
-
-    log.Info($"WebHook was triggered! Comment: {data.comment.body}");
-
-    return req.CreateResponse(HttpStatusCode.OK, new {
-        body = $"New GitHub comment: {data.comment.body}"
-    });
-}
-```
-
-### <a name="webhook---f-example"></a>Webhook – F #-exempel
-
-I följande exempel visas en webhook-utlösaren bindning i en *function.json* fil och en [F #-funktion](functions-reference-fsharp.md) som använder bindningen. Funktionen loggar GitHub problemet kommentarer.
-
-Här är den *function.json* fil:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
-
-Här är F #-kod:
-
-```fsharp
-open System.Net
-open System.Net.Http
-open FSharp.Interop.Dynamic
-open Newtonsoft.Json
-
-type Response = {
-    body: string
-}
-
-let Run(req: HttpRequestMessage, log: TraceWriter) =
-    async {
-        let! content = req.Content.ReadAsStringAsync() |> Async.AwaitTask
-        let data = content |> JsonConvert.DeserializeObject
-        log.Info(sprintf "GitHub WebHook triggered! %s" data?comment?body)
-        return req.CreateResponse(
-            HttpStatusCode.OK,
-            { body = sprintf "New GitHub comment: %s" data?comment?body })
-    } |> Async.StartAsTask
-```
-
-### <a name="webhook---javascript-example"></a>Webhook – JavaScript-exempel
-
-I följande exempel visas en webhook-utlösaren bindning i en *function.json* fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen loggar GitHub problemet kommentarer.
-
-Här är bindningsdata i den *function.json* fil:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
-
-Här är JavaScript-kod:
-
-```javascript
-module.exports = function (context, data) {
-    context.log('GitHub WebHook triggered!', data.comment.body);
-    context.res = { body: 'New GitHub comment: ' + data.comment.body };
-    context.done();
-};
-```
 
 ## <a name="trigger---attributes"></a>Utlösare - attribut
 
@@ -480,7 +322,7 @@ Du kan ange tillståndet och det tillåtna HTTP-metoder i attributet konstruktor
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
 public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
+    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestMessage req)
 {
     ...
 }
@@ -500,7 +342,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 | <a name="http-auth"></a>**authLevel** |  **authLevel** |Anger vad nycklar, om sådana finns, måste finnas på begäran för att anropa funktionen. Åtkomstnivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;Inga API-nyckeln är obligatorisk.</li><li><code>function</code>&mdash;Det krävs en funktionsspecifika API-nyckel. Detta är standardvärdet om ingen har angetts.</li><li><code>admin</code>&mdash;Huvudnyckeln krävs.</li></ul> Mer information finns i avsnittet [auktoriseringsregel nycklar](#authorization-keys). |
 | **Metoder** |**Metoder** | En matris med HTTP-metoder som funktionen svarar. Om inte anges svarar funktionen på alla HTTP-metoder. Se [anpassa http-slutpunkt](#customize-the-http-endpoint). |
 | **väg** | **väg** | Definierar flödesmallen, kontrollera som begär URL: er som din funktion svarar. Standardvärdet om inget är `<functionname>`. Mer information finns i [anpassa http-slutpunkt](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** |Konfigurerar HTTP-utlösare ska fungera som en [webhook](https://en.wikipedia.org/wiki/Webhook) mottagare för den angivna providern. Konfigurerar inte den `methods` egenskapen om du ställer in den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;Ett allmänt webhook-slutpunkt utan logik för en viss leverantör. Den här inställningen begränsar begäranden till endast de som använder HTTP POST och med den `application/json` innehållstyp.</li><li><code>github</code>&mdash;Funktionen svarar på [GitHub webhooks](https://developer.github.com/webhooks/). Använd inte den _authLevel_ egenskap med GitHub webhooks. Mer information finns i avsnittet GitHub webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;Funktionen svarar på [Slack webhooks](https://api.slack.com/outgoing-webhooks). Använd inte den _authLevel_ egenskap med Slack webhooks. Mer information finns i avsnittet Slack webhooks senare i den här artikeln.</li></ul>|
+| **webHookType** | **WebHookType** | _Stöds endast för version 1.x-körningen._<br/><br/>Konfigurerar HTTP-utlösare ska fungera som en [webhook](https://en.wikipedia.org/wiki/Webhook) mottagare för den angivna providern. Konfigurerar inte den `methods` egenskapen om du ställer in den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;Ett allmänt webhook-slutpunkt utan logik för en viss leverantör. Den här inställningen begränsar begäranden till endast de som använder HTTP POST och med den `application/json` innehållstyp.</li><li><code>github</code>&mdash;Funktionen svarar på [GitHub webhooks](https://developer.github.com/webhooks/). Använd inte den _authLevel_ egenskap med GitHub webhooks. Mer information finns i avsnittet GitHub webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;Funktionen svarar på [Slack webhooks](https://api.slack.com/outgoing-webhooks). Använd inte den _authLevel_ egenskap med Slack webhooks. Mer information finns i avsnittet Slack webhooks senare i den här artikeln.</li></ul>|
 
 ## <a name="trigger---usage"></a>Utlösare - användning
 
@@ -508,21 +350,10 @@ För C# och F #, kan du deklarera vilken typ av utlösaren indata ska vara antin
 
 Functions-körning ger begärandetexten i stället för Begäranobjektet för JavaScript-funktioner. Mer information finns i den [JavaScript utlösaren exempel](#trigger---javascript-example).
 
-### <a name="github-webhooks"></a>GitHub webhooks
-
-För att svara på GitHub webhooks, först skapa din funktion med en HTTP-utlösare och ange den **webHookType** egenskap `github`. Kopiera sedan dess URL och API-nyckeln i den **Lägg till webhook** sidan i din GitHub-lagringsplats. 
-
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-Ett exempel finns i [Skapa en funktion som utlöses av en GitHub-webhook](functions-create-github-webhook-triggered-function.md).
-
-### <a name="slack-webhooks"></a>Slack webhooks
-
-Slack webhook genererar en token för dig i stället för där du kan ange den, så måste du konfigurera en funktionsspecifika nyckel med token från Slack. Se [auktoriseringsregel nycklar](#authorization-keys).
 
 ### <a name="customize-the-http-endpoint"></a>Anpassa HTTP-slutpunkt
 
-Som standard när du skapar en funktion för en HTTP-utlösare eller WebHook, är funktionen adresserbara med en väg i formatet:
+Som standard när du skapar en funktion för en HTTP-utlösare är funktionen adresserbara med en väg i formatet:
 
     http://<yourapp>.azurewebsites.net/api/<funcname> 
 
@@ -603,10 +434,13 @@ Som standard alla funktionen vägar har prefixet *api*. Du kan också anpassa el
 
 ### <a name="authorization-keys"></a>Auktoriseringsregel för nycklar
 
-Functions kan du använda för att göra det svårare att komma åt din HTTP-slutpunkter för funktionen under utveckling.  En standard HTTP-utlösare kan kräva sådana en API-nyckel finnas i begäran. Webhooks kan använda för att godkänna begäranden på flera olika sätt beroende på vad providern stöder.
+Functions kan du använda för att göra det svårare att komma åt din HTTP-slutpunkter för funktionen under utveckling.  En standard HTTP-utlösare kan kräva sådana en API-nyckel finnas i begäran. 
 
 > [!IMPORTANT]
 > När nycklar kan hjälpa Förvräng HTTP-slutpunkter under utvecklingen, är men inte avsedda som ett sätt att skydda en HTTP-utlösare i produktion. Mer information finns i [skydda en HTTP-slutpunkt i produktion](#secure-an-http-endpoint-in-production).
+
+> [!NOTE]
+> Webhook-leverantörer kan använda nycklar för att godkänna begäranden på flera olika sätt beroende på vad providern har stöd i Functions 1.x-körningen. Detta beskrivs i [Webhooks och nycklar](#webhooks-and-keys). Version 2.x-körningen innehåller inte inbyggt stöd för webhook-leverantörer.
 
 Det finns två typer av nycklar:
 
@@ -641,26 +475,45 @@ Du kan tillåta anonyma begäranden som inte kräver nycklar. Du kan också krä
 > [!NOTE]
 > När du kör funktioner lokalt kan inaktiveras auktorisering, oavsett den angivna autentiseringstypen inställningen. Efter publicering till Azure, den `authLevel` inställningen i utlösaren tillämpas.
 
-### <a name="keys-and-webhooks"></a>Nycklar och webhooks
 
-Webhook-auktorisering hanteras av webhook mottagare komponent, en del av HTTP-utlösare och mekanismen varierar beroende på typ av webhook. Varje metod förlitar sig på en nyckel. Som standard används funktionsnyckel med namnet ”standard”. Konfigurera webhook-providern för att skicka nyckelnamnet med förfrågan i något av följande sätt om du vill använda en annan nyckel:
-
-* **Frågesträng**: providern skickar nyckelnamnet i den `clientid` frågesträngparametern, till exempel `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-* **Begärandehuvud**: providern skickar nyckelnamnet i den `x-functions-clientid` rubrik.
-
-Ett exempel på en webhook som skyddas med en nyckel finns i [skapa en funktion som utlöses av en GitHub-webhook](functions-create-github-webhook-triggered-function.md).
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Skydda en HTTP-slutpunkt i produktion
 
 För att fullständigt skydda dina slutpunkter för funktionen i produktion, bör du implementering av en av följande alternativ för funktionen säkerhet på radnivå app:
 
-* Aktivera App Service-auktorisering/autentisering för din funktionsapp. App Service-plattformen kan använda Azure Active Directory (AAD), autentisering av tjänstens huvudnamn och betrodda identitetsleverantörer från tredje part för att autentisera användare. Den här funktionen är aktiverad kan endast autentiserade användare komma åt din funktionsapp. Mer information finns i [konfigurera App Service-appen för att använda Azure Active Directory-inloggning](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+* Aktivera App Service-autentisering / auktorisering för din funktionsapp. App Service-plattformen kan använda Azure Active Directory (AAD) och flera Identitetsproviders från tredje part för att autentisera klienter. Du kan använda detta för att implementera anpassade regler för dina funktioner och du kan arbeta med användarinformation från funktionskoden. Mer information finns i [autentisering och auktorisering i Azure App Service](../app-service/app-service-authentication-overview.md).
 
 * Använd Azure API Management (APIM) för att autentisera begäranden. APIM erbjuder en mängd olika API säkerhetsalternativ för inkommande begäranden. Mer information finns i [API Management autentiseringsprinciper](../api-management/api-management-authentication-policies.md). Med APIM på plats kan du konfigurera funktionsappen för att godkänna begäranden endast från PI-adressen för din APIM-instansen. Mer information finns i [IP-adressbegränsningar](ip-addresses.md#ip-address-restrictions).
 
 * Distribuera appen till en Azure App Service Environment (ASE). ASE ger en dedikerad värdmiljö där du kan köra dina funktioner. ASE kan du konfigurera en enda klientdelsgateway som du kan använda för att autentisera alla inkommande begäranden. Mer information finns i [konfigurera Web Application Firewall (WAF) för App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 
 När du använder någon av följande metoder för säkerhet på radnivå app av funktionen, bör du ange HTTP-utlöst funktion-autentisering till `anonymous`.
+
+### <a name="webhooks"></a>Webhooks
+
+> [!NOTE]
+> Webhook-läge är endast tillgänglig för version 1.x av Functions-körning.
+
+Webhook-läget har ytterligare verifiering för webhook-nyttolaster. I version 2.x, grundläggande HTTP-utlösaren fortfarande fungerar och är den rekommenderade metoden för webhooks.
+
+#### <a name="github-webhooks"></a>GitHub webhooks
+
+För att svara på GitHub webhooks, först skapa din funktion med en HTTP-utlösare och ange den **webHookType** egenskap `github`. Kopiera sedan dess URL och API-nyckeln i den **Lägg till webhook** sidan i din GitHub-lagringsplats. 
+
+![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+
+Ett exempel finns i [Skapa en funktion som utlöses av en GitHub-webhook](functions-create-github-webhook-triggered-function.md).
+
+#### <a name="slack-webhooks"></a>Slack webhooks
+
+Slack webhook genererar en token för dig i stället för där du kan ange den, så måste du konfigurera en funktionsspecifika nyckel med token från Slack. Se [auktoriseringsregel nycklar](#authorization-keys).
+
+### <a name="webhooks-and-keys"></a>Webhooks och nycklar
+
+Webhook-auktorisering hanteras av webhook mottagare komponent, en del av HTTP-utlösare och mekanismen varierar beroende på typ av webhook. Varje metod förlitar sig på en nyckel. Som standard används funktionsnyckel med namnet ”standard”. Konfigurera webhook-providern för att skicka nyckelnamnet med förfrågan i något av följande sätt om du vill använda en annan nyckel:
+
+* **Frågesträng**: providern skickar nyckelnamnet i den `clientid` frågesträngparametern, till exempel `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Begärandehuvud**: providern skickar nyckelnamnet i den `x-functions-clientid` rubrik.
 
 ## <a name="trigger---limits"></a>Utlösare - gränser
 
@@ -692,7 +545,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 Använda språk-standard svar mönster för att skicka en HTTP-svar. I C# eller C#-skript, se funktionen returtyp `HttpResponseMessage` eller `Task<HttpResponseMessage>`. I C#, krävs inte ett returvärde attribut.
 
-Till exempel svar, se den [utlösaren exempel](#trigger---example) och [webhook exempel](#trigger---webhook-example).
+Till exempel svar, se den [utlösaren exempel](#trigger---example).
 
 ## <a name="next-steps"></a>Nästa steg
 

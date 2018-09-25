@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: tamram
-ms.openlocfilehash: 5237be9fd75edc8abf5c5fa043574e8c2deb79e9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 768fd4a715d4c0df154f823d159fd63898c9715b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740714"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981339"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Hantera inställningar för lagringskonto i Azure portal
 
@@ -26,6 +26,14 @@ Den **åtkomstkontroll** inställningar i Azure-portalen erbjuder ett enkelt sä
 
 > [!NOTE]
 > Autentisera användare eller program med hjälp av autentiseringsuppgifter för Azure AD tillhandahåller överlägsen säkerhet och användarvänlighet över annan typ av auktorisering. Du kan fortsätta använda delad nyckel auktorisering med program, kringgår med hjälp av Azure AD behovet av att spara din åtkomstnyckel med din kod. Du kan också fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt storage-konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig om du återkallar en komprometterad SAS. 
+
+## <a name="tags"></a>Taggar
+
+Azure Storage stöder Azure Resource Manager-taggar för att ordna dina Azure-resurser med en anpassad taxonomi. Du kan lägga till taggar till storage-konton så att du kan gruppera dem i din prenumeration på ett logiskt sätt. 
+
+En taggnamnet är begränsat till 128 tecken för storage-konton, och en Taggvärdet är begränsat till 256 tecken.
+
+Mer information finns i [använda taggar för att organisera Azure-resurser](../../azure-resource-manager/resource-group-using-tags.md).
 
 ## <a name="access-keys"></a>Åtkomstnycklar
 

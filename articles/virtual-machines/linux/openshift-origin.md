@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 0d3a9f05802bef7d6dfc99fcfae6668044f214c8
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 75a02e61adf3e5477b9945afc778e867d5d9c88c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190312"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958143"
 ---
 # <a name="deploy-okd-in-azure"></a>Distribuera OKD i Azure
 
@@ -99,7 +99,7 @@ I följande exempel skapas en parameterfil som heter azuredeploy.parameters.json
 
 
 > [!NOTE] 
-> Kommandot kräver Azure CLI 2.0.8 eller senare. Du kan kontrollera CLI-versionen med den `az --version` kommando. Om du vill uppdatera CLI-version, se [installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Kommandot kräver Azure CLI.8 eller senare. Du kan kontrollera CLI-versionen med den `az --version` kommando. Om du vill uppdatera CLI-version, se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 I följande exempel distribuerar OKD klustret och alla relaterade resurser i en resursgrupp som heter myResourceGroup, med ett distributionsnamn av myOpenShiftCluster. Mallen refereras direkt från GitHub-lagringsplatsen med hjälp av en lokal parameterfil som heter azuredeploy.parameters.json.
 

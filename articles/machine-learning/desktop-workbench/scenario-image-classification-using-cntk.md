@@ -12,14 +12,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: a8c258a9bc8e006d5bbae4b7bbb61c7ef6e95412
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 83d6f529330a05e6a7c46ad45b19f0338f93bfc7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605954"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995099"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Klassificering av avbildning med hjälp av Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Metoder för klassificering av avbildning kan användas för att lösa många problem för visuellt innehåll.
 Dessa omfattar att skapa modeller som svar på frågor som: *är ett objekt som finns i bild?* om OBJEKTET till exempel skulle kunna vara *hund*, *bil*, eller  *leverera*. Eller mer komplexa frågor som: *vilken klass av öga sjukdomar allvarlighetsgrad evinced av den här patientens retinal genomsökning?*.
@@ -51,7 +56,7 @@ Det inte krävs tidigare erfarenhet av maskininlärning och CNTK, är det använ
 Förutsättningar för att kunna köra det här exemplet är följande:
 
 1. En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga).
-2. Den [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta.  
+2. Den [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](quickstart-installation.md) att installera programmet och skapa en arbetsyta.  
 3. En Windows-dator. Windows OS är nödvändigt eftersom Workbench stöder endast Windows och MacOS när Microsofts Cognitive Toolkit (som vi använder som deep learning-biblioteket) stöder endast Windows och Linux.
 4. En dedikerad GPU krävs inte att köra SVM utbildning i del 1, men det behövs för att förfina av DNN som beskrivs i del 2. Om du saknar en stark GPU, vill utbilda i flera GPU: er eller inte har en Windows-dator, bör du använda Azures Deep Learning Virtual Machine med Windows-operativsystem. Se [här](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) för en 1-Klicka Distributionsguide. När distribuerats ansluter till den virtuella datorn via en anslutning till fjärrskrivbord, installera Workbench det och kör kod lokalt från den virtuella datorn.
 5. Olika Python-biblioteken, till exempel OpenCV måste vara installerade. Klicka på *öppna Kommandotolken* från den *filen* menyn i Workbench och kör följande kommandon för att installera dessa beroenden:  

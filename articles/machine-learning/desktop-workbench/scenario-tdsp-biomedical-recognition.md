@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f6ce43c2d290bacee10e102cc6c382981db9917f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 775d0701f9eeaf7d26a83b814711bea630efb2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061129"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973770"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Biomedicinsk Enhetsidentifiering med Team Data Science Process TDSP ()-mall
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Entitetextrahering är en underaktivitet för extrahering av information (även kallat [igenkänning av namngivna-entiteter (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), entitet storlekar och enhetens identifiering). Syftet med den här verkligt scenario är att fokusera på hur du använder Azure Machine Learning Workbench för att lösa en komplicerad uppgift naturligt språk bearbetning (NLP), till exempel entitetextrahering från ostrukturerad text:
 
@@ -95,7 +100,7 @@ Följande är en länk till den offentliga GitHub-lagringsplatsen för verkligt 
 ## <a name="prerequisites"></a>Förutsättningar 
 
 * En Azure [prenumeration](https://azure.microsoft.com/free/)
-* Azure Machine Learning Workbench. Se [installationsguide](../service/quickstart-installation.md). För närvarande kan Azure Machine Learning Workbench installeras på endast följande operativsystem: 
+* Azure Machine Learning Workbench. Se [installationsguide](quickstart-installation.md). För närvarande kan Azure Machine Learning Workbench installeras på endast följande operativsystem: 
     * Windows 10 eller Windows Server 2016
     * macOS Sierra (eller senare)
 
@@ -118,7 +123,7 @@ De nödvändiga beroendena definieras i filen aml_config/conda_dependencies.yml 
 
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>Grundläggande anvisningar om hur Azure Machine Learning (AML) workbench
 * [Översikt](../service/overview-what-is-azure-ml.md)
-* [Installation](../service/quickstart-installation.md)
+* [Installation](quickstart-installation.md)
 * [Använda TDSP](how-to-use-tdsp-in-azure-ml.md)
 * [Läsa och skriva filer](how-to-read-write-files.md)
 * [Så här använder du Jupyter-anteckningsböcker](how-to-use-jupyter-notebooks.md)

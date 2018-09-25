@@ -11,18 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: govindk
-ms.openlocfilehash: b21debdd6baa0a6587318ad861a821840ec6879c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ebfba4d54b4d4158a2dc0bc2aed09699012ac157
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666705"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038059"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB-brandväggsstöd
 Om du vill skydda data som lagras i ett Azure Cosmos DB-databaskonto Azure Cosmos DB har lagt till stöd för en hemlighet baserat [auktoriseringsmodellen](https://msdn.microsoft.com/library/azure/dn783368.aspx) som använder sig av en stark hashbaserad meddelandeautentiseringskod (HMAC). Förutom den hemliga baserat auktoriseringsmodellen stöder nu Azure Cosmos DB-princip driven IP-baserade åtkomstkontroller för Brandvägg för inkommande trafik support. Den här modellen liknar brandväggsreglerna för traditionella databassystem och ger en extra nivå av säkerhet för Azure Cosmos DB-databaskonto. Med den här modellen kan du nu konfigurera ett Azure Cosmos DB-databaskonto för att endast vara tillgängliga från en godkänd uppsättning datorer och/eller molntjänster. Åtkomst till Azure Cosmos DB-resurser från dessa godkända uppsättningar av datorer och tjänster kräver fortfarande anroparen att presentera en giltig auktoriseringstoken.
-
-> [!NOTE]
-> Brandväggsstöd är för närvarande tillgängligt för Azure Cosmos DB SQL API och Mongo-API-konton. Möjligheten att konfigurera brandväggar för andra API: er och suveräna moln, till exempel Azure Tyskland och Azure Government är tillgänglig snart. Om du planerar att konfigurera tjänsten slutpunkts-ACL för ditt Azure Cosmos DB-konto som har en befintlig IP-brandväggen som är konfigurerad, Observera brandväggskonfigurationen, ta bort IP-brandvägg och sedan konfigurera tjänstslutpunkten ACL. När du har konfigurerat tjänsteslutpunkt kan aktivera du IP-brandvägg igen om det behövs.
 
 ## <a name="ip-access-control-overview"></a>IP-åtkomstkontroll: översikt
 Ett databaskonto för Azure Cosmos DB är som standard tillgängligt från det offentliga Internet så länge begäran åtföljs av en giltig auktoriseringstoken. Principbaserad IP-åtkomstkontroll kan konfigureras genom att användaren anger en uppsättning IP-adresser eller IP-adressintervall i CIDR-form som ska ingå i listan med tillåtna klient-IP-adresser för ett visst databaskonto. När den här konfigurationen tillämpas blockerar servern alla begäranden från datorer som inte finns med på den här listan.  Anslutningen processchema för IP-baserad åtkomstkontroll beskrivs i följande diagram:

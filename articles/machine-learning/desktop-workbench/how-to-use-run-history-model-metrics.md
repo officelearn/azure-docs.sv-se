@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 34fe72087a3de133d65ea4a4737ab5dba45242f4
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 52b02460d444464211fc74c8982379424abebb5c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647279"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965531"
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Använd Körningshistorik och modellen mått i Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Azure Machine Learning Workbench har stöd för data science experimentering via dess **Körningshistorik** och **modellen mått** funktioner.
 **Körningshistorik** ger ett sätt att spåra utdata för din machine learning-experiment och aktiverar sedan filtrering och jämförelse av resultaten.
@@ -27,8 +32,8 @@ Den här artikeln beskriver hur du gör effektiv användning av dessa funktioner
 
 ## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom den här guiden, måste du:
-* [Skapa och installera Azure Machine Learning](../service/quickstart-installation.md)
-- [Skapa ett projekt](../service/quickstart-installation.md)
+* [Skapa och installera Azure Machine Learning](quickstart-installation.md)
+- [Skapa ett projekt](quickstart-installation.md)
 
 
 ## <a name="azure-ml-logging-api-overview"></a>Azure ML översikt över API-loggning
@@ -51,7 +56,7 @@ logger.log("all values", [5, 6, 7])
 Det är enkelt att använda loggaren i dina Azure ML Workbench-projekt och den här artikeln visar hur du gör.
 
 ## <a name="create-a-project-in-azure-ml-workbench"></a>Skapa ett projekt i Azure ML Workbench
-Om du inte redan har ett projekt kan du skapa en från den [skapa och installera snabbstarten](../service/quickstart-installation.md) från den **Projektinstrumentpanel**, kan du öppna den **iris_sklearn.py** skript () som visas.)
+Om du inte redan har ett projekt kan du skapa en från den [skapa och installera snabbstarten](quickstart-installation.md) från den **Projektinstrumentpanel**, kan du öppna den **iris_sklearn.py** skript () som visas.)
 
 ![åtkomst till ett skript från fliken filer](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
 

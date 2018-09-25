@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 4ba8a65064d907ee21b613aafe8c6ddf7ed41110
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 236809336975eec94d7decd9822fc9143ae19bfb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492866"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981033"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Konfigurera Oracle ASM på en virtuell Linux-dator för Azure  
 
@@ -36,7 +36,7 @@ Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön
 
@@ -423,7 +423,7 @@ Konfigurera Oracle ASM kräver ett grafiskt gränssnitt för att slutföra insta
    cd .ssh
    ```
 
-5. Skapa en fil med namnet `authorized_keys`. Klistra in innehållet i nyckeln i den här filen och spara filen.
+5. Skapa en fil som heter `authorized_keys`. Klistra in innehållet i nyckeln i den här filen och spara filen.
 
    > [!NOTE]
    > Nyckeln måste innehålla strängen `ssh-rsa`. Innehållet i nyckeln måste dessutom vara en enskild rad med text.

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 31bfe954a58d232408fd66a1f98911e079824fb0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3e9907450680d6984a644b43014ba90b1a9d987e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715218"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991937"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Post voice-exempel för att skapa en anpassad röst
 
@@ -105,11 +105,11 @@ Som tur är kan går det att undvika de här problemen helt och hållet. Det fin
 
 |Text-källa|Beskrivning|
 |-|-|
-|[CMU Arctic Kristi](http://festvox.org/cmu_arctic/)|Ungefär 1 100 meningar som valts ut av upphovsrätt som ska användas i tal syntes projekt. En utmärkt utgångspunkt.|
-|Fungerar inte längre<br>upphovsrätten|Vanligtvis publicerade fungerar innan 1923. För engelska, [projekt Gutenberg](https://www.gutenberg.org/) erbjuder tiotusentals sådana verk. Du kanske vill fokusera på nyare fungerar eftersom språket är närmare moderna engelska.|
-|Government&nbsp;fungerar|Fungerar som skapas av USA: S regering är inte upphovsrättsskyddade i USA, även om den offentliga sektorn kan göra anspråk på copyright i andra länder.|
-|Allmän egendom|Fungerar för vilka copyright har uttryckligen anges eller som har varit dedikerad till den offentliga domänen. (Det kanske inte går att avstå från copyright helt i vissa jurisdiktioner.)|
-|Permissively licensierad fungerar|Fungerar distribueras under en licens, till exempel Creative Commons eller GNU kostnadsfri dokumentation licens (GFDL). Wikipedia använder GFDL. Vissa licenser, men kan införa begränsningar för prestanda för licensierade innehåll som kan påverka skapandet av en anpassad voice-modell, så Läs noggrant.|
+|[CMU Arctic Kristi](http://festvox.org/cmu_arctic/)|Om 1100 meningar som valts ut av upphovsrätt som ska användas i tal syntes projekt. En utmärkt utgångspunkt.|
+|Fungerar inte längre<br>upphovsrätten|Vanligtvis publicerade fungerar innan 1923. För engelska, [projekt Gutenberg](https://www.gutenberg.org/) erbjuder tiotusentals sådana verk. Du kanske vill fokusera på nyare fungerar som språket är närmare moderna engelska.|
+|Government&nbsp;fungerar|Fungerar som skapats av USA: S regering är inte upphovsrättsskyddade i USA, även om den offentliga sektorn kan göra anspråk på copyright i andra länder.|
+|Allmän egendom|Fungerar för vilka copyright har uttryckligen anges eller som har varit dedikerad till den offentliga domänen. (Det kan inte vara möjligt att avstå från copyright helt i vissa jurisdiktioner.)|
+|Permissively licensierad fungerar|Fungerar som distribueras under en licens som Creative Commons eller GNU kostnadsfri dokumentation licens (GFDL). Wikipedia använder GFDL. Vissa licenser, men kan införa begränsningar för prestanda för licensierade innehåll som kan påverka skapandet av en anpassad voice-modell, så Läs noggrant.|
 
 ## <a name="recording-your-script"></a>Spela in skriptet
 
@@ -150,7 +150,7 @@ Här kan de flesta av intervallet (höjd) används, men de högsta topparna av s
 
 Post direkt till datorn med hjälp av ett ljud högkvalitativa-gränssnitt eller en USB-port, beroende på mic du använder. Analog, håller ljud kedjan enkla: mic, preamp, ljud-gränssnittet, datorn. Du kan licensiera både [Avid Pro verktyg](http://www.avid.com/en/pro-tools) och [Adobe Audition](https://www.adobe.com/products/audition.html) per månad till en rimlig kostnad. Om din budget är mycket nära, prova det kostnadsfritt [Audacity](https://www.audacityteam.org/).
 
-Registrera på 44.1-KHz 16-bitars monophonic (CD kvalitet) eller snabbare. Den aktuella avancerade är 48-KHz 24-bitars, om utrustningen stöder den. Du kommer nedsampla dina ljud till 16-KHz 16-bitars innan du skickar den till den anpassade Voice-portalen. Ändå har lönar det sig att en högkvalitativ ursprungliga inspelning i händelse av att ändringar behövs.
+Registrera med 44,1 kHz 16-bitars monophonic (CD kvalitet) eller snabbare. Aktuella-för-avancerade är 48 kHz 24-bitars om utrustningen stöder den. Du kommer nedåtsampla dina ljud till 16 kHz 16-bitars innan du skickar den till den anpassade Voice-portalen. Ändå har lönar det sig att en högkvalitativ ursprungliga inspelning i den händelse att ändringar behövs.
 
 Vi rekommenderar har olika personer som hanterar i rollerna för director, tekniker och personal. Försök inte att göra det. alla själv. I en Zooma kan en person ha både director och teknikern.
 
@@ -198,7 +198,7 @@ Ta regelbundna radbrytningar och ger en dryck för att hjälpa din röst persona
 
 ### <a name="after-the-session"></a>Efter sessionen
 
-Moderna inspelning studios köras på datorer. I slutet av sessionen får du en eller flera ljud filer, inte ett band. De här filerna kommer antagligen vara WAV eller AIFF format i CD kvalitet (44,1 KHz 16-bitars) eller snabbare. 48 kHz 24-bitars är vanliga och önskvärt. Högre avgifter för sampling, till exempel 96 KHz är vanligtvis inte behövs.
+Moderna inspelning studios köras på datorer. I slutet av sessionen får du en eller flera ljud filer, inte ett band. De här filerna kommer antagligen vara WAV eller AIFF format i CD kvalitet (44.1 kHz 16-bitars) eller snabbare. 48 kHz 24-bitars är vanliga och önskvärt. Högre avgifter för sampling, till exempel 96 kHz, vanligtvis behövs inte.
 
 Anpassad Voice-portalen kräver varje angivet uttryck i en egen fil. Varje ljudfil som levereras av studio innehåller flera yttranden. Så är den primära släppts aktiviteten att dela upp inspelningarna och förbereda dem för bidrag. Spela in-tekniker kan placeras markörer i filen (eller tillhandahålls en separat stack-lista) som anger där varje uttryck startar.
 
@@ -208,7 +208,7 @@ Lämna normalt bara 0,2 sekunders tystnad i början och slutet av varje klipp, f
 
 Lyssna på varje fil noggrant. I det här skedet kan du redigera ut små oönskade ljud som du har missat under inspelningen som en liten lip smack innan en rad, men vara noga med att inte ta bort alla faktiska tal. Om du inte kan åtgärda en fil, ta bort den från din datauppsättning och Observera att har du gjort det.
 
-Konvertera varje fil till 16 bitar och en frekvens på 16 KHz innan du sparar den och om du har registrerat studio-chatter tar du bort den andra kanalen. Spara varje fil i WAV-format och namn på filerna genom att inkludera antalet uttryck i skriptet.
+Konvertera varje fil till 16 bitar och en frekvens på 16 kHz innan du sparar och, om du har spelat in studio chatter tar du bort den andra kanalen. Spara varje fil i WAV-format, namnge filer med antalet uttryck i skriptet.
 
 Skapa slutligen den *avskrift* som associerar varje WAV-fil med en Textversion av motsvarande uttryck. [Skapa anpassade rösttyper](how-to-customize-voice-font.md) innehåller information om formatet som krävs. Du kan kopiera texten direkt från ditt skript. Skapa sedan en Zip-fil för WAV-filer och textavskrift.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a214aa51bcd4b7aab7a65cf2989edd9e9dd3dc6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ebc4c918745e273700a0efb54db4408bb702c75e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044899"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991376"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Använda C#-användardefinierade funktioner med Hive och Pig med Hadoop i HDInsight för direktuppspelning
 
@@ -31,7 +31,7 @@ Både Hive och Pig kan överföra data till externa program för bearbetning. De
 
     * Använd den IDE som du vill. Vi rekommenderar att [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017, eller [Visual Studio Code](https://code.visualstudio.com/). Stegen i det här dokumentet använder Visual Studio 2017.
 
-* Ett sätt att överföra .exe-filer till klustret och köra Pig och Hive-jobb. Vi rekommenderar Data Lake Tools för Visual Studio, Azure PowerShell och Azure CLI. Stegen i det här dokumentet använder Data Lake Tools för Visual Studio för att ladda upp filerna och kör exemplet Hive-fråga.
+* Ett sätt att överföra .exe-filer till klustret och köra Pig och Hive-jobb. Vi rekommenderar Data Lake Tools för Visual Studio, Azure PowerShell och Azure klassiskt CLI. Stegen i det här dokumentet använder Data Lake Tools för Visual Studio för att ladda upp filerna och kör exemplet Hive-fråga.
 
     Information om andra sätt att köra Hive-frågor och Pig-jobb, finns i följande dokument:
 

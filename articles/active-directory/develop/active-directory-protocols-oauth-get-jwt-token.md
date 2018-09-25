@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: eb26101229ad60abae7a8a84f8dfa496488e84ba
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d77af898d5baef4fa7970132b0eb8deddb8f68cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579011"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981805"
 ---
 # <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>Begär en åtkomsttoken med hjälp av OAuth 2.0 till åtkomst till webb-API: er och program som skyddas av Azure Active Directory
 
@@ -75,12 +75,12 @@ Ett lyckat svar för token innehåller en JWT-token och ser ut:
 ```
 | Parameter     | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| access_token  | Den begärda åtkomst-token. Appen kan använda den här token för att autentisera till den säkra resursen, till exempel ett webb-API.                                                                                                                                                                                                                                                                                                                                    |
+| access_token  | Den begärda [åtkomsttoken](access-tokens.md). Appen kan använda den här token för att autentisera till den säkra resursen, till exempel ett webb-API.                                                                                                                                                                                                                                                                                                                                    |
 | token_type    | Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar                                                                                                                                                                                                                                                                                                                                                                           |
 | expires_in    | Hur länge den åtkomst-token är giltig (i sekunder).                                                                                                                                                                                                                                                                                                                                                                                                       |
 | omfång         | Scope som gäller för access_token.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | OAuth 2.0-uppdateringstoken. Appen kan använda den här token skaffa ytterligare åtkomsttoken när den aktuella åtkomst-token upphör att gälla. Refresh_tokens är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. Mer information finns i den [v2.0 tokenreferens](v2-id-and-access-tokens.md). <br> **Obs:** endast angivna om `offline_access` omfång begärdes.                                               |
-| id_token      | En osignerad JSON Web Token (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [v2.0-slutpunkten tokenreferens](v2-id-and-access-tokens.md). <br> **Obs:** endast angivna om `openid` omfång begärdes. |
+| refresh_token | OAuth 2.0-uppdateringstoken. Appen kan använda den här token skaffa ytterligare åtkomsttoken när den aktuella åtkomst-token upphör att gälla. Refresh_tokens är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. Mer information finns i den [v2.0 kod bevilja referens](v2-oauth2-auth-code-flow.md#refresh-the-access-token). <br> **Obs:** endast angivna om `offline_access` omfång begärdes.                                               |
+| id_token      | En osignerad JSON Web Token (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs:** endast angivna om `openid` omfång begärdes. |
 
 
 

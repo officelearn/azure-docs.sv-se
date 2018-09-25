@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 67b2babcd19268a61794d123f5aa9780af16976b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364020"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984236"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostisera problem med virtuella nätverk trafik filter
 
@@ -111,7 +111,7 @@ I den föregående utdatan, namnet på nätverksgränssnittet som är *myVMVMNic
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnostisera med hjälp av Azure CLI
 
-Om du utför uppgifterna i den här artikeln med hjälp av Azure-kommandoradsgränssnittet (CLI)-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här artikeln kräver Azure CLI version 2.0.32 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` och logga in på Azure med ett konto som har den [behörighet](virtual-network-network-interface.md#permissions).
+Om du utför uppgifterna i den här artikeln med hjälp av Azure-kommandoradsgränssnittet (CLI)-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här artikeln kräver Azure CLI version 2.0.32 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` och logga in på Azure med ett konto som har den [behörighet](virtual-network-network-interface.md#permissions).
 
 Hämta effektiva säkerhetsregler för ett nätverksgränssnitt med [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). I följande exempel hämtas de effektiva säkerhetsreglerna för ett nätverksgränssnitt med namnet *myVMVMNic* som finns i en resursgrupp med namnet *myResourceGroup*:
 

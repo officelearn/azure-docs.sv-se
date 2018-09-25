@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 97836c4160349b8095ba2095176783ae17b46e82
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 9df587d92b9e35db496c787186ff2945db7965ce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216207"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987823"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Komma igång med automatisk skalning med anpassat mått i Azure
 Den här artikeln beskriver hur du skalar din resurs genom ett anpassat mått i Azure-portalen.
 
-Azure Monitor-Autoskala gäller enbart för Virtual Machine Scale Sets (VMSS), molntjänster, app service-planer och app service-miljöer. 
+Automatisk skalning i Azure Monitor gäller endast [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 # <a name="lets-get-started"></a>Kan komma igång
 Den här artikeln förutsätter att du har en webbapp med application insights har konfigurerats. Om du inte har ett redan, kan du [ställa in Application Insights för ASP.NET-webbplats][1]

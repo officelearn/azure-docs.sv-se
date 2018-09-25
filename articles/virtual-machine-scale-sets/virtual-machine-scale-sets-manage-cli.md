@@ -1,6 +1,6 @@
 ---
-title: Hantera VM-Skalningsuppsättningar med Azure CLI 2.0 | Microsoft Docs
-description: Vanliga Azure CLI 2.0-kommandon för att hantera Virtual Machine Scale Sets, till exempel att starta och stoppa en instans eller ändra skala Ange kapacitet.
+title: Hantera VM-Skalningsuppsättningar med Azure CLI | Microsoft Docs
+description: Vanliga Azure CLI-kommandon för att hantera Virtual Machine Scale Sets, till exempel att starta och stoppa en instans eller ändra skala Ange kapacitet.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 014e6ff2bc769675e47743cfdd4fbf7fc6234974
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42056745"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999842"
 ---
-# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Hantera en VM-skalningsuppsättning med Azure CLI 2.0
-Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskriver några av de vanliga Azure CLI 2.0-kommandon som kan du utföra följande uppgifter.
+# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Hantera en VM-skalningsuppsättning med Azure CLI
+Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskriver några av de vanliga Azure CLI-kommandon som kan du utföra följande uppgifter.
 
-Om du vill utföra dessa hanteringsuppgifter, behöver du den senaste Azure CLI 2.0. Mer information finns i [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du vill skapa en skalningsuppsättning för virtuell dator kan du [skapa en skalningsuppsättning med Azure CLI 2.0](quick-create-cli.md).
+Om du vill utföra dessa hanteringsuppgifter, måste den senaste Azure CLI. Mer information finns i [installera Azure CLI](/cli/azure/install-azure-cli). Om du vill skapa en skalningsuppsättning för virtuell dator kan du [skapa en skalningsuppsättning med Azure CLI](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visa information om en skalningsuppsättning

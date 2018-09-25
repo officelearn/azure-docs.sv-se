@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Använd mönster för att öka avsikt och entiteten förutsägelse samtidigt som det ger färre exempel yttranden. Mönstret tillhandahålls via en mall uttryck exempel, som inkluderar syntax för att identifiera entiteter och ignorable text.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3b41105a20b765abd084fc387370a49b657d1cba
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ec006d8941d8832d139a09b1e8af13000ff5a43e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634735"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040711"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Självstudie: 3. Lägg till vanliga uttryck format
+# <a name="tutorial-3-add-common-utterance-formats"></a>Självstudie: 3. Lägg till vanliga yttrandeformat
 
 Använda mönster i de här självstudierna för att öka avsikt och entiteten förutsägelse samtidigt som det ger färre exempel yttranden. Mönstret tillhandahålls via en mall uttryck exempel, som inkluderar syntax för att identifiera entiteter och ignorable text. Ett mönster är en kombination av uttrycksmatchning och machine learning.  Uttryck mallexemplet är tillsammans med avsikt yttranden ge LUIS bättre förståelse för vilka yttranden passar avsikten. 
 

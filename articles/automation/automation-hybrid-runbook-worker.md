@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 92ebd399cea88440e0f76ee1f34cb5930d3121d9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c4e237af7e85223839b3f26bcc33007f8abb9d0a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578692"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034237"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker
 
@@ -26,11 +26,11 @@ Följande bild illustrerar den här funktionen:
 
 Varje Hybrid Runbook Worker är medlem i en Hybrid Runbook Worker-grupp som du anger när du installerar agenten. En grupp kan innehålla en enda agent, men du kan installera flera agenter i en grupp för hög tillgänglighet.
 
-När du startar en runbook på en Hybrid Runbook Worker, anger du den grupp som den körs på. Varje arbetsroll i gruppen avsöker Azure Automation för att se om det finns några jobb. Om det finns ett jobb tar den första worker som klarar av den. Du kan inte ange en viss worker.
+När du startar en runbook på en Hybrid Runbook Worker, anger du den grupp som den körs på. Varje arbetsroll i gruppen avsöker Azure Automation för att se om det finns några jobb. Om det finns ett jobb tar den första worker som klarar av den. Du kan inte ange en viss worker. Jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) gäller både Azure sandbox-miljöer och Hybrid Runbook Worker.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Installera en Hybrid Runbook Worker
 
-Processen för att installera en Hybrid Runbook Worker är beroende av Operativsystemet. I följande tabell innehåller länkar till metoder som du kan använda för att installera. 
+Processen för att installera en Hybrid Runbook Worker är beroende av Operativsystemet. I följande tabell innehåller länkar till metoder som du kan använda för att installera.
 
 Du kan använda två metoder för att installera och konfigurera en Windows Hybrid Runbook Worker. Den rekommendera metoden att använda en Automation-runbook att helt automatisera processen med att konfigurera en Windows-dator. Den andra metoden följer stegvisa anvisningar för att manuellt installera och konfigurera rollen. För Linux-datorer kan köra du ett pythonskript för att installera agenten på datorn.
 

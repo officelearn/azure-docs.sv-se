@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b11883ae592999a49db363486fd47a566bdfd360
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 839e462522be4f492010ca1c22631cb4dd6affe4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498716"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064448"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilera live-Azure-webbappar med Application Insights
 
@@ -45,9 +45,9 @@ När du har distribuerat en Webbapp, gör oavsett om du ingår i App Insights SD
 
     ![App-inställning för Profiler][profiler-app-setting]
 
-### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Aktivera Profiler för Azure-beräkningsresurser (förhandsversion)
+### <a name="enable-profiler-for-azure-compute-resources"></a>Aktivera Profiler för Azure-beräkningsresurser
 
-Mer information finns i den [förhandsversionen av Profiler för Azure-beräkningsresurser](https://go.microsoft.com/fwlink/?linkid=848155).
+Mer information finns i den [version av Profiler för Azure-beräkningsresurser](https://go.microsoft.com/fwlink/?linkid=848155).
 
 ## <a name="view-profiler-data"></a>Visa profiler data
 

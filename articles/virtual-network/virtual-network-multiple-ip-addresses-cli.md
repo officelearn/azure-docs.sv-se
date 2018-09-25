@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: c11883156f53ab53ebe6f84d66232f81f8cf31ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bd8a9e651c3b2369ae29be966ba4c9cbe0ae579b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697372"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972920"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av Azure CLI
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du skapar en virtuell dator (VM) med Azure Resou
 
 Stegen nedan beskriver hur du skapar en exempel-dator med flera IP-adresser, som beskrivs i scenariot. Ändra variabelvärden i ”” och IP-adresstyper som krävs för din implementering. 
 
-1. Installera den [Azure CLI 2.0](/cli/azure/install-az-cli2) om du inte redan har installerat.
+1. Installera den [Azure CLI](/cli/azure/install-azure-cli) om du inte redan har installerat.
 2. Skapa ett SSH offentliga och privata nyckelpar för virtuella Linux-datorer genom att följa stegen i den [skapa ett SSH offentliga och privata nyckelpar för virtuella Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. Från en kommandotolk, logga in med kommandot `az login` och välj den prenumeration som du använder.
 4. Skapa den virtuella datorn genom att köra skriptet som följer på en Linux- eller Mac-dator. Skriptet skapar en resursgrupp, ett virtuellt nätverk (VNet), ett nätverkskort med tre IP-konfigurationer och en virtuell dator med två nätverkskort kopplat till den. NIC, offentlig IP-adress, virtuellt nätverk och VM-resurserna finnas i samma plats och prenumeration. Även om resurserna som inte har finnas i samma resursgrupp, i följande skript gör de.
@@ -157,7 +157,7 @@ az vm create \
 
 Förutom att skapa en virtuell dator med ett nätverkskort med 3 IP-konfigurationer, skapar skriptet:
 
-- En enda premium managed disk som standard, men du har andra alternativ för typ av disk som du kan skapa. Läs den [skapa en Linux-VM med Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nedan för information.
+- En enda premium managed disk som standard, men du har andra alternativ för typ av disk som du kan skapa. Läs den [skapa en Linux-VM med Azure CLI](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nedan för information.
 - Ett virtuellt nätverk med ett undernät och två offentliga IP-adresser. Du kan också använda *befintliga* virtuella nätverk, undernät, nätverkskort eller offentlig IP-adressresurser. Om du vill lära dig mer om att använda befintliga nätverksresurser i stället för skapa ytterligare resurser, ange `az vm create -h`.
 
 Offentliga IP-adresser har en nominell avgift. Mer information om priser för IP-adress i [prissättning för IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses) sidan. Det finns en gräns för antalet offentliga IP-adresser som kan användas i en prenumeration. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md#networking-limits).
@@ -170,7 +170,7 @@ Lägga till de privata IP-adresserna till VM-operativsystem genom att följa ste
 
 Du kan lägga till ytterligare privata och offentliga IP-adresser till en befintlig Azure nätverksgränssnitt genom att följa stegen nedan. I exemplen som bygger på den [scenariot](#Scenario) som beskrivs i den här artikeln.
 
-1. Öppna en kommandotolk och slutför de återstående stegen i det här avsnittet i en enda session. Om du inte redan har Azure CLI installerat och konfigurerat kan du slutföra stegen i den [Azure CLI 2.0 installation](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln och logga in på ditt Azure-konto med den `az-login` kommando.
+1. Öppna en kommandotolk och slutför de återstående stegen i det här avsnittet i en enda session. Om du inte redan har Azure CLI installerat och konfigurerat kan du slutföra stegen i den [installation av Azure CLI](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln och logga in på ditt Azure-konto med den `az-login` kommando.
 
 2. Utför stegen i något av följande avsnitt, baserat på dina krav:
 

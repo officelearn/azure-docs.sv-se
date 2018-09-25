@@ -3,19 +3,19 @@ title: Affärskontinuitetsplan – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Det primära syftet med affärskontinuitetsplan är att skapa en flexibel kunskapsbas-slutpunkt, vilket skulle se till att inget driftstopp för roboten eller ett program som använder den.
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: saneppal
-ms.openlocfilehash: c65ef07f3644004c6e453f6a19035115df9d5764
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: tulasim
+ms.openlocfilehash: 41e7425a2e2e6dd8dc8416538cf77e5b8f273284
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573985"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041946"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Skapa en kontinuitetsplan för QnA Maker-tjänsten
 

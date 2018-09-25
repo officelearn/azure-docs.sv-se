@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: c24d79d6983f7c32f5c563192bcfe412da586ef2
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 39a461a27e8d9d6d1b9712449586bfabf6124d22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603496"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989455"
 ---
 # <a name="joins-in-log-analytics-queries"></a>Kopplingar i Log Analytics-frågor
 
@@ -32,7 +32,7 @@ ms.locfileid: "45603496"
 Kopplingar kan du analysera data från flera tabeller i samma fråga. De sammanfogar raderna i två uppsättningar data efter matchande värdena i de angivna kolumnerna.
 
 
-```KQL
+```Kusto
 SecurityEvent 
 | where EventID == 4624     // sign-in events
 | project Computer, Account, TargetLogonId, LogonTime=TimeGenerated
@@ -64,7 +64,7 @@ on $left.key1 == $right.key2
 ## <a name="lookup-tables"></a>Uppslagstabeller
 Ett vanligt användningsområde för kopplingar använder statiska mappningen av värden med hjälp av `datatable` som kan underlätta vid övergång resultaten till blir lite snyggare. Till exempel om du vill utöka säkerheten händelsedata med händelsenamn för varje händelse-ID.
 
-```KQL
+```Kusto
 let DimTable = datatable(EventID:int, eventName:string)
   [
     4625, "Account activity",

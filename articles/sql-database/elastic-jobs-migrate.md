@@ -2,18 +2,22 @@
 title: Migrera till nya Elastic Database-jobb | Microsoft Docs
 description: Migrera till nya Elastic Database-jobb.
 services: sql-database
-author: johnpaulkee
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: johnpaulkee
 ms.author: johnpaulkee
-ms.openlocfilehash: 7b6dd7d3724f486670b07709d317739d01e9fd21
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: cf9520c257b2d3aa133fa4861face02b378af26f
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035314"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055446"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrera till nya elastiska databasjobb
 
@@ -30,7 +34,7 @@ Uppgradering av Elastic Database-jobb har en ny uppsättning PowerShell-cmdletar
 
 Om du inte redan har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-Installera den **i AzureRM.Sql** 4.8.1-preview-modulen för att få de senaste Elastiskt jobb cmdletarna. Kör följande kommandon i PowerShell med administratörsbehörighet.
+Installera **AzureRM.Sql** 4.8.1-förhandsmodulen för att få de senaste elastiska jobb-cmdletarna. Kör följande kommandon i PowerShell med administratörsbehörighet.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 0f8789d64b550d9f0a45aa65728fbc1db64d6def
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: bf363e4b03fb604e1b9af0d30b6e4ac471a41821
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094934"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980295"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för inloggning 
 
@@ -30,7 +30,7 @@ Den här artikeln innehåller PowerShell och CLI-exempelskript för att logga in
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Om du planerar att använda Azure PowerShell eller Azure CLI-exempel i den här artikeln, måste du installera den senaste versionen av [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) eller [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Om du planerar att använda Azure PowerShell eller Azure CLI-exempel i den här artikeln, måste du installera den senaste versionen av [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - Alla exempelskriptet i den här artikeln förutsätter att kommandoradsklienten körs på en virtuell dator med hanterade identiteter för Azure-resurser aktiverat. Använd funktionen ”ansluta” virtuell dator i Azure-portalen för att fjärransluta till den virtuella datorn. Mer information om hur du aktiverar hanterade identiteter för Azure-resurser på en virtuell dator finns i [konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure portal](qs-configure-portal-windows-vm.md), eller någon av varianten artiklar (med PowerShell, CLI, en mall eller en Azure SDK). 

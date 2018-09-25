@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: 1569b5931a24048fa7a88c4a546bbf88547208d1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b9ac9c49e633906e47244eedcb18a4cda4a6228d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109624"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978969"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Installera och använda Presto på HDInsight Hadoop-kluster
 
@@ -61,7 +61,7 @@ Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet
 4. Fortsätta att etablera klustret enligt beskrivningen i [etablera Linux-baserade HDInsight-kluster](hdinsight-hadoop-create-linux-clusters-portal.md).
 
     > [!NOTE]
-    > Azure PowerShell, Azure CLI, HDInsight .NET SDK eller Azure Resource Manager-mallar kan också användas för att tillämpa skriptåtgärder. Du kan också använda skriptåtgärder för kluster som körs redan. Mer information finns i [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
+    > Azure PowerShell, den klassiska Azure-CLI, HDInsight .NET SDK eller Azure Resource Manager-mallar kan också användas för att tillämpa skriptåtgärder. Du kan också använda skriptåtgärder för kluster som körs redan. Mer information finns i [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
     > 
     > 
 

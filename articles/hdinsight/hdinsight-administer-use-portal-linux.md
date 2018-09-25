@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jasonh
-ms.openlocfilehash: 0e584343e568c5cd0d91a1e6ff51dc899c5434d7
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b00c88e526bf72f51df0d2a3d6a87fbd5bc1f991
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106537"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991988"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
@@ -207,7 +207,7 @@ Det finns många sätt som du kan programmera processen:
 
 * Användaren Azure Data Factory. Se [skapa på begäran Linux-baserade Hadoop-kluster i HDInsight med Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) länkade tjänster för att skapa HDInsight på begäran.
 * Använd Azure PowerShell.  Se [analysera flygförseningsdata](hdinsight-analyze-flight-delay-data.md).
-* Använda Azure CLI. Se [hantera HDInsight-kluster med Azure CLI](hdinsight-administer-use-command-line.md).
+* Använda Azure klassiska CLI. Se [hantera HDInsight-kluster med klassiska Azure-CLI](hdinsight-administer-use-command-line.md).
 * Använda HDInsight .NET SDK. Se [skicka Hadoop-jobb](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Prisinformationen, se [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/). Om du vill ta bort ett kluster från portalen, se [ta bort kluster](#delete-clusters)
@@ -291,7 +291,7 @@ HDInsight-kluster har följande HTTP-webbtjänster (alla dessa tjänster har RES
 * Oozie
 * Templeton
 
-Som standard beviljas de här tjänsterna för åtkomst. Du kan återkalla/bevilja åtkomst med hjälp av [Azure CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) och [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
+Som standard beviljas de här tjänsterna för åtkomst. Du kan återkalla/bevilja åtkomst med hjälp av [klassiska Azure-CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) och [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## <a name="find-the-subscription-id"></a>Hitta prenumerations-ID
 
@@ -363,7 +363,7 @@ Den **användning** på HDInsight-klusterbladet visar information om hur många 
 I den här artikeln har du lärt dig vissa grundläggande administrativa funktioner. Mer information finns i följande artiklar:
 
 * [Administrera HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Administrera HDInsight med hjälp av Azure CLI](hdinsight-administer-use-command-line.md)
+* [Administrera HDInsight med hjälp av Azure klassiskt CLI](hdinsight-administer-use-command-line.md)
 * [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
 * [Läs mer om hur du använder Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
 * [Information om hur du med hjälp av Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 4663da6d28d62230ced937cdb5e597a1236c7f99
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 0482a882b2dea47752eb38eadbaaa72e36ae2eae
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258958"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031976"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestanda för Azure Diagnostics VM-tillägg för Windows
 
 Azure prestanda diagnostik VM-tillägget kan samla in diagnostikdata för prestanda från Windows-datorer. Tillägget gör analys och tillhandahåller en rapport över resultat och rekommendationer för att identifiera och lösa prestandaproblem på den virtuella datorn. Det här tillägget installeras ett felsökningsverktyg som kallas [PerfInsights](http://aka.ms/perfinsights).
+
+> [!NOTE]
+    > Om du vill köra diagnostik på din virtuella dator från Azure-portalen för icke-klassiska virtuella datorer rekommenderas att använda den nya upplevelsen. Mer information finns i [Prestandadiagnostik för Azure-datorer](performance-diagnostics.md) 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -86,7 +89,7 @@ Följande JSON visar schemat för Azure VM Diagnostics-tillägget prestanda. Det
 
 Följ dessa instruktioner för att installera tillägget på Windows-datorer:
 
-1. Logga in på [Azure-portalen](http://portal.azure.com).
+1. Logga in på [Azure Portal](http://portal.azure.com).
 2. Välj den virtuella datorn där du vill installera det här tillägget.
 
     ![Skärmbild av Azure portal med virtuella datorer som är markerat](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)

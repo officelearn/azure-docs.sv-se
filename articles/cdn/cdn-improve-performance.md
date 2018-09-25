@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/13/2018
 ms.author: magattus
-ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056752"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997289"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Förbättra prestanda genom att komprimera filer i Azure CDN
 Filkomprimering är en enkel och effektiv metod för att förbättra hastigheten för överföring av filen och öka läsa in sidan prestanda genom att minska storleken på en fil innan den skickas från servern. Filkomprimering kan minska kostnader för bandbredd och tillhandahålla en mer gensvar upplevelse för användarna.
@@ -102,13 +102,14 @@ CDN-nivåerna standard och premium ger samma komprimering funktioner, men använ
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Azure CDN Standard från Microsoft-profiler
 
-För **Azure CDN Standard från Microsoft** profiler, alla filer som är kvalificerade för komprimering. Men en fil måste vara av en MIME-typ som har varit [konfigurerats för komprimering](#enabling-compression).
+För **Azure CDN Standard från Microsoft** profiler kan bara filer komprimeras. Ska vara kvalificerat för komprimering, en fil måste:-vara av en MIME-typ som har varit [konfigurerats för komprimering](#enabling-compression).
+-Vara större än 1 KB-vara mindre än 8 MB
 
 Dessa profiler stöder följande komprimering skriver:
 - gzip (GNU zip)
 - brotli 
  
-Om begäran har stöd för fler än en typ av komprimering, åsidosätter dessa komprimeringstyper brotli komprimering.
+Om begäran har stöd för fler än en typ av komprimering, företräde brotli komprimering.
 
 När en begäran för en tillgång anger gzip komprimering och begäran resultaten i en cachemiss, utför Azure CDN gzip-komprimering av tillgången direkt på POP-servern. Därefter hämtas den komprimerade filen från cachen.
 

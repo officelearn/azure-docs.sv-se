@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: victorh
-ms.openlocfilehash: b95ec9b4b5077b236c5f3a7183820552b7ccac49
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 1f7991ff1b0c5a29b002818bc4dc5d9106ba5bfa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174432"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974773"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Hantera DNS-poster och postuppsättningar med hjälp av Azure portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
-> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+> * [Klassisk Azure CLI](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Den här artikeln visar hur du hanterar postuppsättningar och poster för din DNS-zon med hjälp av Azure portal.

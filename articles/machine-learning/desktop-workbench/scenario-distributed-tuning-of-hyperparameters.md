@@ -11,14 +11,19 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 920b019640df9d2da174101e2b1b90dfd4da6f56
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ROBOTS: NOINDEX
+ms.openlocfilehash: f74889cdf727bc132723d16df295849769001ce9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578743"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951975"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuerad justering av hyperparametrar med hjälp av Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Det här scenariot visar hur du använder Azure Machine Learning Workbench för att skala ut justering av hyperparametrar av machine learning-algoritmer som implementerar scikit-Läs API. Visar vi hur du konfigurerar och använder en fjärransluten Docker-behållare och Spark-kluster som en körning serverdel för justering av hyperparametrar.
 
@@ -38,7 +43,7 @@ Rutnätet sökning med hjälp av korsvalidering kan ta lång tid. Om en algoritm
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga).
-* En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installera och skapa Quickstart](../service/quickstart-installation.md) installera Workbench och skapa konton.
+* En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installera och skapa Quickstart](quickstart-installation.md) installera Workbench och skapa konton.
 * Det här scenariot förutsätter att du använder Azure ML Workbench på Windows 10- eller MacOS med Docker-motorn installerad lokalt. 
 * Om du vill köra scenariot med en fjärransluten dockerbehållare, etablera Ubuntu Data Science Virtual Machine (DSVM) genom att följa den [instruktioner](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Vi rekommenderar att du använder en virtuell dator med minst 8 kärnor och 28 Gb minne. D4 instanser av virtuella datorer har denna kapacitet. 
 * Om du vill köra det här scenariot med en Spark-kluster, etablera Spark HDInsight-kluster genom att följa dessa [instruktioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Vi rekommenderar att du har ett kluster med följande konfiguration i både huvud-och worker:

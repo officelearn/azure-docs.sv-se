@@ -1,6 +1,6 @@
 ---
-title: Skapa en första Bing anpassad sökning-instans - kognitiva Microsoft-tjänster
-description: Om du vill använda Bing anpassad sökning, måste du skapa en anpassad sökning-instans som definierar vyn eller segment av webbplatsen. Instansen innehåller inställningar som anger den offentliga domäner och underplatser webbsidor som du vill använda Bing för att söka och eventuella justeringar av rangordning.
+title: Skapa en första Bing Custom Search-instans – Microsoft Cognitive Services
+description: Om du vill använda Bing Custom Search, måste du skapa en anpassad Sökinstans som definierar vyn eller sektorn på webben. Instansen innehåller inställningar som anger den offentliga domäner och underplatser webbsidor som du vill att Bing för att söka och justeringar rangordning.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,37 +9,37 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: v-brapel
-ms.openlocfilehash: 35f0bca01de1c2087f6ae30949cca9b03192b838
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 25d622772fe47ffad001834d476e612f8c606904
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352884"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981680"
 ---
-# <a name="create-your-first-bing-custom-search-instance"></a>Skapa din första Bing anpassad sökning-instans
-Om du vill använda Bing anpassad sökning, måste du skapa en anpassad sökning-instans som definierar vyn eller segment av webbplatsen. Instansen innehåller inställningar som anger offentliga domäner, webbplatser och webbsidor som du vill använda Bing för att söka och eventuella justeringar av rangordning. Använd Bing anpassad sökning för att skapa instansen [portal](https://customsearch.ai). 
+# <a name="create-your-first-bing-custom-search-instance"></a>Skapa din första Bing Custom Search-instans
+Om du vill använda Bing Custom Search, måste du skapa en anpassad Sökinstans som definierar vyn eller sektorn på webben. Instansen innehåller inställningar som anger den offentliga domäner, webbplatser och webbsidor som du vill att Bing för att söka och justeringar rangordning. Använd Bing Custom Search för att skapa instansen [portal](https://customsearch.ai). 
 
-## <a name="create-a-custom-search-instance"></a>Skapa en anpassad sökning-instans
+## <a name="create-a-custom-search-instance"></a>Skapa en anpassad Sökinstans
 
-Skapa en anpassad sökning Bing-instans:
+Skapa en anpassad sökning i Bing-instans:
 
-1.  Hämta en nyckel för anpassad sökning API. Se [försök kognitiva Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-2.  Logga in på portalen med ett Microsoft-konto (MSA). Klicka på den **inloggning** knappen. Om det är första gången du använder portalen Följ stegen nedan, annars vidare till steg 3.
+1.  Hämta en nyckel för API för anpassad sökning. Se [testa kognitiva tjänster](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+2.  Klicka på den **logga in** knappen och logga in på portalen med ett Microsoft-konto (MSA). 
     - Om du inte har en MSA, klickar du på **skapa ett Microsoft-konto**. Portalen begär behörighet att komma åt dina data. Klicka på **Ja**.
-    - Acceptera villkoren kognitiva tjänster. Kontrollera **acceptera** och på **accepterar**.  
-3.  När du har loggat in klickar du på **ny instans** och kalla instansen. Använd ett namn som är meningsfullt och beskriver typ av innehåll som returnerar sökningen. Du kan ändra namnet när som helst. 
-4.  På den **Active** fliken i **sökinställningar**, ange Webbadressen till en eller fler platser som du vill inkludera i din sökning.
-5.  Ange en fråga för att bekräfta att din instans returnerar resultat i förhandsgranskningsfönstret till höger. Om det finns inga resultat kan du ange en ny plats. Bing returnerar resultat endast för offentliga platser som den har indexerats.
-6.  Klicka på **publicera** publicera konfigurationsändringar till produktion. När du uppmanas, klickar du på **publicera** att bekräfta.
-7.  Klicka på **produktion** > **slutpunkter** och kopiera den **ID för konfiguration av anpassade**. Du behöver detta ID för att anropa API: et för anpassad sökning.
+    - Samtycker till villkoren för Cognitive Services. Kontrollera **jag godkänner** och klicka på **accepterar**.  
+3.  När du har loggat in klickar du på **ny instans** och namnge instansen. Använd ett namn som betyder något och beskriver typ av innehåll som returnerar sökningen. Du kan ändra namnet när som helst. 
+4.  På den **Active** fliken **Sökupplevelse**, ange Webbadressen till en eller flera webbplatser som du vill ska ingå i sökningen.
+5.  Ange en fråga för att bekräfta att din instans returnerar resultat i förhandsgranskningsfönstret till höger. Om det finns inga resultat kan du ange en ny webbplats. Bing returnerar resultat endast för offentliga webbplatser som den har indexerats.
+6.  Klicka på **publicera** att publicera ändringar i konfigurationen för produktion. När du uppmanas till detta klickar du på **publicera** att bekräfta.
+7.  Klicka på **produktion** > **slutpunkter** och kopiera den **anpassad konfigurations-ID**. Du behöver detta ID för att anropa API: et för anpassad sökning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fortsätta att arbeta med anpassad sökning-instans som du har skapat genom att följa anvisningarna i dessa guider:
+Fortsätt att arbeta med anpassad Sökinstans som du nyss skapat genom att följa instruktionerna i dessa instruktionsguider:
 
-- [Konfigurera din anpassade sökinställningar](./define-your-custom-view.md)
-- [Anropa sökningen anpassad](./search-your-custom-view.md)
-- [Dela sökningen anpassad](./share-your-custom-search.md)
+- [Konfigurera din upplevelse för anpassad sökning](./define-your-custom-view.md)
+- [Anropa dina anpassad sökning](./search-your-custom-view.md)
+- [Dela din anpassade sökning](./share-your-custom-search.md)
 - [Konfigurera din värdbaserade användargränssnitt](./hosted-ui.md)
-- [Markera text med hjälp av decoration markörer](./hit-highlighting.md)
+- [Använda decoration markörer för att markera text](./hit-highlighting.md)
 - [Sidan webbsidor](./page-webpages.md)

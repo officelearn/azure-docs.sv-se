@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: f11d08e56fe1970aa7a0d82f368eb73589ece2fe
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 08fcb244ada319dccf62c134a0155dd117e79184
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412307"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977051"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Använda Azure Policy för att begränsa installation av tillägg på virtuella Linux-datorer
 
 Om du vill förhindra användning eller installationen av vissa tillägg på din virtuella Linux-datorer kan du skapa en Azure-princip med hjälp av CLI för att begränsa tillägg för virtuella datorer i en resursgrupp. 
 
-Den här självstudien använder CLI i Azure Cloud Shell, som uppdateras ständigt till den senaste versionen. Om du vill köra Azure CLI lokalt måste du installera versionen 2.0.26 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Den här självstudien använder CLI i Azure Cloud Shell, som uppdateras ständigt till den senaste versionen. Om du vill köra Azure CLI lokalt måste du installera versionen 2.0.26 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-rules-file"></a>Skapa en regelfil
 

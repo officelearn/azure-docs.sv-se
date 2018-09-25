@@ -12,15 +12,15 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 9098a822aaf244130604493ac74c745f4000ab24
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: dc28263fca5c6854ffad12678b472804f074addd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368213"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035750"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Så här: Lägg till ditt domännamn med hjälp av Azure Active Directory-portalen
-Varje ny Azure AD-klienten levereras med ett första domännamn *domainname*. onmicrosoft.com. Du kan inte ändra eller ta bort det ursprungliga domännamnet, men du kan lägga till din organisations namn i listan. Att lägga till anpassade domännamn som hjälper dig att skapa användarnamn som dina användare känner igen som _alain@contoso.com_.
+Varje ny Azure AD-klienten levereras med ett första domännamn *domainname*. onmicrosoft.com. Du kan inte ändra eller ta bort det ursprungliga domännamnet, men du kan lägga till din organisations namn i listan. Att lägga till anpassade domännamn som hjälper dig att skapa användarnamn som dina användare känner igen som *alain@contoso.com*.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Innan du kan lägga till ett anpassat domännamn, måste du skapa ditt domännamn med en domänregistrator. En auktoriserad domänregistrator Se [ICANN-Accredited Registratorer](https://www.icann.org/registrar-reports/accredited-list.html).

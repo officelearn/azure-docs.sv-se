@@ -1,24 +1,25 @@
 ---
-title: Integrera LUIS med en bot med Bot Builder-SDK för Node.js i Azure | Microsoft Docs
+title: LUIS-Bot med Node.js – Web app-robot - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
 description: Skapa en robot som är integrerad med en LUIS-App med Bot Framework.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6d6937105b11d94138b51660dc9f3c5e682e19bc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0bd191da3f2625bc202ee66100e7dac25d9d65de
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224083"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042337"
 ---
-# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Integrera LUIS med en bot med Bot Builder-SDK för Node.js
+# <a name="luis-bot-in-nodejs"></a>LUIS-bot i Node.js
 
-Den här självstudien vägleder dig genom att skapa en robot med den [Bot Framework] [ BotFramework] som är integrerad med en LUIS-app.
+Genom att använda Node.js, skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattrobot använder fördefinierade HomeAutomation domänen för att snabbt implementera en bot-lösning. Roboten har byggts med Bot Framework 3.x och Azure Web app-robot.
 
 ## <a name="prerequisite"></a>Krav
 
@@ -26,7 +27,7 @@ Innan du skapar roboten följer du stegen i [skapa en app](./luis-get-started-cr
 
 Roboten besvarar avsikter från HomeAutomation domänen som finns i LUIS-app. För var och en av dessa avsikter ger LUIS-app ett intent som mappar till den. Roboten visar en dialogruta som hanterar avsikten som identifierar LUIS.
 
-| Avsikten | Exempel-uttryck | Bot-funktioner |
+| Avsikt | Exempel-uttryck | Bot-funktioner |
 |:----:|:----------:|---|
 | HomeAutomation.TurnOn | Tända lampan. | Roboten anropar den `TurnOnDialog` när den `HomeAutomation.TurnOn` har identifierats. Den här dialogrutan är där du vill anropa en IoT-tjänst för att aktivera en enhet och meddela användaren som enheten har slagits på. |
 | HomeAutomation.TurnOff | Inaktivera sovrum lamporna. | Roboten anropar den `TurnOffDialog` när den `HomeAutomation.TurnOff` har identifierats. Den här dialogrutan där du vill anropa en IoT-tjänst för att stänga av en enhet och meddela användaren som enheten har inaktiverats. |
@@ -45,7 +46,10 @@ Roboten besvarar avsikter från HomeAutomation domänen som finns i LUIS-app. F�
 3. I den **Robottjänst** bladet anger du nödvändig information och väljer **skapa**. Detta skapar och distribuerar bot service och LUIS-app till Azure. Om du vill använda [tal promotor](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), granska [region krav](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) innan du skapar din robot. 
     * Ange **appnamn** till din robot namn. Namnet används som underdomänen när din robot distribueras till molnet (exempelvis mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Välj prenumerationen [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan och [plats](https://azure.microsoft.com/regions/).
-    * Välj den **språkförståelse (Node.js)** mallen för den **Bot mallen** fält.
+    * För **Bot mallen**väljer:
+        * **SDK v3**
+        * **Node.js**
+        * **Språkförståelse**
     * Välj den **LUIS platsen**. Det här är redigeringen [region] [ LUIS] appen skapas i.
     * Markera kryssrutan bekräftelse för juridiskt meddelande. Villkoren i juridiskt meddelande är lägre än kryssrutan.
 

@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 3f32c9048c4b2002e7672b46a4f39e86ffa7b98e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 934d37783165c2e57dcabd0ff764747e1ab4b65e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647617"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946875"
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Energi begäran tidsserier prognoser
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 
 Tidsserier är uppgiften att förutsäga framtida värden i en tidsordnad sekvens med observationer. Det är ett vanligt problem och om du har program inom många branscher. Detaljhandel företag behöver till exempel att skapa prognoser för framtida produktförsäljning så att de effektivt kan ordna sina leveranskedjor att möta efterfrågan. På samma sätt behöver paketet leverans företag att uppskatta behovet av sina tjänster så att de kan planera krav för anställda och leveransvägar förbereds i förväg. I många fall kan finansiella risker för felaktiga prognoser vara betydande. Prognoser är därför ofta en kritisk business-aktivitet.
@@ -57,7 +62,7 @@ Det här scenariot beskriver konstruktion av machine learning-lösning för prog
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En [Azure-konto](https://azure.microsoft.com/free/) (kostnadsfria utvärderingsversioner är tillgängliga).
-- En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](../service/quickstart-installation.md) att installera programmet och skapa en arbetsyta.
+- En installerad kopia av [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](quickstart-installation.md) att installera programmet och skapa en arbetsyta.
 - Det här exemplet förutsätter att du använder Azure ML Workbench på Windows 10 med [Docker-motorn](https://www.docker.com/) installerats lokalt. Om du använder macOS är instruktionerna i stort sett desamma.
 - Azure Machine Learning Operationalization installeras med en lokal distribution-miljö ställer in och ett konto för modellhantering skapats enligt beskrivningen i det här [guide](./model-management-configuration.md).
 - Det här exemplet kräver att du uppdaterar Pandas-installationen till version 0.20.3 eller senare och installera matplotlib. Klicka på *öppna Kommandotolken* från den *filen* menyn i Workbench och kör följande kommandon för att installera dessa beroenden:

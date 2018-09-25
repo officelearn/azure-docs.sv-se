@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 8c50930404b12f37c709af87ff7def99dcd5100d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0878bdd435b6ec9efccca2cc825242a65bd79909
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378881"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042235"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Supportmatris för VMware och fysisk serverreplikering till Azure
 
@@ -33,7 +33,7 @@ Fysiska servrar | Replikering av lokala Windows-/ Linux fysiska servrar till Azu
 **Server** | **Krav** | **Detaljer**
 --- | --- | ---
 VMware | vCenter Server 6.7 6.5, 6.0 eller 5.5 eller vSphere 6.7, 6.5, 6.0 eller 5.5 | Vi rekommenderar att du använder en vCenter-server.<br/><br/> Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard process server-komponenter som körs på konfigurationsservern, så blir det nätverket där du ställer in konfigurationsservern, om inte du ställa in en dedikerad processerver.
-Fysiska | Ej tillämpligt
+Fysiska | Gäller inte
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery konfigurationsserver
 
@@ -53,7 +53,7 @@ Windows Server-roller | Aktivera inte: <br> - Active Directory Domain Services <
 Grupprinciper| Aktivera inte: <br> -Förhindra åtkomst till Kommandotolken. <br> -Förhindra åtkomst till registerredigeringsverktygen. <br> -Förtroende för bifogade filer. <br> -Aktivera körning av skript. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Se till att du:<br/><br/> -Inte har en befintlig standardwebbplatsen <br> -Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) inställningen  <br> -Inte har redan befintliga webbplats/appen lyssnar på port 443<br>
 Typ av nätverkskort | VMXNET3 (när distribueras som en VMware VM)
-IP-adresstyp | Static
+IP-adresstyp | Statisk
 Portar | 443 används för kontrolkanalsorchestration)<br>9443 som används för dataöverföring
 
 ## <a name="replicated-machines"></a>Replikerade datorer
@@ -64,7 +64,7 @@ Site Recovery har stöd för replikering av alla arbetsbelastningar som körs p�
 --- | ---
 Datorinställningar | Datorer som replikeras till Azure måste uppfylla [krav för Azure](#azure-vm-requirements).
 Windows-operativsystem | 64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1. </br></br>  [Windows Server 2008 med på minst SP2 - 32-bitars och 64-bitars](migrate-tutorial-windows-server-2008.md) (migrering). </br></br> Windows 2016 Nano Server stöds inte.
-Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11<b>\*\*</b>, 6.1 6.10<b>\*\*</b>, 7.0 7.5 <br/><br/>CentOS: 5.2 till 5.11<b>\*\*</b>, 6.1 6.10<b>\*\*</b>, 7.0 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versioner som stöds)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versioner som stöds)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/></br>* *Uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4 stöds inte. Om du vill uppgradera, inaktiverar du replikering och aktivera det igen efter uppgraderingen.*</br></br><b>\*\*</b> *Referera till [stöd för Linux-datorer i Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) att förstå stöd för Linux och teknik med öppen källkod i Azure. Azure Site Recovery kan du redundans och kör Linux-servrar i Azure, men Linux-leverantörer kan begränsa stödet till bara dessa versioner av deras distribution som inte har nått end of life.*
+Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11<b>\*\*</b>, 6.1 6.10<b>\*\*</b>, 7.0 7.5 <br/><br/>CentOS: 5.2 till 5.11<b>\*\*</b>, 6.1 6.10<b>\*\*</b>, 7.0 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versioner som stöds)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versioner som stöds)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5, 6.6, 6.7 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/></br>* *Uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4 stöds inte. Om du vill uppgradera, inaktiverar du replikering och aktivera det igen efter uppgraderingen.*</br></br><b>\*\*</b> *Referera till [stöd för Linux-datorer i Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) att förstå stöd för Linux och teknik med öppen källkod i Azure. Azure Site Recovery kan du redundans och kör Linux-servrar i Azure, men Linux-leverantörer kan begränsa stödet till bara dessa versioner av deras distribution som inte har nått end of life.*
 
 
 >[!NOTE]
@@ -73,7 +73,7 @@ Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11<b>\*\*</b>, 6.1 6
 >
 > - Uppgradera skyddade datorer i större Linux distribution versioner inte stöds. Om du vill uppgradera, inaktiverar du replikering, uppgradera operativsystemet och aktiverar sedan replikeringen igen.
 >
-> - Servrar som kör Red Hat Enterprise Linux 5.2 5.11 eller CentOS 5.2 till 5.11 ska installera Services(LIS) för Linux Integration components i ordning att starta i Azure virtuella datorer.
+> - Servrar som kör Red Hat Enterprise Linux 5.2 5.11 eller CentOS 5.2 5.11 ska ha den [Linux Integration Services(LIS) komponenter](https://www.microsoft.com/en-us/download/details.aspx?id=55106) installerat för datorer att starta i Azure.
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu kernel-versioner
 
@@ -160,7 +160,7 @@ Behåll källans IP-adress | Ja
 Azure Virtual Network-tjänstslutpunkter<br/> (utan Azure Storage-brandväggar) | Ja
 Accelererat nätverk | Nej
 
-## <a name="storage"></a>Lagringsutrymme
+## <a name="storage"></a>Storage
 **Komponent** | **Stöds**
 --- | ---
 Värden NFS | Ja för VMware<br/><br/> Nej för fysiska servrar

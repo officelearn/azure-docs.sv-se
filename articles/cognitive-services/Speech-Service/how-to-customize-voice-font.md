@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 35572f046b3702deba56e86819b8ad0cd7ae6e9b
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 042216d03749273c590ce5ba812f7a6d609f8e83
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842486"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987918"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
@@ -25,7 +25,7 @@ Du kan komma igång med en liten mängd data för ett konceptbevis. Men ju mer d
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Text till tal röst anpassning av funktionen är för tillfället i privat förhandsvisning. [Fyll i formuläret programmet](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) övervägas för åtkomst.
+Den **Text till tal** röst anpassning av funktionen är för tillfället i privat förhandsversion. [Fyll i formuläret programmet](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) övervägas för åtkomst.
 
 Du behöver också en Azure-konto och en prenumeration på Speech-tjänsten. [Skapa en](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) om du inte redan har gjort. Anslut din prenumeration till anpassad Voice-portalen på följande sätt.
 

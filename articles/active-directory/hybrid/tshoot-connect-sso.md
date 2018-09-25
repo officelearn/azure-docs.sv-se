@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2b6bd3b04dfbc7446e92dfcb16db64cc3c693c5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315268"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055908"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
 
@@ -36,7 +36,7 @@ Den här artikeln beskriver hur du hittar felsökningsinformation om vanliga pro
 - Om en användare tillhör för många grupper i Active Directory, användarens Kerberos-biljett kommer antagligen vara för stort för att bearbeta och detta innebär att sömlös SSO misslyckas. Azure AD-HTTPS-begäranden kan ha rubriker med en maximal storlek på 50 KB; Kerberos-biljetter måste vara mindre än den gränsen för andra Azure AD-artefakter (normalt 2 – 5 KB), till exempel cookies. Vår rekommendation är att minska användarens gruppmedlemskap och försök igen.
 - Om du synkroniserar 30 eller fler Active Directory-skogar, kan du inte aktivera sömlös SSO via Azure AD Connect. Du kan komma runt [manuellt aktivera](#manual-reset-of-the-feature) funktionen på din klient.
 - Att lägga till URL: en för Azure AD-tjänsten (https://autologon.microsoftazuread-sso.com) i zonen Betrodda platser i stället för den lokala intranätzonen *blockerar användare från att logga in*.
-- Inaktivera användningen av den **RC4_HMAC_MD5** bryter krypteringstyp för Kerberos i inställningarna för Active Directory sömlös enkel inloggning. I Redigeraren för Grupprinciphantering-verktyget kontrollerar du att principvärdet för **RC4_HMAC_MD5** under **Datorkonfiguration -> Windows-inställningar -> säkerhetsinställningar -> lokala principer -> säkerhetsalternativ - > ”Nätverkssäkerhet: Konfigurera krypteringstyper som tillåts för Kerberos”** är ”aktiverad”.
+- Sömlös SSO använder den **RC4_HMAC_MD5** krypteringstyp för Kerberos. Inaktivera användningen av den **RC4_HMAC_MD5** bryter krypteringstyp i inställningarna för Active Directory sömlös enkel inloggning. I Redigeraren för Grupprinciphantering-verktyget kontrollerar du att principvärdet för **RC4_HMAC_MD5** under **Datorkonfiguration -> Windows-inställningar -> säkerhetsinställningar -> lokala principer -> säkerhetsalternativ - > ”Nätverkssäkerhet: Konfigurera krypteringstyper som tillåts för Kerberos”** är **aktiverat**. Dessutom sömlös enkel inloggning kan inte använda andra krypteringstyper, så se till att de är **inaktiverat**.
 
 ## <a name="check-status-of-feature"></a>Kontrollera status för funktionen
 

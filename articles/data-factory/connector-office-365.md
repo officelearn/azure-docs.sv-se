@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 09/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 3783bc6ccda7a559e749a84005f20d860ab56755
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: a077c7d154235205126d77e5523c0acd96e70ad5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368903"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031619"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Kopiera data från Office 365 till Azure med hjälp av Azure Data Factory (förhandsversion) 
 
@@ -46,7 +46,6 @@ Om du vill kopiera data från Office 365 till Azure, måste du utföra följande
     - Klient-ID.  Anvisningar finns i [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     - Nyckel för program-ID och program.  Anvisningar finns i [Get ID och autentiseringsnyckel programnyckel](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - Lägg till användar-ID som ska upprätta data förfrågan som ägare till Azure AD-webbappen (från Azure AD-webbprogram > Inställningar > ägare > Lägg till ägare).
-- _(Rekommenderas)_  [Tilldela Azure-principer](../azure-policy/assign-policy-definition.md) för kryptering av data till dina datalager. Kompatibilitetsinformation för principen kommer att visas för godkännarna data som en del av begäran om. När principtilldelningen görs för varje kopieringsaktiviteten som körs, kontrollerar ADF Kontrollera principtilldelningen tillämpas. Se [här](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) för en fullständig lista över principer som stöds.
 
 ## <a name="approving-new-data-access-requests"></a>Godkänna åtkomstbegäranden för nya data
 
@@ -54,9 +53,23 @@ Om det här är första gången du begär data för den här kontexten (en kombi
 
 Se [här](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) på hur godkännaren kan godkänna data åt begäran och se [här](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) förklaringar på övergripande integrering med Privileged Access Management, inklusive hur du ställer in data godkännare för nyckelringar.
 
+## <a name="policy-validation"></a>Verifieringen av användarprinciper
+
+Om ADF skapas som en del av en hanterad app och Azure-principer tilldelningar görs på resurser i resursgruppen management, sedan kontrollerar för varje kopieringsaktivitetskörning, ADF om du vill kontrollera principtilldelningar används. Se [här](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) en lista över principer som stöds.
+
 ## <a name="getting-started"></a>Komma igång
 
-Du kan skapa en pipeline med en Kopieringsaktivitet med hjälp av .NET SDK, Python SDK, Azure PowerShell, REST API eller Azure Resource Manager-mall. Se [kopiera aktivitet självstudien](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+>[!TIP]
+>En genomgång på hur du använder Office 365-anslutning finns i [läsa in data från Office 365](load-office-365-data.md) artikeln.
+
+Du kan skapa en pipeline med Kopieringsaktivitet med någon av följande verktyg och SDK: er. Välj en länk som leder till en självstudie med stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+
+- [Azure Portal](quickstart-create-data-factory-portal.md)
+- [.NET SDK](quickstart-create-data-factory-dot-net.md)
+- [Python SDK](quickstart-create-data-factory-python.md)
+- [Azure PowerShell](quickstart-create-data-factory-powershell.md)
+- [REST API](quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager-mall](quickstart-create-data-factory-resource-manager-template.md). 
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Office 365-anslutning.
 

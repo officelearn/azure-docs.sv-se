@@ -1,5 +1,5 @@
 ---
-title: Azure N-serien drivrutinen installationsprogrammet för Windows | Microsoft Docs
+title: Azure N-serien GPU-drivrutinen installationsprogrammet för Windows | Microsoft Docs
 description: Hur du ställer in NVIDIA GPU-drivrutiner för virtuella datorer i N-serien som kör Windows Server eller Windows i Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50d9ea88afc0e7d96d71b2ab26c8a8489ae41fee
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719665"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033268"
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>Konfigurera GPU-drivrutiner för virtuella datorer i N-serien som kör Windows 
+# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installera NVIDIA GPU-drivrutiner på N-serien virtuella datorer som kör Windows 
+
 Om du vill dra nytta av GPU-funktionerna i Azure N-serien virtuella datorer som kör Windows, måste NVIDIA GPU-drivrutiner installeras. Den [NVIDIA GPU-drivrutinen tillägget](../extensions/hpccompute-gpu-windows.md) installerar lämpliga NVIDIA CUDA- eller NÄTVERKSBASERADE drivrutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure-portalen eller verktyg, till exempel Azure PowerShell eller Azure Resource Manager-mallar. Se den [NVIDIA GPU-drivrutinen tillägget dokumentation](../extensions/hpccompute-gpu-windows.md) operativsystem som stöds och distributionsanvisningar för.
 
 Om du väljer att installera GPU-drivrutiner manuellt, innehåller den här artikeln operativsystem, drivrutiner och steg för installation och kontroll. Manuell installation av drivrutinsinformation är också tillgängligt för [virtuella Linux-datorer](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -38,7 +39,7 @@ Grundläggande specifikationer, lagringskapacitet och diskinformation finns i [G
 
 2. Hämta, extrahera och installera drivrutinen som stöds för ditt Windows-operativsystem.
 
-På Azure NV Virtual Machines krävs en omstart efter drivrutinsinstallation. På Nätverksstyrenhetens virtuella datorer är inte en omstart krävs.
+Efter installation av RUTNÄTET på en virtuell dator krävs en omstart. Efter installationen för CUDA-drivrutinen kan en omstart krävs inte.
 
 ## <a name="verify-driver-installation"></a>Kontrollera drivrutinsinstallation
 
@@ -64,7 +65,7 @@ Om du vill installera den senaste versionen 1.1 HpcVMDrivers tillägg på en bef
   ```
   Mer information finns i [VM-tillägg och funktioner i Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-RDMA-nätverk stöder Message Passing Interface (MPI)-trafik för program som körs med [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) eller Intel MPI 5.x. 
+RDMA-nätverk stöder Message Passing Interface (MPI)-trafik för program som körs med [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) eller Intel MPI 5.x. 
 
 
 ## <a name="next-steps"></a>Nästa steg

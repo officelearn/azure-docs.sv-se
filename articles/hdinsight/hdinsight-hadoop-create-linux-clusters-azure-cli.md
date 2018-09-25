@@ -1,6 +1,6 @@
 ---
-title: Skapa Hadoop-kluster med hjälp av kommandoraden-Azure HDInsight
-description: Lär dig hur du skapar HDInsight-kluster med hjälp av plattformsoberoende Azure CLI 1.0.
+title: Skapa Hadoop-kluster med hjälp av Azure klassiska CLI - Azure HDInsight
+description: Lär dig hur du skapar HDInsight-kluster med hjälp av plattformsoberoende Azure klassiskt CLI.
 services: hdinsight
 author: jasonwhowell
 ms.reviewer: jasonh
@@ -9,23 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 523c2a85929d8474c283055a8ae38d489cbd4b12
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 84b352fea0c5b9c98cd3b4e814e448cf8b706402
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090982"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992821"
 ---
-# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Skapa HDInsight-kluster med Azure CLI
+# <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Skapa HDInsight-kluster med den klassiska Azure-CLI
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Stegen i den här genomgången för dokumentet som skapar ett HDInsight 3.5-kluster med Azure CLI 1.0.
+Stegen i den här genomgången för dokumentet som skapar ett HDInsight 3.5-kluster med hjälp av den klassiska Azure-CLI.
 
-> [!IMPORTANT]
-> Det här avsnittet beskriver hur du skapar ett HDInsight-kluster med hjälp av Azure CLI 1.0. Den här versionen av CLI är föråldrad och stöd för att skapa HDInsight-kluster har inte lagts till Azure CLI 2.0.
->
-> Du kan också använda Azure PowerShell för att skapa och hantera HDInsight-kluster. Mer information finns i den [skapa HDInsight-kluster med Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) dokumentet.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -33,14 +30,11 @@ Stegen i den här genomgången för dokumentet som skapar ett HDInsight 3.5-klus
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Azure CLI**. Stegen i det här dokumentet testades senast med Azure CLI version 0.10.14.
-
-    > [!IMPORTANT]
-    > Azure CLI 1.0 är föråldrad och stöd för att skapa HDInsight-kluster har inte lagts till Azure CLI 2.0.
+* **Azure klassiskt CLI**. Stegen i det här dokumentet testades senast med klassiska Azure-CLI version 0.10.14.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 
-Följ stegen i [Anslut till en Azure-prenumeration från Azure-kommandoradsgränssnittet (Azure CLI)](/cli/azure/authenticate-azure-cli) och anslut till din prenumeration med hjälp av metoden **inloggning**.
+Följ stegen i [Anslut till en Azure-prenumeration från Azure-kommandoradsgränssnittet](/cli/azure/authenticate-azure-cli) och ansluta till din prenumeration med hjälp av den **inloggning** metod.
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
 
@@ -50,7 +44,7 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell eller 
 
         azure login
 
-    Du uppmanas att ange ditt namn och lösenord. Om du har flera Azure-prenumerationer kan du använda `azure account set <subscriptionname>` att ange den prenumeration som använder Azure CLI-kommandon.
+    Du uppmanas att ange ditt namn och lösenord. Om du har flera Azure-prenumerationer kan du använda `azure account set <subscriptionname>` att ange den prenumeration som använder de klassiska CLI-kommandona.
 
 2. Växla till läget Azure Resource Manager, med följande kommando:
 
@@ -124,7 +118,7 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skapat ett HDInsight-kluster med Azure CLI, Använd följande för att lära dig hur du arbetar med ditt kluster:
+Nu när du har skapat ett HDInsight-kluster med hjälp av klassiska CLI, Använd följande för att lära dig hur du arbetar med ditt kluster:
 
 ### <a name="hadoop-clusters"></a>Hadoop-kluster
 

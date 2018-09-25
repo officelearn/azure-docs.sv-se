@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1cff44e8430af0a544da948b33a15439fae56d8e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a076ee5275a4d053613902a1980542590263385c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735662"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034288"
 ---
 # <a name="set-up-a-device-template"></a>Konfigurera en enhetsmall
 
@@ -74,6 +74,9 @@ Du kan exempelvis lägga till en ny temperatur telemetri mätning:
 
 När du har valt **klar**, **temperatur** mått visas i listan över mått. En operatör kan se visualisering av temperaturdata som samlar in enheten.
 
+> [!NOTE]
+  Datatypen för måttet telemetri är dubbla.
+
 ### <a name="create-an-event-measurement"></a>Skapa en händelse
 Om du vill lägga till en ny händelse mätning, Välj **Redigera mall**, och klicka sedan på den **+ ny mätning** knappen. Välj **händelse** som mätningen skriver och anger informationen den **Skapa händelse** formuläret.
 
@@ -91,6 +94,8 @@ Välj ikonen händelse i diagrammet om du vill visa mer information om händelse
 
 ![Information om händelsen ”fläkt meddelar fel”](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
+> [!NOTE]
+  Datatypen för måttet händelse är sträng.
 
 ### <a name="create-a-state-measurement"></a>Skapa ett mått för tillstånd
 Om du vill lägga till ett nytt tillstånd mått, Välj **Redigera mall**, och klicka sedan på den **+ ny mätning** knappen. Välj **tillstånd** som mätningen skriver och anger informationen den **skapa tillstånd** formuläret.
@@ -106,6 +111,9 @@ När du har valt **klar**, **fläkt läge** tillstånd mått visas i listan öve
 ![Statliga mätning diagram](./media/howto-set-up-template/statemeasurementschart.png)
 
 Om enheten skickar för många datapunkter i en liten varaktighet, visas mätningen tillstånd med ett annat visuellt objekt enligt följande skärmbild. Om du klickar på diagrammet visas alla datapunkter inom den tidsperioden i kronologisk ordning. Du kan också begränsa tidsintervall för mätningen ritas i diagrammet.
+
+> [!NOTE]
+  Datatypen för måttet tillstånd är sträng.
 
 ## <a name="settings"></a>Inställningar
 

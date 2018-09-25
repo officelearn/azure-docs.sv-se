@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ce4ff3fe2917d4dc34718fccc740223df0c52e8e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232749"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970948"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Begränsa nätverksåtkomst till PaaS-resurser med virtuella nätverksslutpunkter med Azure CLI
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.28 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.28 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 

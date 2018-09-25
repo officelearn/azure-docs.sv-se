@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Den här artikeln innehåller ordningstal fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 216114ec521e2065cb13cd39b4086f50ec81ba56
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: cdbe6a04e579c9290c61b36102a66f6a2d8c317d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236762"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041888"
 ---
 # <a name="ordinal-entity"></a>Entitet för ordningstal
 Ordningstal är en numerisk representation av ett objekt i en uppsättning: `first`, `second`, `third`. Eftersom den här entiteten har redan tränats, behöver du inte att lägga till exempel yttranden som innehåller ordningstal till programmet avsikter. Ordningstalet entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 

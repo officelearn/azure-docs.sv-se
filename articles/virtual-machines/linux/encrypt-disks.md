@@ -1,6 +1,6 @@
 ---
 title: Kryptera diskar på en Linux-VM i Azure | Microsoft Docs
-description: Kryptera virtuella diskar på en Linux-VM för ökad säkerhet med hjälp av Azure CLI 2.0
+description: Kryptera virtuella diskar på en Linux-VM för ökad säkerhet med hjälp av Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,19 +15,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 75ec087536d6f833a9a2106b1fdf4ed1fd73ef8e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 044486424f8bcc9d66998f775154eff9c52e7d1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634628"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981237"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Hur du krypterar en Linux-dator i Azure
-För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella diskar och Virtuellt datorn krypteras. Virtuella datorer krypteras med hjälp av kryptografiska nycklar som skyddas i ett Azure Key Vault. Du kontrollerar dessa kryptografiska nycklar och kan granska deras användning. Den här artikeln beskriver hur du krypterar virtuella diskar på en Linux VM med Azure CLI 2.0. 
+
+För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella diskar och Virtuellt datorn krypteras. Virtuella datorer krypteras med hjälp av kryptografiska nycklar som skyddas i ett Azure Key Vault. Du kontrollerar dessa kryptografiska nycklar och kan granska deras användning. Den här artikeln beskriver hur du krypterar virtuella diskar på en Linux VM med Azure CLI. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste den här artikeln kräver att du kör Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt måste den här artikeln kräver att du kör Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="overview-of-disk-encryption"></a>Översikt över diskkryptering
 Virtuella diskar på virtuella Linux-datorer krypteras i med hjälp av rest [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Det är kostnadsfritt för att kryptera virtuella diskar i Azure. Kryptografiska nycklar lagras i Azure Key Vault med hjälp av software protection eller kan du importera eller generera dina nycklar i Maskinvarusäkerhetsmoduler (HSM) som är certifierade enligt standarderna FIPS 140-2 nivå 2-standarder. Du kan behålla kontrollen över dessa kryptografiska nycklar och kan granska deras användning. Dessa kryptografiska nycklar används för att kryptera och dekryptera virtuella diskar som är anslutna till den virtuella datorn. En Azure Active Directory-tjänstens huvudnamn är en säker mekanism för att utfärda dessa kryptografiska nycklar som virtuella datorer tillhandahålls av och sätts på.

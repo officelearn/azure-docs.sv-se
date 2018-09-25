@@ -1,26 +1,25 @@
 ---
-title: Övervakning i Azure Database för PostgreSQL
-description: Den här artikeln beskriver mått för övervakning och avisering för Azure Database för PostgreSQL, inklusive statistik för CPU-, lagrings- och anslutning.
+title: Övervaka och finjustera i Azure Database för PostgreSQL
+description: Den här artikeln beskriver övervakning och justering funktioner i Azure Database för PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 09/17/2018
-ms.openlocfilehash: 17b12514e32ad8d1548d834d72e0f7564fe78143
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.openlocfilehash: e29186d07d9a060e45ed051d6f7ed0ac81a5e15b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985787"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982672"
 ---
-# <a name="monitoring-in-azure-database-for-postgresql"></a>Övervakning i Azure Database för PostgreSQL
-Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database för PostgreSQL innehåller olika mått som ger inblick i beteendet för de resurser som stödjer PostgreSQL-servern. 
+# <a name="monitor-and-tune"></a>Övervaka och finjustera
+Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. 
 
 ## <a name="metrics"></a>Mått
-Alla Azure-mått har en frekvens på en minut. varje mått ger 30 dagars historik. Du kan konfigurera aviseringar om måtten. Stegvisa anvisningar finns i [hur du konfigurerar aviseringar](howto-alert-on-metric.md). Andra uppgifter är att skapa automatiska åtgärder, utföra avancerade analyser och arkivering historik. Mer information finns i den [översikt över Azure-mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Database för PostgreSQL innehåller olika mått som ger inblick i beteendet för de resurser som stödjer PostgreSQL-servern. Varje mått har genererats med en frekvens för en minut och har upp till 30 dagars historik. Du kan konfigurera aviseringar om måtten. Stegvisa anvisningar finns i [hur du konfigurerar aviseringar](howto-alert-on-metric.md). Andra uppgifter är att skapa automatiska åtgärder, utföra avancerade analyser och arkivering historik. Mer information finns i den [översikt över Azure-mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database för PostgreSQL:
@@ -41,6 +40,14 @@ De här måtten är tillgängliga för Azure Database för PostgreSQL:
 |network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
 |network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
 
+## <a name="query-store"></a>Query Store
+[Query Store](concepts-query-store.md) är en funktion i offentlig förhandsversion som håller reda på frågan prestanda över tid, inklusive fråga efter körningsstatistik och vänta händelser. Funktionen kvarstår fråga information om körningsprestanda i en databas med namnet **azure_sys** under query_store schemat. Du kan styra insamling och lagring av data via olika configuration rattar.
+
+## <a name="query-performance-insight"></a>Query Performance Insight
+[Query Performance Insight](concepts-query-performance-insight.md) fungerar tillsammans med Query Store att tillhandahålla visualiseringar som är tillgängliga från Azure-portalen. Dessa diagram kan du identifiera viktiga frågor som påverkas prestanda. Query Performance Insight är allmänt tillgänglig förhandsversion och är tillgänglig i den **Support och felsökning** delen av din Azure Database for PostgreSQL-server portalsidan.
+
+## <a name="performance-recommendations"></a>Prestandarekommendationer
+Den [Prestandarekommendationer](concepts-performance-recommendations.md) funktionen identifierar möjligheter att förbättra prestanda för arbetsbelastningen. Den offentliga förhandsversionen av Prestandarekommendationer ger dig rekommendationer för att skapa nya index som kan förbättra prestandan för dina arbetsbelastningar. För att skapa indexrekommendationer beaktar funktionen olika egenskaper i databasen, inklusive dess schema och arbetsbelastningen som rapporterats av Query Store. När du implementerar en rekommendation för prestanda, bör kunderna testa prestanda för att utvärdera effekten av ändringarna. 
 
 ## <a name="next-steps"></a>Nästa steg
 - Se [hur du konfigurerar aviseringar](howto-alert-on-metric.md) anvisningar om hur du skapar en avisering på ett mått.

@@ -2,20 +2,22 @@
 title: Kom igång med Azure SQL database-granskning | Microsoft Docs
 description: Använda Azure SQL database-granskning för att spåra databashändelser till en granskningslogg.
 services: sql-database
-author: giladmit
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/10/2018
+author: giladmit
 ms.author: giladm
 ms.reviewer: vanto
-ms.openlocfilehash: 935baf791d9244f2fa4f5be9c02d4778244754de
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: dd1672c0cdae243bf6ff19efa22df66239611b44
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543760"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064187"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 Azure SQL-databasgranskning spårar databashändelser och skriver dem till en granskningslogg i ditt Azure storage-konto. Granskning också:
@@ -98,10 +100,25 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
 11. När du har konfigurerat inställningarna för granskning kan du aktivera funktionen för identifiering av nya hot och konfigurera e-postmeddelanden om du vill få säkerhetsaviseringar. När du använder hotidentifiering kan få du proaktiva varningar på avvikande databasaktiviteter som kan innebära potentiella säkerhetshot. Mer information finns i [komma igång med hotidentifiering](sql-database-threat-detection-get-started.md). 
 
 ## <a id="subheading-3"></a>Analysera granskningsloggar och rapporter
+Om du har valt att skriva granskningsloggar till Log Analytics:
+- Använd den [Azure-portalen](https://portal.azure.com).  Öppna den aktuella databasen. Överst på databasens **granskning** klickar du på **visa granskningsloggar**.
+
+    ![Visa granskningsloggar](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+
+- Klicka på **öppna i OMS** överst i den **granskningsposter** vyn loggar öppnas i Log Analytics, där du kan anpassa tidsintervallet och sökfrågan.
+
+    ![Öppna i OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+
+- Du kan också du kan också komma åt granskningsloggarna från Log Analytics-bladet. Öppna Log Analytics-arbetsytan och under **Allmänt** klickar du på **loggar**. Du kan börja med en enkel fråga, till exempel: Sök *”SQLSecurityAuditEvents”* att visa granskningen loggar.
+    Härifrån kan du också använda [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) att köra avancerade sökningar på din granskningsloggdata. Log Analytics ger dig operational realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla dina arbetsbelastningar och servrar. Ytterligare användbar information om OMS Log Analytics-frågespråket och kommandon finns i [Log Analytics Sök referens](../log-analytics/log-analytics-log-search.md).
+
+Om du har valt att skriva granskningsloggar till Event Hub:
+- Om du vill använda granskning loggar data från Event Hub, behöver du ställer in en dataström som förbrukar händelser och skriva dem till ett mål. Mer information finns i [dokumentation om Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
+
 Om du väljer att skriva granskningsloggar till ett Azure storage-konto, finns det flera metoder som du kan använda för att visa loggfilerna:
 - Granskningsloggar räknas samman på kontot du valde i installationsprogrammet. Du kan utforska granskningsloggar genom att använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/). I Azure storage granskningsloggarna sparas som en samling av blobfiler i en behållare med namnet **sqldbauditlogs**. Ytterligare information om hierarkin för mappen storage namngivningskonventioner och loggformat, finns det [referens till Blob granskningslogg Format](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Använd den [Azure-portalen](https://portal.azure.com).  Öppna den aktuella databasen. Överst på databasens **granskning och Hotidentifiering** klickar du på **visa granskningsloggar**.
+- Använd den [Azure-portalen](https://portal.azure.com).  Öppna den aktuella databasen. Överst på databasens **granskning** klickar du på **visa granskningsloggar**.
 
     ![Navigeringsfönster][7]
 
@@ -137,16 +154,6 @@ Om du väljer att skriva granskningsloggar till ett Azure storage-konto, finns d
 
      * Använd den [utökade händelser läsare](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C#-biblioteket.
      * [Frågefiler utökade händelser](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) med hjälp av PowerShell.
-
-Om du har valt att skriva granskningsloggar till Log Analytics:
-- Om du vill visa granskningsloggar i Log Analytics, öppna Log Analytics-arbetsytan och under **Sök och analysera loggar**, klickar du på **visa loggar**. I vyn Log Search kan du börja genom att klicka på **alla insamlade data**.  
-
-    ![OMS-loggsökning](./media/sql-database-auditing-get-started/oms_log_search.png)
-
-   Härifrån kan du använda [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) att köra avancerade sökningar på din granskningsloggdata. Log Analytics ger dig operational realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla arbetsbelastningar och servrar. Ytterligare användbar information om OMS Log Analytics-frågespråket och kommandon finns i [Log Analytics Sök referens](../log-analytics/log-analytics-log-search.md).
-
-Om du har valt att skriva granskningsloggar till Event Hub:
-- Om du vill använda granskning loggar data från Event Hub, behöver du ställer in en dataström som förbrukar händelser och skriva dem till ett mål. Mer information finns i [dokumentation om Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 
 ## <a id="subheading-5"></a>Produktionsmetoder
 <!--The description in this section refers to preceding screen captures.-->
@@ -210,16 +217,16 @@ Ett skript-exempel finns i [konfigurera granskning och hotidentifiering med hjä
 
 **REST-API – blobbgranskning**:
 
-* [Skapa eller uppdatera databasen Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
-* [Skapa eller uppdatera Server Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
-* [Hämta databasen Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
-* [Hämta Server Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
+* [Skapa eller uppdatera databasen Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [Skapa eller uppdatera Server Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [Hämta databasen Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+* [Hämta Server Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Utökade princip med där satsen stöd för ytterligare filtrering:
-* [Skapa eller uppdatera databasen *utökade* Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-* [Skapa eller uppdatera Server *utökade* Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
-* [Hämta databas *utökade* Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
-* [Hämta Server *utökade* Blob granskningsprincip](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
+* [Skapa eller uppdatera databasen *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [Skapa eller uppdatera Server *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [Hämta databas *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [Hämta Server *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

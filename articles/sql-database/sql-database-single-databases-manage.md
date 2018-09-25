@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/20/2018
 ms.author: carlrab
-ms.openlocfilehash: bb0efe83cb18f25317911361de79378298e591b7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3d909e8aa7785fddd6d40e94ac1fbf2c8ab2b8d0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717638"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040888"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Skapa och hantera logiska servrar och enskilda databaser i Azure SQL Database 
 
@@ -90,25 +90,25 @@ Skapa och hantera Azure SQL server, databaser och brandväggar med [Azure CLI](/
 
 | Cmdlet | Beskrivning |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Skapar en databas|
-|[AZ sql db list](/cli/azure/sql/db#az_sql_db_list)|Visar en lista över alla databaser och datalager i en server eller alla databaser i en elastisk pool|
-|[AZ sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Visar tillgängliga mål och gränser|
-|[AZ sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Returnerar databasen användningar|
-|[AZ sql db show](/cli/azure/sql/db#az_sql_db_show)|Hämtar en databasen eller datalagret|
-|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Uppdaterar en-databas|
-|[AZ sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Tar bort en databas|
-|[az group create](/cli/azure/group#az_group_create)|Skapar en resursgrupp|
-|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Skapar en server|
-|[AZ sql server list](/cli/azure/sql/server#az_sql_server_list)|Visar servrar|
-|[AZ sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Returnerar servern användningar|
-|[AZ sql server show](/cli/azure/sql/server#az_sql_server_show)|Hämtar en server|
-|[uppdatering av AZ sql server](/cli/azure/sql/server#az_sql_server_update)|Uppdaterar en server|
-|[AZ sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Tar bort en server|
-|[Skapa AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Skapar en brandväggsregel|
-|[AZ sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Visar en lista över brandväggsreglerna på en server|
-|[AZ sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Visar information om en brandväggsregel|
-|[AZ sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Uppdaterar en brandväggsregel|
-|[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Tar bort en brandväggsregel|
+|[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Skapar en databas|
+|[AZ sql db list](/cli/azure/sql/db#az-sql-db-list)|Visar en lista över alla databaser och datalager i en server eller alla databaser i en elastisk pool|
+|[AZ sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|Visar tillgängliga mål och gränser|
+|[AZ sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|Returnerar databasen användningar|
+|[AZ sql db show](/cli/azure/sql/db#az-sql-db-show)|Hämtar en databasen eller datalagret|
+|[az sql db update](/cli/azure/sql/db#az-sql-db-update)|Uppdaterar en-databas|
+|[AZ sql db delete](/cli/azure/sql/db#az-sql-db-delete)|Tar bort en databas|
+|[az group create](/cli/azure/group#az-group-create)|Skapar en resursgrupp|
+|[az sql server create](/cli/azure/sql/server#az-sql-server-create)|Skapar en server|
+|[AZ sql server list](/cli/azure/sql/server#az-sql-server-list)|Visar servrar|
+|[AZ sql server list-usages](/cli/azure/sql/server#az-sql-server-list-usages)|Returnerar servern användningar|
+|[AZ sql server show](/cli/azure/sql/server#az-sql-server-show)|Hämtar en server|
+|[uppdatering av AZ sql server](/cli/azure/sql/server#az-sql-server-update)|Uppdaterar en server|
+|[AZ sql server delete](/cli/azure/sql/server#az-sql-server-delete)|Tar bort en server|
+|[Skapa AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Skapar en brandväggsregel|
+|[AZ sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Visar en lista över brandväggsreglerna på en server|
+|[AZ sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Visar information om en brandväggsregel|
+|[AZ sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Uppdaterar en brandväggsregel|
+|[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Tar bort en brandväggsregel|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Hantera logiska servrar och databaser
 

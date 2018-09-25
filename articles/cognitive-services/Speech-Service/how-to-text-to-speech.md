@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2bcba37d5bf0e508c1f9aa1ad30ab1c039cff83f
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 776b8496ea3f46287e2eeec7c150b8d60ca3e553
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497764"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964112"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Använd ”Text till tal” i Speech service
 
@@ -47,12 +47,12 @@ En Text till tal HTTP-begäran skickas i POST-läge med texten som ska talas i b
 Sidhuvud|Värden|Kommentarer
 -|-|-
 |`Content-Type` | `application/ssml+xml` | Indata-text-format.
-|`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`audio-16khz-16kbps-mono-siren`<br>`riff-16khz-16kbps-mono-siren`<br>`riff-16khz-16bit-mono-pcm`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | Ljudformatet utdata.
+|`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`riff-16khz-16bit-mono-pcm`<br>`raw-8khz-8bit-mono-mulaw`<br>`riff-8khz-8bit-mono-mulaw`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | Ljudformatet utdata.
 |`User-Agent`   |Programnamn | Programnamnet är obligatoriskt och måste vara färre än 255 tecken.
 | `Authorization`   | Auktoriseringstoken som erhålls genom att presentera din prenumerationsnyckel till token-tjänsten. Varje token är giltig i tio minuter. Se [REST API: er: autentisering](rest-apis.md#authentication).
 
 > [!NOTE]
-> Om din valda röst- och utdataformat har olika bithastigheter, samplas ljudet efter behov. 24khz röster stöder inte `audio-16khz-16kbps-mono-siren` och `riff-16khz-16kbps-mono-siren` utdataformat. 
+> Om din valda röst- och utdataformat har olika bithastigheter, samplas ljudet efter behov.
 
 En exempelförfrågan visas nedan.
 
@@ -87,7 +87,8 @@ Om ett fel inträffar, används statuskoder nedan. Svarstexten för felet inneh�
 |-|-|-|
 400 |Felaktig begäran |En obligatorisk parameter är tom, null eller saknas. Eller värdet som skickas till antingen en obligatorisk eller valfri parameter är ogiltig. Ett vanligt problem är en rubrik som är för lång.
 401|Behörighet saknas |Begäran har inte behörighet. Kontrollera att din prenumerationsnyckel eller token är giltig.
-413|Begäran om entiteten är för stor|SSML-indata är längre än 1024 tecken.
+413|Begäran om entiteten är för stor|Inkommande SSML är för stor eller innehåller fler än 3 `<voice>` element.
+429|För många begäranden|Du har överskridit kvoten eller antalet begäranden som tillåts för din prenumeration.
 |502|Felaktig gateway    | Problem med nätverket eller servern. Kan också vara ogiltiga sidhuvuden.
 
 Mer information om Text till tal REST-API finns i [REST API: er](rest-apis.md#text-to-speech).

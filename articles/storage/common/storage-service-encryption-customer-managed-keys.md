@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 6b73a802b186e5fcf2380f5f4c80c1bb67d253fa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781572"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981873"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault
 Microsoft Azure är förbundet till hjälper dig att skydda och skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. Ett sätt att Azure storage-plattformen skyddar dina data är via Storage Service Encryption (SSE), som krypterar dina data vid skrivning till lagring och dekrypterar data vid hämtning av den. Kryptering och dekryptering är automatisk, transparent och använder 256-bitars [AES-kryptering](https://wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blockchiffer som finns.
@@ -31,7 +31,7 @@ Varför skapa dina egna nycklar? Anpassade nycklar ger mer flexibilitet, så att
 Om du vill använda Kundhanterade nycklar med SSE, du kan antingen skapa ett nytt nyckelvalv och nyckel eller du kan använda ett befintligt nyckelvalv och nyckel. Storage-konto och nyckelvalvet måste vara i samma region, men de kan vara i olika prenumerationer. 
 
 ### <a name="step-1-create-a-storage-account"></a>Steg 1: Skapa ett lagringskonto
-Skapa först ett lagringskonto om du inte redan har en. Mer information finns i [skapa ett nytt lagringskonto](storage-quickstart-create-account.md).
+Skapa först ett lagringskonto om du inte redan har en. Mer information finns i [skapa ett lagringskonto](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Steg 2: Aktivera SSE för Blob- och lagring
 Om du vill aktivera SSE med Kundhanterade nycklar måste två nyckelskydd funktioner, mjuk borttagning och rensa inte, aktiveras i Azure Key Vault. De här inställningarna Kontrollera nycklarna inte får vara råkar eller avsiktligt borttagna. Den högsta bevarandeperioden av nycklarna har angetts till 90 dagar, skydda användarna mot skadliga aktörer eller utpressningstrojan-attacker.

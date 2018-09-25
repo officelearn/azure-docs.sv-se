@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 14ac23e6b69302ac412aac3ecab06345e5d722fd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1cac4e4cee408e5208d2d5d84f81b8ad7a89f03b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296354"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033999"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Hantera åtkomst med hjälp av RBAC och Azure Portal
 
@@ -207,7 +207,7 @@ Om du vill göra en administratör för en Azure-prenumeration för en användar
 
 1. I den **rollen** listrutan, väljer du en roll som **Management gruppen deltagare**.
 
-    Information om åtgärderna som stöds på hanteringsgrupper för olika roller finns i [organisera dina resurser med Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md#management-group-access).
+    Information om åtgärderna som stöds på hanteringsgrupper för olika roller finns i [organisera dina resurser med Azure-hanteringsgrupper](../governance/management-groups/index.md#management-group-access).
 
 1. I listan **Välj** väljer du en användare, grupp eller ett program. Om du inte ser säkerhetsobjekt i listan kan du ange visningsnamn, e-postadresser och objektidentifierare i rutan**Välj** om du vill söka i katalogen.
 

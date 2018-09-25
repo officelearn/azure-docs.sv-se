@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 085df618eb6d3eb78e42261d1b324c3a2374877b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a477554c836a7f84e1694c5d00abd6373f544aa6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123393"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036209"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Host.JSON-referens för Azure Functions
 
@@ -442,6 +442,12 @@ Konfigurationsinställningar för loggar som du skapar med hjälp av en `TraceWr
 |---------|---------|---------| 
 |consoleLevel|info|Spårningsnivån för konsolen loggning. Alternativen är: `off`, `error`, `warning`, `info`, och `verbose`.|
 |fileLoggingMode|debugOnly|Spårningsnivån för filen loggning. Alternativen är `never`, `always`, `debugOnly`.| 
+
+## <a name="version"></a>version
+
+*Version 2.x*
+
+Versionsträngen `"version": "2.0"` krävs för en funktionsapp som riktar sig mot v2-runtime.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

@@ -1,6 +1,6 @@
 ---
 title: Migrera från Azure Access Control service | Microsoft Docs
-description: Alternativ för att flytta appar och tjänster från Azure Access Control service
+description: Läs mer om alternativ för att flytta appar och tjänster från Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 3120bf36c32a8be42f325ef584bfc8a2c5cd04df
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055302"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036549"
 ---
-# <a name="migrate-from-the-azure-access-control-service"></a>Migrera från Azure Access Control service
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Så här: migrera från Azure Access Control service
 
 Microsoft Azure Access Control Service (ACS), en tjänst i Azure Active Directory (Azure AD), tas ur bruk 7 November 2018. Program och tjänster som använder åtkomstkontroll måste fullständigt flyttas till en annan autentiseringsmekanism innan dess. Den här artikeln beskriver rekommendationer för befintliga kunder som du planerar att inaktualisera din användning av Access Control. Om du inte använder åtkomstkontroll, behöver du inte vidta några åtgärder.
 
@@ -37,7 +37,7 @@ Användningsområden för åtkomstkontroll kan delas upp i tre huvudkategorier:
 - Att lägga till autentisering för webbprogram, både anpassade och förpaketerade (till exempel SharePoint). Med hjälp av Access Control ”passiv” autentisering webbprogram har stöd för inloggning med ett Microsoft-konto (tidigare Live ID) och konton från Google, Facebook, Yahoo, Azure AD, och Active Directory Federation Services (AD FS).
 - Skydda anpassade webb-tjänster med token som utfärdas av Access Control. Med hjälp av ”aktiv” autentisering, webbtjänster se till att de tillåter endast åtkomst till kända klienter som har autentiserats med åtkomstkontroll.
 
-Var och en av dessa använda fall och rekommenderade migreringen strategier beskrivs i följande avsnitt. 
+Var och en av dessa använda fall och rekommenderade migreringen strategier beskrivs i följande avsnitt.
 
 > [!WARNING]
 > I de flesta fall är betydande kodändringar krävs för att migrera befintliga appar och tjänster till nyare teknik. Vi rekommenderar att du omedelbart börja planera och kör din migrering för att undvika eventuella potentiella avbrott eller driftstopp.
@@ -61,6 +61,51 @@ All kommunikation med STS och hanteringsåtgärder är klar på denna URL. Du ka
 Undantaget till detta är all trafik till `https://accounts.accesscontrol.windows.net`. Trafik till denna URL hanteras redan av en annan tjänst och **är inte** påverkas av Access Control-utfasning. 
 
 Mer information om åtkomstkontroll finns i [Access Control Service 2.0 (arkiverade)](https://msdn.microsoft.com/library/hh147631.aspx).
+
+## <a name="find-out-which-of-your-apps-will-be-impacted"></a>Ta reda på vilka av dina appar kommer att påverkas
+
+Följ stegen i det här avsnittet för att ta reda på vilka av dina appar kommer att påverkas av ACS dras tillbaka.
+
+### <a name="download-and-install-acs-powershell"></a>Ladda ned och installera ACS-PowerShell
+
+1. Gå till PowerShell-galleriet och hämta [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
+1. Installera modulen genom att köra
+
+    ```powershell
+    Install-Module -Name Acs.Namespaces
+    ```
+
+1. Hämta en lista över alla möjliga kommandon genom att köra
+
+    ```powershell
+    Get-Command -Module Acs.Namespaces
+    ```
+
+    Om du behöver hjälp med ett visst kommando kör du:
+
+    ```
+     Get-Help [Command-Name] -Full
+    ```
+    
+    där `[Command-Name]` är namnet på ACS-kommandot.
+
+### <a name="list-your-acs-namespaces"></a>Lista över ACS-namnområden
+
+1. Anslut till ACS med hjälp av den **Connect AcsAccount** cmdlet.
+  
+    Du kan behöva köra `Set-ExecutionPolicy -ExecutionPolicy Bypass` innan du kan köra kommandon och vara administratör för dessa prenumerationer för att köra kommandona.
+
+1. Lista över dina tillgängliga Azure-prenumerationer med hjälp av den **Get-AcsSubscription** cmdlet.
+1. Lista din ACS namnområden med hjälp av den **Get-AcsNamespace** cmdlet.
+
+### <a name="check-which-applications-will-be-impacted"></a>Kontrollera vilka program som påverkas
+
+1. Användning av namnområdet från föregående steg och gå till `https://<namespace>.accesscontrol.windows.net`
+
+    Till exempel om en av namnrymder är contoso-test, gå till `https://contoso-test.accesscontrol.windows.net`
+
+1. Under **förtroenderelationer**väljer **förlitande partsprogram** vill se en lista över appar som påverkas av ACS dras tillbaka.
+1. Upprepa steg 1 – 2 för alla andra ACS-namespace(s) som du har.
 
 ## <a name="retirement-schedule"></a>Tillbakadragning schema
 

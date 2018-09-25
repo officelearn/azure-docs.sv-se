@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Lär dig hur du lägger till mönstret mallar i program för Språkförståelse (LUIS) att förbättra förutsägelsefunktionen.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 0fc7c0d0cafef1bdb8d33c6ebfaa672c55101ee5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c97092385cdc28ba6e4d916ae8039f065f97d31d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049746"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030826"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Hur du lägger till mönster för att förbättra förutsägelsefunktionen
 När en LUIS-app tar emot endpoint yttranden, använda den [konceptet](luis-concept-patterns.md) av mönster förbättra prognosens noggrannhet för yttranden som avslöjar ett mönster i ordföljden och word valet. Mönster Använd [entiteter](luis-concept-entity-types.md) och deras roller för att extrahera data med hjälp av specifika mönstret syntax. 

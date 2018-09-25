@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 3b26c5f9a6d75725fb102d89192e77988b295dea
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: b7de39ca8723df2d15da7677b7032c98e84ecb1d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782033"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960625"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box-Disk-begränsningar (förhandsgranskning)
 
@@ -87,3 +87,7 @@ Här följer storlekarna på de Azure-objekt som kan skrivas. Se till att alla f
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Namn på behållare för blockblob och page blob | Måste vara ett giltigt DNS-namn som är 3 till 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Kan innehålla endast gemener, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. <br> Flera bindestreck i rad tillåts inte i namn. |
 | Blobnamn för blockblobar och sidblobar      | Blobnamn är skiftlägeskänsliga och kan innehålla valfri kombination av tecken. <br> Ett blobnamn måste vara mellan 1 och 1 024 tecken långt. <br> Reserverade URL-tecken måste undantas korrekt. <br>Antalet sökvägssegment som blobnamnet består av får inte överskrida 254. Ett segment är strängen mellan avgränsningstecken (till exempel snedstreck ”/”) som motsvarar namnet på en virtuell katalog. |
+
+
+## <a name="next-steps"></a>Nästa steg
+* Granska [Data Box-systemkrav](data-box-system-requirements.md)

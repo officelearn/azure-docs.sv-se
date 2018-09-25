@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Lägg till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 192be1561559ac17ae98ae24ee92b292f38313a9
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 99e0b22b663f6edab9646111b390186a6f89a90f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629142"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035189"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Självstudiekurs 6: Gruppera och extrahera relaterade data
 I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.

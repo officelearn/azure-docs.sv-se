@@ -1,24 +1,26 @@
 ---
-title: Lägg till LUIS-data till Application Insights med hjälp av Node.js | Microsoft Docs
-titleSuffix: Azure
+title: Application Insights-data från LUIS med C#
+titleSuffix: Azure Cognitive Services
 description: Skapa en robot som är integrerad med en LUIS-programmet och Application Insights med hjälp av Node.js.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 5b65747bea7d2496558c5b3b533bb8420eee6254
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 342c4f98d854d94426c3e4a1eb79bb2a6adffaad
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236847"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038008"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>Lägg till LUIS resultaten till Application Insights från en web app-robot
+# <a name="add-luis-results-to-application-insights"></a>Lägg till LUIS resultaten till Application Insights
 Den här självstudien lägger till LUIS begäranden och svar information till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller PowerBi aggregeras, om du vill analysera och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
+
+Roboten har byggts med Bot Framework 3.x och Azure Web app-robot.
 
 I den här guiden får du lära dig att:
 
@@ -151,7 +153,7 @@ Application Insights ger dig möjlighet att fråga efter data med den [Kusto](ht
     ![Främsta syftet för analys](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
 
-Läs mer om den [Kusto-frågespråket](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) eller [exportera data till Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Läs mer om den [Kusto-frågespråket](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) eller [exportera data till Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842263"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036998"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -69,7 +69,7 @@ Tillfälliga belastningsutjämnarens offentliga IP-adress frontend-portar använ
 
 SNAT portar är förallokerade enligt beskrivningen i den [förstå SNAT och PAT](#snat) avsnittet. Det är en begränsad resurs som kan vara förbrukat. Det är viktigt att förstå hur de är [förbrukas](#pat). Om du vill lära dig mer om att utforma för den här förbrukning och minimera efter behov, granska [hantera SNAT överbelastning](#snatexhaust).
 
-När [flera (offentliga) IP-adresser som är associerade med Load Balancer grundläggande](load-balancer-multivip-overview.md), några av de här offentliga IP-adresser är en [kandidat för utgående flöden](#multivipsnat), och en har valts.  
+När [flera offentliga IP-adresser som är associerade med Load Balancer grundläggande](load-balancer-multivip-overview.md), några av de här offentliga IP-adresser är en [kandidat för utgående flöden](#multivipsnat), och en väljs slumpmässigt.  
 
 Du kan använda för att övervaka hälsotillståndet för utgående anslutningar med Load Balancer grundläggande [Log Analytics för Load Balancer](load-balancer-monitor-log.md) och [Avisera händelseloggar](load-balancer-monitor-log.md#alert-event-log) att övervaka SNAT port överbelastning meddelanden.
 

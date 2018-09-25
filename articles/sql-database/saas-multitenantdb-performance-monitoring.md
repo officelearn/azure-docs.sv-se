@@ -1,21 +1,23 @@
 ---
 title: Övervaka prestanda för en shardade Azure SQL-databas för flera klienter i en SaaS-app för flera klienter | Microsoft Docs
 description: Övervaka och hantera prestanda för shardade flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d04fd4202a0544a8549f1729dbba9a829482c2f0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 873660f362d2ad0002f512f911d4149519092787
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730689"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055953"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
 

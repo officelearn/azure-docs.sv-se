@@ -1,51 +1,54 @@
 ---
 title: Välkommen till Wingtips app – Azure SQL Database | Microsoft Docs
-description: Lär dig mer om databasen innehavare modeller och Wingtips SaaS exempelprogrammet för Azure SQL Database i molnmiljön.
+description: Lär dig mer om databasmodeller för innehavare, och det Wingtips SaaS-exempelprogrammet, för Azure SQL Database i molnmiljön.
 keywords: sql database tutorial
 services: sql-database
-author: billgib
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: billgib
+manager: craigg
 ms.date: 04/01/2018
-ms.author: billgib
-ms.openlocfilehash: 3c7d1d40af3a0b8f70302171eb13ac0a180b0bfe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a05a8ad495e33734a531405902ce34e3591bfe15
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644400"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056326"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip biljetter SaaS-program
 
-Samma *Wingtip biljetter* SaaS-program är implementerad i var och en av tre prover. Appen är en enkel händelse lista och biljetter SaaS-app riktad små handelsplatser - teatrar, föreningar osv. Varje plats en klient i appen och har sina egna data: platsen information, till en lista över händelser, kunder, biljett order, osv.  Appen, tillsammans med-hanteringsskript och självstudier innehåller ett SaaS-scenario för slutpunkt till slutpunkt. Detta innefattar etablering innehavare, övervaka och hantera prestanda, schemahantering av och mellan klient rapportering och analytics.
+Samma *Wingtip biljetter* SaaS-program är implementerad i var och en av tre beräkningarna. Appen är en enkel lista och biljetter SaaS-app som riktar in sig på små platser - biografer, föreningar osv. Varje plats en Innehavaradministratör för appen och har sina egna data: jurisdiktionsort information, till en lista över händelser, kunder, biljett order osv.  Appen, tillsammans med-hanteringsskript och självstudier, innehåller ett SaaS-scenario för slutpunkt till slutpunkt. Detta innefattar etablering innehavare, övervaka och hantera prestanda, schemahantering, och flera klienter rapportering och analys.
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>Tre SaaS-program och innehavare mönster
 
-Tre versioner av appen är tillgängliga. varje utforskar ett mönster för innehavare av annan databas på Azure SQL Database.  Först använder ett fristående program per klient med en egen databas. Andra använder en app för flera innehavare med en databas per klient. Tredje används en app för flera innehavare med delat databaser för flera innehavare.
+Tre versioner av appen är tillgängliga. var och en utforskar ett innehavare från en annan databas på Azure SQL Database.  Först använder ett fristående program per klient med en egen databas. Andra använder en app för flera klienter med en databas per klient. Tredje exemplet använder en app för flera klienter med shardade databaser för flera innehavare.
 
 ![Tre innehavare mönster][image-three-tenancy-patterns]
 
- Varje prov innehåller programkod, plus -hanteringsskript och självstudiekurser som går igenom ett intervall av design- och mönster.  Varje prov distribuerar i mindre att fem minuter.  Alla tre kan vara distribuerade sida-vid-sida, så kan du jämföra skillnaderna i hantering och design.
+ Varje exempel innehåller programkod, plus -hanteringsskript och självstudier som utforskar olika design- och hanteringsmönster.  Varje exempel distribueras inom mindre de fem minuter.  Alla tre kan vara distribuerade sida-vid-sida så att du kan jämföra skillnader i utformningen och hantering.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Fristående program per klient mönster
 
-Fristående app per klient mönster använder ett enda klient-program med en-databas för varje klient. Varje klient appen, inklusive dess databas har distribuerats till en separat Azure-resursgrupp. Resursgruppen kan distribueras i tjänstproviderns prenumeration eller klientens prenumeration och hanteras av providern å klientens vägnar. Fristående app per klient mönster ger största klientisolering, men är vanligtvis den mest dyra eftersom det inte finns någon möjlighet att dela resurser mellan flera innehavare.  Det här mönstret passar bra för program som kan vara mer komplicerat och som distribueras till ett mindre antal klienter.  Med fristående distributioner appen kan anpassas för varje klient enklare än i andra.  
+Fristående app per klient mönstret använder en enda klient-program med en-databas för varje klient. Varje klient appen, inklusive databasen, distribueras till en separat Azure-resursgrupp. Resursgruppen kan distribueras i tjänsteleverantörens prenumeration eller klientens prenumeration och hanteras av providern för klientens räkning. Fristående app per klient mönstret ger bästa klientisolering, men är vanligtvis de dyra eftersom det inte finns någon möjlighet att dela resurser mellan flera klienter.  Det här mönstret är utmärkt för program som kan vara mer komplexa och som har distribuerats till ett mindre antal klienter.  Med fristående distributioner, appen kan anpassas för varje klient enklare än i andra mönster.  
 
 Kolla in den [självstudier] [ docs-tutorials-for-wingtip-sa] och kod på GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
 ## <a name="database-per-tenant-pattern"></a>Databas per klient mönster
 
-Databasen per klient mönstret är avsett för leverantörer som har att göra med klientisolering och vill köra en centraliserad tjänst som gör att kostnadseffektiv användningen av delade resurser. En databas skapas för varje plats, eller klient och alla databaser hanteras centralt. Databaser kan finnas i elastiska pooler att tillhandahålla kostnadseffektiv och enkelt prestandahantering som utnyttjar oförutsägbart arbetsbelastning mönster av klienterna. En katalog databas innehåller mappningen mellan klienter och sina databaser. Den här mappningen hanteras med hjälp av hanteringsfunktionerna för Fragmentera av den [klientbibliotek för elastisk databas](sql-database-elastic-database-client-library.md), vilket möjliggör effektiv hantering till programmet.
+Databas per klient mönstret är avsett för leverantörer av tjänster som är bekymrad över klientisolering och vill köra en centraliserad tjänst som gör kostnadseffektiva användningen av delade resurser. En databas har skapats för varje plats eller -klient och alla databaserna som hanteras centralt. Databaser kan finnas i elastiska pooler att tillhandahålla kostnadseffektiv och enkel prestandahantering som utnyttjar oförutsägbar arbetsbelastningmönster för klienterna. En katalogdatabas innehåller mappningen mellan klienter och deras databaser. Den här mappningen hanteras med hjälp av hanteringsfunktionerna för fragment i den [klientbibliotek för elastiska databaser](sql-database-elastic-database-client-library.md), som tillhandahåller effektiv anslutningshanteringen till programmet.
 
 Kolla in den [självstudier] [ docs-tutorials-for-wingtip-dpt] och kod på GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
-## <a name="sharded-multi-tenant-database-pattern"></a>Delat flera innehavare databasen mönster
+## <a name="sharded-multi-tenant-database-pattern"></a>Mönster för fragmenterade (sharded) databas för flera innehavare
 
-Flera innehavare databaser är effektiv för tjänstleverantörer som söker efter lägre kostnad per klient och okej med nedsatt klientisolering. Det här mönstret kan packa stort antal klienter i en enskild databas, minska kostnaden per klient. Nära oändlig skala är möjlig horisontell partitionering klienter över flera databaser. En katalog databas mappar klienter till databaser.  
+Databaser för flera innehavare är effektiva för tjänsteleverantörer söker lägre kostnad per klient och OK med lägre klientisolering. Det här mönstret kan paketera stort antal klienter i en enkel databas, att kostnaden per klient minska. Nästan obegränsad skalning är möjlig horisontell partitionering klienter över flera databaser. En katalogdatabas mappar klienter till databaser.  
 
-Det här mönstret kan också en *hybrid* modell där du kan optimera för kostnad med flera klienter i en databas eller optimera för isolering med en enskild klient i sin egen databas. Valet kan göras på en klient genom att klient-basis antingen när klienten är etablerad eller senare, utan inverkan på programmet.  Den här modellen kan användas effektivt när grupper av klienter måste behandlas annorlunda. Till exempel kan prisvärda klienter tilldelas delade databaser, medan premium klienter kan tilldelas till sina egna databaser. 
+Det här mönstret kan också en *hybrid* modell där du kan optimera för kostnaden med flera klienter i en databas eller optimera för isolering med en enda klient i sin egen databas. Valet kan göras på basis av klient-av-klient, antingen när klienten är etablerade eller senare, utan någon inverkan på programmet.  Den här modellen kan användas effektivt när grupper av klienter behöver behandlas annorlunda. Låg kostnad klienter kan till exempel tilldelas till delade databaser, medan premium-klienter kan tilldelas till sina egna databaser. 
 
 Kolla in den [självstudier] [ docs-tutorials-for-wingtip-mt] och kod på GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
@@ -53,21 +56,21 @@ Kolla in den [självstudier] [ docs-tutorials-for-wingtip-mt] och kod på GitHub
 
 #### <a name="conceptual-descriptions"></a>Konceptuell beskrivningar
 
-- En mer detaljerad förklaring av programmet innehavare mönster är tillgänglig på [innehavare mönster för flera innehavare SaaS-databas][saas-tenancy-app-design-patterns-md]
+- En mer detaljerad förklaring av innehavare programmönster är tillgänglig på [SaaS med flera klientorganisationer databasen innehavare mönster][saas-tenancy-app-design-patterns-md]
 
-#### <a name="tutorials-and-code"></a>Självstudiekurser och kod
+#### <a name="tutorials-and-code"></a>Självstudier och kod
 
 - Fristående app per klient:
     - [Självstudier för fristående app ] [ docs-tutorials-for-wingtip-sa].
     - [Koden för fristående app på GitHub][github-code-for-wingtip-sa].
 
 - Databas per klient:
-    - [Självstudier för databasen per klient][docs-tutorials-for-wingtip-dpt].
-    - [Koden för databasen per klient på GitHub][github-code-for-wingtip-dpt].
+    - [Självstudier för databas per klient][docs-tutorials-for-wingtip-dpt].
+    - [Koden för databas per klient på GitHub][github-code-for-wingtip-dpt].
 
-- Delat flera innehavare:
-    - [Självstudier för delat flera innehavare][docs-tutorials-for-wingtip-mt].
-    - [Koden för delat flera innehavare på GitHub][github-code-for-wingtip-mt].
+- Shardade flera innehavare:
+    - [Självstudier för shardade flera innehavare][docs-tutorials-for-wingtip-mt].
+    - [Koden för shardade flera innehavare, på GitHub][github-code-for-wingtip-mt].
 
 
 

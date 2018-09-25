@@ -3,19 +3,19 @@ title: Begränsningar och gränser – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Omfattande lista över gränserna över QnA Maker.
 services: cognitive-services
-author: nstulasi
-manager: cgronlun
+author: tulasim88
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nstulasi
-ms.openlocfilehash: da1de0c36033823bd8f615411eed183ffe9701b6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: tulasim
+ms.openlocfilehash: c48a460e180d6c493083624236fd39f6324c5f12
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574557"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995626"
 ---
 # <a name="qna-maker-limits"></a>QnA Maker gränser
 Omfattande lista över gränserna över QnA Maker.

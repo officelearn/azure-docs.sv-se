@@ -1,6 +1,6 @@
 ---
-title: Skapa en klassisk virtuell Linux-dator med hjälp av Azure CLI 1.0 | Microsoft Docs
-description: Lär dig hur du skapar en Linux-dator med Azure CLI 1.0 med hjälp av den klassiska distributionsmodellen
+title: Skapa en klassisk virtuell Linux-dator med hjälp av Azure CLI för klassiska | Microsoft Docs
+description: Lär dig hur du skapar en Linux-dator med klassiska Azure CLI med hjälp av den klassiska distributionsmodellen
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 13d0ef93c3828c514e46e37494a66f7003eac827
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 507d9e12a37d7bf187a3e56b04cb47ac0104773d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931626"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982057"
 ---
-# <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>Så här skapar du en klassisk virtuell Linux-dator med Azure CLI 1.0
+# <a name="how-to-create-a-classic-linux-vm-with-the-azure-classic-cli"></a>Så här skapar du en klassisk virtuell Linux-dator med den klassiska Azure CLI
 > [!IMPORTANT] 
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Resource Manager-version finns [här](../create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Det här avsnittet beskriver hur du skapar en Linux-dator (VM) med Azure CLI 1.0 med hjälp av den klassiska distributionsmodellen. Vi använder en Linux-avbildning från de tillgängliga **AVBILDNINGAR** på Azure. Azure CLI 1.0-kommandon ger följande konfigurationsalternativ, bland annat:
+Det här avsnittet beskriver hur du skapar en Linux-dator (VM) med klassiska Azure CLI med hjälp av den klassiska distributionsmodellen. Vi använder en Linux-avbildning från de tillgängliga **AVBILDNINGAR** på Azure. Azure klassiska CLI-kommandon ger följande konfigurationsalternativ, bland annat:
 
 * Ansluta den virtuella datorn till ett virtuellt nätverk
 * Att lägga till den virtuella datorn till en befintlig molntjänst

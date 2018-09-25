@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 966af342937a36adc5932a7a4c92ee127723b4a0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5853730a5e3408e33deb483f6ce6652c1c22efab
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295741"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034985"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt
 
@@ -39,58 +39,47 @@ För att slutföra lokal distribution, behöver du följande verktygen som insta
 
 Fjärrövervakning GitHub lagringsplatsen för källkod innehåller Docker configuration-filer som du behöver hämta, konfigurera och köra Docker-avbildningar som innehåller mikrotjänster. Använd din kommandoradsmiljö klona och skapa en lokal version av databasen genom att navigera till en lämplig mapp på den lokala datorn och kör sedan ett av följande kommandon:
 
-Om du vill installera Java-implementeringar av mikrotjänster, kör du:
+Om du vill hämta den senaste versionen av Java mikrotjänst implementeringar, kör du:
 
 ```cmd/sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
+cd azure-iot-pcs-remote-monitoring-java
+git submodule foreach git pull origin master
 ```
 
-Om du vill installera .net-implementeringar av mikrotjänster, kör du:
+Om du vill hämta den senaste versionen av .NET mikrotjänst implementeringar, kör du:
 
 ```cmd\sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+cd azure-iot-pcs-remote-monitoring-dotnet
+git submodule foreach git pull origin master
 ```
 
 > [!NOTE]
-> Dessa kommandon ladda ned källkoden för alla mikrotjänster. Även om du inte behöver källkoden för att köra mikrotjänster i Docker, är källkoden användbart om du senare planerar att ändra solution accelerator och testa ändringarna lokalt.
+> Dessa kommandon ladda ned källkoden för alla mikrotjänster utöver de skript som används för att köra mikrotjänster lokalt. Även om du inte behöver källkoden för att köra mikrotjänster i Docker, är källkoden användbart om du senare planerar att ändra solution accelerator och testa ändringarna lokalt.
 
 ## <a name="deploy-the-azure-services"></a>Distribuera Azure-tjänster
 
-Även om den här artikeln visar hur du kör mikrotjänster lokalt, de förlitar sig på Azure-tjänster som körs i molnet. Du kan distribuera Azure-tjänsterna [manuellt via Azure portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), eller använda skriptet. I följande skriptexempel förutsätter att du använder .NET-lagringsplatsen på en Windows-dator. Om du arbetar i en annan miljö, justera de sökvägar, filnamnstillägg, och avgränsarna på rätt sätt. Använda skript som tillhandahålls:
+Även om den här artikeln visar hur du kör mikrotjänster lokalt, de förlitar sig på Azure-tjänster som körs i molnet. Du kan distribuera Azure-tjänsterna [manuellt via Azure portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), eller använda skriptet. I följande skriptexempel förutsätter att du använder .NET-lagringsplatsen på en Windows-dator. Om du arbetar i en annan miljö, justera de sökvägar, filnamnstillägg, och avgränsarna på rätt sätt. Använda skript som tillhandahålls för att:
 
 ### <a name="create-new-azure-resources"></a>Skapa nya Azure-resurser
 
-Följ dessa steg om du inte har skapat de nödvändiga Azure-resurserna:
+Om du ännu inte har skapat de nödvändiga Azure-resurserna, gör du följande:
 
 1. I din kommandoradmiljö, navigerar du till den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** mapp i din klonade kopia av databasen.
 
-2. Kör den **start.cmd** skript och följer anvisningarna. Skriptet uppmanas du att följande information:
+2. Kör den **start.cmd** skript och följer anvisningarna. Skriptet uppmanas du att logga in på ditt Azure-konto och starta om skriptet. Skriptet sedan uppmanas du att följande information:
     * Ett lösningsnamn på.
     * Den Azure-prenumeration som ska användas.
     * Platsen för Azure-datacenter att använda.
 
     Skriptet skapar en resursgrupp i Azure med Lösningsnamnet på din. Den här resursgruppen innehåller Azure-resurserna solution accelerator använder.
 
-3. I din kommandoradmiljö, navigerar du till den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch\os\win** mapp i din klonade kopia av databasen.
-
-4. Kör den **set-env-uri.cmd** skript.
-
-5. Uppdatera din git-undermoduler för att kontrollera att du har de senaste versionerna: `cd <repo-name>` och kör sedan följande kommando `git submodule foreach git pull origin master`
-
-> [!NOTE]
-> Om du har klonat azure-iot-pcs-remote-monitoring-dotnet lagringsplats, finns skriptmappen under tjänster submodule (mapp). Det här skriptet kanske kräver administratörsbehörighet eller sudo-behörighet som försöker installera den [datorer cli](https://github.com/Azure/pcs-cli).
+3. När skriptet har körts visas en lista över miljövariabler. Följ anvisningarna för att spara dessa variabler ska den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** fil.
 
 ### <a name="use-existing-azure-resources"></a>Använd befintliga Azure-resurser
 
-Om du redan har skapat de nödvändiga Azure-resurserna och behöver bara uppdatera dem, fyller du bara **en** av följande:
-
-* Ange miljövariabler globalt på din dator.
-* **VS Code:** ange miljövariabler i Start-konfigurationen genom att redigera den **launch.json** fil.
-* **Visual Studio:** ange miljövariabler för webbtjänsten projekt mikrotjänster genom att lägga till **Egenskaper > Felsök > miljövariabler**.
-
-Slutligen uppdaterar du din git-undermoduler för att kontrollera att du har de senaste versionerna: `cd <repo-name>` och kör sedan följande kommando `git submodule foreach git pull origin master`.
-
-Även om det inte rekommenderas kan du också ange miljövariabler i appsettings.ini filen finns under mappen för webbtjänsten för var och en av mikrotjänster.
+Om du redan har skapat resurserna som krävs Azure redigera variabel miljödefinitioner i den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** filen med nödvändiga värden. Den **.env** filen innehåller detaljerad information om var du hittar värdena som krävs.
 
 ## <a name="run-the-microservices-in-docker"></a>Kör mikrotjänster i Docker
 

@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: f6bb6f3fbafe9b529d483af8edd55e16a35e703a
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2a486da73d00ddaebee5c1fe32fc6112c177f01e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647665"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992346"
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Distribuera en Machine Learning-modell som en webbtjänst
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Azure Machine Learning-modellhantering innehåller gränssnitt för att distribuera modeller som behållare Docker-baserade webbtjänster. Du kan distribuera modeller som du skapar med ramverk som Spark, Microsoft Cognitive Toolkit (CNTK), Keras, Tensorflow och Python. 
 

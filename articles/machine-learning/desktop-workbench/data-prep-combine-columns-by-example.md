@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 621601ad3576aad13f2f71062ee2351cf1a394c8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c952882a0a12e288eaf4f5f1074a9a2e876a21d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648780"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986242"
 ---
 # <a name="combine-columns-by-example-transformation"></a>Kombinera kolumner med exempel transformering
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Den här omvandlingen tillåter användare att lägga till en ny kolumn genom att kombinera värden från flera kolumner. Användaren kan ange en avgränsare eller innehåller exempel på kombinerade värden för att utföra den här transformeringen. När användaren innehåller exempel på kombination, transformeringen hanteras av samma **av exempel** motor som används i den **Härled kolumner med exempel** omvandla.
 
 ## <a name="how-to-perform-this-transformation"></a>Hur du utför den här omvandlingen

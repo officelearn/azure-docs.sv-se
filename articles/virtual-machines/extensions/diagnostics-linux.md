@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: agaiha
-ms.openlocfilehash: a51e4e61b8d0a9f9a80acc513dbba32c74372f5e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348862"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994810"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-Diagnostiktillägget för att övervaka mått och loggar
 
@@ -54,7 +54,7 @@ Nedladdningsbara konfigurationen är bara ett exempel. Anpassa efter dina egna b
 ### <a name="prerequisites"></a>Förutsättningar
 
 * **Azure Linux-Agent version 2.2.0 eller senare**. De flesta Azure VM Linux galleriavbildningar innehåller versionen 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` att bekräfta versionen som installerats på den virtuella datorn. Om den virtuella datorn kör en äldre version av gästagenten, Följ [instruktionerna](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) att uppdatera den.
-* **Azure CLI**. [Konfigurera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) miljö på din dator.
+* **Azure CLI**. [Konfigurera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) miljö på din dator.
 * Wget-kommandot, om du inte redan har det.: kör `sudo apt-get install wget`.
 * En befintlig prenumeration och ett befintligt lagringskonto i den för att lagra data.
 * Lista med Linux-distributioner som stöds finns på https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions

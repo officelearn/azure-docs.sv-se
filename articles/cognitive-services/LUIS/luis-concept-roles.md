@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Roller är namngivna, sammanhangsberoende undertyper för en entitet som används i ett mönster. Till exempel i uttryck-köp en biljett från New York till London både New York och London är städer men var och en har en annan betydelse i meningen. New York är ursprung stad och London är målet stad.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aabd3a22498e0e33993d715e7a5882dde7aacf37
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632491"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035206"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Entiteten roller i mönster är sammanhangsberoende undertyper
 Roller är namngivna, sammanhangsberoende undertyper för en entitet som används bara i [mönster](luis-concept-patterns.md).

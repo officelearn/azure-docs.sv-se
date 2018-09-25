@@ -1,6 +1,6 @@
 ---
-title: Ladda upp eller kopiera en anpassad Linux VM med Azure CLI 2.0 | Microsoft Docs
-description: Ladda upp eller kopiera en anpassad virtuell dator med hjälp av Resource Manager-distributionsmodellen och Azure CLI 2.0
+title: Ladda upp eller kopiera en anpassad Linux VM med Azure CLI | Microsoft Docs
+description: Ladda upp eller kopiera en anpassad virtuell dator med hjälp av Resource Manager-distributionsmodellen och Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 3fb6957cf6af5c09a355b61c7c2440a929d1b837
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b5df02c9f07549aec406cf449bb0ae49ee9e280a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736687"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957439"
 ---
-# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Skapa en Linux VM från anpassad disk med Azure CLI 2.0
+# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Skapa en Linux VM från anpassad disk med Azure CLI
 
 <!-- rename to create-vm-specialized -->
 
@@ -57,7 +57,7 @@ Du behöver följande för att slutföra följande steg:
 > 
 
 
-* Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+* Se till att du har senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen ingår *myResourceGroup*, *mystorageaccount*, och *mydisks*.
 

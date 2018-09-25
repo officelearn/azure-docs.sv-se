@@ -1,22 +1,23 @@
 ---
 title: Använda Log Analytics med en SQL-databas fleranvändarapp | Microsoft Docs
 description: Konfigurera och använda Log Analytics med en multitenant Azure SQL Database SaaS-app
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 3ca2f811ff0ac81ea70ec0b22d7429cdc5604171
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 60139915e8d8dca382f4ef62b5129f1a84e7e80d
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420190"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056717"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Konfigurera och använda Log Analytics med en multitenant SQL Database SaaS-app
 
@@ -76,7 +77,7 @@ Nu kan du öppna Log Analytics i Azure-portalen eller Operations Management Suit
 
 Öppna Log Analytics och Operations Management Suite-portalen för att titta på telemetri som samlats in för databaser och pooler i den här övningen.
 
-1. Bläddra till den [Azure-portalen](https://portal.azure.com). Välj **alla tjänster** att öppna Log Analytics. Sök sedan efter Log Analytics.
+1. Bläddra till [Azure-portalen](https://portal.azure.com). Välj **alla tjänster** att öppna Log Analytics. Sök sedan efter Log Analytics.
 
    ![Öppna Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 

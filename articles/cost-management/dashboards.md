@@ -1,21 +1,21 @@
 ---
-title: Visa viktiga mått i Azure Cost Management instrumentpaneler | Microsoft Docs
-description: Den här artikeln beskrivs hur visa viktiga mått med instrumentpaneler i Azure Cost Management.
+title: Visa viktiga mått med Cloudyn instrumentpaneler i Azure | Microsoft Docs
+description: Den här artikeln beskrivs hur visa viktiga mått med instrumentpaneler i Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/12/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4f51598dd2b026f1c3a4b0d763b1547a44eedc7b
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 1d2b4a0cd78f3d68a76bd9186be4174f2dd1d86c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647141"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999723"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Visa nyckeln kostnad mått med instrumentpaneler
 
@@ -34,7 +34,7 @@ Instrumentpanelen versioner skiljer sig för hantering (MSP), Enterprise och Pre
 
 Instrumentpanelen tillgänglighet beror på vilken typ av cloud service providerkonto som används när du visar instrumentpaneler. Vilken typ av information tillgänglig och som samlats in av Cloudyn påverkar rapporter i instrumentpaneler. Till exempel om du inte har ett AWS-konto visas sedan inte spårningsverktyget för S3-instrumentpanelen. På samma sätt, om du inte aktiverar Azure Resource Manager-åtkomst till Cloudyn sedan visas inte någon Azure-specifik information i optimering instrumentpanelswidgetar.
 
-Du kan använda någon av de färdiga instrumentpanelerna eller du kan skapa din egen instrumentpanel med anpassade rapporter. Om du är bekant med Cloudyn-rapporter finns i [Använd kostnadshantering rapporterar](use-reports.md).
+Du kan använda någon av de färdiga instrumentpanelerna eller du kan skapa din egen instrumentpanel med anpassade rapporter. Om du är bekant med Cloudyn-rapporter finns i [Använd Cloudyn rapporterar](use-reports.md).
 
 ## <a name="create-a-custom-dashboard"></a>Skapa en anpassad instrumentpanel
 
@@ -297,4 +297,4 @@ Widgenten visar bästa mappningen av elastiska beräkningsenheter mellan Amazon 
 - Klicka på widgeten för att öppna rapporten instanser typ mappning.
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs den [Använd kostnadshantering rapporterar](use-reports.md) du lär dig mer om rapporter.
+- Läs den [Använd Cloudyn rapporterar](use-reports.md) du lär dig mer om rapporter.

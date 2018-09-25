@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Testning är processen med att tillhandahålla exempel yttranden till LUIS och hämtar ett svar av LUIS-identifieras avsikter och entiteter. Du kan testa LUIS interaktivt, ett uttryck i taget, eller ange en batch med yttranden. Testar kan jämföra du den aktuella aktiva modellen till den publicerade modellen.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 41ba968eb68f2104a2183917c4ef850b2b6a9edc
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 7999f25d9c8bd9a8e44bd858d2860d94be16a62f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629958"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033236"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Testa exempel yttranden i LUIS
 

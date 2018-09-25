@@ -15,12 +15,12 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 002eb9b70c2f3f9d0f6633b2d81425c688495d19
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 26f696c2f54d9cb8a176fe079101e26384ac0a6e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714061"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034458"
 ---
 # <a name="custom-roles-in-azure"></a>Anpassade roller i Azure
 
@@ -100,7 +100,7 @@ En anpassad roll har följande egenskaper.
 | `NotActions` | Nej | String[] | En matris med strängar som anger vilka hanteringsåtgärder som är undantagna från den tillåtna `Actions`. Mer information finns i [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Nej | String[] | En matris med strängar som anger de åtgärder som gör att rollen som ska utföras för dina data inom objektet. Mer information finns i [DataActions (förhandsversion)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | Nej | String[] | En matris med strängar som anger de åtgärder som är undantagna från den tillåtna `DataActions`. Mer information finns i [NotDataActions (förhandsversion)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Ja | String[] | En matris med strängar som anger scope att den anpassade rollen som är tillgängliga för tilldelning. För närvarande kan inte anges till rotscopet (`"/"`) eller en grupp hanteringsomfång. Mer information finns i [AssignableScopes](role-definitions.md#assignablescopes) och [organisera dina resurser med Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md#custom-rbac-role-definition-and-assignment). |
+| `AssignableScopes` | Ja | String[] | En matris med strängar som anger scope att den anpassade rollen som är tillgängliga för tilldelning. För närvarande kan inte anges till rotscopet (`"/"`) eller en grupp hanteringsomfång. Mer information finns i [AssignableScopes](role-definitions.md#assignablescopes) och [organisera dina resurser med Azure-hanteringsgrupper](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Vem som kan skapa, ta bort, uppdatera eller visa en anpassad roll
 

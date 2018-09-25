@@ -1,6 +1,6 @@
 ---
-title: Frekvent, lågfrekvent och arkivlagring i Azure för blobbar | Microsoft Docs
-description: Frekvent och lågfrekvent lagring samt arkivlagring för Azure Storage-konton.
+title: Premium, frekvent, lågfrekvent och arkivlagring för BLOB - Azure Storage
+description: Premium, frekvent, lågfrekvent och arkivlagring för Azure storage-konton.
 services: storage
 author: kuhussai
 ms.service: storage
@@ -8,28 +8,64 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 66c47a97eee6759eb963db43d5c573fb6612bde6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6acea70ca929310fe37f36fe98698e6adb76101b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735926"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997836"
 ---
-# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: nivåer för frekvent lagring, lågfrekvent lagring och arkivlagring
+# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), frekvent, lågfrekvent och arkivlagringsnivå
 
 ## <a name="overview"></a>Översikt
 
-Azure Storage erbjuder tre lagringsnivåer för lagring av Blob-objekt så att du kan lagra data så kostnadseffektivt som möjligt, beroende på din användning. Azures **frekventa lagringsnivå** är optimerad för att lagra data som används ofta. Azures **lågfrekventa lagringsnivå** är optimerad för att lagra data som inte används ofta och som lagras i minst 30 dagar. **Arkivlagringsnivån** i Azure är optimerad för att lagra data som används sällan och som lagras i minst 180 dagar med flexibla svarstidskrav (i storleksordningen timmar). Arkivlagringsnivån är endast tillgänglig på blobnivån och inte på lagringskontonivån. Data i den lågfrekventa lagringsnivån klarar lite lägre tillgänglighet, men kräver fortfarande hög hållbarhet och liknande åtkomsttid och dataflödesegenskaper som data i frekvent lagringsnivå. För data på den lågfrekventa lagringsnivån är serviceavtal med lägre tillgänglighet och högre åtkomstkostnader jämfört med frekventa data godtagbara med tanke på de lägre lagringskostnaderna. Arkivlagring är i frånkopplat tillstånd och erbjuder de lägsta lagringskostnaderna men även de högsta åtkomstkostnaderna. Endast frekventa och lågfrekventa lagringsnivåer (ej arkiv) kan anges på kontonivå. Alla tre nivåer kan ställas in på objektnivå.
+Azure storage erbjuder olika nivåer som du kan lagra data i Blob-objekt på det mest kostnadseffektiva sättet. De tillgängliga nivåerna är:
 
-Idag växer mängden data som lagras i molnet i exponentiell takt. Om du vill hålla kontroll på och optimera kostnaderna för dina växande lagringsbehov är det en bra idé att ordna data baserat på attribut som åtkomstfrekvens och planerad kvarhållningsperiod. Data som lagras i molnet kan vara olika beroende på hur de genereras, bearbetas och används under livslängden. Vissa data används aktivt och ändras under livslängden. Vissa data används ofta i början av livslängden och sedan minskar användning drastiskt när dessa data blir äldre. Vissa data förblir inaktiva i molnet och används sällan, eller kanske aldrig, när de har lagrats.
+- **Premium storage (förhandsversion)** tillhandahåller högpresterande maskinvara för data som används ofta.
+ 
+- **Frekvent lagring**: är optimerad för att lagra data som används ofta. 
+
+- **Lågfrekvent lagring** är optimerad för att lagra data som används sällan och som lagras i minst 30 dagar.
+ 
+- **Arkivlagring** är optimerad för att lagra data som används sällan och som lagras i minst 180 dagar med flexibla svarstidskrav (i storleksordningen timmar).
+
+Följande överväganden medföljer olika lagringsnivåer:
+
+- Arkivlagringsnivån är endast tillgänglig på blobnivån och inte på lagringskontonivån.
+ 
+- Data i den lågfrekventa lagringsnivån klarar lite lägre tillgänglighet, men kräver fortfarande hög hållbarhet och liknande åtkomsttid och dataflödesegenskaper som data i frekvent lagringsnivå. För data på den lågfrekventa lagringsnivån är serviceavtal med lägre tillgänglighet och högre åtkomstkostnader jämfört med frekventa data godtagbara med tanke på de lägre lagringskostnaderna.
+
+- Arkivlagring är i frånkopplat tillstånd och erbjuder de lägsta lagringskostnaderna men även de högsta åtkomstkostnaderna.
+ 
+- Endast frekventa och lågfrekventa lagringsnivåer (ej arkiv) kan anges på kontonivå.
+ 
+- Alla nivåer kan ställas in på objektnivå.
+
+Data som lagras i molnet växer i exponentiell takt. Om du vill hålla kontroll på och optimera kostnaderna för dina växande lagringsbehov är det en bra idé att ordna data baserat på attribut som åtkomstfrekvens och planerad kvarhållningsperiod. Data som lagras i molnet kan vara olika beroende på hur de genereras, bearbetas och används under livslängden. Vissa data används aktivt och ändras under livslängden. Vissa data används ofta i början av livslängden och sedan minskar användning drastiskt när dessa data blir äldre. Vissa data förblir inaktiva i molnet och används sällan, eller kanske aldrig, när de har lagrats.
 
 För varje scenario finns en lagringsnivå som är optimerad för motsvarande åtkomstmönster. Med nivåerna för frekvent åtkomst, lågfrekvent åtkomst samt arkivlagringsnivån uppfyller Azure Blob Storage behovet av olika lagringsnivåer med olika prissättningsmodeller.
 
 ## <a name="storage-accounts-that-support-tiering"></a>Lagringskonton med stöd för flera lagringsnivåer
 
-För användning av olika lagringsnivåer (frekvent, lågfrekvent eller arkivlagring) krävs ett Blob Storage eller GPv2-konto (General Purpose v2). GPv1-konton (General Purpose v1) har inte stöd för flera lagringsnivåer. Kunder kan dock enkelt konvertera sina befintliga GPv1- eller Blob Storage-konton till GPv2-konton via en enklicksprocess i Azure Portal. GPv2 har en ny prisstruktur för blobbar, filer, och köer, och ger också åtkomst till en mängd andra nya lagringsfunktioner. I framtiden kommer vissa nya funktioner och rabatter dessutom endast att erbjudas för GPv2-konton. Kunderna bör därför överväga att använda GPv2-konton, men först efter att ha granskat priserna för alla tjänster, eftersom vissa arbetsbelastningar kan bli dyrare med GPv2 än GPv1. Mer information finns i [översikt över Azure storage-konton](../common/storage-account-overview.md).
+För användning av olika lagringsnivåer (frekvent, lågfrekvent eller arkivlagring) krävs ett Blob Storage eller GPv2-konto (General Purpose v2). GPv1-konton (General Purpose v1) har inte stöd för flera lagringsnivåer. Kunder kan dock enkelt konvertera sina befintliga GPv1- eller Blob Storage-konton till GPv2-konton via en enklicksprocess i Azure Portal. GPv2 har en ny prisstruktur för blobbar, filer, och köer, och ger också åtkomst till en mängd andra nya lagringsfunktioner. I framtiden kommer vissa nya funktioner och rabatter dessutom endast att erbjudas för GPv2-konton. Kunderna bör därför överväga att använda GPv2-konton, men först efter att ha granskat priserna för alla tjänster, eftersom vissa arbetsbelastningar kan bli dyrare med GPv2 än GPv1. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
 
 På Blob Storage- och GPv2-konton visas attributet för **åtkomstnivå** på kontonivå, vilket innebär att du kan ange standardlagringsnivån som frekvent eller lågfrekvent för alla blobar i lagringskontot där nivån inte har angetts på objektnivå. För objekt där nivån har ställts in på objektnivå används inte nivåinställningen för kontot. Nivån arkivlagring kan endast anges på objektnivå. Du kan växla mellan dessa lagringsnivåer när som helst.
+
+## <a name="premium-access-tier"></a>Premium-åtkomstnivå
+
+Tillgängligt i förhandsversionen är en Premium-åtkomstnivå vilket gör ofta använda data som är tillgängliga via maskinvara med höga prestanda. Data som lagras i den här nivån lagras på SSD-enheter som är optimerade för kortare svarstider som en högre transaktionella priser jämfört med traditionella hårddiskar. Åtkomstnivå Premium är tillgängligt via Blockblob lagringskontotypen endast.
+
+Den här nivån är perfekt för arbetsbelastningar som kräver snabb och konsekvent svarstider. Data som innebär att slutanvändare, till exempel interaktiva videoredigering, statiskt webbinnehåll, onlinetransaktioner och liknande är en bra kandidater för nivån Premium och åtkomst. Den här nivån är utformad för arbetsbelastningar som utför många små transaktioner, till exempel samla in telemetridata, meddelanden och transformering av data.
+
+Om du vill använda den här nivån, etablera ett nytt Block Blob storage-konto och börja skapa behållare och blobar med hjälp av den [REST-API för Blob Service](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), eller [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+
+I förhandsversionen Premium åtkomstnivå:
+
+- Är tillgängligt som lokalt redundant lagring (LRS)
+- Är endast tillgängligt i följande regioner: USA, Öst 2, centrala USA och västra USA
+- Stöder inte automatisk lagringsnivåer och hanteringen av datalivscykeln
+
+Läs hur du registrera dig för förhandsversionen av Premium åtkomst nivå i [introduktion till Azure Premium-Bloblagring](http://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Frekvent åtkomstnivå
 
@@ -73,6 +109,8 @@ Blobar i alla tre lagringsnivåer kan finnas tillsammans i samma konto. En blob 
 
 > [!NOTE]
 > Arkivlagring och blobnivåindelning stöder endast blockblobar. Du kan även ändra nivå för en blockblob som har ögonblicksbilder.
+
+Data som lagras i Premium-åtkomstnivå kan inte nivåindelas för frekvent, lågfrekvent eller Arkiv med [ange Blobnivå](/rest/api/storageservices/set-blob-tier) eller med hjälp av Livscykelhantering för Azure Blob Storage. För att flytta data, måste du synkront kopiera blobar från Premium-åtkomst till frekvent med hjälp av den [placera Block från URL: en API](/rest/api/storageservices/put-block-from-url) eller en version av AzCopy som har stöd för detta API. Den *placera Block från URL: en* API synkront kopierar data på servern, vilket innebär att anropet har slutförts bara en gång alla data flyttas från den ursprungliga serverplatsen till målplatsen.
 
 ### <a name="blob-lifecycle-management"></a>Livscykelhantering för BLOB
 Livscykelhantering för Blob Storage (förhandsversion) erbjuder en omfattande, regel-baserad princip som du kan använda för att överföra data till bästa åtkomstnivå och för att ta bort data i slutet av livscykeln. Se [hantering av Azure Blob storage-livscykeln](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) vill veta mer.  
@@ -153,7 +191,7 @@ Alla lagringskonton används en prissättningsmodell för blobblagring baserat p
 
 Vi rekommenderar att du använder GPv2 i stället för Blob Storage-konton om du vill använda lagringsnivåer. GPv2 har stöd för samma funktioner som Blob Storage-konton, och mycket mer. Kostnaden för Blob Storage- och GPv2-konton är i stort sett densamma, men vissa nya funktioner och rabatter kommer bara att vara tillgängliga för GPv2-konton. GPv1-konton stöder inte lagringsnivåer.
 
-Prisstrukturen för GPv1- och GPv2-konton skiljer sig åt, så kunderna bör noggrant utvärdera båda alternativen innan de bestämmer sig för att använda GPv2-konton. Du kan enkelt konvertera ett befintligt Blob Storage eller GPv1-konto till GPv2 via en enklicksprocess. Mer information finns i [översikt över Azure storage-konton](../common/storage-account-overview.md).
+Prisstrukturen för GPv1- och GPv2-konton skiljer sig åt, så kunderna bör noggrant utvärdera båda alternativen innan de bestämmer sig för att använda GPv2-konton. Du kan enkelt konvertera ett befintligt Blob Storage eller GPv1-konto till GPv2 via en enklicksprocess. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
 
 **Kan jag lagra objekt på alla tre lagringsnivåer (frekvent, lågfrekvent och arkiv) inom samma konto?**
 

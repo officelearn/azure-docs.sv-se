@@ -2,20 +2,22 @@
 title: Azure SQL databasdata identifiering och klassificering | Microsoft Docs
 description: Azure SQL databasdata identifiering och klassificering
 services: sql-database
-author: giladmit
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/10/2018
+author: giladmit
 ms.author: giladm
-ms.openlocfilehash: aca01e67339d5f6d003021cb17f1787093b79eda
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: d34bb54729fe0adc4b26d213bfaa4ad4fb210ab7
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543970"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064194"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL databasdata identifiering och klassificering
 Dataidentifiering och klassificering (för närvarande i förhandsversion) ger avancerade funktioner i Azure SQL-databas för **identifierar**, **klassificera**, **märkning**  &  **skyddar** känslig data i dina databaser.
@@ -115,9 +117,9 @@ Du kan använda T-SQL för att lägga till/ta bort kolumnklassificeringar, samt 
 > [!NOTE]
 > När du använder T-SQL för att hantera etiketter, finns det ingen validering som etiketter som lagts till i en kolumn som finns i organisationens information protection-principen (uppsättning etiketter som visas i portalen rekommendationer). Det är detta du kan verifiera detta.
 
-* Lägg till/uppdatera klassificeringen av en eller flera kolumner: [lägga till KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* Ta bort klassificeringen från en eller flera kolumner: [släppa KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* Visa alla klassificeringar för databasen: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+* Lägg till/uppdatera klassificeringen av en eller flera kolumner: [lägga till KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* Ta bort klassificeringen från en eller flera kolumner: [släppa KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* Visa alla klassificeringar för databasen: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Du kan också använda REST API: er för att programmässigt hantera klassificeringar. Den publicerade REST-API: er har stöd för följande åtgärder:
 * [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – skapar eller uppdaterar känslighetsetikett för en viss kolumn

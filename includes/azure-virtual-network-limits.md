@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 4ab574f99f678683497b0f00b36abcda89991f88
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 673faff51c3d06e50941a6982a9f654c28598d86
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "43435613"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47006534"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -60,6 +60,8 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Användardefinierade vägtabeller |200 |
 | Användardefinierade vägar vägtabell |400 |
 | Punkt-till-plats-rotcertifikat per VPN Gateway |20 |
+| Trycker på virtuellt nätverk |100 |
+| Tryck på nätverksgränssnittskonfigurationer per virtuellt nätverks-TAP |100 |
 
 #### <a name="publicip-address"></a>Offentliga IP-adress gränser
 

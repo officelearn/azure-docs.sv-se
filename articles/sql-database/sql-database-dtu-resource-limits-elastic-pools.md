@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: carlrab
-ms.openlocfilehash: a0e0b8e2de3c944698cdbc6b1b11351f70e77276
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: c4f9daa4d9f5d09d4078d29409f116d1e8284f7a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729900"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036753"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Resurser-gränser för elastiska pooler med den DTU-baserade inköpsmodellen 
 
@@ -108,7 +108,7 @@ För elastiska pooler i SQL Database, i följande tabeller visar de tillgänglig
 ||||||||
 
 > [!IMPORTANT]
-> Mer än 1 TB av lagringsutrymmet på Premium-nivån är för närvarande tillgängligt i alla regioner förutom följande: västra centrala USA, Kina, östra, centrala USDoDCentral, Tyskland, USDoDEast USA-förvaltad region sydväst, Tyskland, nordöstra, USGov Iowa, Kina, norra. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mer än 1 TB av lagringsutrymmet på Premium-nivån är för närvarande tillgängligt i alla regioner förutom följande: västra centrala USA, Kina, östra, centrala USDoDCentral, Tyskland, USDoDEast USA-förvaltad region sydväst, Tyskland, nordöstra, USGov Iowa, Kina, norra. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 Om alla DTU:er för en elastisk pool används får varje databas i poolen lika många resurser för att bearbeta frågor. SQL Database-tjänsten tillhandahåller rättvis resursdelning mellan databaser genom att tilldela lika mycket beräkningstid till dem. En rättvis resursdelning i elastiska pooler tillämpas utöver den mängd resurser som varje databas är garanterad om det minsta antalet DTU:er per databas har angetts till ett annat värde än noll.
 

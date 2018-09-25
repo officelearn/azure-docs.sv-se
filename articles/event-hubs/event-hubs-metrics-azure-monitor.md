@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: e65fc329af0af585caf20c26bd2ef79a1f39d501
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a2b6fbae4a7b49c5596d5f2a6f9305181a0717d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42061103"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979972"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Event Hubs-mått i Azure Monitor (förhandsversion)
 
@@ -29,7 +29,7 @@ Azure Monitor innehåller enhetligt användargränssnitt för övervakning över
 
 ## <a name="access-metrics"></a>Åtkomst-mått
 
-Azure Monitor innehåller flera sätt att åtkomst mått. Du kan antingen åtkomst mätvärden via den [Azure-portalen](https://portal.azure.com), eller använda Azure Monitor-API: er (REST och .NET) och lösningar för dataanalys, till exempel Operations Management Suite och Event Hubs. Mer information finns i [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure Monitor innehåller flera sätt att åtkomst mått. Du kan antingen åtkomst mätvärden via den [Azure-portalen](https://portal.azure.com), eller använda Azure Monitor-API: er (REST och .NET) och lösningar för dataanalys, till exempel Operations Management Suite och Event Hubs. Mer information finns i [övervakningsdata som samlas in av Azure Monitor](../monitoring/monitoring-data-collection.md).
 
 Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) i Azure Monitor.
 

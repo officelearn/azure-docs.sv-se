@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 73b7604e3072e76c69383481259e1cd8990f4df4
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f4729ce996ca918f43df1777a1962d4cd225a38e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44168730"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060914"
 ---
 ## <a name="extended-iot-scenarios"></a>Utökade IoT-scenarier
 
@@ -22,7 +22,7 @@ Använd andra Azure-tjänster och -verktyg. När du har anslutit din enhet till 
 | Scenario                                                   | Azure-tjänst eller -verktyg              |
 |----------------------------------------------------------- |------------------------------------|
 | [Hantera IoT Hub-meddelanden][Mg_IoT_Toolkit]                  | VS Code Azure IoT Toolkit-tillägget|
-| [Hantera din IoT-enhet][Mg_IoT_Dv]                        | Azure CLI 2.0 och IoT-tillägget|
+| [Hantera din IoT-enhet][Mg_IoT_Dv]                        | Azure CLI och IoT-tillägget    |
 | [Hantera din IoT-enhet][Mg_IoT_Dv_Toolkit]                | VS Code Azure IoT Toolkit-tillägget|
 | [Spara IoT Hub-meddelanden till Azure-lagring][Sv_IoT_Msg_Stor]  | Azure Table Storage                |
 | [Visualisera sensordata][Vis_Data_PBI]                      | Microsoft Power BI                 |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40236963"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060389"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -101,7 +101,7 @@ Kunder kan ta en ögonblicksbild av deras hanterade diskar och sedan använda ö
 
 Ja, både ohanterade och hanterade diskar stöds. Vi rekommenderar att du använder hanterade diskar för nya arbetsbelastningar och migrera dina aktuella arbetsbelastningar till hanterade diskar.
 
-**Om jag skapar en 128 GB-disk och sedan öka storleken till 130 GB, debiteras jag för nästa diskstorleken (256 GB)?**
+**Om jag skapar en 128 GB-disk och sedan öka storleken till 130 GiB, debiteras jag för nästa diskstorleken (256 GB)?**
 
 Ja.
 
@@ -137,10 +137,10 @@ Nej, när den nya disken skapas det är en fullständig fristående kopia av blo
 
 För hanterade diskar du kan inte byta namn på dem. Du kan dock byta namn på en ohanterad disk så länge den inte är för närvarande ansluten till en virtuell Hårddisk eller virtuell dator.
 
-## <a name="standard-ssd-disks-preview"></a>Standard SSD-diskar (förhandsversion)
+## <a name="standard-ssd-disks"></a>Standard SSD-diskar
 
 **Vad är Azure Standard SSD-diskar?**
-Standard SSD-diskar är standarddiskar som backas upp av solid-state media, optimerad som kostnadseffektiv lagring för arbetsbelastningar som behöver konsekvent prestanda på lägre nivåer av IOPS. I förhandsversion är de tillgängliga i ett begränsat antal regioner med begränsad hantering (tillgängligt via Resource Manager-mallar).
+Standard SSD-diskar är standarddiskar som backas upp av solid-state media, optimerad som kostnadseffektiv lagring för arbetsbelastningar som behöver konsekvent prestanda på lägre nivåer av IOPS.
 
 <a id="standard-ssds-azure-regions"></a>**Vilka är de regioner som stöds för närvarande för Standard SSD-diskar?**
 Alla Azure-regioner har nu stöd för Standard SSD-diskar.
@@ -275,7 +275,7 @@ Det finns en fast kostnad för varje diskstorlek som är etablerade med specifik
 
 **Vilka är begränsningarna för IOPS och dataflöde som jag kan få från diskcache?**
 
-Den kombinerade gränserna för cache och lokal SSD för DS-serien är 4 000 IOPS per kärna och 33 MB per sekund per kärna. GS-serien erbjuder 5 000 IOPS per kärna och 50 MB per sekund per kärna.
+Den kombinerade gränserna för cache och lokal SSD för DS-serien är 4 000 IOPS per kärna och 33 MiB per sekund per kärna. GS-serien erbjuder 5 000 IOPS per kärna och 50 MiB per sekund per kärna.
 
 **Lokal SSD som stöds för en hanterad diskar i virtuell dator?**
 
@@ -287,38 +287,60 @@ Det finns inga Nackdelen med att användningen av TRIMNING på Azure-diskar på 
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nya diskstorlekar: hanterade och ohanterade
 
-**Vad är den största diskstorleken användas för operativsystemet och datadiskarna?**
+**Vad är den största Managed diskstorlek som stöds för operativsystem och datadiskar?**
 
-Partitionstypen som stöds av Azure för en operativsystemdisk är master boot record (MBR). MBR-formatet stöder en disk ändra storlek på upp till 2 TB. Den största storlek som stöds av Azure för en operativsystemdisk är 2 TB. Azure har stöd för upp till 4 TB för datadiskar. 
+Partitionstypen som stöds av Azure för en operativsystemdisk är master boot record (MBR). MBR-formatet stöder en diskstorlek upp till 2 TiB. Den största storlek som stöds av Azure för en operativsystemdisk är 2 TiB. Azure stöder upp till 32 TiB för hanterade diskar. Hanterade diskar som är större än 4 TiB finns i förhandsversion. Mer information om dem finns i vår [blogginlägget](http://aka.ms/azure-large-disk-32TB-preview-blog).
+
+**Vad är den största ohanterad Disk-storlek som stöds för operativsystem och datadiskar?**
+
+Partitionstypen som stöds av Azure för en operativsystemdisk är master boot record (MBR). MBR-formatet stöder en diskstorlek upp till 2 TiB. Den största storlek som stöds av Azure för en ohanterad disk operativsystemet är 2 TiB. Azure har stöd för upp till 4 TiB för ohanterade datadiskar.
 
 **Vad är den största sidblobens storlek som stöds?**
 
-Största sidblobens storlek som stöds av Azure är 8 TB (8191 GB). Den maximala blogg sidstorleken när ansluten till en virtuell dator som data eller operativsystemdiskar är 4 TB (4095 GB).
+Största sidblobens storlek som stöds av Azure är 8 TiB (8191 GiB). Den maximala blogg sidstorleken när ansluten till en virtuell dator som data eller operativsystemdiskar är 4 TiB (4095 GiB).
 
-**Måste jag använda en ny version av Azure-verktyg för att skapa, ansluta, ändra storlek på och ladda upp diskar som är större än 1 TB?**
+**Måste jag använda en ny version av Azure-verktyg för att skapa, ansluta, ändra storlek på och ladda upp diskar som är större än 1 TiB?**
 
-Du behöver inte uppgradera din befintliga Azure-verktyg för att skapa, koppla eller ändra storlek på diskar som är större än 1 TB. Om du vill överföra VHD-fil från en lokal plats direkt till Azure som en sidblobb eller ohanterad disk måste du använda senaste verktyget:
+Du behöver inte uppgradera din befintliga Azure-verktyg för att skapa, koppla eller ändra storlek på diskar som är större än 1 TiB. Du måste använda de senaste verktygsuppsättningar som anges nedan för att ladda upp VHD-fil från en lokal plats direkt till Azure som en sidblobb eller ohanterad disk. Vi har endast stöd för VHD-uppladdningar av upp till 8 TiB.
 
 |Azure-verktyg      | Versioner som stöds                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Versionsnumret 4.1.0: juni 2017-versionen eller senare|
 |Azure CLI v1     | Versionsnumret 0.10.13: maj 2017-versionen eller senare|
+|Azure CLI v2     | Versionsnumret 2.0.12: versionen för juli 2017 eller senare|
 |AzCopy           | Versionsnumret 6.1.0: juni 2017-versionen eller senare|
-
-Stöd för Azure CLI v2 och Azure Storage Explorer kommer snart. 
 
 **Stöds P4 och P6 diskstorlekar för ohanterade diskar och sidblobar?**
 
-Nej. P4 (32 GB) och P6 (64 GB) diskstorlekar stöds endast för hanterade diskar. Stöd för ohanterade diskar och sidblobar kommer snart.
+P4 (32 GiB) och P6 (64 GiB) diskstorlekar stöds inte som standard disk nivåer för ohanterade diskar och sidblobar. Du måste uttryckligen [ange Blob-nivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) P4 och P6 ha disken mappas till dessa nivåer. Om du distribuerar en ohanterad disk- eller blob med diskens storlek eller innehållslängd mindre än 32 GiB eller mellan 32 GiB till 64 GiB utan att ange Blob-nivå, fortsätter du hamnar på P10 med 500 IOPS och 100 MiB/s och den mappade prisnivån.
 
-**Om min befintliga premium managed disk mindre än 64 GB skapades innan liten disk aktiverades (cirka 15 juni 2017), hur faktureras den?**
+**Om min befintliga premium managed disk mindre än 64 GiB skapades innan liten disk aktiverades (cirka 15 juni 2017), hur faktureras den?**
 
-Befintliga små premium-diskar mindre än 64 GB fortsättningsvis att debiteras enligt P10 prisnivån. 
+Befintliga små premium-diskar mindre än 64 GiB fortsättningsvis att debiteras enligt P10 prisnivån.
 
-**Hur kan jag byta disk-nivå för små premium-diskar som är mindre än 64 GB från P10 P4 eller P6?**
+**Hur kan jag byta disk-nivå för små premium disks högst 64 GiB från P10 P4 eller P6?**
 
-Du kan ta en ögonblicksbild av dina små diskar och sedan skapa en disk för att automatiskt växla prisnivån till P4 eller P6 baserat på den valda storleken. 
+Du kan ta en ögonblicksbild av dina små diskar och sedan skapa en disk för att automatiskt växla prisnivån till P4 eller P6 baserat på den valda storleken.
 
+**Kan du ändra storlek på befintliga hanterade diskar från storlekar mindre än 4 TiB till nya Nyintroducerade diskstorlekar upp till 32 TiB?**
+
+Nya hanterade diskar som är 8 TiB och 16 TiB 32 TiB finns för närvarande i förhandsversion. Vi ännu stöd inte för storleksändring befintliga diskstorlekar till den nya diskstorleken.
+
+**Vad är den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten?**
+
+Den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten är 4 TiB.
+
+**Vad är den rekommenderade VM-storlekar för stora diskar (> 4TiB) för Standard SSD och HDD-Standard-diskar för att uppnå optimerade disk-IOPS och bandbredd?**
+
+Att uppnå diskgenomflöde i Standard SSD och HDD-Standard storlekar för stora diskar (> 4TB) utöver 500 IOPS och 60 MiB/s, bör du använda en av de följande storlekarna optimerade prestanda: B-serien, DSv2-serien, Dsv3-serien, ESv3-serien, Fs-serien Fsv2-serien, M-serien GS-serien, NCv2-serien, NCv3-serien eller virtuella datorer i Ls-serien.
+
+**Vilka regioner är de hanterade diskar som är större än 4 TiB stöds i?**
+
+För närvarande i förhandsversionen av stöds den hantera diskstorleken i västra USA, Central endast.
+
+**Vi har stöd för att aktivera cachelagring av värden på den nya diskstorleken?**
+
+Vi stöder värd cachelagring av ReadOnly och Läs/Skriv diskar som är mindre än 4TiB. För diskstorlekar fler än 4 TiB vi stöder inte att ange alternativet än None för cachelagring. Vi rekommenderar att utnyttja cachelagring för mindre diskstorlekar där du kan förvänta dig att Observera bättre prestandaökning med data cachelagras till den virtuella datorn.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
 

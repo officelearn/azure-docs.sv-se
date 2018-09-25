@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061124"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999876"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -257,5 +257,26 @@ VNet-peering-anslutningar går du till *frånkopplad* tillstånd när en VNet-pe
 Nej. Transitiva peering stöds inte. Du måste peer VNetA och VNetC för den här för att äga rum.
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Finns det några begränsningar i nätverksbandbredd för peering-anslutningar?
-Nej. VNet-peering, lokal eller global, medför inte några bandbreddsbegränsningar. Bandbredd är endast limites av virtuell dator eller beräkning resursen.
+Nej. VNet-peering, lokal eller global, medför inte några bandbreddsbegränsningar. Bandbredd är endast begränsningar av resursen VM eller beräkning.
 
+## <a name="virtual-network-tap"></a>Virtuell nätverks-TAP
+
+### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Vilka Azure-regioner är tillgängliga för virtuella nätverks-TAP?
+Developer förhandsversionen kan är funktionen tillgänglig i regionen västra centrala USA. Övervakade nätverksgränssnitt, ett TRYCK för den virtuella nätverksresursen och insamlare eller analytics-lösningen måste distribueras i samma region.
+
+### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>Virtuellt nätverks-TAP stöder alla filtreringsfunktioner på de speglade paket?
+Filtreringsfunktioner stöds inte med förhandsversionen av trycker du på virtuellt nätverk. När en TRYCK-konfiguration har lagts till i ett nätverksgränssnitt en djup kopia av alla inkommande och utgående trafik i nätverksgränssnittet strömmas till trycker du på målet.
+
+### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>Konfigurationer med flera TRYCK lägga till ett övervakade nätverksgränssnitt?
+Ett övervakade nätverksgränssnitt kan ha bara en trycker du på konfiguration. Kontrollera med personen som [partnerlösningar](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) för funktionen att strömma flera kopior av TRYCK trafiken till analysverktyg som valfri.
+
+### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>Resurs för TRYCK av samma virtuella nätverk kan aggregera trafik från övervakade nätverksgränssnitt i mer än ett virtuellt nätverk?
+Ja. Samma virtuella nätverk trycker du på resursen kan användas för att aggregera speglade trafik från övervakade nätverksgränssnitt i peer-kopplade virtuella nätverk i samma prenumeration eller en annan prenumeration. Virtuellt nätverk trycker du på resursen och målet belastningsutjämnare eller mål-nätverksgränssnittet måste vara i samma prenumeration. Alla prenumerationer måste vara under samma Azure Active Directory-klient.
+
+### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Finns det några prestandaöverväganden på produktionstrafik om jag aktiverar ett TRYCK konfiguration av virtuellt nätverk i ett nätverksgränssnitt?
+
+Virtuellt nätverk TRYCK är i förhandsversion. Det finns inga serviceavtal för förhandsversionen. Funktionen för bör inte användas för produktionsarbetsbelastningar. När en virtuell dators nätverkskort har aktiverats med en konfiguration av trycker du på används samma resurser på azure-värd allokeras till den virtuella datorn att skicka produktionstrafik för att utföra funktionen databasspegling och skicka de speglade paket. Välj rätt [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) storlek på virtuell dator så att det finns tillräckligt med resurser för den virtuella datorn att skicka produktionstrafik och speglade trafiken.
+
+### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>Är accelererat nätverk för [Linux](create-vm-accelerated-networking-cli.md) eller [Windows](create-vm-accelerated-networking-powershell.md) stöd med virtuell nätverks-TAP?
+
+Du kommer att kunna lägga till en konfiguration för TRYCK på ett nätverksgränssnitt som är kopplat till en virtuell dator som är aktiverad med accelererat nätverk. Men prestanda och svarstider på den virtuella datorn kommer att påverkas genom att lägga till TRYCK konfiguration eftersom avlastning för spegling trafik för närvarande inte stöds av Azure accelererat nätverk.

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: dde8881fc446eef0dd6ca0735e5e23a5a19328fa
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 19f066bea9de580cf1245aec74fbe563bf8ba449
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578384"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996561"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream, Azure-diagnostikloggar till en händelsehubb
-**[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för program med hjälp av alternativet inbyggda ”exportera till Event Hubs” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i en diagnostikinställning via Azure PowerShell-cmdletar eller Azure CLI 2.0.
+**[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för program med hjälp av alternativet inbyggda ”exportera till Event Hubs” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i en diagnostikinställning via Azure PowerShell-cmdletar eller Azure CLI.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Vad du kan göra med diagnostikloggar och Event Hubs
 Här är några sätt som du kan använda den strömmande kapaciteten för diagnostikloggar:
@@ -91,9 +91,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 Event Hub auktorisering regel-ID är en sträng med det här formatet: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, till exempel `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Du kan inte för närvarande välja en viss event hub-namn med PowerShell.
 
-### <a name="via-azure-cli-20"></a>Via Azure CLI 2.0
+### <a name="via-azure-cli"></a>Via Azure CLI
 
-Strömning den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), du kan använda den [az monitor diagnostic-settings skapa](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) kommando.
+Strömning den [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), du kan använda den [az monitor diagnostic-settings skapa](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) kommando.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

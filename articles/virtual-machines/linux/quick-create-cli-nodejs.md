@@ -1,6 +1,6 @@
 ---
-title: Skapa en Linux-baserad virtuell dator med hjälp av Azure CLI 1.0 | Microsoft Docs
-description: Skapa en virtuell Linux-dator i Azure med hjälp av Azure CLI 1.0
+title: Skapa en Linux-VM med hjälp av Azure CLI för klassiska | Microsoft Docs
+description: Skapa en Linux-VM på Azure med hjälp av den klassiska Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: ea9eab1a02a29005917848ed54ab8ba160b89b63
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 94362256dfb5b8deff233f7c575d0720f29eec5c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30901817"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987863"
 ---
-# <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Skapa en virtuell Linux-dator med hjälp av Azure CLI 1.0
+# <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Skapa en Linux-VM med hjälp av den klassiska Azure CLI
 
 I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator (VM) i Azure med hjälp av kommandot `azure vm quick-create` i Azures kommandoradsgränssnitt (CLI). Kommandot `quick-create` distribuerar en virtuell dator inuti en grundläggande, säker infrastruktur som du kan använda som prototyp eller för att snabbt testa ett koncept.
 
 > [!NOTE]
-Om du vill skapa en virtuell dator med hjälp av Azure CLI 2.0 läser du [Skapa en virtuell dator med Azure CLI](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+För att skapa en virtuell dator med Azure CLI, se [skapa en virtuell dator med Azure CLI](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Du kan också snabbt distribuera en virtuell Linux-dator med hjälp av [Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

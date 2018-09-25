@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Den här kursen visar hur du använder batch testning för att hitta uttryck förutsägelse problem i din app och korrigera detta.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 1f1055b84a83d71931ebd0ca11b5bcd1bd16ad02
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 9e5eb4b8d1b6408779f09a148d1e91f9111a9561
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630995"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041752"
 ---
 # <a name="tutorial--2-batch-test-data-sets"></a>Självstudie: # 2. Datauppsättningar för batch-test
 

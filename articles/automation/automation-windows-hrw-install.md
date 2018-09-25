@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62c171381201f3cedee869aba301859a7047f5ce
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294925"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032996"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows Hybrid Runbook Worker
 
@@ -49,7 +49,7 @@ När du har distribuerat en runbook worker kan granska [köra runbooks på en Hy
 
 Utför följande steg för att automatisera installation och konfiguration av Windows Hybrid Worker-roll:
 
-1. Ladda ned skriptet New-OnPremiseHybridWorker.ps1 från den [PowerShell-galleriet](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript) direkt från den dator som kör Hybrid Runbook Worker-rollen eller från en annan dator i din miljö. Kopiera skriptet till arbetaren.
+1. Ladda ned skriptet New-OnPremiseHybridWorker.ps1 från den [PowerShell-galleriet](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) direkt från den dator som kör Hybrid Runbook Worker-rollen eller från en annan dator i din miljö. Kopiera skriptet till arbetaren.
 
    New-OnPremiseHybridWorker.ps1 skriptet kräver följande parametrar under körning:
 

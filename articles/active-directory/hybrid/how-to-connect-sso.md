@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: be46933ee77b261107a6d22d26ba81538f0fd9d1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4e9292b5932c36d55069ff300bf7c0a99b280fc5
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314526"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054192"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -62,16 +62,19 @@ Sömlös enkel inloggning kan kombineras med antingen den [Lösenordshashsynkron
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ja\*|Nej|Ja|Ja\*\*|Gäller inte
-|Windows 8.1|Ja\*|Gäller inte|Ja|Ja\*\*|Gäller inte
-|Windows 8|Ja\*|Gäller inte|Ja|Ja\*\*|Gäller inte
-|Windows 7|Ja\*|Gäller inte|Ja|Ja\*\*|Gäller inte
-|Mac OS X|Gäller inte|Gäller inte|Ja\*\*|Ja\*\*|Ja\*
+|Windows 10|Ja\*|Nej|Ja|Ja\*\*\*|Gäller inte
+|Windows 8.1|Ja\*|Gäller inte|Ja|Ja\*\*\*|Gäller inte
+|Windows 8|Ja\*|Gäller inte|Ja|Ja\*\*\*|Gäller inte
+|Windows 7|Ja\*|Gäller inte|Ja|Ja\*\*\*|Gäller inte
+|Windows Server 2012 R2 eller senare|Ja\*\*|Gäller inte|Ja|Ja\*\*\*|Gäller inte
+|Mac OS X|Gäller inte|Gäller inte|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
 
 
 \*Kräver Internet Explorer version 10 eller senare
 
-\*\*Kräver [ytterligare konfiguration](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*Kräver Internet Explorer version 10 eller senare. Inaktivera Förbättrad skyddat läge
+
+\*\*\*Kräver [ytterligare konfiguration](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >För Windows 10, rekommendationen är att använda [Azure AD Join](../active-directory-azureadjoin-overview.md) för den optimala enkel inloggning med Azure AD.

@@ -3,7 +3,7 @@ title: Skydda PaaS-distributioner | Microsoft Docs
 description: " Förstå fördelarna med PaaS jämfört med andra tjänstmodeller i molnet och lär dig rekommenderade metoder för att skydda din Azure PaaS-distribution. "
 services: security
 documentationcenter: na
-author: techlake
+author: TerryLanfear
 manager: MBaldwin
 editor: techlake
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: da5d59aaaea8e6186609eb5f3419fba5e67d4279
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 35650eec65fa9181d035c52e6b466985b483500c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42061508"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036515"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -69,7 +69,7 @@ Med PaaS kommer distributioner en förändring i din övergripande metoden säke
 
 En annan viktig skillnad mellan PaaS och traditionella lokala distributioner, är en ny vy av primär säkerhetsperimeter definieras. Historiskt sett säkerhetsperimeter primära lokala var ditt nätverk och de flesta lokala security-Designer använder nätverket som sin primära security pivot. För PaaS-distributioner betjänas du bättre av överväger identitet för att vara primär säkerhetsperimeter.
 
-## <a name="identity-as-the-primary-security-perimeter"></a>Identitet som primär säkerhetsperimeter
+## <a name="adopt-a-policy-of-identity-as-the-primary-security-perimeter"></a>Anta en princip av identitet som primär säkerhetsperimeter
 En av fem grundläggande egenskaper för molnbaserad databehandling är bred nätverksåtkomst, vilket gör nätverks-centric tänker mindre relevanta. Målet med mycket av molnbaserad databehandling är att ge användare åtkomst till resurser, oavsett plats. För de flesta användare ska var vara någonstans på Internet.
 
 Följande bild visar hur säkerhetsperimeter har utvecklats från en nätverksperimeter en perimeter-identitet. Säkerheten blir mindre om försvar ditt nätverk och mer information om försvar dina data, samt hanterar säkerheten för dina appar och användare. Den viktigaste skillnaden är att du vill skicka security närmare till viktig information för ditt företag.
@@ -80,24 +80,85 @@ Azure PaaS-tjänster (till exempel web-roller och Azure SQL) anges först har li
 
 Moderna säkerhetsrutiner förutsätter att angriparen har brutit mot perimeternätverket. Därför har moderna defense praxis flyttat till identitet. Organisationer måste upprätta en identitetsbaserad säkerhetsperimeter med stark autentisering och auktorisering hygien (metodtips).
 
-## <a name="recommendations-for-managing-the-identity-perimeter"></a>Rekommendationer för att hantera identitet perimeternätverket
-
 Principer och mönster för perimeternätverket har varit tillgängliga för flera decennier. Däremot har branschen relativt mindre erfarenhet av att använda identitet som primär säkerhetsperimeter. Därmed SA har vi ackumulerade så mycket erfarenhet för att tillhandahålla vissa allmänna rekommendationer som har varit i fältet och gäller för nästan alla PaaS-tjänster.
 
-Följande sammanfattar en allmän praxis för att hantera din identitet perimeternätverket.
+Här följer bästa praxis för att hantera identitet perimeternätverket.
 
-- **Förlora inte dina nycklar eller autentiseringsuppgifter** att skydda nycklar och autentiseringsuppgifter är mycket viktigt att skydda PaaS-distributioner. Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. En bra lösning är att använda en centraliserad lösning där nycklar och hemligheter kan lagras i maskinvarusäkerhetsmoduler (HSM). Azure ger dig en HSM i molnet med [Azure Key Vault](../key-vault/key-vault-whatis.md).
-- **Placera inte autentiseringsuppgifter och andra hemligheter i källkoden eller GitHub** enda värre än att förlora dina nycklar och autentiseringsuppgifter har obehöriga personer få tillgång till dem. Angripare kan utnyttja fördelarna med bot tekniker för att hitta nycklar och hemligheter som lagras i koddatabaser, till exempel GitHub. Placera inte nyckeln och hemligheter i de här offentliga källkodslager.
-- **Skydda dina VM-hanteringsgränssnitt på hybrid PaaS och IaaS** IaaS och PaaS-tjänster som körs på virtuella datorer (VM). Beroende på vilken typ av tjänst flera hanteringsgränssnitt är tillgängliga att aktivera du remote hantera dessa virtuella datorer direkt. Fjärrhantering protokoll som [SSH (Secure Shell Protocol)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607), och [fjärr-PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från Internet. Om det är tillgängligt, bör du använda alternativa metoder, till exempel med ett virtuellt privat nätverk till ett Azure-nätverk. Om alternativa metoder är inte tillgängliga och sedan kontrollera att du använder komplexa lösenfraser och i förekommande fall, tvåfaktorsautentisering (till exempel [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
-- **Använda stark autentisering och auktorisering plattformar**
+**Bästa praxis**: skydda nycklar och autentiseringsuppgifter för att skydda PaaS-distribution.   
+**Information om**: att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Du kan använda en centraliserad lösning där nycklar och hemligheter kan lagras i HSM: er. Azure ger dig en HSM i molnet med [Azure Key Vault](../key-vault/key-vault-whatis.md).
 
-  - Använda federerade identiteter i Azure AD i stället för anpassade användarlager. När du använder federerade identiteter kan du dra nytta av en plattformbaserade metod och du delegera hanteringen av auktoriserade identiteter till dina partner. En metod för federerad identitet är särskilt viktigt i fall när anställda avslutas och information behöver återspeglas via flera system för identitet och auktorisering.
-  - Använd plattformslista mekanismer för autentisering och auktorisering istället för anpassad kod. Anledningen är att utveckla anpassade Autentiseringskod kan vara felbenägna. De flesta av dina utvecklare är inte säkerhetsexperter och är inte troligt att känna till nyanser och den senaste utvecklingen i autentisering och auktorisering. Kommersiella kod (till exempel från Microsoft) är ofta omfattande säkerhet granskas.
-  - Använd Multi-Factor authentication. Multi-Factor authentication är den aktuella standarden för autentisering och auktorisering eftersom de undviker de security svagheterna i användarnamnet och lösenordet typer av autentisering. Åtkomst till både Azure-hantering (portal/fjärråtkomst PowerShell) gränssnitten och kundorienterade tjänster bör utformade och konfigurerade för att använda [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md).
-  - Använd standard autentiseringsprotokoll, till exempel OAuth2- och Kerberos. Dessa protokoll har stor utsträckning peer granskas och förmodligen implementeras som en del av din plattformsbibliotek för autentisering och auktorisering.
+**Bästa praxis**: Placera inte autentiseringsuppgifter och andra hemligheter i källkoden eller GitHub.   
+**Information om**: enda sämre resultat än att förlora dina nycklar och autentiseringsuppgifter som har en obehörig part få tillgång till dem. Angripare kan dra nytta av bot tekniker för att hitta nycklar och hemligheter som lagras i koddatabaser, till exempel GitHub. Placera inte nyckeln och hemligheter i de här offentliga lagringsplatser.
+
+**Bästa praxis**: skydda dina VM-hanteringsgränssnitt på hybrid PaaS och IaaS-tjänster med hjälp av ett hanteringsgränssnitt som gör det möjligt för remote hantera dessa virtuella datorer direkt.   
+**Information om**: fjärrhantering protokoll som [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607), och [PowerShell-fjärrkommunikation](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från internet.
+
+Använd om möjligt alternativa metoder som att använda virtuella privata nätverk i Azure-nätverk. Om alternativa metoder inte är tillgängliga, kontrollera att du använder komplexa lösenfraser och tvåfaktorsautentisering (till exempel [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
+
+**Bästa praxis**: använda stark autentisering och auktorisering plattformar.   
+**Information om**: använda federerade identiteter i Azure AD i stället för anpassade användarlager. När du använder federerade identiteter kan du dra nytta av en plattformbaserade metod och du delegera hanteringen av auktoriserade identiteter till dina partner. En federerad identitet-metoden är särskilt viktigt när anställda avslutas och att information behöver återspeglas via flera identiteter och auktorisering system.
+
+Använd plattform anger mekanismer för autentisering och auktorisering istället för anpassad kod. Anledningen är att utveckla anpassade Autentiseringskod kan vara felbenägna. De flesta av dina utvecklare är inte säkerhetsexperter och är inte troligt att känna till nyanser och den senaste utvecklingen i autentisering och auktorisering. Kommersiella kod (till exempel från Microsoft) är ofta omfattande säkerhet granskas.
+
+Använda tvåfaktorsautentisering. Tvåfaktorsautentisering är den aktuella standarden för autentisering och auktorisering eftersom de undviker de security svagheterna i användarnamnet och lösenordet typer av autentisering. Åtkomst till både Azure hanteringsgränssnitt (portal/fjärråtkomst PowerShell) och kundinriktad tjänster bör utformade och konfigurerade för att använda [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md).
+
+Använd standard autentiseringsprotokoll, till exempel OAuth2- och Kerberos. Dessa protokoll har stor utsträckning peer granskas och förmodligen implementeras som en del av din plattformsbibliotek för autentisering och auktorisering.
+
+## <a name="use-threat-modeling-during-application-design"></a>Använda threat modeling under programmets design
+Microsofts [livscykler för säkerhetsutveckling](https://www.microsoft.com/en-us/sdl) anger att grupper ska delta i en process som kallas threat modeling under designfasen. För att den här processen förenklas, Microsoft har skapat den [SDL Threat Modeling Tool](../security/azure-security-threat-modeling-tool.md). Modellering programmets design och räkna upp [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) hot över alla förtroende gränser kan fånga upp utforma fel tidigt.
+
+I följande tabell visar en lista över STRIDE hot och ger vissa exempel åtgärder som använder Azure-funktioner. Dessa åtgärder fungerar inte i alla situationer.
+
+| Hot | Egenskapen för säkerhet | Potentiella plattformsmigrering i Azure |
+| --- | --- | --- |
+| Förfalskning | Autentisering | Kräv HTTPS-anslutningar. |
+| Manipulering | Integritet | Verifiera SSL-certifikat. |
+| Repudiation | Oavvislighet | Aktivera Azure [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
+| Avslöjande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänsten certifikat](https://docs.microsoft.com/rest/api/appservice/certificates). |
+| DOS-attack | Tillgänglighet | Övervaka prestandamått för potentiell denial of service-villkor. Implementera anslutningsfilter. |
+| Rättighetsökning | Auktorisering | Använd [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
+
+## <a name="develop-on-azure-app-service"></a>Utveckla på Azure App Service
+[Azure App Service](../app-service/app-service-web-overview.md) är en PaaS-erbjudande som låter dig skapa webb- och mobilappar för valfri plattform eller enhet och ansluta till data överallt, i molnet eller lokalt. Apptjänst innehåller webb- och mobilfunktioner som tidigare har levererat separat som Azure Websites och Azure Mobile Services. Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. En enda integrerad tjänst innehåller App Service en omfattande uppsättning funktioner för webb, mobil- och integrationsscenarier.
+
+Nedan följer Metodtips för App Service.
+
+**Bästa praxis**: [autentisera via Azure Active Directory](../app-service/app-service-authentication-overview.md).   
+**Information om**: App Service tillhandahåller en OAuth 2.0-tjänst för din identitetsprovider. OAuth 2.0 fokuserar på klienten utvecklare enkelt få tillgång till specifika auktoriseringsflöden för webbprogram, program och mobiltelefoner. Azure AD använder OAuth 2.0 att auktorisera åtkomst till mobila och webbprogram.
+
+**Bästa praxis**: begränsa åtkomst baserat på att känna och minsta privilegium säkerhetsprinciper.   
+**Information om**: begränsa åtkomst är viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Du kan använda RBAC för att tilldela behörigheter till användare, grupper och program för ett visst omfång. Läs mer om att bevilja användare åtkomst till program i [Kom igång med åtkomsthantering](../role-based-access-control/overview.md).
+
+**Bästa praxis**: skydda dina nycklar.   
+**Information om**: Azure Key Vault skyddar kryptografiska nycklar och hemligheter som program och tjänster i molnet använder. Med Key Vault kan kryptera du nycklar och hemligheter (till exempel autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar. PFX-filer och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Se [Azure Key Vault](../key-vault/key-vault-whatis.md) vill veta mer. Du kan också använda Key Vault för att hantera din TLS-certifikat med automatisk förnyelse.
+
+**Bästa praxis**: begränsa inkommande IP-källadresser.   
+**Information om**: [App Service Environment](../app-service/environment/intro.md) har en funktion för integrering av virtuellt nätverk som hjälper dig att begränsa inkommande källans IP-adresser via nätverkssäkerhetsgrupper. Virtuella nätverk kan du placera Azure-resurser i ett icke-internet, dirigerbara nätverk som du styr åtkomst till. Mer information finns i [integrera din app med Azure-nätverk](../app-service/web-sites-integrate-with-vnet.md).
+
+**Bästa praxis**: övervaka säkerhetstillståndet för dina App Service-miljöer.   
+**Information om**: Använd Azure Security Center för att övervaka din App Service-miljöer. När Security Center identifierar potentiella säkerhetsproblem skapas [rekommendationer](../security-center/security-center-virtual-machine-recommendations.md) som vägleder dig genom processen att konfigurera nödvändiga kontroller.
+
+> [!NOTE]
+> Övervaka App Service är förhandsversion och bara på den [standardnivån](../security-center/security-center-pricing.md) i Security Center.
+>
+>
+
+## <a name="install-a-web-application-firewall"></a>Installera en brandvägg för webbaserade program
+Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av många skikt i programtopologin. Med en centraliserad brandvägg för webbaserade program blir det enklare att hantera säkerheten och programadministratörer får bättre möjligheter skydda mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en Application Gateway med brandväggen för webbprogram.
+
+[Brandvägg för webbaserade program (WAF)](../application-gateway/waf-overview.md) är en funktion i Application Gateway som ger ett centraliserat skydd för dina webbprogram mot vanliga kryphål och säkerhetsproblem. WAF är baserat på regler från den [OWASP Open Web Application Security Project ()-kärnregeluppsättningar](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 eller 2.2.9.
+
+## <a name="monitor-the-performance-of-your-applications"></a>Övervaka prestanda för dina program
+Övervakning är syftar till insamling och analys av data för att avgöra prestanda, hälsotillstånd och tillgänglighet för ditt program. En effektiv övervakningsstrategi hjälper dig att förstå den detaljerade driften av komponenterna i ditt program. Det hjälper dig att förbättra din drifttid genom att meddela dig om kritiska tillstånd så att du kan lösa dem innan de hunnit bli problem. Du kan dessutom identifiera avvikelser som kan vara säkerhetsrelaterade.
+
+Använd [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) att övervaka tillgänglighet, prestanda och användning av ditt program, oavsett om den finns i molnet eller lokalt. Genom att använda Application Insights kan du snabbt identifiera och diagnostisera fel i ditt program utan att behöva vänta på att en användare rapporterar dem. Du kan göra välgrundade val om underhåll och förbättringar för ditt program med den information som du samlar in.
+
+Application Insights har omfattande verktyg för att interagera med de data som samlas in. Application Insights lagrar data i en gemensam databas. Programmet kan dra nytta av delade funktioner som aviseringar, instrumentpaneler och djupanalys med Log Analytics-frågespråket.
+
+
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln fokuserar vi på fördelarna med en Azure PaaS-distribution. Lär dig sedan rekommenderade metoder för att skydda dina PaaS webb- och mobila lösningar. Vi börjar med Azure App Service, Azure SQL Database och Azure SQL Data Warehouse. När artiklar om rekommenderade metoder för andra Azure-tjänster blir tillgängliga, ges länkar i listan nedan:
+I den här artikeln fokuserar vi på fördelarna med en Azure PaaS-distribution och rekommenderade säkerhetsmetoder för molnprogram. Lär dig sedan rekommenderade metoder för att skydda dina PaaS webb- och mobillösningar med specifika Azure-tjänster. Vi börjar med Azure App Service, Azure SQL Database och Azure SQL Data Warehouse och Azure Storage. När artiklar om rekommenderade metoder för andra Azure-tjänster blir tillgängliga, ges länkar i listan nedan:
 
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database och Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
@@ -105,6 +166,12 @@ I den här artikeln fokuserar vi på fördelarna med en Azure PaaS-distribution.
 - Azure REDIS Cache
 - Azure Service Bus
 - Brandväggar för webbprogram
+
+Se [säkerhet i Azure-metodtips och mönster](security-best-practices-and-patterns.md) för flera beprövade metoder för att använda när du utforma, distribuera och hantera dina molnlösningar med hjälp av Azure.
+
+Följande resurser är tillgängliga för att tillhandahålla mer allmän information om Azure-säkerhet och relaterade Microsoft-tjänster:
+* [Azure-Säkerhetsteamets blogg](https://blogs.msdn.microsoft.com/azuresecurity/) – uppdaterad information på senast inom Azure-säkerhet
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där kan du rapportera säkerhetsproblem i Microsoft, inklusive problem med Azure, eller mejla till secure@microsoft.com
 
 <!--Image references-->
 [1]: ./media/security-paas-deployments/advantages-of-cloud.png

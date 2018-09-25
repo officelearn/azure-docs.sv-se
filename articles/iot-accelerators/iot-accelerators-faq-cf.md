@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248595"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966572"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor om ansluten fabrik lösningsaccelerator
 
@@ -111,7 +111,7 @@ Simuleringen själv registrerar följande enheter:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Med hjälp av den [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) verktyg, du kan kontrollera vilka enheter som är registrerade med IoT hub med hjälp av din lösning. Om du vill använda enhetsutforskare, behöver du anslutningssträngen för IoT-hubben i distributionen. För att använda IoT-tillägget för Azure CLI 2.0, behöver du namnet på din IoT-hubb.
+Med hjälp av den [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) verktyg, du kan kontrollera vilka enheter som är registrerade med IoT hub med hjälp av din lösning. Om du vill använda enhetsutforskare, behöver du anslutningssträngen för IoT-hubben i distributionen. För att använda IoT-tillägget för Azure CLI, behöver du namnet på din IoT-hubb.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Hur får jag loggdata från simuleringskomponenter?
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 893b0ee70f577d9240d577e76062eea36b704058
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056074"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989880"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guiden för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, beskriver hur du förbereder de virtuella hårddiskarna (VHD) som du distribuerar på Azure Marketplace. De virtuella hårddiskarna är grunden för din SKU. Processen skiljer sig beroende på om du erbjuder en Linux- eller Windows-baserad SKU. Den här artikeln tas båda scenarier upp. Den här processen kan utföras parallellt med [skapande och registrering][link-acct-creation].
@@ -189,9 +189,9 @@ Om du vill veta mer om VM-avbildningar kan du granska följande blogginlägg:
 * [VM Image PowerShell så här](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 * [Om VM-avbildningar i Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>Konfigurera nödvändiga verktyg, PowerShell och Azure CLI
+### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>Konfigurera nödvändiga verktyg, PowerShell och Azure klassiskt CLI
 * [Så här konfigurerar du PowerShell](/powershell/azure/overview)
-* [Så här konfigurerar du Azure CLI](../cli-install-nodejs.md)
+* [Så här konfigurerar du Azure klassiskt CLI](../cli-install-nodejs.md)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 skapa en virtuell datoravbildning för användare
 #### <a name="capture-vm"></a>Avbilda virtuell dator
@@ -427,11 +427,13 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Micro
 
 11. Upprepa stegen för varje VHD i SKU:n.
 
-**Azure CLI (rekommenderas för icke-Windows och kontinuerlig integrering)**
+**Klassisk Azure-CLI (rekommenderas för icke-Windows & kontinuerlig integrering)**
 
-Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure CLI
+Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure klassiskt CLI
 
-1.  Ladda ned Microsoft Azure-CLI från [här](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Du kan också hitta olika länkar för **[Windows](http://aka.ms/webpi-azure-cli)** och  **[MAC OS](http://aka.ms/mac-azure-cli)**.
+[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
+
+1.  Ladda ned den klassiska Azure CLI från [här](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Du kan också hitta olika länkar för **[Windows](http://aka.ms/webpi-azure-cli)** och  **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
 2.  När det har laddats ned, installera
 
@@ -447,9 +449,9 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure
 
     b. **`<Storage Account Key>`**: Ger din lagringskontonyckel
 
-    c. **`<Permission Start Date>`**: Välj dag före aktuellt datum om du vill skydda för UTC-tid. Till exempel om det aktuella datumet infaller 26 oktober 2016, sedan värdet bör vara 10/25/2016. Om du använder Azure CLI 2.0 (az kommandot), ange både datum och tid i Start- och slutdatum, till exempel: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: Välj dag före aktuellt datum om du vill skydda för UTC-tid. Till exempel om det aktuella datumet infaller 26 oktober 2016, sedan värdet bör vara 10/25/2016. Om du använder Azure CLI version 2.0 eller senare, ange både datum och tid i Start- och slutdatum, till exempel: 10-25-2016T00:00:00Z.
 
-    d. **`<Permission End Date>`**: Välj ett datum som är minst tre veckor efter den **startdatum**. Värdet ska vara **2016-02-11**. Om du använder Azure CLI 2.0 (az kommandot), ange både datum och tid i Start- och slutdatum, till exempel: 11-02-2016T00:00:00Z.
+    d. **`<Permission End Date>`**: Välj ett datum som är minst tre veckor efter den **startdatum**. Värdet ska vara **2016-02-11**. Om du använder Azure CLI version 2.0 eller senare, ange både datum och tid i Start- och slutdatum, till exempel: 11-02-2016T00:00:00Z.
 
     Följande är exempelkoden när du har uppdaterat rätt parametrar
 
@@ -520,7 +522,7 @@ När du har skapat ett erbjudande och SKU, bör du ange avbildningsdetaljerna so
 |Det gick inte att kopiera avbildningar - ”sp = rl” inte i SAS-url|Fel: Kopiera avbildningar. Kunde inte hämta blob med hjälp av angivna SAS-Uri|Uppdatera SAS-webbadressen med behörigheterna inställda som ”läsa” och ”-lista|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Det gick inte att kopiera avbildningar - SAS-webbadress har blanksteg i namn på virtuell hårddisk|Fel: Kopiera avbildningar. Det går inte att hämta blob med hjälp av angivna SAS-Uri.|Uppdatera SAS-URL: en utan blanksteg|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Det gick inte att kopiera avbildningar – Url-auktorisering i SAS-fel|Fel: Kopiera avbildningar. Det går inte att ladda ned blob på grund av auktoriseringsfel|Återskapa SAS-Url|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar – SAS-Url ”a” och ”se” parametrar har inte fullständig datum / tid-specifikation|Fel: Kopiera avbildningar. Det går inte att ladda ned blob på grund av felaktiga SAS-Url |SAS URL: en Start- och slutdatum parametrar (”a”, ”se”) måste ha fullständig datum / tid-specifikationen, till exempel 11-02-2017T00:00:00Z, och inte bara det eller de förkortade versioner för tiden. Det är möjligt att stöta på det här scenariot med Azure CLI 2.0 (az kommandot). Var noga med att tillhandahålla fullständig datum / tid-specifikationen och återskapa SAS-webbadressen.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar – SAS-Url ”a” och ”se” parametrar har inte fullständig datum / tid-specifikation|Fel: Kopiera avbildningar. Det går inte att ladda ned blob på grund av felaktiga SAS-Url |SAS URL: en Start- och slutdatum parametrar (”a”, ”se”) måste ha fullständig datum / tid-specifikationen, till exempel 11-02-2017T00:00:00Z, och inte bara det eller de förkortade versioner för tiden. Det är möjligt att stöta på det här scenariot med Azure CLI version 2.0 eller senare. Var noga med att tillhandahålla fullständig datum / tid-specifikationen och återskapa SAS-webbadressen.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Nästa steg
 När du är klar med SKU-information kan du gå vidare och den [marketing content för för Azure Marketplace][link-pushstaging]. I det steget i publiceringsprocessen ska du ange marknadsföring innehåll, priser och annan information som krävs före **steg3: testa den virtuella datorn erbjuder i mellanlagringen**, där du testa olika Användningsscenarier innan du distribuerar den erbjudande på Azure Marketplace för offentliga synlighet och köp.  

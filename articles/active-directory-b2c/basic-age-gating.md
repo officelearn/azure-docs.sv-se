@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9d24e37642a41e4d60b33f42a60d7e56cb4b35b5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9a9a86d445deaea4872615f443ad53f76638a758
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446732"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056530"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Använda åldershantering i Azure AD B2C
 
 >[!IMPORTANT]
->Den här funktionen är i privat förhandsversion.  Se våra [serviceblogg](https://blogs.msdn.microsoft.com/azureadb2c/) information eftersom det blir tillgängligt, eller kontakta AADB2CFeedback@microsoft.com.  Använd detta inte på produktion kataloger, använder de här nya funktionerna kan leda till förlust av data och kan ha oväntade ändringar i beteende tills vi gå in allmänt tillgängliga.  
+>Den här funktionen är i privat förhandsversion.  Se våra [serviceblogg](https://blogs.msdn.microsoft.com/azureadb2c/) information eftersom det blir tillgängligt, eller kontakta AADB2CPreview@microsoft.com.  Använd detta inte på produktion kataloger, använder de här nya funktionerna kan leda till förlust av data och kan ha oväntade ändringar i beteende tills vi gå in allmänt tillgängliga.  
 >
 
 ##<a name="age-gating"></a>Åldershantering
@@ -56,13 +56,3 @@ Du kan välja att tillåta minderåriga utan medgivande i ditt program för anv�
 Du kan välja att blockera minderåriga utan medgivande från program för användarflöden som tillåter antingen logga in, logga in eller båda.  Det finns två alternativ för hantering av blockerade användare i Azure AD B2C:
 * Skicka en JSON tillbaka till programmet – det här alternativet för att skicka ett svar tillbaka till programmet att minderårig har blockerats.
 * Visa en felsida - användaren kommer att visas en sida som informerar dem om att de inte åtkomst till programmet
-
-##<a name="known-issues"></a>Kända problem
-###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Format för svaret när minderårig blockeras.
-Svaret för närvarande har inte rätt format, den här buggen kommer att åtgärdas i en kommande uppdatering.
-
-###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Tar bort specifika attribut som har lagts till under installationen kan göra din katalog som inte kan använda åldershantering.
-I installationsprogrammet för åldershantering, du har konfigurerat din katalog via ett alternativ i din `Properties`.  Om du tar bort antingen `legalCountry` eller `dateOfBirth` via Graph, din katalog kan inte längre använda åldershantering och de här egenskaperna kan inte skapas på nytt.
-
-###<a name="list-of-countries-is-incomplete"></a>Lista över länder är ofullständig
-För närvarande lista över länder för attributen legalCountry är ofullständig, ska vi lägga till resten av de länder/regioner i en kommande uppdatering.

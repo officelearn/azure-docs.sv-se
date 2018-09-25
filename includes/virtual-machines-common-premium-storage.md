@@ -5,26 +5,26 @@ services: storage
 author: ramankumarlive
 ms.service: storage
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: e6a2493b0bc9e2b4c9695e29ae0c175dac9814fe
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ea312002a9a1a39505cd4748864ca9dfc1da43dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40238334"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060677"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Högpresterande Premium Storage och hanterade diskar för virtuella datorer
+
 Azure Premium Storage tillhandahåller högpresterande och låg latens disksupport för virtuella datorer (VM) med indata/utdata (I/O)-intensiva arbetsbelastningar. VM-diskar som använder Premium Storage lagra data på SSD (solid-state drive). Om du vill dra nytta av hastighet och prestanda för premium-lagringsdiskar, kan du migrera befintliga VM-diskar till Premium Storage.
 
-Du kan koppla flera premium storage-diskar till en virtuell dator i Azure. Använda flera diskar ger ditt program upp till 256 TB lagringsutrymme per virtuell dator. Med Premium Storage kan kan dina program uppnå 80 000 i/o-åtgärder per sekund (IOPS) per virtuell dator och en disk genomströmning på upp till 2 000 MB per sekund (MBIT/s) per virtuell dator. Läsåtgärder får du mycket låg fördröjning.
+Du kan koppla flera premium storage-diskar till en virtuell dator i Azure. Använda flera diskar ger ditt program upp till 256 TB lagringsutrymme per virtuell dator, om du använder förhandsversionen-storlekar som ditt program kan ha upp till cirka 2 PiB lagringsutrymme per virtuell dator. Med Premium Storage kan kan dina program uppnå 80 000 i/o-åtgärder per sekund (IOPS) per virtuell dator och en disk genomströmning på upp till 2 000 MB per sekund (MBIT/s) per virtuell dator. Läsåtgärder får du mycket låg fördröjning.
 
 Med Premium Storage erbjuder Azure möjligheten att verkligen lift-and-shift krävande företagsprogram som Dynamics AX, Dynamics CRM, Exchange Server, SAP Business Suite och SharePoint-grupper till molnet. Du kan köra arbetsbelastningar för prestandakrävande i program som SQL Server, Oracle, MongoDB, MySQL och Redis, som kräver konsekvent hög prestanda och låg fördröjning.
 
 > [!NOTE]
 > För bästa prestanda för ditt program rekommenderar vi att du migrerar Virtuella diskar som kräver hög IOPS till Premium Storage. Om disken inte kräver hög IOPS, kan du hjälpa gränsen kostnader genom att lagra den i Azure standardlagring. I standard-lagring lagras Virtuella diskdata på hårddiskar (HDD) i stället för på SSD-enheter.
-> 
 
 Azure erbjuder två sätt att skapa premium storage-diskar för virtuella datorer:
 
@@ -44,7 +44,6 @@ Information om hur du migrerar dina befintliga virtuella datorer till Premium St
 
 > [!NOTE]
 > Premium Storage är tillgängligt i de flesta regionerna. Listan över tillgängliga regioner finns på raden för **disklagring** i [Azure produkttillgänglighet per region](https://azure.microsoft.com/regions/#services).
-> 
 
 ## <a name="features"></a>Funktioner
 
@@ -52,7 +51,7 @@ Här följer några av funktionerna i Premium Storage:
 
 * **Premium storage-diskar**
 
-    Premium Storage stöder VM-diskar som kan kopplas till specifika storlek-serien för virtuella datorer. Premium Storage stöder en mängd olika virtuella Azure-datorer. Du har möjlighet att välja sju diskstorlekar: P4 (32 GB) P6 (64 GB) P10 (128 GB), P15 (256 GB), P20 (512 GB), P30 (1 024 GB), P40 (2 048 GB), P50 (4 095 GB). P4 och P6 diskstorlekar stöds ännu endast för Managed Disks. Varje diskstorleken har sin egen prestandakrav. Du kan koppla en eller flera diskar till din virtuella dator beroende på dina programkrav. Vi beskriver specifikationer i detalj i [skalbarhets- och prestandamål för Premium Storage](#scalability-and-performance-targets).
+    Premium Storage stöder VM-diskar som kan kopplas till specifika storlek-serien för virtuella datorer. Premium Storage stöder en mängd olika virtuella Azure-datorer. Du kan välja mellan åtta GA-diskstorlekar: P4 (32 GiB) P6 (64 GiB) P10 (128 GiB) P15 (256 GB), P20 (512 GiB), P30 (1 024 GiB), P40 (2 048 GiB) P50 (4095 GiB). Samt tre Förhandsgranska diskstorlekar: P60 8 192 GiB (8 TiB) P70 16,348 GiB (16 TiB) P80 32 767 GiB (32 TiB). P4, P6, P60, P70 och P80 diskstorlekar finns för närvarande endast stöd för Managed Disks. Varje diskstorleken har sin egen prestandakrav. Du kan koppla en eller flera diskar till din virtuella dator beroende på dina programkrav. Vi beskriver specifikationer i detalj i [skalbarhets- och prestandamål för Premium Storage](#scalability-and-performance-targets).
 
 * **Premium-sidblobar**
 
@@ -152,16 +151,11 @@ Om du använder premium storage-konton för ohanterade diskar och programmet öv
 ### <a name="premium-storage-disk-limits"></a>Gränser för Premium Storage disk
 När du etablerar en premium-lagringsdisk anger storleken på disken högsta IOPS och dataflöde (bandbredd). Azure erbjuder åtta typer av premium-lagringsdiskar: P4 (hanterade diskar endast), P6 (hanterade diskar endast), P10, P15, P20, P30, P40 och P50. Varje typ av premiumlagring har specifika gränser för IOPS och dataflöde. Begränsningar för disktyper beskrivs i följande tabell:
 
-| Typen för Premium-diskar  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1 024 GB (1 TB)    | 2 048 GB (2 TB)    | 4 095 GB (4 TB)    | 
-| IOPS per disk       | 120   | 240   | 500   | 1100   | 2 300              | 5000              | 7500              | 7500              | 
-| Dataflöde per disk | 25 MB per sekund  | 50 MB per sekund  | 100 MB per sekund | 125 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund | 
+| Premium-diskar typ | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 | |---|---|---|---|---|---|---|---|---|| -------|| -------|| -------| | Diskstorlek | 32 giB | 64 giB | 128 giB | 256 GB | 512 giB | 1 024 giB (1 TiB) | 2048 giB (2 TiB) | 4 095 giB (4 TiB) | 8192 giB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (32 TiB) || IOPS per disk | 120 | 240 | 500 | 1100 | 2300 | 5000 | 7500 | 7500 | 12 500 | 15 000 | 20 000 || Dataflöde per disk | 25 MB per sekund | 50 MB per sekund | 100 MB per sekund | 125 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund | 480 MB per sekund | 750 MB per sekund | 750 MB per sekund |
 
 > [!NOTE]
 > Kontrollera att tillräckligt mycket bandbredd är tillgänglig på den virtuella datorn ska enhet disktrafik, enligt beskrivningen i [Premium-lagring stöds virtuella datorer](#premium-storage-supported-vms). Annars kan är ditt dataflöde och IOPS begränsad till lägre värden. Maximalt dataflöde och IOPS baseras på VM-begränsningar, inte i diskgränser som beskrivs i tabellen ovan.  
-> 
-> 
+> Azure har utformats för Premium Storage-plattformen för att vara massivt parallella. Designa programmet är flertrådat hjälper till att uppnå höga prestanda-mål som erbjuds på större diskstorlekar.
 
 Här följer några viktiga saker du behöver veta om skalbarhets- och prestandamål för Premium Storage:
 
@@ -172,11 +166,10 @@ Här följer några viktiga saker du behöver veta om skalbarhets- och prestanda
 * **Diskstorlek**
 
     Azure mappar diskens storlek (avrundas uppåt) till närmaste premium disk alternativet, som anges i tabellen i föregående avsnitt. Till exempel klassificeras en diskstorlek på 100 GB som en P10-alternativet. Den kan utföra upp till 500 IOPS, med upp till 100 MBIT/s genomströmning. På samma sätt kan en disk som 400 GB klassificeras som en P20. Den kan utföra upp till 2 300 IOPS, med 150 MBIT/s genomströmning.
-    
+
     > [!NOTE]
     > Du kan enkelt öka storleken på befintliga diskar. Du kanske exempelvis vill öka storleken på en 30 GB-disk på 128 GB eller 1 TB. Eller så kan du konvertera dina P20-disk till en P30-disk eftersom du behöver mer kapacitet eller fler IOPS och dataflöde. 
-    > 
- 
+
 * **I/o-storlek**
 
     Storleken på en i/o är 256 KB. Om de data som överförs är mindre än 256 KB, betraktas den 1 i/o-enhet. Större i/o-storlekar räknas som flera I/o för storlek på 256 KB. Till exempel räknas 1 100 KB i/o som 5 i/o-enheter.
@@ -193,9 +186,10 @@ Här följer några viktiga saker du behöver veta om skalbarhets- och prestanda
 
 * **Cacheträffar**
 
-    Cacheträffar begränsas inte av den allokerade IOPS eller dataflöde på disken. Till exempel när du använder en datadisk med en **ReadOnly** cache-inställningen på en virtuell dator som stöds av Premium Storage kan läsningar som hämtas från cachen omfattas inte av IOPS och dataflöden caps på disken. Om arbetsbelastningen på disken är främst läser du kan få mycket hög genomströmning. Cachen lyder separat IOPS och dataflöde gränser i den virtuella datorn på, baserat på virtuella datorstorlek. Virtuella datorer i DS-serien har ungefär 4 000 IOPS och dataflöden för 33 MBIT/s per kärna för cache och lokal SSD-i/o. Virtuella datorer i GS-serien har en gräns på 5 000 IOPS och dataflöden för 50 MBIT/s per kärna för cache och lokal SSD-i/o. 
+    Cacheträffar begränsas inte av den allokerade IOPS eller dataflöde på disken. Till exempel när du använder en datadisk med en **ReadOnly** cache-inställningen på en virtuell dator som stöds av Premium Storage kan läsningar som hämtas från cachen omfattas inte av IOPS och dataflöden caps på disken. Om arbetsbelastningen på disken är främst läser du kan få mycket hög genomströmning. Cachen lyder separat IOPS och dataflöde gränser i den virtuella datorn på, baserat på virtuella datorstorlek. Virtuella datorer i DS-serien har ungefär 4 000 IOPS och dataflöden för 33 MBIT/s per kärna för cache och lokal SSD-i/o. Virtuella datorer i GS-serien har en gräns på 5 000 IOPS och dataflöden för 50 MBIT/s per kärna för cache och lokal SSD-i/o.
 
 ## <a name="throttling"></a>Begränsning
+
 Begränsning kan inträffa om programmet IOPS eller dataflöde överskrider den allokerade gränserna för en premium-lagringsdisk. Begränsning också uppstå om din totala disktrafik över alla diskar på den virtuella datorn är längre än disk bandbredd tillgänglig för den virtuella datorn. Om du vill undvika begränsning, rekommenderar vi att du begränsar antalet väntande i/o-begäranden för disken. Använda en gräns baserat på mål för skalbarhet och prestanda för disken som du har etablerat och på den diskbandbredden som är tillgängliga för den virtuella datorn.  
 
 Ditt program kan uppnå lägsta möjliga svarstid när den är utformad för att undvika begränsning. Men om antalet väntande i/o-begäranden för disken är för liten, kan inte ditt program utnyttja maximal IOPS och dataflödesnivåer som är tillgängliga för disken.
@@ -203,17 +197,19 @@ Ditt program kan uppnå lägsta möjliga svarstid när den är utformad för att
 Följande exempel visar hur du beräknar begränsning nivåer. Alla beräkningar baseras på en storlek på i/o på 256 KB.
 
 ### <a name="example-1"></a>Exempel 1
+
 Programmet har bearbetat 495 i/o-enheter med 16 KB storlek på en sekund på en P10-disk. I/o-enheter räknas som 495 IOPS. Om du ett 2 MB i/o i samma sekund, är det totala antalet i/o-enheter för lika 495 + 8 IOPS. Detta beror på 2 MB i/o = 2 048 KB / 256 KB = 8 i/o-enheter, om i/o-enhet är 256 KB. Eftersom summan av 495 + 8 överskrider 500 IOPS-gränsen för disken, inträffar begränsning.
 
 ### <a name="example-2"></a>Exempel 2
+
 Programmet har bearbetat 400 i/o-enheter med 256 KB storlek på en P10-disk. Den totala bandbredden som förbrukas är (400 &#215; 256) / 1 024 KB = 100 MB/s. En P10-disk har en gräns för genomflöde på 100 MB/s. Om programmet försöker utföra flera i/o-åtgärder i den andra, är den begränsad eftersom den överskrider allokerade gränsen.
 
 ### <a name="example-3"></a>Exempel 3
+
 Du har en DS4-VM med två P30-diskar som är anslutna. Varje P30-disk kan 200 MBIT/s genomströmning. Men har en DS4 virtuell dator en total diskkapacitet bandbredd på 256 MB/s. Du kan inte driva båda anslutna diskar till maximalt dataflöde på den här DS4-VM på samma gång. För att lösa problemet, kan du hantering av trafik över 200 MB/s på en disk och 56 MB/s på den andra. Om summan av disk trafiken går via 256 MB/s, är disktrafik begränsad.
 
 > [!NOTE]
 > Om din disktrafik mestadels består av små i/o-storlekar, överskrids ditt program som sannolikt IOPS-gränsen innan dataflödesgräns. Men om disken trafiken består främst av stora i/o-storlekar, överskrids ditt program som sannolikt dataflödesgräns först, i stället för IOPS-gränsen. Du kan maximera programmets IOPS och dataflödeskapacitet genom att använda bästa i/o-storlekar. Du kan också begränsa antalet väntande i/o-begäranden för en disk.
-> 
 
 Läs mer om design för hög prestanda med Premium Storage i [Design för prestanda med Premium Storage](../articles/virtual-machines/windows/premium-storage-performance.md).
 
@@ -312,11 +308,12 @@ Detaljerad information om priser för Premium Storage finns stöds av Premium St
 * [Priser för virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Priser för Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-## <a name="azure-backup-support"></a>Azure Backup-support 
+## <a name="azure-backup-support"></a>Azure Backup-support
 
 För regional haveriberedskap, måste du säkerhetskopiera dina VM-diskar i en annan region med hjälp av [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) och ett GRS-lagringskonto som ett säkerhetskopieringsvalv.
 
 Om du vill skapa ett säkerhetskopieringsjobb med tidsbaserade säkerhetskopior, använder enkel återställning av virtuell dator och lagringsprinciper för säkerhetskopiering, Azure Backup. Du kan använda säkerhetskopiering båda med ohanterade och hanterade diskar. Mer information finns i [Azure Backup för virtuella datorer med ohanterade diskar](../articles/backup/backup-azure-vms-first-look-arm.md) och [Azure Backup för virtuella datorer med hanterade diskar](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information om Premium Storage finns i följande artiklar.

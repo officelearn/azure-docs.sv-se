@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: dfaed2222d16564cd1f573b4e9038b7019780944
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 5d6e9e4a8770e71dad48f3c3495001813a2e7c50
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744172"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971951"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Snabbstart: Skapa en händelsehubb med Azure CLI
 
@@ -27,7 +27,7 @@ Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda Azure CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att kontrollera vilken version du har. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda Azure CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att kontrollera vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="log-on-to-azure"></a>Logga in i Azure
 
@@ -293,6 +293,6 @@ I den här artikeln skapade du ett Event Hubs-namnområde och de andra resursern
 > [Visualisera dataavvikelser i Event Hubs-dataströmmar](event-hubs-tutorial-visualize-anomalies.md)
 
 [Skapa ett kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install Azure CLI 2.0]: /cli/azure/install-azure-cli
-[az group create]: /cli/azure/group#az-group-create
+[Install the Azure CLI]: /cli/azure/install-azure-cli
+[az group create]: /cli/azure/group#az_group_create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

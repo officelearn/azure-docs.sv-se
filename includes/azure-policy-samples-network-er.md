@@ -5,20 +5,20 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: 6d18e1bdc6649eebbeae2e01bbbc0a12ba09e4c5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 217525fcf3a049bbc143c054bc72c071c3a36800
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664683"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47003980"
 ---
 ### <a name="express-route"></a>Express Route
 
 |  |  |
 |---------|---------|
-| [Tillåten Express Route-bandbredd](../articles/azure-policy/scripts/allowed-er-band.md) | Kräver att ExpressRoutes använder en angiven uppsättning bandbredder. Du anger en matris med SKU:er som kan anges för ExpressRoute. |
-| [Tillåtna Express Route-SKU:er](../articles/azure-policy/scripts/allowed-er-skus.md) | Kräver att Express Routes använder en godkänd SKU. Du anger en matris med tillåtna SKU: er. |
-| [Tillåten peeringplats för Express Route](../articles/azure-policy/scripts/allowed-peering-er.md) | Kräver att Express Routes använder angivna peeringplatser. Du anger en matris med tillåtna peeringplatser. |
+| [Tillåten Express Route-bandbredd](../articles/governance/policy/samples/allowed-er-band.md) | Kräver att ExpressRoutes använder en angiven uppsättning bandbredder. Du anger en matris med SKU:er som kan anges för ExpressRoute. |
+| [Tillåtna Express Route-SKU:er](../articles/governance/policy/samples/allowed-er-skus.md) | Kräver att Express Routes använder en godkänd SKU. Du anger en matris med tillåtna SKU: er. |
+| [Tillåten peeringplats för Express Route](../articles/governance/policy/samples/allowed-peering-er.md) | Kräver att Express Routes använder angivna peeringplatser. Du anger en matris med tillåtna peeringplatser. |

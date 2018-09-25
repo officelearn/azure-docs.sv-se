@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f5773d2f6634d1de9674351ff30a15b488bdd672
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f3925c26e2b7e4044daf5ac4e94fbb24393a4ddc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597471"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999893"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Självstudier – Övervaka och uppdatera en virtuell Linux-dator i Azure
 
-För att säkerställa att dina virtuella datorer körs på rätt sätt i Azure kan du granska startdiagnostik, prestandastatistik och hantera paketuppdateringar. I den här guiden får du lära dig hur man:
+För att säkerställa att dina virtuella datorer körs på rätt sätt i Azure kan du granska startdiagnostik, prestandastatistik och hantera paketuppdateringar. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Aktivera startdiagnostik på den virtuella datorn
@@ -40,7 +40,7 @@ För att säkerställa att dina virtuella datorer körs på rätt sätt i Azure 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Skapa en virtuell dator
 
@@ -77,7 +77,7 @@ az storage account create \
   --location eastus
 ```
 
-När du aktiverar startdiagnostik behöver du URI:en till Blob Storage-behållaren. Följande kommando skickar en fråga till lagringskontot för att returnera denna URI. URI-värdet lagras i variabeln *bloburi* som används i nästa steg.
+När du aktiverar startdiagnostik behöver du URI:en till Blob Storage-containern. Följande kommando skickar en fråga till lagringskontot för att returnera denna URI. URI-värdet lagras i variabeln *bloburi* som används i nästa steg.
 
 ```azurecli-interactive
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)

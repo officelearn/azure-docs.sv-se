@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8f14a7aabbdf815992e0777eaf5335a69570ce2e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d22661c0d07ce446ea0ad345a1e9629f6e2f0d6c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429258"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995898"
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuera och använda Azure Container Registry
 
@@ -33,7 +33,7 @@ I senare självstudier integreras den här ACR-instansen med ett Azure Container
 
 I [föregående självstudie](./container-service-tutorial-kubernetes-prepare-app.md) skapade du en containeravbildning för det enkla programmet Azure Voting. Om du inte har skapat appavbildningen för Azure Voting återgår du till [Självstudie 1 – Skapa containeravbildningar](./container-service-tutorial-kubernetes-prepare-app.md).
 
-I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="deploy-azure-container-registry"></a>Distribuera Azure Container Registry
 

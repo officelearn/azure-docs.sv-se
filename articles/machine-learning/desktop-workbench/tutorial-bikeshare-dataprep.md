@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 2a50350b9ba49d82a20b92804ffb92ec6906186d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: cae80408a7440136b504647596c84a459a0d679c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439908"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971713"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Självstudie: Använd Azure Machine Learning Workbench för avancerad dataförberedelse (BikeShare-data)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (förhandsversion) är en integrerad analyslösning från slutpunkt till slutpunkt som dataforskare kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
 I den här självstudien använder du Machine Learning (förhandsversion) till att lära dig att:
@@ -36,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En lokal installation av Azure Machine Learning Workbench. Mer information finns i [Snabbstart av installation](../service/quickstart-installation.md).
+* En lokal installation av Azure Machine Learning Workbench. Mer information finns i [Snabbstart av installation](quickstart-installation.md).
 * Om du inte har installerat Azure CLI följer du anvisningarna för att [installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Ett [HDInsights Apache Spark-kluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) som skapats i Azure.
 * Ett Azure-lagringskonto.

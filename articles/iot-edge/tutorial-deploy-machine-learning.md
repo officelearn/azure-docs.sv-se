@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: db22b8ddeaa7fc8fd4d8f7a8b3b3d8b4bc143974
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: ddc5adbb5b6bc7f04a893b05df3601714ed85eec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746407"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991461"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 
@@ -46,7 +46,7 @@ En Azure IoT Edge-enhet:
 Molnresurser:
 
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på standardnivå i Azure. 
-* Ett Azure Machine Learning-konto. Följ anvisningarna för att [skapa Azure Machine Learning-konton och installera Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Du behöver inte installera Workbench för den här självstudiekursen. 
+* Ett Azure Machine Learning-konto. Följ anvisningarna för att [skapa Azure Machine Learning-konton och installera Azure Machine Learning Workbench](../machine-learning/desktop-workbench/quickstart-installation.md). Du behöver inte installera Workbench för den här självstudiekursen. 
 
 Utvecklingsresurser:
 

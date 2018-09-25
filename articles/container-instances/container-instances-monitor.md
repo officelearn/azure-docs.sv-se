@@ -8,26 +8,26 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 04/24/2018
 ms.author: marsma
-ms.openlocfilehash: 2ab2a550e1e64f84613eb0fcda79cbd2b6164824
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 6107aee0a4d7497e90186e0ea4bda6cd2712820d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887648"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979615"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Övervaka behållarresurser i Azure Container Instances
 
-Azure Monitor ger inblick i de beräkningsresurser som används av behållarinstanserna. Använd Azure Monitor till att spåra CPU- och minnesanvändningen för behållargrupper och deras behållare. Dessa resursanvändningsdata hjälper dig att avgöra de bästa inställningarna för CPU och minne för behållargrupper.
+Azure Monitor ger inblick i de beräkningsresurser som används av containerinstanserna. Använd Azure Monitor till att spåra CPU- och minnesanvändningen för containergrupper och deras containrar. Dessa resursanvändningsdata hjälper dig att avgöra de bästa inställningarna för CPU och minne för containergrupper.
 
-Det här dokumentet beskriver insamlingen av CPU- och minnesanvändning för behållarinstanser med både Azure Portal och Azure CLI.
+Det här dokumentet beskriver insamlingen av CPU- och minnesanvändning för containerinstanser med både Azure Portal och Azure CLI.
 
 > [!IMPORTANT]
-> För tillfället är bara resursanvändningsstatistik tillgänglig för Linux-behållare.
+> För tillfället är bara resursanvändningsstatistik tillgänglig för Linux-containrar.
 >
 
 ## <a name="available-metrics"></a>Tillgängliga mått
 
-Med Azure Monitor får du användningsmått för både **CPU** och **minne** för Azure Container Instances. Båda måtten tillgängliga för en behållargrupp och för enskilda behållare.
+Med Azure Monitor får du användningsmått för både **CPU** och **minne** för Azure Container Instances. Båda måtten tillgängliga för en containergrupp och för enskilda containrar.
 
 CPU-mått uttrycks i **millicores**. En millicore är en tusendels processorkärna så 500 millicores (eller 500 m) representerar 50 % användning av en processorkärna.
 
@@ -35,21 +35,21 @@ Minnesmått uttrycks i **byte**.
 
 ## <a name="get-metrics---azure-portal"></a>Hämta mått – Azure Portal
 
-När en behållargrupp skapas är Azure Monitor-data tillgängliga i Azure Portal. Välj resursgruppen och sedan behållargruppen om du vill visa måtten för en behållargrupp. Här kan du se förskapade diagram för både CPU- och minnesanvändning.
+När en containergrupp skapas är Azure Monitor-data tillgängliga i Azure Portal. Välj resursgruppen och sedan containergruppen om du vill visa måtten för en containergrupp. Här kan du se förskapade diagram för både CPU- och minnesanvändning.
 
 ![dubbelt diagram][dual-chart]
 
-Om du har en behållargrupp som innehåller flera behållare använder du en [dimension][ monitor-dimension] för att presentera mått för varje enskild behållare. Utför följande steg för att skapa ett diagram med enskilda behållare:
+Om du har en containergrupp som innehåller flera containrar använder du en [dimension][monitor-dimension] för att presentera mått för varje enskild container. Utför följande steg för att skapa ett diagram med enskilda containrar:
 
 1. Välj **Övervakare** i den vänstra navigeringsmenyn.
-2. Välj en behållargrupp och ett mått (CPU eller minne).
-3. Välj den gröna dimensionsknappen och välj **Behållarnamn**.
+2. Välj en containergrupp och ett mått (CPU eller minne).
+3. Välj den gröna dimensionsknappen och välj **Containernamn**.
 
 ![dimension][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Hämta mått – Azure CLI
 
-CPU- och minnesanvändning för Container Instances kan också samlas in med hjälp av Azure CLI. Hämta först behållargruppens ID med följande kommando. Ersätt `<resource-group>` med resursgruppens namn och `<container-group>` med namnet på behållargruppen.
+CPU- och minnesanvändning för Container Instances kan också samlas in med hjälp av Azure CLI. Hämta först containergruppens ID med följande kommando. Ersätt `<resource-group>` med resursgruppens namn och `<container-group>` med namnet på containergruppen.
 
 
 ```console
@@ -105,7 +105,7 @@ Timestamp            Name              Average
 2018-04-22 04:53:00  Memory Usage  9.1008e+06
 ```
 
-För en grupp med flera behållare kan `containerName` dimensionen läggas till för att returnera dessa data per behållare.
+För en grupp med flera containrar kan `containerName` dimensionen läggas till för att returnera dessa data per container.
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --dimension containerName --output table
@@ -144,4 +144,4 @@ Läs mer om Azure-övervakning i [översikten över Azure övervakning][azure-mo
 
 <!-- LINKS - Internal -->
 [azure-monitoring]: ../monitoring-and-diagnostics/monitoring-overview.md
-[monitor-dimension]: ../monitoring-and-diagnostics/monitoring-metric-charts.md#what-are-multi-dimensional-metrics
+[monitor-dimension]: ../monitoring/monitoring-data-collection.md#multi-dimensional-metrics

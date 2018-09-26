@@ -12,19 +12,19 @@ Swarm-läge stöds inte för närvarande, men finns med i planerna för tjänste
 
 ### <a name="does-azure-container-service-support-windows-containers"></a>Har Azure Container Service stöd för Windows-behållare?  
 
-För närvarande finns stöd för Linux-behållare med alla dirigeringsverktyg. Stöd för Windows-behållare med Kubernetes är tillgängligt i förhandsversionen.
+För närvarande finns stöd för Linux-containrar med alla dirigeringsverktyg. Stöd för Windows-containrar med Kubernetes är tillgängligt i förhandsversionen.
 
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Rekommenderar ni något specifikt dirigeringsverktyg i Azure Container Service? 
 Vanligtvis rekommenderar vi inte något specifikt dirigeringsverktyg. Om du har erfarenheter av något av de dirigeringsverktyg som stöds kan du använda dig av det i Azure Container Service. Man kan dock säga att DC/OS är produktionstestat för stordata och IoT-arbetsbelastningar, att Kubernetes passar för molnautentiska arbetsbelastningar och att Docker Swarm är känt för sin integrering med Docker-verktyg och korta inlärningskurva.
 
-Beroende på ditt scenario kan du också skapa och hantera anpassade behållarlösningar med andra Azure-tjänster. Till exempel med [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/app-service-web-overview.md) och [Batch](../articles/batch/batch-technical-overview.md).  
+Beroende på ditt scenario kan du också skapa och hantera anpassade containerlösningar med andra Azure-tjänster. Till exempel med [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/app-service-web-overview.md) och [Batch](../articles/batch/batch-technical-overview.md).  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Vad är skillnaden mellan Azure Container Service och ACS Engine? 
-Azure Container Service är en SLA-reglerad Azure-tjänst med funktioner i Azure Portal, Azure kommandoradsverktyg och Azure API: er. Med tjänsten kan du snabbt implementera och hantera kluster som kör standardverktyg för behållardirigering med relativt få konfigurationsalternativ. 
+Azure Container Service är en SLA-reglerad Azure-tjänst med funktioner i Azure Portal, Azure kommandoradsverktyg och Azure API: er. Med tjänsten kan du snabbt implementera och hantera kluster som kör standardverktyg för containerdirigering med relativt få konfigurationsalternativ. 
 
 [ACS Engine](http://github.com/Azure/acs-engine) är ett projekt baserat på öppen källkod som gör det möjligt för privilegierade användare att anpassa klusterkonfigurationen på varje nivå. Möjligheten att ändra konfigurationen för både infrastruktur och programvara innebär att vi inte erbjuder något serviceavtal för ACS Engine. Support hanteras via projektet på GitHub i stället för via de officiella Microsoft-kanalerna. 
 
-Mer information finns i vår [supportpolicy för behållare](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
+Mer information finns i vår [supportpolicy för containrar](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
 
 ## <a name="cluster-management"></a>Klusterhantering
 
@@ -32,13 +32,13 @@ Mer information finns i vår [supportpolicy för behållare](https://support.mic
 
 Du kan använda standardverktygen i ditt operativsystem för att skapa en privat och en offentlig SSH-RSA-nyckel för autentisering mot virtuella Linux-datorer för ditt kluster. Anvisningar finns i guiden för [OS X och Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../articles/virtual-machines/linux/ssh-from-windows.md). 
 
-Om du använder [Azure CLI 2.0-kommandon](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) för att distribuera ett kluster för behållartjänsten kan SSH-nycklar genereras automatiskt för klustret.
+Om du använder [Azure CLI-kommandon](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) för att distribuera ett kluster för containertjänsten kan SSH-nycklar genereras automatiskt för klustret.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Hur skapar jag ett huvudnamn för mitt Kubernetes-kluster?
 
 Ett ID och lösenord krävs också för Azure Active Directory-tjänstens huvudnamn när du skapar ett Kubernetes-kluster i Azure Container Service. Mer information finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](../articles/container-service/kubernetes/container-service-kubernetes-service-principal.md).
 
-Om du använder [Azure CLI 2.0-kommandon](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) för att distribuera ett Kubernetes-kluster kan autentiseringsuppgifter för tjänstens huvudnamn genereras automatiskt för klustret.
+Om du använder [Azure CLI-kommandon](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) för att distribuera ett Kubernetes-kluster kan autentiseringsuppgifter för tjänstens huvudnamn genereras automatiskt för klustret.
 
 ### <a name="how-large-a-cluster-can-i-create"></a>Hur stort kluster kan jag skapa?
 Du kan skapa ett kluster med 1, 3 eller 5 överordnade noder. Du kan välja upp till 100 agentnoder.
@@ -82,9 +82,9 @@ Du hittar anslutningssträngen i Azure Portal eller med hjälp av Azure-kommando
 
 3. På bladet **Distributionshistorik** klickar du på den distribution som har ett namn som börjar med **microsoft-acs** följt av ett distributionsdatum. Till exempel: microsoft-acs-201701310000.  
 
-4. Det finns flera klusterlänkar under **Utdata** på sidan **Sammanfattning**. **SSHMaster0** ger en SSH-anslutningssträng till den första huvudserver i klustret. 
+4. Det finns flera klusterlänkar under **Utdata** på sidan **Sammanfattning**. **SSHMaster0** ger en SSH-anslutningssträng till den första huvudservern i containertjänstklustret. 
 
-Som vi nämnde tidigare kan du också använda Azure-verktyg för att hitta det fullständiga domännamnet för huvudservern. Skapa en SSH-anslutning till huvudservern med det fullständiga domännamnet för huvudservern och det användarnamn som du angav när klustret skapades. Till exempel:
+Som vi nämnde tidigare kan du också använda Azure-verktyg för att hitta det fullständiga domännamnet för huvudservern. Skapa en SSH-anslutning till huvudservern med det fullständiga domännamnet för huvudservern och det användarnamn som du angav när klustret skapades. Exempel:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
@@ -98,11 +98,11 @@ Det finns en del kända problem i DNS på Windows som håller på att lösas. Ko
 
 | DNS-problem | Lösning  |
 |-------------|-------------|
-|När behållaren för arbetsbelastningen är instabil och kraschar, rensas namnrymden för nätverket | Distribuera om alla påverkade tjänster |
+|När containern för arbetsbelastningen är instabil och kraschar, rensas namnrymden för nätverket | Distribuera om alla påverkade tjänster |
 | Tjänsten för VIP-åtkomst är nere | Konfigurera [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) så att alltid en normal (icke-privilegierad) pod körs |
-|När noden som behållaren körs på blir otillgänglig, misslyckas DNS-frågor, vilket resulterar i en post med negativ cache | Kör följande behållare som påverkas från insidan: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Om detta inte löser problemet, kan du prova att inaktivera DNS-cachen helt: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
+|När noden som containern körs på blir otillgänglig, misslyckas DNS-frågor, vilket resulterar i en post med negativ cache | Kör följande containrar som påverkas från insidan: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Om detta inte löser problemet, kan du prova att inaktivera DNS-cachen helt: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Läs mer](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) om Azure Container Service.
-* Distribuera ett behållartjänstkluster med hjälp av [portalen](../articles/container-service/dcos-swarm/container-service-deployment.md) eller [Azure CLI 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).
+* Distribuera ett containertjänstkluster med hjälp av [portalen](../articles/container-service/dcos-swarm/container-service-deployment.md) eller [Azure CLI](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).

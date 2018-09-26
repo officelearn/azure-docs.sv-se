@@ -1,115 +1,126 @@
+items:
 - name: Container Instances
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Azure Container Instances
-      href: container-instances-overview.md
+  - name: Om Azure Container Instances
+    href: container-instances-overview.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Skapa container – CLI
-      href: container-instances-quickstart.md
-    - name: Skapa container – Portal
-      href: container-instances-quickstart-portal.md
-    - name: Skapa container – PowerShell
-      href: container-instances-quickstart-powershell.md
+  - name: Skapa container – CLI
+    href: container-instances-quickstart.md
+  - name: Skapa container – Portal
+    href: container-instances-quickstart-portal.md
+  - name: Skapa container – PowerShell
+    href: container-instances-quickstart-powershell.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: 1 – Skapa containeravbildning
-      href: container-instances-tutorial-prepare-app.md
-    - name: 2 – Skapa containerregister
-      href: container-instances-tutorial-prepare-acr.md
-    - name: 3 – Distribuera program
-      href: container-instances-tutorial-deploy-app.md
+  - name: 1 – Skapa containeravbildning
+    href: container-instances-tutorial-prepare-app.md
+  - name: 2 – Skapa containerregister
+    href: container-instances-tutorial-prepare-acr.md
+  - name: 3 – Distribuera program
+    href: container-instances-tutorial-deploy-app.md
 - name: Exempel
   items:
-    - name: Kodexempel
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
-    - name: Mallar för Resurshanteraren
-      href: container-instances-samples-rm.md
+  - name: Kodexempel
+    href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
+  - name: Mallar för Resurshanteraren
+    href: container-instances-samples-rm.md
 - name: Begrepp
   items:
-    - name: Kvoter och regionala begränsningar
-      href: container-instances-quotas.md
-    - name: Relation till dirigeringsverktyg
-      href: container-instances-orchestrator-relationship.md
-    - name: Containergrupper
-      href: container-instances-container-groups.md
+  - name: Kvoter och regionala begränsningar
+    href: container-instances-quotas.md
+  - name: Relation till dirigeringsverktyg
+    href: container-instances-orchestrator-relationship.md
+  - name: Containergrupper
+    href: container-instances-container-groups.md
 - name: Instruktionsguider
   items:
-    - name: Distribuera
-      items:
-        - name: Grupper med flera behållare – YAML
-          href: container-instances-multi-container-yaml.md
-        - name: Grupper med flera behållare – Resource Manager
-          href: container-instances-multi-container-group.md
-        - name: Distribuera från Azure Container Registry
-          href: container-instances-using-azure-container-registry.md
-        - name: Ange miljövariabler (env)
-          href: container-instances-environment-variables.md
-        - name: Konfigurera liveavsökningar
-          href: container-instances-liveness-probe.md
-    - name: Hantera
-      items:
-        - name: Uppdatera containrar som körs
-          href: container-instances-update.md
-        - name: Köra ett kommando (exec)
-          href: container-instances-exec.md
-        - name: Övervaka användning av processor och minne
-          href: container-instances-monitor.md
-        - name: Loggning med Azure Log Analytics
-          href: container-instances-log-analytics.md
-    - name: Köra arbetsbelastningar
-      items:
-        - name: Köra uppgifter med omstartsprinciper
-          href: container-instances-restart-policy.md
-        - name: Jenkins-versionsagenter på ACI
-          href: container-instances-jenkins.md
-    - name: Konfigurera datavolymer
-      items:
-        - name: Azure Files
-          href: container-instances-volume-azure-files.md
-        - name: emptyDir
-          href: container-instances-volume-emptydir.md
-        - name: gitRepo
-          href: container-instances-volume-gitrepo.md
-        - name: hemlighet
-          href: container-instances-volume-secret.md
-    - name: Felsöka
-      items:
-        - name: Hämta containerloggar och händelser
-          href: container-instances-get-logs.md
-        - name: Felsök vanliga problem
-          href: container-instances-troubleshooting.md
+  - name: Distribuera
+    items:
+    - name: Grupper med flera behållare – YAML
+      href: container-instances-multi-container-yaml.md
+    - name: Grupper med flera behållare – Resource Manager
+      href: container-instances-multi-container-group.md
+    - name: Distribution av virtuellt nätverk (förhandsversion)
+      href: container-instances-vnet.md
+    - name: Distribuera från Azure Container Registry
+      href: container-instances-using-azure-container-registry.md
+    - name: Ange miljövariabler (env)
+      href: container-instances-environment-variables.md
+    - name: Konfigurera liveavsökningar
+      href: container-instances-liveness-probe.md
+  - name: Hantera
+    items:
+    - name: Uppdatera containrar som körs
+      href: container-instances-update.md
+    - name: Köra ett kommando (exec)
+      href: container-instances-exec.md
+    - name: Övervaka användning av processor och minne
+      href: container-instances-monitor.md
+    - name: Loggning med Azure Log Analytics
+      href: container-instances-log-analytics.md
+  - name: Köra arbetsbelastningar
+    items:
+    - name: Köra uppgifter med omstartsprinciper
+      href: container-instances-restart-policy.md
+    - name: Jenkins-versionsagenter på ACI
+      href: container-instances-jenkins.md
+  - name: Konfigurera datavolymer
+    items:
+    - name: Azure Files
+      href: container-instances-volume-azure-files.md
+    - name: emptyDir
+      href: container-instances-volume-emptydir.md
+    - name: gitRepo
+      href: container-instances-volume-gitrepo.md
+    - name: hemlighet
+      href: container-instances-volume-secret.md
+  - name: Felsöka
+    items:
+    - name: Hämta containerloggar och händelser
+      href: container-instances-get-logs.md
+    - name: Felsök vanliga problem
+      href: container-instances-troubleshooting.md
 - name: Referens
   items:
-    - name: Azure CLI
-      href: /cli/azure/container
-    - name: REST
-      href: /rest/api/container-instances
-    - name: PowerShell
-      href: '/powershell/module/azurerm.containerinstance#container_instances'
-    - name: .NET
-      href: /dotnet/api/overview/azure/containerinstance
-    - name: Python
-      href: /python/api/overview/azure/containerinstance
-    - name: Java
-      href: /java/api/overview/azure/containerinstance
-    - name: Node.js
-      href: /javascript/api/overview/azure/containerinstances
-    - name: Resource Manager-mall
-      href: /azure/templates/microsoft.containerinstance/containergroups
+  - name: Azure CLI
+    href: /cli/azure/container
+  - name: REST
+    href: /rest/api/container-instances
+  - name: PowerShell
+    href: /powershell/module/azurerm.containerinstance#container_instances
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerinstance
+  - name: Python
+    href: /python/api/overview/azure/containerinstance
+  - name: Java
+    href: /java/api/overview/azure/containerinstance
+  - name: Node.js
+    href: /javascript/api/overview/azure/containerinstances
+  - name: Resource Manager-mall
+    href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Resurser
   items:
-    - name: Regional tillgänglighet
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/container-instances/'
-    - name: Översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Ge produktfeedback
-      href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-container-instances'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+  - name: Utveckla din kompetens med Microsoft Learn
+    href: /learn/browse/?products=azure-container-instances
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/container-instances/
+  - name: Översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Ge produktfeedback
+    href: https://feedback.azure.com/forums/602224-azure-container-instances
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-instances
+  - name: Videoklipp
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
+ms.openlocfilehash: 928f6abcfd8059581c668ed8a8584e85e0ba58da
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036430"

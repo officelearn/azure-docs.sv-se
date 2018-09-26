@@ -1,5 +1,5 @@
 ---
-title: Referera till administratörsroller i Azure Active Directory | Microsoft Docs
+title: Behörigheter för administratör i Azure Active Directory | Microsoft Docs
 description: En administratörsroll kan lägga till användare, tilldela administrativa roller, återställa användarlösenord, hantera användarlicenser eller hantera domäner.
 services: active-directory
 documentationcenter: ''
@@ -10,28 +10,26 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 04deb1168c8c5c0977d0f20c9307ce10d2d12d35
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 293d8376d83d729588aab0aeaa1040d9b3e5e0b5
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466123"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182288"
 ---
-# <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
+# <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
 Med Azure Active Directory (Azure AD) kan ange du separata administratörer att hantera olika funktioner. Administratörer kan utses i Azure AD-portalen för att utföra åtgärder som att lägga till eller ändra användare, tilldela administrativa roller, återställa användarlösenord, hantera användarlicenser och hantera domännamn.
 
-## <a name="details-about-the-global-administrator-role"></a>Information om rollen global administratör
-
-Globala administratörer har åtkomst till alla administrativa funktioner. Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen som global administratör för katalogen. Endast globala administratörer kan tilldela andra administratörsroller.
+Globala administratörer har åtkomst till alla administrativa funktioner. Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen som Global administratör för katalogen. Endast globala administratörer kan delegera administratörsroller.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Tilldela eller ta bort administratörsroller
 
-Om du vill lära dig mer om att tilldela administrativa roller till en användare i Azure Active Directory, se [tilldela en användare till administratörsroller i Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md).
+Om du vill lära dig mer om att tilldela administrativa roller till en användare i Azure Active Directory, se [visa och tilldela administratörsroller i Azure Active Directory](directory-manage-roles-portal.md).
 
 ## <a name="available-roles"></a>Tillgängliga roller
 
@@ -53,7 +51,7 @@ Följande administratörsroller är tillgängliga:
   > [!NOTE]
   > Om du vill distribuera Exchange ActiveSync villkorsstyrd åtkomstprincip i Azure, måste användaren också vara en Global administratör.
   
-* **[Enhetsadministratörer](#device-administrators)**: den här rollen är tilldelas endast som en ytterligare lokal administratör i [Enhetsinställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir administratörer för den lokala datorn på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheters objekt i Azure Active Directory. 
+* **[Enhetsadministratörer](#device-administrators)**: den här rollen är tilldelas endast som en ytterligare lokal administratör i [Enhetsinställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir lokala administratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheters objekt i Azure Active Directory. 
 
 * **[Katalogläsare](#directory-readers)**: det här är en äldre roll som ska tilldelas till program som inte stöder den [godkänna Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Det ska inte tilldelas alla användare.
 
@@ -119,7 +117,7 @@ Följande administratörsroller är tillgängliga:
 
 * **[SharePoint-tjänstadministratör](#sharepoint-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft SharePoint Online när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[Skype för företag – / Lync-tjänstadministratör](#lync-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Skype för företag när tjänsten finns närvarande, samt hantera Skype-specifika användarattribut i Azure Active Katalogen. Den här rollen ger dessutom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd och komma åt Teams och Skype för Business Admin Center. Kontot måste också ha licens för team eller teamen PowerShell-cmdlet: ar kan köras. Mer information på [om the Skype för företag-administratörsroll](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) och team licensinformation på [Skype för företag och Microsoft Teams-tillägg-licensiering](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
+* **[Skype för företag – / Lync-tjänstadministratör](#skype-for-business-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Skype för företag när tjänsten finns närvarande, samt hantera Skype-specifika användarattribut i Azure Active Katalogen. Den här rollen ger dessutom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd och komma åt Teams och Skype för Business Admin Center. Kontot måste också ha licens för team eller teamen PowerShell-cmdlet: ar kan köras. Mer information på [om the Skype för företag-administratörsroll](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) och team licensinformation på [Skype för företag och Microsoft Teams-tillägg-licensiering](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
   > [!NOTE]
   > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Lync-tjänstadministratör”. Det är ”Skype för företag tjänstadministratör” i den [Azure-portalen](https://portal.azure.com/).
@@ -140,23 +138,9 @@ Följande administratörsroller är tillgängliga:
 | --- | --- |
 | <p>Visa företaget och användaren information</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare, supportadministratörer och andra användaradministratörer endast</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera och ta bort användare och grupper och hantera användarlicenser, med begränsningar. Han eller hon kan inte ta bort en global administratör eller skapa andra administratörer.</p> |<p>Utföra åtgärder för fakturering och inköp för Office-produkter</p><p>Hantera domäner</p><p>Hantera företagsinformation</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Aktivera eller inaktivera multifaktorautentisering</p><p>Visa granskningsloggar</p> |
 
-## <a name="deprecated-roles"></a>Föråldrad roller
+I följande tabeller beskrivs de särskilda behörigheterna i Azure Active Directory för varje roll. Vissa roller kan ha ytterligare behörigheter i Microsoft services outide av Azure Active Directory.
 
-Följande roller ska inte användas. De har inaktuella och tas bort från Azure AD i framtiden.
-
-* Ad hoc-licensadministratör
-* Enhetskoppling
-* Enhetshanterare
-* Användare av enheter
-* E-postverifierad användarskapare
-* Postlådeadministratör
-* Arbetsplatsenhetskoppling
-
-## <a name="detailed-azure-active-directory-permissions"></a>Detaljerad Azure Active Directory-behörigheter
-I följande tabeller beskrivs de särskilda behörigheterna i Azure Active Directory för varje roll. Vissa roller, som Global administratör kan ha ytterligare behörigheter i Microsoft services outide av Azure Active Directory.
-
-
-### <a name="adhoc-license-administrator"></a>Ad hoc-licensadministratör
+## <a name="adhoc-license-administrator"></a>AdHoc-licensadministratör
 Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar.
 
   > [!NOTE]
@@ -190,7 +174,7 @@ Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar.
 | microsoft.aad.directory/users/ownedObjects/read | Läsa users.ownedObjects-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/users/registeredDevices/read | Läsa users.registeredDevices-egenskapen i Azure Active Directory. |
 
-### <a name="application-administrator"></a>Programadministratör
+## <a name="application-administrator"></a>Programadministratör
 Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar.
 
   > [!NOTE]
@@ -234,7 +218,7 @@ Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="application-developer"></a>Programutvecklare
+## <a name="application-developer"></a>Programutvecklare
 Kan skapa programregistreringar oberoende av användarna kan registrera program inställningen.
 
   > [!NOTE]
@@ -249,7 +233,7 @@ Kan skapa programregistreringar oberoende av användarna kan registrera program 
 | microsoft.aad.directory/oAuth2PermissionGrants/createAsOwner | Skapa oAuth2PermissionGrants i Azure Active Directory. Skaparen läggs till som första ägare och det skapade objektet räknas mot Skaparens kvot på 250 skapade objekt. |
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Skapa servicePrincipals i Azure Active Directory. Skaparen läggs till som första ägare och det skapade objektet räknas mot Skaparens kvot på 250 skapade objekt. |
 
-### <a name="billing-administrator"></a>Faktureringsadministratör
+## <a name="billing-administrator"></a>Faktureringsadministratör
 Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalningsinformation.
 
   > [!NOTE]
@@ -258,7 +242,7 @@ Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalnin
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -273,7 +257,7 @@ Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalnin
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="cloud-application-administrator"></a>Molnprogramadministratör
+## <a name="cloud-application-administrator"></a>Molnprogramadministratör
 Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar förutom App Proxy.
 
   > [!NOTE]
@@ -316,7 +300,7 @@ Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar f�
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="cloud-device-administrator"></a>Molnenhetsadministratör
+## <a name="cloud-device-administrator"></a>Molnenhetsadministratör
 Fullständig åtkomst för att hantera enheter i Azure AD.
 
   > [!NOTE]
@@ -333,7 +317,7 @@ Fullständig åtkomst för att hantera enheter i Azure AD.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
-### <a name="company-administrator"></a>Företagsadministratör
+## <a name="company-administrator"></a>Företagsadministratör
 Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure AD-identiteter.
 
   > [!NOTE]
@@ -342,7 +326,7 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -395,7 +379,7 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Hantera alla aspekter av Dynamics 365. |
 
-### <a name="compliance-administrator"></a>Efterlevnadsadministratör
+## <a name="compliance-administrator"></a>Efterlevnadsadministratör
 Kan läsa och hantera efterlevnadskonfiguration och rapporter i Azure AD och Office 365.
 
   > [!NOTE]
@@ -404,7 +388,7 @@ Kan läsa och hantera efterlevnadskonfiguration och rapporter i Azure AD och Off
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -420,7 +404,7 @@ Kan läsa och hantera efterlevnadskonfiguration och rapporter i Azure AD och Off
 | Microsoft.Office365.skypeForBusiness/allEntities/allTasks | Hantera alla aspekter av Skype för företag Online. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="conditional-access-administrator"></a>Administratör för villkorsstyrd åtkomst
+## <a name="conditional-access-administrator"></a>Administratör för villkorsstyrd åtkomst
 Kan hantera funktioner för villkorsstyrd åtkomst.
 
   > [!NOTE]
@@ -438,29 +422,7 @@ Kan hantera funktioner för villkorsstyrd åtkomst.
 | microsoft.aad.directory/policies/conditionalAccess/owners/update | Uppdatera policies.conditionalAccess-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Läsa policies.conditionalAccess-egenskapen i Azure Active Directory. |
 
-### <a name="crm-service-administrator"></a>Administratör för CRM-tjänst
-Kan hantera alla aspekter av Dynamics 365-produkten.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
-  >
-  >
-
-| **Åtgärder** | **Beskrivning** |
-| --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure supportärenden. |
-| microsoft.powerApps.dynamics365/allEntities/allTasks | Hantera alla aspekter av Dynamics 365. |
-| Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
-| Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
-
-### <a name="customer-lockbox-access-approver"></a>Godkännare av åtkomst till Customer LockBox
+## <a name="customer-lockbox-access-approver"></a>Godkännare av åtkomst till Customer LockBox
 Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till kundens organisationsdata.
 
   > [!NOTE]
@@ -469,7 +431,7 @@ Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till ku
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -478,7 +440,7 @@ Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till ku
 | microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
 | Microsoft.Office365.lockbox/allEntities/allTasks | Hantera alla aspekter av Office 365 Customer Lockbox |
 
-### <a name="device-administrators"></a>Enhetsadministratörer
+## <a name="device-administrators"></a>Enhetsadministratörer
 Medlemmar i den här rollen har lagts till i gruppen lokala administratörer på Azure AD-anslutna enheter.
 
   > [!NOTE]
@@ -491,7 +453,7 @@ Medlemmar i den här rollen har lagts till i gruppen lokala administratörer på
 | microsoft.aad.directory/groupSettings/default/read | Läsa grundläggande egenskaper för groupSettings i Azure Active Directory. |
 | microsoft.aad.directory/groupSettingTemplates/default/read | Läsa grundläggande egenskaper för groupSettingTemplates i Azure Active Directory. |
 
-### <a name="device-managers"></a>Enhetshanterare
+## <a name="device-managers"></a>Enhetshanterare
 Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till kundens organisationsdata.
 
   > [!NOTE]
@@ -500,7 +462,7 @@ Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till ku
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -514,7 +476,7 @@ Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till ku
 | microsoft.aad.directory/devices/registeredUsers/read | Läsa devices.registeredUsers-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/devices/registeredUsers/update | Uppdatera devices.registeredUsers-egenskapen i Azure Active Directory. |
 
-### <a name="directory-readers"></a>Katalogläsare
+## <a name="directory-readers"></a>Katalogläsare
 Kan läsa grundläggande kataloginformation. För att bevilja åtkomst till program
 
   > [!NOTE]
@@ -572,7 +534,7 @@ Azure Active Directory. |
 | microsoft.aad.directory/users/ownedObjects/read | Läsa users.ownedObjects-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/users/registeredDevices/read | Läsa users.registeredDevices-egenskapen i Azure Active Directory. |
 
-### <a name="directory-synchronization-accounts"></a>Konton för katalogen katalogsynkronisering
+## <a name="directory-synchronization-accounts"></a>Konton för katalogen katalogsynkronisering
 Endast används av Azure AD Connect-tjänsten.
 
   > [!NOTE]
@@ -606,7 +568,7 @@ Endast används av Azure AD Connect-tjänsten.
 | microsoft.aad.directory/servicePrincipals/policies/update | Uppdatera servicePrincipals.policies-egenskapen i Azure Active Directory. |
 | microsoft.aad.directorySync/allEntities/allTasks | Utföra alla åtgärder i Azure AD Connect. |
 
-### <a name="directory-writers"></a>Katalogskrivare
+## <a name="directory-writers"></a>Katalogskrivare
 Kan läsa och skriva grundläggande kataloginformation. För att bevilja åtkomst till program
 
   > [!NOTE]
@@ -633,7 +595,29 @@ Kan läsa och skriva grundläggande kataloginformation. För att bevilja åtkoms
 | Microsoft.aad.Directory/Users/Manager/Update | Uppdatera users.manager-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Uppdatera users.userPrincipalName-egenskapen i Azure Active Directory. |
 
-### <a name="exchange-service-administrator"></a>Exchange Service-administratör
+## <a name="dynamics-365-administrator"></a>Dynamics 365-administratör
+Kan hantera alla aspekter av Dynamics 365-produkten. Tidigare CRM-tjänstadministratör.
+
+  > [!NOTE]
+  > Den här rollen ärver behörigheterna från katalogläsarrollen.
+  >
+  >
+
+  > [!NOTE]
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure supportärenden. |
+| microsoft.powerApps.dynamics365/allEntities/allTasks | Hantera alla aspekter av Dynamics 365. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
+| Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
+
+## <a name="exchange-service-administrator"></a>Exchange Service-administratör
 Kan hantera alla aspekter av Exchange-produkten.
 
   > [!NOTE]
@@ -642,7 +626,7 @@ Kan hantera alla aspekter av Exchange-produkten.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -655,7 +639,7 @@ Kan hantera alla aspekter av Exchange-produkten.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="guest"></a>Gäst
+## <a name="guest"></a>Gäst
 Standardrollen för gästanvändare. Kan läsa en begränsad uppsättning kataloginformation.
 
   > [!NOTE]
@@ -701,8 +685,8 @@ Standardrollen för gästanvändare. Kan läsa en begränsad uppsättning katalo
 | microsoft.aad.directory/users/registeredDevices/read | Läsa users.registeredDevices-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/users/scopedAdministratorOf/read | Läsa users.scopedAdministratorOf-egenskapen i Azure Active Directory. |
 
-### <a name="guest-inviter"></a>Gäst bjuder in
-Kan bjuda in gästanvändare oberoende av medlemmar kan bjuda in gäster inställningen.
+## <a name="guest-inviter"></a>Gäst bjuder in
+Kan bjuda in gästanvändare oberoende av den ”medlemmar kan bjuda in gäster som medlemmar kan bjuda in gäster inställningen.
 
   > [!NOTE]
   > Den här rollen ärver behörigheterna från rollen.
@@ -724,7 +708,7 @@ Kan bjuda in gästanvändare oberoende av medlemmar kan bjuda in gäster instäl
 | microsoft.aad.directory/users/ownedObjects/read | Läsa users.ownedObjects-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/users/registeredDevices/read | Läsa users.registeredDevices-egenskapen i Azure Active Directory. |
 
-### <a name="helpdesk-administrator"></a>Supportavdelningsadministratör
+## <a name="helpdesk-administrator"></a>Supportavdelningsadministratör
 Kan återställa lösenord för icke-administratörer och Helpdeks-administratörer.
 
   > [!NOTE]
@@ -742,7 +726,7 @@ Kan återställa lösenord för icke-administratörer och Helpdeks-administratö
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="information-protection-administrator"></a>Information Protection-administratör
+## <a name="information-protection-administrator"></a>Information Protection-administratör
 Kan hantera alla aspekter av Azure Information Protection-produkten.
 
   > [!NOTE]
@@ -751,7 +735,7 @@ Kan hantera alla aspekter av Azure Information Protection-produkten.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -763,7 +747,7 @@ Kan hantera alla aspekter av Azure Information Protection-produkten.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="intune-service-administrator"></a>Administratör för Intune-tjänsten
+## <a name="intune-service-administrator"></a>Administratör för Intune-tjänsten
 Kan hantera alla aspekter av Intune-produkten.
 
   > [!NOTE]
@@ -772,7 +756,7 @@ Kan hantera alla aspekter av Intune-produkten.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -803,7 +787,7 @@ Kan hantera alla aspekter av Intune-produkten.
 | microsoft.intune/allEntities/allTasks | Hantera alla aspekter av Intune. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="license-administrator"></a>Licensadministratör
+## <a name="license-administrator"></a>Licensadministratör
 Kan hantera produktlicenser på användare och grupper.
 
   > [!NOTE]
@@ -819,29 +803,7 @@ Kan hantera produktlicenser på användare och grupper.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
-### <a name="lync-service-administrator"></a>Lync-tjänstadministratör
-Kan hantera alla aspekter av Skype för Business-produkten.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
-  >
-  >
-
-| **Åtgärder** | **Beskrivning** |
-| --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure supportärenden. |
-| Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
-| Microsoft.Office365.skypeForBusiness/allEntities/allTasks | Hantera alla aspekter av Skype för företag Online. |
-| Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
-
-### <a name="message-center-reader"></a>Meddelandecenterläsare
+## <a name="message-center-reader"></a>Meddelandecenterläsare
 Kan endast läsa meddelanden och uppdateringar avseende sin organisation i meddelandecenter för Office 365. 
 
   > [!NOTE]
@@ -850,7 +812,7 @@ Kan endast läsa meddelanden och uppdateringar avseende sin organisation i medde
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -859,7 +821,7 @@ Kan endast läsa meddelanden och uppdateringar avseende sin organisation i medde
 | microsoft.aad.accessmessagecenter/allEntities/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standardegenskaper i meddelandecenter. |
 | microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
 
-### <a name="partner-tier1-support"></a>Partnersupport, nivå 1
+## <a name="partner-tier1-support"></a>Partnersupport, nivå 1
 Använd inte – inte avsett för allmänt bruk.
 
   > [!NOTE]
@@ -868,7 +830,7 @@ Använd inte – inte avsett för allmänt bruk.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -896,7 +858,7 @@ Använd inte – inte avsett för allmänt bruk.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="partner-tier2-support"></a>Partnersupport, nivå 2
+## <a name="partner-tier2-support"></a>Partnersupport, nivå 2
 Använd inte – inte avsett för allmänt bruk.
 
   > [!NOTE]
@@ -905,7 +867,7 @@ Använd inte – inte avsett för allmänt bruk.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -936,7 +898,7 @@ Använd inte – inte avsett för allmänt bruk.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="power-bi-service-administrator"></a>Power BI-tjänstadministratör
+## <a name="power-bi-service-administrator"></a>Power BI-tjänstadministratör
 Kan hantera alla aspekter av Power BI-produkten.
 
   > [!NOTE]
@@ -945,7 +907,7 @@ Kan hantera alla aspekter av Power BI-produkten.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -958,7 +920,7 @@ Kan hantera alla aspekter av Power BI-produkten.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="privileged-role-administrator"></a>Privilegierad rolladministratör
+## <a name="privileged-role-administrator"></a>Privilegierad rolladministratör
 Kan hantera rolltilldelningar i Azure AD
 
   > [!NOTE]
@@ -967,7 +929,7 @@ Kan hantera rolltilldelningar i Azure AD
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -976,7 +938,7 @@ Kan hantera rolltilldelningar i Azure AD
 | microsoft.aad.directory/directoryRoles/update | Uppdatera directoryRoles i Azure Active Directory. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standardegenskaper i microsoft.aad.privilegedIdentityManagement. |
 
-### <a name="reports-reader"></a>Rapportläsare
+## <a name="reports-reader"></a>Rapportläsare
 Kan läsa inloggnings- och granskningsrapporter.
 
   > [!NOTE]
@@ -985,7 +947,7 @@ Kan läsa inloggnings- och granskningsrapporter.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -996,7 +958,7 @@ Kan läsa inloggnings- och granskningsrapporter.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.usageReports/allEntities/Read | Läs Office 365-användningsrapporter. |
 
-### <a name="security-administrator"></a>Säkerhetsadministratör
+## <a name="security-administrator"></a>Säkerhetsadministratör
 Kan läsa säkerhetsinformation och rapporter
 
   > [!NOTE]
@@ -1005,7 +967,7 @@ Kan läsa säkerhetsinformation och rapporter
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -1026,7 +988,7 @@ Kan läsa säkerhetsinformation och rapporter
 | Microsoft.Office365.protectionCenter/allEntities/Update | Uppdatera alla resurser i microsoft.office365.protectionCenter. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
-### <a name="security-reader"></a>Säkerhetsläsare
+## <a name="security-reader"></a>Säkerhetsläsare
 Kan läsa säkerhetsinformation och rapporter i Azure AD och Office 365.
 
   > [!NOTE]
@@ -1035,7 +997,7 @@ Kan läsa säkerhetsinformation och rapporter i Azure AD och Office 365.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -1048,7 +1010,7 @@ Kan läsa säkerhetsinformation och rapporter i Azure AD och Office 365.
 | Microsoft.Office365.protectionCenter/allEntities/Read | Läsa alla aspekter av Office 365-säkerhetscenter. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
-### <a name="service-support-administrator"></a>Tjänstesupport-administratör
+## <a name="service-support-administrator"></a>Tjänstesupport-administratör
 Kan läsa information om Service Health och hantera supportärenden.
 
   > [!NOTE]
@@ -1057,7 +1019,7 @@ Kan läsa information om Service Health och hantera supportärenden.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -1069,7 +1031,7 @@ Kan läsa information om Service Health och hantera supportärenden.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="sharepoint-service-administrator"></a>SharePoint-tjänstadministratör
+## <a name="sharepoint-service-administrator"></a>SharePoint-tjänstadministratör
 Kan hantera alla aspekter av SharePoint-tjänsten.
 
   > [!NOTE]
@@ -1078,7 +1040,7 @@ Kan hantera alla aspekter av SharePoint-tjänsten.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -1091,7 +1053,29 @@ Kan hantera alla aspekter av SharePoint-tjänsten.
 | Microsoft.Office365.SharePoint/allEntities/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standardegenskaper i microsoft.office365.sharepoint. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="teams-communications-administrator"></a>Teams kommunikation administratör
+## <a name="skype-for-business-administrator"></a>Skype för Business Administrator
+Kan hantera alla aspekter av Skype för Business-produkten. Tidigare Lync-tjänstadministratör.
+
+  > [!NOTE]
+  > Den här rollen ärver behörigheterna från katalogläsarrollen.
+  >
+  >
+
+  > [!NOTE]
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure supportärenden. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
+| Microsoft.Office365.skypeForBusiness/allEntities/allTasks | Hantera alla aspekter av Skype för företag Online. |
+| Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
+
+## <a name="teams-communications-administrator"></a>Teams kommunikation administratör
 Kan hantera anropa och möten funktioner i Microsoft Teams-tjänst.
 
   > [!NOTE]
@@ -1100,7 +1084,7 @@ Kan hantera anropa och möten funktioner i Microsoft Teams-tjänst.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -1114,7 +1098,7 @@ Kan hantera anropa och möten funktioner i Microsoft Teams-tjänst.
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 | Microsoft.Office365.usageReports/allEntities/Read | Läs Office 365-användningsrapporter. |
 
-### <a name="teams-communications-support-engineer"></a>Teams kommunikation supporttekniker
+## <a name="teams-communications-support-engineer"></a>Teams kommunikation supporttekniker
 Kan felsöka problem med kommunikation i grupper med hjälp av avancerade verktyg.
 
   > [!NOTE]
@@ -1123,7 +1107,7 @@ Kan felsöka problem med kommunikation i grupper med hjälp av avancerade verkty
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -1134,7 +1118,7 @@ Kan felsöka problem med kommunikation i grupper med hjälp av avancerade verkty
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
-### <a name="teams-communications-support-specialist"></a>Teams kommunikation Support Specialist
+## <a name="teams-communications-support-specialist"></a>Teams kommunikation Support Specialist
 Kan felsöka problem med kommunikation i Teams med hjälp av grundläggande verktyg.
 
   > [!NOTE]
@@ -1143,7 +1127,7 @@ Kan felsöka problem med kommunikation i Teams med hjälp av grundläggande verk
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -1154,7 +1138,7 @@ Kan felsöka problem med kommunikation i Teams med hjälp av grundläggande verk
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
-### <a name="teams-service-administrator"></a>Team-tjänstadministratör
+## <a name="teams-service-administrator"></a>Team-tjänstadministratör
 Hantera Microsoft Teams-tjänsten.
 
   > [!NOTE]
@@ -1163,7 +1147,7 @@ Hantera Microsoft Teams-tjänsten.
   >
 
   > [!NOTE]
-  > Den här rollen har addditonal behörigheter utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
 
@@ -1178,7 +1162,7 @@ Hantera Microsoft Teams-tjänsten.
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 | Microsoft.Office365.usageReports/allEntities/Read | Läs Office 365-användningsrapporter. |
 
-### <a name="user-account-administrator"></a>Användarkonto-administratör
+## <a name="user-account-administrator"></a>Användarkonto-administratör
 Kan hantera alla aspekter av användare och grupper
 
   > [!NOTE]
@@ -1220,7 +1204,7 @@ Kan hantera alla aspekter av användare och grupper
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="user"></a>Användare
+## <a name="user"></a>Användare
 Standardrollen för användare. Kan läsa alla och skriva en begränsad uppsättning kataloginformation.
 
   > [!NOTE]
@@ -1269,6 +1253,17 @@ Standardrollen för användare. Kan läsa alla och skriva en begränsad uppsätt
 | Microsoft.aad.Directory/Users/Mobile/Update | Uppdatera users.mobile-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/users/searchableDeviceKey/update | Uppdatera users.searchableDeviceKey-egenskapen i Azure Active Directory. |
 
+## <a name="deprecated-roles"></a>Föråldrad roller
+
+Följande roller ska inte användas. De har inaktuella och tas bort från Azure AD i framtiden.
+
+* Ad hoc-licensadministratör
+* Enhetskoppling
+* Enhetshanterare
+* Användare av enheter
+* E-postverifierad användarskapare
+* Postlådeadministratör
+* Arbetsplatsenhetskoppling
 
 ## <a name="next-steps"></a>Nästa steg
 

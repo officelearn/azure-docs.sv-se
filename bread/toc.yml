@@ -13,7 +13,7 @@ items:
     - name: Grunder
       tocHref: /azure/active-directory/fundamentals/
       topicHref: /azure/active-directory/fundamentals/
-    - name: Identity Protection
+    - name: Identitetsskydd
       tocHref: /azure/active-directory/identity-protection/
       topicHref: /azure/active-directory/identity-protection/
     - name: Enheter
@@ -37,6 +37,9 @@ items:
     - name: Användarhjälp
       tocHref: /azure/active-directory/user-help/
       topicHref: /azure/active-directory/user-help/
+    - name: B2B
+      tocHref: /azure/active-directory/b2b/
+      topicHref: /azure/active-directory/b2b/
     - name: B2C
       tocHref: /azure/active-directory-b2c/
       topicHref: /azure/active-directory-b2c/
@@ -49,7 +52,7 @@ items:
     - name: Åtkomstgranskningar
       tocHref: /azure/active-directory/governance/
       topicHref: /azure/active-directory/governance/
-    - name: Hantera program
+    - name: Programhantering
       tocHref: /azure/active-directory/manage-apps/
       topicHref: /azure/active-directory/manage-apps/
     - name: Rapporter och övervakning
@@ -90,15 +93,27 @@ items:
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
-  - name: Application Insights
-    tocHref: /azure/application-insights/
-    topicHref: /azure/application-insights/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
+  - name: Azure-datautforskaren
+    tocHref: /azure/data-explorer/
+    topicHref: /azure/data-explorer/
+  - name: Azure Monitor
+    tocHref: /azure/application-insights/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/log-analytics/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/monitoring/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/monitoring-and-diagnostics/
+    topicHref: /azure/azure-monitor/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -126,6 +141,9 @@ items:
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
+  - name: SignalR service
+    tocHref: /azure/azure-signalr/
+    topicHref: /azure/azure-signalr/
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
@@ -250,7 +268,7 @@ items:
     - name: API för taligenkänning
       tocHref: /azure/cognitive-services/Speech/
       topicHref: /azure/cognitive-services/Speech/home
-    - name: Taltjänst (förhandsversion)
+    - name: Tjänst för taligenkänning
       tocHref: /azure/cognitive-services/Speech-Service/
       topicHref: /azure/cognitive-services/Speech-Service/
     - name: Textanalys
@@ -296,6 +314,12 @@ items:
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+  - name: Data Box
+    tocHref: /azure/databox/
+    topicHref: /azure/databox/
+  - name: Data Box-gränsenhet/data box-gateway
+    tocHref: /azure/databox-online/
+    topicHref: /azure/databox-online/
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -326,6 +350,25 @@ items:
   - name: Brandvägg
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: Front Door Service
+    tocHref: /azure/frontdoor/
+    topicHref: /azure/frontdoor/
+  - name: Styrning
+    tocHref: /azure/governance/
+    topicHref: /azure/governance/
+    items:
+    - name: Skisser
+      tocHref: /azure/governance/blueprints/
+      topicHref: /azure/governance/blueprints/
+    - name: Hanteringsgrupper
+      tocHref: /azure/governance/management-groups/
+      topicHref: /azure/governance/management-groups/
+    - name: Princip
+      tocHref: /azure/governance/policy/
+      topicHref: /azure/governance/policy/
+    - name: Resursgraph
+      tocHref: /azure/governance/resource-graph/
+      topicHref: /azure/governance/resource-graph/
   - name: Riktlinjer
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/
@@ -394,9 +437,6 @@ items:
   - name: Lastbalanserare
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
-  - name: Log Analytics
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/log-analytics/
   - name: Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
@@ -404,7 +444,7 @@ items:
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
     items:
-    - name: Tjänster (förhandsversion)
+    - name: Tjänst
       tocHref: /azure/machine-learning/service
       topicHref: /azure/machine-learning/service/
     - name: Studio
@@ -438,9 +478,6 @@ items:
   - name: Mobile Services
     tocHref: /azure/mobile-services/
     topicHref: /azure/mobile-services/
-  - name: Övervakning och diagnostik
-    tocHref: /azure/monitoring-and-diagnostics/
-    topicHref: /azure/monitoring-and-diagnostics/
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/
@@ -463,31 +500,6 @@ items:
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
-  - name: Dokumentation om Policy
-    tocHref: /azure/azure-policy/
-    topicHref: /azure/azure-policy/
-    items:
-    - name: Översikt över Azure Policy
-      tocHref: /azure/azure-policy/azure-policy-introduction/
-      topicHref: /azureazure-policy/azure-policy-introduction/
-    - name: Tilldela en princip – Portal
-      tocHref: /azure/azure-policy/assign-policy-definition/
-      topicHref: /azureazure-policy/assign-policy-definition/
-    - name: Tilldela en princip – PowerShell
-      tocHref: /azure/azure-policy/assign-policy-definition-ps/
-      topicHref: /azureazure-policy/assign-policy-definition-ps/
-    - name: Tilldela en princip – Azure CLI
-      tocHref: /azure/azure-policy/assign-policy-definition-cli/
-      topicHref: /azureazure-policy/assign-policy-definition-cli/
-    - name: Skapa och hantera Azure Policy
-      tocHref: /azure/azure-policy/create-manage-polic/
-      topicHref: /azureazure-policy/create-manage-polic/
-    - name: Principmallar
-      tocHref: /azure/azure-policy/json-samples/
-      topicHref: /azureazure-policy/json-samples/
-    - name: Azure Policy-definitionsstruktur
-      tocHref: /azure/azure-policy/policy-definition/
-      topicHref: /azureazure-policy/policy-definition/
   - name: PostgreSQL
     tocHref: /azure/postgresql/
     topicHref: /azure/postgresql/
@@ -610,9 +622,9 @@ items:
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: 9acef41cc94d59fb48a77cf5dadbbde67186673d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 5d6fc550b41b8d90064e3ae950b2e29efb5b3170
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365247"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042473"

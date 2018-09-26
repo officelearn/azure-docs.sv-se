@@ -99,6 +99,8 @@ items:
       href: premium-storage.md
     - name: Standard SSD:er
       href: disks-standard-ssd.md
+    - name: Ultra SSD
+      href: disks-ultra-ssd.md
     - name: Premium-lagringsprestanda
       href: premium-storage-performance.md
     - name: Standard Storage
@@ -231,6 +233,14 @@ items:
       href: reserved-vm-instance-size-flexibility.md
   - name: Använda avbildningar
     items:
+    - name: Delade bilder (förhandsversion)
+      items:
+      - name: Översikt
+        href: shared-image-galleries.md
+      - name: Skapa delade bilder med hjälp av CLI
+        href: ../linux/shared-images.md
+      - name: Felsöka delade bilder
+        href: troubleshooting-shared-images.md
     - name: Hitta och använda avbildningar
       href: cli-ps-findimage.md
     - name: Förbereda en virtuell dator för uppladdning
@@ -320,6 +330,8 @@ items:
       href: using-managed-disks-template-deployments.md
     - name: Aktivera Write Accelerator
       href: how-to-enable-write-accelerator.md
+    - name: Med hjälp av Ultra SSD
+      href: disks-enable-ultra-ssd.md
     - name: Migrera till Managed Disks
       href: migrate-to-managed-disks.md
       items:
@@ -482,6 +494,8 @@ items:
   items:
   - name: Skapa mallar
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Utveckla din kompetens med Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
   - name: Azure-översikt
     href: https://azure.microsoft.com/roadmap/
   - name: Community-mallar
@@ -496,9 +510,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: VANLIGA FRÅGOR OCH SVAR
     href: faq.md
-ms.openlocfilehash: af9685fcf53366785a7473a5e6c246907929a3fc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 84b76400e029c835f3a070fa7bdc80afe3f147d1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985523"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035903"

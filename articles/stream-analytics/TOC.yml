@@ -23,6 +23,8 @@ items:
     href: stream-analytics-javascript-user-defined-functions.md
   - name: 4 – Distribuera med CI/CD i Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
+  - name: 5 – Köra C# UDF i Edge
+    href: stream-analytics-edge-csharp-udf.md
 - name: Exempel
   items:
   - name: Kodexempel
@@ -41,6 +43,8 @@ items:
     items:
     - name: Utdata till Cosmos DB
       href: stream-analytics-documentdb-output.md
+    - name: Utdata till Azure SQL DB
+      href: stream-analytics-sql-output-perf.md
   - name: Fönsterfunktioner
     href: stream-analytics-window-functions.md
   - name: Geospatiala funktioner
@@ -122,14 +126,18 @@ items:
     items:
     - name: Installera verktygen
       href: stream-analytics-tools-for-visual-studio-install.md
-    - name: Testa ett jobb lokalt
+    - name: Testa med exempeldata
       href: stream-analytics-vs-tools-local-run.md
+    - name: Testa med livedata
+      href: stream-analytics-live-data-local-testing.md
     - name: Visa jobb i Visual Studio
       href: stream-analytics-vs-tools.md
     - name: Utveckla ett Edge-jobb
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Konfigurera CI/CD-pipeliner
       href: stream-analytics-tools-for-visual-studio-cicd.md
+    - name: Skriva .NET UDF för Edge
+      href: stream-analytics-edge-csharp-udf-methods.md
   - name: Felsöka
     items:
     - name: Felsökningsanvisningar
@@ -186,9 +194,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper-datablad – händelsebearbetning i realtid
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: b74d5aafe289ede8478d3e9ddb74e244030d948d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9974539b9c787d322bca131c8fec74b4e67c2326
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296048"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054871"

@@ -7,6 +7,7 @@
 #### [Registrera i Dev Center](./register-dev-center.md) 
 #### [Faktureringsalternativ för Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Spårning av kundanvändning för Azure-partner](./azure-partner-customer-usage-attribution.md)
+#### [Leadhantering för marknadsplatsen i molnet](./lead-management-for-cloud-marketplace.md)
 
 ### [Butiker](./comparing-appsource-azure-marketplace.md)  
 

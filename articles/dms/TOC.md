@@ -19,7 +19,7 @@
 # Resurser
 ## [Kända problem – Onlinemigrering till Azure SQL DB](known-issues-azure-sql-online.md)
 ## [Kända problem – Onlinemigrering till Azure SQL DB för MySQL](known-issues-azure-mysql-online.md)
-## [Kända problem – Onlinemigrering till Azure SQL DB för PosgreSQL](known-issues-azure-postgresql-online.md)
+## [Kända problem – Onlinemigrering till Azure SQL DB för PostgreSQL](known-issues-azure-postgresql-online.md)
 ## [User Voice-feedback](https://feedback.azure.com/forums/906100-azure-database-migration-service)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Guide för databasmigrering](https://aka.ms/datamigration)

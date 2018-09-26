@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1954393c9fe544c33919c8f9fb8ee04e430e7639
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542573"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163910"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -93,11 +93,18 @@ Det här felet uppstår om prenumerationens namn inte är giltigt eller om den A
 
 För att avgöra om du har autentiserat korrekt till Azure och har åtkomst till den prenumeration som du försöker markera, gör du följande:  
 
-1. Se till att du kör den **Add-AzureAccount** innan du kör den **Select-AzureSubscription** cmdlet.  
-2. Om du fortfarande ser det här felmeddelandet, ändra din kod genom att lägga till den **Get-AzureSubscription** följande cmdlet i **Add-AzureAccount** cmdlet och sedan köra koden. Kontrollera nu om utdata från Get-AzureSubscription innehåller information om din prenumeration.  
+1. Se till att du kör den **Add-AzureAccount** cmdlet innan du kör den **Select-AzureSubscription** cmdlet.  
+2. Om du fortfarande ser det här felmeddelandet, ändra din kod genom att lägga till den **- AzureRmContext** parameter som följer efter den **Add-AzureAccount** cmdlet och sedan köra koden.
 
-   * Om du inte ser någon prenumerationsinformation i utdata, innebär det att prenumerationen inte är initierats ännu.  
-   * Om du ser prenumerationsinformation i utdata, kontrollerar du att du använder rätt prenumerationsnamn eller ID med den **Select-AzureSubscription** cmdlet.
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $context = Get-AzureRmContext
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   ```
 
 ### <a name="auth-failed-mfa"></a>Scenario: Till Azure-autentiseringen misslyckades eftersom multifaktorautentisering har aktiverats
 
@@ -151,7 +158,7 @@ Den underordnade runbooken använder inte rätt sammanhang när du kör.
 
 #### <a name="resolution"></a>Lösning
 
-När du arbetar med flera prenumerationer prenumerationskontexten kan gå förlorade vid underordnade runbooks. För att säkerställa att prenumerationskontexten överförs till underordnade runbooks, lägger du till den `DefaultProfile` parameter till cmdleten och pass kontexten till den.
+När du arbetar med flera prenumerationer prenumerationskontexten kan gå förlorade vid underordnade runbooks. För att säkerställa att prenumerationskontexten överförs till underordnade runbooks, lägger du till den `AzureRmContext` parameter till cmdleten och pass kontexten till den.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
@@ -171,7 +178,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRmContext $AzureContext `
     –Parameters $params –wait
 ```
 

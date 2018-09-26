@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 2182a39836f02596d22168722e6ece7a2872dccc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969494"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158572"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migrera till den senaste versionen av Azure Machine Learning-tjänsten 
 
@@ -54,13 +54,13 @@ Resurser, till exempel din experimenteringskonton och konton för modellhanterin
 
 Kom igång med den senaste versionen genom att skapa en Azure Machine Learning-arbetsyta i den [Azure-portalen](quickstart-get-started.md). Portalens instrumentpanel för arbetsytan stöds i Edge, Chrome och Firefox webbläsare.
 
-Den här nya arbetsytan är den huvudtjänst resursen och gör att du kan använda alla de senaste funktionerna i Azure Machine Learning-tjänsten. [Mer information om den här arbetsytan och arkitektur](concept-azure-machine-learning-architecture.md).
+Den här nya arbetsytan är den huvudtjänst resursen och gör att du kan använda alla de senaste funktionerna i Azure Machine Learning-tjänsten. Mer information om detta [arbetsyta och arkitektur](concept-azure-machine-learning-architecture.md).
 
 <a name="projects"></a>
 
 ## <a name="projects"></a>Projekt
 
-Projekt är nu kataloger på den lokala datorn i den senaste versionen i stället för att dina projekt i en arbetsyta i molnet. [Visas ett diagram över den senaste arkitekturen](concept-azure-machine-learning-architecture.md). 
+Projekt är nu kataloger på den lokala datorn i den senaste versionen i stället för att dina projekt i en arbetsyta i molnet. Visas ett diagram över den [senaste arkitekturen](concept-azure-machine-learning-architecture.md). 
 
 Om du vill använda den lokala katalogen som innehåller filer och skript, ange katalogens namn i den ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python-kommandot eller med kommandot az ml projekt bifoga CLI.
 

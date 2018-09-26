@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 09/24/2018
-ms.openlocfilehash: d9f34345275efbb8aec422e5fa14234c7d6a61a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1181d07ed51b1edf5da68d759d871703bd1540f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997853"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162788"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Pipelines och Azure Machine Learning
 
@@ -34,7 +34,7 @@ I följande diagram visas en exempel-pipeline:
 
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>Varför ska man skapa pipelines med Azure Machine Learning?
 
-Azure Machine Learning-SDK för Python kan användas för att skapa ML pipelines samt att skicka och spåra individuella pipelinekörningar.
+Den [Azure Machine Learning-SDK för Python](#the-python-sdk-for-pipelines) kan användas för att skapa ML pipelines samt att skicka och spåra individuella pipelinekörningar.
 
 Du kan optimera ditt arbetsflöde med enkelhet, hastighet, portabilitet och återanvändning med pipelines. När du skapar pipelines med Azure Machine Learning kan du fokusera på dina kunskaper bäst &mdash; maskininlärning &mdash; istället för infrastruktur.
 
@@ -42,7 +42,7 @@ Med hjälp av steg gör det möjligt att köra bara de steg som du måste du jus
 
 När är utformat för pipelinen, är det ofta mer finjustera runt loopen utbildning för pipelinen. När du kör en pipeline, kör hoppar till de steg som måste köras igen, till exempel en uppdaterad inlärningsskript och hoppar över vad som inte har ändrats. Samma paradigmet gäller oförändrade skript som används för körningen av steget. 
 
-Med Azure Machine Learning, kan du använda olika verktyg och ramverk, till exempel Microsoft Cognitive Toolkit eller TensorFlow för varje steg i din pipeline. Azure koordinater mellan de olika [beräkningsmål](concept-azure-machine-learning-architecture.md) du använder så att dina mellanliggande data kan delas med de underordnade beräkningsmål enkelt. 
+Med Azure Machine Learning, kan du använda olika verktyg och ramverk som Microsoft Cognitive Toolkit eller TensorFlow för varje steg i din pipeline. Azure koordinater mellan de olika [beräkningsmål](concept-azure-machine-learning-architecture.md) du använder så att dina mellanliggande data kan delas med de underordnade beräkningsmål enkelt. 
 
 ## <a name="key-advantages"></a>Viktiga fördelar
 
@@ -63,7 +63,7 @@ Du kan med hjälp av deklarativa databeroenden, för att optimera dina uppgifter
 
 Pipelines kan sparas som en mall och kan distribueras till en REST-slutpunkt så att du kan schemalägga jobb i batch-bedömning eller omtränings.
 
-Kolla in den [Python SDK referensdokument för pipelines](http://aka.ms/aml-sdk).
+Kolla in den [Python SDK referensdokument för pipelines](http://aka.ms/aml-sdk) och anteckningsboken i nästa avsnitt för att se hur du skapar dina egna.
 
 ## <a name="example-notebooks"></a>Exempel-anteckningsböcker
  

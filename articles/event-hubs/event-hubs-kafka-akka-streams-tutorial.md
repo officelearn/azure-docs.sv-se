@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 7c09656f62f3a8a2efd889cf28f12bd5a42e309a
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 063f8bc050064d191dd502b74156be85df4f0031
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745504"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182234"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Med hjälp av Akka dataströmmar med Event Hubs för Apache Kafka
 Den här självstudien visar hur du ansluter Akka strömmar till Kafka-aktiverade event hubs utan att ändra protokoll-klienter eller ditt eget kluster som körs. Har stöd för Azure Event Hubs för Kafka [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -27,14 +27,14 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa ett Event Hubs-namnområde
 > * Klona exemplet-projektet
-> * Kör Flink producent 
-> * Kör Flink konsument
+> * Kör Akka strömmar producent 
+> * Kör Akka strömmar konsument
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du kontrollera att du har följande krav:
 
-* Läs igenom den [Händelsehubbar för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) artikeln. 
+* Läs artikeln [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 * [Java Development Kit (JDK 1.8 +)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.
@@ -142,8 +142,8 @@ I den här självstudien lärde du dig att ansluta Akka strömmar till Kafka-akt
 > [!div class="checklist"]
 > * Skapa ett Event Hubs-namnområde
 > * Klona exemplet-projektet
-> * Kör Flink producent 
-> * Kör Flink konsument
+> * Kör Akka strömmar producent 
+> * Kör Akka strömmar konsument
 
 Läs mer om Event Hubs och Event Hubs för Kafka i följande avsnitt:  
 

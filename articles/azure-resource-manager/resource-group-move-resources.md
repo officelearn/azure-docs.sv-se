@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: e79419c764229e7dc52a32389b8b1116668dddfc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0970f5d4e61a40df7454cc850e59d86708d4aa1c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039743"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159114"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -220,14 +220,14 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Service Bus
 * Service Fabric
 * Service Fabric-nät
-* SignalR Service
+* SignalR service
 * Storage - konton i olika regioner kan inte flyttas på samma gång. Använd i stället separata åtgärder för varje region.
 * Storage (klassisk) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
 * Stream Analytics - tillstånd för Stream Analytics-jobb inte kan flyttas när du kör i.
 * SQL Database-server - databas och server måste finnas i samma resursgrupp. Om du flyttar en SQLServer, flyttas även alla dess databaser. Det här beteendet gäller för Azure SQL Database och Azure SQL Data Warehouse-databaser.
 * Time Series Insights
 * Traffic Manager
-* Virtual Machines – virtuella datorer med hanterade diskar kan inte flyttas. Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
+* Virtual Machines – för virtuella datorer med hanterade diskar, se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Virtuella datorer (klassiska) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
 * VM Scale Sets – Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Virtuella nätverk - finns i [begränsningar för virtuella nätverk](#virtual-networks-limitations)
@@ -267,28 +267,30 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 
 ## <a name="virtual-machines-limitations"></a>Begränsningar för virtuella datorer
 
-Hanterade diskar stöds för flytt från och med den 24 September 2018. Du måste registrera dig för att aktivera den här funktionen
+Hanterade diskar stöds för flytt från och med den 24 September 2018. Du måste registrera dig för att aktivera den här funktionen.
 
-#### <a name="powershell"></a>PowerShell
-`Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute`
-#### <a name="cli"></a>CLI
-`az feature register Microsoft.Compute ManagedResourcesMove`
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+```
 
+```azurecli-interactive
+az feature register Microsoft.Compute ManagedResourcesMove
+```
 
-Det innebär att du kan också flytta:
+Det här stödet innebär att du kan också flytta:
 
 * Virtuella datorer med hanterade diskar
 * Hanterade avbildningar
 * Hanterade ögonblicksbilder
 * Tillgänglighetsuppsättningar med virtuella datorer med hanterade diskar
 
-Här följer de begränsningar som ännu inte stöds
+Här följer de begränsningar som ännu inte stöds:
 
 * Virtuella datorer med certifikat som lagras i Key Vault kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
 * Virtuella datorer som konfigurerats med Azure Backup. Använd den under en lösning för att flytta de virtuella datorerna
   * Leta upp platsen för den virtuella datorn.
-  * Leta reda på en resursgrupp med följande namngivningsmönstret ”: AzureBackupRG_<location of your VM>_1” AzureBackupRG_westus2_1 t.ex.
-  * Azure-portalen, sedan kontrollera om ”Visa dolda typer”
+  * Leta reda på en resursgrupp med följande namngivningsmönstret: `AzureBackupRG_<location of your VM>_1` AzureBackupRG_westus2_1 t.ex.
+  * Azure-portalen och sedan kontrollera om ”Visa dolda typer”
   * Om du är i PowerShell, använder de `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
   * Om du är i CLI, använder den `az resource list -g AzureBackupRG_<location of your VM>_1`
   * Nu letar du upp resursen med typen `Microsoft.Compute/restorePointCollections` som har namngivningsmönstret `AzureBackup_<name of your VM that you're trying to move>_###########`

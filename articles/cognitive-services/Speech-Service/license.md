@@ -9,18 +9,18 @@ ms.topic: article
 ms.component: speech-service
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 6e5f3128a6a62ef27bdc0d24ddda0afc54d78b03
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a56b50e8bd01c8eab9e8935b0d250f1b0da59bc
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994759"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181852"
 ---
 # <a name="microsoft-software-license-termsbrmicrosoft-cognitive-services-speech-sdk"></a>LICENSVILLKOR FÖR PROGRAMVARA FRÅN MICROSOFT<br>MICROSOFT COGNITIVE SERVICES TAL SDK
 
 **OM DU BOR (ELLER HAR ETT FÖRETAG MED DIN HUVUDNAMN ETABLERAD I) USA, LÄS AVSNITTET ”BINDANDE SKILJEFÖRFARANDE OCH FRISKRIVNING FRÅN GRUPPTALAN” NEDAN. DEN PÅVERKAR HUR TVISTER SKA LÖSAS.**
 
-Dessa licensvillkor utgör ett avtal mellan dig och Microsoft Corporation (eller något av dess koncernbolag). De gäller för ovanstående programvara förhandsversionen och alla Microsoft-tjänster och programvara uppdateringar (förutom i utsträckning sådana tjänster eller uppdateringar åtföljs av nya eller ytterligare villkor, villkoren i så fall de olika gäller avseende föruppdaterad och förändrar inte dina eller Microsofts rättigheter till programvara eller tjänster). OM DU FÖLJER DESSA LICENSVILLKOR HAR DU FÖLJANDE RÄTTIGHETER. GENOM ATT ANVÄNDA PROGRAMVARAN GODKÄNNER DU DESSA VILLKOR.
+Dessa licensvillkor utgör ett avtal mellan dig och Microsoft Corporation (eller något av dess koncernbolag). De gäller för ovanstående programvara och alla Microsoft-tjänster och programvara uppdateringar (förutom i utsträckning sådana tjänster eller uppdateringar åtföljs av nya eller ytterligare villkor, villkoren i så fall de olika gäller avseende föruppdaterad och förändrar inte dina eller Microsofts rättigheter till programvara eller tjänster). OM DU FÖLJER DESSA LICENSVILLKOR HAR DU FÖLJANDE RÄTTIGHETER.  GENOM ATT ANVÄNDA PROGRAMVARAN GODKÄNNER DU DESSA VILLKOR.
 
 ## <a name="1-installation-and-use-rights"></a>1. INSTALLATION OCH ANVÄNDARRÄTTIGHETER.
 

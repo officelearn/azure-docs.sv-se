@@ -1,259 +1,168 @@
 ---
-title: Lägg till Google + som identitetsprovider OAuth2 med anpassade principer i Azure Active Directory B2C | Microsoft Docs
-description: Exemplet med Google + som identitetsprovider som använder protokollet OAuth2.
+title: Konfigurera logga in med ett Google-konto i Azure Active Directory B2C med anpassade principer | Microsoft Docs
+description: Ställ in logga in med ett Google-konto i Azure Active Directory B2C med anpassade principer.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/04/2017
+ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f076a906ba38e6c8e8c9530baba1607553b41ea6
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: f7886850c2015e7976ebb29bd2416797a9958fb7
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338336"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182645"
 ---
-# <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Lägga till Google + som identitetsprovider OAuth2 anpassade principer
+# <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Google-konto med hjälp av anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här guiden visar hur du aktiverar inloggning för användare från Google +-konto med [anpassade principer](active-directory-b2c-overview-custom.md).
+Den här artikeln visar hur du aktiverar inloggning för användare från ett Google-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikeln.
+- Utför stegen i den [Kom igång med anpassade principer i Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Om du inte redan har ett Google-konto, skapa en på [skapa ditt Google-konto](https://accounts.google.com/SignUp).
 
-De här stegen är:
+## <a name="register-the-application"></a>Registrera programmet
 
-1.  Skapa ett Google + konto program.
-2.  Att lägga till Google +-program kontonyckeln i Azure AD B2C
-3.  Att lägga till anspråksprovidern för en princip
-4.  Registrera Google + konto anspråksprovidern för en användarresa
-5.  Ladda upp principen till en Azure AD B2C-klient och testar det.
+Om du vill aktivera inloggning för användare från ett Google-konto, måste du skapa ett Google-programprojekt. 
 
-## <a name="create-a-google-account-application"></a>Skapa ett Google +-konto program
-För att använda Google + som en identitetsprovider i Azure Active Directory (Azure AD) B2C, måste du skapa ett Google +-program och ange rätt parametrar. Du kan registrera en Google +-programmet här: [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)
+1. Logga in på den [Google utvecklare konsolen](https://console.developers.google.com/) med autentiseringsuppgifterna för ditt konto.
+2. Ange en **projektnamn**, klickar du på **skapa**, och kontrollera att du använder det nya projektet.
+3. Välj **autentiseringsuppgifter** i den vänstra menyn och välj sedan **skapa autentiseringsuppgifter > Oauth klient-ID**.
+4. Välj **konfigurera godkännandeskärmen**.
+5. Välj eller ange en giltig **e-postadress**, ange en **produktnamn** visas för användare, ange `b2clogin.com` i **auktoriserade domäner**, och klicka sedan på  **Spara**.
+6. Under **programtyp**väljer **webbprogram**.
+7. Ange en **namn** för ditt program.
+8. I **behörighet JavaScript ursprung**, ange `https://your-tenant-name.b2clogin.com` och i **auktoriserade omdirigerings-URI: er**, ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Ersätt ditt klientnamn med namnet på din klient. Du måste använda gemener när du anger ditt klientnamn även om klienten har definierats med versaler i Azure AD B2C.
+8. Klicka på **Skapa**.
+9. Kopiera värdena för **klient-ID** och **klienthemlighet**. Du måste båda för att konfigurera Google som en identitetsprovider i din klient. Klienthemlighet är en viktig säkerhetsuppgift för autentisering.
 
-1.  Gå till den [Google utvecklare konsolen](https://console.developers.google.com/) och logga in med dina Google +-kontouppgifter.
-2.  Klicka på **skapa projekt**, ange en **projektnamn**, och klicka sedan på **skapa**.
+## <a name="create-a-policy-key"></a>Skapa en principnyckel
 
-3.  Klicka på den **menyn projekt**.
+Du behöver lagra klienthemlighet som tidigare registrerades i din Azure AD B2C-klient.
 
-    ![Google +-konto – Välj projekt](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
+5. Välj **Principnycklar** och välj sedan **Lägg till**.
+6. För **alternativ**, Välj `Manual`.
+7. Ange en **namn** för principnyckeln. Till exempel `GoogleSecret`. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
+8. I **hemlighet**, ange dina klienthemlighet som du antecknade tidigare.
+9. För **nyckelanvändning**väljer `Signature`.
+10. Klicka på **Skapa**.
 
-4.  Klicka på den **+** knappen.
+## <a name="add-a-claims-provider"></a>Lägg till en anspråksprovider
 
-    ![Google +-konto – Skapa nytt projekt](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
+Om du vill att användarna ska logga in med ett Google-konto, måste du definiera kontot som en anspråksprovider som Azure AD B2C kan kommunicera med via en slutpunkt. Slutpunkten som innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats. 
 
-5.  Ange en **projektnamn**, och klicka sedan på **skapa**.
+Du kan definiera ett Google-konto som en anspråksprovider genom att lägga till den **ClaimsProviders** elementet i tilläggsfilen av din princip.
 
-    ![Google +-konto – nytt projekt](media/active-directory-b2c-custom-setup-goog-idp//goog-app-name.png)
+1. Öppna den *TrustFrameworkExtensions.xml*.
+2. Hitta den **ClaimsProviders** element. Om det inte finns, lägger du till det under rotelementet.
+3. Lägga till en ny **ClaimsProvider** på följande sätt:
 
-6.  Vänta tills projektet är klar och klicka på den **menyn projekt**.
+    ```xml
+    <ClaimsProvider>
+      <Domain>google.com</Domain>
+      <DisplayName>Google</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Google-OAUTH">
+          <DisplayName>Google</DisplayName>
+          <Protocol Name="OAuth2" />
+          <Metadata>
+            <Item Key="ProviderName">google</Item>
+            <Item Key="authorization_endpoint">https://accounts.google.com/o/oauth2/auth</Item>
+            <Item Key="AccessTokenEndpoint">https://accounts.google.com/o/oauth2/token</Item>
+            <Item Key="ClaimsEndpoint">https://www.googleapis.com/oauth2/v1/userinfo</Item>
+            <Item Key="scope">email</Item>
+            <Item Key="HttpBinding">POST</Item>
+            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="client_id">Your Google application ID</Item>
+          </Metadata>
+          <CryptographicKeys>
+            <Key Id="client_secret" StorageReferenceId="B2C_1A_GoogleSecret" />
+          </CryptographicKeys>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name" />
+            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="google.com" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+          </OutputClaims>
+          <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
+            <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
+            <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
+            <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
+          </OutputClaimsTransformations>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
 
-    ![Google +-konto – vänta tills det nya projektet är klart att användas](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app1.png)
+4. Ange **client_id** program-ID: t från programregistrering.
+5. Spara filen.
 
-7.  Klicka på ditt projektnamn.
+### <a name="upload-the-extension-file-for-verification"></a>Ladda upp tilläggsfilen med för verifiering
 
-    ![Google +-konto – Välj det nya projektet](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app2.png)
+Nu bör har du konfigurerat principen så att Azure AD B2C vet att kommunicera med Azure AD-katalogen. Försök att överföra tilläggsfilen i din princip bara för att bekräfta att den inte har några problem hittills.
 
-8.  Klicka på **API-hanterare** och klicka sedan på **autentiseringsuppgifter** i det vänstra navigeringsfönstret.
-9.  Klicka på den **OAuth godkännandeskärmen** fliken högst upp.
+1. På den **anpassade principer** sidan i din Azure AD B2C-klient väljer **ladda upp principen**.
+2. Aktivera **Skriv över principen om den finns**, och sedan bläddra till och markera den *TrustFrameworkExtensions.xml* fil.
+3. Klicka på **Överför**.
 
-    ![Google +-konto – ange OAuth godkännandeskärmen](media/active-directory-b2c-custom-setup-goog-idp/goog-add-cred.png)
+## <a name="register-the-claims-provider"></a>Registrera anspråksprovidern
 
-10.  Välj eller ange en giltig **e-postadress**, ange en **produktnamn**, och klicka på **spara**.
+Nu identitetsprovidern har ställts in, men det finns inte i någon av skärmarna registrerings-registreringen/logga in. Du skapar en dubblett av en befintlig mall för användarresan så att den blir tillgänglig, och ändra den så att de innehåller även identitetsprovidern Azure AD.
 
-    ![Google + - programmet autentiseringsuppgifter](media/active-directory-b2c-custom-setup-goog-idp/goog-consent-screen.png)
-
-11.  Klicka på **nya autentiseringsuppgifter** och välj sedan **OAuth klient-ID**.
-
-    ![Google + - skapa nya autentiseringsuppgifter för programmet](media/active-directory-b2c-custom-setup-goog-idp/goog-add-oauth2-client-id.png)
-
-12.  Under **programtyp**väljer **webbprogram**.
-
-    ![Google + - Välj apptyp](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
-
-13.  Ange en **namn** för ditt program ange `https://{tenant}.b2clogin.com` i den **behörighet JavaScript ursprung** fält, och `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` i den **auktoriserade omdirigerings-URI: er** fältet. Ersätt **{klient}** med klientens namn (till exempel contosob2c). Den **{klient}** värdet är skiftlägeskänsligt. Klicka på **Skapa**.
-
-    ![Google + - ger behörighet JavaScript ursprung och omdirigerings-URI: er](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
-
-14.  Kopiera värdena för **klient-Id** och **klienthemlighet**. Du måste båda för att konfigurera Google + som en identitetsprovider i din klient. **Klienthemlighet** är en viktig säkerhetsuppgift för autentisering.
-
-    ![Google + - kopiera värdena för klient-Id och klienthemlighet](media/active-directory-b2c-custom-setup-goog-idp/goog-client-secret.png)
-
-## <a name="add-the-google-account-application-key-to-azure-ad-b2c"></a>Lägga till Google +-program kontonyckeln i Azure AD B2C
-Federation med Google +-konton kräver en klienthemlighet för Google +-konto för förtroende Azure AD B2C åt programmet. Du behöver lagra dina Google +-programhemlighet i Azure AD B2C-klient:  
-
-1.  Gå till din Azure AD B2C-klient och välj **B2C inställningar** > **Identitetsupplevelse**
-2.  Välj **Principnycklar** att visa nycklarna som är tillgängliga i din klient.
-3.  Klicka på **+ Lägg till**.
-4.  För **alternativ**, använda **manuell**.
-5.  För **namn**, använda `GoogleSecret`.  
-    Prefixet `B2C_1A_` kan läggas till automatiskt.
-6.  I den **hemlighet** anger du dina Google programhemlighet från den [Google utvecklare konsolen](https://console.developers.google.com/) som du kopierade ovan.
-7.  För **nyckelanvändning**, använda **signatur**.
-8.  Klicka på **Skapa**
-9.  Bekräfta att du har skapat nyckeln `B2C_1A_GoogleSecret`.
-
-## <a name="add-a-claims-provider-in-your-extension-policy"></a>Lägg till en anspråksprovider i din princip för tillägg
-
-Om du vill att användarna ska logga in med Google +-konto, måste du definiera Google +-konto som en anspråksprovider. Med andra ord måste du ange en slutpunkt som Azure AD B2C kommunicerar med. Slutpunkten som innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats.
-
-Definiera Google +-konto som en anspråksprovider genom att lägga till `<ClaimsProvider>` nod i ditt tillägg principfil:
-
-1.  Öppna filen över princip tillägget (TrustFrameworkExtensions.xml) från din arbetskatalog. Om du behöver en XML-redigerare [försök Visual Studio Code](https://code.visualstudio.com/download), ett enkelt redigeringsprogram för olika plattformar.
-2.  Hitta den `<ClaimsProviders>` avsnittet
-3.  Lägg till följande XML-kodstycke under den `ClaimsProviders` elementet och Ersätt `client_id` värdet med dina Google + konto programklients-ID innan du sparar filen.  
-
-```xml
-<ClaimsProvider>
-    <Domain>google.com</Domain>
-    <DisplayName>Google</DisplayName>
-    <TechnicalProfiles>
-    <TechnicalProfile Id="Google-OAUTH">
-        <DisplayName>Google</DisplayName>
-        <Protocol Name="OAuth2" />
-        <Metadata>
-        <Item Key="ProviderName">google</Item>
-        <Item Key="authorization_endpoint">https://accounts.google.com/o/oauth2/auth</Item>
-        <Item Key="AccessTokenEndpoint">https://accounts.google.com/o/oauth2/token</Item>
-        <Item Key="ClaimsEndpoint">https://www.googleapis.com/oauth2/v1/userinfo</Item>
-        <Item Key="scope">email</Item>
-        <Item Key="HttpBinding">POST</Item>
-        <Item Key="UsePolicyInRedirectUri">0</Item>
-        <Item Key="client_id">Your Google+ application ID</Item>
-        </Metadata>
-        <CryptographicKeys>
-        <Key Id="client_secret" StorageReferenceId="B2C_1A_GoogleSecret" />
-        </CryptographicKeys>
-        <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
-        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
-        <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-        <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name" />
-        <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-        <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="google.com" />
-        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-        </OutputClaims>
-        <OutputClaimsTransformations>
-        <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
-        <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
-        <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
-        <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
-        </OutputClaimsTransformations>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
-        <ErrorHandlers>
-        <ErrorHandler>
-            <ErrorResponseFormat>json</ErrorResponseFormat>
-            <ResponseMatch>$[?(@@.error == 'invalid_grant')]</ResponseMatch>
-            <Action>Reauthenticate</Action>
-            <!--In case of authorization code used error, we don't want the user to select his account again.-->
-            <!--AdditionalRequestParameters Key="prompt">select_account</AdditionalRequestParameters-->
-        </ErrorHandler>
-        </ErrorHandlers>
-    </TechnicalProfile>
-    </TechnicalProfiles>
-</ClaimsProvider>
-```
-
-## <a name="register-the-google-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>Registrera Google + konto anspråksprovidern om du vill registrera dig eller logga in användarresa
-
-Identitetsprovidern har ställts in.  Det är dock inte tillgängliga i någon av skärmarna registrerings-registreringen/logga in. Lägg till Google + konto identitetsprovidern som dina användare `SignUpOrSignIn` användarresa. Om du vill göra den tillgänglig, kan vi skapa en dubblett av en befintlig mall för användarresan.  Sedan lägger vi till Google + konto identitetsprovidern:
-
->[!NOTE]
->
->Om du har kopierat den `<UserJourneys>` element från bas-fil i din princip att tilläggsfil (TrustFrameworkExtensions.xml), som du kan hoppa till det här avsnittet.
-
-1.  Öppna filen grundläggande av din princip (till exempel TrustFrameworkBase.xml).
-2.  Hitta den `<UserJourneys>` element och kopiera hela innehållet i `<UserJourneys>` noden.
-3.  Öppna tilläggsfilen (till exempel TrustFrameworkExtensions.xml) och hitta den `<UserJourneys>` element. Om elementet inte finns kan du lägga till en.
-4.  Klistra in hela innehållet i `<UserJourney>` nod som du kopierade som underordnad till den `<UserJourneys>` element.
+1. Öppna den *TrustFrameworkBase.xml* filen från startpaket.
+2. Hitta och kopiera hela innehållet i den **UserJourney** element som innehåller `Id="SignUpOrSignIn"`.
+3. Öppna den *TrustFrameworkExtensions.xml* och hitta den **UserJourneys** element. Om elementet inte finns kan du lägga till en.
+4. Klistra in hela innehållet i den **UserJourney** element som du kopierade som underordnad till den **UserJourneys** element.
+5. Byt namn på ID för användarresa. Till exempel `SignUpSignInGoogle`.
 
 ### <a name="display-the-button"></a>Visa knappen
-Den `<ClaimsProviderSelections>` elementet definierar en lista med alternativ för val av anspråk providern och deras inbördes ordning.  `<ClaimsProviderSelection>` elementet är detsamma som en identitet provider-knappen på en registrerings-registreringen /-inloggningssida. Om du lägger till en `<ClaimsProviderSelection>` element för Google +-konto, en ny knapp visas när en användare finns på sidan. Lägga till det här elementet:
 
-1.  Hitta den `<UserJourney>` nod som innehåller `Id="SignUpOrSignIn"` i användarresan som du kopierade.
-2.  Leta upp den `<OrchestrationStep>` nod som innehåller `Order="1"`
-3.  Lägga till följande XML-kodstycke under `<ClaimsProviderSelections>` nod:
+Den **ClaimsProviderSelection** element är detsamma som en identitet provider-knappen på en registrerings-registreringen /-inloggningsskärmen. Om du lägger till en **ClaimsProviderSelection** element för ett Google-konto, en ny knapp visas när en användare finns på sidan.
 
-```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
-```
+1. Hitta den **OrchestrationStep** element som innehåller `Order="1"` i användarresan som du skapade.
+2. Under **ClaimsProviderSelects**, lägger du till följande element. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `GoogleExchange`:
 
-### <a name="link-the-button-to-an-action"></a>Länka knappen till en åtgärd
-Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Åtgärden, i det här fallet är för Azure AD B2C att kommunicera med Google +-konto för att ta emot en token.
-
-1.  Hitta den `<OrchestrationStep>` som innehåller `Order="2"` i den `<UserJourney>` noden.
-2.  Lägga till följande XML-kodstycke under `<ClaimsExchanges>` nod:
-
-```xml
-<ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
-```
-
->[!NOTE]
->
-> * Se till att den `Id` har samma värde som `TargetClaimsExchangeId` i föregående avsnitt
-> * Se till att `TechnicalProfileReferenceId` -ID har angetts till den tekniska profilen du skapade tidigare (Google-OAUTH).
-
-## <a name="upload-the-policy-to-your-tenant"></a>Ladda upp principen till din klient
-1.  I den [Azure-portalen](https://portal.azure.com), växla till den [kontext som din Azure AD B2C-klient](active-directory-b2c-navigate-to-b2c-context.md), och öppna den **Azure AD B2C** bladet.
-2.  Välj **Identitetsramverk**.
-3.  Öppna den **alla principer** bladet.
-4.  Välj **överföra princip**.
-5.  Kontrollera **Skriv över principen om den finns** box.
-6.  **Ladda upp** TrustFrameworkExtensions.xml och se till att inte misslyckas verifieringen
-
-## <a name="test-the-custom-policy-by-using-run-now"></a>Testa den anpassade principen med hjälp av kör nu
-1.  Öppna **Azure AD B2C-inställningar** och gå till **Identitetsramverk**.
-
-    >[!NOTE]
-    >
-    >    **Kör nu** kräver minst ett program att vara förväg registrerade på klienten. 
-    >    Läs hur du registrerar program i Azure AD B2C [börjar](active-directory-b2c-get-started.md) artikel eller [programregistrering](active-directory-b2c-app-registration.md) artikeln.
-
-
-2.  Öppna **B2C_1A_signup_signin**, den förlitande part (RP) anpassade principen som du överförde. Välj **kör nu**.
-3.  Du bör kunna logga in med Google +.
-
-## <a name="optional-register-the-google-account-claims-provider-to-profile-edit-user-journey"></a>[Valfritt] Registrera Google + konto anspråksprovidern för profilredigering användarresa
-Du kanske vill lägga till Google + konto identitetsprovidern även användaren `ProfileEdit` användarresa. Om du vill göra den tillgänglig, upprepa vi de två sista stegen:
-
-### <a name="display-the-button"></a>Visa knappen
-1.  Öppna tilläggsfilen av din princip (till exempel TrustFrameworkExtensions.xml).
-2.  Hitta den `<UserJourney>` nod som innehåller `Id="ProfileEdit"` i användarresan som du kopierade.
-3.  Leta upp den `<OrchestrationStep>` nod som innehåller `Order="1"`
-4.  Lägga till följande XML-kodstycke under `<ClaimsProviderSelections>` nod:
-
-```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
-```
+    ```XML
+    <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
+    ```
 
 ### <a name="link-the-button-to-an-action"></a>Länka knappen till en åtgärd
-1.  Hitta den `<OrchestrationStep>` som innehåller `Order="2"` i den `<UserJourney>` noden.
-2.  Lägga till följande XML-kodstycke under `<ClaimsExchanges>` nod:
 
-```xml
-<ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
-```
+Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Åtgärden, i det här fallet är för Azure AD B2C att kommunicera med ett Google-konto för att ta emot en token.
 
-### <a name="upload-the-policy-to-your-tenant"></a>Ladda upp principen till din klient
-1.  I den [Azure-portalen](https://portal.azure.com), växla till den [kontext som din Azure AD B2C-klient](active-directory-b2c-navigate-to-b2c-context.md), och öppna den **Azure AD B2C** bladet.
-2.  Välj **Identitetsramverk**.
-3.  Öppna den **alla principer** bladet.
-4.  Välj **överföra princip**.
-5.  Kontrollera den **Skriv över principen om den finns** box.
-6.  **Ladda upp** TrustFrameworkExtensions.xml och se till att inte misslyckas verifieringen.
+1. Hitta den **OrchestrationStep** som innehåller `Order="2"` i användarresan.
+2. Lägg till följande **ClaimsExchange** element att se till att du använder samma värde för **Id** som du använde för **TargetClaimsExchangeId**:
 
-### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Testa den anpassade profilredigering principen med hjälp av kör nu
+    ```XML
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
+    ```
+    
+    Uppdatera värdet för **TechnicalProfileReferenceId** till den **Id** för den tekniska profilen du skapade tidigare. Till exempel `Google-OAuth`.
 
-1.  Öppna **Azure AD B2C-inställningar** och gå till **Identitetsramverk**.
-2.  Öppna **B2C_1A_ProfileEdit**, den förlitande part (RP) anpassade principen som du överförde. Välj **kör nu**.
-3.  Du bör kunna logga in med Google +.
+3. Spara den *TrustFrameworkExtensions.xml* fil och ladda upp den igen för att bekräfta.
 
-## <a name="download-the-complete-policy-files"></a>Hämta de fullständiga principfilerna
-Valfritt: Vi rekommenderar att du skapar ditt scenario med en egen anpassad princip för filer när du har slutfört komma igång med anpassade principer igenom istället för att använda dessa exempelfilerna.  [Exempel-principfiler för referens](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-goog-app)
+## <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa filen förlitande part
+
+Uppdatera filen för förlitande part (RP) som initierar användarresa som du skapade.
+
+1. Skapa en kopia av *SignUpOrSignIn.xml* i din arbetskatalog och Byt namn på den. Exempel: Byt namn på den till *SignUpSignInGoogle.xml*.
+2. Öppna den nya filen och uppdatera värdet för den **PolicyId** attributet för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInGoogle`.
+3. Uppdatera värdet för **PublicPolicyUri** med URI: N för principen. Exempel:`http://contoso.com/B2C_1A_signup_signin_google`
+4. Uppdatera värdet för den **ReferenceId** attributet i **DefaultUserJourney** att matcha ID för den nya användarresa som du skapade (SignUpSignGoogle).
+5. Spara dina ändringar, överföra filen och testa den genom att öppna den och klicka på **kör nu**.

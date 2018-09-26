@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 7cd5fc965a57052323d4b916f0f2b7dbc0feb7b3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: e22d26850114162c6dbd38797071120d388ac6b0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715422"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162278"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Skapa och konfigurera lokal Integration Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Mer information om IR finns [översikten över Integration Runtime](concepts-integration-runtime.md).
@@ -187,18 +187,20 @@ I Data Factory som behörigheten har beviljats,
 
 1. Standardvärdet för länkade IR som kan skapas under en enda lokal IR är **20**. Kontakta supporten om du behöver fler. 
 
-2. Data factory som är länkade IR som ska skapas måste ha en MSI ([hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Som standard datafabriker skapas i Ibiza-portalen eller PowerShell-cmdlets har skapats implicit MSI. Men i vissa fall när datafabriken har skapats med hjälp av en Azure Resorce Manager-mall eller SDK, den ”**identitet**” **egenskapen måste anges** explicit för att säkerställa Azure Resorce Manager skapar en datafabrik som innehåller en MSI. 
+2. Data factory som är länkade IR som ska skapas måste ha en MSI ([hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Som standard datafabriker skapas i Azure-portalen eller PowerShell-cmdlets har skapats implicit MSI. Men i vissa fall när datafabriken har skapats med hjälp av en Azure Resorce Manager-mall eller SDK, den ”**identitet**” **egenskapen måste anges** explicit för att säkerställa Azure Resorce Manager skapar en datafabrik som innehåller en MSI. 
 
 3. Lokal IR-version måste vara lika med eller större än 3.8.xxxx.xx. . [Hämta den senaste versionen](https://www.microsoft.com/download/details.aspx?id=39717) av lokal IR
 
-4. Data factory som är länkade IR som ska skapas måste ha en MSI ([hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Som standard datafabriker som skapats i Ibiza-portalen eller PowerShell-cmdlets har MSI ([hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
-skapas implicit datafabriker som skapats med Azure Resource Manager (ARM)-mall eller SDK kräver dock ”identitet”-egenskapen anges till att säkerställa att en MSI skapas.
+4. Data factory som är länkade IR som ska skapas måste ha en MSI ([hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Som standard datafabriker som skapats i Azure portal eller PowerShell-cmdlets har MSI ([hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
+  skapas implicit datafabriker som skapats med Azure Resource Manager-mall eller SDK kräver dock ”**identitet**” egenskapen anges för att säkerställa att en MSI har skapats.
 
 5. ADF .net SDK som stöder den här funktionen är version > = 1.1.0
 
 6. Azure PowerShell som stöder den här funktionen är version > = 6.6.0 (AzureRM.DataFactoryV2 > = 0.5.7)
 
-7. Om du vill bevilja behörighet, kräver användaren ”ägare” eller ärvda ”ägare” i Datafabriken där delade IR finns. 
+7. Om du vill bevilja behörighet, användaren kräver ”**ägare**” roll eller ärvs ”**ägare**” roll i Data Factory där delade IR finns. 
+
+8. För Active Directory  **[gästanvändare](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)**, sökfunktionen (lista alla Datafabriker med hjälp av sökordet) i Användargränssnittet [fungerar inte](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Men så länge som gästanvändare är det ”**ägare**” av Data Factory, de kan dela IR utan att sökningen genom att skriva den hanterade tjänstidentiteten för Data Factory IR måste delas i direkt ”**Tilldela Pemission**”textrutan och välja”**Lägg till**”i ADF UI. 
 
   > [!NOTE]
   > Den här funktionen är endast tillgänglig i Azure Data Factory version 2 

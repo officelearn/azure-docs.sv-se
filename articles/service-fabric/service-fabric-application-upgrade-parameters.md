@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/17/2018
 ms.author: subramar
-ms.openlocfilehash: f3f381fddee9c1830202854f02556f73b5aeed23
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3f321775ba112471760e627e6b43ed17ff8c5b6b
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055585"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182883"
 ---
 # <a name="application-upgrade-parameters"></a>Programuppgraderingsparametrar
 Den här artikeln beskrivs de olika parametrar som gäller under uppgraderingen av en Azure Service Fabric-program. Programuppgraderingsparametrar styra timeout och hälsokontroller av slutpunkter som tillämpas under uppgraderingen och de ange de principer som måste användas när uppgraderingen misslyckas.
@@ -42,7 +42,7 @@ Visual Studio Service Fabric-programuppgraderingsparametrar anges via dialogruta
 | --- | --- | --- |
 ApplicationName |PS| Namnet på det program som ska uppgraderas. Exempel: fabric: / VisualObjects fabric: / ClusterMonitor. |
 ApplicationTypeVersion|PS|Versionen av programmet skriver som mål för uppgradering. |
-FailureAction |PS, VS|Tillåtna värden är **ogiltigt**, **återställning**, och **manuell**. De åtgärder som vidtagits av Service Fabric när uppgraderingen misslyckas. Programmet kan återställas till före uppdateringen version (återställning) eller uppgraderingen kan stoppas på aktuell uppgraderingsdomän. I det senare fallet uppgraderingsläget också ändras till **manuell**.|
+FailureAction |PS, VS|Tillåtna värden är **återställning**, **manuell**, och **ogiltigt**. Den kompenserande åtgärden som ska utföras när en *övervakade* uppgradera möten övervakning principöverträdelser principen eller hälsotillstånd. <br>**Rollback** anger att uppgraderingen automatiskt rullar tillbaka till den förberedande versionen. <br>**Manuell** anger att uppgraderingen växlar till den *UnmonitoredManual* Uppgraderingsläge. <br>**Ogiltig** anger att den misslyckade åtgärden är ogiltig.|
 Övervakad |PS|Anger att uppgraderingsläget är övervakad. När cmdleten har en uppgradering för en uppgraderingsdomän om hälsotillståndet för uppgraderingsdomänen och klustret uppfyller hälsoprinciper som du definierar, uppgraderar Service Fabric med nästa uppgraderingsdomän. Om uppgraderingsdomän eller kluster inte kan uppfylla hälsoprinciper, misslyckas uppgraderingen och Service Fabric återställer uppgraderingen för uppgraderingsdomänen eller återgår till manuellt läge per de principer som anges. Det här är det rekommenderade läget för programuppgraderingar i en produktionsmiljö. |
 UpgradeMode | VS | Tillåtna värden är **övervakade** (standard), **UnmonitoredAuto**, eller **UnmonitoredManual**. Se PowerShell-parametrar för varje steg i den här artikeln för information. |
 UnmonitoredAuto | PS | Anger att uppgraderingsläget oövervakade automatiskt. När Service Fabric en uppgraderingsdomän har uppgraderats, uppgraderar Service Fabric med nästa uppgraderingsdomän oavsett hälsotillstånd för systemprogram. Det här läget rekommenderas inte för produktion och används endast under utvecklingen av ett program. |

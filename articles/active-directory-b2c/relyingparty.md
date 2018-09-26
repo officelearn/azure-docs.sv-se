@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: af02f7185ddaec55047397ca1c8684f962112d61
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 8f56f287fde9e17d2a17298ca04eda63b69e3636
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381712"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159932"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -96,13 +96,13 @@ Den `DefaultUserJourney` elementet anger en referens till identifieraren för an
 
 ```XML
 <UserJourneys>
-  <UserJourney Id="SignOrSignIn">
+  <UserJourney Id="SignUpOrSignIn">
   ...
 ```
 
 Den **DefaultUserJourney** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Tjänsten | Ja | En identifierare för användarresa i principen. Mer information finns i [användaren resor](userjourneys.md) |
 
@@ -122,15 +122,15 @@ Den **UserJourneyBehaviors** elementet innehåller följande element:
 
 Den **SingleSignOn** elementet innehåller i följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Omfattning | Ja | Omfattning beteendet för enkel inloggning. Möjliga värden: `Suppressed`, `Tenant`, `Application`, eller `Policy`. Den `Suppressed` värdet anger att beteendet undertrycks. Till exempel när det gäller en enda session inloggnings-ingen session bibehålls för användaren och användaren uppge alltid ett val för identitets-provider. Den `TrustFramework` värdet anger att funktionen används för alla principer inom ramen för förtroende. Exempelvis kan en användare navigera genom två princip utbildning för ett förtroende-ramverk inte uppmanas att ange ett val för identitets-provider. Den `Tenant` värdet anger att funktionen används för alla principer i klienten. Exempelvis kan en användare navigera genom två princip utbildning för en klient inte uppmanas att ange ett val för identitets-provider. Den `Application` värdet anger att funktionen används för alla principer för program som gör begäran. En användare navigera genom två princip utbildning för ett program är till exempel inte ange ett val för identitets-provider. Den `Policy` värdet anger att problemet endast gäller för en princip. Till exempel en användare navigera genom två princip utbildning för ett förtroende-ramverk uppmanas att ange ett identitet providern val när du växlar mellan principer. |
+| Omfång | Ja | Omfattning beteendet för enkel inloggning. Möjliga värden: `Suppressed`, `Tenant`, `Application`, eller `Policy`. Den `Suppressed` värdet anger att beteendet undertrycks. Till exempel när det gäller en enda session inloggnings-ingen session bibehålls för användaren och användaren uppge alltid ett val för identitets-provider. Den `TrustFramework` värdet anger att funktionen används för alla principer inom ramen för förtroende. Exempelvis kan en användare navigera genom två princip utbildning för ett förtroende-ramverk inte uppmanas att ange ett val för identitets-provider. Den `Tenant` värdet anger att funktionen används för alla principer i klienten. Exempelvis kan en användare navigera genom två princip utbildning för en klient inte uppmanas att ange ett val för identitets-provider. Den `Application` värdet anger att funktionen används för alla principer för program som gör begäran. En användare navigera genom två princip utbildning för ett program är till exempel inte ange ett val för identitets-provider. Den `Policy` värdet anger att problemet endast gäller för en princip. Till exempel en användare navigera genom två princip utbildning för ett förtroende-ramverk uppmanas att ange ett identitet providern val när du växlar mellan principer. |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
 Den **JourneyInsights** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | TelemetryEngine | Ja | Värdet måste vara `ApplicationInsights`. | 
 | InstrumentationKey | Ja | Den sträng som innehåller instrumenteringsnyckeln för application insights-elementet. |
@@ -157,7 +157,7 @@ Den **ContentDefinitionParameters** elementet innehåller följande element:
 
 Den **ContentDefinitionParameter** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Namn | Ja | Namnet på nyckeln värde-par. |
 
@@ -167,9 +167,9 @@ Mer information finns i [konfigurera Användargränssnittet med dynamiskt inneh�
 
 Den **TechnicalProfile** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- | 
-| ID | Ja | Värdet måste vara `PolicyProfile`. |
+| Id | Ja | Värdet måste vara `PolicyProfile`. |
 
 Den **TechnicalProfile** innehåller följande element:
 
@@ -184,7 +184,7 @@ Den **TechnicalProfile** innehåller följande element:
 
 Den **protokollet** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C som används som en del av den tekniska profilen. Möjliga värden: `OpenIdConnect` eller `SAML2`. Den `OpenIdConnect` värdet representerar OpenID Connect 1.0-protokollstandard enligt OpenID foundation-specifikationen. Den `SAML2` representerar SAML 2.0-protokollstandard enligt OASIS-specifikationen. Använd inte en SAML-token i produktion. |
 
@@ -198,7 +198,7 @@ Den **OutputClaims** elementet innehåller följande element:
 
 Den **OutputClaim** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | En referens till en **ClaimType** redan har definierats i den **ClaimsSchema** -avsnittet i principen. |
 | Standardvärde | Nej | Ett standardvärde som kan användas om anspråksvärdet är tom. |
@@ -212,7 +212,7 @@ Med den **SubjectNameingInfo** element du kontrollerar värdet för ämnet token
 
 Den **SubjectNamingInfo** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ClaimType | Ja | En referens till en utdata-anspråket **PartnerClaimType**. Utdata anspråk måste definieras i principen för förlitande part **OutputClaims** samling. |
 

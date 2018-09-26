@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 54812ed8b53143d8fa156149bfb2c7adff7da98d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b731b280b3e97076014f609571766a07a3dde1ea
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381736"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159898"
 ---
 # <a name="string-claims-transformations"></a>Sträng anspråk omvandlingar
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller exempel för att använda anspråksomvandlingar st
 
 Jämför två anspråk och genererar ett undantagsfel om de inte är lika med enligt angivna jämförelse inputClaim1, inputClaim2 och stringComparison.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | sträng | Typ första anspråk som ska jämföras. |
 | InputClaim | inputClaim2 | sträng | Andra anspråkets typ som ska jämföras. |
@@ -88,7 +88,7 @@ Den tekniska profilen självkontrollerad anropar verifieringen **inloggning utan
 
 Ändrar fallet med det angivna anspråket till lägre eller versal beroende på vilken operator.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | sträng | ClaimType som ska ändras. |
 | Indataparametrar | toCase | sträng | Något av följande värden: `LOWER` eller `UPPER`. |
@@ -123,7 +123,7 @@ Använd den här anspråksomvandling för att ändra en sträng ClaimType till l
 
 Skapar ett sträng-anspråk från den tillhandahållna Indataparametern i principen.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 |----- | ----------------------- | --------- | ----- |
 | Indataparametrar | värde | sträng | Strängen som ska anges |
 | outputClaim | createdClaim | sträng | ClaimType som skapas när detta omvandling av anspråk har anropats med värdet som anges i indataparametern. |
@@ -150,9 +150,9 @@ Använd detta anspråk omvandlingen att ange en sträng ClaimType värde.
 
 ## <a name="compareclaims"></a>CompareClaims
 
-Avgör om ett sträng-anspråk är lika med en annan. Resultatet är ett nytt booleskt ClaimType booleskt värde med ett värde av `true` eller `false`.
+Avgör om ett sträng-anspråk är lika med en annan. Resultatet är en ny booleskt ClaimType med värdet `true` eller `false`.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | sträng | Först Anspråkstyp, som ska jämföras. |
 | InputClaim | inputClaim2 | sträng | Andra anspråk som ska jämföras. |
@@ -193,7 +193,7 @@ Använd detta omvandling och kontrollera om ett anspråk är lika med en annan a
 
 Anger om ett anspråksvärde är lika med värdet för indataparametern.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | sträng | Anspråkets typ som ska jämföras. |
 | Indataparametrar | Operator | sträng | Möjliga värden: `Equal` eller `Not Equal`. |
@@ -233,7 +233,7 @@ Du kan använda detta anspråk omvandling för att kontrollera om ett anspråk �
 
 Skapar en slumpmässig sträng med slumpmässig talgeneratorns startvärden. Om slumpmässiga talgeneratorns startvärden är av typen `integer`kan du också en seed-parameter och ett högsta tal kan anges. Formatparametern valfri sträng kan utdata ska vara formaterad med hjälp av den och en valfri base64-parameter som anger om utdata är base64-kodad randomGeneratorType [guid, heltal] outputClaim (sträng).
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | Indataparametrar | randomGeneratorType | sträng | Anger slumpmässigt värde som ska genereras `GUID` (globalt unikt ID) eller `integer` (ett tal). |
 | Indataparametrar | stringFormat | sträng | [Valfritt] Formatera slumpmässigt värde. |
@@ -292,7 +292,7 @@ Följande exempel genererar ett slumpmässigt heltal mellan 0 och 1000. Värdet 
 
 Formatera ett anspråk enligt den angivna Formatsträngen. Den här omvandlingen använder C# `String.Format` metod.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim |sträng |ClaimType som fungerar som strängformat {0} parametern. |
 | Indataparametrar | stringFormat | sträng | Strängformat, inklusive den {0} parametern. |
@@ -327,7 +327,7 @@ Använd detta omvandling till format som alla strängar med en parameter av ansp
 
 Formatera två anspråk enligt den angivna Formatsträngen. Den här omvandlingen använder C# **String.Format** metod.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim |sträng | ClaimType som fungerar som strängformat {0} parametern. |
 | InputClaim | InputClaim | sträng | ClaimType som fungerar som strängformat {1} parametern. |
@@ -365,7 +365,7 @@ Använd detta anspråk omvandling till format som alla strängar med två parame
 
 Leta upp ett objekt från ett anspråk **begränsning** samling.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | mapFromClaim | sträng | Anspråk som innehåller den text som ska sökas i den **restrictionValueClaim** anspråk med den **begränsning** samling.  |
 | outputClaim | restrictionValueClaim | sträng | Anspråk som innehåller den **begränsning** samling. När anspråkstransformering har anropats kan innehåller värdet för det här anspråket värdet för det markerade objektet. |
@@ -408,7 +408,7 @@ Anspråkstransformering söker efter text för objekt och returnerar värdet. Om
 
 Leta upp ett anspråksvärde från en lista med värden baserat på värdet för en annan anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputParameterId | sträng | Anspråk som innehåller en lookup-värde |
 | Indataparametrar | |sträng | Samling av indataparametrar. |
@@ -450,7 +450,7 @@ I följande exempel söker upp domännamnet i inpuParameters samlingarna. Anspr�
 
 Rensa värdet för en viss anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | outputClaim | claim_to_null | sträng | Anspråket dess värde är NULL. |
 
@@ -473,7 +473,7 @@ Använd den här anspråksomvandling för att ta bort onödiga data från egensk
 
 Hämtar domändelen i en e-postadress.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | E-postadress | sträng | ClaimType som innehåller den e-postadressen. |
 | outputClaim | domän | sträng | ClaimType som skapas när detta omvandling av anspråk har anropats - domänen. |
@@ -502,7 +502,7 @@ Använd detta anspråk omvandling för att analysera domännamnet efter det @-te
 
 Kontrollerar att en sträng anspråk och `matchTo` Indataparametern är lika med och anger utdata anspråk med värdet i `stringMatchMsg` och `stringMatchMsgCode` indataparametrar, tillsammans med jämför resultatet utgående anspråk som ska anges som `true` eller `false` baserat på resultatet av jämförelsen.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | sträng | Anspråkstyp som ska jämföras. |
 | Indataparametrar | matchTo | sträng | Strängen som ska jämföras med `inputClaim`. |
@@ -551,7 +551,7 @@ Du kan använda detta anspråk omvandling för att kontrollera om ett anspråk �
 
 Kontrollerar att en sträng anspråk och `matchTo` Indataparametern är lika med och anger utdata anspråk med värdet i `outputClaimIfMatched` Indataparametern, tillsammans med jämför resultatet utgående anspråk som ska anges som `true` eller `false` baserat på den resultat av jämförelsen.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | claimToMatch | sträng | Anspråkstyp som ska jämföras. |
 | Indataparametrar | matchTo | sträng | Strängen som ska jämföras med inputClaim. |

@@ -4,14 +4,14 @@ description: Översikt över utvärderingsberäkningar i Azure Migrate-tjänsten
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 9f1986e2ebf406762916869d9dc1cb3d73174f93
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574886"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165695"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -39,7 +39,7 @@ Azure Migrate granskar följande egenskaper för lokala virtuella datorn att ide
 **Egenskap** | **Detaljer** | **Status för Azure-beredskap**
 --- | --- | ---
 **Starttyp** | Azure har stöd för virtuella datorer med starttypen BIOS och UEFI inte. | Villkorligt redo om starttypen är UEFI.
-**Kärnor** | Antalet kärnor på datorerna måste vara lika med eller mindre än det maximala antalet kärnor (32) som stöds för en Azure-dator.<br/><br/> Om det finns prestandahistorik överväger Azure Migrate utnyttjade kärnor för jämförelse. Om en komfortfaktor anges i inställningarna för utvärdering av multipliceras antalet utnyttjade kärnor med komfortfaktorn.<br/><br/> Om det finns inga prestandahistorik, använder Azure Migrate tilldelade kärnor, utan att tillämpa komfortfaktorn. | Redo om mindre än eller lika med begränsningar.
+**Kärnor** | Antalet kärnor på datorerna måste vara lika med eller mindre än det maximala antalet kärnor (128 kärnor) stöds för en Azure-dator.<br/><br/> Om det finns prestandahistorik överväger Azure Migrate utnyttjade kärnor för jämförelse. Om en komfortfaktor anges i inställningarna för utvärdering av multipliceras antalet utnyttjade kärnor med komfortfaktorn.<br/><br/> Om det finns inga prestandahistorik, använder Azure Migrate tilldelade kärnor, utan att tillämpa komfortfaktorn. | Redo om mindre än eller lika med begränsningar.
 **Minne** | Storleken på datorn minne måste vara lika med eller mindre än maximalt minne (3892 GB på Azure-M-serien Standard_M128m&nbsp;<sup>2</sup>) tillåts för en Azure-dator. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om det finns prestandahistorik överväger Azure Migrate utnyttjade minne för jämförelse. Om en komfortfaktor anges multipliceras utnyttjade minne med komfortfaktorn.<br/><br/> Om det finns ingen historik allokerat minne används, utan att tillämpa komfortfaktorn.<br/><br/> | Redo om inom gränserna.
 **Lagringsdisk** | Allokerade storleken på en disk måste vara 4 TB (4096 GB) eller mindre.<br/><br/> Antalet diskar som är anslutna till datorn måste vara 65 eller mindre, inklusive OS-disken. | Redo om inom gränserna.
 **Nätverk** | En dator måste ha 32 eller färre anslutna nätverkskort till den. | Redo om inom gränserna.
@@ -61,7 +61,8 @@ Windows Server 2008 R2 med alla Service Pack | Azure tillhandahåller fullständ
 Windows Server 2008 (32-bitars och 64-bitars) | Azure tillhandahåller fullständig support. | Redo för Azure
 Windows Server 2003, 2003 R2 | De här operativsystemen har klarat sitt slut supportperioden och du behöver en [anpassad stöder avtal (CSA)](https://aka.ms/WSosstatement) för support på Azure. | Villkorligt redo för Azure bör du överväga att uppgradera datorns operativsystem innan du migrerar till Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | De här operativsystemen har klarat sitt slut supportperioden, datorn kan starta i Azure, men någon OS-support tillhandahålls av Azure. | Villkorligt redo för Azure, rekommenderar vi att du uppgradera Operativsystemet innan du migrerar till Azure.
-Klienten för Windows 7, 8 och 10 | Azure ger stöd med Visual Studio-prenumeration. | Villkorligt redo för Azure
+Klienten för Windows 7, 8 och 10 | Azure ger stöd med [Visual Studio-prenumeration.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Villkorligt redo för Azure
+Windows 10 Pro Desktop | Azure ger stöd med [Multitenant som är värd för rättigheter.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Villkorligt redo för Azure
 Windows Vista, XP Professional | De här operativsystemen har klarat sitt slut supportperioden, datorn kan starta i Azure, men någon OS-support tillhandahålls av Azure. | Villkorligt redo för Azure, rekommenderar vi att du uppgradera Operativsystemet innan du migrerar till Azure.
 Linux | Azure godkänner dessa [Linux-operativsystem](../virtual-machines/linux/endorsed-distros.md). Andra Linux-operativsystem kan starta i Azure, men det rekommenderas att uppgradera datorns operativsystem till en version som stöds innan du migrerar till Azure. | Redo för Azure om versionen är godkända.<br/><br/>Villkorligt redo om versionen inte är godkända.
 Andra operativsystem<br/><br/> t.ex. Oracle Solaris, Apple Mac OS etc., FreeBSD osv. | Azure du inte stöder dessa operativsystem. Datorn kan starta i Azure, men någon OS-support tillhandahålls av Azure. | Villkorligt redo för Azure, rekommenderar vi att du installerar ett operativsystem som stöds innan du migrerar till Azure.  

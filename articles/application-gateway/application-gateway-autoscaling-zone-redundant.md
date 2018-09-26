@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5d051ed049964af708056e2963f04cb478c15906
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab1c9405042de02183b8742fa940a3a5a482923a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951516"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165237"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)
 
@@ -54,6 +54,7 @@ I förhandsversionen är gratis. Du kommer att debiteras för andra resurser än
 |Web application firewall automatisk skalning|WAF har inte stöd för läget för automatisk skalning. Fast kapacitet läge stöds.|
 
 ## <a name="next-steps"></a>Nästa steg
+- [Skapa en automatisk skalning, zonen redundant Programgateway med en reserverad virtuell IP-adress med hjälp av Azure PowerShell](tutorial-autoscale-ps.md)
 - Läs mer om [Application Gateway](overview.md).
 - Läs mer om [Azure brandvägg](../firewall/overview.md). 
 

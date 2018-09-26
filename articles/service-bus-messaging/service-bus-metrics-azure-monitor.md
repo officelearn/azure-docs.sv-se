@@ -7,14 +7,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/24/2018
 ms.author: spelluru
-ms.openlocfilehash: d141ac284b1ed8e128588e1a49a0594e0c61707f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974059"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166341"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-mått i Azure Monitor (förhandsversion)
 
@@ -37,7 +37,7 @@ Du kan övervaka mått med tiden i den [Azure-portalen](https://portal.azure.com
 
 ![][1]
 
-Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått (Peview)**. Om du vill visa mått som filtrerats till i omfånget för entiteten, väljer du entitet och klicka sedan på **mått (förhandsgranskning)**.
+Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått (förhandsgranskning)**. Om du vill visa mått som filtrerats till i omfånget för entiteten, väljer du entitet och klicka sedan på **mått (förhandsgranskning)**.
 
 ![][2]
 
@@ -70,7 +70,7 @@ Räknar antalet förfrågningar om data och hantering av åtgärder.
 
 Följande två typer av fel är klassificerade som användarfel:
 
-1. Sida klientfel (i HTTP som skulle vara 400 fel).
+1. Fel på klientsidan (i HTTP som skulle vara 400 fel).
 2. Fel som uppstår vid bearbetning av meddelanden, till exempel [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
 
 
@@ -90,6 +90,9 @@ Följande två typer av fel är klassificerade som användarfel:
 |Anslutningar stängd (förhandsversion)|Antal stängda anslutningar.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Användningsstatistik för resursen
+
+> [!NOTE] 
+> Följande mått är endast tillgängligt med den **premium** nivå. 
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |

@@ -12,8 +12,8 @@
    * Om du har valt Amazon S3 eller Amazon S3 med RRS, anger du ett eget **namn på lagringskonto**, **åtkomstnyckel** och **hemlig nyckel**. För Amazon S3 och Amazon S3 med RRS, stöds följande platser:
      
      * Standard för USA
-     * USA, Väst (Oregon)
-     * USA, Väst (norra Kalifornien)
+     * USA, västra (Oregon)
+     * USA, västra (norra Kalifornien)
      * EU (Ireland)
      * Asien och stillahavsområdet (Singapore)
      * Asien och stillahavsområdet (Sydney)

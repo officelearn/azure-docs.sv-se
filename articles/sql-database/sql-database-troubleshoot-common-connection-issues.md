@@ -2,19 +2,22 @@
 title: Felsök vanliga anslutningsproblem till Azure SQL Database
 description: Steg för att identifiera och lösa vanliga fel för Azure SQL Database.
 services: sql-database
-author: dalechen
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: dalechen
 ms.author: daleche
-ms.openlocfilehash: 65892518cf041cbef87657b8c43cfb0b2ac333cb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 276a2d6d717497538a6633a9b0926bb89b9e875c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981923"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161105"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Felsöka problem med anslutningen till Azure SQL Database
 När anslutningen till Azure SQL Database misslyckas kan du få [felmeddelanden](sql-database-develop-error-messages.md). Den här artikeln är en centraliserad artikel som hjälper dig att felsöka anslutningsproblem för Azure SQL Database. Det introducerar [vanliga orsaker](#cause) av problem med anslutningen rekommenderar [ett verktyg för felsökning](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) som hjälper dig att identitet problemet och ger felsökningssteg för att lösa [tillfälligt fel](#troubleshoot-transient-errors) och [permanenta eller icke tillfälliga fel](#troubleshoot-persistent-errors). 

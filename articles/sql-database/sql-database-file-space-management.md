@@ -2,19 +2,22 @@
 title: Azure SQL Database utrymme filhantering | Microsoft Docs
 description: Den här sidan beskriver hur du hanterar filutrymme med Azure SQL Database och innehåller kodexempel att avgöra om du behöver krympa en databas samt hur du utför en databas för att minska åtgärden.
 services: sql-database
-author: oslake
-manager: craigg
 ms.service: sql-database
-ms.custom: how-to
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: oslake
 ms.author: moslake
-ms.openlocfilehash: 09b7df861f65a5fb4b3c9727f61f73a0ff4e0d65
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730249"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159949"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Hantera utrymmet i Azure SQL Database
 Den här artikeln beskrivs olika typer av lagringsutrymme i Azure SQL Database och steg som kan utföras när utrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.

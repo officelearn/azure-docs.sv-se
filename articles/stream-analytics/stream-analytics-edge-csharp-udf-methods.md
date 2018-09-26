@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9aa61e95eb808c38646fa9b8cefd4004f5477ee6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2b6dfe7c8f8ac8d7207659b848abecd04f56c232
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974671"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181450"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Utveckla .NET Standard användardefinierade funktioner för Azure Stream Analytics Edge-jobb (förhandsversion)
 
@@ -31,7 +31,7 @@ Det finns tre sätt att implementera UDF: er:
 
 ## <a name="package-path"></a>Paketsökväg för
 
-Formatet för alla UDF-paket har sökvägen `/UserCustomCode/CLR/*`. Dynamiska länkbibliotek (dll) och resurser kopieras den `/UserCustomCode/CLR/*` mapp, som hjälper dig att isolera användare DLL-filer från systemet och Azure Stream Analytics-DLL: er.
+Formatet för alla UDF-paket har sökvägen `/UserCustomCode/CLR/*`. Dynamiska länkbibliotek (dll) och resurser kopieras den `/UserCustomCode/CLR/*` mapp, som hjälper dig att isolera användare DLL-filer från systemet och Azure Stream Analytics-DLL: er. Det här paketet används för alla funktioner oavsett vilken metod som används för att använda dem.
 
 ## <a name="supported-types-and-mapping"></a>Typer som stöds och mappning
 
@@ -59,10 +59,10 @@ Att referera till ett lokalt projekt:
 
 1. Skapa en ny klassbiblioteket i din lösning.
 2. Skriva koden i klassen. Kom ihåg att klasser måste definieras som *offentliga* och objekt måste definieras som *statiska offentliga*. 
-3. Skapa ditt projekt.
+3. Skapa ditt projekt. Verktygen kommer paketera alla artefakter i bin-mappen till en zip-fil och ladda upp zip-filen till lagringskontot. Använda sammansättningsreferensen i stället för NuGet-paketet för externa referenser.
 4. Referera till den nya klassen i projektet Azure Stream Analytics.
 5. Lägg till en ny funktion i Azure Stream Analytics-projektet.
-6. Konfigurera sökväg för sammansättning i konfigurationsfilen jobbet `EdgeJobConfig.json`.
+6. Konfigurera sökväg för sammansättning i konfigurationsfilen jobbet `JobConfig.json`. Ange sökväg för sammansättning **lokalt projektreferens eller bakomliggande koden**.
 7. Återskapa både function-projekt och Azure Stream Analytics-projektet.  
 
 ### <a name="example"></a>Exempel
@@ -109,19 +109,19 @@ Du kan skapa .NET Standard UDF: er i någon av valfri IDE och anropa dem från A
 
 När sammansättningen zip-paket har överförts till ditt Azure storage-konto, kan du använda funktionerna i Azure Stream Analytics-frågor. Allt du behöver göra är att inkludera information om lagring i konfigurationen av Stream Analytics Edge-jobb. Du kan testa funktionen lokalt med det här alternativet eftersom Visual Studio-verktyg inte kommer att ladda ned paketet. Paketsökvägen tolkas direkt till tjänsten. 
 
-Konfigurera sökväg för sammansättning i konfigurationsfilen för jobbet, 'EdgeJobConfig.json':
+Konfigurera sökväg för sammansättning i konfigurationsfilen jobbet `JobConfig.json`:
 
 Expandera den **användardefinierade kod Configuration** avsnittet och fylla i konfigurationen med följande föreslagna värden:
 
  |**Inställning**  |**Föreslaget värde**  |
  |---------|---------|
- |Sammansättningen källa  |  Referens för lokala projektet eller bakomliggande koden   |
+ |Sammansättningen källa  | Den befintliga sammansättningen paket från molnet    |
  |Resurs  |  Välj data från aktuellt konto   |
  |Prenumeration  |  Välj din prenumeration.   |
  |Lagringskonto  |  Välj ditt lagringskonto.   |
  |Container  |  Välj den behållare du skapade i ditt storage-konto.   |
 
-    ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
+![Azure Stream Analytics Edge jobbkonfigurationen i Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 
 ## <a name="limitations"></a>Begränsningar
 UDF-förhandsgranskning har för närvarande följande begränsningar:

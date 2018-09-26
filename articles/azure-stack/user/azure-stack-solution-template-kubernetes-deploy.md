@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: a6e1acf3b9e69f32a8c175310134c534dbf8c561
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89c72e21733b01a3e42c0e58d65cb7877e47d374
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977544"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163502"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Distribuera Kubernetes till Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "46977544"
 > [!Note]  
 > Kubernetes på Azure Stack är en förhandsversion. Azure Stack-operator måste begära åtkomst till Kubernetes-kluster marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln.
 
-I följande artikel tittar på med hjälp av en lösningsmall för Azure Resource Manager-för att distribuera och etablera resurserna för Kubernetes i en enda, samordnad åtgärd. Du behöver samla in nödvändig information om installationen av Azure Stack, generera mallen, och sedan distribuera till molnet. Obs mallen inte är samma hanterade AKS-tjänsten som erbjuds i globala Azure, men närmare ACS-tjänsten.
+I följande artikel tittar på med hjälp av en lösningsmall för Azure Resource Manager-för att distribuera och etablera resurserna för Kubernetes i en enda, samordnad åtgärd. Du behöver samla in nödvändig information om installationen av Azure Stack, generera mallen, och sedan distribuera till molnet. Obs mallen är inte samma hanterade AKS-tjänsten erbjuds i globala Azure.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes och behållare
 
@@ -54,7 +54,7 @@ Kom igång genom att kontrollera att du har rätt behörigheter och att Azure St
 
 1. Kontrollera att du har en giltig prenumeration i din klient Azure Stack-portalen och att du har tillräckligt med offentliga IP-adresser tillgängliga att lägga till nya program.
 
-    Klustret kan inte distribueras till ett Azure Stack **administratör** prenumeration. Du måste använda en användare **-prenumeration. 
+    Klustret kan inte distribueras till ett Azure Stack **administratör** prenumeration. Du måste använda en **användaren** prenumeration. 
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>Skapa ett huvudnamn för tjänsten i Azure AD
 
@@ -113,9 +113,23 @@ Ge tjänstens huvudnamn åtkomst till din prenumeration så att huvudkontot kan 
 
     ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-1. Välj **grunderna** i det skapar Kubernetes.
+### <a name="1-basics"></a>1. Grundläggande inställningar
+
+1. Välj **grunderna** i skapar Kubernetes-kluster.
 
     ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+
+1. Välj din **prenumeration** -ID.
+
+1. Ange namnet på en ny resursgrupp eller välj en befintlig resursgrupp. Resursnamnet måste vara alfanumeriskt och gemener.
+
+1. Välj den **plats** för resursgruppen. Det här är den region som du väljer för din Azure Stack-installation.
+
+### <a name="2-kubernetes-cluster-settings"></a>2. Inställningar för Kubernetes-kluster
+
+1. Välj **Kubernetes klusterinställningar** i skapar Kubernetes-kluster.
+
+    ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
 
 1. Ange den **Linux VM-administratörsanvändarnamn**. Användarnamn för Linux-datorer som ingår i Kubernetes-klustret och DVM.
 
@@ -126,28 +140,29 @@ Ge tjänstens huvudnamn åtkomst till din prenumeration så att huvudkontot kan 
     > [!Note]  
     > Använda en DNS-prefix för nya och unika master profil för varje kluster.
 
-1. Ange den **Agentantal Pool profil**. Antalet innehåller antalet agenter i klustret. Det kan vara från 1 till 4.
+1. Välj den **Kubernetes Master Pool profil antal**. Antalet innehåller antalet noder i poolen master. Det kan vara mellan 1 och 7. Det här värdet ska vara ett udda tal.
 
-1. Ange den **tjänstens huvudnamn ClientId** används av providern för Kubernetes Azure-molnet.
+1. Välj **The VMSize med Kubernetes överordnade virtuella datorer**.
 
-1. Ange den **Klienthemlighet för tjänstens huvudnamn** som du skapade när du skapar service principal program.
+1. Välj den **Kubernetes Nodantal Pool profil**. Antalet innehåller antalet agenter i klustret. 
+
+1. Välj den **Lagringsprofilen**. Du kan välja **Blob Disk** eller **Managed Disk**. Detta anger att noden VM-storlek för Kubernetes virtuella datorer. 
+
+1. Ange den **tjänstens huvudnamn ClientId** används av providern för Kubernetes Azure-molnet. Klient-ID som identifieras som program-ID när den skapade tjänstens huvudnamn.
+
+1. Ange den **Klienthemlighet för tjänstens huvudnamn** som du skapade när du skapar tjänstens huvudnamn.
 
 1. Ange den **Kubernetes Azure Cloud-providerversion**. Det här är version för Kubernetes Azure-providern. Azure Stack släpper en anpassad Kubernetes-version för varje Azure Stack-version.
 
-1. Välj din **prenumeration** -ID.
+### <a name="3-summary"></a>3. Sammanfattning
 
-1. Ange namnet på en ny resursgrupp eller välj en befintlig resursgrupp. Resursnamnet måste vara alfanumeriskt och gemener.
+1. Välj Sammanfattning. Bladet visar ett verifieringsmeddelande om för dina inställningar för konfigurationer av Kubernetes-kluster.
 
-1. Välj den **plats** för resursgruppen. Det här är den region som du väljer för din Azure Stack-installation.
+    ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-### <a name="specify-the-azure-stack-settings"></a>Ange inställningar för Azure Stack
+2. Granska dina inställningar.
 
-1. Välj den **inställningar för Azure Stack-stämpel**.
-
-    ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
-
-1. Ange den **slutpunkt för Arm-klient**. Det här är Azure Resource Manager-slutpunkt att ansluta för att skapa resursgruppen för Kubernetes-klustret. Du behöver hämta slutpunkten från Azure Stack-operatör för ett integrerat system. För de Azure Stack Development Kit (ASDK), som du kan använda `https://management.local.azurestack.external`.
-
+3. Välj **OK** att distribuera klustret.
 
 ## <a name="connect-to-your-cluster"></a>Ansluta till ditt kluster
 

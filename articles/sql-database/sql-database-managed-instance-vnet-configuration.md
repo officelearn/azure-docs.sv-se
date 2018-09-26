@@ -2,20 +2,22 @@
 title: Azure SQL Database Managed instanskonfiguration av virtuellt nätverk | Microsoft Docs
 description: Det här avsnittet beskriver konfigurationsalternativ för ett virtuellt nätverk (VNet) med en Azure SQL Database Managed Instance.
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: dfcd61abd9f995a9bb848c23143adb99b0620956
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 9d3f867dad40017e8e97ec4f5e370533b018263c
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042167"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181183"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett virtuellt nätverk för Azure SQL Database Managed Instance
 
@@ -42,7 +44,7 @@ Om du vill skapa en hanterad instans, skapar du ett dedikerat undernät (hantera
 - **Dedikerade undernät**: The Managed Instance undernätet får inte innehålla andra molntjänst som är associerade med det och det får inte vara ett Gateway-undernät. Du kommer inte att kunna skapa en hanterad instans i ett undernät som innehåller resurser än Managed Instance och du kan inte senare lägga till andra resurser i undernätet.
 - **Kompatibel Nätverkssäkerhetsgrupp (NSG)**: en NSG som är associerade med en hanterad instans-undernätet måste innehålla regler som visas i följande tabeller (obligatorisk inkommande säkerhetsregler och obligatoriska utgående säkerhetsregler) framför andra regler. Du kan använda en NSG för att fullständigt kontrollera åtkomsten till slutpunkten för hanterad instans-data genom att filtrera trafik på port 1433. 
 - **Tabellen kompatibla användardefinierad väg (UDR)**: The Managed Instance undernätet måste ha en routningstabell för användare med **0.0.0.0/0 nästa hopp till Internet** som obligatoriska UDR tilldelade till den. Dessutom kan du lägga till en UDR som dirigerar trafik som har lokala privata IP-adressintervall som ett mål via vnet-gateway eller virtuell nätverksinstallation (NVA). 
-- **Valfri anpassad DNS**: om en anpassad DNS har angetts på den virtuella nät nätverken nätverk, Azures rekursiva matchare IP-adress (till exempel 168.63.129.16) måste läggas till i listan. Mer information finns i [konfigurera anpassad DNS](sql-database-managed-instance-custom-dns.md). Anpassad DNS-server måste kunna matcha värdnamn i följande domäner och deras underdomäner: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, och *microsoftonline p.com*. 
+- **Valfri anpassad DNS**: om en anpassad DNS har angetts i det virtuella nätverket, Azures rekursiva matchare IP-adress (till exempel 168.63.129.16) måste läggas till i listan. Mer information finns i [konfigurera anpassad DNS](sql-database-managed-instance-custom-dns.md). Anpassad DNS-server måste kunna matcha värdnamn i följande domäner och deras underdomäner: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, och *microsoftonline p.com*. 
 - **Tjänsten har inga slutpunkter**: The Managed Instance undernätet får inte ha en tjänstslutpunkt som är associerade med den. Kontrollera att tjänsten slutpunkter alternativet inaktiveras när du skapar det virtuella nätverket.
 - **Tillräckligt med IP-adresser**: The Managed Instance undernätet måste ha minst 16 IP-adresser (rekommenderas minst är 32 IP-adresser). Mer information finns i [avgör storleken på undernätet för hanterade instanser](#determine-the-size-of-subnet-for-managed-instances)
 

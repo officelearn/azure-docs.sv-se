@@ -1,12 +1,12 @@
 
-## <a name="configure-your-aspnet-web-app-with-the-applications-registration-information"></a>Konfigurera ditt ASP.NET-webbprogram med programmets registreringsinformation
+## <a name="configure-your-aspnet-web-app-with-the-applications-registration-information"></a>Konfigurera din ASP.NET-Webbapp med programmets registreringsinformation
 
-I det här steget ska du konfigurera ditt projekt för att använda SSL och sedan använda SSL-URL: en för att konfigurera ditt program registreringsinformation. Därefter kan du lägga till programmet ' registreringsinformation i lösningen via *web.config*.
+I det här steget ska du konfigurera ditt projekt om du vill använda SSL, och sedan använda SSL-URL: en för att konfigurera ditt programs registreringsinformation. Därefter kan du lägga till programmet ' registreringsinformation i lösningen via *web.config*.
 
-1.  Välj projektet i Solution Explorer och titta på den `Properties` fönstret (om du inte ser en egenskapsfönstret trycker du på F4)
+1.  Välj projektet i Solution Explorer och titta på den `Properties` fönstret (om du inte ser en egenskapsfönstret trycker på F4)
 2.  Ändra `SSL Enabled` till `True`
-3.  Kopiera värdet från `SSL URL` ovan och klistra in den i den `Redirect URL` fältet överst i den här sidan och klicka sedan på *uppdatering*:<br/><br/>![Egenskaper för](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-4.  Lägg till följande i `web.config` fil i rotens mappen under avsnittet `configuration\appSettings`:
+3.  Kopiera värdet från `SSL URL` ovan och klistra in den i den `Redirect URL` fältet överst i den här sidan och klicka sedan på *uppdatering*:<br/><br/>![Projektegenskaper](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+4.  Lägg till följande i `web.config` finns i rotens mapp under avsnittet `configuration\appSettings`:
 
 ```xml
 <add key="ClientId" value="[Enter the application Id here]" />

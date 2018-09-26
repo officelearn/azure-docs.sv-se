@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 6ecddefd264bf4a6f57dd7fcd09c3a8cc10ec54a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 55901d6f3bcbf5511b6921939fdcba03972efed3
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377320"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182849"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit AZ3166 till Azure IoT Hub
 
@@ -128,29 +128,34 @@ Följ dessa steg för att förbereda utvecklingsmiljön för DevKit:
     * **macOS**: dra och släpp den extraherade **Arduino.app** till `/Applications` mapp.
     * **Ubuntu**: packa upp det till mappen som `$HOME/Downloads/arduino-1.8.5`
 
-1. Installera [Visual Studio Code](https://code.visualstudio.com/), plattformsoberoende Kodredigerare för källan med kraftfulla developer verktyg som IntelliSense kodifyllning och felsökning.
+2. Installera [Visual Studio Code](https://code.visualstudio.com/), plattformsoberoende Kodredigerare för källan med kraftfulla developer verktyg som IntelliSense kodifyllning och felsökning.
 
-1. Leta efter **Azure IoT Workbench** i tillägget marketplace och installera den.
+3. Leta efter **Azure IoT Workbench** i tillägget marketplace och installera den.
     ![Installera Azure IoT Workbench](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png) tillsammans med IoT-Workbench andra beroende tillägg kommer att installeras.
 
-1. Öppna **fil > Inställningar > Inställningar** och Lägg till följande rad för att konfigurera Arduino.
+4. Öppna **fil > Inställningar > Inställningar** och Lägg till följande rad för att konfigurera Arduino.
     * **Windows**:
-    ```javascript
+
+    ```json
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
     * **macOS**:
-    ```javascript
+
+    ```json
     "arduino.path": "/Applications",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
     * **Ubuntu**:
-    ```javascript
+
+    ```json
     "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
 
-1. Klicka på `F1` att öppna kommandopaletten, typ och väljer **Arduino: tavla Manager**. Sök efter **AZ3166** och installera den senaste versionen.
+5. Klicka på `F1` att öppna kommandopaletten, typ och väljer **Arduino: tavla Manager**. Sök efter **AZ3166** och installera den senaste versionen.
     ![Installera DevKit SDK](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-sdk.png)
 
 ### <a name="install-st-link-drivers"></a>Installera ST-Link-drivrutiner

@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
 ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35964132"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094201"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Övervaka och felsöka ett Azure Batch .NET-program med Application Insights
 
@@ -277,7 +277,7 @@ Följande skärmbild visar hur en enkel spårning för en aktivitet är inloggad
 
 Följande skärmbilder visar hur undantag från ditt program loggar i Application Insights. I det här fallet inom några sekunder för programmet som utlöste undantaget du öka detaljnivån i ett specifikt undantag och diagnostisera problemet.
 
-![Ett ohanterat undantag](./media/monitor-application-insights/exception.png)
+![Ohanterade undantag](./media/monitor-application-insights/exception.png)
 
 ### <a name="measure-blob-download-time"></a>Måttet blob-hämtningstid
 

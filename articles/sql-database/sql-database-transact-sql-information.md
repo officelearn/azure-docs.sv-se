@@ -2,19 +2,22 @@
 title: Lösa T-SQL skillnader från migrering Azure SQL Database | Microsoft Docs
 description: Transact-SQL-uttryck som inte stöds helt i Azure SQL Database
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 440605806915d515d2a60556a9c298b29e0fca8c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: dfff51d7541ffdc2d279b238a6d993d5e29515f0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735436"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160715"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Lösa Transact-SQL skillnader vid migrering till SQL-databas   
 När [migrera din databas](sql-database-cloud-migrate.md) från SQL Server till Azure SQL Server, kanske du upptäcker att databasen kräver viss omkonstruktion innan SQL Server kan migreras. Den här artikeln innehåller riktlinjer som hjälper dig att utföra den här bakåtkompilering såväl förstå de underliggande orsaker till varför den bakåtkompilering krävs. För att identifiera inkompatibiliteter, använda den [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).

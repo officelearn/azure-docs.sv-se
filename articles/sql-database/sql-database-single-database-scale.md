@@ -2,19 +2,22 @@
 title: Skala resurser för enkel databas – Azure SQL Database | Microsoft Docs
 description: Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som är tillgängliga för en enskild databas i Azure SQL Database.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 5bc03b8fe8ea64d85154198b8009592f45805a7e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 5cde4dcbbaaeb56a539faec9b2888ac22f6dbaea
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031857"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182322"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala resurser för enkel databas i Azure SQL Database
 
@@ -23,7 +26,7 @@ Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som 
 ## <a name="vcore-based-purchasing-model-change-storage-size"></a>vCore-baserade inköpsmodellen: ändra lagringsstorlek
 
 - Storage kan etableras upp till den maximala storleksgränsen med hjälp av steg om 1 GB. Den minsta konfigurerbara datalagringen är 5GB 
-- Lagring för en enskild databas kan etableras genom att öka eller minska sin maximala storlek med hjälp av den [Azure-portalen](https://portal.azure.com), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql?r#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](/rest/api/sql/databases/update).
+- Lagring för en enskild databas kan etableras genom att öka eller minska sin maximala storlek med hjälp av den [Azure-portalen](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](/rest/api/sql/databases/update).
 - SQL Database tilldelar automatiskt 30% av ytterligare lagringsutrymme för loggfilerna och 32GB per vCore för TempDB, men inte överskrida 384GB. TempDB finns på en ansluten SSD på alla tjänstnivåer.
 - Priset för lagringen för en enskild databas är summan av data lagring och log storage multiplicerat med a-pris för lagring av tjänstnivån. Kostnaden för TempDB ingår i det vCore-priset. Mer information om priset för extra lagringsutrymme finns [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -32,7 +35,7 @@ Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som 
 
 ## <a name="vcore-based-purchasing-model-change-compute-resources"></a>vCore-baserade inköpsmodellen: ändra beräkningsresurser
 
-När du har valt antal virtuella kärnor, du kan skala en enskild databas upp eller ned dynamiskt utifrån det faktiska resultatet med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](/rest/api/sql/databases/update). 
+När du har valt antal virtuella kärnor, du kan skala en enskild databas upp eller ned dynamiskt utifrån det faktiska resultatet med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL] ((https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), den [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](/rest/api/sql/databases/update). 
 
 Tjänsten ändrades till nivå och/eller beräkna storleken på en databas skapas en replik av den ursprungliga databasen till den nya beräkningsstorleken och sedan växlas anslutningar över till repliken. Inga data förloras under den här processen men under kort tidsperiod när vi växlar över till repliken är anslutningar till databasen inaktiverade, så vissa transaktioner som sker då kan återställas. Hur lång tid för switch-over varierar, men är vanligtvis under 4 sekunder är mindre än 30 sekunder 99% av tiden. Om det finns stora mängder transaktioner som rör sig just då anslutningarna är inaktiverade, hur lång tid för switch-over kan också ta längre. 
 
@@ -50,7 +53,7 @@ Hur lång tid processen att skala upp tar beror på databasens storlek och tjän
 ## <a name="dtu-based-purchasing-model-change-storage-size"></a>DTU-baserade inköpsmodellen: ändra lagringsstorlek
 
 - DTU-priset för en enskild databas innehåller en viss mängd lagringsutrymme utan extra kostnad. Extra lagringsutrymme utöver mängden kan etableras för en ytterligare kostnad upp till den maximala storleksgränsen i steg om 250 GB upp till 1 TB och sedan i steg om 256 GB mer än 1 TB. Inkluderad lagring belopp och max storleksgränser finns i [enkel databas: lagringsstorlekar och storlekar på](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Extra lagringsutrymme för en enskild databas kan etableras genom att öka sin maximala storlek med hjälp av Azure-portalen [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [ REST-API](/rest/api/sql/databases/update).
+- Extra lagringsutrymme för en enskild databas kan etableras genom att öka sin maximala storlek med hjälp av Azure-portalen [Transact-SQL] ((https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST API: et](/rest/api/sql/databases/update).
 - Priset för extra lagringsutrymme för en enskild databas är det extra lagringsutrymmet multiplicerat med extra lagringsutrymme enhetspriset för tjänstnivån. Mer information om priset för extra lagringsutrymme finns [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -58,7 +61,7 @@ Hur lång tid processen att skala upp tar beror på databasens storlek och tjän
 
 ## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>DTU-baserade inköpsmodellen: ändra beräkningsresurser (dtu: er)
 
-När du har valt en tjänstnivå och beräkningsstorleken lagringsutrymme, du kan skala en enskild databas upp eller ned dynamiskt baserat på den faktiska upplevelsen med Azure portal, [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](/rest/api/sql/databases/update). 
+När du har valt en tjänstnivå och beräkningsstorleken lagringsutrymme, du kan skala en enskild databas upp eller ned dynamiskt utifrån det faktiska resultatet med hjälp av Azure-portalen [Transact-SQL] ((https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](/rest/api/sql/databases/update). 
 
 I följande video visas dynamiskt ändra tjänsten nivå och beräkna storleken för att öka tillgängliga dtu: er för en enskild databas.
 

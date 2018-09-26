@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c2ef24692f9166fdca7eb19f648aee9ed3b0514f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c3b9422ebdb0a5d93f92644d9fea5d9c5ba9fa29
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026659"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47185173"
 ---
 Minnesoptimerade erbjudande för VM-storlekar högt minne att CPU-förhållande som är utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -26,7 +26,7 @@ Minnesoptimerade erbjudande för VM-storlekar högt minne att CPU-förhållande 
 
 * Ev3-serien funktioner E5-2673 v4 (Broadwell) 2,3 GHz-processorn i en hyper-threaded konfiguration, vilket ger ett mer prisvärt för de flesta allmänt syfte arbetsbelastningar och föra Ev3 justeras mot allmänna virtuella datorer i de flesta andra moln.  Minne har expanderats (från 7 GiB/Vcpu(:er) för 8 GiB/vCPU) medan disk- och gränser har justerats på basis av per kärna för att anpassas till flytten till hypertrådning.  Ev3 är Följ upp till de extra minne storlekarna av D/Dv2-familjer.
 
-* Azure-beräkning erbjuder VM-storlekar som är isolerad till en specifik maskinvara och dedikerad till en enda kund.  Dessa storlekar för virtuella datorer är bäst lämpade för arbetsbelastningar som kräver en hög grad av isolering från andra kunder för arbetsbelastningar som involverar element som efterlevnad och regelkrav.  Kunder kan också välja att dela upp resurser på dessa isolerade virtuella datorer med hjälp av ytterligare [Azure-stöd för kapslade virtuella datorer](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Se tabellerna i VM-familjer nedan för ditt isolerade VM-alternativ.
+* Azure Compute ger VM-storlekar som isoleras till en specifik maskinvarutyp och dedikerad till en enda kund.  Dessa VM-storlekar passar bäst för arbetsbelastningar som kräver en hög grad av isolering från andra kunder för arbetsbelastningar som innehåller element som efterlevnad och regelkrav.  Kunder kan också välja att dela upp resurser på dessa isolerade virtuella datorer med hjälp av ytterligare [Azure-stöd för kapslade virtuella datorer](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Se tabellerna i VM-familjer nedan för ditt isolerade VM-alternativ.
 
 ## <a name="esv3-series"></a>Esv3-serien 
 
@@ -45,6 +45,7 @@ Instanserna i ESv3-serien baseras på 2,3 GHz Intel XEON® E5-2673 v4-processorn
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8 000/64 (100)                                                      | 6,400 / 96                                | 2 / 2,000                                   |
 | Standard_E8s_v3&nbsp;<sup>2</sup> | 8      | 64          | 128            | 16             | 16 000/128 (200)                                                    | 12,800 / 192                              | 4 / 4,000                                       |
 | Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32 000/256 (400)                                                    | 25,600 / 384                              | 8 / 8,000                                       |
+| Standard_E20s_v3&nbsp;<sup>2</sup> | 20     | 160         | 320            | 32             | 40 000 / 320 (400)                                                    | 32000 / 480                              | 8 / 10 000                                       |
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64 000/512 (800)                                                    | 51,200 / 768                              | 8 / 16,000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128 000/1024 (1 600)                                                   | 80 000/1 200                             | 8 / 30,000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128 000/1024 (1 600)                                                   | 80 000/1 200                             | 8 / 30,000                             |
@@ -76,6 +77,7 @@ Datadisklagring faktureras separat från virtuella datorer. Om du vill använda 
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6 000/93/46                                               | 2 / 2,000                 |
 | Standard_E8_v3  | 8         | 64          | 200            | 16             | 12 000/187/93                                             | 4 / 4,000                     |
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24 000/375/187                                            | 8 / 8,000                     |
+| Standard_E20_v3 | 20        | 160         | 500            | 32             | 30000/469/234                                            | 8 / 10 000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48 000/750/375                                            | 8 / 16,000                 |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96 000/1 000/500                                           | 8 / 30,000           |
 | Standard_E64i_v3&nbsp;<sup>2,&nbsp;3</sup> | 64        | 432         | 1600           | 32             | 96 000/1 000/500                                           | 8 / 30,000           |

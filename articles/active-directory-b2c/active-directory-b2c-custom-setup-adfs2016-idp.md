@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2c2e6861fda42a9e8c1aabcba303bfede47ac3c1
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a94935a57b3b906768072da6a5c472a1484d6c25
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669234"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181178"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till AD FS som en SAML-identitetsprovider med anpassade principer i Azure Active Directory B2C
 
@@ -25,33 +25,32 @@ Den här artikeln visar hur du aktiverar inloggning för ett användarkonto i AD
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikeln.
+- Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Kontrollera att du har åtkomst till certifikatets PFX-fil med den privata nyckeln som har utfärdats av AD FS.
 
-## <a name="add-the-adfs-account-application-key-to-azure-ad-b2c"></a>Lägg till AD FS-kontonyckel för program i Azure AD B2C
+## <a name="create-a-policy-key"></a>Skapa en principnyckel
 
-Federation med ett konto för AD FS kräver en klienthemlighet för kontot som ska förtroende Azure AD B2C åt programmet. Du behöver lagra certifikatet AD FS i din Azure AD B2C-klient. 
+Du behöver lagra certifikatet AD FS i din Azure AD B2C-klient.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att växla till den i det övre högra hörnet i Azure-portalen. Välj **växla katalog**, och välj sedan den katalog som innehåller den klient du skapade. I de här självstudierna i *contoso* används katalogen som innehåller klient med namnet *contoso0522Tenant.onmicrosoft.com*.
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
+5. Välj **Principnycklar** och välj sedan **Lägg till**.
+6. För **alternativ**, Välj `Upload`.
+7. Ange en **namn** för principnyckeln. Till exempel `ADFSSamlCert`. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
+8. Bläddra till och välj din .pfx-certifikatfil med privat nyckel.
+9. Klicka på **Skapa**.
 
-    ![Växla kataloger](./media/active-directory-b2c-custom-setup-adfs2016-idp/switch-directories.png)
+## <a name="add-a-claims-provider"></a>Lägg till en anspråksprovider
 
-3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**. Du bör nu använda din klient.
-4. På sidan Översikt väljer **Identitetsramverk**.
-5. Välj **Principnycklar** att visa nycklarna som är tillgängliga i din klient och klicka sedan på **Lägg till**.
-6. Välj **överför** som alternativ.
-7. Ange `ADFSSamlCert` för namnet. Prefixet `B2C_1A_` kan läggas till automatiskt.
-8. Bläddra till och välj din .pfx-certifikatfil med privat nyckel. Det här certifikatet med den privata nyckeln ska vara samma konto som har utfärdats och används för den förlitande parten för AD FS.
-9. Klicka på **skapa** och bekräfta att du har skapat den `B2C_1A_ADFSSamlCert` nyckel.
+Om du vill att användarna att logga in med ett konto för AD FS måste du definiera kontot som en anspråksprovider som Azure AD B2C kan kommunicera med via en slutpunkt. Slutpunkten som innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats. 
 
-## <a name="add-a-claims-provider-in-your-extension-policy"></a>Lägg till en anspråksprovider i din princip för tillägg
+Du kan definiera ett AD FS-konto som en anspråksprovider genom att lägga till den **ClaimsProviders** elementet i tilläggsfilen av din princip.
 
-Om du vill att användarna att logga in med ett konto för AD FS måste du definiera kontot som en anspråksprovider. Du kan göra detta genom att ange en slutpunkt som Azure AD B2C kommunicerar med. Slutpunkten som innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats.
-
-Definiera ADFS som en anspråksprovider genom att lägga till **ClaimsProvider** element i din principfil för tillägget.
-
-1. Öppna den *TrustFrameworkExtensions.xml* principfil i din arbetskatalog. Om du behöver en XML-redigerare [försök Visual Studio Code](https://code.visualstudio.com/download), vilket är ett enkelt redigeringsprogram för olika plattformar.
-2. Lägg till följande XML-filen under den **ClaimsProviders** elementet och Ersätt **your AD FS domän** med ADFS-domänen namn och Ersätt värdet för den **identityProvider** utgående anspråk med din DNS-server (godtyckligt värde som anger din domän) och spara filen. 
+1. Öppna den *TrustFrameworkExtensions.xml*.
+2. Hitta den **ClaimsProviders** element. Om det inte finns, lägger du till det under rotelementet.
+3. Lägga till en ny **ClaimsProvider** på följande sätt:
 
     ```xml
     <ClaimsProvider>
@@ -60,7 +59,7 @@ Definiera ADFS som en anspråksprovider genom att lägga till **ClaimsProvider**
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
           <DisplayName>Contoso ADFS</DisplayName>
-          <Description>Login with your Contoso account</Description>
+          <Description>Login with your ADFS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
             <Item Key="RequestsSigned">false</Item>
@@ -92,94 +91,69 @@ Definiera ADFS som en anspråksprovider genom att lägga till **ClaimsProvider**
     </ClaimsProvider>
     ```
 
-## <a name="register-the-claims-provider-for-sign-up-and-sign-in"></a>Registrera anspråksprovidern för registrering och inloggning
+4. Ersätt `your-ADFS-domain` med namnet på din AD FS-domän och Ersätt värdet för den **identityProvider** utdataanspråket med din DNS-server (godtyckligt värde som anger din domän).
+5. Spara filen.
 
-För att göra identitetsprovidern som AD FS-konto i sidorna för registrering och inloggning, du måste lägga till den till din **SignUpOrSignIn** användarresa. 
+### <a name="upload-the-extension-file-for-verification"></a>Ladda upp tilläggsfilen med för verifiering
 
-Göra en kopia av en befintlig mall för användarresan och ändra den så att den inkluderar identitetsprovidern som AD FS:
+Nu bör har du konfigurerat principen så att Azure AD B2C vet hur du kommunicerar med AD FS-konto. Försök att överföra tilläggsfilen i din princip bara för att bekräfta att den inte har några problem hittills.
 
->[!NOTE]
->Om du tidigare har kopierat den **UserJourneys** element från bas-filen i din princip att tilläggsfilen (*TrustFrameworkExtensions.xml*) kan du hoppa över det här avsnittet.
+1. På den **anpassade principer** sidan i din Azure AD B2C-klient väljer **ladda upp principen**.
+2. Aktivera **Skriv över principen om den finns**, och sedan bläddra till och markera den *TrustFrameworkExtensions.xml* fil.
+3. Klicka på **Överför**.
 
-1. Öppna filen bas i din princip. Till exempel *TrustFrameworkBase.xml*.
-2. Kopiera hela innehållet i **UserJourneys** element.
-3. Öppna tilläggsfilen (*TrustFrameworkExtensions.xml*) och klistra in hela innehållet i **UserJourneys** element som du kopierade i tilläggsfilen.
+## <a name="register-the-claims-provider"></a>Registrera anspråksprovidern
+
+Nu identitetsprovidern har ställts in, men det finns inte i någon av skärmarna registrering eller inloggning. Om du vill göra den tillgänglig, skapa en dubblett av en befintlig mall för användarresan och ändra den så att den även har AD FS-identitetsprovider.
+
+1. Öppna den *TrustFrameworkBase.xml* filen från startpaket.
+2. Hitta och kopiera hela innehållet i den **UserJourney** element som innehåller `Id="SignUpOrSignIn"`.
+3. Öppna den *TrustFrameworkExtensions.xml* och hitta den **UserJourneys** element. Om elementet inte finns kan du lägga till en.
+4. Klistra in hela innehållet i den **UserJourney** element som du kopierade som underordnad till den **UserJourneys** element.
+5. Byt namn på ID för användarresa. Till exempel `SignUpSignInADFS`.
 
 ### <a name="display-the-button"></a>Visa knappen
 
-Den **ClaimsProviderSelections** elementet definierar en lista med anspråk providern val och deras inbördes ordning.  Den **ClaimsProviderSelection** element är detsamma som en knapp med identity-providern på en sida för registrering och inloggning. Om du lägger till en **ClaimsProviderSelection** element för ett AD FS-konto, en ny knapp visas när en användare ser sidan. Lägga till det här elementet:
+Den **ClaimsProviderSelection** element är detsamma som en knapp med identity-providern på en skärm för registrering eller inloggning. Om du lägger till en **ClaimsProviderSelection** element för ett AD FS-konto, en ny knapp visas när en användare finns på sidan.
 
-1. I den **UserJourney** element med en identifierare för `SignUpOrSignIn` i utbildning för användare som du kopierade, letar du upp den **OrchestrationStep** element i `Order="1"`.
-2. Lägg till följande **ClaimsProviderSelection** elementet under den **ClaimsProviderSelections** element:
+1. Hitta den **OrchestrationStep** element som innehåller `Order="1"` i användarresan som du skapade.
+2. Under **ClaimsProviderSelects**, lägger du till följande element. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `ContosoExchange`:
 
-    ```xml
+    ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
     ```
 
 ### <a name="link-the-button-to-an-action"></a>Länka knappen till en åtgärd
 
-Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Åtgärden, i det här fallet är för Azure AD B2C att kommunicera med AD FS-konto för att ta emot en token. Länka knappen till en åtgärd genom att länka den tekniska profilen för din AD FS-konto anspråksprovidern:
+Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Åtgärden, i det här fallet är för Azure AD B2C att kommunicera med en AD FS-konto för att ta emot en token.
 
-1. Hitta den **OrchestrationStep** av `Order="2"` under den **UserJourney** element.
-2. Lägg till följande **ClaimsExchange** elementet under den **ClaimsExchanges** element:
+1. Hitta den **OrchestrationStep** som innehåller `Order="2"` i användarresan.
+2. Lägg till följande **ClaimsExchange** element att se till att du använder samma värde för **Id** som du använde för **TargetClaimsExchangeId**:
 
-    ```xml
+    ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
+    
+    Uppdatera värdet för **TechnicalProfileReferenceId** till den **Id** för den tekniska profilen du skapade tidigare. Till exempel `Contoso-SAML2`.
 
-> [!NOTE]
-> * Se till att den `Id` har samma värde som `TargetClaimsExchangeId` i föregående avsnitt.
-> * Se till att den `TechnicalProfileReferenceId` har angetts till den tekniska profilen du skapade tidigare (Contoso-SAML2).
-
-
-## <a name="optional-register-the-claims-provider-for-profile-edit"></a>[Valfritt] Registrera anspråksprovidern för profilredigering
-
-Du kanske vill lägga till identitetsleverantören för AD FS-konto i användarresan för redigera din profil.
-
-### <a name="display-the-button"></a>Visa knappen
-
-1. Öppna tilläggsfilen av din princip. Till exempel *TrustFrameworkExtensions.xml*.
-2. I den **UserJourney** element med en identifierare som `ProfileEdit` i utbildning för användare som du kopierade, letar du upp den **OrchestrationStep** element i `Order="1"`.
-3. Lägg till följande **ClaimsProviderSelection** elementet under **ClaimsProviderSelections** element:
-
-    ```xml
-    <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
-    ```
-
-### <a name="link-the-button-to-an-action"></a>Länka knappen till en åtgärd
-
-1. Hitta den **OrchestrationStep** av `Order="2"` under den **UserJourney** element.
-2. Lägg till följande **ClaimsExchange** elementet under den **ClaimsExchanges** element:
-
-    ```xml
-    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
-    ```
-
-## <a name="upload-the-policy-to-your-tenant"></a>Ladda upp principen till din klient
-
-1. I Azure-portalen väljer du **alla principer**.
-2. Välj **överföra princip**.
-3. Aktivera **Skriv över principen om den finns**.
-4. Bläddra till och välj din *TrustFrameworkExtensions.xml* principfil och välj sedan **överför**. Se till att valideringen har lyckats.
+3. Spara den *TrustFrameworkExtensions.xml* fil och ladda upp den igen för att bekräfta.
 
 
-## <a name="configure-an-adfs-relying-party-trust"></a>Konfigurera en AD FS förlitande part
+## <a name="configure-an-adfs-relying-party-trust"></a>Konfigurera en AD FS förtroende för förlitande part
 
 Om du vill använda AD FS som en identitetsprovider i Azure AD B2C måste du skapa en AD FS förtroende för förlitande part med Azure AD B2C SAML-metadata. I följande exempel visas en URL-adress till SAML-metadata för en Azure AD B2C-tekniska profilen:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://login.microsoftonline.com/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Ersätt följande värden:
 
 - **din klient** med klientnamnet på din, till exempel din tenant.onmicrosoft.com.
-- **din princip** med namnet på din. Använd principen konfigurerar du den tekniska profilen för SAML-provider eller en policy som ärver från principen.
-- **din tekniska profil** med namnet på din identitet providern tekniska SAML-profilen.
+- **din princip** med namnet på din. Till exempel B2C_1A_signup_signin_adfs.
+- **din tekniska profil** med namnet på din identitet providern tekniska SAML-profilen. Till exempel Contoso-SAML2.
  
-Öppna en webbläsare och gå till URL: en. Kontrollera att du anger rätt URL och att du har åtkomst till metadata XML-filen.
-
-Om du vill lägga till en ny förlitande part med snapin-modulen AD FS-hantering och konfigurera inställningarna manuellt, utför du följande procedur på en federationsserver. Medlemskap i **administratörer** eller motsvarande på den lokala datorn är minimikravet för att kunna slutföra den här proceduren. Granska information om hur du använder lämpliga konton och gruppmedlemskap i [Local and Domain Default Groups](http://go.microsoft.com/fwlink/?LinkId=83477).
+Öppna en webbläsare och gå till URL: en. Kontrollera att du anger rätt URL och att du har åtkomst till metadata XML-filen. Om du vill lägga till en ny förlitande part med snapin-modulen AD FS-hantering och konfigurera inställningarna manuellt, utför du följande procedur på en federationsserver. Medlemskap i **administratörer** eller motsvarande på den lokala datorn är minimikravet för att kunna slutföra den här proceduren.
 
 1. I Serverhanteraren väljer **verktyg**, och välj sedan **AD FS Management**.
 2. Välj **Lägg till förtroende för förlitande part**.
@@ -192,23 +166,16 @@ Om du vill lägga till en ny förlitande part med snapin-modulen AD FS-hantering
 9. Välj **Lägg till regel**.  
 10. I **anspråksregelmall**väljer **skicka LDAP-attribut som anspråk**.
 11. Ange en **Regelnamn för anspråk**. För den **attributarkiv**väljer **Välj Active Directory**, lägga till följande anspråk och sedan på **Slutför** och **OK**.
-
-    ![Ange egenskaper för regeln](./media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-3.png)
-
 12.  Baserat på din typ av certifikat kan behöva du ange HASH-algoritmen. I egenskapsfönstret förlitande part förtroende (B2C Demo) väljer den **Avancerat** fliken och ändra den **säkra hash-algoritm** till `SHA-1` eller `SHA-256`, och klicka på **Ok**.  
+13. I Serverhanteraren väljer **verktyg**, och välj sedan **AD FS Management**.
+14. Välj det förlitande partsförtroendet som du har skapat, Välj **uppdateringen från Federationsmetadata**, och klicka sedan på **uppdatering**. 
 
-### <a name="update-the-relying-party-metadata"></a>Uppdatera metadata för förlitande part
+### <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa filen förlitande part
 
-Ändra den tekniska SAML-profilen måste du uppdatera AD FS med den uppdaterade metadata-versionen. Du behöver inte uppdatera metadata när du skapar det förlitande part-programmet, men när du gör en ändring, uppdatering av metadata i AD FS.
+Uppdatera filen för förlitande part (RP) som initierar användarresa som du skapade.
 
-1. I Serverhanteraren väljer **verktyg**, och välj sedan **AD FS Management**.
-2. Välj det förlitande partsförtroendet som du har skapat, Välj **uppdateringen från Federationsmetadata**, och klicka sedan på **uppdatering**. 
-
-### <a name="test-the-policy-by-using-run-now"></a>Testa principen med hjälp av kör nu
-
-1.  Öppna **Azure AD B2C-inställningar** och gå till **Identitetsramverk**.
-2.  Öppna **B2C_1A_ProfileEdit**, den förlitande part (RP) anpassade principen som du överförde. Välj **kör nu**. Du bör kunna logga in med AD FS.
-
-## <a name="download-the-complete-policy-files"></a>Hämta de fullständiga principfilerna
-
-Valfritt: Du kan skapa ditt scenario med anpassad principfiler när du har slutfört stegen i [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md). Till exempel filer, se [princip exempelfilerna endast för referens](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app).
+1. Skapa en kopia av *SignUpOrSignIn.xml* i din arbetskatalog och Byt namn på den. Exempel: Byt namn på den till *SignUpSignInADFS.xml*.
+2. Öppna den nya filen och uppdatera värdet för den **PolicyId** attributet för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInADFS`.
+3. Uppdatera värdet för **PublicPolicyUri** med URI: N för principen. Till exempel ”http://contoso.com/B2C_1A_signup_signin_adfs” >
+4. Uppdatera värdet för den **ReferenceId** attributet i **DefaultUserJourney** att matcha ID för den nya användarresa som du skapade (SignUpSignInADFS).
+5. Spara dina ändringar, överföra filen och testa den genom att öppna den och klicka på **kör nu**.

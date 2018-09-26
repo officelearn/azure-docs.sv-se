@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 9b0c58fdbfb0d55b3b8998f4edfc1222b9a3d4aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a90fa5fb9eadd56b6b01306b251ff9581256bab
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988607"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161173"
 ---
 # <a name="working-with-date-time-values-in-log-analytics-queries"></a>Arbeta med datum-tid-värdena i Log Analytics-frågor
 
@@ -47,7 +47,7 @@ Tidsintervallen uttrycks som ett decimaltal följt av en tidsenhet:
 |databehandlingsnoder | databehandlingsnoder  |
 |skalstreck        | nanosekunder   |
 
-Datum och tid kan skapas med instruktionsvideor en sträng med hjälp av den `todatetime` operator. Till exempel för att granska de virtuella datorn pulsslag skickas i en viss tidsperiod, kan du använda den [mellan operatorn](https://docs.loganalytics.io/docs/Language-Reference/Scalar-operators/between-operator) vilket är praktiskt att ange ett tidsintervall...
+Datum och tid kan skapas med instruktionsvideor en sträng med hjälp av den `todatetime` operator. Till exempel för att granska de virtuella datorn pulsslag skickas i en viss tidsperiod, kan du använda den [mellan operatorn](/azure/kusto/query/betweenoperator) vilket är praktiskt att ange ett tidsintervall...
 
 ```Kusto
 Heartbeat
@@ -156,11 +156,11 @@ Event
 
 | Kategori | Funktion |
 |:---|:---|
-| Konvertera-datatyper | [ToDateTime](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/todatetime())[totimespan](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/totimespan())  |
-| Avrunda värdet till diskretiseringsstorlek | [bin](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/bin()) |
-| Hämta ett visst datum eller tid | [sedan](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/ago()) [nu](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/now())   |
-| Hämta en del av värde | [datetime_part](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/datetime_part()) [getmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getmonth()) [monthofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/monthofyear()) [getyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getyear()) [dag i månaden](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofmonth()) [dayofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofweek()) [dayofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofyear()) [weekofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/weekofyear()) |
-| Hämta ett datum i förhållande till värde  | [endofday](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofday()) [endofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofweek()) [endofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofmonth()) [endofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofyear()) [startofday](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofday()) [startofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofweek()) [startofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofmonth()) [startofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofyear()) |
+| Konvertera-datatyper | [ToDateTime](/azure/kusto/query/todatetimefunction)[totimespan](/azure/kusto/query/totimespanfunction)  |
+| Avrunda värdet till diskretiseringsstorlek | [bin](/azure/kusto/query/binfunction) |
+| Hämta ett visst datum eller tid | [sedan](/azure/kusto/query/agofunction) [nu](/azure/kusto/query/nowfunction)   |
+| Hämta en del av värde | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dag i månaden](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweek) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
+| Hämta ett datum i förhållande till värde  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Nästa steg
 Se andra lektioner för att använda Log Analytics-frågespråket:

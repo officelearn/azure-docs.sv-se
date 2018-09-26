@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: aad6aa788e9d7c7ca2c438bdeb63e77e91e4791a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 496f411224a8d7424f85fed6e5eb105369863791
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714487"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161258"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Om tekniska profiler i Azure Active Directory B2C anpassade principer
 
@@ -55,12 +55,10 @@ Alla typer av tekniska profiler delar samma begrepp. Du skickar inkommande anspr
     - Anropa en REST-API när du skickar parametrar som InputClaims och hämta information som OutputClaims.
     - Skapa eller uppdatera användarkontot.
     - Skickar och verifierar textmeddelandet MFA.
-4. **ValidationTechnicalProfiles** – för en [lokal verifieringsvillkor tekniska profilen](self-asserted-technical-profile.md), kan du anropa indata [teknisk verifieringsprofil](validation-technical-profile.md). Den tekniska profilen verifiering verifierar data som anges av användaren och returnerar ett felmeddelande eller Ok med eller utan utdataanspråk. Innan Azure AD B2C skapar ett nytt konto, kontrollerar det till exempel om användaren redan finns i katalogtjänsterna. Du kan anropa en REST API-tekniska profilen för att lägga till egen affärslogik.
-5. **OutputClaims** -anspråk är retuned tillbaka till anspråk egenskapsuppsättning. Du kan använda dessa anspråk i nästa orchestration-steg eller utgående anspråk transformationer.
-6. **OutputClaimsTransformations** – inkommande anspråk på varje utdata anspråkstransformering plockas upp från uppsättningen anspråk. Utdataanspråk för den tekniska profilen från föregående steg samt utdataanspråk av de inkommande anspråk transformeringar från det första steget kan vara inkommande anspråk på en anspråkstransformering för utdata. Efter körningen placeras utdataanspråk i uppsättningen anspråk. Utgående anspråk på en utdata anspråkstransformering kan också vara inkommande anspråk på en efterföljande utdata anspråkstransformering.
-7. **ValidationTechnicalProfiles** – för en [självkontrollerade tekniska profilen](self-asserted-technical-profile.md), kan du anropa indata [teknisk verifieringsprofil](validation-technical-profile.md). Den tekniska profilen verifiering verifierar data profileras av användaren och returnerar ett felmeddelande eller Ok, med eller utan utdataanspråk. Innan Azure AD B2C skapar ett nytt konto, kontrollerar det till exempel om användaren redan finns i katalogtjänsterna. Du kan anropa en REST API-tekniska profilen för att lägga till egen affärslogik.
-8. **OutputClaims** -anspråk är retuned tillbaka till anspråk egenskapsuppsättning. Du kan använda dessa anspråk i nästa steg i orkestreringar eller anspråksomvandlingar för utdata.
-9. **OutputClaimsTransformations** -inkommande anspråk på varje utdata [omvandling av anspråk](claimstransformations.md) plockas upp från uppsättningen anspråk. Utdataanspråk för den tekniska profilen från föregående steg kan vara inkommande anspråk på en anspråkstransformering för utdata. Efter körningen placeras utdataanspråk i uppsättningen anspråk. Utgående anspråk på en utdata anspråkstransformering kan också vara inkommande anspråk på en efterföljande utdata anspråkstransformering.
+4. **ValidationTechnicalProfiles** – för en [självkontrollerade tekniska profilen](self-asserted-technical-profile.md), kan du anropa indata [teknisk verifieringsprofil](validation-technical-profile.md). Den tekniska profilen verifiering verifierar data profileras av användaren och returnerar ett felmeddelande eller Ok, med eller utan utdataanspråk. Innan Azure AD B2C skapar ett nytt konto, kontrollerar det till exempel om användaren redan finns i katalogtjänsterna. Du kan anropa en REST API-tekniska profilen för att lägga till egen affärslogik.<p>I omfånget för utgående anspråk på en teknisk verifieringsprofil är begränsad till den tekniska profilen som anropar den tekniska profilen verifiering och andra tekniska profiler verifiering under samma tekniska profilen. Om du vill använda utgående anspråk i nästa orchestration-steg som du behöver lägga till utdataanspråk till den tekniska profilen som anropar den tekniska profilen för verifiering.
+5. **OutputClaims** -anspråk är retuned tillbaka till anspråk egenskapsuppsättning. Du kan använda dessa anspråk i nästa steg i orkestreringar eller anspråksomvandlingar för utdata.
+6. **OutputClaimsTransformations** -inkommande anspråk på varje utdata [omvandling av anspråk](claimstransformations.md) plockas upp från uppsättningen anspråk. Utdataanspråk för den tekniska profilen från föregående steg kan vara inkommande anspråk på en anspråkstransformering för utdata. Efter körningen placeras utdataanspråk i uppsättningen anspråk. Utgående anspråk på en utdata anspråkstransformering kan också vara inkommande anspråk på en efterföljande utdata anspråkstransformering.
+7. **Enkel inloggning (SSO) sessionshantering** - [SSO sessionshantering](active-directory-b2c-reference-sso-custom.md) styr interaktion med en användare när användaren redan har autentiserats. Administratören kan till exempel styra om valet av identitetsleverantörer ska visas eller om lokala kontoinformation måste anges igen.
 
 Tekniska profilen kan ärvas från en annan tekniska profil ändra inställningar eller lägga till nya funktioner.  Den **IncludeTechnicalProfile** element är en referens till den grundläggande tekniska profilen som en tekniska profilen härleds.  
 

@@ -1,234 +1,159 @@
 ---
-title: Insamlingsprogrammet i Azure Migrate | Microsoft Docs
-description: Översikt över insamlingsprogrammet och hur du konfigurerar den.
-author: ruturaj
+title: Om insamlingsprogrammet i Azure Migrate | Microsoft Docs
+description: Innehåller information om insamlingsprogrammet i Azure Migrate.
+author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.author: ruturajd
+ms.date: 09/25/2018
+ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6822bd149d5542d577fa18db3c9f50007ae48d35
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 88bc0bdc29d1f578bd0d314c5c7425026dfd2d22
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605070"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160886"
 ---
-# <a name="collector-appliance"></a>Insamlingsprogrammet
+# <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
-[Azure Migrate](migrate-overview.md) utvärderar lokala arbetsbelastningar för migrering till Azure. Den här artikeln innehåller information om hur du använder insamlingsprogrammet.
+ Den här artikeln innehåller information om Azure Migrate Collector.
 
-## <a name="overview"></a>Översikt
+Azure Migrate Collector är en enkel installation som kan användas för att identifiera en lokal vCenter-miljö för utvärdering med den [Azure Migrate](migrate-overview.md) tjänsten före migreringen till Azure.  
 
-Ett Azure Migrate Collector är en enkel installation som kan användas för att identifiera din lokala vCenter-miljö. Den här installationen identifierar lokala VMware-datorer och skickar metadata om dem till Azure Migrate-tjänsten.
 
-Insamlaren är en OVF som du kan hämta från Azure Migrate-projektet. Den skapar en instans av en virtuell VMware-dator med 4 kärnor, 8 GB RAM-minne och en disk på 80 GB. Operativsystemet på enheten som är Windows Server 2012 R2 (64-bitars).
+## <a name="deploying-the-collector"></a>Distribuera insamlaren
 
-Du kan skapa insamlaren genom att följa stegen här – [så här skapar du VM-insamlaren](tutorial-assessment-vmware.md#create-the-collector-vm).
+Du distribuerar insamlingsprogrammet med hjälp av en OVF-mall:
 
-## <a name="discovery-methods"></a>Identifieringsmetoder
+- Du kan hämta OVF-mall från ett Azure Migrate-projekt i Azure-portalen. Du kan importera den nedladdade filen till vCenter-servern för att ställa in insamlingsprogrammet VM.
+- Från OVF ställer VMware in en virtuell dator med 4 kärnor, 8 GB RAM-minne och en disk på 80 GB. Operativsystemet är Windows Server 2012 R2 (64-bitars).
+- När du kör insamlaren, kör ett antal kontroller av förutsättningar för att se till att insamlaren kan ansluta till Azure Migrate.
+ 
+- [Läs mer](tutorial-assessment-vmware.md#create-the-collector-vm) om hur du skapar insamlaren. 
 
-Det finns två metoder som du identifiera din lokala miljö:
 
-a. **Enstaka identifiering:** insamlaren för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. I den här modellen Azure Migrate samlar in genomsnittlig räknaren (jämfört med högsta counter) för varje mått. Eftersom det är en enstaka identifiering är installationen i det här fallet inte kontinuerligt ansluten i projektet. Därför återspeglas inte ändringar i den lokala miljön i Azure Migrate när identifieringen är klar. Om du vill att ändras för att återspegla som du behöver göra en ny identifiering av samma miljö att samma projekt.
+## <a name="collector-prerequisites"></a>Insamlaren krav
 
-> [!NOTE]
-> Den här metoden måste du ange inställningar för statistik i vCenter Server på nivå 3 och vänta minst en dag innan du startar identifieringen att samla in nödvändiga prestandavärden.
+Insamlaren måste klara några nödvändiga kontroller för att säkerställa att den kan ansluta till Azure Migrate-tjänsten via internet och ladda upp identifierade data. 
 
-b. **Kontinuerlig identifiering:** insamlingsprogrammet för den här modellen är kontinuerligt anslutna till Azure Migrate-projektet. Kontinuerligt Profileringen den lokala miljön för att samla in användningsdata i realtid på var 20: e sekund. Installationen sedan samlar upp exempel 20 sekunder och skapar en enskild datapunkt för varje kvart genom att välja det maximala värdet som skickas till Azure. Den här modellen är inte beroende av statistikinställningarna för vCenter Server för insamling av prestandadata. Du kan stoppa kontinuerlig Profileringen när som helst av programmet.
+- **Kontrollera Internetanslutningen**: The insamlaren kan ansluta till internet, direkt eller via en proxyserver.
+    - Kravkontrollen verifierar anslutningen till [URL: er med obligatoriska och valfria](#connect-to-urls).
+    - Om du har en direkt anslutning till internet kan krävs ingen specifik åtgärd, förutom att se till att insamlaren kan nå URL: er som krävs.
+    - Om du ansluter via en proxyserver, notera den [krav nedan](#connect-via-a-proxy).
+- **Kontrollera tidssynkronisering**: The insamlaren ska synkroniseras med internet-tidsservern så autentiseras begäranden till tjänsten.
+    - Portal.azure.com URL: en ska vara kan nås från insamlaren så att tiden kan valideras.
+    - Om datorn har inte synkroniserats, måste du ändra clock-tid på den insamlaren virtuella datorn så att den matchar den aktuella tiden. För att göra det här öppnar du en kommandotolk för administratör på den virtuella datorn kör **w32tm /tz** att kontrollera den aktuella tidszonen. Kör **w32tm/resync** att synkronisera tiden.
+- **Kontrollera collector-tjänsten körs**: The Azure Migrate Collector-tjänsten måste köras på VM-insamlaren.
+    - Den här tjänsten startas automatiskt när datorn startas.
+    - Om tjänsten inte körs startar du den från Kontrollpanelen.
+    - Collector-tjänsten ansluter till vCenter-servern, samlar in den virtuella datorn metadata och prestandadata och skickar dem till Azure Migrate-tjänsten.
+- **Kontrollera VMware PowerCLI 6.5 installerades**: VMware PowerCLI 6.5 PowerShell-modulen måste installeras på den virtuella datorn i insamlaren, så att den kan kommunicera med vCenter-servern.
+    - Om insamlaren kan komma åt de URL: er som krävs för att installera modulen, är det installera automatiskt under distributionen av Logginsamlaren.
+    - Om insamlaren inte kan installera modulen under distributionen, måste du [installera det manuellt](#install-vwware-powercli-module-manually).
+- **Kontrollera anslutningen till vCenter Server**: The insamlaren måste kunna vCenter-servern och fråga för virtuella datorer, metadata och prestandaräknare. [Verifiera förutsättningar](#connect-to-vcenter-server) för att ansluta.
 
-> [!NOTE]
-> Funktionen för identifiering av kontinuerlig genomgår förhandsgranskning. Om du inte har vCenter serverstatistik inställningar är inställda på nivå 3, rekommenderar vi att du använder den här metoden.
 
-[Läs mer] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) om prestandaräknarna som samlats in av Azure Migrate.
+### <a name="connect-to-the-internet-via-a-proxy"></a>Ansluta till internet via en proxyserver
 
-## <a name="collector-communication-diagram"></a>Insamlaren kommunikation diagram
+- Om proxyservern kräver autentisering, kan du ange det användarnamn och lösenord när du konfigurerar insamlaren.
+- IP-adressen/FQDN för proxyservern bör anges som *http://IPaddress* eller *http://FQDN*.
+- Endast HTTP-proxy stöds. HTTPS-baserade proxyservrar stöds inte av insamlaren.
+- Om proxyservern är en spärrande proxy, måste du importera proxy-certifikatet för VM-insamlaren.
+    1. I den Virtuella insamlardatorn, går du till **Start-menyn** > **hantera datorcertifikat**.
+    2. I verktyget certifikat under **certifikat – lokal dator**, hitta **betrodda utgivare** > **certifikat**.
+
+        ![Certifikat-verktyget](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+    3. Kopiera proxy-certifikatet till den Virtuella insamlardatorn. Du kan behöva hämta den från din nätverksadministratör.
+    4. Dubbelklicka för att öppna certifikatet och klicka på **installera certifikat**.
+    5. I guiden Importera certifikat > Store plats, Välj **lokal dator**.
+
+    ![Plats för certifikatarkiv](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+    6. Välj **placera alla certifikat i nedanstående arkiv** > **Bläddra** > **betrodda utgivare**. Klicka på **Slutför** att importera certifikatet.
+    
+    ![Certifikatarkivet](./media/concepts-intercepting-proxy/certificate-store.png)
+
+    7. Kontrollera att certifikatet har importerats som förväntat och kontrollera att internet-anslutning kravkontrollen fungerar som förväntat.
+
+    
+
+
+### <a name="connect-to-urls"></a>Ansluta till URL: er
+
+Anslutningskontrollen verifieras genom att ansluta till en lista över webbadresser.
+
+**URL** | **Detaljer**  | **Kontrollen av förutsättningar**
+--- | --- | ---
+*.portal.azure.com | Kontrollerar anslutningen med Azure-tjänsten och tidssynkronisering. | Åtkomst till URL måste anges.<br/><br/> Kravkontroll misslyckas om det finns ingen nätverksanslutning.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Används för att hämta PowerShell-modulen vCenter PowerCLI. | Åtkomst till URL: er som är valfritt.<br/><br/> Kravkontrollen misslyckas inte.<br/><br/> Installation av automatiska modulen på VM-insamlaren misslyckas. Du måste installera modulen manuellt.
+ 
+
+### <a name="install-vmware-powercli-module-manually"></a>Installera VMware PowerCLI-modulen manuellt
+
+1. Installera modulen med [här](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html). Dessa steg beskriver både online och offline-installation.
+2. Om VM-insamlaren är offline och installera om modulen på en annan dator med Internetåtkomst, som du behöver kopiera VMware.* filerna från den datorn för VM-insamlaren.
+3. Efter installationen kan du starta om förhandskontroller för att bekräfta att PowerCLI har installerats.
+
+### <a name="connect-to-vcenter-server"></a>Anslut till vCenter Server
+
+Insamlaren ansluter till vCenter-servern och frågar om VM-metadata och prestandaräknare. Här är vad du behöver för anslutningen.
+
+- Endast versioner vCenter Server 5.5, 6.0 och 6.5.
+- Du behöver ett skrivskyddat konto med behörigheterna som sammanfattas nedan för identifiering. Endast datacenter som är tillgängliga med kontot kan användas för identifiering.
+- Som standard kan du ansluta till vCenter-servern med ett fullständigt domännamn eller IP-adress. VCenter-servern lyssnar på en annan port ska du ansluta till den med hjälp av formuläret *IPAddress:Port_Number* eller *FQDN:Port_Number*.
+- Om du vill samla in prestandadata för lagring och nätverk, statistikinställningarna för vCenter-Server måste vara inställd på nivå tre.
+- Om kompatibilitetsnivå är lägre än tre, identifiering fungerar men prestandadata samlas inte in. Räknare kan samlas in, men andra anges till noll.
+- Om prestandadata för lagring och nätverk samlas inte in, är rekommendationer för storlek baserat prestandadata för CPU och minne och på konfigurationsdata för disk och nätverkskort. 
+- Insamlaren ska ha nätverket åtkomst till vCenter-servern.
+
+#### <a name="account-permissions"></a>Behörigheterna
+
+**Konto** | **Behörigheter**
+--- | ---
+Minst ett skrivskyddat användarkonto | Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad   
+
+
+## <a name="collector-communications"></a>Insamlaren kommunikation
+
+Insamlaren kommunicerar som sammanfattas i följande diagram och tabell.
 
 ![Insamlaren kommunikation diagram](./media/tutorial-assessment-vmware/portdiagram.PNG)
 
 
-| Komponent      | För att kommunicera med   | Port som krävs                            | Orsak                                   |
-| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
-| Insamlare      | Tjänsten Azure Migrate | TCP 443                                  | Insamlaren ska kunna kommunicera med tjänsten via SSL-port 443 |
-| Insamlare      | vCenter Server        | Standard 443                             | Insamlaren ska kunna kommunicera med vCenter-servern. Den ansluter till vCenter på 443 som standard. Om vCenter lyssnar på en annan port ska ska den porten vara tillgängliga som utgående port på insamlaren |
-| Insamlare      | RDP|   | TCP 3389 | Du ska kunna använda RDP till insamlardatorn |
-
-## <a name="collector-pre-requisites"></a>Förutsättningar för insamlaren
-
-Insamlaren måste skicka några sökningar efter nödvändiga komponenter för att säkerställa att den kan ansluta till tjänsten Azure Migrate och ladda upp den identifierade data. Den här artikeln tittar på var och en av förutsättningarna och förstår varför det är obligatoriskt.
-
-### <a name="internet-connectivity"></a>Internetanslutning
-
-Insamlingsprogrammet måste vara ansluten till internet för att skicka information om identifierade datorer. Du kan ansluta datorn till internet i något av följande två sätt.
-
-1. Du kan konfigurera insamlaren för att ha direkt Internetanslutning.
-2. Du kan konfigurera insamlaren ansluter via en proxyserver.
-    * Om proxyservern kräver autentisering, kan du ange användarnamnet och lösenordet i anslutningsinställningarna.
-    * IP-adressen/FQDN för proxyservern måste ha formatet http://IPaddress eller http://FQDN. Endast http-proxy stöds.
-
-> [!NOTE]
-> HTTPS-baserade proxyservrar stöds inte av insamlaren.
-
-#### <a name="internet-connectivity-with-intercepting-proxy"></a>Ansluten till Internet med spärra proxy
-
-Om proxyservern som du använder för att ansluta till internet är en spärrande proxy, behöver du importera proxy-certifikatet till den Virtuella insamlardatorn. Följande är anvisningar om hur du kan importera certifikatet till den Virtuella insamlardatorn.
-
-1. I den Virtuella insamlardatorn, går du till **Start-menyn** och leta upp och öppna **hantera datorcertifikat**.
-2. I verktyget certifikat i det vänstra fönstret under **certifikat – lokal dator**, hitta **betrodda utgivare**. Under **betrodda utgivare**, klickar du på **certifikat** att se listan över certifikat i rutan till höger.
-
-    ![Certifikat-verktyget](./media/concepts-intercepting-proxy/certificates-tool.png)
-
-3. Kopiera dina proxy-certifikatet till den Virtuella insamlardatorn. Du kan behöva kontakta teamet för nätverk-administratör i din organisation att hämta det här certifikatet.
-4. Dubbelklicka på certifikatet att öppna den. Klicka på **installera certifikat**. Då kommer du att guiden Importera certifikat.
-5. I guiden Importera certifikat för Store-plats, väljer **lokal dator**. **Klicka på nästa**.
-
-    ![Plats för certifikatarkiv](./media/concepts-intercepting-proxy/certificate-store-location.png)
-
-6. Välj alternativet att **placera alla certifikat i nedanstående arkiv**. Klicka på **Bläddra** och välj **betrodda utgivare** från listan över certifikat som kommer upp. Klicka på **Nästa**.
-
-    ![Certifikatarkivet](./media/concepts-intercepting-proxy/certificate-store.png)
-
-7. Klicka på **Slutför**. Certifikatet importeras.
-8. Alternativt kan du verifiera certifikatet har importerats genom att öppna verktyget certifikat som i steg 1 och 2 ovan.
-9. Kontrollera den nödvändiga kontrollen för internet-anslutningen har utförts på Azure Migrate collector-appen.
-
-
-#### <a name="whitelisting-urls-for-internet-connection"></a>Lista över tillåtna URL: er för internet-anslutning
-
-Den nödvändiga kontrollen har lyckats om insamlaren kan ansluta till internet via de angivna inställningarna. Anslutningskontrollen verifieras genom att ansluta till en lista över webbadresser som anges i följande tabell. Om du använder någon Webbadressbaserad brandväggsproxy för att styra utgående anslutningar, var noga med att du godkänna följande obligatoriska URL: er:
-
-**URL** | **Syfte**  
---- | ---
-*.portal.azure.com | Krävs för att kontrollera anslutningen med Azure-tjänsten och validera tidssynkronisering utfärdar.
-
-Dessutom kontrollen också försöker verifiera anslutningarna till följande webbadresser men misslyckas inte kontrollen om det är inte tillgänglig. Konfigurera listan över godkända adresser för följande URL: er är valfritt, men du behöver ta manuella steg för att minimera den nödvändiga kontrollen.
-
-**URL** | **Syfte**  | **Vad händer om du inte godkända**
+**Insamlaren kommunicerar med** | **Port** | **Detaljer**
 --- | --- | ---
-*.oneget.org:443 | Krävs för baserad att ladda ned powershell vCenter PowerCLI-modulen. | PowerCLI-installationen misslyckas. Installera modulen manuellt.
-*.windows.net:443 | Krävs för baserad att ladda ned powershell vCenter PowerCLI-modulen. | PowerCLI-installationen misslyckas. Installera modulen manuellt.
-*.windowsazure.com:443 | Krävs för baserad att ladda ned powershell vCenter PowerCLI-modulen. | PowerCLI-installationen misslyckas. Installera modulen manuellt.
-*.powershellgallery.com:443 | Krävs för baserad att ladda ned powershell vCenter PowerCLI-modulen. | PowerCLI-installationen misslyckas. Installera modulen manuellt.
-*.msecnd.net:443 | Krävs för baserad att ladda ned powershell vCenter PowerCLI-modulen. | PowerCLI-installationen misslyckas. Installera modulen manuellt.
-*.visualstudio.com:443 | Krävs för baserad att ladda ned powershell vCenter PowerCLI-modulen. | PowerCLI-installationen misslyckas. Installera modulen manuellt.
+Tjänsten Azure Migrate | TCP 443 | Insamlaren kommunicerar med Azure Migrate-tjänsten över SSL-port 443.
+vCenter Server | TCP 443 | Insamlaren måste kunna kommunicera med vCenter-servern.<br/><br/> Som standard ansluter den till vCenter på 443.<br/><br/> Om vCenter-servern lyssnar på en annan port ska ska den porten vara tillgänglig som utgående port på insamlaren.
+RDP | TCP 3389 | 
 
-### <a name="time-is-in-sync-with-the-internet-server"></a>Tiden är synkroniserad med internet-servern
 
-Insamlaren ska vara synkroniserade med internet-tidsservern så autentiseras begäranden till tjänsten. Portal.azure.com URL: en ska vara kan nås från insamlaren så att tiden kan valideras. Om datorn är osynkroniserad, måste du ändra clock-tid på den insamlaren virtuella datorn så att den matchar den aktuella tiden på följande sätt:
 
-1. Öppna Kommandotolken som administratör på den virtuella datorn.
-1. Kör w32tm /tz för att kontrollera den aktuella tidszonen.
-1. Kör w32tm/resync för att synkronisera tiden.
 
-### <a name="collector-service-should-be-running"></a>Collector-tjänsten ska köras
+## <a name="securing-the-collector-appliance"></a>Skydda insamlingsprogrammet
 
-Azure Migrate Collector-tjänsten ska köras på datorn. Den här tjänsten startas automatiskt när datorn startas. Om tjänsten inte körs kan du starta den *Azure Migrate Collector* tjänsten via Kontrollpanelen. Collector-tjänsten ansvarar för att ansluta till vCenter-servern, samla in Maskindata metadata och prestanda och skicka den till tjänsten.
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
+Vi rekommenderar följande steg för att skydda insamlingsprogrammet:
 
-VMware PowerCLI powershell-modulen måste vara installerad så att insamlaren kan kommunicera med vCenter-servern och fråga efter information om datorn och deras prestandadata. Powershell-modulen är automatiskt hämtas och installeras som en del av den nödvändiga kontrollen. Automatisk nedladdning kräver några URL: er tillåts, misslyckas som du måste antingen ge åtkomst till genom att vitlista dem eller installera modulen manuellt.
+- Inte dela eller tappar bort administratörslösenord med obehöriga personer.
+- Stäng av installationen när du inte är i användning.
+- Placera en enhet i ett nätverk.
+- När migreringen är klar tar du bort instansen för installation.
+- Dessutom efter migreringen, även ta bort disk säkerhetskopierade filer (vmdk: er), eftersom diskarna kan ha autentiseringsuppgifter för vCenter cachelagrats på dem.
 
-Installera modulen manuellt med hjälp av följande steg:
+## <a name="updating-the-collector-vm"></a>Uppdatera den Virtuella insamlardatorn
 
-1. Följ stegen i för att installera PowerCli insamlaren utan internet-anslutning, [den här länken](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html) .
-2. När du har installerat PowerShell-modulen på en annan dator som är ansluten till internet, måste du kopiera filerna VMware.* från den datorn till insamlardatorn.
-3. Starta om de nödvändiga kontrollerna och bekräfta att PowerCLI har installerats.
+Vi rekommenderar att körs kontinuerliga Windows-uppdateringar på insamlingsprogrammet.
 
-## <a name="connecting-to-vcenter-server"></a>Ansluta till vCenter-Server
+- Om insamlaren kan inte uppdateras i 60 dagar, startar den automatiskt stänger av datorn.
+- Om en identifiering körs stängas datorn inte av, även om 60 dagar har gått. Datorn stängs när identifieringen har slutförts.
+- Om du har använt insamlaren i mer än 45 dagar, rekommenderar vi att hålla datorn uppdaterat hela tiden genom att köra Windows update.
 
-Insamlaren ska ansluta till vCenter-servern och kunna skicka frågor för de virtuella datorerna och deras metadata sina prestandaräknare. Dessa data används av projektet för att beräkna en utvärdering.
-
-1. För att ansluta till vCenter-servern, ett skrivskyddat konto med behörigheter som anges i följande tabell kan användas för att köra identifieringen.
-
-    |Aktivitet  |Nödvändiga administratörsrollskontot  |Behörigheter  |
-    |---------|---------|---------|
-    |Insamlaren installation-baserad identifiering    | Du behöver minst en skrivskyddad användare        |Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad         |
-
-2. Dessa datacenter som är tillgängliga för det angivna vCenter-kontot kan nås för identifiering.
-3. Du måste ange Vcentre-FQDN/IP-adress att ansluta till vCenter-servern. Som standard ansluter det via port 443. Om du har konfigurerat vCenter för att lyssna på ett annat portnummer, kan du ange den som en del av serveradressen i formatet IPAddress:Port_Number eller FQDN:Port_Number.
-4. Statistikinställningarna för vCenter-servern ska vara inställd på nivå 3 innan du påbörjar distributionen. Om kompatibilitetsnivå är lägre än 3 identifieringen slutförs, men prestandadata för lagring och nätverk samlas inte in. Storleksrekommendationer för utvärdering baseras i det här fallet på prestandadata för CPU och minne och konfigurationsdata för disk och nätverkskort. [Läs mer](./concepts-collector.md) på vilka data som samlas in och hur det påverkar utvärderingen.
-5. Insamlaren ska ha nätverket åtkomst till vCenter-servern.
-
-> [!NOTE]
-> Endast versioner vCenter Server 5.5, 6.0 och 6.5 officiellt.
-
-> [!IMPORTANT]
-> Vi rekommenderar att du ställer in vanliga filegenskaper (3) för statistik nivå så att alla prestandaräknare som samlas in korrekt. Om du har satt till en lägre nivå vCenter, kan endast några räknare samlas helt, med resten har angetts till 0. Utvärderingen kan sedan visa ofullständiga data.
-
-### <a name="selecting-the-scope-for-discovery"></a>Att välja omfattningen för identifiering
-
-Du kan välja en omfattning att identifiera efter att ha anslutit till vCenter. Markerar ett omfång identifierar alla virtuella datorer från den angivna vCenter inventering sökvägen.
-
-1. Omfånget kan vara ett datacenter, en mapp eller en ESXi-värd.
-2. Du kan bara välja ett omfång i taget. För att välja flera virtuella datorer, kan du genomföra en identifiering och starta om processen för identifiering med ett nytt scope.
-3. Du kan bara välja en omfattning som har *mindre än 1 500 virtuella datorer*.
-
-## <a name="specify-migration-project"></a>Ange migreringsprojektet
-
-När den lokala vCenter är ansluten och en omfattning har angetts kan ange du nu migrering projekt-detaljer som ska användas för identifiering och utvärdering. Ange projekt-ID och nyckel och Anslut.
-
-## <a name="start-discovery-and-view-collection-progress"></a>Starta identifiering och visa insamlingsförloppet
-
-När identifieringen startar de virtuella datorerna på vCenter identifieras och deras metadata och prestanda skickas till servern. Statusen informerar dig om följande-ID:
-
-1. Insamlar-ID: Ett unikt ID som ges till din dator för Logginsamlaren. Detta ID ändras inte för en viss dator över olika identifieringar. Du kan använda detta ID vid fel när rapportera problemet till Microsoft Support.
-2. Sessions-ID: Ett unikt ID för det pågående jobbet är samling. Du kan referera till samma sessions-ID i portalen om identifiering av jobbet har slutförts. Det här ID: T ändras för varje samling jobbet. Vid fel, kan du rapportera detta ID till Microsoft Support.
-
-### <a name="what-data-is-collected"></a>Vilka data som samlas in?
-
-Insamlingsprogrammet identifieras följande statiska metadata om de valda virtuella datorerna.
-
-1. VM-visningsnamn (på vCenter)
-2. Virtuella datorns lager sökväg (värd/mapp i vCenter)
-3. IP-adress
-4. MAC-adress
-5. Operativsystem
-5. Antal kärnor, diskar, nätverkskort
-6. Minnesstorlek, diskstorlekar
-7. Och prestandaräknarna för den virtuella datorn, disk och nätverk som anges i tabellen nedan.
-
-I följande tabell visas de exakta prestandaräknare som samlas in och visar också utvärderingsresultat som påverkas om en särskild räknare inte samlas för modellen på gång.
-
-För kontinuerlig identifiering samma prestandaräknare som samlas in i realtid (20 sekunder intervall), så det finns inga beroende på statistiknivå. Installationen sedan samlar upp 20 sekunder exemplen för att skapa en enskild datapunkt för varje kvart genom att välja det högsta värdet 20 sekunder exemplen och skickar det till Azure.
-
-|Räknare                                  |Nivå    |Nivå per enhet  |Utvärdering av påverkan                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.Average                        | 1       |Ej tillämpligt                |Rekommenderad storlek och kostnad                    |
-|Mem.Usage.Average                        | 1       |Ej tillämpligt                |Rekommenderad storlek och kostnad                    |
-|virtualDisk.read.average                 | 2       |2                 |Diskens storlek, kostnaden för lagring och VM-storlek         |
-|virtualDisk.write.average                | 2       |2                 |Diskens storlek, kostnaden för lagring och VM-storlek         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Diskens storlek, kostnaden för lagring och VM-storlek         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Diskens storlek, kostnaden för lagring och VM-storlek         |
-|NET.Received.Average                     | 2       |3                 |VM-storlek och nätverk kostnad                        |
-|NET.Transmitted.Average                  | 2       |3                 |VM-storlek och nätverk kostnad                        |
-
-> [!WARNING]
-> För enstaka identifiering om du precis har en högre nivå för statistik, ska det ta upp till en dag att generera prestandaräknare. Därför rekommenderar vi att du kör identifieringen efter en dag. Vänta minst en dag när du har startat identifieringen att profilera miljön och sedan skapa utvärderingar för identifiering av kontinuerlig-modellen.
-
-### <a name="time-required-to-complete-the-collection"></a>Tid som krävs för att slutföra insamlingen
-
-**Enstaka identifiering**
-
-I den här modellen insamlaren samlar in och historiken för virtuella datorer från vCenter-servern och skickar det till projektet. Installationen är i det här fallet inte kontinuerligt anslutna i projektet. Baserat på antalet virtuella datorer i det valda omfånget, tar det upp till 15 minuter att skicka konfigurationsmetadata i projektet. När konfigurationsmetadata är tillgängliga på portalen kan du se en lista över datorer i portalen och börja skapa grupper. När konfigurationsdata som samlas in, det kan ta upp till en timme efter prestandadata ska vara tillgängliga på portalen, baserat på antalet virtuella datorer i det valda omfånget.
-
-**Kontinuerlig identifiering**
-
-Konfigurationsdata för lokala virtuella datorer är tillgänglig i den här modellen efter 1 timme för att utlösa identifiering-och prestandadata startar blir tillgänglig efter 2 timmar. Eftersom detta är en kontinuerlig modell håller insamlaren kontinuerligt skickar prestandadata till Azure Migrate-projektet.
-
-## <a name="locking-down-the-collector-appliance"></a>Låsa insamlingsprogrammet
-Vi rekommenderar att körs kontinuerliga Windows-uppdateringar på insamlingsprogrammet. Om en insamlare inte har uppdaterats i 60 dagar startar insamlaren automatiskt stänger av datorn. Om en identifiering körs kommer datorn inte stängas av, även om det har passerat dess 60 dagar. Efter identifiering av jobbet har slutförts, datorn kommer att inaktiveras. Om du använder insamlaren i mer än 45 dagar, rekommenderar vi att hålla datorn uppdaterat hela tiden genom att köra Windows update.
-
-Vi rekommenderar också följande steg för att skydda din installation
-1. Dela inte eller tappar bort administratörslösenord med obehöriga personer.
-2. Stäng av installationen när du inte är i användning.
-3. Placera en enhet i ett nätverk.
-4. När migreringen arbetet är klart, tar du bort instansen för installation. Måste du också ta bort disken säkerhetskopiering av filer (vmdk: er), eftersom diskarna kan ha autentiseringsuppgifter för vCenter cachelagrats på dem.
-
-## <a name="how-to-upgrade-collector"></a>Uppgradera insamlaren
+## <a name="upgrading-the-collector-appliance-version"></a>Uppgradera insamlaren installation version
 
 Du kan uppgradera insamlaren till den senaste versionen utan att hämta ova-filen igen.
 
-1. Hämta senaste [uppgraderingspaketet](https://aka.ms/migrate/col/upgrade_9_14) (version 1.0.9.14).
+1. Ladda ned den [senaste visas uppgraderingspaket](concepts-collector-upgrade.md) 
 2. För att säkerställa att den nedladdade snabbkorrigeringen är säker, Öppna kommandofönster för administratör och kör följande kommando för att generera en hash för ZIP-filen. Den genererade hashen måste matcha med hash nämns mot den specifika versionen:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -238,47 +163,96 @@ Du kan uppgradera insamlaren till den senaste versionen utan att hämta ova-file
 4. Högerklicka på zip-filen och välja extrahera alla.
 5. Högerklicka på Setup.ps1 och välj kör med PowerShell och följ anvisningarna på skärmen för att installera uppdateringen.
 
-### <a name="list-of-updates"></a>Listan över uppdateringar
 
-#### <a name="upgrade-to-version-10914"></a>Uppgradera till version 1.0.9.14
+## <a name="discovery-methods"></a>Identifieringsmetoder
 
-Hash-värden för uppgradering [paketera 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14)
+Det finns två metoder som insamlingsprogrammet kan använda för identifiering, identifiering av enstaka eller kontinuerlig identifiering.
 
-**Algoritm** | **Hash-värde**
---- | ---
-MD5 | c5bf029e9fac682c6b85078a61c5c79c
-SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
-SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
-#### <a name="upgrade-to-version-10913"></a>Uppgradera till version 1.0.9.13
+### <a name="one-time-discovery"></a>Enstaka identifiering
 
-Hash-värden för uppgradering [paketera 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
+Insamlaren kommunicerar vid ett enstaka tillfälle med vCenter Server för att samla in metadata om de virtuella datorerna. Med den här metoden:
 
-**Algoritm** | **Hash-värde**
---- | ---
-MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
-SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
-SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
+- Installationen inte är kontinuerligt anslutna till Azure Migrate-projektet.
+- Ändringarna i den lokala miljön syns inte i Azure Migrate när identifieringen har slutförts. För att återspegla ändringar, måste du identifiera i samma miljö i samma projekt igen.
+- Du måste ange inställningar för statistik i vCenter Server till nivå tre för den här identifieringsmetoden.
+- När nivån för tre kan tar det till en dag att generera prestandaräknare. Vi rekommenderar därför att du kör identifieringen efter en dag.
+- Vid insamling av prestandadata för en virtuell dator, installationen förlitar sig på historiska prestandadata som lagras i vCenter Server. Den samlar in prestandahistorik för den senaste månaden.
+- Azure Migrate samlar in en genomsnittlig räknare (i stället för en högsta räknare) för varje mått.
+     
 
-#### <a name="upgrade-to-version-10911"></a>Uppgradera till version 1.0.9.11
 
-Hash-värden för uppgradering [paketera 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
+### <a name="continuous-discovery"></a>Kontinuerlig identifiering
 
-**Algoritm** | **Hash-värde**
---- | ---
-MD5 | 0e36129ac5383b204720df7a56b95a60
-SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
-SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+Insamlingsprogrammet är kontinuerligt anslutna till Azure Migrate-projektet.
 
-#### <a name="upgrade-to-version-1097"></a>Uppgradera till version 1.0.9.7
+- Insamlaren profiler kontinuerligt den lokala miljön för att samla in användningsdata i realtid var 20: e sekund.
+- Den här modellen inte är beroende statistikinställningarna för vCenter-servern att samla in prestandadata.
+- Installationen samlar in 20 sekunder exemplen och skapar en enskild datapunkt var 15: e minut.
+- För att skapa datan punkt installationen väljer det högsta värdet 20 sekunder exemplen och skickar det till Azure.
+- Du kan stoppa kontinuerlig profilering vid när som helst från insamlaren.
+     
+> [!NOTE]
+> Identifiering av kontinuerlig funktioner finns i förhandsversion. Om statistikinställningarna för vCenter-servern inte är inställd på nivå 3, rekommenderar vi att du använder den här metoden.
 
-Hash-värden för uppgradering [paketera 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
 
-**Algoritm** | **Hash-värde**
---- | ---
-MD5 | 01ccd6bc0281f63f2a672952a2a25363
-SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
-SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
+## <a name="discovery-process"></a>Processen för identifiering 
+
+När installationen har konfigurerats, kan du köra identifiering. Så fungerar här som:
+
+- Du kan köra en identifiering av omfång. Alla virtuella datorer i den angivna vCenter inventering sökvägen ska identifieras.
+    - Du kan ange ett omfång i taget.
+    - Omfånget kan innehålla 1 500 virtuella datorer eller mindre.
+    - Omfånget kan vara en datacenter-, mapp- eller ESXi-värden.
+- När du har anslutit till vCenter Server, kan du ansluta genom att ange ett migreringsprojekt för samlingen.
+- Virtuella datorer har identifierats och deras metadata och prestanda skickas till Azure. De här åtgärderna är en del av ett jobb i samlingen.
+    - Insamlaren ges ett specifikt ID för insamlaren som sparas för en viss dator mellan identifieringar.
+    - Ett jobb för som körs samling ges specifika sessions-ID. ID: T ändras för varje samling jobb och kan användas för felsökning.
+
+
+### <a name="collected-metadata"></a>Insamlade metadata
+
+Insamlingsprogrammet identifierar följande statiska metadata för virtuella datorer:
+
+- Visningsnamn för virtuell dator (på vCenter-Server)
+- Virtuella datorns lager sökväg (värd/mappen på vCenter-Server)
+- IP-adress
+- MAC-adress
+- Operativsystem
+- Antal kärnor, diskar, nätverkskort
+- Minnesstorlek, diskstorlekar
+- Prestandaräknare för den virtuella datorn, disk och nätverk.
+
+
+
+#### <a name="performance-counters"></a>Prestandaräknare
+
+
+- **Identifiering av enstaka**: när prestandaräknare som samlas in för en enstaka identifiering, Tänk på följande: 
+        
+    - Det kan ta upp till 15 minuter att samla in och skicka konfigurationsmetadata till projektet.
+    - När configuration-data har samlats in, kan det ta upp till en timme för prestandadata som ska vara tillgänglig i portalen.
+    - När metadata är tillgänglig i portalen kan listan med virtuella datorer visas och du kan börja skapa grupper för utvärdering.
+- **Identifiering av kontinuerlig**: för kontinuerlig identifiering, Tänk på följande:
+    - Konfigurationsdata för den virtuella datorn är tillgänglig en timme efter att du börjar identifiering
+    - Prestandadata startar blir tillgänglig efter 2 timmar.
+    - När du har startat identifieringen vänta minst en dag att profilera miljön, innan du skapar utvärderingar.
+    
+   
+
+**Räknaren** | **Nivå** | **Nivå per enhet** | **Påverkan på utvärdering** 
+--- | --- | --- | ---
+CPU.Usage.Average | 1 | Ej tillämpligt | Rekommenderad storlek och kostnad  
+Mem.Usage.Average | 1 | Ej tillämpligt | Rekommenderad storlek och kostnad  
+virtualDisk.read.average | 2 | 2 | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.write.average | 2 | 2  | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.numberReadAveraged.average | 1 | 3 |  Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.numberWriteAveraged.average | 1 | 3 |   Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+NET.Received.Average | 2 | 3 |  Beräknas kostnaden för VM-storlek och nätverk                        |
+NET.Transmitted.Average | 2 | 3 | Beräknas kostnaden för VM-storlek och nätverk    
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

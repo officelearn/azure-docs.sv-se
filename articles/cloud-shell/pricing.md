@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 8c418a3681fa9d8ac70974ac2c0bcf1c826209aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 16f7327659a0f5fe542375a4b7e3232ee14bb17c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24809874"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158658"
 ---
 # <a name="pricing"></a>Prissättning
-Bash i molnet Shell och PowerShell i molnet Shell (förhandsgranskning) omfattas av informationen nedan.
+Bash i Cloud Shell och PowerShell i Cloud Shell omfattas av informationen nedan.
 
-## <a name="compute-cost"></a>Beräkna kostnaden
-Azure Cloud Shell körs på en dator som är gratis från Azure, men kräver en Azure-filresursen du använder. 
+## <a name="compute-cost"></a>Beräkna kostnad
+Azure Cloud Shell körs på en dator som tillhandahålls kostnadsfritt med Azure, men kräver en Azure-filresurs som du använder. 
 
-## <a name="storage-cost"></a>Kostnad för datalagring
-Molnet Shell kräver en ny eller befintlig Azure-filer resurs som ska monteras för att bevara filer mellan sessioner. Lagring ådrar regelbundna kostnader.
+## <a name="storage-cost"></a>Kostnaden för lagring
+Cloudshell kräver en ny eller befintlig Azure Files-resurs som ska monteras för att spara filer mellan sessioner. Lagring debiteras regelbundna kostnader.
 
-Kontrollera [här för mer information om Azure-filer kostnader](https://azure.microsoft.com/pricing/details/storage/files/). 
+Kontrollera [här för mer information om kostnader för Azure Files](https://azure.microsoft.com/pricing/details/storage/files/). 

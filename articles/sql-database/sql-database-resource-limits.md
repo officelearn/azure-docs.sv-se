@@ -2,19 +2,22 @@
 title: Azure SQL Database-resurs begränsar översikt | Microsoft Docs
 description: Den här artikeln innehåller en översikt över Azure SQL Database-resursen begränsar och ger information om vad som händer när de resursbegränsningar nått eller överskridit.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/19/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 6dbabb853b9c4c5f96144c59c62567fc3000267d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: sashan,moslake
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 582e0cc8dd48921bbbef188cb712a156e128e4fe
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952706"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159592"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Översikt över Azure SQL Database-resursgränser 
 

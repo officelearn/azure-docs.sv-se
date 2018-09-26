@@ -4,20 +4,20 @@ description: Vanliga frågor och svar om Azure Migrate adresser
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 16fce3eb5ab3874f7106d05bf99dc795cc22a528
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d6677aa741b18bb6dbb6b90c07c5e7bd3f4d5afb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377557"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161870"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
 Den här artikeln innehåller vanliga frågor och svar om Azure Migrate. Om du har några ytterligare frågor när du har läst den här artikeln, publicera dem på den [Azure Migrate forum](http://aka.ms/AzureMigrateForum).
 
-## <a name="general"></a>Generell
+## <a name="general"></a>Allmänt
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Stöder Azure Migrate bedömning av VMware-arbetsbelastningar?
 
@@ -41,7 +41,7 @@ Azure Migrate är en utvärdering av tjänst som hjälper dig att identifiera di
 Azure Migrate är ett verktyg för migreringsplanering och Distributionshanteraren för Azure Site Recovery är en katastrofåterställning (DR) kapacitetsplaneringsverktyget.
 
 **Migrering från VMware till Azure**: Om du planerar att migrera dina lokala arbetsbelastningar till Azure, använda Azure Migrate för planering av migreringsaktiviteter. Azure Migrate utvärderar lokala arbetsbelastningar och tillhandahåller vägledning, insikter och mekanismer för att hjälpa dig att migrera till Azure. Du kan använda tjänster som Azure Site Recovery och Azure Database Migration Service för att migrera datorerna till Azure när du är klar med din migreringsplan.
- 
+
 **Migrering från Hyper-V till Azure**: Azure Migrate stöder för närvarande endast utvärdering av virtuella VMware-datorer för migrering till Azure. Stöd för Hyper-V är våra planer för Azure Migrate. Under tiden kan använda du Site Recovery Deployment Planner. När Hyper-V-stöd är aktiverat i Azure Migrate kan använda du Azure Migrate för att planera migrering av Hyper-V-arbetsbelastningar.
 
 **Haveriberedskap från VMware/Hyper-V till Azure**: Om du vill göra katastrofåterställning (DR) på Azure med hjälp av Azure Site Recovery (Site Recovery) använda Site Recovery Deployment Planner för DR planera. Distributionshanteraren för site Recovery har en djupgående, ASR-specifika bedömning av din lokala miljö. Den innehåller rekommendationer som krävs av Site Recovery för lyckade DR-åtgärder, till exempel replikering, redundans för dina virtuella datorer.  
@@ -58,7 +58,7 @@ Anslutningen kan vara via internet eller använda ExpressRoute med offentlig pee
 
 Ytterligare komponenter (till exempel ett virusskyddsprogram) kan läggas till i den. OVA mallen är så länge lämnas kommunikation och brandväggen regler som krävs för Azure Migrate-installation för att fungera som.   
 
-## <a name="discovery-and-assessment"></a>Identifiering och utvärdering
+## <a name="discovery"></a>Identifiering
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Vilka data som samlas in av Azure Migrate?
 
@@ -130,13 +130,16 @@ Om du har en miljö som delas mellan klienter och du inte vill identifiera de vi
 
 Du kan identifiera 1500 virtuella datorer i en enda migreringsprojekt. Om du har flera virtuella datorer i din lokala miljö, [mer](how-to-scale-assessment.md) om hur du kan identifiera en stor miljö i Azure Migrate.
 
+## <a name="assessment"></a>Utvärdering
+
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Kostar Azure Migrate support för Enterprise Agreement (EA) baserade uppskattning?
 
 Azure Migrate stöder för närvarande inte kostnadsuppskattning för [erbjudande för Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). Lösningen är att ange att betala per användning erbjudandet och manuellt ange procentvärdet (gäller för prenumerationen) i fältet ”Rabatt” i egenskaperna för utvärdering.
 
   ![Rabatt](./media/resources-faq/discount.png)
+  
 
-## <a name="dependency-visualization"></a>Beroendevisualisering
+## <a name="dependency-visualization"></a>Visualisering av beroenden
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Behöver jag betala för att använda funktionen beroendevisualisering?
 
@@ -144,7 +147,34 @@ Azure Migrate är tillgänglig utan extra kostnad. Mer information om priser fö
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Kan jag använda en befintlig arbetsyta för visualisering av beroenden?
 
-Azure Migrate stöder inte användning av en befintlig arbetsyta för visualisering av beroenden, men Microsoft Monitoring Agent (MMA) har stöd för flera värdar och gör det möjligt att skicka data till flera arbetsytor. Så om du redan har agenter distribuerat och konfigurerat till en arbetsyta kan du utnyttja flera värdar i MMA-agenten och konfigurera den till arbetsytan Azure Migrate (utöver den befintliga arbetsytan) och gör att den fungerar. [Här](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) är en blogg på hur du kan aktivera flera värdar i ett MMA-agenten.
+Ja, Azure Migrate nu kan du bifoga en befintlig arbetsyta i migreringsprojektet och utnyttja dessa för visualisering av beroenden. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization#how-does-it-work).
+
+### <a name="can-i-export-the-dependency-visualization-report"></a>Kan jag exportera visualisering beroenderapport?
+
+Nej, visualiseringen av beroenden kan inte exporteras. Men eftersom Azure Migrate använder Tjänstkarta för visualisering av beroenden, du kan använda den [Service Map REST API: er](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) att hämta beroendena i json-format.
+
+### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Hur kan jag automatisera installationen av Microsoft Monitoring Agent (MMA) och beroendeagenten?
+
+[Här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) är ett skript som du kan använda för installation av beroendeagenten. För MMA, [här](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) är ett skript som är tillgängliga på TechNet som du kan använda.
+
+Förutom skript, kan du även använda distributionsverktyg som System Center Configuration Manager (SCCM), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) osv. för att distribuera agenter.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Vilka är de operativsystem som stöds av MMA?
+
+Lista över Windows-operativsystem som stöds av MMA är [här](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+Listan med Linux-operativsystem som stöds av MMA är [här](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Vilka är de operativsystem som stöds av beroendeagenten?
+
+Lista över Windows-operativsystem som stöds av beroendeagenten är [här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+Listan med Linux-operativsystem som stöds av beroendeagenten är [här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Kan jag visualisera beroenden i Azure Migrate för mer än en timme?
+Nej, Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, men maximal varaktighet för vilken du kan visualisera beroenden är upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme.
+
+### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Stöds visualisering av beroenden för grupper med fler än 10 virtuella datorer?
+Du kan [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) som har upp till 10 virtuella datorer, om du har en grupp med fler än 10 virtuella datorer, rekommenderar vi att dela upp gruppen i mindre grupper och visualisera beroenden.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

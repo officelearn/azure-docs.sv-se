@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 5087b8a1d675fb6fb2bbfb2b46a09c215bf5e9ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2184d006bb99d57f50e71c0096d68b7a0b69a219
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998771"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162295"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner och verktyg för Azure Cloud Shell
 
@@ -44,7 +44,7 @@ Filer utanför `$Home` och datorn är inte beständiga mellan sessioner. Följ r
 
 ### <a name="azure-drive-azure"></a>Azure-enheten (Azure:)
 
-PowerShell i Cloud Shell (förhandsversion) startar du i Azure-enheten (`Azure:`).
+PowerShell i Cloud Shell startar du i Azure-enheten (`Azure:`).
 Azure-enhetslagringen kan enkelt hitta och navigering i Azure-resurser som beräkning, nätverk, lagring osv liknar filsystem navigering.
 Du kan fortsätta att använda vanliga [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure) hantera dem oavsett den enhet som du tillhör.
 Ändringar som görs till Azure-resurser, antingen direkt i Azure-portalen eller via Azure PowerShell-cmdletar, återspeglas i Azure-enheten.  Du kan köra `dir -Force` att uppdatera dina resurser.
@@ -81,6 +81,6 @@ Cloudshell innehåller förkonfigurerade autentisering för open source-verktyg 
 
 ## <a name="next-steps"></a>Nästa steg
 [Bash i Cloud Shell-Snabbstart](quickstart.md) <br>
-[PowerShell i Snabbstarta Cloud Shell (förhandsversion)](quickstart-powershell.md) <br>
-[Lär dig mer om Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
+[PowerShell i Cloud Shell-Snabbstart](quickstart-powershell.md) <br>
+[Lär dig mer om Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [Lär dig mer om Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

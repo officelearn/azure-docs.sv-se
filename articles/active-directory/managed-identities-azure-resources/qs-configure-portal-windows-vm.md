@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 77953884253002c6da7b0151151d97bb65a6c659
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b73a79676be559ad491bd7bb16691369dd8fa271
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377096"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158639"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure-portalen
 
@@ -46,10 +46,15 @@ I det här avsnittet ska du lära dig hur du aktiverar och inaktiverar systemtil
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-a-vm"></a>Aktivera systemtilldelade hanterad identitet under skapandet av en virtuell dator
 
-För närvarande stöder inte Azure-portalen aktivera systemtilldelade identiteter under genereringen av en virtuell dator. I stället se något av följande virtuella datorer skapas Snabbstart artiklar för att först skapa en virtuell dator och gå sedan vidare till nästa avsnitt för information om hur du aktiverar systemtilldelade identiteter på den virtuella datorn:
+Aktivera systemtilldelade hanterad identitet när du skapar en virtuell dator under den **Management** fliken i den **identitet** avsnittet, växla **hanterad tjänstidentitet** till  **På**.  
 
-- [Skapa en Windows-dator med Azure-portalen](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
-- [Skapa en Linux-dator med Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
+![Aktivera systemtilldelade identiteter under skapandet av VM](./media/msi-qs-configure-portal-windows-vm/enable-system-assigned-identity-vm-creation.png)
+
+Se följande Snabbstarter för att skapa en virtuell dator: 
+
+- [Skapa en Windows-dator med Azure-portalen](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) 
+- [Skapa en Linux-dator med Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-vm"></a>Aktivera systemtilldelade hanterad identitet på en befintlig virtuell dator
 

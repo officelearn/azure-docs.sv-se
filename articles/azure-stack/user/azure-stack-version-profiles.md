@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 8bebec23d7a0199d8efbc55b3cde50c628306f01
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1b63a75a2505ecbd82896932018ef4f0936b9b37
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034376"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182900"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Hantera API-versionsprofiler i Azure Stack
 
@@ -77,6 +77,7 @@ Som utvecklare kan fokusera du på att din lösning. I stället för att unders�
 
 Du kan hitta kodexempel för att integrera din lösning med det språk du föredrar med Azure Stack med hjälp av profiler. För närvarande kan hittar du anvisningar och exempel för följande språk:
 
+- **.NET** du kan använda .NET API-profil för att få den senaste och mest stabila versionen av varje resurstyp i ett paket för resource provider. Mer information finns i [Använd API-versionsprofiler med .NET i Azure Stack](azure-stack-version-profiles-net.md).
 - **PowerShell**  
 Du kan använda den **AzureRM.Bootstrapper** modulen i PowerShell-galleriet för att hämta PowerShell-cmdlets som krävs för att arbeta med API-versionsprofiler. Mer information finns i [Använd API-versionsprofiler för PowerShell](azure-stack-version-profiles-powershell.md).
 - **Azure CLI**  

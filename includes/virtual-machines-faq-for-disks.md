@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7208eb112b5f4a5b458c0374541dff113906aa0c
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060389"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47185782"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -144,6 +144,9 @@ Standard SSD-diskar är standarddiskar som backas upp av solid-state media, opti
 
 <a id="standard-ssds-azure-regions"></a>**Vilka är de regioner som stöds för närvarande för Standard SSD-diskar?**
 Alla Azure-regioner har nu stöd för Standard SSD-diskar.
+
+**Är Azure Backup tillgängligt när du använder Standard SSD-enheter?**
+Nej, Azure Backup finns inte ännu.
 
 **Hur gör jag för att skapa Standard SSD-diskar?**
 Du kan skapa Standard SSD-diskar med hjälp av Azure Resource Manager-mallar, SDK, PowerShell eller CLI. Nedan visas de parametrar som behövs i Resource Manager-mallen för att skapa Standard SSD-diskar:

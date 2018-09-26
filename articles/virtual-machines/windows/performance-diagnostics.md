@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 587540430dc4089973186c2862f402ccde73df65
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f79be44d33a327f3ead8d950885cb5d47ce3a015
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048092"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163814"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Prestandadiagnostik för Azure-datorer
 
@@ -35,15 +35,15 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Installera och köra Prestandadiagnostik på den virtuella datorn
 Prestandadiagnostik installerar ett VM-tillägg som kör en diagnostikverktyget som heter [PerfInsights](https://aka.ms/perfinsights). Följ dessa steg för att installera och köra Prestandadiagnostik:
-1)  I den vänstra kolumnen kommandon väljer **virtuella datorer**.
-2)  Välj den virtuella dator som du vill köra diagnostik i listan med namn på virtuella datorer.
-3)  I den högra kolumnen kommandon väljer **Prestandadiagnostik**.
+1.  I den vänstra kolumnen kommandon väljer **virtuella datorer**.
+1.  Välj den virtuella dator som du vill köra diagnostik i listan med namn på virtuella datorer.
+1.  I den högra kolumnen kommandon väljer **Prestandadiagnostik**.
 
     ![Skärmbild av Azure portal utan att installera prestanda diagnostik knappen markerad](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
     > I den här skärmbild är bladet i namn på virtuella datorer dold.
-4) Välj ett lagringskonto (valfritt)
+1. Välj ett lagringskonto (valfritt)
 
     Om du vill använda ett enda lagringskonto för att lagra Diagnostikresultat prestanda för flera virtuella datorer kan du välja ett lagringskonto genom att klicka på den **inställningar** i verktygsfältet. Klicka på den **OK** knappen när du har valt lagringskontot.
 
@@ -53,8 +53,8 @@ Prestandadiagnostik installerar ett VM-tillägg som kör en diagnostikverktyget 
 
     ![Skärmbild av val av mållagring kontot från bladet med inställningar för diagnostik prestanda](media/performance-diagnostics/select-storage-account.png)
 
-5) Välj den **installera Prestandadiagnostik** knappen.
-6) Välj den **kör diagnostik** markerar du kryssrutan om du vill köra en diagnostik när installationen har slutförts. Om du gör det här alternativet, kommer du att kunna välja dataanalysscenario för prestanda och relaterade alternativ.
+1. Välj den **installera Prestandadiagnostik** knappen.
+1. Välj den **kör diagnostik** markerar du kryssrutan om du vill köra en diagnostik när installationen har slutförts. Om du gör det här alternativet, kommer du att kunna välja dataanalysscenario för prestanda och relaterade alternativ.
 
     ![Skärmbild av Prestandadiagnostik installera knappen](media/performance-diagnostics/install-diagnostics-button.png)
 
@@ -148,13 +148,13 @@ När du öppnar ett supportärende med Microsoft, är det viktigt att dela diagn
 
 **Alternativ 2:** Generera en signatur för delad åtkomst för diagnostiken rapportera komprimerad fil  
 Du kan dela en länk till den komprimerade filen i rapporter med hjälp av signaturer för delad åtkomst. Det gör du genom att följa dessa steg: 
-1)  Bläddra till det lagringskonto där diagnostics-data lagras i Azure-portalen.
-2)  Välj **Blobar** under den **Blobtjänst** avsnittet. 
-3)  Välj den **azdiagextnresults** behållare.
-4)  Välj prestanda diagnostik komprimerade utdatafilen som du vill dela.
-5)  På den **generera SAS** , Välj kriterier för att dela. 
-6)  Klicka på **generera blob SAS-token och URL: en**.
-7)  Kopiera den **Blob SAS-Webbadressen**, och dela dem med supportteknikern. 
+1.  Bläddra till det lagringskonto där diagnostics-data lagras i Azure-portalen.
+1.  Välj **Blobar** under den **Blobtjänst** avsnittet. 
+1.  Välj den **azdiagextnresults** behållare.
+1.  Välj prestanda diagnostik komprimerade utdatafilen som du vill dela.
+1.  På den **generera SAS** , Välj kriterier för att dela. 
+1.  Klicka på **generera blob SAS-token och URL: en**.
+1.  Kopiera den **Blob SAS-Webbadressen**, och dela dem med supportteknikern. 
 
 **Alternativ 3:** ladda ned rapporten från storage-kontot
 
@@ -162,8 +162,8 @@ Du kan även hitta den komprimerade filen för prestanda diagnostik rapporten me
 
 ### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Hur jag för att samla in diagnostikdata vid rätt tid?
 Varje Prestandadiagnostik kör har två steg: 
-1)  Installera eller uppdatera Prestandadiagnostik VM-tillägget.
-2)  Kör diagnostik för den angivna tidsperioden.
+1.  Installera eller uppdatera Prestandadiagnostik VM-tillägget.
+1.  Kör diagnostik för den angivna tidsperioden.
 
 Det finns för närvarande inget enkelt sätt att veta exakt när installationen av VM-tillägget är klar. Det tar vanligtvis ungefär 45 sekunder till 1 minut att installera VM-tillägg. När VM-tillägget har installerats kan köra du dina reproduktionssteg för Prestandadiagnostik avbilda rätt uppsättning data för felsökning. 
 

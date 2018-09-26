@@ -2,20 +2,22 @@
 title: Ordlista för verktyg för elastiska databaser | Microsoft Docs
 description: Förklaring av termer som används för elastiska Databasverktyg
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 387f40204c8ab07ba0205fd74b5c6a549efff0ef
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 354d972e78a7fb7270b1b09f4af5aa95709fcd06
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728854"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162584"
 ---
 # <a name="elastic-database-tools-glossary"></a>Ordlista för verktyg för elastiska databaser
 Följande villkor har definierats för den [elastiska Databasverktyg](sql-database-elastic-scale-introduction.md), en funktion i Azure SQL Database. Verktygen används för att hantera [shardkartor](sql-database-elastic-scale-shard-map-management.md), och inkluderar den [klientbiblioteket](sql-database-elastic-database-client-library.md), [dela / sammanslå verktyget](sql-database-elastic-scale-overview-split-and-merge.md), [elastiska pooler](sql-database-elastic-pool.md), och [frågor](sql-database-elastic-query-overview.md). 

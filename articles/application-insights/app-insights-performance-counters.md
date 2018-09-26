@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 7ac0a5c00e0badf8882010ae0643f8ead98b56e0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: bb1b1e2934de052479f39d40bfe143345e91bc26
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649215"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094102"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systemprestandaräknare i Application Insights
 Windows innehåller en mängd olika [prestandaräknare](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) , till exempel processor användandet, minne, disk och nätverksanvändning. Du kan också definiera egna. [Application Insights](app-insights-overview.md) kan visa dessa prestandaräknare om ditt program körs under IIS på en lokal värd eller virtuell dator som du har administrativ åtkomst. Diagrammen visar resurserna som är tillgängliga för ditt liveprogram och hjälper dig för att identifiera obalanserad belastning mellan server-instanser.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: c07a9d92cac13d6325e66f44426f1a64e8ac53cb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35964116"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096208"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Dela Azure-instrumentpaneler med hjälp av rollbaserad åtkomstkontroll
 När du har konfigurerat en instrumentpanel, kan du publicera den och dela den med andra användare i din organisation. Du tillåter andra att visa instrumentpanelen med hjälp av Azure [Role-Based Access Control](../role-based-access-control/role-assignments-portal.md). Du tilldelar en användare eller grupp av användare till en roll och rollen definierar om dessa användare kan visa eller ändra publicerade instrumentpanelen. 

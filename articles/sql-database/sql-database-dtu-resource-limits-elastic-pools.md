@@ -2,19 +2,22 @@
 title: Azure SQL Database DTU-baserad resurs begränsar elastiska pooler | Microsoft Docs
 description: Den här sidan beskriver några vanliga DTU-baserade resursbegränsningar för elastiska pooler i Azure SQL Database.
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: elastic-pools
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 09/20/2018
-ms.author: carlrab
-ms.openlocfilehash: c4f9daa4d9f5d09d4078d29409f116d1e8284f7a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b2efdf0b1a8abe91589f56ecbb6dc01f7606f305
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036753"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158995"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Resurser-gränser för elastiska pooler med den DTU-baserade inköpsmodellen 
 

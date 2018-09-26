@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: c8a8598640e31f59476b5b3351fdb2eab7b66a6c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952927"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160629"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Förstå hälsotillståndet för virtuella datorer i Azure med Azure Monitor för virtuella datorer
 Azure innehåller flera tjänster som individuellt utför en viss roll eller en uppgift i övervakningsutrymmet, men ger en djupgående hälsotillstånd perspektiv av operativsystemet som körs på virtuella Azure-datorer inte var tillgänglig.  Medan du kan övervaka för olika villkor med hjälp av Log Analytics och Azure Monitor, har de inte utvecklats modellera och representerar hälsan för kärnkomponenter eller övergripande hälsa för den virtuella datorn.  Med Azure Monitor för virtuella datorer hälsotillstånd funktion kan övervakar det proaktivt tillgänglighet och prestanda för Windows eller Linux gästoperativsystemet med en modell som representerar viktiga komponenter och deras relationer villkor som anger hur hälsotillståndet för de komponenter, och varnar dig när ett feltillstånd har identifierats.  
@@ -99,11 +99,11 @@ Hälsotillstånden som definierats för en virtuell dator finns:
 * **Varning** – ett eller flera problem har identifierats som behöver åtgärdas eller hälsostatus kan bli kritiska.  
 * **Okänd** – om tjänsten inte kunde upprätta en anslutning med den virtuella datorn att status ändras till ett okänt tillstånd.  
 
-Att välja **visa hälsotillstånd diagnostik** öppnas en sida som visar alla komponenter i den virtuella datorn med tillhörande hälsostatus kriterier, tillståndsändringar och andra problem som uppstod genom att övervaka komponenter som hör till den virtuella datorn. Referera till den [hälsotillstånd diagnostik](#health-diagnostics) för mer information. 
+Att välja **visa hälsotillstånd diagnostik** öppnas en sida som visar alla komponenter i den virtuella datorn, tillhörande hälsostatus kriterier, tillståndsändringar och andra problem som uppstod genom att övervaka komponenter som hör till den virtuella datorn. Mer information finns i [hälsotillstånd diagnostik](#health-diagnostics). 
 
 Under den **komponenthälsa** avsnittet visas en samlad hälsostatus primära prestanda-kategorier som övervakas av health-villkor för dessa områden mer specifikt **CPU**,  **Minne**, **Disk**, och **nätverk**.  Att välja någon av komponenterna öppnas en sida där alla enskilda hälsotillstånd villkoret övervakning aspekter av komponenten och respektive hälsotillståndet för var och en.  
 
-Vid åtkomst till hälsotillstånd från en Azure virtuell dator som kör Windows-operativsystem, visas hälsotillståndet för de 5 viktiga Windows-tjänster under avsnittet **Core services health**.  Om du väljer någon av tjänsterna öppnas en sida där health-villkor som övervakning av komponenten och dess hälsotillstånd.  När du klickar på namnet på health-villkor öppnas egenskapsrutan och härifrån kan du granska konfigurationsinformationen, inklusive om health-villkor har en motsvarande Azure Monitor-avisering som definierats. Mer information om detta finns [hälsotillstånd diagnostik- och arbeta med Hälsokriterier](#health-diagnostics).  
+Vid åtkomst till hälsotillstånd från en Azure virtuell dator som kör Windows-operativsystem, visas hälsotillståndet för de 5 viktiga Windows-tjänster under avsnittet **Core services health**.  Om du väljer någon av tjänsterna öppnas en sida där health-villkor som övervakning av komponenten och dess hälsotillstånd.  När du klickar på namnet på health-villkor öppnas egenskapsrutan och härifrån kan du granska konfigurationsinformationen, inklusive om health-villkor har en motsvarande Azure Monitor-avisering som definierats. Mer information finns i [hälsotillstånd diagnostik- och arbeta med Hälsokriterier](#health-diagnostics).  
 
 ## <a name="aggregate-virtual-machine-perspective"></a>Sammanställd VM perspektiv
 Om du vill visa insamling av hälsotillstånd för alla dina virtuella datorer i en resursgrupp från listan över navigeringsfönstret i portalen, Välj **Azure Monitor** och välj sedan **virtuella datorer (förhandsversion)**.  
@@ -153,7 +153,7 @@ Att välja **visa alla Hälsokriterier** öppnas en sida som visar en lista öve
 
 * **Kategori** -typ av health-villkor som används för att gruppen kriterier av liknande typ för rapportering.  De är antingen **tillgänglighet** eller **prestanda**.
 
-Du kan gå längre ned om du vill se vilka instanser som inte är felfria genom att klicka på ett värde under den **komponenter som innehåller fel** kolumn.  På sidan för med en tabell de komponenter som är i ett kritiskt hälsotillstånd.    
+Du kan gå längre ned om du vill se vilka instanser som inte är felfria genom att klicka på ett värde under den **komponenter som innehåller fel** kolumn.  På sidan med en tabell de komponenter som finns i ett kritiskt hälsotillstånd.    
 
 ## <a name="health-diagnostics"></a>Diagnostik för hälsa
 **Diagnostik för hälsa** sidan kan du visa alla komponenter i den virtuella datorn och tillhörande hälsostatus villkor, tillståndsändringar, och andra problem påträffades av övervakningsobjekten relaterade till den virtuella datorn. 
@@ -175,7 +175,7 @@ Diagnostik för hälsa ordnar hälsoinformation i följande kategorier:
  
 Alla health-villkor som definierats för det valda målnätverket visas i motsvarande kategori. 
 
-Hälsotillståndet för health-villkor definieras av något av tre tillstånd – *kritisk*, *varning* och *felfri*. Det finns ett annat tillstånd *okänd*, vilket är inte associerad med hälsotillståndet, men representerar statusen för kända övervakning av funktionen.  
+Hälsotillståndet för health-villkor definieras av något av tre tillstånd – *kritisk*, *varning*, och *felfri*. Det finns ett annat tillstånd *okänd*, vilket är inte associerad med hälsotillståndet, men representerar statusen för kända övervakning av funktionen.  
 
 I följande tabell innehåller information om hälsotillstånd som representeras i hälsotillstånd diagnostik.
 
@@ -208,7 +208,7 @@ Den mellersta kolumnen på sidan hälsa diagnostik är den **Hälsokriterier** k
 
 Ett villkor för health mäter hälsotillståndet för övervakade instansen med vissa kriterier, som kan vara ett tröskelvärde eller ett tillstånd för en entitet, osv. Ett villkor för hälsotillstånd har två eller tre hälsotillstånd enligt beskrivningen i avsnittet ovan. Hälsotillstånd villkoret kan vara i endast en av sina möjliga tillstånd vid en given tidpunkt. 
 
-Den övergripande hälsan för ett mål bestäms av hälsotillståndet för var och en av dess health-villkor som definierats i hälsomodellen. Det här är en kombination av Hälsokriterier riktade direkt mot målet, health-villkor som är riktad mot komponenter som samlas in till målet via ett beroende health-villkor. Den här hierarkin illustreras i den **Hälsokriterier** delen av sidan diagnostik för hälsa. Principen för hur hälsotillstånd samlas in är en del av konfigurationen av de sammanlagda och beroende health-villkor. Du hittar en lista över standarduppsättning health-villkor som körs som en del av den här funktionen under avsnittet [övervakning konfigurationsinformation](#monitoring-configuration-details).  
+Den övergripande hälsan för ett mål bestäms av hälsotillståndet för var och en av dess health-villkor som definierats i hälsomodellen. Det här är en kombination av Hälsokriterier riktade direkt mot målet, health-villkor som är riktad mot komponenter som samlas in till målet via ett beroende health-villkor. Den här hierarkin illustreras i den **Hälsokriterier** delen av sidan diagnostik för hälsa. Principen för hälsosammanslagning är en del av konfigurationen av de sammanlagda och beroende health-villkor. Du hittar en lista över standarduppsättning health-villkor som körs som en del av den här funktionen under avsnittet [övervakning konfigurationsinformation](#monitoring-configuration-details).  
 
 I följande exempel sammanställd hälsotillstånd villkoret **Core Windows Services samlad** för en Windows-baserad virtuell dator, utvärderar hälsotillståndet för de mest kritiska Windows-tjänster baserat på enskilda service health-villkor. Status för varje tjänst, till exempel DNS, DHCP osv., utvärderas och hälsotillståndet är Upplyft till motsvarande insamling av hälsotillstånd villkoret (som visas nedan).  
 
@@ -228,7 +228,8 @@ I fönstret konfiguration för de valda health-villkor, i det här exemplet på 
 
 ![Konfigurera en health-villkor för till exempel övervaka en enhet](./media/monitoring-vminsights-health/health-diagnostics-linuxvm-example-04.png)
 
-
+Om du vill veta mer om indikatorn för hälsotillstånd kunskapsartiklar ingår som hjälper dig att identifiera problem, orsaker och lösningar.  Klicka på den **visa information** länken på sidan och öppnar en ny flik i webbläsaren som visar den specifika kunskapsartikeln.  När som helst kan du granska alla hälsotillstånd kriterium kunskapsartiklar ingår i Azure Monitor för virtuella datorer hälsotillstånd funktionen [här](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+  
 ### <a name="state-changes"></a>Tillståndsändringar
 Höger kolumn på hälsosidan diagnostik är **tillståndsändringar**. Den visar en lista över alla tillståndsändringar som är associerade med Hälsokriterier som valts i den **Health-villkor** avsnittet eller tillståndsändring för den virtuella datorn om du valde en virtuell dator från den **Komponentmodellen** eller **Hälsokriterier** kolumnen i tabellen. 
 
@@ -256,14 +257,14 @@ Du kan filtrera den här vyn genom att välja värden i listrutorna överst på 
 
 |Kolumn |Beskrivning | 
 |-------|------------| 
-|Prenumeration |Välj en Azure-prenumerationer. Bara aviseringar i den valda prenumerationen ingår i vyn. | 
+|Prenumeration |Välj en Azure-prenumeration. Bara aviseringar i den valda prenumerationen ingår i vyn. | 
 |Resursgrupp |Välj en enskild resursgrupp. Endast aviseringar med mål i den valda resursgruppen ingår i vyn. | 
 |Resurstyp |Välj en eller flera resurstyper. Endast aviseringar med mål för det valda ingår i vyn. Den här kolumnen är endast tillgänglig när en resursgrupp har angetts. | 
 |Resurs |Välj en resurs. Endast aviseringar med den här resursen som ett mål som ingår i vyn. Den här kolumnen är endast tillgänglig när du har angett en resurstyp. | 
 |Severity |välja en allvarlighetsgrad för avisering eller välj *alla* att inkludera aviseringar för alla allvarlighetsgrader. | 
 |Övervakningsvillkor |Välj ett övervakningsvillkor att filtrera aviseringar om de har *Fired* av systemet eller *löst* av systemet om villkoret är inte längre aktiv. Eller välj *alla* att inkludera aviseringar av alla villkor. | 
 |Tillstånd för avisering |Välj en aviseringstillståndet *New*, *Bekräfta*, *stängd*, eller välj *alla* att inkludera aviseringar av alla tillstånd. | 
-|Övervaka tjänsten |Välj en tjänst, eller välj *alla* att inkludera alla tjänster. Endast aviseringar från Infrastruktursinsikter stöds för den här funktionen. | 
+|Övervaka tjänsten |Välj en tjänst, eller välj *alla* att inkludera alla tjänster. Endast aviseringar från Infrastruktursinsikter har stöd för den här funktionen. | 
 |Tidsintervall| Bara de aviseringar som utlösts inom det valda tidsfönstret ingår i vyn. Värden som stöds är den senaste timmen, de senaste 24 timmarna, de senaste 7 dagarna och de senaste 30 dagarna. | 
 
 Den **Avisera detalj** visas när du väljer en avisering genom att tillhandahålla information om aviseringen och så att du kan ändra tillståndet. Mer information om att arbeta med Varningsregler och hantera aviseringar finns [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).

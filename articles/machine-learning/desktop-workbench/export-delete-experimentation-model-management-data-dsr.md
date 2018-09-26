@@ -11,16 +11,18 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 05/22/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7daa3bdf9fb51fee6b0e190625f07e0d14c3d1f4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8c5b20bf837491e8b15f7bc8baa018ead584616b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995150"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159184"
 ---
 # <a name="export-or-delete-your-experimentation-or-model-management-data-in-machine-learning"></a>Exportera eller ta bort din experimentering eller hantering av modelldata i Machine Learning
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+>[!Note]
+>**Den här artikeln är inaktuell.** Stöd för tidigare versioner av den här tjänsten upphör inkrementellt. [Visa tidslinje för support](../service/overview-what-happened-to-workbench.md#timeline). Läs den [senaste artikeln](../service/how-to-export-delete-data.md) på det här avsnittet.
+
 
 Du kan exportera eller ta bort ditt kontodata som rör hantering av experimentering eller modellen med autentiserade REST-API i Azure Machine Learning. Den här artikeln visar hur du gör.
 

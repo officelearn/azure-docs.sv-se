@@ -1,62 +1,64 @@
 ---
-title: Haveriberedskap för SQL-databasen | Microsoft Docs
-description: Lär dig vägledning och bästa praxis för att utföra haveriberedskap med Azure SQL Database.
+title: SQL Database Programåterställningstest | Microsoft Docs
+description: Lär dig vägledning och bästa praxis för att utföra tester av haveriberedskap med Azure SQL Database.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 52973758404faa4158afe81a92079c1acdb4cfd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: c861163670b05b01c9c6d64b81f6e83c979a2af8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645471"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163043"
 ---
-# <a name="performing-disaster-recovery-drill"></a>Utför Återställningsgranskning för katastrofåterställning
-Du rekommenderas att verifieringen av programmet beredskap för återställningsarbetsflöde utförs med jämna mellanrum. Verifiera programfunktioner och följderna av förlust av data och/eller störningar innebär att redundansväxlingen är bra engineering. Det är också ett krav som de flesta branschstandarder som en del av business continuity certifikatutfärdare.
+# <a name="performing-disaster-recovery-drill"></a>Utföra Programåterställningstest
+Du rekommenderas att verifieringen av programberedskap för återställningsarbetsflöde utförs med jämna mellanrum. Verifiera programmets beteende och konsekvenserna av förlust av data och/eller kan avbrott innebär att redundansväxlingen kan vara bra engineering. Det är också ett krav enligt de flesta branschstandarder som en del av business continuity certifiering.
 
-Utför en katastrofåterställning återställningsgranskning består av:
+Utföra ett programåterställningstest består av:
 
-* Simulering data nivå avbrott
+* Simulering nivån avbrott
 * Återställa
-* Validera programåterställning integritet post
+* Verifiera programåterställning integritet inlägg
 
-Beroende på hur du [utformats för ditt program för affärskontinuitet](sql-database-business-continuity.md), arbetsflödet att köra detaljerade kan variera. Den här artikeln beskrivs bästa praxis för att utföra en katastrof återställningsgranskning i samband med Azure SQL Database.
+Beroende på hur du [utformats för ditt program för affärskontinuitet](sql-database-business-continuity.md), arbetsflödet att köra detaljerade kan variera. Den här artikeln beskriver Metodtips för att utföra ett programåterställningstest i samband med Azure SQL Database.
 
 ## <a name="geo-restore"></a>Geo-återställning
-För att förhindra förlust av data när du utför en katastrofåterställning återställningsgranskning, utför du detaljgranska använder en testmiljö genom att skapa en kopia av produktionsmiljön och använder den för att kontrollera programmets redundans arbetsflöde.
+Utför test med en test-miljö genom att skapa en kopia av produktionsmiljön och använder det för att kontrollera programmets redundans arbetsflöde för att förhindra förlust av data när utföra ett programåterställningstest.
 
 #### <a name="outage-simulation"></a>Avbrott simulering
-För att simulera avbrottet, kan du byta namn på källdatabasen. Detta medför anslutningsfel till programmet.
+För att simulera driftstörningarna, kan du byta namn på källdatabasen. Detta leder till anslutningsfel för program.
 
 #### <a name="recovery"></a>Återställning
-* Utföra geo-återställning av databasen till en annan server enligt beskrivningen [här](sql-database-disaster-recovery.md).
-* Ändra konfigurationen för programmet för att ansluta till den återställda databasen och följ de [konfigurera en databas efter återställningen](sql-database-disaster-recovery.md) guiden för att slutföra återställningen.
+* Utföra geo-återställning av databasen till en annan server enligt [här](sql-database-disaster-recovery.md).
+* Ändra programmets konfiguration för att ansluta till den återställda databasen och följ de [konfigurerar en databas efter återställningen](sql-database-disaster-recovery.md) guiden för att slutföra återställningen.
 
 #### <a name="validation"></a>Validering
-* Slutför detaljerade genom att verifiera (inklusive anslutningssträngar, inloggningar, grundläggande funktioner testning eller andra verifieringar som en del av standardprogrammet signeringar procedurer) programmet integritet efter återställningen.
+* Slutför detaljerade genom att verifiera programmet integritet efter återställningen (inklusive anslutningssträngar, inloggningar, grundläggande funktioner testning eller andra verifieringar-delen av standardprogram signeringar procedurer).
 
 ## <a name="failover-groups"></a>Redundansgrupper
-För en databas som skyddas med hjälp av grupper för växling vid fel, innebär ökad Övning planerad redundans till den sekundära servern. Planerad redundans garanterar att primärt och sekundära databaser i gruppen växling vid fel är synkroniserade när rollerna växlas. Till skillnad från en oplanerad redundansväxling leder åtgärden inte till dataförlust, så detaljerade kan utföras i produktionsmiljön.
+För en databas som skyddas med redundansgrupper omfattar drill-Övning planerad redundansväxling till den sekundära servern. Den planerade redundansväxlingen säkerställer att primärt och sekundära databaser i redundansgruppen förblir synkroniserade när rollerna växlas. Till skillnad från den oplanerade redundansväxlingen leder åtgärden inte till förlust av data, så detaljerade kan utföras i produktionsmiljön.
 
 #### <a name="outage-simulation"></a>Avbrott simulering
-Om du vill simulera avbrottet kan inaktivera du webbprogram eller virtuella datorn är ansluten till databasen. Detta resulterar i anslutningsproblemet för webbklienter.
+Du kan inaktivera webbprogram eller virtuella datorn är ansluten till databasen för att simulera avbrottet. Detta resulterar i fel vid lagringsanslutning för webbklienter.
 
 #### <a name="recovery"></a>Återställning
-* Kontrollera i programkonfigurationen i DR region pekar på den sekundära, tidigare som blir den nya primärt fullt tillgängliga.
-* Initiera [planerad redundans](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) i gruppen växling vid fel från den sekundära servern.
-* Följ den [konfigurera en databas efter återställningen](sql-database-disaster-recovery.md) guiden för att slutföra återställningen.
+* Kontrollera programkonfigurationen i DR-regionen pekar på den sekundära, tidigare som blir den nya primärt nås.
+* Initiera [planerad redundans](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) i redundansgruppen från den sekundära servern.
+* Följ den [konfigurerar en databas efter återställningen](sql-database-disaster-recovery.md) guiden för att slutföra återställningen.
 
 #### <a name="validation"></a>Validering
-Slutför detaljerade genom att verifiera (inklusive anslutning, grundläggande funktioner test eller andra verifieringar som krävs för ökad signeringar) programmet integritet efter återställningen.
+Slutför detaljerade genom att verifiera programmet integritet efter återställningen (inklusive anslutningar, grundläggande funktioner testning eller andra verifieringar som krävs för ökad detaljnivå signeringar).
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs om affärsscenarier kontinuitet i [kontinuitet scenarier](sql-database-business-continuity.md).
-* Lär dig mer om Azure SQL Database automatiserad säkerhetskopieringar, se [SQL-databas automatisk säkerhetskopiering](sql-database-automated-backups.md)
-* Läs om hur du använder automatisk säkerhetskopiering för återställning i [återställa en databas från säkerhetskopior service-initierad](sql-database-recovery-using-backups.md).
-* Mer information om alternativ för snabbare återställning, se [aktiv geo-replikering och redundans grupper](sql-database-geo-replication-overview.md).  
+* Läs mer om affärskontinuitet affärsscenarier, i [affärskontinuitet scenarier](sql-database-business-continuity.md).
+* Vill veta mer om Azure SQL Database automatiska säkerhetskopior, se [automatiserad säkerhetskopiering för SQL-databas](sql-database-automated-backups.md)
+* Läs om hur du använder automatiska säkerhetskopieringar för återställning i [återställa en databas från de tjänstinitierade säkerhetskopiorna](sql-database-recovery-using-backups.md).
+* Läs om hur du snabbare återställningsalternativ i [active geo-replikering och redundans grupper](sql-database-geo-replication-overview.md).  

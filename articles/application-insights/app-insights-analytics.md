@@ -1,6 +1,6 @@
 ---
-title: Analytics - kraftfulla Sök och Frågeverktyg av Azure Application Insights | Microsoft Docs
-description: 'Översikt över Analytics, kraftfullt diagnostiska sökverktyg av Application Insights. '
+title: Analytics - kraftfull sökning och Frågeverktyg för Azure Application Insights | Microsoft Docs
+description: 'Översikt över analys, kraftfulla diagnostik sökverktyget för Application Insights. '
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 170cd76c72e8aeb5de48c711ae4637a0244742fb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6db98332fc7d896613a3318421e9a96bbb50cd15
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294208"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159150"
 ---
-# <a name="analytics-in-application-insights"></a>Analyser i Application Insights
-Analytics är kraftfulla Sök- och verktyg för [Programinsikter](app-insights-overview.md). Analytics är ett Webbverktyg så att inga inställningar krävs. Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera data i din app genom att öppna Analytics från din app [översikt bladet](app-insights-dashboards.md).
+# <a name="analytics-in-application-insights"></a>Analys i Application Insights
+Analytics är kraftfullt Sök och fråga i Verktyg för [Application Insights](app-insights-overview.md). Analytics är ett Webbverktyg så att ingen installation krävs. Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera din Apps data genom att öppna Analytics från din app [översiktsbladet](app-insights-dashboards.md).
 
 ![Öppna portal.azure.com, öppna Application Insights-resursen och klicka på Analytics.](./media/app-insights-analytics/001.png)
 
@@ -31,8 +31,8 @@ Du kan också använda den [Analytics playground](https://go.microsoft.com/fwlin
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="query-data-in-analytics"></a>Fråga efter data i Analytics
-En typisk fråga börjar med ett tabellnamn följt av en serie *operatörer* avgränsade med `|`.
-Till exempel ska vi ta reda på hur många förfrågningar vår app togs emot från olika länder under de senaste 3 timmarna:
+En typisk frågan börjar med ett tabellnamn följt av en serie *operatörer* avgränsade med `|`.
+Exempelvis kan vi ta reda på hur många begäranden vår app som togs emot från olika länder under de senaste 3 timmarna:
 ```AIQL
 requests
 | where timestamp > ago(3h)
@@ -40,25 +40,25 @@ requests
 | render piechart
 ```
 
-Vi börjar med namnet på tabellen *begäranden* och lägga till via rörledningar element efter behov.  Först definierar vi ett tidsfilter om du vill granska bara poster från de senaste 3 timmarna.
-Vi sedan räkna antalet poster per land (att data som hittas i kolumnen *client_CountryOrRegion*). Slutligen återge vi resultatet i ett cirkeldiagram.
+Vi börjar med tabellnamnet *begäranden* och lägga till via rörledningar element efter behov.  Först definierar vi ett tillfälligt filter för att granska bara poster från de senaste 3 timmarna.
+Vi sedan räknar antalet poster per land (att data som hittas i kolumnen *client_CountryOrRegion*). Slutligen kan rendera vi resultatet i ett cirkeldiagram.
 <br>
 
 ![Frågeresultat](./media/app-insights-analytics/030.png)
 
-Språket har många bra funktioner:
+Språket har många attraktiva funktioner:
 
-* [Filter](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) dina rådata app telemetri av alla fält, inklusive din anpassade egenskaper och mått.
-* [Anslut](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) flera tabeller – korrelera begäranden med sidvisningar, beroendeanrop, undantag och loggspårningar.
-* Kraftfulla statistiska [aggregeringar](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
+* [Filtret](/azure/kusto/query/whereoperator) apptelemetrin raw genom att ett fält, inklusive anpassade egenskaper och mått.
+* [Ansluta till](/azure/kusto/query/joinoperator) flera tabeller – korrelera begäranden med sidvisningar, beroendeanrop, undantag och loggspårningar.
+* Kraftfulla statistiska [aggregeringar](/azure/kusto/query/summarizeoperator).
 * Omedelbar och kraftfulla visualiseringar.
-* [REST API](https://dev.applicationinsights.io/) som du kan använda för att köra frågor via programmering, till exempel från PowerShell.
+* [REST API](https://dev.applicationinsights.io/) att du kan använda för att köra frågor via programmering, till exempel från PowerShell.
 
-Den [fullständig Språkreferens](https://go.microsoft.com/fwlink/?linkid=856079) information alla kommandon som stöds och uppdaterar regelbundet.
+Den [fullständig Språkreferens](https://go.microsoft.com/fwlink/?linkid=856079) beskriver alla kommandon som stöds och uppdaterar regelbundet.
 
 ## <a name="next-steps"></a>Nästa steg
 * Kom igång med den [Analytics-portalen](https://go.microsoft.com/fwlink/?linkid=856587)
 * Kom igång [skriva frågor](https://go.microsoft.com/fwlink/?linkid=856078)
-* Granska de [SQL-användarnas cheat blad](https://aka.ms/sql-analytics) översättningar av de vanligaste idioms.
+* Granska den [SQL-användarnas Lathund](https://aka.ms/sql-analytics) för översättningar av de vanligaste idioms.
 * Testkör Analytics på vår [playground](https://analytics.applicationinsights.io/demo) om din app inte skickar data till Application Insights ännu.
-* Titta på den [inledande video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4).
+* Titta på den [introduktionsvideon](https://applicationanalytics-media.azureedge.net/home_page_video.mp4).

@@ -3,8 +3,7 @@ title: Avancerat skydd – Azure SQL Database | Microsoft Docs
 description: Läs mer om funktioner för att identifiera och klassificera känsliga data, hantera din databas säkerhetsrisker och identifiera avvikande aktiviteter som kan tyda på ett hot mot din Azure SQL-databas.
 services: sql-database
 ms.service: sql-database
-ms.subservice: threat-protection
-ms.custom: security
+ms.subservice: security
 ms.devlang: ''
 ms.topic: conceptual
 author: ronitr
@@ -12,12 +11,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 05/17/2018
-ms.openlocfilehash: 90d0784a33b3b80a5b2c78bf4b22dac5654b1450
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: cb3d8629d5d72644e647da14e7c3b31a4914814d
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063922"
+ms.locfileid: "47159578"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Avancerat skydd för Azure SQL Database
 

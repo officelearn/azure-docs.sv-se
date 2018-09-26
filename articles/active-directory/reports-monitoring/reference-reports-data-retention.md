@@ -17,11 +17,11 @@ ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 68028fd1ba116251860e5c370e9e9ce61fd314bb
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42060656"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47107114"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Rapportkvarhållningsregler i Azure Active Directory
 
@@ -70,7 +70,7 @@ Den här artikeln ger svar på de vanligaste frågorna tillsammans med en datakv
 
 | Rapport         | Azure AD Kostnadsfri | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--                 | :--                 |
-| Användare i farozonen  | 7 dagar        | 30 dagar             | 90 dagar             |
+| Användare i riskzonen  | 7 dagar        | 30 dagar             | 90 dagar             |
 | Riskfyllda inloggningar | 7 dagar        | 30 dagar             | 90 dagar             |
 
 ---

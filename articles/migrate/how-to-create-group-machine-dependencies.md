@@ -4,14 +4,14 @@ description: Beskriver hur du skapar en utvärdering med datorberoenden med tjä
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: 31cbec8eab499fac116eac6fa2addac4ec2a340b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737116"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163434"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Gruppera datorer med datorberoende mappning
 
@@ -55,6 +55,7 @@ Installera agenten på en Windows-dator:
 4. I **installationsalternativ för Agent**väljer **Azure Log Analytics** > **nästa**.
 5. Klicka på **Lägg till** att lägga till en ny Log Analytics-arbetsyta. Klistra in i arbetsytans ID och nyckel som du kopierade från portalen. Klicka på **Nästa**.
 
+[Läs mer](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) om listan över Windows operativsystem stöd av MMA.
 
 Installera agenten på en Linux-dator:
 
@@ -63,6 +64,7 @@ Installera agenten på en Linux-dator:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+[Läs mer](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) om listan över support för Linux-operativsystem genom att MMA.
 
 ### <a name="install-the-dependency-agent"></a>Installera beroendeagenten
 1. Installera beroendeagenten på en Windows-dator, dubbelklicka på installationsfilen och följ anvisningarna i guiden.
@@ -102,5 +104,6 @@ När gruppen har skapats, rekommenderar vi att du installerar agenter på alla d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig hur](how-to-create-group-dependencies.md) att förfina gruppen genom att visualisera gruppberoenden
+- [Läs mer](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) om frågor och svar på beroendevisualisering.
+- [Lär dig hur](how-to-create-group-dependencies.md) att förfina gruppen genom att visualisera gruppberoenden.
 - [Läs mer](concepts-assessment-calculation.md) om hur utvärderingar beräknas.

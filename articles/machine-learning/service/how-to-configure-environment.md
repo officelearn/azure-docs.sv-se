@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 7796accffb7041e567c5e18857d09e105b5268ce
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 87b3bc4128d800e4f76d71dc5f9d081dffa0e3a7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961577"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163451"
 ---
 # <a name="how-to-configure-a-development-environment-for-the-azure-machine-learning-service"></a>Så här konfigurerar du en utvecklingsmiljö för Azure Machine Learning-tjänsten
 
@@ -39,17 +39,31 @@ Den rekommenderade metoden är att använda jämför Anaconda [conda-miljöer](h
 
 Konfigurationsfilen arbetsytan används av SDK: N för att kommunicera med din arbetsyta för Azure Machine Learning-tjänsten.  Det finns två sätt att hämta den här filen:
 
-* När du har slutfört den [snabbstarten](quickstart-get-started.md), filen `config.json` skapas åt dig i Azure-anteckningsböcker.  Den här filen innehåller konfigurationsinformation för arbetsytan.  Ladda ned den i samma katalog som skript eller anteckningsböcker som hänvisar till den.
+* Slutför den [snabbstarten](quickstart-get-started.md) att skapa en fil för arbetsytan och konfiguration. Filen `config.json` skapas åt dig i Azure-anteckningsböcker.  Den här filen innehåller konfigurationsinformation för arbetsytan.  Ladda ned eller kopiera den till samma katalog som skript eller anteckningsböcker som hänvisar till den.
+
 
 * Skapa konfigurationsfilen själv med följande steg:
 
     1. Öppna din arbetsyta i den [Azure-portalen](https://portal.azure.com). Kopiera den __Arbetsytenamn__, __resursgrupp__, och __prenumerations-ID__. Dessa värden används för att skapa konfigurationsfilen.
 
-       Portalens instrumentpanel för arbetsytan stöds i Edge, Chrome och Firefox webbläsare.
-    
         ![Azure Portal](./media/how-to-configure-environment/configure.png) 
     
-    3. I en textredigerare skapar du en fil med namnet **config.json**.  Lägg till följande innehåll i filen, lägga till dina värden från portalen:
+    1. Skapa filen med den här Python-koden. Kör koden i samma katalog som skript eller anteckningsböcker som refererar till arbetsytan:
+        ```
+        from azureml.core import Workspace
+
+        subscription_id ='<subscription-id>'
+        resource_group ='<resource-group>'
+        workspace_name = '<workspace-name>'
+        
+        try:
+           ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
+           ws.write_config()
+           print('Library configuration succeeded')
+        except:
+           print('Workspace not found')
+        ```
+        Detta skriver du följande `aml_config/config.json` fil: 
     
         ```json
         {
@@ -58,12 +72,11 @@ Konfigurationsfilen arbetsytan används av SDK: N för att kommunicera med din a
         "workspace_name": "<workspace-name>"
         }
         ```
-    
-        >[!NOTE] 
-        >Senare i koden, kan du läsa den här filen med:  `ws = Workspace.from_config()`
-    
-    4. Glöm inte att spara **config.json** i samma katalog som skript eller anteckningsböcker som hänvisar till den.
-    
+        Du kan kopiera den `aml_config` katalog eller bara `config.json` filen till en annan katalog som refererar till arbetsytan.
+
+>[!NOTE] 
+>Andra skript och anteckningsböcker i samma katalog eller under läser in arbetsytan med `ws=Workspace.from_config()`
+
 ## <a name="azure-notebooks-and-data-science-virtual-machine"></a>Azure-anteckningsböcker och virtuell dator för datavetenskap
 
 Azure-anteckningsböcker och Azure Data Science Virtual Machines (DSVM) är förinställd på att arbeta med Azure Machine Learning-tjänsten. Nödvändiga komponenter, bland annat Azure Machine Learning SDK, som är förinstallerade i dessa miljöer.
@@ -98,7 +111,7 @@ Ett exempel på hur du använder Azure-datorer med Azure Machine Learning-tjäns
 3. Om du vill installera Azure Machine Learning-SDK med anteckningsboken tillägg, använder du följande kommando:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl,contrib]
+    pip install --upgrade azureml-sdk[notebooks,automl]
     ```
 
     Det kan ta flera minuter att installera SDK.
@@ -155,7 +168,7 @@ Ett exempel på hur du använder Azure-datorer med Azure Machine Learning-tjäns
 2. Om du vill installera SDK: N för Azure Machine Learning, använder du följande kommando:
  
     ```shell
-    pip install --upgrade azureml-sdk[automl,contrib]
+    pip install --upgrade azureml-sdk[automl]
     ```
 
 4. Om du vill installera Visual Studio code Tools för AI finns i Visual Studio marketplace posten för [Tools för AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 7e430d1b590413f497c851b687abcaa98e04d0e4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053869"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158911"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>Vad är Azure Machine Learning CLI?
 
@@ -56,6 +56,8 @@ Exempel:
 Dataexperter rekommenderas att använda Azure ML-SDK.
 
 ## <a name="common-machine-learning-cli-commands"></a>Vanliga CLI-kommandon för maskininlärning
+> [!NOTE]
+> Exempel på filer som du kan använda för att utföra den kommandona nedan hittar du [här.](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli)
 
 Använd den omfattande uppsättningen med `az ml` kommandon för att interagera tjänsten i alla kommandoradmiljö, inklusive Azure-portalen molnskalet.
 
@@ -73,7 +75,7 @@ Här är ett exempel på vanliga kommandon:
    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
    ```
 
-+ Skapa en DSVM (data science VM) för utbildning-modeller. Du kan också skapa BatchAI kluster för distribuerad utbildning.
++ Skapa en DSVM (data science VM). Du kan också skapa BatchAI kluster för distribuerad utbildning eller AKS-kluster för distribution.
   ```AzureCLI
   az ml computetarget setup dsvm -n mydsvm
   ```
@@ -84,7 +86,7 @@ Här är ett exempel på vanliga kommandon:
   az ml project attach --experiment-name myhistory
   ```
 
-+ Skicka ett experiment mot Azure Machine Learning-tjänsten på beräkningsmål önskar. Det här exemplet körs mot din lokala beräkningsmiljö. Du kan hitta ett exempelskript train.py [här](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/train.py).
++ Skicka ett experiment mot Azure Machine Learning-tjänsten på beräkningsmål önskar. Det här exemplet körs mot din lokala beräkningsmiljö. Kontrollera att filen conda miljö samlar in python-beroenden.
 
   ```AzureCLI
   az ml run submit -c local train.py
@@ -99,17 +101,17 @@ az ml history list
 
 + Registrera en modell med Azure Machine Learning.
   ```AzureCLI
-  az ml model register -n mymodel -m mymodel.pkl  -w myworkspace -g myresourcegroup
+  az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
 + Skapa en avbildning som innehåller dina machine learning-modell och beroenden. 
   ```AzureCLI
-  az ml image create -n myimage -r python -m mymodel.pkl -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + Distribuera din paketerade modell till mål inklusive ACI och AKS.
   ```AzureCLI
-  az ml service create aci -n myaciservice -i myimage:1
+  az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
 ## <a name="full-command-list"></a>Fullständig Kommandolistan

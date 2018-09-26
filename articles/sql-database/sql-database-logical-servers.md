@@ -2,19 +2,22 @@
 title: Azure logiska SQL-servrar | Microsoft Docs
 description: Läs mer om logiska Azure SQL Database-server och deras hantering.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 87015521ee67cc66f2a0f11ad6c8a32c9224af46
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: effaa9b0b3fec36974a2bc850eeb1f36181ca0c7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034900"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166443"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database logiska servrar och deras hantering
 

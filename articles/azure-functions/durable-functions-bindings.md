@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 6a9ecbcc5161f47a192d5bf3a893a42b3ee9ce2f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 10e6c440fe669f4bc8a18eb0a7a0f833675ab923
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379510"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182232"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för varaktiga funktioner (Azure Functions)
 
@@ -143,7 +143,7 @@ Den här bindningen för utlösare avsöker internt en kö i standardkontot för
 Här följer några anteckningar om utlösaren aktivitet:
 
 * **Threading** – till skillnad från orchestration-utlösaren utlösare för aktiviteten inte har några begränsningar gällande threading eller i/o. De kan hanteras som vanlig funktioner.
-* **Poising meddelandehantering** -det finns inget skadligt meddelande-stöd i aktiviteten utlösare.
+* **Poison meddelandehantering** -det finns inget skadligt meddelande-stöd i aktiviteten utlösare.
 * **Meddelandet synlighet** -aktivitet utlösarmeddelanden kan tagits bort från kön och hålls osynliga för en konfigurerbar varaktighet. Visningen av de här meddelandena förnyas automatiskt så länge funktionsappen är aktiv och felfri.
 * **Returvärden** -returnera värden serialiserat till JSON och sparats till orchestration-historiktabellen i Azure Table storage.
 

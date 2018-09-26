@@ -2,20 +2,22 @@
 title: Övervaka databasanvändning med Intelligent Insights – Azure SQL Database | Microsoft Docs
 description: Azure SQL Database Intelligent Insights använder inbyggd intelligens för att kontinuerligt övervaka databasanvändningen via artificiell intelligens och identifiera störande händelser som kan försämra prestandan.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: fe7e89f9b716bbc3269a912c3e8ac456a6340c36
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 6ccb29c9c464c21f09b1e547903a283201c52618
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032027"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159632"
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 

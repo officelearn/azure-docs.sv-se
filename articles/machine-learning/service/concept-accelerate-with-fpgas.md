@@ -9,12 +9,12 @@ ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 9/24/2018
-ms.openlocfilehash: fa6ff90c3a573285ec8d6cc6f2e97bf3c75a1e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: adcd812bc63f98e4cbde949946bf32a037c6d704
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993300"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158699"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>Vad är FPGA och Project Brainwave?
 
@@ -28,7 +28,7 @@ FPGA innehåller en matris av programmerbara logiska block och en hierarki av om
 
 |Processor||Beskrivning|
 |---|:-------:|------|
-|Programspecifika integrerade kretsar|ASICs|Anpassade kanaler, till exempel Googles TensorFlow Processor enheter (TPU), ger högsta möjliga effektivitet, men är oflexibel.|
+|Programspecifika integrerade kretsar|ASICs|Anpassade kanaler, till exempel Googles TensorFlow Processor enheter (TPU), ger högsta möjliga effektivitet. De kan inte konfigureras när dina behov ändras.|
 |Fältet-programmable gate-matriser|FPGA|FPGA, till exempel de som är tillgängliga på Azure, ger prestanda nära ASICs, men är flexibla och omkonfigurerbara över tid för att implementera logik som är nya.|
 |Bearbetningsenheter för grafik|GPU: er|Ett populärt alternativ för AI-beräkningar som erbjuder parallellbearbetning funktioner som gör det snabbare på bildåtergivning än processorer.|
 |Enheter|CPU:er|Allmänna processorer vars prestanda inte är idealiskt för grafik och video bearbetning.|
@@ -37,17 +37,15 @@ FPGA innehåller en matris av programmerbara logiska block och en hierarki av om
 
 [Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) är Microsofts ekonomiskt maskinvaruarkitektur baserat på Intels FPGA enheter att dataexperter och utvecklare som använder för att påskynda i realtid AI-beräkningar.  Den här FPGA-aktiverade arkitekturen erbjuder **prestanda**, **flexibilitet**, och **skala** och är tillgänglig på Azure.
 
-FPGA gör det möjligt att uppnå med låg latens för i realtid inferensjobb begäranden. Batchbearbetning innebär att samla in en stor mängd data och skicka den till en processor att förbättra maskinvaruutnyttjandet. Batchbearbetning kan orsaka svarstid eftersom mer data som behöver bearbetas, men det kan förbättra dataflödet. Project Brainwave implementeringar av neurala bearbetningsenheter kräver inte batchbearbetning; Därför kan fördröjningen vara många gånger lägre jämfört med processor- och GPU.
+**FPGA gör det möjligt att uppnå med låg latens för i realtid inferensjobb begäranden.** Batchbearbetning innebär att samla in en stor mängd data och skicka den till en processor att förbättra maskinvaruutnyttjandet. Batchbearbetning kan orsaka svarstid eftersom mer data som behöver bearbetas, men det kan förbättra dataflödet. Project Brainwave implementeringar av neurala bearbetningsenheter kräver inte batchbearbetning; Därför kan fördröjningen vara många gånger lägre jämfört med processor- och GPU.
 
 ### <a name="reconfigurable-power"></a>Omkonfigurerbara power
-FPGA kan konfigureras för olika typer av machine learning-modeller. Den här flexibiliteten gör det enklare att påskynda de programmen baserat på den mest optimala numerisk precision och modellen i minnet som används.
+**FPGA kan konfigureras för olika typer av machine learning-modeller.** Den här flexibiliteten gör det enklare att påskynda de programmen baserat på den mest optimala numerisk precision och modellen i minnet som används.
 
 Nya machine learning-teknik håller på att utvecklas med jämna mellanrum och även Project Brainwave maskinvara design utvecklas snabbt. Eftersom FPGA är omkonfigurerbara, är det möjligt att hålla dig uppdaterad med kraven för snabbt föränderliga AI-algoritmer.
 
 ### <a name="whats-supported-on-azure"></a>Vad som stöds på Azure
-Microsoft Azure är världens största molninvestering i FPGA. Du kan köra Project Brainwave i Azures skala infrastruktur.
-
-Med den här FPGA-aktiverade maskinvaruarkitektur tränade neurala nätverk sker snabbt och kortare svarstider. Project Brainwave kan parallellisera förtränade djupa neurala nätverk (DNN) över FPGA att skala ut din tjänst. De dnn: er kan tränas före, som en djupgående upplärda för överföring learning eller finjusterat med uppdaterade vikterna.
+**Microsoft Azure är världens största molninvestering i FPGA.** Du kan köra Project Brainwave i Azures skala infrastruktur.
 
 Idag, stöder Project Brainwave:
 + Bild klassificering och igenkänning av scenarier
@@ -55,7 +53,9 @@ Idag, stöder Project Brainwave:
 + Dnn: er: ResNet-50, ResNet 152, VGG-16, SSD-VGG och DenseNet 121
 + Intel FPGA maskinvara 
 
-## <a name="scenarios-and-applications"></a>Scenarier och program
+Med den här FPGA-aktiverade maskinvaruarkitektur tränade neurala nätverk sker snabbt och kortare svarstider. Project Brainwave kan parallellisera förtränade djupa neurala nätverk (DNN) över FPGA att skala ut din tjänst. De dnn: er kan tränas före, som en djupgående upplärda för överföring learning eller finjusterat med uppdaterade vikterna.
+
+### <a name="scenarios-and-applications"></a>Scenarier och program
 
 Project Brainwave är integrerad med Azure Machine Learning. Microsoft använder FPGA för DNN-utvärdering, Bing search rangordning och programvara definierats networking (SDN)-acceleration för att minska svarstiden samtidigt som processorer för andra aktiviteter.
 

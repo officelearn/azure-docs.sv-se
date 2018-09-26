@@ -2,19 +2,22 @@
 title: Skala ut med Azure SQL Database | Microsoft Docs
 description: Programvara som en tjänst (SaaS)-utvecklare kan enkelt skapa elastiska, skalbara databaser i molnet med dessa verktyg
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: b28b61dc9faf94c21854a73f99af47e302c8d153
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: ab787e8f659d2f57f23bb87397608736e7f6848a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729934"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164921"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Skala ut med Azure SQL Database
 Du kan enkelt skala ut Azure SQL-databaser med hjälp av den **Elastic Database** verktyg. Dessa verktyg och funktioner kan du använda databasresurser av **Azure SQL Database** att skapa lösningar för transaktionsbelastningar och särskilt programvara som en tjänst (SaaS)-program. Elastic Database-funktioner består av den:

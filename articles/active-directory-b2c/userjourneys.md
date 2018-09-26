@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c49ebcf31df950920574af05a9411e463b908bad
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381655"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161836"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -35,9 +35,9 @@ Den **UserJourneys** elementet innehåller följande element:
 
 Den **UserJourney** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare för en användarresa som kan användas för att referera till den från andra element i principen. Den **DefaultUserJourney** elementet i den [förlitande part princip](relyingparty.md) pekar på det här attributet. |
+| Id | Ja | En identifierare för en användarresa som kan användas för att referera till den från andra element i principen. Den **DefaultUserJourney** elementet i den [förlitande part princip](relyingparty.md) pekar på det här attributet. |
 
 Den **UserJourney** elementet innehåller följande element:
 
@@ -62,9 +62,9 @@ Den **OrchestrationSteps** elementet innehåller följande element:
 
 Den **OrchestrationStep** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Ordna | Ja | Sorteringen för orchestration-steg. | 
+| Beställa | Ja | Sorteringen för orchestration-steg. | 
 | Typ | Ja | Typ av orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** -anger att orkestreringssteget visas olika anspråksleverantörer för användaren att välja en.</li><li>**CombinedSignInAndSignUp** -anger att orkestreringssteget utgör en kombinerad social provider registreringssida för inloggning och lokala konto.</li><li>**ClaimsExchange** -anger att orkestreringssteget utbyter anspråk med en anspråksprovider.</li><li>**SendClaims** -anger att orkestreringssteget skickar anspråk till den förlitande parten med en token utfärdad av en utfärdare av anspråk.</li></ul> | 
 | ContentDefinitionReferenceId | Nej | Identifierare för den [innehåll definition](contentdefinitions.md) som är associerade med den här orchestration-steg. Vanligtvis har innehållsdefinition referens-ID definierats i självkontrollerad tekniska profilen. Men finns det tillfällen när Azure AD B2C behöver visa något utan tekniska profil. Det finns två exempel, om typ av orkestreringssteget är en av följande: `ClaimsProviderSelection` eller `CombinedSignInAndSignUp`. Azure AD B2C måste visa identitets-provider-markeringen utan en tekniska profilen. | 
 | CpimIssuerTechnicalProfileReferenceId | Nej | Orkestreringssteget är `SendClaims`. Den här egenskapen definierar den tekniska profilen identifieraren för anspråksleverantören som utfärdar en token för den förlitande parten.  Om ej finns, skapas ingen förlitande part-token. |
@@ -91,7 +91,7 @@ Den **villkoren** elementet innehåller följande element:
 
 Den **Förhandsvillkoret** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Typ | Ja | Typ av kontroll eller fråga för den här villkor. Värdet kan vara **ClaimsExist**, som anger åtgärderna som ska utföras om de angivna anspråk finns i användarens aktuella anspråksuppsättningen, eller **ClaimEquals**, som anger att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
 | ExecuteActionsIf | Ja | Använd ett sant eller falskt-test för att avgöra om åtgärder i villkor som ska utföras. | 
@@ -171,10 +171,10 @@ Den **ClaimsProviderSelection** elementet innehåller följande element:
 
 Den **ClaimsProviderSelection** elementet innehåller följande attribut: 
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Nej | Identifierare för anspråksutbytet som körs i nästa steg för dirigering av anspråk providern valet. Det här attributet för attributet ValidationClaimsExchangeId måste anges. | 
-| ValidationClaimsExchangeId | Nej | Identifierare för anspråksutbytet som körs i aktuella orchestration-steg för att validera anspråk providern valet. Det här attributet för attributet TargetClaimsExchangeId måste anges. |
+| TargetClaimsExchangeId | Nej | Identifierare för anspråksutbytet som körs i nästa steg för dirigering av anspråk providern valet. Det här attributet eller ValidationClaimsExchangeId attributet måste vara anges, men inte båda. | 
+| ValidationClaimsExchangeId | Nej | Identifierare för anspråksutbytet som körs i aktuella orchestration-steg för att validera anspråk providern valet. Det här attributet eller TargetClaimsExchangeId attributet måste vara anges, men inte båda. |
 
 ### <a name="claimsproviderselection-example"></a>Exempel för ClaimsProviderSelection
 
@@ -223,9 +223,9 @@ Den **ClaimsExchanges** elementet innehåller följande element:
 
 Den **ClaimsExchange** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare för exchange-steg anspråk. Identifieraren används för att referens anspråksutbytet från anspråk providern urval steg i principen. | 
+| Id | Ja | En identifierare för exchange-steg anspråk. Identifieraren används för att referens anspråksutbytet från anspråk providern urval steg i principen. | 
 | TechnicalProfileReferenceId | Ja | Identifierare för den tekniska profilen som ska köras. |
  
 

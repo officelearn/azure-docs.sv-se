@@ -1,4 +1,4 @@
-## <a name="load-balancer-differences"></a>Skillnader i belastningsutjämnare
+## <a name="load-balancer-differences"></a>Skillnader i lastbalanserare
 
 Det finns olika alternativ för att distribuera nätverkstrafik med Microsoft Azure. De här alternativen fungerar på olika sätt, har olika funktionsuppsättningar och stöder olika scenarier. De kan användas var för sig eller i kombination med varandra.
 
@@ -16,7 +16,7 @@ Följande tabell sammanfattar de funktioner som erbjuds av varje tjänst:
 | Vnet-stöd |Kan användas för både Internetriktade och interna (Vnet)-program |Kan användas för både Internetriktade och interna (Vnet)-program |Stöder enbart Internetriktade program |
 | Slutpunktsövervakning |Stöds via avsökningar |Stöds via avsökningar |Stöds via HTTP/HTTPS GET |
 
-Azure Load Balancer och Application Gateway styr nätverkstrafiken till slutpunkter, men de har olika användningsscenarier avseende vilken trafik de hanterar. Tabellen nedan hjälper dig att förstå skillnaden mellan de två belastningsutjämnarna:
+Azure Load Balancer och Application Gateway styr nätverkstrafiken till slutpunkter, men de har olika användningsscenarier avseende vilken trafik de hanterar. Tabellen nedan hjälper dig att förstå skillnaden mellan de två lastbalanserarna:
 
 | Typ | Azure Load Balancer | Application Gateway |
 | --- | --- | --- |

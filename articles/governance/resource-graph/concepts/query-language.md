@@ -8,52 +8,49 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 3600fc47a0fb318a49c1b37722cb7fffa51ec6f2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab759d731f8bac674435e48b0f7af67331ce03d2
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951958"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160459"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå Azure Resource Graph-frågespråk
 
-Frågespråket i Azure Resource Graph stöder ett antal operatorer och funktioner. Varje fungerar och arbetar på samma sätt till Kusto Query Language (KQL). Det är dock viktigt att förstå att medan resursen Graph frågespråk liknar [KQL](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators), det är inte densamma.
+Frågespråket i Azure Resource Graph stöder ett antal operatorer och funktioner. Varje fungerar och driva utifrån [Azure Data Explorer](../../../data-explorer/data-explorer-overview.md).
 
-> [!NOTE]
-> Länkar till KQL dokumentation kan kräva autentisering.
-
-Det bästa sättet att lära dig frågespråket som används av resursen Graph är att börja med i dokumentationen för KQL och lär dig om hur språket är strukturerad och hur de olika stöds operatorer och funktioner fungerar tillsammans.
+Det bästa sättet att lära dig frågespråket som används av resursen Graph är att börja med dokumentation för Azure Data Explorer [frågespråk](/azure/kusto/query/index). Detta ger en förståelse om hur språket är strukturerad och hur de olika stöds operatorer och funktioner fungerar tillsammans.
 
 ## <a name="supported-tabular-operators"></a>Tabular operatorer som stöds
 
 Här är listan över tabular operatorer som stöds i resursen Graph:
 
-- [Distinkta](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator)
-- [Utöka](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator)
-- [Gränsen](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/limit-operator)
-- [order by-](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/order-operator)
-- [Projekt](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator)
-- [projekt-away](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-away-operator)
-- [Exemplet](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sample-operator)
-- [exempel-distinkta](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sample-distinct-operator)
-- [Sortera efter](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
-- [Sammanfatta](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator)
-- [ta](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
-- [längst upp](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator)
-- [TOP-nested](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-nested-operator)
-- [TOP-hitters](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-hitters-operator)
-- [där](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
+- [Antal](/azure/kusto/query/countoperator)
+- [Distinkta](/azure/kusto/query/distinctoperator)
+- [Utöka](/azure/kusto/query/extendoperator)
+- [Gränsen](/azure/kusto/query/limitoperator)
+- [order by-](/azure/kusto/query/orderoperator)
+- [Projekt](/azure/kusto/query/projectoperator)
+- [projekt-away](/azure/kusto/query/projectawayoperator)
+- [Exemplet](/azure/kusto/query/sampleoperator)
+- [exempel-distinkta](/azure/kusto/query/sampledistinctoperator)
+- [Sortera efter](/azure/kusto/query/sortoperator)
+- [Sammanfatta](/azure/kusto/query/summerizeoperator)
+- [ta](/azure/kusto/query/takeoperator)
+- [längst upp](/azure/kusto/query/topoperator)
+- [TOP-nested](/azure/kusto/query/topnestedoperator)
+- [TOP-hitters](/azure/kusto/query/tophittersoperator)
+- [där](/azure/kusto/query/whereoperator)
 
 ## <a name="supported-functions"></a>Funktioner som stöds
 
 Här är listan över funktioner som stöds i resursen Graph:
 
-- [ago()](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/ago%28%29)
-- [buldschema()](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/buildschema%28%29)
-- [Antal()](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/count%28%29)
-- [strcat()](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/strcat%28%29)
-- [isnotempty()](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/isnotempty%28%29_-notempty%28%29)
-- [toString)](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/tostring%28%29)
+- [ago()](/azure/kusto/query/agofunction)
+- [buildschema()](/azure/kusto/query/buildschema-aggfunction)
+- [strcat()](/azure/kusto/query/strcatfunction)
+- [isnotempty()](/azure/kusto/query/isnotemptyfunction)
+- [toString)](/azure/kusto/query/tostringfunction)
 
 ## <a name="next-steps"></a>Nästa steg
 

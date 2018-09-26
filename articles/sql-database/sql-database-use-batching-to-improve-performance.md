@@ -2,19 +2,22 @@
 title: Hur du använder batchbearbetning för att förbättra programmets prestanda för Azure SQL Database
 description: Avsnittet ger bevis som batchbearbetningen databasåtgärder avsevärt imroves hastighet och skalbarhet för din Azure SQL Database-program. Även om dessa batchbearbetningen metoder fungera för alla SQL Server-databas, är fokus i artikeln på Azure.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 92640eeb068b8e9a95dbe1209b2c8834e5f29da8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 21dc28658f7f6f31bc7536df739a70238a3bcb8f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036107"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160816"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Hur du använder batchbearbetning för att förbättra programmets prestanda för SQL-databas
 Batchbearbetning åtgärder till Azure SQL Database avsevärt förbättrar prestanda och skalbarhet i dina program. För att förstå fördelarna, beskrivs den första delen av den här artikeln några exempel på testresultat som jämför sekventiella och gruppbaserade begäranden till en SQL-databas. Resten av artikeln visar de tekniker, scenarier och överväganden som hjälper dig att använda batchbearbetning har i din Azure-program.

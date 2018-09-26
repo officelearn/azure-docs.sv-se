@@ -10,12 +10,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f23e8987a3abd9cdace85b0a3dc52ca464245df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cb1abdce3bbd7349695ece70ff336c7e513c0918
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995439"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162193"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning-maskinvaruacceleration-paketet
 
@@ -34,7 +34,7 @@ Maskinvaruacceleration för Azure Machine Learning-paket är ett Python-pip-inst
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-1. Du måste skapa ett konto i Azure Machine Learning-modellhantering. Mer information om hur du skapar kontot finns i den [installationen av Azure Machine Learning-Quickstart och Workbench](../desktop-workbench/quickstart-installation.md) dokumentet. 
+1. Ett konto för Azure Machine Learning-modellhantering. Mer information om hur du skapar kontot finns i den [installationen av Azure Machine Learning-Quickstart och Workbench](../desktop-workbench/quickstart-installation.md) dokumentet. 
 
 1. Paketet måste installeras. 
 

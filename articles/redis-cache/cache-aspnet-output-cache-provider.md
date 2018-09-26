@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: wesmc
 ms.openlocfilehash: 3cf906830965959709a8c7e8dc7d2acc3f3a6f32
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35968856"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096980"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>ASP.NET Utdatacacheprovider för Azure Redis-Cache
 Redis-Utdatacacheprovider är en molnlagringsmekanism för out-of-process för cache-utdata. Dessa data är specifikt för fullständig HTTP-svar (sidan cachelagring av utdata). Providern ansluts till den nya utökningsbarhet punkten för utdata cache-providern som introducerades i ASP.NET 4.

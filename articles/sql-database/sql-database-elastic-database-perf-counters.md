@@ -2,63 +2,65 @@
 title: Prestandaräknare för karthanteraren för shard
 description: ShardMapManager klass- och beroende routning prestandaräknare
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 9c134ee96f7749529ab665df041cfc51c979acde
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 03/31/2018
+ms.openlocfilehash: d4ecfe700c90beb94455e3607cee4ea30227bd0e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647331"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166256"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Prestandaräknare för karthanteraren för shard
-Du kan avbilda prestanda för en [Fragmentera kartan manager](sql-database-elastic-scale-shard-map-management.md), särskilt när du använder [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md). Räknare skapas med metoderna i klassen Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
+Du kan avbilda prestanda för en [karthanteraren](sql-database-elastic-scale-shard-map-management.md), särskilt när de använder [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md). Räknare skapas med metoderna i klassen Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 
-Räknare som används för att spåra prestanda för [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md) åtgärder. Dessa räknare är tillgängliga i Prestandaövervakaren under kategorin ”elastisk: Fragmentera databashantering”.
+Räknare som används för att spåra prestanda för [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) åtgärder. Dessa räknare är tillgängliga i Prestandaövervakaren under kategorin ”elastisk databas: Fragmenthanterings”.
 
-**För den senaste versionen:** går du till [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Se även [uppgradera en app om du vill använda det senaste klientbiblioteket för elastisk databas](sql-database-elastic-scale-upgrade-client-library.md).
+**För den senaste versionen:** går du till [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Se även [uppgradera en app för att använda det senaste klientbiblioteket för elastiska databaser](sql-database-elastic-scale-upgrade-client-library.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
-* För att skapa prestandakategorin och räknare, måste användaren vara en del av lokalt **administratörer** på den dator som är värd för programmet.  
-* Om du vill skapa en prestandaräknarinstans och uppdatera räknarna som användaren måste vara medlem i antingen den **administratörer** eller **Prestandaövervakningsanvändare** grupp. 
+* Om du vill skapa kategori för prestanda och räknare, måste användaren vara en del av lokalt **administratörer** på den dator som är värd för programmet.  
+* Om du vill skapa en prestandaräknarinstans och uppdatera räknare, användaren måste vara medlem i den **administratörer** eller **användare av prestandaövervakning** grupp. 
 
-## <a name="create-performance-category-and-counters"></a>Skapa prestandakategorin och räknare
-Om du vill skapa räknarna du anropa metoden CreatePeformanceCategoryAndCounters av den [ShardMapManagmentFactory klassen](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Endast en administratör kan utföra den här metoden: 
+## <a name="create-performance-category-and-counters"></a>Skapa kategori för prestanda och räknare
+För att skapa räknarna, anropar du metoden CreatePeformanceCategoryAndCounters i den [ShardMapManagmentFactory klass](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Endast en administratör kan utföra den här metoden: 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
 Du kan också använda [detta](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) PowerShell-skript för att utföra den här metoden. Metoden skapar följande prestandaräknare:  
 
-* **Cachelagrade mappningar**: antalet avbildningar som cachelagrats för Fragmentera kartan.
-* **DDR per sekund**: antal beroende routning dataåtgärder för Fragmentera kartan. Den här räknaren uppdateras när ett anrop till [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) resulterar i en anslutning till mål-Fragmentera. 
-* **Mappning av sökning träffar/sek**: antalet lyckade cache-sökning åtgärder för avbildningar i kartan Fragmentera. 
-* **Mappning av sökning missar/sek i cache**: antal misslyckade cache-sökning åtgärder för avbildningar i kartan Fragmentera.
-* **Mappningar läggs till eller uppdateras i/sek i cache**: frekvens som mappningar läggs eller uppdaterats i cacheminnet för Fragmentera kartan. 
-* **Mappningar tas bort från cache/sek**: hastighet med vilken mappningar tas bort från cachen för Fragmentera kartan. 
+* **Cachelagrade mappningar**: antalet mappningar som cachelagras i fragmentkartan.
+* **DDR/sek**: mängden data beroende routning åtgärder för fragmentkartan. Den här räknaren uppdateras när ett anrop till [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) resulterar i en lyckad anslutning till mål-fragment. 
+* **Mappning av sökning träffar/sek**: antalet lyckade cache sökåtgärder för mappningar i fragmentkartan. 
+* **Mappning av sökning cache missar/sek**: antalet misslyckade cache sökåtgärder för mappningar i fragmentkartan.
+* **Mappningar läggs till eller uppdateras i cache/sek**: frekvensen med vilken mappningar läggs till eller uppdaterats i cacheminnet för fragmentkartan. 
+* **Mappningar tas bort från cache/sek**: hastighet med vilken mappningar tas bort från cachen för fragmentkartan. 
 
-Prestandaräknare skapas för varje cachelagrade Fragmentera mappning per process.  
+Prestandaräknare skapas för varje cachelagrade fragmentkartan processer.  
 
 ## <a name="notes"></a>Anteckningar
-Följande händelser utlösa skapandet av prestandaräknare:  
+Följande händelser utlöser skapandet av prestandaräknare:  
 
-* Initieringen av den [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) med [gärna inläsning](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), om ShardMapManager innehåller alla Fragmentera maps. Dessa inkluderar den [GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) och [TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) metoder.
-* Lyckad sökning på en Fragmentera-mappning (med hjälp av [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) eller [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)). 
-* Har skapats Fragmentera karta med hjälp av CreateShardMap().
+* Initieringen av den [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) med [eager läser in](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), om ShardMapManager innehåller alla fragmentkartor. Dessa inkluderar den [GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) och [TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) metoder.
+* Lyckad sökning av en fragmentkartan (med hjälp av [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) eller [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)). 
+* Har skapats på fragmentkartan med CreateShardMap().
 
-Prestandaräknare kommer att uppdateras av alla cache-åtgärder som utförs på Fragmentera kartan och mappningar. Lyckad borttagning av Fragmentera kartan med DeleteShardMap () reults i borttagning av räknare prestandainstans.  
+Prestandaräknare kommer att uppdateras av alla cacheåtgärder som utförs på fragmentkartan och mappningar. Lyckad borttagning av fragmentkartan med DeleteShardMap () reults i ta bort instansen för prestanda-räknare.  
 
 ## <a name="best-practices"></a>Bästa praxis
-* Att skapa prestandakategorin och räknare ska utföras en gång innan skapandet av ShardMapManager objekt. Varje körning av kommandot CreatePerformanceCategoryAndCounters() rensar tidigare räknare (förlorar data som rapporteras av alla instanser) och nya skapas.  
-* Prestandaräknaren instanser skapas per process. Alla program kraschar eller borttagning av en Fragmentera mappning från cacheminnet leder borttagning av prestandaräknare instanser.  
+* Skapa kategori för prestanda och räknare bör bara utföras en gång innan skapandet av ShardMapManager-objektet. Varje körning av kommandot CreatePerformanceCategoryAndCounters() rensar tidigare räknare (att förlora data som rapporteras av alla instanser) och skapar nya.  
+* Prestandaräknaren instanser skapas per process. Alla program krascha eller borttagning av en skärvkarta från cachen leder till borttagning av instanser för prestanda-räknare.  
 
 ### <a name="see-also"></a>Se också
-
-  [Översikt över Elastic Database-funktioner](sql-database-elastic-scale-introduction.md)  
+[Översikt över Elastic Database-funktioner](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

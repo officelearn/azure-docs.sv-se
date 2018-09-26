@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
 ms.openlocfilehash: ca4f944f605db96a2cedf2682f3ff4c811007ffb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647081"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094920"
 ---
 # <a name="low-cpu-utilization-in-cloud-resources-preview"></a>Låg CPU-belastning i molnresurser (förhandsversion)
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: dc2e025cdd9fcc153f3cb81988a9ca3ec729c934
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab4795325f733d15403b53f027daa4fb8c824cc6
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47021156"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47185158"
 ---
 <!-- N.B. no header, language-agnostic -->
 
@@ -18,7 +18,7 @@ SDK innehåller alla funktioner i tjänsten. Den grundläggande processen för a
 
 1. Skapa en speech translation-konfiguration och ge en prenumerationsnyckel för tal-tjänst (eller en autentiseringstoken) och en [region](~/articles/cognitive-services/speech-service/regions.md) som parametrar. Ändra konfigurationen efter behov. Exempel: du kan konfigurera språk för käll- och översättning, samt ange om du vill text eller tal utdata.
 
-1. Skapa en översättning identifierare från tal fabriken. Ange en ljud-konfiguration om du vill att känna igen från en annan källa än mikrofonen standard (till exempel ljudström eller ljudfil).
+1. Skapa en översättning identifierare från speech translation-konfigurationen. Ange en ljud-konfiguration om du vill att känna igen från en annan källa än mikrofonen standard (till exempel ljudström eller ljudfil).
 
 1. Koppla in händelser för asynkron åtgärd om du vill. Identifieraren anropar sedan din händelsehanterare när den har tillfälliga och slutliga resultaten, samt en syntes händelse för valfritt ljuduppspelning. Annars kan får ditt program endast en slutlig avskrift resultatet.
 

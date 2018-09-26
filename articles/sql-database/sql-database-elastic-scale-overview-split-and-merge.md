@@ -1,25 +1,28 @@
 ---
-title: Flytta data mellan databaser som skalats ut molntjänster | Microsoft Docs
-description: 'Beskriver hur du hanterar shards och flytta data via en automatisk värdbaserad tjänst som använder API: er för elastisk databas.'
+title: Flytta data mellan utskalade molndatabaser | Microsoft Docs
+description: 'Beskriver hur du manipulera fragment och flytta data via en lokal tjänst med elastisk databas API: er.'
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 3c68b18a96ae79cd32cd3059eab837e6051847dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 518d7659df603ed0fcab4aebf5f35c3b92e75ccf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647426"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162636"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Flytta data mellan utskalade molndatabaser
-Om du är en programvara som en tjänst-utvecklare och plötsligt enorm begäran görs i appen, måste du anpassa tillväxt. Så får du lägga till flera databaser (shards). Hur du för att distribuera data till de nya databaserna utan att störa dataintegriteten? Använd den **för delade sökvägssammanslagning** att flytta data från begränsad databaser till de nya databaserna.  
+Om du är en programvara som en tjänst-utvecklare och plötsligt enorma begäran görs i din app, måste du hantera tillväxt. Så får du lägga till flera databaser (fragment). Hur du för att distribuera om data till de nya databaserna utan att störa dataintegriteten? Använd den **dela / sammanslå verktyget** att flytta data från databaser som är begränsad till de nya databaserna.  
 
-Verktyget delade dokument körs som en Azure-webbtjänst. En administratör eller utvecklare använder du verktyget för att flytta shardlets (data från en Fragmentera) mellan olika databaser (shards). Verktyget använder Fragmentera kartan management för att upprätthålla tjänsten metadata-databasen och säkerställa konsekvent mappningar.
+Dela / sammanslå verktyget körs som en Azure-webbtjänst. En administratör eller utvecklare använder du verktyget för att flytta shardletar (data från en shard) mellan olika databaser (fragment). Verktyget använder fragmentkarthantering för att upprätthålla tjänstens metadata-databasen och säkerställa konsekvent mappningar.
 
 ![Översikt][1]
 
@@ -27,63 +30,63 @@ Verktyget delade dokument körs som en Azure-webbtjänst. En administratör elle
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>Dokumentation
-1. [Elastisk dela Merge tool självstudie om databaser](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-2. [Dela dokument säkerhetskonfiguration](sql-database-elastic-scale-split-merge-security-configuration.md)
-3. [Dela dokument säkerhetsaspekter](sql-database-elastic-scale-split-merge-security-configuration.md)
+1. [Elastiska databaser dela och slå samman verktyget självstudien](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+2. [Dela / Sammanslå säkerhetskonfiguration](sql-database-elastic-scale-split-merge-security-configuration.md)
+3. [Säkerhetsöverväganden för dela / sammanslå](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [Karthantering för shard](sql-database-elastic-scale-shard-map-management.md)
-5. [Migrera befintliga databaser att skala ut](sql-database-elastic-convert-to-use-elastic-tools.md)
-6. [Elastisk Databasverktyg](sql-database-elastic-scale-introduction.md)
-7. [Ordlista för verktyg för elastisk databas](sql-database-elastic-scale-glossary.md)
+5. [Migrera befintliga databaser för att skala ut](sql-database-elastic-convert-to-use-elastic-tools.md)
+6. [Verktyg för elastiska databaser](sql-database-elastic-scale-introduction.md)
+7. [Ordlista för verktyg för elastiska databaser](sql-database-elastic-scale-glossary.md)
 
-## <a name="why-use-the-split-merge-tool"></a>Varför använda verktyget delade dokument?
+## <a name="why-use-the-split-merge-tool"></a>Varför använda verktyget för dela / sammanslå?
 **Flexibilitet**
 
-Program behöver stretch flexibelt överskrider gränserna för en enskild Azure SQL DB-databas. Använda verktyget för att flytta data som behövs för att nya databaser samtidigt integritet.
+Program behöva stretch flexibelt längre än till en enskild Azure SQL DB-databas. Använd verktyget för att flytta data som behövs för att nya databaser samtidigt som du behåller integritet.
 
 **Dela att växa** 
 
-Du måste öka totala kapaciteten att hantera enorm tillväxt. Gör du genom att skapa ytterligare kapacitet genom delning data och distribuera den över inkrementellt flera databaser tills kapacitetsbehov är uppfyllda. Detta är ett typiskt exempel av funktionen 'dela'. 
+Du måste öka totala kapaciteten att hantera explosiv tillväxt. Du gör detta genom att skapa ytterligare kapacitet genom horisontell partitionering data och distribuera den över stegvis fler databaser tills kapacitetsbehoven är uppfyllda. Det här är ett typiskt exempel av funktionen ”Dela”. 
 
-**Koppla till krympa**
+**Slå samman för att minska**
 
-Kapacitet måste krympa på grund av ett företag när. Verktyget kan du skala till färre skalenheter när business långsammare. Funktionen 'merge' i elastisk skalbarhet split-kopplingstjänsten beskriver det här kravet. 
+Kapacitet behöver krympa på grund av ett företag säsongsbetonad. Verktyget kan du skala ned till färre skalningsenheter när företag saktar. Funktionen ”dokument” i tjänsten elastisk skalning dela / sammanslå täcker det här kravet. 
 
-**Hantera anslutningar genom att flytta shardlets**
+**Hantera anslutningar genom att flytta shardletar**
 
-Med flera klienter per databas leda tilldelning av shardlets till shards till kapacitet flaskhalsar på vissa delar. Detta kräver omfördelning shardlets eller flytta upptagen shardlets till nya eller mindre utnyttjade delar. 
+Med flera innehavare per databas, kan fördelningen av shardletar till shards leda till kapacitet flaskhalsar på vissa fragment. Detta kräver omfördelning av shardletar eller för att flytta upptagen shardletar till nya eller mindre utnyttjade shards. 
 
-## <a name="concepts--key-features"></a>Begrepp & viktiga funktioner
-**Kund-värdbaserade tjänster**
+## <a name="concepts--key-features"></a>Koncept och viktiga funktioner
+**Kund-baserade tjänster**
 
-Dela sammanslagna levereras som en kund-värdbaserad tjänst. Du måste distribuera och hantera tjänsten i din Microsoft Azure-prenumeration. Det paket som du hämtar från NuGet innehåller en konfigurationsmall för att slutföra med information för din distribution. Finns det [delade dokument kursen](sql-database-elastic-scale-configure-deploy-split-and-merge.md) mer information. Eftersom tjänsten körs i din Azure-prenumeration, kan du styra och konfigurera de flesta säkerhetsaspekter för tjänsten. Standardmallen innehåller alternativ för att konfigurera SSL, certifikatbaserad klientautentisering, kryptering för lagrade autentiseringsuppgifter, DoS skyddar och IP-begränsningar. Du hittar mer information om säkerhetsaspekterna i följande dokument [delade dokument säkerhetskonfiguration](sql-database-elastic-scale-split-merge-security-configuration.md).
+Dela / sammanslå levereras som en tjänst som värd för kunden. Du måste distribuera och hantera tjänsten i din Microsoft Azure-prenumeration. Paketet du ladda ned från NuGet innehåller en konfigurationsmall för att slutföra med information för din specifika distribution. Se den [dela / sammanslå självstudien](sql-database-elastic-scale-configure-deploy-split-and-merge.md) mer information. Eftersom tjänsten körs i Azure-prenumerationen kan du styra och konfigurera de flesta säkerhetsaspekter i tjänsten. Standardmallen innehåller alternativ för att konfigurera SSL, certifikatbaserad klientautentisering, kryptering för lagrade autentiseringsuppgifter, DoS-skydd och IP-begränsningar. Du hittar mer information om säkerhetsaspekterna i följande dokument [dela / sammanslå säkerhetskonfiguration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-Standard distribuerade tjänsten körs med en arbetare och en webbroll. Var används den A1 VM-storleken i Azure Cloud Services. Du inte kan ändra dessa inställningar när du distribuerar paketet, kan du ändra dem efter en lyckad distribution i körs Molntjänsten (via Azure portal). Observera att arbetsrollen inte måste konfigureras för mer än en instans av tekniska skäl. 
+Standard distribuerat service körs med en arbetare och en webbroll. Var och en använder A1 VM-storlek i Azure Cloud Services. Du inte kan ändra dessa inställningar när du distribuerar paketet, kan du ändra dem efter en lyckad distribution i körs Molntjänsten (via Azure portal). Observera att arbetsrollen inte måste konfigureras i mer än en enda instans av tekniska skäl. 
 
-**Fragmentera kartan integrering**
+**Shard kartan integration**
 
-Dela kopplingstjänsten samverkar med Fragmentera mappningen av programmet. När du använder dela kopplingstjänsten att dela eller sammanfoga intervall eller flytta shardlets mellan shards, håller tjänsten automatiskt Fragmentera kartan uppdaterade. Gör du genom tjänsten ansluter till Fragmentera kartan manager-databas i programmet och underhåller intervall och mappningar som delade/merge/move-begäran pågår. Detta säkerställer att fragmentera kartan visas alltid aktuell när ska dela dokument. Dela, implementeras dokument och shardlet förflyttning genom att flytta en batch med shardlets från Fragmentera för källan till målet Fragmentera. Under åtgärden shardlet flytt shardlets omfattas aktuell batch är markerad som offline i kartan Fragmentera och är inte tillgängliga för data-beroende anslutningar med hjälp av den **OpenConnectionForKey** API. 
+Dela / sammanslå tjänsten samverkar med fragmentkartan för programmet. När du använder tjänsten dela / sammanslå dela eller slå samman intervall eller för att flytta shardletar mellan shards, håller tjänsten automatiskt fragmentkartan aktuella. Om du vill göra det tjänsten ansluter till databasen av programmet och underhåller intervall och mappningar som pågår för dela/sammanslå/flytta begäranden. Detta säkerställer att fragmentkartan alltid anger aktuell när du ska dela / sammanslå åtgärder. Dela upp, implementeras sammanfoga och shardlet dataflyttsåtgärderna genom att flytta en batch med shardletar från källan shard till mål-fragment. Under åtgärden shardlet förflyttning shardletar omfattas av den aktuella batchen markeras som offline i fragmentkartan och är inte tillgängliga för databeroende routning-anslutningar som använder den **OpenConnectionForKey** API. 
 
 **Konsekvent shardlet anslutningar**
 
-Dataflyttning att starta en ny grupp med shardlets, alla angivna Fragmentera mappning data beroende routning anslutningar till Fragmentera lagra shardlet är avlivade och efterföljande anslutningar från Fragmentera kartan API: er till dessa shardlets blockeras när data flytt pågår för att undvika inkonsekvenser. Anslutningar till andra shardlets på samma Fragmentera också hämta avslutats, men kommer att lyckas igen omedelbart på försök igen. När gruppen flyttas shardlets markeras online igen för mål-Fragmentera och datakällan tas bort från källan Fragmentera. Tjänsten går igenom de här stegen för varje batch tills alla shardlets har flyttats. Detta leder till flera anslutningsåtgärder kill under slutföra move-dela/merge-åtgärden.  
+Dataförflyttning att starta en ny grupp med shardletar, tillhandahålls alla fragmentkartan databeroende routning anslutningar till fragment som lagrar shardlet har avslutats och efterföljande anslutningar från fragmentkartan API: er till shardletar blockeras medan dataförflyttning pågår för att undvika inkonsekvenser. Anslutningar till andra shardletar på samma fragment också få avslutas, men lyckas igen omedelbart på försök igen. När batchen flyttas shardletar markeras online igen för mål-fragment och källdata tas bort från käll-fragment. Tjänsten går igenom de här stegen för varje batch tills alla shardletar har flyttats. Detta leder till flera anslutningsåtgärder kill under loppet av dela/sammanslå/flytta kompletteringsåtgärden.  
 
 **Hantera shardlet tillgänglighet**
 
-Begränsa anslutningen om du avbryter den aktuella gruppen med shardlets som beskrivs ovan begränsar omfånget för tillfället till en batch med shardlets i taget. Detta är att föredra över en metod där fullständig Fragmentera är offline för alla shardlets under loppet av en delad eller merge-åtgärd. Storleken på en grupp definieras som antalet distinkta shardlets att flytta samtidigt, är en konfigurationsparameter. Det kan definieras för varje dela och slå samman åtgärd beroende på programmets tillgänglighet och prestanda behov. Observera att det intervall som håller på att låsas i kartan Fragmentera kan vara större än batchstorlek som har angetts. Det beror på att tjänsten hämtar intervallet storlek så att det faktiska antalet horisontell partitionering nyckelvärdena i data matchar cirka batchstorleken. Det här är viktigt att komma ihåg särskilt för glesbefolkade horisontell partitionering nycklar. 
+Begränsa anslutningen avslutar den aktuella gruppen med shardletar som beskrivs ovan begränsar omfattningen för otillgänglighet till en batch med shardletar i taget. Detta är att föredra över en metod där det fullständiga fragmentet skulle vara offline för alla shardletar under loppet av en delad tunnel eller merge-åtgärd. Storleken på en batch definieras som antalet distinkta shardletar att flytta samtidigt, är en konfigurationsparameter. Det kan definieras för varje dela och slå samman åtgärd beroende på programmets tillgänglighet och prestanda behov. Observera att det adressintervall som håller på att låsas i fragmentkartan kan vara större än den angivna batchstorleken. Det beror på att tjänsten hämtar intervallet storlek så att det faktiska antalet nyckelvärden för horisontell partitionering i data matchar cirka batchstorleken. Detta är viktigt att komma ihåg särskilt för sparsamt ifyllda horisontell partitionering nycklar. 
 
-**Utrymmet för metadata**
+**Lagring för metadata**
 
-Dela kopplingstjänsten använder en databas om du vill bevara statusen och hålla loggar under bearbetning av begäran. Användaren i prenumerationen skapas denna databas och innehåller anslutningssträngen för den i konfigurationsfilen för tjänstdistributionen av. Administratörer från användarens organisation kan också ansluta till databasen att granska begäran förlopp och undersöka detaljerad information om potentiella problem.
+Dela / sammanslå-tjänsten använder en databas att upprätthålla dess status och att hålla loggar under bearbetning av begäran. Du skapar den här databasen i sin prenumeration samt anslutningssträngen för den i konfigurationsfilen för service-distributionen. Administratörer från användarens organisation kan också ansluta till den här databasen att granska begäran om förlopp och undersöka detaljerad information om potentiella fel.
 
 **Horisontell partitionering medvetenhet**
 
-Dela kopplingstjänsten skiljer mellan (1) delat tabeller och (2) referenstabellerna (3) normal tabeller. Semantiken för en move-dela/merge-åtgärd beror på vilken typ av tabellen som används och definieras enligt följande: 
+Dela / sammanslå tjänsten skiljer mellan (1) shardade tabeller, (2) referenstabeller och (3) vanliga tabeller. Semantiken för en åtgärd för dela/sammanslå/flytta beror på vilken typ av tabellen används och definieras enligt följande: 
 
-* **Delat tabeller**: dela dokument och flytta flytta shardlets från källan till målet Fragmentera. Efter slutförande av övergripande begäran dessa shardlets inte längre finns på källan. Observera att måltabeller måste finnas på mål-Fragmentera och får inte innehålla data i målområdet innan bearbetningen av åtgärden. 
-* **Refererar till tabeller**: för register, dela, slå samman och flytta operations kopiera data från källan till målet Fragmentera. Observera att inga ändringar inträffar på mål-Fragmentera för en viss tabell om det finns redan en rad i tabellen på målet. Tabellen måste vara tom för någon referens tabell kopieringsåtgärd bearbetas.
-* **Andra tabeller**: andra tabeller kan finnas på källan eller målet för en delning och merge-åtgärd. Dela kopplingstjänsten ignorerar dessa tabeller för dataflyttning eller kopiering. Observera att de stör dessa åtgärder vid begränsningar.
+* **Shardade tabeller**: delning och sammanslagning flyttåtgärder flytta shardletar från källa till mål-fragment. När installationen har slutförts för övergripande begäran finns dessa shardletar inte längre på källan. Observera att måltabeller måste finnas på mål-fragment och får inte innehålla data i målområde innan bearbetningen av åtgärden. 
+* **Tabeller**: för referenstabeller, dela, slå samman och flytta operations kopiera data från källan till målet fragment. Observera att inga ändringar inträffar på mål-fragment för en viss tabell om det finns redan en rad i den här tabellen på målet. Tabellen måste vara tom för valfri referens tabell kopieringen ska bearbetas.
+* **Andra tabeller**: andra tabeller kan finnas på källan eller målet för en dela och slå samman åtgärd. Dela / sammanslå service ignorerar tabellerna för dataförflyttning och kopieringsåtgärder. Observera dock att de stör dessa åtgärder vid begränsningar.
 
-Information om referens kontra delat tabeller tillhandahålls av den **SchemaInfo** API: er på kartan Fragmentera. I följande exempel visar hur dessa API: n på en viss Fragmentera kartan manager objektet smm: 
+Information om referens jämfört med delat tabeller kommer från den **SchemaInfo** API: er på fragmentkartan. I följande exempel illustrerar användningen av dessa API: er på en viss fragment kartan manager objektet smm: 
 
     // Create the schema annotations 
     SchemaInfo schemaInfo = new SchemaInfo(); 
@@ -99,57 +102,57 @@ Information om referens kontra delat tabeller tillhandahålls av den **SchemaInf
     // Publish 
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
 
-Tabeller 'region' och 'landet' har definierats som referenstabellerna och kommer att kopieras med move-dela/merge-åtgärder. ”kund” och 'order' definieras i sin tur som delat tabeller. C_CUSTKEY och O_CUSTKEY fungera som en nyckel för horisontell partitionering. 
+Tabeller ”region” och ”nation” definieras som referenstabeller och kommer att kopieras med dela/sammanslå/flytta åtgärder. ”kund” och ”order” definieras i sin tur som shardade tabeller. C_CUSTKEY och O_CUSTKEY fungera som nyckeln för horisontell partitionering. 
 
 **Referensintegritet**
 
-Dela kopplingstjänsten analyserar alla beroenden mellan tabellerna och använder primära nyckel sekundärnyckelrelationer för att mellanlagra åtgärderna för att flytta referenstabellerna och shardlets. I allmänhet kopieras referenstabellerna först i beroendeordningen, och sedan shardlets kopieras i den ordning de beroenden inom varje grupp. Detta är nödvändigt så att gäller FK PK begränsningar på mål-Fragmentera som nya data tas emot. 
+Dela / sammanslå tjänsten analyserar alla beroenden mellan tabeller och använder nyckel-primära sekundärnyckelrelationer för att mellanlagra åtgärder för att flytta referenstabeller och shardletar. I allmänhet kopieras referenstabeller först i beroendeordningen, och sedan shardletar kopieras i ordning beroenden inom varje grupp. Detta är nödvändigt för att FK PK-begränsningar i mål-fragment respekteras när nya data anländer. 
 
-**Fragmentera kartan konsekvens och eventuell slutförande**
+**Shard kartan konsekvens och eventuell slutförande**
 
-Med fel, dela kopplingstjänsten återupptar åtgärder efter eventuella avbrott och syftet är att slutföra i förloppet begäranden. Det kan dock finnas oåterkalleligt situationer, t.ex. när mål Fragmentera tappas bort eller komprometteras inte repareras. Under dessa omständigheter kan vissa shardlets som skulle flyttas fortsätta att finnas på käll-Fragmentera. Tjänsten garanterar att shardlet mappningar uppdateras bara när uppgifter som krävs har kopierats till målet. Shardlets bara ta bort på källan när alla data har kopierats till målet och motsvarande mappningar har uppdaterats. Borttagningen sker i bakgrunden medan intervallet är redan online på mål-Fragmentera. Dela kopplingstjänsten garanterar alltid mappningar som lagras i Fragmentera mappningen är korrekt.
+Om det förekommer fel, dela och slå samman tjänsten återupptar åtgärder efter eventuella avbrott och syftar till att slutföra i förloppet begäranden. Men det kan finnas ett oåterkalleligt situationer, t.ex. när mål-fragment tappas bort eller komprometteras inte repareras. Under dessa omständigheter fortsätta vissa shardletar som skulle flyttas att finnas på käll-fragment. Tjänsten säkerställer shardlet mappningar uppdateras bara när nödvändiga data har har kopierats till målet. Shardletar endast tas bort på källan när alla data har kopierats till målet och de motsvarande mappningarna har uppdaterats. Borttagningen sker i bakgrunden medan intervallet är redan online på mål-fragment. Dela / sammanslå tjänsten garanterar alltid är korrekt mappning som lagras i fragmentkartan.
 
-## <a name="the-split-merge-user-interface"></a>Dela dokument användargränssnittet
-Dela kopplingstjänsten paketet innehåller en arbetsroll och en webbroll. Webbrollen används för att skicka förfrågningar om delade dokument på ett interaktivt sätt. Huvudkomponenterna i användargränssnittet är följande:
+## <a name="the-split-merge-user-interface"></a>Användargränssnittet för dela / sammanslå
+Dela / sammanslå service-paketet innehåller en arbetsroll och en webbroll. Webbrollen används för att skicka förfrågningar om dela och slå samman i ett interaktivt sätt. Huvudkomponenterna i användargränssnittet är följande:
 
-* Åtgärdstyp: Typ av åtgärd är en alternativknapp som styr typ av åtgärd som utförs av tjänsten för denna begäran. Du kan välja mellan delning, slå samman och flytta scenarier. Du kan också avbryta en tidigare skickade. Du kan använda delade, slå samman och flytta begäranden för intervallet Fragmentera maps. Lista Fragmentera mappar endast stöd för move-åtgärder.
-* Fragmentera mappa: Nästa avsnitt av parametrar för begäran omfatta information om Fragmentera kartan och databasen som värd för kartan Fragmentera. I synnerhet måste du ange namnet på Azure SQL Database-servern och databasen som värd för shardmap autentiseringsuppgifter för anslutning till Fragmentera kartan databasen och slutligen namnet på kartan Fragmentera. För närvarande accepterar åtgärden bara en enda uppsättning autentiseringsuppgifter. Dessa autentiseringsuppgifter måste ha behörighet att utföra ändringar på Fragmentera kartan samt att användardata på shards.
-* Käll-adressintervall (dela och sammanfoga): en åtgärd för dela och slå samman bearbetar ett intervall med den lägsta och högsta nyckeln. Om du vill ange en åtgärd med ett unbounded hög nyckelvärde, markera kryssrutan ”övre nyckel är max” och lämnar hög nyckelfältet tom. Intervallet nyckelvärden som du anger behöver inte matcha exakt en mappning och dess gränser i kartan Fragmentera. Om du inte anger någon adressintervallsgränser alls kommer tjänsten härleda närmaste intervallet du automatiskt. Du kan använda GetMappings.ps1 PowerShell-skript för att hämta aktuella mappningarna i en given Fragmentera karta.
-* Dela källa beteende (delning): definiera platsen om du vill dela käll-adressintervall för dela-åtgärder. Det gör du genom att tillhandahålla nyckeln horisontell partitionering där du vill dela ska ske. Använd knappen Ange om du vill den nedre delen av intervallet (exklusive nyckeln delning) för att flytta eller om du vill att den övre delen att flytta (inklusive den delade nyckeln).
-* Datakällan Shardlet (flytta): flytta operations skiljer sig från delade eller merge-åtgärder eftersom de inte kräver ett intervall för att beskriva källan. En källa för flytta identifieras bara av horisontell partitionering värdet för nyckeln som du planerar att flytta.
-* Rikta Fragmentera (delning): när du har angett informationen på källan för split-åtgärden, måste du definiera där du vill att data ska kopieras till med Azure SQL Db-server och databas-namn för målet.
-* Målområdet (merge): Merge-operationer flytta shardlets till en befintlig Fragmentera. Du kan identifiera befintliga Fragmentera genom att tillhandahålla adressintervallsgränser i befintliga intervallet som du vill koppla med.
-* Batchstorleken: Batchstorleken reglerar antalet shardlets som ska försättas i offlineläge vid en tidpunkt under dataflytten. Detta är ett heltalsvärde där du kan använda mindre värden när du är känsligt för långa stilleståndsperioder för shardlets. Högre värden ökar den tid som en given shardlet är offline men kan förbättra prestanda.
-* Åtgärds-Id (Avbryt): Om du har en pågående åtgärd som inte längre behövs, du kan avbryta åtgärden genom att ange dess åtgärds-ID i det här fältet. Du kan hämta åtgärds-ID från tabellen begäran status (se avsnittet 8.1) eller från utdata i webbläsaren där du skickade begäran.
+* Åtgärdstyp: Typ av åtgärd är en alternativknapp som styr vilken typ av åtgärd som utförs av tjänsten för den här begäran. Du kan välja mellan delning, slå samman och flytta scenarier. Du kan också avbryta en tidigare har skickats. Du kan använda dela, slå samman och flytta begäranden för intervallet fragmentkartor. Lista shardkartor endast stöd för flyttåtgärder.
+* Fragmentkartan: Nästa avsnitt av parametrarna som innehåller information om fragmentkartan och databasen som är värd för din fragmentkartan. I synnerhet måste du ange namnet på Azure SQL Database-servern och databasen som är värd shardmap, autentiseringsuppgifter för att ansluta till fragment kartan databasen och slutligen på namnet på fragmentkartan. Åtgärden accepterar för närvarande endast en enda uppsättning autentiseringsuppgifter. Dessa autentiseringsuppgifter måste ha tillräcklig behörighet för att utföra ändringar i fragmentkartan samt att användardata på shards.
+* Käll-intervall (dela och slå samman): en åtgärd dela och slå samman bearbetar ett intervall med hjälp av dess låga och höga nyckel. Om du vill ange en åtgärd med ett obundna hög nyckelvärde, markera kryssrutan ”övre nyckel är max” och lämnar hög nyckelfältet tom. Intervallet nyckelvärden som du anger måste inte exakt matcha en mappning och dess gränser i din fragmentkartan. Om du inte anger någon adressintervallsgränser alls kommer tjänsten härleda närmaste intervallet åt dig automatiskt. Du kan använda GetMappings.ps1 PowerShell-skript för att hämta de aktuella mappningarna i en viss fragmentkartan.
+* Dela källa beteende (dela): definiera punkt om du vill dela käll-intervallet för dela-åtgärder. Du kan göra detta genom att tillhandahålla shardingnyckel där du vill att delning ska ske. Använd knappen Ange om du vill den nedre delen av intervallet (förutom den delade nyckeln) för att flytta eller om du vill att den övre delen att flytta (inklusive den delade nyckeln).
+* Käll-Shardlet (flytta): flytta operations skiljer sig från dela eller merge-åtgärder eftersom de inte kräver ett intervall för att beskriva källan. En källa för flytt identifieras bara med horisontell partitionering nyckelvärdet som du planerar att flytta.
+* Rikta fragment (dela): när du har angett informationen på källan för split-åtgärden, måste du definiera där du vill att data ska kopieras till genom att ange Azure SQL Db namn för servern och databasen för målet.
+* Målområde (merge): Merge-operationer flytta shardletar till en befintlig shard. Du kan identifiera det befintliga fragmentet genom att tillhandahålla adressintervallsgränser för befintliga intervallet som du vill sammanfoga med.
+* Batchstorlek: Batchstorleken styr antalet shardletar går offline i taget under dataförflyttning. Det här är ett heltalsvärde där du kan använda lägre värden när du är känsliga för långa stilleståndsperioder för shardletar. Högre värden ökar den tid som en viss shardlet är offline men kan du förbättra prestandan.
+* Åtgärds-Id (Avbryt): Om du har en pågående åtgärd som inte längre behövs kan du avbryta åtgärden genom att ange dess åtgärds-ID i det här fältet. Du kan hämta åtgärds-ID från statustabellen för begäran (se avsnittet 8.1) eller från utdata i webbläsaren där du skickade begäran.
 
 ## <a name="requirements-and-limitations"></a>Krav och begränsningar
-Den aktuella implementationen av delade kopplingstjänsten regleras följande krav och begränsningar: 
+Den aktuella implementationen av tjänsten dela / sammanslå lyder under följande krav och begränsningar: 
 
-* Shards måste finnas och vara registrerade i kartan Fragmentera innan en delad merge-åtgärd på dessa delar kan utföras. 
-* Tjänsten kan inte skapa tabeller eller andra databasobjekt automatiskt som en del av dessa åtgärder. Det innebär att schemat för alla delat tabeller och referenstabeller måste finnas på mål-Fragmentera innan någon move-dela/merge-åtgärd. Delat tabeller måste i synnerhet vara tom i området där nya shardlets ska läggas till av en move-dela/merge-åtgärd. Annars misslyckas åtgärden första konsekvenskontrollen för mål-Fragmentera. Observera också att referensen kopieras bara data om referensen tabellen är tom och att det inte finns några konsekvenskontroll garantier avseende andra samtidiga skrivåtgärder på referens-tabeller. Vi rekommenderar detta: när du kör dela/merge-operationer kan inga andra skrivåtgärder göra ändringar i referenstabellerna.
-* Tjänsten är beroende av raden identitet upprättas genom ett unikt index eller en nyckel som innehåller delning nyckel för att förbättra prestanda och tillförlitlighet för stora shardlets. Detta gör tjänsten för att flytta data på ett även ökad detaljnivå än bara nyckelvärdet horisontell partitionering. Detta hjälper till att minska maximal mängd loggutrymme och lås som krävs under åtgärden. Överväg att skapa ett unikt index eller primärnyckel inklusive delning nyckeln för en given tabell om du vill använda tabellen med delade/merge/move-begäranden. Av prestandaskäl ska nyckeln för horisontell partitionering inledande kolumn i nyckeln eller index.
-* Under bearbetning av begäranden kanske vissa shardlet data finns både på käll- och mål-Fragmentera. Detta är nödvändigt för att skydda mot fel under transport av shardlet. Integrering av dela dokument med Fragmentera kartan säkerställer att anslutningar via data beroende routning API: er med hjälp av **OpenConnectionForKey** metod på kartan Fragmentera inte ser alla mellanliggande inkonsekvent tillstånd. Men när du ansluter till källan eller målet shards utan att använda den **OpenConnectionForKey** metoden inkonsekvent mellanliggande tillstånd kanske visas när du ska dela/merge/move-begäranden. Dessa anslutningar kan visa helt eller delvis dubbla resultat beroende på tidpunkten eller Fragmentera underliggande anslutningen. Den här begränsningen innehåller för närvarande anslutningar som görs av elastisk skalbarhet flera-Shard-frågor.
-* Metadata-databasen för den delade kopplingstjänsten måste inte delas mellan olika roller. Till exempel måste en roll för den delade dokument-tjänst som körs i Förproduktion peka på en annan metadata-databasen än rollen produktion.
+* Shards måste finnas och vara registrerade i fragmentkartan innan en åtgärd för dela / sammanslå i dessa fragment kan utföras. 
+* Tjänsten skapar inte tabeller eller andra databasobjekt automatiskt som en del av driften. Det innebär att schemat för alla shardade tabeller och referenstabeller måste finnas på mål-fragment före alla åtgärder för dela/sammanslå/flytta. Shardade tabeller måste i synnerhet vara tomt i intervallet där nya shardletar ska läggas till av en åtgärd för dela/sammanslå/flytta. I annat fall misslyckas åtgärden första konsekvenskontrollen för mål-fragment. Tänk också på den referens som data kopieras bara om referensen tabellen är tom och att det finns inga konsekvensgarantier avseende andra samtidiga skrivningsåtgärder på referenstabeller. Vi rekommenderar detta: när du kör dela/sammanslå åtgärder kan inga andra skrivåtgärder göra ändringar i tabellerna referens.
+* Tjänsten är beroende av rad-identiteten som etablerats med ett unikt index eller nyckeln som innehåller nyckeln för horisontell partitionering för att förbättra prestanda och tillförlitlighet för stora shardletar. På så sätt kan tjänsten för att flytta data på en ännu finare granularitet än bara nyckelvärdet horisontell partitionering. Detta hjälper till att minska den maximala mängden loggutrymmet och lås som krävs under åtgärden. Överväg att skapa ett unikt index eller primärnyckel inklusive shardingnyckel i en viss tabell om du vill använda tabellen med dela/sammanslå/flytta begäranden. Av prestandaskäl bör nyckeln för horisontell partitionering vara den ledande kolumnen i nyckeln eller index.
+* Under bearbetning av begäran kanske vissa shardlet data som finns både på käll- och mål-fragment. Detta är nödvändigt att skydda mot fel under shardlet flödet. Integreringen av dela och slå samman med fragmentkartan säkerställer att anslutningar via data beroende routning API: er med den **OpenConnectionForKey** -metoden i fragmentkartan inte ser alla mellanliggande inkonsekvent tillstånd. Men när du ansluter till källan eller målet shards utan att använda den **OpenConnectionForKey** metoden inkonsekvent mellanliggande tillstånd kan vara synliga när du ska dela/sammanslå/flytta begäranden. Dessa anslutningar kan visa partiell eller dubbla resultat beroende på tidpunkten eller fragment underliggande anslutningen. Den här begränsningen innehåller för närvarande anslutningar av Elastic Scale Multi-Factor-Shard-frågor.
+* Metadata-databasen för dela / sammanslå tjänsten delas inte mellan olika roller. Till exempel måste en roll för dela / sammanslå tjänsten som körs i Förproduktion peka på en annan metadata-databasen än rollen produktion.
 
 ## <a name="billing"></a>Fakturering
-Dela merge-tjänsten körs som en tjänst i molnet i Microsoft Azure-prenumerationen. Därför gäller avgifterna för molntjänster för din instans av tjänsten. Om du ofta utför move-dela/merge-åtgärder rekommenderar vi att du tar bort dina delade dokument Molntjänsten. Som kostnaderna för att köra eller distribueras molnet tjänstinstanser. Du kan distribuera och starta lätt körbara konfigurationen när du behöver utföra delade eller merge-åtgärder. 
+Dela / sammanslå-tjänsten körs som en molntjänst i Microsoft Azure-prenumerationen. Därför gäller avgifter för cloud services för din instans av tjänsten. Såvida inte du ofta utföra åtgärder för dela/sammanslå/flytta, rekommenderar vi du tar bort dela / sammanslå Molntjänsten. Som sparar kostnader för att köra eller distribueras cloud service-instanser. Du kan distribuera och starta lätt att köra flödet konfigurationen när du behöver att utföra delad tunnel eller merge-åtgärder. 
 
 ## <a name="monitoring"></a>Övervakning
 ### <a name="status-tables"></a>Status för tabeller
-Dela kopplingstjänsten ger den **RequestStatus** tabellen i metadata-databasen för lagring för övervakning av slutfördes och en pågående begäranden. Tabellen innehåller en rad för varje delad kopplingsbegäran som har skickats till den här instansen av delade kopplingstjänsten. Den ger följande information för varje begäran:
+Dela / sammanslå Service tillhandahåller den **RequestStatus** tabellen i store metadatabasen för övervakning av färdiga och pågående begäranden. Tabellen innehåller en rad för varje begäran för dela / sammanslå som har skickats till den här instansen av tjänsten dela och slå samman. Det ger följande information för varje begäran:
 
 * **Tidsstämpel**: tid och datum då begäran startades.
-* **Åtgärds-ID**: ett GUID som identifierar begäran. Denna begäran kan också användas för att avbryta åtgärden när den är fortfarande pågår.
-* **Status för**: aktuell status för begäran. För pågående begäranden visas också aktuell fas där begäran är.
+* **Åtgärds-ID**: ett GUID som unikt identifierar begäran. Den här förfrågan kan också användas för att avbryta åtgärden medan det pågår fortfarande.
+* **Status för**: aktuell status för begäran. För förfrågningar om pågående visas även aktuell fas där begäran är.
 * **CancelRequest**: en flagga som anger om begäran har avbrutits.
-* **Förlopp**: en del uppskattning av åtgärden har slutförts. Ett värde på 50 anger att åtgärden är klar ungefär 50%.
-* **Information om**: en XML-värde som innehåller en mer detaljerad rapport. Rapporten status uppdateras regelbundet som anger rader kopieras från källan till målet. I den här kolumnen vid fel eller undantag innehåller också mer detaljerad information om felet.
+* **Förlopp**: en procentandel uppskattning av åtgärden har slutförts. Ett värde på 50 anger att åtgärden är klar ungefär 50%.
+* **Information om**: en XML-värde som innehåller en detaljerad rapport. Förloppet-rapporten uppdateras regelbundet när uppsättningar med rader kopieras från källan till målet. Den här kolumnen innehåller också mer detaljerad information om felet vid fel eller undantag.
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
-Dela kopplingstjänsten använder Azure-diagnostik baserat på Azure SDK 2.5 för övervakning och diagnostik. Du kan styra diagnostik konfigurationen som beskrivs här: [aktiverar diagnostik i Azure-molntjänster och virtuella datorer](../cloud-services/cloud-services-dotnet-diagnostics.md). Det nedladdade paketet innehåller två diagnostik konfigurationer - en för webbrollen och en för arbetsrollen. Konfigurationerna diagnostik för tjänsten följer du anvisningarna från [Cloud Service grunderna i Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Den innehåller definitioner för att logga prestandaräknare, IIS loggar, Windows-händelseloggar och dela dokument, program-händelseloggar. 
+Dela / sammanslå-tjänsten använder Azure Diagnostics baserat på Azure SDK 2.5 för övervakning och diagnostik. Du styr diagnostikkonfigurationen som beskrivs här: [hur du aktiverar diagnostik i Azure Cloud Services och virtuella datorer](../cloud-services/cloud-services-dotnet-diagnostics.md). Det nedladdade paketet innehåller två diagnostikkonfigurationer – en för webbrollen och en för arbetsrollen. De här konfigurationerna för diagnostik för tjänsten följer du anvisningarna från [Cloud Service Fundamentals i Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Den innehåller definitioner för att logga prestandaräknare, IIS-loggar, händelseloggar i Windows och händelseloggar för dela / sammanslå program. 
 
 ## <a name="deploy-diagnostics"></a>Distribuera diagnostik
-Kör följande kommandon med hjälp av Azure PowerShell om du vill aktivera övervakning och diagnostik med diagnostisk konfiguration för webb- och arbetsroller roller som tillhandahålls av NuGet-paketet: 
+Om du vill aktivera övervakning och diagnostik med diagnostik-konfiguration för webb- och worker-roller som tillhandahålls av NuGet-paketet, kör du följande kommandon med hjälp av Azure PowerShell: 
 
     $storage_name = "<YourAzureStorageAccount>" 
 
@@ -171,38 +174,38 @@ Kör följande kommandon med hjälp av Azure PowerShell om du vill aktivera öve
 
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
-Du hittar mer information om hur du konfigurerar och distribuerar här diagnostikinställningar: [aktiverar diagnostik i Azure-molntjänster och virtuella datorer](../cloud-services/cloud-services-dotnet-diagnostics.md). 
+Du hittar mer information om hur du konfigurerar och distribuerar här diagnostikinställningar: [hur du aktiverar diagnostik i Azure Cloud Services och virtuella datorer](../cloud-services/cloud-services-dotnet-diagnostics.md). 
 
 ## <a name="retrieve-diagnostics"></a>Hämta diagnostik
-Du kan enkelt komma åt din diagnostik från Visual Studio Server Explorer i Azure del i Server Explorer-trädet. Öppna en Visual Studio-instans och i menyraden klickar du på Visa och Server Explorer. Klicka på ikonen Azure för att ansluta till din Azure-prenumeration. Gå till Azure Storage -> -> <your storage account> -> tabeller -> WADLogsTable. Mer information finns i [surfning lagringsresurser med Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx). 
+Du kan enkelt komma åt dina diagnostikdata från Visual Studio Server Explorer i Azure del i Server Explorer-trädet. Öppna Visual Studio-instansen och i menyraden klickar du på Visa och Server Explorer. Klicka på ikonen Azure för att ansluta till din Azure-prenumeration. Gå sedan till Azure Storage -> -> <your storage account> -> tabeller -> WADLogsTable. Mer information finns i [surfning Storage-resurser med Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx). 
 
 ![WADLogsTable][2]
 
-WADLogsTable markerade i figuren ovan innehåller detaljerade händelser från tjänsten delade dokument programloggen. Observera att standardkonfigurationen av det Hämta paketet riktar sig till en Produktionsdistribution. Därför är det intervall då loggar och räknare hämtas från tjänstinstanser stora (5 minuter). Lägre intervallet för testning och utveckling genom att justera diagnostikinställningar för webben eller arbetsrollen efter dina behov. Högerklicka på rollen i Visual Studio Server Explorer (se ovan) och justera sedan överföra perioden i dialogrutan för konfigurationsinställningar för diagnostik: 
+WADLogsTable markerat i bilden ovan innehåller detaljerade händelser från programloggen för dela / sammanslå-tjänsten. Observera att standardkonfigurationen av det Hämta paketet riktar sig till en Produktionsdistribution. Därför är den period då loggar och räknare hämtas från tjänstinstanser stora (5 minuter). Lägre intervallet för testning och utveckling genom att justera inställningarna för startdiagnostik för webb- eller worker-roll efter dina behov. Högerklicka på rollen i Visual Studio Server Explorer (se ovan) och justera sedan överföra perioden i dialogrutan för konfigurationsinställningar för diagnostik: 
 
 ![Konfiguration][3]
 
 ## <a name="performance"></a>Prestanda
-I allmänhet förväntas bättre prestanda kan från desto högre mer performant tjänstnivåer i Azure SQL Database. Högre i/o-, processor- och minnesresurser tilldelningarna för högre tjänstnivåer dra nytta av masskopiering och delete-åtgärder som använder delade kopplingstjänsten. Av den anledningen bör öka tjänstnivån för dessa databaser för en definierad, begränsad tidsperiod.
+I allmänhet är bättre prestanda kan förväntas från desto högre mer högpresterande tjänstnivåer i Azure SQL Database. Högre i/o, processor och minne allokeringar för högre tjänstnivåerna dra Masskopieringen och ta bort åtgärder som använder tjänsten dela och slå samman. Därför att öka tjänstnivån för dessa databaser för en definierad, begränsad tidsperiod.
 
-Tjänsten utför även validering frågor som en del av dess normal drift. Frågorna verifiering för oväntat förekomsten av data i målintervallet och kontrollerar att alla delade/merge/flyttningsåtgärd startar från ett konsekvent tillstånd. Frågorna alla fungerar över horisontell partitionering nyckelintervall definieras av omfattningen av åtgärden och batchstorleken tillhandahålls som en del av definitionen för begäran. De här frågorna gör bäst ifrån sig när ett index som har horisontell partitionering nyckel som inledande kolumnen. 
+Tjänsten utför även verifiering frågor som en del av dess normal drift. Frågorna verifiering kontrollera om oväntat finns data i intervallet mål och se till att alla åtgärder för dela/sammanslå/flytta startar från ett konsekvent tillstånd. De här frågorna som alla fungerar över horisontell partitionering nyckelintervall definieras av omfattningen av åtgärden och batchstorlek som tillhandahålls som en del av definitionen för förfrågningen. De här frågorna gör bäst ifrån sig när ett index finns som har shardingnyckel som ledande kolumn. 
 
-Dessutom kan en unikhet egenskap med nyckel för horisontell partitionering som kolumnen inledande tjänsten för att använda en optimerad metod som begränsar förbrukning av nätverksresurser vad gäller loggutrymme och minne. Den här egenskapen unikhet krävs för att flytta stora datamängder (vanligtvis ovanför 1GB). 
+Dessutom kan kan en egenskap för unikhet med shardingnyckel som ledande kolumn tjänsten du använder en optimerad metod som begränsar resursförbrukning när det gäller loggutrymmet och minne. Den här egenskapen för unikhet krävs för att flytta stora datamängder (vanligtvis över 1GB). 
 
 ## <a name="how-to-upgrade"></a>Så här uppgraderar du
-1. Följ stegen i [distribuera en delad kopplingstjänsten](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-2. Ändra konfigurationsfilen cloud service för dina delade dokument distributionen så att de nya konfigurationsparametrarna. En ny obligatorisk parameter är information om certifikatet som används för kryptering. Ett enkelt sätt att göra detta är att jämföra den nya mall för konfigurationsfilen från download mot den befintliga konfigurationen. Kontrollera att du lägger till inställningar för ”DataEncryptionPrimaryCertificateThumbprint” och ”DataEncryptionPrimary” för både webb- och arbetsrollen.
-3. Se till att alla som körs dela merge-åtgärder har slutförts innan du distribuerar uppdateringen till Azure. Du kan göra detta genom att fråga tabellerna RequestStatus och PendingWorkflows i delade sammanslagna metadata-databasen för pågående begäranden.
-4. Uppdatera den befintliga cloud service-distributionen för att dela dokument i Azure-prenumeration med det nya paketet och uppdaterade konfigurationsfilen.
+1. Följ stegen i [distribuerar du en tjänst för dela / sammanslå](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+2. Ändra din molntjänstkonfigurationsfilen för dela / sammanslå distributionen så att de nya konfigurationsparametrarna. En ny obligatorisk parameter är information om certifikatet som används för kryptering. Ett enkelt sätt att göra detta är att jämföra den nya mall för konfigurationsfilen från nedladdningen mot din befintliga konfiguration. Kontrollera att du lägger till inställningarna för ”DataEncryptionPrimaryCertificateThumbprint” och ”DataEncryptionPrimary” för både webb- och worker-roll.
+3. Se till att alla som körs dela / sammanslå åtgärder har slutförts innan du distribuerar uppdateringen till Azure. Du kan enkelt göra detta genom att fråga tabellerna RequestStatus och PendingWorkflows i dela / sammanslå metadata-databasen för pågående begäranden.
+4. Uppdatera dina befintliga molntjänstdistribution för dela / sammanslå i Azure-prenumerationen med det nya paketet och uppdaterade konfigurationsfilen.
 
-Du behöver inte att etablera en ny databas för metadata för att dela dokument att uppgradera. Den nya versionen uppgraderas automatiskt den befintliga metadata-databasen till den nya versionen. 
+Du behöver inte etablera en ny databas för metadata för dela / sammanslå att uppgradera. Den nya versionen kommer automatiskt att uppgradera den befintliga metadata-databasen till den nya versionen. 
 
-## <a name="best-practices--troubleshooting"></a>Bästa praxis och felsöka
-* Definiera en Testklient och utnyttja dina viktigaste move-dela/merge-åtgärder med testklienten över flera delar. Se till att alla metadata har definierats korrekt i Fragmentera map och att åtgärderna inte strider mot villkor eller sekundärnycklar.
-* Behåll testklienten datastorleken ovanför det maximala storleken på din största klient Se till att det inte uppstår datastorleken relaterade problem. Detta hjälper dig att utvärdera en övre gräns på den tid det tar för att flytta en enskild klient. 
-* Kontrollera att schemat tillåter borttagning. Dela kopplingstjänsten kräver möjlighet att ta bort data från källan Fragmentera när data har kopierats till målet. Till exempel **ta bort utlösare** kan förhindra tjänsten från att ta bort data på käll- och kan orsaka åtgärder misslyckas.
-* Nyckeln för horisontell partitionering bör vara den inledande kolumnen i din primär nyckel eller ett unikt Indexdefinition. Detta säkerställer att uppnå bästa prestanda för frågor för delade eller merge-verifiering och för faktiska data movement och borttagning åtgärder som använder alltid nyckelintervall för horisontell partitionering.
-* Samordna split-kopplingstjänsten i den region och datacenter där databaserna finns. 
+## <a name="best-practices--troubleshooting"></a>Bästa metoder och felsökning
+* Definiera en test-klient och arbeta med dina viktigaste dela/sammanslå/flytta åtgärder med testklienten över flera shard. Se till att alla metadata har definierats korrekt i din fragmentkartan och att åtgärderna inte bryter mot begränsningarna eller främmande nycklar.
+* Behåll testklienten datastorlek ovanför den maximala datastorleken för största klienten för att se till att det inte uppstår några datastorlek-relaterade problem. Detta hjälper dig att utvärdera en övre gräns på den tid det tar för att flytta en enda klient. 
+* Kontrollera att ditt schema tillåter borttagningar. Dela / sammanslå-tjänsten kräver möjligheten att ta bort data från källan shard när data har har kopierats till målet. Till exempel **ta bort utlösare** kan förhindra att tjänsten från att ta bort data på källan och kan orsaka åtgärder misslyckas.
+* Nyckeln för horisontell partitionering bör vara den ledande kolumnen i primärnyckeln eller unik indexdefinitionen. Som ger högsta prestanda för frågor som delad tunnel eller merge-verifiering och för faktiska data förflyttning och borttagning av åtgärder som använder alltid nyckelintervall för horisontell partitionering.
+* Samordna dela / sammanslå tjänsten i regionen och data center där databasen finns. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

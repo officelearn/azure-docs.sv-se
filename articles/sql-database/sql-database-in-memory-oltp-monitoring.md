@@ -2,19 +2,22 @@
 title: Övervaka XTP minnesintern lagring | Microsoft Docs
 description: Uppskattning och övervaka XTP minnesintern lagring använder, kapacitet. Åtgärda felet kapacitet 41823
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: 3cfa13ae78c2669cc15e4c1e4eb7ab6615b1a263
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 2a9c01eb2c237a7c79464b930c9258f791d8f3ce
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985234"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161632"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Övervaka Minnesintern OLTP-lagring
 När du använder [In-Memory OLTP](sql-database-in-memory.md), finns data i minnesoptimerade tabeller och tabellvariabler i InMemory-OLTP-lagring. Varje Premium och affärskritisk tjänstenivå har en maximal storlek för In-Memory OLTP-lagring. Se [DTU-baserade resursbegränsningar - enkel databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).

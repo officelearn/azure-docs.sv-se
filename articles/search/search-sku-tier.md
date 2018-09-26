@@ -7,34 +7,59 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d86fc1930f1d7b29dc3ce57e9b4d28e053bb44a0
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576128"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181898"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
-I Azure Search, en [tjänsten har etablerats](search-create-service-portal.md) på en specifik prisnivå eller SKU. Alternativ inkluderar **kostnadsfri**, **grundläggande**, eller **Standard**, där **Standard** är tillgängligt i flera konfigurationer och kapaciteter. 
+I Azure Search, en [tjänsten har etablerats](search-create-service-portal.md) på en fast prisnivå eller SKU: **kostnadsfri**, **grundläggande**, eller **Standard**, där  **Standard** är tillgängligt i flera konfigurationer och kapaciteter. De flesta kunder börjar med den **kostnadsfri** nivå för utvärdering och konverteras sedan till **Standard** för utveckling. Du kan utföra alla snabbstarter och självstudier på den **kostnadsfri** nivå, inklusive de för resurskrävande kognitiv sökning. 
 
-Syftet med den här artikeln är att hjälpa dig att välja en nivå. Kompletterar den [prissättningssidan](https://azure.microsoft.com/pricing/details/search/) och [tjänstbegränsningar](search-limits-quotas-capacity.md) sida med en sammanfattning av fakturering begrepp och mönster för användning som är associerade med olika nivåer. Den rekommenderar också en iterativ metod för att förstå vilken nivå som bäst uppfyller dina behov. 
+Nivåerna avgör kapaciteten, inte funktioner med smärre skillnader:
 
-Nivåerna avgör kapaciteten, inte funktioner. Om en nivåkapacitet visar sig vara för lågt, måste du etablerar en ny tjänst på högre nivå och sedan [läsa in dina index](search-howto-reindex.md). Det finns ingen uppgradering på plats av samma tjänst från en SKU till en annan.
++ Antal index som du kan skapa
++ Storlek och hastighet partitioner (fysisk lagring)
 
-Tillgängliga funktioner är inte en primär nivå faktor. Alla nivåer, inklusive den **kostnadsfri** nivå, erbjuder funktionsparitet med undantag för indexeringsstöd för S3HD. Begränsningar för indexering och resurs kan effektivt dock begränsa omfattningen av användning av funktioner. Till exempel [kognitiv sökning](cognitive-search-concept-intro.md) indexering har långvariga kunskaper tiden på en kostnadsfri tjänst om inte datauppsättningen råkar vara mycket liten.
+Även om alla nivåer, inklusive den **kostnadsfri** nivå, ger ofta funktionsparitet, större arbetsbelastningar kan bestämmer krav för högre nivåer. Till exempel [kognitiv sökning](cognitive-search-concept-intro.md) indexering har långvariga kunskaper tiden på en kostnadsfri tjänst om inte datauppsättningen råkar vara mycket liten.
 
-> [!TIP]
-> De flesta kunder börjar med den **kostnadsfri** nivå för utvärdering och konverteras sedan till **Standard** för utveckling. När du har valt en nivå och [etablera en söktjänst](search-create-service-portal.md), kan du [öka antal replik och partition](search-capacity-planning.md) för prestandajustering. Mer information om när och varför skulle du justera kapacitet finns i [prestanda och optimering överväganden](search-performance-optimization.md).
+> [!NOTE] 
+> Funktionsparitet finns på nivåerna med undantag för [indexerare](search-indexer-overview.md), som inte är tillgängliga på S3HD.
 >
 
-## <a name="billing-concepts"></a>Fakturering begrepp
+Inom en nivå kan du [justera replik-och partition](search-capacity-planning.md) för prestandajustering. Medan du kan börja med två eller tre för var och en, kan du tillfälligt öka resursnivån för en tung indexeringsarbetsbelastningen. Du kan finjustera resursnivåer inom en nivå ökar flexibiliteten, men även lite komplicerar dina analyser. Du kan behöva experimentera om du vill se om en lägre nivå med högre resurser/repliker erbjuder bättre värde och prestanda än en högre nivå med lägre resurser. Mer information om när och varför skulle du justera kapacitet finns [prestanda och optimering överväganden](search-performance-optimization.md).
 
-Koncepten du behöver för att förstå för val av innehåller definitioner av kapacitet, tjänstbegränsningarna och serviceenheter. 
+> [!Important] 
+> Uppskatta framtida behov för index och lagring kan kännas som felsökning, är det värt att göra. Om en nivåkapacitet visar sig vara för lågt, måste du etablerar en ny tjänst på högre nivå och sedan [läsa in dina index](search-howto-reindex.md). Det finns ingen uppgradering på plats av samma tjänst från en SKU till en annan.
+>
 
-### <a name="capacity"></a>Kapacitet
+<!---
+The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
+--->
+
+## <a name="how-billing-works"></a>Så fungerar debiteringen
+
+I Azure Search, de viktigaste fakturering konceptet att förstå är en *sökenheten* (SU). Eftersom Azure Search är beroende av både repliker och partitioner ska fungera, vara inte det klokt att debiterar per bara någondera. I stället baseras fakturering på en kombination av båda. 
+
+Formulaically, en SU är produkten av *repliken* och *partitioner* används av en tjänst: **`(R X P = SU)`**
+
+Varje tjänst som börjar med 1 SU (en replik multiplicerat med en partition) som ett minimum, men för större belastningar en mer realistisk modell kan vara en 3-replik 3-partition tjänst som 9 su: er. 
+
+Debiteringen är **per timme per SU**, där varje nivå har en progressivt högre kostnad. På högre nivå har större och snabbare partitioner, bidrar till ett högre övergripande timpris för den nivån. Gällande priser för varje nivå finns på [prisinformation om](https://azure.microsoft.com/pricing/details/search/). 
+
+Även om varje nivå erbjuder progressivt högre kapacitet, du kan hämta en *del* av den totala kapaciteten online, hålla resten reserv. När det gäller fakturering är det antalet partitioner och -repliker som du infogar online, beräknade med hjälp av SU-formeln som anger vad du faktiskt betalar.
+
+### <a name="tips-for-lowering-the-bill"></a>Tips för att sänka fakturan
+
+Du kan inte stänga av tjänsten för att sänka kostnader. Dedikerade resurser för partitioner och -repliker är operativa 24-7, som lagras i reservera för exklusiv bruk, för livslängden för din tjänst. Det enda sättet att sänka en faktura är att minska repliker och partitioner för den lägsta nivån som ger dig fortfarande acceptabla prestanda. 
+
+En annan spak väljer en nivå med ett lägre pris per timme. S1 timpris är lägre än S2 eller S3 pris per timme. Du kan etablera en tjänst i lägre slutet av dina projektioner och sedan om företaget har växt ur den, skapa en andra större nivåindelade tjänst, återskapar dina index på den andra tjänsten och ta sedan bort förstnämnda.
+
+### <a name="capacity-drill-down"></a>Kapacitet nedåt
 
 Kapaciteten är strukturerad som *repliker* och *partitioner*. 
 
@@ -45,15 +70,7 @@ Kapaciteten är strukturerad som *repliker* och *partitioner*.
 > [!NOTE]
 > Alla **Standard** nivåerna support [flexibla kombinationer replik och partitioner](search-capacity-planning.md#chart) så att du kan [vikt systemet för hastighet eller lagring](search-performance-optimization.md) genom att ändra balans. **Grundläggande** erbjuder tre repliker för hög tillgänglighet men har endast en partition. **Kostnadsfria** nivåer ger inte dedikerade resurser: databehandling resurser som delas av flera kostnadsfria tjänster.
 
-### <a name="search-units"></a>Sökenheter
-
-Det viktigaste fakturering konceptet att förstå är en *sökenheten* (SU), vilket är faktureringsenheten för Azure Search. Eftersom Azure Search är beroende av både repliker och partitioner ska fungera, vara inte det klokt att debiterar per ena eller andra. I stället baseras fakturering på en kombination av båda. Formulaically, en SU är produkten av repliken och partitioner som används av en tjänst: (R X P = SU). Varje tjänst som börjar med 1 SU (en replik multiplicerat med en partition) som ett minimum, men en mer realistisk modell kan vara en 3-replik 3-partition tjänst som 9 su: er. 
-
-Även om varje nivå erbjuder progressivt högre kapacitet, kan du använda en del av den totala kapaciteten online, håller resten reserv. När det gäller fakturering är det antalet partitioner och -repliker som du infogar online, beräknade med hjälp av SU-formeln som anger vad du faktiskt betalar.
-
-Debiteringstaxa är per timme per SU, där varje nivå har olika taxa. Gällande priser för varje nivå finns på [prisinformation om](https://azure.microsoft.com/pricing/details/search/).
-
-### <a name="limits"></a>Begränsningar
+### <a name="more-about-service-limits"></a>Mer om tjänstbegränsningar
 
 Tjänsterna värdresurser, till exempel index, indexerare och så vidare. Varje nivå inför [tjänstbegränsningar](search-limits-quotas-capacity.md) på antalet resurser som du kan skapa. Därför är en begränsning på antalet index (och andra objekt) funktionen för andra särskiljande på nivåerna. När du granskar varje alternativ i portalen kan du Observera gränser för antal index. Andra resurser, till exempel indexerare och datakällor kompetens, är knuten till indexet gränser.
 

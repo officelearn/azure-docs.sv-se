@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 601588e0c7257fc939f884b2e9b2774ab12ea872
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1615e3a492cd91fb998680094f131db454945303
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950850"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182577"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prova Speech Service kostnadsfritt
 
@@ -111,7 +111,7 @@ Om du vill växla från en prenumeration till en annan, Ersätt till exempel nä
 > [!NOTE]
 > Kostnadsfri utvärderingsversion nycklar skapas i västra USA (`westus`) region. En prenumeration som skapats via Azure-instrumentpanelen kanske vissa andra region om du vill.
 
-* Om programmet använder ett [tal SDK](speech-sdk.md), ange regionskod, t.ex `westus`, när instanser skapades av `RecognizerFactory`. 
+* Om programmet använder ett [tal SDK](speech-sdk.md), ange regionskod, t.ex `westus`, när du skapar en tal-konfiguration.
 * Om ditt program använder en av Speech-tjänsten [REST API: er](rest-apis.md), regionen är en del av slutpunkten URI som du använder när du gör förfrågningar.
 
 Nycklar som har skapats för en region är endast giltiga i den regionen. Försök att använda dem med andra regioner leder autentiseringsfel.

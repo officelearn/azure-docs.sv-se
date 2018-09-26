@@ -1,100 +1,75 @@
 ---
-title: Lägg till LinkedIn som identitetsprovider OAuth2 med hjälp av anpassade principer i Azure Active Directory B2C | Microsoft Docs
-description: En artikel om hur du konfigurerar ett LinkedIn-program med hjälp av protokollet OAuth2 och anpassade principer.
+title: Konfigurera logga in med ett LinkedIn-konto i Azure Active Directory B2C med anpassade principer | Microsoft Docs
+description: Ställ in logga in med ett Google-konto i Azure Active Directory B2C med anpassade principer.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2017
+ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 58a595c697b6e1a70089a6683493835e0d3a9780
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4817ad918af66080cec1faead96c6c9448387556
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344326"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181218"
 ---
-# <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: Lägga till LinkedIn som en identitetsprovider med hjälp av anpassade principer
+# <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett LinkedIn-konto med hjälp av anpassade principer i Azure Active Directory B2C
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln visar hur du aktiverar inloggning för användare av en LinkedIn-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md).
+Den här artikeln visar hur du aktiverar inloggning för användare från en LinkedIn-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Utför stegen i den [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikeln.
 
-## <a name="step-1-create-a-linkedin-account-application"></a>Steg 1: Skapa ett program för LinkedIn-konto
-Att använda LinkedIn som en identitetsprovider i Azure Active Directory B2C (Azure AD B2C) måste du skapa ett LinkedIn-program och ange rätt parametrar. Du kan registrera ett LinkedIn-program genom att gå till den [LinkedIn registreringssidan](https://www.linkedin.com/start/join).
+- Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Om du inte redan har en LinkedIn-konto, skapa en på den [LinkedIn registreringssidan](https://www.linkedin.com/start/join).
+- Ett LinkedIn-program måste du ange en 80 X 80 pixel logotyp för att representera ditt program.
 
-1. Gå till den [LinkedIn programhantering](https://www.linkedin.com/secure/developer?newapp=) webbplats, logga in med dina LinkedIn-konto och välj sedan **skapa program**.
+## <a name="create-an-application"></a>Skapa ett program
 
-    ![LinkedIn-konto – skapa program](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app1.png)
+Om du vill använda LinkedIn som en identitetsprovider i Azure AD B2C måste du skapa ett LinkedIn-program.
 
-2. På den **skapa ett nytt program** gör följande:
+1. Logga in på den [LinkedIn programhantering](https://www.linkedin.com/secure/developer?newapp=) webbplatsen med autentiseringsuppgifterna för ditt LinkedIn-konto.
+2. Välj **skapa program**.
+3. Ange din **företagsnamn**, en **programnamn**, och en **Programbeskrivning**.
+4. Ladda upp den **Programlogotyp** som du skapade.
+5. Välj en **användningen av** i listan.
+6. För **Webbadress**, ange `https://your-tenant.b2clogin.com`.  Ersätt `your-tenant` med namnet på din Azure AD B2C-klient. Till exempel contoso.b2clogin.com.
+7. Ange din **företags-e-** adress och **Företagstelefon** tal.
+8. Längst ned på sidan läser och godkänner användningsvillkoren och välj sedan **skicka**.
+9. Välj **autentisering**, och registrera den **klient-ID** och **Klienthemlighet** värden som ska användas senare.
+10. I **behörighet omdirigerings-URL: er**, ange `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`. Ersätt `your-tenant-name` med namnet på din klient. Du måste använda gemener när du anger ditt klientnamn även om klienten har definierats med versaler i Azure AD B2C. 
+11. Välj **uppdatering**.
+12. Välj **inställningar**, ändra den **programstatus** till **Live**, och välj sedan **uppdatering**.
 
-    a. Skriv din **företagsnamn**, en beskrivande **namn** för företaget, och en **beskrivning** för din nya app.
+## <a name="create-a-policy-key"></a>Skapa en principnyckel
 
-    b. Ladda upp din **Programlogotyp**.
+Du behöver lagra klienthemlighet som tidigare registrerades i din Azure AD B2C-klient.
 
-    c. Välj en **användningen av**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
+5. Välj **Principnycklar** och välj sedan **Lägg till**.
+6. För **alternativ**, Välj `Manual`.
+7. Ange en **namn** för principnyckeln. Till exempel `LinkedInSecret`. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
+8. I **hemlighet**, ange dina klienthemlighet som du antecknade tidigare.
+9. För **nyckelanvändning**väljer `Signature`.
+10. Klicka på **Skapa**.
 
-    d. I den **Webbadress** rutan, klistra in **https://{tenant}.b2clogin.com**.  Där {*klient*} är ditt klientnamn (till exempel contoso.b2clogin.com).
+## <a name="add-a-claims-provider"></a>Lägg till en anspråksprovider
 
-    e. Skriv din **företags-e-** adress och **Företagstelefon** tal.
+Om du vill att användarna ska logga in med LinkedIn-konto, måste du definiera kontot som en anspråksprovider som Azure AD B2C kan kommunicera med via en slutpunkt. Slutpunkten som innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats. 
 
-    f. Längst ned på sidan läser och godkänner användningsvillkoren och välj sedan **skicka**.
+Du kan definiera en LinkedIn-konto som en anspråksprovider genom att lägga till den **ClaimsProviders** elementet i tilläggsfilen av din princip.
 
-    ![LinkedIn-konto – konfigurera egenskaper för program](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app2.png)
-
-3. Välj **autentisering**, och anteckna den **klient-ID** och **Klienthemlighet** värden.
-
-4. I den **behörighet omdirigerings-URL: er** rutan, klistra in **https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Ersätt {*klient*} med ditt klientnamn (till exempel contosob2c.onmicrosoft.com). Kontrollera att du använder HTTPS-schema. 
-
-    ![LinkedIn-konto – Ställ in behörighet omdirigera URL: er](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
-
-    >[!NOTE]
-    >Klienthemlighet är en viktig säkerhetsuppgift för autentisering. Inte dela den här hemligheten med vem som helst och distribuera den med din app.
-
-5. Välj **Lägg till**.
-
-6. Välj **inställningar**, ändra den **programstatus** till **Live**, och välj sedan **uppdatering**.
-
-    ![LinkedIn-konto - Set programstatus](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app4.png)
-
-## <a name="step-2-add-your-linkedin-application-key-to-azure-ad-b2c"></a>Steg 2: Lägga till dina LinkedIn-programnyckel i Azure AD B2C
-Federation med LinkedIn-konton kräver en klienthemlighet för LinkedIn-konto till förtroende Azure AD B2C åt programmet. Om du vill lagra LinkedIn programhemlighet i din Azure AD B2C-klient måste du göra följande:  
-
-1. I din Azure AD B2C-klient väljer **B2C inställningar** > **Identitetsramverk**.
-
-2. Om du vill visa de nycklar som är tillgängliga i din klient, Välj **Principnycklar**.
-
-3. Välj **Lägg till**.
-
-4. I den **alternativ** väljer **överför**.
-
-5. I den **namn** skriver **B2cRestClientCertificate**.  
-    Prefixet *B2C_1A_* kan läggas till automatiskt.
-
-6. I den **hemlighet** anger du dina LinkedIn-programhemlighet från den [Programregistreringsportalen](https://apps.dev.microsoft.com).
-
-7. För **nyckelanvändning**väljer **kryptering**.
-
-8. Välj **Skapa**. 
-
-9. Bekräfta att du har skapat den `B2C_1A_LinkedInSecret`nyckel.
-
-## <a name="step-3-add-a-claims-provider-in-your-extension-policy"></a>Steg 3: Lägga till en anspråksprovider i din princip för tillägg
-Om du vill att användarna ska logga in med sina LinkedIn-konto, måste du definiera LinkedIn som en anspråksprovider. Med andra ord måste du ange de slutpunkter som Azure AD B2C kommunicerar med. Slutpunkterna tillhandahåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en viss användare har autentiserats.
-
-Definiera LinkedIn som en anspråksprovider genom att lägga till en `<ClaimsProvider>` nod i ditt tillägg principfil:
-
-1. Öppna i din arbetskatalog i *TrustFrameworkExtensions.xml* principfil för tillägget. 
-
-2. Sök efter den `<ClaimsProviders>` element.
-
-3. I den `<ClaimsProviders>` element, Lägg till följande XML-fragment: 
+1. Öppna den *TrustFrameworkExtensions.xml*.
+2. Hitta den **ClaimsProviders** element. Om det inte finns, lägger du till det under rotelementet.
+3. Lägga till en ny **ClaimsProvider** på följande sätt:
 
     ```xml
     <ClaimsProvider>
@@ -141,79 +116,59 @@ Definiera LinkedIn som en anspråksprovider genom att lägga till en `<ClaimsPro
     </ClaimsProvider>
     ```
 
-4. Ersätt den *client_id* värdet med ditt LinkedIn programmets klients-ID.
-
+4. Ersätt värdet för **client_id** med klient-ID som du antecknade tidigare.
 5. Spara filen.
 
-## <a name="step-4-register-the-linkedin-account-claims-provider"></a>Steg 4: Registrera anspråksleverantören LinkedIn-konto
-Du har konfigurerat identitetsprovidern. Det är dock inte ännu tillgängliga i någon av windows för registrering eller inloggning. Nu måste du lägga till identitetsleverantören. LinkedIn-konto till dina användare `SignUpOrSignIn` användarresa.
+### <a name="upload-the-extension-file-for-verification"></a>Ladda upp tilläggsfilen med för verifiering
 
-### <a name="step-41-make-a-copy-of-the-user-journey"></a>Steg 4.1: Skapa en kopia av användarresa
-Frigör användarresa genom att skapa en dubblett av en befintlig mall för användaren resa och Lägg sedan till LinkedIn identitetsprovider:
+Nu bör har du konfigurerat principen så att Azure AD B2C vet att kommunicera med ditt LinkedIn-konto. Försök att överföra tilläggsfilen i din princip bara för att bekräfta att den inte har några problem hittills.
 
->[!NOTE]
->Om du har kopierat den `<UserJourneys>` element från bas-filen i din princip att den *TrustFrameworkExtensions.xml* tilläggsfil, du kan hoppa över det här avsnittet.
+1. På den **anpassade principer** sidan i din Azure AD B2C-klient väljer **ladda upp principen**.
+2. Aktivera **Skriv över principen om den finns**, och sedan bläddra till och markera den *TrustFrameworkExtensions.xml* fil.
+3. Klicka på **Överför**.
 
-1. Öppna filen grundläggande av din princip (till exempel TrustFrameworkBase.xml).
+## <a name="register-the-claims-provider"></a>Registrera anspråksprovidern
 
-2. Sök efter den `<UserJourneys>` element, markera hela innehållet i den `<UserJourney>` noden och välj sedan **klipp ut** att flytta den markerade texten till Urklipp.
+Nu identitetsprovidern har ställts in, men det finns inte i någon av skärmarna registrering eller inloggning. Du skapar en dubblett av en befintlig mall för användarresa så att den blir tillgänglig, och ändra den så att den har också LinkedIn-identitetsprovider.
 
-3. Öppna tilläggsfilen (till exempel TrustFrameworkExtensions.xml) och Sök efter den `<UserJourneys>` element. Om elementet inte finns kan du lägga till den.
+1. Öppna den *TrustFrameworkBase.xml* filen från startpaket.
+2. Hitta och kopiera hela innehållet i den **UserJourney** element som innehåller `Id="SignUpOrSignIn"`.
+3. Öppna den *TrustFrameworkExtensions.xml* och hitta den **UserJourneys** element. Om elementet inte finns kan du lägga till en.
+4. Klistra in hela innehållet i den **UserJourney** element som du kopierade som underordnad till den **UserJourneys** element.
+5. Byt namn på ID för användarresa. Till exempel `SignUpSignInLinkedIn`.
 
-4. Klistra in hela innehållet i den `<UserJourney>` nod som du har flyttat till Urklipp i steg 2, till den `<UserJourneys>` element.
+### <a name="display-the-button"></a>Visa knappen
 
-### <a name="step-42-display-the-button"></a>Steg 4.2: Visa på ”knappen”
-Den `<ClaimsProviderSelections>` elementet definierar en lista med alternativ för val av anspråk providern och deras inbördes ordning. Den `<ClaimsProviderSelection>` noden är detsamma som en knapp med identity-providern på en registrering eller inloggning. Om du lägger till en `<ClaimsProviderSelection>` nod för LinkedIn-konto, en ny knapp visas när en användare finns på sidan. Om du vill lägga till det här elementet, gör du följande:
+Den **ClaimsProviderSelection** element är detsamma som en knapp med identity-providern på en skärm för registrering eller inloggning. Om du lägger till en **ClaimsProviderSelection** element för ett LinkedIn-konto, en ny knapp visas när en användare finns på sidan.
 
-1. Sök efter den `<UserJourney>` nod som innehåller `Id="SignUpOrSignIn"` i användarresan som du kopierade.
+1. Hitta den **OrchestrationStep** element som innehåller `Order="1"` i användarresan som du skapade.
+2. Under **ClaimsProviderSelects**, lägger du till följande element. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `LinkedInExchange`:
 
-2. Leta upp den `<OrchestrationStep>` nod som innehåller `Order="1"`.
-
-3. I den `<ClaimsProviderSelections>` element, Lägg till följande XML-fragment:
-
-    ```xml
+    ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
     ```
 
-### <a name="step-43-link-the-button-to-an-action"></a>Steg 4.3: Länka knappen till en åtgärd
-Nu när du har en knapp på plats, måste du koppla den till en åtgärd. Åtgärden, i det här fallet är för Azure AD B2C att kommunicera med LinkedIn-konto för att ta emot en token. Länka knappen till en åtgärd genom att länka den tekniska profilen för din LinkedIn-konto anspråksprovidern:
+### <a name="link-the-button-to-an-action"></a>Länka knappen till en åtgärd
 
-1. Sök efter den `<OrchestrationStep>` nod som innehåller `Order="2"` i den `<UserJourney>` noden.
+Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Åtgärden, i det här fallet är för Azure AD B2C att kommunicera med ett LinkedIn-konto för att ta emot en token.
 
-2. I den `<ClaimsExchanges>` element, Lägg till följande XML-fragment:
+1. Hitta den **OrchestrationStep** som innehåller `Order="2"` i användarresan.
+2. Lägg till följande **ClaimsExchange** element att se till att du använder samma värde för **Id** som du använde för **TargetClaimsExchangeId**:
 
-    ```xml
-    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAuth" />
+    ```XML
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
+    
+    Uppdatera värdet för **TechnicalProfileReferenceId** till den **Id** för den tekniska profilen du skapade tidigare. Till exempel `LinkedIn-OAUTH`.
 
-    >[!NOTE]
-    >* Se till att `Id` har samma värde som `TargetClaimsExchangeId` i föregående avsnitt.
-    >* Se till att den `TechnicalProfileReferenceId` -ID har angetts till den tekniska profilen som du skapade tidigare (LinkedIn-OAuth).
+3. Spara den *TrustFrameworkExtensions.xml* fil och ladda upp den igen för att bekräfta.
 
-## <a name="step-5-upload-the-policy-to-your-tenant"></a>Steg 5: Ladda upp principen till din klient
-1. I den [Azure-portalen](https://portal.azure.com), växla till den [kontext som din Azure AD B2C-klient](active-directory-b2c-navigate-to-b2c-context.md), och välj sedan **Azure AD B2C**.
+## <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa filen förlitande part
 
-2. Välj **Identitetsramverk**.
+Uppdatera filen för förlitande part (RP) som initierar användarresa som du skapade.
 
-3. Välj **alla principer**.
-
-4. Välj **överföra princip**.
-
-5. Välj den **Skriv över principen om den finns** markerar du kryssrutan.
-
-6. Ladda upp den *TrustFrameworkBase.xml* och *TrustFrameworkExtensions.xml* filer och se till att de valideras.
-
-## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Steg 6: Testa den anpassade principen med hjälp av kör nu
-1. Välj **Azure AD B2C-inställningar**, och välj sedan **Identitetsramverk**.
-
-    >[!NOTE]
-    >Kör nu kräver minst ett program att vara förväg registrerade på klienten. Läs hur du registrerar program i Azure AD B2C [börjar](active-directory-b2c-get-started.md) artikel eller [programregistrering](active-directory-b2c-app-registration.md) artikeln.
-
-2. Öppna **B2C_1A_signup_signin**, den förlitande part (RP) anpassa princip som du överförde och väljer sedan **kör nu**.  
-    Du bör nu kunna logga in med LinkedIn-konto.
-
-## <a name="step-7-optional-register-the-linkedin-account-claims-provider-to-the-profile-edit-user-journey"></a>Steg 7: (Valfritt) registrera LinkedIn-konto anspråk providern profilredigering användarresa
-Du kanske också vill lägga till identitetsprovider för LinkedIn-konto till din `ProfileEdit` användarresa. Att göra användaren transport tillgängliga Upprepa ”steg 4”. Den här gången väljer den `<UserJourney>` nod som innehåller `Id="ProfileEdit"`. Spara, ladda upp och testa din princip.
-
-## <a name="optional-download-the-complete-policy-files"></a>(Valfritt) Hämta de fullständiga principfilerna
-När du har slutfört den [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md) genomgången ska vi rekommenderar att du skapar ditt scenario genom att använda din egen anpassade principfiler. För referens har vi samlat [exempel principfiler](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-li-app).
+1. Skapa en kopia av *SignUpOrSignIn.xml* i din arbetskatalog och Byt namn på den. Exempel: Byt namn på den till *SignUpSignInLinkedIn.xml*.
+2. Öppna den nya filen och uppdatera värdet för den **PolicyId** attributet för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInLinkedIn`.
+3. Uppdatera värdet för **PublicPolicyUri** med URI: N för principen. Exempel:`http://contoso.com/B2C_1A_signup_signin_linkedin`
+4. Uppdatera värdet för den **ReferenceId** attributet i **DefaultUserJourney** att matcha ID för den nya användarresa som du skapade (SignUpSignLinkedIn).
+5. Spara dina ändringar, överföra filen och testa den genom att öppna den och klicka på **kör nu**.

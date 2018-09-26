@@ -1,5 +1,5 @@
 ---
-title: Läsa in belastningsutjämnare TCP-återställning på timeout för inaktivitet | Microsoft Docs
+title: Läsa in belastningsutjämnare TCP återställs med inaktiva | Microsoft Docs
 description: Belastningsutjämnare med dubbelriktad TCP RSTA paket på timeout för inaktivitet
 services: load-balancer
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: b33c701bde082404ea86c9882dcb7bf50d1f1df9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 212212d4650fe25b4ced591d4d4f1ee184e3fc44
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036191"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163332"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-timeout-public-preview"></a>Belastningsutjämnare med TCP-återställning på timeout för inaktivitet (offentlig förhandsversion)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Belastningsutjämnare med TCP-återställning på inaktiv (offentlig förhandsversion)
 
 Du kan använda [Standardbelastningsutjämnare](load-balancer-standard-overview.md) skapar du en mer förutsägbar programmets beteende för dina scenarier med dubbelriktad TCP återställer (TCP RSTA paketet) för varje konfigurerbara timeout för inaktivitet.  Standardbeteendet för Load Balancer är att släppa tyst flöden när tidsgränsen för inaktivitet i ett flöde har uppnåtts.
 
@@ -75,6 +75,7 @@ Den här parametern är giltiga för närvarande i följande regioner.  Paramete
 
 | Region |
 |---|
+| Sydostasien |
 | USA, östra 2 |
 | USA, Norra |
 | USA, Västra |
@@ -89,4 +90,4 @@ Den här tabellen kommer att uppdateras när förhandsversionen utökas till and
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
-- Lär dig mer om [utgående regler](https://aka.ms/lboutboundrules).
+- Lär dig mer om [utgående regler](load-balancer-outbound-rules-overview.md).

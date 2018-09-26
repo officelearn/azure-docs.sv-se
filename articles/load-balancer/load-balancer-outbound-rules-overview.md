@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 0732fe06db77ab96c909c5f84f69825036fedf4e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031602"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163026"
 ---
 # <a name="load-balancer-outbound-rules"></a>Utgående regler för belastningsutjämnare
 
-Azure Load Balancer tillhandahåller utgående anslutning från ett virtuellt nätverk förutom inkommande.  Utgående regler gör det enkelt att konfigurera offentliga [Standardbelastningsutjämnare](load-balancer-standard-overview.md)'s utgående nätverkstrafik adress translation (NAT).  Har du fullständig deklarativa kontroll över utgående anslutning till skala och finjustera den här möjligheten för dina specifika behov.
+Azure Load Balancer tillhandahåller utgående anslutning från ett virtuellt nätverk förutom inkommande.  Utgående regler gör det enkelt att konfigurera offentliga [Standardbelastningsutjämnare](load-balancer-standard-overview.md)'s utgående nätverksadresser.  Har du fullständig deklarativa kontroll över utgående anslutning till skala och finjustera den här möjligheten för dina specifika behov.
 
 ![Utgående regler för belastningsutjämnare](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
@@ -213,4 +213,5 @@ När du använder en intern Standard Load Balancer, är utgående NAT inte tillg
 
 - Läs om hur du använder [belastningsutjämnare för utgående anslutningar](load-balancer-outbound-connections.md).
 - Lär dig mer om [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
-- Lär dig mer om [dubbelriktad TCP-återställning på timeout för inaktivitet](https://aka.ms/lbtcpreset).
+- Lär dig mer om [dubbelriktad TCP-återställning på timeout för inaktivitet](load-balancer-tcp-reset.md).
+- [Konfigurera regler för utgående trafik med Azure CLI 2.0](configure-load-balancer-outbound-cli.md).

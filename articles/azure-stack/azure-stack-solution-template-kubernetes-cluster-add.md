@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 69bf788ef30a18bbe70e251fdd6a814d0f528f55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0a96d947bce579d2c1d7d31de83c7ef53eabd3a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994572"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165814"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Lägg till Kubernetes i Azure Stack Marketplace
 
@@ -127,14 +127,20 @@ När du uppdaterar Kubernetes-objektet, måste du ta bort objekt som finns i Mar
 
 Ta bort Kubernetes-objekt:
 
-1. Notera namnet på det aktuella objektet, till exempel `Microsoft.AzureStackKubernetesCluster.0.2.0`
+1. Ansluta till Azure Stack med PowerShell som en operatör. Anvisningar finns i [Anslut till Azure Stack med PowerShell som operatör](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-admin).
 
-1. Anslut till Azure Stack med PowerShell.
-
-1. Använd följande PowerShell-cmdlet för att ta bort objekt:
+2. Hitta det aktuella objektet i Kubernetes-kluster i galleriet.
 
     ```PowerShell  
-    $Itemname="Microsoft.AzureStackKubernetesCluster.0.2.0"
+    Get-AzsGalleryItem | Select Name
+    ```
+    
+3. Notera namnet på det aktuella objektet, till exempel `Microsoft.AzureStackKubernetesCluster.0.2.0`
+
+4. Använd följande PowerShell-cmdlet för att ta bort objekt:
+
+    ```PowerShell  
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname
     ```

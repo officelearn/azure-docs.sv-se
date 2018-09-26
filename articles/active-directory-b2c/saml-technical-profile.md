@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6dcc1abdf06df2de951bb851c8b1abe93b71a69e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 301ae251413cc174f115479e9ebef2310aa83ba7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381691"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162450"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en tekniska SAML-profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -103,10 +103,9 @@ Den **namn** attributet för protokoll-elementet måste anges till `SAML2`.
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | PartnerEntity | Ja | URL för metadata för SAML-identitetsprovider. Kopiera identitet providerrns metadata och lägga till den i CDATA-element `<![CDATA[Your IDP metadata]]>` |
-| IssuerUri | Nej | Kontrollerar värdet för **entityID** av den **EntityDescriptor** element i metadata för den tekniska profilen för Azure AD B2C. Den **entityID** attributet är den unika identifieraren för tjänstleverantören, i det här fallet den tekniska profilen för Azure AD B2C. Standardvärdet för den **entityID** är `https://login.microsoftonline.com/te/your-tenant.onmicrosoft.com/your-base-policy-name` |
 | WantsSignedRequests | Nej | Anger om den tekniska profilen måste innehålla utgående autentiseringsbegäranden signeras. Möjliga värden: `true` eller `false`. Standardvärdet är `true`. När värdet anges till `true`, **SamlMessageSigning** kryptografisk nyckel måste anges och alla utgående autentiseringsbegäranden signeras. Om värdet anges till `false`, **SigAlg** och **signatur** parametrar (frågesträng eller publicera parametern) har utelämnats från begäran. Dessa metadata styr även metadata **AuthnRequestsSigned** attribut, som är utdata i metadata för den tekniska profilen för Azure AD B2C som delas med identitetsprovidern. |
 | XmlSignatureAlgorithm | Nej | Den metod som Azure AD B2C använder för att signera SAML-begäran. Dessa metadata styr värdet för den **SigAlg** parametern (frågesträng eller publicera parameter) i SAML-begäran. Möjliga värden: `Sha256`, `Sha384`, `Sha512`, eller `Sha1`. Kontrollera att du konfigurerar signaturalgoritmen på båda sidorna med samma värde. Använd bara den algoritm som har stöd för ditt certifikat. | 
 | WantsSignedAssertions | Nej | Anger om den tekniska profilen kräver alla inkommande intyg signeras. Möjliga värden: `true` eller `false`. Standardvärdet är `true`. Om värdet anges till `true`, alla intyg avsnittet `saml:Assertion` skickas av identiteten provider för att Azure AD B2C måste signeras. Om värdet anges till `false`, identitetsprovidern bör inte registrera intyg, men även om den finns, Azure AD B2C kommer inte att verifiera signaturen. Dessa metadata styr också metadataflaggan **WantsAssertionsSigned**, vilket är utdata i metadata för den tekniska profilen för Azure AD B2C som delas med identitetsprovidern. Om du inaktiverar intyg verifieringen, du kan också inaktivera signaturverifiering svar (Mer information finns i **ResponsesSigned**). |
@@ -118,7 +117,7 @@ Den **namn** attributet för protokoll-elementet måste anges till `SAML2`.
 
 Den **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut |Obligatoriskt | Beskrivning |
+| Attribut |Krävs | Beskrivning |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Ja | X509 certifikat (RSA nyckeluppsättning) som ska användas för att signera SAML-meddelanden. Azure AD B2C använder den här nyckeln för att logga begäranden och skicka dem till identitetsleverantören. |
 | SamlAssertionDecryption |Ja | X509 certifikat (RSA nyckeluppsättning) som ska användas för att dekryptera SAML-meddelanden. Det här certifikatet ska tillhandahållas av identitetsleverantören. Azure AD B2C använder det här certifikatet för att dekryptera data som skickas av identitetsleverantören. |

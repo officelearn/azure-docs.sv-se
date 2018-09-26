@@ -1,0 +1,954 @@
+items:
+- name: Dokumentation om Azure Monitor
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Vad är Azure Monitor?
+    href: overview.md
+  - name: Varumärkesändringar
+    href: azure-monitor-rebrand.md
+- name: Snabbstarter
+  items:
+  - name: Program
+    items:
+    - name: .NET-program
+      href: ../application-insights/quick-monitor-portal.md?toc=/azure/azure-monitor/toc.json
+    - name: .NET Core-program
+      href: ../application-insights/app-insights-dotnetcore-quick-start.md?toc=/azure/azure-monitor/toc.json
+    - name: Node.js-program
+      href: ../application-insights/app-insights-nodejs-quick-start.md?toc=/azure/azure-monitor/toc.json
+    - name: Java-program
+      href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
+    - name: Mobilprogram
+      href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
+  - name: Aviseringar
+    items:
+    - name: Avisera (klassisk) om måttvillkor
+      href: ../monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md?toc=/azure/azure-monitor/toc.json
+    - name: Avisera om prenumerationsaktivitet
+      href: ../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md?toc=/azure/azure-monitor/toc.json
+  - name: Virtuella datorer
+    items:
+    - name: Samla in – virtuella Azure-datorer
+      href: ../log-analytics/log-analytics-quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json
+    - name: Samla in – Linux-dator
+      href: ../log-analytics/log-analytics-quick-collect-linux-computer.md?toc=/azure/azure-monitor/toc.json
+    - name: Samla in – Windows-dator
+      href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
+  expanded: true
+- name: Självstudier
+  items:
+  - name: 1 – Analysera data
+    href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
+  - name: 2 – Visualisera data
+    href: ../log-analytics/log-analytics-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
+  - name: 3 – Arkivera data
+    href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
+  - name: 4 – Avisera om loggdata
+    href: ../log-analytics/log-analytics-tutorial-response.md?toc=/azure/azure-monitor/toc.json
+  - name: 5 – Skala automatiskt enligt prestanda och schema
+    href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
+  - name: 6 – Hitta körningsundantag
+    href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
+  - name: 7 – Hitta prestandaproblem
+    href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
+  - name: 8 – Avisera om programhälsa
+    href: ../application-insights/app-insights-tutorial-alert.md?toc=/azure/azure-monitor/toc.json
+  - name: 9 – Förstå användare
+    href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
+  - name: 10 – Skapa anpassade instrumentpaneler
+    href: ../application-insights/app-insights-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
+- name: Exempel
+  items:
+  - name: Azure PowerShell
+    href: ../log-analytics/powershell-samples.md?toc=/azure/azure-monitor/toc.json
+- name: Begrepp
+  items:
+  - name: Azure-hantering
+    href: ../monitoring/index.md?toc=/azure/azure-monitor/toc.json
+  - name: Övervaka data
+    items:
+    - name: Mått och loggar
+      href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json
+    - name: Datakällor
+      href: ../monitoring/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
+    - name: Azure-datakällor
+      href: ../monitoring-and-diagnostics/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
+    - name: Aktivitetslogg
+      href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=/azure/azure-monitor/toc.json
+    - name: Diagnostikloggar
+      href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
+    - name: Inmatningstid för loggdata
+      href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json
+    - name: Anpassade mått till måttlager
+      href: ../monitoring-and-diagnostics/metrics-custom-overview.md?toc=/azure/azure-monitor/toc.json
+    - name: Datasäkerhet
+      items:
+      - name: Loggdata
+        href: ../log-analytics/log-analytics-data-security.md?toc=/azure/azure-monitor/toc.json
+      - name: Hantering av personliga loggdata
+        href: ../log-analytics/log-analytics-personal-data-mgmt.md?toc=/azure/azure-monitor/toc.json
+      - name: Insamling, kvarhållning och lagring av programdata
+        href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
+  - name: Insikter
+    items:
+    - name: Application Insights
+      items:
+      - name: Översikt
+        href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      - name: DevOps
+        href: ../application-insights/app-insights-detect-triage-diagnose.md?toc=/azure/azure-monitor/toc.json
+      - name: Distribuerad spårning
+        href: ../application-insights/distributed-tracing.md?toc=/azure/azure-monitor/toc.json
+      - name: Loggbaserade och föraggregerade mått
+        href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
+    - name: Containrar
+      href: https://aka.ms/AzureMonitorContainers
+    - name: Virtuella datorer
+      href: https://aka.ms/AzureMonitorVirtualMachines
+    - name: Övervakningslösningar
+      href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
+  - name: Analysera data
+    items:
+    - name: Log Analytics
+      href: ../log-analytics/log-analytics-queries.md?toc=/azure/azure-monitor/toc.json
+    - name: Loggfrågeportaler
+      href: ../log-analytics/log-analytics-log-search-portals.md?toc=/azure/azure-monitor/toc.json
+    - name: Övergång till OMS-portalen
+      items:
+      - name: Översikt
+        href: ../log-analytics/log-analytics-oms-portal-transition.md?toc=/azure/azure-monitor/toc.json
+      - name: Vanliga frågor
+        href: ../log-analytics/log-analytics-oms-portal-faq.md?toc=/azure/azure-monitor/toc.json
+  - name: Svara på incidenter
+    href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=/azure/azure-monitor/toc.json
+    items:
+    - name: Aviseringar
+      href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
+    - name: Klassiska aviseringar
+      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-classic.md?toc=/azure/azure-monitor/toc.json
+    - name: Smarta grupper
+      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json
+    - name: Automatisk skalning
+      href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
+    - name: Måttaviseringar
+      href: ../monitoring-and-diagnostics/alert-metric-overview.md?toc=/azure/azure-monitor/toc.json
+    - name: Loggaviseringar
+      href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
+    - name: Aktivitetsloggaviseringar
+      href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json
+    - name: Utöka aviseringar från Log Analytics till Azure
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
+  - name: Visualisera data
+    href: visualizations.md?toc=/azure/azure-monitor/toc.json
+  - name: Partnerintegrering
+    href: ../monitoring-and-diagnostics/monitoring-partners.md?toc=/azure/azure-monitor/toc.json
+  - name: VANLIGA FRÅGOR OCH SVAR
+    items:
+    - name: Log Analytics
+      href: ../log-analytics/log-analytics-faq.md?toc=/azure/azure-monitor/toc.json
+    - name: Application Insights
+      href: ../application-insights/app-insights-troubleshoot-faq.md?toc=/azure/azure-monitor/toc.json
+- name: Instruktionsguider
+  items:
+  - name: Planera och förbereda
+    items:
+    - name: Hantera åtkomst
+      items:
+      - name: Rollbehörigheter och säkerhet
+        href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
+      - name: Arbetsytor
+        href: ../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json
+      - name: Program
+        href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
+      - name: IP-adresser
+        href: ../application-insights/app-insights-ip-addresses.md?toc=/azure/azure-monitor/toc.json
+    - name: Övervakning av program
+      items:
+      - name: Djup diagnostik för webbappar och tjänster
+        href: ../application-insights/app-insights-devops.md?toc=/azure/azure-monitor/toc.json
+      - name: Övervaka prestanda i webbprogram
+        href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
+      - name: Avgränsa utveckling, testning och produktion
+        href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
+      - name: Övervaka appar med flera komponenter
+        href: ../application-insights/app-insights-monitor-multi-role-apps.md?toc=/azure/azure-monitor/toc.json
+      - name: Hur kan jag ... i Application Insights?
+        href: ../application-insights/app-insights-how-do-i.md?toc=/azure/azure-monitor/toc.json
+    - name: Hantera arbetsytor
+      items:
+      - name: Skapa en arbetsyta
+        items:
+        - name: Använda Azure-portalen
+          href: ../log-analytics/log-analytics-quick-create-workspace.md?toc=/azure/azure-monitor/toc.json
+        - name: Använda Azure CLI
+          href: ../log-analytics/log-analytics-quick-create-workspace-cli.md?toc=/azure/azure-monitor/toc.json
+        - name: Använda Azure PowerShell
+          href: ../log-analytics/log-analytics-quick-create-workspace-posh.md?toc=/azure/azure-monitor/toc.json
+      - name: Ta bort en arbetsyta
+        href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
+      - name: Design för tjänstleverantörer
+        href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
+    - name: Installera och konfigurera agenter
+      items:
+      - name: Agentjämförelse
+        href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
+      - name: Windows-agenter
+        href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
+      - name: VM-tillägg för Windows
+        href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+      - name: VM-tillägg för Linux
+        href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+      - name: Övervaka hybridmiljöer
+        href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
+      - name: Operations Manager
+        href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
+      - name: OMS-gateway
+        href: ../log-analytics/log-analytics-oms-gateway.md?toc=/azure/azure-monitor/toc.json
+      - name: Agenthantering
+        href: ../log-analytics/log-analytics-agent-manage.md?toc=/azure/azure-monitor/toc.json
+      - name: Azure Diagnostics-tillägg
+        href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+        items:
+        - name: Skicka till Azure Storage
+          href: ../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=/azure/azure-monitor/toc.json
+        - name: Skicka till Application Insights
+          href: ../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md?toc=/azure/azure-monitor/toc.json
+        - name: Skicka till Event Hubs
+          href: ../monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs.md?toc=/azure/azure-monitor/toc.json
+        - name: Felsökning
+          href: ../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+        - name: Aktivera diagnostikinställningar med Resource Manager-mallar
+          href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
+        - name: Förbered för JSON Lines-format för diagnostikloggar
+          href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
+        - name: Anpassade mått till måttlager – REST API
+          href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
+        - name: Gäst-OS till måttlager – virtuell Linux-dator (Telegraf)
+          href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json
+        - name: Gäst-OS till måttlager – virtuell dator
+          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json
+        - name: Gäst-OS till måttlager – VM-skalningsuppsättning
+          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md?toc=/azure/azure-monitor/toc.json
+        - name: Gäst-OS till måttlager – klassisk virtuell dator
+          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json
+        - name: Gäst-OS till måttlager – molntjänst
+          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json
+      - name: Felsöka
+        items:
+        - name: Felsöka Logs-tillägg för virtuella datorer
+          href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+        - name: Felsöka Linux-agent för Logs
+          href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
+  - name: Samla in data
+    items:
+    - name: Konfigurera program
+      items:
+      - name: Azure-appar
+        items:
+        - name: Azure-webbappar
+          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+        - name: Azure Cloud Services
+          href: ../application-insights/app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json
+        - name: Lägga till kontinuerlig övervakning
+          href: ../application-insights/app-insights-vsts-continuous-monitoring.md?toc=/azure/azure-monitor/toc.json
+        - name: Profilerare
+          href: ../application-insights/app-insights-profiler.md?toc=/azure/azure-monitor/toc.json
+        - name: Aktivera Profiler
+          href: ../application-insights/enable-profiler-compute.md?toc=/azure/azure-monitor/toc.json
+        - name: Diagnostik
+          href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+        - name: Förhandsgranskningar
+          href: ../application-insights/app-insights-previews.md?toc=/azure/azure-monitor/toc.json
+      - name: ASP.NET-appar
+        items:
+        - name: Webbappar
+          href: ../application-insights/app-insights-asp-net.md?toc=/azure/azure-monitor/toc.json
+        - name: Statusövervakare
+          href: ../application-insights/app-insights-monitor-performance-live-website-now.md?toc=/azure/azure-monitor/toc.json
+        - name: Windows-tjänster
+          href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
+        - name: Windows-skrivbordet
+          href: ../application-insights/app-insights-windows-desktop.md?toc=/azure/azure-monitor/toc.json
+        - name: ASP.NET Core
+          href: ../application-insights/app-insights-asp-net-core.md?toc=/azure/azure-monitor/toc.json
+          items:
+          - name: Profiler för Linux App Services
+            href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json
+        - name: Konsolen
+          href: ../application-insights/application-insights-console.md?toc=/azure/azure-monitor/toc.json
+        - name: Instrumentpanel för program
+          href: ../application-insights/app-insights-overview-dashboard.md?toc=/azure/azure-monitor/toc.json
+        - name: Hämta mer telemetri
+          href: ../application-insights/app-insights-asp-net-more.md?toc=/azure/azure-monitor/toc.json
+        - name: Undantag
+          href: ../application-insights/app-insights-asp-net-exceptions.md?toc=/azure/azure-monitor/toc.json
+        - name: Loggspårningar
+          href: ../application-insights/app-insights-asp-net-trace-logs.md?toc=/azure/azure-monitor/toc.json
+        - name: Prestandaräknare
+          href: ../application-insights/app-insights-performance-counters.md?toc=/azure/azure-monitor/toc.json
+        - name: Beroenden
+          href: ../application-insights/app-insights-asp-net-dependencies.md?toc=/azure/azure-monitor/toc.json
+        - name: Versionsanteckningar
+          href: ../application-insights/app-insights-annotations.md?toc=/azure/azure-monitor/toc.json
+        - name: ApplicationInsights.config
+          href: ../application-insights/app-insights-configuration-with-applicationinsights-config.md?toc=/azure/azure-monitor/toc.json
+        - name: Felsökning av ögonblicksbild
+          href: ../application-insights/app-insights-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+      - name: Java-appar
+        items:
+        - name: Webbappar
+          href: ../application-insights/app-insights-java-get-started.md?toc=/azure/azure-monitor/toc.json
+        - name: Webbappar – körtid
+          href: ../application-insights/app-insights-java-live.md?toc=/azure/azure-monitor/toc.json
+        - name: Docker-appar
+          href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
+        - name: Loggspårningar
+          href: ../application-insights/app-insights-java-trace-logs.md?toc=/azure/azure-monitor/toc.json
+        - name: Unix-mått
+          href: ../application-insights/app-insights-java-collectd.md?toc=/azure/azure-monitor/toc.json
+        - name: Beroenden
+          href: ../application-insights/app-insights-java-agent.md?toc=/azure/azure-monitor/toc.json
+        - name: Filtrera telemetri
+          href: ../application-insights/app-insights-java-filter-telemetry.md?toc=/azure/azure-monitor/toc.json
+      - name: Node.js-appar
+        items:
+        - name: Node.js
+          href: ../application-insights/app-insights-nodejs.md?toc=/azure/azure-monitor/toc.json
+      - name: Webbsidor
+        items:
+        - name: JavaScript
+          href: ../application-insights/app-insights-javascript.md?toc=/azure/azure-monitor/toc.json
+      - name: Övervaka Azure Functions
+        href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json
+      - name: Distribuerad spårning
+        items:
+        - name: Lokal vidarebefordrare
+          href: ../application-insights/opencensus-local-forwarder.md?toc=/azure/azure-monitor/toc.json
+        - name: Python
+          href: ../application-insights/opencensus-python.md?toc=/azure/azure-monitor/toc.json
+        - name: Go
+          href: ../application-insights/opencensus-go.md?toc=/azure/azure-monitor/toc.json
+      - name: Andra plattformar
+        items:
+        - name: SharePoint-webbplatser
+          href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
+        - name: Dynamics CRM
+          href: ../application-insights/app-insights-sample-mscrm.md?toc=/azure/azure-monitor/toc.json
+        - name: Fler plattformar
+          href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
+      - name: Smart identifiering
+        href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
+        items:
+        - name: Felavvikelser
+          href: ../application-insights/app-insights-proactive-failure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+        - name: Prestandaavvikelser
+          href: ../application-insights/app-insights-proactive-performance-diagnostics.md?toc=/azure/azure-monitor/toc.json
+        - name: Spårningsförsämring
+          href: ../application-insights/app-insights-proactive-trace-severity.md?toc=/azure/azure-monitor/toc.json
+        - name: Undantagsvolym
+          href: ../application-insights/app-insights-proactive-exception-volume.md?toc=/azure/azure-monitor/toc.json
+        - name: Minnesläcka
+          href: ../application-insights/app-insights-proactive-potential-memory-leak.md?toc=/azure/azure-monitor/toc.json
+        - name: Resursutnyttjande
+          href: ../application-insights/app-insights-proactive-low-utilization-cloud-resources.md?toc=/azure/azure-monitor/toc.json
+        - name: Säkerhetsidentifiering
+          href: ../application-insights/app-insights-proactive-application-security-detection-pack.md?toc=/azure/azure-monitor/toc.json
+        - name: Azure Cloud Services
+          href: ../application-insights/app-insights-proactive-cloud-services.md?toc=/azure/azure-monitor/toc.json
+        - name: Hantera regler för smart identifiering
+          href: ../application-insights/app-insights-proactive-arm-config.md?toc=/azure/azure-monitor/toc.json
+      - name: Skapa en resurs
+        href: ../application-insights/app-insights-create-new-resource.md?toc=/azure/azure-monitor/toc.json
+      - name: Felsöka
+        items:
+        - name: Inga data för .NET
+          href: ../application-insights/app-insights-asp-net-troubleshoot-no-data.md?toc=/azure/azure-monitor/toc.json
+        - name: Felsökningsprogram för ögonblicksbilder
+          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+        - name: Analytics
+          href: ../application-insights/app-insights-analytics-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+        - name: Java
+          href: ../application-insights/app-insights-java-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+        - name: Användningsanalys
+          href: ../application-insights/app-insights-usage-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+    - name: Agentdatakällor
+      href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: Windows-händelser
+        href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=/azure/azure-monitor/toc.json
+      - name: Anpassade JSON-data
+        href: ../log-analytics/log-analytics-data-sources-json.md?toc=/azure/azure-monitor/toc.json
+      - name: CollectD-prestandadata
+        href: ../log-analytics/log-analytics-data-sources-collectd.md?toc=/azure/azure-monitor/toc.json
+      - name: Nagios- och Zabbix-aviseringar
+        href: ../log-analytics/log-analytics-data-sources-alerts-nagios-zabbix.md?toc=/azure/azure-monitor/toc.json
+      - name: Syslog
+        href: ../log-analytics/log-analytics-data-sources-syslog.md?toc=/azure/azure-monitor/toc.json
+      - name: Prestandaräknare
+        href: ../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json
+      - name: Programprestanda på Linux
+        href: ../log-analytics/log-analytics-data-sources-linux-applications.md?toc=/azure/azure-monitor/toc.json
+      - name: IIS-loggar
+        href: ../log-analytics/log-analytics-data-sources-iis-logs.md?toc=/azure/azure-monitor/toc.json
+      - name: Anpassade loggar
+        href: ../log-analytics/log-analytics-data-sources-custom-logs.md?toc=/azure/azure-monitor/toc.json
+      - name: Anpassade fält
+        href: ../log-analytics/log-analytics-custom-fields.md?toc=/azure/azure-monitor/toc.json
+    - name: Azure-resurser
+      items:
+      - name: Azure-aktivitetsloggar
+        items:
+        - name: Analytics
+          href: ../log-analytics/log-analytics-activity.md?toc=/azure/azure-monitor/toc.json
+        - name: Samla in i olika prenumerationer
+          href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=/azure/azure-monitor/toc.json
+      - name: Tjänstloggar och mått
+        href: ../log-analytics/log-analytics-azure-storage.md?toc=/azure/azure-monitor/toc.json
+      - name: Diagnostik- eller loggdata från Azure Storage
+        href: ../log-analytics/log-analytics-azure-storage-iis-table.md?toc=/azure/azure-monitor/toc.json
+      - name: Azure PaaS-resurser
+        href: ../log-analytics/log-analytics-collect-azurepass-posh.md?toc=/azure/azure-monitor/toc.json
+      - name: Korrelera anpassade datakällor
+        href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
+    - name: Samla in anpassade data till Log Analytics
+      items:
+      - name: API för datainsamling
+        href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
+      - name: Data Collector API-pipelineexempel
+        href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
+      - name: Programdata
+        href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
+    - name: System Center
+      items:
+      - name: Configuration Manager
+        href: ../log-analytics/log-analytics-sccm.md?toc=/azure/azure-monitor/toc.json
+      - name: Programprestandaövervakning med SCOM
+        href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
+    - name: Dirigera data
+      items:
+      - name: Arkivera aktivitetsloggen
+        href: ../monitoring-and-diagnostics/monitoring-archive-activity-log.md?toc=/azure/azure-monitor/toc.json
+      - name: Arkivera diagnostikloggar
+        href: ../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
+      - name: Lagra diagnostikloggar
+        href: ../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md?toc=/azure/azure-monitor/toc.json
+      - name: Strömma aktivitetsloggen till Event Hubs
+        href: ../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md?toc=/azure/azure-monitor/toc.json
+      - name: Loggar och mått till Event Hub
+        href: ../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md?toc=/azure/azure-monitor/toc.json
+      - name: Diagnostikloggar till Event Hub
+        href: ../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=/azure/azure-monitor/toc.json
+      - name: Programdata till Log Analytics
+        href: ../log-analytics/log-analytics-app-insights-connector.md?toc=/azure/azure-monitor/toc.json
+      - name: Exportera programdata
+        items:
+        - name: Löpande export
+          href: ../application-insights/app-insights-export-telemetry.md?toc=/azure/azure-monitor/toc.json
+          items:
+          - name: Kodexempel
+            items:
+            - name: Exportera till SQL med Stream Analytics
+              href: ../application-insights/app-insights-code-sample-export-sql-stream-analytics.md?toc=/azure/azure-monitor/toc.json
+            - name: Exportera till Stream Analytics
+              href: ../application-insights/app-insights-export-stream-analytics.md?toc=/azure/azure-monitor/toc.json
+        - name: Exportera datamodell
+          href: ../application-insights/app-insights-export-data-model.md?toc=/azure/azure-monitor/toc.json
+  - name: Få insikter
+    items:
+    - name: Övervakning av program
+      items:
+      - name: Application Insights-portalen
+        items:
+        - name: Search
+          href: ../application-insights/app-insights-diagnostic-search.md?toc=/azure/azure-monitor/toc.json
+        - name: Mått
+          href: ../application-insights/app-insights-metrics-explorer.md?toc=/azure/azure-monitor/toc.json
+        - name: Direktsänd ström
+          href: ../application-insights/app-insights-live-stream.md?toc=/azure/azure-monitor/toc.json
+        - name: Programkarta
+          href: ../application-insights/app-insights-app-map.md?toc=/azure/azure-monitor/toc.json
+        - name: Transaktionsdiagnostik
+          href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
+        - name: HockeyApp-data
+          href: ../application-insights/app-insights-hockeyapp-bridge-app.md?toc=/azure/azure-monitor/toc.json
+      - name: Visual Studio
+        items:
+        - name: F5-insikter
+          href: ../application-insights/app-insights-visual-studio.md?toc=/azure/azure-monitor/toc.json
+        - name: Trends
+          href: ../application-insights/app-insights-visual-studio-trends.md?toc=/azure/azure-monitor/toc.json
+        - name: CodeLens
+          href: ../application-insights/app-insights-visual-studio-codelens.md?toc=/azure/azure-monitor/toc.json
+      - name: Användning
+        items:
+        - name: Översikt
+          href: ../application-insights/app-insights-usage-overview.md?toc=/azure/azure-monitor/toc.json
+        - name: Skicka användarkontext
+          href: ../application-insights/app-insights-usage-send-user-context.md?toc=/azure/azure-monitor/toc.json
+        - name: Användare, sessioner, händelser
+          href: ../application-insights/app-insights-usage-segmentation.md?toc=/azure/azure-monitor/toc.json
+        - name: Trattar
+          href: ../application-insights/usage-funnels.md?toc=/azure/azure-monitor/toc.json
+        - name: Kohorter
+          href: ../application-insights/app-insights-usage-cohorts.md?toc=/azure/azure-monitor/toc.json
+        - name: Påverkan
+          href: ../application-insights/app-insights-usage-impact.md?toc=/azure/azure-monitor/toc.json
+        - name: Kvarhållning
+          href: ../application-insights/app-insights-usage-retention.md?toc=/azure/azure-monitor/toc.json
+        - name: Användarflöden
+          href: ../application-insights/app-insights-usage-flows.md?toc=/azure/azure-monitor/toc.json
+        - name: Arbetsböcker
+          href: ../application-insights/app-insights-usage-workbooks.md?toc=/azure/azure-monitor/toc.json
+      - name: Lösning för webbappsanalys
+        href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=/azure/azure-monitor/toc.json
+    - name: Övervaka containrar
+      items:
+      - name: Översikt över containerövervakning
+        href: ../monitoring/monitoring-container-overview.md?toc=/azure/azure-monitor/toc.json
+      - name: AKS-containerhälsa
+        href: ../monitoring/monitoring-container-health.md?toc=/azure/azure-monitor/toc.json
+      - name: Övervakning av Docker- och Windows-containrar
+        href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
+      - name: Övervaka Docker-program
+        href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
+    - name: Övervaka resursgrupper
+      href: ../monitoring-and-diagnostics/resource-group-insights.md?toc=/azure/azure-monitor/toc.json
+    - name: Övervaka databaser
+      items:
+      - name: Azure SQL
+        href: ../log-analytics/log-analytics-azure-sql.md?toc=/azure/monitoring/toc.json
+      - name: SQL Server
+        href: ../log-analytics/log-analytics-sql-assessment.md?toc=/azure/monitoring/toc.json
+    - name: Övervaka nätverk
+      items:
+      - name: Nätverksanalys
+        href: ../log-analytics/log-analytics-azure-networking-analytics.md?toc=/azure/azure-monitor/toc.json
+      - name: Övervakning av nätverksprestanda
+        items:
+        - name: Lösningsöversikt
+          href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=/azure/azure-monitor/toc.json
+        - name: Prestandaövervakning
+          href: ../log-analytics/log-analytics-network-performance-monitor-performance-monitor.md?toc=/azure/azure-monitor/toc.json
+        - name: Tjänstslutpunkt
+          href: ../log-analytics/log-analytics-network-performance-monitor-service-endpoint.md?toc=/azure/azure-monitor/toc.json
+        - name: ExpressRoute
+          href: ../log-analytics/log-analytics-network-performance-monitor-expressroute.md?toc=/azure/azure-monitor/toc.json
+        - name: Prissättning
+          href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md?toc=/azure/azure-monitor/toc.json
+    - name: Övervakning av virtuella datorer
+      items:
+      - name: Agenthälsa
+        href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
+      - name: Kapacitet och prestanda
+        href: ../log-analytics/log-analytics-capacity.md?toc=/azure/azure-monitor/toc.json
+      - name: VMWare-analys
+        href: ../log-analytics/log-analytics-vmware.md?toc=/azure/azure-monitor/toc.json
+      - name: Wire Data
+        href: ../log-analytics/log-analytics-wire-data.md?toc=/azure/azure-monitor/toc.json
+      - name: Tjänstkarta
+        items:
+        - name: Användning
+          href: ../monitoring/monitoring-service-map.md?toc=/azure/azure-monitor/toc.json
+        - name: Konfigurera
+          href: ../monitoring/monitoring-service-map-configure.md?toc=/azure/azure-monitor/toc.json
+        - name: Integration med Operations Manager
+          href: ../monitoring/monitoring-service-map-scom.md?toc=/azure/azure-monitor/toc.json
+    - name: Övervaka Azure-resurser
+      items:
+      - name: Key Vault-analys
+        href: ../log-analytics/log-analytics-azure-key-vault.md?toc=/azure/azure-monitor/toc.json
+      - name: Service Fabric-analys
+        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md?toc=/azure/azure-monitor/toc.json
+    - name: Övervaka andra resurser
+      items:
+      - name: Utvärdera AD-hälsa
+        href: ../log-analytics/log-analytics-ad-assessment.md?toc=/azure/azure-monitor/toc.json
+      - name: AD-replikeringsstatus
+        href: ../log-analytics/log-analytics-ad-replication-status.md?toc=/azure/azure-monitor/toc.json
+      - name: DNS
+        href: ../log-analytics/log-analytics-dns.md?toc=/azure/azure-monitor/toc.json
+      - name: Office 365
+        href: ../monitoring/monitoring-solution-office-365.md?toc=/azure/azure-monitor/toc.json
+      - name: Utvärdera Operations Manager
+        href: ../log-analytics/log-analytics-scom-assessment.md?toc=/azure/azure-monitor/toc.json
+      - name: Surface Hub
+        href: ../log-analytics/log-analytics-surface-hubs.md?toc=/azure/azure-monitor/toc.json
+    - name: Använda övervakningslösningar
+      items:
+      - name: Översikt
+        href: ../monitoring/monitoring-solutions.md?toc=/azure/azure-monitor/toc.json
+      - name: Mållösningar
+        href: ../monitoring/monitoring-solution-targeting.md?toc=/azure/azure-monitor/toc.json
+  - name: Visualisera data
+    items:
+    - name: Vyer
+      href: ../log-analytics/log-analytics-view-designer.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: Panelreferens
+        href: ../log-analytics/log-analytics-view-designer-tiles.md?toc=/azure/azure-monitor/toc.json
+      - name: Referens för visualiseringsdel
+        href: ../log-analytics/log-analytics-view-designer-parts.md?toc=/azure/azure-monitor/toc.json
+      - name: Filter
+        href: ../log-analytics/log-analytics-view-designer-filters.md?toc=/azure/azure-monitor/toc.json
+    - name: Instrumentpaneler
+      items:
+      - name: Logs
+        href: ../log-analytics/log-analytics-dashboards.md?toc=/azure/azure-monitor/toc.json
+      - name: Program
+        href: ../application-insights/app-insights-dashboards.md?toc=/azure/azure-monitor/toc.json
+    - name: Power BI
+      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: Exportera loggdata
+        href: ../log-analytics/log-analytics-powerbi.md?toc=/azure/azure-monitor/toc.json
+      - name: Exportera programdata
+        href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
+      - name: Skicka mått till Grafana
+  - name: Analysera data
+    items:
+    - name: Skapa måttdiagram i Metrics Explorer
+      href: ../monitoring-and-diagnostics/monitoring-metric-charts.md?toc=/azure/azure-monitor/toc.json
+    - name: Visa händelser i aktivitetsloggen
+      href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
+    - name: Visa tjänstmeddelanden
+      href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+    - name: Frågeloggdata
+      items:
+      - name: Språkreferens
+        href: https://docs.loganalytics.io
+      - name: Kom igång
+        items:
+        - name: Kom igång med Analytics-portalen
+          href: ../log-analytics/query-language/get-started-analytics-portal.md?toc=/azure/azure-monitor/toc.json
+        - name: Kom igång med frågor
+          href: ../log-analytics/query-language/get-started-queries.md?toc=/azure/azure-monitor/toc.json
+        - name: Sökfrågor
+          href: ../log-analytics/query-language/search-queries.md?toc=/azure/azure-monitor/toc.json
+        - name: Användbara operatorer
+          href: ../log-analytics/query-language/useful-operators.md?toc=/azure/azure-monitor/toc.json
+      - name: Lektioner
+        items:
+        - name: Strängåtgärder
+          href: ../log-analytics/query-language/string-operations.md?toc=/azure/azure-monitor/toc.json
+        - name: Åtgärder för datum och tid
+          href: ../log-analytics/query-language/datetime-operations.md?toc=/azure/azure-monitor/toc.json
+        - name: Aggregeringsfunktioner
+          href: ../log-analytics/query-language/aggregations.md?toc=/azure/azure-monitor/toc.json
+        - name: Avancerade aggregeringar
+          href: ../log-analytics/query-language/advanced-aggregations.md?toc=/azure/azure-monitor/toc.json
+        - name: Kopplingar
+          href: ../log-analytics/query-language/joins.md?toc=/azure/azure-monitor/toc.json
+        - name: JSON och datastrukturer
+          href: ../log-analytics/query-language/json-data-structures.md?toc=/azure/azure-monitor/toc.json
+        - name: Avancerad frågeskrivning
+          href: ../log-analytics/query-language/advanced-query-writing.md?toc=/azure/azure-monitor/toc.json
+        - name: Grafer och diagram
+          href: ../log-analytics/query-language/charts.md?toc=/azure/azure-monitor/toc.json
+      - name: Översiktsblad
+        items:
+        - name: SQL
+          href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+        - name: Splunk
+          href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+      - name: Programdata
+        href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+      - name: Sökningar mellan resurser
+        href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
+      - name: Utför åtgärder från sökresultat
+        href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
+      - name: Använda datorgrupper
+        href: ../log-analytics/log-analytics-computer-groups.md?toc=/azure/azure-monitor/toc.json
+      - name: Flödesanslutning
+        href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
+      - name: Loggsöknings-API
+        href: https://dev.loganalytics.io/
+  - name: Svara på incidenter
+    items:
+    - name: Aviseringar
+      items:
+      - name: Skapa aviseringsregler
+        items:
+        - name: Konfigurera nya mått eller loggaviseringar i Azure Portal
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=/azure/azure-monitor/toc.json
+        - name: Konfigurera klassiska aviseringar i Azure Portal
+          href: ../monitoring-and-diagnostics/insights-alerts-portal.md?toc=/azure/azure-monitor/toc.json
+        - name: Konfigurera klassiska aviseringar med CLI
+          href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
+        - name: Konfigurera klassiska aviseringar med Azure PowerShell
+          href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
+        - name: Kopiera aviseringar från OMS-portalen till Azure Portal
+          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
+      - name: Använda måttaviseringar
+        items:
+        - name: Skapa, visa och hantera måttaviseringar i Azure Monitor
+          href: ../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json
+        - name: Skapa, visa och hantera klassiska måttaviseringar i Azure Monitor
+          href: ../monitoring-and-diagnostics/alert-metric-classic.md?toc=/azure/azure-monitor/toc.json
+        - name: Aviseringar med dynamiska tröskelvärden
+          href: ../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md?toc=/azure/azure-monitor/toc.json
+        - name: Konfigurera måttaviseringar för loggar
+          href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
+        - name: Skapa en nyare måttavisering med en Resource Manager-mall
+          href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
+        - name: Skapa en klassisk måttavisering med en Resource Manager-mall
+          href: ../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md?toc=/azure/azure-monitor/toc.json
+        - name: Få en klassisk måttavisering att anropa en webhook
+          href: ../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=/azure/azure-monitor/toc.json
+      - name: Använda loggaviseringar
+        items:
+        - name: Konfigurera aviseringar för analysfråga
+          href: ../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json
+        - name: Webhook-åtgärder för loggaviseringar
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
+        - name: Skapa en loggavisering med en Resource Manager-mall
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md?toc=/azure/azure-monitor/toc.json
+      - name: Använda aktivitetsloggaviseringar
+        items:
+        - name: Konfigurera aviseringar i en händelse i aktivitetsloggen
+          href: ../monitoring-and-diagnostics/alert-activity-log.md?toc=/azure/azure-monitor/toc.json
+        - name: Skapa aviseringar för aktivitetsloggen med Resource Manager
+          href: ../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
+        - name: Migrera till aktivitetsloggsaviseringar
+          href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
+        - name: Konfigurera aviseringar för tjänstmeddelanden
+          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+      - name: Använda programaviseringar
+        items:
+        - name: Tillgänglighet
+          href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=/azure/azure-monitor/toc.json
+        - name: Måttaviseringar
+          href: ../application-insights/app-insights-alerts.md?toc=/azure/azure-monitor/toc.json
+      - name: Använda åtgärdsgrupper med aviseringar
+        items:
+        - name: Skapa åtgärdsgrupper
+          href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=/azure/azure-monitor/toc.json
+        - name: Lär dig mer om webhook-schemat
+          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md?toc=/azure/azure-monitor/toc.json
+        - name: Beteende för SMS-aviseringar
+          href: ../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md?toc=/azure/azure-monitor/toc.json
+        - name: Begränsningar för aviseringsfrekvensen
+          href: ../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md?toc=/azure/azure-monitor/toc.json
+        - name: Skapa åtgärdsgrupper med Resource Manager
+          href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
+        - name: Implementera en Logikapp-åtgärd
+          href: ../monitoring-and-diagnostics/monitoring-action-groups-logic-app.md?toc=/azure/azure-monitor/toc.json
+      - name: Aviseringar från Operations Manager
+        href: ../log-analytics/log-analytics-solution-alert-management.md?toc=/azure/azure-monitor/toc.json
+      - name: Hantera aviseringar
+        items:
+        - name: Hantera aviseringsinstanser
+          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-instances.md?toc=/azure/azure-monitor/toc.json
+        - name: Hantera smarta grupper
+          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md?toc=/azure/azure-monitor/toc.json
+        - name: Hantera tillstånd för aviseringar och smarta grupper
+          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-states.md?toc=/azure/azure-monitor/toc.json
+        - name: Hantera aviseringar från andra övervakningstjänster
+          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-nagios-zabbix-scom.md?toc=/azure/azure-monitor/toc.json
+    - name: Automatisk skalning
+      items:
+      - name: Genomgång av automatisk skalning
+        href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=/azure/azure-monitor/toc.json
+      - name: Förstå inställningarna för automatisk skalning
+        href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
+      - name: Bästa praxis
+        href: ../monitoring-and-diagnostics/insights-autoscale-best-practices.md?toc=/azure/azure-monitor/toc.json
+      - name: Vanliga mått
+        href: ../monitoring-and-diagnostics/insights-autoscale-common-metrics.md?toc=/azure/azure-monitor/toc.json
+      - name: Vanliga mönster
+        href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
+      - name: Skala automatiskt med anpassat mått
+        href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
+      - name: VM Scale Sets för automatisk skalning med Resource Manager-mallar
+        href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md?toc=/azure/azure-monitor/toc.json
+      - name: Skala datorer i en skalningsuppsättning för virtuella datorer automatiskt
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
+      - name: Konfigurera webhooks och e-postaviseringar med automatisk skalning
+        href: ../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md?toc=/azure/azure-monitor/toc.json
+    - name: Tjänstmeddelanden
+      items:
+      - name: Visa tjänstmeddelanden
+        href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+      - name: Konfigurera aviseringar för tjänstmeddelanden
+        href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+    - name: IT Service Management
+      items:
+      - name: IT Service Management Connector
+        href: ../log-analytics/log-analytics-itsmc-overview.md?toc=/azure/azure-monitor/toc.json
+      - name: IT Service Management-anslutningar
+        href: ../log-analytics/log-analytics-itsmc-connections.md?toc=/azure/azure-monitor/toc.json
+      - name: Skapa Service Manager-webbapp
+        href: ../log-analytics/log-analytics-itsmc-service-manager-script.md?toc=/azure/azure-monitor/toc.json
+  - name: Hantera användning och kostnad
+    items:
+    - name: Användning och uppskattade kostnader
+      href: ../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md?toc=/azure/azure-monitor/toc.json
+    - name: Volym och kvarhållning för programdata
+      href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
+    - name: Information om Enterprise-prenumerationsavtal för program
+      href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=/azure/azure-monitor/toc.json
+    - name: Volym och kvarhållning för loggdata
+      href: ../log-analytics/log-analytics-manage-cost-storage.md?toc=/azure/azure-monitor/toc.json
+    - name: Övervaka användning av loggdata
+      href: ../log-analytics/log-analytics-usage.md?toc=/azure/azure-monitor/toc.json
+  - name: Automatisera
+    items:
+    - name: PowerShell
+      items:
+      - name: Azure PowerShell-exempel
+        href: ../monitoring-and-diagnostics/insights-powershell-samples.md?toc=/azure/azure-monitor/toc.json
+      - name: PowerShell-cmdletar
+        href: ../log-analytics/log-analytics-powershell-workspace-configuration.md?toc=/azure%monitoring-and-diagnostics/toc.json
+      - name: Program
+        items:
+        - name: Skapa Application Insights-resurser
+          href: ../application-insights/app-insights-powershell.md?toc=/azure/azure-monitor/toc.json
+        - name: Skapa resurser
+          href: ../application-insights/app-insights-powershell-script-create-resource.md?toc=/azure/azure-monitor/toc.json
+        - name: Ange aviseringar
+          href: ../application-insights/app-insights-powershell-alerts.md?toc=/azure/azure-monitor/toc.json
+        - name: Hämta Azure Diagnostics
+          href: ../application-insights/app-insights-powershell-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+    - name: Azure CLI-exempel
+      href: ../monitoring-and-diagnostics/insights-cli-samples.md?toc=/azure/azure-monitor/toc.json
+    - name: Mallar för Resurshanteraren
+      href: ../log-analytics/log-analytics-template-workspace-configuration.md?toc=/azure%monitoring-and-diagnostics/toc.json
+    - name: API
+      items:
+      - name: Genomgång med REST API
+        href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
+      - name: Aviserings-API
+        href: ../log-analytics/log-analytics-api-alerts.md?toc=/azure%monitoring-and-diagnostics/toc.json
+    - name: Program
+      items:
+      - name: Automatisera med Microsoft Flow
+        href: ../application-insights/app-insights-automate-with-flow.md?toc=/azure/azure-monitor/toc.json
+      - name: Automatisera med Azure Logic App
+        href: ../application-insights/automate-with-logic-apps.md?toc=/azure/azure-monitor/toc.json
+      - name: Anpassade e-postrapporter
+        href: ../application-insights/automate-custom-reports.md?toc=/azure/azure-monitor/toc.json
+  - name: Utöka
+    items:
+    - name: Program
+      items:
+      - name: API för anpassade händelser och mått
+        href: ../application-insights/app-insights-api-custom-events-metrics.md?toc=/azure/azure-monitor/toc.json
+      - name: Spåra anpassade åtgärder i .NET SDK
+        href: ../application-insights/application-insights-custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json
+      - name: Filtrera och förbearbeta telemetri
+        href: ../application-insights/app-insights-api-filtering-sampling.md?toc=/azure/azure-monitor/toc.json
+      - name: Samling
+        href: ../application-insights/app-insights-sampling.md?toc=/azure/azure-monitor/toc.json
+    - name: Övervakningslösningar
+      items:
+      - name: Utforma och skapa
+        href: ../monitoring/monitoring-solutions-creating.md?toc=/azure/azure-monitor/toc.json
+      - name: Lösningsfil
+        href: ../monitoring/monitoring-solutions-solution-file.md?toc=/azure/azure-monitor/toc.json
+      - name: Automation-resurser
+        href: ../monitoring/monitoring-solutions-resources-automation.md?toc=/azure/azure-monitor/toc.json
+      - name: Loggsökningar och aviseringar
+        href: ../monitoring/monitoring-solutions-resources-searches-alerts.md?toc=/azure/azure-monitor/toc.json
+      - name: Vyer
+        href: ../monitoring/monitoring-solutions-resources-views.md?toc=/azure/azure-monitor/toc.json
+      - name: Bästa praxis
+        href: ../monitoring/monitoring-solutions-best-practices.md?toc=/azure/azure-monitor/toc.json
+      - name: Samla in övervakningsdata från ett runbook-flöde
+        href: ../monitoring/monitoring-runbook-datacollect.md?toc=/azure/azure-monitor/toc.json
+- name: Referens
+  items:
+  - name: Application Insights
+    items:
+    - name: Automatisk insamling för beroenden
+      href: ../application-insights/auto-collect-dependencies.md?toc=/azure/azure-monitor/toc.json
+    - name: Telemetrikorrelation
+      href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
+  - name: Application Insights-datamodell
+    items:
+    - name: Översikt
+      href: ../application-insights/application-insights-data-model.md?toc=/azure/azure-monitor/toc.json
+    - name: Förfrågan
+      href: ../application-insights/application-insights-data-model-request-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Beroende
+      href: ../application-insights/application-insights-data-model-dependency-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Undantag
+      href: ../application-insights/application-insights-data-model-exception-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Spårning
+      href: ../application-insights/application-insights-data-model-trace-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Händelse
+      href: ../application-insights/application-insights-data-model-event-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Mått
+      href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
+    - name: Kontext
+      href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
+  - name: Azure CLI
+    href: /cli/azure/monitor?view=azure-cli-latest
+  - name: Azure PowerShell
+    items:
+    - name: Övervaka
+      href: /powershell/module/azurerm.insights
+    - name: Logs
+      href: /powershell/module/azurerm.operationalinsights
+  - name: REST-API
+    items:
+    - name: Övervaka
+      href: /rest/api/monitor/
+    - name: Logs
+      href: /rest/api/loganalytics
+  - name: Mått
+    items:
+    - name: Mått som stöds
+      href: ../monitoring-and-diagnostics/monitoring-supported-metrics.md?toc=/azure/azure-monitor/toc.json
+    - name: Mått som stöds för nyare aviseringar
+      href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
+  - name: Scheman
+    items:
+    - name: Tjänster, kategorier och scheman för diagnostikloggar
+      href: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md?toc=/azure/azure-monitor/toc.json
+    - name: Händelseschema för aktivitetslogg
+      href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
+    - name: Schema för Azure Diagnostics-tillägg
+      href: ../monitoring-and-diagnostics/azure-diagnostics-schema.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: 1.3 och senare
+        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md?toc=/azure/azure-monitor/toc.json
+      - name: "1.2"
+        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md?toc=/azure/azure-monitor/toc.json
+      - name: "1"
+        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=/azure/azure-monitor/toc.json
+- name: Resurser
+  items:
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/log-analytics/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Nyheter
+    items:
+    - name: Application Insights-tjänstuppdateringar
+      href: https://azure.microsoft.com/updates/?product=application-insights
+    - name: Log Analytics-tjänstuppdateringar
+      href: https://azure.microsoft.com/updates/?product=log-analytics
+    - name: Viktig information om SDK
+      href: ../application-insights/app-insights-release-notes.md
+    - name: Viktig information för Developer Analytics Tools
+      href: ../application-insights/app-insights-release-notes-vsix.md
+  - name: Windows Analytics
+    href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+  - name: Videoklipp
+    href: https://azure.microsoft.com/resources/videos/index/?services=monitor
+  - name: Snabbstartsmallar
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=monitoring
+  - name: Kodexempel
+    href: https://azure.microsoft.com/resources/samples/?service=monitor
+ms.openlocfilehash: c5f69264c293cb5e10c016fc79bc86dd091da533
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981822"

@@ -1,0 +1,54 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 54de8d6aa1ee06c1d9500490eb93a5ea37ecb6a4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961203"
+documentType: LandingData
+title: Azure Database for MariaDB-dokumentation
+metadata:
+  title: Dokumentation om Azure MariaDB – självstudier, API-referens | Microsoft Docs
+  description: Azure Database for MariaDB är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare baserat på MariaDB-databasmotorn för öppen källkod.
+  author: czeumault
+  manager: carolz
+  ms.service: mariadb
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/13/2017
+  ms.author: carolz
+abstract:
+  description: Azure Database for MariaDB är en relationsdatabastjänst baserad på MariaDB-servermotorn för öppen källkod.  Det är en fullständigt hanterad databas som tjänst, för hantering av verksamhetskritisk arbetsbelastning med förutsägbara prestanda och dynamisk skalbarhet. Utveckla program med Azure Database for MariaDB och använd valfria verktyg för öppen källkod och plattform. Lär dig hur du använder Azure Database for MariaDB med våra snabbstarter, självstudier och exempel.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: 'Lär dig hur du skapar en MariaDB-databas på Azure med hjälp av:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
+    - image:
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: 'Lär dig hur du utformar din databas och utvecklar appar:'
+  - type: list
+    style: ordered
+    items:
+    - html: Utforma en databas&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure-portalen</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Kommandorad
+      html: <p><a href="/cli/azure/mariadb">Azure CLI</a></p>

@@ -1,175 +1,200 @@
+items:
 - name: Azure DB för PostgreSQL-dokument
   href: index.yml
 - name: Översikt
   items:
-    - name: Azure DB för PostgreSQL
-      href: overview.md
+  - name: Azure DB för PostgreSQL
+    href: overview.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Skapa DB – Portal
-      href: quickstart-create-server-database-portal.md
-    - name: Skapa DB – Azure CLI
-      href: quickstart-create-server-database-azure-cli.md
-    - name: Ansluta och fråga
-      items:
-        - name: Python
-          href: connect-python.md
-        - name: Node.js
-          href: connect-nodejs.md
-        - name: Java
-          href: connect-java.md
-        - name: Ruby
-          href: connect-ruby.md
-        - name: PHP
-          href: connect-php.md
-        - name: .NET
-          href: connect-csharp.md
-        - name: Go
-          href: connect-go.md
+  - name: Skapa DB – Portal
+    href: quickstart-create-server-database-portal.md
+  - name: Skapa DB – Azure CLI
+    href: quickstart-create-server-database-azure-cli.md
+  - name: Ansluta och fråga
+    items:
+    - name: Python
+      href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: PHP
+      href: connect-php.md
+    - name: .NET
+      href: connect-csharp.md
+    - name: Go
+      href: connect-go.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: 1 – Utforma en databas
-      items:
-        - name: Azure Portal
-          href: tutorial-design-database-using-azure-portal.md
-        - name: Azure CLI
-          href: tutorial-design-database-using-azure-cli.md
-    - name: '2 – Utforma webbapp: Python'
-      href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+  - name: 1 – Utforma en databas
+    items:
+    - name: Azure Portal
+      href: tutorial-design-database-using-azure-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-using-azure-cli.md
+  - name: '2 – Utforma webbapp: Python'
+    href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+  - name: 3 – Övervaka och finjustera
+    href: tutorial-monitor-and-tune.md
 - name: Exempel
   items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
 - name: Begrepp
   items:
-    - name: Databas och servrar
-      items:
-        - name: Servrar
-          href: concepts-servers.md
-        - name: Versioner som stöds
-          href: concepts-supported-versions.md
-        - name: PostgreSQL-tillägg
-          href: concepts-extensions.md
-        - name: Serverloggar
-          href: concepts-server-logs.md
-        - name: Hög tillgänglighet
-          href: concepts-high-availability.md
-    - name: Resurser
-      items:
-        - name: Prisnivåer
-          href: concepts-pricing-tiers.md
-        - name: Begränsningar
-          href: concepts-limits.md
-    - name: Dataåtkomst och säkerhet
-      items:
-        - name: Brandväggsregler
-          href: concepts-firewall-rules.md
-        - name: Konfigurera SSL
-          href: concepts-ssl-connection-security.md
-        - name: VNet
-          href: concepts-data-access-and-security-vnet.md
-    - name: Verksamhetskontinuitet
-      items:
-        - name: Översikt
-          href: concepts-business-continuity.md
-        - name: Säkerhetskopiering och återställning
-          href: concepts-backup.md
-    - name: Övervaka
+  - name: Databas och servrar
+    items:
+    - name: Servrar
+      href: concepts-servers.md
+    - name: Versioner som stöds
+      href: concepts-supported-versions.md
+    - name: PostgreSQL-tillägg
+      href: concepts-extensions.md
+    - name: Serverloggar
+      href: concepts-server-logs.md
+    - name: Hög tillgänglighet
+      href: concepts-high-availability.md
+  - name: Resurser
+    items:
+    - name: Prisnivåer
+      href: concepts-pricing-tiers.md
+    - name: Begränsningar
+      href: concepts-limits.md
+  - name: Dataåtkomst och säkerhet
+    items:
+    - name: Brandväggsregler
+      href: concepts-firewall-rules.md
+    - name: Konfigurera SSL
+      href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-and-security-vnet.md
+  - name: Verksamhetskontinuitet
+    items:
+    - name: Översikt
+      href: concepts-business-continuity.md
+    - name: Säkerhetskopiering och återställning
+      href: concepts-backup.md
+  - name: Övervaka och finjustera
+    items:
+    - name: Övervaka och finjustera
       href: concepts-monitoring.md
-    - name: Utveckling
+    - name: Query Store
       items:
-        - name: Anslutningsbibliotek
-          href: concepts-connection-libraries.md
+      - name: Query Store
+        href: concepts-query-store.md
+      - name: Query Store-användningsscenarier
+        href: concepts-query-store-scenarios.md
+      - name: Metodtips för Query Store
+        href: concepts-query-store-best-practices.md
+    - name: Query Performance Insight
+      href: concepts-query-performance-insight.md
+    - name: Prestandarekommendationer
+      href: concepts-performance-recommendations.md
+  - name: Utveckling
+    items:
+    - name: Anslutningsbibliotek
+      href: concepts-connection-libraries.md
 - name: Instruktionsguider
   items:
-    - name: Skapa användare
-      href: howto-create-users.md
-    - name: Hantera brandväggen
-      items:
-        - name: Azure Portal
-          href: howto-manage-firewall-using-portal.md
-        - name: Azure CLI
-          href: howto-manage-firewall-using-cli.md
-    - name: Återställ en server
-      items:
-        - name: Azure Portal
-          href: howto-restore-server-portal.md
-        - name: Azure CLI
-          href: howto-restore-server-cli.md
-    - name: Migrera en databas
-      items:
-        - name: Dumpa och återställa
-          href: howto-migrate-using-dump-and-restore.md
-        - name: Importera och exportera
-          href: howto-migrate-using-export-and-import.md
-        - name: Minimal stilleståndstid vid migrering
-          href: howto-migrate-online.md
-    - name: Konfigurera serverparametrar
-      items:
-        - name: Azure Portal
-          href: howto-configure-server-parameters-using-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-parameters-using-cli.md
-    - name: Åtkomst till serverloggar
-      items:
-        - name: Azure Portal
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-using-cli.md
-    - name: Övervaka
-      items:
-        - name: Skapa aviseringar för mått
-          href: howto-alert-on-metric.md
-    - name: Virtual Network
-      items:
-        - name: Azure Portal
-          href: howto-manage-vnet-using-portal.md
-        - name: Azure CLI
-          href: howto-manage-vnet-using-cli.md
+  - name: Skapa användare
+    href: howto-create-users.md
+  - name: Hantera brandväggen
+    items:
+    - name: Azure Portal
+      href: howto-manage-firewall-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-firewall-using-cli.md
+  - name: Återställ en server
+    items:
+    - name: Azure Portal
+      href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
+  - name: Migrera en databas
+    items:
+    - name: Dumpa och återställa
+      href: howto-migrate-using-dump-and-restore.md
+    - name: Importera och exportera
+      href: howto-migrate-using-export-and-import.md
+    - name: Minimal stilleståndstid vid migrering
+      href: howto-migrate-online.md
+  - name: Konfigurera serverparametrar
+    items:
+    - name: Azure Portal
+      href: howto-configure-server-parameters-using-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-using-cli.md
+  - name: Åtkomst till serverloggar
+    items:
+    - name: Azure Portal
+      href: howto-configure-server-logs-in-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-logs-using-cli.md
+  - name: Övervaka
+    items:
+    - name: Skapa aviseringar för mått
+      href: howto-alert-on-metric.md
+  - name: Virtual Network
+    items:
+    - name: Azure Portal
+      href: howto-manage-vnet-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-using-cli.md
 - name: Referens
   items:
-    - name: Azure CLI
-      href: /cli/azure/postgres
-    - name: REST-API
-      href: /rest/api/postgresql
+  - name: Azure CLI
+    href: /cli/azure/postgres
+  - name: REST-API
+    href: /rest/api/postgresql
 - name: Resurser
   items:
-    - name: Distributionsmallar
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/postgresql/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
-    - name: Videoklipp
+  - name: Utveckla dina färdigheter med Microsoft Learn
+    href: /learn/browse/
+  - name: Distributionsmallar
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/postgresql/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+  - name: Videoklipp
+    items:
+    - name: Produktvideor
+      href: videos.md
+    - name: Videoserier med instruktioner
       items:
-        - name: Produktvideor
-          href: videos.md
-        - name: Videoserier med instruktioner
-          items:
-            - name: Lär dig mer om produktfunktioner och fördelar
-              href: 'https://aka.ms/postg-intro-vid'
-            - name: Migrera din PostgreSQL-app till Azure
-              href: 'https://aka.ms/postg-migrate-vid'
-            - name: Skapa intelligenta appar med Cognitive Services
-              href: 'https://aka.ms/postg-cogsvs-vid'
-            - name: Anslut behållare med OSBA
-              href: 'https://aka.ms/postg-osba-vid'
-            - name: Anslut din apps data till Power BI
-              href: 'https://aka.ms/postg-powerbi-vid'
-    - name: Feedback-forum
-      href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
-    - name: Regional tillgänglighet
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Supportalternativ
-      href: 'https://azure.microsoft.com/support/options/'
-    - name: Kundberättelser
-      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'
-    - name: Partner
-      href: partners-migration-postgresql.md
-    - name: Guide för databasmigrering
-      href: 'https://datamigration.microsoft.com/'
+      - name: Lär dig mer om produktfunktioner och fördelar
+        href: https://aka.ms/postg-intro-vid
+      - name: Migrera din PostgreSQL-app till Azure
+        href: https://aka.ms/postg-migrate-vid
+      - name: Skapa intelligenta appar med Cognitive Services
+        href: https://aka.ms/postg-cogsvs-vid
+      - name: Anslut containrar med OSBA
+        href: https://aka.ms/postg-osba-vid
+      - name: Anslut din apps data till Power BI
+        href: https://aka.ms/postg-powerbi-vid
+  - name: Feedback-forum
+    href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+  - name: Supportalternativ
+    href: https://azure.microsoft.com/support/options/
+  - name: Kundberättelser
+    href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"
+  - name: Partner
+    href: partners-migration-postgresql.md
+  - name: Guide för databasmigrering
+    href: https://datamigration.microsoft.com/
+ms.openlocfilehash: c6e7a97d384fa6f8cbc82ed2c7722f1f93085153
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967837"

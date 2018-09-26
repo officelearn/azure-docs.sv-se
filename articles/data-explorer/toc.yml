@@ -1,0 +1,62 @@
+items:
+- name: Dokumentation om Azure Data Explorer
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Vad är Data Explorer?
+    href: data-explorer-overview.md
+- name: Snabbstarter
+  items:
+  - name: Skapa ett kluster – Azure-portalen
+    href: create-cluster-database-portal.md
+  - name: Mata in data
+    items:
+    - name: Strömma data – Event Hub
+      href: ingest-data-event-hub.md
+    - name: Batchbearbeta data – Python
+      href: python-ingest-data.md
+    expanded: true
+  - name: Frågedata
+    items:
+    - name: Webbgränssnitt
+      href: web-query-data.md
+    - name: Python
+      href: python-query-data.md
+    expanded: true
+  expanded: true
+- name: Självstudier
+  items:
+  - name: Visualisera data – Power BI
+    href: visualize-power-bi.md
+- name: Begrepp
+  items:
+  - name: Översikt över datainmatning
+    href: ingest-data-overview.md
+- name: Instruktionsguider
+  items:
+  - name: Skriva frågor
+    href: write-queries.md
+  - name: Mata in exempeldata
+    href: ingest-sample-data.md
+  - name: Hantera databasbehörigheter
+    href: manage-database-permissions.md
+  - name: Kontrollera klusterhälsa
+    href: check-cluster-health.md
+  - name: Felsökning
+    items:
+    - name: Skapa ett kluster
+      href: troubleshoot-create-cluster.md
+    - name: Ansluta till ett kluster
+      href: troubleshoot-connect-cluster.md
+    - name: Arbeta med databaser och tabeller
+      href: troubleshoot-database-table.md
+- name: Referens
+  items:
+  - name: Språkreferens
+    href: https://aka.ms/kustolangref
+ms.openlocfilehash: 6373afdadf9d3916cb8e10be976d141ba55177cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964947"

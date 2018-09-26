@@ -1,47 +1,57 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: cad92cb36f3e5e038186e9b97f30bed9525e2fea
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978751"
 documentType: LandingData
 title: Azure Cost Management-dokumentation
 metadata:
   title: Dokumentation om Cost Management – Självstudier, API-referens | Microsoft Docs
-  description: Azure Cost Management är en kostnadshanteringslösning med flera moln som hjälper dig att bättre använda Azure och andra molnresurser. Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med våra snabbstarter och självstudier.
+  description: Azure Cost Management är en kostnadshanteringslösning som hjälper dig att övervaka och kontrollera Azure-utgifter och optimera resursanvändning. Lär dig hur du analyserar kostnader, skapar och hanterar budgetar, exporterar data, och granskar och arbetar med rekommendationer med våra snabbstarter och självstudier.
   services: cost-management
   author: bandersmsft
-  manager: carmonm
+  manager: dougeby
   ms.service: cost-management
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/27/2018
+  ms.date: 09/14/2019
   ms.author: banders
-  ms.openlocfilehash: d6fa2486944fdecab67996bd7a8c7f656ffb2e72
-  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/16/2018
-  ms.locfileid: "29935340"
 abstract:
-  description: Azure Cost Management som licensieras av Cloudyn, ett dotterbolag till Microsoft, är en kostnadshanteringslösning med flera moln som hjälper dig att bättre utnyttja och hantera Azure och andra molnresurser. Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med våra snabbstarter och självstudier.
+  description: Azure Cost Management är en kostnadshanteringslösning som hjälper dig att övervaka och kontrollera Azure-utgifter och optimera resursanvändning. Lär dig hur du analyserar kostnader, skapar och hanterar budgetar, exporterar data, och granskar och arbetar med rekommendationer med våra snabbstarter och självstudier.
 sections:
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: Läs om hur du registrerar ditt Azure-avtal eller din prenumerationsinformation med Cost Management och börja visa kostnadsdata.
+    text: Lär dig hur du kommer igång med Azure Cost Management för att analysera kostnader i din organisation.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Visa kostnadsdata
-      href: quick-register-azure-sub
+      text: Analysera kostnader
+      href: quick-acm-cost-analysis
 - title: Stegvisa självstudier
   items:
   - type: paragraph
-    text: Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med Cost Management.
+    text: Lär dig hur du skapar budgetar, exporterar data, och granskar och arbetar med rekommendationer med Cost Management.
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-review-usage">Granska användning och kostnader för att identifiera avvikelser och effektivitet</a>
-    - html: <a href="tutorial-forecast-spending">Prognostisera framtida utgifter</a>
-    - html: <a href="tutorial-manage-costs">Hantera kostnader med kostnadsfördelning och detaljerad kostnadsrapportering</a>
-    - html: <a href="tutorial-optimize-reserved-instances">Optimera reserverade instanser</a>
-    - html: <a href="tutorial-user-access">Tilldela åtkomst till Cost Management-data</a>
+    - html: <a href="tutorial-acm-create-budgets">Skapa och hantera budgetar</a>
+    - html: <a href="tutorial-export-acm-data">Exportera data</a>
+    - html: <a href="tutorial-acm-opt-recommendations">Granska och arbeta med optimeringsrekommendationer</a>
+- title: Utveckla dina färdigheter med Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Förutse kostnader och optimera utgifter för Azure
+      href: /learn/modules/predict-costs-and-optimize-spending/
+      image:
+        src: /learn/achievements/predict-costs-and-optimize-spending.svg
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-cost-management">Mer interaktiv inlärning...</a>

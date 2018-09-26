@@ -1,0 +1,37 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: ab56a5b1634d11d21597dbfdba8bc7a8d6f9b18b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957854"
+documentType: LandingData
+title: Dokumentation om Azure Blueprint
+metadata:
+  title: Dokumentation om Azure Blueprint – Självstudier, API-referens
+  description: Azure Blueprint är en tjänst i Azure som används för att skapa, definiera och distribuera artefakter i Azure-miljön.
+  services: blueprints
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: blueprints
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Med Azure Blueprint kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och effekter för dina resurser. Med Azure Policy blir resurserna kompatibla med företagets standarder och serviceavtal. Lär dig hur du skapar, tilldelar och hanterar principdefinitioner med våra snabbstarter, vägledningar och exempel.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig hur du skapar, tilldelar och hanterar skissdefinitioner i Azure.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/portal.svg
+      text: Azure Portal
+      href: create-blueprint-portal.md
+    - image:
+        src: ./media/rest.svg
+      text: REST-API
+      href: create-blueprint-rest-api.md

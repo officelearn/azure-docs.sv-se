@@ -1,51 +1,65 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 15863679b42962d414493804f234c9fde46172ea
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: c3120d4fb8fb9377d43cdd2df780810bb4634e52
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781166"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985041"
 documentType: LandingData
-title: Dokumentation för Azure Machine Learning-tjänster (förhandsgranskning)
+title: Dokumentation om Azure Machine Learning-tjänst (förhandsversion)
 metadata:
-  title: Dokumentation för Azure Machine Learning-tjänster (förhandsgranskning)
-  meta.description: Learn how to use Azure Machine Learning services (preview).
+  title: Dokumentation om Azure Machine Learning (förhandsversion) – Självstudier, API-referens | Microsoft Docs
+  meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
-  author: garyericson
+  author: j-martens
   manager: jhubbard
   ms.service: machine-learning
   ms.component: core
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2018
-  ms.author: garye
+  ms.date: 09/24/2018
+  ms.author: jmartens
 abstract:
-  description: Med Azure Machine Learning-tjänster (förhandsgranskning) kan du skapa, distribuera och hantera maskininlärnings- och AI-modeller med alla Python-verktyg och -bibliotek. Du kan använda en mängd olika data- och beräkningstjänster i Azure för att lagra och bearbeta dina data.
+  description: Lär dig hur du integrerar intelligenta algoritmer i appar och webbplatser. Använd Scikit-learn, Tensorflow, Pytorch eller något annat Python-baserat ramverk för att skapa en maskininlärningsmodell och träna den lokalt eller i molnet. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsB
+    columns: 1
+    items:
+    - html: <p>Träna och distribuera dina ML-modeller i en Azure-molntjänst. <a href="overview-what-is-azure-ml.md">Läs mer om tjänsten...</a></p>
+      image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      title: Azure Machine Learning-tjänst
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: Skapa ditt första Machine Learning-projekt
+    text: Konfigurera dina resurser för Azure Machine Learning-tjänsten.
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-installation.md">Installera och skapa</a>
+    - html: <a href="quickstart-get-started.md">Kom igång i Azure-portalen</a>
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: Lär dig att förbereda dina data, konfigurera ett experiment och operationalisera modeller
+    text: Lär dig hur du konfigurerar ett experiment och operationaliserar modeller.
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-1">Gå igenom grunderna i Machine Learning-tjänsterna (förhandsgranskning)</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-2">Använd Machine Learning Workbench för att skapa en modell med irisdatamängden</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-3">Lär dig att distribuera en Machine Learning-modell</a>
-    - html: <a href="../desktop-workbench/tutorial-bikeshare-dataprep">Använd Azure Machine Learning Workbench för avancerad dataförberedning</a>
-- title: Fler Azure Machine Learning-tekniker
+    - html: <a href="tutorial-train-models-with-aml">Träna en egen maskininlärningsmodell</a>
+    - html: <a href="tutorial-auto-train-models">Låt oss generera och finjustera en modell automatiskt åt dig</a>
+    - html: <a href="tutorial-deploy-models-with-aml">Distribuera en modell som en webbtjänst</a>
+- title: Referens
   items:
-  - type: paragraph
-    text: 'Andra tekniker som är tillgängliga i Azure Machine Learning:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="http://aka.ms/aml-sdk">Azure Machine Learning-SDK för Python (huvud-SDK)</a>
+    - html: <a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning-SDK för dataförberedelse</a>
+- title: Andra Azure Machine Learning-tekniker
+  items:
   - type: list
     style: cards
     className: cardsFTitle
@@ -60,15 +74,3 @@ sections:
       image:
         src: media/index/virtual-machines.svg
         href: /azure/machine-learning/data-science-virtual-machine/
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Paket
-      html: <p><a href="reference-python-package-overview#amlpcv">Datorvision</a></p><p><a href="reference-python-package-overview#amlpf">Prognosticering</a></p><p><a href="reference-python-package-overview#amlrealtimeai">FPGA-acceleration</a></p><p><a href="reference-python-package-overview#amlpta">Textanalys</a></p>
-    - title: Språk
-      html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">Hantering av REST API:er</a></p>

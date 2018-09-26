@@ -1,26 +1,27 @@
 ---
 title: Migrera TDE-certifikat – Azure SQL Database-hanterad instans | Microsoft Docs
-description: Migrera certifikat som skyddar databaskrypteringsnyckel för en databas med transparent datakryptering till Azure SQL-hanterad instans
-keywords: sql database tutorial, sql database managed instance, migrate TDE certificate
+description: Migrera certifikat skyddar Databaskrypteringsnyckel för en databas med transparent datakryptering till Azure SQL Database Managed Instance
 services: sql-database
-author: MladjoA
-ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
-ms.custom: managed instance
-ms.topic: tutorial
-ms.date: 08/09/2018
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: MladjoA
 ms.author: mlandzic
+ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.date: 08/09/2018
+ms.openlocfilehash: 078a64bf625fad15b66a3c4e6e31e798f675fc33
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050619"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161785"
 ---
-# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Migrera certifikat för TDE-skyddad databas till Azure SQL-hanterad instans
+# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrera certifikat för TDE skyddad databas till Azure SQL Database Managed Instance
 
-När du migrerar en databas som skyddas av [transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) till Azure SQL-hanterad instans med hjälp av det inbyggda återställningsalternativet måste det motsvarande certifikatet från en lokal server eller IaaS-SQL-server migreras före databasåterställningen. Den här artikeln vägleder dig genom processen för manuell migrering av certifikatet till Azure SQL Database-hanterad instans:
+När du migrerar en databas som skyddas av [Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) till Azure SQL Database Managed Instance med hjälp av inbyggda återställningsalternativet, motsvarande certifikat från en lokal eller IaaS SQL Server måste migreras före återställning av databasen. Den här artikeln vägleder dig genom processen för manuell migrering av certifikatet till Azure SQL Database-hanterad instans:
 
 > [!div class="checklist"]
 > * Exportera certifikatet till en Personal Information Exchange-fil (.pfx)
@@ -30,9 +31,9 @@ När du migrerar en databas som skyddas av [transparent datakryptering](https://
 Ett annat alternativ som använder en helt hanterad tjänst för smidig migrering av både TDE-skyddad databas och motsvarande certifikat finns på sidan om [hur du migrerar din lokala databas till hanterad instans med hjälp av Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Transparent datakryptering för Azure SQL-hanterad instans fungerar i tjänsthanterat läge. Migrerade certifikat används endast för återställning av den TDE-skyddade databasen. Kort efter att återställningen är klar ersätts det migrerade certifikatet med ett annat, systemhanterat certifikat.
+> Transparent datakryptering för Azure SQL Database Managed Instance fungerar i tjänsthanterade läge. Migrerade certifikat används endast för återställning av den TDE-skyddade databasen. Kort efter att återställningen är klar ersätts det migrerade certifikatet med ett annat, systemhanterat certifikat.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
@@ -109,7 +110,7 @@ Om certifikatet finns i SQL-serverns certifikatarkiv i lokal dator kan det expor
 
 4. Följ guiden för att exportera certifikatet och den privata nyckeln till ett Personal Information Exchange-format
 
-## <a name="upload-certificate-to-azure-sql-managed-instance-using-azure-powershell-cmdlet"></a>Ladda upp certifikat till Azure SQL-hanterad instans med hjälp av Azure PowerShell-cmdlet
+## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Överför certifikatet till Azure SQL Database Managed Instance med Azure PowerShell-cmdlet
 
 1. Börja med förberedelsestegen i PowerShell:
 
@@ -139,6 +140,6 @@ Certifikatet är nu tillgängligt för den angivna hanterade instansen, och en s
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln lärde du dig att migrera certifikat som skyddar krypteringsnyckeln för databasen med transparent datakryptering, från lokal server eller IaaS SQL-server till Azure SQL-hanterad instans.
+I den här artikeln lärde du dig att migrera certifikat skydda krypteringsnyckeln för databasen med Transparent datakryptering, från lokala eller IaaS SQL Server till Azure SQL Database Managed Instance.
 
 Se [Återställa en databassäkerhetskopia till en hanterad Azure SQL Database-instans](sql-database-managed-instance-get-started-restore.md) för att lära dig hur du återställer en databassäkerhetskopia till en hanterad Azure SQL Database-instans.

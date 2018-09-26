@@ -34,8 +34,8 @@ items:
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
-    - name: SQL Operations Studio
-      href: https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+    - name: Azure Data Studio
+      href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
     - name: Azure Portal
       href: sql-database-connect-query-portal.md
     - name: VS-kod
@@ -93,6 +93,8 @@ items:
       href: sql-database-service-tiers-vcore.md
     - name: DTU-modell
       href: sql-database-service-tiers-dtu.md
+    - name: Hyperskalatjänstnivå
+      href: sql-database-hyperscale.md
     - name: Resursbegränsningar
       href: sql-database-resource-limits.md
     - name: Förskottsbetalning för reserverad kapacitet
@@ -309,44 +311,46 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Jämförelse av SQL-funktioner
     href: sql-database-features.md
-  - name: Övervaka och finjustera
+  - name: Prestanda- och justering
     items:
-    - name: Övervaka och finjustera
-      href: sql-database-troubleshoot-performance.md
     - name: Intelligent prestanda
       items:
-      - name: Prestandaövervakning
-        href: sql-database-single-database-monitor.md
-      - name: Intelligent frågebearbetning
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Anpassningsbar frågebearbetning
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-      - name: Automatisk inställning
+      - name: Fråga
         items:
-        - name: Automatisk inställning
-          href: sql-database-automatic-tuning.md
-        - name: Aktivera automatisk inställning
-          href: sql-database-automatic-tuning-enable.md
-        - name: Prestandarekommendationer
+        - name: Intelligent frågebearbetning
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: Anpassningsbar frågebearbetning
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Övervakning och justering
+        items:
+        - name: Översikt över övervakning och justering
+          href: sql-database-monitor-tune-overview.md
+        - name: Prestandarekommendationer för Database Advisor
           href: sql-database-advisor.md
-        - name: Prestandarekommendationer
+        - name: Justeringsåtgärder och rekommendationer
           href: sql-database-performance.md
         - name: Tillämpa prestandarekommendationer
           href: sql-database-advisor-portal.md
-        - name: Aktivera e-postaviseringar
-          href: sql-database-automatic-tuning-email-notifications.md
       - name: Intelligent Insights
         items:
-        - name: Intelligent Insights
+        - name: Översikt över Intelligent Insights
           href: sql-database-intelligent-insights.md
         - name: Diagnostikloggning
           href: sql-database-metrics-diag-logging.md
-        - name: Använda diagnostikloggar
+        - name: Använda diagnostikloggen
           href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: Prestandafelsökning
           href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Använda Query Performance Insight
+      - name: Query Performance Insight
         href: sql-database-query-performance.md
+      - name: Automatisk prestandajustering
+        items:
+        - name: Översikt över automatisk justering
+          href: sql-database-automatic-tuning.md
+        - name: Aktivera automatisk inställning
+          href: sql-database-automatic-tuning-enable.md
+        - name: Aktivera e-postaviseringar
+          href: sql-database-automatic-tuning-email-notifications.md
     - name: Manuell inställning
       items:
       - name: Manuell inställning
@@ -355,16 +359,16 @@ items:
         href: sql-database-monitoring-with-dmvs.md
       - name: Använd Query Store
         href: sql-database-operate-query-store.md
-    - name: Övervaka minnesintern
-      href: sql-database-in-memory-oltp-monitoring.md
-    - name: Utökade händelser
-      items:
+      - name: Minnesintern
+        href: sql-database-in-memory-oltp-monitoring.md
       - name: Utökade händelser
-        href: sql-database-xevent-db-diff-from-svr.md
-      - name: Utökade händelser – händelsefil
-        href: sql-database-xevent-code-event-file.md
-      - name: Utökade händelser – ringbuffert
-        href: sql-database-xevent-code-ring-buffer.md
+        items:
+        - name: Utökade händelser
+          href: sql-database-xevent-db-diff-from-svr.md
+        - name: Utökade händelser – händelsefil
+          href: sql-database-xevent-code-event-file.md
+        - name: Utökade händelser – ringbuffert
+          href: sql-database-xevent-code-ring-buffer.md
     - name: Skapa aviseringar
       href: sql-database-insights-alerts-portal.md
     - name: Felsökning av anslutningar
@@ -551,7 +555,7 @@ items:
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/sql
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.sql.models
@@ -594,6 +598,8 @@ items:
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Resurser
   items:
+  - name: Utveckla dina färdigheter med Microsoft Learn
+    href: /learn/browse/?products=azure-sql-database
   - name: Azure-översikt
     href: https://azure.microsoft.com/roadmap/
   - name: VANLIGA FRÅGOR OCH SVAR
@@ -616,9 +622,9 @@ items:
     href: /azure/architecture/
   - name: Kundberättelser
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: fe88a6f7559e6c5c44c2bf39e3167dd379f4b006
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8b8ef8dec2d79a1eb49372432781a64914a70896
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730100"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985137"

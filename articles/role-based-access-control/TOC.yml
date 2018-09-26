@@ -1,76 +1,88 @@
+items:
 - name: Dokumentation om rollbaserad åtkomstkontroll
   href: index.yml
-  items: null
 - name: Översikt
   items:
-    - name: Vad är RBAC?
-      href: overview.md
-    - name: Förstå de olika rollerna
-      href: rbac-and-directory-admin-roles.md
+  - name: Vad är RBAC?
+    href: overview.md
+  - name: Förstå de olika rollerna
+    href: rbac-and-directory-admin-roles.md
 - name: Snabbstarter
   items:
-    - name: Bevilja åtkomst för en användare
-      href: quickstart-assign-role-user-portal.md
+  - name: Bevilja åtkomst för en användare
+    href: quickstart-assign-role-user-portal.md
 - name: Självstudier
   items:
-    - name: Bevilja åtkomst för en användare – PowerShell
-      href: tutorial-role-assignments-user-powershell.md
-    - name: Bevilja åtkomst för en grupp – PowerShell
-      href: tutorial-role-assignments-group-powershell.md
-    - name: Skapa en anpassad roll – PowerShell
-      href: tutorial-custom-role-powershell.md
-    - name: Skapa en anpassad roll – CLI
-      href: tutorial-custom-role-cli.md
+  - name: Bevilja åtkomst för en användare – PowerShell
+    href: tutorial-role-assignments-user-powershell.md
+  - name: Bevilja åtkomst för en grupp – PowerShell
+    href: tutorial-role-assignments-group-powershell.md
+  - name: Skapa en anpassad roll – PowerShell
+    href: tutorial-custom-role-powershell.md
+  - name: Skapa en anpassad roll – CLI
+    href: tutorial-custom-role-cli.md
 - name: Begrepp
   items:
-    - name: Förstå rolldefinitioner
-      href: role-definitions.md
-    - name: Privileged Identity Management (PIM) för RBAC
-      href: pim-azure-resource.md
-    - name: Villkorlig åtkomst för hantering av Azure
-      href: conditional-access-azure-management.md
+  - name: Förstå rolldefinitioner
+    href: role-definitions.md
+  - name: Förstå tilldelningsnekanden
+    href: deny-assignments.md
+  - name: Privileged Identity Management (PIM) för RBAC
+    href: pim-azure-resource.md
+  - name: Villkorlig åtkomst för hantering av Azure
+    href: conditional-access-azure-management.md
 - name: Instruktionsguider
   items:
-    - name: Hantera åtkomst
-      items:
-        - name: Portalen
-          href: role-assignments-portal.md
-        - name: PowerShell
-          href: role-assignments-powershell.md
-        - name: Azure CLI
-          href: role-assignments-cli.md
-        - name: REST-API
-          href: role-assignments-rest.md
-        - name: Mall
-          href: role-assignments-template.md
-    - name: Anpassade roller
-      href: custom-roles.md
-      items:
-        - name: PowerShell
-          href: custom-roles-powershell.md
-        - name: Azure CLI
-          href: custom-roles-cli.md
-        - name: REST-API
-          href: custom-roles-rest.md
-    - name: Visa aktivitetsloggar
-      href: change-history-report.md
-    - name: Öka åtkomsten för global administratör
-      href: elevate-access-global-admin.md
-    - name: Hantera åtkomst för externa användare
-      href: role-assignments-external-users.md
-    - name: Felsöka
-      href: troubleshooting.md
+  - name: Hantera åtkomst
+    items:
+    - name: Portalen
+      href: role-assignments-portal.md
+    - name: PowerShell
+      href: role-assignments-powershell.md
+    - name: Azure CLI
+      href: role-assignments-cli.md
+    - name: REST-API
+      href: role-assignments-rest.md
+    - name: Mall
+      href: role-assignments-template.md
+  - name: Neka åtkomst
+    items:
+    - name: REST-API
+      href: deny-assignments-rest.md
+  - name: Anpassade roller
+    href: custom-roles.md
+    items:
+    - name: PowerShell
+      href: custom-roles-powershell.md
+    - name: Azure CLI
+      href: custom-roles-cli.md
+    - name: REST-API
+      href: custom-roles-rest.md
+  - name: Visa aktivitetsloggar
+    href: change-history-report.md
+  - name: Öka åtkomsten för global administratör
+    href: elevate-access-global-admin.md
+  - name: Hantera åtkomst för externa användare
+    href: role-assignments-external-users.md
+  - name: Felsöka
+    href: troubleshooting.md
 - name: Referens
   items:
-    - name: Inbyggda roller
-      href: built-in-roles.md
-    - name: Åtgärder för resursprovider
-      href: resource-provider-operations.md
-    - name: RBAC-begränsningar
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.resources
-    - name: Azure CLI
-      href: /cli/azure/role?view=azure-cli-latest
-    - name: REST-API
-      href: /rest/api/authorization/
+  - name: Inbyggda roller
+    href: built-in-roles.md
+  - name: Åtgärder för resursprovider
+    href: resource-provider-operations.md
+  - name: RBAC-begränsningar
+    href: ../azure-subscription-service-limits.md#role-based-access-control-limits
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.resources
+  - name: Azure CLI
+    href: /cli/azure/role?view=azure-cli-latest
+  - name: REST-API
+    href: /rest/api/authorization/
+ms.openlocfilehash: 8a113e60cd9af0e7f9c0f192bc20ca674c56c0f8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982791"

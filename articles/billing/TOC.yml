@@ -26,8 +26,6 @@ items:
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Förstå utgiftsgränser
     href: billing-spending-limit.md
-  - name: Analysera kostnader
-    href: billing-cost-analysis.md
   - name: Spara med Azure Reservations
     items:
     - name: Vad är Azure Reservations?
@@ -44,6 +42,10 @@ items:
       items:
       - name: Reserverade VM-instanser
         href: billing-understand-vm-reservation-charges.md
+      - name: Reserverad kapacitet för SQL Database
+        href: billing-understand-reservation-charges.md
+      - name: Reserverad Cosmos DB-kapacitet
+        href: billing-understand-cosmosdb-reservation-charges.md
       - name: SUSE Linux-programvaruplaner
         href: billing-understand-suse-reservation-charges.md
     - name: Programvarukostnader som inte ingår
@@ -170,9 +172,9 @@ items:
     items:
     - name: REST API för Enterprise Reporting
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 52efe9fa438aea7b47f1fb32568ffcb2eb6bfd0a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2ef6d1445b444b7816a7a652f052c169cf0d78ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302396"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969571"

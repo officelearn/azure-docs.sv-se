@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2ee8284861d62d4405d0f949ee74b1992440b66e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 701bf7db8304189b9348cad1c920f3e5ec1fecf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184568"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991138"
 documentType: LandingData
 title: Dokumentation om Azure DNS
 metadata:
@@ -48,11 +48,14 @@ sections:
   - type: paragraph
     text: Lär dig hur du använder Azure DNS som värd för din domän, skapar anpassade DNS-poster för en webbapp med Azure DNS och skapar en privat DNS-zon och DNS-poster.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/dns/dns-delegate-domain-azure-dns">Använda Azure DNS som värd för din domän</a>
     - html: <a href="/azure/dns/dns-web-sites-custom-domain">Skapa anpassade DNS-poster för en webbapp</a>
     - html: <a href="/azure/dns/private-dns-getstarted-powershell">Skapa privat DNS-zon och -post</a>
+    - html: <a href="/azure/dns/tutorial-alias-pip">Konfigurera en aliaspost för att referera till en offentlig IP-adress i Azure</a>
+    - html: <a href="/azure/dns/tutorial-alias-tm">Konfigurera en aliaspost för att hantera apex-domännamn med Traffic Manager</a>
+    - html: <a href="/azure/dns/tutorial-alias-rr">Konfigurera en aliaspost för zonposter</a>
 - title: Kostnadsfri videoutbildning för Pluralsight
   items:
   - type: list

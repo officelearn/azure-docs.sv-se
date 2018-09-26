@@ -2,19 +2,22 @@
 title: Migrera en SQL Server-databas till Azure SQL Database med DMA | Microsoft Docs
 description: Läs hur du migrerar din SQL Server-databas till Azure SQL Database med DMA.
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,migrate
-ms.topic: tutorial
-ms.date: 07/02/2018
-ms.author: carlrab
-ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 58016636dad24b9b7d5278ce89643e6cd8d5be9e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050212"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162873"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrera din SQL Server-databas till Azure SQL Database med DMA
 
@@ -33,7 +36,7 @@ I de här självstudierna får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
@@ -246,11 +249,11 @@ Använd [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
 ## <a name="change-database-properties"></a>Ändra egenskaperna för databasen
 
-Du kan ändra tjänstnivån, prestandanivån och kompatibilitetsnivån med hjälp av SQL Server Management Studio. Under importen rekommenderar vi att du importerar till en databas på en högre prestandanivå för bästa prestanda, men att du skalar ner när importen är klar för att spara pengar, tills du är redo att använda den importerade databasen aktivt. Att ändra kompatibilitetsnivån kan ge bättre prestanda och åtkomst till de senaste funktionerna för Azure SQL Database-tjänsten. När du migrerar en äldre databas bevaras dess databaskompatibilitetsnivå på den lägsta nivån som stöds och är kompatibel med den databas som importeras. Mer information finns i [Förbättrad frågeprestanda med kompatibilitetsnivå 130 i Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
+Du kan ändra tjänstnivån, storlek och kompatibilitetsnivån med hjälp av SQL Server Management Studio. Under importen rekommenderar vi att du importerar till en högre tjänstnivå eller beräkna storleken för bästa prestanda, men att du skalar ner när importen är klar för att spara pengar, tills du är redo att använda den importerade databasen aktivt. Att ändra kompatibilitetsnivån kan ge bättre prestanda och åtkomst till de senaste funktionerna för Azure SQL Database-tjänsten. När du migrerar en äldre databas bevaras dess databaskompatibilitetsnivå på den lägsta nivån som stöds och är kompatibel med den databas som importeras. Mer information finns i [Förbättrad frågeprestanda med kompatibilitetsnivå 130 i Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
 
 1. I Object Explorer högerklickar du på **mySampleDatabase** och klickar sedan på **Ny fråga**. Ett frågefönster öppnas som är anslutet till databasen.
 
-2. Kör följande kommando för att ange tjänstnivån till **Standard** och prestandanivån till **S1**.
+2. Kör följande kommando för att ange tjänstnivån **Standard** och beräkningsstorleken till **S1**.
 
     ```sql
     ALTER DATABASE mySampleDatabase 

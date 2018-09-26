@@ -3,18 +3,22 @@ title: Vad är tjänsten Azure SQL Database? | Microsoft Docs
 description: 'Få en introduktion till SQL Database: teknisk information och funktioner i Microsofts relationella databashanteringssystem (RDBMS) i molnet.'
 keywords: introduktion till sql, sql-introduktion, vad är sql database
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.topic: overview
-ms.date: 09/07/2018
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 21350fe9a44ad801204b8288f3c49eda82ca6343
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054588"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163196"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database? 
 
@@ -23,7 +27,7 @@ SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure
 Azure SQL Database innehåller följande distributionsalternativ för en Azure SQL-databas:
 - Som en enda databas med en egen uppsättning resurser som hanteras via en logisk server 
 - Som en poolindelad databas i en [elastisk pool](sql-database-elastic-pool.md) med en delad uppsättning resurser som hanteras via en logisk server
-- Som en del av en uppsättning databaser, en så kallad [hanterad instans](sql-database-managed-instance.md) (offentlig tillgänglig förhandsversion), som innehåller system- och användardatabaser och som delar en uppsättning resurser
+- Som en del av en uppsättning databaser som kallas en [hanterad instans](sql-database-managed-instance.md) som innehåller system- och användardatabaser och dela en uppsättning resurser
 
 Följande bild visar dessa distributionsalternativ:
 
@@ -37,29 +41,27 @@ SQL-databas delar sin kodbas med [Microsoft SQL Server-databasmotorn](https://do
 > [!IMPORTANT]
 > Funktionsskillnaderna mellan SQL Database och SQL Server finns i [SQL-funktioner](sql-database-features.md). 
 
-SQL Database levererar förutsägbar prestanda på flera servicenivåer som ger dynamisk skalbarhet utan driftstopp, inbyggd intelligent optimering, global skalbarhet och tillgänglighet samt alternativ för avancerad säkerhet – allt detta med nästan obefintlig administration. Dessa funktioner gör att du kan fokusera på snabb apputveckling och att accelerera din tid till marknaden, istället för att ägna värdefull tid och resurser åt att hantera virtuella datorer och infrastruktur. SQL Database-tjänsten används för närvarande i 38 datacenter runtom i världen och många fler datacenter ansluter sig hela tiden, vilket innebär att du kan köra din databas från ett datacenter nära dig.
-
-> [!NOTE]
-> SQL Database Managed Instance finns för närvarande i förhandsversion och är endast tillgänglig på en enda servicenivå. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md).
->
+SQL Database levererar förutsägbar prestanda med flera resurstyper, tjänstnivåer och storlekar som ger dynamisk skalbarhet utan driftstopp, inbyggd intelligent optimering, global skalbarhet och tillgänglighet och avancerad säkerhet alternativ – allt med nästan obefintlig administration. Dessa funktioner gör att du kan fokusera på snabb apputveckling och att accelerera din tid till marknaden, istället för att ägna värdefull tid och resurser åt att hantera virtuella datorer och infrastruktur. SQL Database-tjänsten används för närvarande i 38 datacenter runtom i världen och många fler datacenter ansluter sig hela tiden, vilket innebär att du kan köra din databas från ett datacenter nära dig.
 
 ## <a name="scalable-performance-and-pools"></a>Skalbar prestanda och pooler
 
-Med SQL Database är alla databaser isolerade från varandra och portabla, var och en med sin egen tjänstnivå i [den DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [den vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md), och en garanterad prestandanivå. SQL-databasen innehåller olika prestandanivåer för olika behov och gör att databaserna är poolade för att maximera användningen av resurser och spara pengar.
+Med SQL Database, alla databaser vara isolerade från varandra och portabla, var och en med sin egen tjänstnivå inom den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) och en garanterad beräkna storleken. SQL Database tillhandahåller olika instansstorlekarna för olika behov och gör att databaserna är poolade för att maximera användningen av resurser och spara pengar.
 
-Med SQL Database Managed Instance är varje instans isolerad från andra instanser med garanterade resurser. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md) 
+- Med [SQL Database Managed Instance](sql-database-managed-instance.md), varje instans är isolerad från andra instanser med garanterade resurser. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md).
+- Med den [hyperskala tjänstnivå](sql-database-hyperscale.md) (förhandsversion) i vCore köpa modellen, kan du skala till 100 TB med snabb säkerhetskopiering och återställa funktioner.
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Justera prestanda och skalning utan avbrott
 
 SQL Database har en [DTU-baserad inköpsmodell](sql-database-service-tiers-dtu.md) och en [vCore-baserad inköpsmodell](sql-database-service-tiers-vcore.md). 
-- Den DTU-baserade inköpsmodellen erbjuder en blandning av beräknings-, minnes- och IO-resurser i tre tjänstnivåer (för lätta till tunga databasarbetsbelastningar): Basic, Standard och Premium. Det finns prestandanivåer inom varje nivå med en blandning av dessa resurser, och du kan lägga till ytterligare lagringsresurser till dessa.
+- Den DTU-baserade inköpsmodellen erbjuder en blandning av beräknings-, minnes- och IO-resurser i tre tjänstnivåer (för lätta till tunga databasarbetsbelastningar): Basic, Standard och Premium. Compute-storlekar inom varje nivå med en blandning av dessa resurser, där du kan lägga till ytterligare lagringsresurser.
 - Med den vCore-baserade inköpsmodellen kan du välja antal virtuella kärnor, hur mycket minne och hur mycket och snabbt lagringsutrymme du vill ha.
 
-Du kan skapa din första app på en liten, enkel databas för en låg månadskostnad och sedan ändra dess tjänstnivå manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
+Du kan skapa din första app på en liten, enkel databas till en låg kostnad per månad på nivån generell användning tjänsten och sedan ändra dess tjänstnivå manuellt eller programmässigt när som helst på kritiska tjänstnivån företag att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
+
+> [!IMPORTANT]
+> Du kan skala från en tjänstnivå för generell användning och affärskritiska till en [hyperskala tjänstnivå](sql-database-hyperscale.md). Du kan dock ändra prestandanivåerna inom tjänstnivån hyperskala.
 
 Dynamisk skalbarhet skiljer sig från autoskalning. Med Autoskala avses när en tjänst skalar automatiskt utifrån olika kriterier, medan dynamisk skalbarhet möjliggör manuell skalning utan avbrott. Enskilda Azure SQL-databaser stöder manuell dynamisk skalbarhet, men inte Autoskala. Om du vill ha en mer *automatisk* upplevelse bör du använda elastiska pooler, vilka tillåter databaser att dela resurser i en pool utifrån enskilda databasbehov. Det finns dock skript som kan hjälpa dig att automatisera skalbarhet för en enskild Azure SQL-databas. Mer information finns i [Använd PowerShell till att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-powershell.md). 
-
-SQL Database Managed Instance finns i förhandsversion och erbjuder en enda servicenivå. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md)
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet
 
@@ -86,13 +88,13 @@ Dessutom kan SQL-databasen [skapa mått och diagnostikloggar](sql-database-metri
 
 - **Azure Storage**: För arkivering av stora mängder telemetri till ett lågt pris
 - **Azure Event Hub**: För integrering av telemetri i SQL-databasen med anpassad övervakningslösning eller heta pipelines
-- **Azure Log Analytics**: För en inbyggd övervakningslösning med rapporter, aviseringar och problemlösningsfunktioner. Det här är en funktion i [OMS (Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)
+- **Azure Log Analytics**: För en inbyggd övervakningslösning med rapporter, aviseringar och problemlösningsfunktioner. Azure Log Analytics är en funktion i den [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Arkitektur](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="availability-capabilities"></a>Kapacitet för tillgänglighet
 
-Azures branschledande serviceavtal [(SLA)](http://azure.microsoft.com/support/legal/sla/) med 99,99 % tillgänglighet, drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång 24/7. Azure-plattformen hanterar varje Azure SQL Database fullt ut och garanterar att inga data går förlorade och att datatillgängligheten är hög. Azure hanterar automatiskt uppdatering, säkerhetskopiering, replikering, felidentifiering, fel med underliggande maskinvara, programvara eller nätverk, distribuering av felkorrigeringar, redundans, databasuppgraderingar och andra underhållsåtgärder. Standardtillgänglighet uppnås genom en uppdelning av beräknings och lagringslager. Premiumtillgänglighet uppnås genom integrering av beräkning och lagring på en enda nod för prestanda och sedan implementering av AlwaysOn-tillgänglighetsgrupper på ett och samma ställe. En fullständig diskussion om funktionerna för hög tillgänglighet i Azure SQL Database finns på sidan om [SQL-databastillgänglighet](sql-database-high-availability.md). SQL Database tillhandahåller dessutom inbyggda funktioner för [kontinuitet för företag och global skalbarhet](sql-database-business-continuity.md), inklusive:
+Azures branschledande serviceavtal [(SLA)](http://azure.microsoft.com/support/legal/sla/) med 99,99 % tillgänglighet, drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång 24/7. Azure-plattformen hanterar varje Azure SQL Database fullt ut och garanterar att inga data går förlorade och att datatillgängligheten är hög. Azure hanterar automatiskt uppdatering, säkerhetskopiering, replikering, felidentifiering, fel med underliggande maskinvara, programvara eller nätverk, distribuering av felkorrigeringar, redundans, databasuppgraderingar och andra underhållsåtgärder. Standardtillgänglighet uppnås genom en uppdelning av beräknings och lagringslager. Premiumtillgänglighet uppnås genom integrering av beräkning och lagring på en enda nod för prestanda och sedan implementering av AlwaysOn-tillgänglighetsgrupper på ett och samma ställe. En fullständig beskrivning av kapacitet för hög tillgänglighet i Azure SQL Database finns i [tillgänglighet för SQL Database](sql-database-high-availability.md). SQL Database tillhandahåller dessutom inbyggda funktioner för [kontinuitet för företag och global skalbarhet](sql-database-business-continuity.md), inklusive:
 
 - **[Automatisk säkerhetskopiering](sql-database-automated-backups.md)**: SQL-databasen utför automatiskt fullständiga och differentiella säkerhetskopieringar samt säkerhetskopiering av transaktionsloggen.
 - **[Återställning vid tidpunkt](sql-database-recovery-using-backups.md)**: SQL-databasen har stöd för återställning till en valfri tidpunkt inom den automatiska kvarhållningsperioden för säkerhetskopiering.
@@ -177,8 +179,8 @@ Skapa program med Python, Java, Node.js, PHP, Ruby och .NET på MacOS, Linux och
 - Läs följande snabbstarter innan du börjar:
 
   - [Skapa en SQL-databas i Azure Portal](sql-database-get-started-portal.md)  
-  - [Skapa en SQL-databas med Azure CLI](sql-database-cli-samples.md)
-  - [Skapa en SQL Database med PowerShell](sql-database-powershell-samples.md)
+  - [Skapa en SQL-databas med Azure CLI](sql-database-get-started-cli.md)
+  - [Skapa en SQL Database med PowerShell](sql-database-get-started-powershell.md)
 
 - En uppsättning Azure CLI- och PowerShell-exempel finns här:
   - [Azure CLI-exempel för SQL Database](sql-database-cli-samples.md)

@@ -1,0 +1,61 @@
+items:
+- name: Dokumentation om Front Door Service
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Vad är Azure Front Door Service?
+    href: front-door-overview.md
+- name: Snabbstarter
+  items:
+  - name: Skapa en Front Door
+    href: quickstart-create-front-door.md
+- name: Självstudier
+  items:
+  - name: Lägg till en anpassad domän i din Front Door
+    href: front-door-custom-domain.md
+- name: Exempel
+  items:
+  - name: Resource Manager-mallar
+    href: front-door-quickstart-template-samples.md
+- name: Begrepp
+  items:
+  - name: Serverdelar och serverdelspooler
+    href: front-door-backend-pool.md
+  - name: DDOS-skydd och programskiktssäkerhet
+    href: front-door-ddos-security.md
+  - name: Belastningsutjämning med Azures paket för programleverans
+    href: front-door-lb-with-azure-app-delivery-suite.md
+  - name: Routningsarkitektur
+    href: front-door-routing-architecture.md
+  - name: Metoder för trafikroutning
+    href: front-door-routing-methods.md
+  - name: Hur Front Door matchar routning för en begäran
+    href: front-door-route-matching.md
+  - name: Hälsotillståndsavsökningar
+    href: front-door-health-probes.md
+  - name: URL-omskrivning
+    href: front-door-url-rewrite.md
+  - name: Cachelagring med Front Door
+    href: front-door-caching.md
+  - name: Stöd för HTTP/2
+    href: front-door-http2.md
+  - name: Protokollstöd för HTTP-huvuden
+    href: front-door-http-headers-protocol.md
+  - name: Övervakning
+    href: front-door-diagnostics.md
+- name: Resurser
+  items:
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/frontdoor/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=frontdoor
+ms.openlocfilehash: e44b12e49ea03cb344288367f1f9a97e195f39a4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949136"

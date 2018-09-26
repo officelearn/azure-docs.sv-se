@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 1c25ae1acb112221047876ea6dd360c6d3bb2817
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946246"
+documentType: LandingData
+title: Azure-hantering – styrning
+metadata:
+  title: Azure-hantering – styrning
+  description: Läs mer om de begrepp och Azure-tjänster som är tillgängliga för hantering av din miljö med enhetlighet, genom explicit design och regler, och hur du granskar efterlevnad.
+  services: governance
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: governance
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Azure-styrning är en samling begrepp och tjänster som är utformade för att möjliggöra hantering av olika Azure-resurser i stor skala. De här tjänsterna gör det möjligt att ordna och strukturera dina prenumerationer på ett logiskt sätt, skapa och distribuera återanvändbara och Azure-interna paket med resurser, definiera, granska och åtgärda dina resurser och mycket mer. Använd den här sidan om du vill veta mer om de här begreppen och tjänsterna och hur du använder dem i din miljö i dag.
+sections:
+- title: Komponenter och tjänster
+- items:
+  - type: list
+    style: cards
+    className: cardsD
+    columns: 2
+    items:
+    - href: ./management-groups/overview
+      html: <p>Läs mer om hur du grupperar och ordnar dina prenumerationer i en logisk hierarki som underlättar distribution av andra styrningstjänster på ett strukturerat sätt.<br /></p>
+      image:
+        src: ./media/management-groups-illustration.svg
+      title: Hanteringsgrupper
+    - href: ./resource-graph/
+      html: <p>Använd ett kraftfullt kommandoradsverktyg (med stöd för Azure CLI och Azure PowerShell) för att snabbt fråga efter komplex information om dina Azure-resurser. Hitta och tillgängliggör information som tidigare krävde komplexa och iterativa skript för att identifiera de resurserna i stor skala.</p>
+      image:
+        src: ./media/resource-graph-illustration.svg
+      title: Resursdiagram
+    - href: ./policy/
+      html: <p>Definiera och använd standarder för resurser i din miljö. Förhindra att oönskade resurser skapas, förbättra nya resurser med ytterligare element, och granska och åtgärda resurser som redan finns i miljön.</p>
+      image:
+        src: ./media/policy-illustration.svg
+      title: Princip
+    - href: ./blueprints/
+      html: <p>Skapa ett Azure-internt paket med <i>artefakter</i> (resursgrupper, principer, rolltilldelningar, Resource Manager-mallar och mer) som kan distribueras dynamiskt till prenumerationer för att skapa enhetliga och upprepningsbara miljöer.</p>
+      image:
+        src: ./media/blueprints-illustration.svg
+      title: Skisser
+- title: Implementeringar
+- items:
+  - type: list
+    style: cards
+    className: cardsZ
+    columns: 3
+    items:
+    - href: /azure/architecture/cloud-adoption/governance/what-is-governance?toc=/azure/governance/toc.json
+      html: <p>Tidigare ägde och ansvarade företagen för alla tekniknivåerna, från infrastruktur till programvara. Men molnet gör det möjligt för företagen att använda teknik på ett nytt sätt och etablera och förbruka resurser efter behov.</p>
+      title: Molnimplementering för företag
+    - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+      html: <p>Gör det möjligt för administratörer att säkerställa att arbetsbelastningar uppfyller de lägsta styrningskraven för en organisation utan att hindra affärsgrupper och utvecklare från att snabbt uppnå sina egna mål.<br /><br /></p>
+      title: Enterprise-kodskelett
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Princip
+      html: <p>Kommandorad<ul><li><a href="/cli/azure/policy">Azure CLI</a></li></ul></p><p>PowerShell<ul><li><a href="/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></li></ul></p><p>REST-API<ul><li><a href="/rest/api/policy-insights/policyevents">Händelser</a></li><li><a href="/rest/api/policy-insights/policystates">Tillstånd</a></li><li><a href="/rest/api/resources/policyassignments">Tilldelningar</a></li><li><a href="/rest/api/resources/policydefinitions">Principdefinitioner</a></li><li><a href="/rest/api/resources/policysetdefinitions">Initiativdefinitioner</a></li></ul></p>

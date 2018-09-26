@@ -1,177 +1,188 @@
+items:
 - name: Dokumentation om Application Gateway
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Application Gateway
-      href: overview.md
+  - name: Om Application Gateway
+    href: overview.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Hantera webbtrafik –portalen
-      href: quick-create-portal.md
-    - name: Hantera webbtrafik – PowerShell
-      href: quick-create-powershell.md
-    - name: Hantera webbtrafik – Azure CLI
-      href: quick-create-cli.md
+  - name: Hantera webbtrafik –portalen
+    href: quick-create-portal.md
+  - name: Hantera webbtrafik – PowerShell
+    href: quick-create-powershell.md
+  - name: Hantera webbtrafik – Azure CLI
+    href: quick-create-cli.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: Hantera webbtrafik
-      href: tutorial-manage-web-traffic-cli.md
-    - name: Aktivera brandvägg för webbaserade program
-      href: tutorial-restrict-web-traffic-cli.md
-    - name: Skydda med SSL
-      href: tutorial-ssl-cli.md
-    - name: Tillhandahåll värdtjänster för flera webbplatser
-      href: tutorial-multiple-sites-cli.md
-    - name: Dirigera efter URL
-      href: tutorial-url-route-cli.md
-    - name: Omdirigera webbtrafik
-      href: tutorial-url-redirect-cli.md
+  - name: Hantera webbtrafik
+    href: tutorial-manage-web-traffic-cli.md
+  - name: Aktivera brandvägg för webbaserade program
+    href: tutorial-restrict-web-traffic-cli.md
+  - name: Skydda med SSL
+    href: tutorial-ssl-cli.md
+  - name: Tillhandahåll värdtjänster för flera webbplatser
+    href: tutorial-multiple-sites-cli.md
+  - name: Dirigera efter URL
+    href: tutorial-url-route-cli.md
+  - name: Omdirigera webbtrafik
+    href: tutorial-url-redirect-cli.md
 - name: Exempel
   items:
-    - name: Azure PowerShell
-      href: powershell-samples.md
-    - name: Azure CLI
-      href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
+  - name: Azure CLI
+    href: cli-samples.md
 - name: Begrepp
   items:
-    - name: SSL-avslutning
-      href: ssl-overview.md
-    - name: Översikt över SSL-princip
-      href: application-gateway-ssl-policy-overview.md
-    - name: Brandvägg för webbaserade program
-      href: waf-overview.md
-    - name: URL-routning
-      href: url-route-overview.md
-    - name: Värdtjänster för flera webbplatser
-      href: multiple-site-overview.md
-    - name: Stöd för omdirigering
-      href: redirect-overview.md
-    - name: Stöd för flera klienter
-      href: application-gateway-web-app-overview.md
-    - name: Hälsoövervakning
-      href: application-gateway-probe-overview.md
-    - name: WebSocket-stöd
-      href: application-gateway-websocket.md
+  - name: SSL-avslutning
+    href: ssl-overview.md
+  - name: Översikt över SSL-princip
+    href: application-gateway-ssl-policy-overview.md
+  - name: Brandvägg för webbaserade program
+    href: waf-overview.md
+  - name: WAF-konfiguration
+    href: application-gateway-waf-configuration.md
+  - name: URL-routning
+    href: url-route-overview.md
+  - name: Värdtjänster för flera webbplatser
+    href: multiple-site-overview.md
+  - name: Automatisk skalning och zonredundans
+    href: application-gateway-autoscaling-zone-redundant.md
+  - name: Stöd för omdirigering
+    href: redirect-overview.md
+  - name: Stöd för flera klienter
+    href: application-gateway-web-app-overview.md
+  - name: Hälsoövervakning
+    href: application-gateway-probe-overview.md
+  - name: WebSocket-stöd
+    href: application-gateway-websocket.md
 - name: Instruktionsguider
   items:
-    - name: Hantera webbtrafik
+  - name: Hantera webbtrafik
+    items:
+    - name: Azure PowerShell
+      href: tutorial-manage-web-traffic-powershell.md
+    - name: Mall
+      href: create-vmss-template.md
+  - name: Konfigurera intern lastbalanserare
+    items:
+    - name: Azure PowerShell
+      href: application-gateway-ilb-arm.md
+  - name: Konfigurera SSL-avslutning
+    items:
+    - name: SSL-avslutning med Azure Portal
+      href: create-ssl-portal.md
+    - name: SSL-avslutning med Azure PowerShell
+      href: tutorial-ssl-powershell.md
+    - name: SSL-avslutning (slutpunkt till slutpunkt) med Azure PowerShell
+      href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Förnya certifikat
+      href: renew-certificates.md
+    - name: Konfigurera SSL-princip
+      href: application-gateway-configure-ssl-policy-powershell.md
+  - name: Konfigurera brandväggen för webbappar
+    items:
+    - name: Azure Portal
+      href: application-gateway-web-application-firewall-portal.md
+    - name: Azure PowerShell
+      href: tutorial-restrict-web-traffic-powershell.md
+  - name: Anpassa WAF-regler
+    items:
+    - name: Azure Portal
+      href: application-gateway-customize-waf-rules-portal.md
+    - name: Azure PowerShell
+      href: application-gateway-customize-waf-rules-powershell.md
+    - name: Azure CLI
+      href: application-gateway-customize-waf-rules-cli.md
+  - name: Dirigera efter URL
+    items:
+    - name: Azure Portal
+      href: create-url-route-portal.md
+    - name: Azure PowerShell
+      href: tutorial-url-route-powershell.md
+  - name: Tillhandahåll värdtjänster för flera webbplatser
+    items:
+    - name: Azure Portal
+      href: create-multiple-sites-portal.md
+    - name: Azure PowerShell
+      href: tutorial-multiple-sites-powershell.md
+  - name: Omdirigera trafik
+    items:
+    - name: HTTP till HTTPS
       items:
-        - name: Azure PowerShell
-          href: tutorial-manage-web-traffic-powershell.md
-        - name: Mall
-          href: create-vmss-template.md
-    - name: Konfigurera intern lastbalanserare
+      - name: Azure PowerShell
+        href: redirect-http-to-https-powershell.md
+      - name: Azure CLI
+        href: redirect-http-to-https-cli.md
+    - name: Omdirigera intern trafik
       items:
-        - name: Azure PowerShell
-          href: application-gateway-ilb-arm.md
-    - name: Konfigurera SSL-avslutning
-      items:
-        - name: SSL-avslutning med Azure Portal
-          href: create-ssl-portal.md
-        - name: SSL-avslutning med Azure PowerShell
-          href: tutorial-ssl-powershell.md
-        - name: SSL-avslutning (slutpunkt till slutpunkt) med Azure PowerShell
-          href: application-gateway-end-to-end-ssl-powershell.md
-        - name: Förnya certifikat
-          href: renew-certificates.md
-        - name: Konfigurera SSL-princip
-          href: application-gateway-configure-ssl-policy-powershell.md
-    - name: Konfigurera brandväggen för webbappar
-      items:
-        - name: Azure Portal
-          href: application-gateway-web-application-firewall-portal.md
-        - name: Azure PowerShell
-          href: tutorial-restrict-web-traffic-powershell.md
-    - name: Anpassa WAF-regler
-      items:
-        - name: Azure Portal
-          href: application-gateway-customize-waf-rules-portal.md
-        - name: Azure PowerShell
-          href: application-gateway-customize-waf-rules-powershell.md
-        - name: Azure CLI
-          href: application-gateway-customize-waf-rules-cli.md
-    - name: Dirigera efter URL
-      items:
-        - name: Azure Portal
-          href: create-url-route-portal.md
-        - name: Azure PowerShell
-          href: tutorial-url-route-powershell.md
-    - name: Tillhandahåll värdtjänster för flera webbplatser
-      items:
-        - name: Azure Portal
-          href: create-multiple-sites-portal.md
-        - name: Azure PowerShell
-          href: tutorial-multiple-sites-powershell.md
-    - name: Omdirigera trafik
-      items:
-        - name: HTTP till HTTPS
-          items:
-            - name: Azure PowerShell
-              href: redirect-http-to-https-powershell.md
-            - name: Azure CLI
-              href: redirect-http-to-https-cli.md
-        - name: Omdirigera intern trafik
-          items:
-            - name: Azure PowerShell
-              href: redirect-internal-site-powershell.md
-            - name: Azure CLI
-              href: redirect-internal-site-cli.md
-    - name: Stöd för flera klienter
-      items:
-        - name: Konfigurera stöd för flera klienter
-          href: create-web-app.md
-    - name: Omdirigera webbtrafik med hjälp av Azure PowerShell
-      href: tutorial-url-redirect-powershell.md
-    - name: Skapa en zonredundant programgateway
-      href: create-zone-redundant.md
-    - name: Anpassade avsökningar
-      items:
-        - name: Portalen
-          href: application-gateway-create-probe-portal.md
-        - name: Klassiska PowerShell
-          href: application-gateway-create-probe-classic-ps.md
-        - name: Resource Manager PowerShell
-          href: application-gateway-create-probe-ps.md
-    - name: Felsöka
-      items:
-        - name: Felsöka fel med felaktig gateway (502)
-          href: application-gateway-troubleshooting-502.md
-        - name: Diagnostik
-          href: application-gateway-diagnostics.md
+      - name: Azure PowerShell
+        href: redirect-internal-site-powershell.md
+      - name: Azure CLI
+        href: redirect-internal-site-cli.md
+  - name: Stöd för flera klienter
+    items:
+    - name: Konfigurera stöd för flera klienter
+      href: create-web-app.md
+  - name: Omdirigera webbtrafik med hjälp av Azure PowerShell
+    href: tutorial-url-redirect-powershell.md
+  - name: Skapa en zonredundant programgateway
+    href: create-zone-redundant.md
+  - name: Anpassade avsökningar
+    items:
+    - name: Portalen
+      href: application-gateway-create-probe-portal.md
+    - name: Klassiska PowerShell
+      href: application-gateway-create-probe-classic-ps.md
+    - name: Resource Manager PowerShell
+      href: application-gateway-create-probe-ps.md
+  - name: Felsöka
+    items:
+    - name: Felsöka fel med felaktig gateway (502)
+      href: application-gateway-troubleshooting-502.md
+    - name: Diagnostik
+      href: application-gateway-diagnostics.md
 - name: Referens
   items:
-    - name: CRS-regler
-      href: application-gateway-crs-rulegroups-rules.md
-    - name: Azure CLI
-      href: /cli/azure/network/application-gateway
-    - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: .NET
-      href: /dotnet/api
-    - name: Java
-      href: /java/api
-    - name: Node.js
-      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
-    - name: Python
-      href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
-      href: /rest/api/applicationgateway
-    - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+  - name: CRS-regler
+    href: application-gateway-crs-rulegroups-rules.md
+  - name: Azure CLI
+    href: /cli/azure/network/application-gateway
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: .NET
+    href: /dotnet/api
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/applicationgateway
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
 - name: Resurser
   items:
-    - name: Skapa mallar
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Community-mallar
-      href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/#Linux'
-    - name: Regional tillgänglighet
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-application-gateway'
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: application-gateway-faq.md
+  - name: Skapa mallar
+    href: ../azure-resource-manager/resource-group-authoring-templates.md
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Community-mallar
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-application-gateway
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: application-gateway-faq.md
+ms.openlocfilehash: ae7eb1ff103326cfd1b5e24a3918e6b02666aaac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964060"

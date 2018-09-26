@@ -1,0 +1,122 @@
+items:
+- name: Azure DB för MariaDB-dokument
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Azure DB för MariaDB
+    href: overview.md
+- name: Snabbstarter
+  items:
+  - name: Skapa DB – Portal
+    href: quickstart-create-mariadb-server-database-using-azure-portal.md
+  - name: Skapa DB – Azure CLI
+    href: quickstart-create-mariadb-server-database-using-azure-cli.md
+  - name: Ansluta och fråga
+    items:
+    - name: MySQL Workbench
+      href: connect-workbench.md
+  expanded: true
+- name: Självstudier
+  items:
+  - name: 1 – Utforma en databas
+    items:
+    - name: Azure Portal
+      href: tutorial-design-database-using-portal.md
+- name: Begrepp
+  items:
+  - name: Databas och servrar
+    items:
+    - name: Servrar
+      href: concepts-servers.md
+    - name: Versioner som stöds
+      href: concepts-supported-versions.md
+    - name: Serverloggar
+      href: concepts-server-logs.md
+    - name: Hög tillgänglighet
+      href: concepts-high-availability.md
+  - name: Resurser
+    items:
+    - name: Prisnivåer
+      href: concepts-pricing-tiers.md
+    - name: Begränsningar
+      href: concepts-limits.md
+  - name: Dataåtkomst och säkerhet
+    items:
+    - name: Brandväggsregler
+      href: concepts-firewall-rules.md
+    - name: Konfigurerar SSL
+      href: concepts-ssl-connection-security.md
+  - name: Verksamhetskontinuitet
+    items:
+    - name: Översikt
+      href: concepts-business-continuity.md
+    - name: Säkerhetskopiering och återställning
+      href: concepts-backup.md
+  - name: Replikering
+    items:
+    - name: Dataintensiv replikering
+      href: concepts-data-in-replication.md
+- name: Instruktionsguider
+  items:
+  - name: Brandväggsregler
+    items:
+    - name: Azure Portal
+      href: howto-manage-firewall-portal.md
+  - name: Återställ en server
+    items:
+    - name: Azure Portal
+      href: howto-restore-server-portal.md
+  - name: Migrera en databas
+    items:
+    - name: Dumpa och återställa
+      href: howto-migrate-dump-restore.md
+  - name: Anslut program
+    items:
+    - name: Skapa användare
+      href: howto-create-users.md
+    - name: Anslutningssträngar
+      href: howto-connection-string.md
+    - name: Konfigurera SSL
+      href: howto-configure-ssl.md
+  - name: Konfigurera serverparametrar
+    items:
+    - name: Azure Portal
+      href: howto-server-parameters.md
+  - name: Åtkomst till serverloggar
+    items:
+    - name: Azure Portal
+      href: howto-configure-server-logs-portal.md
+  - name: Replikering
+    items:
+    - name: Konfigurera dataintensiv replikering
+      href: howto-data-in-replication.md
+- name: Referens
+  items:
+  - name: REST-API
+    href: /rest/api/mariadb
+  - name: Lagrade procedurer för dataintensiv replikering
+    href: reference-data-in-stored-procedures.md
+- name: Resurser
+  items:
+  - name: Distributionsmallar
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/mariadb/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-mariadb
+  - name: Begär en funktion
+    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+  - name: Supportalternativ
+    href: https://azure.microsoft.com/support/options/
+ms.openlocfilehash: a1b24ca3800866f00a97647d59e1f7353a0bdcc9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958500"

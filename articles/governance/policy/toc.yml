@@ -1,0 +1,223 @@
+items:
+- name: Dokumentation om Azure Policy
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Översikt över Azure Policy
+    href: overview.md
+- name: Snabbstarter
+  items:
+  - name: Tilldela en princip – Portal
+    href: assign-policy-portal.md
+  - name: Tilldela en princip – PowerShell
+    href: assign-policy-powershell.md
+  - name: Tilldela en princip – Azure CLI
+    href: assign-policy-azurecli.md
+  expanded: true
+- name: Självstudier
+  items:
+  - name: Skapa och hantera Azure Policy
+    href: ./tutorials/create-and-manage.md
+- name: Exempel
+  href: ./samples/index.md
+  items:
+  - name: Allmänt
+    items:
+    - name: Namngivning
+      items:
+      - name: Tillåt flera namnmönster
+        href: samples/allow-multiple-name-patterns.md
+      - name: Kräv like-mönster
+        href: samples/enforce-like-pattern.md
+      - name: Kräv matchningsmönster
+        href: samples/enforce-match-pattern.md
+      - name: Kräv taggmatchningsmönster
+        href: samples/enforce-tag-match-pattern.md
+    - name: Taggar
+      items:
+      - name: Använd taggen och dess standardvärde
+        href: samples/apply-tag-def-val.md
+      - name: Principinitiativ för faktureringstaggar
+        href: samples/billing-tags-policy-init.md
+      - name: Framtvinga tagg och dess värde
+        href: samples/enforce-tag-val.md
+      - name: Lägg till tagg och dess värde i resursgrupper
+        href: samples/enforce-tag-rg.md
+    - name: Platser
+      items:
+      - name: Tillåtna platser
+        href: samples/allowed-locs.md
+    - name: Resurstyper
+      items:
+      - name: Tillåtna resurstyper
+        href: samples/allowed-res-types.md
+      - name: Otillåtna resurstyper
+        href: samples/not-allowed-res-type.md
+  - name: Compute
+    items:
+    - name: Virtuella datorer
+      items:
+      - name: Tillåt anpassad avbildning av virtuell dator från en resursgrupp
+        href: samples/allow-custom-vm-image.md
+      - name: Tillåtna SKU:er för lagringskonton och virtuella datorer
+        href: samples/allowed-skus-storage.md
+      - name: Godkända VM-avbildningar
+        href: samples/allowed-custom-images.md
+      - name: Granska om ej tillgängligt tillägg
+        href: samples/audit-ext-not-exist.md
+      - name: Otillåtna VM-tillägg
+        href: samples/not-allowed-vm-ext.md
+    - name: Skalningsuppsättningar för virtuella datorer
+      items:
+      - name: Granska när VM inte använder hanterad disk
+        href: samples/create-vm-managed-disk.md
+      - name: Skapa VM med hanterad disk
+        href: samples/use-managed-disk-vm.md
+      - name: Neka Hybrid Use Benefit
+        href: samples/deny-hybrid-use.md
+      - name: Endast tillåta en viss VM-plattformsavbildning
+        href: samples/allow-certain-vm-image.md
+  - name: Data Lake
+    items:
+    - name: Kräv kryptering för Data Lake Store
+      href: samples/enforce-datalakestore-encryption.md
+  - name: Övervakning
+    items:
+    - name: Granska diagnostikinställning
+      href: samples/audit-diag-setting.md
+  - name: Nätverk
+    items:
+    - name: Nätverksgränssnitt
+      items:
+      - name: NSG X på varje nätverkskort
+        href: samples/nsg-on-nic.md
+      - name: Använda godkända undernät för VM-nätverksgränssnitt
+        href: samples/use-approved-subnet-vm-nics.md
+      - name: Använda godkända vNet för VM-nätverksgränssnitt
+        href: samples/use-approved-vnet-vm-nics.md
+    - name: Virtuella nätverk
+      items:
+      - name: Tillåtna SKU:er för programgateway
+        href: samples/allowed-app-gate-sku.md
+      - name: Ingen nätverkspeering till ER-nätverk
+        href: samples/no-peering-er-net.md
+      - name: Ingen användardefinierad routningstabell
+        href: samples/no-user-def-route-table.md
+      - name: NSG x i varje undernät
+        href: samples/nsg-on-subnet.md
+      - name: Använda godkända undernät för VM-nätverksgränssnitt
+        href: samples/use-approved-subnet-vm-nics.md
+      - name: Använda godkända vNet för VM-nätverksgränssnitt
+        href: samples/use-approved-vnet-vm-nics.md
+    - name: Nätverkssäkerhetsgrupper
+      items:
+      - name: NSG X på varje nätverkskort
+        href: samples/nsg-on-nic.md
+      - name: NSG x i varje undernät
+        href: samples/nsg-on-subnet.md
+    - name: Express Routes
+      items:
+      - name: Tillåten ExpressRoute-bandbredd
+        href: samples/allowed-er-band.md
+      - name: Tillåtna ExpressRoute-SKU:er
+        href: samples/allowed-er-skus.md
+      - name: Tillåten peeringplats för ExpressRoute
+        href: samples/allowed-peering-er.md
+    - name: Nätverksbevakare
+      items:
+      - name: Granska om Network Watcher inte är aktiverat för regionen
+        href: samples/net-watch-not-enabled.md
+    - name: Programgateways
+      items:
+      - name: Tillåtna SKU:er för programgateway
+        href: samples/allowed-app-gate-sku.md
+  - name: SQL
+    items:
+    - name: SQL Servrar
+      items:
+      - name: Granska när det saknas Azure AD-administratör
+        href: samples/audit-no-aad-admin.md
+      - name: Granska inställningar för hotidentifiering på servernivå
+        href: samples/audit-sql-ser-threat-det-setting.md
+      - name: Granska granskningsinställningar för SQL Server
+        href: samples/sql-server-audit.md
+      - name: Granska granskningsinställningar på SQL-servernivå
+        href: samples/audit-sql-ser-leve-audit-setting.md
+      - name: Kräv SQL Server version 12.0
+        href: samples/req-sql-12.md
+    - name: SQL Databases
+      items:
+      - name: Tillåtna SKU:er för SQL DB
+        href: samples/allowed-sql-db-skus.md
+      - name: Granska SQL DB-nivå för hotidentifiering på servernivå
+        href: samples/audit-db-threat-det-setting.md
+      - name: Granska SQL DB-kryptering
+        href: samples/sql-database-encryption-audit.md
+      - name: Granska granskningsinställning på SQL DB-nivån
+        href: samples/audit-sql-db-audit-setting.md
+      - name: Granska status för transparent datakryptering
+        href: samples/audit-trans-data-enc-status.md
+  - name: Storage
+    items:
+    - name: Tillåtna SKU:er för lagringskonto och virtuella datorer
+      href: samples/allowed-skus-storage.md
+    - name: Tillåtna SKU:er för lagringskonto
+      href: samples/allowed-stor-acct-skus.md
+    - name: Neka lågfrekvent åtkomstnivå för lagringskonton
+      href: samples/deny-cool-access-tiering.md
+    - name: Garantera endast HTTPS-trafik för lagringskonto
+      href: samples/ensure-https-stor-acct.md
+    - name: Garantera kryptering för lagringsfil
+      href: samples/ensure-store-file-enc.md
+    - name: Kräver kryptering för lagringskonto
+      href: samples/req-store-acct-enc.md
+- name: Begrepp
+  items:
+  - name: Azure Policy-definitionsstruktur
+    href: ./concepts/definition-structure.md
+  - name: Förstå Policy-effekter
+    href: ./concepts/effects.md
+- name: Instruktionsguider
+  items:
+  - name: Skapa principer programmässigt
+    href: ./how-to/programmatically-create.md
+  - name: Hämta data för efterlevnad
+    href: ./how-to/getting-compliance-data.md
+  - name: Åtgärda icke-kompatibla resurser
+    href: ./how-to/remediate-resources.md
+- name: Referens
+  items:
+  - name: Azure CLI
+    href: /cli/azure/policy
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.resources/#policies
+  - name: REST-API
+    items:
+    - name: Händelser
+      href: /rest/api/policy-insights/policyevents
+    - name: Tillstånd
+      href: /rest/api/policy-insights/policystates
+    - name: Tilldelningar
+      href: /rest/api/resources/policyassignments
+    - name: Principdefinitioner
+      href: /rest/api/resources/policydefinitions
+    - name: Initiativdefinitioner
+      href: /rest/api/resources/policysetdefinitions
+- name: Resurser
+  items:
+  - name: GitHub – Azure Policy-exempel
+    href: https://github.com/Azure/azure-policy
+  - name: Video – Build 2018
+    href: https://channel9.msdn.com/events/Build/2018/THR2030
+  - name: Video – Ignite 2017
+    href: https://myignite.microsoft.com/videos/54781
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: e433ad5418f2c97890332548ae8d05196117bbd4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962699"

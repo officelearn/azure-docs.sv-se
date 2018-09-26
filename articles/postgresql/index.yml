@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: e115408ad9ba692f076568babb2c4aad8d133003
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950275"
 documentType: LandingData
 title: Azure Database för PostgreSQL-dokumentation
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-  ms.openlocfilehash: ef78955bf3b7453702725d0899f3f6813fa29ef2
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 01/12/2018
-  ms.locfileid: "27784834"
 abstract:
   description: Azure Database för PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn för öppen källkod.  Det är en fullständigt hanterad databas som tjänst, för hantering av verksamhetskritiska arbetsbelastningar med förutsägbara prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet.  Utveckla program med Azure Database för PostgreSQL och använd valfria verktyg för öppen källkod och plattform.  Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel.
 sections:
@@ -47,6 +47,19 @@ sections:
     items:
     - html: Utforma en databas&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>
     - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Skapa en webbapp med Python och CLI</a>
+- title: Utveckla dina färdigheter med Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Skapa en Azure Database för PostgreSQL-server
+      href: /learn/modules/create-azure-db-for-postgresql-server/
+      image:
+        src: /learn/achievements/create-azure-db-for-postgresql-server.svg
+        href: /learn/modules/create-azure-db-for-postgresql-server/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure">Mer interaktiv inlärning...</a>
 - title: Exempel
   items:
   - type: paragraph

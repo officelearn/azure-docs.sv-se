@@ -2,19 +2,22 @@
 title: Implementera en geo-distribuerad Azure SQL Database-lösning | Microsoft Docs
 description: Läs om hur du konfigurerar din Azure SQL-databas och ditt program för redundansväxling till en replikerad databas och testar redundans.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,business continuity
-ms.topic: tutorial
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416627"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166273"
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implementera en geo-distribuerad databas
 
@@ -30,7 +33,7 @@ I den här självstudiekursen konfigurerar du en Azure SQL-databas och ett progr
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
@@ -38,8 +41,8 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 - Du måste ha installerat en Azure SQL-databas. I den här självstudiekursen används exempeldatabasen AdventureWorksLT med namnet **mySampleDatabase** från någon av dessa snabbstarter:
 
    - [Skapa DB – Portal](sql-database-get-started-portal.md)
-   - [Skapa DB – CLI](sql-database-get-started-cli.md)
-   - [Skapa DB – PowerShell](sql-database-get-started-powershell.md)
+   - [Skapa DB – CLI](sql-database-cli-samples.md)
+   - [Skapa DB – PowerShell](sql-database-powershell-samples.md)
 
 - Identifiera en metod för att köra SQL-skript mot din databas. Du kan använda något av följande frågeverktyg:
    - Frågeredigeraren i [Azure Portal](https://portal.azure.com). Mer information om hur du använder frågeredigeraren i Azure Portal finns i [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database) (Anslut och fråga med frågeredigeraren).
@@ -54,7 +57,7 @@ Anslut till din databas och skapa användarkonton med hjälp av något av följa
 - SQL Server Management Studio
 - Visual Studio-koden
 
-Dessa användarkonton replikeras automatiskt till den sekundära servern (och hålls synkroniserade). Om du vill använda SQL Server Management Studio eller Visual Studio Code kan du behöva konfigurera en brandväggsregel om du ansluter från en klient på en IP-adress som du ännu inte har konfigurerat en brandvägg för. Detaljerade anvisningar finns i [Skapa en brandväggsregel på servernivå](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+Dessa användarkonton replikeras automatiskt till den sekundära servern (och hålls synkroniserade). Om du vill använda SQL Server Management Studio eller Visual Studio Code kan du behöva konfigurera en brandväggsregel om du ansluter från en klient på en IP-adress som du ännu inte har konfigurerat en brandvägg för. Detaljerade anvisningar finns i [Skapa en brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md).
 
 - I ett frågefönster skriver du följande fråga för att skapa två användarkonton i databasen. Det här skriptet ger **db_owner**-behörighet till **app_admin**-kontot och ger **SELECT**- och **UPDATE**-behörighet till **app_user**-kontot. 
 
@@ -70,7 +73,7 @@ Dessa användarkonton replikeras automatiskt till den sekundära servern (och h�
 
 ## <a name="create-database-level-firewall"></a>Skapa en brandväggsregel på databasnivå
 
-Skapa en [brandväggsregel på databasnivå](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) för din SQL-databas. Den här brandväggsregeln på databasnivå replikeras automatiskt till den sekundära servern som du skapar i den här kursen. För enkelhetens skull använder du den allmänna IP-adressen för datorn som du använder i den här självstudien. Läs [Skapa en brandväggsregel på servernivå](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) för att ta reda på vilken IP-adress som används för brandväggsregeln på servernivå för din aktuella dator.  
+Skapa en [brandväggsregel på databasnivå](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) för din SQL-databas. Den här brandväggsregeln på databasnivå replikeras automatiskt till den sekundära servern som du skapar i den här kursen. För enkelhetens skull använder du den allmänna IP-adressen för datorn som du använder i den här självstudien. Läs [Skapa en brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md) för att ta reda på vilken IP-adress som används för brandväggsregeln på servernivå för din aktuella dator.  
 
 - I det öppna frågefönstret ersätter du den tidigare frågan med följande fråga, vilket ersätter IP-adresserna med lämpliga IP-adresser för din miljö.  
 
@@ -390,8 +393,8 @@ I den här självstudiekursen har du lärt dig att konfigurera en Azure SQL-data
 > * Skapa och kompilera ett Java-program för att fråga en Azure SQL-databas
 > * Utföra ett programåterställningstest
 
-Gå vidare till nästa självstudie där du får lära dig att skapa anpassade avbildningar för hanterade enheter.
+Gå vidare till nästa självstudie för att migrera SQL Server till Azure SQL Database Managed Instance med DMS.
 
 > [!div class="nextstepaction"]
->[Skapa en hanterad instans](sql-database-managed-instance-create-tutorial-portal.md)
+>[Migrera SQL Server till Azure SQL Database Managed Instance med DMS](../dms/tutorial-sql-server-to-managed-instance.md)
 

@@ -1,21 +1,22 @@
 ---
 title: Övervaka och förbättra prestanda – Azure SQL Database | Microsoft Docs
 description: Azure SQL Database innehåller prestandaverktyg som hjälper dig att identifiera områden som kan förbättra aktuella frågeprestanda.
-services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 5d739787d5b268ddfcf5bb9e6494c3cba6b3cdc2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 35af3a926ab3c3a3046eab921e86b6610edc309c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718788"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162968"
 ---
 # <a name="monitor-and-improve-performance"></a>Övervaka och förbättra prestanda
 Azure SQL-databas identifierar potentiella problem i din databas och rekommenderar åtgärder som kan förbättra prestanda genom att tillhandahålla intelligent justeringsåtgärder och rekommendationer.

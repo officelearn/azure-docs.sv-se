@@ -2,19 +2,22 @@
 title: Läs in data från CSV-fil till Azure SQL Database (bcp) | Microsoft Docs
 description: För mindre datastorlekar används bcp för att importera data till Azure SQL Database.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: de25b3318a91a5dbf99a5a9c26af209224177f0f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: b5039fc7cb6b9751bea9a88400c8a64308d447d6
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649857"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162907"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Läsa in data från CSV till Azure SQL Database (flat-filer)
 Du kan använda kommandoradsverktyget bcp för att importera data från en CSV-fil till Azure SQL Database.

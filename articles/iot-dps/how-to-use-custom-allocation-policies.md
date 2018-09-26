@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 503a8026fe11d1cdb3d0fc0c2680d8d545a1c992
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955267"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161717"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Hur du använder anpassade allokeringsprinciper
 
 
-En anpassad allokeringsprincip ger dig större kontroll över hur enheter tilldelas till en IoT-hubb. Detta åstadkoms med hjälp av anpassad kod i en [Azure Function](../azure-functions/functions-overview.md) tilldela enheter till en IoT-hubb. Device provisioning-tjänst anropar Azure Function-koden att tillhandahålla den IoT hub-gruppen. Funktionskoden returnerar IoT hub-information för att etablera enheten.
+En anpassad allokeringsprincip ger dig större kontroll över hur enheter tilldelas till en IoT-hubb. Detta åstadkoms med hjälp av anpassad kod i en [Azure Function](../azure-functions/functions-overview.md) tilldela enheter till en IoT-hubb. Device provisioning-tjänst anropar Azure Function-koden med alla relevanta uppgifter om enheten och registrering. Funktionskoden körs och returnerar IoT-hubinformationen som används för att etablera enheten.
 
 Med hjälp av anpassade allokeringsprinciper definiera egna allokeringsprinciper när de principer som tillhandahålls av Device Provisioning-tjänsten inte uppfyller kraven för ditt scenario.
 
@@ -107,7 +107,9 @@ I det här avsnittet skapar du en ny grupp för registrering som använder den a
     ![Lägg till grupp för registrering av anpassade allokering för symmetrisk nyckelattestering](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
 
-4. På **lägga till Registreringsgruppen**, klickar du på **länka en ny IoT hub** länka båda dina nya avdelningar IoT-hubbar.
+4. På **lägga till Registreringsgruppen**, klickar du på **länka en ny IoT hub** länka båda dina nya avdelningar IoT-hubbar. 
+
+    Du måste köra det här steget för båda dina avdelningar IoT-hubbar.
 
     **Prenumeration**: Om du har flera prenumerationer väljer du den prenumeration där du skapade avdelningar IoT-hubbar.
 
@@ -278,9 +280,9 @@ I det här avsnittet skapar du en ny grupp för registrering som använder den a
 
 I det här avsnittet skapar du två unikt enhets-nycklar. En nyckel ska användas för en simulerad toaster-enhet. Den andra nyckeln används för en simulerad termisk pump-enhet.
 
-Generera enhetsnyckeln genom att använda den **primärnyckel** du antecknade tidigare för att beräkna den [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) av enheten registrerings-ID för varje enhet och konvertera resultatet i Base64-format.
+Om du vill generera enhetsnyckeln som du ska använda den **primärnyckel** du antecknade tidigare för att beräkna den [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) av enheten registrerings-ID för varje enhet och konvertera resultatet i Base64-format. Mer information om hur du skapar härledda enhetsnycklar med registreringsgrupper finns i avsnittet grupp registreringar av [symmetriska nyckelattestering](concepts-symmetric-key-attestation.md).
 
-Använd de följande två enhetsregistreringen-ID och beräkna en enhetsnyckel för både enheter. Båda registrerings-ID: N har ett giltigt suffix att arbeta med kodexempel för anpassade allokeringsprincipen:
+Använd de följande två enhetsregistreringen-ID för det här exemplet i den här artikeln och beräkna en enhetsnyckel för både enheter. Båda registrerings-ID: N har ett giltigt suffix att arbeta med kodexempel för anpassade allokeringsprincipen:
 
 - **breakroom499-contoso-tstrsd-007**
 - **mainbuilding167-contoso-hpsd-088**
@@ -289,53 +291,53 @@ Använd de följande två enhetsregistreringen-ID och beräkna en enhetsnyckel f
 
 Om du använder en Linux-arbetsstation, kan du använda openssl för att generera enhetsnycklar härledda som visas i följande exempel.
 
-Ersätt värdet för **nyckel** med den **primärnyckel** du antecknade tidigare.
+1. Ersätt värdet för **nyckel** med den **primärnyckel** du antecknade tidigare.
 
-```bash
-KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+    ```bash
+    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
 
-REG_ID1=breakroom499-contoso-tstrsd-007
-REG_ID2=mainbuilding167-contoso-hpsd-088
+    REG_ID1=breakroom499-contoso-tstrsd-007
+    REG_ID2=mainbuilding167-contoso-hpsd-088
 
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
 
-echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-```
+    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+    ```
 
-```bash
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```bash
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 #### <a name="windows-based-workstations"></a>Windows-baserade arbetsstationer
 
 Om du använder en Windows-arbetsstation, kan du använda PowerShell för att generera härledda enhetsnyckeln som du ser i följande exempel.
 
-Ersätt värdet för **nyckel** med den **primärnyckel** du antecknade tidigare.
+1. Ersätt värdet för **nyckel** med den **primärnyckel** du antecknade tidigare.
 
-```PowerShell
-$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+    ```PowerShell
+    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-$REG_ID1='breakroom499-contoso-tstrsd-007'
-$REG_ID2='mainbuilding167-contoso-hpsd-088'
+    $REG_ID1='breakroom499-contoso-tstrsd-007'
+    $REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-$hmacsha256.key = [Convert]::FromBase64String($key)
-$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-$derivedkey1 = [Convert]::ToBase64String($sig1)
-$derivedkey2 = [Convert]::ToBase64String($sig2)
+    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+    $hmacsha256.key = [Convert]::FromBase64String($key)
+    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+    $derivedkey1 = [Convert]::ToBase64String($sig1)
+    $derivedkey2 = [Convert]::ToBase64String($sig2)
 
-echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-```
+    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+    ```
 
-```PowerShell
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```PowerShell
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 De simulerade enheterna använda härledda enhetsnycklar med varje registrerings-ID för att utföra symmetriska nyckelattestering.

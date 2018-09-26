@@ -10,26 +10,26 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 80a227b57c8df157890337f0e207519c71ae5bd6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2ec0dea7e50747f8af337874c8f12463cecb8df7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034628"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163485"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
 
-I Azure Machine Learning kan du träna din modell på olika typer av beräkningsresurser som du hanterar. Compute-mål kan vara en lokal dator eller en dator i molnet. 
+I Azure Machine Learning kan du träna din modell på olika typer av beräkningsresurser som du hanterar. Compute-mål kan vara en lokal dator eller en dator i molnet.
 
 Du kan enkelt skala upp eller skala ut din machine learning-experiment genom att lägga till ytterligare beräkningsmål, till exempel Ubuntu-baserad Data Science Virtual Machine (DSVM) eller Azure Batch AI. DSVM är en anpassad VM-avbildning på Microsoft Azure-molnet som skapats specifikt för datavetenskap. Det har många populära datavetenskaps och andra verktyg som förinstallerade och förkonfigurerade.  
 
-I den här artikeln lär du dig att skapa en modell med automatiserade ML på DSVM.  
+I den här artikeln lär du dig att skapa en modell med automatiserade ML på DSVM. Du hittar exempel med Azure Batch AI i [dessa exempelanteckningsböcker i GitHub](https://aka.ms/aml-notebooks).  
 
 ## <a name="how-does-remote-differ-from-local"></a>Hur skiljer sig remote från lokal?
 
-Självstudien ”[tränar en modell för klassificering med automatiserade ML](tutorial-auto-train-models.md)” Lär dig hur du använder en lokal dator för att träna modellen med automatiserade ML.  Arbetsflödet när utbildning lokalt gäller även för samt fjärranslutna mål. Med remote beräkning körs automatiserad ML iterationer av experiment asynkront. Detta gör att du avbryter en viss iteration, se status för körningen, fortsätta att arbeta med andra celler i Jupyter-anteckningsboken. För att träna via fjärranslutning du först skapa fjärransluten beräkningsmål, till exempel en Azure-DSVM, konfigurera den och skicka koden där.
+Självstudien ”[tränar en modell för klassificering med automatiserade machine learning](tutorial-auto-train-models.md)” Lär dig hur du använder en lokal dator för att träna modellen med automatiserade ML.  Arbetsflödet när utbildning lokalt gäller även för samt fjärranslutna mål. Men med remote beräkning körs automatiserade iterationer av experiment ML asynkront. På så sätt kan du avbryta en viss iteration, se status för körning eller fortsätta att arbeta med andra celler i Jupyter-anteckningsboken. För att träna via fjärranslutning skapa du först fjärransluten beräkningsmål, till exempel en Azure-DSVM.  Sedan konfigurerar om fjärresursen och skicka koden där.
 
-Den här artikeln visar de extra steg som behövs för att köra automatiserade ML experimentera på en fjärransluten DSVM.  Objektet arbetsytan `ws`, från självstudierna används i hela koden här.
+Den här artikeln visar de extra stegen som behövs för att köra ett automatiserat ML-experiment på en fjärransluten DSVM.  Objektet arbetsytan `ws`, från självstudierna används i hela koden här.
 
 ```python
 ws = Workspace.from_config()
@@ -50,6 +50,7 @@ try:
     print('found existing dsvm.')
 except:
     print('creating new dsvm.')
+    # Below is using a VM of SKU Standard_D2_v2 which is 2 core machine. You can check Azure virtual machines documentation for additional SKUs of VMs.
     dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
     dsvm_compute = DsvmCompute.create(ws, name = dsvm_name, provisioning_configuration = dsvm_config)
     dsvm_compute.wait_for_completion(show_output = True)
@@ -69,10 +70,12 @@ Begränsningar för DSVM är:
 >    1. Avsluta utan att faktiskt skapa den virtuella datorn
 >    1. Kör koden skapas
 
+Den här koden skapar inte något användarnamn eller lösenord för DSVM som tillhandahålls. Om du vill ansluta direkt till den virtuella datorn går du till den [Azure-portalen](https://portal.azure.com) etablera autentiseringsuppgifter.  
 
-## <a name="access-data-using-get-data-file"></a>Åtkomst till data med hjälp av hämta Data-fil
 
-Ger fjärresursen åtkomst till dina utbildningsdata. För automatisk ML-experimenten som körs på fjärranslutna beräkning, data ska hämtas med hjälp av en `get_data()` funktion.  
+## <a name="access-data-using-getdata-file"></a>Åtkomst till data med hjälp av get_data fil
+
+Ger fjärresursen åtkomst till dina utbildningsdata. För automatiserade machine learning-experiment som körs på fjärranslutna beräkning, data ska hämtas med hjälp av en `get_data()` funktion.  
 
 För att ge åtkomst måste du:
 + Skapa en fil som get_data.py innehåller en `get_data()` funktion 
@@ -81,7 +84,7 @@ För att ge åtkomst måste du:
 Du kan kapsla kod för att läsa data från blob storage- eller lokal disk i filen get_data.py. I följande kodexempel kommer data från sklearn-paketet.
 
 >[!Warning]
->Om du använder fjärranslutna beräkning så måste du använda `get_data()` att genomföra dina transformeringar data.
+>Om du använder fjärranslutna beräkning så måste du använda `get_data()` där dina data-transformeringar utförs. Om du behöver installera ytterligare bibliotek för Datatransformationer som en del av get_data() finns ytterligare steg ska följas. Referera till den [automatisk-ml-förberedelse av data exempel notebook](https://aka.ms/aml-auto-ml-data-prep ) mer information.
 
 
 ```python
@@ -105,7 +108,7 @@ def get_data():
     return { "X" : X_digits, "y" : y_digits }
 ```
 
-## <a name="configure-automated-machine-learning-experiment"></a>Konfigurera automatisk machine learning-Experiment
+## <a name="configure-experiment"></a>Konfigurera experiment
 
 Ange inställningar för `AutoMLConfig`.  (Finns i en [fullständig lista över parametrar]() och deras möjliga värden.)
 
@@ -136,7 +139,7 @@ automl_config = AutoMLConfig(task='classification',
                             )
 ```
 
-## <a name="submit-automated-machine-learning-training-experiment"></a>Skicka automatiserade machine learning-träningsexperiment
+## <a name="submit-training-experiment"></a>Skicka träningsexperiment
 
 Nu skicka konfigurationen för att automatiskt välja algoritmen, hyper parametrar och träna modellen. (Läs [mer information om inställningar]() för den `submit` metoden.)
 

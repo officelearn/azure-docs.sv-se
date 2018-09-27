@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 561c5b0f49c36cf15e85e3a334c7a8aa326f70a9
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0b206d7b56fc8a65c422a4ce22b2f5585e71c8da
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715065"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219433"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Anpassa och distribuera om en mikrotjänst
 
@@ -58,13 +58,13 @@ I den här delen kan du anropa standard IoT hub manager mikrotjänst API. API: e
 3. Öppna StatusController.cs i valfri textredigerare eller IDE som helst. 
 4. Leta upp följande kod:
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "Alive and well");
     ```
 
     och ändra den till koden nedan och spara den.
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "New Edits Made Here!");
     ```
 
@@ -118,13 +118,13 @@ Nu måste du uppdatera din lokala docker-compose.yml om du vill hämta en ny doc
 3. Leta upp följande kod:
 
     ```docker
-    image: azureiotpcs/pcs-auth-dotnet:testing
+    image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     och ändra den så att den ser ut som på bilden nedan och spara den.
 
     ```cmd/sh
-    image: [docker ID]/pcs-auth-dotnet:testing
+    image: [docker ID]/iothub-manager-dotnet:testing
     ```
 
 ## <a name="view-the-new-response-status"></a>Visa den nya svarsstatusen

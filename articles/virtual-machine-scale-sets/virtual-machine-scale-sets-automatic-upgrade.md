@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: 4d3af3b7c7084c3c410bc936356d9caff643b805
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 1ca0ec7185707d9b9f9712c2ace8dacb361f7b5b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182135"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394377"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure VM-skalningsuppsättningen automatisk operativsystemuppgradering för avbildning
 
@@ -38,17 +38,15 @@ Automatisk uppgradering av Operativsystemet har följande egenskaper:
 
 ## <a name="how-does-automatic-os-image-upgrade-work"></a>Hur fungerar automatisk OS uppgradera fungera?
 
-En uppgradering fungerar genom att ersätta OS-disk för en virtuell dator med ett nytt lösenord som skapats med den senaste avbildningsversionen. Alla konfigurerade tillägg och anpassade data skript körs, när bevarade data diskar finns kvar. För att minimera nedtid, ske uppgraderingar i grupper med datorer, med mer än 20% av skalningsuppsättningen uppgradera när som helst. Du har också möjlighet att integrera en hälsoavsökning för Azure Load Balancer-programmet. Det rekommenderas starkt att lägga till ett program-pulsslag och validera uppgradering slutförd för varje batch i uppgraderingsprocessen.
+En uppgradering fungerar genom att ersätta OS-disk för en virtuell dator med ett nytt lösenord som skapats med den senaste avbildningsversionen. Alla konfigurerade tillägg och anpassade data skript körs, när bevarade data diskar finns kvar. För att minimera nedtid, ske uppgraderingar i grupper med datorer, med mer än 20% av skalningsuppsättningen uppgradera när som helst. Du har också möjlighet att integrera en hälsoavsökning för Azure Load Balancer-programmet. Vi rekommenderar starkt att lägga till ett program-pulsslag och validera uppgradering slutförd för varje batch i uppgraderingsprocessen. Körningen stegen är: 
 
-Det här är utförande: 
-
-1. Se till att mer än 20% av instanserna är defekta innan du påbörjar uppgraderingen. 
+1. Innan du påbörjar uppgraderingen bör garanterar orchestrator att högst 20% av instanserna är defekta. 
 2. Identifiera batch med VM-instanser för uppgradering med en batch med högst 20% av det totala instansantalet.
 3. Uppgradera den OS-avbildningen av den här batchen med VM-instanser.
-4. Om kunden har konfigurerat Application Hälsoavsökningar, uppgraderingen väntar upp till 5 minuter för avsökningar till fungerar felfritt och sedan omedelbart fortsätter till nästa batch. 
+4. Om kunden har konfigurerat Application hälsoavsökningar, väntar uppgraderingen upp till 5 minuter för avsökningar till fungerar felfritt, innan du fortsätter att uppgradera nästa batch. 
 5. Om det finns återstående instanser för att uppgradera, gå till steg 1) för nästa batch; Annars har uppgraderingen slutförts.
 
-OS-uppgradering motorn söker efter den övergripande hälsan för VM-instans innan du uppgraderar varje batch skalningsuppsättningen. När du uppgraderar en batch, kan det finnas andra samtidiga planerat eller oplanerat underhåll som händer i Azure-datacenter som kan påverka tillgängligheten för dina virtuella datorer. Därför är det möjligt att tillfälligt fler än 20% instanser kanske inte körs. I sådana fall skaluppsättningen i slutet av aktuell batch uppgradera stoppas.
+Skalningsuppsättningen OS uppgradera orchestrator söker efter den övergripande hälsan för VM-instans innan du uppgraderar varje batch. När du uppgraderar en batch, kan det finnas andra samtidiga planerat eller oplanerat underhåll som händer i Azure-datacenter som kan påverka tillgängligheten för dina virtuella datorer. Därför är det möjligt att tillfälligt fler än 20% instanser kanske inte körs. I sådana fall skaluppsättningen i slutet av aktuell batch uppgradera stoppas.
 
 ## <a name="supported-os-images"></a>OS-avbildningar som stöds
 Endast vissa bilder för OS-plattformen stöds för närvarande. Du det går inte att använder anpassade avbildningar som du har du skapat själv. 
@@ -72,7 +70,8 @@ Följande SKU: er stöds för närvarande (fler tillkommer framöver):
 
 - Den *version* plattform bildens egenskap måste anges till *senaste*.
 - Använd programmet hälsoavsökningar för skalningsuppsättningar som inte är Service Fabric.
-- Se till att resurserna som skalningsuppsättningsmodell hänvisar till är tillgänglig och hålls uppdaterade. Exa.SAS URI för start av nyttolast i VM-egenskaperna för tillägget, nyttolast i storage-konto, referera till hemligheter i modellen. 
+- Se till att resurserna som skalningsuppsättningsmodell hänvisar till är tillgänglig och hålls uppdaterad. 
+  Exa.SAS URI för start av nyttolast i VM-egenskaperna för tillägget, nyttolast i storage-konto, referera till hemligheter i modellen. 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Konfigurera automatisk uppgradering för avbildning av operativsystem
 Om du vill konfigurera automatisk uppgradering för avbildning av operativsystem, se till att den *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* är inställd på *SANT* i skalningsuppsättningen principuppsättningsdefinition modell. 
@@ -117,7 +116,7 @@ Avsökningen belastningsutjämnare kan refereras i den *networkProfile* skalans 
   ...
 ```
 > [!NOTE]
-> Det här avsnittet gäller endast för skalningsuppsättningar utan Service Fabric. Service Fabric har sin egen begreppet programmets hälsotillstånd. När du använder automatisk Operativsystemuppgradering med Service Fabric, distribueras den nya operativsystemavbildningen Uppdateringsdomän av Uppdateringsdomänen att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Mer information om hållbarhet egenskaperna för Service Fabric-kluster finns i [den här dokumentationen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> När du använder automatisk Operativsystemuppgradering med Service Fabric, distribueras den nya operativsystemavbildningen Uppdateringsdomän av Uppdateringsdomänen att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Mer information om hållbarhet egenskaperna för Service Fabric-kluster finns i [den här dokumentationen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Hålla det uppdaterade autentiseringsuppgifter
 Om din skalningsuppsättning använder autentiseringsuppgifter för att komma åt externa resurser, till exempel om en VM-tillägget har konfigurerats som använder en SAS-token för storage-konto behöver du kontrollera autentiseringsuppgifterna som hålls uppdaterade. Om några autentiseringsuppgifter, inklusive certifikat och token har upphört att gälla, så misslyckas uppgraderingen och den första batchen med virtuella datorer kommer att lämnas i ett felaktigt tillstånd.
@@ -130,7 +129,7 @@ Rekommenderade åtgärder för att återställa virtuella datorer och aktivera a
 * Distribuera den uppdaterade skalningsuppsättning som kommer att uppdatera alla VM-instanser, inklusive de misslyckade som. 
 
 ## <a name="get-the-history-of-automatic-os-image-upgrades"></a>Hämta historiken för automatisk operativsystemuppgradering för avbildning 
-Du kan kontrollera historiken för de senaste OS uppgraderingen utförs på din skalningsuppsättning med Azure PowerShell, Azure CLI 2.0 eller REST-API: er. Du kan hämta historiken för de 5 senaste OS-uppgraderingsförsök inom de senaste 2 månaderna.
+Du kan kontrollera historiken för de senaste OS uppgraderingen utförs på din skalningsuppsättning med Azure PowerShell, Azure CLI 2.0 eller REST-API: er. Du kan hämta historiken för de sista fem OS-uppgraderingsförsök inom de senaste två månaderna.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 I följande exempel används Azure PowerShell för att kontrollera status för skalningsuppsättningen *myVMSS* i resursgruppen med namnet *myResourceGroup*:

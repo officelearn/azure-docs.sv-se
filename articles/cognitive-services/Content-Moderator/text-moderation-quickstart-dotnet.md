@@ -1,24 +1,26 @@
 ---
-title: Azure Content Moderator – måttlig text med hjälp av .NET | Microsoft Docs
-description: Så här moderera text med Azure Content Moderator-SDK för .NET
+title: 'Moderera text: Content Moderator .NET'
+titlesuffix: Azure Cognitive Services
+description: Så här moderera text med hjälp av Content Moderator-SDK för .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 11f0cf523b6a6cfac2fb25924e5e03992945975e
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 6db97231b2dc8905f1a3b3a6bc63580e9f371f84
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182594"
+ms.locfileid: "47227273"
 ---
 # <a name="moderate-text-using-net"></a>Moderera text med hjälp av .NET
 
 Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med den [Content Moderator-SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) till:
+
 - Identifiera potentiellt olämpligt språk i texten med termen-baserad filtrering
 - Använd machine-learning-baserade modeller för att [klassificera texten](text-moderation-api.md#classification) i tre kategorier.
 - Identifiera personligt identifierbar information (PII), till exempel USA och Storbritannien telefonnummer, e-postadresser och USA e-postadresser.

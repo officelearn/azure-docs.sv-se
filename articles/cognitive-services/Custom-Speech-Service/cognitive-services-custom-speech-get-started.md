@@ -1,21 +1,22 @@
 ---
-title: Kom igång med Custom Speech Service på Azure | Microsoft Docs
+title: Kom igång med Custom Speech Service
+titlesuffix: Azure Cognitive Services
 description: Prenumerera på anpassat tal-tjänst och länkar tjänsteaktiviteter till en Azure-prenumeration du tränar en modell och gör en distribution.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: bf674261a58aab4fee37920d12ce6a2ac54b58b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975791"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225250"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Kom igång med Custom Speech Service
 
@@ -51,7 +52,7 @@ När du har skapat anpassade akustiska modeller och/eller språkmodeller, kan de
 Du hittar en detaljerad beskrivning om hur du skapar en slutpunkt för anpassat tal text [här](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md).
 
 ## <a name="using-a-custom-speech-endpoint"></a>Med hjälp av en anpassad slutpunkt
-Förfrågningar kan skickas till en slutpunkt för CRIS tal till text på ungefär samma sätt som standard Microsoft Cognitive Services tal slutpunkt. Observera att de här slutpunkterna är funktionen identisk med standardslutpunkterna för API för taligenkänning. Därför är på samma sätt som är tillgängliga via klientbibliotek eller REST API för API för taligenkänning också tillgängligt för din anpassade slutpunkt.
+Förfrågningar kan skickas till en slutpunkt för CRIS tal till text på ungefär samma sätt som standard Azure Cognitive Services tal slutpunkt. Observera att de här slutpunkterna är funktionen identisk med standardslutpunkterna för API för taligenkänning. Därför är på samma sätt som är tillgängliga via klientbibliotek eller REST API för API för taligenkänning också tillgängligt för din anpassade slutpunkt.
 
 Du hittar en detaljerad beskrivning om hur du använder en anpassad tal till text-slutpunkt [här](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 

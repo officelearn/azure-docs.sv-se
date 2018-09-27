@@ -1,17 +1,17 @@
 ---
-title: Renderingsfunktioner i batch
+title: Batchrenderingsfunktioner
 description: Specifika renderingsfunktioner i Azure Batch
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f2fa055af63ab3920fec79ad93c25b8ea7e5ed9
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6d79cdf279022320f654fbbeadb870f82db88cab
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058166"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392796"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch rendering-funktioner
 
@@ -50,9 +50,12 @@ De program som ska användas och har en licensavgift måste anges i poolkonfigur
 * Ange den `applicationLicenses` egenskapen när [skapar en pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Följande värden kan anges i strängmatris - ”vray”, ”arnold”, ”3dsmax”, ”maya”.
 * När du anger ett eller flera program, läggs kostnaden för dessa program till kostnaden för de virtuella datorerna.  Programmet priserna anges på den [Azure Batch prissättningssidan](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
+> [!NOTE]
+> Om du ansluter i stället till en server att använda renderingsprogram, ange den `applicationLicenses` egenskapen.
+
 Du kan använda Azure portal eller Batch Explorer för att välja program och visa program-priserna.
 
-Om ett försök görs att använda ett program, men programmet har inte angetts i den `applicationLicenses` egenskapen för poolkonfigurationen och sedan de program som körs misslyckas med ett licensiering fel och noll slutkoden.
+Om ett försök görs att använda ett program, men programmet har inte angetts i den `applicationLicenses` egenskapen för konfigurering av lagringspool eller stöder inte nå en server och sedan programmet körningen misslyckas med ett licensiering fel och noll slutkoden.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Miljövariabler för förinstallerade program
 

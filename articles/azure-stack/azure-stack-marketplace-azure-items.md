@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8e0a73f800a2b56577b5684762e125d0a67b188d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bb4a34e7036c532ca1800c70347a4f2c55a33da2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032299"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221731"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -230,6 +230,8 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![Barracuda Application Control Säkerhetscenter](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Application Control Säkerhetscenter](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Central hantering av flera Barracuda Web Application brandväggar (WAF). | Barracuda Networks, Inc. |
 | ![Barracuda e-Security-Gateway](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda e-Security-Gateway](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | E-security gateway att skydda mot inkommande e-post via kod. | Barracuda Networks, Inc. |
 | ![Barracuda Web Application Firewall (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web Application Firewall (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | Säkerhet och DDoS-skydd mot automatiserade & riktade attacker. | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen brandväggen kontrollcenter](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen brandväggen kontrollcenter](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-cc) | Central hantering av hundratals Barracuda CloudGen brandväggar som formfaktorn. | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen Brandvägg för Azure](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen Brandvägg för Azure](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-firewall) | Ger brandväggsskydd där program och data finns, i stället för att enbart där anslutningen slutar. | Barracuda Networks, Inc. |
 | ![Check Point vSEC säkerhetshantering](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC säkerhetshantering](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC ger avancerade, flera lager threat dataförlustskydd för att skydda kundens tillgångar i Azure från skadlig kod och avancerade hot. **Hämta båda kontrollobjekt punkt vSEC marketplace.** | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Skapa, distribuera och hantera med Chef Automate kontinuerlig Automation-plattformen. **Hämta båda Chef marketplace-objekt** | Chef-programvara, Inc |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Kontrollera, övervaka och kryptera virtuella datorer med enkelt och tryggt. **Hämta alla CloudLink SecureVM-objekt.** | Dell EMC |

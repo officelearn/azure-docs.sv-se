@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: cc259e89bf6e4bcde5635d13951eaedb6f7b8849
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: acd5c1e1ae4aefa94ca4d1f6ef510ab1b028c3dd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035019"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164904"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX och Azure Machine Learning: skapa och distribuera samverkande AI-modeller
 
@@ -48,17 +48,15 @@ Du kan skapa ONNX-modeller på flera olika sätt:
 ## <a name="exportconvert-your-models-to-onnx"></a>Export/konvertera dina ONNX-modeller
 
 Du kan också konvertera dina befintliga modeller till ONNX.
-+ För **PyTorch** modeller, prova [Jupyter-anteckningsbok](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)
 
-+ För **Microsoft Cognitive Toolkit (CNTK)** modeller, prova [Jupyter-anteckningsbok](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)
-
-+ För **Chainer** modeller, prova [Jupyter-anteckningsbok](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)
-
-+ För **MXNet** modeller, prova [Jupyter-anteckningsbok](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)
-
-+ För **TensorFlow** modeller, använda den [tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx).
-
-+ För **Keras**, **lär du dig ScitKit**, **CoreML**, **XGBoost**, och **libSVM** modeller, konvertera till ONNX med hjälp av den [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools) paketet.
+|Ramverk för modellen|Exempel på konvertering eller verktyg|
+|-----|-------|
+|PyTorch|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
+|Microsoft&nbsp;Cognitive&nbsp;Toolkit&nbsp;(CNTK)|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
+|TensorFlow|[tensorflow-onnx-konverterare](https://github.com/onnx/tensorflow-onnx)|
+|Chainer|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
+|MXNet|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
+|Keras, ScitKit-Läs CoreML<br/>XGBoost och libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
 
 Du hittar den senaste listan över ramverk som stöds och konverterare på den [ONNX självstudier plats](https://github.com/onnx/tutorials).
 

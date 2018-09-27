@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: e30c6b9ef8f593f2fea3f6e3f5ccf22734ca5bee
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 59aa3ec8ee417bec68cfec181f63dc1910100c3f
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092181"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392793"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation via Service Bus-meddelanden
 
@@ -153,7 +153,7 @@ Varje händelse som ”stoppa” har `Status` egenskap med `TaskStatus` async-å
 
 Här är en fullständig lista över instrumenterade åtgärder:
 
-| Åtgärdens namn | Spårade API | Egenskaper för specifika nyttolast|
+| Åtgärdsnamn | Spårade API | Egenskaper för specifika nyttolast|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> meddelanden - lista med meddelanden som skickas |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Meddelandet meddelandet - meddelande som bearbetas<br/>DateTimeOffset ScheduleEnqueueTimeUtc - schemalagt meddelande förskjutning<br/>lång SequenceNumber - sekvensnumret för schemalagt meddelande (”stoppa” händelsenyttolast) |

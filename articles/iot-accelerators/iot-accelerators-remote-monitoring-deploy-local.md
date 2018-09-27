@@ -6,18 +6,18 @@ manager: timlt
 ms.author: asdonald
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5853730a5e3408e33deb483f6ce6652c1c22efab
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 477ef11a02f67e511396c3efc8f2b331c976c801
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034985"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219982"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt
 
-Den här artikeln visar hur du distribuerar lösningsacceleratorn för fjärrövervakning till din lokala dator för utveckling och testning. Den här metoden distribuerar mikrotjänsterna till en lokal Docker-behållare och använder IoT Hub, Cosmos DB och Azure Time Series Insights-tjänster i molnet.
+Den här artikeln visar hur du distribuerar lösningsacceleratorn för fjärrövervakning till din lokala dator för utveckling och testning. Den metod som beskrivs i den här artikeln distribuerar mikrotjänsterna till en lokal Docker-behållare och använder IoT Hub, Cosmos DB och Azure Time Series Insights-tjänster i molnet. Läs hur du kör lösningsacceleratorn för fjärrövervakning i en IDE på den lokala datorn i [startar Mikrotjänster på lokal miljö](https://github.com/Azure/remote-monitoring-services-java/blob/master/docs/LOCAL_DEPLOYMENT.md) på GitHub.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -75,13 +75,19 @@ Om du ännu inte har skapat de nödvändiga Azure-resurserna, gör du följande:
 
     Skriptet skapar en resursgrupp i Azure med Lösningsnamnet på din. Den här resursgruppen innehåller Azure-resurserna solution accelerator använder.
 
-3. När skriptet har körts visas en lista över miljövariabler. Följ anvisningarna för att spara dessa variabler ska den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** fil.
+3. När skriptet har körts visas en lista över miljövariabler. Följ instruktionerna i utdata från kommandot för att spara dessa variabler ska den **azure-iot-pcs-remote-monitoring-dotnet\\services\\skript\\lokala\\.env** fil.
 
 ### <a name="use-existing-azure-resources"></a>Använd befintliga Azure-resurser
 
-Om du redan har skapat resurserna som krävs Azure redigera variabel miljödefinitioner i den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** filen med nödvändiga värden. Den **.env** filen innehåller detaljerad information om var du hittar värdena som krävs.
+Om du redan har skapat resurserna som krävs Azure redigera variabel miljödefinitioner i den **azure-iot-pcs-remote-monitoring-dotnet\\services\\skript\\lokala\\.env**  filen med nödvändiga värden. Den **.env** filen innehåller detaljerad information om var du hittar värdena som krävs.
 
 ## <a name="run-the-microservices-in-docker"></a>Kör mikrotjänster i Docker
+
+Mikrotjänster som körs i lokala Docker-behållare behöver åtkomst till de tjänster som körs i Azure. Du kan testa Internetanslutningen för din Docker-miljö med följande kommando som startar en liten behållare och försöker att pinga en internet-adress:
+
+```cmd/sh
+docker run --rm -ti library/alpine ping google.com
+```
 
 Om du vill köra solution accelerator, navigera till den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local** mapp i din kommandoradsmiljö och kör sedan följande kommando:
 
@@ -97,7 +103,7 @@ För att komma åt instrumentpanelen för fjärrövervakning lösningen går du 
 
 ## <a name="clean-up"></a>Rensa
 
-För att undvika onödiga avgifter när du är klar med testet kan du ta bort cloud services från Azure-prenumerationen. Det enklaste sättet att ta bort tjänsterna är att navigera till den [Azure-portalen](https://ms.portal.azure.com) och ta bort resursgruppen som skapades när du körde den **start.cmd** skript.
+Ta bort molntjänsterna från din Azure-prenumeration för att undvika onödiga avgifter när du är klar med testet. Det enklaste sättet att ta bort tjänsterna är att navigera till den [Azure-portalen](https://ms.portal.azure.com) och ta bort resursgruppen som skapades när du körde den **start.cmd** skript.
 
 Använd den `docker-compose down --rmi all` kommando för att ta bort Docker-avbildningar och frigör utrymme på den lokala datorn. Du kan också ta bort den lokala kopian av databasen fjärrövervakning skapas när du har klonat källkoden från GitHub.
 

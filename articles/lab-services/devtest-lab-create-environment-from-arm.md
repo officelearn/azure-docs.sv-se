@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e53e3e551041ed5bb04ae8e692a3fe3baf2521f8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4dc61258df2311c4e7ccd4c05ebe077b3e2343eb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302247"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222292"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Skapa miljöer för flera virtuella datorer och PaaS-resurser med Azure Resource Manager-mallar
 
@@ -30,7 +30,6 @@ Den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) kan du enk
 - Azure PaaS-resurser kan etableras i en miljö från en Azure Resource Manager-mall förutom virtuella IaaS-datorer.
 - Kostnaden för miljöer kan spåras i labbet, utöver enskilda virtuella datorer som skapats av andra typer av baser.
 - PaaS-resurser skapas och visas i Kostnadsuppföljning; dock gäller inte automatisk avstängningen till PaaS-resurser.
-- Användare har samma VM-principkontroll för miljöer som de har för enskild Övning virtuella datorer.
 
 Mer information om många [fördelarna med att använda Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager) för att distribuera, uppdatera eller ta bort alla dina labbresurser i en enda åtgärd.
 

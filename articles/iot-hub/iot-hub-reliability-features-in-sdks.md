@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f6cfb7bb988b080189da444cb77e0c258417b1ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9a07fa2010eef22c4d1477641d07dee70ab5a9cb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574717"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227460"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Hur du hanterar anslutningar och tillförlitlig meddelandehantering med hjälp av SDK: er för Azure IoT Hub-enheter
 
@@ -54,7 +54,7 @@ Anslutningsfel kan inträffa i många nivåer:
 - På protokollnivå fel för HTTP, AMQP och MQTT transport som är oberoende av länkar eller sessioner har upphört att gälla
 - Programnivå fel som resulterar från antingen lokala misstag, till exempel ogiltiga autentiseringsuppgifter eller tjänsten beteende som överstiger kvoten eller begränsning
 
-SDK: er för enheter identifiera fel i alla tre nivåer.  OS-relaterade fel och maskinvarufel är inte har identifierats och hanteras av SDK: er för enheter.  Designen baseras på [The tillfälliga fel hantering av vägledning](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) från Azure Architecture Center.
+SDK: er för enheter identifiera fel i alla tre nivåer.  OS-relaterade fel och maskinvarufel är inte har identifierats och hanteras av SDK: er för enheter.  Designen baseras på [The tillfälliga fel hantering av vägledning](/azure/architecture/best-practices/transient-faults#general-guidelines) från Azure Architecture Center.
 
 ### <a name="retry-patterns"></a>Försök mönster
 

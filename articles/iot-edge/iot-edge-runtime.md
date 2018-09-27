@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3f3a8c8a8bce59d1757e9ad53c8ebdbd06a7f33f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294177"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218792"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge-körningen och dess arkitektur
 
@@ -31,9 +31,9 @@ IoT Edge-körningen utför följande funktioner på IoT Edge-enheter:
 
 ![IoT Edge-körningen kommunicerar insikter och modulens hälsa till IoT Hub][1]
 
-Ansvaret för IoT Edge-körningen är indelade i två kategorier: modulhantering och kommunikation. Dessa två roller som utförs av två komponenter som utgör IoT Edge-körningen. IoT Edge hub ansvarar för kommunikation, medan IoT Edge-agenten hanterar distribution och övervakning av moduler. 
+Ansvaret för IoT Edge-körningen är indelade i två kategorier: kommunikation och modulen. Dessa två roller som utförs av två komponenter som utgör IoT Edge-körningen. IoT Edge hub ansvarar för kommunikation, medan IoT Edge-agenten hanterar distribution och övervakning av moduler. 
 
-Både Edge-agenten och Edge hub är moduler, precis som andra moduler som körs på en IoT Edge-enhet. 
+Både Edge hub och Edge-agenten är moduler, precis som andra moduler som körs på en IoT Edge-enhet. 
 
 ## <a name="iot-edge-hub"></a>IoT Edge hub
 

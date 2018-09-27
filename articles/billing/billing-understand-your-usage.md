@@ -1,6 +1,6 @@
 ---
-title: Förstå din Azure detaljerad användning | Microsoft Docs
-description: Lär dig hur du läst och förstått avsnitt i din detaljerad användning CSV för din Azure-prenumeration
+title: Förstå Azure detaljerad användningsinformation | Microsoft Docs
+description: Lär dig hur du har läst och förstått avsnitt i detaljerad användningsinformation CSV för din Azure-prenumeration
 services: ''
 documentationcenter: ''
 author: tonguyen10
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
-ms.openlocfilehash: 723e42d2bb2af09eb2236c3cbefeee33987ea45b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: a037f4837be65eb7eac76977a3728c7357e09463
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060808"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394445"
 ---
-# <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Förstå villkor för din Microsoft Azure användningsdebitering 
+# <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Förstå villkoren på din Microsoft Azure användningsdebitering 
 
-Detaljerad användning avgifter CSV-fil innehåller dagligen och mätaren nivå användningskostnader för den aktuella faktureringsperioden. 
+Detaljerad användning avgifter CSV-filen innehåller avgifter för användning av varje dag och mätare för den aktuella faktureringsperioden. 
 
-För detaljerad användning-fil, se [få dina Azure billing faktura och dagligen användningsdata](billing-download-azure-invoice-daily-usage-date.md).
-Den är tillgänglig i en fil med kommaavgränsade värden (CSV)-filformat som kan öppnas i ett kalkylbladsprogram. Om du ser två versioner som är tillgängliga, hämta version 2. Det är det mest aktuella filformatet.
+För att få din detaljerad användningsfil kan se [så här hämtar du din Azure-fakturering och daglig användningsdata](billing-download-azure-invoice-daily-usage-date.md).
+Det är tillgängligt i en fil med kommaavgränsade värden (.csv)-format som kan öppnas i ett kalkylbladsprogram. Om det finns två tillgängliga versioner laddar du ned version två. Det är det mest aktuella filformatet.
 
-Avgifterna för användning av är det totala antalet **månatliga** avgifter för en prenumeration. Avgifter för användning beakta inte eventuella krediter eller rabatter.
+Användningsdebitering är det totala antalet **månatliga** debiteringar i en prenumeration. Avgifter för användning beakta inte en kredit eller rabatt.
 
 >[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
@@ -38,55 +38,55 @@ I följande avsnitt beskrivs viktiga termer som visas i version 2 av filen detal
 
 ### <a name="statement"></a>Meddelande
 
-Överst i CSV-fil för detaljerad användning visas de tjänster som du använde under den månaden faktureringsperioden. Följande tabell listar de termer och beskrivningar som visas i det här avsnittet.
+Överst på detaljerad användning CSV-filen visas de tjänster som du använde under faktureringsperioden för den månaden. I följande tabell visas de termer och beskrivningar som visas i det här avsnittet.
 
 | Period | Beskrivning |
 | --- | --- |
-|Faktureringsperiod |När mätare användes faktureringsperioden |
-|Mätarkategori |Identifierar tjänsten på den översta nivån för användning |
-|Mätarens underkategori |Definierar typ av Azure-tjänst som kan påverka hastigheten |
-|Mätarnamn |Identifierar måttenheten för mätaren används |
-|Mätarregion |Identifierar platsen för datacenter för vissa tjänster som är mest baserat på plats för datacenter |
-|SKU |Identifierar unika system-ID för varje Azure-mätare |
+|Faktureringsperiod |Faktureringsperioden när mätarna som har använts |
+|Mätarkategori |Identifierar huvudtjänst för användning |
+|Mätarens underkategori |Anger typen av Azure-tjänst som kan påverka priset |
+|Mätarnamn |Anger måttenhet för den mätning som används |
+|Mätarregion |Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret |
+|SKU |Identifierar unika system-ID för varje Azure mätare |
 |Enhet |Identifierar i vilken enhet tjänsten debiteras. Till exempel GB, timmar, 10 000 s. |
-|Förbrukat antal |Mängden mätaren används under faktureringsperioden |
-|Inkluderad mängd |Mängden mätaren som ingår kostnadsfritt i din aktuella faktureringsperioden |
-|Överbliven kvantitet |Visar skillnaden mellan antalet används och det antal som ingår. Det är debiteras för den här mängden. För erbjudanden med ingen ingår kvantitet betala per användning med erbjudandet är denna summa samma som antalet används. |
-|Inom åtagande |Visar mätaren avgifter som dras från din beloppet som är associerade med 6 eller 12 månaders erbjudandet. Mätaren avgifter subtraheras i kronologisk ordning. |
-|Valuta |Valutan som används i din aktuella faktureringsperioden |
-|Överanvändning |Visar mätaren avgifterna som överskrider din beloppet som är associerade med erbjudandet 6 eller 12 månader |
-|Åtagandepris |Visar antalet åtagande baserat på totala beloppet som är associerade med erbjudandet 6 eller 12 månader |
-|Pris |Hastigheten med vilken du är debiteras per fakturerbar enhet |
-|Värde |Visar resultatet av att multiplicera kolumnen överförbrukning antal efter kolumnen hastighet. Om antalet används inte överstiger antalet ingår, är gratis i den här kolumnen. |
+|Förbrukat antal |Hur mycket av används under faktureringsperioden |
+|Inkluderad mängd |Mängden mätaren som ingår utan kostnad i den aktuella faktureringsperioden |
+|Överbliven kvantitet |Visar skillnaden mellan det antal som används och det antal som ingår. Du faktureras för den mängden. För användningsbaserad betalning där inga ingår kvantitet med erbjudandet är denna summa samma som den förbrukade mängden. |
+|Inom åtagande |Visar mätnings-kostnader som subtraheras från ditt åtagandebelopp som är associerade med 6 eller 12-erbjudandet. Mätaren avgifter dras i kronologisk ordning. |
+|Valuta |Den valuta i den aktuella faktureringsperioden |
+|Överanvändning |Visar mätnings-avgifter som överstiger ditt åtagandebelopp som är associerade med ditt 6- eller 12-månaders erbjudande |
+|Åtagandepris |Visar åtagandepriset baserat på totala åtagandet som är associerade med ditt 6- eller 12-månaders erbjudande |
+|Pris |Det pris du debiteras per faktureringsbar enhet |
+|Värde |Visar resultatet av gånger kolumnen pris överförbrukning kvantitet kolumnen. Om Förbrukat antal inte överstiger det antal som ingår, kostar ingenting i den här kolumnen. |
 
 ### <a name="daily-usage"></a>Daglig användning
 
-Avsnittet daglig användning i CSV-filen visar användningsinformation som påverkar de fakturerbara kostnader. Följande tabell listar de termer och beskrivningar som visas i det här avsnittet.
+Avsnittet daglig användning i CSV-filen visar användningsinformation som påverkar faktureringstaxor. I följande tabell visas de termer och beskrivningar som visas i det här avsnittet.
 
 | Period | Beskrivning |
 | --- | --- |
-|Datum för användning |Datum när mätaren användes |
-|Mätarkategori |Identifierar tjänsten på den översta nivån som tillhör denna användning |
-|Mätar-ID |Fakturerade mätaren identifierare som används för pris fakturering användning |
-|Mätarens underkategori |Definierar den Azure-tjänst-typ som kan påverka hastigheten |
-|Mätarnamn |Identifierar måttenheten för mätaren används |
-|Mätarregion |Identifierar platsen för datacenter för vissa tjänster som är mest baserat på plats för datacenter |
-|Enhet |Identifierar den enhet som mätaren debiteras i. Till exempel GB, timmar, 10 000 s. |
-|Förbrukat antal |Mängden mätaren har förbrukats för den dagen |
-|Resursplats |Identifierar datacenter där mätaren körs |
-|Förbrukad tjänst |Tjänsten Azure-plattformen som du använde |
-|Resursgrupp |Resursgruppen som distribuerade mätaren körs i. <br/><br/>Mer information finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-|Instans-ID | Identifierare för mätaren. <br/><br/> Identifieraren innehåller namnet du anger för mätaren när den skapades. Det är antingen namnet på resursen eller fullständiga resurs-ID. Mer information finns i [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). |
-|Taggar | Taggen som du tilldelar mätaren. Använd taggar fakturering posterna.<br/><br/>Du kan till exempel använda taggar för att distribuera kostnaderna av den enhet som använder mätaren. Tjänster som stöder ljusavgivande taggar är virtuella datorer, lagring och nätverkstjänster som etablerats med hjälp av den [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). Mer information finns i [ordna dina Azure-resurser med taggar](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
-|Ytterligare info |Tjänstspecifika metadata. Till exempel en bildtyp för en virtuell dator. |
-|Serviceinfo 1 |Projektnamnet som tjänsten som tillhör på din prenumeration |
+|Datum för användning |Det datum när mätaren användes |
+|Mätarkategori |Identifierar den huvudtjänst som användningen gäller |
+|Mätar-ID |Identifierare för faktureringsmätaren som används för prisfaktureringsanvändning |
+|Mätarens underkategori |Definierar den Azure-tjänst-typ som kan påverka priset |
+|Mätarnamn |Anger måttenhet för den mätning som används |
+|Mätarregion |Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret |
+|Enhet |Identifierar enhet mätaren debiteras. Till exempel GB, timmar, 10 000 s. |
+|Förbrukat antal |Mängden mätaren som har förbrukats för den dagen |
+|Resursplats |Identifierar det datacenter där mätaren körs |
+|Förbrukad tjänst |Azure-plattformstjänster som du använde |
+|Resursgrupp |Resursgruppen där den distribuerade mätning körs i. <br/><br/>Mer information finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
+|Instans-ID | Identifierare för mätaren. <br/><br/> Identifieraren innehåller namnet du anger för mätaren när den skapades. Det är antingen namnet på resursen eller det fullständigt kvalificerade resurs-ID. Mer information finns i [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). |
+|Taggar | Tagg som du tilldelar till mätaren. Använd taggar om du vill gruppera faktureringsposter.<br/><br/>Du kan till exempel använda taggar för att fördela kostnader per avdelning som använder mätaren. Tjänster som stöder sändande taggar är virtuella datorer, lagring och nätverkstjänster som etablerats med hjälp av den [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). Mer information finns i [ordna dina Azure-resurser med taggar](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Ytterligare info |Tjänstspecifik metadata. Till exempel detta en Avbildningstyp för en virtuell dator. |
+|Serviceinfo 1 |Det projektnamn som tillhör tjänsten för din prenumeration |
 |Serviceinfo 2 |Äldre fält som samlar in valfria tjänstspecifika metadata |
 
-## <a name="how-do-i-make-sure-that-the-charges-in-my-detailed-usage-file-are-correct"></a>Hur gör jag till att tilläggen i detaljerad användning filen är korrekta?
-Om en avgift på detaljerad användning filen som du vill ha mer information på Se [förstå fakturan för Microsoft Azure.](./billing-understand-your-bill.md)
+## <a name="how-do-i-make-sure-that-the-charges-in-my-detailed-usage-file-are-correct"></a>Hur gör jag till att kostnader på min detaljerad användningsfil är korrekta?
+Om det finns en avgift på din detaljerad användning-fil som du vill ha mer information på, se [förstå fakturan för Microsoft Azure.](./billing-understand-your-bill.md)
 
-## <a name="external"></a>Nyheter om externa serviceavgifter?
-Externa tjänster (även kallat marknadsplatsorder) tillhandahålls av oberoende tjänsteleverantörer och faktureras separat. Avgifterna visas inte på Azure fakturan. Läs mer i [förstå Azure externa avgifterna](billing-understand-your-azure-marketplace-charges.md).
+## <a name="external"></a>Vad gäller externa tjänstavgifter?
+Externa tjänster (även kallat Marketplace-order) tillhandahålls av oberoende tjänsteleverantörer och faktureras separat. Kostnaderna som visas inte på fakturan som Azure. Mer information finns i [förstå din Azure externa tjänstavgifter](billing-understand-your-azure-marketplace-charges.md).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
-Om du fortfarande behöver hjälp [supporten](https://portal.azure.com/?) få snabbt lösa problemet.
+Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?) att lösa problemet snabbt.

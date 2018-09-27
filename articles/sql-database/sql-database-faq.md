@@ -2,19 +2,22 @@
 title: Azure SQL Database vanliga frågor och svar | Microsoft Docs
 description: Svar på vanliga frågor kunder ställa om molndatabaser och Azure SQL Database, Microsofts relationella databashanteringssystem (RDBMS) och databas som en tjänst i molnet.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: reference
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 479f7df740e75ae44a5198414036ff0b0c216471
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8aaf89426cf392faaf6339f49300bf7d2b7dcfcd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730655"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166630"
 ---
 # <a name="sql-database-faq"></a>Vanliga frågor om SQL Database
 

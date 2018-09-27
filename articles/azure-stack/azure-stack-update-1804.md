@@ -3,7 +3,7 @@ title: Azure Stack 1804 Update | Microsoft Docs
 description: Lär dig mer om vad som finns i 1804 uppdateringen för Azure Stack integrerade system, kända problem och var du kan hämta uppdateringen.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 16f12d8119a14e668a7502d99fa2d9c976d23833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413524"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393527"
 ---
 # <a name="azure-stack-1804-update"></a>Uppdatering av Azure Stack 1804
 
@@ -102,6 +102,9 @@ När installationen av 1804, installerar du eventuella tillämpliga snabbkorrige
 Följande är efter installation kända problem för version **20180513.1**.
 
 #### <a name="portal"></a>Portalen
+
+- Den tekniska dokumentationen för Azure Stack fokuserar på den senaste versionen. På grund av portalen ändringar mellan versioner vad som visas när du använder Azure Stack-portalerna kan skilja sig från vad som visas i dokumentationen. 
+
 - <!-- TBD - IS ASDK --> Du kan inte använda drivrutinsuppdateringar med hjälp av en OEM-tillägg-paketet med den här versionen av Azure Stack.  Det finns ingen lösning på problemet.
 
 - <!-- 1272111 - IS --> Du kan inte visa Azure Stack-skalningsenheter i Admin portal när du installerar eller uppdaterar till den här versionen av Azure Stack.  

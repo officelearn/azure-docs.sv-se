@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: afaa4c090508ee5a2306c2be1515076e6bd4f100
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688736"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225733"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Använda StorSimple Device Manager-tjänsten för att hantera dina autentiseringsuppgifter för lagringskonto
 
@@ -143,7 +143,7 @@ När du skapar ett lagringskonto genererar Microsoft Azure två 512-bitars lagri
 
 Normalt kan använda program endast en av nycklarna komma åt dina data. Efter en viss tidsperiod, kan du ha dina program växla till den andra nyckeln. När du har växlat dina program till den sekundära nyckeln kan du dra tillbaka den första nyckeln och sedan skapa en ny nyckel. Med hjälp av två nycklar på så sätt kan dina program åtkomst till data utan driftstopp.
 
-Storage-kontonycklar lagras alltid i tjänsten i krypterad form. Dessa kan dock återställas via StorSimple Device Manager-tjänsten. Tjänsten får primärnyckel och sekundärnyckel för alla lagringskonton i samma prenumeration, inklusive konton som skapats i lagringstjänsten samt standard storage-konton som genereras när StorSimple Device Manager-tjänsten först skapas. StorSimple Device Manager-tjänsten alltid hämta dessa nycklar från den klassiska Azure-portalen och lagra dem i en krypterad.
+Storage-kontonycklar lagras alltid i tjänsten i krypterad form. Dessa kan dock återställas via StorSimple Device Manager-tjänsten. Tjänsten kan hämta primärnyckeln och sekundärnyckeln för alla lagringskonton i samma prenumeration, inklusive konton som skapats i lagringstjänsten samt standard storage-konton som skapades när StorSimple Device Manager-tjänsten kunde första Skapa. StorSimple Device Manager-tjänsten alltid hämta dessa nycklar från den klassiska Azure-portalen och lagra dem i en krypterad.
 
 ## <a name="rotation-workflow"></a>Arbetsflöde för rotation
 

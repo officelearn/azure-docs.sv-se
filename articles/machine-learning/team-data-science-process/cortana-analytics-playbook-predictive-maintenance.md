@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972391"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221714"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
@@ -426,19 +426,19 @@ Den sista delen av den här guiden innehåller en lista över kontaktar lösning
 
 ## <a name="training-resources-for-predictive-maintenance"></a>Utbildningsresurser för förutsägande Underhåll
 
-Den [Azure AI-Utbildningsväg för förebyggande underhåll](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) ger utbildningsmaterial för en djupare förståelse för begrepp och matematiska bakom de algoritmer och tekniker som används i kontaktar problem. 
-
-Microsoft Azure erbjuder kostnadsfria innehåll och utbildning om allmänna begrepp för AI och praxis.
+Microsoft Azure erbjuder utbildningsvägar för grundläggande koncepten bakom PdM-teknik, förutom innehåll och utbildning på allmänt begrepp för AI och praxis.
 
 | Utbildning resurs  | Tillgänglighet |
 |:-------------------|--------------|
+| [Utbildningsväg för PdM med träd och slumpmässiga skog](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Offentligt | 
+| [Utbildningsväg för PdM med Djupinlärning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Offentligt |
 | [AI Developer för Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Offentligt |
 | [Microsofts AI-skola](http://aischool.microsoft.com/learning-paths) | Offentligt |
 | [Azure AI-utbildning från GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Offentligt |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Offentligt |
 | [Microsoft AI Youtube Webbseminarier](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Offentligt |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Offentligt |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | För Microsoft-partner |
-| [Microsoft Partner Network](http://learningportal.microsoft.com) | För Microsoft-partner |
+| [LearnAI@MS](http://learnanalytics.microsoft.com) | Partner |
+| [Microsoft Partner Network](http://learningportal.microsoft.com) | Partner |
 
 Dessutom är kostnadsfria MOOC (stora öppna onlinekurser) på AI online erbjuds av akademiska institutioner som Stanford och MIT och andra educational företag.

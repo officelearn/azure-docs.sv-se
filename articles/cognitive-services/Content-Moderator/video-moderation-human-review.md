@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator - Video moderering | Microsoft Docs
+title: Videomoderering med mänsklig granskning – Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Använd datorstödd videomoderering och verktyg för mänsklig granskning för att hantera olämpligt innehåll
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: d9c01d4c2590535a4106e8e4ee79a12bdc60d956
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 33956e1986265b36f6df9a2d19909cb974bd3197
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714504"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222088"
 ---
-# <a name="video-moderation"></a>Videomoderering
+# <a name="video-moderation-with-human-review"></a>Videomoderering med mänsklig granskning
 
 Använd Content Moderator datorstödd [videomoderering](video-moderation-api.md) och [verktyg för mänsklig granskning](Review-Tool-User-Guide/human-in-the-loop.md) måttlig videor och betyg för vuxen (explicit) och olämpligt (något) innehåll att få bästa resultat för ditt företag.
 

@@ -1,72 +1,73 @@
 ---
-title: Kör jobb för innehåll avbrottsmoderering Azure innehåll kontrollant | Microsoft Docs
-description: Lär dig hur du kör innehåll avbrottsmoderering jobb i API-konsolen.
+title: Kör jobb för innehållsmoderering med API-konsolen – Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Lär dig hur du kör innehållsmoderering jobb i API-konsol.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6f741be1001ae70d5fdbf6f374204aaad1601abe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 240b26cd86a6985825e3145c5bc43ef31524d7b7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351591"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227120"
 ---
-# <a name="start-a-moderation-job-from-the-api-console"></a>Starta ett jobb för avbrottsmoderering från konsolen API
+# <a name="start-a-moderation-job-from-the-api-console"></a>Starta ett jobb för moderering från API-konsol
 
-Använd API granska [jobbet operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) att initiera slutpunkt till slutpunkt innehåll avbrottsmoderering jobb för bild- eller innehåll i Azure innehåll kontrollanten. 
+Använd granskning API [jobbet operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) att initiera jobb innehållsmoderering för slutpunkt till slutpunkt för bild eller text innehåll i Azure Content Moderator. 
 
-Jobbet avbrottsmoderering söker ditt innehåll med hjälp av innehåll kontrollant avbildningen Avbrottsmoderering API eller Text Avbrottsmoderering API. Sedan använder avbrottsmoderering jobbet arbetsflöden (definieras i verktyget granska) för att generera granskningar i verktyget granska. 
+Moderering av jobbet söker igenom ditt innehåll med hjälp av innehåll Moderator Image Moderering API eller API för Moderering av Text. Sedan använder moderering jobbet arbetsflöden (definieras i granskningsverktyget) för att generera granskningar i granskningsverktyget. 
 
-När en mänsklig kontrollant granskar automatiskt tilldelade taggar och förutsägelse data och skickar en slutlig avbrottsmoderering beslut, skickar granska API all information till API-slutpunkt.
+När en mänsklig moderator granskar automatiskt tilldelade taggar och förutsägelsedata och skickar ett sista moderering beslut, skickar granska API: et all information som ditt API-slutpunkten.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Navigera till den [granska verktyget](https://contentmoderator.cognitive.microsoft.com/). Registrera dig om du inte har gjort det ännu. I verktyget granska [definiera ett anpassat arbetsflöde](Review-Tool-User-Guide/Workflows.md) till i den här `Job` igen.
+Navigera till den [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/). Registrera dig om du inte har gjort det ännu. I Verktyg för granskning [definierar ett anpassat arbetsflöde](Review-Tool-User-Guide/Workflows.md) till i den här `Job` igen.
 
-## <a name="use-the-api-console"></a>Använda API-konsolen
-Om du vill testa API: et med hjälp av konsolen online, behöver du några värden du anger i konsolen:
+## <a name="use-the-api-console"></a>Använd API-konsol
+Om du vill testa API: et med hjälp av konsolen online, behöver du några värden för att komma in i konsolen:
     
-- `teamName`: Använd den `Id` från granska verktygets autentiseringsuppgifter skärmen. 
-- `ContentId`: Det här sträng skickades till API: et och returnerade via återanropet. **ContentId** är användbart för att associera interna identifierare eller metadata med resultatet från ett jobb som måtta.- `Workflowname`: namnet på den [arbetsflöde som du skapade](Review-Tool-User-Guide/Workflows.md) i föregående avsnitt.
+- `teamName`: Använd den `Id` fältet från din granskningsverktyget autentiseringsuppgifter skärm. 
+- `ContentId`: Den här strängen skickas till API: et och returneras via motringningen. **ContentId** är användbart för att associera interna identifierare eller metadata med resultatet från ett jobb för moderering.- `Workflowname`: namnet på den [arbetsflöde som du skapade](Review-Tool-User-Guide/Workflows.md) i föregående avsnitt.
 - `Ocp-Apim-Subscription-Key`: Finns på den **inställningar** fliken. Mer information finns i [översikt](overview.md).
 
-Åtkomst till API-konsolen är från den **autentiseringsuppgifter** fönster.
+Komma åt API-konsolen är från den **autentiseringsuppgifter** fönster.
 
-### <a name="navigate-to-the-api-reference"></a>Navigera till API-referens
-I den **autentiseringsuppgifter** väljer [API-referens för](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5).
+### <a name="navigate-to-the-api-reference"></a>Gå till API-referens
+I den **autentiseringsuppgifter** väljer [API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5).
 
   Den `Job.Create` öppnas.
 
-### <a name="select-your-region"></a>Välj din region
-För **öppna API-testet konsolen**, väljer du den region som bäst beskriver din plats.
-  ![Jobbet – Skapa val av region](images/test-drive-job-1.png)
+### <a name="select-your-region"></a>Välj region
+För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats.
+  ![Jobb – skapa val av region](images/test-drive-job-1.png)
 
   Den `Job.Create` API-konsolen öppnas. 
 
 ### <a name="enter-parameters"></a>Ange parametrar
 
-Ange värden för obligatoriska frågeparametrar och din prenumeration nyckel. I den **Begärandetext** ange platsen för den information som du vill genomsöka. I det här exemplet skriver du detta [exempelbild](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png).
+Ange värden för obligatoriska parametrar och din prenumerationsnyckel. I den **Begärandetext** anger platsen för den information som du vill genomsöka. I det här exemplet använder vi detta [exempelbild](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png).
 
-  ![Jobbet – Skapa konsolen frågeparametrar, rubriker och begäran brödtext rutan](images/job-api-console-inputs.PNG)
+  ![Jobb – skapa konsolen frågeparametrar, rubriker och begäran text box](images/job-api-console-inputs.PNG)
 
 ### <a name="submit-your-request"></a>Skicka din begäran
-Välj **Skicka**. Ett jobb-ID skapas. Kopiera den till att använda i nästa steg.
+Välj **Skicka**. Ett jobb-ID skapas. Kopiera det här för att använda i nästa steg.
 
   `"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"`
 
-### <a name="open-the-get-job-details-page"></a>Öppna sidan Get Job
+### <a name="open-the-get-job-details-page"></a>Öppna sidan Hämta jobb
 Välj **hämta**, och sedan öppna API: et genom att välja knappen som matchar din region.
 
-  ![Jobb - skapa konsolen Get-resultat](images/test-drive-job-4.png)
+  ![Jobb – skapa konsolen Get-resultat](images/test-drive-job-4.png)
 
 ### <a name="review-the-response"></a>Granska svaret
 
-Ange värden för **teamName** och **JobID**. Ange nyckel för din prenumeration och välj sedan **skicka**. Följande meddelande visar information och exempel jobbstatus.
+Ange värden för **teamName** och **JobID**. Ange din prenumerationsnyckel och välj sedan **skicka**. Följande svar visar exempel jobbstatus och information.
 
 ```
     {
@@ -96,11 +97,11 @@ Ange värden för **teamName** och **JobID**. Ange nyckel för din prenumeration
     }
 ```
 
-## <a name="navigate-to-the-review-tool"></a>Navigera till verktyget granskning
-På innehåll kontrollant-instrumentpanelen väljer **granska** > **bild**. Bilden som du har läst visas, redo för mänsklig granskning.
+## <a name="navigate-to-the-review-tool"></a>Gå till verktyg för granskning
+Content Moderator-instrumentpanelen, klicka **granska** > **bild**. Bilden som du skannade visas, redo för mänsklig granskning.
 
-  ![Granska verktyget bild av tre cyklister](images/ocr-sample-image.PNG)
+  ![Kontrollera att verktyget avbildning av tre cyklister](images/ocr-sample-image.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använda REST-API i koden eller starta med den [jobb .NET quickstart](moderation-jobs-quickstart-dotnet.md) att integrera med ditt program.
+Använda REST-API i koden eller börja med den [Snabbstart för jobb .NET](moderation-jobs-quickstart-dotnet.md) att integrera med ditt program.

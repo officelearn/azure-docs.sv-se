@@ -1,6 +1,6 @@
 ---
 title: Ändra ditt kreditkort för Azure | Microsoft Docs
-description: Beskriver hur du så här ändrar du det kreditkort som används för att betala för en Azure-prenumeration
+description: Beskriver hur du så här ändrar du kreditkortet som används för att betala för en Azure-prenumeration
 services: ''
 documentationcenter: ''
 author: genlin
@@ -14,94 +14,94 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 6b0db12da7c187ce80f1d55ce8b9900601033068
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: cwatson
+ms.openlocfilehash: 68f987daff5bc0ef81c248f6f5e75aaf1318b025
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068321"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395499"
 ---
-# <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Lägga till, uppdatera eller ta bort ett kredit- eller kort för Azure
+# <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Lägga till, uppdatera eller ta bort ett kreditkort eller bankkort kort för Azure
 
-Mitt konto kan du lägga till ett nytt kreditkort, uppdatera ett befintligt kreditkort eller ta bort ett kreditkort som du inte använder. Du måste vara [kontoadministratör](billing-subscription-transfer.md#whoisaa) att göra dessa ändringar.
+I Kontocenter, kan du lägga till ett nytt kreditkort, uppdatera ett befintligt kreditkort eller ta bort ett kreditkort som du inte använder. Du måste vara [kontoadministratör](billing-subscription-transfer.md#whoisaa) du gör dessa ändringar.
 
-**Vill du istället för att betala fakturan?** Se [betala för Azure-prenumerationer per faktura](billing-how-to-pay-by-invoice.md).
+**Vill du istället för att betala med faktura?** Se [betala för Azure-prenumerationer med faktura](billing-how-to-pay-by-invoice.md).
  
 <a id="addcard"></a>
 
-## <a name="add-a-new-credit-or-debit-card"></a>Lägg till ett nytt kredit- eller -kort
+## <a name="add-a-new-credit-or-debit-card"></a>Lägg till ett nytt kreditkort eller bankkort-kort
 
 1. Logga in på den [Kontocenter](https://account.windowsazure.com/Subscriptions) som kontoadministratör.
 1. Välj en prenumeration.
 1. Välj **Hantera betalningssätt** till höger på sidan.
 
-    ![Skärmbild som visar hantera metoder betalningsalternativ markerad.](./media/billing-how-to-change-credit-card/changesub_new.png)
+    ![Skärmbild som visar hantera metoder betalningsalternativ har valt.](./media/billing-how-to-change-credit-card/changesub_new.png)
 1. Välj ”+” för att lägga till ett kort.
 
     ![Skärmbild som visar alternativet Redigera bredvid betalningsmetoden.](./media/billing-how-to-change-credit-card/editcard_new.png)
-1. Ange kredit eller debitera kortinformation.
+1. Ange kredit- eller debetkort kortinformationen.
 1. Välj **Spara**. 
 
-Om du får ett felmeddelande när du lägger till kreditkortet [kreditkort nekades på Azure anmälan](billing-credit-card-fails-during-azure-sign-up.md).
+Om du får ett felmeddelande när du lägger till kreditkortet [kreditkort avvisade på Azure-registrering](billing-credit-card-fails-during-azure-sign-up.md).
 
 ## <a name="update-existing-credit-or-debit-card"></a>Uppdatera befintliga kredit- eller betalkort
 
-Om ditt kreditkort hämtar förnyas och talet förblir detsamma, uppdatera den befintliga kreditkortsinformationen som upphör att gälla. Om ändringarna för ditt kreditkort eftersom kortet går förlorad, stulen eller upphört att gälla, följer du stegen i den [lägga till ett kreditkort som en betalningsmetod](#addcard) avsnitt. Du behöver inte uppdatera CVV.
+Om ditt kreditkort hämtar förnyas och hur många densamma, uppdatera den befintliga informationen kreditkort som förfallodatumet. Om ändringarna för kreditkort eftersom kortet går förlorad, stulits eller upphört att gälla, följer du stegen i den [lägga till ett kreditkort som betalningssätt](#addcard) avsnittet. Du behöver inte uppdatera CVV.
 
 1. Logga in på den [Azure Kontocenter](https://account.windowsazure.com/Subscriptions) som kontoadministratör.
-1. Välj den prenumeration som är kopplad till kortet.
-1. Välj **hantera betalningssätt**.
+1. Välj den prenumeration som är länkad till kortet.
+1. Välj **hantera betalningsmetoder**.
 1. Välj **redigera** bredvid det kortet som du vill uppdatera.
-1. Uppdatera informationen kredit- eller kort.
+1. Uppdatera kortinformationen kreditkort eller bankkort.
 1. Välj **Spara**.
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Använd ett annat kreditkort för Azure-prenumeration
 
 1. Logga in på den [Azure Kontocenter](https://account.windowsazure.com/Subscriptions) som kontoadministratör.
-1. Välj den prenumeration som är kopplad till kortet.
+1. Välj den prenumeration som är länkad till kortet.
 1. Välj **Hantera betalningssätt** till höger på sidan.
-1. Klicka på **Använd i stället** bredvid det kortet som du vill använda. Då uppdateras även andra prenumerationer som för närvarande är associerade med det här kortet. 
+1. Klicka på **Använd i stället** bredvid det kortet som du vill använda. Det här uppdaterar även andra prenumerationer som för närvarande är associerade med det här kortet. 
 
-## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Ta bort ett kredit- eller kort från kontot
+## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Ta bort ett kreditkort eller bankkort kort från kontot
 
 1. Logga in på den [Azure Kontocenter](https://account.windowsazure.com/Subscriptions) som kontoadministratör.
-1. Välj den prenumeration som är kopplad till kortet.
+1. Välj den prenumeration som är länkad till kortet.
 3. Välj **Hantera betalningssätt** till höger på sidan.
-4. Klicka på **ta bort** för kreditkortet som du vill ta bort.
+4. Klicka på **ta bort** för kreditkort som du vill ta bort.
 
-Om ditt kreditkort associeras med andra aktiva prenumerationer från Microsoft, inte du ta bort den från din Azure-konto. Ta bort kreditkortet från alla aktiva prenumerationer som du har med Microsoft och försök igen.
+Om ditt kreditkort är associerad med andra aktiva prenumerationer för Microsoft, du kan inte ta bort det från ditt Azure-konto. Ta bort kreditkortet från alla aktiva prenumerationer som du har med Microsoft och försök igen.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>Min prenumeration har inaktiverats. Varför kan jag för att bort mitt kontokort nu?
+### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>Min prenumeration har inaktiverats. Varför kan jag ta bort mitt kreditkort nu?
 
-När din prenumeration är inaktiverad eller avbryts, vänta vi 90 dagar före permanent ta bort din prenumeration. Vi behåller din betalningsmetod på filen under kvarhållningsperioden om du vill aktivera prenumerationen. Efter att är prenumerationen bort helt.
+När prenumerationen har inaktiverats eller har avbrutits, vänta vi 90 dagar innan din prenumeration tas bort permanent. Vi håller din betalningsmetod på fil under kvarhållningsperioden om du vill återaktivera prenumerationen. Efter det är helt ta bort prenumerationen.
 
-Om du behöver ta bort din kredit- eller kort innan 90-dagars kvarhållningsperioden slutar [återaktivera din prenumeration](billing-subscription-become-disable.md). Om du inte kan aktivera [kontakta Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Om du vill ta bort ditt kreditkort eller bankkort kort innan 90-dagars kvarhållning har löpt ut, [återaktivera din prenumeration](billing-subscription-become-disable.md). Om du inte kan aktivera [kontakta Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Varför får jag ”din inloggningssession har upphört att gälla. Klicka här för att logga in igen ”?
 
-Om du får detta felmeddelande även om loggat och sedan på försök igen med en privat webbläsarsession.
+Om du får detta felmeddelande även om redan du loggas ut och tillbaka i, försök igen med en privat surfning.
 
-### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>Hur använder ett annat kort för varje prenumeration som jag har?
+### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>Hur använder jag ett nytt kort för varje prenumeration som jag har?
 
-Tyvärr om dina prenumerationer redan använder samma kort, går det inte att separera dem för att använda olika kort. När du registrerar dig för en ny prenumeration kan välja du dock att använda en ny betalningsmetod för den prenumerationen.
+Tyvärr om dina prenumerationer redan använder samma kort, går det inte att separera dem för att använda olika kort. När du registrerar dig för en ny prenumeration kan välja du dock att använda en ny betalningsmetod för den aktuella prenumerationen.
 
-### <a name="how-do-i-make-payments"></a>Hur gör jag betalningar
+### <a name="how-do-i-make-payments"></a>Hur gör jag betalningar?
 
-Om du har ställt in ett kreditkort eller en bankkort som din betalningsmetod debiterar vi automatiskt kortet efter varje faktureringsperioden. Du behöver inte göra något.
+Om du har konfigurerat ett kreditkort eller bankkort krävs en som din betalningsmetod debiteras automatiskt ditt kort efter varje faktureringsperiod. Du behöver inte göra något.
 
-Om du är [betalning via faktura](billing-how-to-pay-by-invoice.md), skickar du betalningen till platsen som anges längst ned på fakturan.
+Om du är [betala med faktura](billing-how-to-pay-by-invoice.md), skicka betalningen till platsen som visas längst ned på fakturan.
 
-### <a name="how-do-i-make-a-one-time-payment"></a>Hur gör jag en enstaka betalning
+### <a name="how-do-i-make-a-one-time-payment"></a>Hur gör jag en engångsbetalning?
 
-Tyvärr stöds Azure för närvarande inte enstaka betalningar för kredit- eller kort. 
+Tyvärr stöder Azure för närvarande inte enstaka betalningar för kreditkort eller bankkort kort. 
 
-### <a name="how-do-i-change-the-tax-id"></a>Hur ändrar jag Skatteklass?
+### <a name="how-do-i-change-the-tax-id"></a>Hur ändrar jag skatte-ID?
 
-Om du vill lägga till eller uppdatera skatte-ID, besök [ **profil** i Azure Kontocenter](https://account.azure.com/Profile)och välj **skatt post**. Den här skatte-ID används för skatt undantag beräkningar och visas på fakturan.
+Om du vill lägga till eller uppdatera skatte-ID, besök [ **profil** i Azure-Kontocenter](https://account.azure.com/Profile)och välj sedan **skatt post**. Det här skatte-ID:t används för att beräkna skattebefrielse och visas på fakturan.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
-Om du fortfarande behöver hjälp [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.
+Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.

@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: genli
-ms.openlocfilehash: b0e24e498acd823242b3613abb62df978466d56d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: 821d263856f21897915ba7954487b4d029cc4ed0
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918320"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395253"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägga till eller ändra Azure-prenumerationsadministratörer
 
 Du måste ha rätt administratörsroll för att hantera åtkomst till Azure-resurser. Den här artikeln beskriver hur du lägger till eller ändra administratörsrollen för en användare på prenumerationsnivån.
 
 > [!div class="nextstepaction"]
-> [Hjälp oss att förbättra Azure fakturering docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Hjälp till att förbättra faktureringsdokument för Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>Vilka administratörsrollen kan jag använda?
 

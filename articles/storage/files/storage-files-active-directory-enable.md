@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: 31bfcd99e23cc7fe0575a293e3dc22507dbd9e13
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec8ad5a509b4fd4b6fd59212ac0df17f98f417fd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973277"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222445"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Aktivera Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion)
 
@@ -103,8 +103,6 @@ Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
 ```
 
 **CLI**
-
-”Du måste först lägga till tillägget storage förhandsversion och följ sedan det exemplet blåser bort. Kom ihåg att ersätta platshållarvärdena med dina egna värden. I den här artikeln för mer information om att lägga till Azure CLI-tillägg ”.
 
 Om du vill aktivera Azure AD-autentisering över SMB från Azure CLI 2.0, först installera den *storage förhandsversion* tillägg:
 
@@ -274,7 +272,7 @@ Använd sedan följande kommando för att montera Azure-filresursen. Kom ihåg a
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 ```
 
-Nu har du har aktiverat Azure AD-autentisering över SMB och tilldelat en anpassad roll som ger åtkomst till en filresurs på en Azure AD-identitet. Om du vill bevilja åtkomst till filresursen för fler användare följer du anvisningarna i steg 2.
+Nu har du har aktiverat Azure AD-autentisering över SMB och tilldelat en anpassad roll som ger åtkomst till en filresurs på en Azure AD-identitet. Om du vill bevilja åtkomst till filresursen för fler användare följer du anvisningarna i steg 2 och 3.
 
 ## <a name="next-steps"></a>Nästa steg
 

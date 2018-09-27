@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: chlandsi
-ms.openlocfilehash: e21348ccd694baf6b7eccf2787ec0a9f21a73b11
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e343c24a5ef223e1fd6dc618f41d4acf89fc2f5d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985664"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226032"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>Snabbstart: Känna igen tal i Objective-C på iOS med hjälp av Cognitive Services tal SDK
 
@@ -46,7 +46,7 @@ I dialogrutorna som följer, gör följande val:
 
 1. Alternativ-dialogen för projektet
     1. Ange ett namn för Snabbstart-appen, till exempel `helloworld`.
-    1. Ange organisationens namn som `TestOrg`, och en organisation identifierare som `testorg`.
+    1. Ange en lämplig organisationsnamn och organisations-ID om du redan har ett Apple developer-konto. I testsyfte kan du bara välja vilket namn som `testorg`. Om du vill registrera appen, måste du också en korrekt etableringsprofil för. Finns det [Apple-utvecklarwebbplatsen](https://developer.apple.com/) mer information.
     1. Kontrollera att Objective-C har valts som språk för projektet.
     1. Inaktivera alla kryssrutor för tester och grundläggande information.
     ![Projektinställningar](media/sdk/qs-objectivec-project-settings.png)
@@ -54,13 +54,11 @@ I dialogrutorna som följer, gör följande val:
     1. Välj din hemkatalog att placera projektet i. Detta skapar en `helloworld` katalogen i din arbetskatalog som innehåller alla filer för Xcode-projekt.
     1. Inaktivera skapandet av en Git-lagringsplats för det här exemplet-projektet.
     1. Justera sökvägar till SDK i den *Projektinställningar*.
-        1. I den **Allmänt** fliken den **länkade ramverk och bibliotek** rubrik, lägga till SDK-biblioteket som ett ramverk: **Lägg till ramverk** > **Lägg till andra...**  > Gå till din hemkatalog och välj filen `MicrosoftCognitiveServicesSpeech.framework`.
+        1. I den **Allmänt** fliken den **inbäddade binära** rubrik, lägga till SDK-biblioteket som ett ramverk: **Lägg till inbäddade binära** > **lägga till andra ...**  > Gå till din hemkatalog och välj filen `MicrosoftCognitiveServicesSpeech.framework`. Detta lägger automatiskt till SDK-biblioteket i rubriken **länkade ramverk och bibliotek**.
         ![Har lagts till Framework](media/sdk/qs-objectivec-framework.png)
         1. Gå till den **Versionsinställningar** fliken och aktivera **alla** inställningar.
         1. Lägg till katalogen `$(SRCROOT)/..` till den *Framework sökvägar* under den **sökvägar** rubrik.
         ![Framework-inställningen för sökvägen](media/sdk/qs-objectivec-framework-search-paths.png)
-        1. Lägg till katalogen `$(SRCROOT)/..` till den *Runpath sökvägar* under den **länka** rubrik.
-        ![Sökvägen för Runpath inställningen](media/sdk/qs-objectivec-runpaths.png)
 
 
 ## <a name="set-up-the-ui"></a>Konfigurera Användargränssnittet
@@ -79,16 +77,21 @@ Klicka på **Slutför** i följande dialogruta utan att ändra inställningarna.
 1. Ersätt innehållet i den automatiskt genererade `ViewController.m` genom att:
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
-1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
+1. Lägg till begäran om åtkomst till mikrofonen. Högerklicka på posten info.plist i projektträdet och välj **öppna som...**   >  **Källkod**. Lägg till följande rader i den `<dict>` avsnittet och sedan spara filen.
+    ```xml
+    <key>NSMicrophoneUsageDescription</key>
 
+    <string>Need microphone access for speech recognition from microphone.</string>
+    ```
+1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
 1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerade med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
 
 ## <a name="building-and-running-the-sample"></a>Bygga och köra exemplet
 
 1. Se utdata för felsökning (**visa** > **felsöka området** > **aktivera konsolen**).
-1. Skapa och kör exempelkoden i iOS-simulatorn genom att välja **produkten** -> **kör** från menyn eller klicka på den **spela upp** knappen.
-1. När du klickar på ”identifiera”! knappen i appen, bör du se innehållet i ljudet filen ”vad är vädret som”? på den nedre delen av skärmen simulerade.
+1. Skapa och kör exempelkoden i iOS-simulatorn genom att välja **produkten** -> **kör** från menyn eller klicka på den **spela upp** knappen. Anslut enheten till din utvecklingsdator för att köra på en iOS-enhet, och välj enheten som körs mål. Tal-SDK stöder för närvarande endast 64-bitars iOS-plattformen.
+1. När du klickar på ”identifiera”! knappen i appen, bör du se innehållet i ljudet filen ”vad är vädret som”? på den nedre delen av skärmen.
 
  ![Simulerade iOS-App](media/sdk/qs-objectivec-simulated-app.png)
 

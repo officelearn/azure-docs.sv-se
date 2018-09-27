@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 686d911c7a59fa33508d130382a3fda4af28e665
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: f1541a0523ce0178ad3616a956d5188ef7df0ded
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466072"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395720"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -146,6 +146,8 @@ Här följer efter installation kända problem för den här build-versionen.
 
 ### <a name="portal"></a>Portalen
 
+- Den tekniska dokumentationen för Azure Stack fokuserar på den senaste versionen. På grund av portalen ändringar mellan versioner vad som visas när du använder Azure Stack-portalerna kan skilja sig från vad som visas i dokumentationen. 
+
 - <!-- TBD - IS ASDK --> Du kan se en tom instrumentpanel i portalen. Om du vill återställa instrumentpanelen, klickar du på **redigera instrumentpanelen**, högerklicka och välj **återställa till standardtillståndet**.
 
 - <!-- 2930718 - IS ASDK --> I administratörsportalen kan få åtkomst till information om alla användarprenumeration efter stänga bladet och klicka på **senaste**, användarnamn för prenumeration visas inte.
@@ -217,6 +219,8 @@ Här följer efter installation kända problem för den här build-versionen.
 - <!-- 2724873 - IS --> När du använder PowerShell-cmdlets **Start AzsScaleUnitNode** eller **Stop-AzsScaleunitNode** för att hantera skalningsenheter, det första försöket att starta eller stoppa skalningsenheten kan misslyckas. Om cmdleten misslyckas på den första körningen, kör du cmdlet en gång. Den andra körningen bör fungera för att slutföra åtgärden. 
 
 - <!-- TBD - IS ASDK --> När du skapar virtuella datorer på Azure Stack-användarportalen visar portalen ett felaktigt antal datadiskar som kan ansluta till virtuella datorer i DS-serien. DS-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
+
+- <!-- TBD - IS ASDK --> Om du använder en miljö med flera organisationer, etablera en virtuell dator med en hanterad disk i en prenumeration som inte ingår i standard-klientorganisation misslyckas med följande fel: *resursåtgärden slutfördes med slutliga etableringstillståndet ”misslyckades”.*
 
 - <!-- TBD - IS ASDK --> Om det tar för lång tid att etablera ett tillägg på en VM-distribution, bör användarna låta etablering timeout-värde istället för att försöka stoppa processen för att frigöra eller ta bort den virtuella datorn.  
 

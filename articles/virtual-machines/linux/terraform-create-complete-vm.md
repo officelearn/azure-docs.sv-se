@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: dfebda8f92837f8573fb3362c9210bce9b70d23d
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 28d0d333266cc74890c5d27888bf74f6dc89ddcf
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42748066"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392767"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Skapa en fullständig Linux VM-infrastruktur i Azure med Terraform
 
@@ -60,7 +60,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 
 I ytterligare avsnitten kan du referera till resursgruppen med *${azurerm_resource_group.myterraformgroup.name}*.
 
-## <a name="create-virtual-network"></a>Skapa virtuellt nätverk
+## <a name="create-virtual-network"></a>Skapa det virtuella nätverket
 Avsnittet nedan skapar ett virtuellt nätverk med namnet *myVnet* i den *10.0.0.0/16* adressutrymme:
 
 ```tf
@@ -141,6 +141,7 @@ resource "azurerm_network_interface" "myterraformnic" {
     name                = "myNIC"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
+    network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
 
     ip_configuration {
         name                          = "myNicConfiguration"

@@ -1,21 +1,21 @@
 ---
-title: Använda insikter token med Bing Visual Search-API | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Visar hur du använder en bild insight token med Visual Search-API för att få insyn om en bild.
+title: Med hjälp av insikter token - Bing Visual Search
+titleSuffix: Azure Cognitive Services
+description: Visar hur du använder en bild insight token med Bing Visual Search API att få insikter om en bild.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 569ae89a712d14fb36989e756f99725dce398c0a
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e853545e07709d82fa1e3b1143392e6d6012f6f6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126566"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227596"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Använda en insights-token för att få insikter om en bild
 
@@ -68,7 +68,7 @@ Exempel som använder token insights finns [C#](#using-csharp) | [Java](#using-j
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) att hämta den här koden som körs på Windows. (Den kostnadsfria versionen av communityn fungerar).
+Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) att hämta den här koden som körs på Windows. (Den kostnadsfria Community Edition fungerar.)
 
 Den här snabbstarten kan du använda en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumerationsnyckel eller en betald prenumeration-nyckel.
 
@@ -240,11 +240,11 @@ namespace VisualSearchInsightsToken
 
 <a name="using-java" />
 
-## <a name="using-java"></a>Med hjälp av Java
+## <a name="using-java"></a>Använda Java
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) att kompilera och köra den här koden. Du kan använda en Java-IDE om du har en favorit, men en textredigerare räcker.
+Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) för att kompilera och köra den här koden. Du kan använda en Java-IDE om du har en favorit, men en textredigerare räcker.
 
 Den här snabbstarten kan du använda en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumerationsnyckel eller en betald prenumeration-nyckel.
 
@@ -425,7 +425,7 @@ function requestCallback(err, res, body) {
 
 <a name="using-python" />
 
-## <a name="using-python"></a>Med hjälp av Python
+## <a name="using-python"></a>Använda Python
 
 
 ### <a name="prerequisites"></a>Förutsättningar

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/20/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 984185febf770ae10a021d129b0ef6c43da4d0f1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6354d89ff5a23ccb51b85737b3a842c08534683e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032775"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223618"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell (förhandsversion)
 
@@ -75,13 +75,13 @@ Använda Azure PowerShell för att logga in med en Azure AD-identitet:
     ```
 1. Stäng och öppna PowerShell-fönstret när du har installerat PowerShellGet. 
 
-1. Installera AzureRM:
+1. Installera den senaste versionen av Azure PowerShell:
 
     ```powershell
     Install-Module AzureRM –Repository PSGallery –AllowClobber
     ```
 
-1. Installera ett av förhandsversionsmoduler:
+1. Installera en förhandsversion av Azure Storage-moduler som har stöd för Azure AD:
 
     ```powershell
     Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 

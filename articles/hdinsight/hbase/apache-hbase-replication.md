@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: cfc71f34f4b1d8027714c9fb610beebf8cd3be47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51f5f3b9742de45b1b72104c8cf08079d0719763
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978547"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224392"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera HBase-kluster-replikering i Azure-nätverk
 
@@ -109,6 +109,7 @@ Om du vill installera Bind behöver yon hitta offentliga IP-adress för två DNS
 2. Öppna DNS-virtuell dator genom att välja **resursgrupper > [resursgruppens namn] > [vnet1DNS]**.  Resursgruppens namn är det som du skapar i föregående procedur. Standard-DNS VM-namn är *vnet1DNS* och *vnet2NDS*.
 3. Välj **egenskaper** att öppna egenskapssidan för det virtuella nätverket.
 4. Anteckna den **offentliga IP-adressen**, och också kontrollera den **privat IP-adress**.  Den privata IP-adressen ska vara **10.1.0.4** för vnet1DNS och **10.2.0.4** för vnet2DNS.  
+5. Ändra DNS-servrar för båda virtuella nätverken för att använda standard (medföljer Azure) DNS-servrar för att tillåta inkommande och utgående åtkomst till att ladda ned paket för att installera bindning i följande steg.
 
 Följ anvisningarna nedan om du vill installera bindning:
 
@@ -217,7 +218,7 @@ Följ anvisningarna nedan om du vill installera bindning:
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
     > [!IMPORTANT]

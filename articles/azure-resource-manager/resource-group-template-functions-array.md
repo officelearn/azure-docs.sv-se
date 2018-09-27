@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdc8222675a9f0099edccb24310bcea03bf963f4
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e0269e17a419c6b611d72a7d00668fe9c9519894
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929689"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166199"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funktioner för matris och objekt för Azure Resource Manager-mallar 
 
 Resource Manager tillhandahåller flera funktioner för att arbeta med matriser och -objekt.
 
-* [matris](#array)
+* [Matris](#array)
 * [Slå samman](#coalesce)
 * [concat](#concat)
 * [innehåller](#contains)
@@ -35,10 +35,10 @@ Resource Manager tillhandahåller flera funktioner för att arbeta med matriser 
 * [skärningspunkten](#intersection)
 * [JSON](#json)
 * [senaste](#last)
-* [längd](#length)
+* [Längd](#length)
 * [max](#max)
 * [Min](#min)
-* [adressintervall](#range)
+* [Adressintervall](#range)
 * [skip](#skip)
 * [ta](#take)
 * [Union](#union)
@@ -738,6 +738,10 @@ Returnerar ett JSON-objekt.
 
 JSON-objekt från den angivna strängen eller ett tomt-objekt när **null** har angetts.
 
+### <a name="remarks"></a>Kommentarer
+
+Om du vill inkludera ett parametervärde eller variabeln i JSON-objekt kan du använda den [concat](resource-group-template-functions-string.md#concat) att skapa den sträng som du skickar till funktionen.
+
 ### <a name="example"></a>Exempel
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) visar hur du använder funktionen json med matriser och -objekt:
@@ -746,6 +750,12 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testValue": {
+            "type": "string",
+            "defaultValue": "demo value"
+        }
+    },
     "resources": [
     ],
     "outputs": {
@@ -756,6 +766,10 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
         "nullOutput": {
             "type": "bool",
             "value": "[empty(json('null'))]"
+        },
+        "paramOutput": {
+            "type": "object",
+            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
         }
     }
 }
@@ -767,6 +781,7 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | jsonOutput | Objekt | {”a”: ”b”} |
 | nullOutput | Boolesk | True |
+| paramOutput | Objekt | {”a”: ”demonstrera värdet”}
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -847,7 +862,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="length" />
 
-## <a name="length"></a>längd
+## <a name="length"></a>Längd
 `length(arg1)`
 
 Returnerar antalet element i en matris eller tecken i en sträng.
@@ -1058,7 +1073,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="range" />
 
-## <a name="range"></a>adressintervall
+## <a name="range"></a>Adressintervall
 `range(startingInteger, numberOfElements)`
 
 Skapar en matris av heltal från en start heltal- och som innehåller ett antal objekt.
@@ -1122,7 +1137,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="skip" />
 
-## <a name="skip"></a>Hoppa över
+## <a name="skip"></a>hoppa över
 `skip(originalValue, numberToSkip)`
 
 Returnerar en matris med alla element efter det angivna värdet i matrisen eller returnerar en sträng där alla tecken efter det angivna värdet i strängen.

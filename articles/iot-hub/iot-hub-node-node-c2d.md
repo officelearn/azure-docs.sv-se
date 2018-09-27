@@ -9,12 +9,12 @@ ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 61b1dd31039df0db777e7e35d849889047a6588d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c2b8df708a568fa995cf3af783c112127726811b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186690"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221816"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Skicka meddelanden från moln till enhet med IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -83,7 +83,7 @@ I det här avsnittet ska du ändra den simulerade enhetsappen som du skapade i [
    > 
 
 ## <a name="send-a-cloud-to-device-message"></a>Skicka ett moln-till-enhet-meddelande
-I det här avsnittet skapar du en Node.js-konsolapp som skickar meddelanden från molnet till enheten till den simulerade enhetsappen. Du behöver enhets-ID för enheten som du lade till i den [Kom igång med IoT Hub] självstudien. Du måste också IoT Hub-anslutningssträngen för hubben som du hittar i den [Azure-portalen].
+I det här avsnittet skapar du en Node.js-konsolapp som skickar meddelanden från molnet till enheten till den simulerade enhetsappen. Du behöver enhets-ID för enheten som du lade till i den [Kom igång med IoT Hub] självstudien. Du måste också IoT Hub-anslutningssträngen för hubben som du hittar i den [Azure Portal].
 
 1. Skapa en tom mapp med namnet **sendcloudtodevicemessage**. I den **sendcloudtodevicemessage** mappen skapar du en package.json-fil med följande kommando i Kommandotolken. Acceptera alla standardvärden:
    
@@ -170,7 +170,7 @@ Nu är det dags att köra programmen.
     ![Kör appen för att skicka kommandot moln till enhet][img-send-command]
    
    > [!NOTE]
-   > Den här självstudien implementerar inte någon återförsöksprincip sätt. I produktionskoden bör du implementera principer för omförsök (till exempel exponentiell backoff) vilket rekommenderas i MSDN-artikeln [hantering av tillfälliga fel].
+   > Den här självstudien implementerar inte någon återförsöksprincip sätt. I produktionskoden bör du implementera principer för omförsök (till exempel exponentiell backoff) vilket rekommenderas i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
    > 
    > 
 
@@ -193,6 +193,5 @@ Mer information om hur du utvecklar lösningar med IoT Hub finns det [utvecklarh
 [Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[Hantering av tillfälliga fel]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Azure IoT-Remote Monitoring solution accelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/

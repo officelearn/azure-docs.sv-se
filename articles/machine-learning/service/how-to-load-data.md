@@ -10,21 +10,26 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 000870e3273799930f519ff32d6b072d8c2d1f10
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 436ff9d318dc311efe27352a8b2ac91cfb5be618
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989693"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221340"
 ---
-#<a name="load-data-with-the-azure-machine-learning-data-prep-sdk"></a>Läs in data med Azure Machine Learning Data Prep SDK
+#<a name="load-and-read-data-with-azure-machine-learning"></a>Läsa in och läsa data med Azure Machine Learning
 
-Den [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) att läsa in olika typer av indata. Du kan ange datatyp för fil och dess parametrar eller använda funktionen för smarta läsning SDK att automatiskt identifiera vilken typ av en fil.
+Använd den [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) att läsa in olika typer av indata. 
 
-## <a name="read-lines"></a>Läs rader
+Om du vill läsa in dina data, har du två metoder:
++ Ange datatyp för fil och dess parametrar
++ Använda funktionen för smarta läsning SDK att automatiskt identifiera vilken typ av en fil
+
+## <a name="use-text-line-data"></a>Använda text raddata 
 Ett av de enklaste sätten att läsa in data är att läsa det som textrader.
 
-```
+Här är exempelkod:
+```python
 dataflow = dprep.read_lines(path='./data/text_lines.txt')
 dataflow.head(5)
 ```
@@ -38,11 +43,12 @@ dataflow.head(5)
 
 När data matas in, kan du hämta en pandas-DataFrame för hela datauppsättningen.
 
-```
+Här är exempelkod:
+```python
 df = dataflow.to_pandas_dataframe()
 df
 ```
-
+Exempel på utdata:
 ||Rad|
 |----|-----|
 |0|Datum\| \| minsta temperatur\| \| maximalt temperatur|
@@ -51,15 +57,17 @@ df
 |3|2015-07-3\| \| 7.0\| \| 10,5|
 |4|2015-07-4\| \| 5.5\| \| 9.3|
 
-## <a name="read-csv"></a>Läsa CSV
+## <a name="use-csv-data"></a>Använd CSV-data
 När du läser avgränsade filer, kan du låta den underliggande runtime härleda parsning parametrar (t.ex en avgränsare, kodning, om du vill använda rubriker osv) i stället för att låta dem. Försök att läsa en fil genom att ange endast dess plats i det här exemplet. 
 
-```
+Här är exempelkod:
+```python
 # SAS expires June 16th, 2019
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
 dataflow.head(5)
 ```
 
+Exempel på utdata:
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0||stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -69,12 +77,13 @@ dataflow.head(5)
 |4|ALABAMA|1|101710|Hale County|10171000588|2|
 
 En av de parametrar som du kan ange är ett antal rader att hoppa över i filer som du läser. Använd följande kod för att filtrera bort raden dubbletter.
-```
+```python
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1)
 dataflow.head(5)
 ```
 
+Exempel på utdata:
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|ALABAMA|1|101710|Hale County|10171002158|29|
@@ -84,7 +93,8 @@ dataflow.head(5)
 |4|ALABAMA|1|101710|Hale County|10171000589|23 |
 
 Därefter kan du titta på datatyperna för kolumnerna.
-```
+Här är exempelkod:
+```python
 dataflow.head(1).dtypes
 
 stnam                     object
@@ -96,6 +106,7 @@ schnam10                  object
 MAM_MTH00numvalid_1011    object
 dtype: object
 ```
+
 Tyvärr återvände alla våra kolumner som strängar. Det beror på att som standard inte ändrar Azure Machine Learning Data Prep SDK-datatypen. Vi läser från datakällan är en textfil, så SDK läser alla värden som strängar. Det här exemplet, men vill vi parsa numeriska kolumner as-nummer. Om du vill göra detta måste ange du parametern inference_arguments till current_culture.
 
 ```
@@ -113,13 +124,15 @@ schnam10                   object
 ALL_MTH00numvalid_1011    float64
 dtype: object
 ```
-Flera kolumner identifierades korrekt as-nummer och deras typ har angetts till float64. Du kan hämta en pandas-DataFrame för hela datauppsättningen med inmatningen av klar.
 
-```
+Flera kolumner identifierades korrekt as-nummer och deras typ har angetts till float64. Du kan hämta en pandas-DataFrame för hela datauppsättningen med inmatningen av klar.
+Här är exempelkod:
+```python
 df = dataflow.to_pandas_dataframe()
 df
 ```
 
+Exempel på utdata:
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|1.017100e + 10|49.0|
@@ -128,12 +141,14 @@ df
 |3|ALABAMA|Hale County|1.017100e + 10|2.0|
 |4|ALABAMA|Hale County|1.017100e + 10|23.0|
 
-## <a name="read-excel"></a>Läs Excel
-Azure Machine Learning Data Prep SDK innehåller en `read_excel` funktionen för att läsa in Excel-filer.
-```
+## <a name="use-excel-data"></a>Använda Excel-data
+Azure Machine Learning Data Prep SDK innehåller en `read_excel` funktionen för att läsa in Excel-filer. Här är exempelkod:
+```python
 dataflow = dprep.read_excel(path='./data/excel.xlsx')
 dataflow.head(5)
 ```
+
+Exempel på utdata:
 ||Kolumn1|Kolumn2|Kolumn3|Kolumn4|Column5|Kolumn6|Column7|Column8|
 |------|------|------|-----|------|-----|-------|----|-----|
 |0|Hoba|Järn IVB|60000000.0|Hittad|1920.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-19.58333|17.91667|
@@ -142,12 +157,13 @@ dataflow.head(5)
 |3|Canyon Diablo|Järn IAB MG|30000000.0|Hittad|1891.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35.05000|-111.03333|
 |4|Armanty|Järn, IIIE|28000000.0|Hittad|1898.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47.00000|88.00000|
 
-Du har läst in det första bladet för Excel-filen. Du kan göra detta genom att ange namnet på bladet som du vill läsa in. Om du vill läsa in det andra arket i stället kan du ange dess namn som ett argument.
-```
+Du har läst in det första bladet för Excel-filen. Du kan göra detta genom att ange namnet på bladet som du vill läsa in. Om du vill läsa in det andra arket i stället kan du ange dess namn som ett argument. Exempel:
+```python
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
 dataflow.head(5)
 ```
 
+Exempel på utdata:
 ||Kolumn1|Kolumn2|Kolumn3|Kolumn4|Column5|Kolumn6|Column7|Column8|
 |------|------|------|-----|------|-----|-------|----|-----|
 |0|Ingen|Ingen|Ingen|Ingen|Ingen|Ingen|Ingen|Ingen|Ingen|
@@ -156,13 +172,14 @@ dataflow.head(5)
 |3|rangordning|Titel|Studio|Världsomfattande|Inrikes / %|Kolumn1|Utländskt nummer / %|Kolumn2|År ^|
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|5|
 
-Som du ser tabellens i det andra arket rubriker och tre tomma rader. Du måste ändra funktionens argument.
-```
+Som du ser tabellens i det andra arket rubriker och tre tomma rader. Du måste ändra funktionens argument. Till exempel:
+```python
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_header=True, skip_rows=3)
 df = dataflow.to_pandas_dataframe()
 df
 ```
 
+Exempel på utdata:
 ||rangordning|Titel|Studio|Världsomfattande|Inrikes / %|Kolumn1|Utländskt nummer / %|Kolumn2|År ^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|
@@ -171,13 +188,14 @@ df
 |3|4|Harry Potter och den Deathly Hallows del 2|WB|1341.5|381|0.284|960.5|0.716|2011|
 |4|5|Låsta|BV|1274.2|400.7|0.314|873.5|0.686|2013|
 
-## <a name="read-fixed-width-files"></a>Läsa filer med fast bredd
-Du kan ange en lista med förskjutningar för fast bredd-filer. Den första kolumnen antas alltid börjar vid förskjutningen 0.
-
-```
+## <a name="use-fixed-width-data-files"></a>Använd fast bredd-datafiler
+Du kan ange en lista med förskjutningar för fast bredd-filer. Den första kolumnen antas alltid börjar vid förskjutningen 0. till exempel:
+```python
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
 dataflow.head(5)
 ```
+
+Exempel på utdata:
 ||010000|99999|MUSENHETEN NORGE|NEJ|NO_1|ENRS|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010003|99999|MUSENHETEN NORGE|NEJ|NEJ|ENSO||||
@@ -187,9 +205,8 @@ dataflow.head(5)
 |4|010015|99999|BRINGELAND|NEJ|NEJ|ENBL|+61383|+005867|+03270|
 
 
-Om det finns inga rubriker i filer, ska du behandla den första raden som data. Genom att skicka `PromoteHeadersMode.NONE` till lösenordsargument rubrik som du kan undvika identifiering av rubriken och få rätt data.
-
-```
+Om det finns inga rubriker i filer, ska du behandla den första raden som data. Genom att skicka `PromoteHeadersMode.NONE` till lösenordsargument rubrik som du kan undvika identifiering av rubriken och få rätt data. Exempel:
+```python
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
                           offsets=[7, 13, 43, 46, 52, 58, 65, 73],
                           header=dprep.PromoteHeadersMode.NONE)
@@ -197,6 +214,9 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 df = dataflow.to_pandas_dataframe()
 df
 ```
+
+Exempel på utdata:
+
 ||Kolumn1|Kolumn2|Kolumn3|Kolumn4|Column5|Kolumn6|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010000|99999|MUSENHETEN NORGE|NEJ|NO_1|ENRS|Column7|Column8|Column9|
@@ -206,11 +226,10 @@ df
 |4|010014|99999|SOERSTOKKEN|NEJ|NEJ|ENSO|+59783|+005350|+00500|
 |5|010015|99999|BRINGELAND|NEJ|NEJ|ENBL|+61383|+005867|+03270|
 
-## <a name="read-sql"></a>Läsa SQL
+## <a name="use-sql-data"></a>Använda SQL-data
 Azure Machine Learning Data Prep SDK kan också läsa in data från SQL-servrar. För närvarande stöds endast Microsoft SQL Server.
-Skapa ett datakällobjekt som innehåller anslutningsinformationen för att läsa data från en SQLServer.
-
-```
+Skapa ett datakällobjekt som innehåller anslutningsinformationen för att läsa data från en SQLServer. Exempel:
+```python
 secret = dprep.register_secret("[SECRET-USERNAME]", "[SECRET-PASSWORD]")
 
 ds = dprep.MSSQLDataSource(server_name="[SERVER-NAME]",
@@ -222,12 +241,13 @@ Som du kan se, Lösenordsparametern av `MSSQLDataSource` accepterar hemliga obje
 -   Registrera hemligheten och dess värde med motorn för körning. 
 -   Skapa hemligheten med bara ett ID (användbart om värdet för hemligheten har redan registrerats i körningsmiljön).
 
-När du skapar ett datakällobjekt, kan du fortsätta att läsa data.
-```
+När du skapar ett datakällobjekt, kan du fortsätta att läsa data. Exempel:
+```python
 dataflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dataflow.head(5)
 ```
 
+Exempel på utdata:
 ||ProductID|Namn|ProductNumber|Färg|StandardCost|ListPrice|Storlek|Vikt|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|ROWGUID|Modifieddate kunde|
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 |0|680|HL-ram – svart, 58|FR-R92B-58|Svart|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00 + 00:00|Ingen|Ingen|b-GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000 + 00:00|
@@ -236,10 +256,12 @@ dataflow.head(5)
 |3|708|Sport – 100-Hjälm, svart|HL-U509|Svart|13.0863|34.99|Ingen|Ingen|35|33|2005-07-01 00:00:00 + 00:00|Ingen|Ingen|b-GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|a25a44fb-c2de-4268-958f-110b8d7621e2|2008-03-11 |10:01:36.827000 + 00:00|
 |4|709|Mountainbikestrumpor, M|SÅ-B909-M|Vit|3.3963|9,50|M|Ingen|27|18|2005-07-01 00:00:00 + 00:00|2006-06-30 00:00:00 + 00:00|Ingen|b-GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|18f95f47-1540-4e02-8f1f-cc1bcb6828d0|2008-03-11 |10:01:36.827000 + 00:00|
 
-```
+```python
 df = dataflow.to_pandas_dataframe()
 df.dtypes
 ```
+
+Exempel på utdata:
 ```
 ProductID                                     int64
 Name                                         object
@@ -261,7 +283,7 @@ ModifiedDate              datetime64[ns, UTC+00:00]
 dtype: object
 ```
 
-## <a name="read-from-azure-data-lake-storage"></a>Läsa från Azure Data Lake Storage
+## <a name="use-azure-data-lake-storage"></a>Använda Azure Data Lake Storage
 Det finns två sätt SDK kan hämta nödvändiga OAuth-token för att komma åt Azure Data Lake Storage:
 -   Hämta åtkomsttoken från en senaste inloggningssession av användarens inloggning för Azure CLI
 -   Använda ett huvudnamn för tjänsten (SP) och ett certifikat som hemlighet
@@ -273,14 +295,15 @@ Kör följande kommando på den lokala datorn:
 > Om ditt användarkonto är medlem i fler än en Azure-klient, måste du ange klienten i formuläret AAD-URL-värddatornamn.
 
 
-```
+Exempel:
+```azurecli
 az login
 az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 ### <a name="create-a-service-principal-with-the-azure-cli"></a>Skapa ett huvudnamn för tjänsten med Azure CLI
-Du kan använda Azure CLI för att skapa tjänstens huvudnamn och motsvarande certifikat. Viss tjänstens huvudnamn är konfigurerad som läsare, med dess omfattning som minskat till endast Azure Data Lake Storage-konto 'dpreptestfiles'
-```
+Du kan använda Azure CLI för att skapa tjänstens huvudnamn och motsvarande certifikat. Viss tjänstens huvudnamn är konfigurerad som läsare, med dess omfattning som minskat till endast Azure Data Lake Storage-konto 'dpreptestfiles'.  Exempel:
+```azurecli
 az account set --subscription "Data Wrangling development"
 az ad sp create-for-rbac -n "SP-ADLS-dpreptestfiles" --create-cert --role reader --scopes /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/dpreptestfiles/providers/Microsoft.DataLakeStore/accounts/dpreptestfiles
 ```
@@ -291,14 +314,13 @@ Extrahera tumavtrycket:
 openssl x509 -in adls-dpreptestfiles.crt -noout -fingerprint
 ```
 
-##### <a name="configure-an-azure-data-lake-storage-account-for-the-service-principal"></a>Konfigurera ett Azure Data Lake Storage-konto för tjänstens huvudnamn
-Konfigurera ACL för filsystemet Azure Data Lake Storage med objekt-ID för användaren eller för det här exemplet, tjänstens huvudnamn:
-```
+Konfigurera ACL för filsystemet Azure Data Lake Storage med objekt-ID för användaren eller för det här exemplet, tjänstens huvudnamn. Exempel:
+```azurecli
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
-##### <a name="configure-read-and-execute-access-for-the-azure-data-lake-storage-file-system"></a>Konfigurera Läs- och körningsbehörighet för Azure Data Lake Storage file system.
-Eftersom den underliggande HDFS ACL-modellen inte stöder arv, måste du konfigurera ACL för mappar och filer individuellt.
-```
+
+Konfigurera `Read` och `Execute` åtkomst för Azure Data Lake Storage file system, måste du konfigurera ACL för mappar och filer individuellt. Detta beror på att den underliggande HDFS ACL-modellen har inte stöd för arv. Exempel:
+```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r--" --path /farmers-markets.csv
 ```
@@ -310,10 +332,10 @@ with open('./data/adls-dpreptestfiles.crt', 'rt', encoding='utf-8') as crtFile:
 
 servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 ```
-#### <a name="acquire-an-oauth-access-token"></a>Hämta en OAuth-åtkomsttoken
+### <a name="acquire-an-oauth-access-token"></a>Hämta en OAuth-åtkomsttoken
 Använd den `adal` paketet (via: `pip install adal`) att skapa en autentiseringskontext på MSFT-klient och få en OAuth-åtkomsttoken. För ADLS, resursen i tokenbegäran måste vara för 'https://datalake.azure.net', som skiljer sig från de flesta andra Azure-resurser.
 
-```
+```python
 import adal
 from azureml.dataprep.api.datasources import DataLakeDataSource
 
@@ -331,3 +353,6 @@ dataflow.to_pandas_dataframe().head()
 |3|1009364|106 S. Main gata bönder marknaden|http://thetownofsixmile.wordpress.com/ |106 S. Main gata|Sex mil|||
 |4|1010691|10th Steet Community bönder marknaden|http://agrimissouri.com/mo-grown/grodetail.php... |10 gata och poppel|Lamar|Barton|
 
+## <a name="use-smart-reading"></a>Använd ”smart läsning”
+
+Använda SDK smart läsning-funktioner för att automatiskt identifiera vilken typ av en fil.

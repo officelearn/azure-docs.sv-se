@@ -21,7 +21,7 @@ För ytterligare kontroll över distributionen så kan du även åsidosätta sta
     \.deployment
     \deploy.cmd
 
-Du kan använda den [Azure-kommandoradsgränssnittet] [ Azure command-line interface] att skapa filerna.  Använd det här kommandot från din projektmapp:
+Du kan använda den [kommandoradsgränssnittet] [ Azure command-line interface] att skapa filerna.  Använd det här kommandot från din projektmapp:
 
     azure site deploymentscript --python
 

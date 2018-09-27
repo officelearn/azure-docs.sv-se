@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
-ms.author: tonguyen
-ms.openlocfilehash: c782cadadb0250e6c3ca4912dbf8f81e19cb88c5
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: f7ec113a7fa51fc6d3684c2e7ee9379bd1534e30
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919062"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392422"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Förstå fakturan för Microsoft Azure
 Jämför din faktura med detaljerade dagliga användningsfil och kostnadshanteringsrapporter i Azure-portalen för att förstå fakturan för Azure.
@@ -35,7 +35,7 @@ Detaljerade villkor och beskrivningar av din faktura och detaljerad dagliga anv�
 Mer information om kostnadshanteringsrapporter finns [Kostnadshantering för Azure-portalen](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 > [!div class="nextstepaction"]
-> [Hjälp oss att förbättra Azure fakturering docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Hjälp till att förbättra faktureringsdokument för Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="charges"></a>Hur gör jag till att kostnader på min faktura är korrekta?
 

@@ -10,14 +10,14 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a5b964877f1c089015812abdf365b22c57267bb0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031382"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164403"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Självstudie: 5. Extrahera friformsdata
+# <a name="tutorial-5-extract-free-form-data"></a>Självstudiekurs 5: Extrahera fri form-data
 
 I den här självstudien använder du entiteten pattern.any för att extrahera data från yttranden där talade är välutformat och där slutet av data kan förväxlas enkelt med återstående ord av uttryck. 
 

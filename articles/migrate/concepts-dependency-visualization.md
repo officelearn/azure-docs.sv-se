@@ -4,14 +4,14 @@ description: Översikt över utvärderingsberäkningar i Azure Migrate-tjänsten
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 84ce20186b882bf07177305291a6f7512ed9ac62
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 923a2a137bb4510e9490ce4077f744a43619a2c6
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732031"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165032"
 ---
 # <a name="dependency-visualization"></a>Visualisering av beroenden
 
@@ -32,7 +32,7 @@ Azure Migrate använder den [Tjänstkarta](../operations-management-suite/operat
     ![Associera arbetsytan för Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - När du skapar en ny arbetsyta kan behöva du ange ett namn för arbetsytan. Arbetsytan skapas i en region i samma [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migration-projekt.
-- Arbetsytan associerade märks med nyckeln **migreringsprojekt**, och värdet ** projektnamn som du kan använda för att söka i Azure-portalen.
+- Arbetsytan associerade märks med nyckeln **migreringsprojektet**, och värdet **projektnamn**, som du kan använda för att söka i Azure-portalen.
 - Om du vill gå till arbetsytan som är kopplade till projektet, går du till **Essentials** avsnittet projektets **översikt** sidan och få åtkomst till arbetsytan
 
     ![Navigera Log Analytics-arbetsyta](./media/concepts-dependency-visualization/oms-workspace.png)
@@ -62,5 +62,5 @@ Du kan använda Log Analytics-arbetsytan utanför Azure Migrate. Den tas inte bo
 Ta inte bort den arbetsyta som skapats av Azure Migrate, såvida inte du ta bort migreringsprojektet. Om du gör det, kommer beroendevisualiseringsfunktionen inte fungerar som förväntat.
 
 ## <a name="next-steps"></a>Nästa steg
-
-[Gruppera datorer med datorberoenden](how-to-create-group-machine-dependencies.md)
+- [Gruppera datorer med datorberoenden](how-to-create-group-machine-dependencies.md)
+- [Läs mer](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) om frågor och svar på beroendevisualisering.

@@ -9,18 +9,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: d86fc1930f1d7b29dc3ce57e9b4d28e053bb44a0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: ddb60631f54e1b635ae5ec036b7d35d47ca0a519
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181898"
+ms.locfileid: "47221766"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
-I Azure Search, en [tjänsten har etablerats](search-create-service-portal.md) på en fast prisnivå eller SKU: **kostnadsfri**, **grundläggande**, eller **Standard**, där  **Standard** är tillgängligt i flera konfigurationer och kapaciteter. De flesta kunder börjar med den **kostnadsfri** nivå för utvärdering och konverteras sedan till **Standard** för utveckling. Du kan utföra alla snabbstarter och självstudier på den **kostnadsfri** nivå, inklusive de för resurskrävande kognitiv sökning. 
+I Azure Search, en [tjänsten har etablerats](search-create-service-portal.md) på en prisnivå nivå eller SKU som har åtgärdats för livslängden för tjänsten. Nivåerna ingår **kostnadsfri**, **grundläggande**, eller **Standard**, där **Standard** är tillgängligt i flera konfigurationer och kapaciteter. De flesta kunder börjar med den **kostnadsfri** nivå för utvärdering och konverteras sedan till **Standard** för utvecklings-och produktionsdistributionerna. Du kan utföra alla snabbstarter och självstudier på den **kostnadsfri** nivå, inklusive de för resurskrävande kognitiv sökning. 
 
-Nivåerna avgör kapaciteten, inte funktioner med smärre skillnader:
+Nivåerna avgöra kapaciteten, inte funktioner och hjälp av:
 
 + Antal index som du kan skapa
 + Storlek och hastighet partitioner (fysisk lagring)
@@ -28,14 +28,10 @@ Nivåerna avgör kapaciteten, inte funktioner med smärre skillnader:
 Även om alla nivåer, inklusive den **kostnadsfri** nivå, ger ofta funktionsparitet, större arbetsbelastningar kan bestämmer krav för högre nivåer. Till exempel [kognitiv sökning](cognitive-search-concept-intro.md) indexering har långvariga kunskaper tiden på en kostnadsfri tjänst om inte datauppsättningen råkar vara mycket liten.
 
 > [!NOTE] 
-> Funktionsparitet finns på nivåerna med undantag för [indexerare](search-indexer-overview.md), som inte är tillgängliga på S3HD.
+> Undantaget till funktionsparitet är [indexerare](search-indexer-overview.md), som inte är tillgängliga på S3HD.
 >
 
-Inom en nivå kan du [justera replik-och partition](search-capacity-planning.md) för prestandajustering. Medan du kan börja med två eller tre för var och en, kan du tillfälligt öka resursnivån för en tung indexeringsarbetsbelastningen. Du kan finjustera resursnivåer inom en nivå ökar flexibiliteten, men även lite komplicerar dina analyser. Du kan behöva experimentera om du vill se om en lägre nivå med högre resurser/repliker erbjuder bättre värde och prestanda än en högre nivå med lägre resurser. Mer information om när och varför skulle du justera kapacitet finns [prestanda och optimering överväganden](search-performance-optimization.md).
-
-> [!Important] 
-> Uppskatta framtida behov för index och lagring kan kännas som felsökning, är det värt att göra. Om en nivåkapacitet visar sig vara för lågt, måste du etablerar en ny tjänst på högre nivå och sedan [läsa in dina index](search-howto-reindex.md). Det finns ingen uppgradering på plats av samma tjänst från en SKU till en annan.
->
+Inom en nivå kan du [justera replik-och partition](search-capacity-planning.md) för prestandajustering. Medan du kan börja med två eller tre för var och en, kan du tillfälligt öka din dataresurser för en tung indexeringsarbetsbelastningen. Du kan finjustera resursnivåer inom en nivå ökar flexibiliteten, men även lite komplicerar dina analyser. Du kan behöva experimentera om du vill se om en lägre nivå med högre resurser/repliker erbjuder bättre värde och prestanda än en högre nivå med lägre resurser. Mer information om när och varför skulle du justera kapacitet finns [prestanda och optimering överväganden](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -53,15 +49,15 @@ Debiteringen är **per timme per SU**, där varje nivå har en progressivt högr
 
 Även om varje nivå erbjuder progressivt högre kapacitet, du kan hämta en *del* av den totala kapaciteten online, hålla resten reserv. När det gäller fakturering är det antalet partitioner och -repliker som du infogar online, beräknade med hjälp av SU-formeln som anger vad du faktiskt betalar.
 
-### <a name="tips-for-lowering-the-bill"></a>Tips för att sänka fakturan
+### <a name="tips-for-reducing-costs"></a>Tips för att minska kostnaderna
 
-Du kan inte stänga av tjänsten för att sänka kostnader. Dedikerade resurser för partitioner och -repliker är operativa 24-7, som lagras i reservera för exklusiv bruk, för livslängden för din tjänst. Det enda sättet att sänka en faktura är att minska repliker och partitioner för den lägsta nivån som ger dig fortfarande acceptabla prestanda. 
+Du kan inte stänga av tjänsten för att sänka kostnader. Dedikerade resurser för partitioner och -repliker är operativa 24-7, tilldelat för din exklusiv användning för livslängden för din tjänst. Det enda sättet att sänka en faktura är genom att minska repliker och partitioner till en låg nivå som ger acceptabel prestanda fortfarande och [SLA efterlevnad](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-En annan spak väljer en nivå med ett lägre pris per timme. S1 timpris är lägre än S2 eller S3 pris per timme. Du kan etablera en tjänst i lägre slutet av dina projektioner och sedan om företaget har växt ur den, skapa en andra större nivåindelade tjänst, återskapar dina index på den andra tjänsten och ta sedan bort förstnämnda.
+En annan Spak för att minska kostnaderna är att välja en nivå med ett lägre pris per timme. S1 timpris är lägre än S2 eller S3-priser. Du kan etablera en tjänst som syftar till att den nedre delen av load-projektioner. Om företaget har växt ur tjänsten, skapa en andra tjänst för större nivåer, återskapar dina index på den andra tjänsten och ta sedan bort förstnämnda. På lokala servrar är det vanligt att ”köpa” så att du kan hantera planerade tillväxt. Men med en molnbaserad tjänst kan du välja kostnadsbesparingar mest aggressivt att veta att du kan alltid växla till en högre nivåer tjänst om den inte är tillräckligt.
 
 ### <a name="capacity-drill-down"></a>Kapacitet nedåt
 
-Kapaciteten är strukturerad som *repliker* och *partitioner*. 
+I Azure Search kapacitet är strukturerad som *repliker* och *partitioner*. 
 
 + Repliker är instanser av search-tjänst där varje replik är värd för en Utjämning av nätverksbelastning kopia av ett index. Till exempel har en tjänst med 6 repliker 6 exemplar av alla index läses in i tjänsten. 
 
@@ -105,7 +101,11 @@ Kapacitet och kostnaderna för att driva tjänsten går hand i hand. Nivåerna h
 
 Affärsbehov kräver vanligtvis antal index som du behöver. Till exempel en global index för en stor databas av dokument eller kanske flera index baserat på region, program eller nischmarknader för företag.
 
-Om du vill fastställa storleken på ett index kan du behöva [bygga en](search-create-index-portal.md). Datastrukturen i Azure Search är främst en [inverterad index](https://en.wikipedia.org/wiki/Inverted_index), som har andra egenskaper än källdata. För ett vägar i inverterad index bestäms av innehåll, inte nödvändigtvis mängden datafeed till den storlek och komplexitet. En stor datakälla med massiv redundans kan resultera i ett index som är mindre än en mindre datauppsättning med mycket varierande innehåll.  Det är därför sällan går att härleda Indexstorlek baserat på storleken på den ursprungliga datauppsättningen.
+Om du vill fastställa storleken på ett index kan du behöva [bygga en](search-create-index-portal.md). Datastrukturen i Azure Search är främst en [inverterad index](https://en.wikipedia.org/wiki/Inverted_index), som har andra egenskaper än källdata. För ett vägar i inverterad index bestäms av innehåll, inte nödvändigtvis mängden datafeed till den storlek och komplexitet. En stor datakälla med massiv redundans kan resultera i ett index som är mindre än en mindre datauppsättning med mycket varierande innehåll. Det är därför sällan går att härleda Indexstorlek baserat på storleken på den ursprungliga datauppsättningen.
+
+> [!NOTE] 
+> Uppskatta framtida behov för index och lagring kan kännas som felsökning, är det värt att göra. Om en nivåkapacitet visar sig vara för lågt, måste du etablerar en ny tjänst på högre nivå och sedan [läsa in dina index](search-howto-reindex.md). Det finns ingen uppgradering på plats av samma tjänst från en SKU till en annan.
+>
 
 ### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>Steg 1: Utveckla grov beräkningar med hjälp av den kostnadsfria nivån
 

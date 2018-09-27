@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0970f5d4e61a40df7454cc850e59d86708d4aa1c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: cf7d3df6d2e419a700b0be74da3fe2edc5ac24e1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159114"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393289"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -220,7 +220,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Service Bus
 * Service Fabric
 * Service Fabric-nät
-* SignalR service
+* SignalR Service
 * Storage - konton i olika regioner kan inte flyttas på samma gång. Använd i stället separata åtgärder för varje region.
 * Storage (klassisk) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
 * Stream Analytics - tillstånd för Stream Analytics-jobb inte kan flyttas när du kör i.
@@ -274,7 +274,29 @@ Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNames
 ```
 
 ```azurecli-interactive
-az feature register Microsoft.Compute ManagedResourcesMove
+az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+```
+
+Förfrågan om funktionsregistrering returnerar först statusen `Registering`. Du kan kontrollera den aktuella statusen med:
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+```
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+```
+
+Vänta några minuter för statusen att ändra till `Registered`.
+
+När funktionen har registrerats kan du registrera den `Microsoft.Compute` resursprovidern. Utför det här steget, även om resursprovidern tidigare har registrerats.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
 ```
 
 Det här stödet innebär att du kan också flytta:
@@ -289,7 +311,7 @@ Här följer de begränsningar som ännu inte stöds:
 * Virtuella datorer med certifikat som lagras i Key Vault kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
 * Virtuella datorer som konfigurerats med Azure Backup. Använd den under en lösning för att flytta de virtuella datorerna
   * Leta upp platsen för den virtuella datorn.
-  * Leta reda på en resursgrupp med följande namngivningsmönstret: `AzureBackupRG_<location of your VM>_1` AzureBackupRG_westus2_1 t.ex.
+  * Leta reda på en resursgrupp med följande namngivningsmönstret: `AzureBackupRG_<location of your VM>_1` exempelvis AzureBackupRG_westus2_1
   * Azure-portalen och sedan kontrollera om ”Visa dolda typer”
   * Om du är i PowerShell, använder de `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
   * Om du är i CLI, använder den `az resource list -g AzureBackupRG_<location of your VM>_1`

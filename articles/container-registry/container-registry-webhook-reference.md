@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
 ms.openlocfilehash: 87fe978416c29b50abeef0e0a6624d7440dd87ef
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646760"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096901"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referens för Azure Container Registry-webhook
 

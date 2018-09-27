@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: f71f5fa71d685af103bd82b3ccd2a910ab81d90f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34293ffc70ebbc2a8639913aefe3b62ed8e618d4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962921"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222785"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Åtkomst till Azure Cosmos DB Cassandra-API från Spark på YARN med HDInsight
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du kommer åt Azure Cosmos DB Cassandra-API frå
 
 * [Använd cqlsh för verifiering om du så föredrar](cassandra-spark-generic.md##connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Cassandra-API-konfiguration i Spark2** – The Datastax connector för Cassandra kräver att Cassandra-anslutning information om för att initiera som en del av Spark-kontext. När du startar en Jupyter notebook i spark-session och på snabbmenyn har redan initierats och det rekommenderas inte att stoppa och initiera om Spark-kontexten, såvida inte den är klar med varje konfigurationen som har angetts som en del av HDInsight standard Jupyter notebook start. En lösning är att lägga till Cassandra-instansinformation Ambari, Spark2 tjänstkonfiguration direkt. Detta inträffar en gång per kluster som kräver Spark2 tjänsten startas om.
+* **Cassandra-API-konfiguration i Spark2** – The Spark-anslutningsappen för Cassandra kräver att Cassandra-anslutning information om för att initiera som en del av Spark-kontext. När du startar en Jupyter notebook i spark-session och på snabbmenyn har redan initierats och det rekommenderas inte att stoppa och initiera om Spark-kontexten, såvida inte den är klar med varje konfigurationen som har angetts som en del av HDInsight standard Jupyter notebook start. En lösning är att lägga till Cassandra-instansinformation Ambari, Spark2 tjänstkonfiguration direkt. Detta inträffar en gång per kluster som kräver Spark2 tjänsten startas om.
  
   1. Gå till Ambari, Spark2-tjänsten och klicka på konfigurationer
 
@@ -68,7 +68,7 @@ Spark-shell används för testning/utforskning.
   import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType,LongType,FloatType,DoubleType, TimestampType}
   import org.apache.spark.sql.cassandra._
 
-  //datastax Spark connector
+  //Spark connector
   import com.datastax.spark.connector._
   import com.datastax.spark.connector.cql.CassandraConnector
 

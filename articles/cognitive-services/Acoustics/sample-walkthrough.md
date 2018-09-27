@@ -9,19 +9,19 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b738cc2fc7db6987b8f4ad54a2c53cc9e69989b3
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: e0c28645de8c45aaf89afb6b5116aa9a3cb04768
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181738"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227511"
 ---
 # <a name="unity-sample-walkthrough"></a>Unity exempelgenomgång
 Det här är en genomgång av exemplet projekt Akustik. Mer information om vilka Akustik projekt är kan du ta en titt på [introduktion till projektet Akustik](what-is-acoustics.md). Hjälp om du lägger till projektet Akustik-paket till en befintlig Unity-projekt kan använda den [komma igång-guiden](getting-started.md).
 
 ## <a name="requirements-for-running-the-sample-project"></a>Krav för att köra exempelprojektet
 * Unity 2018.2 +, som använder .NET 4.x scripting körningsversion
-* Windows 64-bitars Unity-redigeraren
+* Windows 64-bitars Unity Editor
 * Exemplet stöder Windows desktop-, UWP- och Android mål, inklusive monteras visar (HMDs)
 * Azure Batch-prenumeration som behövs för ändamålet process
 
@@ -43,7 +43,7 @@ Exemplet innehåller inställningar för att köras på Windows-skrivbordet, UWP
 ![Aktivera VR](media/VRSupport.png)  
 
 Ansluta ett VR-headset till din dator. Gå till **fil > Versionsinställningar**, och klicka på **skapa och köra** att distribuera exemplet till VR-headset. Navigera genom scen med rörelse-styrenheter för din headset, eller försök med W, A, S, D på tangentbordet.    
-Om du vill rikta Android- och Oculus Go, väljer du Android från den **Versionsinställningar** menyn. Klicka på **växla Target**, sedan **skapa och köra**. Detta distribuerar scenen exemplet till den anslutna Android-enheten. Information om Unity-utveckling för Android, finns i [Unity-dokumentation](https://docs.unity3d.com/Manual/android-GettingStarted.html).
+Om du vill rikta Android- och Oculus Go, väljer du Android från den **Versionsinställningar** menyn. Klicka på **växla Target**, sedan **skapa och köra**. Detta distribuerar scenen exemplet till den anslutna Android-enheten. Information om Unity-utveckling för Android finns i [Unity-dokumentation](https://docs.unity3d.com/Manual/android-GettingStarted.html).
 
 ![Target Android](media/TargetAndroid.png)  
 

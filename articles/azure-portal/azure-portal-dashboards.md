@@ -1,6 +1,6 @@
 ---
 title: Skapa och dela instrumentpaneler med Azure portal | Microsoft Docs
-description: Den här artikeln beskriver hur du skapar och redigerar instrumentpaneler i Azure-portalen.
+description: Den här artikeln förklarar hur du skapar och redigerar instrumentpaneler i Azure-portalen.
 services: azure-portal
 documentationcenter: ''
 author: sewatson
@@ -13,86 +13,86 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: sewatson
-ms.openlocfilehash: 3bdeb3255c8dc97d2867eca0b9cdec8223d31b21
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: cwatson
+ms.openlocfilehash: 6062e54f0fb584dec4c2db540565c5860ae92a2d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165357"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394972"
 ---
-# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Skapa och dela instrumentpaneler i Azure-portalen
-Du kan skapa flera instrumentpaneler och dela dem med andra användare har åtkomst till dina Azure-prenumerationer.  Den här artikeln går igenom grunderna i att skapa, redigera, publicera och hantera åtkomst till instrumentpaneler.
+# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Skapa och dela instrumentpaneler i Azure portal
+Du kan skapa flera instrumentpaneler och dela dem med andra som har åtkomst till dina Azure-prenumerationer.  Den här artikeln går igenom grunderna i att skapa, redigera, publicera och hantera åtkomst till instrumentpaneler.
 
 ## <a name="create-a-dashboard"></a>Skapa en instrumentpanel
 Om du vill skapa en instrumentpanel väljer du knappen **Ny instrumentpanel** bredvid namnet på den aktuella instrumentpanelen.  
 
 ![Skapa instrumentpanel](./media/azure-portal-dashboards/new-dashboard.png)
 
-Detta skapar en ny, tom, privat instrumentpanel och du hamnar i anpassningsläge. Där kan du ge instrumentpanelen ett namn och lägga till eller ordna om paneler.  I detta läge tar döljas panelen galleriet över den vänstra navigeringsmenyn.  Galleriet sida vid sida kan du hitta paneler för Azure-resurser på olika sätt: du kan bläddra genom [resursgruppen](../azure-resource-manager/resource-group-overview.md#resource-groups), av resurstyp, av [taggen](../azure-resource-manager/resource-group-using-tags.md), eller genom att söka efter resurs efter namn.  
+Detta skapar en ny, tom, privat instrumentpanel och du hamnar i anpassningsläge. Där kan du ge instrumentpanelen ett namn och lägga till eller ordna om paneler.  I detta läge har komprimerbart panelgalleriet framför den vänstra navigeringsmenyn.  Panelgalleriet kan du söka efter paneler för dina Azure-resurser på olika sätt: du kan söka genom [resursgrupp](../azure-resource-manager/resource-group-overview.md#resource-groups), genom resurstyp, av [taggen](../azure-resource-manager/resource-group-using-tags.md), eller genom att söka efter din resurs med namnet.  
 
-![Anpassa instrumentpanel](./media/azure-portal-dashboards/customize-dashboard.png)
+![Anpassa instrumentpanelen](./media/azure-portal-dashboards/customize-dashboard.png)
 
-Lägg till paneler genom att dra och släppa dem i instrumentpanelen ytan var du vill.
+Lägga till paneler genom att dra och släppa dem i instrumentpanelen för surface var du vill.
 
-Det finns en ny kategori som heter **allmänna** för brickor som inte är associerade med en viss resurs.  I det här exemplet Fäst vi panelen Markdown.  Du kan använda den här panelen för att lägga till anpassade innehåll på instrumentpanelen.  Panelen stöder oformaterad text [markdownsyntax](https://daringfireball.net/projects/markdown/syntax), och en begränsad uppsättning HTML.  (För säkerhet, kan du göra saker som mata in `<script>` taggar eller använda vissa formatmalls-element i CSS som kan störa portalen.) 
+Det finns en ny kategori som heter **Allmänt** för paneler som inte är associerade med en viss resurs.  I det här exemplet Fäst vi Markdown-panel.  Du kan använda den här panelen för att lägga till eget innehåll på din instrumentpanel.  Panelen stöder oformaterad text, [markdownsyntax](https://daringfireball.net/projects/markdown/syntax), och en begränsad uppsättning HTML.  (För säkerhet, du kan inte göra saker som att mata in `<script>` taggar eller använda vissa stil-elementet i CSS som kan störa portalen.) 
 
 ![Lägg till markdown](./media/azure-portal-dashboards/add-markdown.png)
 
 ## <a name="edit-a-dashboard"></a>Redigera en instrumentpanel
-Du kan fästa paneler i galleriet panelen eller sida vid sida-representation av blad när du har skapat din instrumentpanel. Vi Fäst representation av våra resursgruppen. Du kan antingen PIN-kod när du bläddrar objektet, eller från bladet för resursgruppen. Båda metoderna resultera i att fästa panelen representation av resursgruppen.
+Du kan fästa paneler från panelgalleriet eller sida vid sida-representation av bladen när du har skapat din instrumentpanel. Nu ska vi fästa en representation av resursgrupp. Du kan antingen PIN-kod när du bläddrar efter objektet, eller från bladet för resursgruppen. Båda metoderna resultera i att fästa en panel-representation av resursgruppen.
 
-![Fäst på instrumentpanelen](./media/azure-portal-dashboards/pin-to-dashboard.png)
+![Fäst på instrumentpanel](./media/azure-portal-dashboards/pin-to-dashboard.png)
 
-När filen har fästs objektet, visas det på instrumentpanelen.
+Efter att fästa objektet, visas den på instrumentpanelen.
 
-![visa instrumentpanelen](./media/azure-portal-dashboards/view-dashboard.png)
+![Visa instrumentpanel](./media/azure-portal-dashboards/view-dashboard.png)
 
-Nu när vi har en Markdown-panelen och en resursgrupp fäst på instrumentpanelen kan vi ändra storlek på och flytta panelerna i en lämplig layout.
+Nu när vi har en Markdown-panel och en resursgrupp fäst på instrumentpanelen, kan vi ändra storlek på och ordna om paneler i en lämplig layout.
 
-Du kan se alla kontextuella kommandon för brickan av hovra och välja ”...” eller högerklicka på en panel. Det finns två objekt som standard:
+Du kan se alla sammanhangsberoende kommandon för panelen genom att hovra och markera ”...” eller att högerklicka på en panel. Som standard finns det två objekt:
 
-1. **Ta bort från instrumentpanelen** – tar bort panelen från instrumentpanelen
-2. **Anpassa** – anger anpassa läge
+1. **Ta bort från instrumentpanelen** – tar bort panelen på instrumentpanelen
+2. **Anpassa** – anger anpassningsläge
 
-![Anpassa sida vid sida](./media/azure-portal-dashboards/customize-tile.png)
+![Anpassa panel](./media/azure-portal-dashboards/customize-tile.png)
 
-Genom att välja Anpassa, kan du ändra storlek på och ordna om paneler. Om du vill ändra storlek på en panel, Välj den nya storleken i snabbmenyn som visas i följande bild.
+Genom att välja Anpassa kan du ändra storlek på och ordna om paneler. Om du vill ändra storlek på en panel, Välj den nya storleken från snabbmenyn som visas i följande bild.
 
 ![Ändra storlek på panelen](./media/azure-portal-dashboards/resize-tile.png)
 
-Eller, om panelen stöder alla storlekar, kan du dra det nedre högra hörnet till önskad storlek.
+Eller, om panelen har stöd för alla storlekar, kan du dra det nedre högra hörnet till önskad storlek.
 
 ![Ändra storlek på panelen](./media/azure-portal-dashboards/resize-corner.png)
 
-När du ändrar storlek på panelerna, visa instrumentpanelen.
+När du ändrar storlek på paneler, visa instrumentpanelen.
 
-![vyn sida vid sida](./media/azure-portal-dashboards/view-tile.png)
+![Visa panel](./media/azure-portal-dashboards/view-tile.png)
 
-När du är klar med att anpassa en instrumentpanel, markerar du bara den **klar anpassa** avsluta anpassa läge eller högerklicka och välj **klar anpassa** på snabbmenyn.
+När du har angett en instrumentpanel, markerar du den **anpassningen är klar** avsluta anpassningsläge eller högerklicka och välj **anpassningen är klar** på snabbmenyn.
 
-## <a name="publish-a-dashboard-and-manage-access-control"></a>Publicera en instrumentpanel och hantera åtkomstkontrollen
+## <a name="publish-a-dashboard-and-manage-access-control"></a>Publicera en instrumentpanel och hantera åtkomstkontroll
 Instrumentpaneler är privata som standard när de skapas, vilket innebär att du är den enda som kan se dem.  Använd knappen **Dela** som visas tillsammans med andra kommandon i instrumentpanelen för att visa den för andra.
 
 ![dela instrumentpanelen](./media/azure-portal-dashboards/share-dashboard.png)
 
-Du uppmanas att välja en prenumeration och resursgrupp som din instrumentpanel ska publiceras till. Om du vill integrera sömlöst instrumentpaneler i ekosystemet, har vi implementerat delade instrumentpaneler som Azure-resurser (så att du inte kan dela genom att skriva en e-postadress).  Åtkomst till den information som visas i de flesta paneler i portalen regleras av [Azure rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md). Ur ett access control skiljer delade instrumentpaneler sig inte från en virtuell dator eller ett lagringskonto.  
+Du uppmanas att välja en prenumeration och resursgrupp som din instrumentpanel ska publiceras till. Om du vill integrera fullständigt instrumentpaneler i ekosystemet, har vi implementerat delade instrumentpaneler som Azure-resurser (så att du inte kan dela genom att skriva en e-postadress).  Åtkomst till den information som visas i de flesta paneler på portalen regleras av [Azure rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md). Ur en access control skiljer delade instrumentpaneler sig inte från en virtuell dator eller ett lagringskonto.  
 
-Anta att du har en Azure-prenumeration och gruppmedlemmarna har tilldelats rollerna i **ägare**, **deltagare**, eller **reader** för prenumerationen.  Användare som är ägare eller deltagare kan visa, visa, skapa, ändra eller ta bort instrumentpaneler i den prenumerationen.  Användare som är läsare kan inte kan listan och visa instrumentpaneler, men ändra eller ta bort dem.  Användare med reader åtkomst kan göra lokala redigeringar i en delad instrumentpanel, men det går inte att publicera ändringarna på servern.  De kan dock göra en privat kopia av instrumentpanelen för eget bruk.  Enskilda paneler på instrumentpanelen framtvinga som alltid sina egna regler för åtkomstkontroll baserat på de resurser som de motsvarar.  
+Anta att du har en Azure-prenumeration och gruppmedlemmarna har tilldelats rollerna för **ägare**, **deltagare**, eller **läsare** för prenumerationen.  Användare som är ägare eller deltagare kan visa, visa, skapa, ändra eller ta bort instrumentpaneler i den prenumerationen.  Användare som är läsare kan inte kan listan och visa instrumentpaneler, men ändra eller ta bort dem.  Användare med läsåtkomst kan göra lokala ändringar i en delad instrumentpanel, men det går inte att publicera ändringarna på servern.  De kan dock göra en privat kopia av instrumentpanelen för eget bruk.  Som alltid kan genomdriva enskilda paneler på instrumentpanelen för sina egna regler för åtkomstkontroll utifrån de resurser som de motsvarar.  
 
 För att underlätta för dig guidar portalen dig genom ett mönster där du placerar dina instrumentpaneler i en resursgrupp som kallas **instrumentpaneler**.  
 
-![publicera instrumentpanelen](./media/azure-portal-dashboards/publish-dashboard.png)
+![Publicera instrumentpanel](./media/azure-portal-dashboards/publish-dashboard.png)
 
-Du kan också välja att publicera en instrumentpanel till en viss resursgrupp.  Åtkomstkontroll för instrumentpanelen matchar åtkomstkontroll för resursgruppen.  Användare som kan hantera resurser i resursgruppen har också åtkomst till instrumentpanelerna.
+Du kan också välja att publicera en instrumentpanel till en viss resursgrupp.  Åtkomstkontroll för instrumentpanelen matchar åtkomstkontroll för resursgruppen.  Användare som kan hantera resurser i resursgruppen har också åtkomst till instrumentpaneler.
 
 ![publicera instrumentpanelen till resursgruppen](./media/azure-portal-dashboards/publish-to-resource-group.png)
 
-När instrumentpanelen har publicerats i **delning + åtkomst** kontrollen ska uppdatera och visa information om publicerade instrumentpanelen, inklusive en länk för att hantera användarnas åtkomst till instrumentpanelen.  Den här länken öppnar bladet standard rollbaserad åtkomstkontroll används för att hantera åtkomsten för Azure-resurser.  Du alltid kan komma tillbaka till den här vyn genom att välja **resursen**.
+När instrumentpanelen har publicerats kan den **åtkomst + dela** Kontrollpanelen kommer att uppdatera och visa information om publicerade instrumentpanelen, inklusive en länk för att hantera användarnas åtkomst till instrumentpanelen.  Den här länken öppnar bladet standard rollbaserad åtkomstkontroll används för att hantera åtkomsten för alla Azure-resurser.  Du kan alltid återgå till den här vyn genom att välja **resursen**.
 
 ![Hantera åtkomstkontroll](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * För att hantera resurser, se [hantera Azure-resurser via portalen](../azure-resource-manager/resource-group-portal.md).
-* Om du vill distribuera resurser, se [distribuera resurser med Resource Manager-mallar och Azure-portalen](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* För att distribuera resurser, se [distribuera resurser med Resource Manager-mallar och Azure-portalen](../azure-resource-manager/resource-group-template-deploy-portal.md).
 

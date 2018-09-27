@@ -14,19 +14,19 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
-ms.author: mobandyo
-ms.openlocfilehash: 650fac6208adf8f904384454b2e66e26e45893f1
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: erikre
+ms.openlocfilehash: 79cc543e2a106fa8cbff31bdd0e6bb35afe68e4b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918860"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392048"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Använd Azure Billing API: er för att programmässigt få insikt i din Azure-användning
-Använda Azure Billing API: er att hämta användnings- och data till din önskade analysverktyg. Azure Resource-användning och RateCard APIs kan hjälpa dig att korrekt förutse och hantera dina kostnader. API: er implementeras som en Provider för nätverksresurser och en del av familjen av API: er som exponeras av Azure Resource Manager.  
+Använda Azure Billing API: er att hämta användnings- och data till din önskade analysverktyg. Azures API:er för resursanvändning och RateCard kan hjälpa dig att korrekt förutse och hantera dina kostnader. API: er implementeras som en Provider för nätverksresurser och en del av familjen av API: er som exponeras av Azure Resource Manager.  
 
 > [!div class="nextstepaction"]
-> [Hjälp oss att förbättra Azure fakturering docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Hjälp till att förbättra faktureringsdokument för Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="azure-invoice-download-api-preview"></a>API för nedladdning av faktura för Azure (förhandsversion)
 När den [anmälan har slutförts](billing-manage-access.md#opt-in), ladda ned fakturor med hjälp av förhandsversionen av [faktura API](/rest/api/billing). Funktionerna omfattar:
@@ -65,7 +65,7 @@ Här följer några scenarier som möjliggörs med en kombination av användning
   * Du kan också bestämma om en annan typ av Azure-erbjudande ger ett bättre pris på en Azure-resurs.
   
 ## <a name="partner-solutions"></a>Partnerlösningar
-[Cloud Cruiser och Microsoft Azure Billing API-Integration](billing-usage-rate-card-partner-solution-cloudcruiser.md) beskriver hur [Cloud Cruiser Express för Azure-paket](http://www.cloudcruiser.com/partners/microsoft/) fungerar direkt från Windows Azure Pack (WAP)-portalen. Du kan smidigt hantera drift och ekonomi aspekter av Microsoft Azures privata eller värdbaserade offentliga moln från ett enda användargränssnitt.   
+På sidan om [integrering av Cloud Cruiser och Microsoft Azures fakturerings-API](billing-usage-rate-card-partner-solution-cloudcruiser.md) beskrivs [Cloud Cruisers Express för Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) och hur det fungerar direkt från Windows Azure Pack-portalen (WAP). Du kan hantera både driftsmässiga och ekonomiska aspekter av Microsoft Azures privata eller värdbaserade offentliga moln från ett enda användargränssnitt.   
 
 ## <a name="next-steps"></a>Nästa steg
 * Kolla in kodexemplen på GitHub:

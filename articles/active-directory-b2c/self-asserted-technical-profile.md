@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e9472f0fb6ca7c9924df57bb61a3f234bc7d4b13
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 262c4e622d7ef915e59f29c8f4272e488acaeccf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381444"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166919"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en självkontrollerad tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -127,7 +127,7 @@ Du kan också anropa en REST API-tekniska profilen med din affärslogik, ersätt
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | setting.showContinueButton | Nej | Visar knappen Fortsätt. Möjliga värden: `true` (standard), eller `false` |
 | setting.showCancelButton | Nej | Visar knappen Avbryt. Möjliga värden: `true` (standard), eller `false` |
@@ -135,6 +135,7 @@ Du kan också anropa en REST API-tekniska profilen med din affärslogik, ersätt
 | ContentDefinitionReferenceId | Ja | Identifierare för den [innehåll definition](contentdefinitions.md) som är associerade med den här tekniska profilen. |
 | EnforceEmailVerification | Nej | För registrering eller profilera redigera, tillämpar e-Postverifiering. Möjliga värden: `true` (standard), eller `false`. | 
 | setting.showSignupLink | Nej | Visar knappen registrera dig. Möjliga värden: `true` (standard), eller `false` |
+| setting.retryLimit | Nej | Styr hur många gånger som en användare kan försöka att tillhandahålla de data som kontrolleras mot en tekniska profil. Exempelvis kan en användare försöker registrera dig med ett konto som redan finns och håller försök tills gränsen har nåtts.
 | SignUpTarget | Nej | Identifierare för registrering target exchange. När användaren klickar på knappen registrera dig, kör den angivna exchange-identifieraren i Azure AD B2C. |
 
 ## <a name="cryptographic-keys"></a>Krypteringsnycklar

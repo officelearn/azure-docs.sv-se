@@ -1,20 +1,21 @@
 ---
-title: Språk som stöds av Azure Content Moderator | Microsoft Docs
+title: Stöd för språk - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Här är en lista över språk som stöds av Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 973e4efcbe9d0627ca261def2449a237819559ad
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1cb61a5d2357b6e75c04cba371604794338892f3
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441156"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220192"
 ---
 # <a name="text-moderation---supported-languages-by-feature"></a>Textmoderering - språk som stöds av funktionen
 

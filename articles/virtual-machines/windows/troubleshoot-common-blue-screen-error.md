@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 00/19/2018
 ms.author: genli
-ms.openlocfilehash: 6525067ec7a7a3154d1439f15736a1038ab0408c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4a029e331129d40b0380fc142d858aa299b7751b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168056"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225454"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows visar blå skärm fel när du startar en virtuell Azure-dator
 Den här artikeln beskriver blå skärm fel som kan uppstå när du startar en Windows virtuell dator (VM) i Microsoft Azure. Den innehåller steg som hjälper dig att samla in data för ett supportärende. 
@@ -43,7 +43,7 @@ Det kan finnas flera orsaker som varför skulle du få ett stoppfel. De vanligas
 - Skadad systemfil eller minne
 - Ett program som ansluter till en otillåtna sektor av minne
 
-## <a name="solution"></a>Lösning
+## <a name="collect-memory-dump-file"></a>Samla in minnesdump
 
 För att lösa problemet behöver du först med att samla in dumpfilen för kraschen och kontaktar du supporten med dumpfilen. Följ dessa steg för att samla in dumpfilen:
 
@@ -53,7 +53,7 @@ För att lösa problemet behöver du först med att samla in dumpfilen för kras
 2. [Koppla OS-disk till virtuell återställningsdator](troubleshoot-recovery-disks-portal.md). 
 3. Fjärrskrivbord till den Virtuella återställningsdatorn.
 
-### <a name="collect-dump-file-and-submit-a-support-ticket"></a>Samla in dumpfilen och skicka in ett supportärende
+### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Leta upp dumpfilen och skicka in ett supportärende
 
 1. På den Virtuella återställningsdatorn, gå till windows-mappen i den anslutna OS-disken. Om den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F, måste du gå till F:\Windows.
 2. Leta upp th memory.dmp-fil, och sedan [skicka in ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med dumpfilen. 

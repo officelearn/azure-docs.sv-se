@@ -1,63 +1,64 @@
 ---
-title: Måttlig text med Text Avbrottsmoderering API i Azure Content kontrollant | Microsoft Docs
-description: Testkör text avbrottsmoderering med Text Avbrottsmoderering API i online-konsolen.
+title: Moderera text med hjälp av Text Moderering API - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Testa textmoderering med hjälp av API för Moderering av Text i online-konsolen.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: ed696c31a886626819414c45eb7995edaf161fff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95fd5507287a9294f4fca6af9cc5f01f0ea9fe1c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352722"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219795"
 ---
-# <a name="moderate-text-from-the-api-console"></a>Måttlig text från konsolen API
+# <a name="moderate-text-from-the-api-console"></a>Moderera text från API-konsol
 
-Använd den [Text Avbrottsmoderering API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) Azure innehåll kontrollant söker igenom din textinnehåll. Åtgärden söker igenom innehållet bort olämpligt material och jämför innehållet mot anpassade och delade blacklists.
+Använd den [Text Moderering API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) i Azure Content Moderator söker igenom din textinnehåll. Åtgärden söker igenom innehållet med avseende på svordomar och jämför innehåll mot anpassade och delade svartlistor.
 
 
-## <a name="get-your-api-key"></a>Hämta din API-nyckel
-Innan du kan testa API i konsolen online måste din nyckel för prenumerationen. Den finns på den **inställningar** fliken den **Ocp-Apim-prenumeration-nyckeln** rutan. Mer information finns i [översikt](overview.md).
+## <a name="get-your-api-key"></a>Få din API-nyckel
+Innan du kan testa API: et i online-konsolen, måste din prenumerationsnyckel. Den finns på den **inställningar** fliken den **Ocp-Apim-Subscription-Key** box. Mer information finns i [översikt](overview.md).
 
-## <a name="navigate-to-the-api-reference"></a>Navigera till API-referens
-Gå till den [Text Avbrottsmoderering API-referens för](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
+## <a name="navigate-to-the-api-reference"></a>Gå till API-referens
+Gå till den [Text Moderering API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
   Den **Text - skärmen** öppnas.
 
 ## <a name="open-the-api-console"></a>Öppna konsolen API
-För **öppna API-testet konsolen**, väljer du den region som bäst beskriver din plats. 
+För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats. 
 
-  ![Text: skärmen val av region](images/test-drive-region.png)
+  ![Text: sidan val av skärmen](images/test-drive-region.png)
 
   Den **Text - skärmen** API-konsolen öppnas.
 
 ## <a name="select-the-inputs"></a>Välj indata
 
 ### <a name="parameters"></a>Parametrar
-Välj frågeparametrar som du vill använda i textskärmen. Det här exemplet använder standardvärdet för **språk**. Du kan också lämna det tomt eftersom åtgärden identifierar automatiskt språket som sannolikt som en del av körningen.
+Välj frågeparametrar som du vill använda i textskärmen. I det här exemplet använder du standardvärdet för **språk**. Du kan även lämna det tomt eftersom åtgärden identifierar automatiskt det sannolika språket som en del av den kan körningen.
 
 > [!NOTE]
-> För den **språk** parameter, tilldela `eng` eller lämna det tomt om du vill se dator-stödd **klassificering** svar (förhandsgranskningsfunktion). **Den här funktionen engelska har endast stöd för**.
+> För den **språk** parameter, tilldela `eng` eller lämna det tomt om du vill se den maskinassisterad **klassificering** svar (förhandsgranskningsfunktion). **Den här funktionen stöder endast engelska**.
 >
-> För **svordomar villkoren** identifiering, Använd den [ISO 639-3-kod](http://www-01.sil.org/iso639-3/codes.asp) språk som stöds anges i den här artikeln eller lämna det tomt.
+> För **svordomar villkoren** identifiering, Använd den [ISO 639-3-kod](http://www-01.sil.org/iso639-3/codes.asp) språk som stöds visas i den här artikeln eller lämna det tomt.
 
-För **Autokorrigering**, **PII**, och **klassificera (förhandsgranskning)** väljer **SANT**. Lämna den **ListId** fältet tomt.
+För **Autokorrigering**, **PII**, och **klassificera (förhandsversion)** väljer **SANT**. Lämna den **ListId** fält tomma.
 
   ![Text: skärmen konsolen frågeparametrar](images/text-api-console-inputs.PNG)
 
 ### <a name="content-type"></a>Innehållstyp
-För **Content-Type**, Välj typ av innehåll som du vill skärmen. I det här exemplet använder du standard **text/plain** innehållstyp. I den **Ocp-Apim-prenumeration-nyckeln** ange din prenumeration nyckel.
+För **Content-Type**, Välj typ av innehåll som du vill skärmen. Det här exemplet använder standard **text/plain** innehållstyp. I den **Ocp-Apim-Subscription-Key** anger din prenumerationsnyckel.
 
-### <a name="sample-text-to-scan"></a>Exempeltext skanna
-I den **Begärandetext** ange lite text. I följande exempel visas en avsiktlig skrivfel i texten.
+### <a name="sample-text-to-scan"></a>Exempeltext söker igenom
+I den **Begärandetext** anger lite text. I följande exempel visas en avsiktlig skrivfel i texten.
 
 > [!NOTE]
-> Ogiltig personnummer i följande exempel är avsiktlig. Syftet är att förmedla Exempelindata och utdata format.
+> Ogiltig e-postadress i följande exempel är avsiktligt. Syftet är att förmedla Exempelindata och utdata format.
 
 ```
     Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -67,21 +68,21 @@ I den **Begärandetext** ange lite text. I följande exempel visas en avsiktlig 
 
 ### <a name="text-classification-feature"></a>Funktionen för klassificering av text
 
-I följande exempel finns innehåll kontrollant datorn stödd text klassificering svar. Det hjälper dig att identifiera potentiellt oönskade innehåll. Flaggade innehållet kan betraktas som olämpligt beroende på kontext. Förutom att förmedla sannolikheten för varje kategori kan det rekommenderar en mänsklig granskning av innehållet. Funktionen använder en tränad modell för att identifiera möjliga missbruk, nedsättning eller diskriminerande språk. Detta inkluderar slang, förkortat ord och stötande och avsiktligt felstavade ord för granskning. 
+I följande exempel ser du Content Moderator datorstödd text klassificering svar. Det hjälper dig att identifiera potentiellt oönskade innehåll. Flaggade innehållet kan betraktas som olämplig beroende på sammanhang. Förutom att förmedla sannolikheten för varje kategori, kan det rekommenderar en mänsklig granskning av innehållet. Funktionen använder en tränad modell för att identifiera möjliga missbruk, uttrycker sig nedsättande eller diskriminerande språk. Detta inkluderar slang, förkortat ord och stötande och avsiktligt felstavade ord för granskning. 
 
 #### <a name="explanation"></a>Förklaring
 
-- `Category1` representerar potentiella förekomst av språk som kan uppfattas som webbplatser explicit eller vuxna i vissa situationer.
-- `Category2` representerar potentiella förekomst av språk som kan uppfattas som webbplatser något eller mogen i vissa situationer.
-- `Category3` representerar potentiella förekomst av språk som kan uppfattas som stötande i vissa situationer.
-- `Score` är mellan 0 och 1. Ju högre poäng, desto högre modellen är att förutsäga att kategorin kan användas. Den här förhandsgranskningen är beroende av en statistisk modell i stället för manuellt kodade resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori passar dina behov.
-- `ReviewRecommended` är antingen SANT eller FALSKT beroende på den interna poängen tröskelvärden. Kunder bör bedöma om du vill använda det här värdet eller besluta om anpassade tröskelvärden baserat på deras innehåll principer.
+- `Category1` representerar potentiella förekomsten av språk som kan uppfattas som sexuellt explicit eller är olämpligt för barn i vissa situationer.
+- `Category2` representerar potentiella förekomsten av språk som kan uppfattas som sexuellt något eller mogen i vissa situationer.
+- `Category3` representerar potentiella förekomsten av språk som kan uppfattas som stötande i vissa situationer.
+- `Score` är mellan 0 och 1. Ju högre poäng desto högre modellen är att förutsäga att kategorin kan användas. Den här förhandsversionen är beroende av en statistisk modell i stället för manuellt kodade resultat. Vi rekommenderar att du testar med ditt eget innehåll att avgöra hur varje kategori stämmer överens med dina behov.
+- `ReviewRecommended` är true eller false beroende på den interna poängen tröskelvärden. Kunder bör utvärdera om du vill använda det här värdet eller välja anpassade tröskelvärden baserat på deras innehåll principer.
 
 ### <a name="analyze-the-response"></a>Analysera svaret
-Följande meddelande visar de olika insikter från API: et. Den innehåller potentiella svordomar, personligt identifierbar information, klassificering (förhandsversion) och version korrigeras automatiskt.
+Följande svar visar olika insikter från API: et. Den innehåller potentiellt olämpligt språk, personligt identifierbar information, klassificering (förhandsversion) och korrigeras automatiskt-version.
 
 > [!NOTE]
-> Funktionen datorn stödd 'Klassificering' är en förhandsversion och har endast stöd för engelska.
+> Funktionen datorstödd 'Klassificering' är en förhandsversion och endast stöd för engelska.
 
 ```
 {
@@ -161,8 +162,8 @@ Följande meddelande visar de olika insikter från API: et. Den innehåller pote
 }
 ```
 
-En detaljerad förklaring av alla avsnitt i JSON-svar finns i den [text avbrottsmoderering API översikt](text-moderation-api.md).
+En detaljerad förklaring av alla avsnitt i JSON-svar finns i den [text moderering API-översikt](text-moderation-api.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använda REST-API i koden eller starta med den [text avbrottsmoderering .NET quickstart](text-moderation-quickstart-dotnet.md) att integrera med ditt program.
+Använda REST-API i koden eller börja med den [text moderering .NET Snabbstart](text-moderation-quickstart-dotnet.md) att integrera med ditt program.

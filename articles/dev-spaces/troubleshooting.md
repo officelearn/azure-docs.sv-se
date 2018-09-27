@@ -11,12 +11,12 @@ ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: c6ca3003c1338f3e057c76d9e04d8b0cbd2210c7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721202"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226899"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -28,11 +28,11 @@ Det kan hjälpa för att skapa mer detaljerade loggar för granskning för att f
 
 Visual Studio-tillägg, ange den `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` miljövariabeln till 1. Glöm inte att starta om Visual Studio för miljövariabeln ska börja gälla. När du har aktiverat, detaljerade loggar skrivs till din `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
-I CLI, kan du mata ut mer information under Kommandokörning med hjälp av den `--verbose` växla.
+I CLI, kan du mata ut mer information under Kommandokörning med hjälp av den `--verbose` växla. Du kan också gå mer detaljerade loggar i `%TEMP%\Azure Dev Spaces`. På en Mac till TEMP-katalogen kan hittas genom att köra `echo $TMPDIR` från ett terminalfönster. På en Linux-dator till TEMP-katalogen är vanligtvis `/tmp`.
 
 ## <a name="debugging-services-with-multiple-instances"></a>Felsökning av tjänster med flera instanser
 
-För närvarande stöder Azure Dev blanksteg felsökning endast på en enda instans (pod). Azds.yaml-filen innehåller en inställning, replicaCount, som anger antalet instanser som körs för din tjänst. Om du ändrar replicaCount för att konfigurera din app för att köra flera instanser för en viss tjänst, kanske inte beteendet för felsökningsprogrammet som förväntat.
+Just nu fungerar Azure Dev blanksteg bäst när du felsöker en enda instans (pod). Azds.yaml-filen innehåller en inställning, replicaCount, som anger antalet poddar som ska köras för din tjänst. Om du ändrar replicaCount för att konfigurera din app för att köra flera poddar för en viss tjänst, ska felsökningsprogrammet kopplas till den första pod (när det visas i alfabetisk ordning). Om den pod återvinns av någon anledning, till oväntade resultat eftersom felsökningsprogrammet ska kopplas till en annan pod.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Felet ”Det gick inte att skapa Azure Dev blanksteg controller'
 

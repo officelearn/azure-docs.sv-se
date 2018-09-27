@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator Kom igång | Microsoft Docs
-description: Hur du kommer igång med Azure Content Moderator.
+title: Kom igång med Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Hur du kommer igång med Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: sajagtap
-ms.openlocfilehash: 39727b4d97ade67b854fe525afad565451cc3d77
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c2ac0ccd89b5f1436a151e3d69c5d7423090f244
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024519"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225302"
 ---
 # <a name="get-started-with-content-moderator"></a>Kom igång med Content Moderator
 

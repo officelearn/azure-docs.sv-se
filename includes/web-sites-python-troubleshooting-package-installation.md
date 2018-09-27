@@ -5,14 +5,14 @@ I det här avsnittet kommer vi att titta på olika sätt att åtgärda problemet
 ### <a name="request-wheels"></a>Begär hjul
 Om installationen kräver en kompilator, bör du kontakta paketets ägare för att begära att hjul görs tillgängliga för paketet.
 
-Med den senaste tillgängligheten för [Microsoft Visual C++-kompilatorn för Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], är det nu enklare att skapa paket som har inbyggd kod för Python 2.7.
+Med nyligen blivit [Microsoft Visual C++-kompilatorn för Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], är det nu enklare att skapa paket som har inbyggd kod för Python 2.7.
 
 ### <a name="build-wheels-requires-windows"></a>Skapa hjul (kräver Windows)
 Obs: När du använder det här alternativet, se till att kompilera paketet med en Python-miljö som matchar den plattform/arkitektur/version som används i webbappen i Azure App Service (Windows/32-bitars/2.7 eller 3.4).
 
 Om paketet inte installeras eftersom det kräver en kompilator, kan du installera kompilatorn på den lokala datorn och skapa ett hjul för paketet, som du sedan inkluderar i ditt centrallager.
 
-Mac/Linux-användare: Om du inte har åtkomst till en Windows-dator, se [skapa en virtuell dator med Windows] [ Create a Virtual Machine Running Windows] för hur du skapar en virtuell dator på Azure.  Du kan använda den för att bygga hjul, lägga till dem i centrallagret och sedan ta bort VM:en om du vill. 
+Mac/Linux-användare: Om du inte har åtkomst till en Windows-dator, se [skapa en virtuell dator som kör Windows] [ Create a Virtual Machine Running Windows] för hur du skapar en virtuell dator på Azure.  Du kan använda den för att bygga hjul, lägga till dem i centrallagret och sedan ta bort VM:en om du vill. 
 
 För Python 2.7, kan du installera [Microsoft Visual C++-kompilatorn för Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 

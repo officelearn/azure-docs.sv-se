@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
-ms.author: manshuk
-ms.openlocfilehash: ec4869ed5c4d823a8144ba430ebb29c65c2abc13
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: cwatson
+ms.openlocfilehash: 6ec1d0e1b8a768dd61a42c8e9284a93aee3c9337
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302074"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392542"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Kostnader för Windows-programvara ingår inte i Azure Reserved VM Instances
 
@@ -57,7 +57,7 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
 - [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
 - [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Hantera Azure-reservationer](billing-manage-reserved-vm-instance.md)
+- [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)

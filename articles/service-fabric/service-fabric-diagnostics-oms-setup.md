@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: 5fa7b7ebfb1495a737a6d037566101df632764aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377759"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220474"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Konfigurera Log Analytics för ett kluster
 
@@ -80,7 +80,7 @@ Du kan använda och ändra [den här exempelmallen](https://github.com/Azure-Sam
 
 * Skapar ett Service Fabric-kluster med 5 noder
 * Skapar en Log Analytics-arbetsyta och Service Fabric-lösning
-* Konfigurerar OMS-agenten för att samla in och skicka 2 exempel prestandaräknare som till arbetsytan
+* Konfigurerar OMS-agenten för att samla in och skicka 2 exempel prestandaräknare till arbetsytan
 * Konfigurerar WAD för att samla in Service Fabric och skickar dem till Azure storage-tabeller (WADServiceFabric * EventTable)
 * Konfigurerar Log Analytics-arbetsytan för att läsa händelserna från dessa tabeller
 

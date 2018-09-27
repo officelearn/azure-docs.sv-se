@@ -9,14 +9,14 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 87b3bc4128d800e4f76d71dc5f9d081dffa0e3a7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 675dae022376fc62292f3b079bd735939b9199c2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163451"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220303"
 ---
-# <a name="how-to-configure-a-development-environment-for-the-azure-machine-learning-service"></a>Så här konfigurerar du en utvecklingsmiljö för Azure Machine Learning-tjänsten
+# <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning-tjänsten
 
 Lär dig hur du konfigurerar din utvecklingsmiljö för att arbeta med Azure Machine Learning-tjänsten. Du kommer lära dig hur du skapar en konfigurationsfil som kopplar din miljö till en Azure Machine Learning-arbetsyta. Du får också lära dig hur du konfigurerar följande utvecklingsmiljöer:
 

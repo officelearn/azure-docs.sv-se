@@ -4,16 +4,16 @@ description: Den här anvisningen vägleder dig genom reparation av resurser som
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 09/25/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 747650bc47644cdca07f705f42d063c995ebe9bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: adba2322bce5f0884cba51078e65feeaeaf193d9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980261"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392709"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
@@ -27,7 +27,7 @@ Principen skapar en hanterad identitet för varje uppgift för dig, men du måst
 ![Hanterad identitet - saknas roll](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> Om en resurs ändras av **deployIfNotExists** är utanför omfattningen av principtilldelning tilldelningens hanterad identitet måste vara programmässigt beviljas åtkomst eller reparation distributionen kommer att misslyckas.
+> Om en resurs ändras av **deployIfNotExists** ligger utanför omfånget av tilldelning av principer eller mallen kommer åt egenskaper för resurser utanför omfånget för principtilldelningen, tilldelningens hanterad identitet måste vara [manuellt beviljas åtkomst](#manually-configure-the-managed-identity) eller reparation distributionen kommer att misslyckas.
 
 ## <a name="configure-policy-definition"></a>Konfigurera principdefinition
 
@@ -53,6 +53,79 @@ az role definition list --name 'Contributor'
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Contributor'
 ```
+
+## <a name="manually-configure-the-managed-identity"></a>Konfigurera manuellt hanterad identitet
+
+När du skapar en uppgift med hjälp av portalen princip både genererar den hanterade identitet och beviljar de roller som definierats i **roleDefinitionIds**. Steg för att skapa den hanterade identitet och tilldela den behörigheter måste utföras manuellt under följande förhållanden:
+
+- När du använder SDK: N (till exempel Azure PowerShell)
+- När en resurs utanför tilldelningsomfånget ändras av mallen
+- När en resurs utanför tilldelningsomfånget läses av mallen
+
+> [!NOTE]
+> Azure PowerShell och .NET är de enda SDK: er som för närvarande stöd för den här funktionen.
+
+### <a name="create-managed-identity-with-powershell"></a>Skapa hanterad identitet med PowerShell
+
+Skapa en hanterad identitet vid tilldelningen av principen, **plats** måste definieras och **AssignIdentity** används. I följande exempel hämtas definitionen av den inbyggda principen **distribuera SQL DB transparent datakryptering**anger målresursgruppen och skapar sedan tilldelningen.
+
+```azurepowershell-interactive
+# Login first with Connect-AzureRmAccount if not using Cloud Shell
+
+# Get the built-in "Deploy SQL DB transparent data encryption" policy definition
+$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+
+# Get the reference to the resource group
+$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+
+# Create the assignment using the -Location and -AssignIdentity properties
+$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+```
+
+Den `$assignment` variabeln innehåller nu ägar-ID för den hanterade identitet tillsammans med de standardvärden som returneras när du skapar en principtilldelning. Den kan nås via `$assignment.Identity.PrincipalId`.
+
+### <a name="grant-defined-roles-with-powershell"></a>Bevilja definierat roller med PowerShell
+
+Den nya hantera identiteten måste slutföra replikering via Azure Active Directory innan den kan beviljas de nödvändiga rollerna. När replikeringen är klar, i följande exempel itererar principdefinitionen i `$policyDef` för den **roleDefinitionIds** och använder [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) att ge den nya hanterade identitet rollerna.
+
+```azurepowershell-interactive
+# Use the $policyDef to get to the roleDefinitionIds array
+$roleDefinitionIds = $policyDef.Properties.policyRule.then.details.roleDefinitionIds
+
+if ($roleDefinitionIds.Count -gt 0)
+{
+    $roleDefinitionIds | ForEach-Object {
+        $roleDefId = $_.Split("/") | Select-Object -Last 1
+        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+    }
+}
+```
+
+### <a name="grant-defined-roles-through-portal"></a>Bevilja definierat roller via portalen
+
+Det finns två sätt att ge en tilldelning hanterad identitet definierade roller med hjälp av portalen med hjälp av **åtkomstkontroll (IAM)** eller genom att redigera tilldelningen princip eller ett initiativ och klicka på **spara**.
+
+Följ dessa steg om du vill lägga till en roll i tilldelningens hanterad identitet:
+
+1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
+
+1. Välj **Tilldelningar** till vänster på sidan Azure Policy.
+
+1. Leta upp den tilldelningen som har en hanterad identitet och klicka på namnet.
+
+1. Hitta den **tilldelnings-ID** egenskap på sidan Redigera. Tilldelnings-ID blir något som liknar:
+
+   ```
+   /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
+   ```
+
+   Namnet på den hanterade identitet är den sista delen av tilldelning av resurs-ID, vilket är `2802056bfc094dfb95d4d7a5` i det här exemplet. Kopiera den här delen av tilldelning av resurs-ID.
+
+1. Gå till resursen eller resurser överordnade behållaren (resursgrupp, prenumeration, hanteringsgrupp) som behöver rolldefinitionen la till manuellt.
+
+1. Klicka på den **åtkomstkontroll (IAM)** länka på resurssidan och klicka på **+ Lägg till** överst på sidan för kontroll av åtkomst.
+
+1. Välj rätt roll som matchar en **roleDefinitionIds** från principdefinitionen. Lämna **tilldela åtkomst till** inställt på standardvärdet ”Azure AD användaren, gruppen eller programmet”. I den **Välj** rutan, klistra in eller Skriv delen av tilldelning av resurs-ID finns tidigare. När sökningen är klar klickar du på objektet med samma namn och välj id och klicka på **spara**.
 
 ## <a name="create-a-remediation-task"></a>Skapa en uppgift för reparation
 

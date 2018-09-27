@@ -1,6 +1,6 @@
 ---
-title: Undvika kostnader för din kostnadsfritt Azure-konto | Microsoft Docs
-description: Förstå varför du ser avgifter för din kostnadsfria Azure-konto. Lära dig att undvika dessa debiteringar.
+title: Undvika kostnader för kostnadsfritt Azure-konto | Microsoft Docs
+description: Förstå varför du se kostnader för kostnadsfritt Azure-konto. Lära dig att undvika dessa kostnader.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -13,55 +13,55 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 8803a4c0f1be3a3407e5e90bbdadeddbfcb1ab9c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 37e43e4bb8b2aea21e0fa396dd197ca41793469d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061014"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394173"
 ---
-# <a name="avoid-getting-charged-for-your-azure-free-account"></a>Undvik att få debiteras för din kostnadsfritt Azure-konto
+# <a name="avoid-getting-charged-for-your-azure-free-account"></a>Undvika att debiteras för kostnadsfritt Azure-konto
 
-Kostnadsfritt Azure-konto får du 200 USD i Azure-krediter för de första 30 dagarna och en begränsad mängd ledigt tjänster i tolv månader. Mer information finns i [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Beroende på status för din kredit, du kan använda din kredit eller hämta debiteras för användning utöver gratistjänster och kvantiteter.
+Kostnadsfritt Azure-konto får du 200 USD i Azure-kredit för de första 30 dagarna och en begränsad mängd kostnadsfria tjänster i 12 månader. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Beroende på status för din kredit, du kan använda din kredit eller debiteras för användning utöver de kostnadsfria tjänster och kvoterna.
 
-## <a name="you-still-have-active-azure-free-account-credit"></a>Du har fortfarande aktiva Azure kostnadsfria kontot kredit 
-Om du har fortfarande Azure-kredit som inte har gått ut, använder Azure din kredit för att betala för användning utöver gratistjänster och kvantiteter.
+## <a name="you-still-have-active-azure-free-account-credit"></a>Du har fortfarande aktiv Azure kostnadsfritt konto kredit 
+Om du fortfarande har Azure-kredit som inte har gått ut, använder Azure din kredit för att betala för användning utöver de kostnadsfria tjänster och kvoterna.
 
 ## <a name="your-credit-ran-out-or-has-expired"></a>Din kredit tagit slut eller har upphört att gälla
-Om din kredit tagit slut eller upphört att gälla i slutet av 30 dagar, inaktiverar Azure din prenumeration. Om du vill fortsätta använda Azure-tjänster, måste du uppgradera din prenumeration till en prenumeration betala per användning. Mer information finns i [uppgradera din kostnadsfria utvärderingsversion av Azure-prenumeration till betala per användning](billing-upgrade-azure-subscription.md). När du har uppgraderat har din prenumeration fortfarande åtkomst till kostnadsfria tjänster i tolv månader. Du får endast debiteras för användning utöver gratistjänster och kvantiteter.
+Om din kredit tagit slut eller upphört att gälla i slutet av 30 dagar, inaktiveras din prenumeration i Azure. Om du vill använda Azure-tjänster, måste du uppgradera din prenumeration till betala per användning. Mer information finns i [uppgradera din kostnadsfria utvärderingsversion Azure-prenumeration till betala per användning](billing-upgrade-azure-subscription.md). När du har uppgraderat har din prenumeration fortfarande åtkomst till kostnadsfria tjänster i 12 månader. Du debiteras endast för användning utöver de kostnadsfria tjänster och kvoterna.
 
 
-Nu ska vi titta på några möjliga orsaker kan du betalar avgifter på din kostnadsfritt Azure-konto.
+Nu ska vi titta på några av de orsakerna till att du kan medföra ytterligare kostnader på kostnadsfritt Azure-konto.
 
 
-### <a name="your-usage-exceeds-the-limits-of-free-services-included-with-your-azure-free-account"></a>Användningen överskrider gränserna för kostnadsfria tjänster som ingår i din kostnadsfritt Azure-konto
+### <a name="your-usage-exceeds-the-limits-of-free-services-included-with-your-azure-free-account"></a>Din användning överskrider gränserna för kostnadsfria tjänster ingår kostnadsfritt Azure-konto
 
-Du får en begränsad mängd gratistjänster månaden med din kostnadsfritt Azure-konto. Antalet lediga upphör att gälla i slutet av månaden och rulla inte över till nästa månad. Till exempel, får du 5 GB för File storage varje månad. Om en månad du bara använda 2 GB, återställa återstående 3 GB inte till nästa månad. Behåll din användning inom gränserna för att undvika komma debiteras. Läs om gränser för gratistjänster i [vad är Azure gratiskonto](https://azure.microsoft.com/free/free-account-faq/). Du kan kontrollera din användning av ledigt [kontrollera användningen av ledigt tjänster som ingår i kostnadsfritt Azure-konto](billing-check-free-service-usage.md). 
+Du får ett begränsat antal kostnadsfria tjänster varje månad med din kostnadsfria Azure-konto. Fri mängd upphör att gälla i slutet av månaden och förnyar inte till nästa månad. Exempelvis kan få du 5 GB för fillagring varje månad. Om en månad kan du bara använder 2 GB, förnyas återstående 3 GB inte till nästa månad. Håll din användning inom gränserna för att undvika att debiteras. Mer information om gränserna för kostnadsfria tjänster, se [vad är kostnadsfritt Azure-konto](https://azure.microsoft.com/free/free-account-faq/). Du kan kontrollera din kostnadsfria tjänstanvändning [kontrollera användningen av kostnadsfria tjänster ingår kostnadsfritt Azure-konto](billing-check-free-service-usage.md). 
 
-### <a name="you-are-using-services-not-included-for-free-with-your-azure-free-account"></a>Du använder tjänster som inte ingår kostnadsfritt i din kostnadsfritt Azure-konto
+### <a name="you-are-using-services-not-included-for-free-with-your-azure-free-account"></a>Du använder tjänster som inte ingår utan kostnad med ditt kostnadsfria Azure-konto
 
-Du får debiteras betalning per användning priser för att använda tjänster som inte ingår kostnadsfritt i din kostnadsfritt Azure-konto. Mer information om tjänster som ingår i kostnadsfritt konto, se [vad är Azure gratiskonto](https://azure.microsoft.com/free/free-account-faq/). Du kan kontrollera användning för de tjänster som du använder på Azure-portalen eller genom användning av Azure-filen. Läs mer i [regelbundet kontrollera portal för kostnadsuppdelning och bränna hastighet](billing-getting-started.md#costs) och [ladda ned användning från mitt konto](billing-download-azure-invoice-daily-usage-date.md). 
+Du debiteras priserna för användningsbaserad betalning för att använda tjänster som inte ingår utan kostnad med ditt kostnadsfria Azure-konto. Mer information om tjänster som ingår kostnadsfritt konto, se [vad är kostnadsfritt Azure-konto](https://azure.microsoft.com/free/free-account-faq/). Du kan kontrollera användningen av de tjänster som du använder på Azure portal eller via Azure-användning-filen. Mer information finns i [regelbundet kontrollera portal för kostnadsdata och bränna rate](billing-getting-started.md#costs) och [ladda ned användning från Azure Kontocenter](billing-download-azure-invoice-daily-usage-date.md). 
 
-### <a name="you-have-reached-the-end-of-your-12-months-free-services"></a>Du har nått slutet av din 12 månader gratistjänster
+### <a name="you-have-reached-the-end-of-your-12-months-free-services"></a>Du har nått slutet av dina 12 månader kostnadsfria tjänster
 
-Din kostnadsfria tjänster och kvantiteter upphör att gälla i slutet av tolv månader. Du kan ta reda förfallodatum för Azure-portalen.
+Din kostnadsfria tjänster och kvantiteter upphör att gälla i slutet av 12 månader. Du kan läsa mer utgångsdatumet för Azure-portalen.
 
 1.  Logga in på [Azure-portalen](http://portal.azure.com).
 
-2.  Vänstra navigeringsfönstret området, Välj **alla tjänster**.
+2.  Vänstra området, Välj **alla tjänster**.
 
-3.  Välj **prenumerationer**.
+3.  Välj **Prenumerationer**.
 
 4.  Välj den prenumeration som du skapade när du registrerade dig kostnadsfritt konto.
 
-5.  Rulla hitta gratistjänster rutnätet. Klicka på tooltip finns på upp till vänster i rutnätet.
+5.  Rulla ned till rutnätet för hitta kostnadsfria tjänster. Klicka på knappbeskrivningen som finns längst upp till vänster i rutnätet.
 
-![Skärmbild som visar var du hittar gratiskonto fördelar upphör att gälla](./media/billing-avoid-charges-free-account/freeaccount-benefits-expiration-date.png)
+![Skärmbild som visar var du hittar kostnadsfria konto förmåner upphör att gälla](./media/billing-avoid-charges-free-account/freeaccount-benefits-expiration-date.png)
 
 
-När din kostnadsfria tjänster och kvantiteter har gått ut, debiterar Azure betalning per användning priser för alla tjänster som du använder. Du kan använda Azure-portalen för att ta bort resurser för de tjänster som du inte använder. Om du inte planerar att använda Azure-tjänsten, kan du [avbryta prenumerationen](billing-how-to-cancel-azure-subscription.md).
+När dina kostnadsfria tjänster och kvantiteter ska upphöra att gälla, debiterar Azure du betala per användning för alla tjänster som du använder. Du kan använda Azure-portalen för att ta bort resurser för de tjänster som du inte använder. Om du inte planerar att använda valfri Azure-tjänst, kan du [avbryta prenumerationen](billing-how-to-cancel-azure-subscription.md).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
-Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.
+Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.

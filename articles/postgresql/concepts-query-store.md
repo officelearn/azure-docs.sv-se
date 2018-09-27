@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 149840157c5e9bb47be70f669b2078585fe4b56c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 03f22a7975e8f331efa9dcc30fd088f32bee1649
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953043"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393507"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Query Store
 
 **Gäller för:** Azure Database för PostgreSQL 9.6 och 10
 
 > [!IMPORTANT]
-> Funktionen för Query Store är i offentlig förhandsversion.
+> Funktionen för Query Store är i offentlig förhandsversion i ett begränsat antal regioner.
 
 
 Query Store-funktionen i Azure Database for PostgreSQL ger ett sätt att spåra prestanda för frågor över tid. Query Store förenklar prestandafelsökning genom att hjälpa dig snabbt hitta körs längst och mest resurskrävande frågor. Query Store avbildas automatiskt en historik över frågor och körningsstatistik och den lagrar dem för granskning. När du delar den upp data efter tidsfönster så att du kan se databasanvändningsmönster. Data för alla användare, databaser och frågor lagras i en databas med namnet **azure_sys** i Azure Database for PostgreSQL-instans.
@@ -117,7 +117,7 @@ Den här vyn returnerar alla data i Query Store. Det finns en rad för varje dis
 |query_id   |bigint  || Intern hash-koden som beräknas från utdragets parsningsträd|
 |query_sql_text |Varchar(10000)  || Text för en representativ-instruktion. Olika frågor med samma struktur är klustrade tillsammans. den här texten är texten för först frågor i klustret.|
 |plan_id    |bigint |   |ID för den plan som motsvarar den här frågan är inte tillgängligt ännu|
-|Starttid |tidsstämpel  ||  Frågor samlas genom tid buckets - omfånget på en bucket är 15 minuter som standard men kan konfigureras. Det här är starttiden för enheten för den här posten.|
+|Starttid |tidsstämpel  ||  Frågor samlas genom tid buckets - omfånget på en bucket är 15 minuter som standard. Det här är starttiden för enheten för den här posten.|
 |end_time   |tidsstämpel  ||  Sluttid för enheten för den här posten.|
 |anrop  |bigint  || Antal gånger som frågan körs|
 |total_time |dubbel precision   ||  Totalt antal fråga körningstid, i millisekunder|
@@ -168,6 +168,10 @@ Query_store.qs_reset() returnerar void
 Query_store.staging_data_reset() returnerar void
 
 `staging_data_reset` tar bort all statistik som samlas in i minnet av Query Store (d.v.s. data i minnet som inte har rensats ännu till databasen). Den här funktionen kan endast utföras av administratörsrollen.
+
+## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
+- Om en PostgreSQL-server har parametern-default_transaction_read_only, Query Store kan inte samla in data.
+- Funktionen för Query Store kan avbrytas om det uppstår långa Unicode-frågor (> = 6000 byte).
 
 
 ## <a name="next-steps"></a>Nästa steg

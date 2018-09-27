@@ -1,6 +1,6 @@
 ---
 title: Använd Azure Resource Manager-mallar för att skapa och konfigurera en Log Analytics-arbetsyta | Microsoft Docs
-description: Du kan använda Azure Resource Manager-mallar för att skapa och konfigurera logganalys arbetsytor.
+description: Du kan använda Azure Resource Manager-mallar för att skapa och konfigurera Log Analytics-arbetsytor.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,31 +15,31 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 6e23858bcc288b68a70750e7dbcecdf4b43b8870
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 314b3b5ae331d562b13ba593d5f9b35b87786003
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133133"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225556"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Hantera Log Analytics med hjälp av Azure Resource Manager-mallar
-Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) att skapa och konfigurera logganalys arbetsytor. Exempel på uppgifter som du kan utföra med mallar:
+Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) du skapar och konfigurerar Log Analytics-arbetsytor. Exempel på de uppgifter du kan utföra med mallar:
 
 * Skapa en arbetsyta inklusive inställningen prisnivå 
 * Lägga till en lösning
 * Skapa sparade sökningar
 * Skapa en datorgrupp
 * Aktivera insamling av IIS-loggar från datorer med Windows-agenten installerad
-* Samla in prestandaräknare från Linux och Windows-datorer
+* Samla in prestandaräknare från Linux- och Windows-datorer
 * Samla in händelser från syslog på Linux-datorer 
-* Samla in händelser från händelseloggarna i Windows
-* Lägga till log analytics agenten till en virtuell Azure-dator
-* Konfigurera logganalys index data som samlas in med hjälp av Azure-diagnostik
+* Samla in händelser från Windows-händelseloggar
+* Lägg till log analytics-agenten till en Azure-dator
+* Konfigurera log analytics för att indexera data som samlas in med Azure-diagnostik
 
-Den här artikeln innehåller mall-exempel som visar några av den konfiguration som du kan utföra med mallar.
+Den här artikeln innehåller mallexempel på som beskriva några av den konfiguration som du kan utföra med mallar.
 
 ## <a name="api-versions"></a>API-versioner
-I följande tabell visas API-version för de resurser som används i det här exemplet.
+I följande tabell visas den API-versionen för resurser som används i det här exemplet.
 
 | Resurs | Resurstyp | API-version |
 |:---|:---|:---|:---|
@@ -48,19 +48,19 @@ I följande tabell visas API-version för de resurser som används i det här ex
 | Datakälla | datakällor   | 2015-11-01-preview |
 | Lösning    | lösningar     | 2015-11-01-preview |
 
-## <a name="create-a-log-analytics-workspace"></a>Skapa en logganalys-arbetsyta
-I följande exempel skapas en arbetsyta med hjälp av en mall från den lokala datorn. JSON-mall har konfigurerats för att endast uppmanar dig för att ange namnet på arbetsytan och anger ett standardvärde för de parametrar som sannolikt ska användas som en standardkonfiguration i din miljö.  
+## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics-arbetsyta
+I följande exempel skapas en arbetsyta med hjälp av en mall från den lokala datorn. JSON-mallen har konfigurerats för att bara efterfråga du namnet på arbetsytan och anger ett standardvärde för de andra parametrarna som sannolikt skulle användas som en standardkonfiguration i din miljö.  
 
 Följande parametrar anger ett standardvärde:
 
-* Plats - standard östra USA
-* SKU - som standard nya Per GB prisnivån ut i April 2018 Prismodell
+* plats – standardvärdet är USA, östra
+* SKU - som standard den nya Per GB prisnivån som introducerades i April 2018 prismodellen
 
 >[!WARNING]
->Om du skapar eller konfigurerar en logganalys-arbetsytan i en prenumeration som du har valt att den nya April 2018 Prismodell, är det enda giltiga logganalys prisnivån **PerGB2018**. 
+>Skapar eller konfigurerar en Log Analytics-arbetsyta i en prenumeration som har valt att den nya prissättningsmodellen från April 2018, är det enda giltiga Log Analytics prisnivån **PerGB2018**. 
 >
 
-### <a name="create-and-deploy-template"></a>Skapa och distribuera mallen
+### <a name="create-and-deploy-template"></a>Skapa och distribuera mall
 
 1. Kopiera och klistra in följande JSON-syntax i filen:
 
@@ -97,7 +97,7 @@ Följande parametrar anger ett standardvärde:
             "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          },
+          }
     },
     "resources": [
         {
@@ -117,36 +117,36 @@ Följande parametrar anger ett standardvärde:
        ]
     }
     ```
-2. Redigera mallen så att den uppfyller dina krav.  Granska [Microsoft.OperationalInsights/workspaces mallen](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till veta vilka egenskaper och värden stöds. 
+2. Redigera mallen så att den uppfyller dina krav.  Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds. 
 3. Spara filen som **deploylaworkspacetemplate.json** till en lokal mapp.
-4. Nu är det dags att distribuera den här mallen. Du kan använda PowerShell eller kommandoraden för att cretae arbetsytan.
+4. Nu är det dags att distribuera den här mallen. Du använder PowerShell eller kommandoraden för att cretae arbetsytan.
 
-   * Använd följande kommandon från mappen som innehåller mallen för PowerShell:
+   * För PowerShell använder du följande kommandon från mappen som innehåller mallen:
    
         ```powershell
         New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
         ```
 
-   * Använd följande kommandon från mappen som innehåller mallen för kommandoraden:
+   * För kommandoraden, använder du följande kommandon från mappen som innehåller mallen:
 
         ```cmd
         azure config mode arm
         azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
         ```
 
-Det kan ta några minuter att slutföra distributionen. När den är klar visas ett meddelande som liknar följande som innehåller resultatet:<br><br> ![Exempel på resultat när distributionen är klar](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+Det kan ta några minuter att slutföra distributionen. När den är klar kan du se ett meddelande som liknar följande som innehåller resultatet:<br><br> ![Exempelresultat när distributionen är klar](./media/log-analytics-template-workspace-configuration/template-output-01.png)
 
-## <a name="configure-a-log-analytics-workspace"></a>Konfigurera en logganalys-arbetsyta
-I följande exempel mallen visas hur du:
+## <a name="configure-a-log-analytics-workspace"></a>Konfigurera en Log Analytics-arbetsyta
+I följande exempel i mallen visas hur du:
 
-1. Lägg till lösningar på arbetsytan
+1. Lägga till lösningar i arbetsytan
 2. Skapa sparade sökningar
 3. Skapa en datorgrupp
 4. Aktivera insamling av IIS-loggar från datorer med Windows-agenten installerad
-5. Samla in logisk Disk prestandaräknarna från Linux-datorer (% noder i procent; Ledigt utrymme i MB; Använt utrymme; i % Disköverföringar/sek; Diskläsningar/sek; Diskskrivningar/sek)
+5. Samla in prestandaräknare för logisk Disk från Linux-datorer (% noder i procent; Ledigt utrymme i MB; Använt utrymme; i % Disköverföringar/sek; Diskläsningar/sek; Diskskrivningar/sek)
 6. Samla in syslog-händelser från Linux-datorer
-7. Samla in händelser för fel- och varningsmeddelandena i programmets händelselogg från Windows-datorer
-8. Tillgängligt minne i megabyte prestandaräknaren samla in från Windows-datorer
+7. Samla in händelser för fel och varningar från programmets händelselogg från Windows-datorer
+8. Samla in prestandaräknaren för minne tillgängligt, MB från Windows-datorer
 9. Samla in IIS-loggar och Windows-händelseloggar som skrivits av Azure-diagnostik till ett lagringskonto
 
 ```json
@@ -493,12 +493,12 @@ I följande exempel mallen visas hur du:
 }
 
 ```
-### <a name="deploying-the-sample-template"></a>Distribuera mallen exempel
-Att distribuera mallen exempel:
+### <a name="deploying-the-sample-template"></a>Distribuera exempelmallen
+För att distribuera exempelmallen:
 
 1. Spara bifogade exemplet i en fil, till exempel `azuredeploy.json` 
-2. Redigera mall om du vill att den konfiguration du vill ha
-3. Använd PowerShell eller kommandoraden för att distribuera mallen
+2. Redigera mallen om du vill att den konfiguration du vill ha
+3. Använda PowerShell eller från kommandoraden för att distribuera mallen
 
 #### <a name="powershell"></a>PowerShell
 ```powershell
@@ -512,12 +512,12 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 ```
 
 ## <a name="example-resource-manager-templates"></a>Exempel Resource Manager-mallar
-Azure quickstart mallgalleriet innehåller flera mallar för Log Analytics, inklusive:
+Azure Snabbstart mallgalleriet innehåller ett antal mallar för Log Analytics, inklusive:
 
 * [Distribuera en virtuell dator som kör Windows med Log Analytics VM-tillägg](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
 * [Distribuera en virtuell dator som kör Linux med Log Analytics VM-tillägg](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-* [Övervaka Azure Site Recovery med en befintlig logganalys-arbetsyta](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-* [Övervaka Azure Web Apps med hjälp av en befintlig logganalys-arbetsyta](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [Övervaka Azure Site Recovery med en befintlig Log Analytics-arbetsyta](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [Övervaka Azure Web Apps med en befintlig Log Analytics-arbetsyta](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
 * [Lägg till ett befintligt lagringskonto i OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Nästa steg

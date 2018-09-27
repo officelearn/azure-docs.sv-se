@@ -2,22 +2,22 @@
 title: Övervakning och prestandajustering – Azure SQL Database | Microsoft Docs
 description: Tips för justering i Azure SQL Database via utvärdera och förbättra prestanda.
 services: sql-database
-author: danimir
-manager: craigg
-editor: ''
-keywords: prestandajustering för SQL, prestandajustering för databas, sql prestandajustering tips, prestandajustering för sql-databas
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 0fbb9039eef403f751c03ca183a1485f3a26ae27
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: c79285247950510791ede915fcf0e5373792044f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986240"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165049"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 

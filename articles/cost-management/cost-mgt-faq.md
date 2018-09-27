@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 2126875a18d4a6581629ea1c8362236242a666a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4984332e1a149ae838bc76a24abec90364f5699e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961033"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221986"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Vanliga frågor om Cloudyn
 
@@ -145,7 +145,7 @@ Kostnadsrapporter kan visa kostnaden variationer när molntjänstleverantörer s
 
 Under hela månaden är alla fakturering filer som skickas av din molntjänstleverantör en uppskattning av dina dagliga kostnader. Ibland data uppdateras ofta – ibland flera gånger per dag. Uppdateringarna är oftare med AWS än Azure. Kostnad summor hållas stabil när faktureringsberäkning för den föregående månaden är klar och den slutgiltiga fakturering filen tas emot. Vanligtvis av 10 i månaden.
 
-Ändringar sker när du får kostnadsjusteringar från din molntjänstleverantör. Ta emot krediter är ett exempel. Ändringar kan inträffa flera månader efter den relevanta månaden har stängts. Ändringarna visas varje gång en omberäkning görs av din molntjänstleverantör. Cloudyn uppdaterar dess historiska data för att se till att alla justeringar räknas. Den kontrollerar också att att kostnaderna visas korrekt i den rapporterar.
+Ändringar sker när du får kostnadsjusteringar från din molntjänstleverantör. Ta emot krediter är ett exempel. Ändringar kan inträffa flera månader efter den relevanta månaden har stängts. Ändringarna visas varje gång en omberäkning görs av din molntjänstleverantör. Cloudyn uppdaterar dess historiska data för att se till att alla justeringar räknas. Den kontrollerar också att kostnaderna visas korrekt i den rapporterar.
 
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Hur kan en direkt CSP konfigurerar Cloudyn-åtkomst för indirekta CSP-kunder eller partner?
 

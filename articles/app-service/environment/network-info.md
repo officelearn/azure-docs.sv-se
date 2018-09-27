@@ -1,5 +1,5 @@
 ---
-title: Nätverksöverväganden med en Azure App Service-miljö
+title: Nätverksöverväganden med en Azure App Service Environment
 description: 'Förklarar ASE-nätverkstrafik och hur du ställer in NSG: er och udr: er med din ASE'
 services: app-service
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: ef2288e2f756db6529f1ec5f7b3a49067b2998aa
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: b9897fd0030c2b6efed0fefc47dd6720a61978cd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648915"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165150"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för App Service Environment #
 
@@ -67,6 +67,8 @@ När du skalar upp eller ned, nya roller av rätt storlek har lagts till och sed
 
 ## <a name="ase-dependencies"></a>ASE-beroenden ##
 
+### <a name="ase-inbound-dependencies"></a>ASE inkommande beroenden ###
+
 ASE inkommande åtkomst beroenden är:
 
 | Användning | Från | Till |
@@ -84,26 +86,23 @@ För kommunikationen mellan Azure-belastningsutjämnaren och på ASE-undernätet
 
 Om du använder appen tilldelade IP-adresser som du vill tillåta trafik från IP-adresser tilldelade till dina appar i ASE-undernätet.
 
-En ASE beror på flera externa system för utgående åtkomst. Dessas system definieras med DNS-namn och mappas inte till en fast uppsättning IP-adresser. Därför kräver ASE utgående åtkomst från ASE-undernät till alla externa IP-adresser i olika portar. En ASE har följande utgående beroenden:
+TCP-trafik som kommer in på port 454 och 455 måste gå tillbaka ut från samma VIP eller du har ett problem med asymmetrisk routning. 
 
-| Användning | Från | Till |
-|-----|------|----|
-| Azure Storage | ASE-undernät | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 krävs endast för ASEv1.) |
-| Azure SQL Database | ASE-undernät | Database.Windows.NET: 1433 |
-| Azure-hantering | ASE-undernät | Management.Core.Windows.NET, management.azure.com, admin.core.windows.net: 443 |
-| SSL-certifikatverifiering |  ASE-undernät            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443 |
-| Azure Active Directory        | ASE-undernät            |  login.Windows.NET: 443 |
-| App Service-hantering        | ASE-undernät            |  gr-prod -<regionspecific>. cloudapp.net, az prod.metrics.nsatc .net: 443 |
-| Azure DNS                     | ASE-undernät            |  Internet: 53 |
-| ASE intern kommunikation    | ASE-undernät: alla portar |  ASE-undernät: alla portar |
+### <a name="ase-outbound-dependencies"></a>Utgående ASE-beroenden ###
 
-Om ASE förlorar åtkomst till dessa beroenden, slutar fungera. När det sker tillräckligt länge inaktiveras ASE.
+En ASE beror på flera externa system för utgående åtkomst. Många av dessa systemberoenden definieras med DNS-namn och mappas inte till en fast uppsättning IP-adresser. Därför kräver ASE utgående åtkomst från ASE-undernät till alla externa IP-adresser i olika portar. 
+
+Den fullständiga listan med utgående beroenden finns i dokumentet som beskriver [låsa utgående trafik för App Service Environment](./firewall-integration.md). Om ASE förlorar åtkomst till dess beroenden, slutar fungera. När det sker tillräckligt länge inaktiveras ASE. 
 
 ### <a name="customer-dns"></a>Kunden DNS ###
 
 Om det virtuella nätverket konfigureras med en kunddefinierad DNS-server kan använda den för klienternas arbetsbelastningar. ASE behöver fortfarande kommunicera med Azure DNS för hanteringsändamål. 
 
 Om det virtuella nätverket har konfigurerats med en kund DNS på den andra sidan av en VPN-anslutning, måste DNS-server kunna nås från det undernät som innehåller ASE.
+
+För att testa lösning från ditt program kan du använda kommandot konsolen *nameresolver*. Gå till felsökningsfönstret i scm-webbplatsen för din app eller gå till appen i portalen och välj konsolen. Från shell-prompten kan du utfärda kommandot *nameresolver* tillsammans med den adress som du vill söka efter. Du kommer tillbaka resultatet är samma som din app skulle få när du gjorde samma sökning. Om du använder nslookup som du gör en sökning med Azure DNS i stället.
+
+Om du ändrar DNS-inställningen för det virtuella nätverk som din ASE är i kommer du behöva starta om din ASE. Om du vill undvika att starta om din ASE, rekommenderar vi starkt att du konfigurerar DNS-inställningarna för ditt virtuella nätverk innan du skapar din ASE.  
 
 <a name="portaldep"></a>
 
@@ -205,9 +204,6 @@ Följ dessa steg om du vill skapa samma vägar manuellt:
 ## <a name="service-endpoints"></a>Serviceslutpunkter ##
 
 Med tjänstens slutpunkter kan du begränsa åtkomsten för tjänster med flera innehavare till en uppsättning virtuella Azure-nätverk och undernät. Du kan läsa mer om tjänstens slutpunkter i dokumentationen [Tjänstens slutpunkter för virtuella nätverk][serviceendpoints]. 
-
-   > [!NOTE]
-   > Tjänstslutpunkter med SQL fungerar inte med ASE i US Government-regioner. Den här informationen är endast giltig i de offentliga Azure-regionerna.
 
 När du aktiverar tjänstens slutpunkter för en resurs, finns det vägar som skapats med högre prioritet än andra vägar. Om du använder tjänstens slutpunkter med tvingad tunneltrafik för ASE, kommer hanteringstrafiken för Azure SQL och Azure Storage inte omfattas av den tvingade tunneltrafiken. 
 

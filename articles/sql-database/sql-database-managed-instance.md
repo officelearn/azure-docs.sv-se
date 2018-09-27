@@ -2,21 +2,22 @@
 title: Azure SQL Database Managed Instance översikt | Microsoft Docs
 description: Det här avsnittet beskrivs en Azure SQL Database Managed Instance och hur det fungerar och hur den skiljer sig från en enskild databas i Azure SQL Database.
 services: sql-database
-author: bonova
-ms.reviewer: carlrab
-manager: craigg
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 711a076409ed1d90c197bbf97a6e15144c0a4d38
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/26/2018
+ms.openlocfilehash: 626dd362248027831c78d1505662ca12d2ff334d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956633"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392830"
 ---
 # <a name="what-is-a-managed-instance"></a>Vad är en hanterad instans?
 
@@ -205,7 +206,10 @@ Hanterade instans mål användarscenarier med drivrutiner för masslagring Datab
 Förhållningssätt till Databasmigrering utnyttjar SQL-säkerhetskopior till Azure blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till hanterade instansen med hjälp av den [T-SQL RESTORE-kommandot](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
   - En Snabbstart som visar hur du återställer Wide World Importers – Standard databassäkerhetskopia, se [återställa en säkerhetskopia till en hanterad instans](sql-database-managed-instance-get-started-restore.md). Denna Snabbstart visar du behöver ladda upp en säkerhetskopia till Azure BLOB-lagring och skydda den med en signatur för delad åtkomstnyckel.
   - Information om återställning från URL: en finns i [interna ÅTERSTÄLLA från URL: en](sql-database-managed-instance-migrate.md#native-restore-from-url).
-  
+
+> [!IMPORTANT]
+> Säkerhetskopior från en hanterad instans kan bara återställas till en annan hanterad instans. De kan inte återställas till en lokal SQL Server eller till en Azure SQL Database logiska servern enkel eller grupperade databas.
+
 ### <a name="data-migration-service"></a>Data Migration Service
 
 Azure Database Migration Service är en fullständigt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid. Den här tjänsten effektiviserar uppgifter som krävs för att flytta befintliga från tredje part och SQL Server-databaser till Azure. Distributionsalternativ inkluderar Azure SQL Database Managed Instance och SQL Server i virtuella Azure-datorer i den offentliga förhandsversionen. Se [migrera din lokala databas till Managed Instance med DMS](https://aka.ms/migratetoMIusingDMS).
@@ -233,7 +237,7 @@ Hanterad instans fördelar från att alltid upp-hittills i molnet, vilket inneb�
 
 ### <a name="managed-instance-administration-features"></a>Hanterad instans-funktioner för administration  
 
-Hanterade instans aktivera systemadministratören att fokusera på vad som är viktigast för företag. Många system administratör/DBA aktiviteter krävs inte eller är enkel. Till exempel OS / RDBMS installation och korrigeringar, dynamisk instans storleksändring och konfiguration, säkerhetskopieringar, databasreplikering (inklusive systemdatabaser), konfiguration för hög tillgänglighet och konfigurationen av hälsotillstånd och prestanda som övervakning av data strömmar. 
+Hanterade instans aktivera systemadministratören att fokusera på vad som är viktigast för företag. Många system administratör/DBA aktiviteter krävs inte eller är enkel. Till exempel OS / RDBMS installation och korrigeringar, dynamisk instans vid storleksändring och konfiguration, säkerhetskopiering, [databasreplikering](replication-with-sql-database-managed-instance.md) (inklusive systemdatabaser), konfiguration för hög tillgänglighet och konfiguration av hälsotillstånd och prestandaövervakning av dataströmmar. 
 
 > [!IMPORTANT]
 > En lista över funktioner stöds, delvis stöds och som inte stöds finns i [SQL Database-funktioner](sql-database-features.md). En lista över T-SQL skillnader i hanterade instanser jämfört med SQL Server finns i [hanterad instans T-SQL-skillnader från SQL Server](sql-database-managed-instance-transact-sql-information.md)

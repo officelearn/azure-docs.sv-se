@@ -1,40 +1,43 @@
 ---
-title: Migrera befintliga databaser att skala ut | Microsoft Docs
-description: Konvertera delat databaser för att använda elastisk Databasverktyg genom att skapa en Fragmentera kartan manager
+title: Migrera befintliga databaser för att skala ut | Microsoft Docs
+description: Konvertera shardade databaser för att använda verktygen för elastiska databaser genom att skapa en shard kartan manager
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 99b315c96e6decbc3bd7622835ba0639e9560164
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e5039e299df30df4d49f24430af4b44837d65c44
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645947"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166390"
 ---
-# <a name="migrate-existing-databases-to-scale-out"></a>Migrera befintliga databaser ska skalas ut
-Enkelt hantera dina befintliga delat utskalat-databaser som använder Azure SQL Database databaser (som den [klientbibliotek för elastisk databas](sql-database-elastic-database-client-library.md)). Först konvertera en befintlig uppsättning databaser som ska användas i [Fragmentera kartan manager](sql-database-elastic-scale-shard-map-management.md). 
+# <a name="migrate-existing-databases-to-scale-out"></a>Migrera befintliga databaser för att skala ut
+Enkelt hantera dina befintliga shardade utskalade-databaser som använder Azure SQL Database databaser (till exempel den [Elastic Database-klientbiblioteket](sql-database-elastic-database-client-library.md)). Först konvertera en befintlig uppsättning databaser som ska användas i [karthanteraren](sql-database-elastic-scale-shard-map-management.md). 
 
 ## <a name="overview"></a>Översikt
-För att migrera en befintlig delat databas. 
+Att migrera en befintlig fragmenterade (sharded) databas: 
 
-1. Förbereda den [Fragmentera kartan manager-databasen](sql-database-elastic-scale-shard-map-management.md).
-2. Skapa Fragmentera kartan.
-3. Förbered enskilda delar.  
-4. Lägga till avbildningar Fragmentera kartan.
+1. Förbereda den [databas](sql-database-elastic-scale-shard-map-management.md).
+2. Skapa fragmentkartan.
+3. Förbered enskilda shards.  
+4. Lägga till avbildningar fragmentkartan.
 
-Dessa tekniker kan implementeras med hjälp av antingen den [klientbiblioteket för .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), eller PowerShell-skript som finns på [Azure SQL DB - skript för elastisk databas verktyg](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). De här exemplen använder PowerShell-skript.
+Dessa metoder kan implementeras med hjälp av antingen den [klientbiblioteket för .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), eller PowerShell-skript som finns på [Azure SQL DB - skript för Elastic Database-verktyg](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). I exemplen här används PowerShell-skript.
 
-Läs mer om ShardMapManager [Fragmentera kartan management](sql-database-elastic-scale-shard-map-management.md). En översikt över elastisk Databasverktyg finns [elastisk databas funktionsöversikt](sql-database-elastic-scale-introduction.md).
+Läs mer om ShardMapManager [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md). En översikt över elastic database-verktyg finns i [översikt över Elastic Database-funktioner](sql-database-elastic-scale-introduction.md).
 
-## <a name="prepare-the-shard-map-manager-database"></a>Förbereda Fragmentera kartan manager-databasen
-Fragmentera kartan manager är en särskild databas som innehåller data för att hantera databaser som skalats ut. Du kan använda en befintlig databas eller skapa en ny databas. En databas som fungerar som Fragmentera kartan manager får inte vara samma databas som en Fragmentera. PowerShell-skriptet skapar inte databasen för dig. 
+## <a name="prepare-the-shard-map-manager-database"></a>Förbereda databasen
+Fragmentkartehanteraren är en särskild databas som innehåller data för att hantera utskalade databaser. Du kan använda en befintlig databas eller skapa en ny databas. En databas som fungerar som karthanteraren får inte vara samma databas som en shard. PowerShell-skript skapar inte databasen åt dig. 
 
-## <a name="step-1-create-a-shard-map-manager"></a>Steg 1: skapa en Fragmentera kartan manager
+## <a name="step-1-create-a-shard-map-manager"></a>Steg 1: skapa ett fragment kartan manager
     # Create a shard map manager. 
     New-ShardMapManager -UserName '<user_name>' 
     -Password '<password>' 
@@ -44,8 +47,8 @@ Fragmentera kartan manager är en särskild databas som innehåller data för at
     # for the new or existing database that should be used for storing 
     # tenant-database mapping information.
 
-### <a name="to-retrieve-the-shard-map-manager"></a>Att hämta Fragmentera kartan manager
-När den har skapats, kan du hämta hanteraren Fragmentera karta med denna cmdlet. Det här steget krävs varje gång du behöver använda ShardMapManager-objektet.
+### <a name="to-retrieve-the-shard-map-manager"></a>Att hämta fragmentkartehanteraren
+När du har skapat, kan du hämta fragmentkartehanteraren med denna cmdlet. Det här steget krävs varje gång du behöver använda ShardMapManager-objektet.
 
     # Try to get a reference to the Shard Map Manager  
     $ShardMapManager = Get-ShardMapManager -UserName '<user_name>' 
@@ -54,30 +57,30 @@ När den har skapats, kan du hämta hanteraren Fragmentera karta med denna cmdle
     -SqlDatabaseName '<smm_db_name>' 
 
 
-## <a name="step-2-create-the-shard-map"></a>Steg 2: skapa Fragmentera kartan
-Välj typ av Fragmentera kartan för att skapa. Valet är beroende av databasens arkitektur: 
+## <a name="step-2-create-the-shard-map"></a>Steg 2: skapa fragmentkartan
+Välj typ av fragmentkartan för att skapa. Valet beror på databasens arkitektur: 
 
-1. En organisation per databas (villkor, finns det [ordlista](sql-database-elastic-scale-glossary.md).) 
+1. För enskilda innehavare per databas (villkor, finns det [ordlista](sql-database-elastic-scale-glossary.md).) 
 2. Flera klienter per databas (två typer):
-   1. Lista över-mappning
-   2. Mappning av intervallet
+   1. Lista mappning
+   2. Mappning av intervall
 
-En enskild klient-modell, skapa en **lista mappning** Fragmentera kartan. Stöd för en innehavare modellen tilldelar en databas per klient. Detta är en effektiv modell för SaaS-utvecklare som det förenklar hanteringen.
+För en enda klient-modell, skapar du en **lista mappning** fragmentkartan. Enskild klientmodell tilldelar en databas per klient. Det här är en effektiv modell för SaaS-utvecklare som den förenklar hanteringen.
 
-![Lista över-mappning][1]
+![Lista mappning][1]
 
-Modell för flera klienter tilldelas en enskild databas flera innehavare (och du kan distribuera grupper av klienter över flera databaser). Använd den här modellen när du förväntar dig varje innehavare har liten databehov. I den här modellen, tilldela ett antal klienter till en databas med hjälp av **intervallet mappning**. 
+Modell för flera klienter tilldelas flera klienter till en enskild databas (och du kan distribuera grupper av klienter över flera databaser). Använd den här modellen när du förväntar dig varje klient har liten databehov. I den här modellen kan du tilldela olika klienter till en databas med **intervallet mappning**. 
 
-![Mappning av intervallet][2]
+![Mappning av intervall][2]
 
-Eller du kan implementera en databas för flera innehavare modellen med hjälp av en *lista mappning* tilldela flera klienter till en enskild databas. Till exempel DB1 används för att lagra information om klient-ID 1 och 5 och DB2 lagrar data för klienten 7 och 10-klient. 
+Eller du kan implementera en databas för flera innehavare modellen med hjälp av en *lista mappning* att tilldela flera klienter till en enskild databas. Till exempel DB1 används för att lagra information om klient-ID 1 och 5 och DB2 lagrar data för 7-klient- och klienttrafik 10. 
 
-![Flera klienter på enskild DB][3] 
+![Flera klienter i en enda DB][3] 
 
-**Baserat på ditt val, välja ett av följande alternativ:**
+**Baserat på dina val, Välj något av följande alternativ:**
 
-### <a name="option-1-create-a-shard-map-for-a-list-mapping"></a>Alternativ 1: skapa en Fragmentera karta för en lista över-mappning
-Skapa en Fragmentera karta med ShardMapManager-objektet. 
+### <a name="option-1-create-a-shard-map-for-a-list-mapping"></a>Alternativ 1: skapa en skärvkarta för mappning av en lista
+Skapa en skärvkarta med ShardMapManager-objektet. 
 
     # $ShardMapManager is the shard map manager object. 
     $ShardMap = New-ListShardMap -KeyType $([int]) 
@@ -85,8 +88,8 @@ Skapa en Fragmentera karta med ShardMapManager-objektet.
     -ShardMapManager $ShardMapManager 
 
 
-### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>Alternativ 2: skapa en Fragmentera karta för mappning av intervallet
-Om du vill använda det här mönstret för mappning av klient-ID-värden måste vara sammanhängande intervall och det är acceptabelt att ha lucka i intervall genom att hoppa över intervallet när du skapar databaserna.
+### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>Alternativ 2: skapa en skärvkarta för en mappning av intervall
+Om du vill använda det här mönstret för mappning av klient-ID-värden måste vara kontinuerlig intervall och det går att ha lucka i intervall genom att hoppa över intervallet när du skapar databaserna.
 
     # $ShardMapManager is the shard map manager object 
     # 'RangeShardMap' is the unique identifier for the range shard map.  
@@ -95,11 +98,11 @@ Om du vill använda det här mönstret för mappning av klient-ID-värden måste
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>Alternativ 3: Visa en lista över mappningar på en enskild databas
-Ställa in det här mönstret kräver också att skapa en karta i listan som visas i steg 2, alternativ 1.
+### <a name="option-3-list-mappings-on-a-single-database"></a>Alternativ 3: Lista över mappningar på en enskild databas
+Ställa in det här mönstret kräver också skapa en karta i listan som visas i steg 2, alternativ 1.
 
-## <a name="step-3-prepare-individual-shards"></a>Steg 3: Förbered enskilda delar
-Lägg till varje Fragmentera (databasen) hanteraren Fragmentera kartan. Detta förbereder enskilda databaser för att lagra mappningsinformation. Köra den här metoden på varje Fragmentera.
+## <a name="step-3-prepare-individual-shards"></a>Steg 3: Förbered enskilda fragment
+Lägg till varje shard (databas) i fragmentkartehanteraren. Detta förbereder de enskilda databaserna för att lagra mappningsinformation. Köra den här metoden på varje shard.
 
     Add-Shard 
     -ShardMap $ShardMap 
@@ -108,11 +111,11 @@ Lägg till varje Fragmentera (databasen) hanteraren Fragmentera kartan. Detta f�
     # The $ShardMap is the shard map created in step 2.
 
 
-## <a name="step-4-add-mappings"></a>Steg 4: Lägga till mappningar
-För att lägga till mappningar beror på vilken typ av Fragmentera karta som du skapade. Om du har skapat en karta i listan kan du lägga till listan mappningar. Om du har skapat en karta intervallet du lägga till mappningar för intervallet.
+## <a name="step-4-add-mappings"></a>Steg 4: Lägg till mappningar
+Att lägga till mappningar beror på vilken typ av fragmentkartan som du skapade. Om du har skapat en karta i listan kan du lägga till listan mappningar. Om du har skapat en karta för intervall du lägger till mappningar för intervallet.
 
-### <a name="option-1-map-the-data-for-a-list-mapping"></a>Alternativ 1: mappa data för en lista över-mappning
-Mappa dina data genom att lägga till en lista över-mappning för varje klient.  
+### <a name="option-1-map-the-data-for-a-list-mapping"></a>Alternativ 1: mappa data för en lista-mappning
+Mappa data genom att lägga till en lista-mappning för varje klient.  
 
     # Create the mappings and associate it with the new shards 
     Add-ListMapping 
@@ -122,8 +125,8 @@ Mappa dina data genom att lägga till en lista över-mappning för varje klient.
     -SqlServerName '<shard_server_name>' 
     -SqlDatabaseName '<shard_database_name>' 
 
-### <a name="option-2-map-the-data-for-a-range-mapping"></a>Alternativ 2: mappa data för mappning av intervallet
-Lägg till intervallet mappningar för alla klient-ID intervallet - kopplingarna till databasen:
+### <a name="option-2-map-the-data-for-a-range-mapping"></a>Alternativ 2: mappa data för en rad-mappning
+Lägg till intervall mappningar för alla klient-ID intervallet - database-associationer:
 
     # Create the mappings and associate it with the new shards 
     Add-RangeMapping 
@@ -135,31 +138,31 @@ Lägg till intervallet mappningar för alla klient-ID intervallet - kopplingarna
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Steg 4 alternativ 3: mappa data för flera klienter på en enskild databas
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Steg 4 alternativ 3: mappa data för flera klienter i en enskild databas
 Kör Add-ListMapping (alternativ 1) för varje klient. 
 
-## <a name="checking-the-mappings"></a>Kontrollera mappningar
-Information om befintliga delar och mappningar som är associerade med dem kan efterfrågas med följande kommandon:  
+## <a name="checking-the-mappings"></a>Kontrollera mappningarna
+Information om befintliga shards och mappningar som är associerade med dem kan efterfrågas med följande kommandon:  
 
     # List the shards and mappings 
     Get-Shards -ShardMap $ShardMap 
     Get-Mappings -ShardMap $ShardMap 
 
 ## <a name="summary"></a>Sammanfattning
-När du har slutfört installationen, kan du börja använda klientbibliotek för elastisk databas. Du kan också använda [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md) och [flera Fragmentera frågan](sql-database-elastic-scale-multishard-querying.md).
+När du har slutfört installationen, kan du börja använda Elastic Database-klientbiblioteket. Du kan också använda [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) och [Multi-shard fråga](sql-database-elastic-scale-multishard-querying.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Hämta PowerShell-skript från [skript för verktyg för Azure SQL DB-elastiska Database](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Hämta PowerShell-skript från [Azure SQL DB-Elastic Database-verktyg skript](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 Verktygen finns också på GitHub: [Azure/elastisk-db-tools](https://github.com/Azure/elastic-db-tools).
 
-Använda verktyget delade dokument för att flytta data till eller från en modell för flera klienter till en enskild klient-modell. Se [dela merge tool](sql-database-elastic-scale-get-started.md).
+Verktyget Dela / sammanslå används för att flytta data till eller från en modell för flera innehavare till en enda klient-modell. Se [dela merge verktyget](sql-database-elastic-scale-get-started.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 Information om vanliga mönster för dataarkitekturen i SaaS-databasprogram (Software-as-a-Service) med flera klienter finns i [Designmönster för SaaS-program med flera klienter i Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-## <a name="questions-and-feature-requests"></a>Frågor och Funktionsbegäranden
-Frågor, Använd den [SQL Database-forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) och för funktionsbegäranden, lägga till dem i den [SQL-databas Feedbackforum](https://feedback.azure.com/forums/217321-sql-database/).
+## <a name="questions-and-feature-requests"></a>Frågor och funktionsförfrågningar
+Frågor kan du använda den [SQL Database-forumet](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) och för funktionsbegäranden, lägga till dem i den [SQL Database-Feedbackforum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

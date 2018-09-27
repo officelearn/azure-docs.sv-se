@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: b7a6d449e7b8d0f3980a38767147e6b3a37f8e0f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f2f5aebf32cf5860ca8fc32ab741177c6df15c60
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996017"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227205"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB Cassandra-API från Spark
 
@@ -27,9 +27,9 @@ Den här artikeln är en mellan en serie artiklar om Azure Cosmos DB Cassandra A
 * Etablera ditt val av Spark-miljö [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Övriga].
 
 ## <a name="dependencies-for-connectivity"></a>Beroenden för anslutning
-* **Datastax Spark-anslutningsappen för Cassandra:** Datastax Spark-anslutningsappen som används för att ansluta till Azure Cosmos DB Cassandra-API.  Identifiera och använda versionen av anslutningsappen finns i [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) som är kompatibel med Spark och Scala-versioner av Spark-miljö.
+* **Spark-anslutningappen för Cassandra:** Spark-anslutningsappen som används för att ansluta till Azure Cosmos DB Cassandra-API.  Identifiera och använda versionen av anslutningsappen finns i [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) som är kompatibel med Spark och Scala-versioner av Spark-miljö.
 
-* **Azure Cosmos DB-hjälpbibliotek för Cassandra-API:** förutom Datastax-kopplingen, måste en annan library, även kallat [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) från Azure Cosmos DB. Det här biblioteket innehåller en anslutningsfabrik och en princip för anpassad återförsöksklasser.
+* **Azure Cosmos DB-hjälpbibliotek för Cassandra-API:** förutom Spark-anslutningsappen måste en annan library, även kallat [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) från Azure Cosmos DB. Det här biblioteket innehåller en anslutningsfabrik och en princip för anpassad återförsöksklasser.
 
   Återförsöksprincip i Azure Cosmos DB har konfigurerats för att hantera HTTP-status kod 429 (”begär Rate stor”) undantag. Azure Cosmos DB Cassandra API översätter sådana undantag till överbelastade fel på protokollet i Cassandra och du kan göra med tillbaka på de. Eftersom Azure Cosmos DB använder etablerat dataflöde modellen kan inträffa begäran rate begränsande undantag när ingång/utgång bedömer ökning. Återförsöksprincipen som skyddar ditt spark-jobb mot data toppar som tillfälligt överskrider det dataflöde som allokerats för din samling.
 
@@ -40,7 +40,7 @@ Den här artikeln är en mellan en serie artiklar om Azure Cosmos DB Cassandra A
     
 ## <a name="spark-connector-throughput-configuration-parameters"></a>Konfigurationsparametrar för Spark connector dataflöde
 
-I följande tabell visas Azure Cosmos DB Cassandra API-specifika dataflöde konfigurationsparametrar som tillhandahålls av anslutningen. En detaljerad lista över alla konfigurationsparametrar Se [adresskonfigurationen som refereras till](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) för DataStax Spark Cassandra Connector GitHub-lagringsplatsen.
+I följande tabell visas Azure Cosmos DB Cassandra API-specifika dataflöde konfigurationsparametrar som tillhandahålls av anslutningen. En detaljerad lista över alla konfigurationsparametrar Se [adresskonfigurationen som refereras till](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) för Spark Cassandra Connector GitHub-lagringsplatsen.
 
 | **Egenskapsnamn** | **Standardvärde** | **Beskrivning** |
 |---------|---------|---------|
@@ -80,14 +80,14 @@ När ovan hade specifika för Azure Spark-baserad PaaS-tjänster, beskriver det 
 
 #### <a name="connector-dependencies"></a>Beroenden för anslutningen:
 
-1. Lägg till maven-koordinaterna för det [Datastax Cassandra connector för Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
+1. Lägg till maven-koordinater för att hämta den [Cassandra connector för Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
 2. Lägg till maven-koordinaterna för det [Azure Cosmos DB hjälpbibliotek](cassandra-spark-generic.md#dependencies-for-connectivity) för Cassandra-API
 
 #### <a name="imports"></a>Import:
 
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 

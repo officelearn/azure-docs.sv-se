@@ -1,59 +1,60 @@
 ---
-title: Azure innehåll kontrollant - Avbrottsmoderering arbetsflöden | Microsoft Docs
-description: Använda arbetsflöden med innehåll måtta.
+title: Moderering arbetsflöden – Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Använda arbetsflöden med innehållsmoderering.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 079fcd119f1536f9e76ca57fccc76538b3c3ed78
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3de45c62eb208671cc2d1d4de5309d2f9d75adc9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351864"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226882"
 ---
-# <a name="moderation-workflows"></a>Avbrottsmoderering arbetsflöden
+# <a name="moderation-workflows"></a>Moderering av arbetsflöden
 
-Innehåll kontrollant innehåller verktyg och API: er för att hantera arbetsflöden. Du använder arbetsflöden med den [granska API jobbåtgärder](review-api.md) vill automatisera genereringen av hr-i-the-loop granska baserat på innehåll principer och tröskelvärden.
+Content Moderator ingår verktyg och API: er för att hantera arbetsflöden. Du använder arbetsflöden med den [granska API jobbåtgärder](review-api.md) att automatisera human-i-the-loop granskning skapas baserat på ditt innehåll och tröskelvärden.
 
-Granska API ger följande sätt att inkludera mänsklig tillsyn i innehåll avbrottsmoderering processen:
+Granska API: et erbjuder de följande sätten att tar med mänsklig övervakning i innehållsmoderering processen:
 
-1. Den **jobbet** åtgärder för start av dator-stödd avbrottsmoderering och mänskliga granska skapas som ett steg.
-1. Den **granska** åtgärder för mänskliga granska skapas utanför steget måtta.
-1. Den **arbetsflöde** åtgärder för att hantera arbetsflöden som automatiserar skanning med tröskelvärden för granska skapas.
+1. Den **jobbet** åtgärder för att starta datorstödd moderering och mänskliga granska skapas som ett steg.
+1. Den **granska** åtgärder för mänskliga granska skapas utanför moderering steg.
+1. Den **arbetsflöde** åtgärder för hantering av arbetsflöden som automatiserar sökning med tröskelvärden för granska skapas.
 
-Den här artikeln beskriver den **arbetsflöde** åtgärder. Läs den [jobb och granskar](review-api.md) översikt att lära dig om innehåll avbrottsmoderering jobb och går igenom.
+Den här artikeln beskriver den **arbetsflöde** åtgärder. Läs den [jobb och granskar](review-api.md) översikt om du vill veta mer om innehållsmoderering jobb och går igenom.
 
-Checka ut den **standard** arbetsflödet är det bästa sättet att komma igång med förstår arbetsflöden innehåll kontrollant.
+Checka ut den **standard** arbetsflödet är det bästa sättet att komma igång med förstå arbetsflöden i Content Moderator.
 
-## <a name="your-first-workflow"></a>Första arbetsflödet
+## <a name="your-first-workflow"></a>Ditt första arbetsflöde
 
-Första arbetsflödet medföljer din [granska verktyget team](https://contentmoderator.cognitive.microsoft.com/). Registrera dig om du inte har gjort det redan.
+Ditt första arbetsflöde medföljer din [granska verktyget team](https://contentmoderator.cognitive.microsoft.com/). Registrera dig om du inte gjort det redan.
 
-Navigera till den [granska verktygets arbetsflöden](Review-Tool-User-Guide/Workflows.md) skärmen på fliken Inställningar. Du ser en **standard** arbetsflöde som visas i följande bild:
+Navigera till den [granska verktygets arbetsflöden](Review-Tool-User-Guide/Workflows.md) skärmen under fliken Inställningar. Du ser en **standard** arbetsflöde enligt följande bild:
 
-![Innehåll kontrollant arbetsflöden](Review-Tool-User-Guide/images/2-workflows-1.png)
+![Content Moderator-arbetsflöden](Review-Tool-User-Guide/images/2-workflows-1.png)
 
 ### <a name="open-the-default-workflow"></a>Öppna standardarbetsflöde
 
-Använd den **redigera** möjligheten att öppna arbetsflödet redigerar sida som visas i följande bild: ![innehåll kontrollant standardarbetsflöde](images/default-workflow-listed.PNG)
+Använd den **redigera** möjligheten att öppna arbetsflödet redigerar sida som visas i följande bild: ![Content Moderator standardarbetsflöde](images/default-workflow-listed.PNG)
 
 ### <a name="the-designer-view"></a>Vyn designer
 
-Du ser den **Designer** för arbetsflödet. Frågedesigner innehåller följande steg:
+Du ser den **Designer** flik för arbetsflödet. I designern visas följande steg:
 
-1. Den **villkoret** för arbetsflödet som ska utvärderas. I det här fallet arbetsflödet anropen innehåll kontrollantens bild API och kontrollerar om den `isAdult` utdata är lika med `true`.
-1. Den **åtgärd** som ska utföras om villkoret är uppfyllt. I det här fallet arbetsflödet skapar ett omdöme i verktyget granska om den `isAdult` utdata är `true`.
+1. Den **villkor** för arbetsflödet som ska utvärderas. I det här fallet arbetsflöde anrop Content Moderators bild-API och kontroller om den `isAdult` utdata är lika med `true`.
+1. Den **åtgärd** som ska utföras om villkoret är uppfyllt. I det här fallet arbetsflödet skapar en granskning i granskningsverktyget om den `isAdult` utdata är `true`.
 
-![Innehåll kontrollant standardarbetsflöde - designer](images/default-workflow-designer.png)
+![Content Moderator standardarbetsflöde - designer](images/default-workflow-designer.png)
 
-### <a name="the-json-view"></a>JSON-vyn
+### <a name="the-json-view"></a>JSON-vy
 
-Välj den **JSON** fliken för att se JSON-definitionen av arbetsflödet.
+Välj den **JSON** fliken för att se JSON-definitionen för arbetsflödet.
 
     {
         "Type": "Logic",
@@ -78,25 +79,25 @@ Välj den **JSON** fliken för att se JSON-definitionen av arbetsflödet.
 
 ### <a name="key-learning"></a>Viktiga learning
 
-Arbetsflöden innehåll kontrollant är enkel att konfigurera och flexibel. Om inbyggda designern inte uppfyller dina krav, skriva arbetsflödesdefinitionen i den **JSON** format. Använda JSON-definitionen med den [arbetsflöde API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) du skapar och hanterar arbetsflödet från ditt program.
+Arbetsflöden i Content Moderator är enkelt att konfigurera och flexibla. Om den inbyggda designern inte uppfyller dina krav, skriva arbetsflödesdefinitionen i den **JSON** format. Använda JSON-definition med den [arbetsflöde API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) du skapar och hanterar arbetsflödet från ditt program.
 
-## <a name="define-a-custom-workflow"></a>Definiera ett anpassat arbetsflöde
+## <a name="define-a-custom-workflow"></a>Definiera en anpassad arbetsflöde
 
-Innehåll kontrollant arbetsflödet funktionerna att definiera och använda anpassade arbetsflöden. Använd den [granska arbetsflöden anvisningar](Review-Tool-User-Guide/Workflows.md) artikel för att definiera ett anpassat arbetsflöde. Det här arbetsflödet använder innehåll kontrollant OCR kapaciteten för att extrahera text från en avbildning som exempel. Den skapar sedan en granskning i verktyget granska.
+Funktioner för Content Moderator-arbetsflödet gör att definiera och använda anpassade arbetsflöden. Använd den [granska arbetsflöden how-to](Review-Tool-User-Guide/Workflows.md) artikeln om du vill definiera en anpassad arbetsflöde. Det här arbetsflödet använder Content Moderator OCR-funktionen för att extrahera text från en exempelbild. En granskning skapas sedan i granskningsverktyget.
 
 ### <a name="the-sample-image"></a>Exempelbild
 
-Spara den [exempelbild](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) till din lokala enhet. Du behöver den här avbildningen för din övningen.
+Spara den [exempelbild](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) till din lokala enhet. Du behöver den här avbildningen för din övning.
 
 ### <a name="the-designer-view"></a>Vyn designer
 
-Välj den **Designer** fliken och [arbetsflöde skapa kursen](Review-Tool-User-Guide/Workflows.md) att definiera ett anpassat arbetsflöde. Följande bild visar designern **villkoret** vyn. Referera till guiden för att se resten av stegen.
+Välj den **Designer** fliken och [arbetsflöde skapa självstudien](Review-Tool-User-Guide/Workflows.md) att definiera en anpassad arbetsflöde. Följande bild visar designern **villkor** vy. Referera till självstudie för att se resten av stegen.
 
-![Innehåll kontrollant - arbetsflödesvillkor](Review-Tool-User-Guide/images/ocr-workflow-step-2-condition.PNG)
+![Content Moderator - arbetsflödesvillkor](Review-Tool-User-Guide/images/ocr-workflow-step-2-condition.PNG)
 
-### <a name="the-json-view"></a>JSON-vyn
+### <a name="the-json-view"></a>JSON-vy
 
-Välj den **JSON** fliken för att se följande JSON-definitionen av anpassade arbetsflödet. Observera hur **om sedan** instruktioner i JSON-definitionen motsvarar de steg som du har definierat designer i vyn.
+Välj den **JSON** fliken för att se följande JSON-definition för ditt eget arbetsflöde. Observera hur **If-Then** instruktioner i JSON-definition som motsvarar de steg som du har definierat med hjälp av vyn designer.
 
     {
         "Type": "Logic",
@@ -130,31 +131,31 @@ Välj den **JSON** fliken för att se följande JSON-definitionen av anpassade a
         }
     }
 
-### <a name="workflow-result"></a>Resultatet av arbetsflöde
+### <a name="workflow-result"></a>Arbetsflödesresultat
 
-När du har testat arbetsflödet från skärmen arbetsflöden skapas följande. Navigera till den **bild** fliken **granska** att se din granskning.
-Arbetsflödet skapa granskningen eftersom primära villkor testas positivt för förekomsten av texten. Granska också den **`a`** tagg i avbildningen granskning.
+När du har testat arbetsflödet från skärmen arbetsflöden skapas följande granskningen. Navigera till den **bild** fliken **granska** att se din granskning.
+Arbetsflödet skapa granskningen eftersom det primära villkoret testas positivt för förekomsten av texten. Granska även markerat den **`a`** tagg i granskningen bild.
 
-![Innehåll kontrollant - enkelt arbetsflöde utdata](images/ocr-sample-image-workflow1.PNG)
+![Content Moderator – enkel arbetsflödets utdata](images/ocr-sample-image-workflow1.PNG)
 
 
-## <a name="advanced-workflow-with-combination"></a>Avancerade arbetsflöde med kombination
+## <a name="advanced-workflow-with-combination"></a>Avancerad arbetsflödesmodul med kombination
 
 ### <a name="the-sample-image"></a>Exempelbild
 
-Använda samma [exempelbild](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) som användes i föregående avsnitt.
+Använd samma [exempelbild](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) som användes i föregående avsnitt.
 
-Den här gången runt dock ändra din primära villkor i en kombination av båda kontrollerna. Kontrollera om det finns några svordomar förutom söker efter text. Arbetsflödet skapar ett omdöme om text hittas **och** identifierar svordomar i den.
+Dock ändra den här gången primära villkoret i en kombination av två kontroller. Kontrollera om det finns några svordomar, förutom kontroll för text. Arbetsflödet skapar en granskning om text hittas **och** identifierar svordomar i den.
 
 ### <a name="the-designer-view"></a>Vyn designer
 
-Så här ändrar du den **villkoret** till en **kombination**, ändra arbetsflödet. Följande bild visar den nya vyn visas i designern.
+Ändra den **villkor** till en **kombination**, ändra arbetsflödet. Följande bild visar den nya vyn visas i designern.
 
-![Innehåll kontrollant - ändrade arbetsflödesvillkor](images/ocr-workflow-2-designer.PNG)
+![Content Moderator - ändrade arbetsflödesvillkor](images/ocr-workflow-2-designer.PNG)
 
-### <a name="the-json-view"></a>JSON-vyn
+### <a name="the-json-view"></a>JSON-vy
 
-Välj den **JSON** fliken för att se följande JSON-definitionen av anpassade ändrade arbetsflödet. Observera hur **om sedan** instruktioner i JSON-definitionen motsvarar de nya åtgärder som du har lagt till i arbetsflödet.
+Välj den **JSON** fliken för att se följande JSON-definition ändrade anpassade arbetsflödet. Observera hur **If-Then** instruktioner i JSON-definition som motsvarar de nya åtgärder som du har lagt till i arbetsflödet.
 
     {
         "Type": "Logic",
@@ -201,45 +202,45 @@ Välj den **JSON** fliken för att se följande JSON-definitionen av anpassade �
     }
 
     
-### <a name="workflow-result"></a>Resultatet av arbetsflöde
+### <a name="workflow-result"></a>Arbetsflödesresultat
 
-Du upptäcker att inga granska skapas när du har testat arbetsflödet igen. För att bekräfta frånvaro ses, navigerar du till den **bild** fliken **granska**.
-Arbetsflödet har inte skapat granskningen eftersom den inte gick att identifiera svordomar i den extraherade texten.
+Du upptäcker att inga granskning skapas när du har testat arbetsflödet igen. För att bekräfta att det inte finns någon granskning, navigera till den **bild** fliken **granska**.
+Arbetsflödet har inte skapat granskningen eftersom det inte gick att identifiera olämpligt språk på extrahera texten.
 
-![Innehåll kontrollant - ändrade arbetsflödet utdata](images/ocr-workflow-2-result.PNG)
+![Content Moderator - ändrade arbetsflödets utdata](images/ocr-workflow-2-result.PNG)
 
 
 ## <a name="the-workflow-api"></a>Arbetsflödet API
 
-Den [arbetsflödesåtgärder](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) ange programmeringsgränssnitt för arbetsflödesfunktioner för. Du skapar arbetsflöden, hämta arbetsflödesinformation om och uppdatera arbetsflödesdefinitioner för med hjälp av arbetsflödet API.
+Den [arbetsflödesåtgärder](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) ger programmeringsgränssnitt för arbetsflödesfunktioner. Du skapar arbetsflöden, få information om arbetsflöde och uppdaterar arbetsflödesdefinitioner med hjälp av API för arbetsflödet.
 
-### <a name="get-all-workflow-details"></a>Hämta [All] arbetsflödesinformation
+### <a name="get-all-workflow-details"></a>Information om arbetsflöde Get [All]
 
-Den **arbetsflödet Get** åtgärden accepterar indata som följande:
+Den **arbetsflödet Get** åtgärden godkänner följande indata:
 
-- **team**: team-ID som du skapade när du konfigurerar din [granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: namnet på arbetsflödet. Använd `default` börja med.
-- **OCP-Apim-prenumeration-nyckeln**: finns på den **inställningar** fliken. Mer information finns i [översikt](overview.md).
+- **team**: lag-ID som du skapade när du ställer in din [granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: namnet på ditt arbetsflöde. Använd `default` börja med.
+- **OCP-Apim-Subscription-Key**: finns på den **inställningar** fliken. Mer information finns i [översikt](overview.md).
 
-Om åtgärden lyckas den **svarsstatusen** är `200 OK` och **svar innehåll** arbetsflödesdefinitionen visar i JSON-format.
-Mer information finns i [arbetsflöde API konsolen quickstart](try-review-api-job.md).
+Om åtgärden lyckas den **svarsstatus** är `200 OK` och **svarsinnehåll** arbetsflödesdefinitionen visar JSON-format.
+Mer information finns i [arbetsflöde API konsolen Snabbstart](try-review-api-job.md).
 
-### <a name="create-or-update-workflow"></a>Skapa eller uppdatera arbetsflöde
+### <a name="create-or-update-workflow"></a>Skapa eller uppdatera arbetsflödet
 
-Skapa och uppdatera åtgärden kan skapa arbetsflöde från API: et.
+Skapande och uppdatering igen kan du skapa arbetsflödet från API: et.
 
-Den **arbetsflöde – skapa eller uppdatera** åtgärden accepterar indata som följande:
+Den **arbetsflöde – skapa eller uppdatera** åtgärden godkänner följande indata:
 
-- **team**: team-ID som du skapade när du konfigurerar din [granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: namnet på arbetsflödet. Använd `default` börja med.
-- **OCP-Apim-prenumeration-nyckeln**: finns på den **inställningar** fliken. Mer information finns i [översikt](overview.md).
+- **team**: lag-ID som du skapade när du ställer in din [granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: namnet på ditt arbetsflöde. Använd `default` börja med.
+- **OCP-Apim-Subscription-Key**: finns på den **inställningar** fliken. Mer information finns i [översikt](overview.md).
 
-Om åtgärden lyckas den **svarsstatusen** är `200 OK` och **svar innehåll** rutan visar `true`. Mer information, [Testkör den `Create` åtgärden](try-review-api-job.md).
+Om åtgärden lyckas den **svarsstatus** är `200 OK` och **svarsinnehåll** rutan visar `true`. Mer information, [Testkör den `Create` åtgärden](try-review-api-job.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du skapar anpassade arbetsflöden, ta en titt på [granska verktygets arbetsflödet kursen](Review-Tool-User-Guide/Workflows.md). 
+Om du vill lära dig mer om att skapa anpassade arbetsflöden, Kolla in den [granska verktygets arbetsflöde självstudien](Review-Tool-User-Guide/Workflows.md). 
 
-Testkör den [arbetsflöde API konsolen](try-review-api-job.md) och använda REST API-kodexempel. 
+Testkör den [arbetsflöde för API-konsol](try-review-api-job.md) och använda REST API-kodexempel. 
 
-Slutligen använder dina anpassade arbetsflöden med den **jobbet** åtgärder som shon i [jobbet API konsolen](try-review-api-job.md) och [jobb .NET quickstart](moderation-jobs-quickstart-dotnet.md).
+Använd slutligen dina anpassade arbetsflöden med den **jobbet** åtgärder som shon i [jobbet API-konsol](try-review-api-job.md) och [Snabbstart för jobb .NET](moderation-jobs-quickstart-dotnet.md).

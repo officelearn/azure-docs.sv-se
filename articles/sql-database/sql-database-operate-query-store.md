@@ -2,19 +2,22 @@
 title: Använda Query Store i Azure SQL Database
 description: Lär dig hur du använder Query Store i Azure SQL Database
 services: sql-database
-author: bonova
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 37cb77b6738ba1354034dcf77d22a19b96c4ef23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 8795930c6b676e7e710f112e8d9eedd6ab9084b5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903106"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164573"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Använda Query Store i Azure SQL Database
 Query Store i Azure är en fullständigt hanterad databas-funktion som kontinuerligt samlas in och Detaljerad historisk information om alla frågor. Du kan tänka Query Store som liknar ett flygplan svart data låda som avsevärt förenklar frågeprestanda felsökning både för moln och lokala kunder. Den här artikeln beskriver specifika aspekter av operativsystem Query Store i Azure. Med dessa data i förväg insamlade fråga kan du snabbt diagnostisera och lösa problem med prestanda och därför lägga mer tid på kärnverksamheten. 
@@ -54,6 +57,6 @@ Mer information finns i följande artiklar:
 
 * [En svart låda för data för din databas](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
 * [Övervakning av prestanda med hjälp av Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
-* [Query Store-Användningsscenarier](https://msdn.microsoft.com/library/mt614796.aspx)
+* [Query Store-användningsscenarier](https://msdn.microsoft.com/library/mt614796.aspx)
  
 

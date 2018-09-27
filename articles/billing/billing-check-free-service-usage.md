@@ -1,6 +1,6 @@
 ---
-title: Övervaka och spåra användning av Azure gratistjänster | Microsoft Docs
-description: Lär dig att kontrollera användningen av gratistjänster. Använda Azure portal och användning csv.
+title: Övervaka och spåra användningen av Azure kostnadsfria tjänster | Microsoft Docs
+description: Lär dig att kontrollera användningen av kostnadsfria tjänster. Använd Azure portal och användning csv.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -13,62 +13,62 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 7fa0196b7a44ef20ecd63797869dffea55f92c3d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: df049a87763f3aae8da2db153f876b88ed39b988
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061324"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47390246"
 ---
-# <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Kontrollera användningen av ledigt tjänster som ingår i din kostnadsfritt Azure-konto 
+# <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Kontrollera användningen av kostnadsfria tjänster ingår kostnadsfritt Azure-konto 
 
-Du debiteras inte för tjänster som ingår kostnadsfritt i kostnadsfritt Azure-konto, såvida inte du överskrider gränserna för dessa tjänster. Om du vill vara med gränserna som använda du antingen Azure-portalen eller användning av filen att övervaka och spåra användningen av gratistjänster. 
+Du debiteras inte för tjänster som ingår utan kostnad med kostnadsfria Azure-konto, såvida inte du överskrider begränsningarna i dessa tjänster. För att fortsätta vara med gränserna, kan du antingen använda Azure portal eller i din användningsfil att övervaka och spåra användningen av kostnadsfria tjänster. 
 
-## <a name="check-usage-on-the-azure-portal"></a>Kontrollera användning på Azure portal
+## <a name="check-usage-on-the-azure-portal"></a>Kontrollera syntax på Azure portal
 
 1.  Logga in på [Azure-portalen]( http://portal.azure.com).
 
-2.  Vänstra navigeringsfönstret området, Välj **alla tjänster**.
+2.  Vänstra området, Välj **alla tjänster**.
 
-3.  Välj **prenumerationer**.
+3.  Välj **Prenumerationer**.
 
 4.  Välj den prenumeration som du skapade när du registrerade dig kostnadsfritt konto.
 
     ![Skärmbild som visar alla prenumerationer](./media/billing-check-usage-of-free-services/select-free-account-subscription.png)
 
-5.  Översiktsavsnittet visar grundläggande information om din prenumeration, till exempel prenumerations-ID, erbjuder typ och namn. Du kan också hitta information om när kreditkortet kostnadsfritt konto skulle upphöra att gälla.
+5.  Översiktsavsnittet visar viktig information om din prenumeration, till exempel prenumerations-ID, Erbjud typ och namn på prenumeration. Du kan också hitta information om när din kredit för kostnadsfritt konto skulle upphöra att gälla.
 
     ![Skärmbild som visar viktig information för prenumeration](./media/billing-check-usage-of-free-services/subscription-essential-information.png)
 
-6.  Rulla hitta information om dina aktuella och förväntade kostnader. Kostnaden innefattar användning av tjänster som inte ingår i din kostnadsfritt konto- och användningsdata som överskrider gränserna för gratistjänster. 
+6.  Rulla ned till hitta information om dina aktuella och prognostiserade kostnader. Kostnaden omfattar användning av tjänster som inte ingår i ditt kostnadsfria konto och användning som överskrider gränserna för kostnadsfria tjänster. 
 
-    ![Skärmbild som visar prenumeration kostnadsinformation](./media/billing-check-usage-of-free-services/subscription-cost-information.png)
+    ![Skärmbild som visar kostnadsinformation för prenumeration](./media/billing-check-usage-of-free-services/subscription-cost-information.png)
 
-7.  Den sista delen av översiktsavsnittet har en tabell på användning av gratistjänster. 
+7.  Den sista delen av översiktsavsnittet har en tabell på användningen av kostnadsfria tjänster. 
 
-    ![Skärmbild som visar användningen av gratistjänster](./media/billing-check-usage-of-free-services/subscription-usage-free-services.png)
+    ![Skärmbild som visar användningen av kostnadsfria tjänster](./media/billing-check-usage-of-free-services/subscription-usage-free-services.png)
 
     Tabellen innehåller följande kolumner:
 
-* **Namn på mätaren:** identifierar måttenheten för mätaren används. Läs om tjänsten för mätaren mappning i [förstå kostnadsfri tjänst för mätaren mappning](billing-understand-free-service-meter-mapping.md). 
-* **Användningsnivån:** aktuella månaden användnings- och gränsen för mätaren. Du kan också använda informationen i statusfältet.
-* **Status:** användning status för mätaren. Baserat på ditt användningsmönster, kan du ha något av dessa lagar.
-  * **Inte i användning:** du inte har använt mätaren eller användning för mätaren inte har nått faktureringssystemet.
-  * **Överskridits för \<datum >:** du har överskridit gränsen för mätaren för \<datum >.
-  * **Osannolikt att överskridas:** du troligen inte överskrider gränsen för mätaren.
-  * **Överskrider på \<datum >:** troligen kommer att överskrida gränsen för mätaren på \<datum >.
+* **Mätarnamn:** identifierar måttenhet för den mätning som används. Läs om tjänsten för mätningsmappning i [förstå kostnadsfria tjänsten för mätningsmappning](billing-understand-free-service-meter-mapping.md). 
+* **Användningsgränsen:** innevarande månadens användning och gränsen för mätaren. Du kan också använda informationen i statusfältet.
+* **Status:** användning status för mätaren. Baserat på ditt användningsmönster, kan du ha en av dessa lagar.
+  * **Inte är i användning:** du inte har använt mätaren eller användningen för mätaren inte har nått faktureringssystemet.
+  * **Överskrids den \<datum >:** du har överskridit gränsen för mätaren för \<datum >.
+  * **Sannolikt inte kommer att överskridas:** du är sannolikt inte kommer att överskrida gränsen för mätaren.
+  * **Överstigs den \<datum >:** troligen kommer att överskrida gränsen för mätaren på \<datum >.
 
 
-## <a name="check-usage-through-the-usage-file"></a>Kontrollera användning i filen för användning
+## <a name="check-usage-through-the-usage-file"></a>Kontrollera syntax igenom användningsfilen
 
-Användning-filen innehåller detaljerad information för din Azure-prenumeration. Du kan hämta din månatliga och daglig användning filen från Azure Kontocenter. Information om hur du hämtar filen användningen och förstå åtkomsten som krävs finns [hämta faktura och användning](billing-download-azure-invoice-daily-usage-date.md). Läs om kolumner i filen användning i [Förstå villkoren på din användning](billing-understand-your-usage.md). 
+Din användningsfil ger detaljerad information om din Azure-prenumeration. Du kan hämta din per månad och dag användningsfil från Azure Kontocenter. Läs hur du hämtar användningsfilen och förstå den åtkomst som krävs i [hämta faktura och användning](billing-download-azure-invoice-daily-usage-date.md). Läs om kolumner i användningsfilen i [Förstå villkoren på din användning](billing-understand-your-usage.md). 
 
-Användning-filen innehåller användningsinformation för både gratis och betald tjänster. Kostnadsfria tjänsten mätare skulle ha **lediga** läggas till i slutet av namnet på mätaren. Att hitta ledigt mätare, öppna filen i excel och filter den **mätaren kategori kolumnen** för celler som innehåller text **- ledigt** (Textfilter &rarr; filtret innehåller) &nbsp;
+Användningsfilen innehåller användningsinformation för både kostnadsfria och kostnadsbelagda tjänster. Kostnadsfri tjänst taxor skulle ha **kostnadsfri** tillägg i slutet av mätningsnamn. Du hittar kostnadsfria taxor, öppna filen i excel och filter i **underkategori för kolumnen** för celler som innehåller text **– kostnadsfritt** (Använd Textfilter &rarr; filtret innehåller) &nbsp;
 
-![Skärmbild som visar användningen av gratistjänster](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
+![Skärmbild som visar användningen av kostnadsfria tjänster](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
-Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.
+Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.

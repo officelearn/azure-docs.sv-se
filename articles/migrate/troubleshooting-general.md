@@ -4,14 +4,14 @@ description: Innehåller en översikt över kända problem i Azure Migrate-tjän
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/24/2018
 ms.author: raynew
-ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ca0931810fd78ce4cc684ad307efeb866cee3353
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126372"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165305"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -34,6 +34,12 @@ Om du vill aktivera insamling av prestandadata för disk- och ändra nivån för
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Jag installerade agenter och används visualiseringen av beroenden för att skapa grupper. Nu efter redundans, datorerna visa ”installera agenten” åtgärd i stället för ”Visa beroenden”
 * Post planerad eller oplanerad redundans lokala datorer är avstängda och motsvarande datorer skapas i Azure. De här datorerna erhållit en annan MAC-adress. De kan hämta en annan IP-adress baserat på om användaren har valt att behålla den lokala IP-adress eller inte. Om MAC- och IP-adresser skiljer sig åt Azure Migrate kopplar inte lokala datorer med Service Map beroendedata och ber användaren att installera agenter i stället för att visa beroenden.
 * Publicera redundanstest, lokala datorer är aktiverade som förväntat. Motsvarande datorer i Azure kunde få annan MAC-adress och kan hämta annan IP-adress. Om inte användaren blockerar utgående trafik för Log Analytics från dessa datorer, Azure Migrate kopplar inte lokala datorer med Service Map beroendedata och ber användaren att installera agenter i stället för att visa beroenden.
+
+### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Jag har angett en Azure geografi när du skapar ett migreringsprojekt hur tar jag reda på exakt Azure-regionen där de identifierade metadata lagras?
+
+Du kan gå till den **Essentials** i avsnittet den **översikt** projektets att identifiera den exakta platsen där metadata som lagras. Platsen väljs slumpmässigt i geografiska område som Azure Migrate och du kan inte ändra den. Om du vill skapa ett projekt i en viss region kan du kan använda REST-API: er för att skapa migration-projekt och skicka önskad region.
+
+   ![Projektets plats](./media/troubleshooting-general/geography-location.png)
 
 ## <a name="collector-errors"></a>Fel för logginsamlare
 
@@ -102,6 +108,37 @@ Om problemet inträffar fortfarande i den senaste versionen kan bero det insamla
 2. Om steg 1 misslyckas kan du försöka ansluta till vCenter-servern via en IP-adress.
 3. Identifiera rätt portnummer för att ansluta till vCenter.
 4. Kontrollera slutligen om vCenter-servern är igång.
+
+## <a name="troubleshoot-dependency-visualization-issues"></a>Felsöka problem med beroende-visualisering
+
+### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Jag har installerat Microsoft Monitoring Agent (MMA) och beroendeagenten på min lokala virtuella datorer, men beroenden som nu visas i Azure Migrate-portalen.
+
+När du har installerat agenterna tar Azure Migrate normalt 15 – 30 minuter att visa beroenden i portalen. Om du har väntat i mer än 30 minuter, se till att MMA-agenten kan kommunicera med OMS-arbetsytan genom att följa de stegen nedan:
+
+För Windows VM:
+1. Gå till **Kontrollpanelen** och starta **Microsoft Monitoring Agent**
+2. Gå till den **Azure Log Analytics (OMS)** i popup-MMA egenskaperna
+3. Se till att den **Status** för arbetsytan är grönt.
+4. Om statusen inte är grön, försök att ta bort arbetsytan och lägga till den igen till MMA.
+        ![MMA-Status](./media/troubleshooting-general/mma-status.png)
+
+Se till att installationskommandon för MMA och beroendeagenter agent hade har utförts för Linux VM.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Vilka är de operativsystem som stöds av MMA?
+
+Lista över Windows-operativsystem som stöds av MMA är [här](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+Listan med Linux-operativsystem som stöds av MMA är [här](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Vilka är de operativsystem som stöds av beroendeagenten?
+
+Lista över Windows-operativsystem som stöds av beroendeagenten är [här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+Listan med Linux-operativsystem som stöds av beroendeagenten är [här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Jag kan inte visualisera beroenden i Azure Migrate för mer än en timme?
+Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Även om Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, är maximal varaktighet för vilken du kan visualisera beroenden upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme.
+
+### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Jag kan inte visualisera beroenden för grupper med fler än 10 virtuella datorer?
+Du kan [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) som har upp till 10 virtuella datorer, om du har en grupp med fler än 10 virtuella datorer, rekommenderar vi att dela upp gruppen i mindre grupper och visualisera beroenden.
 
 ## <a name="troubleshoot-readiness-issues"></a>Felsöka beredskapsproblem
 

@@ -7,37 +7,35 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/19/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5732293510a75a3c40df5cf3d31978c5ce599791
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 819e6364aebab11097260c54575ab65914293ce7
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720165"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180537"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Twitter-konto med hjälp av Azure Active Directory B2C
 
-## <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
+## <a name="create-an-application"></a>Skapa ett program
 
-Om du vill använda ett Twitter-konto som identitetsprovider i Azure Active Directory (Azure AD) B2C, måste du skapa ett program i din klient som representerar den. Om du inte redan har ett Twitter-konto, kan du hämta den på [ https://twitter.com/signup ](https://twitter.com/signup).
+Om du vill använda Twitter som identitetsprovider i Azure AD B2C måste du skapa ett Twitter-program. Om du inte redan har ett Twitter-konto, kan du hämta den på [ https://twitter.com/signup ](https://twitter.com/signup).
 
-1. Logga in på den [Twitter appar](https://apps.twitter.com/) med dina autentiseringsuppgifter för Twitter.
+1. Logga in på den [Twitter utvecklare](https://developer.twitter.com/en/apps) webbplats med dina autentiseringsuppgifter för Twitter-konto.
 2. Välj **skapa en app**.
-3. Ange den **appnamn**, **Programbeskrivning**, och **Webbadress**.
-4. Ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy-name/oauth1/authresp` i **Motringnings-URL: er**. Ersätt `your-tenant-name` med namnet på din klient och `your-policy-name` med namnet på din princip. Till exempel `b2c_1_signupsignin`. Du måste använda gemener när du anger ditt klientnamn och principnamn även om de har definierats med versaler i Azure AD B2C.
-5. Godkänn den **Developer-avtalet** och välj **skapa**.
-7. Välj den **nycklar och åtkomsttoken** fliken.
-8. Kopiera värdena för **API-nyckel** och **API hemlig nyckel**. Du behöver dem för att konfigurera ett Twitter-konto som identitetsprovider i din klient båda.
+3. Ange en **appnamn** och en **Programbeskrivning**.
+4. I **Webbadress**, ange `https://your-tenant.b2clogin.com`. Ersätt `your-tenant` med namnet på din klient. Till exempel https://contosob2c.b2clogin.com.
+5. För den **Motringnings-URL**, ange `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`. Ersätt `your-tenant` med namnet på ditt klientnamn och `your-policy-Id` med identifieraren för din princip. Till exempel `b2c_1A_signup_signin_twitter`. Du måste använda gemener när du anger ditt klientnamn även om klienten har definierats med versaler i Azure AD B2C.
+6. Längst ned på sidan Läs och Godkänn villkoren och välj sedan **skapa**.
+7. På den **appinformation** väljer **Redigera > Redigera information**, markera kryssrutan för **aktivera logga in med Twitter**, och välj sedan **spara**.
+8. Välj **nycklar och token** och registrera den **konsument-API-nyckel** och **hemlig nyckel för konsument-API** värden som ska användas senare.
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>Konfigurera Twitter som identitetsprovider i din klient
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.  
-
-    ![Växla till Azure AD B2C-klientorganisationen](./media/active-directory-b2c-setup-twitter-app/switch-directories.png)
-
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
 5. Ange en **namn**. Ange till exempel *Twitter*.

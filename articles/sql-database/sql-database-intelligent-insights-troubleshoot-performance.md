@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 311d1e1fc048e65182fbcbc8ca4b6f8c338da0de
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163876"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222462"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med intelligenta insikter
 
@@ -41,7 +41,7 @@ Intelligent Insights identifierar automatiskt prestandaproblem med SQL-databas o
 | [Pagelatch konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Flera trådar försöker samtidigt komma åt samma data i minnet bufferten sidorna vilket resulterar i ökad väntetider och orsakar pagelatch konkurrens. Detta påverkar prestanda för SQL-databas. | Flera trådar försöker samtidigt komma åt samma data i minnet bufferten sidorna vilket resulterar i ökad väntetider och orsakar pagelatch konkurrens. Detta påverkar databas prestanda. |
 | [Index som saknas](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Index som saknas upptäcktes att det påverkar prestanda för SQL-databas. | Index som saknas har identifierats som påverkar prestanda för databasen. |
 | [Ny fråga](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Ny fråga har identifierats som påverkar prestandan för SQL-databas. | Ny fråga har identifierats som påverkar prestandan i databasen. |
-| [Ovanlig vänta statistik](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Ovanlig databasen väntetider har identifierats som påverkar prestanda för SQL-databas. | Ovanlig databasen väntetider identifierades påverka databasens prestanda. |
+| [Ökad vänta statistik](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Ökad databasen väntetider har identifierats som påverkar prestanda för SQL-databas. | Ökad databasen väntetider identifierades påverka databasens prestanda. |
 | [TempDB konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Flera trådar försöker komma åt samma TempDB-resurs som orsakar en flaskhals. Detta påverkar prestandan för SQL Database. | Flera trådar försöker komma åt samma TempDB-resurs som orsakar en flaskhals. Detta påverkar prestanda för databasen. |
 | [Brist för elastisk Pool-DTU](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Brist på tillgängliga edtu: er i den elastiska poolen påverkar prestandan för SQL Database. | Inte tillgängligt för hanterad instans som den använder vCore-modellen. |
 | [Planera Regression](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Ny plan eller en ändring i arbetsbelastningen för en befintlig plan har identifierats. Detta påverkar prestandan för SQL Database. | Ny plan eller en ändring i arbetsbelastningen för en befintlig plan har identifierats. Detta påverkar prestanda för databasen. |
@@ -203,17 +203,17 @@ Diagnostiken logginformation utdata upp till två nya de flesta CPU förbrukar f
 
 Överväg att använda [Azure SQL Database Query Performance Insight](sql-database-query-performance.md).
 
-## <a name="unusual-wait-statistic"></a>Ovanlig vänta statistik
+## <a name="increased-wait-statistic"></a>Ökad vänta statistik
 
 ### <a name="what-is-happening"></a>Vad händer
 
 Det här mönstret flashminnet prestanda anger en arbetsbelastning prestandaförsämring som identifieras dålig prestanda frågor jämfört med de senaste sju dagar arbetsbelastning baslinjen.
 
-I det här fallet systemet kan inte klassificera dålig prestanda frågorna under andra flashminnet standardprestanda-kategorier, men det har upptäckts ansvarar för regressionen vänta statistiken. Därför det anser dem som frågor med *ovanliga vänta statistik*, där ovanliga vänta statistiken ansvarar för regressionen också exponeras. 
+I det här fallet systemet kan inte klassificera dålig prestanda frågorna under andra flashminnet standardprestanda-kategorier, men det har upptäckts ansvarar för regressionen vänta statistiken. Därför det anser dem som frågor med *ökat vänta statistik*, där vänta statistiken ansvarar för regressionen också exponeras. 
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Diagnostikloggen visar information om ovanliga vänta tidsinformation, fråga hash-värden för frågorna som påverkas och väntetiden.
+Diagnostiklogg utdata information om information om ökad vänta tid och fråga hash-värden för frågorna som påverkas.
 
 Eftersom systemet det gick inte att kunna identifiera orsaken till frågorna dålig prestanda, är diagnostikinformationen en bra utgångspunkt för manuell felsökning. Du kan optimera prestanda för dessa frågor. Ett bra tips är att hämta endast data som du behöver för att använda och för att förenkla och bryter ned komplexa frågor i mindre. 
 

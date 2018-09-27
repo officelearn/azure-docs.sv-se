@@ -4,7 +4,7 @@ description: 'Det här avsnittet beskriver hur du konfigurerar en kanal som tar 
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056141"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222071"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -166,7 +166,7 @@ En kanal som innehåller en slutpunkt för indata (infognings-URL) att du anger 
 
 Du kan hämta URL: er för inmatning när du skapar en kanal. Kanalen har för att få dessa URL: er kan inte finnas i den **kör** tillstånd. När du är redo att börja skicka data till kanalen kan det finnas i den **kör** tillstånd. När kanalen startar mata in data, kan du förhandsgranska dataströmmen via förhandsgransknings-URL.
 
-Du har en möjlighet att mata in fragmenterad MP4 (Smooth Streaming) live stream via en SSL-anslutning. För att mata in via SSL, se till att uppdatera URL: en inmatning till HTTPS. Observera att för närvarande AMS inte stöder SSL med anpassade domäner.  
+Du har en möjlighet att mata in fragmenterad MP4 (Smooth Streaming) live stream via en SSL-anslutning. För att mata in via SSL, se till att uppdatera URL: en inmatning till HTTPS. För närvarande stöder AMS inte SSL med anpassade domäner.  
 
 ### <a name="allowed-ip-addresses"></a>Tillåtna IP-adresser
 Du kan definiera de IP-adresser som får publicera video i den här kanalen. Tillåtna IP kan adresser anges som en enda IP-adress (t.ex. ”10.0.0.1”), ett IP-intervall med IP-adress och en CIDR-nätmask (exempelvis 10.0.0.1/22) eller en IP-intervall med en IP-adress och en undernätsmask med punktavgränsad decimalform (till exempel , ' 10.0.0.1(255.255.252.0)').

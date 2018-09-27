@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: 89518d30b862e18fb7c989c95144ffa7f1c294fc
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 087dcda5826d96ad064c472fc897be7e61133387
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40025135"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392529"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Självstudie: Förbättra webbplatsen svaret med hjälp av Traffic Manager 
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera DNS-namn för de virtuella datorer som kör IIS
 > * Skapa en Traffic Manager-profil för förbättrad webbplatsens prestanda
 > * Lägga till VM-slutpunkter i Traffic Manager-profilen
-> * Visa Traffic Manager fungerar i praktiken
+> * Se hur Traffic Manager fungerar i praktiken
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -72,7 +72,7 @@ I det här avsnittet skapar du två virtuella datorer *myIISVMEastUS* och *myIIS
     
     |Inställning|Värde|
     |---|---|
-    |Virtuellt nätverk| Välj **virtuellt nätverk**i **skapa virtuellt nätverk**, för **namn**, ange *myVNet1*, undernät, ange * mySubnet*.|
+    |Virtuellt nätverk| Välj **virtuellt nätverk**i **skapa virtuellt nätverk**, för **namn**, ange *myVNet1*, undernät, ange  *mySubnet*.|
     |Nätverkssäkerhetsgrupp|Välj **grundläggande**, och i **Välj offentliga inkommande portar** listrutan, väljer **HTTP** och **RDP** |
     |Startdiagnostik|Välj **inaktiverad**.|
     |||
@@ -82,10 +82,10 @@ I det här avsnittet skapar du två virtuella datorer *myIISVMEastUS* och *myIIS
 
     |Inställning|Värde|
     |---|---|
-    |Resursgrupp | Välj **New**, och skriv sedan *myResourceGroupTM2*|
+    |Resursgrupp | Välj **Ny** och skriv sedan *myResourceGroupTM2*|
     |Plats|Västra Europa|
     |Namn på virtuell dator | myIISVMWEurope|
-    |Virtuellt nätverk | Välj **virtuellt nätverk**i **skapa virtuellt nätverk**, för **namn**, ange *myVNet2*, undernät, ange * mySubnet*.|
+    |Virtuellt nätverk | Välj **virtuellt nätverk**i **skapa virtuellt nätverk**, för **namn**, ange *myVNet2*, undernät, ange  *mySubnet*.|
     |||
 8. Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med återstående steg förrän båda virtuella datorerna har skapats.
 
@@ -138,14 +138,14 @@ I det här avsnittet skapar du en virtuell dator (*mVMEastUS* och *myVMWestEurop
     |Namn|myVMEastUS|
     |Användarnamn| Ange ett valfritt användarnamn.|
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resursgrupp| Välj **befintliga** och välj sedan *myResourceGroupTM1*.|
+    |Resursgrupp| Välj **Befintlig** och sedan *myResourceGroupTM1*.|
     |||
 
 4. Välj en VM-storlek i **Välj en storlek**.
 5. Välj följande värden för **Inställningar** och sedan **OK**:
     |Inställning|Värde|
     |---|---|
-    |Virtuellt nätverk| Välj **virtuellt nätverk**i **skapa virtuellt nätverk**, för **namn**, ange *myVNet3*, undernät, ange * mySubnet*.|
+    |Virtuellt nätverk| Välj **virtuellt nätverk**i **skapa virtuellt nätverk**, för **namn**, ange *myVNet3*, undernät, ange  *mySubnet*.|
     |Nätverkssäkerhetsgrupp|Välj **grundläggande**, och i **Välj offentliga inkommande portar** listrutan, väljer **HTTP** och **RDP** |
     |Startdiagnostik|Välj **inaktiverad**.|
     |||
@@ -158,7 +158,7 @@ I det här avsnittet skapar du en virtuell dator (*mVMEastUS* och *myVMWestEurop
     |---|---|
     |Namn på virtuell dator | *myVMWEurope*|
     |Resursgrupp | Välj **befintliga**, och skriv sedan *myResourceGroupTM2*|
-    |Virtuellt nätverk | Välj **virtuellt nätverk**i **skapa virtuellt nätverk**, för **namn**, ange *myVNet4*, undernät, ange * mySubnet*.|
+    |Virtuellt nätverk | Välj **virtuellt nätverk**i **skapa virtuellt nätverk**, för **namn**, ange *myVNet4*, undernät, ange  *mySubnet*.|
     |||
 
 8. Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med återstående steg förrän båda virtuella datorerna har skapats.
@@ -166,12 +166,12 @@ I det här avsnittet skapar du en virtuell dator (*mVMEastUS* och *myVMWestEurop
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 Skapa en Traffic Manager-profil som dirigerar användartrafik som genom att skicka dem till slutpunkten med kortast svarstid.
 
-1. Längst upp till vänster på skärmen Välj **skapa en resurs** > **nätverk** > **Traffic Manager-profil**  >  **Skapa**.
-2. I den **skapa Traffic Manager-profil**, ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **skapa**:
+1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Traffic Manager-profil** > **Skapa**.
+2. I **Skapa Traffic Manager-profil** anger eller väljer du följande information, accepterar standardinställningarna för återstående inställningar och väljer sedan **Skapa**:
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Namn                   | Det här namnet måste vara unikt inom trafficmanager.net-zonen och resultat i DNS-namn, trafficmanager.net som används för att få åtkomst till Traffic Manager-profilen.                                   |
-    | Routningsmetod          | Välj den **prioritet** routningsmetod.                                       |
+    | Routningsmetod          | Välj den **prestanda** routningsmetod.                                       |
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj **Skapa nytt** och ange *myResourceGroupTM1*. |
     | Plats                | Välj **USA, östra**.  Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
@@ -179,12 +179,12 @@ Skapa en Traffic Manager-profil som dirigerar användartrafik som genom att skic
   
     ![Skapa en Traffic Manager-profil](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
 
-## <a name="add-traffic-manager-endpoints"></a>Lägg till Traffic Manager-slutpunkter
+## <a name="add-traffic-manager-endpoints"></a>Lägga till Traffic Manager-slutpunkter
 
 Lägg till de två virtuella datorer som kör IIS servrar – *myIISVMEastUS*  & *myIISVMWEurope* att dirigera trafik till närmaste slutpunkten för användaren.
 
-1. I portalens sökfältet, Sök efter namnet på Traffic Manager-profilen som du skapade i föregående avsnitt och Välj profilen i resultaten som visas.
-2. I **Traffic Manager-profil**i den **inställningar** klickar du på **slutpunkter**, och klicka sedan på **Lägg till**.
+1. I portalens sökfält söker du efter det Traffic Manager-profilnamn som du skapade i föregående avsnitt och väljer profilen i det resultat som visas.
+2. I **Traffic Manager-profilen** går du till avsnittet **Inställningar** och klickar på **Slutpunkter** och klickar sedan på **Lägg till**.
 3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
     | Inställning                 | Värde                                              |
@@ -195,10 +195,10 @@ Lägg till de två virtuella datorer som kör IIS servrar – *myIISVMEastUS*  &
     | Målresurs          | **Välj en offentlig IP-adress** att visa en lista över resurser med offentliga IP-adresser i samma prenumeration. I **Resource**, Välj offentlig IP-adress med namnet *myIISVMEastUS ip*. Det här är den offentliga IP-adressen för IIS-server-dator i USA, östra.|
     |        |           |
 
-4. Upprepa steg 2 och 3 för att lägga till en annan slutpunkt med namnet *myWestEuropeEndpoint* för den offentliga IP-adressen *myIISVMWEurope ip* som är associerad med den IIS-servern virtuell dator med namnet *myIISVMWEurope *.
-5.  När tillägg av båda slutpunkterna är klar, visas de i **Traffic Manager-profil** tillsammans med dess övervakningsstatus som **Online**.
+4. Upprepa steg 2 och 3 för att lägga till en annan slutpunkt med namnet *myWestEuropeEndpoint* för den offentliga IP-adressen *myIISVMWEurope ip* som är associerad med den IIS-servern virtuell dator med namnet *myIISVMWEurope* .
+5.  När båda slutpunkterna har lagts till visas de i **Traffic Manager-profilen** tillsammans med sin övervakningsstatus, som är **Online**.
 
-    ![Lägg till en Traffic Manager-slutpunkt](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-endpoint.png)
+    ![Lägga till en Traffic Manager-slutpunkt](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-endpoint.png)
   
 
 ## <a name="test-traffic-manager-profile"></a>Testa Traffic Manager-profil
@@ -213,13 +213,13 @@ I den här självstudien använder för enkelhetens skull du DNS-namnet på Traf
 
 Du kan fastställa DNS-namnet på Traffic Manager-profilen på följande sätt:
 
-1.  I portalens sökfältet söker du efter den **Traffic Manager-profil** namn som du skapade i föregående avsnitt. Klicka på traffic manager-profilen i resultaten som visas.
-1. Klicka på **översikt**.
-2. Den **Traffic Manager-profil** visar DNS-namnet på din nyligen skapade Traffic Manager-profil. I Produktionsdistribution måste konfigurera du ett anpassad domännamn så att den pekar till Traffic Manager-domännamn, med hjälp av en DNS CNAME-post.
+1.  I portalens sökfält söker du efter det **Traffic Manager-profil**namn som du skapade i föregående avsnitt. I det resultat som visas klickar du på Traffic Manager-profilen.
+1. Klicka på **Översikt**.
+2. **Traffic Manager-profilen** visar DNS-namnet på din nyligen skapade Traffic Manager-profil. I Produktionsdistribution måste konfigurera du ett anpassad domännamn så att den pekar till Traffic Manager-domännamn, med hjälp av en DNS CNAME-post.
 
-   ![Traffic Manager DNS-namn](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
+   ![DNS-namn för Traffic Manager](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
 
-### <a name="view-traffic-manager-in-action"></a>Visa Traffic Manager fungerar i praktiken
+### <a name="view-traffic-manager-in-action"></a>Se hur Traffic Manager fungerar i praktiken
 Du kan se Traffic Manager är åtgärd i det här avsnittet. 
 
 1. Välj **alla resurser** på den vänstra menyn och klicka sedan i resurslistan på *myVMEastUS* som finns i den *myResourceGroupTM1* resursgrupp.

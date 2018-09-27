@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: ccaa6e79d9a24409b8c905561b265c70ea781dc2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d7917ad65b3e3fd1abacdb624a03b3f62c7fc07f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022583"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221562"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -384,7 +384,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>Hämta Azure-miljön där Virtuellt datorn körs 
 
-Azure har olika soverign moln som [Azure Government](https://azure.microsoft.com/overview/clouds/government/) , du ibland behöva till Azure-miljön att fatta beslut om vissa runtime. Följande exempel visar hur du kan åstadkomma detta
+Azure har olika nationella moln som [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Ibland kan du behöva Azure-miljön för att fatta beslut om vissa runtime. I följande exempel visar hur du kan åstadkomma detta.
 
 **Förfrågan**
 
@@ -449,7 +449,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Ja är Metadata service tillgänglig för skala ange instanser. 
 8. Hur får jag support för tjänsten?
    * Om du vill få support för tjänsten, skapa ett supportärende i Azure portal för den virtuella datorn där det inte går att hämta metadata svar efter långt återförsök 
-9. Jag får timeout för min anrop för begäran i tjänsten?
+9. Jag begäran orsakade timeout för min anrop till tjänsten?
    * Metadata-anrop måste göras från den primära IP-adress som tilldelats till nätverkskortet för den virtuella datorn, även om du har ändrat vägarna det måste vara en väg för 169.254.0.0/16 adress utanför nätverkskortet.
 10. Jag har uppdaterat min taggarna i skalningsuppsättningen för virtuella datorer, men de visas inte i instanser till skillnad från virtuella datorer?
    * För närvarande för ScaleSets visar taggar endast att den virtuella datorn på en omstart/reimage/eller ändrar du en disk till instansen. 

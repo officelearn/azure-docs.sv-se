@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/16/2018
+ms.date: 09/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e98012a012c8569a40fe454a777e5f108bfe0e2e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 72503c9f073a046b81001322cdbb4fb8a1af76cf
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311047"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224128"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatisk uppgradering
 Den här funktionen introducerades i version [1.1.105.0 (publicerad februari 2016)](reference-connect-version-history.md#111050).  Den här funktionen har uppdaterats i [skapa 1.1.561](reference-connect-version-history.md#115610) och har nu stöd för fler scenarier som tidigare inte stöds.
@@ -39,7 +39,7 @@ Det aktuella tillståndet för automatisk uppgradering kan visas med PowerShell-
 | Status | Kommentar |
 | --- | --- |
 | Enabled |Automatisk uppgradering är aktiverat. |
-| Tillfälligt avbruten |Ange endast i systemet. Systemet inte längre är berättigade att ta emot automatiska uppgraderingar. |
+| Tillfälligt avbruten |Ange endast i systemet. Systemet är **för närvarande inte** berättigade att ta emot automatiska uppgraderingar. |
 | Disabled |Automatisk uppgradering har inaktiverats. |
 
 Du kan ändra mellan **aktiverad** och **inaktiverad** med `Set-ADSyncAutoUpgrade`. Endast systemet bör ställa in tillståndet **pausad**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: c28b0ccfb565cb6bd4809a321d5e57f04475dceb
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123903"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221102"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager endpoint monitoring
 
@@ -32,7 +32,7 @@ Om du vill konfigurera slutpunktsövervakning, måste du ange följande inställ
 * **Protokollet**. Välj HTTP, HTTPS eller TCP som protokoll att Traffic Manager använder när din slutpunkt-avsökning för att kontrollera dess hälsa. Övervakning av HTTPS kontrollerar inte om SSL-certifikatet är giltigt – endast kontrolleras att certifikatet är installerat.
 * **Port**. Välj den port som används för begäran.
 * **Sökvägen**. Den här inställningen gäller endast för HTTP och HTTPS-protokollen, för vilka att ange sökvägen inställning är obligatorisk. Ta del av den här inställningen för TCP övervakning protokollet uppstår ett fel. Ge den relativa sökvägen och namnet på webbsidan eller den fil som ansluter till för övervakning för HTTP och HTTPS-protokoll. Ett snedstreck (/) är en giltig post för den relativa sökvägen. Det här värdet anger att filen är i rotkatalogen (standard).
-* **Inställningar för anpassade huvud** den här inställningen kan du lägga till lägga till specifika HTTP-huvuden hälsa kontrollerar att Traffic Manager skickar till slutpunkter i en profil. Anpassade huvuden kan anges på en profilnivå för att gälla för alla slutpunkter i profilen and / or på slutpunkten nivå gäller endast för slutpunkten. Du kan använda anpassade huvuden för att ha hälsokontroller till slutpunkter i en miljö med flera innehavare dirigeras korrekt till sina mål genom att ange ett värdhuvud. Du kan också använda den här inställningen genom att lägga till unika rubriker som kan användas för att identifiera Traffic Manager har sitt ursprung HTTP (S)-begäranden och bearbetar dem på olika sätt.
+* **Inställningar för anpassade huvud** denna konfigurationsinställning kan du lägga till specifika HTTP-huvuden hälsa kontrollerar att Traffic Manager skickar till slutpunkter i en profil. Anpassade huvuden kan anges på en profilnivå för att gälla för alla slutpunkter i profilen and / or på slutpunkten nivå gäller endast för slutpunkten. Du kan använda anpassade huvuden för att ha hälsokontroller till slutpunkter i en miljö med flera innehavare dirigeras korrekt till sina mål genom att ange ett värdhuvud. Du kan också använda den här inställningen genom att lägga till unika rubriker som kan användas för att identifiera Traffic Manager har sitt ursprung HTTP (S)-begäranden och bearbetar dem på olika sätt.
 * **Förväntade statuskodintervall** den här inställningen kan du ange flera lyckades kod intervall i formatet 200 299, 301 301. Om dessa statuskoder tas emot som svar från en slutpunkt när en hälsokontroll initieras, markerar Traffic Manager de slutpunkterna som felfri. Du kan ange upp till 8 statuskodintervall. Den här inställningen gäller endast för HTTP och HTTPS-protokollet och för alla slutpunkter. Den här inställningen är på nivån för Traffic Manager-profil och som standard värdet 200 definieras som statuskod lyckades.
 * **Kontrollintervall**. Det här värdet anger hur ofta en slutpunkt har markerats för dess hälsa från en sökning Traffic Manager-agent. Du kan ange två värden här: 30 sekunder (vanlig sökning) och 10 sekunder (snabb avsökning). Om inga värden har angetts, anger profilen till ett standardvärde på 30 sekunder. Gå till den [Traffic Manager priser](https://azure.microsoft.com/pricing/details/traffic-manager) att lära dig mer om snabb sökning priser.
 * **Ska tolereras antalet fel**. Det här värdet anger hur många fel som en sökning Traffic Manager-agenten kan tolerera innan du markerar slutpunkten som skadad. Värdet kan variera mellan 0 och 9. Värdet 0 innebär att ett enstaka övervakning fel kan orsaka att slutpunkten markeras som felaktig. Om inget värde anges används standardvärdet 3.

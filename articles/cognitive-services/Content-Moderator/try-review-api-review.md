@@ -1,20 +1,21 @@
 ---
-title: Hantera innehåll med hjälp av mänsklig granskning i Azure Content Moderator | Microsoft Docs
+title: Hantera innehåll med hjälp av mänsklig granskning med API-konsolen – Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Lär dig hur du skapar mänsklig granskning i Content Moderator-API-konsolen.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 214695ed3e23d1f501d6d4691104b3f8a91f6efc
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866516"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219761"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Skapa granskningar från API-konsol
 

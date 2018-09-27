@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
-ms.openlocfilehash: 04996e772c2989be89ce551bfa45c57154de7b2d
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 59e5825554843ef7265cbccdd9a63db0426891fa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307797"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226317"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2-nivå för Azure App Service
 
@@ -55,7 +55,7 @@ Välj **produktion**och välj sedan **P1V2**, **P2V2**, eller **P3V2**, klicka s
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Om du inte ser **P1V2**, **P2V2**, och **P3V2** som alternativ, eller om alternativen är gråmarkerat ut sedan **PremiumV2** förmodligen inte tillgängliga i den underliggande App Service-distribution som innehåller App Service-planen. Se Se [skala upp från en resurs som inte stöds grupp och region kombination](#unsupported) för mer information.
+> Om du inte ser **P1V2**, **P2V2**, och **P3V2** som alternativ, eller om alternativen är gråmarkerat ut sedan **PremiumV2** förmodligen inte tillgängliga i den underliggande App Service-distribution som innehåller App Service-planen. Se [skala upp från en resurs som inte stöds grupp och region kombination](#unsupported) för mer information.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Skala upp en befintlig app som PremiumV2-nivå
 

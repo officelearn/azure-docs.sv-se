@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ea2a58e61d781e6ebfb72b860a3b7aed6ce0c7d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953488"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394494"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindningar för Azure Functions 2.x
 
@@ -1694,11 +1694,10 @@ När du skriver till Utdataparametern i din funktion skapas ett dokument i datab
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Gå till en Snabbstart som använder en Cosmos DB-utlösare](functions-create-cosmos-db-triggered-function.md)
+* [Lär dig mer om serverlös databehandling med Cosmos DB-databas](..\cosmos-db\serverless-computing-database.md)
+* [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [Lär dig mer om serverlös databehandling med Cosmos DB-databas](..\cosmos-db\serverless-computing-database.md)
-
-> [!div class="nextstepaction"]
-> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+--->

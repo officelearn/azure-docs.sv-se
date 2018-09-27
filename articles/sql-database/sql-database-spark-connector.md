@@ -1,29 +1,32 @@
 ---
-title: Väck koppling med Azure SQL Database och SQLServer | Microsoft Docs
+title: Spark-anslutningen med Azure SQL Database och SQLServer | Microsoft Docs
 description: Lär dig hur du använder Spark-anslutning för Azure SQL Database och SQL Server
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
+ms.subservice: development
 ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2018
+author: allenwux
 ms.author: xiwu
-ms.openlocfilehash: a422f65097466e4bbe5740c449d3ccf88701802b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/23/2018
+ms.openlocfilehash: 09035b19ee48602fde70736ab918fccae71108a5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650170"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166267"
 ---
-# <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Påskynda realtid stordata med Spark connector för Azure SQL Database och SQL Server
+# <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Påskynda i realtid stordataanalyser med Spark-anslutningsapp för Azure SQL Database och SQL Server
 
-Spark-connector för Azure SQL Database och SQL Server kan SQL-databaser, inklusive Azure SQL Database och SQL Server att fungera som mottagare för indata-käll- eller utdata data för Spark-jobb. Det kan du använda transaktionell realtidsdata i stordata och spara resultaten för ad hoc-frågor eller rapportering. Den här anslutningen ger jämfört med den inbyggda JDBC-anslutningen, dig möjlighet att massinfoga data i SQL-databaser. Det kan överträffar rad för rad infogning med 10 x till 20 x snabbare prestanda. Spark-anslutningen till Azure SQL Database och SQL Server stöder också AAD-autentisering. Det gör du på ett säkert sätt ansluta till Azure SQL database från Azure Databricks med AAD-konto. Det ger liknande gränssnitt med den inbyggda JDBC-anslutningen. Det är enkelt att migrera dina befintliga Spark-jobb för att använda den här nya anslutningen.
+Spark-anslutningsapp för Azure SQL Database och SQL Server gör det möjligt för SQL-databaser, inklusive Azure SQL Database och SQL Server att fungera som indata käll- eller utdata mellanlagringsplats för Spark-jobb. Det kan du använda transaktionell data i analyser av stordata i realtid och bevara resultat för ad hoc-frågor eller rapporter. Den här anslutningen ger jämfört med den inbyggda JDBC-anslutningen, möjlighet att massinfoga data i SQL-databaser. Det kan överträffar rad för rad infogning med 10 x till 20 gånger snabbare prestanda. Spark-anslutningsapp för Azure SQL Database och SQL Server har även stöd för AAD-autentisering. Det gör du på ett säkert sätt ansluta till Azure SQL database från Azure Databricks med AAD-konto. Det ger liknande gränssnitt med den inbyggda JDBC-anslutningen. Det är enkelt att migrera dina befintliga Spark-jobb för att använda den här nya kopplingen.
 
 ## <a name="download"></a>Ladda ned
-Kom igång genom att ladda ned Spark till SQL DB-anslutningen från den [azure sqldb spark databasen](https://github.com/Azure/azure-sqldb-spark) på GitHub.
+Kom igång genom att ladda ned Spark till SQL DB-anslutningen från den [lagringsplatsen för azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) på GitHub.
 
-## <a name="official-supported-versions"></a>Officiella versioner som stöds
+## <a name="official-supported-versions"></a>Official-versioner som stöds
 
 | Komponent                            |Version                  |
 | :----------------------------------- | :---------------------- |
@@ -33,26 +36,26 @@ Kom igång genom att ladda ned Spark till SQL DB-anslutningen från den [azure s
 | Microsoft SQL Server                 |SQLServer 2008 eller senare |
 | Azure SQL Database                   |Stöds                |
 
-Spark-anslutningen till Azure SQL Database och SQL Server använder Microsoft JDBC-drivrutinen för SQL Server för att flytta data mellan Spark arbetarnoder och SQL-databaser:
+Spark-anslutningsapp för Azure SQL Database och SQL Server använder Microsoft JDBC-drivrutinen för SQL Server för att flytta data mellan Spark arbetsnoder och SQL-databaser:
  
-I dataströmmen är följande:
-1. Noden som Spark ansluter till SQL Server eller Azure SQL Database och läser in data från en viss tabell eller med en specifik SQL-fråga
-2. Noden som Spark distribuerar data till arbetsnoder för omvandling. 
-3. Arbetsnoden ansluter till SQL Server eller Azure SQL-databas och skriver data till databasen. Användaren kan välja att använda rad för rad infogning eller bulk insert.
+Dataflödet är följande:
+1. Spark-huvudnoden ansluter till SQL Server eller Azure SQL Database och läser in data från en viss tabell eller använda en specifik SQL-fråga
+2. Spark-huvudnoden distribuerar data till arbetsnoder för omvandling. 
+3. Underordnad nod ansluter till SQL Server eller Azure SQL-databas och skriver data till databasen. Användaren kan välja att använda rad för rad infogning eller bulk insert.
 
 Följande diagram illustrerar dataflödet.
 
    ![Arkitektur](./media/sql-database-spark-connector/architecture.png)
 
-### <a name="build-the-spark-to-sql-db-connector"></a>Skapa Spark till SQL DB-koppling
+### <a name="build-the-spark-to-sql-db-connector"></a>Skapa Spark kan SQL DB-anslutningsapp
 För närvarande använder connector projektet maven. Du kan köra för att skapa anslutningen utan beroenden:
 
-- mvn ren paketet
-- Hämta de senaste versionerna av JAR från mappen versionen
+- mvn ren paket
+- Ladda ned de senaste versionerna av den JAR-filen från mappen versionen
 - Inkludera SQL DB Spark JAR
 
-## <a name="connect-spark-to-sql-db-using-the-connector"></a>Ansluta Spark till SQL-databas med hjälp av connector
-Du kan ansluta till Azure SQL Database eller SQL Server från Spark jobb, läsa eller skriva data. Du kan också köra en DML- eller DDL-fråga i en Azure SQL database eller SQL Server-databas.
+## <a name="connect-spark-to-sql-db-using-the-connector"></a>Anslut Spark till SQL DB med anslutningen
+Du kan ansluta till Azure SQL Database eller SQL Server från Spark-jobb, läsa eller skriva data. Du kan också köra en DML- eller DDL-fråga i en Azure SQL database eller SQL Server-databas.
 
 ### <a name="read-data-from-azure-sql-database-or-sql-server"></a>Läsa data från Azure SQL Database eller SQL Server
 
@@ -73,7 +76,7 @@ val config = Config(Map(
 val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
-### <a name="reading-data-from-azure-sql-database-or-sql-server-with-specified-sql-query"></a>Läser data från Azure SQL Database eller SQL Server med den angivna SQL-fråga
+### <a name="reading-data-from-azure-sql-database-or-sql-server-with-specified-sql-query"></a>Läsa data från Azure SQL Database eller SQL Server med angivna SQL-fråga
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
 import com.microsoft.azure.sqldb.spark.connect._
@@ -135,7 +138,7 @@ sqlContext.SqlDBQuery(config)
 Du kan ansluta till Azure SQL Database med Azure Active Directory (AAD)-autentisering. Använd AAD-autentisering för att centralt hantera identiteter för databasanvändare och som ett alternativ till SQL Server-autentisering.
 ### <a name="connecting-using-activedirectorypassword-authentication-mode"></a>Ansluta med ActiveDirectoryPassword autentiseringsläge
 #### <a name="setup-requirement"></a>Konfigurera krav
-Om du använder ActiveDirectoryPassword autentiseringsläge, måste du hämta [azure activedirectory-biblioteket-för-java-](https://github.com/AzureAD/azure-activedirectory-library-for-java) och dess beroenden och inkludera dem i Java byggsökväg.
+Om du använder ActiveDirectoryPassword autentiseringsläge, måste du ladda ned [azure-activedirectory-biblioteket-för-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) och dess beroenden och inkludera dem i Java build path.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -154,11 +157,11 @@ val collection = sqlContext.read.SqlDB(config)
 collection.show()
 ```
 
-### <a name="connecting-using-access-token"></a>Ansluta med åtkomst-Token
+### <a name="connecting-using-access-token"></a>Ansluta med åtkomsttoken
 #### <a name="setup-requirement"></a>Konfigurera krav
-Om du använder token-baserad autentisering åtkomstläge, måste du hämta [azure activedirectory-biblioteket-för-java-](https://github.com/AzureAD/azure-activedirectory-library-for-java) och dess beroenden och inkludera dem i Java byggsökväg.
+Om du använder åtkomstläge för tokenbaserad autentisering, måste du ladda ned [azure-activedirectory-biblioteket-för-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) och dess beroenden och inkludera dem i Java build path.
 
-Se [Använd Azure Active Directory-autentisering för autentisering med SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) att lära dig hur du får åtkomst till Azure SQL database-token.
+Se [Använd Azure Active Directory-autentisering för autentisering med SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) och lär dig att hämta åtkomsttoken till din Azure SQL-databas.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -177,7 +180,7 @@ collection.show()
 ```
 
 ## <a name="write-data-to-azure-sql-database-or-sql-server-using-bulk-insert"></a>Skriva data till Azure SQL database eller SQL Server med Bulk Insert
-Den traditionella jdbc-anslutningen skriver data till Azure SQL database eller SQL Server med rad för rad infogning. Du kan använda Spark till SQL DB-anslutningstjänsten för att skriva data till SQL-databas med massinfogning. Skrivprestanda förbättras avsevärt när inläsning av stora datamängder eller läsa in data i tabeller där ett columnstore-index används.
+Den traditionella jdbc-anslutningen skriver data till Azure SQL database eller SQL Server med rad för rad infogning. Du kan använda Spark till SQL DB-anslutningsapp för att skriva data till SQL-databas med massinfogning. Avsevärt förbättrar prestanda för skrivåtgärder vid inläsning av stora datamängder eller läsa in data i tabeller där ett columnstore-index används.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.bulkcopy.BulkCopyMetadata
@@ -211,10 +214,10 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Om du inte redan gjort hämta Spark-kopplingen för Azure SQL Database och SQL Server från [azure sqldb spark GitHub-lagringsplatsen](https://github.com/Azure/azure-sqldb-spark) och utforska ytterligare resurser i lagringsplatsen:
+Om du inte redan gjort hämta Spark-anslutningsapp för Azure SQL Database och SQL Server från [GitHub-lagringsplatsen för azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) och utforska ytterligare resurser i lagringsplatsen:
 
--   [Exemplet Azure Databricks bärbara datorer](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
+-   [Exemplet Azure Databricks-anteckningsböcker](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Exempel på skript (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-Du kanske också vill granska den [datauppsättningar Guide, DataFrames och Apache Spark SQL](http://spark.apache.org/docs/latest/sql-programming-guide.html) och [Azure Databricks dokumentationen](https://docs.microsoft.com/azure/azure-databricks/).
+Du kan också gå igenom den [Apache Spark SQL och DataFrames datauppsättningar Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) och [dokumentation för Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 

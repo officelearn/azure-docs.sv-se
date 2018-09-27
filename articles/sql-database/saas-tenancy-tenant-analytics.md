@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: dc912ded6f879d14689a267c7ee63245c11c0bd0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054956"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393272"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Flera klienter analytics med hjälp av extraherade data - enda klient
  
@@ -212,7 +212,7 @@ Insikter om biljett sälja mönster kan leda Wingtip biljetter för att optimera
 Vissa kunder Wingtip biljetter börjar under tiden kan klaga att de behöva kämpa för att sälja tillräckligt med biljetter för att motivera kostnaden för tjänsten. Kanske i dessa insikter finns en möjlighet att öka efter presterar som förväntat platser. Högre försäljning ökar upplevd värdet av tjänsten. Högerklicka på fact_Tickets och välj **nytt mått**. Ange följande uttryck för det nya måttet namnet **AverageTicketsSold**:
 
 ```
-AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
+AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )
 ```
 
 Välj följande alternativ för visualisering att rita de procentandel biljetter som säljs av varje plats för att fastställa deras relativa framgång.

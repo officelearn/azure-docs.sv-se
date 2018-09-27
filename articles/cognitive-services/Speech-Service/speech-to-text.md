@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: efdded28fa4554bf58399d997bf663781a08755e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9e180e15801a7100349c7334a2452adfeab95500
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714709"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394497"
 ---
 # <a name="about-the-speech-to-text-api"></a>Om tal till Text API
 
@@ -26,7 +26,7 @@ Den **tal till Text** API: et erbjuder följande funktioner:
 
 - I realtid kontinuerlig erkännande. **Tal till Text** tillåter användare att transkribera ljud till text i realtid. Det stöder även ta emot mellanresultat av ord som har blivit erkänt hittills. Tjänsten kan automatiskt identifiera slutet av tal. Användare kan också välja ytterligare alternativ, inklusive versaler och skiljetecken, svordomar maskera och inverterade text normalisering.
 
-- Optimerad **tal till Text** resultat för interaktiva, konversationen och diktering scenarier. 
+- Optimerad **tal till Text** resultat för interaktiva, konversationen och diktering scenarier. Okänt resultat som returneras i både Lexical och visa formulär (lexikal resultat finns DetailedSpeechRecognitionResult i exempel eller API: et).
 
 - Stöd för många språk och dialekter. En fullständig lista över språk som stöds i varje läge för igenkänning av Se [språk som stöds](supported-languages.md#speech-to-text).
 

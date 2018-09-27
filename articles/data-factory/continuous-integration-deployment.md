@@ -1,6 +1,6 @@
 ---
-title: Kontinuerlig integrering och distribution i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du använder kontinuerlig integrering och distribution för att flytta Data Factory-pipeliner från en miljö (utveckling, testning, produktion) till en annan.
+title: Kontinuerlig integrering och leverans i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du använder kontinuerlig integrering och leverans för att flytta Data Factory-pipeliner från en miljö (utveckling, testning, produktion) till en annan.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 94c4a3fbd1c854401c42af5787c22db0e5dd6083
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 587c4c0804de809431bf9e731e7533f0d75770d9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365003"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392626"
 ---
-# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Kontinuerlig integrering och distribution i Azure Data Factory
+# <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
-Kontinuerlig integrering är metoden att testa varje ändring som klar för att din kodbas automatiskt och så tidigt som möjligt. Kontinuerlig distribution följer testning som händer under kontinuerlig integrering och skickar ändringarna till ett system för mellanlagring eller produktion.
+Kontinuerlig integrering är metoden att testa varje ändring som klar för att din kodbas automatiskt och så tidigt som möjligt. Kontinuerlig leverans följer testning som händer under kontinuerlig integrering och skickar ändringarna till ett system för mellanlagring eller produktion.
 
-Innebär att flytta Data Factory-pipeliner från en miljö (utveckling, testning, produktion) till en annan för Azure Data Factory, kontinuerlig integration och distribution. Du kan använda Användargränssnittet för Data Factory integration med Azure Resource Manager-mallar för att göra kontinuerlig integration och distribution. Användargränssnittet för Data Factory kan generera en Resource Manager-mall när du väljer den **ARM-mallen** alternativ. När du väljer **exportera ARM-mallen**, portalen genererar Resource Manager-mall för data factory och en konfigurationsfil som innehåller alla anslutningar strängar och andra parametrar. Du måste sedan skapa en konfigurationsfil för varje miljö (utveckling, testning, produktion). Huvudfilen för Resource Manager-mall förblir densamma för alla miljöer.
+Innebär att flytta Data Factory-pipeliner från en miljö (utveckling, testning, produktion) till en annan för Azure Data Factory, kontinuerlig integrering och leverans. Du kan använda Användargränssnittet för Data Factory integration med Azure Resource Manager-mallar för att göra kontinuerlig integrering och leverans. Användargränssnittet för Data Factory kan generera en Resource Manager-mall när du väljer den **ARM-mallen** alternativ. När du väljer **exportera ARM-mallen**, portalen genererar Resource Manager-mall för data factory och en konfigurationsfil som innehåller alla anslutningar strängar och andra parametrar. Du måste sedan skapa en konfigurationsfil för varje miljö (utveckling, testning, produktion). Huvudfilen för Resource Manager-mall förblir densamma för alla miljöer.
 
 Titta på följande videoklipp för en nio minuters introduktion och demonstration av den här funktionen:
 
@@ -53,9 +53,9 @@ Välj **Läs in fil** och markerar den exporterade Resource Manager-mallen som d
 ![Öppna kodvyn för att se anslutningssträngen](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Livscykel för kontinuerlig integrering
-Här är hela livscykeln för kontinuerlig integration och distribution som du kan använda när du har aktiverat Azure DevOps Services GIT-integrering i Användargränssnittet för Data Factory:
+Här är hela livscykeln för kontinuerlig integrering och leverans som du kan använda när du har aktiverat Azure lagringsplatser Git-integrering i Användargränssnittet för Data Factory:
 
-1.  Konfigurera en data factory för utveckling med Azure DevOps-tjänsterna där alla utvecklare kan skapa Data Factory-resurser som pipelines, datauppsättningar och så vidare.
+1.  Konfigurera en data factory för utveckling med Azure-lagringsplatser där alla utvecklare kan skapa Data Factory-resurser som pipelines, datauppsättningar och så vidare.
 
 1.  Utvecklare kan sedan ändra resurser, till exempel pipelines. När de gör ändringarna kan de välja **felsöka** att se hur pipelinekörningarna med de senaste ändringarna.
 
@@ -67,23 +67,23 @@ Här är hela livscykeln för kontinuerlig integration och distribution som du k
 
 1.  Den exporterade Resource Manager-mallen kan distribueras med olika parameterfiler fabriken för testning och produktion fabriken.
 
-## <a name="automate-continuous-integration-with-azure-devops-services-releases"></a>Automatisera kontinuerlig integrering med Azure DevOps tjänster versioner
+## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>Automatisera kontinuerlig integrering med Azure Pipelines versioner
 
-Här följer stegen för att konfigurera en version med Azure DevOps-tjänster så att du kan automatisera distributionen av en data factory till flera miljöer.
+Här följer stegen för att konfigurera en Azure-Pipelines version så kan du automatisera distributionen av en data factory till flera miljöer.
 
-![Diagram över kontinuerlig integrering med Azure DevOps-tjänsterna](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagram över kontinuerlig integrering med Azure-Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Krav
 
--   En Azure-prenumeration som är länkad till Team Foundation Server eller Azure DevOps-tjänster med hjälp av den [ *Azure Resource Manager-tjänstslutpunkt*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   En Azure-prenumeration som är länkad till Team Foundation Server eller Azure-databaser med hjälp av den [ *Azure Resource Manager-tjänstslutpunkt*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   En Datafabrik med Azure DevOps Services Git konfigurerats.
+-   En Datafabrik med Azure-lagringsplatser Git-integrering som konfigurerats.
 
 -   En [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som innehåller hemligheterna.
 
-### <a name="set-up-an-azure-devops-services-release"></a>Konfigurera en version med Azure DevOps-tjänster
+### <a name="set-up-an-azure-pipelines-release"></a>Konfigurera en Azure-Pipelines-version
 
-1.  Gå till sidan Azure DevOps-tjänsterna i samma projekt som konfigurerats med Data Factory.
+1.  Gå till din Azure-lagringsplatser sida i samma projekt som konfigurerats med Data Factory.
 
 1.  Klicka på den översta menyn **Azure Pipelines** &gt; **versioner** &gt; **skapa versionsdefinition**.
 
@@ -121,7 +121,7 @@ Här följer stegen för att konfigurera en version med Azure DevOps-tjänster s
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Valfritt – som får hemligheterna från Azure Key Vault
 
-Om du har hemligheter för att skicka in en Azure Resource Manager-mall, bör du använda Azure Key Vault med Azure DevOps-tjänsterna.
+Om du har hemligheter för att skicka in en Azure Resource Manager-mall, bör du använda Azure Key Vault med Azure-Pipelines.
 
 Det finns två sätt att hantera hemligheterna:
 
@@ -156,13 +156,13 @@ Det finns två sätt att hantera hemligheterna:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-azure-devops-services-agent"></a>Ge behörigheter till Azure DevOps-Services-agenten
-Azure Key Vault-uppgiften misslyckas för första gången med ett felmeddelande om nekad. Hämta loggar för versionen och leta upp den `.ps1` filen med kommandot för att ge behörigheter till Azure DevOps-Services-agenten. Du kan köra kommandot direkt, eller du kan kopiera huvudkonto-ID från filen och lägga till åtkomstprincipen manuellt i Azure-portalen. (*Hämta* och *lista* är den lägsta behörigheten som krävs).
+### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Bevilja behörigheter till Pipelines med Azure-agenten
+Azure Key Vault-uppgiften misslyckas för första gången med ett felmeddelande om nekad. Hämta loggar för versionen och leta upp den `.ps1` filen med kommandot för att ge behörighet till Pipelines med Azure-agenten. Du kan köra kommandot direkt, eller du kan kopiera huvudkonto-ID från filen och lägga till åtkomstprincipen manuellt i Azure-portalen. (*Hämta* och *lista* är den lägsta behörigheten som krävs).
 
 ### <a name="update-active-triggers"></a>Uppdatera active utlösare
 Distributionen kan misslyckas om du försöker uppdatera active utlösare. För att uppdatera active utlösare, måste du manuellt stoppa dem och starta dem efter distributionen. Du kan lägga till en Azure Powershell-uppgift för detta ändamål som visas i följande exempel:
 
-1.  I fliken aktiviteter för Azure DevOps tjänster versionen söker du efter **Azure Powershell** och lägga till den.
+1.  I fliken uppgifter i versionen, söker du efter **Azure Powershell** och lägga till den.
 
 1.  Välj **Azure Resource Manager** som anslutningen skriver och välj din prenumeration.
 
@@ -180,7 +180,7 @@ Du kan följa liknande steg och använda liknande kod (med den `Start-AzureRmDat
 
 ## <a name="sample-deployment-template"></a>Exempelmall för distribution
 
-Här är en exempelmall för distribution som du kan importera i Azure DevOps-tjänsterna.
+Här är en exempelmall för distribution som du kan importera i Azure-Pipelines.
 
 ```json
 {

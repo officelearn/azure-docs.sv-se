@@ -1,6 +1,6 @@
 ---
-title: Återaktivering inaktiverat Azure för studenter prenumeration | Microsoft Docs
-description: Förklarar varför din Azure för studenter prenumerationen är inaktiverad och hur du återaktivera den.
+title: Återaktivera en inaktiverad Azure för studenter-prenumeration | Microsoft Docs
+description: Förklarar varför din Azure för studenter-prenumeration är inaktiverad och hur du återaktivera den.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -13,50 +13,50 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2018
-ms.author: amberb
+ms.author: cwatson
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7fe3573dcf3f057d843547b9e4114f3b74c6ab59
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d7bf1d06c598dd7e548c109f68d0996c0be2b6b8
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203603"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391376"
 ---
-# <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Varför är min Azure för studenter prenumeration inaktiveras och hur jag återaktivera den?
+# <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Varför är min Azure för studenter-prenumeration som är inaktiverad och hur jag återaktivera den?
 
-Din Azure för studenter prenumeration kan inaktiveras eftersom du har använt alla din kredit, kreditkortet har upphört att gälla eller du av misstag har avbrutit din prenumeration. Se vilka problemet gäller dig och lär dig hur du kan få prenumerationen igen.
+Din Azure för studenter-prenumeration kan inaktiveras eftersom du har använt all din kredit, din kredit har upphört att gälla eller du har avbrutit din prenumeration av misstag. Se vilket problem gäller dig och lär dig hur du kan få din prenumeration har återaktiverats.
 
-## <a name="you-have-used-all-of-your-credit"></a>Du har använt alla kreditkortet
+## <a name="you-have-used-all-of-your-credit"></a>Du har använt all din kredit
 
-Azure för studenter konto får du 100 USD i kredit och en begränsad mängd ledigt tjänster i tolv månader. Alla användning utöver gratistjänster och kvantiteter dras från din kredit. När din kredit tar slut, inaktiverar Azure dina tjänster och abonnemang. Om du vill fortsätta använda Azure-tjänster, måste du uppgradera din prenumeration till en prenumeration med användningsbaserad betalning genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) och ge din kreditkortsinformation. När du har uppgraderat har din prenumeration fortfarande åtkomst till kostnadsfria tjänster för 12 månader från din registrering. Du får endast debiteras för användning utöver gratistjänster och kvantiteter.
+Azure för studenter-konto får du 100 USD i kredit och en begränsad mängd kostnadsfria tjänster i 12 månader. All användning utöver de kostnadsfria tjänster och kvoterna dras från din kredit. När din kredit tar slut, inaktiveras dina tjänster och -prenumeration i Azure. Om du vill använda Azure-tjänster, måste du uppgradera din prenumeration till en användningsbaserad prenumeration genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) och ange din kreditkortsinformation. När du har uppgraderat har din prenumeration fortfarande åtkomst till kostnadsfria tjänster i 12 månader från datumet dina registrering. Du debiteras endast för användning utöver de kostnadsfria tjänster och kvoterna.
 
-Du kan kontrollera din återstående kredit på den [portal för Microsoft Azure sponsring](https://www.microsoftazuresponsorships.com/balance)
+Du kan kontrollera din återstående kredit på den [Microsoft Azure Sponsorships-portalen](https://www.microsoftazuresponsorships.com/balance)
 
-1. Logga in med ditt Azure för studenter autentiseringsuppgifter.
+1. Logga in med din Azure för studenter-autentiseringsuppgifter.
 2. Sidan saldo ger information om använda och återstående kredit. Du hittar din kredit upphör att gälla under kredit diagrammet.  
    
-    ![Skärmbild som visar information om kredit för Azure för studenter prenumeration](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-balance.png)
+    ![Skärmbild som visar information om kredit för Azure för studenter-prenumeration](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-balance.png)
 
-3. För att kontrollera användningen av tjänster som använder Azure-kredit, Välj **användning** i det vänstra navigeringsfönstret sedan väljer du din Azure för studenter prenumeration.
+3. Kontrollera användningen av tjänster som förbrukar din Azure-kredit genom att välja **användning** sedan det vänstra navigeringsfönstret väljer du din Azure för studenter-prenumeration.
 
-    ![Skärmbild som visar användningsinformation för Azure för studenter kredit](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-usage.png)
+    ![Skärmbild som visar användningsinformation för Azure för studenter-kredit](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-usage.png)
 
 Tabellen innehåller följande kolumner:
 
-* **Tjänstens namn:** tjänst som förbrukar Azure-kredit.
+* **Tjänstnamn:** tjänst som använder din Azure-kredit.
 * **Tjänstresurs:** måttenhet för tjänsten används.
-* **Ägna:** mängd kredit i USD($) använts på tjänsten.
+* **Spendera:** kreditbeloppet i USD($) som ägnats åt tjänsten.
 
 
-## <a name="your-credit-has-expired"></a>Kreditkortet har upphört att gälla
+## <a name="your-credit-has-expired"></a>Din kredit har upphört att gälla
 
-Din Azure för studenter kredit upphör att gälla i slutet av tolv månader. När din kredit upphör inaktiverar Azure din prenumeration. Om du vill fortsätta använda Azure-tjänster, måste du uppgradera din prenumeration till en betala per användning prenumeration genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) och ge din kreditkortsinformation. När du har uppgraderat debiterar Azure betalning per användning priser för alla tjänster som du använder.
+Din Azure för studenter-kredit upphör att gälla i slutet av 12 månader. När din kredit går ut inaktiveras din prenumeration i Azure. Om du vill använda Azure-tjänster, måste du uppgradera din prenumeration till betala per användning genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) och ange din kreditkortsinformation. När du har uppgraderat debiterar Azure du betala per användning för alla tjänster som du använder.
 
 
-## <a name="you-have-accidentally-canceled-your-subscription"></a>Du har avbrutit prenumerationen av misstag
+## <a name="you-have-accidentally-canceled-your-subscription"></a>Du har avbrutit din prenumeration av misstag
 
-Om du av misstag har avbrutit din Azure för studenter prenumeration, du kan återaktivera den genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). När du återaktiverar ha du fortfarande åtkomst till de återstående kredit och gratistjänster i 12 månader från det datum som du registrerar dig.
+Om du av misstag har avbrutit din Azure för studenter-prenumeration, du kan återaktivera den genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). När du skulle vilja återaktivera har du fortfarande åtkomst till de återstående kredit och kostnadsfria tjänster i 12 månader från din registrering datum.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
-Om du fortfarande behöver hjälp [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.
+Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.

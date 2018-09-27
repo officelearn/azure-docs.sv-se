@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: ba00d859dcfa968dcff7b321d571d61aea98463f
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 54eef98d85337f14ff9e10837f97ccd28a58afdf
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056326"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223465"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Installera Azure Stream Analytics-verktyg för Visual Studio
 Azure Stream Analytics-verktyg stöd för Visual Studio 2017, 2015 och 2013. Den här artikeln beskriver hur du installerar och avinstallerar verktygen.
@@ -34,6 +34,9 @@ Aktivera den **Azure development** arbetsbelastning som visas:
 
 ![Arbetsbelastningen Azure development har valts](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-02.png)
 
+* I Verktyg-menyn väljer du **tillägg och uppdateringar**. Hitta Azure Data Lake och Stream Analytics-verktyg i installerade tillägg och klicka på **uppdatering** att installera det senaste tillägget. 
+
+![Visual Studio-tillägg och uppdateringar](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-extensions-updates.png)
 
 ### <a name="visual-studio-2013-2015"></a>Visual Studio 2013, 2015
 * Installera Visual Studio 2015 eller Visual Studio 2013 uppdatering 4. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte. 
@@ -43,7 +46,9 @@ Aktivera den **Azure development** arbetsbelastning som visas:
 ## <a name="update"></a>Uppdatering
 
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
-Den nya versionen påminnelsen som visas i Visual Studio-meddelandet. 
+Den nya versionen påminnelsen som visas i Visual Studio-meddelandet.
+
+![Visual Studio nya version påminnelse](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-new-version-reminder-vs-tools.png)
 
 ### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 och Visual Studio 2015
 De installerade Stream Analytics-verktyg för Visual Studio Sök automatiskt efter nya versioner. Följ anvisningarna i popup-fönstret för att installera den senaste versionen. 

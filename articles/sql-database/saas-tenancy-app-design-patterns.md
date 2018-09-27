@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: b9009452ada6ebfb7626532b1fac406563704ef3
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056697"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227494"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS innehavare mönster
 
@@ -138,7 +138,7 @@ Två varianter av en databas för flera innehavare modell diskuteras vad följer
 
 ## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. App för flera klienter med en enda databas för flera innehavare
 
-Den enklaste mönstret för databas för flera klienter använder en enda databas som värd för data för alla klienter.  När fler klienter läggs skalas databasen upp med mer resurser för lagring och beräkning.  Den här att skala upp kan vara allt som krävs, även om det finns alltid en ultimate skalningsgränsen.  Långa innan den gränsen har uppnåtts databasen blir dock svårhanterligt att hantera.
+Den enklaste mönstret för databas för flera klienter använder en enkel databas som värd för data för alla klienter.  När fler klienter läggs skalas databasen upp med mer resurser för lagring och beräkning.  Den här att skala upp kan vara allt som krävs, även om det finns alltid en ultimate skalningsgränsen.  Långa innan den gränsen har uppnåtts databasen blir dock svårhanterligt att hantera.
 
 Hanteringsåtgärder som fokuserar på enskilda klienter är mer komplexa för att implementera i en databas för flera innehavare.  Och i stor skala kan dessa åtgärder bli oacceptabelt långsamt.  Ett exempel är en point-in-time-återställning av data för en klient.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 67624e7ad21e6c3526b3ca47ff4b8e2df3b6ae54
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ea7393584e77b51073ca8938ec03e9d6f6ad6fc0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962274"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166681"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure Cloudshell
 Azure Cloud Shell är en interaktiv, tillgängligt via webbläsaren gränssnitt för att hantera Azure-resurser.
@@ -41,11 +41,11 @@ Cloudshell kan åtkomst till en webbläsarbaserad kommandoradsmiljö som skapats
 Utnyttja molnet gränssnittet för att arbeta gå fritt från en lokal dator på ett sätt endast molnet kan ge.
 
 ### <a name="choice-of-preferred-shell-experience"></a>Val av önskad skalupplevelse
-Linux-användare kan använda Bash i Cloud Shell, även om Windows-användare kan använda PowerShell i Cloud Shell (förhandsversion) i listrutan shell.
+Användare kan välja mellan Bash eller PowerShell i listrutan shell.
 
 ![Bash i Cloudshell](media/overview/overview-bash-pic.png)
 
-![PowerShell i Cloudshell (förhandsversion)](media/overview/overview-ps-pic.png)
+![PowerShell i Cloud Shell](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Autentiserade och konfigurerade Azure arbetsstation
 Cloudshell hanteras av Microsoft, så det levereras med populära kommandoradsverktyg och språk som stöds. Cloudshell är också på ett säkert sätt autentiserar automatiskt för omedelbar åtkomst till dina resurser via Azure CLI eller Azure PowerShell-cmdletar.
@@ -68,7 +68,7 @@ Cloudshell är ett flexibelt verktyg som kan användas från:
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Ansluta din Microsoft Azure Files-lagring
 Cloud Shell datorer är tillfälliga och kräver en ny eller befintlig Azure Files-resurs som ska monteras som `clouddrive` för bevarande av filer.
 
-Vid första start Cloud Shell uppmanas du för att skapa en resurs dela gruppen, storage-konto och Azure Files för din räkning. Detta är ett enstaka steg och bifogas automatiskt för alla sessioner. En enda filresurs kan mappas och används av både Bash och PowerShell i Cloud Shell (förhandsversion).
+Vid första start Cloud Shell uppmanas du för att skapa en resurs dela gruppen, storage-konto och Azure Files för din räkning. Detta är ett enstaka steg och bifogas automatiskt för alla sessioner. En enda filresurs kan mappas och används av både Bash och PowerShell i Cloud Shell.
 
 Läs mer om du vill veta hur du monterar en [nytt eller befintligt lagringskonto](persisting-shell-storage.md).
 
@@ -81,11 +81,11 @@ Läs mer om du vill veta hur du monterar en [nytt eller befintligt lagringskonto
 * Cloudshell kvarstår $Home med en avbildning för 5 GB som lagras i filresursen
 * Behörigheter har angetts som en vanlig Linux-användare i Bash
 
-Läs mer om funktionerna i [Bash i Cloud Shell](features.md) och [PowerShell i Cloud Shell (förhandsversion)](features-powershell.md).
+Läs mer om funktionerna i [Bash i Cloud Shell](features.md) och [PowerShell i Cloud Shell](features-powershell.md).
 
 ## <a name="pricing"></a>Prissättning
 Den datorn som är värd för Cloud Shell är kostnadsfri, med ett krav för en monterad Azure Files-resurs. Vanliga storage kan tillkomma.
 
 ## <a name="next-steps"></a>Nästa steg
 [Bash i Cloud Shell-Snabbstart](quickstart.md) <br>
-[PowerShell i Cloud Shell (förhandsversion) Snabbstart](quickstart-powershell.md)
+[PowerShell i Cloud Shell-Snabbstart](quickstart-powershell.md)

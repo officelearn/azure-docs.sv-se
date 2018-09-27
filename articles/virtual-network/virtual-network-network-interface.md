@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 78578197c5f764c8e197d3426506cb1eb13b838f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 110b97cdb4de6e866ac8ce17a1f05d0231ff5071
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956805"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221607"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -88,7 +88,7 @@ Du kan visa och ändra de flesta inställningar för ett nätverksgränssnitt n�
     - **Egenskaper:** visar viktiga inställningar för nätverksgränssnittet, inklusive MAC-adressen (tomt om nätverksgränssnittet inte är kopplad till en virtuell dator) och prenumerationen som den finns i.
     - **Reglerna för effektiva:** säkerhetsregler visas om nätverksgränssnittet är ansluten till en aktiv virtuell dator och en NSG är associerad till nätverksgränssnittet, det undernät som den är tilldelad till eller båda. Läs mer om vad som visas i [visa gällande säkerhetsregler](#view-effective-security-rules). Mer information om Nätverkssäkerhetsgrupper finns [Nätverkssäkerhetsgrupper](security-overview.md).
     - **Effektiva vägar:** vägar listas om nätverksgränssnittet är kopplat till en aktiv virtuell dator. Vägar är en kombination av standardvägar som Azure, några användardefinierade vägar och BGP-vägar som kan finnas för det undernät som nätverksgränssnittet har tilldelats. Läs mer om vad som visas i [visa effektiva vägar](#view-effective-routes). Läs mer om Azure standardvägar och användardefinierade vägar i [routningsöversikten](virtual-networks-udr-overview.md).
-    - **Gemensamma inställningar för Azure Resource Manager:** Läs mer om vanliga Azure Resource Manager-inställningar i [aktivitetsloggen](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Låser](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), och [automationsskript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Gemensamma inställningar för Azure Resource Manager:** Läs mer om vanliga Azure Resource Manager-inställningar i [aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Låser](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), och [automationsskript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Kommandon**
 

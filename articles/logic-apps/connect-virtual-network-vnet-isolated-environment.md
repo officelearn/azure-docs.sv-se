@@ -1,6 +1,6 @@
 ---
 title: Ansluta till virtuella Azure-nätverk från Azure Logic Apps
-description: För att komma åt Azure-nätverk (Vnet) från Azure Logic Apps kan du skapa privata, dedikerade och isolerade integration service-miljöer som håller logikappar och andra resurser som är separata från offentligt eller ”global” Azure
+description: För att komma åt Azure-nätverk från Azure Logic Apps kan du skapa privata, dedikerade och isolerade integration service-miljöer som håller logikappar och andra resurser som är separata från offentligt eller ”global” Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,20 +8,20 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: b1a75c140376c1e2e2fdfdcd1581978301ab32f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/25/2018
+ms.openlocfilehash: 354c31014448b914b33d2bef5483efc78092f726
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996476"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391929"
 ---
-# <a name="create-isolated-environments-to-access-azure-virtual-networks-vnets-from-azure-logic-apps"></a>Skapa isolerade miljöer för att komma åt Azure-nätverk (Vnet) från Azure Logic Apps
+# <a name="create-isolated-environments-to-access-azure-virtual-networks-from-azure-logic-apps"></a>Skapa isolerade miljöer för att komma åt Azure-nätverk från Azure Logic Apps
 
 > [!NOTE]
 > Den här funktionen är i *privat förhandsgranskning*. Att begära åtkomst, [skapa din begäran om att ansluta till här](https://aka.ms/iseprivatepreview).
 
-För integrationsscenarier där dina logic apps och integrationskonton behöver åtkomst till en [Azure-nätverk (VNET)](../virtual-network/virtual-networks-overview.md), kan du skapa en [ *integreringstjänstmiljön* (ISE) ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) som länkar till ditt virtuella nätverk och distribuerar Logic Apps-tjänsten i ditt virtuella nätverk. När du skapar logikappar och integrationskonton, väljer du den här ISE som deras plats. Dina logikappar och integrationskonton kan sedan direkt åtkomst till resurser, till exempel virtuella datorer (VM), servrar, system och tjänster i ditt VNET. 
+För integrationsscenarier där dina logic apps och integrationskonton behöver åtkomst till en [Azure-nätverk](../virtual-network/virtual-networks-overview.md), kan du skapa en [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) som länkar till det virtuella nätverket och distribuerar Logic Apps-tjänsten i ditt nätverk. När du skapar logikappar och integrationskonton, väljer du den här ISE som deras plats. Dina logikappar och integrationskonton kan sedan direkt åtkomst till resurser, till exempel virtuella datorer (VM), servrar, system och tjänster i ditt virtuella nätverk. 
 
 ![Välj integreringstjänstmiljö](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
@@ -29,7 +29,7 @@ Din ISE är en privat och isolerad miljö som använder dedikerade lagringsutrym
 
 Den här artikeln visar hur du utför dessa uppgifter:
 
-* Konfigurera behörigheter för ditt Azure VNET så att den privata Logic Apps-instansen har åtkomst till ditt virtuella nätverk.
+* Konfigurera behörigheter på Azure-nätverk så att den privata Logic Apps-instansen kan komma åt det virtuella nätverket.
 
 * Skapa din integration service-environment (ISE). 
 
@@ -37,30 +37,32 @@ Den här artikeln visar hur du utför dessa uppgifter:
 
 * Skapa ett integrationskonto för logikappar i din ISE.
 
-Läs mer om integreringstjänstmiljöer [åtkomst till resurser i Azure Virtual Network (VNET) från isolerade Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-resurser från isolerad Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
-* Om du inte har ett virtuellt Azure nätverk kan du lära dig hur du [skapa en Azure-nätverk](../virtual-network/quick-create-portal.md). 
+* Om du inte har ett Azure-nätverk kan du lära dig hur du [skapa en Azure-nätverk](../virtual-network/quick-create-portal.md). 
 
   > [!IMPORTANT]
-  > Även om du inte behöver ett Azure VNET för att skapa din miljö kan du kan *endast* välja ett virtuellt nätverk som peer för din miljö när du skapar den miljön. 
+  > Även om du inte behöver ett Azure-nätverk för att skapa din miljö kan du kan *endast* välja ett virtuellt nätverk som peer för din miljö när du skapar den miljön. 
 
-* Ge dina logikappar direkt åtkomst till ditt Azure VNET, [konfigurera rollbaserad åtkomstkontroll (RBAC) behörigheter](#vnet-access) så att Logic Apps-tjänsten har behörigheter för åtkomst till ditt virtuella nätverk. 
+* Ge dina logikappar direkt åtkomst till Azure-nätverk, [konfigurera rollbaserad åtkomstkontroll (RBAC) behörigheter](#vnet-access) så att Logic Apps-tjänsten har behörigheter för åtkomst till ditt virtuella nätverk. 
 
 * Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="vnet-access"></a>
 
-## <a name="set-up-vnet-permissions"></a>Konfigurera VNET-behörigheter
+## <a name="set-virtual-network-permissions"></a>Ange behörigheter för virtuella nätverk
 
-När du skapar din integration service-miljö kan du välja ett Azure-nätverk (VNET) som en *peer* för din miljö. Men du kan bara utföra det här steget eller *peering*, när du skapar din miljö. Den här relationen kan ansluta direkt till resurser i det virtuella nätverket Logic Apps-tjänsten och ger din miljöåtkomst till dessa resurser. 
+När du skapar din integration service-miljö kan du välja ett Azure-nätverk som en *peer* för din miljö. Men du kan bara utföra det här steget eller *peering*, när du skapar din miljö. Den här relationen kan ansluta direkt till resurser i det virtuella nätverket Logic Apps-tjänsten och ger din miljöåtkomst till dessa resurser. 
 
-Innan du kan välja det virtuella nätverket måste ställa du in behörigheter för rollbaserad åtkomstkontroll (RBAC) i ditt virtuella nätverk. För att slutföra den här uppgiften, måste du tilldela specifika roller till Azure Logic Apps-tjänsten.
+Innan du kan välja det virtuella nätverket måste ställa du in behörigheter för rollbaserad åtkomstkontroll (RBAC) i det virtuella nätverket. För att slutföra den här uppgiften, måste du tilldela specifika roller till Azure Logic Apps-tjänsten.
 
-1. I den [Azure-portalen](https://portal.azure.com), hitta och välj ditt virtuella nätverk. I det virtuella Nätverkets menyn väljer **åtkomstkontroll (IAM)**. 
+1. I den [Azure-portalen](https://portal.azure.com), hitta och välj ditt virtuella nätverk. 
+
+1. I det virtuella nätverket menyn väljer **åtkomstkontroll (IAM)**. 
 
 1. Under **Access Control**väljer **rolltilldelning** om inte redan är valt. På den **rolltilldelning** verktygsfältet och välj **Lägg till**. 
 
@@ -78,7 +80,51 @@ Innan du kan välja det virtuella nätverket måste ställa du in behörigheter 
 
    ![Lägga till behörigheter](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
 
-Mer information om de rollbehörigheterna som krävs för peering finns i den [behörigheter avsnittet i Skapa, ändra eller ta bort en virtuell nätverkspeering](../virtual-network/virtual-network-manage-peering.md#permissions).
+   Mer information om de rollbehörigheterna som krävs för peering finns i den [behörigheter avsnittet i Skapa, ändra eller ta bort en virtuell nätverkspeering](../virtual-network/virtual-network-manage-peering.md#permissions). 
+
+Om det virtuella nätverket är anslutet via Azure ExpressRoute, Azure punkt-till-plats-VPN eller Azure plats-till-plats-VPN, fortsätter du med nästa avsnitt så att du kan lägga till nödvändiga gateway-undernätet. I annat fall fortsätter med [skapa miljön](#create-environment).
+
+<a name="add-gateway-subnet"></a>
+
+## <a name="add-gateway-subnet-for-virtual-networks-with-expressroute-or-vpns"></a>Lägg till gateway-undernät för virtuella nätverk med ExpressRoute eller VPN-anslutningar
+
+När du har slutfört föregående steg, din integration service-environment (ISE) för att ge åtkomst till ett Azure-nätverk som har anslutit via [Azure ExpressRoute](../expressroute/expressroute-introduction.md), [Azure punkt-till-plats VPN](../vpn-gateway/point-to-site-about.md), eller [Azure plats-till-plats-VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), måste du också lägga till en [ *gatewayundernätet* ](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) till det virtuella nätverket:
+
+1. I den [Azure-portalen](https://portal.azure.com), hitta och välj ditt virtuella nätverk. I det virtuella nätverket menyn väljer **undernät**, och välj sedan **gatewayundernätet** > **OK**.
+
+   ![Lägg till gateway-undernät](./media/connect-virtual-network-vnet-isolated-environment/add-gateway-subnet.png)
+
+1. Nu skapar du en [ *routningstabellen*](../virtual-network/manage-route-table.md), som du kan associera med gateway-undernätet som du skapade tidigare.
+
+   1. Välj på Azure-huvudmenyn **skapa en resurs** > 
+    **nätverk** > **routningstabellen**.
+
+      ![Skapa routningstabell](./media/connect-virtual-network-vnet-isolated-environment/create-route-table.png)
+
+   1. Ange information om routningstabellen, till exempel namn, din Azure-prenumeration du använder, Azure-resursgrupp och plats. Kontrollera att den **BGP-spridning** är inställd på **aktiverad**, och välj sedan **skapa**.
+
+      ![Ange tabellen flödesinformation](./media/connect-virtual-network-vnet-isolated-environment/enter-route-table-information.png)
+
+   1. På vägen Tabell-menyn, Välj **undernät**, och välj sedan **associera**. 
+
+      ![Ansluta routningstabellen för undernätet](./media/connect-virtual-network-vnet-isolated-environment/associate-route-table.png)
+
+   1. Välj **virtuellt nätverk**, och välj sedan det virtuella nätverket.
+   
+   1. Välj **undernät**, och välj sedan tidigare skapade gateway-undernätet.
+
+   1. När du är klar väljer **OK**.
+
+1. Om du har en punkt-till-plats-VPN kan du slutföra stegen för:
+
+   1. I Azure, hitta och välj den virtuella nätverksresursen för gateway.
+
+   1. På den gateway-menyn, Välj **punkt-till-plats-konfiguration**. 
+   Välj sedan **hämta VPN-klient** så att du har den senaste VPN-klientkonfigurationen.
+
+      ![Ladda ned den senaste VPN-klienten](./media/connect-virtual-network-vnet-isolated-environment/download-vpn-client.png)
+
+Du är nu klar med att konfigurera ett gateway-undernät för virtuella nätverk som använder ExpressRoute, punkt-till-plats-VPN eller VPN för plats-till-plats. Följ stegen nedan om du vill fortsätta skapa din integration service-miljö.
 
 <a name="create-environment"></a>
 
@@ -107,9 +153,9 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
    | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumeration för din miljö | 
    | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Azure-resursgrupp där du vill skapa en miljö |
    | **Plats** | Ja | <*Azure-datacenterregion*> | Azure-datacenterregion var du vill lagra information om din miljö |
-   | **Peer-nätverket** | Nej | <*Azure-VNET-name*> | Azure-nätverk (VNET) ska associeras med din miljö som en *peer* så logic apps i denna miljö kan komma åt ditt virtuella nätverk. Innan du kan skapa den här relationen, se till att du redan [konfigurera rollbaserad åtkomstkontroll i ditt virtuella nätverk för Azure Logic Apps](#vnet-access). <p>**Viktiga**: även om ett virtuellt nätverk krävs inte, du kan välja ett virtuellt nätverk *endast* när du skapar din miljö. | 
-   | **Peering namn** | Ja med valda virtuella nätverk | <*peering-name*> | Namnet som ska ge peer-relation | 
-   | **VNET-IP-intervall** | Ja med valda virtuella nätverk | <*IP-adressintervall*> | IP-adressintervall du använder för att skapa resurser i din miljö. Det här intervallet måste använda den [Classless Inter-Domain Routing CIDR-formatet](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), till exempel 10.0.0.1/16, och kräver en klass B-adressutrymme. Intervallet får inte finnas inom adressutrymmet för det virtuella nätverket har valt i den **Peer-VNET** egenskap, eller i alla andra privata IP-adresser där peer-nätverket är anslutet, antingen via peering eller gateways. <p><p>**Viktiga**: du *kan inte ändra* detta adressintervall när du har skapat din miljö. |
+   | **Peer-nätverket** | Nej | <*Azure-VNET-name*> | Azure-nätverket ska associeras med din miljö som en *peer* så logic apps i denna miljö kan komma åt det virtuella nätverket. Innan du kan skapa den här relationen, se till att du redan [konfigurera rollbaserad åtkomstkontroll i ditt virtuella nätverk för Azure Logic Apps](#vnet-access). <p>**Viktiga**: även om ett virtuellt nätverk krävs inte, du kan välja ett virtuellt nätverk *endast* när du skapar din miljö. | 
+   | **Peering namn** | Ja, med en valda virtuella nätverket | <*peering-name*> | Namnet som ska ge peer-relation | 
+   | **VNET-IP-intervall** | Ja, med en valda virtuella nätverket | <*IP-adressintervall*> | IP-adressintervall du använder för att skapa resurser i din miljö. Det här intervallet måste använda den [Classless Inter-Domain Routing CIDR-formatet](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), till exempel 10.0.0.1/16, och kräver en klass B-adressutrymme. Intervallet får inte finnas inom adressutrymmet för det virtuella nätverket som valts i den **Peer-VNET** egenskap, eller i alla andra privata IP-adresser där peer-nätverket är anslutet, antingen via peering eller gateways. <p><p>**Viktiga**: du *kan inte ändra* detta adressintervall när du har skapat din miljö. |
    |||||
    
 1. När du är klar väljer du **Skapa**. 
@@ -139,7 +185,7 @@ För att skapa logikappar som använder din integration service-environment (ISE
 
   ![Välj ISE-tjänster](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
 
-* Om du tidigare har konfigurerat din ISE med ett virtuellt Azure-nätverk som peer, logikappar i din ISE direkt åtkomst till resurser i det virtuella nätverket. För lokala system i ett virtuellt nätverk som är länkad till en ISE logikappar direkt åtkomst till dessa system med någon av dessa objekt: 
+* Om du tidigare har konfigurerat din ISE med ett Azure-nätverk som peer, logikappar i din ISE direkt åtkomst till resurser i det virtuella nätverket. För lokala system i ett virtuellt nätverk som är länkad till en ISE logikappar direkt åtkomst till dessa system med någon av dessa objekt: 
 
   * ISE-anslutning för systemet, till exempel SQL Server
 

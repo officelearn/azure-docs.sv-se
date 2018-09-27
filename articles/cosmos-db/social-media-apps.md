@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: a67d0a6387201362199c0f96fba3f338d906bbda
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052101"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222701"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialt med Azure Cosmos DB
 Att leva i ett enormt sammankopplade society innebär att vid en viss tidpunkt i vardagen du bli en del av en **socialt nätverk**. Du kan använda sociala nätverk för att hålla kontakten med vänner, kolleger, familj, eller ibland att dela din passion med personer med gemensamma intressen.
@@ -39,7 +39,7 @@ Varför inte SQL det bästa valet i det här scenariot? Låt oss titta på struk
 Naturligtvis kan du använda en enorma SQL-instans med tillräckligt med för att lösa tusentals frågor med dessa många kopplingar för att leverera ditt innehåll, men verkligt, varför skulle du, när det finns en enklare lösning?
 
 ## <a name="the-nosql-road"></a>NoSQL-väg
-Den här artikeln vägleder dig i din sociala plattform datamodellering med Azures NoSQL-databas [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) på ett kostnadseffektivt sätt samtidigt som du använder andra Azure Cosmos DB funktioner som den [Gremlin Gremlin-API ](../cosmos-db/graph-introduction.md). Med hjälp av en [NoSQL](https://en.wikipedia.org/wiki/NoSQL) metoden kan lagra data i JSON-format och tillämpa [denormalisering](https://en.wikipedia.org/wiki/Denormalization), tidigare komplicerad inlägget kan omvandlas till en enda [dokumentet](https://en.wikipedia.org/wiki/Document-oriented_database):
+Den här artikeln vägleder dig i din sociala plattform datamodellering med Azures NoSQL-databas [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) på ett kostnadseffektivt sätt samtidigt som du använder andra Azure Cosmos DB funktioner som den [Gremlin-API](../cosmos-db/graph-introduction.md). Med hjälp av en [NoSQL](https://en.wikipedia.org/wiki/NoSQL) metoden kan lagra data i JSON-format och tillämpa [denormalisering](https://en.wikipedia.org/wiki/Denormalization), tidigare komplicerad inlägget kan omvandlas till en enda [dokumentet](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 
     {

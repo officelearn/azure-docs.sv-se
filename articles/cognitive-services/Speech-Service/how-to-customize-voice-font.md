@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 042216d03749273c590ce5ba812f7a6d609f8e83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4219878673bbb3560ca13f09eb0fde940b2b17e3
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987918"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222768"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
@@ -25,9 +25,7 @@ Du kan komma igång med en liten mängd data för ett konceptbevis. Men ju mer d
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den **Text till tal** röst anpassning av funktionen är för tillfället i privat förhandsversion. [Fyll i formuläret programmet](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) övervägas för åtkomst.
-
-Du behöver också en Azure-konto och en prenumeration på Speech-tjänsten. [Skapa en](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) om du inte redan har gjort. Anslut din prenumeration till anpassad Voice-portalen på följande sätt.
+Du behöver ett Azure-konto och en prenumeration på Speech-tjänsten. [Skapa en](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) om du inte redan har gjort. Anslut din prenumeration till anpassad Voice-portalen på följande sätt.
 
 1. Logga in på den [anpassad röst portal](https://customvoice.ai) med samma Microsoft-konto som du använde för att tillämpa för åtkomst.
 
@@ -35,16 +33,13 @@ Du behöver också en Azure-konto och en prenumeration på Speech-tjänsten. [Sk
 
     ![Prenumerationer](media/custom-voice/subscriptions.png)
 
-3. På sidan ”Subscriptions” väljer du Anslut befintlig prenumeration.
+3. På sidan ”Subscriptions” väljer du Anslut befintlig prenumeration. Observera att Speech Services stöder olika regioner. Kontrollera den region där din prenumerationsnyckel har skapats och kontrollera att du ansluter din nyckel till rätt underordnade portalen.  
 
 4. Klistra in din prenumerationsnyckel i tabellen, enligt nedan. Varje prenumeration har två nycklar och du kan använda någon av dessa.
 
      ![Lägg till prenumeration](media/custom-voice/add-subscription.png)
 
 Du är redo att sätta igång!
-
-> [!IMPORTANT]
-> Under fasen privat förhandsgranskning måste prenumerationer vara vitlistad för att använda funktionen för anpassad röst. Följ anvisningarna på sidan för att få din prenumeration i listan över godkända.
 
 ## <a name="prepare-recordings-and-transcripts"></a>Förbereda inspelningar och betyg
 
@@ -232,4 +227,4 @@ Röst anpassning är tillgängligt för amerikansk engelska (en-US), fastlandet 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Känna igen tal i C#](quickstart-csharp-dotnet-windows.md)
+- [Registrera din röst-exempel](record-custom-voice-samples.md)

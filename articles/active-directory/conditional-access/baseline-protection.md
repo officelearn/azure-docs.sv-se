@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ef2b5dd393974ddf700235991b60ec66031e34c2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024081"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222275"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Vad är skydd vid baslinjen (förhandsversion)?  
 
@@ -56,7 +56,7 @@ Den här baslinjeprincip ger dig möjlighet att exkludera användare och grupper
 
 ## <a name="enable-a-baseline-policy"></a>Aktivera en baslinjeprincip 
 
-Grundläggande principer finns i förhandsversion, är de som standard inte aktiverat. Du måste manuellt aktivera en princip om du vill aktivera den. När den här funktionen har blivit allmänt tillgängliga, är principerna som standard aktiveras. Vilken beteendeförändring som planerat är orsaken till varför du har dessutom aktiverar och inaktiverar ett tredje alternativ som anger du tillståndet för en princip: **aktivera principen automatiskt i framtiden**. Genom att välja det här alternativet kan låta du Microsoft välja när du vill aktivera en princip.      
+Grundläggande principer finns i förhandsversion, är de som standard inte aktiverat. Du måste manuellt aktivera en princip om du vill aktivera den. Om du uttryckligen aktivera baslinje-principer i förhandsversionsstadium förblir de aktiv när den här funktionen blir allmänt tillgänglig. Vilken beteendeförändring som planerat är orsaken till varför, för att aktivera och inaktivera måste du dessutom har ett tredje alternativ som anger du tillståndet för en princip: **aktivera principen automatiskt i framtiden**. Genom att välja det här alternativet kan du lämna principerna inaktiveras under förhandsgranskning, men låta Microsoft aktivera dem automatiskt när den här funktionen blir allmänt tillgänglig. Om du inte uttryckligen aktiverar baslinje principer nu och inte väljer den **aktivera principen automatiskt i framtiden** alternativet principerna förblir inaktiverad när den här funktionen blir allmänt tillgänglig.
 
 
 **För att aktivera en baslinjeprincip:**  

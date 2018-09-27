@@ -1,66 +1,67 @@
 ---
-title: Azure innehåll kontrollant - Avbrottsmoderering jobb och personal-i-the-loop granskningar | Microsoft Docs
-description: Gäller mänsklig tillsyn datorn stödd avbrottsmoderering för bästa resultat.
+title: Moderering av jobb och human-i-the-loop granskningar - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Gäller mänsklig övervakning datorstödd moderering för bästa resultat.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 35b3cdaa410712c3fd08d3df4ebe4c83e3955d50
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351768"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223267"
 ---
-# <a name="moderation-jobs-and-reviews"></a>Avbrottsmoderering jobb och granskning
+# <a name="moderation-jobs-and-reviews"></a>Moderering av jobb och granskningar
 
-Kombinera datorn stödd avbrottsmoderering med hr-i-the-loop funktioner med hjälp av Azure innehåll kontrollanten [granska API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) att få bästa möjliga resultat för ditt företag.
+Kombinera datorstödd moderering med funktioner för mänskliga-i-the-loop med hjälp av Azure Content Moderator [granska API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) att få bästa resultat för ditt företag.
 
-Granska API ger följande sätt att inkludera mänsklig tillsyn i innehåll avbrottsmoderering processen:
+Granska API: et erbjuder de följande sätten att tar med mänsklig övervakning i innehållsmoderering processen:
 
-* `Job` åtgärder för att starta datorn stödd avbrottsmoderering och skapande av mänsklig granska som ett steg.
-* `Review` operationer används för att skapa en mänsklig granskning, utanför avbrottsmoderering steg.
-* `Workflow` åtgärder för att hantera arbetsflöden som automatiserar skanning med tröskelvärden för att skapa en granskning.
+* `Job` åtgärder för att starta datorstödd moderering och mänsklig granskning skapas som ett steg.
+* `Review` åtgärder som används för att skapa en mänsklig granskning, utanför moderering steg.
+* `Workflow` åtgärder för att hantera arbetsflöden som automatiserar sökning med tröskelvärden för att skapa en granskning.
 
-Den `Job` och `Review` operations accepterar dina återanrop slutpunkter för att ta emot status och resultat.
+Den `Job` och `Review` operations godkänna dina återanrop slutpunkter för att ta emot status och resultat.
 
-Den här artikeln beskriver den `Job` och `Review` åtgärder. Läs den [arbetsflöden översikt](workflow-api.md) för information om hur du skapar, redigera och hämta arbetsflödesdefinitioner för.
+Den här artikeln beskriver den `Job` och `Review` åtgärder. Läs den [översikt för arbetsflöden](workflow-api.md) för information om hur du skapar, redigerar och få arbetsflödesdefinitioner.
 
 ## <a name="job-operations"></a>Jobbåtgärder
 
 ### <a name="start-a-job"></a>Starta ett jobb
-Använd den `Job.Create` åtgärd för att starta en gruppering och mänsklig granska för att skapa jobb. Innehåll kontrollanten söker igenom innehållet och utvärderar avsedda arbetsflödet. Baserat på resultatet arbetsflöde, den skapar granskningar eller hoppar över steget. Den skickar också efter ändring och efter granska taggar till återanrop-slutpunkten.
+Använd den `Job.Create` att starta en moderering och mänsklig granskning för att skapa jobb. Content Moderator söker igenom innehållet och utvärderar avsedda arbetsflödet. Baserat på resultaten arbetsflöde kan det antingen skapar granskningar eller hoppar över steget. Den skickar även efter moderering aktiviteter och efter taggar i återanrop-slutpunkten.
 
 Indata innehåller följande information:
 
 - Granska team-ID.
 - Innehållet som ska vara kontrollerad.
-- Namnet på arbetsflödet. (Standardvärdet är ”default” arbetsflödet.)
-- API-återanrop peka för meddelanden.
+- Arbetsflödesnamnet. (Standardvärdet är ”standard”-arbetsflödet.)
+- API-återanrop anslutningspunkt meddelanden.
  
-Följande meddelande visar identifierare för det jobb som har startats. Du kan använda jobb-ID för att hämta jobbstatus och få detaljerad information.
+Följande svar visar identifierare för det jobb som har startats. Du kan använda jobb-ID för att hämta jobbstatus och får detaljerad information.
 
     {
         "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
     }
 
-### <a name="get-job-status"></a>Hämta jobbstatus
+### <a name="get-job-status"></a>Hämta jobbstatus för
 
-Använd den `Job.Get` åtgärden och jobb-ID för att hämta information om ett jobb som körs eller har slutförts. Åtgärden returnerar omedelbart medan avbrottsmoderering jobbet körs asynkront. Resultaten returneras via återanrop slutpunkten.
+Använd den `Job.Get` åtgärden och jobb-ID för att hämta information om ett jobb som körs eller slutförts. Åtgärden returnerar direkt, medan moderering jobbet körs asynkront. Resultaten returneras via återanrop-slutpunkt.
 
-Indata innehåller följande information:
+Dina indata inkludera följande information:
 
-- Granska grupp-ID: jobb-ID som returnerades av föregående åtgärd
+- Granska lag-ID: jobb-ID som returneras av den föregående åtgärden
 
 Svaret innehåller följande information:
 
-- Identifierare för granska skapas. (Använda detta ID för att hämta sista granska resultaten.)
-- Status för jobbet (slutförd eller pågående): tilldelade avbrottsmoderering taggar (nyckel / värde-par).
-- Jobbet körning av rapporten.
+- Identifierare för granskning skapas. (Använda detta ID för att få resultat slutlig granskning.)
+- Status för jobbet (slutförd eller pågående): de tilldelade moderering taggarna (nyckel / värde-par).
+- Jobbet Körningsrapport.
  
  
         {
@@ -109,46 +110,46 @@ Svaret innehåller följande information:
             ]
         }
  
-![Granska bild för mänsklig moderatorer](images/ocr-sample-image.PNG)
+![Bild granskning för mänskliga moderatorer](images/ocr-sample-image.PNG)
 
-## <a name="review-operations"></a>Granska operations
+## <a name="review-operations"></a>Granska åtgärder
 
 ### <a name="create-reviews"></a>Skapa granskningar
 
-Använd den `Review.Create` åtgärden för att skapa mänsklig granskningar. Du måttlig dem på en annan plats eller använda anpassade logik för att tilldela avbrottsmoderering-taggar.
+Använd den `Review.Create` att skapa mänsklig granskning. Du ändra dem någon annanstans eller använda anpassad logik för att tilldela moderering-taggar.
 
-Alla indata till den här åtgärden är:
+Dina indata till den här åtgärden är:
 
-- Innehåll som ska granskas.
-- Tilldelade taggarna (nyckel/värde-par) för granskning av mänsklig kontrollanter.
+- Innehåll att granskas.
+- Tilldelade taggar (nyckelvärdepar) för granskning av mänskliga moderatorer.
 
-Följande meddelande visar granska identifierare:
+Följande svar visar identifierare för granskning:
 
     [
         "201712i46950138c61a4740b118a43cac33f434",
     ]
 
 
-### <a name="get-review-status"></a>Hämta status för granskning
-Använd den `Review.Get` Hämta resultaten efter en mänsklig granskning av kontrollerad avbildningen har slutförts. Du meddelas via angivna återanropet slutpunkten. 
+### <a name="get-review-status"></a>Hämta granskningsstatus för
+Använd den `Review.Get` för att få resultaten när en mänsklig granskning för kontrollerad avbildningen har slutförts. Du meddelas via motringningen slutpunkten. 
 
 Åtgärden returnerar två uppsättningar med taggar: 
 
-* De taggar som tilldelats av tjänsten avbrottsmoderering
-* Taggar när mänsklig granska slutfördes
+* De taggar som tilldelats av tjänsten moderering
+* Taggar när mänsklig granskning har slutförts
 
-Indata är minst:
+Dina indata är minst:
 
 - Granska Teamnamn
-- Granska identifieraren som returneras av föregående åtgärd
+- Granska-identifieraren som returneras av den föregående åtgärden
 
 Svaret innehåller följande information:
 
 - Granskningsstatus
-- Taggar (nyckel / värde-par) bekräftas av mänsklig granskare
-- Taggar (nyckel-värdepar) som tilldelats av tjänsten avbrottsmoderering
+- Taggar (nyckel / värde-par) som bekräftats av mänsklig granskare
+- Taggar (nyckel / värde-par) som tilldelats av tjänsten moderering
 
-Du ser både granskare tilldelade taggar (**reviewerResultTags**) och de inledande taggarna (**metadata**) i följande exempel svaret:
+Du kan se båda granskare tilldelade taggar (**reviewerResultTags**) och de inledande taggarna (**metadata**) i följande exempelsvar:
 
     {
         "reviewId": "201712i46950138c61a4740b118a43cac33f434",
@@ -183,6 +184,6 @@ Du ser både granskare tilldelade taggar (**reviewerResultTags**) och de inledan
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Testkör den [jobbet API konsolen](try-review-api-job.md), och använda REST API-kodexempel. Om du är bekant med Visual Studio och C#, se även den [jobb .NET quickstart](moderation-jobs-quickstart-dotnet.md). 
-* För granskningar, komma igång med den [granska API konsolen](try-review-api-review.md), och använda REST API-kodexempel. Se den [granskningar .NET quickstart](moderation-reviews-quickstart-dotnet.md).
-* Video granskningar använder den [Video granska quickstart](video-reviews-quickstart-dotnet.md), och lära dig hur du [lägga till betyg i video granska](video-transcript-reviews-quickstart-dotnet.md).
+* Testkör den [jobbet API-konsol](try-review-api-job.md), och använda REST API-kodexempel. Om du är bekant med Visual Studio och C# kan också Kolla den [Snabbstart för jobb .NET](moderation-jobs-quickstart-dotnet.md). 
+* För granskning, Kom igång med den [granska API-konsol](try-review-api-review.md), och använda REST API-kodexempel. Då se den [Snabbstart för granskningar .NET](moderation-reviews-quickstart-dotnet.md).
+* Video granskningar använder den [Video granska Snabbstart](video-reviews-quickstart-dotnet.md), och lär dig hur du [lägga till betyg i video granskningen](video-transcript-reviews-quickstart-dotnet.md).

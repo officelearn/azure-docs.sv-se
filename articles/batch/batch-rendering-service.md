@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4101f6819dff81376dcab47adb57e4b8ef35e094
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: fc26e1d32332bb0ed9624b7442e38ea79b7bfb1d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40034793"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393561"
 ---
 # <a name="rendering-using-azure"></a>Rendering med hjälp av Azure
 
@@ -69,7 +69,7 @@ Azure Batch används för många arbetsbelastningar, men följande funktioner ä
   * Azure Marketplace-VM-avbildningar är tillgängliga som innehåller populära grafik- och renderingsprogram, inte behöver installera program som dig själv eller skapa dina egna anpassade avbildningar med program som har installerats. 
 * Betala per användning licensiering för renderingsprogram:
   * Du kan välja att betala för program per minut, förutom att betala för databearbetning virtuella datorer, vilket innebär att du behöver köpa licenser och potentiellt konfigurera en server för programmen.  Betala för användning innebär också att det är möjligt att serva för olika och oväntat eftersom det är inte ett fast antal licenser.
-  * Det är också möjligt att använda de förinstallerade programmen med dina egna licenser och inte använda licensieringen där du betalar per användning.
+  * Det är också möjligt att använda de förinstallerade programmen med dina egna licenser och inte använda licensieringen där du betalar per användning. Detta gör normalt du installerar en lokal eller Azure-baserade licensiera server och ett Azure-nätverk för att ansluta renderingspool till licensservern.
 * Plugin-program för klienten utformning och modellapplikationer:
   * Plugin-program att slutanvändarna ska kunna använda Azure Batch direkt från klientprogrammet, som Autodesk Maya, så att de kan skapa pooler, skicka in jobb och göra användning på mer beräkningskapacitet för att utföra snabbare renderingar.
 * Rendera manager-integrering:

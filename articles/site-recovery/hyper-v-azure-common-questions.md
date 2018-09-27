@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7600fc81d0d3e3607f2185ad2c793255a0c68634
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721916"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227307"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Vanliga frågor – Hyper-V till Azure replikering
 
@@ -104,7 +104,7 @@ Du kan replikera en app eller arbetsbelastning som körs på en Hyper-V virtuell
 
 ### <a name="whats-the-replication-process"></a>Vad är replikeringen?
 
-1. När den inledande replikeringen utlöses, ta en ögonblicksbild för ögonblicksbild av Hyper-V-dator.
+1. När den inledande replikeringen utlöses tas en Hyper-V VM-ögonblicksbild.
 2. Virtuella hårddiskar på den virtuella datorn är replikeras en i taget, tills alla har kopierats till Azure. Detta kan ta en stund, beroende på VM-storlek och nätverkets bandbredd. Lär dig hur du ökar nätverksbandbredden.
 3. Om diskändringar inträffar under den inledande replikeringen pågår, spårar ändringarna i den spårningsverktyget för Hyper-V-replikering som Hyper-V-replikeringsloggar (.hrl). Dessa loggfiler finns i samma mapp som diskarna. Varje disk har en associerad hrl-fil som skickas till sekundär lagring. Ögonblicksbilden och loggfilerna använder diskresurser när den inledande replikeringen pågår.
 4. När den initiala replikeringen är klar tas VM-ögonblicksbilden bort.

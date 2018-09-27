@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2017
+ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: ce73d1ef5425ee2fe66655571a6d6bbbff372af5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502819"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395737"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker som du kan göra på den Windows virtuell dator för datavetenskap
 
@@ -47,7 +47,7 @@ I den här artikeln får du lära dig hur du använder din DSVM att utföra olik
 **Förutsättningar**
 
 * Du behöver en Azure-prenumeration. Du kan registrera dig för en kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/free/).
-* Instruktioner för att etablera en virtuell dator för datavetenskap på Azure portal finns på [skapar en virtuell dator](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+* Instruktioner för att etablera en virtuell dator för datavetenskap på Azure portal finns på [skapar en virtuell dator](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-ml-server-or-python"></a>1. Utforska data och utveckla modeller med hjälp av Microsoft ML Server eller Python
 Du kan använda språk som R och Python för att göra din Dataanalys på DSVM.
@@ -56,7 +56,7 @@ För R, kan du använda en IDE som RStudio som finns på start-menyn eller skriv
 
 För Python, kan du använda en IDE som Visual Studio Community Edition, som har Python-verktygen för Visual Studio (PTVS)-tillägg som redan är installerat. Som standard endast Python 3.6, har rot conda-miljö konfigurerats på PTVS. För att aktivera Anaconda Python 2.7, måste du göra följande:
 
-* Skapa anpassade miljöer för varje version genom att gå till **verktyg** -> **Python Tools** -> **Python-miljöer** och sedan klicka på ” **+ Anpassad**”i Visual Studio 2015 Community Edition
+* Skapa anpassade miljöer för varje version genom att gå till **verktyg** -> **Python Tools** -> **Python-miljöer** och sedan klicka på ” **+ Anpassad**”i Visual Studio Community Edition
 * Ge en beskrivning och ange miljö prefixsökvägen som *c:\anaconda\envs\python2* för Anaconda Python 2.7
 * Klicka på **automatisk identifiering** och sedan **tillämpa** att spara miljön.
 
@@ -66,7 +66,7 @@ Här är vad inställningen för anpassad miljö ser ut som i Visual Studio.
 
 Se den [dokumentationen till PTVS](http://aka.ms/ptvsdocs) för ytterligare information om hur du skapar Python-miljöer.
 
-Du är nu ställa in för att skapa ett nytt Python-projekt. Gå till **filen** -> **New** -> **projekt** -> **Python** och välj typ av Python-program som du skapar. Du kan ange Python-miljön för det aktuella projektet till den önskade versionen (Anaconda 2.7 och 3.6) genom att högerklicka på den **Python-miljön**, välja **Lägg till/ta bort Python miljöer**, och sedan välja önskad miljö. Du hittar mer information om hur du arbetar med PTVS i produkten [dokumentation](http://aka.ms/ptvsdocs).
+Du är nu ställa in för att skapa ett nytt Python-projekt. Gå till **filen** -> **New** -> **projekt** -> **Python** och välj typ av Python-program som du skapar. Du kan ange Python-miljön för det aktuella projektet till den önskade versionen (Python 2.7 eller 3.6) genom att högerklicka på den **Python-miljöer**, välja **Lägg till/ta bort Python miljöer**, och sedan välja önskad miljö. Du hittar mer information om hur du arbetar med PTVS i produkten [dokumentation](http://aka.ms/ptvsdocs).
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Använder en Jupyter-anteckningsbok för att utforska och modellera dina data med Python eller R
 Jupyter-anteckningsboken är en kraftfull miljö som ger ett webbläsarbaserat ”IDE” för datagranskning och modellering. Du kan använda Python 2, Python 3 eller R (öppen källkod och Microsoft R Server) i en Jupyter-anteckningsbok.

@@ -1,26 +1,26 @@
 ---
-title: Skapa ett Azure Media Services jobbet indata från en HTTP (s)-URL | Microsoft Docs
-description: Det här avsnittet visar hur du skapar ett jobb indata från en HTTP (s)-URL.
+title: Skapa en Azure Media Services-jobb från en HTTPS-URL | Microsoft Docs
+description: Det här avsnittet visar hur du skapar en jobbindata från en HTTP-URL.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/24/2018
 ms.author: juliako
-ms.openlocfilehash: d429665de64dacc5818d1d26c2a9029531cd39b3
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8b8bfb578b9a7190e93da721531041bb93a9a03c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159935"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224740"
 ---
-# <a name="create-a-job-input-from-an-https-url"></a>Skapa ett jobb indata från en HTTP (s)-URL
+# <a name="create-a-job-input-from-an-https-url"></a>Skapa en jobbindata från en HTTPS-URL
 
-I Media Services v3, när du skickar jobb att bearbeta videor, behöver du anger Media Services var inkommande videon. Ett av alternativen är att ange en URL för http (s) som ett jobb som inkommande (som visas i det här exemplet). En fullständig exempel finns [github exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
+I Media Services v3, när du skickar in jobb för att bearbeta videor, har du ska berätta var du hittar indatavideon för Media Services. Något av alternativen är att ange en URL för http (s) som ett jobb som indata (som visas i det här exemplet). Observera att för närvarande AMS v3 inte stöder Chunked-kodning över HTTPS-adresser. Ett fullständigt exempel finns i den här [github-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 ## <a name="net-sample"></a>.NET-exempel
 
@@ -30,4 +30,4 @@ Följande kod visar hur du skapar ett jobb med en HTTPS-URL som indata.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa ett jobb indata från en lokal fil](job-input-from-local-file-how-to.md).
+[Skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md).

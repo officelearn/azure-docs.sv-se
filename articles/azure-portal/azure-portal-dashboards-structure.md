@@ -1,5 +1,5 @@
 ---
-title: Strukturen för Azure instrumentpaneler | Microsoft Docs
+title: Strukturen för Azure-instrumentpaneler | Microsoft Docs
 description: Den här artikeln förklarar JSON-strukturen för en Azure-instrumentpanel
 services: azure-portal
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: adamab
-ms.openlocfilehash: 2eb9289957968db04b78087413fb9df8ed1b085b
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: cwatson
+ms.openlocfilehash: 405e0d5184880a00c07de55bd968210fa28e45fc
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301680"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393085"
 ---
-# <a name="the-structure-of-azure-dashboards"></a>Strukturen för Azure instrumentpaneler
-Det här dokumentet beskriver hur strukturen för en Azure instrumentpanel med följande instrumentpanelen som exempel:
+# <a name="the-structure-of-azure-dashboards"></a>Strukturen för Azure-instrumentpaneler
+Det här dokumentet beskriver strukturen för en Azure-instrumentpanel, med följande instrumentpanel som exempel:
 
 ![exempel på en instrumentpanel](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Eftersom delade [Azure instrumentpaneler är resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), den här instrumentpanelen kan representeras som JSON.  Följande JSON representerar instrumentpanelen visualiseras ovan.
+Eftersom delade [Azure-instrumentpaneler finns resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), den här instrumentpanelen kan representeras som JSON.  Följande JSON representerar instrumentpanelen visualiseras ovan.
 
 ```json
 
@@ -289,62 +289,62 @@ Eftersom delade [Azure instrumentpaneler är resurser](https://docs.microsoft.co
 
 ```
 
-## <a name="common-resource-properties"></a>Allmänna resursegenskaper för
+## <a name="common-resource-properties"></a>Vanliga resursegenskaper
 
-Nu ska vi dela upp de relevanta avsnitten i JSON.  Egenskaperna översta __id__, __namn__, __typen__, __plats__, och __taggar__ egenskaper är gemensamma för alla typer av Azure-resurs. Det vill säga har de inte mycket att göra med innehåll på instrumentpanelen.
+Lås oss de relevanta avsnitten för JSON.  Egenskaperna översta __id__, __namn__, __typ__, __plats__, och __taggar__ egenskaper är delas mellan alla Azure-resurstyper. Det vill säga behöver de inte mycket att göra med instrumentpanelens innehåll.
 
 ### <a name="the-id-property"></a>Id-egenskapen
 
-Azure-resurs-id, omfattas av den [namngivningskonventioner för resurser i Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). När du skapar en instrumentpanel i portalen väljer vanligtvis ett id i form av ett guid, men du kan använda valfritt giltigt namn när du skapar dem via programmering. 
+Azure-resurs-id, omfattas av den [namngivningskonventioner för Azure-resurser](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). När du skapar en instrumentpanel i portalen det vanligtvis väljer ett id i form av ett guid, men du kan använda valfritt giltigt namn när du skapar dem via programmering. 
 
 ### <a name="the-name-property"></a>Egenskapen name
-Namnet är segmentet i resurs-Id som inte innehåller prenumeration, resurstypen eller grupp resursinformation. I princip är det sista segmentet i resurs-id.
+Namnet är segmentet i resurs-Id som inte innehåller den prenumeration eller resurstyp resursinformation för gruppen. Det är i grunden innebär det sista segmentet i resurs-id.
 
 ### <a name="the-type-property"></a>Egenskapen type
-Alla instrumentpaneler är av typen __Microsoft.Portal/dashboards__.
+Alla instrumentpaneler som är av typen __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>Egenskapen location
-Till skillnad från andra resurser inte instrumentpaneler runtime-komponent.  För instrumentpaneler anger platsen den primära geografiska plats som lagrar på instrumentpanelen JSON-representation. Värdet måste vara ett nummer plats som kan hämtas med hjälp av den [platser API på resursen prenumerationer](https://docs.microsoft.com/rest/api/resources/subscriptions).
+Till skillnad från andra resurser har instrumentpaneler en runtime-komponent.  Instrumentpaneler anger platsen den primära geografiska plats som lagrar instrumentpanelens JSON-representation. Värdet ska vara en av plats-koder som kan hämtas med hjälp av den [platser API på prenumerationer resursen](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Egenskapen taggar
-Taggar är en vanlig funktion för Azure-resurser som kan du ordna resurs av godtyckligt namn-värdepar. För instrumentpaneler, finns en särskild tagg kallas __dolda rubrik__. Om din instrumentpanel har den här egenskapen fyllts, används det som visningsnamnet för instrumentpanelen i portalen. Det går inte att byta namn på Azure resurs-ID, men kan taggar. Den här taggen ger dig ett sätt att ha ett formatmallen namn för instrumentpanelen.
+Taggar är en vanlig funktion för Azure-resurser som hjälper dig att organisera din resurs av godtyckligt namn-värdepar. Instrumentpaneler finns en särskild tagg kallas __dolda rubrik__. Om din instrumentpanel har den här egenskapen ifylld, används det som visningsnamnet för instrumentpanelen i portalen. Azure resurs-ID kan inte döpas om, men kan taggar. Den här taggen ger dig ett sätt att ha ett formatmallen namn för din instrumentpanel.
 
 `"tags": { "hidden-title": "Created via API" }`
 
-### <a name="the-properties-object"></a>Egenskaper för objektet
-Egenskaper för objektet innehåller två egenskaper __linser__ och __metadata__. Den __linser__ egenskap innehåller information om panelerna (kallas även delar) på instrumentpanelen.  Den __metadata__ egenskapen finns det för eventuella framtida funktioner.
+### <a name="the-properties-object"></a>För egenskapsobjektet
+För egenskapsobjektet innehåller två egenskaper __linser__ och __metadata__. Den __linser__ egenskapen innehåller information om panelerna (alias) delar) på instrumentpanelen.  Den __metadata__ egenskap finns det för eventuella framtida funktioner.
 
 ### <a name="the-lenses-property"></a>Egenskapen linser
-Den __linser__ egenskap innehåller instrumentpanelen. Observera att linserna objekt i det här exemplet innehåller en enda egenskap som kallas ”0”. Linser är ett begrepp, gruppering som inte har implementerats i instrumentpaneler. Nu är har alla dina instrumentpaneler den här egenskapen på linsen objektet igen, kallas ”0”.
+Den __linser__ egenskapen innehåller instrumentpanelen. Observera att linserna objekt i det här exemplet innehåller en enskild egenskap med namnet ”0”. Linser är en gruppering koncept som inte implementeras för närvarande i instrumentpaneler. Alla dina instrumentpaneler har den här egenskapen på lins objektet igen, kallas ”0” för tillfället.
 
 ### <a name="the-lens-object"></a>Objektet lins
-Objektet under ”0” innehåller två egenskaper __ordning__ och __delar__.  I den aktuella versionen av instrumentpaneler, __ordning__ är alltid 0. Den __delar__ -egenskapen innehåller ett objekt som definierar de enskilda delarna (kallas även panelerna) på instrumentpanelen.
+Objektet under ”0” innehåller två egenskaper __ordning__ och __delar__.  I den aktuella versionen av instrumentpaneler, __ordning__ är alltid 0. Den __delar__ egenskapen innehåller ett objekt som definierar de enskilda delarna (alias) paneler) på instrumentpanelen.
 
-Den __delar__ objektet innehåller en egenskap för varje del, där namnet på egenskapen är ett tal. Det här antalet är inte viktig. 
+Den __delar__ objektet innehåller en egenskap för varje del, där namnet på egenskapen är ett tal. Det här talet är inte viktig. 
 
 ### <a name="the-part-object"></a>En del objekt
-Varje enskild del-objekt har en __position__, och __metadata__.
+Varje enskild del objekt har en __position__, och __metadata__.
 
 ### <a name="the-position-object"></a>Placera objekt
-Den __position__ egenskapen innehåller information om storlek och plats för del uttryckt __x__, __y__, __rowSpan__, och __colSpan__. Värdena är i rutnätsenheter. Dessa rutnätsenheter är synliga när instrumentpanelen är i läget anpassa som visas här. Om du vill att en panel har två rutnätsenheter bredden en höjden för ett Rutnätsenhet och en plats i övre vänstra hörnet på instrumentpanelen och sedan position obejct ser ut så här:
+Den __position__ egenskapen innehåller informationen och plats för delen uttryckt i form av __x__, __y__, __rowSpan__, och __colSpan__. Värdena är i rutnätsenheter. Dessa grid-enheter är synliga när instrumentpanelen är i läget anpassa som visas här. Om du vill att en panel har en bredden på två grid enheter en höjden på en grid enhet och en plats i övre vänstra hörnet på instrumentpanelen och sedan position obejct ser ut så här:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![rutnät-enheter](./media/azure-portal-dashboards-structure/grid-units.png)
+![Grid-enheter](./media/azure-portal-dashboards-structure/grid-units.png)
 
-### <a name="the-metadata-object"></a>Metadataobjektet
-Varje del har en metadataegenskap, ett objekt har endast en obligatorisk egenskap som kallas __typen__. Den här strängen talar om portalen vilka rutan för att visa. Våra exempel instrumentpanelen använder dessa typer av paneler:
+### <a name="the-metadata-object"></a>Metadata-objektet
+Varje del har en metadata-egenskap, ett objekt har endast en obligatorisk egenskap som kallas __typ__. Den här strängen visar portalen vilka rutan för att visa. Vårt exempel instrumentpanelen använder dessa typer av paneler:
 
 
-1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Används för att visa övervakning mått
-1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Används för att visa med text och bilder med grundläggande formatering för listor, länkar, osv.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` Används för att visa videor från YouTube, Channel9 och andra typer av video som fungerar i en video HTML-tagg.
-1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` Används för att visa namn och status för en virtuell Azure-dator.
+1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Används för att visa övervakning av mått
+1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Används för att visa text och bilder med grundläggande formatering för listor, länkar, osv.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` Används för att visa videor från YouTube, Channel 9 och någon annan typ av video som fungerar i en video html-tagg.
+1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` Används för att visa namn och status för virtuella Azure-datorer.
 
-Varje typ av en del har sin egen konfiguration. De möjliga konfigurationsegenskaperna kallas __indata__, __inställningar__, och __tillgången__. 
+Varje typ av en del har sin egen konfiguration. Möjliga konfigurationsegenskaperna kallas __indata__, __inställningar__, och __tillgången__. 
 
 ### <a name="the-inputs-object"></a>Indata-objekt
-Indata-objekt innehåller vanligen information som binder en panel till en resurs.  Den virtuella datorn som en del i vårt exempel på en instrumentpanel innehåller en enda indata som använder Azure-resurs-id för att uttrycka bindningen.  Det här resurs-id-formatet är konsekvent på alla Azure-resurser.
+Indata-objekt innehåller vanligtvis information som binder en panel till en resursinstans.  Den virtuella datorn som en del i vårt exempel på en instrumentpanel innehåller en enda indata som använder Azure-resurs-id för att uttrycka bindningen.  Det här resurs-id-formatet är konsekvent för alla Azure-resurser.
 
 ```json
 "inputs":
@@ -356,7 +356,7 @@ Indata-objekt innehåller vanligen information som binder en panel till en resur
 ]
 
 ```
-Mått diagramdel har en enkel indata som representerar resursen som ska bindas till, samt information om metric(s) som ska visas. Här är indata för panelen som visar mått nätverk In- och nätverk.
+Mått diagrammet delen har en enda indata som uttrycker resursen som ska bindas till, samt information om metric(s) som visas. Här är indata för den ikon som visar mått för ingående och utgående nätverk.
 
 ```json
 “inputs”:
@@ -391,7 +391,7 @@ Mått diagramdel har en enkel indata som representerar resursen som ska bindas t
 ```
 
 ### <a name="the-settings-object"></a>Inställningsobjektet
-Inställningsobjektet innehåller konfigurerbara elementen i en del.  I vårt exempel på en instrumentpanel använder Markdown-del inställningar för att lagra innehåll samt en konfigurerbar rubrik och underrubrik anpassade markdown.
+Inställningsobjektet innehåller de konfigurerbara elementen i en del.  I vårt exempel på en instrumentpanel används den Markdown-delen för att lagra innehåll samt en konfigurerbar rubrik och underrubrik anpassade markdown.
 
 ```json
 "settings": 
@@ -409,7 +409,7 @@ Inställningsobjektet innehåller konfigurerbara elementen i en del.  I vårt ex
 
 ```
 
-På liknande sätt har panelen video de egna inställningarna som innehåller en pekare till videon att spela upp, automatisk uppspelning inställningen och valfria rubrik.
+På samma sätt har videopanelen sina egna inställningar som innehåller en pekare till videon spelas upp, spela upp automatiskt inställningen och valfritt rubrikinformation.
 
 ```json
 "settings": 
@@ -428,7 +428,7 @@ På liknande sätt har panelen video de egna inställningarna som innehåller en
 
 ```
 
-### <a name="the-asset-object"></a>Objektet tillgångsinformation
-Paneler som är bundna till första klass hanterbara portal objekt (kallas tillgångar) har den här relationen uttryckt via objektet tillgången.  I vårt exempel instrumentpanelen innehåller panelen virtuella beskrivningen tillgången.  Den __idInputName__ egenskapen anger portalen att ange id som innehåller den unika identifieraren för tillgången, i det här fallet resurs-id. De flesta Azure resurstyper har tillgångar som definierats i portalen.
+### <a name="the-asset-object"></a>Objektet tillgång
+Paneler som är bundna till första klassens hanterbara portal objekt (kallas tillgångar) har den här relationen uttryckt via objektet tillgången.  I vårt exempel instrumentpanelen innehåller panelen VM beskrivningen tillgången.  Den __idInputName__ egenskapen visar portalen att ID: t indata innehåller den unika identifieraren för tillgången, i det här fallet resurs-id. De flesta Azure resurstyper ha tillgångar som definierats i portalen.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

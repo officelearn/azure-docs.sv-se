@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 5da10faca653d0eddb50568165eb9d7ad1f877e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 3cd3ebf86221db1531bd19e94bb072b4559d07d6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950428"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395601"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Användningsscenarier för Query Store
 
 **Gäller för:** Azure Database för PostgreSQL 9.6 och 10
 
 > [!IMPORTANT]
-> Funktionen för Query Store är i offentlig förhandsversion.
+> Funktionen för Query Store är i offentlig förhandsversion i ett begränsat antal regioner.
 
 Du kan använda Query Store i en mängd olika scenarier där spårnings- och bibehålla förutsägbara arbetsbelastningsprestandan är viktiga. Överväg följande exempel: 
 - Identifiera och justera översta dyra frågor 

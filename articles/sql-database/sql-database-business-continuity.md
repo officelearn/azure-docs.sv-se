@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 320489f27a3c00cf4d13f7db37c6eb9fda39f5f1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064154"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221159"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -123,7 +123,7 @@ Om du använder aktiv geo-replikering och automatisk redundans grupper som åter
 > 
 
 ### <a name="perform-a-geo-restore"></a>Utföra en geo-återställning
-Om du använder automatiska säkerhetskopieringar med geo-redundant lagring (aktiverat som standard), kan du återställa en databas med hjälp av [geo-återställning](sql-database-disaster-recovery.md#recover-using-geo-restore). Återställningen sker vanligtvis inom 12 timmar – med dataförlust på upp till en timme systemets när den senaste differentiella säkerhetskopieringen per timme har vidtagits och replikeras. Databasen kan inte registrera några transaktioner eller svara på frågor förrän återställningen har slutförts. Observera att geo-återställning bara återställs databasen till den senaste tillgängliga tidpunkten.
+Om du använder automatiska säkerhetskopieringar med geo-redundant lagring (aktiverat som standard), kan du återställa en databas med hjälp av [geo-återställning](sql-database-disaster-recovery.md#recover-using-geo-restore). Återställningen sker vanligtvis inom 12 timmar – med dataförlust på upp till en timme systemets när den senaste säkerhetskopian av loggen har tagit och replikeras. Databasen kan inte registrera några transaktioner eller svara på frågor förrän återställningen har slutförts. Observera att geo-återställning bara återställs databasen till den senaste tillgängliga tidpunkten.
 
 > [!NOTE]
 > Om datacentret är online igen innan du växlar över programmet till den återställda databasen, kan du avbryta återställningen.  

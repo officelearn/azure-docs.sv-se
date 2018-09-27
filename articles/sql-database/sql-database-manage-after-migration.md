@@ -2,22 +2,22 @@
 title: Hantera efter migrering – Azure SQL Database | Microsoft Docs
 description: Lär dig mer om att hantera din databas efter migrering till Azure SQL Database.
 services: sql-database
-author: joesackmsft
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: joesackmsft
 ms.author: josack
-ms.suite: sql
-ms.prod_service: sql-database
-ms.component: data-movement
-ms.openlocfilehash: b34aca8d8aaf9e2c7dbdd092e14a1ebe1e04963d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 6dd4aacddfbce3e06c1ea9a356a559cc8cd8049c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985831"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166494"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 

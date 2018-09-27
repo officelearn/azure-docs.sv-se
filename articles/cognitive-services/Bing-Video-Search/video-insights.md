@@ -1,27 +1,27 @@
 ---
-title: Hämta video insikter | Microsoft Docs
-description: Visar hur du använder Bing Video Sök API för att få mer information om en video.
+title: Hämta videoinsikter - Videosökning i Bing
+titlesuffix: Azure Cognitive Services
+description: Visar hur du använder den Videosökning i Bing för att få mer information om en video.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 30ECF4E2-E4F0-491B-9FA8-971BC96AB7B6
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 4e804f168307ca8f206152b11e59652497678e42
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: af6056507cb70ab33bee5955ddf7bd0f77fd04eb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354504"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219999"
 ---
 # <a name="get-insights-about-a-video"></a>Få insikter om en video
 
-Varje video inkluderar en video-ID som du kan använda för att få mer information om video, till exempel relaterade videor.  
+Varje video innehåller en video-ID som du kan använda för att få mer information om videon, till exempel relaterade videor.  
   
-Om du vill få insikter om en video avbilda dess [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) token i svaret. 
+För att få insikter om en video kan du samla in dess [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) token i svaret. 
 
 ```json
     "value" : [
@@ -36,7 +36,7 @@ Om du vill få insikter om en video avbilda dess [videoId](https://docs.microsof
     ],
 ```
 
-Nu ska du skicka följande GET-begäran till slutpunkten Video information. Ange den [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) Frågeparametern till den `videoId` token. För att ange de insikter som du vill hämta den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) Frågeparametern. Om du vill hämta alla insikter ange `modules` till alla. Svaret innehåller alla insikter som du har begärt, om de är tillgängliga.
+Nu ska du skicka följande GET-begäran till slutpunkten för Video information. Ange den [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) frågeparameter till den `videoId` token. Om du vill ange de insikter som du vill hämta, ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) frågeparameter. Om du vill hämta alla insikter, ange `modules` till alla. Svaret innehåller alla insikter som du har begärt, om det är tillgängligt.
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
@@ -48,9 +48,9 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ``` 
 
-## <a name="getting-related-videos-insights"></a>Hämtar insikter relaterade videor  
+## <a name="getting-related-videos-insights"></a>Informationshämtning relaterade videor  
 
-För att få videor som är relaterade till den angivna videon, ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) Frågeparametern till RelatedVideos.
+För att få videor som är relaterade till den angivna videon kan du ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) frågeparameter till RelatedVideos.
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
@@ -62,7 +62,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
   
-Följande är svaret på den tidigare begäranden. Det översta objektet är en [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) objekt i stället för en [videor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) objekt.  
+Följande är svaret på den tidigare begäran. Det översta objektet är en [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) objekt i stället för en [videor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) objekt.  
   
 ```  
 {

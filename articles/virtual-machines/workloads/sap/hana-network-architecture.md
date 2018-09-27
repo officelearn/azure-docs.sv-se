@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2ab917f701ebcb78ae01a4ed97915858e5b95db
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 1262ed841fe8f6f9c2d5339d79abf06c1ab15a25
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028649"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392881"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Nätverksarkitektur för SAP HANA (stora instanser)
 
@@ -79,7 +79,7 @@ Skillnaderna för SAP-distributioner i Azure är:
 - Arkitektur för SAP-program är mer känsliga för fördröjningar i nätverket än vanliga scenarier där data överförs mellan lokala och Azure.
 - Den virtuella nätverksgatewayen har minst två ExpressRoute-anslutningar. Båda anslutningarna dela den maximala bandbredden för inkommande data för den virtuella nätverksgatewayen.
 
-Nätverksfördröjning uppstod mellan virtuella datorer och stora HANA-instansen enheter kan vara högre än en typisk VM-till-VM network fördröjningen. Beroende på Azure-region, de mätvärdena kan överstiga 0,7-ms-fördröjningen klassificeras som under genomsnittet i [SAP Obs! #1100926 – vanliga frågor och svar: nätverksprestanda](https://launchpad.support.sap.com/#/notes/1100926/E). Kunder kan dock distribuera SAP HANA-baserade produktion SAP-program på stora SAP HANA-instansen. De kunder som distribuerats bra rapportförbättringar genom att köra sina SAP-program på SAP HANA med hjälp av enheter för stora HANA-instansen. Kontrollera noggrant testa dina affärsprocesser i Azure HANA stora instanser.
+Nätverksfördröjning uppstod mellan virtuella datorer och stora HANA-instansen enheter kan vara högre än en typisk VM-till-VM network fördröjningen. Beroende på Azure-region, de mätvärdena kan överstiga 0,7-ms-fördröjningen klassificeras som under genomsnittet i [SAP Obs! #1100926 – vanliga frågor och svar: nätverksprestanda](https://launchpad.support.sap.com/#/notes/1100926/E). Beroende på Azure-Region och verktyg för att mäta Nätverksfördröjningen mellan en virtuell Azure-dator och stora HANA-instansen enhet, uppmätt svarstiden kan vara upp till och runt 2 millisekunder. Kunder kan dock distribuera SAP HANA-baserade produktion SAP-program på stora SAP HANA-instansen. Kontrollera noggrant testa dina affärsprocesser i Azure HANA stora instanser.
  
 För att ge deterministisk Nätverksfördröjningen mellan virtuella datorer och HANA stora instanser, val av den virtuella nätverksgatewayen SKU är viktigt. Mönster för trafik mellan virtuella datorer och stora HANA-instansen kan utveckla små men hög belastning med begäranden och data volymer som ska överföras till skillnad från trafikmönster mellan lokala och virtuella datorer. För att hantera sådana toppar och rekommenderar vi användning av SKU för UltraPerformance-gateway. Användningen av SKU för UltraPerformance-gateway som en virtuell nätverksgateway är obligatoriskt för Type II-klassen för HANA stora instans SKU: er.
 

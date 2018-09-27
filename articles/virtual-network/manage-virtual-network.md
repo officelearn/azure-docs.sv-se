@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8d92c5d01e977fc64e823a0229b5f2ede944743
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d72faa99c15fdbebb299e416fd902bae261f31f9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985661"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221187"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -89,7 +89,7 @@ Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här art
     - **Egenskaper för**: Visar inställningar om det virtuella nätverket, inklusive resurs-ID för det virtuella nätverket och den är i den Azure-prenumeration.
     - **Diagram över**: diagrammet innehåller en visuell representation av alla enheter som är anslutna till det virtuella nätverket. Diagrammet har vissa viktig information om enheterna. Välj enheten för att hantera en enhet i den här vyn i diagram.
     - **Gemensamma inställningar för Azure**: Mer information om vanliga Azure-inställningar finns i följande information:
-        *   [Aktivitetslogg](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+        *   [Aktivitetslogg](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
         *   [Åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
         *   [Taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Lås](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

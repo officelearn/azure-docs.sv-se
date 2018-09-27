@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: dba0474e83c886edcad1101083e45ff39ee222dd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f9bc9bf540f7f44e07bc4bb0ae8ef6910ae78476
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300231"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222394"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Använda Visual Studio för att visa Azure Stream Analytics-jobb
 
@@ -53,7 +53,7 @@ Azure Stream Analytics-jobb kan vara fullständigt hanterade från jobbvyn i Vis
 
 ## <a name="check-job-results"></a>Resultat av jobb
 
-Stream Analytics-verktyg för Visual Studio stöder för närvarande Förhandsgranska utdata för Azure Data Lake Storage Storage och blob storage. Om du vill visa resultatet helt enkelt Dubbelklicka på noden utdata i jobbdiagrammet i **Jobbvy** och ange rätt autentiseringsuppgifter.
+Stream Analytics-verktyg för Visual Studio stöder för närvarande Förhandsgranska utdata för Azure Data Lake Storage och blob storage. Om du vill visa resultatet helt enkelt Dubbelklicka på noden utdata i jobbdiagrammet i **Jobbvy** och ange rätt autentiseringsuppgifter.
 
    ![Stream Analytics-jobbutdata blob](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
 

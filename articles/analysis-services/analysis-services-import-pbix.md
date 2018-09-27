@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/26/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a2855ca5dbb76d3fcc30c4b1007c20bb48c91c9b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a4bb5f59e7aa99a676145ba7a6dbd1883cb860cf
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057362"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394341"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importera en Power BI Desktop-fil
 
@@ -22,11 +22,13 @@ Du kan importera en datamodell i Power BI Desktop-fil (pbix) till Azure Analysis
 **Begränsningar**   
 
 - Importera från en pbix-fil använder webbdesignerfunktionen i portalen, som är **förhandsversion**. Funktionerna är begränsade. För mer avancerade modellen utveckling och testning är det bäst att använda Visual Studio (SSDT) och SQL Server Management Studio (SSMS).
+- Om du får följande felmeddelande när du importerar har pbix-filen aktiverats förhandsversionsfunktioner som ännu inte stöds i Azure Analysis Services.
+
+    ![Kompatibilitetsvarning för servicenivå](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)
 - Du måste ha administratörsbehörighet för servern för att importera från en pbix-fil.
 - Pbix-modellen kan ansluta till **Azure SQL Database** och **Azure SQL Data Warehouse** datakällor endast.
 - Pbix-modellen kan inte ha live eller DirectQuery-anslutningar. 
 - Importen misslyckas om datamodellen pbix innehåller metadata som inte stöds i Analysis Services.
-
 
 ## <a name="to-import-from-pbix"></a>Importera från pbix
 

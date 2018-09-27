@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 180d4092a2570b719e77d98319ab9b329f2e48c5
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: bdbe15a85ad4d2ef6918b7ab7e16942edde5096e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637431"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220344"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Skapa, visa, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure portal
 
@@ -27,7 +27,7 @@ ms.locfileid: "45637431"
 
 Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva autentiseringsuppgifter i din kod. 
 
-I den här artikeln får du lära dig hur du skapar, lista, ta bort eller tilldela en roll till en en Användartilldelad hanterad identitet med hjälp av Azure-portalen.
+I den här artikeln får du lära dig skapa, visa, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure-portalen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

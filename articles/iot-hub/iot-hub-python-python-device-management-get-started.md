@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: kgremban
-ms.openlocfilehash: fa966ee2ea26cccc7d841a0e969d8329ac5bc0de
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 18a3b90c4d3df746aded8dc8a2600112fca62b16
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573425"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219744"
 ---
 # <a name="get-started-with-device-management-python"></a>Kom igång med enhetshantering (Python)
 
@@ -148,7 +148,7 @@ I det här avsnittet kommer du att:
 1. Spara och Stäng den **dmpatterns_getstarted_device.py** fil.
 
 > [!NOTE]
-> För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktionskoden bör du implementera principer för omförsök (till exempel en exponentiell backoff), vilket rekommenderas i MSDN-artikeln om [hantering av tillfälliga fel][lnk-transient-faults].
+> För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktionskoden bör du implementera principer för omförsök (till exempel en exponentiell backoff) vilket rekommenderas i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
 
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Utlösa en fjärromstart på enheten med en direkt metod
@@ -231,7 +231,7 @@ I det här avsnittet skapar du en Python-konsolapp som initierar en fjärromstar
 1. Spara och Stäng den **dmpatterns_getstarted_service.py** fil.
 
 
-## <a name="run-the-apps"></a>Kör apparna
+## <a name="run-the-apps"></a>Köra apparna
 Nu är det dags att köra apparna.
 
 1. Kör följande kommando för att börja lyssna efter omstart direkt metod i Kommandotolken.
@@ -267,4 +267,3 @@ Nu är det dags att köra apparna.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: f57dc1707a9e25e4ea308142e804cdbc80d4308a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984950"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227455"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Lägga till logga in med Microsoft i en ASP.NET Core-webbapp
 
@@ -62,7 +62,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en ASP.NET Core-W
 
 1. Extrahera zip-filen till en lokal mapp (till exempel **C:\Azure-Samples**)
 1. Om du använder Visual Studio 2017 kan du öppna projektet i Visual Studio (valfritt)
-1. Redigera **appsettings.json** och Ersätt värdet för `ClientId` med det program-Id från programmet som du just registrerade:
+1. Redigera **appsettings.json** och Ersätt värdet för `ClientId` med program-Id från programmet som du just registrerade:
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"

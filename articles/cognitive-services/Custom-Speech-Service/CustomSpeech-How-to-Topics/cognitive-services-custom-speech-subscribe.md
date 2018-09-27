@@ -1,21 +1,22 @@
 ---
-title: Hämta prenumerationsnycklar för Custom Speech Service på Azure | Microsoft Docs
-description: Lär dig mer om att hämta prenumerationsnycklar för anrop till Custom Speech Service i Cognitive Services.
+title: Hämta prenumerationsnycklar – Custom Speech Service
+titlesuffix: Azure Cognitive Services
+description: Lär dig hur du hämtar prenumerationsnycklar för anrop till Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: e5cac34a9aead209bec90cfd5f89e94a005a1995
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e4694928baf98bdb0d6aacead8dffec6bb73d6f7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980363"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224784"
 ---
 # <a name="obtain-subscription-keys"></a>Hämta prenumerationsnycklar
 Kom igång med Azure Custom Speech Service, måste du först länka ditt konto till en Azure-prenumeration. Prenumerationer på kostnadsfria och betalda nivåer är tillgängliga. Information om nivåerna finns i den [prissättningssidan](https://www.microsoft.com/cognitive-services/en-us/pricing).

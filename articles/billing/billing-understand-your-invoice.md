@@ -1,5 +1,5 @@
 ---
-title: Förstå fakturan Azure | Microsoft Docs
+title: Förstå fakturan för Azure | Microsoft Docs
 description: Lär dig hur du läser och förstår användningen och fakturan för Azure-prenumerationen
 services: ''
 documentationcenter: ''
@@ -13,106 +13,106 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
-ms.openlocfilehash: 6601ade7db52043de8150a3fca671591b9b469fd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 4bfaaa51e39a7db297626a8009306eef9e3efa80
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063467"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393789"
 ---
-# <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Förstå villkor på fakturan Microsoft Azure
+# <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Förstå villkoren på din faktura för Microsoft Azure
 
-Fakturan innehåller en sammanfattning av dina debiteringar och innehåller instruktioner för betalning. Den är tillgänglig för nedladdning i Portable Document-Format (PDF) från den [Azure-portalen](https://portal.azure.com/) eller kan skickas via e-post. Mer information finns i [få dina Azure billing faktura och dagligen användningsdata](billing-download-azure-invoice-daily-usage-date.md).
+Fakturan innehåller en sammanfattning av dina avgifter och innehåller instruktioner för betalning. Den är tillgänglig för hämtning i PDF--Format (PDF) från den [Azure-portalen](https://portal.azure.com/) eller skickas via e-post. Mer information finns i [så här hämtar du din Azure-fakturering och daglig användningsdata](billing-download-azure-invoice-daily-usage-date.md).
 
-Några saker att Observera:
+Några saker att tänka på:
 
--   Om du använder en kostnadsfri utvärderingsprenumeration får du information om din detaljerad användning i Azure-portalen, men du har inte en faktura.
+-   Om du använder en kostnadsfri utvärderingsprenumeration får du detaljerad användning-information i Azure-portalen, men du behöver inte en faktura.
 
--   Upp till 24 timmar för användning i slutet av faktureringsperioden tidigare kan visas i din aktuella fakturan.
+-   Upp till 24 timmars användning i slutet av den tidigare faktureringsperioden kan visas i den aktuella fakturan.
 
--   Avgifterna som visas på fakturering instruktioner för internationella kunder är endast för beräkning av. Banker kan ha olika kostnader för konvertering priser.
+-   Kostnader som anges på kontoutdrag för internationella kunder är endast. Banker kan ha olika kostnader för valutaomvandling.
 
 >[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
-## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Detaljerade villkor och beskrivningar av fakturan
+## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Detaljerade villkor och beskrivningar av din faktura
 Följande avsnitt listar de viktiga termer som du ser på din faktura och beskrivningar av varje term.
 
 ### <a name="account-information"></a>Kontoinformation
 
-Avsnittet kontoinformation på fakturan är överst på första sidan som visar information om din profil och prenumeration.
+Avsnittet med kontoinformationen för fakturan är överst på första sidan som visar information om profilen och prenumeration.
 
-![Kontot i avsnittet information i faktura](./media/billing-understand-your-invoice/1.png)
+![Avsnittet med kontoinformationen av faktura](./media/billing-understand-your-invoice/1.png)
 
 | Period | Beskrivning |
 | --- | --- |
-| Kundens Inköpsordernummer |Ett valfritt inköpsordernummer som tilldelats av du för spårning |
-| Fakturanr |Ett unikt, Microsoft genererade fakturan tal som används i spårningssyfte |
+| Kundens Inköpsordernummer |Ett valfritt inköpsordernummer som tilldelats av dig för spårning |
+| Fakturanr |Ett unikt, Microsoft genererade fakturanummer som används i spårningssyfte |
 | Faktureringscykel |Datumintervall som omfattar den här fakturan |
-| Fakturadatum |Datum då fakturan har skapats, vanligtvis en dag efter slutet av fakturerings-cykel |
+| Fakturadatum |Datum då fakturan skapades, vanligtvis en dag efter slutet av faktureringscykel |
 | Betalningsmetod |Typ av betalning som används för kontot (faktura eller kreditkort) |
 | Fakturera till |Faktureringsadress som anges för kontot |
-| Prenumerationen erbjuder (”betala per användning”) |Typ av prenumerationserbjudande som har köpts (betala per användning, BizSpark Plus, Azure-Pass, etc.). Mer information finns i [Azure erbjudandetyper](https://azure.microsoft.com/support/legal/offer-details/). |
-| E-postadress till kontoägaren | Den e-postadress som Microsoft Azure-kontot är registrerat under. <br /><br />Om du vill ändra e-postadressen [ändra profilinformation i ditt Azure-konto som kontaktens e-post, adress och telefonnummer](billing-how-to-change-azure-account-profile.md). |
+| Prenumerationen erbjuder (”betala per användning”) |Typ av prenumerationserbjudande som har köpts (betala per användning, BizSpark Plus, Azure-Pass osv.). Mer information finns i [Azure erbjudandetyper](https://azure.microsoft.com/support/legal/offer-details/). |
+| E-postadress till kontoägaren | Den e-postadress som Microsoft Azure-kontot är registrerat under. <br /><br />Om du vill ändra den e-postadressen, se [så här ändrar du profilinformation för ditt Azure-konto, till exempel kontaktpersonens e-postadress, adress och telefonnummer](billing-how-to-change-azure-account-profile.md). |
 
 ### <a name="understand-the-invoice-summary"></a>Förstå sammanfattningen av fakturan
-Den **fakturasammanfattning** avsnittet på fakturan visas total transaktionsbelopp sedan den senaste faktureringsperioden och dina aktuella användningsavgifter.
+Den **fakturasammanfattning** avsnitt på fakturan visas total transaktionsbelopp sedan den senaste faktureringsperioden samt aktuella användningsdebiteringar.
 
-![Fakturan sammanfattningen](./media/billing-understand-your-invoice/2.png)
+![Sammanfattningen av fakturan](./media/billing-understand-your-invoice/2.png)
 
-Prenumerationsnamnet (”produktion lagring”) är namnet på prenumerationen för den här fakturan.
+Prenumerationsnamn (”Produktionslagring”) är namnet på prenumerationen för den här fakturan.
 
-#### <a name="understand-the-previous-charges"></a>Förstå tidigare avgifterna
-Den tidigare, betalningar och utestående saldo avsnittet på fakturan sammanfattas transaktioner sedan den senaste faktureringsperioden.
+#### <a name="understand-the-previous-charges"></a>Förstå tidigare debiteringar
+Föregående saldo, betalningar och utestående saldo delen av fakturan sammanfattar transaktionerna sedan din senaste faktureringsperiod.
 
 | Period | Beskrivning |
 | --- | --- |
-| Föregående saldo |Totalsumman från din senaste faktureringsperioden |
-| Betalningar |Totalt antal betalningar och krediter som tillämpas på din senaste faktureringsperioden |
-| Utestående saldo (från föregående faktureringsperiod) |Alla krediter eller återstoden i ditt konto sedan den senaste faktureringsperioden |
+| Föregående saldo |Totalsumman från din senaste faktureringsperiod |
+| Betalningar |Totala betalningar och krediter som tillämpats på din senaste faktureringsperiod |
+| Utestående saldo (från föregående faktureringsperiod) |Alla krediter eller kvarvarande saldo i ditt konto sedan den senaste faktureringsperioden |
 
 #### <a name="understand-the-current-charges"></a>Förstå aktuella debiteringar
-Avsnittet aktuella avgifter för fakturan visar information om dina månatliga avgifter för den aktuella faktureringsperioden.
+I avsnittet aktuella debiteringar på fakturan visar information om dina månatliga debiteringar för den aktuella faktureringsperioden.
 
 | Period | Beskrivning |
 | --- | --- |
-| Avgifter för användning |Avgifter för användning är den totala månatliga debiteringen för en prenumeration för den aktuella faktureringsperioden|
-| Rabatter |Tjänsten rabatter för din aktuella faktureringsperioden|
-| Justeringar |Diverse krediter (ledigt användning, krediter osv.) eller utestående avgifter som tillämpas på din aktuella faktureringsperioden.<br/><br/>Om du har Visual Studio Enterprise med MSDN erbjudande finns till exempel en månadskredit. Om du avbryter prenumerationen finns månatliga användningskostnader som överskrider månadskredit som du får med erbjudandet prenumeration. Avgifterna innebära i början av den aktuella faktureringsperioden tills Annulleringsdatum prenumeration. |
+| Avgifter för användning |Användningsdebitering är totala månadsdebiteringar i en prenumeration för den aktuella faktureringsperioden|
+| Rabatter |Tjänstrabatter på den aktuella faktureringsperioden|
+| Justeringar |Diverse krediter (kostnadsfri användning, krediter osv.) eller obetalda avgifter som påförts den aktuella faktureringsperioden.<br/><br/>Till exempel om du har Visual Studio Enterprise med MSDN-erbjudandet kan se du en månatlig kredit. Om du avbryter din prenumeration kan du se månatliga användningskostnader som överstiger den månatliga krediten som är tillgängliga i ditt prenumerationserbjudande. Avgifterna debiteras i början av din aktuella faktureringsperiod tills Annulleringsdatum prenumeration. |
 
-#### <a name="sold-to-and-payment-instructions"></a>Säljs till och betalningsinstruktioner
+#### <a name="sold-to-and-payment-instructions"></a>Såldes till och betalningsanvisningar
 
-I följande tabell beskrivs de säljs till och betalning anvisningarna som visas på den andra sidan på fakturan.
+I följande tabell beskrivs de Utsålt till och betalningsanvisningar som visas på den andra sidan i din faktura.
 
 | Period |Beskrivning |
 | --- | --- |
-| Såldes till |Profil-adress som är på kontot. <br/><br/>Om du behöver ändra adressen finns [ändra profilinformation i ditt Azure-konto som kontaktens e-post, adress och telefonnummer](billing-how-to-change-azure-account-profile.md).|
-| Betalningsanvisningar |Instruktioner om hur du betalar beroende på betalningsmetod (exempelvis med kredit kort eller av en faktura). |
+| Såldes till |Profil-adress som ligger på kontot. <br/><br/>Om du vill ändra adressen kan se [så här ändrar du profilinformation för ditt Azure-konto, till exempel kontaktpersonens e-postadress, adress och telefonnummer](billing-how-to-change-azure-account-profile.md).|
+| Betalningsanvisningar |Anvisningar om hur du betalar beroende på betalningsmetod (till exempel med kredit kortet eller med faktura). |
 
 #### <a name="usage-charges"></a>Användningsdebitering
 
-Avsnittet användning avgifter för fakturan visar mätaren nivåinformation på dina debiteringar.
+Avsnittet användning avgifter på fakturan visar mätaren nivåinformation på dina kostnader.
 
-![Användning avgifter avsnitt](./media/billing-understand-your-invoice/3.png)
+![Användning i avsnittet debiteringar](./media/billing-understand-your-invoice/3.png)
 
-I följande tabell beskrivs användning avgifter kolumnrubriker visas på fakturan.
+I följande tabell beskrivs kolumnrubrikerna för användning avgifter visas på fakturan.
 
 | Period |Beskrivning |
 | --- | --- |
-| Namn |Identifierar tjänsten på den översta nivån för användning |
-| Typ |Definierar den Azure-tjänst-typ som kan påverka hastigheten |
-| Resurs |Identifierar måttenheten för mätaren används |
-| Region |Identifierar platsen för datacenter för vissa tjänster som är mest baserat på plats för datacenter |
-| Förbrukad |Mängden mätaren används under faktureringsperioden |
-| Ingår |Mängden mätaren som ingår kostnadsfritt i din aktuella faktureringsperioden |
-| Faktureringsbar |Visar skillnaden mellan antalet används och det antal som ingår. Det är debiteras för den här mängden. Betala per användning erbjudanden utan belopp som ingår i erbjudandet, till är den samma som antalet används |
-| Pris |Hastigheten med vilken du är debiteras per fakturerbar enhet |
-| Värde |Visar resultatet av att multiplicera kolumnen överförbrukning antal efter kolumnen hastighet. Om antalet används inte överstiger antalet ingår, är gratis i den här kolumnen. |
-| Delsumma |Summan av alla dina kostnader före skatt för denna faktureringsperiod |
-| Totalsumma |Summan av alla kostnader efter skatt för denna faktureringsperiod |
+| Namn |Identifierar huvudtjänst för användning |
+| Typ |Definierar den Azure-tjänst-typ som kan påverka priset |
+| Resurs |Anger måttenhet för den mätning som används |
+| Region |Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret |
+| Förbrukad |Hur mycket av används under faktureringsperioden |
+| Ingår |Mängden mätaren som ingår utan kostnad i den aktuella faktureringsperioden |
+| Faktureringsbar |Visar skillnaden mellan det antal som används och det antal som ingår. Du faktureras för den mängden. För användningsbaserad betalning där inga mängder ingår i erbjudandet, är denna summa samma som den förbrukade mängden |
+| Pris |Det pris du debiteras per faktureringsbar enhet |
+| Värde |Visar resultatet av gånger kolumnen pris överförbrukning kvantitet kolumnen. Om Förbrukat antal inte överstiger det antal som ingår, kostar ingenting i den här kolumnen. |
+| Delsumma |Summan av alla dina kostnader före skatt för den här faktureringsperioden |
+| Totalsumma |Summan av alla dina kostnader efter skatt för den här faktureringsperioden |
 
-## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>Hur gör jag till att tillägg i min faktura är korrekta?
+## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>Hur gör jag till att kostnader på min faktura är korrekta?
 Om det finns en avgift på fakturan som du vill ha mer information på, se [förstå fakturan för Microsoft Azure.](billing-understand-your-bill.md)
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
-Om du fortfarande behöver hjälp [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.
+Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.

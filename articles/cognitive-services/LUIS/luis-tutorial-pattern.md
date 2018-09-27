@@ -10,14 +10,14 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ec006d8941d8832d139a09b1e8af13000ff5a43e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f4b267dda3c05d490d91fe02fbcfde4e49674603
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040711"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166409"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Självstudie: 3. Lägg till vanliga yttrandeformat
+# <a name="tutorial-3-add-common-utterance-formats"></a>Självstudie 3: Lägga till vanliga uttryck format
 
 Använda mönster i de här självstudierna för att öka avsikt och entiteten förutsägelse samtidigt som det ger färre exempel yttranden. Mönstret tillhandahålls via en mall uttryck exempel, som inkluderar syntax för att identifiera entiteter och ignorable text. Ett mönster är en kombination av uttrycksmatchning och machine learning.  Uttryck mallexemplet är tillsammans med avsikt yttranden ge LUIS bättre förståelse för vilka yttranden passar avsikten. 
 

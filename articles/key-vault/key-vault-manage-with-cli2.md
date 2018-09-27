@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 00d79462fcaad785820e3879079414c88c958a89
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba39ba2d4206fa86ed32bddf0538a2e997a79339
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961492"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220575"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Nyckelvalv med hjälp av Azure CLI 
 
-Den här artikeln beskriver hur du kommer igång med att arbeta med Azure Key Vault med hjälp av de Azure CLI.  Du kan se information på:
+Den här artikeln beskriver hur du kommer igång med att arbeta med Azure Key Vault med Azure CLI.  Du kan se information på:
 
 - Så här skapar du en säker behållare (ett valv) i Azure
 - Att lägga till en nyckel eller hemlighet certifikatet till nyckelvalvet

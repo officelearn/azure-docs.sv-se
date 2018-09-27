@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager Mallfunktioner - logiska | Microsoft Docs
+title: Azure Resource Manager-Mallfunktioner - logiska | Microsoft Docs
 description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att fastställa logiska värden.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,40 +12,40 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359075"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164795"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager-mallar
 
-Resource Manager innehåller flera funktioner för att göra jämförelser i dina mallar.
+Resource Manager tillhandahåller flera funktioner för att göra jämförelser i dina mallar.
 
-* [Och](#and)
-* [bool](#bool)
+* [och](#and)
+* [Bool](#bool)
 * [Om](#if)
 * [inte](#not)
-* [Eller](#or)
+* [eller](#or)
 
 ## <a name="and"></a>och
 `and(arg1, arg2)`
 
-Kontrollerar om båda parametervärden är true.
+Kontrollerar om båda parametervärden är sant.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolesk |Det första värdet för att kontrollera om är true. |
-| arg2 |Ja |boolesk |Det andra värdet för att kontrollera om är true. |
+| arg1 |Ja |boolesk |Det första värdet för att kontrollera om är sant. |
+| arg2 |Ja |boolesk |Det andra värdet att kontrollera om är sant. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **SANT** om båda värdena är true, annars **FALSKT**.
+Returnerar **SANT** om båda värdena är true, i annat fall **FALSKT**.
 
 ### <a name="examples"></a>Exempel
 
@@ -77,23 +77,23 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | bool | False |
-| orExampleOutput | bool | True |
-| notExampleOutput | bool | False |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-## <a name="bool"></a>bool
+## <a name="bool"></a>Bool
 `bool(arg1)`
 
 Konverterar parametern till ett booleskt värde.
@@ -102,7 +102,7 @@ Konverterar parametern till ett booleskt värde.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |sträng eller ett heltal |Värdet som ska konverteras till ett booleskt värde. |
+| arg1 |Ja |sträng eller int |Värdet att konvertera till ett booleskt värde. |
 
 ### <a name="return-value"></a>Returvärde
 Ett booleskt värde för konverterade värdet.
@@ -137,22 +137,22 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-Utdata från det föregående exemplet med standardvärdena är:
+Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| trueString | bool | True |
-| falseString | bool | False |
-| trueInt | bool | True |
-| falseInt | bool | False |
+| trueString | Bool | True |
+| falseString | Bool | False |
+| trueInt | Bool | True |
+| falseInt | Bool | False |
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
@@ -167,17 +167,17 @@ Returnerar ett värde baserat på om ett villkor är SANT eller FALSKT.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| tillstånd |Ja |boolesk |Värdet för att kontrollera om det är true. |
+| villkor |Ja |boolesk |Värde att kontrollera om det är sant. |
 | trueValue |Ja | sträng, int, objekt eller matris |Värdet som returneras när villkoret är sant. |
 | falseValue |Ja | sträng, int, objekt eller matris |Värdet som returneras om villkoret är FALSKT. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar andra parameter när den första parametern är **SANT**, annars returnerar tredje parametern.
+Returnerar andra parameter när den första parametern är **SANT**, annars returnerar tredje parameter.
 
 ### <a name="remarks"></a>Kommentarer
 
-Du kan använda den här funktionen för att ange en resursegenskap villkorligt. I följande exempel är inte en fullständig mall, men den visar relevanta delar för att ange villkorligt tillgänglighetsuppsättningen.
+Du kan använda den här funktionen för att villkorligt ange en resursegenskap. I följande exempel är inte en fullständig mall, men den visar de relevanta delarna för att villkorligt ange tillgänglighetsuppsättningen.
 
 ```json
 {
@@ -239,6 +239,10 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
         "noOutput": {
             "type": "string",
             "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
         }
     }
 }
@@ -250,14 +254,15 @@ Utdata från föregående exempel är:
 | ---- | ---- | ----- |
 | yesOutput | Sträng | ja |
 | noOutput | Sträng | nej |
+| objectOutput | Objekt | {”test”: ”value1”} |
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
@@ -266,7 +271,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="not"></a>inte
 `not(arg1)`
 
-Konverterar booleskt värde till motsatt värde.
+Konverterar booleskt värde till dess motsatt värde.
 
 ### <a name="parameters"></a>Parametrar
 
@@ -308,17 +313,17 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | bool | False |
-| orExampleOutput | bool | True |
-| notExampleOutput | bool | False |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
@@ -344,15 +349,15 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| checkNotEquals | bool | True |
+| checkNotEquals | Bool | True |
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
@@ -361,18 +366,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="or"></a>eller
 `or(arg1, arg2)`
 
-Kontrollerar om antingen parametervärdet är true.
+Kontrollerar om antingen parametervärdet är sant.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolesk |Det första värdet för att kontrollera om är true. |
-| arg2 |Ja |boolesk |Det andra värdet för att kontrollera om är true. |
+| arg1 |Ja |boolesk |Det första värdet för att kontrollera om är sant. |
+| arg2 |Ja |boolesk |Det andra värdet att kontrollera om är sant. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **SANT** om antingen värdet är true, annars **FALSKT**.
+Returnerar **SANT** om antingen värdet är true, i annat fall **FALSKT**.
 
 ### <a name="examples"></a>Exempel
 
@@ -404,25 +409,25 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | bool | False |
-| orExampleOutput | bool | True |
-| notExampleOutput | bool | False |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En beskrivning av avsnitt i en Azure Resource Manager-mallen finns [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
-* Om du vill slå samman flera mallar, se [använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
-* Iterera ett angivet antal gånger när du skapar en typ av resurs finns [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
-* Information om hur du distribuerar mallen som du har skapat finns [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
+* En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
+* Om du vill slå samman flera mallar, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
+* Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
+* Om du vill se hur du distribuerar mallen som du har skapat, se [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
 

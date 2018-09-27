@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 09/25/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d82fda2928ea8c1e3e60006d3fbe8d53f3d12a9c
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182339"
+ms.locfileid: "47223839"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics-användare
 Log Analytics används först en egen portal kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure-portalen där den kommer att fortsätta att utvecklas.
@@ -83,7 +83,7 @@ Hantera inställningar för de flesta ansluten datakälla den i den **avancerade
 | Azure Storage     | **Avancerade inställningar** menyn för arbetsytan. |
 | System Center     | **Avancerade inställningar** menyn för arbetsytan. |
 | Office 365        | Se den [dokumentation för Office 365 hanteringslösning](../operations-management-suite/oms-solution-office-365.md) konfigurationsinformation. |
-| Windows-telemetri | Finns ännu inte i Azure-portalen. |
+| Windows-telemetri | Inställningsmenyn för lösningen. Se [Windows Analytics i Azure-portalen](/windows/deployment/update/windows-analytics-azure-portal) konfigurationsinformation. |
 | ITSM-anslutningsprogram    | Se [ansluta ITSM-produkter/tjänster med IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) anvisningar om hur du ansluter din ITSM-tjänst med Log Analytics. |
 
 ### <a name="data"></a>Data

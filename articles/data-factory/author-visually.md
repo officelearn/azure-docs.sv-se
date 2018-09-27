@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 09/26/2018
 ms.author: shlo
-ms.openlocfilehash: 5bb1099dee919de50d2c2fc110f3a204e580b66c
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 8132f89423883422d70981edd3ddaf86147830e2
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465987"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394436"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 Azure Data Factory användargränssnittet användarupplevelsen (UX) kan du visuellt skapa och distribuera resurser för din datafabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en rityta för pipelinen, utför testkörningar, felsöker stegvis och distribuerar och övervakar dina pipelinekörningar. Det finns två metoder för att utföra visuell redigering med UX-Gränssnittet:
 
 - Författare direkt med Data Factory-tjänsten.
-- Författare med Git-integrering med Azure-lagringsplatser för samarbete, källkontroll och versionshantering.
+- Författare med Azure-lagringsplatser Git-integrering för samarbete, källkontroll och versionshantering.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>Författare direkt med Data Factory-tjänsten
-Visuell redigering med Data Factory-tjänsten skiljer sig från visuell redigering med Azure DevOps-tjänsterna på två sätt:
+Visuell redigering med Data Factory-tjänsten skiljer sig från visuell redigering med Git-integrering på två sätt:
 
 - Data Factory-tjänsten innehåller inte en lagringsplats för att lagra JSON-entiteter för dina ändringar.
 - Data Factory-tjänsten inte är optimerad för samarbete eller versionskontroll.
@@ -38,8 +38,8 @@ När du använder UX **Redigeringsyta** skriva direkt med Data Factory-tjänsten
 
 ![Publicera läge](media/author-visually/data-factory-publish.png)
 
-## <a name="author-with-git-integration-with-azure-repos"></a>Redigera med Git-integrering med Azure-lagringsplatser
-Visuell redigering med Git-integrering med Azure-databaser har stöd för källkontroll och samarbete for work på din data factory-pipelines. Du kan associera en datafabrik med en organisationens databas i Azure-lagringsplatser Git för källkontroll, samarbete, versionshantering och så vidare. En enda Azure-lagringsplatser Git-organisation kan ha flera databaser, men en Azure-lagringsplatser Git-lagringsplatsen kan associeras med endast en data factory. Om du inte har en Azure-lagringsplatser organisation eller databasen, Följ [instruktionerna](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) att skapa dina resurser.
+## <a name="author-with-azure-repos-git-integration"></a>Redigera med Azure-lagringsplatser Git-integrering
+Visuell redigering med Azure-lagringsplatser Git-integrering har stöd för källkontroll och samarbete for work på din data factory-pipelines. Du kan associera en datafabrik med en organisationens databas i Azure-lagringsplatser Git för källkontroll, samarbete, versionshantering och så vidare. En enda Azure-lagringsplatser Git-organisation kan ha flera databaser, men en Azure-lagringsplatser Git-lagringsplatsen kan associeras med endast en data factory. Om du inte har en Azure-lagringsplatser organisation eller databasen, Följ [instruktionerna](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) att skapa dina resurser.
 
 > [!NOTE]
 > Du kan lagra aktivitetsskript och datafiler i en Azure-lagringsplatser Git-lagringsplats. Du kan dock överföra filerna manuellt till Azure Storage. Data Factory-pipeline överför inte skript eller datafiler som lagras i en Azure-lagringsplatser Git-databas till Azure Storage automatiskt.
@@ -61,7 +61,7 @@ Fönstret visar följande kod i Azure-lagringsplatser inställningar för lagrin
 
 | Inställning | Beskrivning | Värde |
 |:--- |:--- |:--- |
-| **Typ av lagringsplats** | Typ av kodlagringsplatsen Azure lagringsplatser.<br/>**Obs**: GitHub stöds inte för närvarande. | Azure Dev Ops Git |
+| **Typ av lagringsplats** | Typ av kodlagringsplatsen Azure lagringsplatser.<br/>**Obs**: GitHub stöds inte för närvarande. | Azure-lagringsplatser Git |
 | **Azure Active Directory** | Ditt klientnamn för Azure AD. | <your tenant name> |
 | **Azure-lagringsplatser organisation** | Organisationsnamnet Azure lagringsplatser. Du kan hitta Azure-lagringsplatser organisationens namn på `https://{organization name}.visualstudio.com`. Du kan [logga in på din Azure-lagringsplatser organisation](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | <your organization name> |
 | **Projektnamn** | Projektnamnet Azure lagringsplatser. Du kan hitta din Azure-lagringsplatser projektnamn på `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
@@ -70,7 +70,7 @@ Fönstret visar följande kod i Azure-lagringsplatser inställningar för lagrin
 | **Rotmapp för vyer** | Rotmappen i din Azure-lagringsplatser samarbete gren. | <your root folder name> |
 | **Importera befintlig Data Factory-resurser till databasen** | Anger om du vill importera befintliga data factory-resurser från UX **Redigeringsyta** till en Azure-lagringsplatser Git-lagringsplats. Markera kryssrutan för att importera din data factory-resurser till den associerade Git-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (det vill säga länkade tjänster och datauppsättningar exporteras till separata för). När den här rutan inte har valts, importera inte befintliga resurser. | Valda (standard) |
 
-#### <a name="configuration-method-2--azure-repos-git-repo-ux-authoring-canvas"></a>Metod 2 (Azure lagringsplatser Git-lagringsplats): UX Redigeringsyta
+#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Metod 2 (Azure lagringsplatser Git-lagringsplats): UX Redigeringsyta
 I Azure Data Factory UX **Redigeringsyta**, leta upp din data factory. Välj den **Data Factory** nedrullningsbara menyn och välj sedan **konfigurera Kodlagringsplats**.
 
 En konfigurationsruta visas. Mer information om inställningarna se beskrivningarna i <a href="#method1">konfigurationsmetoden 1</a>.

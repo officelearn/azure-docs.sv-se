@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus IP-anslutningsfilter | Microsoft Docs
-description: Hur du använder IP-filtrering ska blockera anslutningar från särskilda IP-adresser till Azure Service Bus.
+description: Så här använder IP-filtrering för blockerar anslutningar från specifika IP-adresser till Azure Service Bus.
 services: service-bus
 documentationcenter: ''
 author: clemensv
@@ -8,54 +8,54 @@ manager: timlt
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: e009bb9120fafc6edf60b68fab3336b9d1add507
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: ccb759a9151d734aa99a6f6b9c68e6072874dd84
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036354"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394836"
 ---
 # <a name="use-ip-filters"></a>IP-filter
 
-För scenarier där Azure Service Bus är enbart tillgänglig från vissa välkända webbplatser i *IP-filter* funktionen kan du konfigurera regler för avvisa eller ta emot trafik från specifika IPv4-adresser. Till exempel kanske adresserna de en företagets NAT-gateway.
+För scenarier där Azure Service Bus endast är tillgänglig från vissa välkända platser, den *IP-adressfilter* funktionen kan du konfigurera regler för avvisar eller tar emot trafik som kommer från specifika IPv4-adresser. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
 
 ## <a name="when-to-use"></a>När du ska använda detta
 
-Det finns två specifika användningsfall där det är praktiskt att blockera Service Bus-slutpunkter för vissa IP-adresser:
+Det finns två specifika användningsfall där det är bra att blockera Service Bus-slutpunkter för vissa IP-adresser:
 
-- Service Bus bör endast ta emot trafik från ett angivet IP-adresser och avvisa allt annat. Till exempel du använder Service Bus med [Azure Express Route] [ express-route] att skapa privata anslutningar till din lokala infrastruktur.
-- Behöver du avvisa trafik från IP-adresser som har identifierats som misstänkt av Service Bus-administratör.
+- Service Bus ska ta emot trafik från ett angivet intervall med IP-adresser och avvisa allt annat. Exempel: du använder Service Bus med [Azure Express Route] [ express-route] skapa privata anslutningar till din lokala infrastruktur.
+- Du måste avvisa trafik från IP-adresser som har identifierats som misstänkt av Service Bus-administratören.
 
-## <a name="how-filter-rules-are-applied"></a>Hur filter regler
+## <a name="how-filter-rules-are-applied"></a>Hur filterregler tillämpas
 
-IP-filterregler tillämpas på nivån för Service Bus-namnrymd. Därför gäller regler för alla anslutningar från klienter som använder alla protokoll som stöds.
+IP-filterreglerna tillämpas på namnområdesnivå Service Bus. Därför gäller reglerna för alla anslutningar från klienter som använder alla protokoll som stöds.
 
-Alla anslutningsförsök från en IP-adress som matchar en rejecting IP-regel på Service Bus-namnrymd avvisas som obehörig. Svaret nämner inte IP-regeln.
+Alla anslutningsförsök från en IP-adress som matchar en rejecting IP-regel i Service Bus-namnområdet avvisas som ej behörig. Svaret nämner inte IP-regeln.
 
 ## <a name="default-setting"></a>Standardinställningen
 
-Som standard den **IP-Filter** rutnät i portal för Service Bus är tom. Den här standardinställningen innebär att namnområdet accepterar anslutningar IP-adresser. Den här standardinställningen motsvarar en regel som accepterar 0.0.0.0/0 IP-adressintervall.
+Som standard den **IP-adressfilter** rutnätet i portal för Service Bus är tomt. Den här standardinställningen innebär att ditt namnområde godtar anslutningar på IP-adresser. Den här standardinställningen motsvarar en regel som accepterar 0.0.0.0/0 IP-adressintervall.
 
-## <a name="ip-filter-rule-evaluation"></a>IP-filter regeln utvärdering
+## <a name="ip-filter-rule-evaluation"></a>IP-filter rule utvärdering
 
-IP-filterregler tillämpas i ordning och den första regeln som matchar IP-adressen bestämmer åtgärden Godkänn eller avvisa.
+IP-filterreglerna tillämpas i ordning och den första regeln som matchar IP-adressen anger åtgärden acceptera eller avvisa.
 
-Om du vill acceptera adresser i intervallet 70.37.104.0/24 och avvisa allt annat ska den första regeln i rutnätet acceptera adressintervallet 70.37.104.0/24. Nästa regel bör Ignorera alla adresser med hjälp av intervallet 0.0.0.0/0.
+Om du vill acceptera adresserna i intervallet 70.37.104.0/24 och avvisa allt annat, bör den första regeln i rutnätet godkänna adressintervallet 70.37.104.0/24. Nästa regel ska avvisa alla adresser med hjälp av adressintervallet 0.0.0.0/0.
 
 > [!NOTE]
-> Neka IP-adresser kan förhindra andra Azure-tjänster (till exempel Azure Stream Analytics, Azure virtuella datorer eller enheter Explorer i portalen) interagerar med Service Bus.
+> Avvisa IP-adresser kan det förhindra att interagera med Service Bus andra Azure-tjänster (till exempel Azure Stream Analytics, Azure Virtual Machines eller Device Explorer i portalen).
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuellt nätverk med Azure Resource Manager-mallar
+### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuella nätverk med Azure Resource Manager-mallar
 
-Följande Resource Manager-mall gör det möjligt att lägga till en regel för virtuellt nätverk i en befintlig Service Bus-namnrymd.
+Följande Resource Manager-mallen gör det möjligt att lägga till en regel för virtuella nätverk i en befintlig Service Bus-namnrymd.
 
 Mallparametrar:
 
-- **ipFilterRuleName** måste vara en unik, skiftlägeskänsliga, alfanumeriska sträng upp till 128 tecken.
-- **ipFilterAction** är antingen **avvisa** eller **acceptera** som åtgärden som ska gälla för regeln för IP-filter.
-- **ipMask** är en IPv4-adress eller ett block av IP-adresser i CIDR-notation. Till exempel i CIDR representerar notation 70.37.104.0/24 256 IPv4-adresser från 70.37.104.0 70.37.104.255 med 24 som anger antalet bitar som betydande prefixet för intervallet.
+- **ipFilterRuleName** måste vara en unik, skiftlägesokänslig, alfanumerisk sträng på högst 128 tecken.
+- **ipFilterAction** är antingen **avvisa** eller **acceptera** som åtgärden som ska användas för IP-filterregeln.
+- **ipMask** är en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. Till exempel i CIDR representerar notation 70.37.104.0/24 256 IPv4-adresser från 70.37.104.0 till 70.37.104.255 med 24 som anger antalet bitar betydande prefixet för intervallet.
 
 ```json
 {  
@@ -103,13 +103,13 @@ Mallparametrar:
 }
 ```
 
-Följ instruktionerna för att distribuera mallen [Azure Resource Manager][lnk-deploy].
+Om du vill distribuera mallen genom att följa anvisningarna för [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Nästa steg
 
-Begränsningsaspekten åtkomst till Service Bus till virtuella Azure-nätverk finns på följande länk:
+Begränsa åtkomst till Service Bus till Azure-nätverk finns i följande länk:
 
-- [Virtuellt nätverksslutpunkter för Service Bus][lnk-vnet]
+- [Tjänstslutpunkter i virtuella nätverk för Service Bus][lnk-vnet]
 
 <!-- Links -->
 

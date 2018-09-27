@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: bd05f1c5c2c8f4c4469a702b73341fd506c54815
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3ac7ab0aac190ab53075a6a4ee24fca3ee7eeb84
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958789"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227528"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en grupp
 
@@ -68,7 +68,7 @@ Ange i sökrutan överst på portalen *nätverkssäkerhetsgrupper*. När **nätv
 1. Ange i sökrutan överst på portalen *nätverkssäkerhetsgrupper*. När **nätverkssäkerhetsgrupper** visas i sökresultaten, markerar du den.
 2. Välj den nya nätverkssäkerhetsgruppen i listan som du vill visa information om. Under **inställningar** du kan visa den **ingående säkerhetsregler** och **utgående säkerhetsregler**, **nätverksgränssnitt** och  **Undernät** nätverkssäkerhetsgruppen är kopplad till. Du kan också aktivera eller inaktivera **diagnostikloggar** och visa **gällande säkerhetsregler**. Mer information finns i [diagnostikloggar](virtual-network-nsg-manage-log.md) och [visa gällande säkerhetsregler](diagnose-network-traffic-filter-problem.md).
 3. Mer information om vanliga Azure inställningarna finns i följande artiklar:
-    *   [Aktivitetslogg](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+    *   [Aktivitetslogg](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     *   [Åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Lås](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 08/23/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bdf1d1a62bd8e2e1d0a0a8ad30f2d4c4833be0e4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a52654ab620908b9c8c07edf3fcdfbf70068528d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125101"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220802"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Skapa en Log Analytics-arbetsyta i Azure portal
 I Azure portal som du kan ställa in en Log Analytics-arbetsyta, vilket är en unik Log Analytics-miljö med en egen databas, datakällor och lösningar.  Stegen som beskrivs i den här artikeln krävs om du avser att samla in data från följande källor:
@@ -28,7 +28,7 @@ I Azure portal som du kan ställa in en Log Analytics-arbetsyta, vilket är en u
 * Azure-resurser i din prenumeration
 * Lokala datorer som övervakas av System Center Operations Manager
 * Enhetssamlingar från System Center Configuration Manager 
-* Diagnostik- eller loggdata från Azure Storage
+* Diagnostik och log data från Azure storage
 
 Andra källor, till exempel virtuella Azure-datorer och Windows eller Linux-datorer i din miljö finns i följande avsnitt:
 
@@ -48,7 +48,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
   
 2. Klicka på **Skapa** och välj sedan alternativ för följande objekt:
 
-  * Ange ett namn för den nya **OMS-arbetsytan**, som *DefaultLAWorkspace*. 
+  * Ange ett namn för den nya **Log Analytics-arbetsytan**, till exempel *DefaultLAWorkspace*. 
   * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
   * För **resursgrupp**, välja att använda en befintlig resurs grupp redan installationen eller skapa en ny.  
   * Välj ett tillgängligt **plats**.  Mer information finns i som [regioner Log Analytics är tillgängligt i](https://azure.microsoft.com/regions/services/).
@@ -56,7 +56,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)  
 
-3. När du har angett den nödvändiga informationen i fönsterrutan **OMS-arbetsyta** klickar du på **OK**.  
+3. När du har angett informationen som krävs på den **Log Analytics-arbetsytan** fönstret klickar du på **OK**.  
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 
@@ -66,4 +66,4 @@ Nu när du har en arbetsyta som är tillgängliga kan du konfigurera insamling a
 * Om du vill aktivera insamling av data från Azure-resurser med Azure Diagnostics eller Azure storage, se [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](log-analytics-azure-storage.md).  
 * [Lägg till System Center Operations Manager som en datakälla](log-analytics-om-agents.md) att samla in data från agenter som rapporterar Operations Manager-hanteringsgrupp och lagra den i Log Analytics-arbetsytan. 
 * Ansluta [Configuration Manager](log-analytics-sccm.md) att importera datorer som är medlemmar i samlingar i hierarkin.  
-* Granska den [hanteringslösningar](log-analytics-add-solutions.md) tillgängliga och hur du lägger till eller ta bort en lösning från din arbetsyta.
+* Granska den [hanteringslösningar](https://docs.microsoft.com/azure/monitoring/monitoring-solutions-inventory?toc=%2fazure%2flog-analytics%2ftoc.json) tillgängliga och hur du lägger till eller ta bort en lösning från din arbetsyta.

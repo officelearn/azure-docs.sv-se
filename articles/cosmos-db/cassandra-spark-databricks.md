@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 3f1bdb63253506aee211f3733df2a339824de7a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1d8f41c55ffd453507804b005d10620665b512c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994657"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222043"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Åtkomst till Cassandra-API för Azure Cosmos DB-data från Azure Databricks
 
@@ -32,9 +32,9 @@ Den här artikeln innehåller information om hur du workwith Azure Cosmos DB Cas
 
 * [Använd cqlsh för verifiering om du så föredrar](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **API för Cassandra instanskonfiguration för Datastax Cassandra-anslutningen:**
+* **API för Cassandra instanskonfiguration för Cassandra-anslutningen:**
 
-  Datastax-anslutningsappen för Cassandra kräver Cassandra anslutningsinformationen initieras som en del av spark-kontext. När du startar en Databricks notebook spark-kontexten har redan initierats och det rekommenderas inte att stoppa och starta om den. En lösning är att lägga till API för Cassandra-instanskonfiguration på en klusternivå i spark klusterkonfigurationen. Detta inträffar en gång per kluster. Lägg till följande kod i Spark-konfigurationen som kan avgränsade viktiga värde-par:
+  Krävs av anslutningen för Cassandra-API för Cassandra anslutningsinformationen initieras som en del av spark-kontext. När du startar en Databricks notebook spark-kontexten har redan initierats och det rekommenderas inte att stoppa och starta om den. En lösning är att lägga till API för Cassandra-instanskonfiguration på en klusternivå i spark klusterkonfigurationen. Detta inträffar en gång per kluster. Lägg till följande kod i Spark-konfigurationen som kan avgränsade viktiga värde-par:
  
   ```scala
   spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com
@@ -46,11 +46,11 @@ Den här artikeln innehåller information om hur du workwith Azure Cosmos DB Cas
 
 ## <a name="add-the-required-dependencies"></a>Lägg till de nödvändiga beroendena
 
-* **Datastax Cassandra Spark-anslutningsappen:** – om du vill integrera med Azure Cosmos DB Cassandra API med Spark, Datastax Cassandra anslutningen ska kopplas till Azure Databricks-klustret. Att koppla klustret:
+* **Cassandra Spark-anslutningsappen:** – om du vill integrera Azure Cosmos DB Cassandra API med Spark, Cassandra anslutningen ska kopplas till Azure Databricks-klustret. Att koppla klustret:
 
-  * Granska Databricks-körningsversion Spark-version. Hitta den [maven-koordinater](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) som är kompatibla med Datastax Cassandra Spark-anslutningsappen och koppla den till klustret. Se [”ladda upp ett Maven-paketet eller Spark-paket”](https://docs.databricks.com/user-guide/libraries.html) artikeln om du vill bifoga kopplingsbibliotek i klustret. Till exempel maven-koordinat för ”Databricks Runtime version 4.3”, ”Spark 2.3.1” och ”Scala 2.11” är `spark-cassandra-connector_2.11-2.3.1`
+  * Granska Databricks-körningsversion Spark-version. Hitta den [maven-koordinater](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) som är kompatibla med Cassandra Spark-anslutningsappen och koppla den till klustret. Se [”ladda upp ett Maven-paketet eller Spark-paket”](https://docs.databricks.com/user-guide/libraries.html) artikeln om du vill bifoga kopplingsbibliotek i klustret. Till exempel maven-koordinat för ”Databricks Runtime version 4.3”, ”Spark 2.3.1” och ”Scala 2.11” är `spark-cassandra-connector_2.11-2.3.1`
 
-* **Azure Cosmos DB Cassandra API-specifika bibliotek:** – en anpassad anslutningsfabrik krävs för att konfigurera återförsöksprincipen från Datastax Spark-anslutningen till Azure Cosmos DB Cassandra-API. Lägg till den `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [maven-koordinater](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) att bifoga i biblioteket i klustret.
+* **Azure Cosmos DB Cassandra API-specifika bibliotek:** – en anpassad anslutningsfabrik krävs för att konfigurera återförsöksprincipen från Cassandra Spark-anslutningen till Azure Cosmos DB Cassandra-API. Lägg till den `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [maven-koordinater](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) att bifoga i biblioteket i klustret.
 
 ## <a name="sample-notebooks"></a>Exempelanteckningsböcker
 

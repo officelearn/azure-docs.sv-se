@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 63213e38dab5ef2edd5150fe0adb620fecb2041c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 63a2d5a62cf2cdfa2a1a08c56ef5a87aaaa13529
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714453"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395551"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -171,7 +171,9 @@ Tryck på F5 för att testa funktionen. Acceptera begäran från Visual Studio f
 
 Du kan testa din kod som du vill testa distribuerade funktionen med projekt som körs. Mer information finns i [strategier för att testa din kod i Azure Functions](functions-test-a-function.md). När du kör i felsökningsläge kan uppnås brytpunkter i Visual Studio som förväntat. 
 
-Ett exempel på hur du testar en funktion som utlöses av lagringskön finns i den [utlöses av lagringskön funktionen snabbsjälvstudien](functions-create-storage-queue-triggered-function.md#test-the-function).  
+<!---
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 Mer information om hur du använder Azure Functions Core Tools finns [kod och testa Azure functions lokalt](functions-run-local.md).
 

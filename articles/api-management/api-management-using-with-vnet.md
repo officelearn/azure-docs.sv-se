@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 18b9e4eac6b183cd02ad2bb93463b4cc043f303a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1a02fd604d08e87c84a73657b7204ecb42b3498b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040343"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393187"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks börjar med den här informationen: [Azure översikt över Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -110,10 +110,11 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Klientkommunikation till API Management|Extern |
 | * / 3443 |Inkommande |TCP |APIMANAGEMENT / VIRTUAL_NETWORK|Hanteringsslutpunkten för Azure-portalen och Powershell |Externa och interna |
-| * / 80, 443 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|**Beroende på Azure Storage**, Azure Service Bus och Azure Active Directory (om tillämpligt).|Externa och interna |
+| * / 80, 443 |Utgående |TCP |VIRTUAL_NETWORK / Storage|**Beroende på Azure Storage**|Externa och interna |
+| * / 80, 443 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET| Azure Active Directory (om tillämpligt)|Externa och interna |
 | * / 1433 |Utgående |TCP |VIRTUAL_NETWORK / SQL|**Åtkomst till Azure SQL-slutpunkter** |Externa och interna |
-| * / 5672 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Beroende för logg till Event Hub-principen och övervakningsagent |Externa och interna |
-| * / 445 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Beroende på Azure-filresurs för GIT |Externa och interna |
+| * / 5672 |Utgående |TCP |VIRTUAL_NETWORK / EventHub |Beroende för logg till Event Hub-principen och övervakningsagent |Externa och interna |
+| * / 445 |Utgående |TCP |VIRTUAL_NETWORK / Storage |Beroende på Azure-filresurs för GIT |Externa och interna |
 | * / 1886 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Krävs för att publicera hälsostatus till Resource Health |Externa och interna |
 | * / 25028 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Ansluta till SMTP-relä för att skicka e-postmeddelanden |Externa och interna |
 | * / 6381 - 6383 |Inkommande och utgående |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Åtkomst till Redis Cache-instanser mellan RoleInstances |Externa och interna |
@@ -130,9 +131,11 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
 
     | Azure-miljön | Slutpunkter |
     | --- | --- |
-    | Azure Public | <ul><li>Prod.warmpath.msftcloudes.com</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li></ul> |
+    | Azure Public | <ul><li>Prod.warmpath.msftcloudes.com</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li><li>Prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com där `East US 2` är eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.NET</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
     | Azure Kina | <ul><li>mooncake.warmpath.chinacloudapi.CN</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
+
+* **Azure-portalen diagnostik**: aktivera flödet av diagnostikloggar från Azure-portalen när du använder API Management-tillägget från i ett virtuellt nätverk, utgående åtkomst till `dc.services.visualstudio.com` på port 443 krävs. Det underlättar vid felsökning av problem kan du står inför när du använder tillägget.
 
 * **Expressinstallation väg**: en vanlig kund-konfiguration är att definiera egna standardväg (0.0.0.0/0) vilket tvingar utgående Internet-trafiken flöda lokalt i stället. Det här flödet i nätverkstrafiken delar utan undantag anslutning med Azure API Management eftersom den utgående trafiken är antingen blockerade lokalt eller NAT skulle med ett okänt uppsättning adresser som inte längre att fungera med olika Azure-slutpunkter. Lösningen är att definiera en (eller mer) användardefinierade vägar ([Udr][UDRs]) i det undernät som innehåller Azure API Management. En UDR definierar undernät-specifika vägar som kommer att användas i stället för standardväg.
   Om det är möjligt rekommenderar vi att du använder du följande konfiguration:
@@ -184,6 +187,7 @@ Beräkningen ovan minimistorleken på undernätet, där du kan distribuera API M
 * [Ansluta ett virtuellt nätverk från olika distributionsmodeller](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Hur du använder API: et Inspector att spåra anropar i Azure API Management](api-management-howto-api-inspector.md)
 * [Virtuellt nätverk vanliga frågor och svar](../virtual-network/virtual-networks-faq.md)
+* [Tjänsttaggar](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

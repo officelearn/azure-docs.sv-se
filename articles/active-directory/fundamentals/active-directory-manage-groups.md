@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.openlocfilehash: 3ec8472285ecc7512e2eedc8b9ac850ef8e9cf87
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 69be2cb8b57b34502d5a5688ac163d7451abe48e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298028"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223980"
 ---
 # <a name="learn-about-access-management-using-azure-active-directory-groups"></a>Lär dig mer om hantering med hjälp av Azure Active Directory-grupper
 Azure Active Directory (Azure AD) hjälper dig att hantera dina molnbaserade appar, lokala appar och dina resurser med hjälp av organisationens grupper. Dina resurser kan inte ingå i katalogen, till exempel behörighet att hantera objekt via roller i katalogen eller externa för katalogen, t.ex. för programvara som en tjänst (SaaS)-appar, Azure-tjänster eller SharePoint-webbplatser och lokala resurser.
@@ -34,7 +34,7 @@ Det finns fyra sätt att tilldela behörighet till dina användare för resursen
 
 - **Direkttilldelning.** Resursägaren tilldelar användaren direkt till resursen.
 
-- **Tilldelning av gruppen.** Resursägaren tilldelar en Azure AD-grupp till en resurs, som automatiskt ger alla medlemmar gruppåtkomst till resursen. Gruppmedlemskap hanteras av både den gruppägare och resursägare, så att antingen ägaren lägga till eller ta bort medlemmar från gruppen. Läs mer om att lägga till eller ta bort gruppmedlemskap, [så här: lägga till eller ta bort en grupp från någon annan grupp med hjälp av Azure Active Directory-portalen](active-directory-groups-membership-azure-portal.md). 
+- **Tilldelning av gruppen.** Resursägaren tilldelar en Azure AD-grupp till en resurs, som automatiskt ger alla medlemmar gruppåtkomst till resursen. Gruppmedlemskap hanteras av både gruppägare och resursägare, så att antingen ägaren lägga till eller ta bort medlemmar från gruppen. Läs mer om att lägga till eller ta bort gruppmedlemskap, [så här: lägga till eller ta bort en grupp från någon annan grupp med hjälp av Azure Active Directory-portalen](active-directory-groups-membership-azure-portal.md). 
 
 - **Regelbaserad tilldelning.** Resursägaren skapar en grupp och använder en regel för att definiera vilka användare som har tilldelats en viss resurs. Regeln är baserat på attribut som är kopplade till enskilda användare. Resursägaren hanterar regeln, avgör vilka attribut och värden som krävs för att tillåta åtkomst till resursen. Mer information finns i [skapa en dynamisk grupp och kontrollera status för](../users-groups-roles/groups-create-rule.md).
 

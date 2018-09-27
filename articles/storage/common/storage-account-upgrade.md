@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: tamram
-ms.openlocfilehash: 8a0b823a12178df56417b05de28c2125ec155829
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6e77c4836531a7efd0b52b9a411ac40ff6a613fa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740819"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224502"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett gpv2-konto
 
@@ -77,7 +77,7 @@ När du ska välja bästa åtkomstnivå för dina behov, kan det vara bra för a
 
 För att samla in användningsdata för ditt storage-konto före migreringen, kan du övervaka till lagringskontot med [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor utför loggning och tillhandahåller mätvärden för Azure-tjänster, inklusive Azure Storage. 
 
-Aktivera kapacitetsmåtten i Azure Monitor för att övervaka förbrukningsdata för blobbar i ditt lagringskonto. Kapacitet mått registrera information om hur mycket lagringsutrymme som blobbar i ditt konto använder dagligen. Kapacitet mått kan användas för att beräkna kostnaden för datalagring i lagringskontot. Läs hur Blob storage-kapacitet prissätts för för varje typ av konto i [priser för Block blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Aktivera kapacitetsmåtten i Azure Monitor för att övervaka förbrukningsdata för blobbar i ditt lagringskonto. Kapacitet mått registrera information om hur mycket lagringsutrymme som blobbar i ditt konto använder dagligen. Kapacitet mått kan användas för att beräkna kostnaden för datalagring i lagringskontot. Läs hur Blob storage-kapacitet debiteras för varje typ av konto i [priser för Block blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 Aktivera transaktionsmått i Azure Monitor för att övervaka dataåtkomstmönstren för Blob storage. Du kan filtrera på olika Azure Storage-åtgärder för att uppskatta hur ofta varje kallas. Att lära dig hur olika typer av transaktioner prissätts för block och tilläggsblobbar för varje typ av konto, finns i [priser för Block blob](https://azure.microsoft.com/pricing/details/storage/blobs/).  
 

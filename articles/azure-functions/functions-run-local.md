@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 08686c46cbba1d7e51f4d73a6c2d0010d767d0bd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f950d8d5b52685e45acf4093adac451c8f22aecd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039340"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226219"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -483,7 +483,7 @@ Följande distributionsalternativ för anpassad behållare är tillgängliga:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--registry`** | Namnet på ett Docker-register i den aktuella användaren loggat in. |
+| **`--registry`** | Namnet på ett Docker-register den aktuella användaren loggat in. |
 | **`--platform`** | Värdplattform för funktionsappen. Giltiga alternativ är `kubernetes` |
 | **`--name`** | Funktionsappens namn. |
 | **`--max`**  | Du kan också anger det maximala antalet funktionen app-instanserna ska distribueras till. |

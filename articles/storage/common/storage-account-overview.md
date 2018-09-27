@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b942b85c954bb765833426f3f9a010a66f016a90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b2d51f356538724d567654c0de3decbf19c838c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972325"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222105"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -57,7 +57,7 @@ Generell användning v2-konton stöder de senaste funktionerna i Azure Storage o
 
 Microsoft rekommenderar att du använder ett gpv2-lagringskonto för de flesta scenarier. Du kan enkelt uppgradera allmänna v1- eller Blob storage-konto till ett gpv2-konto utan driftavbrott eller programmet omskrivningar, och utan att behöva kopiera data. Mer information om hur du uppgraderar till ett gpv2-konto finns i [uppgradera till ett gpv2-lagringskonto](storage-account-upgrade.md). 
 
-Storage-konton för generell användning v2 erbjuder flera åtkomstnivåerna för att lagra data baserat på dina användningsmönster. Mer information finns i [åtkomstnivåerna för blob-data](#access-tiers-for-blob-data).
+Storage-konton för generell användning v2 erbjuder flera åtkomstnivåerna för att lagra data baserat på dina användningsmönster. Mer information finns i [åtkomstnivåerna för block blob-data](#access-tiers-for-block-blob-data).
 
 ### <a name="general-purpose-v1-accounts"></a>General-purpose v1-konton (GPv1)
 
@@ -81,7 +81,7 @@ Gpv2-konton rekommenderas i de flesta fall, är general-purpose v1-konton bäst 
 
 Blob storage-kontot är ett specialiserat lagringskonto för att lagra Ostrukturerade objektdata som blockblobar. BLOB storage-konton har samma tillförlitlighet, tillgänglighet, skalbarhet och avancerade funktioner som är tillgängliga med gpv2-konton. BLOB storage-konton stöder lagra blockblobbar och lägga till BLOB-objekt, men inte sidblobar.
 
-BLOB storage-konton erbjuder flera åtkomstnivåerna för att lagra data baserat på dina användningsmönster. Mer information finns i [åtkomstnivåerna för blob-data](#access-tiers-for-blob-data).
+BLOB storage-konton erbjuder flera åtkomstnivåerna för att lagra data baserat på dina användningsmönster. Mer information finns i [åtkomstnivåerna för block blob-data](#access-tiers-for-block-blob-data).
 
 ## <a name="naming-storage-accounts"></a>Namngivning av lagringskonton
 

@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: cb6f120e28fc17b413bceab945b3569cb10912f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5bb4d066d6003dde38b02a3f4ac6c66463dd5ebe
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986446"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221476"
 ---
 # <a name="upsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Upsert data till Azure Cosmos DB Cassandra-API från Spark
 
@@ -24,7 +24,7 @@ Den här artikeln beskrivs hur du upsert data till Azure Cosmos DB Cassandra-API
 
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 
@@ -66,7 +66,7 @@ val booksUpsertDF = Seq(
 booksUpsertDF.show()
 ```
 
-### <a name="upsert-data"></a>Upsert-data
+### <a name="upsert-data"></a>Upserta data
 
 ```scala
 // Upsert is no different from create

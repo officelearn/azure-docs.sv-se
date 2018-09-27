@@ -10,15 +10,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2018
+ms.topic: conceptual
+ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 97cc6d6e922ab0bedd729eddca754ae016f041bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958024"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220983"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -47,7 +47,7 @@ Frågespråket i Log Analytics passar enkla loggfrågor men innehåller även av
 ![Logs](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Vilka data samlar Azure Monitor?
-Log Analytics kan samla in data från olika källor. Du kan se övervakningsdata för dina program i nivåer som sträcker sig från ditt program, alla operativsystem och tjänster som den förlitar sig på, till själva plattformen. Azure Monitor samlar in data från var och en av följande nivåer:
+Azure Monitor kan samla in data från olika källor. Du kan se övervakningsdata för dina program i nivåer som sträcker sig från ditt program, alla operativsystem och tjänster som den förlitar sig på, till själva plattformen. Azure Monitor samlar in data från var och en av följande nivåer:
 
 - **Programmet övervakningsdata**: Data om prestanda och funktioner i kod som du har skrivit, oavsett dess plattform.
 - **Gäst-OS övervakningsdata**: Data om operativsystemet där programmet körs. Detta kan köras i Azure, en annan molnet eller lokalt. 
@@ -74,7 +74,7 @@ Azure Monitor kan samla in loggdata från alla REST-klient som använder den [Da
 
 ![App Insights](media/overview/app-insights.png)
 
-### <a name="azure-monitor-for-containers"></a>Azure Monitor för behållare
+### <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
 Azure Monitor för behållare är en funktion som utformats för att övervaka prestanda för arbetsbelastningar distribueras till hanterade Kubernetes-kluster som finns på Azure Kubernetes Service (AKS). Det ger dig insyn i prestanda genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API. Containerloggar samlas också.  När du aktiverar övervakning från Kubernetes-kluster kan är dessa mått och loggar automatiskt som samlas in för dig via en behållare version av Log Analytics-agenten för Linux och lagras i Log Analytics.
 
 ![Hälsotillstånd för behållare](media/overview/container-insights.png)
@@ -145,9 +145,6 @@ Det finns flera API: er för att läsa och skriva mått och loggar till och frå
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om:
 
-* [Azure Monitor](https://azure.microsoft.com/services/monitor/) om du vill komma igång med att övervaka mått och aviseringar.
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) om du försöker diagnostisera problem i din App Service-webbapp.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) om du vill analysera insamlade övervakningsdata och loggar.
-
-
-
+* [Mått och loggar](../monitoring/monitoring-data-collection.md) för de data som samlas in av Azure Monitor.
+* [Datakällor](../monitoring/monitoring-data-sources.md) för hur de olika komponenterna i ditt program skickar telemetri.
+* [Log Analytics](../log-analytics/log-analytics-queries.md) för att analysera insamlade data.

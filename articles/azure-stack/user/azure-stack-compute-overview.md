@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: 143e6c2856485e33022254abfcf0cf3806b30cef
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a0d75b13369cff4e99bef6f57a3b01f3d8eee6e4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025781"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227171"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introduktion till virtuella Azure Stack-datorer
 
@@ -99,7 +99,7 @@ Resurserna i följande tabell som används av den virtuella datorn och måste fi
 |Resurs|Krävs|Beskrivning|
 |---------|---------|---------|
 |Resursgrupp|Ja|Den virtuella datorn måste ingå i en resursgrupp.|
-|Lagringskonto|Nej|Den virtuella datorn har inte behöver lagringskontot för att lagra sina virtuella hårddiskar om du använder Managed Disks. <br>Den virtuella datorn behöver lagringskontot för att lagra sina virtuella hårddiskar om använder ohanterade diskar.|
+|Lagringskonto|Nej|Den virtuella datorn behöver inte lagringskontot för att lagra sina virtuella hårddiskar om du använder Managed Disks. <br>Den virtuella datorn behöver lagringskontot för att lagra sina virtuella hårddiskar om använder ohanterade diskar.|
 |Virtuellt nätverk|Ja|Den virtuella datorn måste ingå i ett virtuellt nätverk.|
 |Offentlig IP-adress|Nej|Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den.|
 |Nätverksgränssnitt|Ja|Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket.|

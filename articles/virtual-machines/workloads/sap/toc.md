@@ -45,8 +45,9 @@
 ### [Tillgänglighetsöversikt för SAP HANA på Azure](sap-hana-availability-overview.md)
 ### [Tillgänglighet för SAP HANA på Azure inom en Azure-region](sap-hana-availability-one-region.md)
 ### [Tillgänglighet för SAP HANA på Azure i flera Azure-regioner](sap-hana-availability-across-regions.md)
-## [Konfigurera SAP HANA System Replication på SLES](sap-hana-high-availability.md)
-## [Konfigurera SAP HANA System Replication på RHEL](sap-hana-high-availability-rhel.md)
+### [Konfigurera SAP HANA System Replication på SLES](sap-hana-high-availability.md)
+### [Konfigurera SAP HANA System Replication på RHEL](sap-hana-high-availability-rhel.md)
+### [Troubleshoot SAP HANA scale-out and Pacemaker on SLES](hana-vm-troubleshoot-scale-out-ha-on-sles.md) (Felsöka SAP HANA-utskalning och Pacemaker på SLES)
 ## [Översikt över SAP HANA-säkerhetskopiering](sap-hana-backup-guide.md)
 ## [Säkerhetskopiering av SAP HANA-filnivå](sap-hana-backup-file-level.md)
 ## [Säkerhetskopior av ögonblicksbilder i SAP HANA-lagring](sap-hana-backup-storage-snapshots.md)
@@ -107,3 +108,4 @@
 ## [Azure Data Factory erbjuder dataintegrering för SAP HANA och Business Warehouse](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+

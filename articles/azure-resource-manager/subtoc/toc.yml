@@ -273,10 +273,10 @@ items:
   - name: Diskar
     href: /azure/templates/Microsoft.Compute/disks
     maintainContext: true
-  - name: Gallerier
+  - name: Delat bildgalleri
     href: /azure/templates/Microsoft.Compute/galleries
     items:
-    - name: Avbildningar
+    - name: Bilddefinition
       href: /azure/templates/Microsoft.Compute/galleries/images
       items:
       - name: Versioner
@@ -974,22 +974,6 @@ items:
   - name: Söktjänster
     href: /azure/templates/Microsoft.Search/searchServices
     maintainContext: true
-- name: Serverhantering
-  items:
-  - name: Gateways
-    href: /azure/templates/Microsoft.ServerManagement/gateways
-    maintainContext: true
-  - name: Noder
-    href: /azure/templates/Microsoft.ServerManagement/nodes
-    items:
-    - name: Sessioner
-      href: /azure/templates/Microsoft.ServerManagement/nodes/sessions
-      items:
-      - name: PS-sessioner
-        href: /azure/templates/Microsoft.ServerManagement/nodes/sessions/features/pssessions
-        maintainContext: true
-      maintainContext: true
-    maintainContext: true
 - name: Service Bus
   items:
   - name: Namnområden
@@ -1040,18 +1024,77 @@ items:
   - name: Servrar
     href: /azure/templates/Microsoft.Sql/servers
     items:
+    - name: Administratörer
+      href: /azure/templates/Microsoft.Sql/servers/administrators
+      maintainContext: true
+    - name: Rådgivare
+      href: /azure/templates/Microsoft.Sql/servers/advisors
+      maintainContext: true
+    - name: Granskningsprinciper
+      href: /azure/templates/Microsoft.Sql/servers/auditingPolicies
+      maintainContext: true
+    - name: Säkerhetskopiering och långsiktiga kvarhållningvalv
+      href: /azure/templates/Microsoft.Sql/servers/backupLongTermRetentionVaults
+      maintainContext: true
+    - name: Kommunikationslänkar
+      href: /azure/templates/Microsoft.Sql/servers/communicationLinks
+      maintainContext: true
+    - name: Anslutningsprinciper
+      href: /azure/templates/Microsoft.Sql/servers/connectionPolicies
+      maintainContext: true
     - name: Databaser
       href: /azure/templates/Microsoft.Sql/servers/databases
       items:
+      - name: Rådgivare
+        href: /azure/templates/Microsoft.Sql/servers/databases/advisors
+        maintainContext: true
+      - name: Granskningsprinciper
+        href: /azure/templates/Microsoft.Sql/servers/databases/auditingPolicies
+        maintainContext: true
       - name: Granskningsinställningar
         href: /azure/templates/Microsoft.Sql/servers/databases/auditingSettings
         maintainContext: true
       - name: Principer för säkerhetskopiering och långsiktig kvarhållning
         href: /azure/templates/Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies
         maintainContext: true
+      - name: Anslutningsprinciper
+        href: /azure/templates/Microsoft.Sql/servers/databases/connectionPolicies
+        maintainContext: true
+      - name: Principer för datamaskering
+        href: /azure/templates/Microsoft.Sql/servers/databases/dataMaskingPolicies
+        items:
+        - name: Regler
+          href: /azure/templates/Microsoft.Sql/servers/databases/dataMaskingPolicies/rules
+          maintainContext: true
+        maintainContext: true
+      - name: Utökade granskningsinställningar
+        href: /azure/templates/Microsoft.Sql/servers/databases/extendedAuditingSettings
+        maintainContext: true
+      - name: Tillägg
+        href: /azure/templates/Microsoft.Sql/servers/databases/extensions
+        maintainContext: true
+      - name: Principer för geo-säkerhetskopiering
+        href: /azure/templates/Microsoft.Sql/servers/databases/geoBackupPolicies
+        maintainContext: true
+      - name: Säkerhetsaviseringsprinciper
+        href: /azure/templates/Microsoft.Sql/servers/databases/securityAlertPolicies
+        maintainContext: true
+      - name: Synkroniseringsgrupper
+        href: /azure/templates/Microsoft.Sql/servers/databases/syncGroups
+        items:
+        - name: Synkroniseringsmedlemmar
+          href: /azure/templates/Microsoft.Sql/servers/databases/syncGroups/syncMembers
+          maintainContext: true
+        maintainContext: true
       - name: Transparent datakryptering
         href: /azure/templates/Microsoft.Sql/servers/databases/transparentDataEncryption
         maintainContext: true
+      maintainContext: true
+    - name: Haveriberedskapskonfiguration
+      href: /azure/templates/Microsoft.Sql/servers/disasterRecoveryConfiguration
+      maintainContext: true
+    - name: DNS-alias
+      href: /azure/templates/Microsoft.Sql/servers/dnsAliases
       maintainContext: true
     - name: Elastiska pooler
       href: /azure/templates/Microsoft.Sql/servers/elasticPools
@@ -1059,14 +1102,43 @@ items:
     - name: Krypteringsskydd
       href: /azure/templates/Microsoft.Sql/servers/encryptionProtector
       maintainContext: true
+    - name: Utökade granskningsinställningar
+      href: /azure/templates/Microsoft.Sql/servers/extendedAuditingSettings
+      maintainContext: true
     - name: Redundansgrupper
       href: /azure/templates/Microsoft.Sql/servers/failoverGroups
       maintainContext: true
     - name: Brandväggsregler
       href: /azure/templates/Microsoft.Sql/servers/firewallRules
       maintainContext: true
+    - name: Jobbagenter
+      href: /azure/templates/Microsoft.Sql/servers/jobAgents
+      items:
+      - name: Autentiseringsuppgifter
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/credentials
+        maintainContext: true
+      - name: Jobb
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs
+        items:
+        - name: Körningar
+          href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs/executions
+          maintainContext: true
+        - name: Steg
+          href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs/steps
+          maintainContext: true
+        maintainContext: true
+      - name: Målgrupper
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/targetgroups
+        maintainContext: true
+      maintainContext: true
     - name: Nycklar
       href: /azure/templates/Microsoft.Sql/servers/keys
+      maintainContext: true
+    - name: Säkerhetsaviseringsprinciper
+      href: /azure/templates/Microsoft.Sql/servers/securityAlertPolicies
+      maintainContext: true
+    - name: Synkroniseringsagenter
+      href: /azure/templates/Microsoft.Sql/servers/syncAgents
       maintainContext: true
     - name: Regler för virtuellt nätverk
       href: /azure/templates/Microsoft.Sql/servers/virtualNetworkRules
@@ -1232,9 +1304,9 @@ items:
         maintainContext: true
       maintainContext: true
     maintainContext: true
-ms.openlocfilehash: f54d4b1a72752571605a894a3be94025e8fce451
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b635a83e709da5ea4ff91d5bb4d6914059ea23a8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984432"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166120"

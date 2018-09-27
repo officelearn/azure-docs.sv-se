@@ -43,203 +43,103 @@ items:
     href: active-directory-b2c-apps.md
   - name: Autentiseringsprotokoll
     href: active-directory-b2c-reference-protocols.md
+  - name: Inbyggda principer
+    href: active-directory-b2c-reference-policies.md
+  - name: Identity Experience Framework
+    items:
+    - name: Anpassade principer
+      href: active-directory-b2c-overview-custom.md
+    - name: Användaråtkomst
+      href: manage-user-access.md
+    - name: Användardata
+      href: manage-user-data.md
   - name: OAuth 2.0
     href: active-directory-b2c-reference-oauth-code.md
   - name: OpenId Connect
     href: active-directory-b2c-reference-oidc.md
+  - name: Inloggning via en sida
+    href: active-directory-b2c-reference-spa.md
   - name: Token
     href: active-directory-b2c-reference-tokens.md
   - name: Användarkonton
     href: user-overview.md
 - name: Instruktionsguider
   items:
-  - name: Registrera ditt program
-    href: active-directory-b2c-app-registration.md
-  - name: Inbyggda principer
-    href: active-directory-b2c-reference-policies.md
-  - name: Mobilappar och skrivbordsappar
+  - name: Åtkomst till granskningsloggar
+    href: active-directory-b2c-reference-audit-logs.md
+  - name: Samla in loggar med Application Insights
+    href: active-directory-b2c-troubleshoot-custom.md
+  - name: Konfigurera token
+    href: active-directory-b2c-token-session-sso.md
+  - name: Anpassa lösenord
+    href: active-directory-b2c-reference-password-complexity.md
+  - name: Anpassa användargränssnitt
+    href: active-directory-b2c-reference-ui-customization.md
     items:
-    - name: iOS
-      items:
-      - name: iOS Swift med MSAL
-        href: https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal
-      - name: iOS ObjC med App Auth
-        href: active-directory-b2c-devquickstarts-ios.md
-    - name: Android
-      items:
-      - name: Android med MSAL
-        href: https://github.com/Azure-Samples/active-directory-b2c-android-native-msal
-      - name: Android med App Auth
-        href: active-directory-b2c-devquickstarts-android.md
-    - name: .NET
-      href: https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop
-    - name: Xamarin
-      href: https://github.com/Azure-Samples/active-directory-b2c-xamarin-native
-    - name: Autentiseringsuppgifter för lösenord för resursägare
-      href: configure-ropc.md
-  - name: Webbappar
-    items:
-    - name: ASP.NET
-      href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
-    - name: ASP.NET Core
-      href: https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp
-  - name: Appar med en sida
-    items:
-    - name: Översikt
-      href: active-directory-b2c-reference-spa.md
-    - name: JavaScript med MSAL
-      href: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
-    - name: JavaScript med Hello
-      href: https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi
-  - name: Webb-API:er
-    items:
-    - name: ASP.NET
-      href: active-directory-b2c-devquickstarts-api-dotnet.md
-    - name: ASP.NET Core
-      href: https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi
-    - name: Node.js
-      href: https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi
-    - name: Anropa ett .NET-webb-API
-      href: active-directory-b2c-devquickstarts-web-api-dotnet.md
-  - name: Guider
-    items:
-    - name: Konfigurera identitetsprovidrar
-      items:
-      - name: Microsoft-konto
-        href: active-directory-b2c-setup-msa-app.md
-      - name: Facebook
-        href: active-directory-b2c-setup-fb-app.md
-      - name: Google
-        href: active-directory-b2c-setup-goog-app.md
-      - name: Amazon
-        href: active-directory-b2c-setup-amzn-app.md
-      - name: LinkedIn
-        href: active-directory-b2c-setup-li-app.md
-      - name: Twitter
-        href: active-directory-b2c-setup-twitter-app.md
-      - name: GitHub
-        href: active-directory-b2c-setup-github-app.md
-      - name: Weibo
-        href: active-directory-b2c-setup-weibo-app.md
-      - name: QQ
-        href: active-directory-b2c-setup-qq-app.md
-      - name: WeChat
-        href: active-directory-b2c-setup-wechat-app.md
-      - name: Azure AD (enskild klient)
-        href: active-directory-b2c-setup-oidc-azure-active-directory.md
-      - name: Anpassad OpenID Connect
-        href: active-directory-b2c-setup-oidc-idp.md
-    - name: Konfigurera återställning av lösenord för självbetjäning
-      href: active-directory-b2c-reference-sspr.md
-    - name: Anpassa gränssnittet
-      href: active-directory-b2c-reference-ui-customization.md
-      items:
-      - name: Hjälpverktyg för anpassning
-        href: active-directory-b2c-reference-ui-customization-helper-tool.md
-    - name: Använd Azure AD Graph API:n
-      href: active-directory-b2c-devquickstarts-graph-dotnet.md
-    - name: Hämta åtkomsttoken
-      href: active-directory-b2c-access-tokens.md
-    - name: Inaktivera e-postverifiering
-      href: active-directory-b2c-reference-disable-ev.md
-    - name: Konfigurera token
-      href: active-directory-b2c-token-session-sso.md
-    - name: Aktivera MFA
-      href: active-directory-b2c-reference-mfa.md
-    - name: Använd anpassade attribut
-      href: active-directory-b2c-reference-custom-attr.md
-    - name: Anpassa lösenord
-      href: active-directory-b2c-reference-password-complexity.md
-    - name: Språkanpassning
-      href: active-directory-b2c-reference-language-customization.md
-    - name: Använda rapporterings-API
-      href: active-directory-b2c-reference-usage-reporting-api.md
-    - name: Åtkomst till granskningsloggar
-      href: active-directory-b2c-reference-audit-logs.md
-    - name: Hantera användardata
-      href: manage-user-data.md
-    - name: Migrera användare
-      href: active-directory-b2c-user-migration.md
-    - name: Migrera användare med sociala identiteter
-      href: active-directory-b2c-social-migration.md
-    - name: Med hjälp av b2clogin.com
-      href: b2clogin.md
-    - name: Med hjälp av åldershantering
-      href: basic-age-gating.md
-    - name: Direkt inloggning
-      href: direct-signin.md
+    - name: Hjälpverktyg för anpassning
+      href: active-directory-b2c-reference-ui-customization-helper-tool.md
+  - name: Definiera anpassade attribut
+    href: active-directory-b2c-reference-custom-attr.md
+  - name: Inaktivera e-postverifiering
+    href: active-directory-b2c-reference-disable-ev.md
+  - name: Aktivera MFA
+    href: active-directory-b2c-reference-mfa.md
   - name: Identity Experience Framework
     items:
-    - name: Anpassade principer
-      href: active-directory-b2c-overview-custom.md
-    - name: Guider
+    - name: Skapa en anpassad princip
+      href: active-directory-b2c-get-started-custom.md
+    - name: Integrera RESTful-API:er
       items:
-      - name: Kom igång
-        href: active-directory-b2c-get-started-custom.md
-      - name: Konfigurera OIDC/OAUTH2-providrar
-        items:
-        - name: Azure AD (en enda klient)
-          href: active-directory-b2c-setup-aad-custom.md
-        - name: Azure AD (flera klienter)
-          href: active-directory-b2c-setup-commonaad-custom.md
-        - name: Microsoft-konto
-          href: active-directory-b2c-custom-setup-msa-idp.md
-        - name: Google +
-          href: active-directory-b2c-custom-setup-goog-idp.md
-        - name: LinkedIn
-          href: active-directory-b2c-custom-setup-li-idp.md
-        - name: Twitter
-          href: active-directory-b2c-custom-setup-twitter-idp.md
-      - name: Konfigurera SAML-providrar
-        items:
-        - name: ADFS
-          href: active-directory-b2c-custom-setup-adfs2016-idp.md
-        - name: Salesforce
-          href: active-directory-b2c-setup-sf-app-custom.md
-      - name: Integrera RESTful-API:er
-        items:
-        - name: Verifiera användarinmatning
-          href: active-directory-b2c-rest-api-validation-custom.md
-        - name: Hämta ytterligare anspråk
-          href: active-directory-b2c-rest-api-step-custom.md
-        - name: Lägg till ditt eget RESTful-API
-          href: active-directory-b2c-custom-rest-api-netfw.md
-        - name: Skydda RESTful-API:er med grundläggande autentisering
-          href: active-directory-b2c-custom-rest-api-netfw-secure-basic.md
-        - name: Skydda RESTful-API:er med certifikatbaserad autentisering
-          href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
-      - name: Användarflöden
-        items:
-        - name: Konfigurera användarinmatning
-          href: active-directory-b2c-configure-signup-self-asserted-custom.md
-        - name: Anpassade attribut
-          href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-        - name: Anpassa användargränssnittet
-          href: active-directory-b2c-ui-customization-custom.md
-        - name: Anpassa användargränssnittet dynamiskt
-          href: active-directory-b2c-ui-customization-custom-dynamic.md
-        - name: Anpassa token
-          href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
-        - name: Lösenordskomplexitet
-          href: active-directory-b2c-reference-password-complexity-custom.md
-        - name: Lösenordsändring
-          href: active-directory-b2c-reference-password-change-custom.md
-        - name: Aktivera ”Håll mig inloggad”
-          href: active-directory-b2c-reference-kmsi-custom.md
-      - name: Hantera användarkonton.
-        href: manage-user-access.md
-      - name: Felsökning
-        items:
-        - name: Samla in loggar med Application Insights
-          href: active-directory-b2c-troubleshoot-custom.md
-        - name: Spåra användarbeteende
-          href: active-directory-b2c-custom-guide-eventlogger-appins.md
+      - name: Verifiera användarinmatning
+        href: active-directory-b2c-rest-api-validation-custom.md
+      - name: Hämta ytterligare anspråk
+        href: active-directory-b2c-rest-api-step-custom.md
+      - name: Lägg till ditt eget RESTful-API
+        href: active-directory-b2c-custom-rest-api-netfw.md
+      - name: Skydda RESTful-API:er med grundläggande autentisering
+        href: active-directory-b2c-custom-rest-api-netfw-secure-basic.md
+      - name: Skydda RESTful-API:er med certifikatbaserad autentisering
+        href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
+    - name: OIDC/OAUTH2-providrar
+      items:
+      - name: Azure AD (en enda klient)
+        href: active-directory-b2c-setup-aad-custom.md
+      - name: Azure AD (flera klienter)
+        href: active-directory-b2c-setup-commonaad-custom.md
+      - name: Google
+        href: active-directory-b2c-custom-setup-goog-idp.md
+      - name: LinkedIn
+        href: active-directory-b2c-custom-setup-li-idp.md
+      - name: Microsoft-konto
+        href: active-directory-b2c-custom-setup-msa-idp.md
+      - name: Twitter
+        href: active-directory-b2c-custom-setup-twitter-idp.md
+    - name: SAML-providrar
+      items:
+      - name: ADFS
+        href: active-directory-b2c-custom-setup-adfs2016-idp.md
+      - name: Salesforce
+        href: active-directory-b2c-setup-sf-app-custom.md
+    - name: Användarflöden
+      items:
+      - name: Konfigurera användarinmatning
+        href: active-directory-b2c-configure-signup-self-asserted-custom.md
+      - name: Anpassade attribut
+        href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+      - name: Anpassa användargränssnittet
+        href: active-directory-b2c-ui-customization-custom.md
+      - name: Anpassa användargränssnittet dynamiskt
+        href: active-directory-b2c-ui-customization-custom-dynamic.md
+      - name: Anpassa token
+        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+      - name: Lösenordskomplexitet
+        href: active-directory-b2c-reference-password-complexity-custom.md
+      - name: Lösenordsändring
+        href: active-directory-b2c-reference-password-change-custom.md
+      - name: Aktivera ”Håll mig inloggad”
+        href: active-directory-b2c-reference-kmsi-custom.md
     - name: Referens
       items:
-      - name: Viktig information
-        href: active-directory-b2c-developer-notes-custom.md
-      - name: Definition av betrott ramverk
-        href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
       - name: Schema för Identity Experience Framework
         items:
         - name: TrustFrameworkPolicy
@@ -311,6 +211,76 @@ items:
           href: userjourneys.md
         - name: RelyingParty
           href: relyingparty.md
+      - name: Viktig information
+        href: active-directory-b2c-developer-notes-custom.md
+      - name: Definition av betrott ramverk
+        href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
+  - name: Identitetsprovidrar
+    items:
+    - name: Amazon
+      href: active-directory-b2c-setup-amzn-app.md
+    - name: Azure AD (enskild klient)
+      href: active-directory-b2c-setup-oidc-azure-active-directory.md
+    - name: Microsoft-konto
+      href: active-directory-b2c-setup-msa-app.md
+    - name: Facebook
+      href: active-directory-b2c-setup-fb-app.md
+    - name: GitHub
+      href: active-directory-b2c-setup-github-app.md
+    - name: Google
+      href: active-directory-b2c-setup-goog-app.md
+    - name: LinkedIn
+      href: active-directory-b2c-setup-li-app.md
+    - name: OpenID Connect
+      href: active-directory-b2c-setup-oidc-idp.md
+    - name: QQ
+      href: active-directory-b2c-setup-qq-app.md
+    - name: Twitter
+      href: active-directory-b2c-setup-twitter-app.md
+    - name: WeChat
+      href: active-directory-b2c-setup-wechat-app.md
+    - name: Weibo
+      href: active-directory-b2c-setup-weibo-app.md
+  - name: Migrera användare
+    href: active-directory-b2c-user-migration.md
+  - name: Migrera användare med sociala identiteter
+    href: active-directory-b2c-social-migration.md
+  - name: Mobilappar och skrivbordsappar
+    items:
+    - name: iOS ObjC med App Auth
+      href: active-directory-b2c-devquickstarts-ios.md
+    - name: Android med App Auth
+      href: active-directory-b2c-devquickstarts-android.md
+  - name: Hämta åtkomsttoken
+    href: active-directory-b2c-access-tokens.md
+  - name: Registrera ditt program
+    href: active-directory-b2c-app-registration.md
+  - name: Rapportanvändning
+    href: active-directory-b2c-reference-usage-reporting-api.md
+  - name: Autentiseringsuppgifter för lösenord för resursägare
+    href: configure-ropc.md
+  - name: Konfigurera åldershantering
+    href: basic-age-gating.md
+  - name: Ställ in direkt inloggning
+    href: direct-signin.md
+  - name: Konfigurera återställning av lösenord för självbetjäning
+    href: active-directory-b2c-reference-sspr.md
+  - name: Använda b2clogin.com
+    href: b2clogin.md
+  - name: Använd Azure AD Graph API:n
+    href: active-directory-b2c-devquickstarts-graph-dotnet.md
+  - name: Spåra användarbeteende
+    href: active-directory-b2c-custom-guide-eventlogger-appins.md
+  - name: Webbappar
+    items:
+    - name: ASP.NET
+      href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
+  - name: Webb-API:er
+    items:
+    - name: ASP.NET
+      href: active-directory-b2c-devquickstarts-api-dotnet.md
+    - name: Anropa ett .NET-webb-API
+      href: active-directory-b2c-devquickstarts-web-api-dotnet.md
   - name: Referens
     items:
     - name: Kodexempel
@@ -347,9 +317,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 322272a48d228e102981b4e7f194704f39443953
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 73f1ba6e153d5024014793bb06e78f64708959eb
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378694"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181353"

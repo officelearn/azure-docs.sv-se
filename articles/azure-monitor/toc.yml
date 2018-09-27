@@ -65,7 +65,7 @@ items:
 - name: Begrepp
   items:
   - name: Azure-hantering
-    href: ../monitoring/index.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md?toc=/azure/azure-monitor/toc.json
   - name: Övervaka data
     items:
     - name: Mått och loggar
@@ -103,9 +103,9 @@ items:
       - name: Loggbaserade och föraggregerade mått
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Containrar
-      href: https://aka.ms/AzureMonitorContainers
+      href: ../monitoring/monitoring-container-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Virtuella datorer
-      href: https://aka.ms/AzureMonitorVirtualMachines
+      href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Övervakningslösningar
       href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
   - name: Analysera data
@@ -504,10 +504,16 @@ items:
         href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=/azure/azure-monitor/toc.json
     - name: Övervaka containrar
       items:
-      - name: Översikt över containerövervakning
-        href: ../monitoring/monitoring-container-overview.md?toc=/azure/azure-monitor/toc.json
-      - name: AKS-containerhälsa
-        href: ../monitoring/monitoring-container-health.md?toc=/azure/azure-monitor/toc.json
+      - name: Azure Monitor för containrar
+        items:
+        - name: Publicera
+          href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Analysera
+          href: ../monitoring/monitoring-container-insights-analyze.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Stoppa övervakningen
+          href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Felsökning
+          href: ../monitoring/monitoring-container-insights-troubleshoot.md
       - name: Övervakning av Docker- och Windows-containrar
         href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
       - name: Övervaka Docker-program
@@ -538,6 +544,22 @@ items:
           href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md?toc=/azure/azure-monitor/toc.json
     - name: Övervakning av virtuella datorer
       items:
+      - name: Azure Monitor för virtuella datorer
+        items:
+        - name: Kända problem
+          href: ../monitoring/monitoring-vminsights-known-issues.md?toc=/azure/azure-monitor/toc.json
+        - name: VANLIGA FRÅGOR OCH SVAR
+          href: ../monitoring/monitoring-vminsights-faq.md?toc=/azure/azure-monitor/toc.json
+        - name: Publicera
+          href: ../monitoring/monitoring-vminsights-onboard.md?toc=/azure/azure-monitor/toc.json
+        - name: Övervaka hälsa
+          href: ../monitoring/monitoring-vminsights-health.md?toc=/azure/azure-monitor/toc.json
+        - name: Mappa beroenden
+          href: ../monitoring/monitoring-vminsights-maps.md?toc=/azure/azure-monitor/toc.json
+        - name: Övervaka prestanda
+          href: ../monitoring/monitoring-vminsights-performance.md?toc=/azure/azure-monitor/toc.json
+        - name: Fråga efter data med Log Analytics
+          href: ../monitoring/monitoring-vminsights-log-search.md?toc=/azure/azure-monitor/toc.json
       - name: Agenthälsa
         href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: Kapacitet och prestanda
@@ -615,8 +637,6 @@ items:
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Frågeloggdata
       items:
-      - name: Språkreferens
-        href: https://docs.loganalytics.io
       - name: Kom igång
         items:
         - name: Kom igång med Analytics-portalen
@@ -651,8 +671,20 @@ items:
           href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
         - name: Splunk
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+      - name: Språkreferens
+        items:
+        - name: Språkreferens
+          href: /azure/kusto/query
+        - name: Skillnader jämfört med Kusto
+          href: ../log-analytics/query-language/kusto.md
+        - name: uttryck för app
+          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
+        - name: uttryck för arbetsyta
+          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
       - name: Programdata
         href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+      - name: Standardegenskaper
+        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Sökningar mellan resurser
         href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
       - name: Utför åtgärder från sökresultat
@@ -946,9 +978,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kodexempel
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: c5f69264c293cb5e10c016fc79bc86dd091da533
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ef2057d55903d3fdc4d2fc7f914f29e84cffc638
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981822"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181973"

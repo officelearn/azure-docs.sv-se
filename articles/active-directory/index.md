@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: mtillman
-ms.openlocfilehash: 2d7288356834f4c57465c0043835edc3da86311f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bf72b8fbe437971e6d621208c93c239c3c557f55
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962461"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165066"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -63,7 +63,6 @@ ms.locfileid: "46962461"
                                                     </div>
                                                 </a>
                                             </li>
-<!--This is the learning section 
                                             <li>
                                                 <a href="">
                                                     <div class="cardSize">
@@ -71,14 +70,14 @@ ms.locfileid: "46962461"
                                                             <div class="card">
                                                                 <div class="cardImageOuter">
                                                                     <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
+                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
+                                                                    <h3><a href="">Utveckla dina färdigheter med Microsoft Learn</a></h3> 
                                                                     <p>
-                                                                        <a href="https://docs.microsoft.com/learn/modules/secure-azure-resources-with-conditional-access">Secure your Azure resources with conditional access</a><br>
-                                                                        <a href="">More interactive learning ...</a><br>
+                                                                        <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Skydda dina Azure-resurser med villkorlig åtkomst</a><br>
+                                                                        <a href="/learn/browse/?products=azure-active-directory">Mer interaktiv inlärning...</a><br>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -86,7 +85,6 @@ ms.locfileid: "46962461"
                                                     </div>
                                                 </a>
                                             </li>
- End of the learning section -->
                                         </ul>
                                     </li>
                                     <li>
@@ -94,14 +92,14 @@ ms.locfileid: "46962461"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="manage-apps/index.yml">Apphantering</a></h3>
+                                                        <h3><a href="manage-apps/index.yml">Programhantering</a></h3>
                                                         <p>
                                                             <a href="manage-apps/add-application-portal.md">Lägga till ett program</a><br>
                                                             <a href="manage-apps/configure-single-sign-on-portal.md">Konfigurera enkel inloggning (SSO)</a><br>
                                                             <a href="manage-apps/application-proxy.md">Programproxy för lokala appar</a><br>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="authentication/index.yml">Autentiseringsmetoder</a></h3>
+                                                        <h3><a href="authentication/index.yml">Autentisering</a></h3>
                                                         <p>
                                                             <a href="authentication/tutorial-mfa-applications.md">Aktivera MFA för Azure Portal</a><br>
                                                             <a href="authentication/quickstart-sspr.md">Aktivera lösenordsåterställning via självbetjäning</a><br>
@@ -122,11 +120,11 @@ ms.locfileid: "46962461"
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Ge åtkomst till en ASP.NET-webb-API</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="governance/access-reviews-overview.md">Åtkomstgranskningar</a></h3>
+                                                        <h3><a href="conditional-access/index.yml">Villkorlig åtkomst</a></h3>
                                                         <p>
-                                                            <a href="governance/create-access-review.md">Skapa en åtkomstgranskning</a><br>
-                                                            <a href="governance/perform-access-review.md">Utför en åtkomstgranskning</a><br>
-                                                            <a href="governance/active-directory-tou.md">Användningsvillkor</a>
+                                                            <a href="conditional-access/app-based-mfa.md">Kräva MFA för specifika appar</a><br>
+                                                            <a href="conditional-access/require-tou.md">Kräv att användningsvillkoren godkänns</a><br>
+                                                            <a href="conditional-access/app-sign-in-risk.md">Blockera åtkomst när en sessionsrisk identifieras</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -138,18 +136,11 @@ ms.locfileid: "46962461"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="conditional-access/index.yml">Villkorlig åtkomst</a></h3>
-                                                        <p>
-                                                            <a href="conditional-access/app-based-mfa.md">Kräva MFA för specifika appar</a><br>
-                                                            <a href="conditional-access/require-tou.md">Kräv att användningsvillkoren godkänns</a><br>
-                                                            <a href="conditional-access/app-sign-in-risk.md">Blockera åtkomst när en sessionsrisk identifieras</a>
-                                                        </p>
-                                                        <br><br>
                                                         <h3><a href="develop/index.yml">Utvecklare</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">Om Microsoft Identity-plattformen</a><br>
-                                                            <a href="develop/azure-ad-developers-guide.md">V1.0</a><br>
-                                                            <a href="develop/v2-overview.md">V2.0</a>
+                                                            <a href="develop/azure-ad-developers-guide.md">Plattform v1.0</a><br>
+                                                            <a href="develop/v2-overview.md">Plattform v2.0</a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="devices/index.yml">Enhetshantering</a></h3>
@@ -161,9 +152,9 @@ ms.locfileid: "46962461"
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-domain-services/index">Domain Services</a></h3>
                                                         <p>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started.md">Aktivera Azure AD Domain Services</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md">Ansluta Windows Server-VM till hanterad domän</a><br>
-                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md">Konfigurera säkert LDAP</a>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Aktivera Azure AD Domain Services</a><br>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">Ansluta Windows Server-VM till hanterad domän</a><br>
+                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">Konfigurera säkert LDAP</a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="users-groups-roles/index.yml">Företagsanvändare</a></h3>
@@ -171,6 +162,13 @@ ms.locfileid: "46962461"
                                                             <a href="users-groups-roles/directory-assign-admin-roles.md">Tilldela administratörsroller</a><br>
                                                             <a href="users-groups-roles/licensing-groups-assign.md">Tilldela licenser till grupper</a><br>
                                                             <a href="users-groups-roles/groups-create-rule.md">Skapa en dynamisk grupp</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="hybrid/index.yml">Hybrididentitet</a></h3>
+                                                        <p>
+                                                            <a href="hybrid/how-to-connect-install-roadmap.md">Installera Azure AD Connect</a><br>
+                                                            <a href="hybrid/how-to-connect-sso.md">Enkel inloggning med Azure AD Connect</a><br>
+                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect och federation</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -182,11 +180,11 @@ ms.locfileid: "46962461"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="hybrid/index.yml">Hybrididentitet</a></h3>
+                                                        <h3><a href="governance/index.yml">Identitetsstyrning</a></h3>
                                                         <p>
-                                                            <a href="hybrid/tutorial-password-hash-sync.md">Azure AD Connect</a><br>
-                                                            <a href="hybrid/tutorial-passthrough-authentication.md">Integrera en AD-skog till molnet</a><br>
-                                                            <a href="hybrid/tutorial-federation.md">Federera en AD-skog till molnet</a>
+                                                            <a href="governance/manage-user-access-with-access-reviews.md">Hantera användaråtkomst</a><br>
+                                                            <a href="governance/manage-guest-access-with-access-reviews.md">Hantera gäståtkomst</a><br>
+                                                            <a href="governance/active-directory-tou.md">Användningsvillkor</a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="identity-protection/index.yml">Identitetsskydd</a></h3>
@@ -203,14 +201,14 @@ ms.locfileid: "46962461"
                                                             <a href="managed-identities-azure-resources/services-support-msi.md">Tjänster som stöder hanterade identiteter</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="privileged-identity-management/index.yml">PIM</a></h3>
+                                                        <h3><a href="privileged-identity-management/index.yml">Privileged Identity Management (PIM)</a></h3>
                                                         <p>
                                                             <a href="privileged-identity-management/pim-getting-started.md">Börja använda PIM</a><br>
                                                             <a href="privileged-identity-management/pim-how-to-activate-role.md">Aktivera mina katalogroller</a><br>
-                                                            <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">Tilldela en katalogroll</a>
+                                                            <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">Tilldela katalogroller</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="reports-monitoring/index.yml">Rapportering och övervakning</a></h3>
+                                                        <h3><a href="reports-monitoring/index.yml">Rapporter och övervakning</a></h3>
                                                         <p>
                                                             <a href="reports-monitoring/howto-find-activity-reports.md">Hitta aktivitetsrapporter</a><br>
                                                             <a href="reports-monitoring/concept-activity-logs-in-azure-monitor.md">Använda Azure AD-loggar i Azure Monitor</a><br>

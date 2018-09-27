@@ -18,26 +18,34 @@ items:
   items:
   - name: Undvik oväntade kostnader
     href: billing-getting-started.md
-  - name: Ställa in faktureringsvarningar
-    href: billing-set-up-alerts.md
-  - name: Beräkna priser
-    href: https://azure.microsoft.com/pricing/calculator/
   - name: Använda resurstaggar
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
+  - name: Börja analysera kostnader – endast Enterprise-avtal
+    href: ../cost-management/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json
+  - name: Skapa och hantera budgetar – endast Enterprise-avtal
+    href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
+  - name: Optimera rekommendationer – endast Enterprise-avtal
+    href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Beräkna priser
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: Förstå utgiftsgränser
     href: billing-spending-limit.md
+  - name: Ställa in faktureringsvarningar
+    href: billing-set-up-alerts.md
   - name: Spara med Azure Reservations
     items:
     - name: Vad är Azure Reservations?
       href: billing-save-compute-costs-reservations.md
     - name: Köpa en reservation
       items:
-      - name: Virtuell dator
-        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: Cosmos DB
+        href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SUSE Linux-programvara
         href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+      - name: Virtuell dator
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
     - name: Så här tillämpas rabatter
       items:
       - name: Reserverade VM-instanser
@@ -172,9 +180,9 @@ items:
     items:
     - name: REST API för Enterprise Reporting
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 2ef6d1445b444b7816a7a652f052c169cf0d78ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0090b62d3738804877687e2071d96b13f7c9dd13
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969571"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063565"

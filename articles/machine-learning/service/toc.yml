@@ -7,32 +7,30 @@ items:
     href: overview-what-is-azure-ml.md
   - name: Vad hände med Workbench?
     href: overview-what-happened-to-workbench.md
-  - name: Så här migrerar du
-    href: how-to-migrate.md
   - name: Jämför maskininlärningsprodukter på Microsoft
     href: overview-more-machine-learning.md
   expanded: true
 - name: Snabbstarter
   items:
-  - name: Kom igång – Portal
+  - name: Kom igång
     href: quickstart-get-started.md
 - name: Självstudier
   items:
-  - name: 1. Inlärningsmodeller
+  - name: 'Utbilda modeller: Del 1'
     href: tutorial-train-models-with-aml.md
-  - name: 2. Distribuera modeller
+  - name: 'Distribuera modeller: Del 2'
     href: tutorial-deploy-models-with-aml.md
   - name: Lär in automatiska ML-modeller
     href: tutorial-auto-train-models.md
 - name: Begrepp
   items:
-  - name: Arkitektur och begrepp
+  - name: Så här fungerar tjänsten
     href: concept-azure-machine-learning-architecture.md
   - name: Modellhantering
     href: concept-model-management-and-deployment.md
-  - name: FPGA-acceleration
+  - name: Accelerera med FPGA
     href: concept-accelerate-with-fpgas.md
-  - name: ML-pipelines
+  - name: Pipelines för maskininlärning
     href: concept-ml-pipelines.md
 - name: Instruktionsguider
   items:
@@ -122,6 +120,8 @@ items:
     href: support-for-aml-services.md
   - name: Inaktuella dokument
     items:
+    - name: Så här migrerar du
+      href: how-to-migrate.md
     - name: Snabbstart för workbench
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Självstudie 1: Förbereda data'
@@ -322,9 +322,9 @@ items:
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
     - name: Support
       href: support-for-aml-services.md
-ms.openlocfilehash: 963961d43bf455d735bc46e01c919a932a06a6ca
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0e069ce7bb04a4aef2e631488ec807a1539c32e5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036668"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162159"

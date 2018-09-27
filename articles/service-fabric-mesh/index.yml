@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3425a7b65ce81ca3d45a0ccdfe613ffdfef4f90f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 14938e25cc41ea11baef94b6a9e01e070ffac654
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953624"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158198"
 documentType: LandingData
 title: Dokumentation om Azure Service Fabric Mesh
 metadata:
@@ -40,11 +40,12 @@ sections:
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: Lär dig hur du skapar och distribuerar en Mesh-app med Visual Studio.
+    text: Lär dig hur du skapar och distribuerar en Mesh-app med Visual Studio eller Azure CLI.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Skapa, felsöka, distribuera och uppgradera en webbapp för flera tjänster till Service Fabric Mesh</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Skapa, felsöka, distribuera och uppgradera en app för flera tjänster till Service Fabric Mesh med Visual Studio.</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app">Distribuera, skala och uppgradera en Service Fabric Mesh-app med en mall.</a>
 - title: Referens
   items:
   - type: list

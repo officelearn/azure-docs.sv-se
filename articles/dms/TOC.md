@@ -8,6 +8,7 @@
 ## [Migrera SQL Server till Azure SQL DB offline](tutorial-sql-server-to-azure-sql.md)
 ## [Migrera SQL Server till Azure SQL DB online](tutorial-sql-server-azure-sql-online.md)
 ## [Migrera SQL Server till Azure SQL DB Managed Instance offline](tutorial-sql-server-to-managed-instance.md)
+## [Migrera SQL Server till Azure SQL DB Managed Instance online](tutorial-sql-server-managed-instance-online.md)
 ## [Migrera MySQL till Azure DB för MySQL online](tutorial-mysql-azure-mysql-online.md)
 ## [Migrera PostgreSQL till Azure DB för PostgreSQL online](tutorial-postgresql-azure-postgresql-online.md)
 

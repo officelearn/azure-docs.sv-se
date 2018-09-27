@@ -19,12 +19,14 @@
 #### [Azure-program: hanterade program](./marketplace-managed-apps.md)
 #### [SaaS-appar](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Containrar](./marketplace-containers.md)
+#### [IoT Edge-moduler](./iot-edge-module.md) 
 #### [Konsulttjänst](./consulting-services.md)  
 #### [Publiceringsguide för Office 365, Dynamics 365 och Power BI](./appsource-offer-publishing-guide.md)
 #### [Aktivera en Microsoft AppSource- och Azure Marketplace-listning med hjälp av Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Låt din verksamhet växa genom marknadsplatsen](./grow-your-business-with-azure-marketplace.md)  
 #### [Önskade lösningar](./preferred-solutions.md) 
+#### [Validering av Marketplace-innehåll](./marketplace-criteria-content-validation.md)
 
 ### [Support för Azure Marketplace och AppSource](./support-azure-marketplace.md)  
 

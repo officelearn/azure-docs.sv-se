@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954406"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227154"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub-ordlista
 Den här artikeln innehåller några av de vanliga termer som används i IoT Hub-artiklar.
@@ -136,7 +136,7 @@ En [enhetstvillingen](iot-hub-devguide-device-twins.md) är JSON-dokument som la
 Liknar enhetstvillingen, en modultvilling är JSON-dokument som lagrar information om modulen tillstånd som metadata, konfigurationer och villkor. IoT Hub lagrar en modultvillingen för varje modul-identitet som du etablerar under en enhetsidentitet i IoT hub. Modultvillingar kan du synkronisera modulen villkor och konfigurationer mellan modulen och lösningens backend-server. Du kan fråga modultvillingar för att hitta specifika moduler och fråga efter statusen för långvariga åtgärder.
 
 ## <a name="twin-queries"></a>Twin frågor
-[Enheten och modulen twin frågor](iot-hub-devguide-query-language.md) använder SQL-liknande IoT Hub-frågespråk för att hämta information från din enhetstvillingar eller modultvillingar. Du kan använda samma IoT Hub-frågespråk för att hämta information om [ ](#job) som körs i din IoT-hubb.
+[Enheten och modulen twin frågor](iot-hub-devguide-query-language.md) använder SQL-liknande IoT Hub-frågespråk för att hämta information från din enhetstvillingar eller modultvillingar. Du kan använda samma IoT Hub-frågespråk för att hämta information om [](#job) som körs i din IoT-hubb.
 
 ## <a name="twin-synchronization"></a>Twin synkronisering
 Twin synkronisering använder den [önskade egenskaper](#desired-properties) i enhetstvillingar eller modultvillingar för att konfigurera dina enheter eller moduler och hämta [rapporterade egenskaper](#reported-properties) från att lagra i läsningen.
@@ -219,7 +219,7 @@ I samband med en [enhetstvillingen](iot-hub-devguide-device-twins.md), rapporter
 [Azure Resource Manager](#azure-resource-manager) använder resursgrupper för att gruppera relaterade resurser. Du kan använda en resursgrupp för att utföra åtgärder på alla resurser i den aktuella samtidigt.
 
 ## <a name="retry-policy"></a>Återförsöksprincip
-Du hanterar med hjälp av en återförsöksprincip [tillfälliga fel](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) när du ansluter till en tjänst i molnet.
+Du hanterar med hjälp av en återförsöksprincip [tillfälliga fel](/azure/architecture/best-practices/transient-faults) när du ansluter till en tjänst i molnet.
 
 ## <a name="routing-rules"></a>Routningsregler
 Du konfigurerar [routningsregler](iot-hub-devguide-messages-read-custom.md) i IoT-hubben att routa enhet-till-moln-meddelanden till en [inbyggd slutpunkt](#built-in-endpoints) eller [anpassade slutpunkter](#custom-endpoints) för bearbetning av lösningens backend-servrar .

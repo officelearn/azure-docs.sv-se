@@ -99,8 +99,6 @@ items:
       href: web-sites-java-add-app.md
     - name: Konfigurera PHP
       href: web-sites-php-configure.md
-    - name: Python
-      href: web-sites-python-configure.md
     - name: Ansluta till lokala resurser
       href: web-sites-integrate-with-vnet.md
   - name: Distribuera till Azure
@@ -209,7 +207,7 @@ items:
     href: /rest/api/appservice/
 - name: Resurser
   items:
-  - name: Utveckla din kompetens med Microsoft Learn
+  - name: Utveckla dina färdigheter med Microsoft Learn
     href: /learn/browse/
   - name: Azure-översikt
     href: https://azure.microsoft.com/roadmap/
@@ -287,9 +285,9 @@ items:
       href: ip-address-change-outbound.md
     - name: SSL-adress
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 9fe97e720ed1f4807a9eb00ae88633bff7cbeaf1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 78ab77477c4aa80f955c2350ea0d0acddb258b94
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980329"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223791"

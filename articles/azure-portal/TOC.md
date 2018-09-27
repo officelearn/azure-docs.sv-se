@@ -5,7 +5,7 @@
 # Begrepp
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Kortkommandon](azure-portal-keyboard-shortcuts.md)
-## [Webbläsare och enheter som stöds](../azure-preview-portal-supported-browsers-devices.md)
+## [Webbläsare och enheter som stöds](azure-portal-supported-browsers-devices.md)
 ## [Strukturen för Azure-instrumentpaneler](azure-portal-dashboards-structure.md)
 # Instruktionsguider
 ## Distribuera

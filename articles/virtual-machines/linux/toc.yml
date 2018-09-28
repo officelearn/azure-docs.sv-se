@@ -125,6 +125,8 @@ items:
     href: infrastructure-automation.md
   - name: Säkerhet och principer
     href: security-policy.md
+  - name: Tillstånd och livscykel
+    href: states-lifecycle.md
   - name: Övervakning
     href: monitor.md
   - name: Säkerhetskopiering och återställning
@@ -235,11 +237,11 @@ items:
       href: metrics-vm-usage-rest.md
   - name: Hantera kostnader
     items:
-    - name: Förskottsbetala för virtuella datorer – Azure Reservations
+    - name: Förskottsbetala för virtuella datorer – Azure-reservationer
       href: prepay-reserved-vm-instances.md
     - name: Förskottsbetala för SUSE-programvara
       href: prepay-suse-software-charges.md
-    - name: Vad är Azure Reservations?
+    - name: Vad är Azure-reservationer?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: Flexibilitet för VM-instansstorlek
       href: reserved-vm-instance-size-flexibility.md
@@ -498,55 +500,7 @@ items:
       - name: VANLIGA FRÅGOR OCH SVAR
         href: migration-classic-resource-manager-faq.md
   - name: Felsöka
-    items:
-    - name: SSH-anslutningar
-      href: troubleshoot-ssh-connection.md
-      items:
-      - name: Detaljerade felsökningsanvisningar
-        href: detailed-troubleshoot-ssh-connection.md
-    - name: Återställ lösenord för virtuell Linux-dator
-      href: reset-password.md
-    - name: Förstå omstart av systemet
-      href: understand-vm-reboot.md
-    - name: Startdiagnostik
-      href: boot-diagnostics.md
-    - name: Seriekonsol
-      href: serial-console.md
-      items:
-      - name: GRUB/läge för en enskild användare för seriekonsol
-        href: serial-console-grub-single-user-mode.md
-      - name: NMI/SysRq för seriekonsol
-        href: serial-console-nmi-sysrq.md
-    - name: Åtkomst till program
-      href: troubleshoot-app-connection.md
-    - name: Allokeringsfel
-      href: allocation-failure.md
-    - name: Allokeringsfel – klassisk virtuell dator
-      href: allocation-failure-classic.md
-    - name: Distributionsproblem
-      href: troubleshoot-deploy-vm.md
-    - name: Skapa en virtuell dator
-      href: troubleshoot-deployment-new-vm.md
-    - name: Enhetsnamnen har ändrats
-      href: troubleshoot-device-names-problems.md
-    - name: Distribuera om virtuell dator till en ny Azure-nod
-      href: redeploy-to-new-node.md
-    - name: Vanliga felmeddelanden
-      href: error-messages.md
-    - name: Återställningsåtkomst till virtuell dator
-      items:
-      - name: Azure CLI
-        href: troubleshoot-recovery-disks.md
-      - name: Azure Portal
-        href: troubleshoot-recovery-disks-portal.md
-    - name: Anslutna virtuella hårddiskar
-      items:
-      - name: Fel vid borttagning av lagringsresurs
-        href: storage-resource-deletion-errors.md
-      - name: Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar
-        href: unexpected-reboots-attached-vhds.md
-    - name: Begränsningsfel
-      href: troubleshooting-throttling-errors.md
+    href: ../troubleshooting/index.md
 - name: Referens
   items:
   - name: Azure CLI
@@ -567,7 +521,7 @@ items:
   items:
   - name: Skapa mallar
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Utveckla din kompetens med Microsoft Learn
+  - name: Utveckla dina färdigheter med Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure-översikt
     href: https://azure.microsoft.com/roadmap/
@@ -583,9 +537,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: VANLIGA FRÅGOR OCH SVAR
     href: faq.md
-ms.openlocfilehash: 5ac900d783b72689759bdfe5d2ba47c11aa2157c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9887abf2965b7122c6d0fda1954cc249d67f3380
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035603"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409011"

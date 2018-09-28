@@ -77,22 +77,38 @@ items:
   items:
   - name: Skapa en händelsehubb
     href: event-hubs-create.md
-  - name: Skicka händelser med hjälp av .NET Framework
-    href: event-hubs-dotnet-framework-getstarted-send.md
-  - name: Ta emot händelser med hjälp av .NET Framework
-    href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-  - name: Skicka händelser med Go
-    href: event-hubs-go-get-started-send.md
-  - name: Ta emot händelser med Go
-    href: event-hubs-go-get-started-receive-eph.md
-  - name: Skicka händelser med Python
-    href: event-hubs-python-get-started-send.md
-  - name: Skicka händelser med Python
-    href: event-hubs-python-get-started-receive.md
-  - name: Skicka händelser med Node.js
-    href: event-hubs-node-get-started-send.md
-  - name: Ta emot händelser med Node.js
-    href: event-hubs-node-get-started-receive.md
+  - name: Skicka händelser
+    items:
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: Java
+      href: event-hubs-java-get-started-send.md
+    - name: C
+      href: event-hubs-c-getstarted-send.md
+    - name: Go
+      href: event-hubs-go-get-started-send.md
+    - name: Python
+      href: event-hubs-python-get-started-send.md
+    - name: Node.js
+      href: event-hubs-node-get-started-send.md
+  - name: Ta emot händelser
+    items:
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+    - name: Java
+      href: event-hubs-java-get-started-receive-eph.md
+    - name: Go
+      href: event-hubs-go-get-started-receive-eph.md
+    - name: Python
+      href: event-hubs-python-get-started-receive.md
+    - name: Node.js
+      href: event-hubs-node-get-started-receive.md
+    - name: Apache Storm
+      href: event-hubs-storm-getstarted-receive.md
   - name: Event Hubs för Apache Kafka
     items:
     - name: Skapa Apache Kafka-aktiverade Event Hubs
@@ -106,22 +122,6 @@ items:
       href: event-hubs-dotnet-standard-api-overview.md
     - name: .NET Framework
       href: event-hubs-dotnet-framework-api-overview.md
-  - name: Skicka händelser
-    items:
-    - name: .NET Standard
-      href: event-hubs-dotnet-standard-getstarted-send.md
-    - name: Java
-      href: event-hubs-java-get-started-send.md
-    - name: C
-      href: event-hubs-c-getstarted-send.md
-  - name: Ta emot händelser
-    items:
-    - name: .NET Standard
-      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
-    - name: Java
-      href: event-hubs-java-get-started-receive-eph.md
-    - name: Apache Storm
-      href: event-hubs-storm-getstarted-receive.md
   - name: Samla in händelser
     items:
     - name: Använda Azure Portal för att aktivera Event Hubs Capture
@@ -168,7 +168,7 @@ items:
     href: event-hubs-quotas.md
 - name: Resurser
   items:
-  - name: Utveckla din kompetens med Microsoft Learn
+  - name: Utveckla dina färdigheter med Microsoft Learn
     href: /learn/browse/?products=azure-event-hubs
   - name: VANLIGA FRÅGOR OCH SVAR
     href: event-hubs-faq.md
@@ -186,9 +186,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 64a8fb01a8857d58de32c17b97c68104db4f453a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d2ceee656e4194bcf61b5e12a3992140dc02df66
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995694"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405962"

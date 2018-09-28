@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 05/4/2018
-ms.openlocfilehash: f5133b5da055710208390bfe7fd5d6d7d85696df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 041f1c426f8f181255e315978878d146a14bc88b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965355"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410263"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Skapa och hantera Azure Database för PostgreSQL brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure Database for PostgreSQL-Server från en specifik IP-adress eller IP-adressintervall. Med praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure Database för PostgreSQL brandväggsregler, se [Azure Database for PostgreSQL-Server brandväggsregler](concepts-firewall-rules.md)
@@ -40,11 +40,8 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server-
 ## <a name="create-firewall-rule"></a>Skapa brandväggsregel
 Du skapar en ny brandväggsregel på servern måste köra den [az postgres server firewall-rule skapa](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) kommando. 
 
-Genom att ange 0.0.0.0 som den `--start-ip-address` och 255.255.255.255 som den `--end-ip-address` intervallet, i följande exempel gör att alla IP-adresser för åtkomst till servern **mydemoserver.postgres.database.azure.com**
-```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
-Om du vill tillåta åtkomst till en enda IP-adress måste ange samma adress i den `--start-ip-address` och `--end-ip-address`, som i det här exemplet.
+To allow access to a singular IP address, provide the same address in the `--start-ip-address` and `--end-ip-address`, as in this example, replacing the IP shown here with your specific IP.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```
@@ -62,7 +59,7 @@ Vid en lyckad distribution visas information om brandväggsregeln som du har ska
 ## <a name="update-firewall-rule"></a>Uppdatera brandväggsregel 
 Uppdatera en befintlig brandväggsregel på servern med [az postgres server firewall-rule update](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_update) kommando. Ange namnet på befintlig brandväggsregeln som indata och start-IP- och IP-attribut som ska uppdateras.
 ```azurecli-interactive
-az postgres server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.255
+az postgres server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.0
 ```
 Vid en lyckad distribution visas information om brandväggsregeln som du har uppdaterat som standard i JSON-format i kommandoutdata. Om det uppstår ett fel, visar utdata ett felmeddelande i stället.
 > [!NOTE]

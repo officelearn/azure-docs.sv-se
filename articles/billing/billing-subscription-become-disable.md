@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 81f4830691f423e51d6c1f0b71a8fc62160ea92e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 3fc7e316289201f5a800b56a7dc63f559c1f90a2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393017"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422668"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Varför är min Azure-prenumeration inaktiverad och hur jag återaktivera den?
 
@@ -38,7 +38,7 @@ Azure-prenumerationer med kredit som kostnadsfri utvärderingsversion och Visual
 > [!NOTE] 
 > Om du har en kostnadsfri utvärderingsprenumeration och du tar bort utgiftsgränsen, konverterar din prenumeration till betala per användning i slutet av den kostnadsfria utvärderingsversionen. Du behåller din kredit för fullständig 30 dagar efter att du har skapat prenumerationen. Du kan också ha tillgång till kostnadsfria tjänster i 12 månader.
 
-Om du vill övervaka och hantera faktureringen för Azure, se [att undvika oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md) och [ställa in faktureringsvarningar för dina Microsoft Azure-prenumerationer](billing-set-up-alerts.md).
+Om du vill övervaka och hantera faktureringen för Azure, se [att undvika oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Fakturan är försenad

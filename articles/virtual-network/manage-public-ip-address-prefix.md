@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 1426bddb6e9e3e110fe5a86ed451ec40c2677e78
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957521"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405741"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Skapa, ändra eller ta bort en offentlig IP-adressprefix
 
@@ -78,7 +78,6 @@ När du skapar ett prefix, måste du skapa statiska IP-adresser från prefixet. 
     |Namn|Ja|Namnet på den offentliga IP-adressen måste vara unikt inom den resursgrupp som du väljer.|
    |Timeout för inaktivitet (minuter)|Nej|Hur många minuter att hålla en TCP eller HTTP-anslutning öppen utan att behöva klienter skickar keep-alive-meddelanden. |
    |DNS-namnetikett|Nej|Måste vara unikt inom Azure-region du skapar namnet i (över alla prenumerationer och alla kunder). Azure registrerar automatiskt namn och IP-adress i dess DNS så att du kan ansluta till en resurs med namnet. Azure lägger till ett standardundernät som *location.cloudapp.azure.com* (där platsen är platsen du väljer) till namnet du anger, för att skapa det fullständigt kvalificerade DNS-namnet. Mer information finns i [Använd Azure DNS med Azure offentlig IP-adressen](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
-   |Tillgänglighetszon|  Nej | Den här inställningen visas bara om du väljer en region som stöds. En lista över platser som stöds finns i [översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Zonredundant väljs automatiskt åt dig och gör din datasökväg elastiska för zonen fel. Om du föredrar att garantera en viss zon som inte är flexibla för zonen fel, kan du välja en viss zon.
 
 ## <a name="view-or-delete-a-prefix"></a>Visa eller ta bort ett prefix
 

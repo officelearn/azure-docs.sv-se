@@ -7,17 +7,17 @@ manager: carmonm
 editor: tysonn
 ms.service: monitoring
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: d71dc77eac89fef3ae7f8aeb69a05197456ac865
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962938"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406048"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Övervakning av data som samlas in av Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) är en tjänst som hjälper dig att övervaka dina program och resurser som de förlitar sig på. Centrala för den här funktionen är lagring av telemetri och andra data från övervakade resurser. Den här artikeln innehåller en fullständig beskrivning av hur dessa data lagras och används av Azure Monitor.
@@ -155,7 +155,7 @@ Log Analytics kan samla in data från olika källor både i Azure och lokala res
 Uppgifter som du kan utföra med loggar som följande:
 
 - Använd den [sidan Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md) i Azure portal för att skriva frågor som analyserar loggdata.  Fästa resultatet renderas som tabeller eller diagram för en [Azure-instrumentpanelen](../azure-portal/azure-portal-dashboards.md).
-- Konfigurera en [loggvarningsregler](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) som skickar ett meddelande eller tar [automatisk åtgärd](../monitoring-and-diagnostics/monitoring-action-groups.md) när frågans resultat matchar ett visst resultat.
+- Konfigurera en [loggvarningsregler](../monitoring-and-diagnostics/alert-log.md) som skickar ett meddelande eller tar [automatisk åtgärd](../monitoring-and-diagnostics/monitoring-action-groups.md) när frågans resultat matchar ett visst resultat.
 - Skapa ett arbetsflöde baserat på data i Log Analytics med hjälp av [Logikappar]().
 - Exportera resultatet av en fråga till [Power BI](../log-analytics/log-analytics-powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.
 - Komma åt mätvärden värden från en kommandorad eller anpassade program med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) eller [REST API](https://dev.loganalytics.io/).
@@ -175,7 +175,7 @@ Du kan få vägledning för att samla in mått från Azure-resurser på [samla i
 ### <a name="logs-to-metrics"></a>Loggar till mått
 Enligt beskrivningen ovan, är mått snabbare än loggar, så du kan skapa aviseringar med kortare svarstider och till en lägre kostnad. Log Analytics samlar in en betydande mängd numeriska data som skulle vara lämplig för mått, men inte lagras i arkivet för Azure-mått.  Ett vanligt exempel är prestandadata som samlats in från agenter och lösningar för hantering. Vissa av dessa värden kan kopieras till arkivet mått när de är tillgängliga för aviseringar och analys med Metrics explorer.
 
-Förklaring av den här funktionen är tillgänglig på [snabbare mått aviseringar för loggar nu i en begränsad offentlig förhandsversion](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/). Listan över värden support finns på [mått och skapa metoder som stöds för nya måttaviseringar](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
+Förklaring av den här funktionen är tillgänglig på [skapa aviseringar för mått för loggar i Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). Listan över värden support finns på [stöds mått med Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Stream-data till externa system
 Förutom att använda verktygen i Azure för att analysera övervakningsdata, kan du ha ett krav att vidarebefordra det till ett externt verktyg, till exempel en säkerhetsinformations- och event management (SIEM)-produkt. Den här vidarebefordran normalt görs direkt från övervakade resurser via [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 

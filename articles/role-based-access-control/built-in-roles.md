@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/15/2018
+ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 0b7933df1e9f250430800b5b7deba06239cb6fd1
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736690"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410280"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
@@ -63,8 +63,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Klassisk Lagringskontodeltagare](#classic-storage-account-contributor) | Låter dig hantera klassiska lagringskonton, men ger dig inte åtkomst att hantera dem. |
 | [Tjänstroll som operatör av Lagringskontonyckel konto klassisk lagring](#classic-storage-account-key-operator-service-role) | Operatörer av klassiska lagringskontonycklar får lista och återskapa nycklar till klassiska lagringskonton |
 | [Klassisk virtuell Datordeltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
+| [Cognitive Services-deltagare](#cognitive-services-contributor) | Kan du skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. |
 | [Cognitive Services-användare](#cognitive-services-user) | Kan du läsa och lista nycklar för Cognitive Services. |
 | [Läsarroll för cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa data i Azure Cosmos DB-konto. Se [DocumentDB-Kontodeltagare](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. |
+| [Kostnadshantering deltagare](#cost-management-contributor) | Kan visa kostnaderna och hantera kostnaden konfiguration (t.ex. budgetar, export) |
+| [Kostnadshantering läsare](#cost-management-reader) | Visa kostnadsdata och konfiguration (t.ex. budgetar, export) |
 | [Data Box-deltagare](#data-box-contributor) | Låter dig hantera allt under Data Box-tjänsten förutom att ge åtkomst till andra. |
 | [Data Box-läsare](#data-box-reader) | Låter dig hantera Data Box-tjänsten förutom att skapas eller redigera orderinformationen och ge åtkomst till andra. |
 | [Data Factory-deltagare](#data-factory-contributor) | Låter dig hantera datafabriker, men ger dig inte tillgång till dem. |
@@ -73,6 +76,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [DevTest Labs-användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av virtuella datorer i din Azure DevTest Labs. |
 | [DNS-Zondeltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [DocumentDB-Kontodeltagare](#documentdb-account-contributor) | Hantera Azure Cosmos DB-konton. Azure Cosmos DB är kallades DocumentDB. |
+| [HDInsight domäntjänster deltagare](#hdinsight-domain-services-contributor) | Kan läsa, skapa, ändra och ta bort domäntjänster relaterade åtgärder som behövs för Enterprise-säkerhetspaketet för HDInsight |
 | [Intelligent Systems-Kontodeltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
 | [Nyckelvalvsdeltagare](#key-vault-contributor) | Låter dig hantera nyckelvalv, men inte ha åtkomst till dem. |
 | [Labbskaparen](#lab-creator) | Låter dig skapa, hantera och ta bort dina hanterade labbar under dina Azure Lab-konton. |
@@ -91,6 +95,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Övervaka läsare](#monitoring-reader) | Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Nätverksdeltagare](#network-contributor) | Låter dig hantera nätverk, men ger dig inte tillgång till dem. |
 | [Nya Relic APM-Kontodeltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management-konton och program, men ger dig inte tillgång till dem. |
+| [Testa PowerApps-administratör](#powerapps-administrator-test) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [Läsare och dataåtkomst](#reader-and-data-access) | Kan du visa allt, men inte kan du ta bort eller skapa ett lagringskonto eller en resurs. Det gör också att läs-/ skrivåtkomst till alla data i ett lagringskonto via åtkomst till lagringskontonycklarna. |
 | [Redis Cache-deltagare](#redis-cache-contributor) | Låter dig hantera Redis-cacheminnen, men ger dig inte tillgång till dem. |
 | [Resursprincip (förhandsversion)](#resource-policy-contributor-preview) | (Förhandsversion) Användare från EA med behörighet att skapa/ändra resursprinciper, skapa supportbegäranden och läsa resurser/hierarkier. |
@@ -373,6 +378,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.Network/virtualNetworks/read | Hämta definitionen av virtuella nätverket |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp är en intern åtgärd som används av tjänsten |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Hantera resultatet av åtgärden för hantering av säkerhetskopiering |
@@ -393,14 +399,13 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hämtar aviseringarna för Recovery services-valvet. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | Hämta valv-åtgärden hämtar ett objekt som representerar Azure-resursen av typen ”vault' |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Hantera Identifieringsåtgärden för hämtning av nyligen skapade behållare |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar behållarlistan |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Skapa och hantera registrerade identiteter |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Skapa och hantera användningen av Recovery Services-valv |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
-> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
 ## <a name="backup-operator"></a>Säkerhetskopieringsoperatör
@@ -506,9 +511,10 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.Billing/*/read | Läs faktureringsinformation |
-> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Commerce/*/read |  |
+> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | Lista över hanteringsgrupper för autentiserade användare. |
+> | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
 ## <a name="biztalk-contributor"></a>BizTalk-deltagare
@@ -655,6 +661,31 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
+## <a name="cognitive-services-contributor"></a>Cognitive Services-deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan du skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. |
+> | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | **Åtgärder** |  |
+> | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
+> | Microsoft.CognitiveServices/* |  |
+> | Microsoft.Features/features/read | Hämtar en prenumerations funktioner. |
+> | Microsoft.Features/providers/features/read | Hämtar en prenumerations funktion hos en given resursprovider. |
+> | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
+> | Microsoft.Insights/diagnosticSettings/* | Skapar, uppdaterar eller läser diagnostikinställningen för Analysis Server |
+> | Microsoft.Insights/logDefinitions/read | Läs loggdefinitioner |
+> | Microsoft.Insights/metricdefinitions/read | Läs måttdefinitioner |
+> | Microsoft.Insights/metrics/read | Läs mått |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
+> | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
+> | Microsoft.Resources/deployments/operations/read | Hämtar eller listar distributionsåtgärder. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Hämtar prenumerationsåtgärdsresultaten. |
+> | Microsoft.Resources/subscriptions/read | Hämtar listan över prenumerationer. |
+> | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+
 ## <a name="cognitive-services-user"></a>Cognitive Services-användare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -691,6 +722,34 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
+## <a name="cost-management-contributor"></a>Kostnadshantering deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan visa kostnaderna och hantera kostnaden konfiguration (t.ex. budgetar, export) |
+> | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | **Åtgärder** |  |
+> | Microsoft.Consumption/* |  |
+> | Microsoft.CostManagement/* |  |
+> | Microsoft.Billing/billingPeriods/read | Visar en lista över tillgängliga faktureringsperioder |
+> | Microsoft.Resources/subscriptions/read | Hämtar listan över prenumerationer. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+
+## <a name="cost-management-reader"></a>Kostnadshantering läsare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Visa kostnadsdata och konfiguration (t.ex. budgetar, export) |
+> | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | **Åtgärder** |  |
+> | Microsoft.Consumption/*/read |  |
+> | Microsoft.CostManagement/*/read |  |
+> | Microsoft.Billing/billingPeriods/read | Visar en lista över tillgängliga faktureringsperioder |
+> | Microsoft.Resources/subscriptions/read | Hämtar listan över prenumerationer. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+
 ## <a name="data-box-contributor"></a>Data Box-deltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -714,7 +773,8 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.Databox/*/read |  |
-> | Microsoft.Databox/jobs/listsecrets/action | Visar lista med okrypterade hemligheter för beställningen. |
+> | Microsoft.Databox/jobs/listsecrets/action |  |
+> | Microsoft.Databox/jobs/listcredentials/action | Visar en lista över okrypterade autentiseringsuppgifter beställningen. |
 > | Microsoft.Databox/locations/availableSkus/action | Den här metoden returnerar listan över tillgängliga SKU:er. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
@@ -846,6 +906,17 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
+
+## <a name="hdinsight-domain-services-contributor"></a>HDInsight domäntjänster deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan läsa, skapa, ändra och ta bort domäntjänster relaterade åtgärder som behövs för Enterprise-säkerhetspaketet för HDInsight |
+> | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | **Åtgärder** |  |
+> | Microsoft.AAD/*/read |  |
+> | Microsoft.AAD/domainServices/*/read |  |
+> | Microsoft.AAD/domainServices/oucontainer/* |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>Intelligent Systems-kontodeltagare
 > [!div class="mx-tableFixed"]
@@ -1140,6 +1211,21 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | NewRelic.APM/accounts/* |  |
 
+## <a name="powerapps-administrator-test"></a>Testa PowerApps-administratör
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
+> | **Id** | befefa01-2a29-4897-83a8-272ff33ce314 |
+> | **Åtgärder** |  |
+> | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
+> | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
+> | Microsoft.Network/dnsZones/* |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
+> | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+
 ## <a name="reader-and-data-access"></a>Läs- och dataåtkomst
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1425,6 +1511,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Sql/servers/read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Det går inte att redigera granskningsprinciper |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Det går inte att redigera granskningsinställningar |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Hämta granskningsposter för databas-blob |
@@ -1452,6 +1539,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Skapa och hantera granskningsprinciper för SQL server |
 > | Microsoft.Sql/servers/auditingSettings/* | Skapa och hantera granskning inställningen för SQL server |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Skapa och hantera granskningsprinciper för SQL server-databas |
@@ -1491,6 +1579,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Sql/servers/* | Skapa och hantera SQL-servrar |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Det går inte att redigera granskningsprinciper för SQL server |
 > | Microsoft.Sql/servers/auditingSettings/* | Det går inte att redigera granskningsinställningarna för SQL server |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Det går inte att redigera granskningsprinciper för SQL server-databas |

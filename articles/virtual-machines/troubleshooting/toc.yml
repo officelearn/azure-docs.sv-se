@@ -1,0 +1,120 @@
+items:
+- name: Felsöka virtuella Azure-datorer
+  href: index.md
+- name: Allokeringsfel
+  items:
+  - name: Allokeringsfel
+    href: allocation-failure.md
+  - name: Allokeringsfel för klassiska distributioner
+    href: allocation-failure-classic.md
+- name: Startdiagnostik
+  href: boot-diagnostics.md
+- name: RDP
+  items:
+  - name: Återställa RDP
+    href: reset-rdp.md
+  - name: Felsökning av RDP
+    href: troubleshoot-rdp-connection.md
+  - name: Detaljerad felsökning av RDP
+    href: detailed-troubleshoot-rdp.md
+  - name: Felsöka specifika fel
+    href: troubleshoot-specific-rdp-errors.md
+- name: SSH
+  items:
+  - name: Felsökning av SSH
+    href: troubleshoot-ssh-connection.md
+  - name: Detaljerad felsökning av SSH
+    href: detailed-troubleshoot-ssh-connection.md
+- name: Vanliga felmeddelanden
+  href: error-messages.md
+- name: Prestandaproblem med virtuella Windows-datorer
+  href: performance-diagnostics.md
+  items:
+  - name: Så här använder du PerfInsights
+    href: how-to-use-perfInsights.md
+  - name: Tillägg för prestandadiagnostik
+    href: performance-diagnostics-vm-extension.md
+- name: Installera agent för virtuell Windows-dator offline
+  href: install-vm-agent-offline.md
+- name: Distribuera om en VM
+  items:
+  - name: Linux
+    href: redeploy-to-new-node-linux.md
+  - name: Windows
+    href: redeploy-to-new-node-windows.md
+- name: Återställa VM-lösenord
+  items:
+  - name: Windows
+    href: reset-local-password-without-agent.md
+  - name: Linux
+    href: reset-password.md
+- name: Återställ NIC
+  href: reset-network-interface.md
+- name: Starta om eller ändra storlek på en virtuell dator
+  href: restart-resize-error-troubleshooting.md
+- name: Använda seriekonsolen
+  items:
+  - name: Virtuell Linux-dator
+    href: serial-console-linux.md
+    items:
+    - name: GRUB/läge för en enskild användare för seriekonsol
+      href: serial-console-grub-single-user-mode.md
+    - name: NMI/SysRq för seriekonsol
+      href: serial-console-nmi-sysrq.md
+  - name: Virtuell Windows-dator
+    href: serial-console-windows.md
+    items:
+    - name: CMD- och PowerShell-kommandon
+      href: serial-console-cmd-ps-commands.md
+- name: Fel när du tar bort lagringsresurser
+  href: storage-resource-deletion-errors.md
+- name: Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar
+  href: unexpected-reboots-attached-vhds.md
+- name: Problem med Windows-aktivering
+  href: troubleshoot-activation-problems.md
+- name: Problem med programåtkomst
+  href: troubleshoot-app-connection.md
+- name: Nya VM-distributioner
+  items:
+  - name: Linux
+    href: troubleshoot-deployment-new-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deployment-new-vm-windows.md
+- name: Felsöka distributioner
+  items:
+  - name: Linux
+    href: troubleshoot-deploy-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deploy-vm-windows.md
+- name: Enhetsnamnen har ändrats
+  href: troubleshoot-device-names-problems.md
+- name: Återställningsåtkomst till virtuell dator
+  items:
+  - name: Windows
+    items:
+    - name: PowerShell
+      href: troubleshoot-recovery-disks-windows.md
+    - name: Azure Portal
+      href: troubleshoot-recovery-disks-portal-windows.md
+  - name: Linux
+    items:
+    - name: CLI
+      href: troubleshoot-recovery-disks-linux.md
+    - name: Azure Portal
+      href: troubleshoot-recovery-disks-portal-linux.md
+- name: BitLocker-fel
+  href: troubleshoot-bitlocker-boot-error.md
+- name: Kontrollera filsystemfel
+  href: troubleshoot-check-disk-boot-error.md
+- name: Begränsningsfel
+  href: troubleshooting-throttling-errors.md
+- name: Använd kapslad virtualisering
+  href: troubleshoot-vm-by-use-nested-virtualization.md
+- name: Förstå en omstart av systemet
+  href: understand-vm-reboot.md
+ms.openlocfilehash: b00e785c3ae31171ce3189edd9cffe094bc71024
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410759"

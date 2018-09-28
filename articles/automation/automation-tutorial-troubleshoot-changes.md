@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 08/27/2018
+ms.date: 09/12/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: fd94fd234067f63eab424c7f757d4adf842e7b46
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 16d5a025f0c0ff571298e0f528fb9119e37950f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43120593"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995282"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Felsöka ändringar i miljön
 
@@ -32,6 +32,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Aktivera aktivitetslogganslutning
 > * Utlösa en händelse
 > * Visa ändringar
+> * Konfigurera varningar
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -41,7 +42,7 @@ För att slutföra den här kursen behöver du:
 * Ett [Automation-konto](automation-offering-get-started.md) för bevakaren och åtgärdsrunbooks och bevakaraktiviteten.
 * En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) som du vill publicera.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på http://portal.azure.com.
 
@@ -57,7 +58,7 @@ Först måste du aktivera Ändringsspårning och inventering för dina virtuella
 En [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som Inventering.
 Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
 
-Under publiceringen etableras den virtuella datorn med MMA och Hybrid Worker.
+Under publiceringen etableras den virtuella datorn med MMA (Microsoft Monitoring Agent) och Hybrid Worker.
 Den här agenten används för att kommunicera med den virtuella datorn och hämta information om installerad programvara.
 
 Det kan ta upp till 15 minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren.
@@ -66,20 +67,22 @@ Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för ana
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Använda Ändringsspårning i Log Analytics
 
-Ändringsspårning genererar loggdata som skickas till Log Analytics. Om du vill söka i loggarna genom att köra frågor väljer du **Log Analytics** högst upp i fönstret **Ändringsspårning**.
-Ändringsspårningsdata lagras under typen **ConfigurationChange**. Följande exempel på Log Analytics-fråga returnerar alla Windows-tjänster som har stoppats.
+Ändringsspårning genererar loggdata som skickas till Log Analytics.
+Om du vill söka i loggarna genom att köra frågor väljer du **Log Analytics** högst upp i fönstret **Ändringsspårning**.
+Ändringsspårningsdata lagras under typen **ConfigurationChange**.
+Följande exempel på Log Analytics-fråga returnerar alla Windows-tjänster som har stoppats.
 
 ```
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Mer information om hur du kör och söker efter loggfiler i Log Analytics finns [Azure Log Analytics](https://docs.loganalytics.io/index).
+Mer information om hur du kör och söker efter loggfiler i Log Analytics finns [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ## <a name="configure-change-tracking"></a>Konfigurera spårning av ändringar
 
 Med ändringsspårning kan du spåra ändringar i konfigurationen på den virtuella datorn. I följande anvisningar ser du hur du konfigurerar spårning av registernycklar och filer.
- 
+
 När du ska välja vilka filer och registernycklar du ska samla in och spåra ska du välja **Redigera inställningar** överst på sidan **Ändringsspårning**.
 
 > [!NOTE]
@@ -92,7 +95,7 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 1. På fliken **Windows-registret** väljer du **Lägg till**.
     Fönstret **Lägg till Windows-register för ändringsspårning** öppnas.
 
-3. I **Lägg till Windows-register för ändringsspårning** anger du informationen för nyckeln som ska spåras och klickar på **Spara**
+1. I **Lägg till Windows-register för ändringsspårning** anger du informationen för nyckeln som ska spåras och klickar på **Spara**
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
@@ -168,6 +171,49 @@ Välj en **WindowsServices**-ändring så öppnas fönstret **Ändra information
 
 ![Visa information om ändringar i portalen](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
+## <a name="configure-alerts"></a>Konfigurera varningar
+
+Det kan vara användbart att granska ändringar i Azure-portalen, men det är bättre att kunna få aviseringar när en ändring sker, till exempel en stoppad tjänst.
+
+Om du vill lägga till en avisering för en stoppad tjänst går du till Azure-portalen och sedan till **Övervaka**. Under **Delade tjänster** väljer du sedan **Aviseringar** och klickar på **+ Ny aviseringsregel**
+
+Under **1. Definiera aviseringstillstånd**  klickar du på **+ Välj mål**. Under **Filtrera efter resurstyp** väljer du **Log Analytics**. Välj Log Analytics-arbetsytan och välj sedan **Klar**.
+
+![Välj en resurs](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
+
+Välj **+ Lägg till villkor**.
+Under **Konfigurera signallogik**, i tabellen, välj **Anpassad loggsökning**. Ange sedan följande fråga i textrutan Sökfråga:
+
+```loganalytics
+ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
+```
+
+Den här frågan returnerar de datorer där W3SVC-tjänsten stoppades i det angivna tidsintervallet.
+
+Under **Aviseringslogik** går du till **Tröskelvärde** och anger **0**. När du är klar väljer du **Klar**.
+
+![Konfigurera signallogiken](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
+
+Under **2. Definiera aviseringsinformation**, ange ett namn och en beskrivning för aviseringen. Ställ in **Allvarlighetsgrad** på **Information (Sev 2)**, **Varning (Sev 1)** eller **Kritisk (Sev 0)**.
+
+![Definiera aviseringsinformationen](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
+
+Under **3. Definiera åtgärdsgrupp**, välj **Ny åtgärdsgrupp**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).
+
+I rutan **Åtgärdsgruppnamn** anger du ett namn för aviseringen och ett kortnamn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
+
+Under **Åtgärder** anger du ett namn för åtgärden, till exempel **E-postadministratörer**. Under **ÅTGÄRDSTYP**, välj **e-post/SMS/Push/röst**. Under **INFORMATION** väljer du **Redigera detaljer**.
+
+![Lägg till åtgärdsgrupp](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+
+I rutan **e-post/SMS/Push/röst**, ange ett namn. Välj kryssrutan **e-post** och ange sedan en giltig e-postadress. Klicka på **OK** på sidan **e-post/SMS/Push/röst** och klicka sedan på **OK** på sidan **Lägg till åtgärdsgrupp**.
+
+För att anpassa ämnesraden för e-postaviseringen går du till **Skapa regel** och **Anpassa åtgärder**. Där väljer du **E-postämne**. När du är klar väljer du **Skapa varningsregel**. Varningen berättar när en distribution lyckas och vilka datorer som var en del av denna uppdaterade distributionskörning.
+
+Följande bild är ett exempel på ett e-postmeddelande som tas emot när W3SVC-tjänsten stoppas.
+
+![e-post](./media/automation-tutorial-troubleshoot-changes/email.png)
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
@@ -179,6 +225,7 @@ I den här självstudiekursen lärde du dig att:
 > * Aktivera aktivitetslogganslutning
 > * Utlösa en händelse
 > * Visa ändringar
+> * Konfigurera varningar
 
 Fortsätt till översikten över lösningen för ändringsspårning och inventering för att läsa mer om det.
 

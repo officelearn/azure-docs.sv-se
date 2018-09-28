@@ -1,60 +1,61 @@
 ---
-title: Använd Azure Video Indexer för att skapa videoanalyser av befintliga videor | Microsoft Docs
-description: Det här avsnittet visar hur du skapar och publicerar videoinsikter baserat på vissa andra video.
+title: 'Självstudie: Skapa videoinsikter utifrån befintliga videor'
+titlesuffix: Azure Cognitive Services
+description: Det här avsnittet visar hur du skapar och publicerar videoinsikter baserat på befintliga videofiler.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: tutorial
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: a713a85a3301b211f922268d6afc4d047bd12023
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: MT
+ms.openlocfilehash: 3a3e5c62d9eb96563d395106db62cc91a8307658
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541708"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983924"
 ---
-# <a name="create-highlights-from-existing-videos"></a>Skapa höjdpunkter från befintliga videor
+# <a name="tutorial-create-highlights-from-existing-videos"></a>Självstudie: Skapa höjdpunkter utifrån befintliga videor
 
-Det här avsnittet visar hur du skapar och publicerar videoinsikter baserat på vissa andra video.
+Det här avsnittet visar hur du skapar och publicerar videoinsikter baserat på någon annan video.
 
-1. Bläddra till den [Video Indexer](https://www.videoindexer.ai/) och logga in.
-2. Hitta en video som du vill skapa din videoinsikter.
-3. Tryck på **spela upp**.
+1. Gå till [Video Indexer](https://www.videoindexer.ai/)-webbplatsen och logga in.
+2. Leta reda på en video som du vill använda för att skapa videoinsikter.
+3. Tryck på **Spela upp**.
 
     På sidan visas videons sammanfattade insikter. 
 
     ![Insikter](./media/video-indexer-create-new/video-indexer-summarized-insights.png)
 
-3. Tryck på den **redigera** knappen.
+3. Tryck på knappen **Redigera**.
 
-    Den här sidan visar fullständig uppdelning av en video. En analys på detaljnivå är uppdelat i block. Adressblock är här för att göra det enklare att gå igenom data. Till exempel kan blockera delas upp baserat på när talare ändra eller så finns det en paus. Du kan skapa din egen spelningslista som bara innehåller rader som du vill. För att visa endast vissa delar av källan video, kan du filtrera efter ämnen/nyckelord, sentiment, personer, talare. Du kan välja att bara visa videons avskriften eller OCR.    
+    På den här sidan visas den fullständiga uppdelningen av en video. Den är indelad i block. Blocken gör det enklare att gå igenom dessa data. Blocken kan till exempel delas in baserat på när talare ändras eller det förekommer en lång paus. Du kan skapa en egen spellista som bara innehåller rader som du vill ha med. Om du bara vill visa specifika delar av källvideon kan du filtrera efter ämnen/nyckelord, attityder, personer och talare. Du kan välja att bara visa videons avskrift eller OCR.    
 
     ![Insikter](./media/video-indexer-create-new/video-indexer-create-new-playlist.png)
 
-4. Skapa din spellista.
+4. Skapa spellistan.
 
-    Om du vill lägga till eller ta bort rader till och från din spellista, trycker du på **+** / **-**.
+    Lägg till eller ta bort rader i spellistan genom att trycka på **+**/**-**.
 
-5. Förhandsgranska din spellista.
+5. Förhandsgranska spellistan.
 
-    När du är klar skapar spelningslistan, tryck på **förhandsversion**.
-6. Publicera listan.
+    När du är klar med att skapa spellistan trycker du på **Förhandsgranska**.
+6. Publicera spellistan.
 
-    När du förhandsgranskar spelningslistan, kan du publicera den.
+    När du har förhandsgranskat spellistan kan du publicera den.
 
-    När du publicerar listan, läggs den till i listan över dina videoinsikter.
+    När du har publicerat spellistan läggs den till i listan över videoinsikter.
 
 
 ## <a name="next-steps"></a>Nästa steg 
 
-När du har skapat den nya spelningslistan kan du fortsätta att bearbeta den, enligt beskrivningen i något av följande avsnitt: 
+När du har skapat den nya spellistan kan du fortsätta att bearbeta den, enligt beskrivningen i något av följande avsnitt: 
 
 - [Bearbeta innehåll med Video Indexer REST API](video-indexer-use-apis.md)
 - [Bädda in visuella widgetar i ditt program](video-indexer-embed-widgets.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-[Video Indexer-översikt](video-indexer-overview.md) 
+[Översikt över Video Indexer](video-indexer-overview.md) 

@@ -14,16 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 4856f4cdba7618884a42341f16d4828cb062e75c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667658"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974331"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Självstudie: Azure SignalR Service-autentisering
-
-Tjänsten Microsoft Azure SignalR är för närvarande tillgänglig som en [allmänt tillgänglig förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Den här självstudien bygger på chattrumsprogrammet som introducerades i snabbstarten. Om du inte har slutfört [Skapa ett chattrum med SignalR Service](signalr-quickstart-dotnet-core.md) gör du det först. 
 
@@ -396,7 +394,7 @@ I det här avsnittet aktiverar du riktig autentisering genom att lägga till att
 
 I det här avsnittet använder du Azure-kommandoradsgränssnittet (CLI) från Azure Cloud Shell för att skapa en ny [Azure-webbapp](https://docs.microsoft.com/azure/app-service/) som värd för ditt ASP.NET-program i Azure. Webbappen konfigureras för att använda lokal Git-distribution. Webbappen ska också konfigureras med anslutningssträngen för SignalR, GitHub OAuth-apphemligheter och en distributionsanvändare.
 
-I stegen i det här avsnittet används tillägget *signalr* för Azure CLI. Utför följande kommando för att installera *signalr*-tillägget för Azure CLI 2.0:
+I stegen i det här avsnittet används tillägget *signalr* för Azure CLI. Utför följande kommando för att installera *signalr*-tillägget för Azure CLI:
 
 ```azurecli-interactive
 az extension add -n signalr

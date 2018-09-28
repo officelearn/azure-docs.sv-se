@@ -1,51 +1,52 @@
 ---
-title: Registrera dig för Azure Video Indexer och ladda upp din första video | Microsoft Docs
-description: Det här avsnittet visar hur du registrerar dig och ladda upp din första video med Video Indexer-webbplats.
+title: 'Självstudie: Registrera dig för Video Indexer och ladda upp din första video'
+titlesuffix: Azure Cognitive Services
+description: Lär dig hur du registrerar dig och laddar upp din första video med hjälp av Video Indexer-portalen.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: tutorial
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2bb1e88b4c06a8c6a91485a9a190b26ec2863a45
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: MT
+ms.openlocfilehash: f7c86985d12d52ac2dc8b4d2952f048969d3c339
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45540862"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984481"
 ---
-# <a name="sign-up-and-upload-your-first-video"></a>Registrera dig och ladda upp din första video
+# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Självstudie: Registrera dig och ladda upp din första video
 
-Den här komma igång-självstudiekursen visar hur du loggar in Video Indexer-webbplats och ladda upp din första video.
+Den här komma igång-självstudien visar hur du loggar in på Video Indexer-webbplatsen och laddar upp din första video.
 
-När du skapar en Video Indexer-konto, kan du välja ett kostnadsfritt konto (där du får ett visst antal kostnadsfria indexering minuter) eller ett betalt alternativ (där du inte begränsas av kvoten). Video Indexer ger upp till 600 minuter för kostnadsfria indexering för webbplatsen användare och upp till 2 400 minuters kostnadsfria indexering för API-användare med kostnadsfri utvärderingsversion. Med betald alternativet kan du skapa en Video Indexer-konto som är [är ansluten till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter indexerade samt relaterade kostnader för Azure Media Services-konto. 
+När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till Azure Media Services-kontot. 
 
 ## <a name="sign-up-for-video-indexer"></a>Registrera dig för Video Indexer
 
-Om du vill börja utveckla med Video Indexer, bläddra till den i [Video Indexer](https://www.videoindexer.com) och logga in.
+När du vill börja utveckla med Video Indexer går du till [Video Indexer](https://www.videoindexer.com)-webbplatsen och registrerar dig.
 
-## <a name="upload-a-video-using-the-video-indexer-website"></a>Ladda upp ett videoklipp med Video Indexer-webbplats
+## <a name="upload-a-video-using-the-video-indexer-website"></a>Ladda upp en video med hjälp av Video Indexer-webbplatsen
 
-1. Logga in på den [Video Indexer](https://www.videoindexer.ai/) webbplats.
-2. Om du vill ladda upp en video, trycker du på den **överför** knapp eller länk.
+1. Logga in på [Video Indexer](https://www.videoindexer.ai/)-webbplatsen.
+2. Ladda upp en video genom att trycka på knappen eller länken **Ladda upp**.
 
     ![Ladda upp](./media/video-indexer-get-started/video-indexer-upload.png)
 
-    När din video har laddats upp, börjar Video Indexer indexering och analysera videon.
+    När videon har laddats upp påbörjar Video Indexer indexering och analys av videon.
 
-    ![Överförd](./media/video-indexer-get-started/video-indexer-uploaded.png) 
+    ![Uppladdad](./media/video-indexer-get-started/video-indexer-uploaded.png) 
 
-    När Video Indexer görs analysera, du får ett meddelande med en länk till videon och en kort beskrivning av vad hittades i videon. Till exempel: personer, ämnen, OCRs.
+    När Video Indexer är klar med analysen får du ett meddelande med en länk till videon och en kort beskrivning av vad som hittades i videon. Till exempel: personer, ämnen och OCR.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan nu använda den [Video Indexer](video-indexer-view-edit.md) webiste eller [Video Indexer-Utvecklarportalen](video-indexer-use-apis.md) att se insikter för videon. 
+Nu kan du använda [Video Indexer](video-indexer-view-edit.md)-webbplatsen eller [Video Indexer-utvecklarportalen](video-indexer-use-apis.md) om du vill visa insikterna för videon. 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-[Video Indexer-översikt](video-indexer-overview.md)
+[Översikt över Video Indexer](video-indexer-overview.md)
 
-[Börja använda API: er](video-indexer-use-apis.md).
+[Börja använda API:er](video-indexer-use-apis.md).
 

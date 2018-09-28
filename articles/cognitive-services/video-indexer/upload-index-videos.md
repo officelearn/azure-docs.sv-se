@@ -1,84 +1,85 @@
 ---
-title: Ladda upp och indexera dina videor med Azure Video Indexer | Microsoft Docs
-description: 'Det här avsnittet visar hur du använder API: er för att ladda upp och indexera dina videor med Azure Video Indexer'
+title: 'Exempel: Ladda upp och indexera videor med Video Indexer'
+titlesuffix: Azure Cognitive Services
+description: Det här avsnittet visar hur du använder API:er för att ladda upp och indexera videor med Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 08/17/2018
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 3cf5a32d95b028664f29b82b14e2294d58ae9925
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580017"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983892"
 ---
-# <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
+# <a name="example-upload-and-index-your-videos"></a>Exempel: Ladda upp och indexera dina videor  
 
-Den här artikeln visar hur du laddar upp en video med Video Indexer i Azure. Video Indexer API innehåller två alternativ för uppladdning: 
+Den här artikeln visar hur du laddar upp en video med Azure Video Indexer. Video Indexer-API:t innehåller två alternativ för uppladdning: 
 
-* ladda upp din video från en URL (rekommenderas)
-* Skicka videofilen som en bitmatris i begärandetexten.
+* ladda upp videon från en URL (rekommenderas),
+* skicka videofilen som en bytematris i begärandetexten.
 
-Artikeln visar hur du använder den [ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API för att ladda upp och indexera dina videor baserat på en URL. Kodexemplet i artikeln innehåller de kommenterade ut koden som visar hur du överför byte-matris.  
+Artikeln visar hur du använder [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)-API:t för att ladda upp och indexera videor baserat på en URL. Kodexemplet i artikeln innehåller den kommenterade koden som visar hur du laddar upp bytematrisen.  
 
-Artikeln beskriver några av parametrarna att du kan ange för API: et ändra processen och utdata för API: et.
+Artikeln beskriver också några av de parametrar du kan ange i API:t för att ändra API:ts process och utdata.
 
 > [!Note]
-> När du skapar en Video Indexer-konto, kan du välja ett kostnadsfritt konto (där du får ett visst antal kostnadsfria indexering minuter) eller ett betalt alternativ (där du inte begränsas av kvoten). <br/>Video Indexer ger upp till 600 minuter för kostnadsfria indexering för webbplatsen användare och upp till 2 400 minuters kostnadsfria indexering för API-användare med kostnadsfri utvärderingsversion. Med betald alternativet kan du skapa en Video Indexer-konto som är [är ansluten till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras som Media-konto som är relaterade kostnader. 
+> När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). <br/>Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
 
-## <a name="uploading-considerations"></a>Ladda upp överväganden
+## <a name="uploading-considerations"></a>Att tänka på gällande uppladdning
     
-- När du laddade upp videon baserat på URL: en (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare)
-- Alternativet byte-matrisen är begränsat till 2GB och timeout efter 30 min
-- URL: en som anges i den `videoURL` param måste kodas
+- När du laddar upp videon baserat på URL:en (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare)
+- Alternativet för bytematris är begränsat till 2 GB och tidsgränsen uppnås efter 30 min
+- URL:en som anges i parametern `videoURL` måste kodas
 
 ## <a name="configurations-and-params"></a>Konfigurationer och parametrar
 
-Det här avsnittet beskrivs några av de valfria parametrarna och när du vill ställa in dem.
+I det här avsnittet beskrivs några av de valfria parametrarna och när du kan ange dem.
 
 ### <a name="externalid"></a>externalID 
 
-Den här parametern kan du ange ett ID som ska associeras med en video. ID: T kan tillämpas på externa systemintegrering för ”Video innehållshantering” (VCM). Videor som finns i Video Indexer-portalen kan sökas med den angivna externt ID.
+Med den här parametern kan du ange ett ID som ska associeras med videon. ID:t kan tillämpas på extern VCM-systemintegrering (Video Content Management). Det går att söka efter de videor som finns på Video Indexer-portalen med det angivna externa ID:t.
 
 ### <a name="indexingpreset"></a>indexingPreset
 
-Använd den här parametern om raw eller externa inspelningar innehåller bakgrundsljud. Den här parametern används för att konfigurera indexeringsprocessen. Du kan ange följande värden:
+Använd den här parametern om RAW-inspelningar eller externa inspelningar innehåller bakgrundsljud. Den här parametern används för att konfigurera indexeringsprocessen. Du kan ange följande värden:
 
 - `Default` – Indexera och extrahera insikter med hjälp av både ljud och video
-- `AudioOnly` – Indexera och extrahera insikter med hjälp av ljud endast (ignorera video)
-- `DefaultWithNoiseReduction` – Indexera och lyfta ut kunskaper från både ljud och video, samtidigt som du använder bruset minskning algoritmer på ljudström
+- `AudioOnly` – Indexera och extrahera insikter med hjälp av endast ljud (video ignoreras)
+- `DefaultWithNoiseReduction` – Indexera och extrahera insikter från både ljud och video, samtidigt som algoritmer för brusreducering tillämpas på ljudströmmen
 
-Priset beror på det valda alternativet för indexering.  
+Priset beror på det valda indexeringsalternativet.  
 
 ### <a name="callbackurl"></a>callbackUrl
 
-En POST-URL för att meddela när indexering har slutförts. Video Indexer lägger till två fråga strängparametrar till den: id och tillstånd. Om webbadressen för återanrop är till exempel ”https://test.com/notifyme?projectName=MyProject', meddelandet ska skickas med ytterligare parametrar i'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
+En POST-URL för att meddela när indexeringen har slutförts. Video Indexer lägger till två frågesträngparametrar i den: id och tillstånd. Om motringnings-URL:en till exempel är ”https://test.com/notifyme?projectName=MyProject” skickas meddelandet med ytterligare parametrar till ”https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed”.
 
-Du kan också lägga till fler parametrar i URL: en innan du publicerar anropet till Video Indexer och dessa parametrar kommer att inkluderas i motringningen. Senare i koden kan du parsa frågesträngen och få tillbaka alla angivna parametrar i frågesträngen (data som du ursprungligen hade läggas till URL: en plus informationen som Video Indexer som tillhandahålls.) URL: en måste vara kodad.
+Du kan också lägga till fler parametrar i URL:en innan anropet skickas via POST till Video Indexer. De parametrarna ingår då i motringningen. Senare kan du parsa frågesträngen i koden och få tillbaka alla angivna parametrar i frågesträngen (data som du ursprungligen hade lagt till i URL:en plus informationen som Video Indexer har tillhandahållit.) URL:en måste vara kodad.
 
 ### <a name="streamingpreset"></a>streamingPreset
 
-När din video har laddats upp, kodar Video Indexer kan du kan också videon. Fortsätter sedan att indexering och analysera videon. När Video Indexer är klar analysera, kommer du få ett meddelande med video-ID.  
+När videon har laddats upp kan Video Indexer koda videon. Sedan fortsätter den med indexering och analys av videon. När Video Indexer är klar med analysen får du ett meddelande med video-ID:t.  
 
-När du använder den [ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller [indexera Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, en av följande valfria parametrar är `streamingPreset`. Om du ställer in `streamingPreset` till `Default`, `SingleBitrate`, eller `AdaptiveBitrate`, kodning processen utlöses. När indexering och kodningsjobb är klar har videon publicerats så att du kan också strömma videon. Slutpunkt för direktuppspelning som du vill att strömma videon måste finnas i den **kör** tillstånd.
+När du använder API:t [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller [Indexera om video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) är en av de valfria parametrarna `streamingPreset`. Om du ställer in `streamingPreset` på `Default`, `SingleBitrate` eller `AdaptiveBitrate` utlöses kodningsprocessen. När indexerings- och kodningsjobben är klara publiceras videon så att du även kan strömma videon. Slutpunkten för direktuppspelning som du vill strömma videon från måste ha tillståndet **Körs**.
 
-För att kunna köra indexering och kodningsjobb den [Azure Media Services-konto som är anslutna till ditt konto för Video Indexer](connect-to-azure.md), kräver reserverade enheter. Mer information finns i [skala bearbetning av Media](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Eftersom dessa är beräkningsintensiva Beräkningsjobb rekommenderas starkt S3 enhetstyp. Antalet mediereserverade enheter definierar det maximala antalet jobb som kan köras parallellt. Baslinje-rekommendationen är 10 mediereserverade S3-enheter. 
+För att kunna köra indexerings- och kodningsjobben kräver [Azure Media Services-kontot som är anslutet till ditt Video Indexer-konto](connect-to-azure.md) reserverade enheter. Mer information finns i [Skala mediebearbetning](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Eftersom det är beräkningsintensiva jobb rekommenderas enhetstypen S3 starkt. Antalet RU:er definierar det maximala antalet jobb som kan köras parallellt. Baslinjerekommendationen är 10 S3-RU:er. 
 
-Om du bara vill indexerar videon men inte koda den `streamingPreset`till `NoStreaming`.
+Om du bara vill indexera videon men inte koda den ställer du in `streamingPreset` på `NoStreaming`.
 
 ### <a name="videourl"></a>videoUrl
 
-En URL för ljud och filen som ska indexeras. URL: en måste peka på en mediefil (HTML-sidor stöds inte). Filen kan skyddas av en åtkomsttoken som tillhandahålls som en del av URI: N och den slutpunkt som betjänar filen måste vara skyddad med TLS 1.2 eller senare. URL: en måste vara kodad. 
+En URL till video-/ljudfilen som ska indexeras. URL:en måste peka på en mediefil (HTML-sidor stöds inte). Filen kan skyddas av en åtkomsttoken som tillhandahålls som en del av URI:n och slutpunkten som hanterar filen måste skyddas med TLS 1.2 eller senare. URL:en måste vara kodad. 
 
-Om den `videoUrl` inte anges Video Indexer förväntar sig att du kan skicka filen som en brödtext i multipart/form.
+Om `videoUrl` inte anges förväntar sig Video Indexer att du skickar filen som multipart/form-brödtextinnehåll.
 
 ## <a name="code-sample"></a>Kodexempel
 
-I följande C#-kodavsnitt visar hur du använder alla Video Indexer API: er tillsammans.
+Följande C#-kodavsnitt visar hur du använder alla Video Indexer-API:er tillsammans.
 
 ```csharp
 public async Task Sample()
@@ -247,4 +248,4 @@ public class AccountContractSlim
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Granska Azure Video Indexer-utdata som genereras av v2 API](video-indexer-output-json-v2.md)
+[Granska Azure Video Indexer-utdata som genereras av v2-API](video-indexer-output-json-v2.md)

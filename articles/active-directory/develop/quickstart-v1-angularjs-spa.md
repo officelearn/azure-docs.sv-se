@@ -1,6 +1,6 @@
 ---
-title: Azure AD-AngularJS komma igång | Microsoft Docs
-description: 'Hur du skapar ett AngularJS enkelsidigt program som integreras med Azure AD för att logga in och anropar Azure AD-skyddade API: er med hjälp av OAuth.'
+title: Skapa en enkelsidig AngularJS-webbapp för inloggning och utloggning med Azure Active Directory | Microsoft Docs
+description: Lär dig hur du skapar ett enkelsidigt AngularJS-program som integreras med Azure AD för inloggning och anropar Azure AD-skyddade API:er med hjälp av OAuth.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,65 +12,80 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
-ms.date: 11/30/2017
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c7f6a0e447e3b48cdd1df684dc105ece1e98f66
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
-ms.translationtype: MT
+ms.openlocfilehash: 23912f9d004d051c422f93e8b10f1aa6cb8b2626
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581928"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959503"
 ---
-# <a name="azure-ad-angularjs-getting-started"></a>Azure AD-AngularJS komma igång
+# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Snabbstart: Skapa en enkelsidig AngularJS-webbapp för inloggning och utloggning med Azure Active Directory
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-Azure Active Directory (AD Azure) gör det enkelt och enkelt du kan lägga till inloggning, utloggning och säker OAuth-API-anrop till enkelsidiga appar. Det gör att dina appar att autentisera användare med sina Windows Server Active Directory-konton och använda alla webb-API som Azure AD hjälper dig att skydda, till exempel Office 365 API: er eller Azure-API.
+Azure Active Directory (AD Azure) gör det enkelt att lägga till inloggning, utloggning och säkra OAuth API-anrop till enkelsidiga appar. Det gör att dina appar kan autentisera användare med deras Windows Server Active Directory-konton och använda valfritt webb-API som Azure AD hjälper till att skydda, till exempel Office 365-API:er eller Azure API.
 
-Azure AD tillhandahåller Active Directory Authentication Library (ADAL) eller adal.js för JavaScript-program som körs i en webbläsare. Det enda syftet adal.js är att göra det enkelt för din app för att få åtkomst-token. För att demonstrera hur enkelt det är ska här vi skapa ett program med AngularJS att göra-lista som:
+För JavaScript-program som körs i en webbläsare tillhandahåller Azure AD Active Directory Authentication Library (ADAL), eller adal.js. Det enda syftet med adal.js är att göra det enkelt för din app för att få åtkomsttoken.
 
-* Loggar du in på appen med hjälp av Azure AD som identitetsleverantör.
+I den här snabbstarten lär du dig hur du skapar ett att göra-program med AngularJS som:
 
-* Visar information om användaren.
-* På ett säkert sätt anropar appens att göra-lista API: N med ägar-token från Azure AD.
-* Loggar ut användaren från appen.
+* Loggar in användaren till appen med hjälp av Azure AD som identitetsprovider.
+* Visar viss information om användaren.
+* På ett säkert sätt anropar appens att göra-API med hjälp av ägartoken från Azure AD.
+* Loggar ut användaren ur appen.
 
-Om du vill skapa klar fungerande-program, måste du:
+Om du vill skapa ett komplett, fungerande program måste du:
 
-1. Registrera din app med Azure AD.
-2. Installera ADAL och konfigurera ensidesapp.
-3. Använd ADAL för att säkra sidor i enkelsidigt program.
+1. Registrera appen med Azure AD.
+2. Installera ADAL och konfigurera ensidesappen.
+3. Använd ADAL för att säkra sidor i ensidesappen.
 
-Du kommer igång [ladda ned stommen app](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) eller [hämta det färdiga exemplet](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip). Du behöver också en Azure AD-klient som du kan skapa användare och registrera ett program. Om du inte redan har en klient, [Lär dig hur du skaffa ett](quickstart-create-new-tenant.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="step-1-register-the-directorysearcher-application"></a>Steg 1: Registrera DirectorySearcher-program
-Om du vill aktivera din app för att autentisera användare och hämta token, måste du först registrera det i Azure AD-klienten:
+Kom igång genom att slutföra följande krav:
+
+* [Ladda ned appens stomme](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) eller [ladda ned det färdiga exemplet](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
+* Ha en Azure AD-klientorganisation där du kan skapa användare och registrera en app. Om du inte redan har en klientorganisation kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
+
+## <a name="step-1-register-the-directorysearcher-application"></a>Steg 1: Registrera DirectorySearcher-programmet
+
+Om du vill göra så att appen kan autentisera användare och hämta token behöver du först registrera den i din Azure AD-klientorganisation:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Om du är inloggad på flera kataloger, kan du behöva se till att du visar rätt katalog. Klicka på ditt konto om du vill göra det, i det översta fältet. Under den **Directory** väljer Azure AD-klient där du vill registrera ditt program.
-3. Klicka på **alla tjänster** i den vänstra rutan och välj sedan **Azure Active Directory**.
-4. Klicka på **appregistreringar**, och välj sedan **Lägg till**.
-5. Följ anvisningarna och skapa ett nytt webbprogram och/eller webb-API:
-  * **Namn på** beskriver programmet för användare.
-  * **Inloggnings-URL** är den plats som Azure AD returnerar token. Standardplatsen för det här exemplet är `https://localhost:44326/`.
-6. När du har slutfört registreringen tilldelar ett unikt ID i Azure AD till din app. Du behöver det här värdet i nästa avsnitt, så kopiera den från programfliken.
-7. Adal.js använder det implicita flödet för OAuth för att kommunicera med Azure AD. Du måste aktivera det implicita flödet för ditt program:
-  1. Klicka på programmet och välj **Manifest** att öppna redigeraren infogade manifest.
-  2. Leta upp den `oauth2AllowImplicitFlow` egenskapen. Ange värdet till `true`.
-  3. Klicka på **spara** att spara manifestet.
-8. Ge din klient för ditt program. Gå till **inställningar** > **nödvändiga behörigheter**, och klicka på den **bevilja behörigheter** knappen i det översta fältet. Bekräfta genom att klicka på **Ja**.
+1. Om du är inloggad i flera kataloger kan du behöva se till att du är i rätt katalog. Gör det genom att klicka på ditt konto i fältet längst upp. Under **kataloglistan** väljer du den Azure AD-klientorganisation där du vill registrera programmet.
+1. Klicka på **Alla tjänster** i den vänstra fönsterrutan och välj sedan **Azure Active Directory**.
+1. Klicka på **Appregistreringar** och välj sedan **Lägg till**.
+1. Följ anvisningarna och skapa ett nytt webbprogram och/eller webb-API:
 
-## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Steg 2: Installera ADAL och konfigurera enkelsidiga appar
-Nu när du har ett program i Azure AD kan du installera adal.js och skriva koden identitetsrelaterade.
+    * **Namn** beskriver appen för dina användare.
+    * **Inloggnings-URL** är den plats som Azure AD returnerar token till. Standardplatsen för det här exemplet är `https://localhost:44326/`.
 
-### <a name="configure-the-javascript-client"></a>Konfigurera JavaScript-klient
-Börja genom att lägga till adal.js TodoSPA-projekt med hjälp av Package Manager-konsolen:
-  1. Ladda ned [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js) och lägger till den i den `App/Scripts/` projektkatalogen.
-  2. Ladda ned [adal angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) och lägger till den i den `App/Scripts/` projektkatalogen.
-  3. Läsa in varje skript före utgången av den `</body>` i `index.html`:
+1. När du har slutfört registreringen tilldelar Azure AD ett unikt ID till din app. Du behöver det här värdet i nästa avsnitt, så kopiera det från appfliken.
+1. Adal.js använder det implicita flödet för OAuth för att kommunicera med Azure AD. Du måste aktivera det implicita flödet för ditt program:
+
+    1. Klicka på programmet och välj **Manifest** för att öppna redigeraren för infogade manifest.
+    1. Leta rätt på egenskapen `oauth2AllowImplicitFlow`. Ställ in värdet på `true`.
+    1. Klicka på **Spara** för att spara manifestet.
+
+1. Ge behörigheter till hela klientorganisationen för programmet. Gå till **Inställningar > Nödvändiga behörigheter** och välj knappen **Bevilja behörigheter** i det översta fältet.
+1. Välj **Ja** för att bekräfta.
+
+## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Steg 2: Installera ADAL och konfigurera ensidesappen
+
+Nu när du har ett program i Azure AD kan du installera adal.js och skriva din identitetsrelaterade kod.
+
+### <a name="configure-the-javascript-client"></a>Konfigurera JavaScript-klienten
+
+Börja genom att lägga till adal.js i TodoSPA-projektet med hjälp av Package Manager-konsolen:
+
+1. Ladda ned [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js) och lägg till det i projektkatalogen `App/Scripts/`.
+2. Ladda ned [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) och lägg till det i projektkatalogen `App/Scripts/`.
+3. Läs in varje skript före slutet av `</body>` i `index.html`:
 
     ```js
     ...
@@ -80,14 +95,17 @@ Börja genom att lägga till adal.js TodoSPA-projekt med hjälp av Package Manag
     ```
 
 ### <a name="configure-the-back-end-server"></a>Konfigurera backend-servern
-Serverdelen måste konfigurationsinformation om registreringen för enkelsidiga appens backend-att göra lista API accepterar token från webbläsaren. Öppna i projektet TodoSPA `web.config`. Ersätt värdena för elementen i den `<appSettings>` avsnitt för att återspegla de värden som du använde i Azure-portalen. Koden kommer att använda dessa värden när den använder ADAL.
-  * `ida:Tenant` är domänen i Azure AD-klienten – till exempel contoso.onmicrosoft.com.
-  * `ida:Audience` är klient-ID för programmet som du kopierade från portalen.
 
-## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Steg 3: Använda ADAL för att säkra sidor i enkelsidig app
-Adal.js integreras med AngularJS-väg och HTTP-leverantörer, så du kan hjälpa att säkra enskilda vyer i dina program.
+För att ensidesappens serverdels att göra-API ska kunna acceptera token från webbläsaren behöver serverdelen konfigurationsinformation om appregistreringen. I TodoSPA-projektet öppnar du `web.config`. Ersätt värdena för elementen i avsnittet `<appSettings>` så att de speglar de värden som du använde i Azure-portalen. Koden kommer att referera till dessa värden när den använder ADAL.
 
-1. I `App/Scripts/app.js`, ta med i modulen adal.js:
+   * `ida:Tenant` är domänen för din Azure AD-klientorganisation – till exempel contoso.onmicrosoft.com.
+   * `ida:Audience` är det klient-ID för din app som du kopierade från portalen.
+
+## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Steg 3: Använda ADAL för att säkra sidor i ensidesappen
+
+Adal.js integreras med AngularJS-vägen och HTTP-providers, så du kan hjälpa till att säkra enskilda vyer i din ensidesapp.
+
+1. I `App/Scripts/app.js` tar du med adal.js-modulen:
 
     ```js
     angular.module('todoApp', ['ngRoute','AdalAngular'])
@@ -95,7 +113,7 @@ Adal.js integreras med AngularJS-väg och HTTP-leverantörer, så du kan hjälpa
      function ($routeProvider, $httpProvider, adalProvider) {
     ...
     ```
-2. Initiera `adalProvider` med konfigurationsvärden i din programregistrering också i `App/Scripts/app.js`:
+2. Initiera `adalProvider` genom att använda konfigurationsvärdena för din programregistrering, även i `App/Scripts/app.js`:
 
     ```js
     adalProvider.init(
@@ -109,7 +127,7 @@ Adal.js integreras med AngularJS-väg och HTTP-leverantörer, så du kan hjälpa
       $httpProvider
     );
     ```
-3. Skydda den `TodoList` vy i appen genom att använda endast en rad med kod: `requireADLogin`.
+3. Skydda `TodoList`-vyn i appen med hjälp av endast en kodrad: `requireADLogin`.
 
     ```js
     ...
@@ -121,11 +139,12 @@ Adal.js integreras med AngularJS-väg och HTTP-leverantörer, så du kan hjälpa
     ```
 
 ## <a name="summary"></a>Sammanfattning
-Nu har du en säker enkelsidigt program som kan logga in användare och skicka ägar-token-skyddade begäranden till dess serverdels-API. När en användare klickar på **TodoList** länken, adal.js omdirigeras automatiskt till Azure AD för att logga in om det behövs. Dessutom kommer adal.js automatiskt koppla en åtkomsttoken till alla Ajax-begäranden som skickas till appens serverdel. 
 
-Föregående steg är att skapa en ensidesapp med hjälp av adal.js utan minsta nödvändiga. Men några andra funktioner är användbara i ensidesapp:
+Nu har du en säker ensidesapp som kan logga in användare och skicka ägartokenskyddade begäranden till sitt serverdels-API. När en användare klickar **TodoList**-länken omdirigera adal.js automatiskt till Azure AD för inloggning om det behövs. Dessutom kommer adal.js att automatiskt koppla en åtkomsttoken till alla Ajax-begäranden som skickas till appens serverdel.
 
-* För att utfärda inloggnings-och utloggning uttryckligen, kan du definiera functions i kontrollenheterna som anropar adal.js. I `App/Scripts/homeCtrl.js`:
+Föregående steg är minimikraven för att skapa en ensidesapp med hjälp av adal.js. Det finns dock några andra funktioner som är användbara i ensidesapp:
+
+* För att explicit utfärda inloggnings-och utloggningsbegäranden kan du definiera funktioner i de styrenheter som anropar adal.js. Följande gäller i `App/Scripts/homeCtrl.js`:
 
     ```js
     ...
@@ -137,7 +156,7 @@ Föregående steg är att skapa en ensidesapp med hjälp av adal.js utan minsta 
     };
     ...
     ```
-* Du kan visa användarinformation i appens användargränssnitt. ADAL-tjänsten har redan lagts till i `userDataCtrl` styrenhet, så att du kan komma åt den `userInfo` objekt i den associerade vyn `App/Views/UserData.html`:
+* Det kan vara bra att visa användarinformation i appens användargränssnitt. ADAL-tjänsten har redan lagts till i `userDataCtrl`-styrenheten, så du kan komma åt objektet `userInfo` i den associerade vyn `App/Views/UserData.html`:
 
     ```js
     <p>{{userInfo.userName}}</p>
@@ -146,20 +165,22 @@ Föregående steg är att skapa en ensidesapp med hjälp av adal.js utan minsta 
     ...
     ```
 
-* Det finns många scenarier där du vill veta om användaren är inloggad eller inte. Du kan också använda den `userInfo` objekt för att samla in den här informationen. Till exempel på `index.html`, du kan visa den **inloggning** eller **utloggning** knappen baserat på autentiseringsstatus för:
+* Det finns många scenarier där du vill veta om användaren är inloggad eller inte. Du kan även använda objektet `userInfo` för att samla in den här informationen. Till exempel kan du i `index.html` visa antingen knappen **Logga in** eller **Logga ut** baserat på autentiseringsstatus:
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>
     <li><a class="btn btn-link" ng-hide=" userInfo.isAuthenticated" ng-click="login()">Login</a></li>
     ```
 
-Din Azure AD-integrerade program kan autentisera användare, på ett säkert sätt anropa backend-server med hjälp av OAuth 2.0 och få grundläggande information om användaren. Om du inte redan gjort nu är det hög tid att fylla i din klient med vissa användare. Kör din att göra-lista ensidesapp och logga in med något av dessa användare. Lägga till aktiviteter till användarens att göra-lista, logga ut och logga in igen.
+Din Azure AD-integrerade ensidesapp kan autentisera användare, anropa sin backend-server på ett säkert sätt med hjälp av OAuth 2.0 och få grundläggande information om användaren. Om du inte redan har gjort det är det dags att fylla i klientorganisationen med några användare. Kör din att göra-ensidesapp och logga in med någon av dessa användare. Lägg till aktiviteter i användarens att göra-lista, logga ut och logga in igen.
 
-Adal.js gör det enkelt att införliva vanliga identitetsfunktioner i ditt program. Det tar hand om ändrad arbetet åt dig: hantering av cache, stöd för OAuth-protokoll, presentera användaren med en inloggning användargränssnitt, uppdatera utgångna token och mycket mer.
+Adal.js gör det enkelt att inkorporera vanliga identitetsfunktioner i appen. Det tar hand om allt grovjobb åt dig: cachehantering, stöd för OAuth-protokoll, visa användaren ett användargränssnitt för inloggning, uppdatera token som gått ut och mer.
 
-Referens är färdiga exemplet (utan dina konfigurationsvärden) är tillgänglig i [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
+Som referens finns det slutförda exemplet (utan dina konfigurationsvärden) på [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan nu gå vidare till fler scenarier. Du kanske vill prova: [anropa ett webb-CORS API från en ensidesapp](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+Nu kan du fortsätta med fler scenarier.
+
+> [!div class="nextstepaction"]
+> [Anropa ett CORS-webb-API från en ensidesapp](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).

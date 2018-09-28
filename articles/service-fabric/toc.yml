@@ -48,7 +48,7 @@ items:
       href: service-fabric-tutorial-java-jenkins.md
   - name: Använd en befintlig .NET-app i container
     items:
-    - name: 1– Distribuera en .NET-app med hjälp av Docker Compose
+    - name: 1- Distribuera en .NET-app med hjälp av Docker Compose
       href: service-fabric-host-app-in-a-container.md
     - name: 2 – Distribuera ett containerprogram med CI/CD
       href: service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md
@@ -74,8 +74,8 @@ items:
       href: service-fabric-tutorial-scale-cluster.md
     - name: 3- Uppgradera körningstiden för kluster
       href: service-fabric-tutorial-upgrade-cluster.md
-    - name: 4- Distribuera API Management med Service Fabric
-      href: service-fabric-tutorial-deploy-api-management.md
+    - name: 4- Ta bort ett kluster
+      href: service-fabric-tutorial-delete-cluster.md
   - name: Skapa ett fristående kluster på AWS
     items:
     - name: 1 – Skapa infrastrukturen på AWS
@@ -430,6 +430,8 @@ items:
       href: service-fabric-get-started-tomcat.md
     - name: Konfigurera säkerhet
       items:
+      - name: Integrera med API Management
+        href: service-fabric-tutorial-deploy-api-management.md
       - name: Hantera programhemligheter
         href: service-fabric-application-secret-management.md
       - name: Konfigurera omvänd proxy för säker kommunikation
@@ -588,8 +590,6 @@ items:
         href: service-fabric-cluster-rollover-cert-cn.md
       - name: Hantera klustercertifikat
         href: service-fabric-cluster-security-update-certs-azure.md
-      - name: Ta bort
-        href: service-fabric-cluster-delete.md
       - name: Fjärransluta till klusternod för virtuell dator
         href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
     - name: Fristående kluster
@@ -757,9 +757,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: b204469b3d3dba8a9e8da870bcb3264e5089c4ca
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 7bd6ee339aa1eafbf260e9df4925f50cba49bdf8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380326"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406065"

@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 7/11/2018
+ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576008"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983522"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -31,7 +31,9 @@ Nätverkstrafiken måste följa konfigurerade brandväggsregler när du vidarebe
 
 Program- och nätverksregler lagras i *regelsamlingar*. En regelsamling är en lista med regler som delar samma åtgärd och prioritet.  En nätverksregelsamling är en lista med nätverksregler och en programregelsamling är en lista med programregler.
 
-Nätverksregelsamlingar bearbetas alltid innan programregelsamlingar. Alla regler fungerar avslutande, så om en matchning hittas i en nätverksregelsamling bearbetas inte efterföljande programregelsamlingar under sessionen.
+Azure Firewall använder inte begreppen inkommande och utgående regler. Det finns programregler och nätverksregler och de tillämpas på all trafik som kommer in i brandväggen. Nätverksregler tillämpas först, sedan programregler, och reglerna är avslutande.
+
+Om till exempel en nätverksregel matchas utvärderas paketet inte av programregler. Om det inte finns någon nätverksregelmatchning och paketprotokollet är HTTP/HTTPS utvärderas paketet av programreglerna. Om det fortfarande inte finns någon matchning utvärderas paketet mot infrastrukturregelsamlingen. Om det fortfarande inte finns någon matchning nekas paketet som standard.
 
 I den här guiden får du lära dig att:
 
@@ -46,10 +48,6 @@ I den här guiden får du lära dig att:
 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Exemplen i Azure Firewall-artikeln förutsätter att du redan har aktiverat den offentliga förhandsversionen av Azure Firewall. Mer information finns i [Aktivera den offentliga förhandsversionen av Azure Firewall](public-preview.md).
 
 I den här självstudien skapar du ett virtuellt nätverk med tre undernät:
 - **FW-SN** – brandväggen ligger i det här undernätet.
@@ -83,9 +81,7 @@ Skapa först en resursgrupp som ska innehålla de resurser som behövs till att 
 7. I fältet **Prenumeration** väljer du din prenumeration.
 8. I fältet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan **Test-FW-RG**.
 9. Välj samma plats som tidigare i fältet **Plats**.
-10. Under **Undernät**, i fältet **Namn**, skriver du **AzureFirewallSubnet**.
-
-    Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
+10. Under **Undernät**, i fältet **Namn**, skriver du **AzureFirewallSubnet**. Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
 11. I fältet **Adressintervall** skriver du **10.0.1.0/24**.
 12. Använd övriga standardinställningar och klicka på **Skapa**.
 
@@ -207,25 +203,21 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 
 
 1. Öppna **Test-FW-RG** och klicka på brandväggen **Test-FW01**.
-1. På sidan **Test-FW01**, under **Inställningar**, klickar du på **Regler**.
-2. Klicka på **Lägg till programregelsamling**.
-3. I fältet **Namn** skriver du **App-Coll01**.
-1. I fältet **Prioritet** skriver du **200**.
-2. I fältet **Åtgärd** väljer du **Tillåt**.
+2. På sidan **Test-FW01**, under **Inställningar**, klickar du på **Regler**.
+3. Klicka på **Lägg till programregelsamling**.
+4. I fältet **Namn** skriver du **App-Coll01**.
+5. I fältet **Prioritet** skriver du **200**.
+6. I fältet **Åtgärd** väljer du **Tillåt**.
+7. Under **Regler**, i fältet **Namn**, skriver du **AllowGH**.
+8. I fältet **Källadresser** skriver du **10.0.2.0/24**.
+9. I fältet **Protokoll: port** skriver du **http, https**. 
+10. I fältet **Fullständiga domännamn för mål** skriver du **github.com**.
+11. Klicka på **Lägg till**.
 
-6. Under **Regler**, i fältet **Namn**, skriver du **AllowGH**.
-7. I fältet **Källadresser** skriver du **10.0.2.0/24**.
-8. I fältet **Protokoll: port** skriver du **http, https**. 
-9. I fältet **Fullständiga domännamn för mål** skriver du **github.com**.
-10. Klicka på **Lägg till**.
+Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn för mål (FQDN) i infrastrukturen som tillåts som standard. Dessa FQDN är specifika för plattformen och kan inte användas för andra ändamål. Mer information finns i [Infrastruktur-FQDN](infrastructure-fqdns.md).
 
-> [!NOTE]
-> Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn för mål (FQDN) i infrastrukturen som tillåts som standard. Dessa FQDN är specifika för plattformen och kan inte användas för andra ändamål. Tillåtna FQDN i infrastrukturen är:
->- Compute-åtkomst till PIR-lagring (Plattform Image Repository).
->- Åtkomst till lagring av hanterade diskars status.
->- Windows-diagnostik
->
-> Du kan åsidosätta den här inbyggda regelsamlingen för infrastrukturen genom att skapa en programregelsamling som *nekar alla* och som bearbetats sist. Den bearbetas alltid före regelsamlingen för infrastrukturen. Allt som inte ingår i regelsamlingen för infrastrukturen nekas som standard.
+> [!Note]
+> FQDN-taggar kan för närvarande endast konfigureras med Azure PowerShell och REST. [Klicka här](https://aka.ms/firewallapplicationrule) om du vill läsa mer. 
 
 ## <a name="configure-network-rules"></a>Konfigurera nätverksregler
 

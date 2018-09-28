@@ -1,44 +1,57 @@
 ---
-title: Översikt över Azure Video Indexer | Microsoft Docs
+title: Vad är Video Indexer?
+titlesuffix: Azure Cognitive Services
 description: Det här avsnittet ger en översikt över tjänsten Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: overview
-ms.date: 07/25/2018
+ms.date: 09/15/2018
 ms.author: nolachar
-ms.openlocfilehash: f52c4af29d0c7de8b5edbe869640ffc5dddb5c5e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fd92e91989bd1a37626227b327d644c9d704ab6c
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397899"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983022"
 ---
-# <a name="what-is-video-indexer-preview"></a>Vad är Video Indexer? (förhandsversion)
+# <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
-Video Indexer är ett molnprogram som skapats med Azure-medieanalys, kognitiva tjänster (som Ansikts-API, Microsoft Translator, API för visuellt innehåll och Custom Speech Service) och Azure Search. Det gör det möjligt att extrahera följande insikter från dina videor med AI-teknik:
-
-- **Automatisk språkidentifiering**: Video Indexer kan automatiskt identifiera språket i videon. Automatisk språkidentifiering har för närvarande stöd för engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska och ryska. Om språket inte kan identifieras används engelska.
-- **Ljudtranskription**: Video Indexer har funktioner för tal till text, vilket gör att kunderna kan få transkriptioner av tal. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), portugisiska (Brasilien), japanska och ryska (och fler kommer framöver). 
-- **Ansiktsspårnings och -identifiering**: teknik för ansiktsigenkänning möjliggör identifiering av ansikten i en video. De identifierade ansiktena matchas mot en kändisdatabas för att utvärdera vilka kändisar som är med i videon. Kunderna kan även etikettera ansikten som inte matchar en kändis. Video Indexer skapar en ansiktsmodell som baseras på de här etiketterna och kan identifiera de ansiktena i videofilmer som skickas in längre fram.
-- **Talarindexering**: Video Indexer kan mappa och förstå vilken talare som sa vilka ord och när.
-- **Visuell textigenkänning**: med den här tekniken extraherar Video Indexer text som visas i videofilmer.  
-- **Röstaktivitetsidentifiering**: identifieringen gör det möjligt för Video Indexer att avgränsa bakgrundsbrus och röstaktivitet. 
-- **Scenidentifiering**: Video Indexer kan utföra visuell analys på videon för att fastställa när en scen ändras i en video.
-- **Extrahering av bildrutor**: Video Indexer identifierar automatiskt nyckelbilder i en video. 
-- **Känsloanalys**: Video Indexer utför känsloanalys på den text som extraherats med tal-till-text och optisk teckenigenkänning, och tillhandahåller den informationen som positiv, negativ eller neutral känsla tillsammans med tidskoder.
-- **Översättning**: Video Indexer kan översätta ljudtranskriptionen från ett språk till ett annat. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), portugisiska (Brasilien), japanska och ryska. När översättningen är klar kan användaren få undertextning på andra språk i videospelaren.
-- **Visuell innehållsmoderering**: den här tekniken möjliggör identifiering av barnförbjudet och/eller stötande/olämpligt material i videon och kan användas för innehållsfiltrering. 
-- **Extrahering av nyckelord**: Video Indexer extraherar nyckelord baserat på taltranskriptionen och text som identifierats av den visuella textidentifieraren.
-- **Etiketter**: Video Indexer etiketterar visuella objekt som katt, hund, bord, eller bil, och till handlingar som stå, springa, och flyga.
-- **Varumärken**: Video Indexer extraherar varumärken baserat på taltranskriptionen och textigenkänningen som gjorts av den visuella textidentifieraren.
+Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure Search, Cognitive Services (som Ansikts-API, Microsoft Translator, API för visuellt innehåll och Custom Speech Service). Det gör det möjligt att extrahera insikter från dina videor med Video Indexer-modeller som beskrivs nedan:
+ 
+- **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska och portugisiska (Brasilien). Om språket inte kan identifieras används engelska.
+- **Ljudtranskription**: Konverterar tal till text på 10 språk och stöder tillägg. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, arabiska, ryska och portugisiska (Brasilien).
+- **Textning**: Skapar textning i tre format: VTT, TTML och SRT.
+- **Bearbetning av två kanaler**: Identifierar automatiskt, avgränsar avskrift och slår samman till en enda tidslinje.
+- **Brusreducering**: Rensar telefoniljud eller inspelningar med störningar (baserat på Skype-filter).
+- **Avskriftsanpassning (CRIS)**: Tränar och kör utökade anpassade tal till text-modeller för att skapa branschspecifika avskrifter.
+- **Talaruppräkning**: Mappar och förstår vilken talare som sa vilka ord och när.
+- **Talarstatistik**: Ger statistik om talförhållanden för talare.
+- **Visuell textigenkänning (OCR)**: Extraherar text som visas i videon.
+- **Extrahering av bildrutor**: Identifierar stabila nyckelbilder i en video.
+- **Attitydanalys**: Identifierar positiva, negativa och neutrala attityder i tal och visuell text.
+- **Moderering av visuellt innehåll**: Identifierar vuxna och/eller vågade visuella objekt.
+- **Extrahering av nyckelord**: Extraherar nyckelord från tal och visuell text.
+- **Identifiering av etiketter**: Identifierar visuella objekt och åtgärder som visas.
+- **Extrahering av varumärken**: Extraherar varumärken från tal och visuell text.
+- **Ansiktsigenkänning**: Identifierar och grupperar ansikten som visas i videon.
+- **Extrahering av miniatyrer för ansikten (”bästa ansikte”)**: Identifierar automatiskt det bäst avbildade ansiktet i varje grupp med ansikten (baserat på kvalitet, storlek och position framifrån) och extraherar det som en bildtillgång.
+- **Identifiering av kända personer**: Identifierar kändisar i videon baserat på en databas med 1 miljon kändisar. Källan kommer från IMDB, Wikipedia och populära LinkedIn-påverkare.
+- **Anpassad ansiktsidentifiering**: Identifierar ansikten i videon baserat på en anpassad modell som tränats för det specifika kontot.
+- **Moderering av textinnehåll**: Identifierar stötande text i ljudavskriften.
+- **Scenidentifiering**: Avgör när en scen ändras i videon.
+- **Identifiering av svarta bildrutor**: Identifierar svarta bildrutor som visas i videon.
+- **Ljudeffekter**: Identifierar ljudeffekter, till exempel handklappningar, tal och tystnad.
+- **Ämnesinferens**: Skapar inferens av huvudämnen från avskrifter. [IPTC](https://iptc.org/standards/media-topics/)-taxonomi på första nivån ingår.
+- **Känsloigenkänning**: Identifierar känslor baserat på tal och ljudtips. Känslan kan vara: glädje, sorg, ilska eller rädsla.
+- **Artefakter**: Extraherar en omfattande uppsättning ”nästa detaljnivå”-artefakter för de olika modellerna.
+- **Översättning**: Skapar översättningar av ljudavskriften till 54 olika språk.
 
 När Video Indexer är klar med bearbetning och analys kan du granska, moderera, söka och publicera videoinsikterna.
 
-Både innehållsansvariga och utvecklare kan ha nytta av Video Indexer-tjänsten. Innehållsansvariga kan använda Video Indexer-webbportalen för att använda tjänsten utan att behöva skriva en enda rad kod. Se [Komma igång med Video Indexer-portalen](video-indexer-get-started.md). Utvecklare kan dra nytta av API:er för att bearbeta innehållet i stor skala. Se [Använda Video Indexer REST API](video-indexer-use-apis.md). Tjänsten gör det även möjligt för kunderna att använda widgetar för att publicera videoströmmar och extrahera insikter i sina egna program. Se [Bädda in visuella widgetar i ditt program](video-indexer-embed-widgets.md).
+Både innehållsansvariga och utvecklare kan ha nytta av Video Indexer-tjänsten. Innehållsansvariga kan använda Video Indexer-webbportalen för att använda tjänsten utan att behöva skriva en enda rad kod. Se [Komma igång med Video Indexer-webbplatsen](video-indexer-get-started.md). Utvecklare kan dra nytta av API:er för att bearbeta innehållet i stor skala. Se [Använda Video Indexer REST API](video-indexer-use-apis.md). Tjänsten gör det även möjligt för kunderna att använda widgetar för att publicera videoströmmar och extrahera insikter i sina egna program. Se [Bädda in visuella widgetar i ditt program](video-indexer-embed-widgets.md).
 
 Du kan registrera dig för tjänsten med ditt befintliga AAD-, LinkedIn-, Facebook-, Google- eller MSA-konto. Mer information finns i [Komma igång](video-indexer-get-started.md).
 
@@ -58,6 +71,6 @@ Mer information finns i den här [bloggen](http://aka.ms/videoindexerblog).
 
 Nu är du redo att börja använda Video Indexer. Mer information finns i följande artiklar:
 
-- [Komma igång med Video Indexer-portalen](video-indexer-get-started.md)
+- [Komma igång med Video Indexer-webbplatsen](video-indexer-get-started.md)
 - [Bearbeta innehåll med Video Indexer REST API](video-indexer-use-apis.md)
 - [Bädda in visuella widgetar i ditt program](video-indexer-embed-widgets.md)

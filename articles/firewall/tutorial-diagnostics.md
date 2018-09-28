@@ -1,27 +1,22 @@
 ---
-title: Självstudie – Övervaka Azure Firewall-loggar
-description: I den här självstudien får du lära dig att aktivera och hantera Azure Firewall-loggar.
+title: Självstudie – Övervaka Azure Firewall-loggar och mått
+description: I den här självstudien får du lära dig att aktivera och hantera Azure Firewall-loggar och mått.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/11/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: a4922fda80b957138a9929090f9d3c349348185d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991963"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991053"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs"></a>Självstudie: Övervaka Azure Firewall-loggar
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Självstudie: Övervaka Azure Firewall-loggar och mått
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Exemplen i Azure Firewall-artikeln förutsätter att du redan har aktiverat den offentliga förhandsversionen av Azure Firewall. Mer information finns i [Aktivera den offentliga förhandsversionen av Azure Firewall](public-preview.md).
-
-Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också använda aktivitetsloggar till att granska åtgärder som utförs på Azure Firewall-resurser.
+Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också använda aktivitetsloggar till att granska åtgärder som utförs på Azure Firewall-resurser. Med hjälp av mått kan du visa prestandaräknare i portalen. 
 
 Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar till [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage och Event Hubs, och analysera dem i Log Analytics eller med andra verktyg som Excel och Power BI.
 
@@ -31,70 +26,13 @@ I den här guiden får du lära dig att:
 > * aktivera loggning via Azure Portal
 > * aktivera loggning med PowerShell
 > * visa och analysera aktivitetsloggar
-> * visa och analysera loggar för nätverk och programregler.
+> * Visa och analysera loggar för nätverk och programregler
+> * Visa mått
 
-## <a name="diagnostic-logs"></a>Diagnostikloggar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
- Följande diagnostiska loggar är tillgängliga för Azure Firewall:
+Innan du påbörjar den här självstudien bör du läsa [Azure Firewall-loggar och mått](logs-and-metrics.md) för att få en översikt över de diagnostikloggar och mått som finns för Azure Firewall.
 
-* **Programregelloggen**
-
-   Programregelloggen sparas till ett lagringskonto, strömmas till Event Hubs och/eller skickas till Log Analytics om du har aktiverat det för respektive Azure-brandvägg. Varje ny anslutning som matchar en av de konfigurerade programreglerna genererar en loggpost för den accepterade eller nekade anslutningen. Data loggas i JSON-format, här är ett exempel:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-   {
-    "category": "AzureFirewallApplicationRule",
-    "time": "2018-04-16T23:45:04.8295030Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallApplicationRuleLog",
-    "properties": {
-        "msg": "HTTPS request from 10.1.0.5:55640 to mydestination.com:443. Action: Allow. Rule Collection: collection1000. Rule: rule1002"
-    }
-   }
-   ```
-
-* **Nätverksregellogg**
-
-   Nätverksregelloggen sparas till ett lagringskonto, strömmas till en händelsehubb och/eller skickas till Log Analytics om du har aktiverat det för respektive Azure-brandvägg. Varje ny anslutning som matchar en av de konfigurerade nätverksreglerna genererar en loggpost för den accepterade eller nekade anslutningen. Data loggas i JSON-format, här är ett exempel:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-  {
-    "category": "AzureFirewallNetworkRule",
-    "time": "2018-06-14T23:44:11.0590400Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallNetworkRuleLog",
-    "properties": {
-        "msg": "TCP request from 111.35.136.173:12518 to 13.78.143.217:2323. Action: Deny"
-    }
-   }
-
-   ```
-
-Du har tre alternativ för att lagra dina loggar:
-
-* **Storage-konto**: Storage-konton passar bäst när loggarna ska lagras en längre tid och granskas vid behov.
-* **Händelsehubbar**: Händelsehubbar är ett bra alternativ vid integrering med andra verktyg för säkerhetsinformation och händelsehantering (SEIM), när du vill få aviseringar om dina resurser.
-* **Log Analytics**: Log Analytics passar bäst till allmän realtidsövervakning av ditt program eller när du vill leta efter trender.
-
-## <a name="activity-logs"></a>Aktivitetsloggar
-
-   Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
-
-   Du kan använda [Azure-aktivitetsloggar](../azure-resource-manager/resource-group-audit.md) (kallades tidigare för driftloggar och granskningsloggar) till att visa alla åtgärder som skickas till din Azure-prenumeration.
 
 ## <a name="enable-diagnostic-logging-through-the-azure-portal"></a>Aktivera diagnostisk loggning via Azure Portal
 
@@ -105,8 +43,8 @@ Det kan ta några minuter innan data visas i loggarna när du har aktiverat diag
 
    Azure Firewall har två loggar som är specifika för tjänsten:
 
-   * Programregellogg
-   * Nätverksregellogg
+   * AzureFirewallApplicationRule
+   * AzureFirewallNetworkRule
 
 3. Om du vill börja samla in data klickar du på **Aktivera diagnostik**.
 4. På sidan **Diagnostikinställningar** kan du göra inställningar för de diagnostiska loggarna. 
@@ -163,6 +101,8 @@ Du kan också ansluta till ditt lagringskonto och hämta JSON-loggposter för å
 > [!TIP]
 > Om du är bekant med Visual Studio och kan grunderna i att ändra värden för konstanter och variabler i C# så kan du använda [verktygen för loggkonvertering](https://github.com/Azure-Samples/networking-dotnet-log-converter) från GitHub.
 
+## <a name="view-metrics"></a>Visa mått
+Bläddra till en Azure-brandvägg. Under **Övervakning** klickar du på **Mått**. Om du vill visa de tillgängliga värdena väljer du listrutan **MÅTT**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD-iOS komma igång | Microsoft Docs
-description: 'Hur du skapar en iOS-program som kan integreras med Azure AD för inloggnings- och Azure AD-anrop skyddade API: er med hjälp av OAuth.'
+title: Skapa en iOS-app som integreras med Azure för inloggning och anropar skyddade API:er med OAuth 2.0 | Microsoft Docs
+description: Lär dig hur du loggar in användare och anropar Microsoft Graph API från iOS-appen.
 services: active-directory
 documentationcenter: ios
 author: CelesteDG
@@ -12,77 +12,86 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: jmprieur
-ms.openlocfilehash: c370a90cf050a88e66ea0417f018429f7815b7c9
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: MT
+ms.reviewer: brandwe
+ms.openlocfilehash: 89f2a4058006687fbe64ec64d98659e38f93f618
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592245"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980584"
 ---
-# <a name="azure-ad-ios-getting-started"></a>Azure AD-iOS komma igång
-[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en iOS-app
 
-Azure Active Directory (Azure AD) innehåller Active Directory Authentication Library eller ADAL för iOS-klienter som behöver åtkomst till skyddade resurser. ADAL förenklar processen som din app använder för att hämta åtkomsttoken. Att demonstrera hur lätt det är i den här artikeln vi skapar ett att göra-lista för Objective-C-program som:
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-* Hämtar åtkomsttoken för att anropa Azure AD Graph-API med hjälp av den [OAuth 2.0-autentiseringsprotokollet](https://msdn.microsoft.com/library/azure/dn645545.aspx).
-* Söker i en katalog för användare med en viss alias.
+Azure Active Directory (Azure AD) har Active Directory Authentication Library (ADAL) för iOS-klienter som behöver åtkomst till skyddade resurser. ADAL förenklar den process som appen använder för att hämta åtkomsttoken. 
 
-Om du vill skapa det fullständiga fungerande programmet, måste du:
+I den här snabbstarten skapar du en ”att göra-lista”-app med Objective C som:
 
-1. Registrera ditt program med Azure AD.
-2. Installera och konfigurera ADAL.
-3. Använd ADAL för att hämta token från Azure AD.
+* Hämtar åtkomsttoken för att anropa Azure AD Graph API med hjälp av OAuth 2.0-autentiseringsprotokollet
+* Söker efter en katalog för användare med ett visst alias
 
-Du kommer igång [ladda ned stommen app](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) eller [hämta det färdiga exemplet](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Du behöver också en Azure AD-klient som du kan skapa användare och registrera ett program. Om du inte redan har en klient, [Lär dig hur du skaffa ett](quickstart-create-new-tenant.md).
+Om du vill skapa en komplett, fungerande app måste du:
 
+1. Registrera appen med Azure AD.
+1. Installera och konfigurera ADAL.
+1. Använda ADAL för att hämta token från Azure AD.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+Kom igång genom att slutföra följande krav:
+
+* [Ladda ned appens stomme](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) eller [ladda ned det färdiga exemplet](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
+* Ha en Azure AD-klientorganisationen där du kan skapa användare och registrera en app. Om du inte redan har en klientorganisation kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
 
 > [!TIP]
-> Prova förhandsversionen av vår nya [utvecklarportalen](https://identity.microsoft.com/Docs/iOS) som hjälper dig komma igång med Azure AD med bara några minuter. Developer-portalen vägleder dig genom processen med att registrera en app och integrera Azure AD i din kod. När du är klar har du ett enkelt program som kan autentisera användare i din klient och en serverdel som kan acceptera token och utföra verifiering. 
-> 
-> 
+> Prova [utvecklarportalen](https://identity.microsoft.com/Docs/iOS) för att komma igång med Azure AD på bara några minuter. Utvecklarportalen guidar dig genom registreringen av en app och integreringen av Azure AD i din kod. När du är klar har du en enkel app som kan autentisera användare i klientorganisationen och en serverdel som kan acceptera token och utföra validering.
 
-## <a name="1-determine-what-your-redirect-uri-is-for-ios"></a>1. Avgöra vilka din omdirigerings-URI: N är för iOS
-För att starta dina program på ett säkert sätt i vissa scenarier med enkel inloggning, måste du skapa en *omdirigerings-URI* i ett visst format. En omdirigerings-URI används för att se till att token som returneras till rätt program som har begärt dem.
+## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Steg 1: Fastställa vad omdirigerings-URI är för iOS
 
+För att kunna starta dina appar i vissa SSO-scenarier måste du skapa en *omdirigerings-URI* i ett visst format. En omdirigerings-URI används till att se till att token returneras till rätt app som har frågat efter dem.
 
-IOS-formatet för en omdirigerings-URI: N är:
+iOS-formatet för en omdirigerings-URI är:
 
 ```
 <app-scheme>://<bundle-id>
 ```
 
-* **App-schema** – detta är registrerad i XCode-projektet. Det är hur andra program kan ringa dig. Du hittar det under Info.plist -> typer av URL -> URL-identifierare. Du bör skapa en om du inte redan har en eller flera konfigurerade.
-* **paket-id** – detta är paket-ID som finns under ”identitet” i dina Projektinställningar i XCode.
+* **Appschema** – Registreras i ditt XCode-projekt och är hur andra appar kan anropa dig. Du hittar appschemat under **Info.plist > URL types > URL Identifier** (Info.plist > URL-typer > URL-identifierare). Skapa ett appschema om du inte redan har ett eller flera konfigurerade.
+* **bundle-id** (ID för programpaket) – Är det paket-ID som finns under **identity** i projektinställningarna för XCode.
 
-Ett exempel på den här snabbstartskoden: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+Ett exempel på den här snabbstartskoden:
 
-## <a name="2-register-the-directorysearcher-application"></a>2. Registrera DirectorySearcher-program
-Om du vill konfigurera din app för att hämta token, måste du först registrera det i Azure AD-klienten och bevilja behörighet att komma åt Azure AD Graph-API:
+***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+
+## <a name="step-2-register-the-directorysearcher-application"></a>Steg 2: Registrera DirectorySearcher-appen
+
+Om du vill konfigurera appen så att den hämtar apptoken måste du registrera appen i din Azure AD-klientorganisation och bevilja den behörighet för åtkomst till Azure AD Graph API.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på ditt konto i det översta fältet. Under den **Directory** väljer Active Directory-klient där du vill registrera ditt program.
-3. Klicka på **alla tjänster** i det vänstra navigeringsfönstret och välj sedan **Azure Active Directory**.
-4. Klicka på **appregistreringar**, och välj sedan **Lägg till**.
-5. Följ anvisningarna för att skapa en ny **internt klientprogram**.
-  * Den **namn** beskriver programmet för slutanvändare av programmet.
-  * Den **omdirigerings-Uri** är en kombination av schema och strängen som Azure AD använder för att returnera tokensvar. Ange ett värde som är specifik för ditt program och baseras på den föregående omdirigerings-URI informationen.
-6. När du har slutfört registreringen, tilldelar Azure AD en app i ett unikt program-ID. Du behöver det här värdet i nästa avsnitt, så kopiera den från programfliken.
-7. Från den **inställningar** väljer **nödvändiga behörigheter** och välj sedan **Lägg till**. Välj **Microsoft Graph** som API, och Lägg sedan till den **läsa kataloginformation** behörighet under **delegerade behörigheter**. Detta ställer in ditt program att fråga efter Azure AD Graph-API för användare.
+2. Välj konto i det översta fältet. Under **kataloglistan** väljer du den Active Directory-klientorganisation där du vill registrera appen.
+3. Välj **Alla tjänster** i navigeringsfönstret längst till vänster och välj sedan **Azure Active Directory**.
+4. Välj **Appregistreringar** och sedan **Lägg till**.
+5. Följ anvisningarna för att skapa ett nytt **internt** klientprogram.
+    * **Namn** är appens namn och beskriver appen för användarna.
+    * **Omdirigerings-URI** är ett schema och en strängkombination som Azure AD använder till att returnera tokensvar. Ange ett värde som är specifikt för appen och baseras på den tidigare informationen om omdirigerings-URI.
+6. När du har slutfört registreringen tilldelar Azure AD din app ett unikt program-ID. Du behöver det här värdet i nästa avsnitt, så kopiera det från appfliken.
+7. På sidan **Inställningar** väljer du **Nödvändiga behörigheter > Lägg till > Microsoft Graph**, och sedan lägger du under **Delegerade behörigheter** till behörigheten **Läsa katalogdata**. Den här behörigheten konfigurerar appen att fråga Azure AD Graph API efter användare.
 
-## <a name="3-install-and-configure-adal"></a>3. Installera och konfigurera ADAL
-Nu när du har ett program i Azure AD kan du skriva koden identitetsrelaterade installera ADAL. Du måste tillhandahålla viss information om din appregistrering för ADAL att kommunicera med Azure AD.
+## <a name="step-3-install-and-configure-adal"></a>Steg 3: Installera och konfigurera ADAL
 
-1. Börja genom att lägga till ADAL DirectorySearcher-projekt med hjälp av CocoaPods.
+Nu när du har en app i Azure AD kan du installera ADAL och skriva din identitetsrelaterade kod. För att ADAL ska kunna kommunicera med Azure AD måste du ange viss information om appregistreringen.
+
+1. Börja med att lägga till ADAL i DirectorySearcher-projektet med hjälp av CocoaPods.
 
     ```
     $ vi Podfile
     ```
-2. Lägg till följande i Podfile:
+1. Lägg till följande i Podfile:
 
     ```
     source 'https://github.com/CocoaPods/Specs.git'
@@ -92,7 +101,7 @@ Nu när du har ett program i Azure AD kan du skriva koden identitetsrelaterade i
     pod 'ADALiOS'
     ```
 
-3. Läs in podfile med CocoaPods. Det här steget skapar en ny XCode-arbetsyta som du läser in.
+1. Läs in Podfile med CocoaPods. Det här steget skapar en ny XCode-arbetsyta som du kan läsa in.
 
     ```
     $ pod install
@@ -100,15 +109,19 @@ Nu när du har ett program i Azure AD kan du skriva koden identitetsrelaterade i
     $ open QuickStart.xcworkspace
     ```
 
-4. Öppna filen plist i QuickStart-projektet `settings.plist`. Ersätt värdena för elementen i avsnittet till de värden som du angav i Azure-portalen. Din kod refererar till dessa värden när den använder ADAL.
-  * Den `tenant` är domänen för din Azure AD-klient, till exempel contoso.onmicrosoft.com.
-  * Den `clientId` är klient-ID för programmet som du kopierade från portalen.
-  * Den `redirectUri` är omdirigerings-URL som du registrerade i portalen.
+1. I QuickStart-projektet öppnar du plist-filen `settings.plist`.
+1. Ersätt värdena för elementen i avsnittet för att använda samma värden som du angav i Azure-portalen. Koden refererar till dessa värden när den använder ADAL.
+    * `tenant` är domänen för din Azure AD-klientorganisation, till exempel contoso.onmicrosoft.com.
+    * `clientId` är klient-ID:t för din app som du har kopierat från portalen.
+    * `redirectUri` är den omdirigerings-URL som du registrerade i portalen.
 
-## <a name="4-use-adal-to-get-tokens-from-azure-ad"></a>4. Använd ADAL för att hämta token från Azure AD
-Den grundläggande principen bakom ADAL är att varje gång som din app behöver en åtkomsttoken, bara anropas en completionBlock `+(void) getToken : `, så ADAL resten. 
+## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Steg 4: Använda ADAL för att hämta token från Azure AD
 
-1. I den `QuickStart` projektet öppnar `GraphAPICaller.m` och leta upp den `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` kommentar längst upp. Det är där du skickar ADAL koordinaterna via en CompletionBlock att kommunicera med Azure AD och avgör hur cachelagra token.
+Grundprincipen bakom ADAL är att när appen behöver en åtkomsttoken anropar den helt enkelt completionBlock `+(void) getToken : `, så gör ADAL resten.
+
+1. I `QuickStart`-projektet öppnar du `GraphAPICaller.m` och letar reda på kommentaren `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` högst upp.
+
+    Här skickar du ADAL koordinaterna via ett CompletionBlock, för att kommunicera med Azure AD, och ange hur den ska cachelagra token.
 
     ```ObjC
     +(void) getToken : (BOOL) clearCache
@@ -149,7 +162,9 @@ Den grundläggande principen bakom ADAL är att varje gång som din app behöver
 
     ```
 
-2. Nu ska vi använda den här token för att söka efter användare i diagrammet. Hitta den `// TODO: implement SearchUsersList` kommentar. Den här metoden gör en GET-begäran för Azure AD Graph-API för att fråga för användare vars UPN börjar med den angivna söktermen. Om du vill fråga Azure AD Graph API, måste du inkludera ett access_token i den `Authorization` huvudet i begäran. Det här är här ADAL kommer in.
+2. Du måste använda denna token för användare i diagrammet. Leta reda på kommentaren `// TODO: implement SearchUsersList`. Den här metoden gör en GET-begäran till Azure AD Graph API för att fråga efter användare vars UPN börjar med den angivna söktermen. 
+
+    Om du vill fråga Azure AD Graph API måste du inkludera en access_token i `Authorization`-huvudet för begäran. Det är här ADAL kommer in i bilden.
 
     ```ObjC
     +(void) searchUserList:(NSString*)searchString
@@ -220,26 +235,28 @@ Den grundläggande principen bakom ADAL är att varje gång som din app behöver
 
     ```
 
+3. När appen begär en token genom att anropa `getToken(...)` försöker ADAL returnera en token utan att fråga efter autentiseringsuppgifter. Om ADAL avgör att användaren måste logga in för att få en token visas en dialogruta för inloggning. Användarens autentiseringsuppgifter samlas in och sedan returneras en token efter utförd autentisering. Om ADAL inte kan returnera en token av någon anledning genererar det ett `AdalException`.
 
-3. När appen begär en token genom att anropa `getToken(...)`, ADAL försöker denna att returnera en token utan att be användaren om autentiseringsuppgifter. Om ADAL avgör att användaren måste logga in och hämta en token, visa en dialogruta för inloggning, samla in användarens autentiseringsuppgifter och returnerar en token efter en lyckad autentisering. Om ADAL inte kan returnera en token av någon anledning, den genererar en `AdalException`.
+> [!NOTE]
+> Objektet `AuthenticationResult` innehåller ett `tokenCacheStoreItem`-objekt som du kan använda till att samla in information som appen kan behöva. I QuickStart används `tokenCacheStoreItem` till att avgöra om autentisering redan har genomförts.
 
-> [!Note] 
-> Den `AuthenticationResult` objektet innehåller en `tokenCacheStoreItem` objekt som kan användas för att samla in information som din app kan behöva. I snabbstarten, `tokenCacheStoreItem` används för att avgöra om autentisering redan har gjort.
->
->
+## <a name="step-5-build-and-run-the-application"></a>Steg 5: Skapa och kör appen
 
-## <a name="5-build-and-run-the-application"></a>5. Skapa och kör appen
-Grattis! Nu har du ett fungerande iOS-program som kan autentisera användare, på ett säkert sätt anropa webb-API: er med hjälp av OAuth 2.0 och få grundläggande information om användaren. Om du inte redan gjort nu är det hög tid att fylla i din klient med vissa användare. Påbörja din app för Snabbstart och logga sedan in med något av dessa användare. Sök efter andra användare baserat på deras UPN. Stäng appen och sedan starta det igen. Observera att användarens session förblir intakta.
+Grattis! Nu har du en fungerande iOS-app som kan autentisera användare, på ett säkert sätt anropa webb-API:er med hjälp av OAuth 2.0 och få grundläggande information om användaren.
 
-ADAL gör det enkelt att införliva alla dessa vanliga identitetsfunktioner i ditt program. Det tar hand om ändrad arbetet åt dig, t.ex. hantering av cache, stöd för OAuth-protokoll, presentera användaren med ett användargränssnitt för att logga in, och uppdatera upphört att gälla token. Allt du behöver veta är ett enda API-anrop `getToken`.
+Om du inte redan har gjort det är det dags att fylla i klientorganisationen med några användaren.
 
-Referens är färdiga exemplet (utan dina konfigurationsvärden) finns på [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). 
+1. Starta QuickStart-appen och logga sedan in med någon av dessa användare.
+1. Sök efter andra användare utifrån deras UPN.
+1. Stäng appen och starta den sedan igen. Observera att användarens session förblir intakt.
+
+ADAL gör det enkelt att inkorporera alla dessa vanliga identitetsfunktioner i appen. Det tar hand om allt grovjobb åt dig, som cachehantering, stöd för OAuth-protokoll, visa ett användargränssnitt för användaren för inloggning och uppdatera token som gått ut. Allt du verkligen behöver veta är ett enda API-anrop, `getToken`.
+
+Som referens tillhandahålls det slutförda exemplet (utan dina konfigurationsvärden) på [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan nu gå vidare till fler scenarier. Du kan du testa:
 
-* [Skydda ett Node.JS webb-API med Azure AD](quickstart-v1-nodejs-webapi.md)
-* Lär dig [så här aktiverar du enkel inloggning mellan appar på iOS med hjälp av ADAL](howto-v1-enable-sso-ios.md)  
+Nu kan du fortsätta med fler scenarier. Som nästa steg föreslår vi att du testar det här:
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
+* [Skydda ett Node.JS-webb-API med Azure AD](quickstart-v1-nodejs-webapi.md)
+* Lär dig [hur du aktiverar SSO mellan appar på iOS med ADAL](howto-v1-enable-sso-ios.md)  

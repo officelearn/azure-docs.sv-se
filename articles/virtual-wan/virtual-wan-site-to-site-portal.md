@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/13/2018
+ms.date: 09/21/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: ea36a3d4a2471cee6a18d70275aaf2e83ffc6f39
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 20ba28632710ee044d4273ba12900774310711c7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159659"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981363"
 ---
-# <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan-preview"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN (förhandsversion)
+# <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
 
-Här förklarar vi hur du ansluter resurser i Azure via en IPsec/IKE (IKEv2) VPN-anslutning med Virtual WAN. Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats till en extern offentlig IP-adress. Mer information om virtuella WAN-nätverk finns i [översikten om virtuellt WAN](virtual-wan-about.md)
+Här förklarar vi hur du ansluter resurser i Azure via en IPsec/IKE (IKEv1 och IKEv2) VPN-anslutning med Virtual WAN. Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats till en extern offentlig IP-adress. Mer information om virtuella WAN-nätverk finns i [översikten om virtuellt WAN](virtual-wan-about.md)
 
 > [!NOTE]
 > Om du har många webbplatser är det vanligast att använda en [virtuellt WAN-partner](https://aka.ms/virtualwan) för att skapa den här konfigurationen. Du kan dock skapa den här konfigurationen själv om du har erfarenhet av att arbeta med nätverk och är skicklig på konfigurera din egen VPN-enhet.
@@ -38,108 +38,57 @@ I den här guiden får du lära dig att:
 > * Visa information om resurshälsa
 > * Övervaka en anslutning
 
-> [!IMPORTANT]
-> Azure Virtual WAN är för närvarande en allmänt tillgänglig förhandsversion. Om du vill använda Virtual WAN måste du [registrera dig för förhandsversionen](#enroll).
->
-> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
+[!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-* Se till att du har en kompatibel ruttbaserad VPN-enhet som fungerar med IKEv2 och någon som kan konfigurera den. Om du arbetar med en virtuellt WAN-partner skapas konfigurationsinställningarna automatiskt och du behöver inte bekymra dig om att konfigurera enheten manuellt.
-* Kontrollera att du har en extern offentlig IPv4-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
-* Om du redan har ett virtuellt nätverk som du vill ansluta till ska du kontrollera att inget av undernäten i det lokala nätverket överlappar de virtuella nätverk som du vill ansluta till. Det virtuella nätverket kräver inget gatewayundernät och kan inte ha några virtuella nätverksgatewayer. Om du inte har något virtuellt nätverk kan du skapa ett med anvisningarna i den här artikeln.
-* Hämta ett IP-adressintervall för din hubbregion. Hubben är ett virtuellt nätverk och det adressintervall du anger för hubbregionen får inte överlappa något av de befintliga virtuella nätverk som du ansluter till. Det får inte heller överlappa det adressintervall som du ansluter till lokalt. Om du inte vet vilka IP-adressintervaller som används i din lokala nätverkskonfiguration kontaktar du relevant person som kan ge dig den här informationen.
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+## <a name="vnet"></a>1. Skapa ett virtuellt nätverk
 
-## <a name="enroll"></a>1. Registrera dig för förhandsversionen
+[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
-Du måste registrera prenumerationen i förhandsversionen innan du kan konfigurera ett virtuellt WAN. I annat fall kan du inte arbeta med virtuellt WAN i portalen. Skicka ett e-postmeddelande till **azurevirtualwan@microsoft.com** med prenumerations-ID:t. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats.
+## <a name="openvwan"></a>2. Skapa ett virtuellt WAN
 
-## <a name="vnet"></a>2. Skapa ett virtuellt nätverk
+Öppna en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 
-Om du inte redan har ett virtuellt nätverk kan du snabbt skapa ett med PowerShell. Du kan också skapa ett virtuellt nätverk via Azure-portalen.
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-* Se till att adressutrymmet för det virtuella nätverket du skapar inte överlappar adressintervallen för andra virtuella nätverk du vill ansluta till, eller dina lokala nätverksadresser. 
-* Om du redan har ett virtuellt nätverk kontrollerar du att det uppfyller kraven och inte har någon gateway för virtuellt nätverk.
-
-I den här artikeln kan du klicka och enkelt prova att skapa ett virtuellt nätverk. Du öppnar då en PowerShell-konsol. Justera värdena och kopiera och klistra sedan in kommandona i konsolfönstret.
-
-### <a name="create-a-resource-group"></a>Skapa en resursgrupp
-
-Justera PowerShell-kommandona och skapa sedan en resursgrupp.
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName WANTestRG -Location WestUS
-```
-
-### <a name="create-a-vnet"></a>Skapa ett virtuellt nätverk
-
-Justera PowerShell-kommandona och skapa ett virtuellt nätverk som är kompatibelt med din miljö.
-
-```azurepowershell-interactive
-$fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd -AddressPrefix "10.1.0.0/24"
-$vnet   = New-AzureRmVirtualNetwork `
-            -Name WANVNet1 `
-            -ResourceGroupName WANTestRG `
-            -Location WestUS `
-            -AddressPrefix "10.1.0.0/16" `
-            -Subnet $fesub1
-```
-
-## <a name="wan"></a>3. Skapa ett virtuellt WAN
-
-1. Öppna en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
-2. För närvarande kan du hitta ett virtuellt WAN genom att navigera till **Alla tjänster** och söka efter ett virtuellt Virtual WAN. Du kan söka efter Virtual WAN i sökrutan högst upp i Azure-portalen. Klicka på **virtuellt WAN** för att öppna sidan.
-3. Klicka på **Skapa** för att öppna sidan **Skapa WAN**. Om sidan inte finns har du inte godkänts för förhandsversionen ännu.
-
-  ![Skapa WAN](./media/virtual-wan-site-to-site-portal/createwan.png)
-4. Fyll i följande fält på sidan Skapa WAN.
-
-  * **Namn** – Välj vad du vill kalla WAN-nätverket.
-  * **Prenumeration** – Välj vilken prenumeration du vill använda.
-  * **Resursgrupp** – Skapa ny eller använd befintlig.
-  * **Resursplats** – Välj en resursplats i listrutan. Ett WAN är en global resurs och är inte kopplad till en viss region. Du måste dock välja en region för att lättare att hantera och leta upp WAN-resursen som du skapar.
-5. Skapa WAN-nätverket genom att klicka på **Skapa**.
-
-## <a name="site"></a>4. Skapa en plats
+## <a name="site"></a>3. Skapa en plats
 
 Skapa så många platser som du behöver för att motsvara de fysiska platserna. Om du till exempel har ett avdelningskontor i New York, ett i London och ett i LA kan du skapa tre separata platser. Platserna innehåller de lokala VPN-enhetsslutpunkterna. Du kan för närvarande endast specificera ett privat adressutrymme per plats.
 
-1. Navigera till **Alla resurser**.
-2. Klicka på det virtuella WAN-nätverk du skapade.
-3. Klicka på **+Skapa webbplats** längst upp på sidan för att öppna sidan **Skapa webbplats**.
+1. Klicka på det WAN som du skapade. På WAN-sidan går du till **WAN-arkitektur** klickar du på **VPN-platser** för att öppna sidan med VPN-platser.
+2. På sidan **VPN-platser** klickar du på **+ Skapa webbplats**.
+3. Fyll i följande fält på sidan **Skapa webbplats**:
 
-  ![ny webbplats](media/virtual-wan-site-to-site-portal/createsite.png)
-4. Fyll i följande fält på sidan **Skapa webbplats**:
+  * **Namn** – Det här är namnet du vill ge den lokala platsen.
+  * **Offentlig IP-adress** – Det här är den offentliga IP-adressen för VPN-enheten som hör till den lokala platsen.
+  * **Privat adressutrymme** – Det här är adressutrymmet som finns på din lokala plats. Trafik till det här adressutrymmet dirigeras till den lokala platsen.
+  * **Prenumeration** – Kontrollera prenumerationen.
+  * **Resursgrupp** – Den resursgrupp du vill använda.
+  * **Plats**.
+4. Klicka på **Visa avancerade** för att visa ytterligare inställningar. Du kan välja **BGP** för att aktivera BGP, vilket aktiverar den här funktionen för alla anslutningar som skapas för den här platsen i Azure. Du kan även ange **Enhetsinformation** (valfria fält). Det här kan hjälpa Azure-teamet att bättre förstå din miljö och lägga till ytterligare optimeringsmöjligheter i framtiden eller hjälpa dig att felsöka.
+5. Klicka på **Bekräfta**.
+6. När du har klickat på **Bekräfta** visar du statusen på sidan för VPN-platser. Platsen kommer att ändras från **Etableras** till **Etablerad**.
 
-  *  **Namn** – Det här är namnet du vill ge den lokala platsen.
-  *  **Offentlig IP-adress** – Det här är den offentliga IP-adressen för VPN-enheten som hör till den lokala platsen.
-  *  **Privat adressutrymme** – Det här är adressutrymmet som finns på din lokala plats. Trafik till det här adressutrymmet dirigeras till den lokala platsen.
-  *  **Prenumeration** – Kontrollera prenumerationen.
-  *  **Resursgrupp** – Den resursgrupp du vill använda.
-5. Klicka på **Visa avancerade** för att visa ytterligare inställningar. Du kan **aktivera BGP** (Valfritt fält, vilket aktiverar den här funktionen för alla anslutningar som skapas för den här platsen i Azure. Du kan också ange **Enhetsinformation** (valfritt fält). Det här kan hjälpa Azure-teamet att bättre förstå din miljö och lägga till ytterligare optimeringsmöjligheter i framtiden eller hjälpa dig att felsöka.
+## <a name="hub"></a>4. Skapa en hubb
 
-  ![BGP](media/virtual-wan-site-to-site-portal/sitebgp.png)
-6. Klicka på **Bekräfta** för att skapa platsen.
-7. Upprepa de här stegen för varje plats du vill skapa.
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="hub"></a>5. Skapa en hubb och anslut platser
+## <a name="associate"></a>5. Associera platserna med hubben
 
-1. Klicka på **Platser** på sidan för det virtuella WAN-nätverket.
-2. Under **	Webbplatser som inte är kopplade** visas platser som inte ännu har anslutits till någon hubb.
-3. Välj de platser du vill koppla.
-4. I listrutan väljer du den region som hubben ska kopplas till. Du bör koppla hubben till den region där de virtuella nätverk du vill ansluta till finns.
-5. Klicka på **Bekräfta**. Om du inte har någon hubb i den här regionen ännu skapas ett virtuellt nätverk automatiskt. I det här fallet visas sidan **Skapa regionala hubbar**.
-6. På sidan **Skapa regionala hubbar** anger du adressintervallet för hubbnätverket. Det här är det virtuella nätverk som innehåller dina hubbtjänster. Intervallet du anger här måste vara ett privat IP-adressintervall. Det får inte överlappa lokala adressutrymmen eller adressutrymmen för virtuellt nätverk. En efterföljande VPN-slutpunkt skapas i det virtuella hubbnätverket. (Automatisk generering av hubb och gateway är endast tillgänglig i portalen.)
-7. Klicka på **Skapa**.
+Hubbar ska vanligtvis associeras till platser som finns i samma region som det virtuella nätverket.
+
+1. På sidan **VPN-platser** väljer du den plats eller de platser som du vill associera med hubben och klickar sedan på **+ Ny hubbassociation**.
+2. På sidan **Associera platser med en eller flera hubbar** väljer du en hubb i listrutan. Du kan associera en plats med ytterligare hubbar genom att klicka på **+ Lägg till en association**.
+3. Du kan även lägga till en specifik **PSK** här eller använda standardvärdet.
+4. Klicka på **Bekräfta**.
+5. Du kan visa anslutningsstatus på sidan **VPN-platser**.
 
 ## <a name="vnet"></a>6. Ansluta ett virtuellt nätverk till en hubb
 
 I det här steget skapar du peeringanslutningen mellan hubben och ett virtuellt nätverk. Upprepa de här stegen för varje virtuellt nätverk du vill ansluta.
 
-1. På sidan för det virtuella WAN-nätverket klickar du på **virtuell nätverksanslutning**.
+1. På sidan för det virtuella WAN-nätverket klickar du på **Virtuella nätverksanslutningar**.
 2. På sidan för virtuell nätverksanslutning klickar du på **+Lägg till anslutning**.
 3. Fyll i följande fält på sidan **Lägg till anslutning**:
 
@@ -147,6 +96,7 @@ I det här steget skapar du peeringanslutningen mellan hubben och ett virtuellt 
     * **Hubbar** – Välj den hubb du vill koppla till anslutningen.
     * **Prenumeration** – Kontrollera prenumerationen.
     * **Virtuellt nätverk** – Välj det virtuella nätverk du vill ansluta till hubben. Det virtuella nätverket får inte ha någon befintlig gateway för virtuellt nätverk.
+4. Klicka på **OK** för att skapa peering-anslutningen.
 
 ## <a name="device"></a>7. Ladda ned VPN-konfiguration
 
@@ -174,7 +124,7 @@ Konfigurationsfilen för enheten innehåller de inställningarna du ska använda
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **IP-adresser** till vpngateway för den virtuella hubben. Eftersom varje anslutning för vpngateway består av två tunnlar i aktiv-aktiv konfiguration ser du båda IP-adresserna listade i den här filen. I det här exemplet ser du "Instance0" och "Instance1" för varje plats.<br>Exempel:
+    * **IP-adresser** till vpngateway för den virtuella hubben. Eftersom varje anslutning för vpngateway består av 2 tunnlar i aktiv-aktiv konfiguration ser du båda IP-adresserna listade i den här filen. I det här exemplet ser du "Instance0" och "Instance1" för varje plats.<br>Exempel:
 
         ``` 
         "Instance0":"104.45.18.186"
@@ -290,14 +240,14 @@ Konfigurationsfilen för enheten innehåller de inställningarna du ska använda
 ### <a name="configuring-your-vpn-device"></a>Konfigurera en VPN-enhet
 
 >[!NOTE]
-> Om du använder en Virtual WAN-partnerlösning sker VPN-enhetskonfigureringen automatiskt när enhetskontrollen får konfigurationsfilen från Azure och tillämpar den på enheten för att skapa en anslutning till Azure. Det innebär att du inte behöver veta hur du konfigurerar VPN-enheten manuellt.
+> Om du arbetar med en partnerlösning med virtuellt WAN-nätverk sker VPN-enhetens konfiguration automatiskt. Enhetens styrenhet hämtar konfigurationsfilen från Azure och tillämpar den på enheten för att skapa en anslutning till Azure. Det innebär att du inte behöver veta hur du konfigurerar VPN-enheten manuellt.
 >
 
 Om du behöver anvisningar för att konfigurera enheten kan du använda instruktionerna på sidan om [konfigurationsskript till VPN-enheter](~/articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#configscripts) med följande förbehåll:
 
 * Instruktionerna på VPN-enhetssidan inte är skrivna för virtuella WAN-nätverk, men du kan använda värdena för de virtuella WAN-nätverken från konfigurationsfilen och manuellt konfigurera VPN-enheten. 
 * De nedladdningsbara skripten för enhetskofiguration till VPN-gatewayen fungerar inte för virtuellt WAN. Konfigurationerna skiljer sig åt.
-* Virtuellt WAN kan bara använda IKEv2, inte IKEv1.
+* Ett nytt virtuellt WAN-nätverk har stöd för både IKEv1 och IKEv2.
 * Virtuellt WAN fungerar endast med routningsbaserade VPN-enheter och enhetsanvisningar.
 
 ## <a name="viewwan"></a>8. Visa virtuellt WAN
@@ -322,10 +272,6 @@ Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resourc
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
-
-## <a name="feedback"></a>Feedback för förhandsversionen
-
-Vi vill gärna ha din feedback. Skicka ett e-postmeddelande till <azurevirtualwan@microsoft.com> om du vill rapportera problem eller lämna feedback (positiv och negativ) om Virtual WAN. Ange ditt företagsnamn inom [ ] i ämnesraden. Ange även ditt prenumerations-ID om du rapporterar ett problem.
 
 ## <a name="next-steps"></a>Nästa steg
 

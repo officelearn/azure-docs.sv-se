@@ -10,30 +10,37 @@ ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "43185428"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958874"
 ---
 # <a name="branding-guidelines-for-applications"></a>Varumärkesriktlinjer för program
 
-I den här artikeln beskriver vi de varumärkesriktlinjer du bör använda när du utvecklar program med Azure Active Directory (Azure AD). De här riktlinjerna hjälper dig att dirigera kunderna när de vill använda sitt arbets- eller skolkonto, som hanteras i Azure AD, eller sitt personliga konto när de registrerar sig och loggar in i ditt program.
+När du utvecklar program med Azure Active Directory (Azure AD) behöver du dirigera kunderna när de vill använda sitt arbets- eller skolkonto (hanteras i Azure AD) eller sitt personliga konto när de registrerar sig och loggar in i ditt program.
+
+I den här artikeln kommer du att:
+
+- Lära dig om de två typer av användarkonton som hanteras av Microsoft och hur du refererar till Azure AD-konton i ditt program
+- Ta reda på vad du behöver göra för att lägga till Microsoft-logotypen för användning i din app
+- Ladda ned de officiella bilderna för **Logga in** eller **Logga in med Microsoft** för användning i din app
+- Läs mer om vad du behöver göra och tänka på när det gäller varumärkesanpassning och navigering
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Personliga konton jämfört med arbets- eller skolkonton från Microsoft
 
 Microsoft hanterar två typer av användarkonton:
 
-* **Personliga konton** (kallades tidigare Windows Live ID). De här kontona sätts upp mellan *enskilda* användare och Microsoft. De ger åtkomst till konsumentenheter och konsumenttjänster från Microsoft. De här kontona är avsedda för personligt bruk.
-* **Arbets- eller skolkonton.** De här kontona hanteras av Microsoft, åt organisationer som använder Azure Active Directory. De är avsedda för att logga in på Office 365 och andra företagstjänster från Microsoft.
+- **Personliga konton** (kallades tidigare Windows Live ID). De här kontona sätts upp mellan *enskilda* användare och Microsoft. De ger åtkomst till konsumentenheter och konsumenttjänster från Microsoft. De här kontona är avsedda för personligt bruk.
+- **Arbets- eller skolkonton.** De här kontona hanteras av Microsoft, åt organisationer som använder Azure Active Directory. De är avsedda för att logga in på Office 365 och andra företagstjänster från Microsoft.
 
 Microsofts arbets- eller skolkonton tilldelas vanligtvis till slutanvändare (anställda, studenter, myndighetsanställda) av organisationerna (företag, skola/universitet, myndighet). De hanteras direkt i molnet (via Azure AD-plattformen) eller synkroniseras till Azure AD från en lokal katalog, t.ex. Windows Server Active Directory. Microsoft *övervakar* arbets- och skolkonton, men de ägs och kontrolleras av organisationen.
 
@@ -41,8 +48,8 @@ Microsofts arbets- eller skolkonton tilldelas vanligtvis till slutanvändare (an
 
 Microsoft visar inte varumärkena Azure och Active Directory för slutanvändare och det bör inte du heller göra.
 
-* När användaren har loggat in använder du organisationens namn och logotyp så mycket som möjligt. Det är bättre än att använda allmänna termer, exempelvis ”organisationen”.
-* När användare inte är inloggade kan du benämna deras konton som arbets- eller skolkonton och använda Microsoft-logotypen för att förmedla att Microsoft hanterar de här kontona. Använd inte termer som företagskonto och affärskonto. Det förvirrar användaren.
+- När användaren har loggat in använder du organisationens namn och logotyp så mycket som möjligt. Det är bättre än att använda allmänna termer, exempelvis ”organisationen”.
+- När användare inte är inloggade kan du benämna deras konton som arbets- eller skolkonton och använda Microsoft-logotypen för att förmedla att Microsoft hanterar de här kontona. Använd inte termer som företagskonto och affärskonto. Det förvirrar användaren.
 
 ## <a name="user-account-pictogram"></a>Piktogram för användarkonto
 
@@ -94,7 +101,6 @@ Du kan ladda ned de officiella bilderna och använda dem i din app. Högerklicka
 | Logga in med Microsoft (ljust tema) | ![Knappen Logga in, ljust tema, PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Knappen Logga in med Microsoft, ljust tema, SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
 | Logga in (mörkt tema)                 | ![Logga in, kortknapp, mörkt tema, PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Logga in, kortknapp, mörkt tema, SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
 | Logga in (ljust tema)                | ![Logga in, kortknapp, ljust tema, PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Logga in, kortknapp, ljust tema, SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
-
 
 ## <a name="branding-dos-and-donts"></a>Rekommendationer för varumärke
 

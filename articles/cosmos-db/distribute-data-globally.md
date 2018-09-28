@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
-ms.openlocfilehash: fef4d14e6f5a9dcba1f7e111f9a54c3e1a9fbfa9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 227c243d82665dc533e3bfa6a1fe3e9bb775a262
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959866"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408903"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Globala data-distribution med Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Azure är allt vanligare – den har ett globala fotavtryck över 50 + geografis
 
 ## <a name="global-distribution-with-multi-master"></a>Global distribution med flera master
 
-Som ett internt födda i Molntjänsten, är Azure Cosmos DB noggrant utformat från grunden upp med flera innehavare, global distribution och multimaster för dokument, nyckel / värde-, graph och kolumnserier modeller.
+Azure Cosmos DB är noggrant utformat för att stödja flera innehavare, global distribution och multimaster för dokument, nyckel / värde-, graph och kolumnserier modeller som en molntjänst.
 
 ![Azure Cosmos DB-behållare partitionerade och fördelade på tre regioner](./media/distribute-data-globally/global-apps.png)
 

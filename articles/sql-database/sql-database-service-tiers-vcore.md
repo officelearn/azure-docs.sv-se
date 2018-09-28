@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 8947a34f43f09281712c0e211c3dc6b8db9da6b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/26/2018
+ms.openlocfilehash: 3fb1357b7a70579fa527a896d5bd359749b10ad6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160680"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407663"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Välja tjänstnivå vCore beräkning, minne, lagring och IO-resurser
 
@@ -89,7 +89,7 @@ Lagring för säkerhetskopior av databasen har allokerats för att stödja punkt
 
 ### <a name="hyperscale-service-tier-preview"></a>Hyperskala tjänstnivå (förhandsversion)
 
-ögonblicksbild-baserad säkerhetskopiering i Azure Fjärrlagring och återställningar kan du använda de här ögonblicksbilderna för snabb återställning. Säkerhetskopior är omedelbara och påverkar inte i/o-prestanda för databearbetning. Återställningar är mycket snabbt och inte av storleken på dataåtgärder (i minuter inte tidpunkter/dagar).
+På tjänstnivån hyperskala är säkerhetskopieringar ögonblicksbildbaserade och lagras i Azure Fjärrlagring. Återställningar kan du använda de här ögonblicksbilderna för snabb återställning. Säkerhetskopior är omedelbara och påverkar inte i/o-prestanda för databearbetning. Återställningar är mycket snabbt och inte av storleken på dataåtgärder (i minuter inte tidpunkter/dagar).
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid-förmånen
 

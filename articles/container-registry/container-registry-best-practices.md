@@ -5,15 +5,15 @@ services: container-registry
 author: mmacy
 manager: jeconnoc
 ms.service: container-registry
-ms.topic: quickstart
-ms.date: 04/10/2018
+ms.topic: article
+ms.date: 09/27/2018
 ms.author: marsma
-ms.openlocfilehash: a3932ff621782b8ab97f27ef052aeee8e1d2a3ac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 9bb1f7682338f1d9e591ed1350e1940d85462bd1
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423512"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409345"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Bästa metoder för Azure Container Registry
 
@@ -66,31 +66,25 @@ Mer djupgående information om autentisering i Azure Container Registry finns i 
 
 Lagringsbegränsningarna för varje [SKU för Container Registry][container-registry-skus] är avsedda för olika scenarier: **Basic** för att komma igång, **Standard** för de flesta produktionsappar och **Premium** för storskaliga prestanda och [geo-replikering][container-registry-geo-replication]. Du bör hantera registrets storlek genom att regelbundet ta bort innehåll som inte används under hela registrets livslängd.
 
-Aktuell användning av registret finns i **Översikt** för containerregistret i Azure Portal:
+Använda Azure CLI-kommando [az acr show-usage] [ az-acr-show-usage] att visa den aktuella storleken på ditt register:
+
+```console
+$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+NAME      LIMIT         CURRENT VALUE    UNIT
+--------  ------------  ---------------  ------
+Size      536870912000  185444288        Bytes
+Webhooks  100                            Count
+```
+
+Du kan också hitta den aktuella lagring som används i den **översikt** på ditt register i Azure portal:
 
 ![Information om registeranvändning i Azure Portal][registry-overview-quotas]
 
-Du kan hantera storleken på registret med hjälp av [Azure CLI][azure-cli] eller [Azure Portal][azure-portal]. Endast hanterade SKU: er (Basic, Standard och Premium) har stöd för borttagning av lagringsplatser och avbildningar. Du kan inte ta bort lagringsplatser, avbildningar eller taggar i ett klassiskt register.
+### <a name="delete-image-data"></a>Ta bort avbildningsdata
 
-### <a name="delete-in-azure-cli"></a>Borttagning i Azure CLI
+Azure Container Registry har stöd för flera metoder för att ta bort avbildningsdata från ditt behållarregister. Du kan ta bort avbildningar efter tagg eller manifest sammanfattad, eller ta bort en hel databas.
 
-Använd kommandot [az acr repository delete][az-acr-repository-delete] för att ta bort en lagringsplats eller innehåll på en lagringsplats.
-
-Om du vill ta bort en lagringsplats, inklusive alla taggar och avbildningslagerdata på lagringsplatsen, anger du endast namnet på lagringsplatsen när du kör [az acr repository delete][az-acr-repository-delete]. I följande exempel tar vi bort lagringsplatsen *myapplication* och alla taggar och avbildningslagerdata på lagringsplatsen:
-
-```azurecli
-az acr repository delete --name myregistry --repository myapplication
-```
-
-Du kan också ta bort avbildningsdata från en lagringsplats med argumenten `--tag` och `--manifest`. Mer information om de här argumenten finns i [referensen för kommandot az acr repository delete][az-acr-repository-delete].
-
-### <a name="delete-in-azure-portal"></a>Ta bort i Azure Portal
-
-Om du vill ta bort en lagringsplats från ett register i Azure Portal navigerar du först till ditt containerregister. Välj sedan **Lagringsplatser** under **TJÄNSTER** och högerklicka på den lagringsplats som du vill ta bort. Välj **Ta bort** för att ta bort lagringsplatsen och de Docker-avbildningar som finns på lagringsplatsen.
-
-![Ta bort en lagringsplats i Azure Portal][delete-repository-portal]
-
-Du kan också ta bort taggar från en lagringsplats på ett liknande sätt. Navigera till lagringsplatsen, högerklicka på taggen du vill ta bort under **TAGGAR** och välj **Ta bort**.
+Mer information om att ta bort avbildningsdata från ditt register, inklusive omärkt (kallas ibland ”överflödiga” eller ”ägarlösa”)-avbildningar, se [ta bort avbildningar i Azure Container Registry](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -102,6 +96,7 @@ Azure Container Registry finns i flera nivåer, som kallas SKU:er, som var och e
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

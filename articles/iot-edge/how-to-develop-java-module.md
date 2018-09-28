@@ -6,19 +6,19 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 09/04/2018
+ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6e3bbe996a2f0c37905aa990b39d324fd540952b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a5e86b7c93344a6c61fecaa41b98bc1daa20f36f
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057171"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423229"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka Java-moduler för Azure IoT Edge
 
-Du kan skicka din affärslogik som ska användas vid gränsen genom att aktivera det i moduler för Azure IoT Edge. Den här artikeln innehåller detaljerade anvisningar för att använda Visual Studio Code (VS Code) som det huvudsakliga utvecklingsverktyg för att utveckla Java-moduler.
+Du kan skicka din affärslogik som ska användas vid gränsen genom att aktivera det i moduler för Azure IoT Edge. Den här artikeln innehåller detaljerade anvisningar för att använda Visual Studio Code (VS Code) som den huvudsakliga utvecklingsverktyg för att utveckla och felsöka Java-moduler.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du använder en dator eller virtuell dator som kör Windows, macOS eller Linux som din utvecklingsdator. IoT Edge-enhet kan vara en annan fysisk enhet.
@@ -33,7 +33,7 @@ Eftersom den här artikeln används Visual Studio Code som det huvudsakliga utve
 * [Docker-tillägg](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Du behöver för att skapa en modul, Java och Maven att skapa och köra modulen kod, Docker för att skapa modulen avbildningen och ett behållarregister för att lagra avbildningen modulen:
-* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html), och [ange den `JAVA_HOME` miljövariabeln](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) så att den pekar till den JDK-installationen.
+* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html), och [ange `JAVA_HOME`miljövariabeln](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) så att den pekar mot din JDK-installation.
 * [Maven 3.](https://maven.apache.org/)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) eller [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
@@ -63,7 +63,7 @@ Följande steg visar hur du skapar en IoT Edge-modul som baseras på Java med hj
 6. Ange ett namn för din lösning. 
 7. Välj **Java-modulen** som mall för den första modulen i lösningen.
 8. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
-8. Ange ett värde för grupp-ID eller acceptera standardinställningen **com.edgemodule**.
+8. Ange ett värde för groupId eller acceptera standardinställningen **com.edgemodule**.
 9. Ange avbildningslagringsplatsen för modulen. VS Code autopopulates modulen namn, så du behöver bara ersätta **localhost:5000** med din egen information i registret. Om du använder en lokal Docker-register för testning, är det bra med localhost. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn.
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-node-module/repository.png)

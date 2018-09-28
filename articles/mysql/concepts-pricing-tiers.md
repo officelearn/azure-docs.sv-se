@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 07/11/2018
-ms.openlocfilehash: 614ea0dd69c9bb07df20634298c1192e6ffee789
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.date: 09/27/2018
+ms.openlocfilehash: c390f6cbc9f7ced8113b4e6053dec1adcaf761a1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380343"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422616"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database för MySQL prisnivåer
 
@@ -22,7 +22,7 @@ Du kan skapa en Azure Database for MySQL-server i en av tre olika tjänstnivåer
 
 |    | **Basic** | **Generell användning** | **Optimerat minne** |
 |:---|:----------|:--------------------|:---------------------|
-| Compute-generering | Gen 4, generation 5 | Gen 4, generation 5 | 5:e generationen |
+| Compute-generering | Gen 4, generation 5 | Gen 4, generation 5 | Generation 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Minne per vCore | 2 GB | 5 GB | 10 GB |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
@@ -33,9 +33,9 @@ Använd följande tabell som utgångspunkt för att välja en prisnivå.
 
 | Prisnivå | Målbelastningar |
 |:-------------|:-----------------|
-| Standard | Arbetsbelastningar som kräver lätt beräkning och i/o-prestanda. Exempel är servrar som används för utveckling eller testning eller sällan småskaliga program. |
-| Allmän | De flesta företags arbetsbelastningar som kräver belastningsutjämnade beräknings- och minnesresurser med skalbart i/o-dataflöde. Exempel är servrar som värd för webb- och mobilappar och andra företagsprogram.|
-| Optimerat minne  | Högpresterande arbetsbelastningar som kräver minnesprestanda för snabbare bearbetning av transaktioner och högre samtidighet. Exempel är servrar för att bearbeta realtidsdata och transaktionsappar eller analysappar appar med höga prestanda.|
+| Basic | Arbetsbelastningar som kräver lätt beräkning och i/o-prestanda. Exempel är servrar som används för utveckling eller testning eller sällan småskaliga program. |
+| Generellt syfte | De flesta företags arbetsbelastningar som kräver belastningsutjämnade beräknings- och minnesresurser med skalbart i/o-dataflöde. Exempel är servrar som värd för webb- och mobilappar och andra företagsprogram.|
+| Minnesoptimerad | Högpresterande arbetsbelastningar som kräver minnesprestanda för snabbare bearbetning av transaktioner och högre samtidighet. Exempel är servrar för att bearbeta realtidsdata och transaktionsappar eller analysappar appar med höga prestanda.|
 
 När du har skapat en server, antalet virtuella kärnor, skapande av maskinvara och priser nivå (förutom till och från Basic) kan ändras upp eller ned på några sekunder. Du kan även oberoende Justera mängden lagringsutrymme upp och kvarhållningsperioden för säkerhetskopior upp eller ned utan någon nedtid. Du kan inte ändra lagringstypen säkerhetskopiering när en server har skapats. Mer information finns i den [skala resurser](#scale-resources) avsnittet.
 
@@ -46,35 +46,40 @@ Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU
 | **Azure-region** | **Generation 4** | **5: e generationen** |
 |:---|:----------:|:--------------------:|
 | Centrala USA | X | X |
-| USA, östra | X | X |
-| Östra USA 2 | X | X |
+| Östra USA | X | X |
+| USA, östra 2 | X | X |
 | Norra centrala USA | X | X |
 | Södra centrala USA | X | X |
-| USA, västra | X | X |
+| Västra USA | X | X |
 | Västra USA 2 |  | X |
-| Canada Central | X | X |
-| Canada East | X | X |
+| Centrala Kanada | X | X |
+| Östra Kanada | X | X |
 | Södra Brasilien | X | X |
-| Europa, norra | X | X |
-| Europa, västra |  | X |
-| Centrala Frankrike |  | X |
-| Västra Storbritannien |  | X |
-| Södra Storbritannien |  | X |
-| Asien, östra | X | X |
-| Asien, sydöstra | X | X |
+| Norra Europa | X | X |
+| Västra Europa |  | X |
+| Frankrike, centrala |  | X |
+| Storbritannien, västra |  | X |
+| Storbritannien, södra |  | X |
+| Östasien | X | X |
+| Sydostasien | X | X |
 | Östra Australien |  | X |
 | Australien, centrala |  | X |
 | Australien, centrala 2 |  | X |
 | Sydöstra Australien |  | X |
 | Indien, centrala | X | X |
 | Indien, västra | X | X |
-| Indien, södra |  | X |
+| Södra Indien |  | X |
 | Östra Japan | X | X |
 | Västra Japan | X | X |
 | Sydkorea, centrala |  | X |
 | Sydkorea, södra |  | X |
+| Centrala Tyskland |  | X |
+| US DoD, centrala  | X |  |
+| US DoD, östra  | X |  |
+| Arizona (USA-förvaltad region) |  | X |
+| Texas (USA-förvaltad region) |  | X |
 
-## <a name="storage"></a>Lagringsutrymme
+## <a name="storage"></a>Storage
 
 Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga för din Azure Database for MySQL-server. Lagringsutrymmet används för databasfilerna, temporära filer, transaktionsloggar och MySQL-server loggar. Den totala mängden lagring som du etablerar definierar också tillgänglig i/o-kapacitet till din server.
 

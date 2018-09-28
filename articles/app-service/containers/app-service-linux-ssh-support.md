@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 049ae78efee0b5ebdf6bfbe207f8c85d94e9238f
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 631933647e27428349fc1efeb17f62f4614f7f64
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050076"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423314"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service i Linux
 
@@ -122,10 +122,10 @@ Om du redan har kört `az extension add` innan, kör [az tilläggsuppdateringen]
 az extension update --name webapp
 ```
 
-Öppna en anslutning till din app med den [az webapp fjärr-connection skapa](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) kommando. Ange  _\<prenumeration\_id >_,  _\<grupp\_namn >_ och \_< app\_namn > _ för din app och Ersätt \<port > med en lokal portnummer.
+Öppna en anslutning till din app med den [az webapp fjärr-connection skapa](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) kommando. Ange  _\<prenumeration\_id >_,  _\<grupp\_namn >_ och \_< app\_namn > _ för din app.
 
 ```azurecli-interactive
-az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> -p <port> &
+az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> &
 ```
 
 > [!TIP]

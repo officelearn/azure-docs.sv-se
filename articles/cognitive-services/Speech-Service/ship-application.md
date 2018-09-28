@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: b920b7bcb86d94b2948ed0a9bf783cee1282b33f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4bfede8df88c64e795e33620650efb579f43ebba
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041083"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404316"
 ---
 # <a name="ship-an-application"></a>Skicka ett program
 
-Notera den [tal SDK licens](license.md), samt de [meddelanden om programvara från tredje part](third-party-notices.md) när du distribuerar Azure Cognitive Services tal SDK. Läs också den [Microsoft Privacy Statement](https://aka.ms/csspeech/privacy).
+Notera den [tal SDK licens](https://aka.ms/csspeech/license201809), samt de [meddelanden om programvara från tredje part](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html) när du distribuerar Azure Cognitive Services tal SDK. Läs också den [Microsoft Privacy Statement](https://aka.ms/csspeech/privacy).
 
 Beroende på vilken plattform finns olika beroenden för att köra ditt program.
 

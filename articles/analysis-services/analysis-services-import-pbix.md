@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 09/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a4bb5f59e7aa99a676145ba7a6dbd1883cb860cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e164488a1bf176d5b6c0e28a84cd1ec22cae4cce
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394341"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423586"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importera en Power BI Desktop-fil
 
@@ -22,13 +22,14 @@ Du kan importera en datamodell i Power BI Desktop-fil (pbix) till Azure Analysis
 **Begränsningar**   
 
 - Importera från en pbix-fil använder webbdesignerfunktionen i portalen, som är **förhandsversion**. Funktionerna är begränsade. För mer avancerade modellen utveckling och testning är det bäst att använda Visual Studio (SSDT) och SQL Server Management Studio (SSMS).
-- Om du får följande felmeddelande när du importerar har pbix-filen aktiverats förhandsversionsfunktioner som ännu inte stöds i Azure Analysis Services.
+- Om din datamodell skapas i Power BI Desktop juli 2018 uppdatera (2.60.5169.3201) eller senare, se till att inga förhandsversionsfunktioner är aktiverade. Förhandsversionsfunktioner stöds inte ännu i Azure Analysis Services.  
+Om du får följande felmeddelande när du importerar har pbix-filen aktiverats förhandsversionsfunktioner som ännu inte stöds i Azure Analysis Services.
 
-    ![Kompatibilitetsvarning för servicenivå](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)
+    ![Kompatibilitetsvarning för servicenivå](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)   
 - Du måste ha administratörsbehörighet för servern för att importera från en pbix-fil.
 - Pbix-modellen kan ansluta till **Azure SQL Database** och **Azure SQL Data Warehouse** datakällor endast.
 - Pbix-modellen kan inte ha live eller DirectQuery-anslutningar. 
-- Importen misslyckas om datamodellen pbix innehåller metadata som inte stöds i Analysis Services.
+
 
 ## <a name="to-import-from-pbix"></a>Importera från pbix
 

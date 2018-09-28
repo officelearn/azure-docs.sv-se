@@ -2,18 +2,18 @@
 title: Begrepp för utvecklare för Azure Data Catalog
 description: Introduktion till viktiga begrepp i Azure Data Catalog konceptuell modell som exponerade via REST-API-katalogen.
 services: data-catalog
-author: spelluru
-ms.author: spelluru
+author: markingmyname
+ms.author: maghan
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 753b4660c8ca47f12aace87a254b93a88db8aaa7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 97dafe01db4779332a530dc8981b3d6ada8c9df9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053781"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406523"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Begrepp för utvecklare för Azure Data Catalog
 Microsoft **Azure Data Catalog** är en fullständigt hanterad molntjänst som tillhandahåller funktioner för datakällsidentifiering och gemensamt skapade metadata från datakällan. Utvecklare kan använda tjänsten via dess REST-API: er. Förstå koncepten som är implementerade i tjänsten är viktigt för utvecklare att integrera har med **Azure Data Catalog**.
@@ -138,7 +138,7 @@ Anteckningens typer representerar typer av metadata som kan tilldelas till andra
 <tr><td></td><td>expert</td><td>SecurityPrincipal</td><td></td></tr>
 
 <tr><td>Förhandsversion (”förhandsversioner”)</td><td></td><td></td><td>Förhandsversionen innehåller en ögonblicksbild av de främsta 20 datarader för tillgången. Förhandsversion är bara användbar för vissa typer av tillgångar som (det vara bra för tabell men inte för mått).</td></tr>
-<tr><td></td><td>förhandsgranskning</td><td>objektet]</td><td>Matris med objekt som representerar en kolumn.  Varje objekt har en egenskapsmappning till en kolumn med ett värde för kolumnen för raden.</td></tr>
+<tr><td></td><td>förhandsversion</td><td>objektet]</td><td>Matris med objekt som representerar en kolumn.  Varje objekt har en egenskapsmappning till en kolumn med ett värde för kolumnen för raden.</td></tr>
 
 <tr><td>AccessInstruction (”accessInstructions”)</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>mimeType</td><td>sträng</td><td>Mime-typ av innehållet.</td></tr>

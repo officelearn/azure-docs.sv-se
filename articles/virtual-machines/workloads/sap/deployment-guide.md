@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
+ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: c6d7b4515546ea51264b094316c5da52dbb321c2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9208f2cb207daff2b122550fede48a8dda11d1db
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957031"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407934"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1000,6 +1000,10 @@ Den här kontrollen ser till att alla prestandamått som visas i din SAP-program
 
 Om Azure förbättrad övervakning av tillägget inte har installerats eller AzureEnhancedMonitoring-tjänsten inte körs, har tillägget inte konfigurerats korrekt. Detaljerad information om hur du distribuerar tillägget finns i [felsökning Azure övervakade infrastrukturen för SAP][deployment-guide-5.3].
 
+> [!NOTE]
+> Azperflib.exe är en komponent som inte kan användas för egna ändamål. Det är en komponent som levererar data som är relaterade till den virtuella datorn för SAP-Värdagenten för Azure.
+> 
+
 ##### <a name="check-the-output-of-azperflibexe"></a>Kontrollera resultatet av azperflib.exe
 Azperflib.exe utdata visar all ifylld Azure prestandaräknare för SAP. Längst ned i listan över insamlade räknare visar en sammanfattning och hälsa indikator status för Azure-övervakning.
 
@@ -1093,6 +1097,10 @@ Om några av övervakningen data levereras inte korrekt som anges av det prov so
 
 Se till att varje hälsotillstånd resultat är **OK**. Om vissa kontroller inte visas **OK**, kör cmdleten uppdateringen som beskrivs i [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5]. Vänta 15 minuter och upprepa de kontroller som beskrivs i [beredskapskontrollen för Azure förbättrad övervakning för SAP] [ deployment-guide-5.1] och [hälsokontrollen för Azure övervakning av infrastruktur konfigurationen] [deployment-guide-5.2]. Om kontrollerna tyda på ett problem med vissa eller alla räknare, se [felsökning Azure övervakade infrastrukturen för SAP][deployment-guide-5.3].
 
+> [!Note]
+> Du kan använda vissa varningar i fall där du använder Managed Disks i Standard Azure. Varningar visas i stället för att testerna returnerar ”OK”. Detta är normalt och avsedda när det gäller den typ av disk. Se även se [felsökning Azure övervakade infrastrukturen för SAP][deployment-guide-5.3]
+> 
+
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Felsökning Azure övervakade infrastrukturen för SAP
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Azure prestandaräknare visas inte alls
@@ -1144,6 +1152,23 @@ Katalogen \\var\\lib\\waagent\\ har inte en underkatalog för Azure Enhanced Mon
 
 ###### <a name="solution"></a>Lösning
 Tillägget har inte installerats. Avgöra om det finns en proxy-problemet (enligt beskrivningen ovan). Du kan behöva starta om datorn och/eller köra den `Set-AzureRmVMAEMExtension` konfigurationsskript.
+
+##### <a name="the-execution-of-set-azurermvmaemextension-and-test-azurermvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Körning av Set-AzureRmVMAEMExtension och Test-AzureRmVMAEMExtension visa varningsmeddelanden som talar om att Standard Managed Disks inte stöds
+
+###### <a name="issue"></a>Problem
+När köra Set-AzureRmVMAEMExtension eller Test-AzureRmVMAEMExtension meddelanden som dessa visas:
+
+<pre><code>
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+</code></pre>
+
+Du kan köra azperfli.exe enligt beskrivningen ovan för att få ett resultat som som indikerar icke felfritt tillstånd. 
+
+###### <a name="solution"></a>Lösning
+Meddelandena som orsakas av det faktum att Standard Managed Disks inte levererar API: er som används av övervakningstillägget för att kontrollera statistik för Standard Azure Storage-konton. Detta är inte bara några problem. Orsaken till introduktion till övervakning för Standard Disk Storage-konton begränsning av I/o som inträffat ofta. Hanterade diskar på så sätt undviker sådan begränsning genom att begränsa antalet diskar i ett lagringskonto. Därför är inte med den typen av övervakning av data inte viktigt.
+
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Vissa Azure prestandaräknare saknas
 Prestandamått i Azure samlas in av en daemon som hämtar data från flera källor. Vissa configuration-data som samlas in lokalt och vissa prestandamått läses från Azure-diagnostik. Storage räknare kommer från loggarna i ditt storage-prenumeration.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 68a7883e7f8b3fb62265375208f66b761d43d82e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 20c7d20399392e653668953029bcb81886863ce4
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391217"
+ms.locfileid: "47404627"
 ---
 # <a name="manually-create-and-use-kubernetes-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Manuellt skapa och använda Kubernetes-volym med Azure-diskar i Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Mer information om Kubernetes volymer finns i [Kubernetes volymer][kubernetes-vo
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du se [installera Azure CLI] [install-azure-cli].
+Du också ha Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Skapa en Azure-disk
 
@@ -91,7 +91,7 @@ Nu har du en aktiv pod med en Azure-disk monterad på `/mnt/azure`. Du kan anvä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om AKS kluster interagera med Azure-diskar, finns i den [Kubernetes-plugin för Azure-diskar][kubernetes-disks]
+Mer information om AKS kluster interagera med Azure-diskar, finns i den [Kubernetes-plugin för Azure Disks][kubernetes-disks].
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
@@ -106,3 +106,4 @@ Mer information om AKS kluster interagera med Azure-diskar, finns i den [Kuberne
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[install-azure-cli]: /cli/azure/install-azure-cli

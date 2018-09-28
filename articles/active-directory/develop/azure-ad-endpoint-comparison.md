@@ -1,9 +1,9 @@
 ---
-title: Jämföra Azure AD v2.0-slutpunkten med v1.0 slutpunkt | Microsoft Docs
+title: Jämföra Azure AD v2.0-slutpunkten med v1.0-slutpunkten | Microsoft Docs
 description: Vet skillnaderna mellan Azure AD v2.0-slutpunkten och v1.0-slutpunkten
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: andret
-ms.reviewer: hirsin, celested
+ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948973"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406540"
 ---
-# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>Jämföra Azure AD v2.0-slutpunkten med v1.0 slutpunkt
+# <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Jämföra Azure AD v2.0-slutpunkten med v1.0-slutpunkt
 
 När du utvecklar ett nytt program är det viktigt att veta skillnaderna mellan slutpunkterna v1.0 och v2.0. Nedan visas de viktigaste skillnaderna, samt vissa befintliga begränsningar för v2.0-slutpunkten.
 
 > [!NOTE]
-> Inte alla Azure AD-scenarier och funktioner stöds av v2.0-slutpunkten. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](#limitations).
+> Inte alla Azure Active Directory (Azure AD)-scenarier och funktioner stöds av v2.0-slutpunkten. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](#limitations).
 
 ## <a name="who-can-sign-in"></a>Vem som kan logga in
 
@@ -37,7 +37,7 @@ När du utvecklar ett nytt program är det viktigt att veta skillnaderna mellan 
 
 * V1.0-slutpunkten tillåter bara arbets- och skolkonton konton att logga in på ditt program (Azure AD)
 
-* V2.0-slutpunkten kan arbets- och skolkonton från Azure Active Directory- och personliga konton (MSA) (hotmail.com, outlook.com, msn.com) för att logga in.
+* V2.0-slutpunkten kan arbets- och skolkonton från Azure AD- och personliga konton (MSA) (hotmail.com, outlook.com, msn.com) för att logga in.
 
 * Både v1.0 och v2.0-slutpunkter också acceptera inloggningar för *[gästanvändare](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* av Azure AD-katalog för program som har konfigurerats som *[enda klient](single-and-multi-tenant-apps.md)* eller för *flera innehavare* program som har konfigurerats för att peka på den klientspecifik-slutpunkten (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
@@ -214,15 +214,13 @@ Stöd för v2.0-slutpunkten är för närvarande begränsad. Om du vill använda
 
 V2.0-slutpunkten har inte stöd för SAML eller WS-Federation Det stöder bara öppna ID Connect och OAuth 2.0. Inte alla funktioner och egenskaper i OAuth-protokoll har införlivats i v2.0-slutpunkten.
 
-Följande protokoll-funktionerna och egenskaperna för närvarande är *inte tillgänglig* i v2.0-slutpunkten:
+Följande protokoll-funktionerna och egenskaperna för närvarande är *inte tillgänglig* eller *stöds inte* i v2.0-slutpunkten:
 
-* För närvarande den `email` anspråk returneras bara om ett valfritt anspråk har konfigurerats och är omfånget = e-post har angetts i begäran. Det här beteendet ändras när v2.0-slutpunkten uppdateras för att uppfylla ytterligare öppna ID Connect och OAuth2.0-standarder.
+* Den `email` anspråk returneras bara om ett valfritt anspråk har konfigurerats och är omfånget = e-post har angetts i begäran. Dock förväntar sig problemet att ändras när v2.0-slutpunkten uppdateras för att uppfylla ytterligare öppna ID Connect och OAuth2.0-standarder.
 
 * V2.0-slutpunkten har inte stöd för utfärdande roll eller grupp anspråk i ID-token.
 
-* Den [OAuth 2.0 Resource ägare lösenord klientautentiseringsuppgifter](https://tools.ietf.org/html/rfc6749#section-4.3) stöds inte av v2.0-slutpunkten.
-
-V2.0-slutpunkten stöder dessutom inte någon form av SAML- eller WS-Federation-protokoll.
+* V2.0-slutpunkten har inte stöd för [OAuth 2.0 Resource ägare lösenord klientautentiseringsuppgifter](https://tools.ietf.org/html/rfc6749#section-4.3).
 
 För att bättre förstå vilka protokoll-funktioner som stöds i v2.0-slutpunkten, Läs igenom vår [referens för OpenID Connect och OAuth 2.0-protokollet](active-directory-v2-protocols.md).
 

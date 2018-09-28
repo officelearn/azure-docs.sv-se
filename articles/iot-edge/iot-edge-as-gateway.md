@@ -1,58 +1,58 @@
 ---
-title: Använda Azure IoT-gränsenheterna som gateways | Microsoft Docs
-description: Använda Azure IoT kant för att skapa en transparent täckande eller proxy gateway-enhet som skickar data från flera underordnade enheter till molnet eller bearbetar den lokalt.
+title: Använd Azure IoT Edge-enheter som gatewayer | Microsoft Docs
+description: Använd Azure IoT Edge för att skapa en transparent täckande eller proxy gateway-enhet som skickar data från flera underordnade enheter till molnet eller bearbetar den lokalt.
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/27/2017
+ms.date: 09/21/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0e085d6c2962ec2a2324bfc134b0e201df04a336
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e1825bcdd8dbb06ef027919416b2d0532a7df9c2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028973"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422838"
 ---
-# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Hur en IoT-enhet kan användas som en gateway
+# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Hur en IoT Edge-enhet kan användas som en gateway
 
-Syftet med gateways i IoT-lösningar är specifik för lösningen och kombinera enhetsanslutning med kant analytics. Azure IoT-kant kan användas för att uppfylla alla behov för en IoT-gateway oavsett om de är relaterade till anslutningen-, identitets- eller edge analytics. Gateway-mönster i den här artikeln endast referera till egenskaperna för underordnade enhetsanslutning och enhetsidentitet, inte hur data på enheten bearbetas på gateway.
+Syftet med gatewayer i IoT-lösningar är specifik för lösningen och kombinera enhetsanslutning med gränsanalyser. Azure IoT Edge kan användas för att uppfylla alla behov för en IoT-gateway, oavsett om de är relaterade till anslutningen, identity eller gränsanalyser. Gateway-mönster i den här artikeln endast referera till egenskaperna för underordnade enhetsanslutning och enhetsidentitet inte hur enhetsdata bearbetas på gatewayen.
 
 ## <a name="patterns"></a>Mönster
-Det finns tre mönster för att använda en insticksenhet för IoT som gateway: öppet, protokoll, översättning och identitet översättning:
-* **Transparent** – enheter som teoretiskt kunde ansluta till IoT-hubb kan ansluta till en gateway-enhet i stället. Detta innebär att de underordnade enheterna har sina egna identiteter för IoT-hubb och använder något av de MQTT, AMQP och HTTP-protokoll. Gatewayen skickar bara kommunikation mellan enheter och IoT-hubb. Enheter är inte medveten om att de kommunicerar med molnet via en gateway och en användare interagerar med enheter i IoT-hubben är medveten om mellanliggande gateway-enheten. Gatewayen är alltså transparent. Referera till den [skapa en transparent gateway] [ lnk-iot-edge-as-transparent-gateway] instruktioner för närmare information om hur du använder en IoT-enhet som en transparent gateway.
-* **Protokollet översättning** – enheter som inte stöder MQTT, AMQP och HTTP-använda en gateway-enhet för att skicka data till IoT-hubb. Gatewayen är smart att förstå det protokoll som används av underordnade enheter; Det är emellertid bara enheten som har en identitet i IoT-hubb. All information som ser ut som kommer från en enhet, gatewayen. Detta innebär att efterföljande enheter måste bädda in ytterligare identifieringsinformation i meddelandena om molnprogram vill orsak om data på grundval av per enhet. Dessutom IoT-hubb primitiver som dubbla och metoder är bara tillgängliga för gateway-enheten inte efterföljande enheter.
-* **Identitet översättning** -enheter som inte kan ansluta till IoT-hubb som ansluter till en gateway-enhet som tillhandahåller identitets- och översättning för underordnade enheter för IoT-hubb. Gatewayen är smart att förstå det protokoll som används av underordnade enheter, ger dem identitet och översätta IoT-hubb primitiver. Efterföljande enheter visas i IoT-hubb som förstklassigt enheter med twins och metoder. En användare kan interagera med enheter i IoT-hubb och stöder inte mellanliggande gateway-enheten.
+Det finns tre mönster för att använda en IoT Edge-enhet som en gateway: transparent, protokoll, översättning och översättning av identitet:
+* **Transparent** – enheter som teoretiskt sett kan ansluta till IoT Hub kan ansluta till en gateway-enhet i stället. Detta innebär att de underordnade enheterna har sina egna IoT Hub-identiteter och använder något av de MQTT-, AMQP- eller HTTP-protokoll. Gatewayen bara skickar kommunikation mellan enheter och IoT Hub. Enheterna är inte medveten om att de kommunicerar med molnet via en gateway och en användare interagerar med enheter i IoT Hub är medveten om mellanliggande gateway-enheten. Gatewayen är därför transparent. Referera till den [skapa en transparent gateway] [ lnk-iot-edge-as-transparent-gateway] how-to ge specifik information om hur du använder en IoT Edge-enhet som en transparent gateway.
+* **Protokollet translation** – även känt som mönstret för ogenomskinlig gateway, enheter som inte har stöd för MQTT-, AMQP- eller HTTP-använda en gateway-enhet för att skicka data till IoT Hub. Gatewayen är tillräckligt smarta för att förstå det protokoll som används av underordnade enheter; Det är den enda enhet som har identitet i IoT Hub. All information som ser ut som den kommer från en enhet, gatewayen. Detta innebär att efterföljande enheter måste bädda in ytterligare identifieringsinformation i meddelandena om molnprogram vill resonera kring data på varje enhet. Dessutom primitiver för IoT Hub som twin och metoder är bara tillgängliga för gateway-enheten inte underordnade enheter.
+* **Identitet translation** -enheter som inte kan ansluta till IoT Hub som är anslutna till en gatewayenhet som tillhandahåller identitets- och protokollet översättning för de underordnade enheterna för IoT Hub. Gatewayen är tillräckligt smarta för att förstå det protokoll som används av underordnade enheter, ge dem identitet och översätta primitiver för IoT Hub. Efterföljande enheter visas i IoT Hub som förstklassig enheter med twins och metoder. En användare kan interagera med enheter i IoT Hub och stöder inte mellanliggande gateway-enheten.
 
-![Diagram över gateway mönster][1]
+![Diagram över gateway-mönster][1]
 
 ## <a name="use-cases"></a>Användningsfall
 Alla gateway-mönster ger följande fördelar:
-* **Kant analytics** – Använd AI-tjänster lokalt för att bearbeta data från underordnade enheter utan att skicka fullständig återgivning telemetri till molnet. Hitta och ta hänsyn till insikter lokalt och skicka endast en delmängd av data till IoT-hubb. 
-* **Underordnade enheten isolering** – gateway-enheten kan skydda alla underordnade enheter från exponeringen på internet. Det kan bli mellan ett e-nätverk som inte har anslutning och ett IT-nätverk som ger tillgång till Internet. 
-* **Anslutningen multiplexering** – alla enheter som ansluter till IoT-hubb via en IoT-kant enheten ska använda samma underliggande anslutningen.
-* **Trafik Utjämning** -implementera i IoT-enhet automatiskt exponentiell backoff vid IoT-hubb begränsning vid beständighet meddelanden lokalt. Detta gör din lösning flexibel till toppar i trafiken.
-* **Begränsad offlinestöd** - gateway-enheten lagras lokalt meddelanden och dubbla uppdateringar som inte levereras till IoT-hubb.
+* **Edge-analytics** – Använd AI-tjänster lokalt för att bearbeta data som kommer från underordnade enheter utan att skicka fullständig exakthet telemetri till molnet. Hitta och ta hänsyn till insikter lokalt och skicka bara en delmängd av data till IoT Hub. 
+* **Underordnad enhet isolering** – gateway-enheten kan skydda alla underordnade enheter att exponeras för internet. Det kan vara mellan en OT-nätverk som inte har någon anslutning och ett IT-nätverk som ger tillgång till Internet. 
+* **Anslutningen multiplexering** – alla enheter som ansluter till IoT Hub via en IoT Edge enheten ska använda samma underliggande anslutningen.
+* **Trafik smoothing** – implementera The IoT Edge-enhet automatiskt exponentiell backoff när det gäller IoT Hub begränsning vid spara meddelanden lokalt. Detta gör din lösning elastiska för trafiktoppar.
+* **Begränsat stöd för offline** – gateway-enheten lagrar lokalt meddelanden och twin uppdateringar som inte kan levereras till IoT Hub.
 
-En gateway har översättning av protokollet kan också utföra edge analytics, enheten isolering, trafik Utjämning och offline-stöd för befintliga enheter och nya enheter som är begränsad resurs. Många befintliga enheter som ger upphov till data som kan ge affärsinsikter; men de inte har utvecklats med molnet anslutningen i åtanke. Täckande gateways kan informationen ska låsas upp och används på en slutpunkt till slutpunkt IoT-lösning.
+En gateway gör protokollöversättning kan också utföra gränsanalyser, enheten isolering, trafik smoothing och offlinestöd till befintliga enheter och nya enheter som är begränsad resurs. Många befintliga enheter som ger upphov till data som kan driva affärsinsikter; men de inte har utvecklats med molnanslutning i åtanke. Täckande gatewayer kan dessa data för att låsas upp och används i en IoT-lösning från slutpunkt till slutpunkt.
 
-En gateway som har identitet översättning ger fördelar för översättning av protokollet och tillåter dessutom fullständig hantering av underordnade enheter från molnet. Alla enheter i din IoT-lösningen visas i IoT-hubb oavsett protokoll med de tala.
+En gateway som har identitet translation ger dig fördelarna med protokollöversättning och tillåter dessutom fullständig hantering av underordnade enheter från molnet. Alla enheter i din IoT-lösning visas i IoT Hub oavsett protokoll med de pratar.
 
 ## <a name="cheat-sheet"></a>Översiktsblad
-Här är en snabb över blad som jämför IoT-hubb primitiver när du använder transparent, täckande och proxy gateways.
+Här är en snabb fusklapp som jämför IoT Hub primitiver när du använder transparent, täckande (protocol) och proxy-gatewayer.
 
 | &nbsp; | Transparent gateway | Översättning av protokollet | Identitet översättning |
 |--------|-------------|--------|--------|
-| Identiteter som lagras i registret för IoT-hubb-identitet | Identiteten för alla anslutna enheter. | Endast identiteten för gateway-enhet | Identiteten för alla anslutna enheter. |
-| Enhetstvilling | Varje enhet har sin egen enhet dubbla | Endast gateway har en enhet och modulen twins | Varje enhet har sin egen enhet dubbla |
-| Direkta metoder och meddelanden moln till enhet | Molnet kan adressera varje ansluten enhet individuellt | Molnet kan bara adressera gateway-enhet | Molnet kan adressera varje ansluten enhet individuellt |
-| [IoT-hubb begränsningar och kvoter][lnk-iothub-throttles-quotas] | Gäller för varje enhet | Gäller för gateway-enhet | Gäller för varje enhet |
+| Identiteter som lagras i IoT Hub-identitetsregistret | Identiteter för alla anslutna enheter | Endast identiteten för gateway-enheten | Identiteter för alla anslutna enheter |
+| Enhetstvilling | Varje ansluten enhet har en egen enhetstvilling | Endast gateway har en enhet och modulen twins | Varje ansluten enhet har en egen enhetstvilling |
+| Direkta metoder och meddelanden från moln till enhet | Molnet kan lösa varje ansluten enhet individuellt | Molnet kan bara lösa gateway-enheten | Molnet kan lösa varje ansluten enhet individuellt |
+| [IoT Hub-begränsningar och kvoter][lnk-iothub-throttles-quotas] | Gäller för varje enhet | Gäller för gateway-enheten | Gäller för varje enhet |
 
-Dela samma kö från moln till enhet, som kan innehålla högst 50 meddelanden när du använder ett mönster för täckande gateway (översättning av protokollet) alla enheter som ansluter via denna gateway. Det följer att täckande gateway mönstret bör endast användas när mycket få enheter ansluter via varje fält gateway och moln till enhet trafiken är låg.
+När du använder ett mönster för ogenomskinlig gateway (protokollöversättning) kan dela samma kö från moln till enhet, som kan innehålla högst 50 meddelanden i alla enheter som ansluter via denna gateway. Det följer mönstret för ogenomskinlig gateway ska användas när mycket få enheter ansluter via varje fält-gateway, och trafiken moln-till-enhet är låg.
 
 ## <a name="next-steps"></a>Nästa steg
-Använda en insticksenhet för IoT som en [transparent gateway][lnk-iot-edge-as-transparent-gateway] 
+Använd en IoT Edge-enheten som en [transparent gateway][lnk-iot-edge-as-transparent-gateway] 
 
 [lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md

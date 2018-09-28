@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: ee1df77dc18350a64082cb62c297a53700cad223
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128753"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410161"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Skicka, ta emot och bearbetar meddelanden i Azure Logic Apps för batch
 
@@ -60,7 +60,7 @@ Innan du kan skicka meddelanden till en batch, måste den batch först finnas so
    |----------|-------------|
    | **Batch-läge** | - **Infogad**: för att definiera versionskriterierna i batchutlösare <br>- **Integrationskontot**: för att definiera flera versionen kriterier konfigurationer via en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Du kan underhålla konfigurationerna alla på samma plats i stället för i separata logic apps med ett integrationskonto. | 
    | **Batch-namn** | Namn för ditt batch, som är ”TestBatch” i det här exemplet och gäller endast **infogade** batch-läge |  
-   | **Versionsvillkor** | Gäller endast **infogade** batchläge och anger villkoren för att uppfylla innan bearbetning av varje batch: <p>- **Meddelande baserat på antal**: antalet meddelanden att samla in i batchen, till exempel 10 meddelanden <br>- **Storleksbaserad**: max batchstorlek i byte, till exempel 100 MB <br>- **Schemabaserat**: intervall och frekvens mellan batch versioner, till exempel 10 minuter. Du kan också ange ett startdatum och starttid. <br>- **Markera alla**: använda de angivna kriterierna. | 
+   | **Versionsvillkor** | Gäller endast **infogade** batch-läge och väljer kriterier för att uppfylla innan bearbetning av varje batch: <p>- **Meddelande baserat på antal**: antalet meddelanden att samla in i batchen, till exempel 10 meddelanden <br>- **Storleksbaserad**: max batchstorlek i byte, till exempel 100 MB <br>- **Schemabaserat**: intervall och frekvens mellan batch versioner, till exempel 10 minuter. Minimivärdet för upprepning är 60 sekunder eller 1 minut. Minut Bråkvärden avrundas effektivt uppåt till 1 minut. Om du vill ange ett startdatum och starttid, Välj **visa avancerade alternativ**. <br>- **Markera alla**: använda de angivna kriterierna. | 
    ||| 
    
    Det här exemplet väljer alla villkor:
@@ -107,9 +107,7 @@ Innan du kan skicka meddelanden till en batch, måste den batch först finnas so
 
    * I den **brödtext** rutan när den dynamiska innehållslistan visas, Välj den **meddelande-Id** fält. 
 
-     Logic Apps Designer lägger automatiskt till en ”för var och en” loopen omkring åtgärden Skicka e-postmeddelandet eftersom åtgärden accepterar en matris som indata. 
-     Den här loopen skickar ett e-postmeddelande för varje meddelande i batchen. 
-     Så när batch-utlösaren har angetts till 10 meddelanden du får gång 10 e-postmeddelanden varje utlösaren.
+     Logic Apps Designer lägger automatiskt till en ”för var och en” loopen omkring åtgärden Skicka e-postmeddelandet eftersom åtgärden behandlar utdata från den första åtgärden som en samling i stället för en batch. 
 
      ![Välj ”meddelande-Id” för ”Body”](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
@@ -216,6 +214,7 @@ Logikappen batch avsändaren körs varje minut, genererar ett slumptal mellan en
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Batchbearbeta och skicka EDI-meddelanden](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [Skapa logikappsdefinitioner med hjälp av JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Skapa en app utan server i Visual Studio med Azure Logic Apps och Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Undantagshantering och felloggning för logic apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

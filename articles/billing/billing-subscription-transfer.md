@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20da1eb7b71c625dc83c52b30020f38992819e95
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7e9b5d1a84417cf6e6264211ea6e542ab712f9fe
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395363"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422615"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överföra ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -82,7 +82,6 @@ Enterprise-administratör kan överföra ägarskapet för prenumerationer i en r
    1. Av hanteringscertifikat som och ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [skapa och ladda upp ett certifikat för Azure](../cloud-services/cloud-services-certs-create.md)
    1. Snabbtangenter för tjänster som lagring. Mer information finns i [om Azure storage-konton](../storage/common/storage-create-storage-account.md)
    1. Fjärrautentiseringsuppgifter åtkomst för tjänster som Azure Virtual Machines. 
-1. [Uppdatera fakturaaviseringar för den här prenumerationen](billing-set-up-alerts.md) på den [Azure Kontocenter](https://account.windowsazure.com/Subscriptions). 
 1. Om du arbetar med en partner Överväg gå att uppdatera partner-ID för den här prenumerationen. Du kan uppdatera partner-ID i den [Azure-portalen](https://portal.azure.com).
 
 <a id="supported"></a>

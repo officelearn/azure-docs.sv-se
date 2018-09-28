@@ -8,12 +8,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e4aab68dba02eb5df16aa316f867697680b8977
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: eb24aa0471604696de99f4878baef764cfef0a8b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181693"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408362"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services
 
@@ -27,6 +27,10 @@ I den här artikeln får du lära dig hur du konfigurerar ett HDInsight-kluster 
 ## <a name="enable-azure-ad-ds"></a>Aktivera Azure AD DS
 
 Aktivera Azure AD-DS är en förutsättning innan du kan skapa ett HDInsight-kluster med ESP. Mer information finns i [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+
+När Azure AD-DS har aktiverats kan alla användare och objekt synkroniserar från Azure Active Directory (AAD) till Azure AD DS-som standard. Längden på synkroniseringsåtgärden beror på antalet objekt i AAD. Synkroniseringen kan ta ett par dagar för hundratusentals objekt. 
+
+Kunderna kan välja att synkronisera de grupper som behöver åtkomst till HDInsight-kluster. Det här alternativet för att synkronisera bara vissa grupper kallas *begränsade synkronisering*. Se [konfigurera omfång synkronisering från Azure AD till din hanterade domän](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) anvisningar.
 
 > [!NOTE]
 > Endast klientadministratörer ha behörighet att skapa en Azure AD-DS-instans. Multifaktorautentisering måste inaktiveras endast för användare som ska få åtkomst till klustret.

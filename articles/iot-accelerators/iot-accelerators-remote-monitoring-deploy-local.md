@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 477ef11a02f67e511396c3efc8f2b331c976c801
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7007b1406dbcfab3af4700418ac2ce07b9e521c0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219982"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407441"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt
 
@@ -42,17 +42,13 @@ Fjärrövervakning GitHub lagringsplatsen för källkod innehåller Docker confi
 Om du vill hämta den senaste versionen av Java mikrotjänst implementeringar, kör du:
 
 ```cmd/sh
-git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
-cd azure-iot-pcs-remote-monitoring-java
-git submodule foreach git pull origin master
+git clone https://github.com/Azure/remote-monitoring-services-java.git
 ```
 
 Om du vill hämta den senaste versionen av .NET mikrotjänst implementeringar, kör du:
 
 ```cmd\sh
-git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
-cd azure-iot-pcs-remote-monitoring-dotnet
-git submodule foreach git pull origin master
+git clone https://github.com/Azure/remote-monitoring-services-dotnet.git
 ```
 
 > [!NOTE]
@@ -66,7 +62,7 @@ git submodule foreach git pull origin master
 
 Om du ännu inte har skapat de nödvändiga Azure-resurserna, gör du följande:
 
-1. I din kommandoradmiljö, navigerar du till den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** mapp i din klonade kopia av databasen.
+1. I din kommandoradmiljö, navigerar du till den **remote-monitoring-services-dotnet\scripts\local\launch** mapp i din klonade kopia av databasen.
 
 2. Kör den **start.cmd** skript och följer anvisningarna. Skriptet uppmanas du att logga in på ditt Azure-konto och starta om skriptet. Skriptet sedan uppmanas du att följande information:
     * Ett lösningsnamn på.
@@ -75,11 +71,11 @@ Om du ännu inte har skapat de nödvändiga Azure-resurserna, gör du följande:
 
     Skriptet skapar en resursgrupp i Azure med Lösningsnamnet på din. Den här resursgruppen innehåller Azure-resurserna solution accelerator använder.
 
-3. När skriptet har körts visas en lista över miljövariabler. Följ instruktionerna i utdata från kommandot för att spara dessa variabler ska den **azure-iot-pcs-remote-monitoring-dotnet\\services\\skript\\lokala\\.env** fil.
+3. När skriptet har körts visas en lista över miljövariabler. Följ instruktionerna i utdata från kommandot för att spara dessa variabler ska den **remote-monitoring-services-dotnet\\skript\\lokala\\.env** fil.
 
 ### <a name="use-existing-azure-resources"></a>Använd befintliga Azure-resurser
 
-Om du redan har skapat resurserna som krävs Azure redigera variabel miljödefinitioner i den **azure-iot-pcs-remote-monitoring-dotnet\\services\\skript\\lokala\\.env**  filen med nödvändiga värden. Den **.env** filen innehåller detaljerad information om var du hittar värdena som krävs.
+Om du redan har skapat resurserna som krävs Azure redigera variabel miljödefinitioner i den **remote-monitoring-services-dotnet\\skript\\lokala\\.env** filen med den värden som krävs. Den **.env** filen innehåller detaljerad information om var du hittar värdena som krävs.
 
 ## <a name="run-the-microservices-in-docker"></a>Kör mikrotjänster i Docker
 
@@ -89,7 +85,7 @@ Mikrotjänster som körs i lokala Docker-behållare behöver åtkomst till de tj
 docker run --rm -ti library/alpine ping google.com
 ```
 
-Om du vill köra solution accelerator, navigera till den **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local** mapp i din kommandoradsmiljö och kör sedan följande kommando:
+Om du vill köra solution accelerator, navigera till den **remote-monitoring-services-dotnet\\skript\\lokala** mapp i din kommandoradsmiljö och kör sedan följande kommando:
 
 ```cmd\sh
 docker-compose up

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: cwatson
-ms.openlocfilehash: f7ec113a7fa51fc6d3684c2e7ee9379bd1534e30
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: be2e774bc4220d5d93f555263fa9f342f449f8b2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392422"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423450"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Förstå fakturan för Microsoft Azure
 Jämför din faktura med detaljerade dagliga användningsfil och kostnadshanteringsrapporter i Azure-portalen för att förstå fakturan för Azure.
@@ -141,7 +141,6 @@ Azure 1 part debiteras för de resurser som direkt utvecklas och erbjuds av Azur
 
 ## <a name="tips-for-cost-management"></a>Tips för kostnadshantering
 - Beräkna kostnader med hjälp av den [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) och [totalkostnad för ägarskap Kalkylatorn](https://aka.ms/azure-tco-calculator), och få den [detaljerad information om priser för varje tjänst](https://azure.microsoft.com/pricing/).
-- [Ställa in faktureringsvarningar](billing-set-up-alerts.md).
 - [Granska användning och kostnader regelbundet i Azure-portalen](billing-getting-started.md#costs).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 28eeae8906480a5a160bfe11386da96b646f7427
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296864"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423501"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -228,10 +228,6 @@ Mer information finns i [insyn i din Microsoft Azure-resursförbrukning](../../b
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prognoskostnad med priskalkylatorn
 
 Priser för varje tjänst i Azure är olika. Många Azure-tjänster ge nivåerna Basic, Standard och Premium. Varje nivå har vanligtvis flera nivåer för pris och prestanda. Med hjälp av den [priskalkylator](http://azure.microsoft.com/pricing/calculator), du kan skapa prissättning uppskattningar. Kalkylatorn omfattar flexibilitet för att beräkna kostnaden på en enskild resurs eller en grupp med resurser.
-
-### <a name="set-up-billing-alerts"></a>Ställa in faktureringsvarningar
-
-När du har distribuerat programmet eller lösningen på Azure, kan du skapa aviseringar som skickar du e-post när metoden utgiftsgränser som definierats i aviseringen. Mer information finns i [ställa in faktureringsvarningar för dina Microsoft Azure-prenumerationer](../../billing/billing-set-up-alerts.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

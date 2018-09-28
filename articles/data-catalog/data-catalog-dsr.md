@@ -2,18 +2,18 @@
 title: Datakällor som stöds i Azure Data Catalog
 description: Den här artikeln visas ett av datakällorna som stöds för närvarande.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 7b3f403ac479e0a6a8a4ae46c2a5ab448bd8ecc2
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544138"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410195"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Datakällor som stöds i Azure Data Catalog
 

@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 89c72e21733b01a3e42c0e58d65cb7877e47d374
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163502"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409362"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Distribuera Kubernetes till Azure Stack
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes på Azure Stack är en förhandsversion. Azure Stack-operator måste begära åtkomst till Kubernetes-kluster marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln.
+> Kubernetes på Azure Stack är en förhandsversion.
 
 I följande artikel tittar på med hjälp av en lösningsmall för Azure Resource Manager-för att distribuera och etablera resurserna för Kubernetes i en enda, samordnad åtgärd. Du behöver samla in nödvändig information om installationen av Azure Stack, generera mallen, och sedan distribuera till molnet. Obs mallen är inte samma hanterade AKS-tjänsten erbjuds i globala Azure.
 
@@ -55,6 +55,8 @@ Kom igång genom att kontrollera att du har rätt behörigheter och att Azure St
 1. Kontrollera att du har en giltig prenumeration i din klient Azure Stack-portalen och att du har tillräckligt med offentliga IP-adresser tillgängliga att lägga till nya program.
 
     Klustret kan inte distribueras till ett Azure Stack **administratör** prenumeration. Du måste använda en **användaren** prenumeration. 
+
+1. Om du inte har Kubernetes-kluster i din marketplace tala med administratören för Azure Stack.
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>Skapa ett huvudnamn för tjänsten i Azure AD
 

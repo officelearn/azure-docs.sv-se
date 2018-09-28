@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e325335d43ef31c44ac812aca66309132f5372a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951618"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410008"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera mått aviseringar med Azure Monitor
+# <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera klassiska måttaviseringar med Azure Monitor
 
 Klassiska måttaviseringar i Azure Monitor är ett sätt att få ett meddelande när en av dina mått överskrider ett tröskelvärde. Klassiska måttaviseringar är en äldre funktion som gör att aviseringar endast på nolldimensionella mått. Det finns en befintlig nyare funktion som kallas måttaviseringar, som har förbättrade funktioner över klassiska måttaviseringar. Du kan läsa mer om de nya funktionerna för måttaviseringar i [översikt över aviseringar i mått](alert-metric-overview.md). I den här artikeln beskriver vi hur du skapar, visa och hantera klassiska måttaviseringsregler via Azure-portalen, Azure CLI och Powershell.
 
-## <a name="create-a-classic-metric-alert-rule-using-azure-portal"></a>Skapa en klassisk måttaviseringsregel med hjälp av Azure portal
+## <a name="with-azure-portal"></a>Med Azure portal
 
 1. I den [portal](https://portal.azure.com/), leta upp den resurs som du vill övervaka och välj den sedan.
 
@@ -46,15 +46,13 @@ Klassiska måttaviseringar i Azure Monitor är ett sätt att få ett meddelande 
 
 Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
 
-## <a name="manage-your-classic-metric-alert-rules-using-azure-portal"></a>Hantera din klassiska måttaviseringsregler med hjälp av Azure portal
-
 När du skapar en avisering kan du markera den och gör något av följande uppgifter:
 
 * Visa ett diagram som visar tröskelvärde för mått och de faktiska värdena från föregående dag.
 * Redigera eller ta bort den.
 * **Inaktivera** eller **aktivera** det om du vill att tillfälligt stoppa eller återuppta ta emot meddelanden för den här aviseringen.
 
-## <a name="creating-and-managing-classic-metric-alert-rule-using-azure-cli"></a>Skapa och hantera klassiska måttaviseringsregel med Azure CLI
+## <a name="with-azure-cli"></a>Med Azure CLI
 
 I föregående avsnitt beskrivs hur du skapar, visa och hantera måttaviseringsregler med hjälp av Azure portal. Det här avsnittet beskrivs hur du gör samma sak med hjälp av plattformsoberoende [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Snabbaste sättet att börja använda Azure CLI är via [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest).
 
@@ -86,7 +84,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
 az monitor alert delete --name <alert name> --resource-group <group name>
 ```
 
-### <a name="create-view-and-manage-classic-metric-alerts-using-powershell"></a>Skapa, visa och hantera klassiska måttaviseringar med hjälp av PowerShell
+## <a name="with-powershell"></a>Med PowerShell
 
 Detta avsnitt visar hur du använder PowerShell kommandon skapa, visa och hantera klassiska måttaviseringar. Exemplen i den här artikeln visar hur du kan använda Azure Monitor-cmdletar för klassiska måttaviseringar.
 

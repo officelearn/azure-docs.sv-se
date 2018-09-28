@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b8d5208992e8f12fae3c010748b2c494e0d50ee8
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: b6e6e8eeea7ee442ccdbb0524cafb2f51ff30268
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465665"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409617"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrera din PostgreSQL-databas med säkerhetskopiering och återställning
 Du kan använda [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) att extrahera en PostgreSQL-databas till en dumpfil och [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) att återställa PostgreSQL-databasen från en arkivfil som skapats av pg_dump.
@@ -36,9 +36,6 @@ Exempel: Om du har en lokal server och en databas som heter **testdb** i det.
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
-> [!IMPORTANT]
-> Kopiera de säkerhetskopiera filerna till en Azure blobblagring och utföra återställningen därifrån, vilket borde vara mycket snabbare än att utföra återställningen via Internet.
-> 
 
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Återställa data till Azure-måldatabas för PostrgeSQL med pg_restore
 När du har skapat måldatabasen, kan du använda kommandot pg_restore och -d, parametern--dbname för att återställa data i måldatabasen från dumpfilen.
@@ -74,7 +71,7 @@ Ett sätt att migrera din befintliga PostgreSQL-databas till Azure Database för
     ```
 
 ### <a name="for-the-restore"></a>Vid återställningen
-- Kopiera de säkerhetskopiera filerna i en Azure blobblagring och göra återställningen därifrån. Det bör vara snabbare än återställningen via Internet. 
+- Vi rekommenderar att du flyttar den säkerhetskopiera filen till en Azure-dator i samma region som Azure Database for PostgreSQL-server som du migrerar till och gör pg_restore från den virtuella datorn att minska Nätverksfördröjningen. Vi rekommenderar också att den virtuella datorn skapas med [nätverksaccelerering](..\virtual-network\create-vm-accelerated-networking-powershell.md) aktiverat.
 - Det bör göras redan som standard, men öppna dumpfilen för att verifiera att skapa index-instruktioner är efter infogningen av data. Om det inte är fallet, flytta create index-instruktioner när data infogas.
 - Återställa med växlarna -Fc och -j *#* att parallellisera återställningen. *#* är antalet kärnor på målservern. Du kan också försöka med *#* inställd på två gånger antalet kärnor på målservern för att se hur. Exempel:
 

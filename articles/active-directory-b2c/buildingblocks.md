@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2582284f56da1dd1c49c4183ba07a4f60d4f6061
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 85fbbc4e489c7b48f7dc95de1738636b7383de16
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381450"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419414"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -37,15 +37,15 @@ Den **BuildingBlocks** element har lagts till i den [TrustFrameworkPolicy](trust
     <ClaimsSchema>
       ...
     </ClaimsSchema>
-    <ClaimsTransformations>
-      ...
-    </ClaimsTransformations>
     <Predicates>
     ...
     </Predicates>
     <PredicateValidations>
     ...
     </PredicateValidations>
+    <ClaimsTransformations>
+      ...
+    </ClaimsTransformations>
     <ContentDefinitions>
       ...
     </ContentDefinitions>
@@ -55,9 +55,11 @@ Den **BuildingBlocks** element har lagts till i den [TrustFrameworkPolicy](trust
  </BuildingBlocks>
 ```
 
-Den **BuildingBlocks** elementet innehåller följande element:
+Den **BuildingBlocks** elementet innehåller följande element som måste anges i den ordning som definierats:
 
 - [ClaimsSchema](claimsschema.md) -definierar vilka anspråkstyper som kan referera till som en del av principen. Anspråk schemat är den plats där du deklarera dina anspråkstyper. En Anspråkstyp liknar en variabel i många programmässiga språk. Du kan använda Anspråkstypen att samla in data från användare av ditt program, ta emot anspråk från sociala identitetsleverantörer, skicka och ta emot data från en anpassad REST-API eller lagra interna data som används av en egen princip. 
+
+- [Predikat och PredicateValidationsInput](predicates.md) – kan du utföra en verifieringsprocessen för att säkerställa att endast korrekt strukturerad data har angetts till ett anspråk.
  
 - [ClaimsTransformations](claimstransformations.md) -innehåller en lista över anspråksomvandlingar som kan användas i din princip.  En anspråkstransformering konverterar ett anspråk till en annan. I anspråkstransformering anger vilken transformering-metod som: 
     - Ändra skiftläge för ett sträng-anspråk till den som angetts. Till exempel ändrar en sträng från gemener till versaler.
@@ -70,4 +72,4 @@ Den **BuildingBlocks** elementet innehåller följande element:
 
 - [Lokalisering](localization.md) – gör att du kan ha stöd för flera språk. Lokaliseringsstöd i principer kan du konfigurera listan över språk som stöds i en princip och välja ett standardspråk. Språkspecifika strängar och samlingar stöds också.
 
-- [Predikat och PredicateValidationsInput](predicates.md) – kan du utföra en verifieringsprocessen för att säkerställa att endast korrekt strukturerad data har angetts till ett anspråk.
+

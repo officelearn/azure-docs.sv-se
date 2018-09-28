@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5a6c5498b4607719199363b5f6d93d3b42ccec0d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 77da95ce0d37e8d0b35125f0cc8dc33376a52259
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967754"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401649"
 ---
 Organisationer har storskaliga behov. Dessa Big Compute-arbetsbelastningar omfattar teknisk design och analys, finansiella risker, bildrendering, komplex modellering, Monte Carlo-simuleringar och mycket mer. 
 
@@ -56,7 +56,7 @@ Gå till den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketpl
 * [SUSE Linux Enterprise Server för HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 *  [TIBCO Grid Server-motorn](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
 * [Azure Data Science VM för Windows och Linux](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
-* [D3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
+* [d3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 * [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
 * [Intel Cloud Edition for Lustre](https://azuremarketplace.microsoft.com/marketplace/apps/intel.intel-cloud-edition-gs)
 
@@ -162,7 +162,7 @@ Azure-datorer, skalningsuppsättningar för virtuella datorer, Batch och relater
 ### <a name="data-and-analytics"></a>Data och analys
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
-* [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
+* [Data Lake Storage Gen1](../articles/data-lake-store/data-lake-store-overview.md)
 * [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
@@ -175,7 +175,7 @@ Azure-datorer, skalningsuppsättningar för virtuella datorer, Batch och relater
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
 * [ExpressRoute](../articles/expressroute/expressroute-introduction.md)
 
-### <a name="containers"></a>Behållare
+### <a name="containers"></a>Containrar
 * [Container Service](../articles/container-service/dcos-swarm/container-service-intro.md)
 * [Azure Kubernetes Service (AKS)](../articles/aks/intro-kubernetes.md)
 * [Container Registry](../articles/container-registry/container-registry-intro.md)
@@ -189,7 +189,7 @@ Exempel på kunder som har löst affärsproblem med Azure HPC-lösningar:
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
 * [AXA globala P & C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
-* [D3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)

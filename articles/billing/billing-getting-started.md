@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: d17215fe05a4795bd539759d98695ec2f6b0df3d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393510"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423008"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -54,17 +54,6 @@ Mer information om priser finns i den här [vanliga frågor och svar](https://az
 Vanligtvis när du lägger till en tjänst i Azure portal finns en vy som visar en liknande uppskattad kostnad per månad. Till exempel när du väljer storleken på din virtuella Windows-dator kan se du den uppskattade månadskostnaden för beräkningstimmar:
 
 ![Exempel: en A1 Windows VM bedöms kostnad 66.96 USD per månad](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="set-up-billing-alerts"></a>Ställa in faktureringsvarningar
-
-Konfigurera faktureringsvarningar för att få e-postmeddelanden när dina kostnader överskrider belopp som du anger. Om du har månadskrediter kan ställa in aviseringar för om du förbrukar en angiven mängd. Mer information finns i [ställa in faktureringsvarningar för dina Microsoft Azure-prenumerationer](billing-set-up-alerts.md).
-
-![Skärmbild av en fakturering e-postavisering](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> Den här funktionen är fortfarande i förhandsversion, så du bör regelbundet kontrollera din användning.
-
-Du kanske vill använda kostnadsuppskattning från priskalkylatorn som en riktlinje för din första aviseringen.
 
 ### <a name="spending-limit"></a> Kontrollera om du har en utgiftsgräns
 
@@ -166,7 +155,7 @@ Enterprise kostnaden vyer är för närvarande i offentlig förhandsversion. Obj
     - Du är administratör avdelning och din registrering-administratör har inaktiverat de ”DA visa debiteringar” ställa in.  Kontakta din administratör för registreringen för att få åtkomst. 
     - Du har köpt Azure via en kanalpartner och partnern släppts inte prisinformation.  
 - När inställningar som rör kostnaden åtkomst har uppdaterats i Enterprise portal, finns det en fördröjning på några minuter innan ändringarna syns i Azure-portalen.
-- Utgiftsgräns, berör fakturapåminnelser och faktura vägledning inte EA-prenumerationer.
+- Utgiftsgränsen och faktura riktlinjer gäller inte för EA-prenumerationer.
 
 ### <a name="check-your-subscription-and-access"></a>Kontrollera din prenumeration och åtkomst
 

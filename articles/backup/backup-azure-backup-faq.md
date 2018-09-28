@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: aa26106460f305568fcb2dd1b84fbc54370e5f39
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: efe08eddaceb5a764dbd5393e79644eac1e2e106
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543585"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406166"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Frågor om Azure Backup-tjänsten
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-komponenterna. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -148,7 +148,7 @@ Följande tabell beskriver hur datakällans storlek bestäms.
 | Microsoft Exchange |Summan av alla Exchange-databaser på en Exchange-server som säkerhetskopieras |
 | BMR/systemtillstånd |Varje enskild kopia av BMR eller systemtillstånd på datorn som säkerhetskopieras |
 
-Varje virtuell dator kan ha upp till 16 datadiskar för Azure IaaS-datorer och varje datadisk kan vara upp till 4 095 GB.
+Varje virtuell dator kan ha upp till 32 datadiskar för Azure IaaS-datorer och varje datadisk kan vara upp till 4 095 GB.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Finns det en gräns för mängden data som lagras i ett Recovery Services-valv?
 Det finns ingen gräns för mängden data som du kan säkerhetskopiera till ett Recovery Services-valv.

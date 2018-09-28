@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: dd0ef94c7efb27641d5f0bf50d87bf852bcd1e9a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7774d67d02b2b0f0080cbff2ffc3606b99450f26
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696344"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404969"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med ämne, prenumeration och regel med en Azure Resource Manager-mall
 
@@ -43,7 +43,7 @@ Läs den fullständiga mallen, den [Service Bus-namnområde med ämne, prenumera
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
+## <a name="what-do-you-deploy"></a>Vad du distribuera?
 
 Med den här mallen kan du distribuera ett Service Bus-namnområde med ämne, prenumeration och regel (filter).
 
@@ -51,7 +51,7 @@ Med den här mallen kan du distribuera ett Service Bus-namnområde med ämne, pr
 
 ## <a name="what-are-rules-filters"></a>Vad är regler (filter)?
 
-Meddelanden som har specifika egenskaper måste bearbetas på olika sätt i många scenarier. Om du vill aktivera den här anpassade bearbetning, kan du konfigurera prenumerationer för att hitta meddelanden som har specifika egenskaper och utför ändringar i dessa egenskaper. Du kan bara kopiera en delmängd av de här meddelandena till virtuella prenumerationskön även om Service Bus-prenumerationer visas alla meddelanden som skickas till ämnet. Detta åstadkoms med hjälp av prenumerationsfilter. Mer information om regler (filter) finns [regler och åtgärder](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+Meddelanden som har specifika egenskaper måste bearbetas på olika sätt i många scenarier. Om du vill aktivera den här anpassade bearbetning, kan du konfigurera prenumerationer för att hitta meddelanden som har specifika egenskaper och utför ändringar i dessa egenskaper. Du kan bara kopiera en delmängd av de här meddelandena till virtuella prenumerationskön även om Service Bus-prenumerationer visas alla meddelanden som skickas till ämnet. Det åstadkoms med hjälp av prenumerationsfilter. Mer information om regler (filter) finns [regler och åtgärder](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Klicka på följande knapp för att köra distributionen automatiskt:
 
@@ -59,7 +59,7 @@ Klicka på följande knapp för att köra distributionen automatiskt:
 
 ## <a name="parameters"></a>Parametrar
 
-Med Azure Resource Manager bör du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` och som innehåller alla parametervärden. Du bör definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
+Med Azure Resource Manager kan definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` och som innehåller alla parametervärden. Definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
 
 Mallen definierar följande parametrar:
 

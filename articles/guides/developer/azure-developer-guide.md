@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f8aa37dbc2d3fb5f560d899626a84a2ab86ff223
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294585"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423603"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -310,9 +310,3 @@ Azure tillhandahåller en uppsättning fakturering REST API: er som ger åtkomst
 Även om det är svårt för att uppskatta kostnader i tid, Azure har en [priskalkylator](https://azure.microsoft.com/pricing/calculator/) som du kan använda när du beräkna kostnaden för distribuerade resurser. Du kan också använda bladet fakturering i portalen och den fakturering REST API: er för att beräkna framtida kostnader, baserat på aktuell förbrukning.
 
 >**Kom igång**: se [översikt över Azure-fakturering användning och RateCard APIs](../../billing-usage-rate-card-overview.md).
-
-#### <a name="set-up-billing-alerts"></a>Ställa in faktureringsvarningar
-
-När du har distribuerat programmet eller lösningen på Azure kan skapa du aviseringar som skickar du e-när du itu med utgiftsgränser som definieras i aviseringen.
-
->**Kom igång**: Mer information finns i [ställa in faktureringsvarningar för dina Microsoft Azure-prenumerationer](../../billing-set-up-alerts.md).

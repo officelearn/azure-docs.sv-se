@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/07/2018
+ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9c09f473f5d8b399c4fb1b1ad449c783c797f4dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968517"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423365"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Lägga till utökade mått för Azure-datorer
 
@@ -33,36 +33,38 @@ Du kanske exempelvis vill övervaka processor och minne-% av virtuella datorer i
 > [!NOTE]
 > Datainsamling för utökade mått stöds bara med Azure-övervakning på gästnivå. Cloudyn är inte kompatibel med Log Analytics VM-tillägg.
 
-## <a name="verify-that-metrics-are-enabled-on-vms"></a>Kontrollera att mått är aktiverat på virtuella datorer
+## <a name="determine-whether-extended-metrics-are-enabled"></a>Avgöra om utökade mått har aktiverats
 
 1. Logga in på Azure Portal på http://portal.azure.com.
 2. Under **virtuella datorer**, Välj en virtuell dator och sedan under **övervakning**väljer **mått**. En lista över tillgängliga mått visas.
 3. Välj vissa mått och ett diagram som visar data för dessa.  
     ![Exempel mått – värd procent CPU](./media/azure-vm-extended-metrics/metric01.png)
 
-En begränsad uppsättning standardmått är tillgängliga för värdar i föregående exempel, men minne mått är inte. Minne mått är en del av utökade mått. Du måste utföra några ytterligare steg för att aktivera utökade mått. Följande information hjälper dig att aktivera dem.
+En begränsad uppsättning standardmått är tillgängliga för värdar i föregående exempel, men minne mått är inte. Minne mått är en del av utökade mått. I det här fallet aktiveras inte utökade mått för den virtuella datorn. Du måste utföra några ytterligare steg för att aktivera utökade mått. Följande information hjälper dig att aktivera dem.
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Aktivera utökad mätvärden i Azure portal
 
 Standardmått är värdmått för datorn. Den _[värd] procent CPU_ mått är ett exempel. Det finns också basmått för virtuella gästdatorer och de också kallas utökade mått. Exempel på utökade mått är _[gäst] minnesprocent_ och _[] Gästminne tillgängliga_.
 
-Det är enkelt att aktivering av utökad mått. Aktivera övervakning på gästnivå för varje virtuell dator. När du aktiverar övervakning på gästnivå, är Azure diagnostics-agenten installerad på den virtuella datorn. Följande process är samma för virtuella datorer i klassiska och regelbundna och likadan ut för Windows och Linux-datorer.
+Det är enkelt att aktivering av utökad mått. Aktivera övervakning på gästnivå för varje virtuell dator. När du aktiverar övervakning på gästnivå, är Azure diagnostics-agenten installerad på den virtuella datorn. Som standard läggs en grundläggande uppsättning utökade mått. Följande process är samma för virtuella datorer i klassiska och regelbundna och likadan ut för Windows och Linux-datorer.
 
 Tänk på att både Azure och Linux övervakning på gästnivå kräver ett lagringskonto. När du aktiverar övervakning på gästnivå, om du inte väljer ett befintligt lagringskonto kan skapas ett åt dig.
 
 ### <a name="enable-guest-level-monitoring-on-existing-vms"></a>Aktivera övervakning på gästnivå på befintliga virtuella datorer
 
 1. I **virtuella datorer**, visa din lista över dina virtuella datorer och väljer sedan en virtuell dator.
-2. Under **övervakning**väljer **mått**.
-3. Klicka på **diagnostikinställningar**.
-4. På sidan diagnostik inställningar **aktivera övervakning på gästnivå**.  
+2. Under **övervakning**väljer **diagnostikinställningar**.
+3. På sidan diagnostik inställningar **aktivera övervakning på gästnivå**.  
     ![Aktivera på gäst-övervakning](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
-5. Azure diagnostics-agenten är installerad på den virtuella datorn efter ett par minuter. Uppdatera sidan och listan över tillgängliga mått har uppdaterats med gästmått.  
+4. Azure diagnostics-agenten är installerad på den virtuella datorn efter ett par minuter. En grundläggande uppsättning mått har lagts till. Uppdatera sidan. Har lagts till prestandaräknare visas på fliken Översikt.
+5. Välj under övervakning, **mått**.
+6. I måttdiagram under **mått Namespace**väljer **gäst (klassisk)**.
+7. I listan över mått kan du visa alla tillgängliga prestandaräknare för den Virtuella gästdatorn.  
     ![Utökade mått](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>Aktivera övervakning på gästnivå på nya virtuella datorer
 
-När du skapar nya virtuella datorer kan du se till att du väljer **diagnostik för Gästoperativsystem**.
+När du skapar nya virtuella datorer, på fliken hantering, Välj **på** för **OS gästen diagnostik**.
 
 ![Aktivera diagnostik för Gästoperativsystem](./media/azure-vm-extended-metrics/new-enable-diag.png)
 

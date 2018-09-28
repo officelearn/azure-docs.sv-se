@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26f696c2f54d9cb8a176fe079101e26384ac0a6e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034458"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405622"
 ---
 # <a name="custom-roles-in-azure"></a>Anpassade roller i Azure
 
-Om de [inbyggda rollerna](built-in-roles.md) inte uppfyller organisationens specifika krav kan du skapa egna, anpassade roller. Precis som inbyggda roller, kan du tilldela anpassade roller till användare, grupper och tjänstens huvudnamn på prenumerationen, resursgruppen och resurs-scope. Anpassade roller lagras i en Azure Active Directory (Azure AD)-klient och kan delas mellan prenumerationer. Varje klient kan ha upp till 2000 anpassade roller. Anpassade roller kan skapas med hjälp av Azure PowerShell, Azure CLI eller REST API.
+Om de [inbyggda rollerna](built-in-roles.md) inte uppfyller organisationens specifika krav kan du skapa egna, anpassade roller. Precis som inbyggda roller, kan du tilldela anpassade roller till användare, grupper och tjänstens huvudnamn på prenumerationen, resursgruppen och resurs-scope. Anpassade roller lagras i en katalog i Azure Active Directory (Azure AD) och kan delas mellan prenumerationer. Varje katalog kan ha upp till 2000 anpassade roller. Anpassade roller kan skapas med hjälp av Azure PowerShell, Azure CLI eller REST API.
 
 ## <a name="custom-role-example"></a>Exempel på anpassad roll
 
@@ -92,7 +92,7 @@ En anpassad roll har följande egenskaper.
 
 | Egenskap  | Krävs | Typ | Beskrivning |
 | --- | --- | --- | --- |
-| `Name` | Ja | Sträng | Visningsnamnet för den anpassade rollen. Måste vara unikt för din klient. Kan innehålla bokstäver, siffror, blanksteg och specialtecken. Maximalt antal tecken är 128. |
+| `Name` | Ja | Sträng | Visningsnamnet för den anpassade rollen. En rolldefinition är en prenumerationsnivå resurs, kan en rolldefinition användas i flera prenumerationer som delar samma Azure AD-katalog. Det här visningsnamnet måste vara unikt i omfattningen av Azure AD-katalog. Kan innehålla bokstäver, siffror, blanksteg och specialtecken. Maximalt antal tecken är 128. |
 | `Id` | Ja | Sträng | Unikt ID för den anpassade rollen. Detta ID genereras automatiskt för Azure PowerShell och Azure CLI, när du skapar en ny roll. |
 | `IsCustom` | Ja | Sträng | Anger om detta är en anpassad roll. Ange `true` för anpassade roller. |
 | `Description` | Ja | Sträng | Beskrivning av den anpassade rollen. Kan innehålla bokstäver, siffror, blanksteg och specialtecken. Maximalt antal tecken är 1024. |

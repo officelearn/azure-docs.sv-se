@@ -2,18 +2,18 @@
 title: Introduktion till Azure Data Catalog
 description: Den här artikeln innehåller en översikt över Microsoft Azure Data Catalog, inklusive funktioner och vilka problem den är tänkt att lösa. Data Catalog låter alla användare registrera, identifiera, förstå och använda datakällor.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: cc733907-17ec-4153-9f0c-5b3754b2db19
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: ba9cce1c63145bea25e657cb690287e1cbf5a4e4
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3da12ae290730869026de24761b28f332927f01e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053669"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408461"
 ---
 # <a name="what-is-azure-data-catalog"></a>Vad är Azure Data Catalog?
 Azure Data Catalog är en helt hanterad molntjänst vars användare kan identifiera datakällor de behöver och förstå datakällorna de identifierar. På samma gång hjälper Data Catalog organisationer att få ut mer av sina befintliga investeringar. 

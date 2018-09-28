@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 09/04/2018
+ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 22049ae0903d2735e4c1974c1071eb7582be9823
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a1459e3cbd433e2997ffd822b961ac781a72ca90
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049991"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423535"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och Felsök Node.js-moduler för Azure IoT Edge
 
@@ -37,14 +37,13 @@ Om du vill skapa en modul, behöver du Node.js som innehåller npm för att skap
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) eller [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet. 
 
-Konfigurera lokal utvecklingsmiljö för att felsöka, köra och testa din IoT Edge-lösning måste du [utvecklingsverktyg för Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/). Installera [Python (2.7/3.6) och Pip](https://www.python.org/). Installera sedan **iotedgehubdev** genom att köra nedanstående kommando i terminalen.
+Konfigurera lokal utvecklingsmiljö för att felsöka, köra och testa din IoT Edge-lösning måste du [utvecklingsverktyg för Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/). Installera [Python (2.7/3.6) och Pip](https://www.python.org/). PIP ingår Python-installationsprogrammet. Installera sedan **iotedgehubdev** genom att köra nedanstående kommando i terminalen.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 
 Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edge enhets-ID som skapats. Om du kör IoT Edge-daemon på utvecklingsdator, kan du behöva stoppa EdgeHub och EdgeAgent innan du går vidare till nästa steg. 
-
 
 ## <a name="create-a-new-solution-template"></a>Skapa en ny lösningsmall
 
@@ -56,6 +55,7 @@ Följande steg visar hur du skapar en IoT Edge-modul baserat på Node.js med hj�
    ```cmd/sh
    npm install -g yo generator-azure-iot-edge-module
    ```
+
 3. Gå till Visual Studio Code och välj **Visa** > **Kommandopalett**. 
 4. Skriv i kommandopaletten, och kör kommandot **Azure IoT Edge: nya IoT Edge-lösning**.
 
@@ -90,6 +90,7 @@ När du är redo att anpassa mallen Node.js med din egen kod kan använda den [A
 Visual Studio Code har stöd för Node.js. Läs mer om [hur du arbetar med Node.js i VS Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="launch-and-debug-module-code-without-container"></a>Starta och felsöka modulen kod utan behållare
+
 IoT Edge Node.js-modulen beror på Azure IoT Node.js enhets-SDK. I modul standardkoden du initiera en **ModuleClient** miljöinställningar Indatanamnet, vilket innebär att IoT Edge Node.js-modulen kräver miljöinställningar att starta och köra och du måste också skicka eller dirigera meddelanden att inkommande kanaler. Din standard Node.js-modulen innehåller endast en indatakanal och namnet är **indata1**.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Konfigurera IoT Edge-simulator för enkel modulen app
@@ -158,13 +159,13 @@ I en utvecklingsdator måste starta du IoT Edge-simulator istället för att ins
     "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```
 
-5. Gå till felsökningsvyn VS Code. Välj debug-konfigurationsfil för. Alternativnamn debug bör likna **ModuleName fjärrfelsökning (Node.js)** eller **ModuleName fjärrfelsökning (Node.js i Windows-behållare)**, beroende på din Behållartyp på utvecklingsdator.
+3. Gå till felsökningsvyn VS Code. Välj debug-konfigurationsfil för. Alternativnamn debug bör likna **ModuleName fjärrfelsökning (Node.js)** eller **ModuleName fjärrfelsökning (Node.js i Windows-behållare)**, beroende på din Behållartyp på utvecklingsdator.
 
-6. Välj **Starta felsökning** eller välj **F5**. Välj processen för att ansluta till.
+4. Välj **Starta felsökning** eller välj **F5**. Välj processen för att ansluta till.
 
-7. I VS Code Felsöka vyn visas variabler i den vänstra panelen.
+5. I VS Code Felsöka vyn visas variabler i den vänstra panelen.
 
-8. Stoppa felsökningssessionen genom klicka på stoppknappen eller tryck på **SKIFT + F5**. I VS Code kommandopaletten, och Skriv Välj **Azure IoT Edge: stoppa IoT Edge-simulatorn**.
+6. Stoppa felsökningssessionen genom klicka på stoppknappen eller tryck på **SKIFT + F5**. I VS Code kommandopaletten, och Skriv Välj **Azure IoT Edge: stoppa IoT Edge-simulatorn**.
 
 > [!NOTE]
 > I föregående exempel visar hur du felsöker Node.js IoT Edge-moduler i behållare. Det har lagts till portar i din modul behållare createOptions. När du är klar med att felsöka dina Node.js-moduler rekommenderar vi att du tar bort dessa portar för produktionsklara IoT Edge-moduler.

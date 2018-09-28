@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 7370de72c0015314fb083b6705d5275f0acc4fc4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2bde0661f57acc9507b1f26f6ceb442cefee7947
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698207"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406489"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Hur du använder Service Bus-ämnen och prenumerationer med Ruby
  
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du använder Service Bus-ämnen och prenumeratio
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="create-a-topic"></a>Skapa ett ämne
-Den **Azure::ServiceBusService** objekt kan du arbeta med ämnen. Följande kod skapar ett **Azure::ServiceBusService** objekt. Du kan skapa ett ämne med den `create_topic()` metoden. I följande exempel skapar ett ämne eller skriver ut felen om det finns några.
+Den **Azure::ServiceBusService** objekt kan du arbeta med ämnen. Följande kod skapar ett **Azure::ServiceBusService** objekt. Du kan skapa ett ämne med den `create_topic()` metoden. I följande exempel skapar ett ämne eller skriver ut eventuella fel.
 
 ```ruby
 azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
@@ -58,10 +58,10 @@ topic = azure_service_bus_service.create_topic(topic)
 ## <a name="create-subscriptions"></a>Skapa prenumerationer
 Ämnesprenumerationer skapas också med den **Azure::ServiceBusService** objekt. Prenumerationer är namngivna och kan ha ett valfritt filter som begränsar uppsättningen av meddelanden som levereras till prenumerationens virtuella kö.
 
-Prenumerationer är beständiga och fortsätter att existera tills antingen de eller ämnet som de är associerade med, tas bort. Om programmet innehåller logik för att skapa en prenumeration, bör det först kontrollera om den redan finns med hjälp av metoden getSubscription.
+Prenumerationer är permanent. De fortsätter att existera tills antingen de eller ämnet som de är associerade med, tas bort. Om programmet innehåller logik för att skapa en prenumeration, bör det först kontrollera om den redan finns med hjälp av metoden getSubscription.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Skapa en prenumeration med standardfiltret (MatchAll)
-**MatchAll**-filtret är det standardfilter som används om inget filter anges när en ny prenumeration skapas. När den **MatchAll** filter används, alla meddelanden som publiceras till ämnet placeras i prenumerationens virtuella kö. I följande exempel skapar en prenumeration med namnet ”alla meddelanden” och använder förvalet **MatchAll** filter.
+Om inget filter anges när en ny prenumeration skapas den **MatchAll** filter (standard) används. När den **MatchAll** filter används, alla meddelanden som publiceras till ämnet placeras i prenumerationens virtuella kö. I följande exempel skapar en prenumeration med namnet ”alla meddelanden” och använder förvalet **MatchAll** filter.
 
 ```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "all-messages")
@@ -109,7 +109,7 @@ När ett meddelande skickas nu till `test-topic`, det är alltid ska levereras t
 ## <a name="send-messages-to-a-topic"></a>Skicka meddelanden till ett ämne
 Om du vill skicka ett meddelande till en Service Bus-ämne, ditt program måste använda den `send_topic_message()` metoden på den **Azure::ServiceBusService** objekt. Meddelanden som skickas till Service Bus-ämnen är instanser av den **Azure::ServiceBus::BrokeredMessage** objekt. **Azure::ServiceBus::BrokeredMessage** objekt har en uppsättning standardegenskaper (t.ex `label` och `time_to_live`), en ordlista som används för att lagra anpassade egenskaper för programspecifika och en brödtext med strängdata. Ett program kan konfigurera meddelandets brödtext genom att skicka ett strängvärde till den `send_topic_message()` metoden och eventuella nödvändiga standardegenskaper fylls med standardvärden.
 
-I följande exempel visar hur du skickar fem testmeddelanden till `test-topic`. Observera att den `message_number` anpassade egenskapsvärdet för varje meddelande varierar på upprepning av loopen (detta avgör vilken prenumeration som tar emot det):
+I följande exempel visar hur du skickar fem testmeddelanden till `test-topic`. Den `message_number` anpassade egenskapsvärdet för varje meddelande varierar på upprepning av loopen (det avgör vilken prenumeration som tar emot det):
 
 ```ruby
 5.times do |i|
@@ -124,9 +124,9 @@ Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standar
 ## <a name="receive-messages-from-a-subscription"></a>Ta emot meddelanden från en prenumeration
 Meddelanden tas emot från en prenumeration med hjälp av den `receive_subscription_message()` metoden på den **Azure::ServiceBusService** objekt. Som standard meddelanden read(peak) och låst utan att ta bort den från prenumerationen. Du kan läsa och ta bort meddelandet från prenumerationen genom att ange den `peek_lock` alternativet att **FALSKT**.
 
-Standardbeteendet gör medan läsningen och tar bort en åtgärd i två steg, vilket gör det också möjligt att stödja program som inte tolererar att saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört behandlingen av meddelandet (eller lagrar den på ett tillförlitligt sätt för framtida bearbetning), den är klar det andra steget i processen genom att anropa `delete_subscription_message()` metod och ge meddelanden som ska tas bort som en parameter. Den `delete_subscription_message()` metoden att markera meddelandet som Förbrukat och ta bort den från prenumerationen.
+Standardbeteendet gör medan läsningen och tar bort en åtgärd i två steg, vilket gör det också möjligt att stödja program som inte tolererar att saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört behandlingen av meddelandet (eller lagrar den på ett tillförlitligt sätt för framtida bearbetning), den är klar det andra steget i processen genom att anropa `delete_subscription_message()` metod och ge meddelanden som ska tas bort som en parameter. Den `delete_subscription_message()` metoden markerar meddelandet som Förbrukat och ta bort den från prenumerationen.
 
-Om den `:peek_lock` parametern är inställd på **FALSKT**, läsa och radera meddelandet blir den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera icke-bearbetning av ett meddelande om ett fel inträffar. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran. Eftersom Service Bus kommer att ha markerat meddelandet som Förbrukat, att sedan när programmet startas om och börjar förbruka meddelanden igen, ha missat meddelandet som förbrukades innan kraschen.
+Om den `:peek_lock` parametern är inställd på **FALSKT**, läsa och radera meddelandet blir den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera icke-bearbetning av ett meddelande när ett fel uppstår. Tänk dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan bearbetningen. Eftersom Service Bus har markerat meddelandet som Förbrukat, har sedan när programmet startas om och börjar förbruka meddelanden igen, det missat meddelandet som förbrukades innan kraschen.
 
 Följande exempel visar hur meddelanden kan tas emot och bearbetat använder `receive_subscription_message()`. I exempel först tar emot och tar bort ett meddelande från den `low-messages` prenumeration med hjälp av `:peek_lock` inställd **FALSKT**, och sedan den får ett nytt meddelande från den `high-messages` och tar bort meddelandet med `delete_subscription_message()`:
 
@@ -139,14 +139,14 @@ azure_service_bus_service.delete_subscription_message(message)
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Hantera programkrascher och oläsbara meddelanden
-Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagarprogram är det går inte att bearbeta meddelandet av någon anledning så kan det anropa den `unlock_subscription_message()` metoden på den **Azure::ServiceBusService** objekt. Detta gör att Service Bus låser upp meddelandet i prenumerationen och gör det tillgängligt att tas emot igen, antingen genom att samma användningsprogram eller ett annat användningsprogram.
+Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagarprogram är det går inte att bearbeta meddelandet av någon anledning så kan det anropa den `unlock_subscription_message()` metoden på den **Azure::ServiceBusService** objekt. Det gör att Service Bus att låsa upp meddelandet i prenumerationen och gör det tillgängligt att tas emot igen, antingen genom samma användningsprogram eller ett annat användningsprogram.
 
-Det finns också en tidsgräns som är associerade med ett meddelande som ligger låst i prenumerationen om programmet inte kan bearbeta meddelandet innan timeout för lås går ut (till exempel om programmet kraschar), kommer Service Bus låser upp meddelandet automatiskt och gör det tillgängligt att tas emot igen.
+Det finns också en tidsgräns som är associerade med ett meddelande som ligger låst i prenumerationen om programmet misslyckas med att bearbeta meddelandet innan låset tidsgränsen har nåtts (till exempel om programmet kraschar), så att Service Bus låser upp meddelandet automatiskt och gör det tillgängligt att tas emot igen.
 
-I händelse av att programmet kraschar efter behandlingen av meddelandet men innan den `delete_subscription_message()` metoden anropas sedan meddelandet once till programmet när den startas om. Det här kallas ofta *minst Processing*; det vill säga varje meddelande bearbetas minst en gång men i vissa situationer kan samma meddelande kan levereras. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Den här logiken uppnås ofta med hjälp av den `message_id` egenskapen för meddelandet som förblir konstant under alla leveransförsök.
+I händelse av att programmet kraschar efter behandlingen av meddelandet men innan den `delete_subscription_message()` metoden anropas sedan meddelandet once till programmet när den startas om. Det kallas ofta *bearbetning minst en gång*; dvs varje meddelande bearbetas minst en gång men i vissa situationer kan samma meddelande kan levereras. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Den här logiken uppnås ofta med hjälp av den `message_id` för meddelandet, förblir konstant under alla leveransförsök.
 
 ## <a name="delete-topics-and-subscriptions"></a>Ta bort ämnen och prenumerationer
-Ämnen och prenumerationer är beständiga och måste vara explicit bort antingen via den [Azure-portalen] [ Azure portal] eller programmässigt. Exemplet nedan visar hur du tar bort ämnet med namnet `test-topic`.
+Ämnen och prenumerationer är beständiga och måste vara explicit bort antingen via den [Azure-portalen] [ Azure portal] eller programmässigt. I följande exempel visar hur du tar bort ämnet med namnet `test-topic`.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

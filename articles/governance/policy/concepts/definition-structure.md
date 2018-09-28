@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7a1b7b7f970aff620ce01e340c5e56326f4a4a35
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 329bba11c95056b038fdab5041637cbb6a0feb6a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055092"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407271"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -81,6 +81,10 @@ Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla 
 
 Parametrar underlätta hanteringen av principer genom att minska antalet principdefinitioner. Tänk på parametrar som fält i ett formulär – `name`, `address`, `city`, `state`. Dessa parametrar desamma alltid, men deras värden ändras baserat på enskilda fyller i formuläret.
 Parametrar fungerar på samma sätt som när du skapar principer. Du kan återanvända principen för olika scenarier med hjälp av olika värden genom att lägga till parametrar i en principdefinition.
+
+> [!NOTE]
+> Parametrarna-definition för en princip eller initiativdefinition kan endast konfigureras under inledande genereringen av principen eller initiativ. Definitionen för parametrar kan inte ändras senare.
+> Detta förhindrar att befintliga tilldelningar för principen eller initiativ indirekt görs ogiltig.
 
 Exempelvis kan definiera du en princip för en resursegenskap att begränsa de platser där resurser kan distribueras. I det här fallet skulle du deklarera följande parametrar när du skapar en princip:
 

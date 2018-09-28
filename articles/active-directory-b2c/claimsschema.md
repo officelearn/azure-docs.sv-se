@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 76fdf532a35cbe16543bc49b5c02fad5d86690d5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 364600d4c1c53f4e5fe726d443287bf1a5f2d4ec
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719006"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419176"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -268,7 +268,7 @@ Den **lösenord** typ av användarindata som används för att registrera ett l�
 
 ### <a name="datetimedropdown"></a>DateTimeDropdown
 
-Den **DateTimeDropdown** typ av användarindata som används för att tillhandahålla en uppsättning listrutor för att välja en dag, månad och år.
+Den **DateTimeDropdown** typ av användarindata som används för att tillhandahålla en uppsättning listrutor för att välja en dag, månad och år. Du kan använda predikat och PredicateValidations element för att kontrollera lägsta och högsta datumvärden. Mer information finns i den **konfigurera ett datumintervall** delen av [predikat och PredicateValidations](predicates.md).
 
 ![Med hjälp av Anspråkstypen med datetimedropdown](./media/claimsschema/datetimedropdown.png)
 

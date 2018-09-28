@@ -9,19 +9,19 @@ ms.author: estfan
 ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
-ms.date: 09/24/2018
-ms.openlocfilehash: fd92b093b70dba2df3ec645b3ecb77233d3ebd5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 36e8161eb8be16b75d843a2b7a65fc3dd70d9c02
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958364"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405296"
 ---
 # <a name="create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Skapa och hantera arbetsflöden i automatiserade logikappar – Visual Studio Code
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och Visual Studio Code, som du kan skapa och hantera logikappar som hjälper dig att automatisera uppgifter, arbetsflöden och processer för att integrera appar, data, system och tjänster mellan organisationer och företag. Den här artikeln visar hur du kan skapa och redigera arbetsflöde för logikappsdefinitioner genom att arbeta i en kodbaserad upplevelse. Du kan också arbeta med logikappar som redan distribuerats till <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> i molnet. 
 
-Även om du kan utföra samma uppgifter i den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> och i Visual Studio kan du börja snabbare i Visual Studio Code när du vill arbeta direkt i koden. Exempel: du kan också inaktivera, aktivera, ta bort och uppdatera redan skapat logikappar.
+Även om du kan utföra samma uppgifter i den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> och i Visual Studio kan du börja snabbare i Visual Studio Code när du vill arbeta direkt i koden. Exempel: du kan också inaktivera, aktivera, ta bort och uppdatera redan skapat logikappar. Dessutom kan du arbeta i logic apps och integrationskonton från alla plattformar där Visual Studio Code körs, till exempel Linux, Windows och Mac.
 
 I den här artikeln skapar du samma logikapp som i den [Snabbstart för att skapa en logikapp i Azure-portalen](../logic-apps/quickstart-create-first-logic-app-workflow.md), som mer fokuserar på de grundläggande begreppen. I Visual Studio Code ser logikappen ut som i följande exempel:
 
@@ -43,7 +43,7 @@ Innan du börjar bör du kontrollera att du har följande:
 
   * Visual Studio Code-tillägg för Azure Logic Apps
 
-    Du kan installera tillägget från inuti Visual Studio Code. 
+    Du kan installera tillägget från den [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) eller direkt från inuti Visual Studio Code. 
     Kontrollera att du ladda om Visual Studio Code när du har installerat. 
 
     ![Hitta ”Visual Studio Code-tillägg för Azure Logic Apps”](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
@@ -52,7 +52,7 @@ Innan du börjar bör du kontrollera att du har följande:
 
     ![Installerade tillägg](./media/create-logic-apps-visual-studio-code/installed-extension.png)
 
-    Mer information finns i <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">tillägget Marketplace</a>. 
+    Mer information finns i <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">tillägget Marketplace</a>. Du kan också visa och skicka in bidrag till det här tillägget öppen källkod version genom att besöka den [Azure Logic Apps-tillägg för Visual Studio Code på GitHub](https://github.com/Microsoft/vscode-azurelogicapps). 
 
 <a name="sign-in-azure"></a>
 

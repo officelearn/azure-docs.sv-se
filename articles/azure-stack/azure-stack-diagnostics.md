@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616957"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419618"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Verktyg för Azure Stack-diagnostik
 
@@ -124,7 +124,7 @@ if($s)
  |ACSFabric|DatacenterIntegration|KeyVaultControlPlane|SeedRingServices|
  |ACSFrontEnd|DeploymentMachine|KeyVaultDataPlane|SLB|
  |ACSMetrics|DiskRP|KeyVaultInternalControlPlane|SlbVips|
- |ACSMigrationService|Domän|KeyVaultInternalDataPlane|SQL|
+ |ACSMigrationService|Domain|KeyVaultInternalDataPlane|SQL|
  |ACSMonitoringService|FN|KeyVaultNamingService|SRP|
  |ACSSettingsService|EventAdminRP|MDM|Storage|
  |ACSTableMaster|EventRP|MetricsAdminRP|StorageAccounts|
@@ -143,14 +143,6 @@ if($s)
  |Molnet|identityProvider|OnboardRP|     |   
  |Kluster|IDN: er|PXE|     |
  |   |   |   |    |
-
-
-### <a name="bkmk_gui"></a>Samla in loggar med ett grafiskt användargränssnitt
-I stället för att tillhandahålla de obligatoriska parametrarna för cmdleten Get-AzureStackLog att hämta Azure Stack-loggar, du kan också använda tillgängliga öppen källkod Azure Stack-verktyg som finns i Azure Stack verktyg GitHub verktyg huvudlagringsplatsen på http://aka.ms/AzureStackTools.
-
-Den **ERCS_AzureStackLogs.ps1** PowerShell-skriptet lagras i GitHub-lagringsplatsen verktyg och uppdateras regelbundet. Så att du har den senast tillgängliga versionen, bör du hämta den direkt från http://aka.ms/ERCS. Startats från en administrativ PowerShell-session, skriptet ansluter till privilegierad slutpunkt och kör Get-AzureStackLog med angivna parametrar. Om inga parametrar har angetts som skriptet standard fråga om parametrar via ett grafiskt användargränssnitt.
-
-Om du vill veta mer om ERCS_AzureStackLogs.ps1 PowerShell-skriptet kan du titta på [en kort video](https://www.youtube.com/watch?v=Utt7pLsXEBc) eller visa skriptets [readme-filen](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) finns i GitHub-lagringsplatsen Azure Stack-verktyg. 
 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på
 

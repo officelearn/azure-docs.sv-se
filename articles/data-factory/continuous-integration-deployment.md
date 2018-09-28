@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 587c4c0804de809431bf9e731e7533f0d75770d9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ff112459ef23930329fc1959a633bd6f505893a1
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392626"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419614"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
@@ -720,7 +720,7 @@ Här är en exempelmall för distribution som du kan importera i Azure-Pipelines
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Exempel på skript att stoppa och starta om utlösare och rensa
 
-Här är ett exempelskript som du vill sluta utlösare före distributionen och starta om utlösare efteråt. Skriptet innehåller också kod för att ta bort resurser som har tagits bort.
+Här är ett exempelskript som du vill sluta utlösare före distributionen och starta om utlösare efteråt. Skriptet innehåller också kod för att ta bort resurser som har tagits bort. Om du vill installera den senaste versionen av Azure PowerShell, se [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param

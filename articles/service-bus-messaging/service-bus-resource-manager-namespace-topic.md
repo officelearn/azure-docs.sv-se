@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: b5512186913eb59be2b89ce8b8bb9fb881f59cd8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08b4ef6ea59123524500188428eb0bc03d85138b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699829"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409991"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med ämne och en prenumeration med en Azure Resource Manager-mall
 
 Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett Service Bus-namnområde och ett ämne och en prenumeration inom namnområdet. Den här artikeln beskriver hur du ange vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav
 
-Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
+Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
 
 Läs den fullständiga mallen, den [Service Bus-namnområde med ämne och prenumeration] [ Service Bus namespace with topic and subscription] mall.
 
@@ -41,7 +41,7 @@ Läs den fullständiga mallen, den [Service Bus-namnområde med ämne och prenum
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
+## <a name="what-do-you-deploy"></a>Vad du distribuera?
 
 Med den här mallen kan du distribuera ett Service Bus-namnområde med ämne och prenumeration.
 
@@ -53,9 +53,9 @@ Klicka på följande knapp för att köra distributionen automatiskt:
 
 ## <a name="parameters"></a>Parametrar
 
-Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parametervärden. Du bör definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
+Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parametervärden. Definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
 
-Mallen definierar följande parametrar.
+Mallen definierar följande parametrar:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Namnet på Service Bus-namnområdet för att skapa.

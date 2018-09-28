@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: f5fa68488fa8130ad49da37c91b7f4c04376edb3
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: b32f388974f03ece206ae4eaece39f1a242d31e2
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42440687"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408552"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, aktivering av multisite synkronisering och molnlagringsnivåer funktioner. Därför måste måste en lokal server vara ansluten till internet. IT-administratör måste avgöra den bästa vägen för att servern ska få åtkomst till Azure-molntjänster.
@@ -93,13 +93,14 @@ Port 443 måste vara öppna utgående som nämns i föregående avsnitt. Baserat
 
 I följande tabell beskrivs domänerna som krävs för kommunikation:
 
-| Tjänst | Domän | Användning |
+| Tjänst | Domain | Användning |
 |---------|----------------|------------------------------|
 | **Azure Resource Manager** | https://management.azure.com | Ett anrop för användaren (till exempel PowerShell) går till/igenom den här URL: en, inklusive inledande server registrering anropet. |
 | **Azure Active Directory** | https://login.windows.net | Azure Resource Manager-anrop måste göras av en autentiserad användare. Ska lyckas, används den här URL: en för autentisering av användare. |
 | **Azure Active Directory** | https://graph.windows.net/ | Som en del av att distribuera Azure File Sync, skapas ett huvudnamn för tjänsten i prenumerationens Azure Active Directory. Den här URL: en används för detta. Den här huvudnamn används för att delegera en minimal uppsättning rättigheter till Azure File Sync-tjänsten. Användaren som utför installationen av Azure File Sync måste vara en autentiserad användare med behörighet för ägare av prenumerationen. |
 | **Azure Storage** | &ast;.core.windows.net | När servern hämtar en fil, utför servern sedan den dataförflyttning mer effektivt när man talar direkt till Azure-filresursen i Lagringskontot. Servern har en SAS-nyckel som endast tillåter för åtkomst till resursen för filen. |
 | **Azure File Sync** | &ast;.one.microsoft.com | Efter den inledande serverregistrering servern tar emot en regional URL för Azure File Sync-tjänstinstansen i den regionen. Servern kan använda URL: en för att kommunicera direkt och effektivt med hantering av dess sync-instans. |
+| **Microsoft PKI** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | När Azure File Sync-agenten har installerats, används PKI-URL: en för att ladda ned mellanliggande certifikat som krävs för att kommunicera med Azure File Sync-tjänsten. OCSP-URL: en används för att kontrollera status för ett certifikat. |
 
 > [!Important]
 > När så att trafik kan &ast;. one.microsoft.com, trafik till mer än bara synkroniseringstjänsten går från servern. Det finns många fler Microsoft-tjänster som är tillgängliga under underdomäner.

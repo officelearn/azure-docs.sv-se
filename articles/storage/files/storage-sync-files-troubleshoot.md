@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 88c73b3c9fd3ffc0c323b9971e245e6f6d9695a0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095546"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409481"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -22,7 +22,7 @@ Den här artikeln är utformad för att hjälpa dig att felsöka och lösa probl
 
 1. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [UserVoice för Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft Support. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
+3. Microsoft-supporten. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Jag har problem med Azure File Sync på Min server (sync, cloud lagringsnivåer, etc.). Ta bort och återskapa min serverslutpunkt
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -224,7 +224,7 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Felsöka per synkroniseringsfel för filen eller katalogen
 **ItemResults log - per-item synkroniseringsfel**  
-| HRESULT | HRESULT (decimal) | Felsträng | Problem | Reparation |
+| HRESULT | HRESULT (decimal) | Felsträng | Problem | Åtgärd |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | Filen har genererat permanenta fel under synkronisering och därför endast försök att synkronisera en gång per dag. Det underliggande felet finns i en tidigare händelselogg. | I agenter R2 (2.0) och senare, det ursprungliga felet i stället för den här visas. Uppgradera till den senaste agenten för att se det underliggande felet eller titta på tidigare händelseloggar för att hitta orsaken till det ursprungliga felet. |
 | 0x7B | 123 | ERROR_INVALID_NAME | Namnet på filen eller katalogen är ogiltig. | Byt namn på filen eller katalogen i fråga. Se [Azure Files riktlinjerna för namngivning](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) och listan med tecken som inte stöds nedan. |
@@ -233,17 +233,16 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. Azure File Sync skapas en tillfällig VSS-ögonblicksbild en gång om dagen på servern för att synkronisera filer som har öppna referenser. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Fil- eller katalogändring kan inte synkroniseras än eftersom en beroende mapp inte har synkroniserats ännu. Det här objektet synkroniseras när de beroende ändringarna har synkroniserats. | Ingen åtgärd krävs. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen, så den behöver för att synkronisera igen. | Ingen åtgärd krävs. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen och måste därför synkroniseras igen. | Ingen åtgärd krävs. |
 
 #### <a name="handling-unsupported-characters"></a>Hantering av stöds inte tecken
-Om den **FileSyncErrorsReport.ps1** PowerShell-skript visar fel på grund av tecken som inte stöds (felkoder 0x7b och 0x8007007b), bör du ta bort eller byta namn på tecknen vid fel från respektive filerna. PowerShell kommer sannolikt att skriva ut dessa tecken som frågetecken eller tom rektanglar eftersom de flesta av dessa tecken har ingen standard visuell kodning.
+Om den **FileSyncErrorsReport.ps1** PowerShell-skript visar fel på grund av tecken som inte stöds (felkoder 0x7b och 0x8007007b), bör du ta bort eller byta namn på tecknen vid fel från respektive filerna. PowerShell kommer sannolikt att skriva ut dessa tecken som frågetecken eller tom rektanglar eftersom de flesta av dessa tecken har ingen standard visuell kodning. Den [Evalation verktyget](storage-sync-files-planning.md#evaluation-tool) kan användas för att identifiera tecken som inte stöds.
 
 Tabellen nedan innehåller alla Azure File Sync inte har stöd för Unicode-tecken.
 
 | Teckenuppsättning | Antal tecken |
 |---------------|-----------------|
 | <ul><li>0x0000009D (osc operativsystemkommando)</li><li>0x00000090 (domänkontrollanter enheten kontroll sträng)</li><li>0x0000008F (ss3 enda SKIFT tre)</li><li>0x00000081 (hög oktetten förinställning)</li><li>0x0000007F (del ta bort)</li><li>0x0000008D (ri omvänd radmatning)</li></ul> | 6 |
-| <ul><li>0x0000200F (höger-till-vänster mark)</li><li>0x0000200E (vänster till höger märkt)</li><li>0x0000202E (höger-till-vänster åsidosättning)</li><li>0x0000202D (vänster till höger åsidosättning)</li><li>0x0000202C (pop riktad formatering)</li><li>0x0000202B (höger-till-vänster inbäddning)</li><li>0x0000202A (vänster till höger inbäddning)</li></ul> | 7 |
 | 0x0000FDD0 - 0x0000FDEF (arabiska presentation formulär-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (Special) | 16 |
 | <ul><li>0x0001FFFE - 0x0001FFFF = 2 (noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2 (noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (odefinierat)</li><li>0x000FFFFE - 0x000FFFFF = 2 (kompletterande privat bruk område)</li></ul> | 30 |
@@ -423,7 +422,7 @@ Det här felet kan inträffa om organisationen använder en avslutande SSL-proxy
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Genom att ange det här registervärdet godtar Azure File Sync-agenten ett lokalt betrodda SSL-certifikat när data överförs mellan servern och Molntjänsten.
+När det här registervärdet har angetts godkänner Azure File Sync-agenten alla lokalt betrodda SSL-certifikat vid överföring av data mellan servern och molntjänsten.
 
 <a id="-2147012894"></a>**Det gick inte att upprätta en anslutning till tjänsten.**  
 | | |
@@ -516,7 +515,7 @@ I fall där det finns många per fil synkroniseringsfel, synkroniseringssessione
 | **Felsträng** | ECS_E_SYNC_INVALID_PATH |
 | **Reparation krävs** | Ja |
 
-Se till att sökvägen finns, finns på en lokal NTFS-volym och är inte en referenspunkt eller en befintlig server-slutpunkt.
+Se till att sökvägen finns, är på en lokal NTFS-volym och att den inte är en referenspunkt eller befintlig serverslutpunkt.
 
 <a id="-2134376373"></a>**Tjänsten är inte tillgänglig för tillfället.**  
 | | |

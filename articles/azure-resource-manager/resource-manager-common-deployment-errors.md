@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8da582750b5e20ddd7018f59292e7342f1628c8c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9ef0b3d9ae0cea5082a5c764012958f02113fe9a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425391"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408495"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distributionsfel med Azure Resource Manager
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver några vanliga Azure-distribution-fel du kan stöta 
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Följ namngivningsbegränsningar för storage-konton. | [Lösa lagringskontonamn](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Kontrollera tillgängligt lagringsutrymme kontoegenskaperna. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | Det kluster eller en region har inte resurser som är tillgängliga eller har inte stöd för den begärda VM-storleken. Gör om begäran vid ett senare tillfälle eller be en annan VM-storlek. | [Problem med etablering och allokering för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problem med etablering och allokering för Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) och [Felsök Allokeringsfel](../virtual-machines/windows/allocation-failure.md)|
+| AllocationFailed | Det kluster eller en region har inte resurser som är tillgängliga eller har inte stöd för den begärda VM-storleken. Gör om begäran vid ett senare tillfälle eller be en annan VM-storlek. | [Problem med etablering och allokering för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problem med etablering och allokering för Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) och [Felsök Allokeringsfel](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Vänta tills samtidiga åtgärden har slutförts. | |
 | AuthorizationFailed | Ditt konto eller tjänstens huvudnamn har inte behörighet att slutföra distributionen. Kontrollera ditt konto tillhör rollen och dess åtkomst för distributionsomfattningen. | [Rollbaserad åtkomstkontroll i Azure](../role-based-access-control/role-assignments-portal.md) |
 | BadRequest | Du har skickat distribution värden som inte matchar vad som förväntas av Resource Manager. Kontrollera det inre statusmeddelanden för att få hjälp med felsökning. | [Mallreferensen](/azure/templates/) och [platser som stöds](resource-manager-templates-resources.md#location) |

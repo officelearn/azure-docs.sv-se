@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f17a65befc1abbe2a2405e8470f61068ac34f8b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394819"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422634"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Ändra profilinformationen Azure-konto, till exempel kontaktpersonens e-postadress, adress och telefonnummer
 
@@ -55,10 +55,6 @@ Läs hur du uppdaterar din faktureringsinformation i [ändra det kreditkort som 
 ### <a name="why-cant-i-update-the-country"></a>Varför kan jag uppdatera landet?
 
 Vi kan inte ändra land för ett befintligt konto på grund av tekniska begränsningar. Du kan dock skapa ett konto i det önskade landet och sedan kontakta Azures support och migrera dina tjänster till det kontot.
-
-### <a name="what-email-address-does-the-azure-billing-alerts-preview-feature-use"></a>Vilken e-postadress har Azure Faktureringsvarningar Förhandsgranska funktion används?
-
-Du får aviseringsmeddelanden till e-postadress som du lägger till när du registrerar dig för aviseringarna. E-postadressen används för aviseringar är separat från e-postadressen som kontoadministratör. Mer information finns i [ställa in faktureringsvarningar för dina Microsoft Azure-prenumerationer](billing-set-up-alerts.md).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 

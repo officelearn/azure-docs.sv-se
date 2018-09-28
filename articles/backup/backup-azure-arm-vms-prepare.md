@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 80987408e65785afba1df2d2f6b6fc9981fd2dbf
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 00432e1b5a181c57e4901b684d0a86c1cc843037
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542828"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408988"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -47,7 +47,7 @@ Om dessa villkor finns redan i din miljö, fortsätter du till den [säkerhetsko
 Innan du förbereder din miljö måste du förstå följande begränsningar:
 
 * Säkerhetskopiera virtuella datorer med Standard SSD stöds inte för närvarande.
-* Säkerhetskopiering av virtuella datorer med fler än 16 datadiskar stöds inte.
+* Säkerhetskopiering av virtuella datorer med mer än 32 datadiskar stöds inte.
 * Säkerhetskopiering av virtuella datorer med en reserverad IP-adress och ingen definierad slutpunkt stöds inte.
 * Säkerhetskopiera virtuella Linux-datorer krypteras med kryptering för Linux Unified nyckel installationsprogrammet (LUKS) stöds inte.
 * Vi rekommenderar inte att du säkerhetskopierar virtuella datorer som innehåller klusterdelade volymer (CSV) eller skalbar filserver. Om gjort, förväntas fel i CSV-skrivare. De kräver som omfattar alla virtuella datorer som ingår i klusterkonfigurationen under en ögonblicksbild-aktivitet. Azure Backup stöder inte konsekvens. 

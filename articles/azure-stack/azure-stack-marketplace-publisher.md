@@ -12,60 +12,64 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/14/2017
+ms.date: 9/26/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 0ade78dd992e8d1d2eda2cf27d44e52c4030563f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: ''
+ms.openlocfilehash: 518384776f777c3ea7cbd636dd2a48d919952f28
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630944"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409124"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Lägg till marketplace-objekt med Publiceringsverktyget
-Att lägga till ditt innehåll till den [Azure Stack Marketplace](azure-stack-marketplace.md) gör dina lösningar tillgängliga för dig och dina klienter för distribution.  Marketplace-Toolkit skapar Azure Marketplace-paket (.azpkg) filer baserat på IaaS Azure Resource Manager-mallar eller VM-tillägg.  Du kan också använda verktyget Marketplace för att publicera .azpkg filer, antingen som skapats med verktyget eller med hjälp av [manuell](azure-stack-create-and-publish-marketplace-item.md) steg.  Det här avsnittet hjälper dig att hämta verktyget, skapa ett marketplace-objekt baserat på en mall för virtuell dator och sedan publicera objekt i Azure Stack Marketplace.     
 
+Att lägga till ditt innehåll till den [Azure Stack Marketplace](azure-stack-marketplace.md) gör dina lösningar tillgängliga för dig och dina klienter för distribution. Marketplace-toolkit skapar Azure Marketplace (.azpkg) paketfilerna baserat på dina IaaS Azure Resource Manager-mallar eller VM-tillägg. Du kan också använda verktyget Marketplace för att publicera .azpkg filer, antingen som skapats med verktyget eller med hjälp av [manuell](azure-stack-create-and-publish-marketplace-item.md) steg. Det här avsnittet beskriver hämta verktyget, skapa ett marketplace-objekt baserat på en mall för virtuell dator och sedan publicera objekt i Azure Stack Marketplace.     
 
 ## <a name="prerequisites"></a>Förutsättningar
+
  - Du måste köra verktyget på Azure Stack-värden eller har [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) anslutningen från den dator där du kör verktyget.
 
  - Ladda ned den [Azure Stack-snabbstartmallar](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) och extrahera.
 
  - Ladda ned den [Azure-galleriet paketering verktyget](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
 
- - Publicering på Marketplace kräver ikoner och en miniatyr fil.  Du kan använda din egen eller spara den [exempel](azure-stack-marketplace-publisher.md#support-files) filer lokalt i det här exemplet.
+ - Publicering på Marketplace kräver ikoner och en miniatyr fil. Du kan använda din egen eller spara den [exempel](azure-stack-marketplace-publisher.md#support-files) filer lokalt i det här exemplet.
 
 ## <a name="download-the-tool"></a>Ladda ned verktyget
-Marketplace-Toolkit kan vara [hämtas från lagringsplatsen för Azure Stack Tools](azure-stack-powershell-download.md).
 
+Du kan hämta verktyget Marketplace [från lagringsplatsen för Azure Stack Tools](azure-stack-powershell-download.md).
 
 ##  <a name="create-marketplace-items"></a>Skapa marketplace-objekt
-I det här avsnittet använder du Marketplace Toolkit för att skapa ett paket för marketplace-objekt i .azpkg format.  
+
+I det här avsnittet använder du Marketplace toolkit för att skapa ett paket för marketplace-objekt i .azpkg format.  
 
 ### <a name="provide-marketplace-information-with-wizard"></a>Ange marketplace information med guiden
-1. Kör verktyget Marketplace från en PowerShell-session:
-```PowerShell
-    .\MarketplaceToolkit.ps1
-```
 
-2. Klicka på den **lösning** fliken.  Den här skärmen godkänner information om dina marketplace-objekt. Ange information om dina objekt som du vill ska visas i marketplace.  Du kan också ange en [parameterfilen](azure-stack-marketplace-publisher.md#use-a-parameters-file) att fylla i formuläret.  
+1. Kör verktyget Marketplace från en PowerShell-session:
+   ```PowerShell
+   .\MarketplaceToolkit.ps1
+   ```
+
+2. Klicka på den **lösning** fliken. Den här skärmen godkänner information om dina marketplace-objekt. Ange information om dina objekt som du vill ska visas i marketplace. Du kan också ange en [parameterfilen](azure-stack-marketplace-publisher.md#use-a-parameters-file) att fylla i formuläret.  
     
     ![Skärmbild av Marketplace Toolkit första skärmen](./media/azure-stack-marketplace-publisher/image7.png)
-3. Klicka på **Bläddra** och välj en bildfil för varje ikon och skärmbild fält.  Du kan använda din egen ikoner eller exempel ikonerna i det [stödfiler](azure-stack-marketplace-publisher.md#support-files) avsnittet.
-4. När alla fält har fyllts i, väljer du ”förhandsversion lösning” för en förhandsversion av lösningen i Marketplace.  Du kan ändra och redigera text, bilder och skärmbild innan du klickar på **nästa**.  
+3. Klicka på **Bläddra** och välj en bildfil för varje ikon och skärmbild fält. Du kan använda din egen ikoner eller exempel ikonerna i det [stödfiler](azure-stack-marketplace-publisher.md#support-files) avsnittet.
+4. När alla fält har fyllts i, väljer du ”förhandsversion lösning” för en förhandsversion av lösningen i Marketplace. Du kan ändra och redigera text, bilder och skärmbild innan du klickar på **nästa**.  
 
 ### <a name="import-template-and-create-package"></a>Importera mallen och skapa paket
+
 I det här avsnittet ska du importera mallen och arbeta med indata för din lösning.
 
 1.  Klicka på **Bläddra** och välj den *azuredeploy.json* från mappen 101-enkel-Windows-VM i de hämta mallarna.
 
     ![Skärmbild av andra Marketplace Toolkit-skärmen](./media/azure-stack-marketplace-publisher/image8.png)
-2.  Guiden fylls med en *grundläggande* steg och indata objekt för varje parameter som angetts i mallen.  Du kan lägga till fler steg och flytta indata mellan stegen.  Exempelvis kan du ”Front-End-konfiguration” och ”serverdel” konfigurationssteg för din lösning.
+2.  Guiden fylls med en *grundläggande* steg och indata objekt för varje parameter som angetts i mallen. Du kan lägga till fler steg och flytta indata mellan stegen. Exempelvis kan du ”Front-End-konfiguration” och ”serverdel” konfigurationssteg för din lösning.
 3.  Ange sökvägen till AzureGalleryPackager.exe.  
-4.  Klicka på **skapa** och Marketplace-verktyget paketerar din lösning i en .azpkg-fil.  När du är klar visar sökvägen till lösningsfilen med din i guiden och ger dig möjlighet att fortsätta publicera ditt paket till Azure Stack.
-
+4.  Klicka på **Skapa**. Marketplace-verktyget paketerar din lösning i en .azpkg-fil. När du är klar visar sökvägen till lösningsfilen med din i guiden och ger dig möjlighet att fortsätta publicera ditt paket till Azure Stack.
 
 ## <a name="publish-marketplace-items"></a>Publicera marketplace-objekt
+
 I det här avsnittet kan publicera du marketplace-objekt till din Azure Stack Marketplace.
 
 ![Skärmbild av Marketplace Toolkit första skärmen](./media/azure-stack-marketplace-publisher/image9.png)
@@ -74,20 +78,20 @@ I det här avsnittet kan publicera du marketplace-objekt till din Azure Stack Ma
     
     |Fält|Beskrivning|
     |-----|-----|
-    | Admin-tjänstnamn | Tjänstadministratörskontot.  Exempel:  ServiceAdmin@mydomain.onmicrosoft.com |
+    | Admin-tjänstnamn | Tjänstadministratörskontot.  Exempel: ServiceAdmin@mydomain.onmicrosoft.com |
     | Lösenord | Lösenord för administratörskontot för tjänsten. |
-    | API-slutpunkt | Azure Stack Azure Resource Manager-slutpunkt.  Exempel: management.local.azurestack.external |
+    | API-slutpunkt | Azure Stack Azure Resource Manager-slutpunkt. Exempel: management.local.azurestack.external |
 2.  Klicka på **publicera** och publicera loggen visas.
 3.  Du kan nu distribuera din publicerade objekt via Azure Stack-portalen.
 
-
 ## <a name="use-a-parameters-file"></a>Använd en fil med parametrar
+
 Du kan också använda en fil med parametrar för att slutföra artikelinformation marketplace.  
 
 Marketplace-verktygen innehåller en *solution.parameters.ps1* du kan använda för att skapa en egen fil med parametrar.
 
-
 ## <a name="support-files"></a>Stöd för filer
+
 | Beskrivning | Exempel |
 | ----- | ----- |
 | 40 x 40 .png-ikon | ![](./media/azure-stack-marketplace-publisher/image1.png) |
@@ -96,4 +100,7 @@ Marketplace-verktygen innehåller en *solution.parameters.ps1* du kan använda f
 | 255 x 115 .png-ikon | ![](./media/azure-stack-marketplace-publisher/image4.png) |
 | 533 x 324 .png miniatyr | ![](./media/azure-stack-marketplace-publisher/image5.png) |
 
+## <a name="next-steps"></a>Nästa steg
 
+[Hämta Marketplace-objekt](azure-stack-download-azure-marketplace-item.md)  
+[Skapa och publicera ett Marketplace-objekt](azure-stack-create-and-publish-marketplace-item.md)

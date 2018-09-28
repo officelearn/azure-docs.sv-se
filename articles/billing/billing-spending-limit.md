@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: 20b664e8a194c394f90b1d060dbd081fc1507528
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 614102d65407485d31963afa9185400938a7d95b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395618"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423093"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Förstå utgiftsgränsen och om hur du tar bort den i Azure
 
 Utgiftsgräns i Azure finns för att förhindra utgifter under din kredit. Alla nya kunder som registrerar sig för utvärderingsversionen eller erbjudanden som innefattar krediter i flera månader ha utgiftsgränsen aktiverad som standard. Utgiftsgränsen är $0. Det går inte att ändra. Utgiftsgränsen är inte tillgänglig för prenumerationstyper som prenumerationer och åtagandeprenumerationer enligt principen Betala per användning. Se den [fullständig lista över Azure-erbjudanden och tillgänglighet för utgiftsgränsen](https://azure.microsoft.com/support/legal/offer-details/).
-
-**Letar du efter faktureringsvarningar?** Se [ställa in aviseringar för fakturerings- eller kredit för Azure-prenumerationer](billing-set-up-alerts.md).
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>Vad händer när jag når utgiftsgränsen?
 
@@ -78,7 +76,7 @@ Den här funktionen finns bara när utgiftsgränsen har tagits bort på obestäm
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>Hur ställer jag en anpassad utgiftsgräns?
 
-Vi har inte anpassat spendera gränser idag. Men du kan anmäla sig till [använder faktureringsvarningar för att styra dina utgifter](billing-set-up-alerts.md).
+Anpassade utgiftsgränser är inte tillgängliga.
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Utgiftsgränsen förhindrar att alla avgifter från Azure?
 

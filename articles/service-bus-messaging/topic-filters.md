@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: a1616150ebf696654bc0ca9a79d39c3877c363d9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08a90811356f508eebfed9f88500a694f2fbd83e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699394"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407135"
 ---
 # <a name="topic-filters-and-actions"></a>Ämnesfilter och åtgärder
 
@@ -30,7 +30,7 @@ Service Bus stöder tre filtervillkor:
 
 -   *Booleska filter* – **TrueFilter** och **FalseFilter** antingen orsaka alla inkommande meddelanden (**SANT**) eller inga av dessa data anländer meddelanden (**FALSKT**) som ska väljas för prenumerationen.
 
--   *SQL-filter* – en **SqlFilter** innehåller SQL-liknande villkorsuttryck som ska utvärderas i den asynkrona meddelandekön mot dessa data anländer meddelandena användardefinierade egenskaper och Systemegenskaper. Alla Systemegenskaper måste föregås `sys.` villkorlig uttrycket. Den [SQL-språket delmängd för filtervillkor](service-bus-messaging-sql-filter.md) tester förekomsten av egenskaper (EXISTS), samt för null-värden (är NULL), logiska inte/och/eller, relationell operatorer, enkel numerisk aritmetiska och mönster för enkel text matchning med liknande.
+-   *SQL-filter* – en **SqlFilter** innehåller SQL-liknande villkorsuttryck som ska utvärderas i den asynkrona meddelandekön mot dessa data anländer meddelandena användardefinierade egenskaper och Systemegenskaper. Alla Systemegenskaper måste föregås `sys.` villkorlig uttrycket. Den [SQL-språket delmängd för filtervillkor](service-bus-messaging-sql-filter.md) tester förekomsten av egenskaper (`EXISTS`), och för null-värden (`IS NULL`), logiska inte/och/eller, relationsoperatorer, enkel numerisk aritmetiska, och enkel text mönstermatchning med `LIKE`.
 
 -   *Korrelationsfilter* – en **CorrelationFilter** innehåller en uppsättning villkor som matchas mot en eller flera av meddelandet dessa data anländer användar- och egenskaper. Ett vanligt användningsområde är att matcha mot den **CorrelationId** egenskapen, men programmet kan också välja att matcha mot **ContentType**, **etikett**,  **MessageId**, **ReplyTo**, **ReplyToSessionId**, **SessionId**, **till**, och alla användardefinierade Egenskaper. Det finns en matchning när meddelandet dessa data anländer värde för egenskapen är lika med värdet som anges i korrelationsfiltret. För uttryck för anslutningssträng är jämförelsen skiftlägeskänsliga. När du anger flera egenskaper för matchar filtret kombinerar dem som en logisk och-villkor, vilket innebär att för filtret för att matcha, alla villkor måste matcha.
 
@@ -40,7 +40,7 @@ Komplexa filterregler kräver bearbetningskapacitet. Användningen av SQL-filter
 
 ## <a name="actions"></a>Åtgärder
 
-Med SQL-filtervillkor och endast de, kan du definiera en åtgärd som kan kommentera meddelandet genom att lägga till, ta bort eller ersätta egenskaper och deras värden. Åtgärden [använder ett SQL-liknande uttryck](service-bus-messaging-sql-filter.md) som löst leans på uppdatering för SQL-instruktionen syntax. Åtgärden utförs på meddelandet när den har matchats och innan meddelandet är markerad i avsnittet. Ändringar i meddelandeegenskaperna är privata för meddelandet som kopieras till prenumerationen.
+Med SQL-filtervillkor, kan du definiera en åtgärd som kan kommentera meddelandet genom att lägga till, ta bort eller ersätta egenskaper och deras värden. Åtgärden [använder ett SQL-liknande uttryck](service-bus-messaging-sql-filter.md) som löst leans på uppdatering för SQL-instruktionen syntax. Åtgärden utförs på meddelandet när den har matchats och innan meddelandet är markerad i avsnittet. Ändringar i meddelandeegenskaperna är privata för meddelandet som kopieras till prenumerationen.
 
 ## <a name="usage-patterns"></a>Användningsmönster
 
@@ -50,7 +50,7 @@ Filter och åtgärder kan två ytterligare grupper av mönster: partitionering o
 
 Partitionering använder filter för att distribuera meddelanden över flera befintliga ämnesprenumerationer på ett förutsägbart och ömsesidigt uteslutande sätt. Partitionering mönstret används när ett system har skalats ut för att hantera många olika kontexter i funktionen identisk avdelningar som var och en innehåller en delmängd av övergripande uppgifterna. till exempel kund profilinformation. Med partitionering, skickar en utgivare meddelandet till ett ämne utan någon kunskap om partitionering modellen. Meddelandet flyttas sedan till rätt prenumeration där det kan sedan hämta meddelandehanterare för den partition.
 
-Routing används filter för att distribuera meddelanden över ämnesprenumerationer på ett förutsägbart sätt, men inte nödvändigtvis exklusivt. Tillsammans med den [automatisk vidarebefordran](service-bus-auto-forwarding.md) funktion, avsnittet filter kan användas för att skapa komplex routning diagram i ett Service Bus-namnområde för distribution av meddelande i en Azure-region. Du kan skapa komplexa globala topologier med direkt integrering i affärsprogram med Azure Functions eller Azure Logic Apps fungerar som en brygga mellan Azure Service Bus-namnområden.
+Routing används filter för att distribuera meddelanden över ämnesprenumerationer på ett förutsägbart sätt, men inte nödvändigtvis exklusivt. Tillsammans med den [automatisk vidarebefordran](service-bus-auto-forwarding.md) funktion, avsnittet filter kan användas för att skapa komplex routning diagram i ett Service Bus-namnområde för distribution av meddelande i en Azure-region. Du kan skapa komplexa globala topologier med direkt integrering i line-of-business-program med Azure Functions eller Azure Logic Apps fungerar som en brygga mellan Azure Service Bus-namnområden.
 
 ## <a name="next-steps"></a>Nästa steg
 

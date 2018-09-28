@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: ccdd17bf5a6b3ff00fd3fdada8f4ae02a071274c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392466"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423178"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partitionerade köer och ämnen
 
@@ -140,7 +140,7 @@ Service Bus stöder automatisk meddelande vidarebefordran från, till eller mell
 
 Service Bus tillämpar för närvarande följande begränsningar på partitionerade köer och ämnen:
 
-* Partitionerade köer och ämnen stöds inte på nivån Premium och meddelanden.
+* Partitionerade köer och ämnen stöds inte på nivån Premium och meddelanden. Sessioner stöds på den högsta nivån med hjälp av sessions-ID. 
 * Partitionerade köer och ämnen stöder inte skicka meddelanden som hör till olika sessioner i en enda transaktion.
 * Service Bus tillåter för närvarande upp till 100 partitionerade köer och ämnen per namnområde. Varje partitionerad kö eller ämne räknas mot kvoten på 10 000 enheter per namnområde (inte gäller för Premium-nivån).
 

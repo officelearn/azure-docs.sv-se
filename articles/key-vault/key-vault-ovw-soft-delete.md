@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 776d5957ee2c11354c350523cbc8fde12fbcafaf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498189"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407883"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Översikt över mjuk borttagning i Azure Key Vault
 
@@ -41,12 +41,22 @@ Med den här funktionen är åtgärden ta bort på ett nyckelvalv eller nyckelva
 
 Mjuk borttagning är ett valfritt beteende för Key Vault och är **inte aktiverad som standard** i den här versionen. 
 
-### <a name="do-not-purge-flag"></a>Rensa inte flaggan
-En användare som vill framtvinga borttagning av valvet eller vault-objekt kan göra detta. Det är om en användare som har behörighet att ta bort ett valv eller ett objekt i valvet kan tvinga Rensa även om mjuk borttagning för att valvet är påslagen. Men om användaren vill förhindra Framtvinga borttagning av valvet eller vault-objekt kan ställas in – aktivera rensningsskydd flagga för att vara sant. När du skapar ett valv kan du aktivera flaggan på så sätt. Krav för aktivering av Rensa skydd är måste du ha mjuk borttagning aktiveras. Kommandot för att göra det i Azure CLI-2 är
+### <a name="purge-protection--flag"></a>Rensa skydd flagga
+Rensa skydd (**– aktivera rensningsskydd** i Azure CLI) flaggan är inaktiverat som standard. När den här flaggan är aktiverad, ett valv eller ett objekt i tillståndet deleted går inte att tömma tills har kvarhållningsperiod på 90 dagar passerat. Sådana valv eller ett objekt kan fortfarande återställas. Den här flaggan ger extra trygghet för kunder att ett valv eller ett objekt kan aldrig tas bort permanent tills kvarhållningsperioden har passerat. Du kan aktivera flaggan Rensa protection endast om flaggan mjuk borttagning är på, eller på Skapa valv du slår på både mjuk borttagning och rensa skydd.
+
+[!NOTE] Krav för aktivering av Rensa skydd är måste du ha mjuk borttagning aktiveras. Kommandot för att göra det i Azure CLI-2 är
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
 ```
+
+### <a name="permitted-purge"></a>Tillåtna Rensa
+
+Permanent borttagning, rensning, key vault går via en POST-åtgärd på resursen för proxy och kräver särskilda behörigheter. I allmänhet kan Prenumerationens ägare ta bort ett nyckelvalv. POST-åtgärd utlöser omedelbar och oåterkalleligt borttagningen av det valvet. 
+
+Ett undantag till detta är
+- Om Azure-prenumerationen har markerats som *permanent*. I det här fallet bara tjänsten kan sedan att utföra den faktiska borttagningen och sker detta som en schemalagd process. 
+- När – Aktivera rensningsskydd flaggan är aktiverad på själva valvet. I så fall väntar Key Vault i 90 dagar från när det ursprungliga hemliga objektet har markerats för borttagning att permanent ta bort objektet.
 
 ### <a name="key-vault-recovery"></a>Nyckelvalv-återställning
 
@@ -70,12 +80,6 @@ Ej permanent borttagna resurser behålls under en angiven tidsperiod, 90 dagar. 
 - Endast en specifikt privilegierad användare kan tvång ta bort ett nyckelvalv eller nyckelvalv objekt genom att utfärda ett borttagningskommando på motsvarande proxy-resurs.
 
 Om inte en nyckelvalvet eller ett nyckelvalv objekt återställs, utför tjänsten i slutet av Kvarhållningsintervall som en rensning av ej permanent borttagna nyckelvalvet eller nyckelvalv objekt och dess innehåll. Ta bort resursen kan inte planeras.
-
-### <a name="permitted-purge"></a>Tillåtna Rensa
-
-Permanent borttagning, rensning, key vault går via en POST-åtgärd på resursen för proxy och kräver särskilda behörigheter. I allmänhet kan Prenumerationens ägare ta bort ett nyckelvalv. POST-åtgärd utlöser omedelbar och oåterkalleligt borttagningen av det valvet. 
-
-Ett undantag till detta är fallet när Azure-prenumerationen har markerats som *permanent*. I det här fallet bara tjänsten kan sedan att utföra den faktiska borttagningen och sker detta som en schemalagd process. 
 
 ### <a name="billing-implications"></a>Fakturering effekter
 

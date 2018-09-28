@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 1ec47ddf5769dd8ed624277a86db57f449581b90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948697"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405928"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur arbetet aviseringar i mått i Azure Monitor
 
-Måttaviseringar i Azure Monitor ovanpå flerdimensionella mått. De här måtten kan vara plattform mått, anpassade mått (förhandsversion), populära loggar från Log Analytics konverteras till mått, standardmått i Application Insights. Måttaviseringar utvärderar med jämna mellanrum för att kontrollera om villkor på ett mått eller en tidsserie är sanna och meddelar dig när utvärderingarna är uppfyllda. Måttaviseringar är tillståndskänsliga det vill säga de endast skicka ut meddelanden när tillståndet ändras.
+Måttaviseringar i Azure Monitor ovanpå flerdimensionella mått. De här måtten kan vara plattform mått [anpassade mått](metrics-custom-overview.md), [populära loggar från Log Analytics konverteras till mått](monitoring-metric-alerts-logs.md), standardmått i Application Insights. Måttaviseringar utvärderar med jämna mellanrum för att kontrollera om villkoren på en eller flera mått time series-är SANT och meddelar dig när utvärderingarna är uppfyllda. Måttaviseringar är tillståndskänsliga, det vill säga de endast skicka ut meddelanden när tillståndet ändras.
 
 ## <a name="how-do-metric-alerts-work"></a>Hur fungerar måttaviseringar
 
@@ -75,11 +75,17 @@ Anta att att du har en webbapp som ser enorma begäran och du behöver du lägga
 
 Den här regeln kommer automatiskt att övervaka alla värden för instans-dvs Du kan övervaka dina instanser när de uppstår utan att behöva ändra dina måttaviseringsregel igen.
 
-### <a name="monitoring-multiple-resource-using-metric-alerts"></a>Övervakning av flera resursen med hjälp av måttaviseringar
+### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Övervakning av flera resurser med hjälp av måttaviseringar
 
-När du har sett i föregående avsnitt, är det möjligt att ha en enda måttaviseringsregel som övervakar varje dimensionskombination för enskilda (dvs.) en metrisk tidsserie). Du är fortfarande begränsad till det utförs på en resurs i taget. Måttaviseringar nu stöd också för övervakning av flera resurser med en regel i en förhandsversion. Om du har 100-tal för virtuella datorer i din prenumeration kan den här nya funktionen hjälper dig att snabbt ställa in övervakning för dem. 
+När du har sett i föregående avsnitt, är det möjligt att ha en enda måttaviseringsregel som övervakar varje dimensionskombination för enskilda (dvs.) en metrisk tidsserie). Dock tidigare var du fortfarande begränsad till det utförs på en resurs i taget. Azure Monitor stöder även övervakning av flera resurser med en måttaviseringsregel. Den här funktionen är för närvarande förhandsversionen och stöds bara på virtuella datorer. En enda metrisk varning kan också övervaka resurser i en Azure-region.
 
-Den här funktionen är för närvarande en förhandsversion. Skapa måttvarningsregler som övervakar flera resurser stöds inte för närvarande via Azure-portalen. Du kan skapa dessa regler via Azure Resource Manager-mallar.
+Du kan ange omfånget för övervakning av en enda metrisk varning på något av tre sätt:
+
+- som en lista över virtuella datorer i en Azure-region inom en prenumeration
+- alla virtuella datorer (inom en Azure-region) i en eller flera resursgrupper i en prenumeration
+- alla virtuella datorer (i en Azure-region) i en prenumeration
+
+Skapa måttvarningsregler som övervakar flera resurser stöds inte för närvarande via Azure-portalen. Du kan skapa dessa regler via [Azure Resource Manager-mallar](monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). Du får enskilda meddelanden för varje virtuell dator. 
 
 ## <a name="typical-latency"></a>Typisk svarstid
 

@@ -1,6 +1,6 @@
 ---
-title: Tjänsten för Azure Cognitive Services tal
-description: Lär dig hur du anpassar uttal med Speech Service Cognitive Services.
+title: Anpassa uttal med Speech Services i Azure Cognitive Services
+description: Lär dig hur du anpassar uttal med Speech-tjänsterna i Azure Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -8,12 +8,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 93fec1ea78263798588a43b2314ffdea736cdbbc
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a608d1e48112fbb2adb56191eeb7f168de507e77
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745359"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423212"
 ---
 # <a name="enable-custom-pronunciation"></a>Aktivera anpassad uttal
 Genom att använda anpassade uttal kan definiera du fonetiska, formulär och visning av ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver är en uttal-fil (en enkel txt-fil).
@@ -33,7 +33,7 @@ Flera exempel visas i följande tabell:
 | CNTK | Se n te k|
 
 ## <a name="requirements-for-the-spoken-form"></a>Krav för talat formuläret
-Formuläret talat måste vara gemener, som du kan tvinga under importen. Dessutom måste du ange checkar in importören data. Ingen flik i formuläret talat eller visa formulär tillåts. Men det kan vara mer tillåts inte tecken i Visa formulär (exempelvis ~ och ^).
+Formuläret talat måste vara gemener, som du kan tvinga under importen. Du måste också ange checkar in importören data. Ingen flik i formuläret talat eller visa formulär tillåts. Men det kan vara mer tillåts inte tecken i Visa formulär (exempelvis ~ och ^).
 
 Varje txt-fil kan ha flera poster, enligt följande bild:
 
@@ -47,7 +47,7 @@ Anpassade uttal är för närvarande stöd för engelska (en-US) och tyska (de-d
 | Språk | Karaktärer |
 |---------- |----------|
 | Engelska (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, frågor och, r, s, t, u, v, w, x, y, z |
-| Tyska (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, o, p, frågor och, r, s, t, u, v, w, x, y, z |
+| Tyska (de-de) | ä, ö, ü,?, a, b, c, d, e, f, g, h, i, j, k, l, o, p, frågor och, r, s, t, u, v, w, x, y, z |
 
 > [!NOTE]
 > En term Visa formulär (i en uttal-fil) ska skrivas på samma sätt i en datauppsättning för anpassning av språk.

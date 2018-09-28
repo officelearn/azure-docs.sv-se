@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ffe3dbf975984eb8df341728075e628d14080ada
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e4bb17bd068076a9ffa9bcab5826f0efa84a19d7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380241"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406013"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Vanliga frågor i Azure Stack användnings-API
 
@@ -40,7 +40,7 @@ Användning har rapporterats för följande resource providers:
 **Enhet**: IP-adresser  
 **Anteckningar**: antal IP-adresser som används. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren IP-adress som multiplicerat med antalet timmar.  
   
-### <a name="storage"></a>Lagringsutrymme
+### <a name="storage"></a>Storage
   
 **Mäter ID**: B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Mätarnamn**: TableCapacity  
@@ -239,7 +239,7 @@ Användning har rapporterats för följande resource providers:
 **Mätarnamn**: DatabaseSizeHourMySqlMeter  
 **Enhet**: MB\*timmar  
 **Anteckningar**: Totalt antal DB kapacitet när du skapar. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren MB multiplicerat med antalet timmar.    
-### <a name="key-vault"></a>Nyckelvalv   
+### <a name="key-vault"></a>Key Vault   
   
 **Mäter ID**: EBF13B9F-B3EA-46FE-BF54-396E93D48AB4  
 **Mätarnamn**: Key Vault-transaktioner  
@@ -321,10 +321,10 @@ Användning har rapporterats för följande resource providers:
 **Anteckningar**: Totalt antal inkommande begäran och svaret byte + total utgående begäran byte + totalt antal inkommande FTP Begär svar byte + totalt antal inkommande web distribuera byte svar på begäran.  
   
 
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Hur gör Azure Stack-användning jämfört med API: er i [användningen av Azure API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (för närvarande i allmänt tillgänglig förhandsversion)?
+## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Hur gör Azure Stack-användning jämfört med API: er i [användningen av Azure API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (för närvarande i allmänt tillgänglig förhandsversion)?
 * API för klient-användning är konsekvent med Azure-API, med ett undantag: den *showDetails* flaggan stöds inte för närvarande i Azure Stack.
 * API: T för Provider användning gäller enbart för Azure Stack.
-* För närvarande den [: T för RateCard](https://msdn.microsoft.com/library/azure/mt219004.aspx) som är tillgänglig i Azure är inte tillgänglig i Azure Stack.
+* För närvarande den [: T för RateCard](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) som är tillgänglig i Azure är inte tillgänglig i Azure Stack.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Vad är skillnaden mellan användning och rapporterade tiden?
 Data användningsrapporter har två huvudsakliga tidsvärden:

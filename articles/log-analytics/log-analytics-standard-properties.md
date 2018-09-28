@@ -11,29 +11,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2018
+ms.date: 09/27/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 663f0b04c528c180e4130c1c157441cbc0ceb98b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7282734b3524d7dfa80c54d074aac2268e38c5ab
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955875"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419397"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Standardegenskaper i Log Analytics-poster
 Data i [Log Analytics](../log-analytics/log-analytics-queries.md) lagras som en uppsättning poster, var och en med en viss datatyp som har en unik uppsättning egenskaper. Många datatyper har standardegenskaper som är gemensamma för flera typer. Den här artikeln beskriver de här egenskaperna och innehåller exempel på hur du kan använda dem i frågor.
 
 Vissa av dessa egenskaper är fortfarande håller på att utvecklas, så du kan se dem i vissa datatyper, men har ännu inte i andra.
 
+## <a name="timegenerated"></a>TimeGenerated
+Den **TimeGenerated** egenskapen innehåller datum och tid då posten skapades. Det ger en gemensam egenskap ska användas för filtrering eller sammanfatta efter tid. När du väljer ett tidsintervall för en vy eller en instrumentpanel i Azure-portalen använder TimeGenerated för att filtrera resultaten.
+
+### <a name="examples"></a>Exempel
+
+Följande fråga returnerar antalet felhändelser som har skapats för varje dag under föregående vecka.
+
+```Kusto
+Event
+| where EventLevelName == "Error" 
+| where TimeGenerated between(startofweek(ago(7days))..endofweek(ago(7days))) 
+| summarize count() by bin(TimeGenerated, 1day) 
+| sort by TimeGenerated asc 
+```
+
+## <a name="type"></a>Typ
+Den **typ** egenskapen innehåller namnet på tabellen att posten har hämtats från vilket kan också betraktas som posttypen. Den här egenskapen är användbar i frågor som kombinerar poster från flera tabeller, som de som använder den `search` operator för att skilja mellan poster av olika typer. **$table** kan användas i stället för **typ** på vissa platser.
+
+### <a name="examples"></a>Exempel
+Följande fråga returnerar antalet poster efter typ som samlas in med den senaste timmen.
+
+```Kusto
+search * 
+| where TimeGenerated > ago(1h) 
+| summarize count() by Type 
+```
 
 ## <a name="resourceid"></a>_ResourceId
 Den **_ResourceId** egenskapen innehåller en unik identifierare för resursen som som posten är associerad med. Detta ger dig en egenskap som är standard ska använda för att begränsa frågan till endast poster från en viss resurs eller att ansluta till relaterade data från flera tabeller.
 
-För Azure-resurser, värdet för **_ResourceId** är den [Azure-resurs-ID-URL: en](../azure-resource-manager/resource-group-template-functions-resource.md). Egenskapen är för närvarande begränsat till Azure-resurser, men det kommer att gälla till resurser utanför Azure, t.ex lokala datorer. 
+För Azure-resurser, värdet för **_ResourceId** är den [Azure-resurs-ID-URL: en](../azure-resource-manager/resource-group-template-functions-resource.md). Egenskapen är för närvarande begränsat till Azure-resurser, men det kommer att gälla till resurser utanför Azure, t.ex lokala datorer.
+
+> [!NOTE]
+> Vissa datatyper redan har fält som innehåller Azure-resurs-ID eller minst delar av den som prenumerations-ID. Även om de här fälten hålls för bakåtkompatibilitet, rekommenderar vi att du använder _ResourceId för att utföra korrelationen mellan eftersom det blir mer konsekvent.
 
 ### <a name="examples"></a>Exempel
-I följande exempel visas en fråga som kopplar prestanda- och händelsedata för varje dator. Den visar alla händelser med ID _101_ och processorbelastning över 50%.
+Följande fråga kopplar ihop data om prestanda och händelse för varje dator. Den visar alla händelser med ID _101_ och processorbelastning över 50%.
 
 ```Kusto
 Perf 
@@ -44,7 +73,7 @@ Perf
 ) on _ResourceId
 ```
 
-I följande exempel visas en fråga som kopplar _AzureActivity_ registrerar med _SecurityEvent_ poster. Den visar alla aktivitet åtgärder med användare som har loggat in till dessa datorer.
+Följande fråga kopplingar _AzureActivity_ registrerar med _SecurityEvent_ poster. Den visar alla aktivitet åtgärder med användare som har loggat in till dessa datorer.
 
 ```Kusto
 AzureActivity 

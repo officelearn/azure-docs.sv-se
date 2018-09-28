@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 831b52a27a1ccfc349b9b54f8c3d874e41ddc322
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: ''
+ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363151"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423520"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i Log Analytics
 Datakälla för anpassade loggar i Log Analytics kan du samla in händelser från textfiler på både Windows och Linux-datorer. Många program logga information till textfiler i stället för standardtjänster loggning, till exempel Windows händelselogg eller Syslog.  När samlats in, kan du parsa varje post i inloggningen till enskilda fält med hjälp av den [anpassade fält](log-analytics-custom-fields.md) funktion i Log Analytics.
@@ -40,6 +40,10 @@ Loggfiler ska samlas in måste matcha följande kriterier.
 >Om det finns dubblettvärden i loggfilen, Log Analytics samlar in dem.  Men blir sökresultaten inkonsekvent där filterresultaten visar fler händelser än resultatantal.  Det är viktigt att du verifierar loggen för att fastställa om det program som skapar den som orsakar problemet och åtgärda detta om möjligt innan du skapar den anpassade loggen samling definitionen.  
 >
   
+>[!NOTE]
+> Om ditt program skapar en ny loggfil skapas varje dag eller när den når en viss storlek, identifierar Log Analytics-agenten för Linux inte dem förrän den startas. Detta är eftersom agenten endast räknar upp och börjar övervakning för mönster med de angivna loggarna vid start och därför måste du planera runt den genom att automatisera omstarten av agenten.  Den här begränsningen finns inte med Log Analytics-agenten för Windows.  
+>
+
 ## <a name="defining-a-custom-log"></a>Definiera en anpassad logg
 Använd följande procedur för att definiera en anpassad loggfil.  Rulla ned till slutet av den här artikeln en genomgång över ett exempel på att lägga till en anpassad logg.
 
@@ -66,9 +70,13 @@ Om en tidsstämpel avgränsare används fylls egenskapen TimeGenerated för varj
 5. Klicka på **Nästa**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Steg 3. Lägg till sökvägar till loggsamling
-Du måste definiera en eller flera sökvägar på agenten där den kan hitta den anpassade loggen.  Du kan antingen ange en specifik sökväg och ett namn för loggfilen eller du kan ange en sökväg med ett jokertecken för namnet.  Detta har stöd för program som skapar en ny fil varje dag eller när en fil når en viss storlek.  Du kan också ange flera sökvägar för en enda loggfil.
+Du måste definiera en eller flera sökvägar på agenten där den kan hitta den anpassade loggen.  Du kan antingen ange en specifik sökväg och ett namn för loggfilen eller du kan ange en sökväg med ett jokertecken för namnet. Detta har stöd för program som skapar en ny fil varje dag eller när en fil når en viss storlek. Du kan också ange flera sökvägar för en enda loggfil.
 
 Till exempel kan ett program skapa en loggfil skapas varje dag med det datum som ingår i namnet som log20100316.txt. Ett mönster för sådana en logg kan vara *log\*.txt* som skulle gälla för alla loggfiler efter programmet namngivning av schemat.
+
+>[!NOTE]
+> Om ditt program skapar en ny loggfil skapas varje dag eller när den når en viss storlek, identifierar Log Analytics-agenten för Linux inte dem förrän den startas. Detta är eftersom agenten endast räknar upp och börjar övervakning för mönster med de angivna loggarna vid start och därför måste du planera runt den genom att automatisera omstarten av agenten.  Den här begränsningen finns inte med Log Analytics-agenten för Windows.  
+>
 
 Följande tabell innehåller exempel på giltiga att ange olika loggfilerna.
 

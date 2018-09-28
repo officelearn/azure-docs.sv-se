@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: d1a34a4c341a48f594f37da9fb34420adab390ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ce3c494dc0b8c962c8dae0af38d3cb5476cdf48b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227324"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406183"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -158,8 +158,8 @@ För att kopiera data från och till Dynamics, ange typegenskapen på datauppsä
 | EntityName | Det logiska namnet för att hämta entiteten. | Nej för källa (om ”query” i källan för aktiviteten har angetts), Ja för mottagare |
 
 > [!IMPORTANT]
->- När du kopierar data från Dynamics krävs ”struktur”-avsnittet i Dynamics-datauppsättning att säkerställa en deterministisk Kopiera resultatet. Den definierar och datatyp för Dynamics-data som du vill kopiera över. Mer information finns i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) och [datatypsmappningen för Dynamics](#data-type-mapping-for-dynamics).
->- Under redigering i Användargränssnittet för härleda ADF schemat genom att sampling de översta raderna från Dynamics frågeresultat att initiera struktur tillverkning, i vilket fall kolumner utan värden utelämnas på grund av prestandaoptimering av Dynamics-tjänsten. Du kan granska och lägga till fler kolumner i Dynamics datauppsättning/datastrukturen vid behov, vilket kommer att användas under kopiera körning. 
+>- När du kopierar data från Dynamics är ”struktur”-avsnittet valfritt men rekommenderat i Dynamics datauppsättningen så att en deterministisk Kopiera resultatet. Den definierar och datatyp för Dynamics-data som du vill kopiera över. Mer information finns i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) och [datatypsmappningen för Dynamics](#data-type-mapping-for-dynamics).
+>- När du importerar schemat i redigering Användargränssnittet härleda ADF schemat genom att sampling de översta raderna från Dynamics frågeresultat att initiera struktur tillverkning, i vilket fall kolumner utan värden utelämnas. Du kan granska och lägga till fler kolumner i Dynamics datauppsättning/datastrukturen vid behov, vilket kommer att användas under kopiera körning.
 >- När du kopierar data till Dynamics är ”struktur”-avsnittet valfritt i Dynamics-datauppsättningen. Vilka kolumner som ska kopieras till bestäms av dataschemat källa. Om källan är en CSV-fil utan rubrik som är i datauppsättningen för indata anger du ”strukturen” med namn och datatyp för kolumnen. De mappar till fält i CSV-fil i taget i ordning.
 
 **Exempel:**

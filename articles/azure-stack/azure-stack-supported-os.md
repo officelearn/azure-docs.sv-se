@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 09/26/2018
 ms.author: sethm
-ms.reviewer: JeffGoldner
-ms.openlocfilehash: 65e9b4371eab4e4e4978e91184ab9712b9ecc9eb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: ''
+ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629394"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405605"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Gästoperativsystem som stöds på Azure Stack
 
@@ -40,11 +40,12 @@ Azure Stack stöd för de Windows-gästoperativsystem som visas i följande tabe
 | Windows Server 2008 SP2 | 64-bitars |  Ta med din egen avbildning |
 | Windows 10 *(se anmärkning 1)* | 64-bitars, Pro och Enterprise | Ta med din egen avbildning |
 
-***Anmärkning 1:*** *för att distribuera Windows 10-klientoperativsystem på Azure Stack, måste du ha [Windows licenser per användare](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) eller köper via ett kvalificerat Multitenant-värden ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
+> [!NOTE]
+> Om du vill distribuera Windows 10-klientoperativsystem på Azure Stack, måste du ha [Windows licenser per användare](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) eller köper via ett kvalificerat Multitenant-värden ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).
 
 Marketplace-avbildningar är tillgängliga för betalning som du-användning eller BYOL (EA/SPLA) licensiering. Användning av både på en enda Azure Stack-instans stöds inte. Lägger in en lämplig version av gästagenten i avbildningen under distributionen av Azure Stack.
 
- Datacenter-versionerna är tillgängliga i marketplace för att ladda ned; kunder kan använda sina egna server-avbildningar, inklusive andra versioner. Windows-klientavbildningar är inte tillgängliga i Marketplace.
+Datacenter-versionerna är tillgängliga i marketplace för att ladda ned; kunder kan använda sina egna server-avbildningar, inklusive andra versioner. Windows-klientavbildningar är inte tillgängliga i Marketplace.
 
 ## <a name="linux"></a>Linux
 
@@ -70,6 +71,11 @@ Linux-distributioner som är listat som är tillgänglig i Marketplace innehåll
 | Ubuntu 16.04-LTS | 64-bitars | Canonical | Ja |
 | Ubuntu 18.04-LTS | 64-bitars | Canonical | Ja |
 
-Andra Linux-distributioner kan stödjas i framtiden.
-
 Red Hat Enterprise Linux supportinformation i [Red Hat och Azure Stack: vanliga frågor och svar](https://access.redhat.com/articles/3413531).
+
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om Azure Stack Marketplace finns i följande artiklar:
+
+[Hämta Marketplace-objekt](azure-stack-download-azure-marketplace-item.md)  
+[Skapa och publicera ett Marketplace-objekt](azure-stack-create-and-publish-marketplace-item.md)

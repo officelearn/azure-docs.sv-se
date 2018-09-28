@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 479fd902ef68bf24306bcd699da0be08415592a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ac31818a68aa2b4624410b423b7559b84275777
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956997"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409379"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera mått aviseringar med Azure Monitor
+# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för mått med Azure Monitor
 
 Måttaviseringar i Azure Monitor är ett sätt att få ett meddelande när en av dina mått överskrider ett tröskelvärde. Måttaviseringar fungerar på flera olika flerdimensionella plattform mått, anpassade mått, Application Insights standard och anpassade mått. I den här artikeln beskriver vi hur du skapar, visa och hantera måttaviseringsregler via Azure portal och Azure CLI. Du kan också skapa måttaviseringsregler med hjälp av Azure Resource Manager-mallar som beskrivs i [en separat artikel](monitoring-enable-alerts-using-template.md).
 
 Du kan lära dig mer om hur mått aviseringar fungerar från [översikt över aviseringar i mått](alert-metric-overview.md).
 
-## <a name="create-a-metric-alert-rule-using-azure-portal"></a>Skapa en måttaviseringsregel med hjälp av Azure portal
+## <a name="create-with-azure-portal"></a>Skapa med Azure portal
 
 Följande procedur beskriver hur du skapar en måttaviseringsregel i Azure-portalen:
 
@@ -58,7 +58,7 @@ Följande procedur beskriver hur du skapar en måttaviseringsregel i Azure-porta
 > [!NOTE]
 > Metrisk varning regler som skapats via portalen skapas i samma resursgrupp som målresursen.
 
-## <a name="view-and-manage-metric-alert-rules-using-azure-portal"></a>Visa och hantera måttaviseringsregler med hjälp av Azure portal
+## <a name="view-and-manage-with-azure-portal"></a>Visa och hantera med Azure portal
 
 Du kan visa och hantera måttaviseringsregler med hjälp av bladet hantera regler under aviseringar. Proceduren nedan visar hur du visar dina måttaviseringsregler och redigera en av dem.
 
@@ -80,7 +80,7 @@ Du kan visa och hantera måttaviseringsregler med hjälp av bladet hantera regle
 
 6. Klicka på **klar** att spara dina ändringar.
 
-## <a name="create-view-and-manage-metric-alert-rules-using-azure-cli"></a>Skapa, visa och hantera måttaviseringsregler med Azure CLI
+## <a name="with-azure-cli"></a>Med Azure CLI
 
 I föregående avsnitt beskrivs hur du skapar, visa och hantera måttaviseringsregler med hjälp av Azure portal. Det här avsnittet beskrivs hur du gör samma sak med hjälp av plattformsoberoende [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Snabbaste sättet att börja använda Azure CLI är via [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest). I den här artikeln ska vi använda cloudshell.
 

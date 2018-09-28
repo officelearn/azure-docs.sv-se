@@ -6,27 +6,27 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 09/04/2018
+ms.date: 09/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b4e1e01d54f6e0043709e0dadef41d7ea513a9b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 88659d31b64b4a98043606a71602f7c29316a31e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963295"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423297"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C#-moduler för Azure IoT Edge
 
 Du kan aktivera din affärslogik-moduler för Azure IoT Edge. Den här artikeln visar hur du använder Visual Studio Code (VS Code) som det huvudsakliga verktyget för att utveckla och felsöka C#-moduler.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här artikeln förutsätter att du använder en dator eller virtuell dator som kör Windows, macOS eller Linux som din utvecklingsdator. IoT Edge-enhet kan vara en annan fysisk enhet.
 
-> [!NOTE]
-> Den här felsökning artikeln visar två vanliga sätt att felsöka dina C#-modul i VS Code. Ett sätt är att koppla en process i en modul-behållare, medan den andra är att lanuch modulen koden i felsökningsläge. Om du inte är bekant med felsökning funktionerna i Visual Studio Code, Läs om [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
+Du kan använda en dator eller en virtuell dator som kör Windows, macOS eller Linux som din utvecklingsdator. En IoT Edge-enhet kan vara en annan fysisk enhet.
 
-Eftersom den här artikeln används Visual Studio Code som det huvudsakliga utvecklingsverktyg, installera VS Code. Lägg sedan till tillägg som behövs:
+Det finns två sätt att felsöka dina C#-modul i VS Code. Ett sätt är att koppla en process i en modul-behållare, ett annat sätt är att starta modulen koden i felsökningsläge. Om du inte är bekant med felsökning funktionerna i Visual Studio Code, Läs om [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
+
+Installera Visual Studio Code först, och sedan lägga till följande nödvändiga tillägg:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IoT Edge-tillägget](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [C#-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
@@ -51,16 +51,16 @@ Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edg
 Gör följande för att skapa en IoT Edge-modul som baseras på .NET Core 2.1 med hjälp av Visual Studio Code och Azure IoT Edge-tillägget. Först skapar du en lösning och sedan skapa den första modulen i lösningen. Varje lösning kan innehålla mer än en modul. 
 
 1. I Visual Studio Code, Välj **visa** > **integrerade terminalen**.
-3. Välj **visa** > **kommandot paletten**. 
-4. Ange i kommandopaletten, och kör kommandot **Azure IoT Edge: nya IoT Edge-lösning**.
+2. Välj **visa** > **kommandot paletten**. 
+3. Ange i kommandopaletten, och kör kommandot **Azure IoT Edge: nya IoT Edge-lösning**.
 
    ![Kör ny IoT Edge-lösning](./media/how-to-develop-csharp-module/new-solution.png)
 
-5. Bläddra till mappen där du vill skapa den nya lösningen. Välj **Välj mapp**. 
-6. Ange ett namn för din lösning. 
-7. Välj **C#-modul** som mall för den första modulen i lösningen.
-8. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
-9. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn.
+4. Bläddra till mappen där du vill skapa den nya lösningen. Välj **Välj mapp**. 
+5. Ange ett namn för din lösning. 
+6. Välj **C#-modul** som mall för den första modulen i lösningen.
+7. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
+8. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn.
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-csharp-module/repository.png)
 
@@ -69,6 +69,7 @@ VS Code tar den information du tillhandahålls, skapar en IoT Edge-lösning och 
    ![Visa IoT Edge-lösning](./media/how-to-develop-csharp-module/view-solution.png)
 
 Det finns fyra objekt inne i lösningen: 
+
 * En **.vscode** mappen innehåller konfigurationer för felsökning.
 * En **moduler** mappen innehåller undermappar för varje modul. Nu kan har du bara en. Men du kan lägga till fler i kommandopaletten med kommandot **Azure IoT Edge: Lägg till IoT Edge-modul**. 
 * En **.env** filen visar en lista över dina miljövariabler. Om Azure Container Registry är ditt register, har du ett Azure Container Registry användarnamn och lösenord i den. 
@@ -87,7 +88,8 @@ När du är redo att anpassa mallen C# med din egen kod kan använda den [Azure 
 C#-stöd i VS Code är optimerat för plattformsoberoende .NET Core-utveckling. Läs mer om [hur du arbetar med C# i VS Code](https://code.visualstudio.com/docs/languages/csharp).
 
 ## <a name="launch-and-debug-module-code-without-container"></a>Starta och felsöka modulen kod utan behållare
-IoT Edge C#-modul är en .net Core program. Och det är beroende av Azure IoT C#-enhets-SDK. I modul standardkoden du initiera en **ModuleClient** miljöinställningar Indatanamnet, vilket innebär att IoT Edge C#-modulen kräver miljöinställningar att starta och köra och du måste också skicka eller dirigera meddelanden till den inkommande kanaler. Din standard C#-modul som endast innehåller en indatakanal och namnet är **indata1**.
+
+IoT Edge C#-modul är en .net Core program. Och det är beroende av Azure IoT C#-enhets-SDK. Eftersom IoT C#-modulen kräver miljöinställningar att starta och köra, i modulen standardkoden du initiera en **ModuleClient** med miljöinställningar och Indatanamnet. Du måste också skicka eller dirigera meddelanden till indata-kanaler. Din standard C#-modul som endast innehåller en indatakanal och namnet är **indata1**.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Konfigurera IoT Edge-simulator för enkel modulen app
 
@@ -113,7 +115,9 @@ IoT Edge C#-modul är en .net Core program. Och det är beroende av Azure IoT C#
 
 2. Navigera till `program.cs`. Lägg till en brytpunkt i den här filen.
 
-3. Gå till felsökningsvyn för VS Code. Välj debug konfigurationen **ModuleName lokala felsöka (.NET Core)**. 
+3. Gå till felsökningsvyn för VS Code: Visa > Felsöka. Välj debug konfigurationen **ModuleName lokala felsöka (.NET Core)** i listrutan. 
+
+  ![Gå till felsökningsläge i VS Code](media/how-to-develop-csharp-module/debug-view.png)
 
 4. Klicka på **Starta felsökning** eller tryck på **F5**. Felsökningssessionen startas.
 
@@ -140,7 +144,7 @@ IoT Edge C#-modul är en .net Core program. Och det är beroende av Azure IoT C#
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Skapa modulen behållare för felsökning och felsökning i Koppla läge
 
-Standardlösningen innehåller två moduler, en är en modul för simulerad temperatur sensorn och den andra är pipe-modul C#. Simulerade temperatursensorn ser till att skicka meddelanden till C# pipe-modell och sedan meddelandena som skickas till IoT Hub. Det finns flera Docker-filer för olika behållartyper i modulmappen som du skapade. Använd någon av dessa filer som slutar med tillägget **.debug** att skapa din modul för testning. För närvarande C# moduler support felsökning endast i Linux amd64-behållare i Koppla läge. 
+Standardlösningen innehåller två moduler, en är en modul för simulerad temperatur sensorn och den andra är pipe-modul C#. Simulerade temperatursensorn ser till att skicka meddelanden till pipe-modulen C# och meddelanden är skickas till IoT Hub. Det finns flera Docker-filer för olika behållartyper i modulmappen som du skapade. Använd någon av dessa filer som slutar med tillägget **.debug** att skapa din modul för testning. För närvarande C# moduler support felsökning endast i Linux amd64-behållare i Koppla läge.
 
 ### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>Konfigurera IoT Edge-simulator för IoT Edge-lösning
 
@@ -157,22 +161,24 @@ I en utvecklingsdator måste starta du IoT Edge-simulator istället för att ins
    ![Lägg till *** .debug till din avbildningsnamn](./media/how-to-develop-csharp-module/image-debug.png)
 
 2. Navigera till `program.cs`. Lägg till en brytpunkt i den här filen.
+
 3. I VS Code-Utforskaren, Välj den `deployment.template.json` klickar du på filen för din lösning på snabbmenyn **bygga och köra IoT Edge-lösning i simulatorn**. Du kan titta på behållaren för modulen loggar i samma fönster. Du kan också navigera till Docker-Utforskaren kan du titta på status för container.
 
    ![Titta på variabler](media/how-to-develop-csharp-module/view-log.png)
 
-5. Gå till felsökningsvyn VS Code. Välj debug-konfigurationsfil för. Alternativnamn debug bör likna **ModuleName fjärrfelsökning (.NET Core)**
+4. Gå till felsökningsvyn VS Code. Välj debug-konfigurationsfil för. Alternativnamn debug bör likna **ModuleName fjärrfelsökning (.NET Core)**
 
    ![Välj konfiguration](media/how-to-develop-csharp-module/debug-config.png)
 
-6. Välj **Starta felsökning** eller välj **F5**. Välj processen för att ansluta till.
+5. Välj **Starta felsökning** eller välj **F5**. Välj processen för att ansluta till.
 
-7. I VS Code Felsöka vyn visas variabler i den vänstra panelen.
+6. I VS Code Felsöka vyn visas variabler i den vänstra panelen.
 
-8. Stoppa felsökningssessionen genom klicka på stoppknappen eller tryck på **SKIFT + F5**. I VS Code kommandopaletten, och Skriv Välj **Azure IoT Edge: stoppa IoT Edge-simulatorn**.
+7. Stoppa felsökningssessionen genom klicka på stoppknappen eller tryck på **SKIFT + F5**. I VS Code kommandopaletten, och Skriv Välj **Azure IoT Edge: stoppa IoT Edge-simulatorn**.
 
-> [!NOTE]
-> Det här exemplet visar hur du felsöker .NET Core IoT Edge-moduler i behållare. Den är baserad på felsökningsversionen av `Dockerfile.debug`, som innehåller .NET Core kommandoradsverktyget felsökningsprogrammet VSDBG i en behållaravbildning när du skapar den. När du felsöker dina C#-moduler, rekommenderar vi att du direkt använda eller anpassa `Dockerfile` utan VSDBG för produktionsklara IoT Edge-moduler.
+    > [!NOTE]
+    > Det här exemplet visar hur du felsöker .NET Core IoT Edge-moduler i behållare. Den är baserad på felsökningsversionen av `Dockerfile.debug`, som innehåller Visual Studio .NET Core kommandoradsverktyget felsökare (VSDBG) i en behållaravbildning när du skapar den. När du felsöker dina C#-moduler, rekommenderar vi att du direkt använda eller anpassa `Dockerfile` utan VSDBG för produktionsklara IoT Edge-moduler.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

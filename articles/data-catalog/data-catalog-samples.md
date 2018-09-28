@@ -2,18 +2,18 @@
 title: Azure Data Catalog developer-exempel
 description: 'Den här artikeln innehåller en översikt över tillgängliga developer-exempel för Data Catalog REST-API: et.'
 services: data-catalog
-author: spelluru
-ms.author: spelluru
+author: markingmyname
+ms.author: maghan
 ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 98d17e5fc8b2348887d6a9e361a455474d666db4
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a4f88b63fa91dcec52b86be568ef4c98ee82c277
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053599"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404333"
 ---
 # <a name="data-catalog-developer-samples"></a>Data Catalog developer-exempel
 Börja utveckla Data Catalog-appar med hjälp av Data Catalog REST-API: et. Data Catalog REST-API: et är ett REST-baserad API som ger programmatisk åtkomst till Data Catalog-resurser för att registrera, anteckna och söka i datatillgångar programmässigt.

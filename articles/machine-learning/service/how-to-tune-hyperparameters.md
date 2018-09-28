@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 205a4d454be02d64058e3d0fcffda35df5b831a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6370fd9125c5b14df781b27e028c139175b7589
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971685"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405809"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Justera hyperparametrar för din modell
 
@@ -240,7 +240,7 @@ max_concurrent_runs=4
 Detta konfigurerar finjustering justering experimentet för att använda högst 20 Totalt antal körningar, kör 4 konfigurationer i taget.
 
 ## <a name="configure-your-hyperparameter-tuning-experiment"></a>Konfigurera din finjustering justering experiment
-Du kan konfigurera din finjustering justering experiment med definierade hyperpameter search utrymme, tidig uppsägning princip, primära mått och resurstilldelningen från ovan. Dessutom behöver du tillhandahålla en `estimator` som kommer att anropas med provade hyperparametrar. Den `estimator` beskriver inlärningsskript som du kör, resurserna per projekt (en eller flera gpu) och beräkningsmål att använda. Sedan samtidighet för din finjustering justering experimentet är gated på resurserna som är tillgänglig, måste du se till att din beräkningsmål som anges i den `estimator` har tillräckligt med resurser för önskad samtidighet. (Se [länk](/how-to-train-ml-models.md) mer information om estimators).
+Du kan konfigurera din finjustering justering experiment med definierade hyperpameter search utrymme, tidig uppsägning princip, primära mått och resurstilldelningen från ovan. Dessutom behöver du tillhandahålla en `estimator` som kommer att anropas med provade hyperparametrar. Den `estimator` beskriver inlärningsskript som du kör, resurserna per projekt (en eller flera gpu) och beräkningsmål att använda. Sedan samtidighet för din finjustering justering experimentet är gated på resurserna som är tillgänglig, måste du se till att din beräkningsmål som anges i den `estimator` har tillräckligt med resurser för önskad samtidighet. (Se [hur du tränar modeller](how-to-train-ml-models.md) mer information om estimators).
 
 Här är ett exempel på hur du kan konfigurera experimentet finjustering justering-
 
@@ -314,5 +314,5 @@ Hämta den här anteckningsboken:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* [Spåra ett experiment](/how-to-track-experiments.md)
-* [Distribuera en tränad modell](/how-to-deploy-and-where.md)
+* [Spåra ett experiment](how-to-track-experiments.md)
+* [Distribuera en tränad modell](how-to-deploy-and-where.md)

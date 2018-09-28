@@ -12,40 +12,40 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 6baf784068b1fba0c35d2848b8d2dda4f1064a2d
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 8acbb33b396aa617936eb0333bd68fea60532425
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867988"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404664"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Skapa en virtuell dator från en hanterad avbildning
 
-Du kan skapa flera virtuella datorer från en hanterad avbildning med hjälp av PowerShell eller Azure-portalen. En hanterad datoravbildning av virtuell innehåller informationen som krävs för att skapa en virtuell dator, inklusive operativsystem och datadiskar. De virtuella hårddiskar som bilden, både för OS-diskar och eventuella datadiskar, lagras som hanterade diskar. 
+Du kan skapa flera virtuella datorer (VM) från en Azure-hanterade VM bild med hjälp av Azure portal eller PowerShell. En hanterad datoravbildning av virtuell innehåller informationen som krävs för att skapa en virtuell dator, inklusive operativsystem och datadiskar. De virtuella hårddiskarna (VHD) som utgör bilden, inklusive både OS-diskar och eventuella datadiskar lagras som hanterade diskar. 
 
-Du måste redan ha [skapas en hanterad avbildning](capture-image-resource.md) du använder för att skapa den nya virtuella datorn. 
+Innan du skapar en ny virtuell dator, måste du [skapa en hanterad virtuell datoravbildning](capture-image-resource.md) ska användas som Källavbildningen. 
 
 ## <a name="use-the-portal"></a>Använda portalen
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-2. Välj **Alla resurser** i menyn till vänster. Du kan sortera resurser efter **typ** att enkelt hitta dina avbildningar.
+2. På menyn till vänster väljer **alla resurser**. Du kan sortera resurser efter **typ** att enkelt hitta dina avbildningar.
 3. Välj den avbildning som du vill använda i listan. Avbildningen **översikt** öppnas.
-4. Klicka på **+ skapa VM** på menyn.
-5. Ange informationen för den virtuella datorn. Användarnamnet och lösenordet som anges här används för att logga in på den virtuella datorn. När du är klar klickar du på **OK**. Du kan skapa den nya virtuella datorn i en befintlig resursgrupp eller välj **Skapa nytt** att skapa en ny resursgrupp för att lagra den virtuella datorn.
+4. Välj **Create VM** på menyn.
+5. Ange informationen för den virtuella datorn. Användarnamnet och lösenordet som anges här används för att logga in på den virtuella datorn. När du är klar väljer **OK**. Du kan skapa den nya virtuella datorn i en befintlig resursgrupp eller välj **Skapa nytt** att skapa en ny resursgrupp för att lagra den virtuella datorn.
 6. Välj en storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. 
-7. Under **inställningar**, gör önskade ändringar och klicka på **OK**. 
-8. På sidan Sammanfattning du bör se din Avbildningsnamnet för **privat avbildning**. Klicka på **Ok** att starta distributionen av virtuella datorn.
+7. Under **inställningar**, gör nödvändiga ändringar och välj **OK**. 
+8. På sidan Sammanfattning du bör se din avbildningsnamn som listas som en **privat avbildning**. Välj **Ok** att starta distributionen av virtuella datorn.
 
 
 ## <a name="use-powershell"></a>Använd PowerShell
 
-Du kan använda PowerShell för att skapa en virtuell dator från en avbildning med hjälp av förenklad parameteruppsättning för den [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Avbildningen måste finnas i samma resursgrupp där du vill skapa den virtuella datorn.
+Du kan använda PowerShell för att skapa en virtuell dator från en avbildning med hjälp av förenklad parameteruppsättning för den [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Avbildningen måste finnas i samma resursgrupp där du skapar den virtuella datorn.
 
 Det här exemplet kräver AzureRM-Modulversion 5.6.0 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
-Förenklad parameteruppsättning för New-AzureRmVm endast kräver att du anger ett namn och en grupp och avbildningen namn att skapa en virtuell dator från en avbildning, men den kommer att använda värdet för den **-namnet** parametern som namnet på alla resurser som den skapar automatiskt. I det här exemplet vi ger mer detaljerad namn för varje resurs, men låta cmdleten skapa dem automatiskt. Du kan också skapa resurser, t.ex. det virtuella nätverket, förbereds i förväg och skicka namnet i cmdleten. Använder befintliga resurser om det kan hitta dem efter deras namn.
+En förenklad parameteruppsättning för [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) endast kräver att du anger namn, resursgrupp och Avbildningsnamnet för att skapa en virtuell dator från en avbildning. New-AzureRmVm kommer att använda värdet för den **-namnet** parametern som namnet på alla resurser som skapas automatiskt. I det här exemplet vi ger mer detaljerad namnen för varje resurs men låta cmdleten skapa dem automatiskt. Du kan också skapa resurser i förväg, till exempel det virtuella nätverket, och skicka resursnamnet i cmdleten. New-AzureRmVm använder befintliga resurser om det hittar dem efter deras namn.
 
 I följande exempel skapas en virtuell dator med namnet *myVMFromImage*i den *myResourceGroup* resursgrupp från avbildningen med namnet *myImage*. 
 
@@ -66,5 +66,5 @@ New-AzureRmVm `
 
 
 ## <a name="next-steps"></a>Nästa steg
-För att hantera din nya virtuella dator med Azure PowerShell, se [skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+[Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

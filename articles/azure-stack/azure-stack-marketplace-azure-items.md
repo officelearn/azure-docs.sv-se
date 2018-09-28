@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: bb4a34e7036c532ca1800c70347a4f2c55a33da2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.reviewer: ''
+ms.openlocfilehash: 8e9d40451cd0d9c3a6505ee24ca02852d9d4c527
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221731"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423484"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -143,6 +143,7 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | Kraftfulla distribuerade meddelandesystem för Publicera / prenumerera. | Bitnami |
 | ![Kafka-kluster](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka-kluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka är publicerings-/ rethought som en distribuerad genomförandelogg-meddelanden. Den här lösningen förbättrar tillförlitligheten för ett Kafka-kluster genom att etablera flera Kafka-meddelandeköer och Zookeeper-instanser. **Den här lösningsmallen kräver också Debian 8 och anpassat skript för Linux 2.0-tillägget.** | Bitnami |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybridmolnsäkerhet](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky Hybrid Cloud Security gör det möjligt för ett sömlöst styrd och anpassningsbar cybersäkerhet ekosystem. | Kaspersky Lab |
+| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | Den här lösningen används ett Kubernetes-kluster som körs som ett fristående kluster med mallar som genereras med ACS-Engine.<br>**Den här lösningsmallen kräver också Ubuntu Server 16.04 LTS och anpassat skript för Linux 2.0.**| Microsoft |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | Fullständigt integrerade och redo att köra utvecklingsmiljö. | Bitnami |
 | ![LAPP](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | Slutför PHP, PostgreSQL och Apache-utvecklingsmiljö. | Bitnami |
 | ![Nu ska vi chatta](media/azure-stack-marketplace-azure-items/letschat.png) | [Nu ska vi chatta](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | Energisk meddelandeapp för öppen källkod. | Bitnami |
@@ -207,6 +208,7 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![ResourceSpace](media/azure-stack-marketplace-azure-items/resourcespace.png) | [ResourceSpace](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.resourcespace) | Digitala tillgångshanteringssystem för bättre samarbete. | Bitnami |
 | ![Roundcube](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.roundcube) | Webbläsarbaserad IMAP-klient med funktioner, till exempel MIME-stöd. | Bitnami |
 | ![Ruby](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rubystack) | Enkel att använda utvecklingsmiljö för Ruby on Rails. | Bitnami |
+| ![Service Fabric-kluster](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric-kluster](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | Den här lösningen distribuerar Service Fabric som körs som ett fristående kluster på en Virtual Machine Scale Sets. <br>**Den här lösningsmallen kräver att du också hämta Windows Server 2016 Datacenter**| Microsoft |
 | ![SEO-panelen](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO-panelen](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.seopanel) | Öppen källkod SEO hanteringsprogram för att spåra flera webbplatser. | Bitnami |
 | ![Shopware](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.shopware) | Öppen källkod e-handel plattform. | Bitnami |
 | ![Enkel datorer Forum](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Enkel datorer Forum](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Enkel forum programvara att skapa din egen online-community. | Bitnami |
@@ -241,6 +243,7 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![KEMP LoadMaster Load Balancer ADC innehåll växel](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC innehåll växel](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Belastningsutjämnare för Layer 4-7 Application Delivery Controller (ADC), innehåll växel och Traffic Manager. | KEMP Technologies Inc. |
 | ![NRI mPLAT Suite – flera moln ledare](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite – flera moln ledare](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | En enda fönstret av glas att övervaka, konfigurera, etablera, automatisera och styra alla arbetsbelastning och moln. | NRI |
 | ![Kompatibla NooBaa Hybrid AWS S3 - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [Compatibe NooBaa Hybrid AWS S3 - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-kompatibla lagringsutrymmet tjänst som sträcker sig över offentliga och lokala resurser med kapacitet. | NooBaa |
+| ![NetFoundry Gateway för Multipoint, noll lita på Azure Stack-anslutningar](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry Gateway för Multipoint, noll lita på Azure Stack-anslutningar](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | Programvarubaserad, flera plats-anslutningar mellan Azure Stack och var som helst, via en nätverksanslutning med branschens ledande lita på noll säkerhet, 5 x dataflödet för VPN- och obegränsat antal samtidiga användare. | NetFoundry |
 | ![Palo Alto VM-serien nästa generations brandvägg](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-serien nästa generations brandvägg](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM-serien nästa generations brandvägg kan kunderna på ett säkert sätt migrera sina program och data till Azure Stack, skydda dem mot kända och okända hot med programmet lista över tillåtna och hot principer för dataförlustskydd. **Den här bilden kräver en mall för att distribuera; se den här [artikeln](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) viktig information.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall identifierar kända och okända säkerhetsrisker och förebygger attacker i web apps. **Hämta båda PT Marketplace-objekt.** | Positivt tekniker |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kan du automatisera hela livscykeln för din Azure Stack-infrastruktur. **Hämta båda Puppet Marketplace-objekt.** | Puppet |

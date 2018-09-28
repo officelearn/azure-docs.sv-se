@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 532a37c5de7b69c44f0f8502613ac534f57c8ef9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312342"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405996"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -124,9 +124,9 @@ Det finns två sätt att ändra användares Zoninställningar för intranätet:
 
     Resultatet ser ut så här:
 
-    Värde:https://autologon.microsoftazuread-sso.com
+    Värdenamn: https://autologon.microsoftazuread-sso.com
   
-    Data: 1
+    Värde (Data): 1
 
    >[!NOTE]
    > Om du vill neka vissa användare från att använda sömlös enkel inloggning (till exempel om dessa användare logga in på delade kiosker), ange föregående värdena till **4**. Den här åtgärden lägger till Azure AD-URL för zonen Ej tillförlitliga platser och misslyckas sömlös SSO hela tiden.

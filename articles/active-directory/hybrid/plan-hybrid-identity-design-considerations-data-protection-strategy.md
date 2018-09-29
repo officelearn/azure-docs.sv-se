@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 7999dc15fbe1af9d23b47971db03cf6b197f110f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a3cbbf887c4b7df57f2df89dfb8649967d6d9b1b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312111"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434763"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiera en strategi för skydd av data för din hybrididentitetslösning
 I det här steget definierar du strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i dataskydd:
@@ -58,8 +58,6 @@ Beroende på hur du besvarade frågorna i [avgöra kraven på dataskydd](plan-hy
 
 ## <a name="define-content-management-options"></a>Definiera alternativ för innehållshantering
 
-<a name="one-advantage-of-using-azure-ad-to-manage-a-hybrid-identity-infrastructure-is-that-the-process-is-fully-transparent-from-the-end-users-perspective-the-user-tries-to-access-a-shared-resource-the-resource-requires-authentication-the-user-has-to-send-an-authentication-request-to-azure-ad-in-order-to-obtain-the-token-and-access-the-resource-this-entire-process-happens-in-the-background-without-user-interaction"></a>En fördel med att använda Azure AD för att hantera en hybrididentitetsinfrastruktur är att processen är helt transparent från slutanvändarens perspektiv. Användaren försöker få åtkomst till en delad resurs, resursen kräver autentisering, som användaren måste skicka en autentiseringsbegäran om till Azure AD för att hämta token och åtkomst till resursen. Hela processen sker i bakgrunden utan interaktion från användaren. 
-=======
 En fördel med att använda Azure AD för att hantera en hybrididentitetsinfrastruktur är att processen är helt transparent från slutanvändarens perspektiv. Användaren försöker få åtkomst till en delad resurs, resursen kräver autentisering, som användaren måste skicka en autentiseringsbegäran om till Azure AD för att hämta token och åtkomst till resursen. Hela processen sker i bakgrunden utan interaktion från användaren. 
 
 Organisationer som har problem om datasekretess vanligtvis kräver dataklassificering för sin lösning. Om den aktuella lokala infrastrukturen redan använder klassificering, är det möjligt att använda Azure AD som huvudlagringsplatsen för användarens identitet. Ett vanligt Verktyg att det är användas lokalt för dataklassificering kallas [Dataklassificeringsverktygslådan](https://msdn.microsoft.com/library/Hh204743.aspx) för Windows Server 2012 R2. Det här verktyget kan hjälpa till att identifiera, klassificera och skydda data på filservrar i ditt privata moln. Det är också möjligt att använda den [automatisk Filklassificering](https://technet.microsoft.com/library/hh831672.aspx) i Windows Server 2012 för att åstadkomma detta.

@@ -10,26 +10,26 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 717d02947c4ea74d5805749157d6a691888be72c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39d36ee0c46d3e6954c3264f37f3f575130186b9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031361"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434491"
 ---
 # <a name="data-extraction"></a>Extrahering av data
-LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan. 
+LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan.
 
-De svåraste data att extrahera är datorn lärt dig data eftersom den inte är en exakt denna matchning. Extrahering av data för den datorn-lärt dig [entiteter](luis-concept-entity-types.md) måste vara en del av den [redigering cykel](luis-concept-app-iteration.md) tills du är säker på att du får de data du förväntar dig. 
+De svåraste data att extrahera är datorn lärt dig data eftersom den inte är en exakt denna matchning. Extrahering av data för den datorn-lärt dig [entiteter](luis-concept-entity-types.md) måste vara en del av den [redigering cykel](luis-concept-app-iteration.md) tills du är säker på att du får de data du förväntar dig.
 
 ## <a name="data-location-and-key-usage"></a>Dataanvändning för platsen och nyckel
-LUIS innehåller data från den publicerade [endpoint](luis-glossary.md#endpoint). Den **HTTPS-begäran** (POST eller GET) innehåller uttryck samt vissa valfria konfigurationer, till exempel mellanlagring eller produktionsmiljö. 
+LUIS innehåller data från den publicerade [endpoint](luis-glossary.md#endpoint). Den **HTTPS-begäran** (POST eller GET) innehåller uttryck samt vissa valfria konfigurationer, till exempel mellanlagring eller produktionsmiljö.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
 Den `appID` är tillgänglig på den **inställningar** sidan av dina LUIS-app, samt en del av URL: en (när `/apps/`) när du redigerar den LUIS-app. Den `subscription-key` är slutpunktsnyckeln som används för att fråga din app. Du kan använda din kostnadsfria redigering/starter nyckel medan du lär dig LUIS, är det viktigt att ändra slutpunktsnyckeln till en nyckel som har stöd för din [förväntad användning av LUIS](luis-boundaries.md#key-limits). Den `timezoneOffset` enhet är minuter.
 
-Den **HTTPS-svar** innehåller alla avsikt och entiteten informationen LUIS kan fastställa baserat på den aktuella publicerade modellen antingen slutpunkten mellanlagring eller produktion. Den slutpunkt som URL-Adressen finns på den [LUIS](luis-reference-regions.md) webbplats, i den **hantera** avsnittet på den **nycklar och slutpunkter** sidan. 
+Den **HTTPS-svar** innehåller alla avsikt och entiteten informationen LUIS kan fastställa baserat på den aktuella publicerade modellen antingen slutpunkten mellanlagring eller produktion. Den slutpunkt som URL-Adressen finns på den [LUIS](luis-reference-regions.md) webbplats, i den **hantera** avsnittet på den **nycklar och slutpunkter** sidan.
 
 ## <a name="data-from-intents"></a>Data från avsikter
 Primära data är högsta bedömning **avsikt namn**. Med hjälp av den `MyStore` [snabbstarten](luis-quickstart-intents-only.md), endpoint-svaret är:
@@ -104,7 +104,7 @@ Om du lägger till fördefinierade domäner avsikt namnet anger domänen, till e
   "entities": []
 }
 ```
-    
+
 |Domain|Dataobjekt|Datatyp|Dataplats|Värde|
 |--|--|--|--|--|
 |Samhällsservice|Avsikt|Sträng|avsikter [0] .intent|”<b>Verktyg</b>. ShowNext ”|
@@ -113,9 +113,9 @@ Om du lägger till fördefinierade domäner avsikt namnet anger domänen, till e
 
 
 ## <a name="data-from-entities"></a>Data från enheter
-De flesta chattrobotar och program behöver mer än avsikt namnet. Den här ytterligare, valfria data kommer från enheter som identifieras i uttryck. Varje typ av entitet returnerar olika typer av information om matchningen. 
+De flesta chattrobotar och program behöver mer än avsikt namnet. Den här ytterligare, valfria data kommer från enheter som identifieras i uttryck. Varje typ av entitet returnerar olika typer av information om matchningen.
 
-Ett enstaka ord eller en fras i ett uttryck kan matcha mer än en entitet. I så fall returneras varje matchande entitet med dess poäng. 
+Ett enstaka ord eller en fras i ett uttryck kan matcha mer än en entitet. I så fall returneras varje matchande entitet med dess poäng.
 
 Alla entiteter returneras i de **entiteter** matris för svaret från slutpunkten:
 
@@ -141,13 +141,13 @@ Alla entiteter returneras i de **entiteter** matris för svaret från slutpunkte
 ```
 
 ## <a name="tokenized-entity-returned"></a>principfilerna entitet returnerades
-Flera [kulturer](luis-supported-languages.md#tokenization) returnera entitetsobjekt med den `entity` värdet [tokeniserad](luis-glossary.md#token). StartIndex och endIndex som returnerades av LUIS i entitetsobjektet mappas inte till det nya, principfilerna värdet utan istället på den ursprungliga frågan i ordning att extrahera raw entiteten programmässigt. 
+Flera [kulturer](luis-language-support.md#tokenization) returnera entitetsobjekt med den `entity` värdet [tokeniserad](luis-glossary.md#token). StartIndex och endIndex som returnerades av LUIS i entitetsobjektet mappas inte till det nya, principfilerna värdet utan istället på den ursprungliga frågan i ordning att extrahera raw entiteten programmässigt. 
 
 Till exempel på tyska, ordet `das Bauernbrot` tokeniserad till `das bauern brot`. Värdet principfilerna `das bauern brot`, returneras och det ursprungliga värdet programmässigt kan fastställas från startIndex och endIndex av den ursprungliga frågan, vilket ger dig `das Bauernbrot`.
 
 ## <a name="simple-entity-data"></a>Enkel entitetsdata
 
-En [enkel enhet](luis-concept-entity-types.md) är ett värde för datorn lärt dig. Det kan vara ett ord eller fraser. 
+En [enkel enhet](luis-concept-entity-types.md) är ett värde för datorn lärt dig. Det kan vara ett ord eller fraser.
 
 `Bob Jones wants 3 meatball pho`
 
@@ -173,13 +173,13 @@ De data som returneras från slutpunkten innehåller entitetsnamnet, identifiera
 
 ## <a name="hierarchical-entity-data"></a>Hierarkisk entitetsdata
 
-[Hierarkisk](luis-concept-entity-types.md) entiteter är datorn lärt dig och kan innehålla ett ord eller fraser. Barn identifieras av kontext. Om du letar efter en överordnad-underordnad-relation med exakt denna matchning, använda en [lista](#list-entity-data) entitet. 
+[Hierarkisk](luis-concept-entity-types.md) entiteter är datorn lärt dig och kan innehålla ett ord eller fraser. Barn identifieras av kontext. Om du letar efter en överordnad-underordnad-relation med exakt denna matchning, använda en [lista](#list-entity-data) entitet.
 
 `book 2 tickets to paris`
 
-I den föregående uttryck `paris` är märkt med en `Location::ToLocation` underordnad den `Location` hierarkiska entitet. 
+I den föregående uttryck `paris` är märkt med en `Location::ToLocation` underordnad den `Location` hierarkiska entitet.
 
-De data som returneras från slutpunkten innehåller enhetens namn och namnet på underordnade, identifierade texten från uttryck, platsen för den identifierade texten och poängen: 
+De data som returneras från slutpunkten innehåller enhetens namn och namnet på underordnade, identifierade texten från uttryck, platsen för den identifierade texten och poängen:
 
 ```JSON
 "entities": [
@@ -259,9 +259,9 @@ Sammansatta entiteter returneras i en `compositeEntities` matris och alla enhete
 
 ## <a name="list-entity-data"></a>Lista entitetsdata
 
-En [lista](luis-concept-entity-types.md) entiteten är inte dator-lärt dig. Det är en exakt denna matchning. En lista representerar objekt i listan tillsammans med synonymer för dessa objekt. LUIS markerar alla motsvarar ett objekt i en lista som en entitet i svaret. En synonym kan finnas i mer än en lista. 
+En [lista](luis-concept-entity-types.md) entiteten är inte dator-lärt dig. Det är en exakt denna matchning. En lista representerar objekt i listan tillsammans med synonymer för dessa objekt. LUIS markerar alla motsvarar ett objekt i en lista som en entitet i svaret. En synonym kan finnas i mer än en lista.
 
-Anta att appen har en lista som heter `Cities`, så att variationer av stadsnamn inklusive stad flygplats (Sea tac), flygplatsen (SEA), postnummer (98101), och phone riktnummer (206). 
+Anta att appen har en lista som heter `Cities`, så att variationer av stadsnamn inklusive stad flygplats (Sea tac), flygplatsen (SEA), postnummer (98101), och phone riktnummer (206).
 
 |Listobjekt|Objektet synonymer|
 |---|---|
@@ -270,7 +270,7 @@ Anta att appen har en lista som heter `Cities`, så att variationer av stadsnamn
 
 `book 2 tickets to paris`
 
-I den föregående uttryck ordet `paris` mappas till paris-objektet som en del av den `Cities` lista entitet. Entiteten listan matchar både objektets normaliserade namn samt synonymer för objektet. 
+I den föregående uttryck ordet `paris` mappas till paris-objektet som en del av den `Cities` lista entitet. Entiteten listan matchar både objektets normaliserade namn samt synonymer för objektet.
 
 ```JSON
 "entities": [
@@ -390,7 +390,7 @@ Ett annat exempel uttryck med en synonym för Paris:
       }
     }
   ]
-``` 
+```
 
 ## <a name="regular-expression-entity-data"></a>Reguljärt uttryck entitetsdata
 [Reguljärt uttryck](luis-concept-entity-types.md) entiteter identifieras baserat på en vanlig uttrycksmatchning med hjälp av ett uttryck som du anger när du har skapat entiteten. När du använder `kb[0-9]{6}` som reguljärt uttryck dess definition följande JSON-svar är en exempel-uttryck med entiteterna returnerade reguljärt uttryck för frågan `When was kb123456 published?`:
@@ -424,19 +424,19 @@ Ett annat exempel uttryck med en synonym för Paris:
 ```
 
 ## <a name="extracting-names"></a>Extrahera namn
-Det är svårt att hämta namn från ett uttryck eftersom ett namn kan vara nästan vilken kombination av bokstäver och ord. Beroende på vilken typ av namn som du extraherar, har du flera alternativ. Dessa är inte regler utan fler riktlinjer. 
+Det är svårt att hämta namn från ett uttryck eftersom ett namn kan vara nästan vilken kombination av bokstäver och ord. Beroende på vilken typ av namn som du extraherar, har du flera alternativ. Dessa är inte regler utan fler riktlinjer.
 
 ### <a name="names-of-people"></a>Namnen på personer
-Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd en hierarkisk entitet med och efternamn som underordnade eller Använd en enkel enhet med rollerna för förnamn, efternamn. Se till att ge exempel som använder det första och sista namnet i olika delar av uttryck i yttranden med olika längd och yttranden över alla avsikter inklusive ingen avsikt. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt. 
+Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd en hierarkisk entitet med och efternamn som underordnade eller Använd en enkel enhet med rollerna för förnamn, efternamn. Se till att ge exempel som använder det första och sista namnet i olika delar av uttryck i yttranden med olika längd och yttranden över alla avsikter inklusive ingen avsikt. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
 
 ### <a name="names-of-places"></a>Namnen på platser
-Platsnamn anges och kända, till exempel städer, regioner, stater, regioner och länder. Om appen använder en veta uppsättning platser kan du en entitet i listan. Om du vill hitta alla placera namn kan skapa en enkel enhet och omfattar en mängd olika exempel. Lägg till en fras över platsnamn att förstärka vilken plats namn som ut i din app. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt. 
+Platsnamn anges och kända, till exempel städer, regioner, stater, regioner och länder. Om appen använder en veta uppsättning platser kan du en entitet i listan. Om du vill hitta alla placera namn kan skapa en enkel enhet och omfattar en mängd olika exempel. Lägg till en fras över platsnamn att förstärka vilken plats namn som ut i din app. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
 
 ### <a name="new-and-emerging-names"></a>Nya och framväxande namn
-Vissa appar behöver för att kunna hitta nya och framväxande namn, t.ex produkter eller företag. Det här är den svåraste typ av extrahering av data. Börja med en enkel enhet och lägga till en fras-lista. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt. 
+Vissa appar behöver för att kunna hitta nya och framväxande namn, t.ex produkter eller företag. Det här är den svåraste typ av extrahering av data. Börja med en enkel enhet och lägga till en fras-lista. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
 
 ## <a name="pattern-roles-data"></a>Mönstret roller data
-Roller är sammanhangsberoende skillnader med entiteter. 
+Roller är sammanhangsberoende skillnader med entiteter.
 
 ```JSON
 {
@@ -497,7 +497,7 @@ Roller är sammanhangsberoende skillnader med entiteter.
 ```
 
 ## <a name="patternany-entity-data"></a>Pattern.any entitetsdata
-Pattern.any entiteter är variabel längd entiteter som används i mallen yttranden av en [mönstret](luis-concept-patterns.md). 
+Pattern.any entiteter är variabel längd entiteter som används i mallen yttranden av en [mönstret](luis-concept-patterns.md).
 
 ```JSON
 {
@@ -606,7 +606,7 @@ LUIS returnerar alla entiteter som identifieras i uttryck. Din chattrobot kan d�
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-LUIS-slutpunkten kan identifiera samma data på olika enheter: 
+LUIS-slutpunkten kan identifiera samma data på olika enheter:
 
 ```JSON
 {

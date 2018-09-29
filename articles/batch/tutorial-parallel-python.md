@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 916cedfb91f0711f136ff8ad679be94c68964619
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6bbaa9693bb8d8e54e78f1e83617449cd013ad48
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38301061"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158743"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Självstudie: Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API
 
@@ -65,7 +65,7 @@ I Python-miljön installerar du de nödvändiga paketen med `pip`.
 pip install -r requirements.txt
 ```
 
-Öppna filen `batch_python_tutorial_ffmpeg.py`. Uppdatera autentiseringssträngarna med Batch- och lagringskontouppgifter med de värden som är unika för dina konton. Till exempel:
+Öppna filen `batch_python_tutorial_ffmpeg.py`. Uppdatera autentiseringssträngarna med Batch- och lagringskontouppgifter med de värden som är unika för dina konton. Exempel:
 
 
 ```Python
@@ -127,8 +127,8 @@ För att interagera med ett lagringskonto använder appen paketet [azure-storage
 
 ```python
 blob_client = azureblob.BlockBlobService(
-    account_name=STORAGE_ACCOUNT_NAME,
-    account_key=STORAGE_ACCOUNT_KEY)
+    account_name=_STORAGE_ACCOUNT_NAME,
+    account_key=_STORAGE_ACCOUNT_KEY)
 ```
 
 Appen skapar ett [BatchServiceClient](/python/api/azure.batch.batchserviceclient)-objekt för att skapa och hantera pooler, jobb och aktiviteter i Batch-tjänsten. Batch-klienten i exemplet använder autentisering med delad nyckel. Batch har även stöd för autentisering via [Azure Active Directory](batch-aad-auth.md) när enskilda användare eller övervakade program ska autentiseras.
@@ -144,14 +144,14 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="upload-input-files"></a>Ladda upp indatafiler
 
-Appen använder referensen `blob_client` för att skapa en lagringsbehållare för MP4-indatafilerna och en behållare för uppgiftsutdata. Sedan anropas `upload_file_to_container`-funktionen för att ladda upp MP4-filer i den lokala `InputFiles`-katalogen till behållaren. De lagrade filerna har definierats som Batch [ResourceFile](/python/api/azure.batch.models.resourcefile)-objekt som Batch senare kan hämta till beräkningsnoder.
+Appen använder referensen `blob_client` för att skapa en lagringscontainer för MP4-indatafilerna och en container för uppgiftsutdata. Sedan anropas `upload_file_to_container`-funktionen för att ladda upp MP4-filer i den lokala `InputFiles`-katalogen till containern. De lagrade filerna har definierats som Batch [ResourceFile](/python/api/azure.batch.models.resourcefile)-objekt som Batch senare kan hämta till beräkningsnoder.
 
 ```python
 blob_client.create_container(input_container_name, fail_on_exist=False)
 blob_client.create_container(output_container_name, fail_on_exist=False)
 input_file_paths = []
     
-for folder, subs, files in os.walk('./InputFiles/'):
+for folder, subs, files in os.walk(os.path.join(sys.path[0],'./InputFiles/')):
     for filename in files:
         if filename.endswith(".mp4"):
             input_file_paths.append(os.path.abspath(os.path.join(folder, filename)))
@@ -204,8 +204,8 @@ Ett Batch-jobb anger en pool för körning av uppgifter, samt valfria inställni
 
 ```python
 job = batch.models.JobAddParameter(
-    job_id,
-    batch.models.PoolInformation(pool_id=pool_id))
+    id=job_id,
+    pool_info=batch.models.PoolInformation(pool_id=pool_id))
 
 batch_service_client.job.add(job)
 ```
@@ -214,7 +214,7 @@ batch_service_client.job.add(job)
 
 Appen skapar aktiviteter i jobbet med ett anrop till `add_tasks`. Den här definierade funktionen skapar en lista med aktivitetsobjekt med hjälp av klassen [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter). Varje aktivitet kör ffmpeg för bearbetning av ett `resource_files`-indataobjekt med en `command_line`-parameter. ffmpeg installerades tidigare på varje nod när poolen skapades. Här kör kommandoraden ffmpeg för att konvertera varje MP4-indatafil (video) till en MP3-fil (ljud).
 
-I exemplet skapas ett [OutputFile](/python/api/azure.batch.models.outputfile)-objekt för MP3-filen när du kör kommandoraden. Varje uppgifts utdatafiler (i det här fallet en) laddas upp till en behållare i länkade lagringskontot med uppgiftsegenskapen `output_files`.
+I exemplet skapas ett [OutputFile](/python/api/azure.batch.models.outputfile)-objekt för MP3-filen när du kör kommandoraden. Varje uppgifts utdatafiler (i det här fallet en) laddas upp till en container i länkade lagringskontot med uppgiftsegenskapen `output_files`.
 
 Sedan lägger appen till aktiviteter i jobbet med metoden [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection) som köar dem för att köras på beräkningsnoderna. 
 
@@ -229,13 +229,15 @@ for idx, input_file in enumerate(input_files):
         id='Task{}'.format(idx),
         command_line=command,
         resource_files=[input_file],
-        output_files=[batchmodels.OutputFile(output_file_path,
-              destination=batchmodels.OutputFileDestination(
-                container=batchmodels.OutputFileBlobContainerDestination(output_container_sas_url)),
-              upload_options=batchmodels.OutputFileUploadOptions(
-                batchmodels.OutputFileUploadCondition.task_success))]
-            )
-     )
+        output_files=[batchmodels.OutputFile(
+            file_pattern=output_file_path,
+            destination=batchmodels.OutputFileDestination(
+                container=batchmodels.OutputFileBlobContainerDestination(
+                    container_url=output_container_sas_url)),
+            upload_options=batchmodels.OutputFileUploadOptions(
+                upload_condition=batchmodels.OutputFileUploadCondition.task_success))]
+        )
+    )
 batch_service_client.task.add_collection(job_id, tasks)
 ```    
 
@@ -251,7 +253,7 @@ while datetime.datetime.now() < timeout_expiration:
     sys.stdout.flush()
     tasks = batch_service_client.task.list(job_id)
 
-     incomplete_tasks = [task for task in tasks if
+    incomplete_tasks = [task for task in tasks if
                          task.state != batchmodels.TaskState.completed]
     if not incomplete_tasks:
         print()
@@ -263,7 +265,7 @@ while datetime.datetime.now() < timeout_expiration:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När uppgifterna har körts tar appen automatiskt bort den lagringsbehållare som skapades och du får möjlighet att ta bort Batch-poolen och jobbet. Klasserna [JobOperations](/python/api/azure.batch.operations.joboperations) och [PoolOperations](/python/api/azure.batch.operations.pooloperations) i BatchClient har båda borttagningsmetoder som anropas om du bekräftar borttagningen. Även om du inte debiteras för själva jobben och aktiviteterna debiteras du för beräkningsnoder. Vi rekommenderar därför att du endast allokerar pooler efter behov. När du tar bort poolen raderas alla aktivitetsutdata på noderna. In- och utdatafilerna ligger däremot kvar i lagringskontot.
+När uppgifterna har körts tar appen automatiskt bort den lagringscontainer som skapades och du får möjlighet att ta bort Batch-poolen och jobbet. Klasserna [JobOperations](/python/api/azure.batch.operations.joboperations) och [PoolOperations](/python/api/azure.batch.operations.pooloperations) i BatchClient har båda borttagningsmetoder som anropas om du bekräftar borttagningen. Även om du inte debiteras för själva jobben och aktiviteterna debiteras du för beräkningsnoder. Vi rekommenderar därför att du endast allokerar pooler efter behov. När du tar bort poolen raderas alla aktivitetsutdata på noderna. In- och utdatafilerna ligger däremot kvar i lagringskontot.
 
 När de inte längre behövs tar du bort resursgruppen, Batch-kontot och lagringskontot. Om du vill göra det i Azure-portalen väljer du resursgruppen för Batch-kontot och klickar på **Ta bort resursgrupp**.
 

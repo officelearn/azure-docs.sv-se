@@ -3,7 +3,7 @@ title: Azure virtuella datorer, tillägg och funktioner | Microsoft Docs
 description: Lär dig vilka anre för Azure VM-tillägg du använder dem med Azure-datorer
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: c54bcc1239c2d8b8a88d5e30b06f8856b73b47ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 38f885cc230df6e0edb1e5b5254faf0cd519847a
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960693"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451451"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure virtuella datorer, tillägg och funktioner
 Azure-dator (VM)-tillägg är litet program som ger efter distributionen konfiguration och automatisering av uppgifter på Azure Virtual Machines, du kan använda befintliga avbildningar och sedan anpassa dem som en del av distributionen, hämta din verksamhet för anpassad att skapa avbildningen.

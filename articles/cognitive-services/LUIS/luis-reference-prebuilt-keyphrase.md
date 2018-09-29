@@ -10,15 +10,15 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4141c5aea93b308a7149b91001fbf1c88d629d79
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4133b7c7c3fabbe92a3208c567d7b4c6c2c27283
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037991"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434406"
 ---
 # <a name="keyphrase-entity"></a>Entitet för keyPhrase
-keyPhrase extraherar massor av nyckelfraser från ett uttryck. Du behöver inte lägga till exempel yttranden som innehåller keyPhrase till programmet. keyPhrase entitet stöds i [många kulturer](luis-supported-languages.md#languages-supported) som en del av den [textanalys](../text-analytics/overview.md) funktioner. 
+keyPhrase extraherar massor av nyckelfraser från ett uttryck. Du behöver inte lägga till exempel yttranden som innehåller keyPhrase till programmet. keyPhrase entitet stöds i [många kulturer](luis-language-support.md#languages-supported) som en del av den [textanalys](../text-analytics/overview.md) funktioner. 
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Lösning för fördefinierade keyPhrase entitet
 I följande exempel visas av lösningen på den **builtin.keyPhrase** entitet.
@@ -49,4 +49,4 @@ I följande exempel visas av lösningen på den **builtin.keyPhrase** entitet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den [procent](luis-reference-prebuilt-percentage.md), [nummer](luis-reference-prebuilt-number.md), och [ålder](luis-reference-prebuilt-age.md) entiteter. 
+Lär dig mer om den [procent](luis-reference-prebuilt-percentage.md), [nummer](luis-reference-prebuilt-number.md), och [ålder](luis-reference-prebuilt-age.md) entiteter.

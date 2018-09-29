@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cd89c41b43be1da339ca7dcc64110e7145a93903
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 72cf094dc6206fcb156a3e4dae6e89662e2085d8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857338"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434865"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Problem med Azure punkt-till-plats-anslutning
 
@@ -51,7 +51,7 @@ Följ dessa steg för att lösa problemet:
     | Azuregateway-*GUID*.cloudapp.net  | Aktuella User\Trusted rotcertifikatutfärdare|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Lokal dator\Betrodda certifikatutfärdare|
 
-3. Gå till användare\<användarnamn > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, manuellt installera certifikatet (*.cer-fil) på användaren och datorns store.
+3. Gå till C:\Users\<användarnamn > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, manuellt installera certifikatet (*.cer-fil) på användaren och datorns store.
 
 Läs mer om hur du installerar klientcertifikatet [generera och exportera certifikat för punkt-till-plats-anslutningar](vpn-gateway-certificates-point-to-site.md).
 
@@ -276,7 +276,7 @@ Du tar bort punkt-till-plats VPN-anslutning och sedan installera om VPN-klienten
 
 ### <a name="solution"></a>Lösning
 
-Lös problemet genom att ta bort de gamla VPN-klientkonfigurationsfilerna från **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId >**, och kör sedan installationsprogrammet för VPN-klienten igen.
+Lös problemet genom att ta bort de gamla VPN-klientkonfigurationsfilerna från **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId >**, och kör sedan installationsprogrammet för VPN-klienten igen .
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Punkt-till-plats VPN-klienten inte kan lösa det fullständiga Domännamnet för resurserna i den lokala domänen
 
@@ -361,7 +361,7 @@ Det här problemet kan orsakas av föregående VPN-klientinstallationer.
 
 ### <a name="solution"></a>Lösning
 
-Ta bort de gamla VPN-klientkonfigurationsfilerna från **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId >** och kör installationsprogrammet för VPN-klienten igen. 
+Ta bort de gamla VPN-klientkonfigurationsfilerna från **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId >** och kör installationsprogrammet för VPN-klienten igen. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>VPN-klienten i viloläge eller strömsparläge efter en stund
 

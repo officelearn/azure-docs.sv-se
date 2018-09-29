@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 3b35f78d66a6ae66b0a56818f5d4be455ce00de5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181798"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433232"
 ---
 # <a name="design-process-overview"></a>Processöversikt för design
-Du kan uttrycka design avsikt i alla tre faser av projektet Akustik arbetsflödet: förväg skapa design, ljudkälla placering och efter ändamålet design. Processen kräver mindre markup som är associerade med placera eko volymer samtidigt som du behåller designer kontroll över hur en scen låter.
+Du kan uttrycka design avsikt i alla tre faser av projektet Akustik arbetsflödet: förväg skapa scen konfiguration, ljudkälla placering och efter ändamålet design. Processen kräver mindre markup som är associerade med placera eko volymer samtidigt som du behåller designer kontroll över hur en scen låter.
 
 ## <a name="pre-bake-design"></a>Skapa förväg design
-Före ändamålet designprocessen producerar scen och metadata som används för ljud wave-simulering, som omfattar att välja vilket scen element ska delta i simuleringen att tillhandahålla occlusions, reflektioner och genljudet. Metadata för scenen är valet av akustiska material för varje scen-element. Akustiska material styra mängden ljud energi som visas från varje ytan.
+Före ändamålet scen installationsprocessen skapar scen och metadata som används för ljud wave-simulering, som omfattar att välja vilket scen element ska delta i simuleringen att tillhandahålla occlusions, reflektioner och genljudet. Metadata för scenen är valet av akustiska material för varje scen-element. Akustiska material styra mängden ljud energi som visas från varje ytan.
 
 Absorptionskoefficient standard för alla ytor är 0.04, vilket är reflekterar. Du kan uppnå dess estetiska egenskaper och spelupplevelsen genom att justera absorptionskoefficient av olika material i hela scenen, som är särskilt framstående till lyssnare när de hör övergångar från ett område från scenen till en annan. Till exempel förbättrar övergång från ett mörkt reverberant rum till en klar, icke-reverberant utomhus scen effekten av övergången. Finjustera absorptionskoefficient på högre utomhus scen material för att uppnå detta.
 

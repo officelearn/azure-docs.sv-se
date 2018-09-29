@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: ca35e13c502efadad07ef78077271923951ae4b1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038229"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451892"
 ---
 # <a name="edit-a-knowledge-base"></a>Redigera en kunskapsbas
 
@@ -30,8 +30,24 @@ QnA Maker kan du hantera innehållet i kunskapsbasen genom att tillhandahålla e
     ![Min kunskapsbaser](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 2. Välj en viss kunskapsbas kan göra ändringar i den.
+ 
+3. Klicka på **Inställningar**.
 
-3. När du är klar med ändringarna i kunskapsbasen, klickar du på **spara och träna** i det övre högra hörnet på sidan för att spara ändringarna.    
+   Här kan du redigera obligatoriskt fält tjänstnamn.
+  
+   Du kan lägga till nya URL: er för att lägga till nytt innehåll för vanliga frågor och svar Knowledgebase genom att klicka på **hantera knowledgebase -> ”+ Lägg till URL: en”** länk.
+   
+   Du kan ta bort befintliga webbadresser genom att klicka på **ikonen Ta bort**.
+   
+   Om du vill att betyda att uppdatera det senaste innehållet över befintliga URL: er för skalstreck kryssrutan namnet **”uppdatera”**, då uppdateras Knowledgebase med senaste URL-innehållet.
+   
+Du kan lägga till maxstorleken dokumentet som en del av knowledgebase, genom att klicka på **hantera knowledgebase -> ”+ Lägg till fil”**
+
+Du kan också importera alla befintliga knowledgebase genom att klicka på **Ímport Knowledgebase** knappen. 
+   
+Uppdatering av knowledgebase beror på **management prisnivån** som används när du skapar QnA Maker-tjänsten som är associerade med din knowledgbase. Du kan också uppdatera hanteringsnivån från Azure-portalen om det behövs.
+
+4. När du är klar med ändringarna i kunskapsbasen, klickar du på **spara och träna** i det övre högra hörnet på sidan för att spara ändringarna.    
 
     ![Spara och träna](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 

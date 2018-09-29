@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: ddb60631f54e1b635ae5ec036b7d35d47ca0a519
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d28b9177684cf7b9a3ddc83107806aaa6afde477
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221766"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434046"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
@@ -64,7 +64,7 @@ I Azure Search kapacitet är strukturerad som *repliker* och *partitioner*.
 + Partitioner lagra index och automatiskt dela sökbara data: två partitioner dela ditt index i en halv finns det tre partitioner i tre delar och så vidare. Vad gäller kapacitet, *partitionera storlek* är den primära särskiljande funktionen på nivåerna.
 
 > [!NOTE]
-> Alla **Standard** nivåerna support [flexibla kombinationer replik och partitioner](search-capacity-planning.md#chart) så att du kan [vikt systemet för hastighet eller lagring](search-performance-optimization.md) genom att ändra balans. **Grundläggande** erbjuder tre repliker för hög tillgänglighet men har endast en partition. **Kostnadsfria** nivåer ger inte dedikerade resurser: databehandling resurser som delas av flera kostnadsfria tjänster.
+> Alla **Standard** nivåerna support [flexibla kombinationer replik och partitioner](search-capacity-planning.md#chart) så att du kan [vikt systemet för hastighet eller lagring](search-performance-optimization.md) genom att ändra balans. **Grundläggande** erbjuder tre repliker för hög tillgänglighet men har endast en partition. **Kostnadsfria** nivåer ger inte dedikerade resurser: databehandling resurser som delas av flera prenumeranter.
 
 ### <a name="more-about-service-limits"></a>Mer om tjänstbegränsningar
 

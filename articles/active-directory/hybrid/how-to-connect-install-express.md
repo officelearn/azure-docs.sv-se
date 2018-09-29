@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0e31f311c123fa8ace523cfde21ebdf2f707fce5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1af54e3b0237d1d62ae7fb47939e7786fa1219b8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303884"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434678"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Komma igång med Azure AD Connect med standardinställningar
 **Expressinställningar** för Azure AD Connect används om du har en topologi med en enda skog och om du använder [synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md) för autentisering. **Standardinställningar** är standardalternativet och används i de vanligaste distributionsscenarierna. Du är bara några få klick bort från att utöka din lokala katalog till molnet.
@@ -46,7 +46,7 @@ Du kan se dessa steg i praktiken i avsnittet med [videoklipp](#videos).
    Om den här sidan visas granskar du alla domäner som har markerats med **Inte tillagd** och **Inte verifierad**. Kontrollera att de domäner som du använder har verifierats i Azure AD. Klicka på symbolen Uppdatera när du har verifierat dina domäner.
 8. Klicka på **Installera** på skärmen Klart att konfigurera.
    * Du kan också välja att avmarkera kryssrutan **Starta synkroniseringen så fort konfigurationen är klar** på sidan Klart att konfigurera. Du måste avmarkera kryssrutan om du vill göra ytterligare konfigurationsinställningar, t.ex. [filtrering](how-to-connect-sync-configure-filtering.md). Om du avmarkerar det här alternativet konfigurerar guiden synkronisering men lämnar schemaläggaren inaktiverad. Den körs inte förrän du aktiverar den manuellt genom att [köra installationsguiden igen](how-to-connect-installation-wizard.md).
-   * Om du låter kryssrutan **Starta synkroniseringsprocessen så snart som konfigurationen är klar** vara markerad utlöses omedelbart en fullständig synkronisering mot Microsoft Azure Active Directory för alla användare, grupper och kontakter. 
+   * Om du låter kryssrutan **Starta synkroniseringsprocessen så snart som konfigurationen är klar** vara markerad utlöses omedelbart en fullständig synkronisering mot Microsoft Azure Active Directory för alla användare, grupper och kontakter.
    * Om du har Exchange i din lokala Active Directory kan du också välja att aktivera [**Exchange-hybridinstallation**](https://technet.microsoft.com/library/jj200581.aspx). Aktivera det här alternativet om du planerar att ha Exchange-postlådor både i molnet och lokalt samtidigt.
      ![Redo att konfigurera Azure AD Connect](./media/how-to-connect-install-express/readytoconfigure.png)
 9. När installationen är klar klickar du på **Avsluta**.

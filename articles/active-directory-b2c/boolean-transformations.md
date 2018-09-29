@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b1e56e9126b1dd93ed790da1526b64c49524149d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c6e9337fb5e336c506fc43e13eeb7fdbfaf636a7
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381659"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432570"
 ---
 # <a name="boolean-claims-transformations"></a>Booleska anspråksomvandlingar
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller exempel för att använda booleskt anspråksomvand
 
 Utförs av två booleskt inputClaims och ställer in outputClaim med resultatet av åtgärden.
 
-| Objekt  | TransformationClaimType  | Datatyp  | OBS! |
+| Objekt  | TransformationClaimType  | Datatyp  | Anteckningar |
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolesk | Första ClaimType att utvärdera. |
 | InputClaim | inputClaim2  | boolesk | Andra ClaimType att utvärdera. |
@@ -60,9 +60,9 @@ Följande anspråkstransformering visar hur du och två booleskt ClaimTypes: `is
 
 Kontrollerar att booleska värden för två anspråk är likvärdiga och utlöser ett undantag om de inte.
 
-| Objekt | TransformationClaimType  | Datatyp  | OBS! |
+| Objekt | TransformationClaimType  | Datatyp  | Anteckningar |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolesk | ClaimType verifieringsvillkor som ska kontrolleras. |
+| InputClaim | InputClaim | boolesk | ClaimType verifieringsvillkor som ska kontrolleras. |
 | Indataparametrar |valueToCompareTo | boolesk | Värde att jämföra (SANT eller FALSKT). |
 
 Den **AssertBooleanClaimIsEqualToValue** anspråkstransformering utförs alltid från en [teknisk verifieringsprofil](validation-technical-profile.md) som anropas av en [lokal verifieringsvillkor tekniska profilen](self-asserted-technical-profile.md). Den **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** självkontrollerad tekniska profilens metadata styr det felmeddelande som den tekniska profilen som visas för användaren.
@@ -117,15 +117,15 @@ Den tekniska profilen självkontrollerad anropar verifieringen **inloggning utan
 
 Utför en inte av boolesk inputClaim och ställer in outputClaim med resultatet av åtgärden.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | boolesk | Anspråk att vara i drift. |
+| InputClaim | InputClaim | boolesk | Anspråk att vara i drift. |
 | outputClaim | outputClaim | boolesk | ClaimTypes som genereras när den här ClaimsTransformation har anropats (SANT eller FALSKT). |
 
 Använda den här anspråksomvandling för att utföra logisk negation på ett anspråk.
 
 ```XML
-<ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
+<ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
   <OutputClaims>
@@ -145,7 +145,7 @@ Använda den här anspråksomvandling för att utföra logisk negation på ett a
 
 Beräknar en Or av två booleskt inputClaims och ställer in outputClaim med resultatet av åtgärden.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | boolesk | Första ClaimType att utvärdera. |
 | InputClaim | inputClaim2 | boolesk | Andra ClaimType att utvärdera. |

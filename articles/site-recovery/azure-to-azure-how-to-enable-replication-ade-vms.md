@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 828e75a61b7f5d6d747b13069d25503b43b65222
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d276098c951cb26a97906e6ac7e23c0ab2e4d137
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311936"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432587"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure disk encryption (ADE) aktiverade virtuella datorer till en annan Azure-region
 
@@ -122,6 +122,15 @@ Du kan ändra standardinställningarna för målet som används av Site Recovery
 >Under den inledande replikeringen kan status ta lite tid att uppdatera utan pågår. Klicka på den **uppdatera** knapp för att hämta senaste status.
 >
 
-# <a name="next-steps"></a>Nästa steg
+## <a name="update-target-vm-encryption-settings"></a>Uppdatera krypteringsinställningar för mål VM
+I den nedan scenarier, du kommer att behöva uppdatera Målinställningar för VM-kryptering.
+  - Du har aktiverat Site recovery-replikering på den virtuella datorn och aktiverat Azure Disk Encryption (ADE) på den Virtuella källdatorn vid ett senare tillfälle
+  - Du har aktiverat Site recovery-replikering på den virtuella datorn och ändrat disk krypteringsnyckeln och/eller nyckelkrypteringsnyckel på den Virtuella källdatorn vid ett senare tillfälle
+
+Du kan använda [skriptet](#copy-ade-keys-to-dr-region-using-powerShell-script) att kopiera dem till målregion och sedan uppdatera krypteringsinställningar mål i **Recovery services-valv > replikerat objekt -> Egenskaper -> beräkning och nätverk.**
+
+![ade uppdateringsinställningar](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+
+## <a name="next-steps"></a>Nästa steg
 
 [Läs mer](site-recovery-test-failover-to-azure.md) om hur du kör ett redundanstest.

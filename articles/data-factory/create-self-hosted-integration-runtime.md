@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e22d26850114162c6dbd38797071120d388ac6b0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 379dd0efb0c40cbab6e356f011938d3e6116117e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162278"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434202"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Skapa och konfigurera lokal Integration Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Mer information om IR finns [översikten över Integration Runtime](concepts-integration-runtime.md).
@@ -32,7 +32,7 @@ Det här dokumentet beskriver hur du kan skapa och konfigurera lokal IR.
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
-2. Hämta och installera lokal integration runtime (på lokal dator).
+2. [Ladda ned](https://www.microsoft.com/download/details.aspx?id=39717) och installera lokal integration runtime (på lokal dator).
 3. Hämta autentiseringsnyckeln och registrera lokal integration runtime med nyckeln. Här är ett PowerShell-exempel:
 
     ```powershell
@@ -95,7 +95,7 @@ Lokal integration runtime kan installeras genom att ladda ned en MSI-installatio
 9. Hämta nyckel för autentisering med Azure PowerShell. PowerShell-exempel för att hämta autentiseringsnyckel:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. På den **registrera Integration Runtime (lokal installation)** sidan för Microsoft Integration Runtime Configuration Manager som körs på din dator, gör följande:
     1. Klistra in den **autentiseringsnyckeln** i textområdet.

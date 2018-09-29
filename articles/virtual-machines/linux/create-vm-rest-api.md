@@ -15,16 +15,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 11d9f5efb452d46e5ca30169861582f6f2bbbd1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969401"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433488"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en Linux-dator som använder SSH-autentisering med REST API
 
-En virtuell dator (VM) i Azure har definierats av olika parametrar, till exempel plats, maskinvara storlek, operativsystemavbildningen och inloggningsuppgifter. Den här artikeln visar hur du använder REST API för att skapa en Linux-dator som använder SSH-autentisering.
+En Linux-dator (VM) i Azure består av olika resurser, till exempel diskar och nätverk-gränssnitt och definierar parametrar, till exempel plats, storlek och operativsystemet inställningar för avbildning och autentisering.
+
+Du kan skapa en Linux-VM via Azure portal, Azure CLI 2.0, många Azure SDK: er, Azure Resource Manager-mallar och många verktyg från tredje part, till exempel Ansible eller Terraform. Alla dessa verktyg använda slutligen REST API för att skapa Linux VM.
+
+Den här artikeln visar hur du använder REST-API för att skapa en Linux-VM som kör Ubuntu 18.04-LTS med hanterade diskar och SSH-autentisering.
+
+## <a name="before-you-start"></a>Innan du börjar
+
+Innan du skapar och skickar begäran behöver du:
+
+* Den `{subscription-id}` för din prenumeration
+  * Om du har flera prenumerationer, se [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+* En `{resourceGroupName}` du har skapat i tid
+* En [virtuellt nätverksgränssnitt](../../virtual-network/virtual-network-network-interface.md) i samma resursgrupp
+* En SSH-nyckelpar (du kan [Generera en ny](mac-create-ssh-keys.md) om du inte har någon)
+
+## <a name="request-basics"></a>Grunderna i begäran
 
 Om du vill skapa eller uppdatera en virtuell dator, använder du följande *PLACERA* igen:
 
@@ -32,9 +48,7 @@ Om du vill skapa eller uppdatera en virtuell dator, använder du följande *PLAC
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-## <a name="create-a-request"></a>Skapa en förfrågan
-
-Att skapa den *PLACERA* begäran, den `{subscription-id}` parametern är obligatorisk. Om du har flera prenumerationer, se [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). Du definierar en `{resourceGroupName}` och `{vmName}` för dina resurser, tillsammans med den `api-version` parametern. Den här artikeln använder `api-version=2017-12-01`.
+Förutom den `{subscription-id}` och `{resourceGroupName}` parametrar, måste du ange den `{vmName}` (`api-version` är valfritt, men den här artikeln har testats med `api-version=2017-12-01`)
 
 Följande huvuden krävs:
 
@@ -43,7 +57,7 @@ Följande huvuden krävs:
 | *Content-Type:*  | Krävs. Ange `application/json`. |
 | *Auktorisering:* | Krävs. Ange att ett giltigt `Bearer` [åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
-Mer information om hur du skapar begäran finns i [komponenterna i en REST API-begäran/svar](/rest/api/azure/#components-of-a-rest-api-requestresponse).
+Allmän information om hur du arbetar med REST API-begäranden finns i [komponenterna i en REST API-begäran/svar](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
 ## <a name="create-the-request-body"></a>Skapa begärandetexten
 
@@ -58,15 +72,12 @@ Följande vanliga definitioner används för att skapa en brödtext i begäran:
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Anger inställningar för operativsystemet för den virtuella datorn. |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Anger nätverksgränssnitt för den virtuella datorn. |
 
-En fullständig lista över tillgängliga definitioner i begärandetexten, se [virtuella datorer skapa eller uppdatera begäran brödtext defintions](/rest/api/compute/virtualmachines/createorupdate#definitions).
-
-### <a name="example-request-body"></a>Exempel-begärandetexten
-
-Begärandetexten för följande exempel definierar en Ubuntu 18.04 LTS-avbildning som använder Premium-hanterade diskar. Används för autentisering med SSH offentlig nyckel och den virtuella datorn använder ett befintligt virtuellt nätverkskort (NIC) som du har [skapat](../../virtual-network/virtual-network-network-interface.md). Ange din offentliga SSH-nyckel i den *osProfile.linuxConfiguration.ssh.publicKeys.keyData* fält. Om det behövs kan du [Generera en SSH-nyckelpar](mac-create-ssh-keys.md).
+En exempel-begärandetexten är under. Kontrollera att du anger namnet på virtuell dator i den `{computerName}` och `{name}` parametrar, namnet på nätverksgränssnittet som du har skapat under `networkInterfaces`, ditt användarnamn i `adminUsername` och `path`, och *offentliga*del av din SSH-nyckelpar (finns i, till exempel `~/.ssh/id_rsa.pub`) i `keyData`. Andra parametrar som du kanske vill ändra inkluderar `location` och `vmSize`.  
 
 ```json
 {
   "location": "eastus",
+  "name": "{vmName}",
   "properties": {
     "hardwareProfile": {
       "vmSize": "Standard_DS1_v2"
@@ -89,7 +100,7 @@ Begärandetexten för följande exempel definierar en Ubuntu 18.04 LTS-avbildnin
     },
     "osProfile": {
       "adminUsername": "{your-username}",
-      "computerName": "myVM",
+      "computerName": "{vmName}",
       "linuxConfiguration": {
         "ssh": {
           "publicKeys": [
@@ -105,19 +116,24 @@ Begärandetexten för följande exempel definierar en Ubuntu 18.04 LTS-avbildnin
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+          "id": "/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
           "properties": {
             "primary": true
           }
         }
       ]
     }
-  },
-  "name": "myVM"
+  }
 }
 ```
 
-## <a name="responses"></a>Svar
+En fullständig lista över tillgängliga definitioner i begärandetexten, se [virtuella datorer skapa eller uppdatera begäran brödtext defintions](/rest/api/compute/virtualmachines/createorupdate#definitions).
+
+## <a name="sending-the-request"></a>Begäran skickades
+
+Du kan använda klienten om vill skicka den här HTTP-begäran. Du kan också använda en [webbläsarbaserade verktyget](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) genom att klicka på den **prova** knappen.
+
+### <a name="responses"></a>Svar
 
 Det finns två lyckades för åtgärden att skapa eller uppdatera en virtuell dator:
 
@@ -125,10 +141,6 @@ Det finns två lyckades för åtgärden att skapa eller uppdatera en virtuell da
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Ok          |
 | 201 Skapad | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Skapad     |
-
-Mer information om REST API-svar finns i [bearbeta svarsmeddelandet](/rest/api/azure/#process-the-response-message).
-
-### <a name="example-response"></a>Exempelsvar
 
 Ett komprimerat *201 Skapad* svar från föregående exempel begärandetexten som skapar en virtuell dator visas en *vmId* har tilldelats och *provisioningState* är *Skapar*:
 
@@ -138,6 +150,8 @@ Ett komprimerat *201 Skapad* svar från föregående exempel begärandetexten so
     "provisioningState": "Creating"
 }
 ```
+
+Mer information om REST API-svar finns i [bearbeta svarsmeddelandet](/rest/api/azure/#process-the-response-message).
 
 ## <a name="next-steps"></a>Nästa steg
 

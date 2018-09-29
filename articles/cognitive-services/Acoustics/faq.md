@@ -9,26 +9,26 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7e27b5117f5f0ea98916ecfefcbb0dac9323e1d9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a71e867bd23cf64b2ac7fc8cd1c54c55d92ce924
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181770"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431796"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-## <a name="what-is-project-acoustics"></a>Vad är projektet Akustik?
+## <a name="what-is-project-acoustics"></a>Vad är Project Acoustics?
 
-Projektet Akustik Unity-plugin-programmet är ett Akustik system som beräknar ljud wave beteende före körning, som statiska belysning. Molnet har tungrodda wave fysik vid designtillfället, så körningskostnaden CPU är låg.  
+Projektet Akustik Unity-plugin-programmet är ett Akustik system som beräknar ljud wave beteende före körning, som statiska belysning. Molnet har wave tungrodda fysik beräkningar, så körningskostnaden CPU är låg.  
 
 ## <a name="where-can-i-download-the-plugin"></a>Var kan jag hämta plugin-programmet?
 
-Om du är intresserad av att utvärdera Akustik plugin-programmet registrera [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) till förhandsversionen Designer.
+Om du är intresserad av att utvärdera akustikplugin-programmet registrerar du dig [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) för att delta i Designer-förhandsversionen.
 
 ## <a name="is-azure-used-at-runtime"></a>Används Azure vid körning?
 
-Nej, molnintegration används endast under precompute scenen vid designtillfället.
+Nej, molnintegration används endast under fasen precompute som en del av installationen scen.
  
 ## <a name="what-is-simulation-input"></a>Vad är simulering indata? 
 

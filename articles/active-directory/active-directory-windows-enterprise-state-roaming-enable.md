@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: aa14563966e028716d8e18c3228f026af983561f
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 56df09f461458071093088159d3b468755b0e4ad
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024117"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434950"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 Enterprise State Roaming är tillgänglig för alla företag med en Azure AD Premium eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du hämtar en Azure AD-prenumeration finns i den [produktsidan för Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -45,9 +45,9 @@ Enterprise State Roaming data finns i en eller flera [Azure-regioner](https://az
 
 Värdet för land/region | sina data har finns i
 ---------------------|-------------------------
-En EMEA land, till exempel ”France” eller ”Zambia” | en eller Azure-regioner i Europa 
-Ett nordamerikanska land, till exempel ”USA” eller ”Kanada” | en eller flera av Azure-regioner i USA
-En APAC land, till exempel ”Australien” eller ”Nya Zeeland” | en eller flera av Azure-regioner i Asien
+En EMEA land, till exempel Frankrike eller Zambia | En eller flera av Azure-regioner i Europa 
+Ett nordamerikanska land, till exempel USA eller Kanada | en eller flera av Azure-regioner i USA
+En APAC land, till exempel Australien eller Nya Zeeland | en eller flera av Azure-regioner i Asien
 Sydamerika och Antarktis regioner | en eller flera Azure-regioner i USA
 
 Land/region-värdet har angetts som en del av processen för Azure AD-katalogen och kan inte ändras senare. Om du behöver mer information på din plats för lagring av data kan en supportbegäran [Azure-supporten](https://azure.microsoft.com/support/options/).

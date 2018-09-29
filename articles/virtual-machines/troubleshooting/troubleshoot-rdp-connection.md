@@ -4,7 +4,7 @@ description: Felsöka problem när du inte kan ansluta till den virtuella datorn
 keywords: 'Fjärrskrivbordsfel, anslutning till fjärrskrivbord fel kan inte ansluta till virtuell dator, felsökning: fjärrskrivbord'
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: d08f5f5a553c0f7459aa8eed3b4e7658d0e6a4a9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b73cdc7e55a60fbefc294a54f70daa9b2a11ced1
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414347"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452469"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Felsöka fjärrskrivbordsanslutningar till virtuella Azure-datorer
 Remote Desktop Protocol (RDP)-anslutning till din Windows-baserade Azure-dator (VM) kan misslyckas av olika skäl, så att du inte kan komma åt den virtuella datorn. Problemet kan vara med Remote Desktop-tjänsten på den virtuella datorn, nätverksanslutningen eller fjärrskrivbord-klienten på värddatorn. Den här artikeln vägleder dig igenom några av de vanligaste sätt att lösa problem med RDP-anslutningen. 

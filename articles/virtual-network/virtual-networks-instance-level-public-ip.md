@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: cb8ba5169a6ebfbb11ba0acfa9b9f463b7cdf6a1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 7d8325ce04a9fa7853fb622062022a6938375f96
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520816"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47430989"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Instans offentliga IP (klassisk) översikt
 En instans på offentliga IP (ILPIP) är en offentlig IP-adress som du kan tilldela direkt till en virtuell dator eller Cloud Services-rollinstans i stället för till Molntjänsten som din instans av virtuell dator eller rollen finns i. En ILPIP äga inte rum för den virtuella IP (VIP) som är tilldelad till din molntjänst. Det är snarare ytterligare IP-adress som du kan använda för att ansluta direkt till din instans av virtuell dator eller roll.
@@ -31,10 +31,13 @@ En instans på offentliga IP (ILPIP) är en offentlig IP-adress som du kan tilld
 
 I bild 1 visas Molntjänsten får åtkomst till med en VIP medan enskilda virtuella datorer används vanligtvis med VIP:&lt;portnummer&gt;. Genom att tilldela en ILPIP till en specifik virtuell dator, kan den virtuella datorn nås direkt med hjälp av IP-adress.
 
-När du skapar en molnbaserad tjänst i Azure, skapas motsvarande DNS A-poster automatiskt för att tillåta åtkomst till tjänsten via ett fullständigt kvalificerat domännamn (FQDN), istället för att använda faktiska VIP. Samma process som sker för en ILPIP, att tillåta åtkomst till den virtuella dator eller rollinstansen instansen efter FQDN i stället för ILPIP. Till exempel om du skapar en molntjänst med namnet *contosoadservice*, och du konfigurerar en webbroll med namnet *contosoweb* med två instanser Azure registrerar följande A-poster för instanser:
+När du skapar en molnbaserad tjänst i Azure, skapas motsvarande DNS A-poster automatiskt för att tillåta åtkomst till tjänsten via ett fullständigt kvalificerat domännamn (FQDN), istället för att använda faktiska VIP. Samma process som sker för en ILPIP, att tillåta åtkomst till den virtuella dator eller rollinstansen instansen efter FQDN i stället för ILPIP. Till exempel om du skapar en molntjänst med namnet *contosoadservice*, och du konfigurerar en webbroll med namnet *contosoweb* med två instanser och i .cscfg `domainNameLabel` är inställd på  *WebPublicIP*Azure registrerar följande A registrerar för instanser:
 
-* contosoweb\_IN_0.contosoadservice.cloudapp.net
-* contosoweb\_IN_1.contosoadservice.cloudapp.net 
+
+* WebPublicIP.0.contosoadservice.cloudapp.net
+* WebPublicIP.1.contosoadservice.cloudapp.net
+* ...
+
 
 > [!NOTE]
 > Du kan tilldela endast en ILPIP för varje virtuell dator eller roll-instans. Du kan använda upp till 5 ILPIPs per prenumeration. ILPIPs stöds inte för virtuella datorer med flera nätverkskort.
@@ -152,7 +155,7 @@ Om du vill lägga till en ILPIP i en rollinstans för Cloud Services, gör du f�
         <AddressAssignments>
           <InstanceAddress roleName="WebRole1">
         <PublicIPs>
-          <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
+          <PublicIP name="MyPublicIP" domainNameLabel="WebPublicIP" />
             </PublicIPs>
           </InstanceAddress>
         </AddressAssignments>
@@ -162,14 +165,22 @@ Om du vill lägga till en ILPIP i en rollinstans för Cloud Services, gör du f�
 3. Ladda upp .cscfg-filen för Molntjänsten genom att följa stegen i den [hur du konfigurerar Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) artikeln.
 
 ### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Hur du hämtar ILPIP information för en molntjänst
-Kör följande PowerShell-kommando för att visa ILPIP information per rollinstans, och notera värdena för *PublicIPAddress* och *PublicIPName*:
+Kör följande PowerShell-kommando för att visa ILPIP information per rollinstans, och notera värdena för *PublicIPAddress*, *PublicIPName*, *PublicIPDomainNameLabel* och *PublicIPFqdns*:
 
 ```powershell
-$roles = Get-AzureRole -ServiceName PaaSFTPService -Slot Production -RoleName WorkerRole1 -InstanceDetails
+Add-AzureAccount
+
+$roles = Get-AzureRole -ServiceName <Cloud Service Name> -Slot Production -RoleName WebRole1 -InstanceDetails
 
 $roles[0].PublicIPAddress
 $roles[1].PublicIPAddress
 ```
+
+Du kan också använda `nslookup` att fråga underdomän är en post:
+
+```batch
+nslookup WebPublicIP.0.<Cloud Service Name>.cloudapp.net
+``` 
 
 ## <a name="next-steps"></a>Nästa steg
 * Förstå hur [IP-adressering](virtual-network-ip-addresses-overview-classic.md) fungerar i den klassiska distributionsmodellen.

@@ -3,7 +3,7 @@ title: Uppdatera Azure Linux-agenten från GitHub | Microsoft Docs
 description: Lär dig att uppdatera Azure Linux Agent för din Linux-VM i Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: roiyz
-ms.openlocfilehash: ef8668527974b7249f2f9c94e563ae5336d290d6
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 0926859037c358aaf94ec51d9614cc9c02629e7f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415185"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451943"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Så här uppdaterar du Azure Linux Agent på en virtuell dator
 

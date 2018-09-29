@@ -4,14 +4,14 @@ description: Innehåller en översikt över kända problem i Azure Migrate-tjän
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/28/2018
 ms.author: raynew
-ms.openlocfilehash: ca0931810fd78ce4cc684ad307efeb866cee3353
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165305"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433505"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -92,9 +92,11 @@ Azure Migrate collector laddar ned PowerCLI och installerar den på installation
 
 ### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Interna felet UnhandledException uppstod: System.IO.FileNotFoundException
 
-Det här är ett problem som uppstår i versioner av insamlaren som är lägre än 1.0.9.5. Om du använder version 1.0.9.2 av insamlaren, eller versioner som gavs ut före den allmänna tillgängligheten, till exempel 1.0.8.59, så uppstår det här problemet. Följ [länken till forumen som är angiven här för att få ett detaljerat svar](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+Det här problemet kan inträffa på grund av ett problem med VMware PowerCLI-installationen. Följ de stegen nedan för att lösa problemet:
 
-[Uppgradera insamlaren för att åtgärda problemet](https://aka.ms/migrate/col/checkforupdates).
+1. Om du inte har den senaste versionen av för insamlingsprogram [uppgradera insamlaren till den senaste versionen](https://aka.ms/migrate/col/checkforupdates) och kontrollera om problemet är löst.
+2. Om du redan har den senaste versionen av insamlaren kan manuellt installera [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) och kontrollera om problemet är löst.
+3. Om ovanstående inte löser problemet, navigera till mappen C:\Program Files\ProfilerService och ta bort VMware.dll och VimService65.dll filer finns i mappen och starta sedan om Azure Migrate Collector-tjänsten i Windows-tjänster hanterar (Öppna ” Kör ”och Skriv” services.msc ”för att öppna Windows Service Manager).
 
 ### <a name="error-unabletoconnecttoserver"></a>Felet UnableToConnectToServer
 

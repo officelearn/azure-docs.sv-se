@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 7282734b3524d7dfa80c54d074aac2268e38c5ab
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: bcc5f23c163a391639d916b8a50c2c05d228ee91
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419397"
+ms.locfileid: "47432094"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Standardegenskaper i Log Analytics-poster
 Data i [Log Analytics](../log-analytics/log-analytics-queries.md) lagras som en uppsättning poster, var och en med en viss datatyp som har en unik uppsättning egenskaper. Många datatyper har standardegenskaper som är gemensamma för flera typer. Den här artikeln beskriver de här egenskaperna och innehåller exempel på hur du kan använda dem i frågor.
@@ -53,8 +53,8 @@ search *
 | summarize count() by Type 
 ```
 
-## <a name="resourceid"></a>_ResourceId
-Den **_ResourceId** egenskapen innehåller en unik identifierare för resursen som som posten är associerad med. Detta ger dig en egenskap som är standard ska använda för att begränsa frågan till endast poster från en viss resurs eller att ansluta till relaterade data från flera tabeller.
+## <a name="resourceid"></a>\_Resurs-ID
+Den  **\_ResourceId** egenskapen innehåller en unik identifierare för den resurs som posten är associerad med. Detta ger dig en egenskap som är standard ska använda för att begränsa frågan till endast poster från en viss resurs eller att ansluta till relaterade data från flera tabeller.
 
 För Azure-resurser, värdet för **_ResourceId** är den [Azure-resurs-ID-URL: en](../azure-resource-manager/resource-group-template-functions-resource.md). Egenskapen är för närvarande begränsat till Azure-resurser, men det kommer att gälla till resurser utanför Azure, t.ex lokala datorer.
 

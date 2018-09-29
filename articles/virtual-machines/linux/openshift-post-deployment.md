@@ -1,9 +1,9 @@
 ---
-title: OpenShift på Azure efter distributionsuppgifter | Microsoft Docs
-description: Ytterligare uppgifter för efter ett OpenShift kluster har distribuerats.
+title: OpenShift på Azure efter distribution aktiviteter | Microsoft Docs
+description: Ytterligare uppgifter för efter ett OpenShift-kluster har distribuerats.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
+author: haroldwongms
 manager: najoshi
 editor: ''
 tags: azure-resource-manager
@@ -15,42 +15,42 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bdfd075b9438ee12e940f3ec4fddebf467c93ca8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796167"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434899"
 ---
-# <a name="post-deployment-tasks"></a>Uppgifter efter distributionen
+# <a name="post-deployment-tasks"></a>Uppgifter efter distribution
 
-När du distribuerar en OpenShift kluster måste konfigurera du ytterligare objekt. Den här artikeln beskriver följande:
+När du distribuerar en OpenShift-kluster måste konfigurera du ytterligare objekt. Den här artikeln beskriver följande:
 
-- Hur du konfigurerar enkel inloggning med hjälp av Azure Active Directory (AD Azure)
-- Så här konfigurerar du Log Analytics för att övervaka OpenShift
-- Hur du konfigurerar mått och loggning
+- Så här konfigurerar du enkel inloggning med hjälp av Azure Active Directory (AD Azure)
+- Hur du konfigurerar Log Analytics för att övervaka OpenShift
+- Så här konfigurerar du mått och loggning
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Konfigurera enkel inloggning med hjälp av Azure Active Directory
 
-Om du vill använda Azure Active Directory för autentisering måste du först skapa en Azure AD app-registrering. Den här processen består av två steg: skapa appregistrering och hur du konfigurerar behörigheter.
+För att använda Azure Active Directory för autentisering, måste du först skapa en Azure AD app-registrering. Den här processen omfattar två steg: skapa appregistreringen och konfigurera behörigheter.
 
 ### <a name="create-an-app-registration"></a>Skapa en appregistrering
 
-De här stegen använda Azure CLI för att skapa appregistrering och det grafiska Användargränssnittet (portal) att ange behörigheter. Du behöver följande fem typer av information för att skapa appregistrering:
+De här stegen används Azure CLI för att skapa registreringen och det grafiska Användargränssnittet (portal) att ange behörigheter. Om du vill skapa registreringen, behöver du följande fem typer av information:
 
-- Visningsnamn: appens registrering namn (till exempel OCPAzureAD)
+- Visningsnamn: registrering namn (till exempel OCPAzureAD)
 - Startsidan: OpenShift konsolen URL (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- URI-ID: OpenShift konsolens URL (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Svars-URL: Master offentlig URL och appens registrering namn (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
-- Lösenord: Säkert lösenord (Använd ett starkt lösenord)
+- Identifierar-URI: OpenShift-konsolens URL (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Svars-URL: Master offentlig URL och namnet på registrering (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- Lösenord: Säkra lösenord (Använd ett starkt lösenord)
 
 I följande exempel skapas en appregistrering med hjälp av informationen ovan:
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
 ```
 
-Om kommandot lyckas får en JSON-utdata liknar:
+Om kommandot lyckas får JSON-utdata liknar:
 
 ```json
 {
@@ -65,44 +65,44 @@ Om kommandot lyckas får en JSON-utdata liknar:
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
   "replyUrls": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD"
   ]
 }
 ```
 
-Anteckna egenskapen appId returnerades från kommandot för ett senare steg.
+Anteckna appId-egenskapen som returneras från kommandot för ett senare steg.
 
 På Azure Portal:
 
 1.  Välj **Azure Active Directory** > **Appregistrering**.
-2.  Sök efter registreringen app (till exempel OCPAzureAD).
-3.  Klicka på appregistrering i resultaten.
-4.  Under **inställningar**väljer **nödvändiga behörigheter**.
+2.  Sök efter din appregistrering (till exempel OCPAzureAD).
+3.  Klicka på appregistreringen i resultatet.
+4.  Under **inställningar**väljer **behörigheter som krävs för**.
 5.  Under **nödvändiga behörigheter**väljer **Lägg till**.
 
-  ![App-registrering](media/openshift-post-deployment/app-registration.png)
+  ![Appregistrering](media/openshift-post-deployment/app-registration.png)
 
-6.  Klicka på steg 1: Välj API och klicka sedan på **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klicka på **Välj** längst ned.
+6.  Klicka på steg 1: Välj API och klicka sedan på **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klicka på **Välj** längst ned på sidan.
 
-  ![Välj API för App-registrering](media/openshift-post-deployment/app-registration-select-api.png)
+  ![Appregistrering väljer API](media/openshift-post-deployment/app-registration-select-api.png)
 
-7.  I steg 2: Välj behörigheter, Välj **logga in och Läs användarprofil** under **delegerade behörigheter**, och klicka sedan på **Välj**.
+7.  I steg 2: Välj behörigheter, Välj **logga in och läsa användarprofil** under **delegerade behörigheter**, och klicka sedan på **Välj**.
 
-  ![Registrering av App-åtkomst](media/openshift-post-deployment/app-registration-access.png)
+  ![Appregistrering åtkomst](media/openshift-post-deployment/app-registration-access.png)
 
-8.  Välj **klar**.
+8.  Välj **Done** (Klar).
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Konfigurera OpenShift för Azure AD-autentisering
 
 Om du vill konfigurera OpenShift för att använda Azure AD som en autentiseringsprovider redigeras filen /etc/origin/master/master-config.yaml på alla överordnade noder.
 
-Hitta klient-ID med hjälp av följande CLI-kommando:
+Hitta klient-ID genom att använda följande CLI-kommando:
 
 ```azurecli
 az account show
 ```
 
-Sök efter följande rader i filen yaml:
+Yaml-fil innehåller följande rader:
 
 ```yaml
 oauthConfig:
@@ -120,7 +120,7 @@ oauthConfig:
       kind: HTPasswdPasswordIdentityProvider
 ```
 
-Infoga följande rader omedelbart efter de föregående raderna:
+Lägg till följande rader direkt efter de föregående raderna:
 
 ```yaml
   - name: <App Registration Name>
@@ -146,9 +146,9 @@ Infoga följande rader omedelbart efter de föregående raderna:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Hitta klient-ID med hjälp av följande CLI-kommando: ```az account show```
+Hitta klient-ID genom att använda följande CLI-kommando: ```az account show```
 
-Starta om tjänsterna OpenShift master på alla överordnade noder:
+Starta om OpenShift master tjänsterna på alla överordnade noder:
 
 **OpenShift Origin**
 
@@ -157,26 +157,26 @@ sudo systemctl restart origin-master-api
 sudo systemctl restart origin-master-controllers
 ```
 
-**OpenShift behållaren plattform (OCP) med flera huvudservrar**
+**OpenShift Container Platform (OCP) med flera huvudservrar**
 
 ```bash
 sudo systemctl restart atomic-openshift-master-api
 sudo systemctl restart atomic-openshift-master-controllers
 ```
 
-**OpenShift behållaren plattform med en enda hanterare**
+**OpenShift Container Platform med en enda hanterare**
 
 ```bash
 sudo systemctl restart atomic-openshift-master
 ```
 
-I konsolen OpenShift visas nu två alternativ för verifiering: htpasswd_auth och [Appregistrering].
+I OpenShift-konsolen visas nu två alternativ för autentisering: htpasswd_auth och [Appregistrering].
 
-## <a name="monitor-openshift-with-log-analytics"></a>Övervakaren OpenShift med logganalys
+## <a name="monitor-openshift-with-log-analytics"></a>Övervaka OpenShift med Log Analytics
 
-Om du vill övervaka OpenShift med logganalys, du kan använda ett av två alternativ: OMS-Agent-installation på Virtuella, eller OMS-behållaren. Den här artikeln innehåller instruktioner för distribution av OMS-behållaren.
+Om du vill övervaka OpenShift med Log Analytics kan du använda ett av två alternativ: OMS-Agent installeras på VM-värd eller OMS-behållaren. Den här artikeln innehåller instruktioner för distribution av OMS-behållaren.
 
-## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Skapa ett OpenShift projekt för Log Analytics och ange användaråtkomst
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Skapa ett projekt med OpenShift för Log Analytics och ange användaråtkomst
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -245,9 +245,9 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>Skapa en hemlig yaml-fil
 
-Den hemliga yaml-fil du behöver för att skapa två typer av information: Log Analytics arbetsyte-ID och Log Analytics arbetsytan delad nyckel. 
+Om du vill skapa hemliga yaml-fil som du behöver två typer av information: Log Analytics arbetsyte-ID och delad nyckel för Log Analytics-arbetsyta. 
 
-En exempelfil för ocp-secret.yml följande: 
+En exempelfil ocp-secret.yml följande: 
 
 ```yaml
 apiVersion: v1
@@ -259,7 +259,7 @@ data:
   KEY: key_data
 ```
 
-Ersätt wsid_data med Base64-kodade Log Analytics arbetsyte-ID. Ersätt key_data med Base64-kodad Log Analytics arbetsytan delad nyckel.
+Ersätt wsid_data med Base64-kodade Log Analytics arbetsyte-ID. Ersätt sedan key_data med Base64-kodad Log Analytics-arbetsyta delad nyckel.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'
@@ -268,15 +268,15 @@ echo $wsid_data | base64 | tr -d '\n'
 echo $key_data | base64 | tr -d '\n'
 ```
 
-## <a name="create-the-secret-and-daemon-set"></a>Skapa hemlighet och daemon?
+## <a name="create-the-secret-and-daemon-set"></a>Skapa hemlighet och daemon uppsättningen
 
-Distribuera filen hemliga:
+Distribuera hemlighetsfilen:
 
 ```bash
 oc create -f ocp-secret.yml
 ```
 
-Distribuera uppsättningen demon OMS-Agent:
+Distribuera OMS-agenten daemon uppsättningen:
 
 ```bash
 oc create -f ocp-omsagent.yml
@@ -284,13 +284,13 @@ oc create -f ocp-omsagent.yml
 
 ## <a name="configure-metrics-and-logging"></a>Konfigurera mått och loggning
 
-Azure Resource Manager-mall för OpenShift behållare plattform innehåller indataparametrar för att aktivera mätvärden och loggning. OpenShift behållaren plattform Marketplace-erbjudande och OpenShift Origin Resource Manager-mallen inte.
+Azure Resource Manager-mall för OpenShift Container Platform innehåller indataparametrar för att aktivera mätvärden och loggning. OpenShift Container Platform Marketplace-erbjudande och OpenShift Origin Resource Manager-mallen inte.
 
-Om du använde OCP Resource Manager-mall och mått och loggning inte var aktiverad vid tidpunkten för installationen eller om du använder OCP Marketplace-erbjudande, du kan enkelt aktivera dessa efteråt. Om du använder OpenShift Origin Resource Manager-mallen krävs vissa före arbete.
+Om du använde OCP Resource Manager-mall och mått och loggning inte aktiverat vid tidpunkten för installationen, eller om du har använt OCP Marketplace-erbjudande du kan enkelt att aktivera dessa i efterhand. Om du använder OpenShift Origin Resource Manager-mallen krävs vissa före arbete.
 
-### <a name="openshift-origin-template-pre-work"></a>OpenShift ursprung före arbete
+### <a name="openshift-origin-template-pre-work"></a>Före arbete med OpenShift Origin
 
-1. SSH till den första master noden med hjälp av port 2200.
+1. SSH till den första överordnade noden med hjälp av port 2200.
 
    Exempel:
 
@@ -298,7 +298,7 @@ Om du använde OCP Resource Manager-mall och mått och loggning inte var aktiver
    ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
    ```
 
-2. Redigera filen /etc/ansible/hosts och Lägg till följande rader efter providern identitetsavsnittet (# aktivera HTPasswdPasswordIdentityProvider):
+2. Redigera filen /etc/ansible/hosts och Lägg till följande rader efter identitetsavsnittet Provider (# aktivera HTPasswdPasswordIdentityProvider):
 
    ```yaml
    # Setup metrics
@@ -324,7 +324,7 @@ Om du använde OCP Resource Manager-mall och mått och loggning inte var aktiver
 
 ### <a name="azure-cloud-provider-in-use"></a>Azure Cloud-providern används
 
-På den första master noden (ursprungliga) eller skyddsmiljö (OCP) SSH med hjälp av autentiseringsuppgifterna som anges under distributionen. Kör följande kommando:
+På den första huvudnoden (ursprungliga) eller skyddsmiljö nod (OCP), SSH med hjälp av autentiseringsuppgifterna som du angav under distributionen. Kör följande kommando:
 
 ```bash
 ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -336,9 +336,9 @@ ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshi
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-### <a name="azure-cloud-provider-not-in-use"></a>Azure Cloud-providern används
+### <a name="azure-cloud-provider-not-in-use"></a>Azure Cloud-providern inte är i användning
 
-På den första master noden (ursprungliga) eller skyddsmiljö (OCP) SSH med hjälp av autentiseringsuppgifterna som anges under distributionen. Kör följande kommando:
+På den första huvudnoden (ursprungliga) eller skyddsmiljö nod (OCP), SSH med hjälp av autentiseringsuppgifterna som du angav under distributionen. Kör följande kommando:
 
 ```bash
 ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -350,5 +350,5 @@ ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshi
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Komma igång med OpenShift behållare plattform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
+- [Komma igång med OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
 - [Komma igång med OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)

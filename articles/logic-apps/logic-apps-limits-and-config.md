@@ -3,19 +3,18 @@ title: Gränser och konfiguration – Azure Logic Apps | Microsoft Docs
 description: Tjänsten begränsningar och konfigurationsvärden för Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 49b8efe6b5d56c3edaf8b311ff3c6667a8952536
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.topic: article
+ms.date: 09/26/2018
+ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058828"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452468"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -76,7 +75,7 @@ Följ dessa steg om du vill ändra Standardgränsen för mellan 7 dagar och 90 d
 
 När du inaktiverar en logikapp kan instansieras inga nya körningar. Alla pågående och väntande körningar fortsätter tills de är klara, vilket kan ta tid att slutföra.
 
-När du tar bort en logikapp kan instansieras inga nya körningar. Alla pågående och väntande körningar har avbrutits. Om du har tusentals körningar ta annullering betydande tid att slutföra.
+När du tar bort en logikapp instantieras inga nya körningar. Alla pågående och väntande körningar avbryts. Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem.
 
 <a name="looping-debatching-limits"></a>
 
@@ -305,8 +304,13 @@ Alla logikappar i en region använder samma intervall av IP-adresser. Stöd för
 Stöd för anrop som [kopplingar](../connectors/apis-list.md) märke, konfigurera din brandväggskonfigurationer så att de inkluderar dessa utgående IP-adresser baserat på de regioner där dina logic apps finns.
 
 > [!IMPORTANT]
->
 > Om du har befintliga konfigurationer kan uppdatera dem **så snart som möjligt före den 1 September 2018** så att de omfattar och matchar IP-adresser i den här listan för de regioner där dina logic apps finns. 
+> 
+> Logic Apps stöder inte att ansluta direkt till Azure storage-konton genom brandväggar. För att få åtkomst till dessa konton måste du använda något av alternativen här: 
+>
+> * Skapa en [integreringstjänstmiljön](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), som kan ansluta till resurser i Azure-nätverk. 
+> 
+> * Om du redan använder API Management kan du använda den här tjänsten för det här scenariot. Mer information finns i [enkel integrering företagsarkitektur](http://aka.ms/aisarch).
 
 | Logic Apps-regionen | Utgående IP | 
 |-------------------|-------------|  

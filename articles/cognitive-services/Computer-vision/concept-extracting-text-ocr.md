@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: af88063a68cef4953da8357596ce64e4510e8d36
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 4cbc8ebcdd19aa65a37ffe0f82019a7681f1c6c5
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985464"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434882"
 ---
 # <a name="extracting-text-with-ocr"></a>Extrahera text med OCR
 
@@ -32,7 +32,7 @@ Om det behövs, korrigerar OCR rotationen av den tolkade texten i grader kring v
 Visuellt innehåll extraherar text med OCR från avbildningar som uppfyller följande krav:
 
 * Bilden måste vara i JPEG-, PNG-, GIF- eller BMP-format
-* Storleken på den inkommande avbildningen måste vara mellan 40 x 40 och 3200 x 3200 bildpunkter
+* Storleken på den inkommande avbildningen måste vara mellan 50 x 50 och 4200 x 4200 bildpunkter
 * Bilden får inte vara större än 10 megapixlar
 
 Inmatad bild kan roteras dubbla av 90 grader plus en liten vinkeln för upp till 40 grader.

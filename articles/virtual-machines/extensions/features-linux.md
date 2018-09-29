@@ -3,7 +3,7 @@ title: Azure VM-tillägg och funktioner i Linux | Microsoft Docs
 description: Lär dig vilka tillägg som finns tillgängliga för Azure-datorer, grupperade efter vad de tillhandahåller eller förbättra.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 66c3da4f14141bdb5c357dbabfaec5dabf0ab521
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: aefb9142e5954b2e4598c73eb36fa25de99e9584
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971390"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452266"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Virtuella datorer, tillägg och funktioner i Linux
 

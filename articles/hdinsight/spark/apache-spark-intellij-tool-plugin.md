@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk
-ms.openlocfilehash: ed0118584d51f08d64a88dc1e7e6e2ba5f95cb0a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 07c2b506007daccd53a8b06a43064e6e274ac43b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042599"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433366"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit för IntelliJ för att skapa Spark-program för ett HDInsight-kluster
 
@@ -181,8 +181,12 @@ Du kan länka ett normalt HDInsight-kluster med hjälp av Ambari hanteras använ
 
         ![Dialogrutan Välj Main-klass](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
 
-      * Eftersom programkoden i det här exemplet inte kräver kommandoradsargument eller referera till JAR-filer eller filer, kan du lämna rutorna återstående tomt. När du har angett all information bör i dialogrutan likna följande bild.
+      * Du kan ange den information du vill. Om den **jobbet konfigurationer**, vi har standardvärdet. Och du kan referera till [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html) för mer information om nycklarna. Den **kommandoradsargument**, **referera till JAR: er** och **refereras filer** bör se ut som på bilden nedan. Du kan referera till [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) för mer information om **referera till JAR: er** och **refereras filer**. Att göra **referera till JAR: er** och **refereras filer** fungera, bör du ladda upp resurser i klustret som du skickar först. Referera till [ladda upp resurser ska ingå i klustret](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Dialogrutan Skicka bör likna följande bild.
         
+        ![Spark-bidrag dialogrutan box jobbet configuration betydelse](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
+
+        ![Spark-bidrag dialogrutan box jar-filer vilket innebär att](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
+
         ![Dialogrutan Skicka Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
    c. Den **Spark bidrag** flik längst ned i fönstret ska börja Visa förloppet. Du kan också stoppa programmet genom att välja den röda knappen i den **Spark bidrag** fönster.

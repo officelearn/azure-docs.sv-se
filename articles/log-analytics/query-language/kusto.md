@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Log Analytics och Kusto språkskillnader | Microsoft Docs
-description: Beskriver skillnaderna mellan Log Analytics-frågor och core Kusto-språk.
+title: Språkreferens för Azure Monitor Log Analytics | Microsoft Docs
+description: Referensinformation för Kusto-språk som används av Log Analytics. Innehåller ytterligare element som är specifika för Log Analytics och element som inte stöds i Log Analytics-frågor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,25 +15,27 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 109ffa6abb34dad6a00210a5c2c726bdfdde094f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 5173790436a29fa9947346d711da1a2ddb32bf62
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184918"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451076"
 ---
-# <a name="log-analytics-and-kusto-language-differences"></a>Log Analytics och Kusto språkskillnader
-[Logga analysfrågor](../log-analytics-queries.md) skrivs med den [Kusto språk](/azure/kusto/query). Det finns några skillnader från standardspråket och Log Analytics-implementering dock enligt beskrivningen i den här artikeln.
+# <a name="log-analytics-query-language-reference"></a>Logga referens Analytics-frågespråket
+[Logga analysfrågor](../log-analytics-queries.md) Använd samma frågespråk och motor som används av [Azure Data Explorer](/azure/data-explorer/). Du kan komma åt språkreferensen och annan information om språk från följande plats: [Kusto-Språkreferens](/azure/kusto/query)
 
 
-## <a name="statements-not-supported-in-log-analytics"></a>Uttryck som inte stöds i Log Analytics
-Följande uttryck stöds inte i Log Analytics.
+
+## <a name="kusto-elements-not-support-in-log-analytics"></a>Kusto-element stöds inte i Log Analytics
+Log Analytics-frågor via en implementering av Kusto, finns men det vissa Kusto-element som det inte stöder enligt beskrivningen i följande avsnitt.
+
+### <a name="statements-not-supported-in-log-analytics"></a>Uttryck som inte stöds i Log Analytics
 
 * [Alias](/kusto/query/aliasstatement)
 * [Frågeparametrar](/azure/kusto/query/queryparametersstatement)
 
-## <a name="functions-not-supported-in-log-analytics"></a>Funktioner som inte stöds i Log Analytics
-Följande funktioner stöds inte i Log Analytics.
+### <a name="functions-not-supported-in-log-analytics"></a>Funktioner som inte stöds i Log Analytics
 
 * [Cluster()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
@@ -44,18 +46,19 @@ Följande funktioner stöds inte i Log Analytics.
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
 
-## <a name="operators-not-supported-in-log-analytics"></a>Operatörer som inte stöds i Log Analytics
-Följande operatorer stöds inte i Log Analytics.
+### <a name="operators-not-supported-in-log-analytics"></a>Operatörer som inte stöds i Log Analytics
 
 * [Anslutning till flera kluster](/azure/kusto/query/joincrosscluster)
 * [externaldata operator](/azure/kusto/query/externaldata-operator)
 
-## <a name="plugins-not-supported-in-log-analytics"></a>Plugin-program som inte stöds i Log Analytics
-Följande plugin-program stöds inte i Log Analytics.
+### <a name="plugins-not-supported-in-log-analytics"></a>Plugin-program som inte stöds i Log Analytics
+
 * [sql_request plugin-programmet](/azure/kusto/query/sqlrequestplugin)
 
 
-## <a name="log-analytics-specific-operators"></a>Log Analytics specifika operatorer
+## <a name="additional-operators-in-log-analytics"></a>Ytterligare operatorer i Log Analytics
+För att stödja specifika funktioner för logganalys, finns följande ytterligare Kusto-operatorer som inte är tillgängliga utanför Log Analytics. 
+
 * [App()](app-expression.md)
 * [Workspace()](workspace-expression.md)
 

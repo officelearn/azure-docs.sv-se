@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: patricka
-ms.openlocfilehash: 0a10662e359379356ecc8d82af1b7d6331c41a65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0c49a895a3cd214bb6f9c88b5365cf980c60bf0a
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720063"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451779"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Flera innehavare i Azure Stack
 
@@ -101,7 +101,8 @@ Register-AzSWithMyDirectoryTenant `
 > Om din Azure Stack-administratör som installerar nya tjänster eller uppdateringar i framtiden, kan du behöva köra skriptet igen.
 >
 > Kör skriptet igen när som helst för att kontrollera status för Azure Stack-program i din katalog.
-
+> 
+> Om du har märkt problem med att skapa virtuella datorer i Managed Disks (presenteras i uppdateringen 1808), en ny **Disk Resource Provider** har lagts till, som kräver det här skriptet ska köras igen.
 
 ### <a name="activate-the-administrator-and-tenant-portals"></a>Aktivera administratör och klient-portaler
 När du har distributioner som använder Azure AD, måste du aktivera båda Azure Stack-administratör och klient portaler. Den här aktiveringen godkänner ger Azure Stack-portalen och Azure Resource Manager rätt behörigheter (som visas på sidan medgivande) för alla användare av katalogen.

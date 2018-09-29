@@ -9,18 +9,18 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 776b8496ea3f46287e2eeec7c150b8d60ca3e553
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5822c313cf0fb5848726cf85c46cda2a3a408264
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964112"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434627"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Använd ”Text till tal” i Speech service
 
 Med taltjänsten innehåller Text till tal-funktioner via en enkel HTTP-begäran. Du `POST` text som ska talas till lämplig slutpunkt och tjänsten returnerar en ljudfil (`.wav`) som innehåller syntetiskt tal. Programmet kan sedan använda den här ljud som den gillar.
 
-Begäran om programvaruprinciptext för INLÄGGET Text till tal kan vara oformaterad text (ASCII eller UTF8) eller ett [SSML](speech-synthesis-markup.md) dokumentet. Oformaterad text begäranden läses med en standard-röst. I de flesta fall som du vill använda en SSML brödtext. HTTP-begäran måste innehålla en [auktorisering](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
+Begäran om programvaruprinciptext för INLÄGGET Text till tal kan vara oformaterad text (ASCII eller UTF8) eller ett [SSML](speech-synthesis-markup.md) dokumentet. Oformaterad text begäranden läses med en standard-röst. I de flesta fall som du vill använda en SSML brödtext. HTTP-begäran måste innehålla en [auktorisering](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token.
 
 Regionala Text till tal-slutpunkter visas här. Använd en lämplig till din prenumeration.
 
@@ -38,11 +38,11 @@ Om du vill ange en röst, använda den `<voice>` [SSML](speech-synthesis-markup.
 </speak>
 ```
 
-Se [Text till tal röster](supported-languages.md#text-to-speech) en lista över tillgängliga röster och deras namn.
+Se [Text till tal röster](language-support.md#text-to-speech) en lista över tillgängliga röster och deras namn.
 
 ## <a name="make-a-request"></a>Skapa en begäran
 
-En Text till tal HTTP-begäran skickas i POST-läge med texten som ska talas i brödtexten i begäran. Den maximala längden på HTTP-begärandetexten är 1024 tecken. Begäran måste ha följande huvuden: 
+En Text till tal HTTP-begäran skickas i POST-läge med texten som ska talas i brödtexten i begäran. Den maximala längden på HTTP-begärandetexten är 1024 tecken. Begäran måste ha följande huvuden:
 
 Sidhuvud|Värden|Kommentarer
 -|-|-

@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: dbc092a9a6984a74cb59f287f12b06892c68fe4a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1bf2fe84f9695993dacb6d197d75c18e5db86c4e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296897"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433437"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Konfigurera haveriberedskap för virtuella Azure-datorer med Azure PowerShell
 
@@ -34,7 +34,6 @@ Lär dig att:
 
 > [!NOTE]
 > Inte alla scenario funktioner som är tillgängligt via portalen kan vara tillgänglig via Azure PowerShell. Några av de funktioner för scenario som stöds för närvarande inte via Azure PowerShell är:
-> - Möjligheten att replikera virtuella Azure-datorer som använder hanterade diskar.
 > - Möjligheten att ange att alla diskar på en virtuell dator ska replikeras utan att uttryckligen ange varje disk på den virtuella datorn.  
 
 ## <a name="prerequisites"></a>Förutsättningar

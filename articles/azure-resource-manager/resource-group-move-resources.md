@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: cf7d3df6d2e419a700b0be74da3fe2edc5ac24e1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393289"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452164"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -196,6 +196,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * DNS
 * Event Grid
 * Event Hubs
+* Ytterdörren
 * HDInsight-kluster – Se [HDInsight begränsningar](#hdinsight-limitations)
 * IoT Central
 * IoT-hubbar
@@ -207,7 +208,6 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Managed Disks – Se [begränsningar för virtuella datorer för begränsningar](#virtual-machines-limitations)
 * Hanterad identitet - användartilldelade
 * Media Services
-* Mobile Engagement
 * Notification Hubs
 * Operational Insights
 * Operations Management
@@ -267,37 +267,39 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 
 ## <a name="virtual-machines-limitations"></a>Begränsningar för virtuella datorer
 
-Hanterade diskar stöds för flytt från och med den 24 September 2018. Du måste registrera dig för att aktivera den här funktionen.
+Hanterade diskar stöds för flytt från och med den 24 September 2018. 
 
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. Du måste registrera dig för att aktivera den här funktionen.
 
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-Förfrågan om funktionsregistrering returnerar först statusen `Registering`. Du kan kontrollera den aktuella statusen med:
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. Förfrågan om funktionsregistrering returnerar först statusen `Registering`. Du kan kontrollera den aktuella statusen med:
 
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-Vänta några minuter för statusen att ändra till `Registered`.
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-När funktionen har registrerats kan du registrera den `Microsoft.Compute` resursprovidern. Utför det här steget, även om resursprovidern tidigare har registrerats.
+1. Vänta några minuter för statusen att ändra till `Registered`.
 
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-```
+1. När funktionen har registrerats kan du registrera den `Microsoft.Compute` resursprovidern. Utför det här steget, även om resursprovidern tidigare har registrerats.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
 
 Det här stödet innebär att du kan också flytta:
 

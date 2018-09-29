@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433574"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434253"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Säkerhetskopiera SQL Server-databaser till Azure
 
@@ -823,6 +823,10 @@ Aktivera en fullständig säkerhetskopiering. Loggsäkerhetskopior börjar som f
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>Jag kan skydda SQL Always On-Tillgänglighetsgrupper där den primära repliken är lokalt
 
 Nej. Azure Backup skyddar SQL-servrar som körs i Azure. Om tillgänglighet grupp (AG) fördelas mellan Azure och lokala datorer, kan AG skyddas endast om den primära repliken körs i Azure. Azure Backup skyddar dessutom endast de noder som körs i samma Azure-region som Recovery Services-valvet.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>Jag kan skydda SQL Always On-Tillgänglighetsgrupper som är fördelade på Azure-regioner
+Azure Backup Recovery Services-valv kan identifiera och skydda alla noder i samma region som Recovery Services-valvet. Om du har en SQL alltid på tillgänglighetsgrupp över flera Azure-regioner kan behöva du konfigurera säkerhetskopiering från den region som har den primära noden. Azure Backup kommer att kunna identifiera och skydda alla databaser i tillgänglighetsgruppen enligt inställning för säkerhetskopiering. Om inställningen för säkerhetskopiering inte är uppfyllt, misslyckas säkerhetskopieringarna och du får fel aviseringen.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

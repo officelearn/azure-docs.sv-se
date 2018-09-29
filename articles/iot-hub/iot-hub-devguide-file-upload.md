@@ -1,6 +1,6 @@
 ---
 title: Förstå Azure IoT Hub filöverföringen | Microsoft Docs
-description: Utvecklarhandbok - Använd funktionen filen överför i IoT-hubb för att hantera överföring av filer från en enhet till en Azure storage blob-behållare.
+description: Utvecklarguide – Använd filuppladdningsfunktionen mellan IoT Hub och hantera ladda upp filer från en enhet till en Azure storage blob-behållare.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,39 +8,39 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: e16d32bdba1374540c03d1034a94192a54e6a109
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8fee8dd727623e81140656a070e6855547693154
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634904"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451162"
 ---
-# <a name="upload-files-with-iot-hub"></a>Överföra filer med IoT-hubb
+# <a name="upload-files-with-iot-hub"></a>Ladda upp filer med IoT Hub
 
-Detaljerad i den [IoT-hubbslutpunkter] [ lnk-endpoints] artikel, en enhet kan initiera en filöverföring genom att skicka ett meddelande via en enhet riktade slutpunkt (**/devices/ {deviceId} / filer**). När en enhet meddelar IoT-hubb som en överföringen är klar, IoT-hubb skickas ett meddelande för filen överför via den **/messages/servicebound/filenotifications** service-riktade slutpunkt.
+Enligt beskrivningen i den [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md) artikeln en enhet kan initiera en filöverföring genom att skicka ett meddelande via en enhet-riktade slutpunkt (**/devices/ {deviceId} / filer**). När en enhet meddelas IoT Hub att ladda upp är klar, IoT Hub skickar ett filuppladdningsmeddelande för överföring via den **/messages/servicebound/filenotifications** service-slutpunkter.
 
-I stället för förtroendeförmedling meddelanden via IoT-hubb själva fungerar IoT-hubb i stället som en dispatcher till ett associerat Azure Storage-konto. En enhet begär ett storage-token från IoT-hubb som är specifik för enheten som ska ladda upp filen. Enheten använder SAS-URI för att överföra filen till lagring och när överföringen är klar enheten skickar ett meddelande om slutförande till IoT-hubb. IoT-hubb kontrollerar filöverföringen har slutförts och sedan lägger till ett meddelande för överföring av filen aviseringsslutpunkten service-riktade filen.
+I stället för förtroendeförmedling meddelanden via IoT Hub själva fungerar IoT Hub i stället som en dispatcher till ett associerat Azure Storage-konto. En enhet begär en token för storage från IoT Hub som är specifik för enheten vill ladda upp filen. Enheten använder SAS-URI för att överföra filen till lagring och när överföringen är klar enheten skickar ett meddelande om slutförande till IoT Hub. IoT Hub kontrollerar filöverföringen är klar och lägger sedan till ett filuppladdningsmeddelande för uppladdning till aviseringsslutpunkten tjänst för webbservergrupper på filen.
 
-Innan du överför en fil till IoT-hubb från en enhet måste du konfigurera din hubb av [associera en Azure Storage] [ lnk-associate-storage] kontot till den.
+Innan du överför en fil till IoT Hub från en enhet, måste du konfigurera din hubb genom [associera ett Azure Storage](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub) kontot till den.
 
-Enheten kan sedan [initiera en överföring] [ lnk-initialize] och sedan [meddela IoT-hubb] [ lnk-notify] när överföringen är klar. Du kan också när en enhet meddelar IoT-hubb att överföringen är klar, tjänsten kan generera en [meddelande][lnk-service-notification].
+Enheten kan sedan [initiera ladda upp](iot-hub-devguide-file-upload.md#initialize-a-file-upload) och sedan [meddela IoT-hubb](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) när överföringen är klar. Du kan också när en enhet meddelas IoT Hub att överföringen är klar, tjänsten kan generera en [meddelande](iot-hub-devguide-file-upload.md#file-upload-notifications).
 
 ### <a name="when-to-use"></a>När du ska använda detta
 
-Använda filuppladdning för att skicka mediefiler och stora telemetri batchar har laddats upp av periodvis anslutna enheter eller komprimerade för att spara bandbredd.
+Använda ladda upp filer för att skicka mediefiler och stora telemetri batchar har laddats upp av periodvis anslutna enheter eller komprimeras för att spara bandbredd.
 
-Referera till [enhet till moln kommunikation vägledning] [ lnk-d2c-guidance] om osäkra mellan att använda rapporterade egenskaper, meddelanden från enhet till moln eller ladda upp filen.
+Referera till [enhet till molnet kommunikation vägledning](iot-hub-devguide-d2c-guidance.md) om tveksam mellan med hjälp av rapporterade egenskaper, meddelanden från enheten till molnet eller ladda upp filen.
 
-## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Associera ett Azure Storage-konto med IoT-hubb
+## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Associera ett Azure Storage-konto med IoT Hub
 
-Om du vill använda funktionen överför filen måste du först länka ett Azure Storage-konto till IoT-hubben. Du kan göra detta med hjälp av den [Azure-portalen][lnk-management-portal], eller programmässigt via den [IoT-hubb resursprovidern REST API: er][lnk-resource-provider-apis]. När du har associerat ett Azure Storage-konto med IoT-hubben, returnerar tjänsten en SAS-URI till en enhet när enheten initierar en begäran för överföring av filen.
+Om du vill använda filuppladdningen inom, måste du först koppla ett Azure Storage-konto till IoT Hub. Du kan slutföra den här uppgiften via den [Azure-portalen](https://portal.azure.com), eller programmässigt via den [resursprovidern i IoT Hub REST API: er](/rest/api/iothub/iothubresource). När du har associerat ett Azure Storage-konto med IoT-hubben, returnerar tjänsten en SAS-URI till en enhet när enheten initierar en begäran om ladda upp en fil.
 
 > [!NOTE]
-> Den [Azure IoT SDK] [ lnk-sdks] automatiskt hanterar hämta SAS-URI, överföra filen och meddela en överförda IoT-hubb.
+> Den [Azure IoT SDK: er](iot-hub-devguide-sdks.md) automatiskt hanterar hämtning av SAS-URI, överföra filen och meddela en överförda IoT-hubb.
 
 
-## <a name="initialize-a-file-upload"></a>Initiera en filöverföring
-IoT-hubben har en slutpunkt för enheter att begära en SAS-URI för att överföra en fil. Om du vill initiera filöverföring enheten skickar en POST-begäran till `{iot hub}.azure-devices.net/devices/{deviceId}/files` med följande JSON-meddelandetext:
+## <a name="initialize-a-file-upload"></a>Initiera en uppladdning
+IoT Hub har en slutpunkt specifikt för enheter att begära en SAS-URI för lagring att överföra en fil. Om du vill initiera filöverföring enheten skickar en POST-begäran till `{iot hub}.azure-devices.net/devices/{deviceId}/files` med följande JSON-texten:
 
 ```json
 {
@@ -48,7 +48,7 @@ IoT-hubben har en slutpunkt för enheter att begära en SAS-URI för att överf�
 }
 ```
 
-IoT-hubb returnerar följande uppgifter, som enheten använder för att överföra filen:
+IoT Hub returnerar följande uppgifter, som enheten använder för att ladda upp filen:
 
 ```json
 {
@@ -63,16 +63,17 @@ IoT-hubb returnerar följande uppgifter, som enheten använder för att överfö
 ### <a name="deprecated-initialize-a-file-upload-with-a-get"></a>Föråldrad: initiera en filöverföring med GET
 
 > [!NOTE]
-> Det här avsnittet beskrivs föråldrade funktioner att få en SAS-URI från IoT-hubb. Använda POST-metoden som beskrivs ovan.
+> Det här avsnittet beskrivs föråldrade funktioner att få en SAS-URI från IoT Hub. Använd POST-metoden som beskrivs ovan.
 
-IoT-hubben har två REST-slutpunkter som stöd för filöverföring, en för att hämta SAS-URI för lagring och den andra för att meddela IoT-hubb för en överförda. Enheten initierar Filöverföring genom att skicka GET till IoT-hubb på `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. IoT-hubben returnerar:
+IoT Hub har två REST-slutpunkter för filuppladdning, en för att hämta SAS-URI för lagring och den andra att meddela IoT-hubb för en överförda. Enheten initierar Filöverföring genom att skicka en hämtning på IoT-hubben på `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. IoT hub returnerar:
 
-* En SAS-URI för filen ska överföras.
-* En Korrelations-ID som ska användas när överföringen har slutförts.
+* En SAS-URI för filen som ska laddas upp.
 
-## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Meddela IoT-hubb slutförda filöverföringen
+* Ett Korrelations-ID som ska användas när överföringen är klar.
 
-Enheten är ansvarig för att överföra filen till lagring med hjälp av Azure Storage SDK: erna. När överföringen är klar, enheten skickar en POST-begäran till `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` med följande JSON-meddelandetext:
+## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Meddela IoT-hubb för en slutförd uppladdning
+
+Enheten ansvarar för att ladda upp filen till storage med Azure Storage SDK: er. När överföringen är klar, enheten skickar en POST-begäran till `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` med följande JSON-texten:
 
 ```json
 {
@@ -83,28 +84,28 @@ Enheten är ansvarig för att överföra filen till lagring med hjälp av Azure 
 }
 ```
 
-Värdet för `isSuccess` är en boolesk som representerar om filen har överförts. Statuskoden för `statusCode` är status för överföring av filen till lagring, och `statusDescription` motsvarar den `statusCode`.
+Värdet för `isSuccess` är ett booleskt som representerar om filen har överförts. Statuskoden för `statusCode` är status för uppladdning av filen till lagring, och `statusDescription` motsvarar den `statusCode`.
 
-## <a name="reference-topics"></a>Referensinformation:
+## <a name="reference-topics"></a>Referensämnen:
 
-Följande referensavsnitt ge mer information om hur du överför filer från en enhet.
+Följande referens ger dig mer information om hur du överför filer från en enhet.
 
-## <a name="file-upload-notifications"></a>Filen överför meddelanden
+## <a name="file-upload-notifications"></a>Ladda upp filmeddelanden
 
-När en enhet meddelar IoT-hubb som en överföringen är klar, du kan också genererar ett meddelande som innehåller namn och lagring platsen för filen IoT-hubb.
+När en enhet meddelas IoT Hub att ladda upp är klar, genererar du kan också ett meddelande som innehåller och platsen för filen i IoT Hub.
 
-Enligt beskrivningen i [slutpunkter][lnk-endpoints], IoT-hubb levererar filen överför meddelanden via en slutpunkt för service-riktade (**/messages/servicebound/fileuploadnotifications**) som meddelanden. Receive-semantik för filen överför meddelanden är desamma som för meddelanden moln till enhet och har samma [meddelandet livscykel][lnk-lifecycle]. Varje meddelande som hämtas från filen överför aviseringsslutpunkten är en JSON-post med följande egenskaper:
+Enligt beskrivningen i [slutpunkter](iot-hub-devguide-endpoints.md), IoT-hubb levererar filen ladda upp meddelanden via en tjänst-riktade slutpunkt (**/messages/servicebound/fileuploadnotifications**) som meddelanden. Ta emot-semantik för filmeddelanden för uppladdning är desamma som för meddelanden från moln till enhet och har samma [meddelande livscykel](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Varje meddelande som hämtas från filen uppladdning aviseringsslutpunkten är en JSON-post med följande egenskaper:
 
 | Egenskap  | Beskrivning |
 | --- | --- |
-| EnqueuedTimeUtc |Tidsstämpel som visar när meddelandet har skapats. |
-| DeviceId |**DeviceId** på den enhet som laddats upp filen. |
+| EnqueuedTimeUtc |Tidsstämpel som visar när meddelandet skapades. |
+| DeviceId |**DeviceId** på den enhet som du laddade upp filen. |
 | BlobUri |URI för den överförda filen. |
 | BlobName |Namnet på den överförda filen. |
-| LastUpdatedTime |Tidsstämpel som anger när filen senast uppdaterades. |
+| lastUpdatedTime |Tidsstämpel som visar då filen senast uppdaterades. |
 | BlobSizeInBytes |Storleken på den överförda filen. |
 
-**Exempel**. Det här exemplet visar innehållet i en fil överför meddelandet.
+**Exempel**. Det här exemplet visar innehållet i en fil ladda upp meddelandet.
 
 ```json
 {
@@ -117,58 +118,45 @@ Enligt beskrivningen i [slutpunkter][lnk-endpoints], IoT-hubb levererar filen ö
 }
 ```
 
-## <a name="file-upload-notification-configuration-options"></a>Konfigurationsalternativ för filen överför meddelande
+## <a name="file-upload-notification-configuration-options"></a>Konfigurationsalternativ för filen ladda upp meddelande
 
-Varje IoT-hubb visar följande konfigurationsalternativ för filen överför meddelanden:
+Varje IoT-hubb exponerar följande konfigurationsalternativ för filmeddelanden för uppladdning:
 
-| Egenskap  | Beskrivning | Intervall och standard |
+| Egenskap  | Beskrivning | Intervall- och standard |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Kontrollerar om filen överför meddelanden skrivs till filen meddelanden slutpunkten. |Bool. Standard: True. |
-| **fileNotifications.ttlAsIso8601** |Standard-TTL för filen överför meddelanden. |ISO_8601 intervall upp till 48 H (minst 1 minut). Standard: 1 timme. |
-| **fileNotifications.lockDuration** |Lås varaktighet för filen överför meddelanden kön. |5 till 300 sekunder (minst 5 sekunder). Standard: 60 sekunder. |
-| **fileNotifications.maxDeliveryCount** |Leverans av maximalt antal för filen överför aviseringskön. |1 och 100. Standard: 100. |
+| **enableFileUploadNotifications** |Styr om meddelanden för uppladdning av filen skrivs till slutpunkten för fil-meddelanden. |Bool. Standard: SANT. |
+| **fileNotifications.ttlAsIso8601** |Standard-TTL för filen ladda upp meddelanden. |ISO_8601 intervall upp till 48 H (minst 1 minut). Standard: 1 timme. |
+| **fileNotifications.lockDuration** |Varaktighet för lås för filen ladda upp meddelanden kön. |5 och 300 sekunder (minst 5 sekunder). Standard: 60 sekunder. |
+| **fileNotifications.maxDeliveryCount** |Maximalt antal leveranser för filen överför meddelandekö. |1 och 100. Standard: 100. |
 
-## <a name="additional-reference-material"></a>Ytterligare referensmaterialet
+## <a name="additional-reference-material"></a>Ytterligare referensmaterial
 
-Andra referensavsnitten i utvecklarhandboken för IoT-hubben är:
+Andra referensavsnitten i IoT Hub developer guide inkluderar:
 
-* [IoT-hubbslutpunkter] [ lnk-endpoints] beskriver de olika slutpunkter som varje IoT-hubb visar för körning och hanteringsåtgärder.
-* [Begränsning och kvoter] [ lnk-quotas] beskriver kvoter och begränsning beteenden som tillämpas på tjänsten IoT-hubb.
-* [Azure IoT-enheten och tjänsten SDK] [ lnk-sdks] Listar olika språk SDK: er som du kan använda när du utvecklar appar för både enheten och tjänsten som interagerar med IoT-hubben.
-* [IoT-hubb frågespråket] [ lnk-query] beskriver frågespråk som du kan använda för att hämta information från IoT-hubb om enheten twins och jobb.
-* [Stöd för IoT-hubb MQTT] [ lnk-devguide-mqtt] ger mer information om stöd för IoT-hubb för MQTT-protokollet.
+* [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md) beskriver de olika slutpunkter som varje IoT-hubb exponerar för körning och hanteringsåtgärder.
+
+* [Begränsning och kvoter](iot-hub-devguide-quotas-throttling.md) beskriver kvoter och begränsningar beteenden som gäller för IoT Hub-tjänsten.
+
+* [Azure IoT-enheten och tjänsten SDK: er](iot-hub-devguide-sdks.md) visar en lista över olika språk SDK: er som du kan använda när du utvecklar appar för både enheten och tjänsten som interagerar med IoT Hub.
+
+* [IoT Hub-frågespråk](iot-hub-devguide-query-language.md) beskriver frågespråk som du kan använda för att hämta information från IoT Hub om enhetstvillingar och jobb.
+
+* [IoT Hub MQTT-support](iot-hub-mqtt-support.md) innehåller mer information om IoT Hub-stöd för MQTT-protokollet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu du har lärt dig hur du överför filer från enheter med hjälp av IoT-hubb, kan du är intresserad av i följande avsnitt för IoT-hubb developer-guide:
+Nu du har lärt dig hur du överför filer från enheter med hjälp av IoT Hub, kanske du är intresserad av i följande avsnitt för IoT Hub developer guide:
 
-* [Hantera identiteter för enheten i IoT-hubb][lnk-devguide-identities]
-* [Kontrollera åtkomsten till IoT-hubb][lnk-devguide-security]
-* [Använd twins för enheten för att synkronisera tillstånd och konfigurationer][lnk-devguide-device-twins]
-* [Anropa en metod som är direkt på en enhet][lnk-devguide-directmethods]
-* [Schema-jobb på flera enheter][lnk-devguide-jobs]
+* [Hantera enhetsidentiteter i IoT Hub](iot-hub-devguide-identity-registry.md)
 
-Om du vill prova några av de begrepp som beskrivs i den här artikeln finns i följande IoT-hubb kursen:
+* [Styra åtkomst till IoT Hub](iot-hub-devguide-security.md)
 
-* [Hur du överför filer från enheter till molnet med IoT-hubb][lnk-fileupload-tutorial]
+* [Använda enhetstvillingar för att synkronisera tillstånd och konfigurationer](iot-hub-devguide-device-twins.md)
 
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-management-portal]: https://portal.azure.com
-[lnk-fileupload-tutorial]: iot-hub-csharp-csharp-file-upload.md
-[lnk-associate-storage]: iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub
-[lnk-initialize]: iot-hub-devguide-file-upload.md#initialize-a-file-upload
-[lnk-notify]: iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload
-[lnk-service-notification]: iot-hub-devguide-file-upload.md#file-upload-notifications
-[lnk-lifecycle]: iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
+* [Anropa en direkt metod på en enhet](iot-hub-devguide-direct-methods.md)
 
-[lnk-devguide-identities]: iot-hub-devguide-identity-registry.md
-[lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
-[lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
-[lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+* [Schemalägga jobb på flera enheter](iot-hub-devguide-jobs.md)
+
+Se följande självstudie för IoT Hub för att prova några av de koncept som beskrivs i den här artikeln:
+
+* [Ladda upp filer från enheter till molnet med IoT Hub](iot-hub-csharp-csharp-file-upload.md)

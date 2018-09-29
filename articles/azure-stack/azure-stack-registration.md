@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364609"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452538"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -94,6 +94,19 @@ Azure Stack-distributioner kanske *anslutna* eller *frånkopplad*.
  - **Frånkopplad**  
  Med den frånkopplade från Azure distributionsalternativ, du kan distribuera och använda Azure Stack utan en anslutning till Internet. Men med en frånkopplad distribution är du begränsad till en AD FS-Identitetslagret och kapacitetsbaserad faktureringsmodell.
     - [Registrera en frånkopplad Azure Stack med den **kapacitet** faktureringsmodell ](#register-disconnected-with-capacity-billing)
+
+### <a name="determine-a-unique-registration-name-to-use"></a>Fastställa ett unika registrerings-namn 
+När du registrerar Azure Stack med Azure måste du ange ett unika registrerings-namn. Ett enkelt sätt att associera Azure Stack-prenumeration med en Azure-registrering är att använda Azure Stack **moln-ID**. 
+
+> [!NOTE]
+> Azure Stack-registreringar med hjälp av kapacitetsbaserad faktureringsmodellen behöver du ändra det unika namnet när omregistrering när dessa årliga prenumerationer upphör att gälla.
+
+För att fastställa moln-ID för Azure Stack-distribution, öppnar du PowerShell som administratör på en dator än vad som kan komma åt den privilegierade slutpunkten kör du följande kommandon och registrera den **CloudID** värde: 
+
+```powershell
+Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
+Run: get-azurestackstampinformation 
+```
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Registrera kontakten med användningsbaserad fakturering
 
@@ -257,7 +270,7 @@ Därefter måste du hämta en aktiveringsnyckeln från registrering resursen ska
 Kör följande PowerShell-cmdletar för att hämta aktiveringsnyckeln:  
 
   ```Powershell
-  $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
+  $RegistrationResourceName = "AzureStack-<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
@@ -351,7 +364,7 @@ Du kan använda registreringstoken som används för att skapa resursen:
 Du kan också använda namnet på registrering:
 
   ```Powershell
-  $registrationName = "AzureStack-<Cloud ID of Azure Stack Environment>"
+  $registrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $registrationName
   ```
 

@@ -16,7 +16,8 @@ I följande tabell visas de begränsningar som gäller för IoT Hub Device Provi
 
 Device Provisioning-tjänsten begränsar begärandena om följande kvoter överskrids:
 
-| Begränsning | Värde per tjänst |
+| Begränsning | Värde per enhet |
 | --- | --- |
-| Åtgärder | 100 per minut |
-| Enhetsregistreringar | 100 per minut |
+| Åtgärder | 200/min/tjänst |
+| Enhetsregistreringar | 200/min/tjänst |
+| Avsökningsåtgärden för enhet | 5/10 sek/enhet |

@@ -3,7 +3,7 @@ title: Använd Azure Premium Storage med SQLServer | Microsoft Docs
 description: Den här artikeln använder resurser som har skapats med den klassiska distributionsmodellen och ger vägledning om hur du använder Azure Premium Storage med SQL Server som körs på Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: rothja
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: bb9e30489aa8870fe1c71c8c9a8bd557a2dcf2b1
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 88b901f4e2d96fb3b3b04634e2137a916a61e354
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42058767"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452657"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på virtuella datorer
 ## <a name="overview"></a>Översikt

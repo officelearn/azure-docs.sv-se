@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a13cb0360a33c301129f2975ce67580204602d9a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 8ff418c24e9171d452bca873c4b8f66ada2adb7c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381683"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431334"
 ---
 # <a name="general-claims-transformations"></a>Allmän anspråksomvandlingar
 
@@ -27,9 +27,9 @@ Den här artikeln innehåller exempel för att använda allmänna anspråksomvan
 
 Kontrollerar om den **inputClaim** finns eller inte och anger **outputClaim** till true eller false i enlighet med detta.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |Valfri | Det inkommande anspråket vars förekomst behöver verifieras. |
+| InputClaim | InputClaim |Alla | Det inkommande anspråket vars förekomst behöver verifieras. |
 | outputClaim | outputClaim | boolesk | ClaimType som skapas när den här ClaimsTransformation har anropats. |
 
 Använd detta omvandling för att kontrollera om ett anspråk finns eller innehåller ett värde av anspråk. Returvärdet är ett booleskt värde som anger om anspråket finns. Följande exempel kontrollerar om e-postadressen finns.
@@ -56,12 +56,12 @@ Använd detta omvandling för att kontrollera om ett anspråk finns eller inneh�
 
 Hash-den angivna oformaterad text med hjälp av saltet och en hemlighet.
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | oformaterad text | sträng | Inkommande anspråk som ska krypteras |
 | InputClaim | salt | sträng | Parametern salt. Du kan skapa ett slumpmässigt värde, med hjälp av `CreateRandomString` omvandling av anspråk. |
 | Indataparametrar | randomizerSecret | sträng | Pekar på en befintlig Azure AD B2C **Principnycklar**. Skapa en ny: I din Azure AD B2C-klient väljer **B2C-Inställningar > Identitetsramverk**. Välj **Principnycklar** att visa de nycklar som är tillgängliga i din klient. Välj **Lägg till**. För **alternativ**väljer **manuell**. Ange ett namn (prefixet B2C_1A_ kan läggas till automatiskt.). I rutan hemliga anger du eventuella hemlighet som du vill använda, till exempel 1234567890. Nyckelanvändning, Välj **hemlighet**. Välj **Skapa**. |
-| outputClaim | outputClaim | boolesk | ClaimType som skapas när detta omvandling av anspråk har anropats. Det anspråk som konfigurerats i den `plaintext` inputClaim. |
+| outputClaim | Hash | sträng | ClaimType som skapas när detta omvandling av anspråk har anropats. Det anspråk som konfigurerats i den `plaintext` inputClaim. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">

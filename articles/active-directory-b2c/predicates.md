@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 58ae0541b1b95f280cdd30327059d62ff26978ab
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d00bbddc6523f75b3208a41296b5b94f9f06a5ed
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381451"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432179"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikat och PredicateValidations
 
@@ -39,9 +39,9 @@ Den **predikat** elementet innehåller följande element:
 
 Den **predikat** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
+| Id | Ja | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
 | Metod | Ja | Metodtyp för validering. Möjliga värden: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**, eller **IsDateRange**. Den **IsLengthRange** värde kontrollerar om längden på ett strängvärde för anspråk är inom intervallet för lägsta och högsta parametrar har angetts. Den **MatchesRegex** värde kontrollerar om ett sträng-anspråksvärde matchar ett reguljärt uttryck. Den **IncludesCharacters** värde kontrollerar om ett strängvärde för anspråk innehåller en teckenuppsättning. Den **IsDateRange** värde kontrollerar om ett datumvärde anspråk mellan olika lägsta och högsta parametrar har angetts. |
 
 Den **predikat** elementet innehåller följande element:
@@ -61,7 +61,7 @@ Den **parametern** elementet innehåller följande attribut:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| ID | 1:1 | Identifierare för parametern. |
+| Id | 1:1 | Identifierare för parametern. |
 
 I följande exempel visas en `IsLengthRange` metod med parametrar `Minimum` och `Maximum` som anger intervallet längden på strängen:
 
@@ -138,9 +138,9 @@ Den **PredicateValidations** elementet innehåller följande element:
 
 Den **PredicateValidation** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare som används för predikatet verifieringen. Den **ClaimType** element kan använda den här identifieraren i principen. |
+| Id | Ja | En identifierare som används för predikatet verifieringen. Den **ClaimType** element kan använda den här identifieraren i principen. |
 
 Den **PredicateValidation** elementet innehåller följande element:
 
@@ -156,9 +156,9 @@ Den **PredicateGroups** elementet innehåller följande element:
 
 Den **PredicateGroup** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare som används för gruppen predikat.  |
+| Id | Ja | En identifierare som används för gruppen predikat.  |
 
 Den **PredicateGroup** elementet innehåller följande element:
 
@@ -169,7 +169,7 @@ Den **PredicateGroup** elementet innehåller följande element:
 
 Den **PredicateReferences** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | MatchAtLeast | Nej | Anger att värdet matchar minst många predikat definitioner för indata ska godkännas. |
 
@@ -181,9 +181,9 @@ Den **PredicateReferences** elementet innehåller följande element:
 
 Den **PredicateReference** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare som används för predikatet verifieringen.  |
+| Id | Ja | En identifierare som används för predikatet verifieringen.  |
 
 
 ## <a name="configure-password-complexity"></a>Konfigurera lösenordskomplexitet
@@ -356,7 +356,7 @@ Med den **predikat** och **PredicateValidations** element som du kan kontrollera
 
 ```XML
 <Predicates>
-  <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1905 and today.">
+  <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
       <Parameter Id="Minimum">1980-01-01</Parameter>
       <Parameter Id="Maximum">Today</Parameter>

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2018
+ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cca9a12b0512ca502d143f4a88c959e1bfc4f90e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 2a72fade57b070ac2ac1aea28cbec92700c3797f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985889"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452555"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -68,7 +68,7 @@ Du kan utföra storage-ögonblicksbilder som riktar in sig på tre klasser av vo
 - En separat ögonblicksbild över/hana/logbackups.
 - En partition av operativsystemet.
 
-Få de senaste ögonblicksbild skript och dokumentation från [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+Få de senaste ögonblicksbild skript och dokumentation från [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). När du hämtar ögonblicksbild skriptpaketet från den [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts), du kan också få PDF-dokumentationen för skript som en del av skriptpaketet. Alla skriptpaket har sin egen PDF-dokumentationen.
 
 ## <a name="storage-snapshot-considerations"></a>Överväganden för ögonblicksbilder av lagring
 
@@ -114,7 +114,7 @@ Följ dessa steg om du vill konfigurera ögonblicksbilder av lagring med stora H
 1. Kopiera skript och konfigurationsfilen från [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) till platsen för **hdbsql** i SAP HANA-installationen.
 1. Ändra den *HANABackupDetails.txt* fil som krävs för lämplig kund-specifikationer.
 
-Få de senaste ögonblicksbild skript och dokumentation från [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+Få de senaste ögonblicksbild skript och dokumentation från [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). När du hämtar ögonblicksbild skriptpaketet från den [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts), du kan också få PDF-dokumentationen för skript som en del av skriptpaketet. Alla skriptpaket har sin egen PDF-dokumentationen.
 
 ### <a name="consideration-for-mcod-scenarios"></a>Överväganden för MCOD scenarier
 Om du kör en [MCOD scenariot](https://launchpad.support.sap.com/#/notes/1681092) med flera SAP HANA-instanser på en enhet för stora HANA-instansen, har du separata lagringsvolymer som tillhandahållits för var och en av SAP HANA-instanser. Du kan inte initiera separat ögonblicksbilder på varje HANA-instans system-ID (SID) i den aktuella versionen av själva ögonblicksbild automation. Funktionen ger söker efter de registrerade SAP HANA-instanserna på servern i konfigurationsfilen (se nedan) och kör en samtidig ögonblicksbild av volymer med alla instanser som är registrerade på enheten.

@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: e0c28645de8c45aaf89afb6b5116aa9a3cb04768
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: eaf7ff9f7f791fd6d04e6b76d256b4987c50cd13
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227511"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434100"
 ---
 # <a name="unity-sample-walkthrough"></a>Unity exempelgenomgång
 Det här är en genomgång av exemplet projekt Akustik. Mer information om vilka Akustik projekt är kan du ta en titt på [introduktion till projektet Akustik](what-is-acoustics.md). Hjälp om du lägger till projektet Akustik-paket till en befintlig Unity-projekt kan använda den [komma igång-guiden](getting-started.md).
@@ -29,13 +29,13 @@ Det här är en genomgång av exemplet projekt Akustik. Mer information om vilka
 Hämta och importera den **MicrosoftAcoustics.Sample.unitypackage**. Under importen, Projektinställningar inklusive **Spatializer** och **skript körningsversion** uppdateras för att uppfylla plugin-programmets krav. När processen är klar visas ett fel i Unity-konsolen från **AcousticsGeometry.cs** om hur du ändrar körningsversion skript till **.NET 4.x motsvarande**. Inställningar för ändringen görs som en del av paketet importen, men kräver en omstart av Unity ska börja gälla. Starta om Unity nu.
 
 ## <a name="running-the-sample"></a>Köra exemplet
-Exemplet innehåller en demo-scen **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Den här scen har en enda spatialized ljudkälla spela upp från en flytande kub (med namnet **AudioHolder** i den **hierarkin**). Om du vill göra en allmän navigering skript, är Main kameran underordnad CameraHolder-objektet. 
+Exemplet innehåller en demo-scen **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Den här scen har tre ljud källor. Som standard bara en ljudkälla spelas upp och de andra två har pausats. Dessa finns under **ljud källor** i den **hierarki**. Om du vill göra en allmän navigering skript, är Main kameran underordnad CameraHolder-objektet. 
 
 ![Vy av grupphierarkin](media/SampleHierarchyView.png)
 
 Scenen redan har inbyggd och har en ACE-fil som är associerade med den **MicrosoftAcoustics** prefab i den **hierarki**. 
 
-Lyssna på hur scenen låter genom att klicka på uppspelningsknappen i Unity-redigeraren. Använd W, A, S, D och musen för att flytta. Om du vill jämföra hur scenen låter med och utan Akustik, klickar du på vänster musknapp eller knappen primär kontrollenhet. Om du vill gå igenom de olika källorna för ljud, klickar du på höger musknapp eller bakåt-knappen på din domänkontrollant.
+Lyssna på hur scenen låter genom att klicka på uppspelningsknappen i Unity-redigeraren. På skrivbordet, använda W, A, S, D och musen för att flytta. Om du vill jämföra hur scenen låter med och utan Akustik, trycker du på den **R** tills överläggningstext blir röd och säger ”Akustik: inaktiverad”. Om du vill se tangentbordsgenvägar för fler kontroller, trycker du på **F1**. Alla kontroller är också användbar genom att högerklicka för att välja åtgärden som ska utföras, sedan vänsterklicka på för att utföra åtgärden.
 
 ## <a name="targeting-other-platforms"></a>Riktar in sig på andra plattformar
 Exemplet innehåller inställningar för att köras på Windows-skrivbordet, UWP-, Windows Mixed Reality-, Android- och Oculus Go. Som standard konfigureras projektet för Windows-skrivbordet. Om du vill rikta en VR-plattform, går du till player-inställningar (**Redigera > Inställningar > Player**), hitta den **XR inställningar**, och kontrollera den **virtuella verklighet stöds** kryssrutan.

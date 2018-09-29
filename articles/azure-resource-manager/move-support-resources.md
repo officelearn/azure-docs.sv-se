@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4ec09f5ed57dca89934efa750eed05e1ebcb1216
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5bb820d816115dccf470b6c32d080862495e8310
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298293"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434984"
 ---
 # <a name="move-operation-support-for-resources"></a>Flytta åtgärden stöd för resurser
 
@@ -190,6 +190,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | register | Ja | Ja |
 | register/buildtasks | Ja | Ja |
 | register/replikeringar | Nej | Nej |
+| register/uppgifter | Ja | Ja |
 | register/webhooks | Ja | Ja |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
@@ -197,6 +198,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | ------------- | -------------- | ------------ |
 | containerservices | Nej | Nej |
 | managedclusters | Nej | Nej |
+| openshiftmanagedclusters | Nej | Nej |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -276,6 +278,15 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | ------------- | -------------- | ------------ |
 | servergroups | Nej | Nej |
 | servrar | Ja | Ja |
+
+## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
+| Resurstyp | Resursgrupp | Prenumeration |
+| ------------- | -------------- | ------------ |
+| artifactsources | Nej | Nej |
+| Distributioner | Nej | Nej |
+| servicetopologies | Nej | Nej |
+| servicetopologies/tjänster | Nej | Nej |
+| servicetopologies/services/serviceunits | Nej | Nej |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -417,6 +428,11 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | ------------- | -------------- | ------------ |
 | konton | Ja | Ja |
 
+## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
+| Resurstyp | Resursgrupp | Prenumeration |
+| ------------- | -------------- | ------------ |
+| arbetsytor | Ja | Ja |
+
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | -------------- | ------------ |
@@ -449,15 +465,22 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | ------------- | -------------- | ------------ |
 | applicationgateways | Nej | Nej |
 | applicationsecuritygroups | Ja | Ja |
+| azurefirewalls | Ja | Ja |
 | anslutningar | Ja | Ja |
 | ddosprotectionplans | Nej | Nej |
 | dnszones | Ja | Ja |
 | expressroutecircuits | Nej | Nej |
+| expressroutecrossconnections | Nej | Nej |
+| expressroutegateways | Nej | Nej |
 | expressrouteports | Nej | Nej |
+| frontdoors | Ja | Ja |
+| frontdoorwebapplicationfirewallpolicies | Ja | Ja |
+| interfaceendpoints | Nej | Nej |
 | belastningsutjämnare | Ja | Ja |
 | localnetworkgateways | Ja | Ja |
 | networkintentpolicies | Ja | Ja |
 | networkinterfaces | Ja | Ja |
+| networkprofiles | Nej | Nej |
 | networksecuritygroups | Ja | Ja |
 | networkwatchers | Ja | Ja |
 | networkwatchers/connectionmonitors | Ja | Ja |
@@ -467,9 +490,16 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | publicipprefixes | Ja | Ja |
 | routefilters | Nej | Nej |
 | routetables | Ja | Ja |
+| serviceendpointpolicies | Ja | Ja |
 | trafficmanagerprofiles | Ja | Ja |
+| virtualhubs | Ja | Ja |
 | virtualnetworkgateways | Ja | Ja |
 | virtuella nätverk | Ja | Ja |
+| virtualnetworktaps | Nej | Nej |
+| virtualwans | Ja | Ja |
+| vpngateways | Ja | Ja |
+| vpnsites | Ja | Ja |
+| webapplicationfirewallpolicies | Ja | Ja |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -568,6 +598,8 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | -------------- | ------------ |
+| managedinstances | Ja | Ja |
+| managedinstances/databaser | Ja | Ja |
 | servrar | Ja | Ja |
 | servrar/databaser | Ja | Ja |
 | servrar/elasticpools | Ja | Ja |

@@ -8,18 +8,21 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: e8d12320eea1d0fa2dad7fffb8d29ae8b53cee14
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 961f82cd4970abfdd11a30b2847a14f8ff1880b0
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369185"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454565"
 ---
 Lagring optimerad VM-storlekar ger högt diskgenomflöde och I/O och är perfekt för Stordata, SQL och NoSQL-databaser. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
 Ls-serien stöder upp till 32 virtuella processorer i [E5 v3-familjen med Intel® Xeon®-processorn](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Ls-serien uppnår samma processorprestanda som G/GS-serien och levereras med 8 GiB minne per virtuell processor.  Virtuella datorer i ls-serien är idealiska för program som kräver låg latens, högt dataflöde och stort lokalt diskutrymme. 
 
 Exemplen omfattar NoSQL-databaser som Cassandra, MongoDB, Cloudera och Redis, informationslagerhantering och stora transaktionsdatabaser.
+
+> [!NOTE]
+> Ls-serien har optimerats för användning av den temporära disken som är kopplade till den Virtuella datorn i stället för användning av beständiga datadiskar. Högt dataflöde och IOPS för den temporära disken gör du Ls-serien perfekt för NoSQL, till exempel Apache Cassandra och MongoDB som replikerar data mellan flera virtuella datorer att uppnå beständighet i händelse av fel på en enskild virtuell dator. Ls-serien stöder inte skapandet av en lokal cache för att öka IOPS kan uppnås genom beständiga datadiskar.
 
 ## <a name="ls-series"></a>Ls-serien
 

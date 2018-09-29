@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 0d4121bd68611c1f3c6a8c89a0d60251401d670a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301301"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432231"
 ---
 # <a name="app-service-documentation"></a>Dokumentation om App Service
 Med Azure App Service kan du skapa och vara värd för webbappar med valfritt programmeringsspråk utan att behöva hantera infrastrukturen, språket eller webbramverkskörningen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps Services eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.
@@ -40,7 +40,7 @@ Lär dig att distribuera, hantera och övervaka säkra webbappar på Azure.
   - [.NET med Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [Node.js med MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [Java med MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python med PostgreSQL](/app-service/containers/tutorial-docker-python-postgresql-app)
+  - [Python med PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Mappa en befintlig anpassad domän till ditt program](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Bind ett befintligt SSL-certifikat till ditt program](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

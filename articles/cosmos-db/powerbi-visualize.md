@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 63ea7e384f9bc5713a41f6c5537ec5548810e5d9
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b5b3a96991a2150e553af01e3fda73e04116d7fb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060950"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452419"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Power BI-självstudiekurs för Azure Cosmos DB: visualisera data med hjälp av anslutningsprogrammet för Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) är en onlinetjänst där du kan skapa och dela instrumentpaneler och rapporter med data som är viktiga för dig och din organisation.  Power BI Desktop är en dedikerad rapportredigeringsverktyget där du kan hämta data från olika datakällor, sammanfoga och omvandla data, skapa kraftfulla rapporter och visualiseringar och publicera rapporterna till Power BI.  Med den senaste versionen av Power BI Desktop kan ansluta du nu till ditt Azure Cosmos DB-konto via Azure Cosmos DB-anslutningsprogrammet för Power BI.   
@@ -34,7 +34,7 @@ När du har slutfört den här självstudiekursen i Power BI, kommer du att kunn
 > Anslutningsprogrammet för Power BI för Azure Cosmos DB ansluter till Power BI Desktop för extrahering och transformering av data. Rapporter som skapats i Power BI Desktop kan senare publiceras till PowerBI.com. Direct extrahering och transformering av data i Azure Cosmos DB kan inte utföras på PowerBI.com. 
 
 > [!NOTE]
-> Ansluta till Azure Cosmos DB med anslutningsprogrammet för Power BI stöds för närvarande för Azure Cosmos DB SQL- och MongoDB API-konton. För att ansluta Azure Cosmos DB till Power BI med hjälp av MongoDB-API, måste du använda den [Simba MongoDB ODBC-drivrutinen](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
+> Ansluta till Azure Cosmos DB med anslutningsprogrammet för Power BI stöds för närvarande för Azure Cosmos DB SQL API och Gremlin-API-konton.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Kontrollera att du har åtkomst till följande resurser innan du följer anvisningarna i den här självstudien för Power BI:

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b731b280b3e97076014f609571766a07a3dde1ea
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce2ad3e699b930f801ad47083d6cfcf6a7937a5c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159898"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433454"
 ---
 # <a name="string-claims-transformations"></a>Sträng anspråk omvandlingar
 
@@ -156,7 +156,7 @@ Avgör om ett sträng-anspråk är lika med en annan. Resultatet är en ny boole
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | sträng | Först Anspråkstyp, som ska jämföras. |
 | InputClaim | inputClaim2 | sträng | Andra anspråk som ska jämföras. |
-| Indataparametrar | Operator | sträng | Möjliga värden: `Equal` eller `Not Equal`. |
+| Indataparametrar | Operator | sträng | Möjliga värden: `EQUAL` eller `NOT EQUAL`. |
 | Indataparametrar | ignoreCase | boolesk | Anger om den här jämförelsen bör Ignorera skiftläge med strängar som jämförs. |
 | outputClaim | outputClaim | boolesk | ClaimType som skapas när detta omvandling av anspråk har anropats. |
 
@@ -196,7 +196,7 @@ Anger om ett anspråksvärde är lika med värdet för indataparametern.
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | sträng | Anspråkets typ som ska jämföras. |
-| Indataparametrar | Operator | sträng | Möjliga värden: `Equal` eller `Not Equal`. |
+| Indataparametrar | Operator | sträng | Möjliga värden: `EQUAL` eller `NOT EQUAL`. |
 | Indataparametrar | compareTo | sträng | sträng däremot ett av värdena: ordningstal, OrdinalIgnoreCase. |
 | Indataparametrar | ignoreCase | boolesk | Anger om den här jämförelsen bör Ignorera skiftläge med strängar som jämförs. |
 | outputClaim | outputClaim | boolesk | ClaimType som skapas när detta omvandling av anspråk har anropats. |
@@ -235,11 +235,11 @@ Skapar en slumpmässig sträng med slumpmässig talgeneratorns startvärden. Om 
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| Indataparametrar | randomGeneratorType | sträng | Anger slumpmässigt värde som ska genereras `GUID` (globalt unikt ID) eller `integer` (ett tal). |
+| Indataparametrar | randomGeneratorType | sträng | Anger slumpmässigt värde som ska genereras `GUID` (globalt unikt ID) eller `INTEGER` (ett tal). |
 | Indataparametrar | stringFormat | sträng | [Valfritt] Formatera slumpmässigt värde. |
 | Indataparametrar | Base64 | boolesk | [Valfritt] Konvertera slumpmässigt värde till base64. Om strängformat används kodas värdet efter strängformat till base64. |
-| Indataparametrar | maximumNumber | int | [Valfritt] För `Integer` randomGeneratorType endast. Ange hur många maximute. |
-| Indataparametrar | Startvärde  | int | [Valfritt] För `Integer` randomGeneratorType endast. Ange startvärdet för slumpmässigt värde. Obs: samma seed ger samma sekvens med slumptal. |
+| Indataparametrar | maximumNumber | int | [Valfritt] För `INTEGER` randomGeneratorType endast. Ange hur många maximute. |
+| Indataparametrar | Startvärde  | int | [Valfritt] För `INTEGER` randomGeneratorType endast. Ange startvärdet för slumpmässigt värde. Obs: samma seed ger samma sekvens med slumptal. |
 | outputClaim | outputClaim | sträng | ClaimTypes som skapas när detta omvandling av anspråk har anropats. Slumpmässigt värde. |
 
 Följande exempel genererar ett globalt unikt ID. Detta anspråk omvandling används för att skapa slumpmässigt UPN (användarens huvudnamn).
@@ -266,7 +266,7 @@ Följande exempel genererar ett slumpmässigt heltal mellan 0 och 1000. Värdet 
 ```XML
 <ClaimsTransformation Id="SetRandomNumber" TransformationMethod="CreateRandomString">
   <InputParameters>
-    <InputParameter Id="randomGeneratorType" DataType="string" Value="integer" />
+    <InputParameter Id="randomGeneratorType" DataType="string" Value="INTEGER" />
     <InputParameter Id="maximumNumber" DataType="int" Value="1000" />
     <InputParameter Id="stringFormat" DataType="string" Value="OTP_{0}" />
     <InputParameter Id="base64" DataType="boolean" Value="false" />

@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 09-05-2018
-ms.openlocfilehash: 75e493f6b2e47bf3323df9e52ad3a933a6efbead
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 065ac0855fc47b23b434287f9f4406bd641f01ae
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058354"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454584"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser
 
@@ -19,21 +19,22 @@ Du kan köpa en reserverad VM-instans den [Azure-portalen](https://portal.azure.
 
 - Du måste vara i en ägarrollen för minst en Enterprise eller användningsbaserad betalning.
 - Köp av reservation måste aktiveras för Enterprise-prenumerationer för i den [EA-portalen](https://ea.azure.com).
-- Endast admin-agenter eller försäljning agenter kan köpa reservationer för Cloud Solution Provider (CSP)-programmet.
+- Efter programmet Cloud Solution Provider (CSP) köpa bara admin-agenter eller försäljning agents reservationer.
 
-## <a name="determine-the-right-vm-size-before-purchase"></a>Fastställa rätt VM-storlek före köp
+## <a name="determine-the-right-vm-size-before-you-buy"></a>Fastställa rätt VM-storleken innan du köper
 
-Fälten underkategori för mätning och produkt i användningsdata skilja inte mellan VM-storlekar som använder premium storage från VM-storlekar som inte använder premium storage, med dessa fält för att avgöra den virtuella datorn storleken för reservationsköp kan leda till felaktig reservationen köpa och ger dig rabatter för reserverade. Använd någon av metoderna nedan för att fastställa rätt VM-storlek för reservationsköp.
+Fälten underkategori för mätning och produkt i användningsdata skilja inte mellan VM-storlekar som använder premium storage från virtuella datorer inte stöds. Om du använder de här fälten för att fastställa VM-storleken för reservationen, du kan köpa fel storlek och kommer inte få rabatten du förväntar dig. Använd någon av följande metoder för att fastställa rätt VM-storlek när du köper reservationen:
 
-- Referera till fältet AdditionalInfo i din användningsfil eller användning API för att fastställa rätt VM-storleken för en reservationsköp. Använd inte värdena från fälten underkategori för mätning eller produkten, eftersom de här fälten inte skiljer på datorer och icke-S versioner av en virtuell dator.
-- Du kan också hämta korrekt information för VM-storlek med hjälp av Powershell, Azure Resource Manager eller från virtuell dator som beskrivs i Azure-portalen.
+- Referera till fältet AdditionalInfo i din användningsfil eller användning API för att fastställa rätt VM-storlek. Använd inte värdena från fälten underkategori för mätning eller produkten. De här fälten skilja inte mellan och icke versioner av en virtuell dator.
+- Hämta korrekt information för VM-storlek med hjälp av Powershell, Azure Resource Manager eller information i Azure portal från den virtuella datorn.
 
 Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuella datorer med vissa undantag:
 
-- Klassiska virtuella datorer och Cloud services inte får rabatten.
-- Undertryckta core virtuella datorer får inte reservation rabatter.
-- Följande VM-serie inte får reservation rabatter: A-serien, Av2-serien och G-serien.
-- Virtuella datorer i en förhandsversion: alla VM-serien och storlekar som är en förhandsversion är inte tillgängliga för reservationsköp.
+- Rabatten gäller inte för följande virtuella datorer:
+  - Klassiska virtuella datorer och molntjänster
+  - Begränsade vCPU-storlekar
+  - VM-serie: A-serien, Av2-serien och G-serien
+  - Virtuella datorer i en förhandsversion: alla VM-serien och storlekar som är i förhandsversion
 - Moln: Reservationer är inte tillgängligt att köpa i regionerna som Azure US Government, Tyskland eller Kina.
 - Otillräcklig kvot: en reservation som är begränsad till en enda prenumeration måste ha vCPU-kvoten som är tillgängliga i prenumerationen för den nya RI. Till exempel om målprenumerationen har en kvot högst 10 virtuella processorer för D-serien, köpa sedan du inte en reservation för den 11 Standard_D1 instanser. Kvoten ingår för reservationer de virtuella datorerna som redan har distribuerats i prenumerationen. Till exempel om prenumerationen har en kvot på 10 virtuella processorer för D-serien och har två standard_D1 instanser som distribuerats kan köpa du en reservation för den 10 standard_D1 instanser i den här prenumerationen. 
 - Begränsningar för kapacitet: I sällsynta fall kan Azure-begränsningar inköp av ny reservationer för delmängd av VM-storlekar, på grund av låg kapacitet i en region.

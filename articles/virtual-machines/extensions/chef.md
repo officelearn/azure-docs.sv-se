@@ -3,7 +3,7 @@ title: Chef-tillägg för virtuella Azure-datorer | Microsoft Docs
 description: Distribuera Chef-klienten till en virtuell dator med Chef VM-tillägget.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: cf151b4b72158253288a69911b55a2354947f9f4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 159ce1b565068e2cfdb3cb1cb2e5b5f72ff6848f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47058046"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451365"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Chef VM-tillägg för Linux och Windows
 

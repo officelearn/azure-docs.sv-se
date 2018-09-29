@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 335c3fe4e27ce6025ad889cc7958a32223dc85f8
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629941"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432631"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -109,11 +109,6 @@ En superanvändare har mest behörighet av alla användare i Data Lake Storage G
 * Kan ändra ägande användare eller ägande grupp för alla filer och mappar.
 
 Alla användare som är en del av den **ägare** för ett Data Lake Storage Gen1 konto blir automatiskt en superanvändare.
-
-Om du vill skapa en anpassad rollbaserad åtkomstkontroll(RBAC)-roll som har superanvändarbehörigheter så måste den ha följande behörigheter:
-- Microsoft.DataLakeStore/accounts/Superuser/action
-- Microsoft.Authorization/roleAssignments/write
-
 
 ### <a name="the-owning-user"></a>Ägande användare
 

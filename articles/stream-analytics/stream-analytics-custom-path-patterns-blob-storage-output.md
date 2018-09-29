@@ -8,18 +8,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6945e31825af46628c0945cdf579382b20bdcd68
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414567"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452572"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Anpassat datum/tid-sökvägsmönster för Azure Stream Analytics blob storage-utdata (förhandsversion)
 
 Azure Stream Analytics stöder anpassade datum och tid-format specificerare i sökvägen till filen för blob storage-utdata. Anpassade DateTime-sökvägsmönster kan du ange utdataformat som överensstämmer med Hive-direktuppspelning konventioner, vilket gör Azure Stream Analytics kan skicka data till Azure HDInsight och Azure Databricks för nedströms bearbetning. Anpassat datum/tid-sökvägsmönster är enkelt implementeras med hjälp av den `datetime` nyckelord i fältet Sökvägsprefix för din blob-utdata, tillsammans med en formatangivelse. Till exempel `{datetime:yyyy}`.
 
-Använd den här länken för [Azure-portalen](https://ms.portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) att växla flaggan funktionen som gör att de anpassade DateTime sökvägsmönster för förhandsversionen för blob storage-utdata. Den här funktionen kommer att aktiveras snart i main-portalen.
+Använd den här länken för [Azure-portalen](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) att växla flaggan funktionen som gör att de anpassade DateTime sökvägsmönster för förhandsversionen för blob storage-utdata. Den här funktionen kommer att aktiveras snart i main-portalen.
 
 ## <a name="supported-tokens"></a>Token som stöds
 

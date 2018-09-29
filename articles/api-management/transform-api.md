@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: b94f6ad4c7c6f3b5e93cdb890e053a3d1678e161
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722957"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094436"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformera och skydda ditt API 
 
@@ -27,7 +27,7 @@ I kursen visas hur du kan transformera ditt API så att det inte avslöjar någo
 
 Den här självstudiekursen beskriver också hur du enkelt kan skydda ditt serverdels-API genom att konfigurera frekvensbegränsningar med Azure API Management. Du vill kanske t.ex. begränsa det antal gånger som API:et anropas, så att det inte överutnyttjas av utvecklarna. Mer information finns i [API Management-principer](api-management-policies.md)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Omvandla ett API och ta bort svarshuvuden
@@ -110,7 +110,7 @@ Visa det ursprungliga svaret:
 4. Klicka på triangeln (bredvid blyertspennan) i fönstret **Utgående bearbetning** och välj **Code editor** (Kodredigeraren).
 5. Placera markören i elementet **&lt;utgående&gt;**.
 6. Klicka på **+ Sök och ersätt sträng i brödtext** under **Transformationsprinciper** i det högra fönstret.
-7. Ersätt URL:en så att den matchar APIM-gatewayen genom att ändra din **find-and-replace**-kod (i **\<outbound\>**-elementet). Till exempel:
+7. Ersätt URL:en så att den matchar APIM-gatewayen genom att ändra din **find-and-replace**-kod (i **\<outbound\>**-elementet). Exempel:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 

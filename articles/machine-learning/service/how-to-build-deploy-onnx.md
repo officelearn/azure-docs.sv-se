@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: acd5c1e1ae4aefa94ca4d1f6ef510ab1b028c3dd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164904"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434083"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX och Azure Machine Learning: skapa och distribuera samverkande AI-modeller
 
@@ -68,7 +68,7 @@ Du kan använda Azure Machine Learning-tjänsten för att distribuera, hantera o
 
 ### <a name="install-and-configure-the-onnx-runtime"></a>Installera och konfigurera ONNX-körning
 
-ONNX-Runtime är en högpresterande inferens motor för ONNX-modeller. Den levereras med en Python-API och ger maskinvaruacceleration på processor- och GPU. För närvarande stöder 1.2 ONNX-modeller och körs på Ubuntu 16.04 Linux.
+ONNX-Runtime är en högpresterande inferens motor för ONNX-modeller. Den levereras med en Python-API och ger maskinvaruacceleration på processor- och GPU. För närvarande stöder 1.2 ONNX-modeller och körs på Ubuntu 16.04 Linux. Båda [CPU](https://pypi.org/project/onnxruntime) och [GPU](https://pypi.org/project/onnxruntime-gpu) paket är tillgängliga på [PyPi.org](https://pypi.org).
 
 Om du vill installera ONNX-Runtime, använder du:
 ```python
@@ -95,7 +95,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-Fullständig API-referens, finns det [ONNX-runtime referensdokument](https://aka.ms/onnxruntime-python).
+Fullständig API-referens, finns det [ONNX Runtime referensdokument](https://aka.ms/onnxruntime-python).
 
 ### <a name="example-deployment-steps"></a>Exempel distributionssteg
 
@@ -173,13 +173,14 @@ Här är ett exempel för att distribuera en ONNX-modell:
    Filen `myenv.yml` beskriver de beroenden som krävs för avbildningen. Se den här [självstudien](tutorial-deploy-models-with-aml.md#create-environment-file) anvisningar om hur du skapar en miljöfil, t.ex den här exempelfilen:
 
    ```
-   name: myenv
-   channels:
-     - defaults
-   dependencies:
-     - pip:
-       - onnxruntime
-       - azureml-core
+   from azureml.core.conda_dependencies import CondaDependencies 
+
+   myenv = CondaDependencies()
+   myenv.add_pip_package("azureml-core")
+   myenv.add_pip_package("onnxruntime")
+
+   with open("myenv.yml","w") as f:
+    f.write(myenv.serialize_to_string())
    ```
 
 4. Distribuera din ONNX-modell med Azure Machine Learning för att:

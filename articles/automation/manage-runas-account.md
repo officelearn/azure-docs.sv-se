@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544285"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433709"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
 Kör som-konton i Azure Automation används för autentisering för att hantera resurser i Azure med Azure-cmdlets.
 
-När du skapar ett kör som-konto, skapar en ny tjänsthuvudanvändare i Azure Active Directory och deltagarrollen tilldelas den här användaren på prenumerationsnivån.
+När du skapar ett kör som-konto, skapar en ny tjänsthuvudanvändare i Azure Active Directory och deltagarrollen tilldelas den här användaren på prenumerationsnivån. Du kan använda för runbooks som använder Hybrid Runbook Worker på Azure virtual machines, [hanterade identiteter för Azure-resurser](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) i stället för Kör som-konton att autentisera till Azure-resurser.
 
 Det finns två typer av kör som-konton:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 7b2d51f356538724d567654c0de3decbf19c838c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0b2bf8cdb1af85e5ddbd3b18dd6dfa47bcb835b4
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222105"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432893"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -39,7 +39,7 @@ I följande tabell beskrivs vilka typer av lagringskonton och deras funktioner:
 
 <sup>1</sup>med hjälp av Azure Resource Manager-distributionsmodellen rekommenderas. Lagringskonton med hjälp av den klassiska distributionsmodellen kan fortfarande skapas på vissa platser och befintliga klassiska konton fortfarande användas. Mer information finns i [Azure Resource Manager och klassisk distribution: distributionsmodeller och dina resursers tillstånd](../../azure-resource-manager/resource-manager-deployment-model.md).
 
-<sup>2</sup>alla lagringskonton är kryptering med Storage Service Encryption (SSE) för vilande data. Mer information finns i [Azure Storage Service Encryption för vilande Data](storage-service-encryption.md).
+<sup>2</sup>alla lagringskonton har krypterats med Storage Service Encryption (SSE) för vilande data. Mer information finns i [Azure Storage Service Encryption för vilande Data](storage-service-encryption.md).
 
 <sup>3</sup>arkivnivån är tillgängliga på nivån för en enskild blob, inte på lagringskontonivån. Endast blockblob-objekt och lägger till BLOB-objekt kan arkiveras. Mer information finns i [Azure Blob storage: frekvent, lågfrekvent och arkivlagringsnivå](../blobs/storage-blob-storage-tiers.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Skydda PaaS webb- och mobila program med Azure App Service | Microsoft Docs
-description: " Läs mer om Azure App Service Säkerhet Metodtips för att skydda din PaaS webb- och mobilprogram. "
+title: Skydda PaaS-webb- och mobilprogram med Azure App Service | Microsoft Docs
+description: 'Läs mer om Azure App Service-säkerhet metoder för att skydda din PaaS-webbprogram och mobilappar. '
 services: security
 documentationcenter: na
 author: techlake
@@ -12,33 +12,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: d2e606fe23a3a6eb9d2310b0932ccec8fcfc518c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99f706a3b24991e7f5a3473d40a568971b71a979
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415084"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451994"
 ---
-# <a name="securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Att säkra PaaS-webb- och mobila program med Azure App Service
+# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Metoder för att skydda PaaS-webbprogram och mobilappar med Azure App Service
 
-I den här artikeln tar vi upp en samling [Azure App Service](https://azure.microsoft.com/services/app-service/) säkerhetsmetoder för att skydda din PaaS webb- och mobilprogram. Följande rekommendationer härleds från våra erfarenhet av Azure och upplevelser för kunder som själv.
+I den här artikeln diskuterar vi en samling [Azure App Service](../app-service/app-service-web-overview.md) rekommenderade säkerhetsmetoder för att skydda din PaaS-webbprogram och mobilappar. Dessa metodtips härleds från vår erfarenhet av Azure och erfarenheter från kunder som dig själv.
 
-## <a name="azure-app-service"></a>Azure App Service
-[Azure Apptjänst](../app-service/app-service-web-overview.md) är en PaaS erbjudandet kan du skapa webb- och mobilappar för alla plattformar och enheter och ansluta till data var som helst, i molnet eller lokalt. Apptjänst innehåller webb- och mobilfunktioner som har tidigare levererat separat som Azure Websites och Azure Mobile Services. Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. Som en enda integrerad tjänst gör ger Apptjänst en omfattande uppsättning funktioner för webb, mobil- och integrationsscenarier.
+Azure App Service är en platform-as-a-service (PaaS)-erbjudande som låter dig skapa webb- och mobilappar för valfri plattform eller enhet och ansluta till data överallt, i molnet eller lokalt. Apptjänst innehåller webb- och mobilfunktioner som tidigare har levererat separat som Azure Websites och Azure Mobile Services. Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. En enda integrerad tjänst innehåller App Service en omfattande uppsättning funktioner för webb, mobil- och integrationsscenarier.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="authenticate-through-azure-active-directory-ad"></a>Autentisera via Azure Active Directory (AD)
+App Service tillhandahåller en OAuth 2.0-tjänst för din identitetsprovider. OAuth 2.0 fokuserar på klienten utvecklare enkelt få tillgång till specifika auktoriseringsflöden för webbprogram, program och mobiltelefoner. Azure AD använder OAuth 2.0 att auktorisera åtkomst till mobila och webbprogram. Mer information finns i [autentisering och auktorisering i Azure App Service](../app-service/app-service-authentication-overview.md).
 
-När du använder App Service kan du följa dessa rekommendationer:
+## <a name="restrict-access-based-on-role"></a>Begränsa åtkomst baserat på roller 
+Begränsa åtkomst är absolut nödvändigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Du kan använda rollbaserad åtkomstkontroll (RBAC) för att tilldela behörigheter till användare, grupper och program för ett visst omfång, till exempel att känna och minsta privilegium säkerhetsprinciper. Läs mer om att bevilja användare åtkomst till program i [vad är rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
 
-- [Autentisera via Azure Active Directory (AD)](../app-service/app-service-authentication-overview.md). Apptjänst innehåller en OAuth 2.0 för din identitetsleverantör. OAuth 2.0 fokuserar på klienten developer enkelhet samtidigt som man tillstånd flöden för webbprogram, program och mobiltelefoner. Azure AD använder OAuth 2.0 att auktorisera åtkomst till mobil- och webbprogram.
-- Begränsa åtkomst baserat på behöver känna till och minsta privilegium säkerhetsprinciper. Begränsa åtkomst är viktigt för organisationer som vill tillämpa säkerhetsprinciper för dataåtkomst. Rollbaserad åtkomstkontroll (RBAC) kan användas för att tilldela behörigheter till användare, grupper och program för ett visst område. Läs mer om du vill bevilja användare åtkomst till program i [Kom igång med åtkomsthantering](../role-based-access-control/overview.md).
-- Skydda dina nycklar. Det spelar ingen roll hur bra säkerheten är om du tappar bort din prenumeration nycklar. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar, PFX-filer och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Se [Azure Key Vault](../key-vault/key-vault-whatis.md) vill veta mer. Du kan också använda Nyckelvalv för att hantera TLS-certifikat med automatisk förnyelse.
-- Begränsa inkommande käll-IP-adresser. [Apptjänstmiljö](../app-service/environment/intro.md) har ett virtuellt nätverk integrationsfunktionen som hjälper dig att begränsa inkommande käll-IP-adresser via nätverkssäkerhetsgrupper (NSG: er). Om du inte känner till virtuella Azure-nätverk (Vnet) är en funktion som gör att du kan placera många av dina Azure-resurser i ett icke-internet, dirigerbara nätverk som du styr åtkomst till. Läs mer i [integrera din app med ett Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).
+## <a name="protect-your-keys"></a>Skydda dina nycklar
+Det spelar ingen roll hur bra din säkerhet är om du förlorar dina prenumerationsnycklar. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Med Key Vault kan kryptera du nycklar och hemligheter (till exempel autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar. PFX-filer och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Du kan också använda Key Vault för att hantera din TLS-certifikat med automatisk förnyelse. Se [vad är Azure Key Vault](../key-vault/key-vault-whatis.md) vill veta mer. 
+
+## <a name="restrict-incoming-source-ip-addresses"></a>Begränsa inkommande källans IP-adresser
+[App Service-miljöer](../app-service/environment/intro.md) har en funktion för integrering av virtuellt nätverk som hjälper dig att begränsa inkommande källans IP-adresser via nätverkssäkerhetsgrupper (NSG). Om du inte känner till Azure-nätverk (Vnet) är en funktion som gör att du kan placera många av dina Azure-resurser i ett icke-internet, dirigerbara nätverk som du styr åtkomst till. Mer information finns i [integrera din app med Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln introduceras du till en samling av Apptjänst säkerhetsmetoder för att skydda din PaaS webb- och mobilprogram. Mer information om hur du skyddar dina PaaS-distributioner finns:
+Den här artikeln har du introducerats till en samling av App Service rekommenderade säkerhetsmetoder för att skydda din PaaS-webbprogram och mobilappar. Mer information om hur du skyddar dina PaaS-distributioner finns:
 
 - [Skydda PaaS-distributioner](security-paas-deployments.md)
-- [Att säkra PaaS-webb- och mobila program med Azure SQL Database och SQL Data Warehouse](security-paas-applications-using-sql.md)
+- [Skydda PaaS-databaser i Azure](security-paas-applications-using-sql.md)

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 9e180e15801a7100349c7334a2452adfeab95500
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7cb0257a7302221f80bb90c0a6c3446cde07290a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394497"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434134"
 ---
 # <a name="about-the-speech-to-text-api"></a>Om tal till Text API
 
@@ -28,7 +28,7 @@ Den **tal till Text** API: et erbjuder följande funktioner:
 
 - Optimerad **tal till Text** resultat för interaktiva, konversationen och diktering scenarier. Okänt resultat som returneras i både Lexical och visa formulär (lexikal resultat finns DetailedSpeechRecognitionResult i exempel eller API: et).
 
-- Stöd för många språk och dialekter. En fullständig lista över språk som stöds i varje läge för igenkänning av Se [språk som stöds](supported-languages.md#speech-to-text).
+- Stöd för många språk och dialekter. En fullständig lista över språk som stöds i varje läge för igenkänning av Se [språk som stöds](language-support.md#speech-to-text).
 
 - Anpassad språk och akustiska modeller, så att du kan anpassa ditt program till dina användares specialiserade domän ordförråd samtalsstil miljö och sätt att tala.
 

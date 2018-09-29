@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: d75a91ea0925ef0860b8e6dee310156bef21a1ba
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: e9c09d31af1b6ea214ae2d0fc6fd7399c07fd8c0
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056829"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434559"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data. 
@@ -71,7 +71,7 @@ Förnya auktorisering, **stoppa** jobbet > Gå till ditt Data Lake Store-utdata 
 | Databas | Namnet på databasen där du skickar dina utdata. |
 | servernamn | SQL Database-servernamn. |
 | Användarnamn | Användarnamnet som har åtkomst till att skriva till databasen. |
-| Lösenord | Lösenordet för att ansluta till databas.e |
+| Lösenord | Lösenordet för att ansluta till databasen |
 | Tabell | Tabellnamnet där skrivs utdata. Tabellnamnet är skiftlägeskänsligt och schemat för den här tabellen ska matcha exakt med antalet fält och deras typer som skapas av din jobbutdata. |
 
 > [!NOTE]

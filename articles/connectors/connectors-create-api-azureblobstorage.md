@@ -1,22 +1,21 @@
 ---
 title: Ansluta till Azure blob storage - Azure Logic Apps | Microsoft Docs
 description: Skapa och hantera blobar i Azure storage med Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/21/2018
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 49d08135dee4568d1a9d65ec2d22d17ee3bda2ea
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d8658740772ed4a11fdfd70a0c925ac1b597dd69
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "35294687"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452028"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Skapa och hantera blobbar i Azure blob storage med Azure Logic Apps
 
@@ -24,10 +23,19 @@ Den här artikeln visar hur du kan komma åt och hantera filer som lagras som bl
 
 Anta att du har ett verktyg som uppdateras på en Azure-webbplats. den fungerar som en utlösare för din logikapp. Om den här händelsen inträffar kan ha du logikappen vissa filen i din blob storage-behållare, vilket är en åtgärd i din logikapp. 
 
-Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+> [!NOTE]
+> Logic Apps stöder inte att ansluta direkt till Azure storage-konton genom brandväggar. För att få åtkomst till dessa konton måste du använda något av alternativen här: 
+>
+> * Skapa en [integreringstjänstmiljön](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), som kan ansluta till resurser i Azure-nätverk. 
+> 
+> * Om du redan använder API Management kan du använda den här tjänsten för det här scenariot. Mer information finns i [enkel integrering företagsarkitektur](http://aka.ms/aisarch).
+
+Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Specifika teknisk information finns i den <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob Storage-anslutning för referens</a>.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
+* Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
 * En [Azure storage-konto och storage-behållare](../storage/blobs/storage-quickstart-blobs-portal.md)
 
@@ -94,7 +102,7 @@ I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app
   
       ![Välj mapp](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-   2. Hitta och välj den fil du vill utifrån blobens **Id** tal. Du hittar den **Id** numret i blobbmetadata som returneras av beskrevs tidigare blob storage-utlösare.
+   2. Hitta och välj den fil du vill utifrån blobens **Id** tal. Du hittar den **Id** numret i blobbmetadata som returneras av den tidigare beskrivna blob storage-utlösaren.
 
 5. När du är klar på verktygsfältet för appdesignern väljer **spara**.
 Testa din logikapp genom att se till att den valda mappen innehåller en blob.

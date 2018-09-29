@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 4af2e570b498e496e80b6aeee2b8aeae23c582cc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952417"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452317"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Använd ett beräkningsmål träna din modell
 
@@ -90,6 +90,8 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 # You can choose a specific Python environment by pointing to a Python path 
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
+
+En Jupyter-anteckningsbok som visar utbildning i en miljö med användarhanterade, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
   
 ### <a name="system-managed-environment"></a>System-hanterad miljö
 
@@ -110,6 +112,9 @@ run_config_system_managed.prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
+
+En Jupyter-anteckningsbok som visar utbildning i en miljö som hanteras av datorn, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+
 ## <a id="dsvm"></a>Virtuell dator för datavetenskap
 
 Den lokala datorn kanske inte har beräkning eller GPU-resurser som krävs för att träna modellen. I så fall kan du kan skala upp eller skala ut träningsprocess genom att lägga till ytterligare beräkningsmål, till exempel en Data Science Virtual Machines (DSVM).
@@ -190,6 +195,8 @@ Följande steg använder SDK för att konfigurera en virtuell dator på datavete
     dsvm_compute.delete()
     ```
 
+En Jupyter-anteckningsbok som visar utbildning på en virtuell dator för datavetenskap, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
+
 ## <a id="batch"></a>Azure Batch AI
 
 Om det tar lång tid att träna din modell kan du använda Azure Batch AI för att distribuera utbildningen i ett kluster med beräkningsresurser i molnet. Batch AI kan också konfigureras för att aktivera en GPU-resurs.
@@ -232,14 +239,14 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
-Om du vill koppla ett befintligt Batch AI-kluster som en beräkningsmål, måste du ange Azure-resurs-ID: t. För att hämta resurs-id från Azure-portalen, måste du:
+Om du vill koppla ett befintligt Batch AI-kluster som en beräkningsmål, måste du ange Azure-resurs-ID. Hämta resurs-ID från Azure-portalen med följande steg:
 1. Sök efter `Batch AI` tjänsten under **alla tjänster**
 1. Klicka på arbetsytans namn som klustret tillhör
 1. Välj klustret
 1. Klicka på **egenskaper**
-1. Kopiera den **Id**
+1. Kopiera den **ID**
 
-I följande exempel använder SDK för att koppla ett kluster till din arbetsyta. I det här exemplet ersätter `<name>` med ett namn för beräkningen. Detta behöver inte matcha namnet på klustret. Ersätt `<resource-id>` med Azure-resurs-id som beskrivs ovan:
+I följande exempel använder SDK för att koppla ett kluster till din arbetsyta. I det här exemplet ersätter `<name>` med ett namn för beräkningen. Namnet behöver inte matcha namnet på klustret. Ersätt `<resource-id>` med Azure-resursen ID som beskrivs ovan:
 
 ```python
 from azureml.core.compute import BatchAiCompute
@@ -253,7 +260,9 @@ Du kan också kontrollera Batch AI-kluster eller status med hjälp av följande 
 - Kontrollera statusen för klustret. Du kan se hur många noder körs med hjälp av `az batchai cluster list`.
 - Kontrollera jobbstatus. Du kan se hur många jobb körs med hjälp av `az batchai job list`.
 
-Det tar cirka 5 minuter för att skapa Batch AI-kluster
+Det tar cirka 5 minuter för att skapa Batch AI-kluster.
+
+En Jupyter-anteckningsbok som visar utbildning i ett Batch AI-kluster, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
 
 ## <a name='aci'></a>Azure Container-instans (ACI)
 
@@ -296,6 +305,8 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 ```
 
 Det kan ta från några sekunder till några minuter att skapa ett beräkningsmål för ACI.
+
+En Jupyter-anteckningsbok som visar utbildning om Azure Container Instance, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
 ## <a id="hdinsight"></a>Koppla ett HDInsight-kluster 
 
@@ -352,6 +363,8 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
+En Jupyter-anteckningsbok som visar utbildning med Spark på HDInsight, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Visa och Ställ in beräkning med Azure portal
 
 Du kan visa vad compute mål är kopplade till din arbetsyta från Azure-portalen. Gå till listan genom att använda följande steg:
@@ -403,6 +416,7 @@ Följ stegen för att visa en lista över beräkningsmål och klicka sedan åter
 Följande anteckningsböcker demonstrera begreppen i den här artikeln:
 * `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
 * `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
+* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
 * `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
 * `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 

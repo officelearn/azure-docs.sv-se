@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1a18b6f627a28b912baeda6f180297dc703e665e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634095"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031211"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Självstudier: Push-överför en uppdaterad avbildning för regionala distributioner
 
-Det här är del tre i en serie självstudier i tre delar. I den [föregående kursen](container-registry-tutorial-deploy-app.md) konfigurerades geo-replikering för två olika regionala Web App-distributioner. I den här självstudiekursen modifierar du först programmet, skapar sedan en ny behållaravbildning och push-överför den till ditt geo-replikerade register. Slutligen visar du ändringen, som distribuerats automatiskt med Azure Container Registry-webhookar i båda Web App-instanserna.
+Det här är del tre i en serie självstudier i tre delar. I den [föregående kursen](container-registry-tutorial-deploy-app.md) konfigurerades geo-replikering för två olika regionala Web App-distributioner. I den här självstudiekursen modifierar du först programmet, skapar sedan en ny containeravbildning och push-överför den till ditt geo-replikerade register. Slutligen visar du ändringen, som distribuerats automatiskt med Azure Container Registry-webhookar i båda Web App-instanserna.
 
 Den här självstudiekursen är den avslutande delen i serien:
 
@@ -71,7 +71,7 @@ Den ändrade `Index.cshtml` bör se ut ungefär så här:
 
 ## <a name="rebuild-the-image"></a>Återskapa avbildningen
 
-Nu när du har uppdaterat webbprogrammet återskapa dess behållaravbildning. Som tidigare, använd det fullständiga avbildningsnamnet, inklusive inloggningsserverns fullständigt kvalificerade domännamn (FQDN) för taggen:
+Nu när du har uppdaterat webbprogrammet återskapa dess containeravbildning. Som tidigare, använd det fullständiga avbildningsnamnet, inklusive inloggningsserverns fullständigt kvalificerade domännamn (FQDN) för taggen:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -79,7 +79,7 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 
 ## <a name="push-image-to-azure-container-registry"></a>Push-överför avbildningen till Azure Container Registry
 
-Push-överför sedan den uppdaterade behållaravbildningen *acr-helloworld* till ditt geo-replikerade register. Här utför du ett enda `docker push`-kommando för att distribuera den uppdaterade avbildningen till registerreplikerna i båda regionerna *USA, västra* och *USA, östra*.
+Push-överför sedan den uppdaterade containeravbildningen *acr-helloworld* till ditt geo-replikerade register. Här utför du ett enda `docker push`-kommando för att distribuera den uppdaterade avbildningen till registerreplikerna i båda regionerna *USA, västra* och *USA, östra*.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
@@ -114,7 +114,7 @@ Markera varje webhook om du vill se historiken för dess anrop och svar. Du bör
 
 ## <a name="view-the-updated-web-app"></a>Visa den uppdaterade webbappen
 
-Webhookarna meddelar Web Apps att en ny avbildning har push-överförts till registret, vilket automatiskt distribuerar den uppdaterade behållaren till de två regionala webbapparna.
+Webhookarna meddelar Web Apps att en ny avbildning har push-överförts till registret, vilket automatiskt distribuerar den uppdaterade containern till de två regionala webbapparna.
 
 Verifiera att programmet har uppdaterats i båda distributionerna genom att gå till båda de regionala Web App-distributionerna i webbläsaren. Som en påminnelse finns URL:en för den distribuerade webbappen högst upp till höger på varje App Service-översiktsflik.
 
@@ -124,7 +124,7 @@ Om du vill se det uppdaterade programmet, så välj länken i App Service-övers
 
 ![Webbläsarvy över en ändrad webbapp som körs i regionen USA, västra][deployed-app-westus-modified]
 
-Verifiera att den uppdaterade behållaravbildningen också distribueras till distributionen *USA, östra* genom att visa den i webbläsaren.
+Verifiera att den uppdaterade containeravbildningen också distribueras till distributionen *USA, östra* genom att visa den i webbläsaren.
 
 ![Webbläsarvy över en ändrad webbapp som körs i regionen USA, östra][deployed-app-eastus-modified]
 
@@ -132,13 +132,13 @@ Med en enda `docker push`, har du automatiskt uppdaterat webbprogrammet som kör
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen har du uppdaterat och push-överfört en ny version av webbprogramsbehållaren till ditt geo-replikerade register. Webhooks i Azure Container Registry meddelade Web Apps for Containers om uppdateringen, vilken utlöste en lokal hämtning från de närmsta registerreplikerna.
+I den här självstudiekursen har du uppdaterat och push-överfört en ny version av webbprogramscontainern till ditt geo-replikerade register. Webhooks i Azure Container Registry meddelade Web Apps for Containers om uppdateringen, vilken utlöste en lokal hämtning från de närmsta registerreplikerna.
 
 ### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: Automatisk skapande av avbildning och korrigering
 
 Förutom geo-replikering är ACR Build en annan funktion i Azure Container Registry som kan hjälpa dig att optimera din distributionspipeline för behållare. Börja med ACR Build-översikten om du vill få en uppfattning om dess funktioner:
 
-[Automatisera korrigering av operativsystem och ramverk med ACR Build](container-registry-build-overview.md)
+[Automatisera korrigering av operativsystem och ramverk med ACR Build](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

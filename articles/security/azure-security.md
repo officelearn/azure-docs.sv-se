@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971014"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434049"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -100,7 +100,7 @@ Om det finns krascher, fel eller prestandaproblem kan söka du igenom dessa data
 Log Analytics kan vara användbart i kriminaltekniska och andra säkerhetsanalys som verktyget gör det möjligt att snabbt söka igenom stora mängder säkerhetsrelaterade transaktioner med en metod för flexibla frågor. Dessutom kan den lokala [loggar för brandväggen och proxyservern kan exporteras till Azure och göras tillgängliga för analys med hjälp av Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
 ### <a name="azure-advisor"></a>Azure Advisor
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/) är en personligt anpassad molnrådgivare som hjälper dig att optimera dina Azure-distributioner. Den analyserar din resurskonfiguration och användningstelemetri. Den rekommenderar sedan lösningar för att förbättra den [prestanda](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [security](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations), och [hög tillgänglighet](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) för dina resurser vid sökning efter möjligheter att [minska de totala Azure spendera](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor tillhandahåller säkerhetsrekommendationer som betydande kan förbättra din övergripande säkerhetsposition för lösningar som du distribuerar i Azure. De här rekommendationerna hämtas från säkerhetsanalys som utförs av [Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-intro)
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/) är en personligt anpassad molnrådgivare som hjälper dig att optimera dina Azure-distributioner. Den analyserar din resurskonfiguration och användningstelemetri. Den rekommenderar sedan lösningar för att förbättra den [prestanda](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [security](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations), och [hög tillgänglighet](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) för dina resurser vid sökning efter möjligheter att [minska de totala Azure spendera](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor tillhandahåller säkerhetsrekommendationer som förbättrar din övergripande säkerhetsposition för lösningar som du distribuerar i Azure. De här rekommendationerna hämtas från säkerhetsanalys som utförs av [Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 ### <a name="azure-security-center"></a>Azure Security Center
 Med hjälp av [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
@@ -244,7 +244,7 @@ Microsoft [Azure Application Gateway](https://docs.microsoft.com/azure/applicati
 
 ![Application Gateway](./media/azure-security/azure-security-fig2.png)
 
-Det hjälper dig att optimera webbservergruppens produktivitet genom att avlasta CPU-intensiv SSL avslutning till Application Gateway (även kallat ”SSL-avlastning” eller ”SSL-bryggning”). Här finns även andra Layer 7-routningsfunktioner inklusive resursallokeringsdistribution av inkommande trafik, Cookiebaserad sessionstillhörighet, URL-sökvägsbaserad Routning och möjligheten att vara värd för flera webbplatser bakom en enda Application Gateway. Azure Application Gateway är en Layer 7-belastningsutjämnare.
+Det hjälper dig att optimera webbservergruppens produktivitet genom att avlasta CPU-intensiv SSL avslutning till Application Gateway (även kallat ”SSL-avlastning” eller ”SSL-bryggning”). Här finns även andra Layer 7-routningsfunktioner inklusive resursallokeringsdistribution av inkommande trafik, Cookiebaserad sessionstillhörighet, URL-sökvägsbaserad Routning och möjligheten att vara värd för flera webbplatser bakom en enda Application Gateway. Azure Application Gateway är en Layer 7-lastbalanserare.
 
 Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt.
 
@@ -272,7 +272,7 @@ En centraliserad brandvägg mot webbattacker underlättar säkerhetshanteringen 
 ### <a name="traffic-manager"></a>Traffic Manager
 Microsoft [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) låter dig styra distributionen av användartrafik för tjänstslutpunkter i olika datacenter. Tjänstslutpunkter som stöds av Traffic Manager är virtuella Azure-datorer, Web Apps och molntjänster. Du kan även använda Traffic Manager med externa slutpunkter som inte tillhör Azure. Traffic Manager använder Domain Name System (DNS) för att dirigera klientbegäranden till den lämpligaste slutpunkten baserat på en [trafikdirigeringsmetoden](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) och hälsotillståndet för slutpunkterna.
 
-Traffic Manager erbjuder en uppsättning trafikroutningsmetoder efter programbehov för olika, slutpunktshälsa [övervakning](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring), och automatisk redundans. Traffic Manager är flexibla för fel, inklusive fel på en hel Azure-region.
+Traffic Manager erbjuder en uppsättning trafikroutningsmetoder efter programbehov för olika, slutpunktshälsa [övervakning](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring), och automatisk redundans. Traffic Manager har bra återhämtningsförmåga i händelse av fel, inklusive fel som påverkar en hel Azure-region.
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) levererar hög tillgänglighet och nätverksprestanda till dina program. Det är en belastningsutjämnare för Layer-4 (TCP, UDP) som distribuerar inkommande trafik mellan felfria instanser av tjänster som definierats i en belastningsutjämnad uppsättning. Azure Load Balancer kan konfigureras för att:
 
@@ -364,7 +364,7 @@ Microsoft använder flera säkerhetsrutiner och tekniker i sina produkter och tj
 -   [Integrerad Identitetshantering (hybrididentitet)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) låter dig behålla kontrollen över användarnas åtkomst på interna plattformar för datacenter och moln, skapar en enda användar-ID för autentisering och auktorisering för alla resurser.
 
 ### <a name="secure-apps-and-data"></a>Skydda appar och data
-[Azure Active Directory](https://azure.microsoft.com/services/active-directory/), en omfattande identitets- och åtkomsthanteringsmolnlösning, kan du skydda åtkomsten till data i program på plats och i molnet och förenklar hanteringen av användare och grupper. Den kombinerar kärnkatalogstjänster, avancerad identitetsstyrning, säkerhets- och åtkomsthantering för program och gör det enkelt för utvecklare att bygga principbaserad Identitetshantering i sina appar. För att förbättra Azure Active Directory, kan du lägga till betalda funktioner med hjälp av Azure Active Directory Basic, Premium P1 och Premium P2-versioner.
+[Azure Active Directory](https://azure.microsoft.com/services/active-directory/), en omfattande identitets- och åtkomsthanteringsmolnlösning, kan du skydda åtkomsten till data i program på plats och i molnet och förenklar hanteringen av användare och grupper. Den kombinerar kärnkatalogstjänster, avancerad identitetsstyrning, säkerhets- och åtkomsthantering för program och gör det enkelt för utvecklare att bygga principbaserad Identitetshantering i sina appar. För att förbättra ditt Azure Active Directory kan du lägga till betalfunktioner med hjälp av Azure Active Directory Basic-, Premium P1- och Premium P2-versionerna.
 
 | Kostnadsfria / vanliga funktioner     | Grundläggande funktioner    |Premium P1-funktioner |Premium P2-funktioner | Azure Active Directory Join – endast relaterade funktioner för Windows 10|
 | :------------- | :------------- |:------------- |:------------- |:------------- |

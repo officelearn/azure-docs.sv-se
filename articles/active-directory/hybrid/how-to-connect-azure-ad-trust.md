@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 4eeb716e4eeae8dc560f9588c6c3ce252daf741e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314666"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432065"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Hantera AD FS-förtroende med Azure AD med Azure AD Connect
 
@@ -41,7 +41,7 @@ Azure AD Connect hanterar **endast** inställningar som är relaterade till Azur
 | Inställning | Beskrivning |
 | :--- | :--- |
 | Certifikat för tokensignering | Azure AD Connect kan användas för att återställa och återskapa förtroendet med Azure AD. Azure AD Connect har en enstaka omedelbar förnyelse av certifikat för tokensignering för AD FS och uppdaterar Azure AD-federationsinställningar för domän.|
-| Token Signeringsalgoritm | Microsoft rekommenderar att du använder SHA-256 som algoritmen för tokensignering. Azure AD Connect kan känna av om token Signeringsalgoritm anges till ett värde mindre säkert än SHA-256. Det kommer att uppdatera inställningen till SHA-256 nästa möjliga konfigurationen igen. |
+| Token Signeringsalgoritm | Microsoft rekommenderar att du använder SHA-256 som algoritmen för tokensignering. Azure AD Connect kan känna av om token Signeringsalgoritm anges till ett värde mindre säkert än SHA-256. Det kommer att uppdatera inställningen till SHA-256 nästa möjliga konfigurationen igen. Andra förlitande part måste uppdateras för att använda det nya certifikatet för tokensignering. |
 | Azure AD-förtroende identifierare | Azure AD Connect anger värdet för rätt identifierare för Azure AD-förtroende. AD FS identifierar Azure AD-förtroende med hjälp av ID-värde. |
 | Azure AD-slutpunkter | Azure AD Connect säkerställer att de slutpunkter som konfigurerats för Azure AD-förtroende är alltid enligt de senaste rekommenderade värdena för flexibilitet och prestanda. |
 | Regler för utfärdandetransformering | Det finns mängder av anspråksregler som är nödvändiga för optimala prestanda med funktioner i Azure AD i en federerad miljö. Azure AD Connect säkerställer att Azure AD-förtroende är alltid konfigurerad med rätt uppsättning rekommenderade anspråksregler. |

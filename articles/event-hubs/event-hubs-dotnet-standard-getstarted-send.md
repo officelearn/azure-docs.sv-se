@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 4cd2fdb2bd8b6a15bc8dc3e4594971a61e1889e7
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 6f95d8dc291911ac7506e33b80c2d71c8f50dfdc
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919832"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405639"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Komma igång med att skicka meddelanden till Azure Event Hubs med .NET Standard
 
 > [!NOTE]
 > Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender).
 
-I den här självstudien får du lära dig att skriva ett .NET Core-konsolprogram som skickar en uppsättning meddelanden till en händelsehubb. Du kan köra [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)-lösningen i befintligt skick och ersätta strängarna `EhConnectionString` och `EhEntityPath` med värdena för din händelsehubb. Eller så kan du följa stegen i den här självstudiekursen och skapa ett eget.
+I den här självstudien får du lära dig att skriva ett .NET Core-konsolprogram som skickar en uppsättning meddelanden till en händelsehubb. Du kan köra [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)-lösningen i befintligt skick och ersätta strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb. Eller så kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -68,8 +68,8 @@ Lägg till [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsof
 
     ```csharp
     private static EventHubClient eventHubClient;
-    private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
     ```
 
 3. Lägg till en ny metod som heter `MainAsync` till `Program`-klassen enligt följande:
@@ -80,9 +80,9 @@ Lägg till [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsof
         // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
         // Typically, the connection string should have the entity path in it, but this simple scenario
         // uses the connection string from the namespace.
-        var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
+        var connectionStringBuilder = new EventHubsConnectionStringBuilder(EventHubConnectionString)
         {
-            EntityPath = EhEntityPath
+            EntityPath = EventHubName
         };
 
         eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());

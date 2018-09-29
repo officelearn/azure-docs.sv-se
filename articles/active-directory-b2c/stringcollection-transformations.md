@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cfc190d862c161783c2dd5fc7f03b7bb1ae6bed9
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 924da8c92bad1c5345d5d1833723a0c4e8ad7d29
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381403"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432672"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection anspråk omvandlingar
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller exempel för att använda anspråksomvandlingar f�
 
 Lägger till ett sträng-anspråk till ett nytt stringCollection anspråk. 
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | Objekt | sträng | ClaimType som ska läggas till utdata-anspråket. |
 | InputClaim | samling | stringCollection | [Valfritt] Om anges anspråkstransformering kopieras objekt från den här samlingen och lägger till objektet i slutet av samlingen utdataanspråket. |
@@ -54,14 +54,14 @@ Följande anspråkstransformering lägger till den **e-post** ClaimType till **o
 - Inkommande anspråk:
     - **samlingen**: [”someone@outlook.com”]
     - **objektet**”:admin@contoso.com”
-- Utgående anspråk: admin@contoso.com
+- Utgående anspråk: 
     - **samlingen**: [”someone@outlook.com” ”,admin@contoso.com”]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
 Lägger till en strängparameter till ett nytt stringCollection anspråk. 
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | samling | stringCollection | [Valfritt] Om anges anspråkstransformering kopieras objekt från den här samlingen och lägger till objektet i slutet av samlingen utdataanspråket. |
 | Indataparametrar | Objekt | sträng | Värdet som ska läggas till utdata-anspråket. |
@@ -89,14 +89,14 @@ Använd detta omvandling för att lägga till ett strängvärde till en ny eller
     - **samlingen**: [”someone@outlook.com”]
 - Indataparametrar 
     - **objektet**”:admin@contoso.com”
-- Utgående anspråk: admin@contoso.com
+- Utgående anspråk:
     - **samlingen**: [”someone@outlook.com” ”,admin@contoso.com”]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
 Hämtar det första objektet från mängden strängen. 
 
-| Objekt | TransformationClaimType | Datatyp | OBS! |
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | samling | stringCollection | ClaimTypes som används av anspråkstransformering för att hämta objektet. |
 | outputClaim | extractedItem | sträng | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Det första objektet i samlingen. |

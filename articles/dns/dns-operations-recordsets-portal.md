@@ -15,20 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: victorh
-ms.openlocfilehash: 1f7991ff1b0c5a29b002818bc4dc5d9106ba5bfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e24aa8d0fb72147b0ac30e7c495b598d6e9ea96f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974773"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451400"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Hantera DNS-poster och postuppsättningar med hjälp av Azure portal
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Klassisk Azure CLI](dns-operations-recordsets-cli-nodejs.md)
-> * [Azure CLI](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
 
 Den här artikeln visar hur du hanterar postuppsättningar och poster för din DNS-zon med hjälp av Azure portal.
 
@@ -95,7 +89,7 @@ Du kan använda Azure-portalen för att ta bort poster från en postuppsättning
 
 1. På den **postuppsättning egenskaper** bladet för postuppsättningen, klickar du på **ta bort**.
 
-    ![Ta bort en postuppsättning](./media/dns-operations-recordsets-portal/deleterecordset500.png)
+    ![Ta bort en postuppsättning](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
 2. Ett meddelande visas som frågar om du vill ta bort postuppsättningen.
 3. Kontrollera att namnet matchar den uppsättning av poster som du vill ta bort och klicka sedan på **Ja**.

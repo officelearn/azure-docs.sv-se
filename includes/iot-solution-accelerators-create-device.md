@@ -5,15 +5,15 @@ services: iot-accelerators
 author: dominicbetts
 ms.service: iot-accelerators
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9196648d7e3d2ea717b1a61cbca959805649ed2f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44754391"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47435120"
 ---
 I det första scenariot lägger du till en ny typ av telemetri till Contoso befintliga **kylaggregat** enhetstyp.
 
@@ -90,7 +90,9 @@ Anvisningarna i den här artikeln förutsätter att du använder Windows. Om du 
 
 ### <a name="download-the-microservices"></a>Ladda ned mikrotjänster
 
-Hämta och packa upp den [mikrotjänster för fjärrövervakning](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn.
+Hämta och packa upp den [mikrotjänster för fjärrövervakning](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn. Artikeln förutsätter vi att namnet på den här mappen är **remote-monitoring-services-dotnet-master**.
+
+Hämta och packa upp den [enheten simulering mikrotjänst](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn. Artikeln förutsätter vi att namnet på den här mappen är **enhet-simulering-dotnet-master**.
 
 ### <a name="run-the-storage-adapter-microservice"></a>Kör storage nätverkskort mikrotjänst
 
@@ -116,20 +118,14 @@ I det här avsnittet ska du lägga till en ny **intern temperatur** typ av telem
 
     | Källa | Mål |
     | ------ | ----------- |
-    | Services\Data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
-    | Services\Data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
-    | Services\Data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
-    | Services\Data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
-    | Services\Data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
-    | Services\Data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
+    | Services\data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
+    | Services\data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
+    | Services\data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
+    | Services\data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
+    | Services\data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
 
 1. Öppna den **C:\temp\devicemodels\chiller-01.json** fil.
-
-1. Uppdatera den **SchemaVersion** värde enligt följande:
-
-    ```json
-    "SchemaVersion": "1.0.0",
-    ```
 
 1. I den **InitialState** lägger du till följande två definitioner:
 
@@ -419,9 +415,9 @@ I det här avsnittet ska testa du de enhetstyper som du skapade i föregående a
 
 ### <a name="run-the-device-simulation-microservice"></a>Kör enheten simulering mikrotjänst
 
-Öppna den **remote-monitoring-services-dotnet-master\device-simulation** mapp som du laddade ned från GitHub i en ny instans av Visual Studio Code. Klicka på någon **återställa** knappar för att åtgärda eventuella olöst beroenden.
+Öppna den **enhet-simulering-dotnet-master** mapp som du laddade ned från GitHub i en ny instans av Visual Studio Code. Klicka på någon **återställa** knappar för att åtgärda eventuella olöst beroenden.
 
-Öppna den **.vscode/launch.json** fil och tilldela din IoT Hub-anslutningssträngen till den **PCS_IOTHUB_CONNSTRING** miljövariabeln.
+Öppna den **.vscode/launch.json** fil och tilldela din IoT Hub-anslutningssträngen till den **PCS_IOTHUB_CONNSTRING** miljövariabeln. I samma fil, lägger du till den **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** miljövariabeln och tilldela anslutningssträngen för din Cosmos DB-databas.
 
 Öppna den **WebService/Properties/launchSettings.json** fil och tilldela din IoT Hub-anslutningssträngen till den **PCS_IOTHUB_CONNSTRING** miljövariabeln.
 
@@ -465,7 +461,7 @@ Konfigurera Postman:
 
 1. Klicka på **fil > Import**. Klicka sedan på **Välj filer**.
 
-1. Navigera till den **enhet-simulering-dotnet/docs/postman** mapp. Välj **Enhetssimulering för Azure IoT-lösning accelerator.postman_collection** och **Enhetssimulering för Azure IoT-lösning accelerator.postman_environment** och klicka på **öppna**.
+1. Navigera till den **enhet-simulering-dotnet-master/docs/postman** mapp. Välj **Enhetssimulering för Azure IoT-lösning accelerator.postman_collection** och **Enhetssimulering för Azure IoT-lösning accelerator.postman_environment** och klicka på **öppna**.
 
 1. Expandera den **Azure IoT-Enhetssimulering lösningsaccelerator** begäranden som du kan skicka.
 

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: b5a876ea8b5cc70ee0ca0dcac8628c12dc2b009b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414531"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452521"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Använd API-versionsprofiler med Java i Azure Stack
 
@@ -63,7 +63,7 @@ Använd följande steg för att installera Java SDK:
 
 1.  Följ officiella anvisningarna för att installera Git. Anvisningar finns i [komma igång - installerar Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  Följ officiella anvisningarna för att installera den [Java SDK](http://zulu.org/download/)) och [Maven](https://maven.apache.org/). Rätt version är version 8 av Java Developer Kit. Rätt Apache Maven är version 3.0 eller senare. Miljövariabeln JAVA_HOME måste anges till installationsplatsen för Java Development Kit för att slutföra snabbstarten. Mer information finns i [skapa din första funktion med Java och Maven](../../azure-functions/functions-create-first-java-maven.md).
+2.  Följ officiella anvisningarna för att installera den [Java SDK](http://zulu.org/download/) och [Maven](https://maven.apache.org/). Rätt version är version 8 av Java Developer Kit. Rätt Apache Maven är version 3.0 eller senare. Miljövariabeln JAVA_HOME måste anges till installationsplatsen för Java Development Kit för att slutföra snabbstarten. Mer information finns i [skapa din första funktion med Java och Maven](../../azure-functions/functions-create-first-java-maven.md).
 
 3.  Installera rätt beroendepaketen genom att öppna filen Pom.xml i ditt Java-program. Lägg till ett beroende som visas i följande kod:
 
@@ -89,12 +89,12 @@ Använd följande steg för att installera Java SDK:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda Azure-SDK för .NET med Azure Stack, måste du ange följande värden och ange sedan värden med miljövariabler. Se anvisningarna efter tabellen för ditt operativsystem för att ställa in miljövariabler.
+Om du vill använda Azure Java SDK med Azure Stack, måste du ange följande värden och ange sedan värden med miljövariabler. Se anvisningarna efter tabellen för ditt operativsystem för att ställa in miljövariabler.
 
 | Värde                     | Miljövariabler | Beskrivning                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Klient-ID:t                 | TENANT_ID            | Värdet för Azure Stack [ <span class="underline">klient-ID</span>](../azure-stack-identity-overview.md).                                                          |
-| Klient-ID                 | CLIENT_ID             | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet.                                                                                              |
+| Klientorganisations-ID                 | CLIENT_ID             | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet.                                                                                              |
 | Prenumerations-ID:t           | SUBSCRIPTION_ID      | Den [ <span class="underline">prenumerations-ID</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure Stack.                |
 | Klienthemlighet             | CLIENT_SECRET        | Huvudnamn tjänstprogrammet hemlighet sparas när tjänstens huvudnamn har skapats.                                                                                                                                   |
 | Resource Manager-slutpunkten | SLUTPUNKT              | Se [ <span class="underline">Azure Stack resource manager-slutpunkten</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
@@ -128,7 +128,9 @@ Observera följande överväganden:
 
 - Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: https://management.local.azurestack.external/
 
-- Den **ResourceManagerUrl** integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+- Den **ResourceManagerUrl** integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+
+Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 
 JSON-exempelfilen:
 
@@ -149,9 +151,7 @@ JSON-exempelfilen:
 
 1.  **com.microsoft.Azure.profile\_2018\_03\_01\_hybrid**: senaste profil som skapats för Azure Stack. Använd den här profilen för tjänster som är mest kompatibla med Azure Stack så länge du är på 1808 stämpel eller ytterligare.
 
-2.  **com.microsoft.Azure.profile\_2017\_03\_09\_profil**: Om du har en tidsstämpel som är lägre än den 1808-versionen kan använda den här profilen.
-
-3.  **com.microsoft.Azure**: profilen som består av de senaste versionerna av alla tjänster. Använd de senaste versionerna av alla tjänster.
+2.  **com.microsoft.Azure**: profilen som består av de senaste versionerna av alla tjänster. Använd de senaste versionerna av alla tjänster.
 
 Mer information om Azure Stack och API-profiler finns i den [sammanfattning av API-profiler](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
 
@@ -231,14 +231,14 @@ Du kan använda följande GitHub-exempel som referens för att skapa lösningar 
 
 2.  Skapa en Azure-tjänstens huvudnamn och tilldela en roll får åtkomst till prenumerationen. Anvisningar om hur du skapar ett huvudnamn för tjänsten finns i [med Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat](../azure-stack-create-service-principals.md).
 
-3.  Hämta följande nödvändiga värden:
+3.  Hämta de följande obligatoriska värdena för miljövariabler:
     
-   1.  Klient-ID:t
-   2.  Klient-ID
-   3.  Klienthemlighet
-   4.  Prenumerations-ID:t
-   5.  Resource Manager-slutpunkten
-   6.  Resursplats
+   1.  TENANT_ID
+   2.  CLIENT_ID
+   3.  CLIENT_SECRET
+   4.  SUBSCRIPTION_ID
+   5.  ARM_ENDPOINT
+   6.  RESOURCE_LOCATION
 
 4.  Ange följande miljövariabler med hjälp av informationen som du hämtade från tjänstens huvudnamn du skapat med hjälp av Kommandotolken:
     
@@ -273,10 +273,8 @@ Du kan använda följande GitHub-exempel som referens för att skapa lösningar 
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-7.  Lägg till beroende nedan om du vill använda 2018-03-01-hybrid-profil för Azure Stack i pom.xml-filen. Det här beroendet installerar moduler som är associerade med den här profilen för beräkning, nätverk, lagring, KeyVault och App Services-resursprovidrar.
-    
-   Observera att du kan använda senaste profil till målet för Azure:
-        
+6.  Lägg till beroende nedan om du vill använda 2018-03-01-hybrid-profil för Azure Stack i pom.xml-filen. Det här beroendet installerar moduler som är associerade med den här profilen för beräkning, nätverk, lagring, KeyVault och App Services-resursprovidrar.
+      
    ```xml
    <dependency>
    <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>

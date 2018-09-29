@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: a11de2a4580515f6a358438a706e5be3f5543e28
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 08335f676437a32aa2240298be4680633eff16ba
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025318"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432978"
 ---
 # <a name="back-up-azure-stack"></a>Säkerhetskopiera Azure Stack
 
@@ -38,15 +38,48 @@ Använd Start AzSBackup för att starta en ny säkerhetskopia omedelbart med ing
 ```
 
 ### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>Starta Säkerhetskopiering i Azure Stack med jobbförlopp spårning
-Använd Start-AzSBackup för att starta en ny säkerhetskopia med variabeln - AsJob för att spåra förloppet för jobbet.
+Använd Start-AzSBackup för att starta en ny säkerhetskopia med den **- AsJob** parametern och spara det som en variabel som ska följa förloppet för jobbet.
+
+> [!NOTE]
+> Säkerhetskopieringsjobbet visas som har slutförts i portalen ungefär 10 – 15 minuter innan jobbet slutförs.
+>
+> Den aktuella statusen observeras därför bättre via koden nedan.
+
+> [!IMPORTANT]
+> Första 1 millisekund fördröjningen introduceras eftersom koden är för snabb registreras jobbet korrekt och kommer tillbaka utan **PSBeginTime** och i sin tur utan **tillstånd** för jobbet.
 
 ```powershell
-    $backupjob = Start-AzsBackup -Force -AsJob 
-    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
-    + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
-    -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+    $BackupJob = Start-AzsBackup -Force -AsJob
+    While (!$BackupJob.PSBeginTime) {
+        Start-Sleep -Milliseconds 1
+    }
+    Write-Host "Start time: $($BackupJob.PSBeginTime)"
+    While ($BackupJob.State -eq "Running") {
+        Write-Host "Job is currently: $($BackupJob.State) - Duration: $((New-TimeSpan -Start ($BackupJob.PSBeginTime) -End (Get-Date)).ToString().Split(".")[0])"
+        Start-Sleep -Seconds 30
+    }
 
-    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+    If ($BackupJob.State -eq "Completed") {
+        Get-AzsBackup | Where-Object {$_.BackupId -eq $BackupJob.Output.BackupId}
+        $Duration = $BackupJob.Output.TimeTakenToCreate
+        $Pattern = '^P?T?((?<Years>\d+)Y)?((?<Months>\d+)M)?((?<Weeks>\d+)W)?((?<Days>\d+)D)?(T((?<Hours>\d+)H)?((?<Minutes>\d+)M)?((?<Seconds>\d*(\.)?\d*)S)?)$'
+        If ($Duration -match $Pattern) {
+            If (!$Matches.ContainsKey("Hours")) {
+                $Hours = ""
+            } 
+            Else {
+                $Hours = ($Matches.Hours).ToString + 'h '
+            }
+            $Minutes = ($Matches.Minutes)
+            $Seconds = [math]::round(($Matches.Seconds))
+            $Runtime = '{0}{1:00}m {2:00}s' -f $Hours, $Minutes, $Seconds
+        }
+        Write-Host "BackupJob: $($BackupJob.Output.BackupId) - Completed with Status: $($BackupJob.Output.Status) - It took: $($Runtime) to run" -ForegroundColor Green
+    }
+    ElseIf ($BackupJob.State -ne "Completed") {
+        $BackupJob
+        $BackupJob.Output
+    }
 ```
 
 ## <a name="confirm-backup-has-completed"></a>Bekräfta säkerhetskopieringen har slutförts

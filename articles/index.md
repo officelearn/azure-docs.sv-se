@@ -6,12 +6,12 @@ description: Lär dig att skapa och hantera kraftfulla program med Microsoft Azu
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ace2178ac4e1d76d561800d94b07780c3579f1f4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 424e3ba5c630a626b6d8d07967fb7c24b8169c61
+ms.sourcegitcommit: 04bd54e97ec580224ffe2e18d72c58dc2221d42b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166987"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47447258"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -293,7 +293,7 @@ Azure DevOps-projekt</a>
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Utveckla din kompetens med Microsoft Learn</h3>
+                                                <h3>Utveckla dina färdigheter med Microsoft Learn</h3>
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
@@ -304,11 +304,6 @@ Titta på Azure-tjänster och -funktioner </a>
                                                         <a class="barLink" href="/learn/modules/principles-cloud-computing/">
                                                             <img src="/learn/achievements/principles-cloud-computing.svg" alt="">
 Principer för molnbaserad databehandling</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="barLink" href="/learn/modules/build-a-serverless-web-app/">
-                                                            <img src="/learn/achievements/build-a-serverless-web-app.svg" alt="">
-Bygg en webbapp utan server</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">

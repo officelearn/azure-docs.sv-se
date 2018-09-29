@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: b0dd5e0c365c65fc7b29752f7885acb71bdb3df8
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181801"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432007"
 ---
 # <a name="known-issues"></a>Kända problem
 Följande kända problem kan uppstå när du använder förhandsversionen av Designer för projektet Akustik.
@@ -27,7 +27,7 @@ Om du byter namn på en scen överförs inte de akustiska parametrar som tillhö
 
 Detta bör en relativ sökväg för att göra det enklare att dela projekt mellan medarbetare som standard. Som en lösning kan du ändra sökvägen för att vara i förhållande till projektkatalogen.
 
-## <a name="runtime-voxels-are-a-different-size-than-design-time-voxels"></a>Runtime voxels är en annan storlek än designfasen voxels
+## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>Runtime voxels är en annan storlek än scen förhandsversion voxels
 
 Om du gör en **Calculate** på den **avsökningar** fliken och visa voxels, och gör sedan en ändamålet och visa voxels vid körning för samma scenen, voxels har samma storlek. Voxels visas före ändamålet är voxels som används i simuleringen. Voxels visas vid körning används för interpolering mellan avsökningen punkter. Detta kan orsaka en inkonsekvens där portaler visas öppen vid körning som inte är faktiskt öppen.
 
@@ -51,5 +51,5 @@ Se till att körningsversion skript i Player-inställningar har angetts till **.
 Kontrollera du har använt rätt autentiseringsuppgifter för din Azure-konto att ditt konto har stöd för typ av nod som efterfrågas i ändamålet och att systemklockan stämmer.
 
 ## <a name="next-steps"></a>Nästa steg
-* Kom igång [integrera Akustik i dina Unity-projekt](getting-started.md)
+* Kom igång med att [integrera akustik i ditt Unity-projekt](getting-started.md)
 

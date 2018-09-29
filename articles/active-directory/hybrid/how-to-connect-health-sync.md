@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc7ee4e7a6975722458ed12f636cdc8f4777614a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8ca3c0524873e4c7a1326095eb1cc28f63f59a27
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301946"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431941"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Övervaka Azure AD Connect-synkronisering med Azure AD Connect Health
 Följande dokumentation är specifik för övervakning av Azure AD Connect (Sync) med Azure AD Connect Health.  Information om övervakning av AD FS med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).
@@ -36,7 +36,7 @@ Om du väljer en avisering visas ytterligare information samt de steg som du kan
 ### <a name="limited-evaluation-of-alerts"></a>Begränsad utvärdering av aviseringar
 Om Azure AD Connect INTE använder standardkonfigurationen (till exempel om attributfiltrering ändras från standardkonfigurationen till en anpassad konfiguration) överför inte Azure AD Connect Health-agenten felhändelser relaterade till Azure AD Connect.
 
-Detta begränsar tjänstens utvärdering av aviseringar. En banderoll visas som anger det här tillståndet på Azure Portal under din tjänst.
+Detta begränsar tjänstens utvärdering av aviseringar. En banderoll visas som anger det här tillståndet i Azure Portal under din tjänst.
 
 ![Azure AD Connect Health för synkronisering](./media/how-to-connect-health-sync/banner.png)
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: a2ab70930fad6f457a2eb6d1f277933ff98037e8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e44b68a2ed2786b449e2680ca4a8ca531058b85c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221374"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432824"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -224,6 +224,8 @@ Den här inställningen gäller för klientappar som följande:
 - Microsoft Visio
 - Microsoft Word
 - Microsoft To-Do
+- Microsoft Stream
+- Microsoft Edge
 
 
 

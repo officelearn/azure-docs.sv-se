@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: ac1872cf3f5ee8b83da9fa4c489188504aa8ad22
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 43cf75d875b2f5fbfea46fb2c8fbae809668057d
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161551"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405180"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Komma igång med Azure Dev Spaces med .NET Core och Visual Studio
 
@@ -29,9 +29,39 @@ I den här guiden får du lära dig hur du:
 - Oberoende utvecklar två separata tjänster och använder Kubernetes DNS-tjänstidentifiering för att anropa en annan tjänst.
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
-[!INCLUDE [](includes/see-troubleshooting.md)]
+> [!Note]
+> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan.
 
-[!INCLUDE [](includes/portal-aks-cluster.md)]
+
+## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
+
+1. Logga in på Azure Portal på http://portal.azure.com.
+1. Välj **Skapa en resurs** > sök efter **Kubernetes** > välj **Kubernetes Service** > **Skapa**.
+
+   Utför följande steg under varje rubrik för att skapa AKS-klustret.
+
+    - **PROJEKTINFORMATION**: välj en Azure-prenumeration och en ny eller befintlig Azure-resursgrupp.
+    - **KLUSTERINFORMATION**: ange namn, region (för närvarande måste du välja USA, östra, Europa, västra, USA, västra 2, Kanada, centrala eller Kanada, östra), version och DNS-prefix för AKS-klustret.
+    - **SKALNING**: välj en VM-storlek för AKS-agentnoderna och sedan antalet noder. Om du håller på att komma igång med Azure Dev Spaces är en nod tillräckligt för att utforska alla funktioner. Antalet noder kan enkelt justeras när som helst efter att klustret har distribuerats. Observera att VM-storleken inte kan ändras efter att ett AKS-kluster har skapats. Men när ett AKS-kluster har distribuerats kan du enkelt skapa ett nytt AKS-kluster med större virtuella datorer och använda Dev Spaces för att distribuera till större kluster igen om du behöver skala upp.
+
+   Se till att välja Kubernetes version 1.9.6 eller senare.
+
+   ![Konfigurationsinställningar för Kubernetes](media/common/Kubernetes-Create-Cluster-2.PNG)
+
+   Välj **Nästa: Autentisering** när det är klart.
+
+1. Välj din önskade inställning för rollbaserad åtkomstkontroll (RBAC). Azure Dev Spaces har stöd för kluster med RBAC aktiverat eller inaktiverat.
+
+    ![RBAC-inställning](media/common/k8s-RBAC.PNG)
+
+1. Se till att routning av HTTP-program är aktiverat.
+
+   ![Aktivera routning av HTTP-program](media/common/Kubernetes-Create-Cluster-3.PNG)
+
+    > [!Note]
+    > När du vill aktivera [http-programroutning](/azure/aks/http-application-routing) i ett befintligt kluster använder du kommandot: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
+
+1. Välj **Granska + skapa** och välj sedan **Skapa** när du är klar.
 
 ## <a name="get-the-visual-studio-tools"></a>Skaffa Visual Studio-verktygen
 1. Installera den senaste versionen av [Visual Studio 2017](https://www.visualstudio.com/vs/)
@@ -52,7 +82,6 @@ Skapa ett nytt projekt i Visual Studio 2017. För närvarande måste projektet v
 Välj mallen **Webbprogram (MVC, Model-View-Controller)** och välj **.NET Core** och **ASP.NET Core 2.0** som mål i de två listrutorna överst i dialogrutan. Klicka på **OK** för att skapa projektet.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
-
 
 ### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Aktivera Dev Spaces för ett AKS-kluster
 

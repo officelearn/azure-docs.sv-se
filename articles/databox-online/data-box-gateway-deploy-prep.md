@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: f4c3cf5329c10cda3691370e946b8397662a8d66
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c21245e05625f65b6b5dcf5f7081f5f5d1abb52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953420"
+ms.locfileid: "47030616"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Självstudier: Förbereda distributionen av Azure Data Box Gateway (förhandsversion)
 
@@ -74,7 +74,7 @@ Innan du distribuerar en virtuell enhet kontrollerar du att:
 * Värdsystemet kan dedikera följande resurser för att etablera den virtuella Data Box-enheten:
   
   * Minst 4 kärnor.
-  * Minst 8 GB RAM-minne. 
+  * Minst 8 GB RAM. 
   * Ett nätverksgränssnitt.
   * En operativsystemdisk på 250 GB.
   * En virtuell disk på 2 TB för systemdata.
@@ -89,7 +89,7 @@ Innan du börjar ska du kontrollera att:
 
 ## <a name="create-a-new-resource"></a>Skapa en ny resurs
 
-En enda instans av Data Box Gateway-resursen kan hantera flera virtuella Data Box Gateway-enheter. Utför följande steg för att skapa en ny Data Box Gateway-resurs. 
+Utför följande steg för att skapa en ny Data Box Gateway-resurs. 
 
 Om du har en befintlig Data Box Gateway-resurs för hantering av virtuella enheter hoppar du över det här steget och går till [Hämta aktiveringsnyckeln](#get-the-activation-key).
 

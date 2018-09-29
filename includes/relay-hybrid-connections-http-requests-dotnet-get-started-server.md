@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: 2784102cdc778188f0874a15e3ff02e4cc2e3eb8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5c7c2fe101315959d07ce4912905bbf59a7ee664
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33905005"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452825"
 ---
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
@@ -22,8 +22,10 @@ Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio.
 ### <a name="add-the-relay-nuget-package"></a>Lägg till Relay NuGet-paketet
 
 1. Högerklicka på det nyskapade projektet och välj sedan **Hantera NuGet-paket**.
-2. Välj **Bläddra** och sök sedan efter **Microsoft.Azure.Relay**. I sökresultaten väljer du **Microsoft Azure Relay**. 
-3. Välj **Installera** för att slutföra installationen. Stäng dialogrutan.
+2. Välj alternativet **Ta med förhandsversion**. 
+3. Välj **Bläddra** och sök sedan efter **Microsoft.Azure.Relay**. I sökresultaten väljer du **Microsoft Azure Relay**.
+4. Välj **2.0.0-preview1-20180523** som version. 
+5. Välj **Installera** för att slutföra installationen. Stäng dialogrutan.
 
 ### <a name="write-code-to-receive-messages"></a>Skriv kod för att ta emot meddelanden
 
@@ -35,13 +37,21 @@ Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio.
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
+    using System.Net;
     ```
 2. Lägg till konstanter i klassen `Program` för hybridanslutningsinformationen. Ersätt platshållarna inom hakparentes med de värden du erhöll när du skapade hybridanslutningen. Se till att du använder det fullständiga namnområdesnamnet.
    
     ```csharp
+    // replace {RelayNamespace} with the name of your namespace
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
+
+    // replace {HybridConnectionName} with the name of your hybrid connection
     private const string ConnectionName = "{HybridConnectionName}";
+
+    // replace {SAKKeyName} with the name of your Shared Access Policies key, which is RootManageSharedAccessKey by default
     private const string KeyName = "{SASKeyName}";
+
+    // replace {SASKey} with the primary key of the namespace you saved earlier
     private const string Key = "{SASKey}";
     ```
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: 4b469d306c4cd642e375e4eb15b0d26df828b308
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 76545c9953cff944c515e887a6a4214b9c76c501
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42022949"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038535"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Introduktion till Azure Cosmos DB: SQL API
 
@@ -72,7 +72,7 @@ Azure Cosmos DB exponerar resurser via ett REST-API som kan anropas av alla spr�
 | [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java-bibliotek](/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](https://github.com/Azure/azure-cosmos-js) |[JavaScript-bibliotek](https://github.com/Azure/azure-cosmos-js) |
 | Saknas |[JavaScript SDK för serversidan](https://github.com/Azure/azure-cosmosdb-js-server) |
-| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python-bibliotek](http://azure.github.io/azure-documentdb-python/) |
+| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python-bibliotek](https://github.com/Azure/azure-cosmos-python) |
 | Saknas | [API för MongoDB](mongodb-introduction.md)
 
 

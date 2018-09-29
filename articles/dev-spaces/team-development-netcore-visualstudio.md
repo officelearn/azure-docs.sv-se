@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 97b052833946b373e2333491c4b516b3a088130b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2a04b80e728ecf0af39cb46041a005a86ea1abec
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158474"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406115"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamutveckling med Azure Dev Spaces
 
@@ -163,6 +163,23 @@ Du testar den nya versionen av `mywebapi` tillsammans med `webfrontend` genom at
 
 Lägg till delen ”scott.s.” i URL:en, så att den ser ut ungefär så här http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io, och uppdatera webbläsaren. Brytpunkten som du angett i `mywebapi`-projektet bör nås. Fortsätt genom att trycka på F5. Nu bör du se det nya meddelandet ”Hello from webfrontend and mywebapi now says something new”. Det beror på att sökvägen till den uppdaterade koden i `mywebapi` körs i `default/scott`-utrymmet.
 
-[!INCLUDE [](includes/well-done.md)]
+### <a name="well-done"></a>Bra gjort!
+Du har slutfört guiden för att komma igång! Du har lärt dig att:
 
-[!INCLUDE [](includes/clean-up.md)]
+> [!div class="checklist"]
+> * Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+> * Iterativt utveckla kod i containrar.
+> * Oberoende utvecklar två separata tjänster och använder Kubernetes DNS-tjänstidentifiering för att anropa en annan tjänst.
+> * Effektivt utvecklar och testar din kod i en teammiljö.
+
+Nu när du har utforskat Azure Dev Spaces kan du [dela din utvecklarmiljö med en gruppmedlem](how-to/share-dev-spaces.md) och visa personen hur lätt det är att samarbeta.
+
+## <a name="clean-up"></a>Rensa
+Om du vill ta bort en Azure Dev Spaces-instans i ett kluster fullständigt, inklusive alla utvecklarmiljöer och tjänster som körs i den, använder du kommandot `az aks remove-dev-spaces`. Kom ihåg att den här åtgärden inte kan ångras. Du kan lägga till stöd för Azure Dev Spaces på klustret igen, men det blir som om du börjar om på nytt. Dina gamla tjänster och utrymmen kommer inte att återställas.
+
+Följande exempel visar en lista över Azure Dev Spaces-kontrollanter i din aktiva prenumeration och sedan tar det bort den Azure Dev Spaces-kontrollant som är associerad med AKS-klustret ”myaks” i resursgruppen ”myaks-rg”.
+
+```cmd
+    azds controller list
+    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+```

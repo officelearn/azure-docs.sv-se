@@ -1,7 +1,5 @@
 # Översikt
 ## [Om Azure Portal](../azure-portal-overview.md)
-# Självstudier
-## [DevOps med Azure Portal](tutorial-azureportal-devops.md)
 # Begrepp
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Kortkommandon](azure-portal-keyboard-shortcuts.md)

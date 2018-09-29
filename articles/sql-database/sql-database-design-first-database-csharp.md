@@ -2,20 +2,22 @@
 title: Utforma din första Azure SQL-databas – C# | Microsoft Docs
 description: Lär dig hur du utformar din första Azure SQL-databas och ansluter till den med ett C#-program med hjälp av ADO.NET.
 services: sql-database
-author: MightyPen
-manager: craigg-msft
-ms.reviewer: CarlRabeler
 ms.service: sql-database
-ms.custom: develop databases, mvc, devcenter
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: tutorial
+author: MightyPen
 ms.author: genemi
+ms.reviewer: carlrab
+manager: craigg-msft
 ms.date: 06/07/2018
-ms.openlocfilehash: 9fdc23eb2e607d1264e1bd2bc9dc85ef8d9be642
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 65a9bde6fa086dc56809df9619ceee1c5b417e31
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498172"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063309"
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Utforma en Azure SQL databas och anslut med C&#x23; och ADO.NET
 

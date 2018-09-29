@@ -15,12 +15,12 @@ ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 31e9e6b173a578b09f656850271ed5a8f0f2baa8
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b5d7b71b76eebc0c14fe1403791c3d4b6cefd7f4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391339"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161069"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visa eller analysera data som samlats in med Log Analytics-loggsökning
 
@@ -85,7 +85,7 @@ Du kan ställa in samma filter genom att välja **Filter** på egenskapsmenyn f�
 
 Du ser bara alternativet **Filter** för egenskaper med namnet i blått när du hovrar över dem.  Dessa är *sökbara* fält som indexeras för sökvillkor.  Fält i grått är *fritextsökbara* fält som endast har alternativet **Visa referenser**.  Det här alternativet returnerar poster som har det värdet i en egenskap.
 
-Du kan gruppera resultatet för en enda egenskap genom att välja alternativet **Gruppera efter** på postmenyn.  Då läggs en [sammanfattningsoperator](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) till för frågan som visar resultatet i ett diagram.  Du kan gruppera efter mer än en egenskap, men då måste du redigera frågan direkt.  Välj postmenyn bredvid egenskapen **Dator** och välj **Gruppera efter ”dator”**.  
+Du kan gruppera resultatet för en enda egenskap genom att välja alternativet **Gruppera efter** på postmenyn.  Då läggs en [sammanfattningsoperator](/azure/kusto/query/summarizeoperator) till för frågan som visar resultatet i ett diagram.  Du kan gruppera efter mer än en egenskap, men då måste du redigera frågan direkt.  Välj postmenyn bredvid egenskapen **Dator** och välj **Gruppera efter ”dator”**.  
 
 ![Gruppera efter dator](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
@@ -130,7 +130,7 @@ Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time
 
 ![Processoranvändning](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
 
-Det begränsar data till en särskild räknare, men det placerar dem fortfarande inte i ett formulär som är särskilt användbart.  Du kan visa data i ett linjediagram, men först måste du gruppera dem via Dator och TimeGenerated.  Om du vill gruppera flera fält måste du ändra frågan direkt, så ändra frågan så här.  Funktionen [medel](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) för egenskapen **CounterValue** används för att beräkna medelvärdet för varje timme.
+Det begränsar data till en särskild räknare, men det placerar dem fortfarande inte i ett formulär som är särskilt användbart.  Du kan visa data i ett linjediagram, men först måste du gruppera dem via Dator och TimeGenerated.  Om du vill gruppera flera fält måste du ändra frågan direkt, så ändra frågan så här.  Funktionen [medel](/azure/kusto/query/avg-aggfunction) för egenskapen **CounterValue** används för att beräkna medelvärdet för varje timme.
 
 ```
 Perf  
@@ -140,7 +140,7 @@ Perf
 
 ![Diagram över prestandadata](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
 
-Nu när dina data är lämpligt grupperade kan du visa dem i ett visuellt diagram genom att lägga till operatorn [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator).  
+Nu när dina data är lämpligt grupperade kan du visa dem i ett visuellt diagram genom att lägga till operatorn [render](/azure/kusto/query/renderoperator).  
 
 ```
 Perf  

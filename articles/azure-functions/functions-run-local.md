@@ -9,14 +9,14 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: f950d8d5b52685e45acf4093adac451c8f22aecd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a987ea8fbfc3d6360a604d0d9f3dbab1b5559444
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226219"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452436"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -177,7 +177,7 @@ I version 2.x av Azure Functions-runtime som du behöver registrera de tillägg 
 
 Mer information finns i [Azure Functions-utlösare och bindningar begrepp](functions-triggers-bindings.md#register-binding-extensions).
 
-## <a name="local-settings-file"></a>För lokal inställningsfil
+## <a name="local-settings-file"></a>Fil för lokala inställningar
 
 Filen local.settings.json lagrar appinställningar, anslutningssträngar och inställningar för Azure Functions Core Tools. Den har följande struktur:
 
@@ -286,7 +286,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 Du kan också ange alternativen i kommandot med följande argument:
 
-| Argumentet     | Beskrivning                            |
+| Argument     | Beskrivning                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Version 2.x) Genererar samma C#-skript (.csx) mallarna som används i version 1.x och i portalen. |
 | **`--language -l`**| Mallen programmeringsspråk som C#, F # eller JavaScript. Det här alternativet krävs i version 1.x. I version 2.x kan inte använda det här alternativet eller välj ett språk som matchar worker-runtime. |

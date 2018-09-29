@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8914391a586bb508192200beaba7f591649a1e99
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139455"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452283"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Hantera lagringskonton i Azure Stack
 Lär dig mer om att hantera lagringskonton i Azure Stack för att hitta, återställa och frigöra lagringskapacitet baserat på affärsbehoven.
@@ -28,19 +27,19 @@ Lär dig mer om att hantera lagringskonton i Azure Stack för att hitta, återst
 ## <a name="find"></a>Hitta ett storage-konto
 Listan med lagringskonton i regionen kan ses i Azure Stack med:
 
-1. I en webbläsare går du till https://adminportal.local.azurestack.external.
-2. Logga in på administrationsportalen för Azure Stack som en molnoperator (med de autentiseringsuppgifter som du angav under distributionen)
-3. På standardinstrumentpanel – hitta den **regionshantering** listan och välj den region som du vill utforska, till exempel **(lokala**).
+1. Logga in på den [administrationsportalen](https://adminportal.local.azurestack.external).
+
+2. Välj **alla tjänster** > **regionshantering** under **Administration**.
+
+3. Välj **Storage** från den **Resursprovidrar** lista.
    
-   ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. Välj **Storage** från den **Resursprovidrar** lista.
+   ![Lagringsresursprovider](media/azure-stack-manage-storage-accounts/image1.png)
+
+5. Välj **lagringskonton** i **Storage**.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Nu, i fönstret storage Resource Provider administratör – rulla ned till den **lagringskonton** fliken och markera den.
    
-   ![](media/azure-stack-manage-storage-accounts/image3.png)
-   
-   Sidan resulterande är listan med lagringskonton i den regionen.
+   Bladet visar listan med lagringskonton i den regionen.
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
@@ -76,12 +75,12 @@ Du kanske är i en situation där du vill återställa ett Borttaget konto.
 
 Det finns ett enkelt sätt att göra det i Azure Stack:
 
-1. Bläddra till i listan över storage-konton. Se [hitta ett lagringskonto](#find) i det här avsnittet för mer information.
+1. Bläddra till i listan över storage-konton. Se [hitta ett lagringskonto](#find) i den här artikeln för mer information.
 2. Leta upp det specifika kontot i listan. Du kan behöva filtrera.
 3. Kontrollera den *tillstånd* för kontot. Det ska stå **borttagna**.
 4. Välj kontot som öppnar rutan information.
 5. Utöver det här fönstret kan du leta upp den **återställa** knappen och markera den.
-6. Välj **Ja** att bekräfta.
+6. Välj **Ja** för att bekräfta.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. Återställningen är nu i *bearbeta... Vänta* för en indikation på att det lyckades.
@@ -97,19 +96,18 @@ Det finns ett enkelt sätt att göra det i Azure Stack:
   Utanför kvarhållning innebär att att kontot har överskridit kvarhållningsperioden och kanske inte återställa.
 * Kontot har tagits bort visas inte i listan över konton.
   
-  Ditt konto kanske inte visas i kontolistan över när kontot har redan skräpinsamlats. I det här fallet kan den inte återställas. Se [frigöra kapacitet](#reclaim) i det här avsnittet.
+  Ditt konto kanske inte visas i kontolistan över när kontot har redan skräpinsamlats. I det här fallet kan den inte återställas. Se [frigöra kapacitet](#reclaim) i den här artikeln.
 
 ## <a name="set-the-retention-period"></a>Ange kvarhållningsperioden
 Period kvarhållningsinställning kan en cloud-operator för att ange en tidsperiod i dagar (mellan 0 och 9 999 dagar) under vilken alla Borttaget konto potentiellt kan återställas. Loggperioden har angetts till 0 dagar. Ange värdet till ”0” betyder att alla borttagna konton är omedelbart utanför kvarhållning och markerats för periodiska skräpinsamling.
 
 **Ändra kvarhållningsperioden:**
 
-1. I en webbläsare går du till https://adminportal.local.azurestack.external.
-2. Logga in på administrationsportalen för Azure Stack som en molnoperator (med de autentiseringsuppgifter som du angav under distributionen)
-3. På standardinstrumentpanel – hitta den **regionshantering** listan och välj den region som du vill utforska – till exempel **(lokala**).
-4. Välj **Storage** från den **Resursprovidrar** lista.
-5. Välj **inställningar** överst för att öppna fönstret inställningen.
-6. Välj **Configuration** redigera värdet för kvarhållning perioden.
+1. Logga in på den [administrationsportalen](https://adminportal.local.azurestack.external).
+2. Välj **alla tjänster** > **regionshantering** under **Administration**.
+3. Välj **Storage** från den **Resursprovidrar** lista.
+4. Välj **inställningar** överst för att öppna fönstret inställningen.
+5. Välj **Configuration** redigera värdet för kvarhållning perioden.
 
    Ange antal dagar och spara den.
    
@@ -142,7 +140,7 @@ Du kan också använda PowerShell för att åsidosätta uttryckligen kvarhållni
    Läs mer om Azure Resource Manager-cmdletar, [med hjälp av Azure PowerShell med Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
 2. Kör följande cmdlets:
 
-> [!NOTE]
+> [!NOTE]  
 > Om du kör dessa cmdlet: ar kan du permanent ta bort kontot och dess innehåll. Det går inte att återställa. Använd detta med försiktighet.
 
 ```PowerShell  

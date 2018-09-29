@@ -3,7 +3,7 @@ title: Återställa åtkomst till en virtuell Linux-dator | Microsoft Docs
 description: Hur du hanterar administrativa användare och Återställ åtkomst på virtuella Linux-datorer med hjälp av VMAccess-tillägget och Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,18 +15,21 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998635"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452062"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Hantera administrativa användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget med Azure CLI
 ## <a name="overview"></a>Översikt
 Disken på din Linux-VM visar fel. Du på något sätt återställa rotlösenordet för din Linux-VM eller ta bort SSH-privata nyckeln av misstag. Om detta har inträffat i dagar i datacentret, skulle du behöva öka det och öppna sedan KVM att hämta vid servern. Tänk på Azure VMAccess-tillägget som denna KVM-växel som gör det möjligt att få åtkomst till konsolen för att återställa åtkomst till Linux eller genomför diskunderhåll nivå.
 
 Den här artikeln visar hur du använder Azure VMAccess-tillägget för att kontrollera eller reparera en disk, Återställ användarnas åtkomst, hantera administrativa användarkonton eller uppdatera SSH-konfigurationen på Linux när de körs som Azure Resource Manager-datorer. Om du behöver hantera klassiska virtuella datorer – du kan följa instruktionerna i den [dokumentationen för klassiska virtuella datorer](../linux/classic/reset-access-classic.md). 
+ 
+> [!NOTE]
+> Om du använder VMAccess-tillägget för att återställa lösenordet för den virtuella datorn när du har installerat tillägget AAD-inloggning måste du köra tillägget AAD-inloggning om du vill återaktivera AAD-inloggning för din dator.
 
 ## <a name="prerequisites"></a>Förutsättningar
 ### <a name="operating-system"></a>Operativsystem

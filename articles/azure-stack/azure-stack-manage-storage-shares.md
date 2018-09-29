@@ -6,23 +6,22 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: cdfdaf9195f14e3cbe3db2a4507bd91a3133a26e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071393"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452334"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure Stack
+# <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure Stack 
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
@@ -86,10 +85,15 @@ Som en cloud-operatör kan du övervaka lagringskapaciteten för en resurs med P
 - **Kapacitet som används av** är mängden data i byte som används av de alla utrymmena de filer som lagrar data för klientorganisationen och tillhörande metadata.
 
 ### <a name="use-the-administrator-portal"></a>Använda administratörsportalen
-Du kan använda administrationsportalen visa lagringskapaciteten för alla resurser som en cloud-operator. **Gå till Storage** > **filresurser** att öppna fillistan för resurs där du kan visa information om syntax.
-![Exempel: Lagringsfilresurser](media/azure-stack-manage-storage-shares/storage-file-shares.png)
-- **Totalt antal** är det totala utrymmet i byte som är tillgängliga för resursen. Här används för data och metadata som underhålls av storage-tjänster.
-- **ANVÄNDS** är mängden data i byte som används av de alla utrymmena de filer som lagrar data för klientorganisationen och tillhörande metadata.
+Du kan använda administrationsportalen visa lagringskapaciteten för alla resurser som en cloud-operator.
+
+1. Logga in på den [administrationsportalen](https://adminportal.local.azurestack.external).
+2. Välj **alla tjänster** > **Storage** att öppna fillistan för resurs där du kan visa information om syntax. 
+
+  ![Exempel: Lagringsfilresurser](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+
+  - **Totalt antal** är det totala utrymmet i byte som är tillgängliga för resursen. Här används för data och metadata som underhålls av storage-tjänster.
+  - **ANVÄNDS** är mängden data i byte som används av de alla utrymmena de filer som lagrar data för klientorganisationen och tillhörande metadata.
 
 ### <a name="storage-space-alerts"></a>Storage utrymme aviseringar
 När du använder admin portal kan få du aviseringar om resurser som är ont om utrymme.

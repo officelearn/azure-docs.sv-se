@@ -118,6 +118,8 @@ items:
       href: concepts-expressroute-with-site-recovery.md
     - name: Nätverkssäkerhetsgrupper med Site Recovery
       href: concepts-network-security-group-with-site-recovery.md
+    - name: Offentlig IP-adress med Site Recovery
+      href: concepts-public-ip-address-with-site-recovery.md
   - name: Haveriberedskap för appar
     href: site-recovery-workload.md
   - name: Om återställningsplaner
@@ -211,7 +213,7 @@ items:
       - name: Konfigurera källmiljön för replikering av fysiska servrar
         href: physical-azure-set-up-source.md
       - name: Konfigurera målmiljön för replikering av fysiska servrar
-        href: physical-azure-set-up-target.md
+        href: vmware-azure-set-up-target.md
       - name: Konfigurera haveriberedskap för virtuella Azure Stack-datorer
         href: azure-stack-site-recovery.md
     - name: Distribuera mobilitetstjänsten
@@ -394,9 +396,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: d05914e528754520f0f752bf72c303875cdb61ef
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 1e217297860a68ff5a4765a7a3de4cec78bfa68c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364592"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432910"

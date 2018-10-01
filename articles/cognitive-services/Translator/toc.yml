@@ -1,175 +1,182 @@
+items:
 - name: Dokumentation om Translator Text API
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Translator Text API?
-      href: translator-info-overview.md
+  - name: Vad är Translator Text API?
+    href: translator-info-overview.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: 'C#'
-      items:
-        - name: Översätt text
-          href: quickstart-csharp-translate.md
-        - name: Konvertera textskript
-          href: quickstart-csharp-transliterate.md
-        - name: Identifiera språket i texten
-          href: quickstart-csharp-detect.md
-        - name: Hämta alternativa översättningar
-          href: quickstart-csharp-dictionary.md
-        - name: Hämta språk som stöds
-          href: quickstart-csharp-languages.md
-        - name: Hämta meningslängden i text
-          href: quickstart-csharp-sentences.md
-    - name: Go
-      items:
-        - name: Översätt text
-          href: quickstart-go-translate.md
-        - name: Konvertera textskript
-          href: quickstart-go-transliterate.md
-        - name: Identifiera språket i texten
-          href: quickstart-go-detect.md
-        - name: Hämta alternativa översättningar
-          href: quickstart-go-dictionary.md
-        - name: Hämta språk som stöds
-          href: quickstart-go-languages.md
-        - name: Hämta meningslängden i text
-          href: quickstart-go-sentences.md
-    - name: Java
-      items:
-        - name: Översätt text
-          href: quickstart-java-translate.md
-        - name: Konvertera textskript
-          href: quickstart-java-transliterate.md
-        - name: Identifiera språket i texten
-          href: quickstart-java-detect.md
-        - name: Hämta alternativa översättningar
-          href: quickstart-java-dictionary.md
-        - name: Hämta språk som stöds
-          href: quickstart-java-languages.md
-        - name: Hämta meningslängden i text
-          href: quickstart-java-sentences.md
-    - name: Node.js
-      items:
-        - name: Översätt text
-          href: quickstart-nodejs-translate.md
-        - name: Konvertera textskript
-          href: quickstart-nodejs-transliterate.md
-        - name: Identifiera språket i texten
-          href: quickstart-nodejs-detect.md
-        - name: Hämta alternativa översättningar
-          href: quickstart-nodejs-dictionary.md
-        - name: Hämta språk som stöds
-          href: quickstart-nodejs-languages.md
-        - name: Hämta meningslängden i text
-          href: quickstart-nodejs-sentences.md
-    - name: PHP
-      items:
-        - name: Översätt text
-          href: quickstart-php-translate.md
-        - name: Konvertera textskript
-          href: quickstart-php-transliterate.md
-        - name: Identifiera språket i texten
-          href: quickstart-php-detect.md
-        - name: Hämta alternativa översättningar
-          href: quickstart-php-dictionary.md
-        - name: Hämta språk som stöds
-          href: quickstart-php-languages.md
-        - name: Hämta meningslängden i text
-          href: quickstart-php-sentences.md
-    - name: Python
-      items:
-        - name: Översätt text
-          href: quickstart-python-translate.md
-        - name: Konvertera textskript
-          href: quickstart-python-transliterate.md
-        - name: Identifiera språket i texten
-          href: quickstart-python-detect.md
-        - name: Hämta alternativa översättningar
-          href: quickstart-python-dictionary.md
-        - name: Hämta språk som stöds
-          href: quickstart-python-languages.md
-        - name: Hämta meningslängden i text
-          href: quickstart-python-sentences.md
-    - name: Ruby
-      items:
-        - name: Översätt text
-          href: quickstart-ruby-translate.md
-        - name: Konvertera textskript
-          href: quickstart-ruby-transliterate.md
-        - name: Identifiera språket i texten
-          href: quickstart-ruby-detect.md
-        - name: Hämta alternativa översättningar
-          href: quickstart-ruby-dictionary.md
-        - name: Hämta språk som stöds
-          href: quickstart-ruby-languages.md
-        - name: Hämta meningslängden i text
-          href: quickstart-ruby-sentences.md
+  - name: C#
+    items:
+    - name: Översätt text
+      href: quickstart-csharp-translate.md
+    - name: Konvertera textskript
+      href: quickstart-csharp-transliterate.md
+    - name: Identifiera språket i texten
+      href: quickstart-csharp-detect.md
+    - name: Hämta alternativa översättningar
+      href: quickstart-csharp-dictionary.md
+    - name: Hämta språk som stöds
+      href: quickstart-csharp-languages.md
+    - name: Hämta meningslängden i text
+      href: quickstart-csharp-sentences.md
+  - name: Go
+    items:
+    - name: Översätt text
+      href: quickstart-go-translate.md
+    - name: Konvertera textskript
+      href: quickstart-go-transliterate.md
+    - name: Identifiera språket i texten
+      href: quickstart-go-detect.md
+    - name: Hämta alternativa översättningar
+      href: quickstart-go-dictionary.md
+    - name: Hämta språk som stöds
+      href: quickstart-go-languages.md
+    - name: Hämta meningslängden i text
+      href: quickstart-go-sentences.md
+  - name: Java
+    items:
+    - name: Översätt text
+      href: quickstart-java-translate.md
+    - name: Konvertera textskript
+      href: quickstart-java-transliterate.md
+    - name: Identifiera språket i texten
+      href: quickstart-java-detect.md
+    - name: Hämta alternativa översättningar
+      href: quickstart-java-dictionary.md
+    - name: Hämta språk som stöds
+      href: quickstart-java-languages.md
+    - name: Hämta meningslängden i text
+      href: quickstart-java-sentences.md
+  - name: Node.js
+    items:
+    - name: Översätt text
+      href: quickstart-nodejs-translate.md
+    - name: Konvertera textskript
+      href: quickstart-nodejs-transliterate.md
+    - name: Identifiera språket i texten
+      href: quickstart-nodejs-detect.md
+    - name: Hämta alternativa översättningar
+      href: quickstart-nodejs-dictionary.md
+    - name: Hämta språk som stöds
+      href: quickstart-nodejs-languages.md
+    - name: Hämta meningslängden i text
+      href: quickstart-nodejs-sentences.md
+  - name: PHP
+    items:
+    - name: Översätt text
+      href: quickstart-php-translate.md
+    - name: Konvertera textskript
+      href: quickstart-php-transliterate.md
+    - name: Identifiera språket i texten
+      href: quickstart-php-detect.md
+    - name: Hämta alternativa översättningar
+      href: quickstart-php-dictionary.md
+    - name: Hämta språk som stöds
+      href: quickstart-php-languages.md
+    - name: Hämta meningslängden i text
+      href: quickstart-php-sentences.md
+  - name: Python
+    items:
+    - name: Översätt text
+      href: quickstart-python-translate.md
+    - name: Konvertera textskript
+      href: quickstart-python-transliterate.md
+    - name: Identifiera språket i texten
+      href: quickstart-python-detect.md
+    - name: Hämta alternativa översättningar
+      href: quickstart-python-dictionary.md
+    - name: Hämta språk som stöds
+      href: quickstart-python-languages.md
+    - name: Hämta meningslängden i text
+      href: quickstart-python-sentences.md
+  - name: Ruby
+    items:
+    - name: Översätt text
+      href: quickstart-ruby-translate.md
+    - name: Konvertera textskript
+      href: quickstart-ruby-transliterate.md
+    - name: Identifiera språket i texten
+      href: quickstart-ruby-detect.md
+    - name: Hämta alternativa översättningar
+      href: quickstart-ruby-dictionary.md
+    - name: Hämta språk som stöds
+      href: quickstart-ruby-languages.md
+    - name: Hämta meningslängden i text
+      href: quickstart-ruby-sentences.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: Skapa en WPF-app för Translator Text
-      href: tutorial-wpf-translation-csharp.md
+  - name: Skapa en WPF-app för Translator Text
+    href: tutorial-wpf-translation-csharp.md
 - name: Begrepp
   items:
-    - name: Språk som stöds
-      href: languages.md
-    - name: Anpassa och förbättra textöversättning
-      href: customization.md
-    - name: 'Så här räknar API:et tecken'
-      href: character-counts.md
+  - name: Anpassa och förbättra textöversättning
+    href: customization.md
+  - name: Så här räknar API:et tecken
+    href: character-counts.md
 - name: Instruktionsguider
   items:
-    - name: Registrera dig för Translator Text API
-      href: translator-text-how-to-signup.md
-    - name: Migrera till V3 Text API
-      href: migrate-to-v3.md
-    - name: Lägg till filter mot olämpligt språk
-      href: profanity-filtering.md
-    - name: Ta emot information om ordjustering
-      href: word-alignment.md
-    - name: Använda funktionen för dynamisk ordlista
-      href: dynamic-dictionary.md
+  - name: Registrera dig för Translator Text API
+    href: translator-text-how-to-signup.md
+  - name: Migrera till V3 Text API
+    href: migrate-to-v3.md
+  - name: Lägg till filter mot olämpligt språk
+    href: profanity-filtering.md
+  - name: Ta emot information om ordjustering
+    href: word-alignment.md
+  - name: Använda funktionen för dynamisk ordlista
+    href: dynamic-dictionary.md
 - name: Referens
   items:
-    - name: Referens för v3 Translator Text API
-      href: reference/v3-0-reference.md
-      items:
-        - name: Språk
-          href: reference/v3-0-languages.md
-        - name: Översätt
-          href: reference/v3-0-translate.md
-        - name: Transkribera
-          href: reference/v3-0-transliterate.md
-        - name: Upptäcka
-          href: reference/v3-0-detect.md
-        - name: BreakSentence
-          href: reference/v3-0-break-sentence.md
-        - name: Slå upp i ordlista
-          href: reference/v3-0-dictionary-lookup.md
-        - name: Ordlisteexempel
-          href: reference/v3-0-dictionary-examples.md
-    - name: Referens för v2 Translator Text API (inaktuellt)
-      href: reference/v2-0-reference.md
-      items:
-        - name: Transformera text
-          href: transform-text.md
-        - name: Så här använder du CTF-rapportering (Collaborative Translation Framework)
-          href: ctf-reporting.md
-        - name: Returnera N-best-översättningar
-          href: return-n-best-translations.md
+  - name: Referens för v3 Translator Text API
+    href: reference/v3-0-reference.md
+    items:
+    - name: Språk
+      href: reference/v3-0-languages.md
+    - name: Översätt
+      href: reference/v3-0-translate.md
+    - name: Transkribera
+      href: reference/v3-0-transliterate.md
+    - name: Upptäcka
+      href: reference/v3-0-detect.md
+    - name: BreakSentence
+      href: reference/v3-0-break-sentence.md
+    - name: Slå upp i ordlista
+      href: reference/v3-0-dictionary-lookup.md
+    - name: Ordlisteexempel
+      href: reference/v3-0-dictionary-examples.md
+  - name: Referens för v2 Translator Text API (inaktuellt)
+    href: reference/v2-0-reference.md
+    items:
+    - name: Transformera text
+      href: transform-text.md
+    - name: Så här använder du CTF-rapportering (Collaborative Translation Framework)
+      href: ctf-reporting.md
+    - name: Returnera N-best-översättningar
+      href: return-n-best-translations.md
 - name: Resurser
   items:
-    - name: Kodexempel på GitHub
-      href: 'https://aka.ms/TranslatorGitHub'
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: 'https://www.microsoft.com/translator/faq.aspx'
-    - name: Kunskapsbas
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
-    - name: Regional tillgänglighet
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/558796-translator'
+  - name: Kodexempel på GitHub
+    href: https://aka.ms/TranslatorGitHub
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: https://www.microsoft.com/translator/faq.aspx
+  - name: Kunskapsbas
+    href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
+  - name: Stöd för språk och region
+    href: language-support.md
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-translator
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/558796-translator
+ms.openlocfilehash: adea86473e69a1ea346dbf63b6976642d201dcb9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434457"

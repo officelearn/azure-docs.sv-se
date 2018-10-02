@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 09c551ea7196ae20a60a5dd34c1cda889ff5df46
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e9309f8cb46b31ded46b705308465ac6f6c89204
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091081"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585194"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Aktivera Azure CLI för Azure Stack-användare
 
@@ -69,7 +69,5 @@ En [alias-exempelfilen](https://raw.githubusercontent.com/Azure/azure-rest-api-s
 ## <a name="next-steps"></a>Nästa steg
 
 - [Distribuera mallar med Azure CLI](azure-stack-deploy-template-command-line.md)
-
 - [Ansluta med PowerShell](azure-stack-connect-powershell.md)
-
 - [Hantera användarbehörigheter](azure-stack-manage-permissions.md)

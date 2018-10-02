@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4a5ca4879f81533e3617ca9dfe9cdf8afcf2965b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 0782b50662d1d49ec79aebbf7a5f889471f11283
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700179"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018460"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 > [!div class="op_single_selector"]
@@ -575,7 +575,7 @@ Standardtidsintervallet är inställt på 10 sekunder. Eftersom inställningen �
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Ställ in exekveringstid för att ta bort containeravbildningar som inte används
 
-Du kan ställa in Service Fabric-klustret på att ta bort oanvända containeravbildningar från noden. Med den här inställningen kan du få tillbaka diskutrymme om det finns för många containeravbildningar på noden. Aktivera funktionen genom att uppdatera avsnittet `Hosting` i klustermanifestet enligt följande utdrag: 
+Du kan ställa in Service Fabric-klustret på att ta bort oanvända containeravbildningar från noden. Med den här inställningen kan du få tillbaka diskutrymme om det finns för många containeravbildningar på noden. Om du vill aktivera den här funktionen måste du uppdatera den [Hosting](service-fabric-cluster-fabric-settings.md#hosting) avsnittet i klustermanifestet enligt följande kodavsnitt: 
 
 
 ```json
@@ -596,7 +596,7 @@ Du kan ställa in Service Fabric-klustret på att ta bort oanvända containeravb
 } 
 ```
 
-Avbildningar som inte ska raderas kan du ange under parametern `ContainerImagesToSkip`. 
+Avbildningar som inte ska raderas kan du ange under parametern `ContainerImagesToSkip`.  
 
 
 ## <a name="configure-container-image-download-time"></a>Konfigurera nedladdningstid för containeravbildning

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: af0b819c6c60835089c174a1f9f7c3a6215e362c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbd5058be502839f83db484136d1c97bac4a3d79
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956975"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585959"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använd meddelandevägar och anpassade slutpunkter för meddelanden från enheten till molnet
 
@@ -32,37 +32,30 @@ Ett enskilt meddelande som kan matcha tillståndet på flera routning frågor om
 
 ## <a name="endpoints-and-routing"></a>Slutpunkter och Routning
 
-En IoT-hubb har en standard [inbyggd slutpunkt][lnk-built-in]. Du kan skapa anpassade slutpunkter skicka meddelanden till genom att länka andra tjänster i din prenumeration till hubben. IoT Hub stöder för närvarande Azure Storage-behållare, Event Hubs, Service Bus-köer och Service Bus-ämnen som anpassade slutpunkter.
+En IoT-hubb har en standard [inbyggd slutpunkt](iot-hub-devguide-messages-read-builtin.md). Du kan skapa anpassade slutpunkter skicka meddelanden till genom att länka andra tjänster i din prenumeration till hubben. IoT Hub stöder för närvarande Azure Storage-behållare, Event Hubs, Service Bus-köer och Service Bus-ämnen som anpassade slutpunkter.
 
 När du använder Routning och anpassade slutpunkter levereras endast meddelanden till den inbyggda slutpunkten om de inte matchar alla frågor. Om du vill skicka meddelanden till den inbyggda slutpunkten även om en anpassad slutpunkt, lägger du till ett flöde som skickar meddelanden till den **händelser** slutpunkt.
 
 > [!NOTE]
-> IoT Hub stöder endast skriva data till Azure Storage-behållare som blobar.
+> * IoT Hub stöder endast skriva data till Azure Storage-behållare som blobar.
+> * Service Bus-köer och ämnen med **sessioner** eller **dubblettidentifiering** aktiverat stöds inte som anpassade slutpunkter.
 
-> [!WARNING]
-> Service Bus-köer och ämnen med **sessioner** eller **dubblettidentifiering** aktiverat stöds inte som anpassade slutpunkter.
-
-Mer information om hur du skapar anpassade slutpunkter i IoT Hub finns i [IoT Hub-slutpunkter][lnk-devguide-endpoints].
+Mer information om hur du skapar anpassade slutpunkter i IoT Hub finns i [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md).
 
 Mer information om läsning från anpassade slutpunkter finns:
 
-* Läsa från [Azure Storage-behållare][lnk-getstarted-storage].
-* Läsa från [Händelsehubbar][lnk-getstarted-eh].
-* Läsa från [Service Bus-köer][lnk-getstarted-queue].
-* Läsa från [Service Bus-ämnen][lnk-getstarted-topic].
+* Läsa från [Azure Storage-behållare](../storage/blobs/storage-blobs-introduction.md).
 
-### <a name="next-steps"></a>Nästa steg
+* Läsa från [Händelsehubbar](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-* Läs mer om IoT Hub-slutpunkter, [IoT Hub-slutpunkter][lnk-devguide-endpoints].
+* Läsa från [Service Bus-köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+
+* Läsa från [Service Bus-ämnen](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+* Läs mer om IoT Hub-slutpunkter, [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md).
+
 * Mer information om frågespråket som du använder för att definiera routning frågor finns i [frågesyntax för routning till meddelandet](iot-hub-devguide-routing-query-syntax.md).
-* Den [Process IoT Hub enhet-till-moln-meddelanden med vägar] [ lnk-d2c-tutorial] självstudiekursen visar hur du använder Routning frågor och anpassade slutpunkter.
 
-[lnk-built-in]: iot-hub-devguide-messages-read-builtin.md
-[lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md
-[lnk-devguide-query-language]: iot-hub-devguide-query-language.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-d2c-tutorial]: tutorial-routing.md
-[lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-[lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
-[lnk-getstarted-storage]: ../storage/blobs/storage-blobs-introduction.md
+* Den [Process IoT Hub enhet-till-moln-meddelanden med vägar](tutorial-routing.md) självstudiekursen visar hur du använder Routning frågor och anpassade slutpunkter.

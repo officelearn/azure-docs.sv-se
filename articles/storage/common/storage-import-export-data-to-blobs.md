@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8b91ae9a4f258e52b032dca1484be70469094c2e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737064"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585738"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
 
@@ -107,7 +107,7 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
     - Ladda upp journalfiler för enheten som du fick vid förberedelsen för enheten. Om `waimportexport.exe version1` har använt, ladda upp en fil för varje enhet som du förberedde. Om ändringsjournalen filstorleken överskrider 2 MB, så kan du använda den `<Journal file name>_DriveInfo_<Drive serial ID>.xml` också skapats med journal-fil. 
     - Välj mållagringskontot var data kommer att finnas. 
-    - Samlingsplats fylls i automatiskt baserat på regionen som det valda lagringskontot.
+    - Dropoff platsen fylls i automatiskt baserat på regionen som det valda lagringskontot.
    
    ![Skapa importjobb – steg 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: c81db66637a4c56a36b6995ad8df0fe1967d08ef
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 1edf87d9ec334845f82c3c0c20c958e27f01e87a
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391681"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585228"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Förstå användningen av Azure reservation för prenumerationen med användningsbaserad betalning
 
@@ -62,9 +62,11 @@ Filtrera på **ytterligare information** och skriver i din **reservations-ID**. 
 4. **Mäter ID** är mätnings-ID för reservationen. Kostnaden för den här mätaren är $0. Den här mätnings-id visas för alla virtuella datorer som är kvalificerad för reservationsrabatten.
 5. Standard_DS1_v2 är en virtuell processor virtuella datorn och den virtuella datorn har distribuerats utan Azure Hybrid-förmånen. Den här mätaren omfattar så visas extra kostnaden för Windows-programvara. Du hittar den mätning som motsvarar D-serien 1 kärna VM [Azure reserverade VM-instanser Windows programvarukostnader](billing-reserved-instance-windows-software-costs.md). Om du har Azure Hybrid-förmånen kan tillämpas inte den här extra kostnad.
 
-## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Användningen av SQL Database reserverad kapacitetsreservationer
+## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Användning för SQL Database och Cosmos DB reserverad kapacitetsreservationer
 
-Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informationen ser ut som i följande tabell i följande avsnitt:
+I följande avsnitt använder Azure SQL Database som exempel för att beskriva användningsrapporten. Du kan använda samma steg för att hämta användning för Azure Cosmos DB samt. 
+
+Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informationen ser ut som i följande tabell:
 
 | Fält | Värde |
 |---| --- |
@@ -75,7 +77,7 @@ Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informati
 
 ### <a name="statement-section-of-csv-file"></a>Instruktionen i CSV-fil
 
-Filtrera på **användningen av reserverade instanser** mätningsnamn. Det se ut ungefär som på följande skärmbild:
+Filtrera på **användningen av reserverade instanser** mäter namn och välj de nödvändiga **Mätningskategori** – Azure SQL database eller Azure Cosmos DB. Det se ut ungefär som på följande skärmbild:
 
 ![CSV-fil för SQL Database reserverad kapacitet](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
@@ -106,3 +108,5 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
 Om du har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+
+

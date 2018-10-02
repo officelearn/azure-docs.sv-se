@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 65134d78fb011ae707c0629bef1ebb1a66bd8ec2
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452317"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018510"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Använd ett beräkningsmål träna din modell
 
@@ -372,7 +372,7 @@ Du kan visa vad compute mål är kopplade till din arbetsyta från Azure-portale
 1. Gå till den [Azure-portalen](https://portal.azure.com) och navigera till din arbetsyta.
 2. Klicka på den __Compute__ länka den __program__ avsnittet.
 
-    ![Visa beräkning fliken](./media/how-to-set-up-training-targets/compute_tab.png)
+    ![Visa beräkning fliken](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
 ### <a name="create-a-compute-target"></a>Skapa ett beräkningsmål
 
@@ -380,7 +380,7 @@ Följ stegen för att visa en lista över beräkningsmål och Använd sedan föl
 
 1. Klicka på den __+__ logga att lägga till ett beräkningsmål.
 
-    ![Lägg till compute ](./media/how-to-set-up-training-targets/add_compute.png)
+    ![Lägg till compute ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
 1. Ange ett namn för beräkningsmål.
 1. Välj den typ av beräkningsresurser kan bifoga för __utbildning__. 

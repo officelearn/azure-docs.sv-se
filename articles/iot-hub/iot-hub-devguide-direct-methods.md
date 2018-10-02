@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: f2e04c793f5c238716930bcbdcaa090e6a133588
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: f9476d42bbdb9d2a499c08d83eed6696fbbed469
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452604"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586010"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direktmetoder från IoT Hub
 
@@ -33,7 +33,7 @@ Referera till [moln till enhet kommunikation vägledning](iot-hub-devguide-c2d-g
 Direkta metoder implementeras på enheten och kan kräva noll eller flera inmatningar i nyttolasten för metoden ska instansieras korrekt. Du anropa en direkt metod via en tjänst för webbservergrupper på URI (`{iot hub}/twins/{device id}/methods/`). En enhet tar emot direkta metoder via ett ämne för enhetsspecifika MQTT (`$iothub/methods/POST/{method name}/`) eller via AMQP-länkar (den `IoThub-methodname` och `IoThub-status` programegenskaper). 
 
 > [!NOTE]
-> När du anropar en direkt metod på en enhet, egenskapsnamn och värden får bara innehålla US-ASCII utskrivbara alfanumeriska, med undantag för sådana i följande: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
+> När du anropar en direkt metod på en enhet, egenskapsnamn och värden får bara innehålla US-ASCII utskrivbara alfanumeriska, med undantag för sådana i följande: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
 Direkta metoder är synkrona och antingen lyckas eller misslyckas när tidsgränsen (standard: 30 sekunder, inställbar upp till 3 600 sekunder). Direkta metoder är användbara i interaktiva scenarier där du vill att en enhet så att den fungerar endast om enheten är online och ta emot kommandon. Till exempel aktivera ett ljust från en telefon. I dessa scenarier som du vill se en omedelbar lyckats eller misslyckats så Molntjänsten kan fungera på resultatet så snart som möjligt. Enheten kan returnera vissa meddelandetexten till följd av metoden, men det inte krävs att göra detta-metoden. Det finns ingen garanti på sortering eller alla samtidighet semantik på metodanrop.

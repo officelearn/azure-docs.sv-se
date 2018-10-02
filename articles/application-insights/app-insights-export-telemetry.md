@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a960ace141d5d71559c39c627f96746a25bf5207
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056143"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585483"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Om du vill behålla din telemetri under längre tid än kvarhållningsperioden standard? Eller bearbeta dem i något specialiserade sätt? Löpande Export är perfekt för detta. Händelserna som visas i Application Insights-portalen kan exporteras till lagringen i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriver det kod som du behöver bearbetas.  
@@ -37,11 +37,9 @@ När löpande Export kopierar dina data till lagring (där det kan vara under s�
 ## <a name="setup"></a> Skapa en löpande Export
 1. Öppna löpande Export i Application Insights-resurs för din app och välj **Lägg till**:
 
-    ![Rulla nedåt och klicka på löpande Export](./media/app-insights-export-telemetry/01-export.png)
-
 2. Välj telemetri datatyper som du vill exportera.
 
-3. Skapa eller välj en [Azure storage-konto](../storage/common/storage-introduction.md) där du vill lagra data.
+3. Skapa eller välj ett [Azure storage-konto] (.. / storage/common/storage-introduction.md) där du vill lagra data. Mer information om storage prisalternativ finns på [officiella prissättningssidan](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > Som standard ställs lagringsplatsen till samma geografiska region som Application Insights-resursen. Om du lagrar i en annan region kan det tillkomma kostnader för dataöverföring.

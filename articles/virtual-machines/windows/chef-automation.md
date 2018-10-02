@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 3a6fbc8410dbc5aec4522f0972a29c67527edb23
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: de89756a3f9ef1139e855da16c0343a9919b56cb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054947"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585382"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatisera distribution av virtuella Azure-datorer med Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef är ett bra verktyg för att leverera automation och önskad tillstånd konfigurationer.
 
-Molnet api med senast versionen, Chef ger sömlös integration med Azure, vilket ger dig möjlighet att etablera och distribuera konfigureringstillstånd via ett enda kommando.
+Med den senaste Molnets API-versionen tillhandahåller Chef sömlös integrering med Azure, vilket ger dig möjlighet att etablera och distribuera konfigureringstillstånd via ett enda kommando.
 
 I den här artikeln kan du ställa in din Chef-miljö för att etablera Azure-datorer och beskriver hur du skapar en princip eller ”CookBook” och sedan distribuera den här cookbook till en Azure virtuell dator.
 
@@ -42,7 +42,7 @@ Följande diagram visar den övergripande Chef-arkitekturen.
 
 Chef har tre huvudsakliga Arkitekturkomponenter: Chef-Server, Chef-klienten (nod) och Chef-arbetsstation.
 
-Chef-Server är hanteringsplatsen och det finns två alternativ för Chef-Server: en värdbaserad lösning eller en lokal lösning. Vi kommer att använda en värdbaserad lösning.
+Chef-Server är hanteringsplatsen och det finns två alternativ för Chef-Server: en värdbaserad lösning eller en lokal lösning. Vi kommer att använda en värdlösning för den här självstudiekursen.
 
 Chef-klienten (node) är den agent som är placerad på de servrar som du hanterar.
 
@@ -75,7 +75,7 @@ När din organisation har skapats kan du hämta starter kit.
 ![][4]
 
 > [!NOTE]
-> Om du får ett meddelande som varnar dig om att dina nycklar återställs, är det ok att slutföra eftersom vi har ingen befintlig infrastruktur som konfigurerats ännu.
+> Om du får ett meddelande som varnar dig om att dina nycklar kommer att återställas är det bra att slutföra eftersom vi har ingen befintlig infrastruktur som konfigurerats ännu.
 > 
 > 
 
@@ -94,7 +94,7 @@ Du bör nu ha fyra filer, inklusive Azure publishing filen i roten av c:\chef.
 
 PEM-filer innehåller din organisation och administratören privata nycklar för kommunikation medan knife.rb-filen innehåller kniv konfigurationen. Vi behöver du redigera filen knife.rb.
 
-Öppna filen i redigeringsprogrammet väljer och ändra ”cookbook_path” genom att ta bort den /... och från sökvägen så visas det på Nästa.
+Öppna filen i redigeringsprogrammet väljer och ändra ”cookbook_path” genom att ta bort den /... och från sökvägen så att den visas som:
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -119,7 +119,9 @@ Bekräfta PATH-variabeln innehåller poster för C:\opscode\chefdk\bin; C:\opsco
 
 Om de inte är det, kontrollera att du lägger till sökvägarna!
 
-*OBS ORDNINGEN PÅ SÖKVÄGEN ÄR VIKTIGT!* Om din opscode sökvägar inte kan i rätt ordning får du problem.
+> [!NOTE]
+> Ordningen på sökvägen är viktigt! Om din opscode sökvägar inte kan i rätt ordning får du problem. 
+> 
 
 Starta om arbetsstationen innan du fortsätter.
 

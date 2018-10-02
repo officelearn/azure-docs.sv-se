@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4d156d3cfd0afa463cdc18b73ad05d09e4159dae
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129496"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018629"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: transkribera
 
@@ -41,16 +41,16 @@ Parametrarna som skickades mot frågesträngen är:
     <td>*Obligatoriska parametern*.<br/>Versionen av API: et som begärs av klienten. Värdet måste vara `3.0`.</td>
   </tr>
   <tr>
-    <td>Språk</td>
+    <td>language</td>
     <td>*Obligatoriska parametern*.<br/>Anger språket i texten som ska konverteras från ett skript till en annan. Möjliga språk visas i den `transliteration` omfång hämtas genom att fråga service för dess [språk som stöds](.\v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Obligatoriska parametern*.<br/>Anger det skript som används av indatatexten. Lookup [språk som stöds](.\v3-0-languages.md) med hjälp av den `transliteration` omfattning, att hitta inkommande skript är tillgängliga för det valda språket.</td>
+    <td>*Obligatoriska parametern*.<br/>Anger det skript som används av indatatexten. Leta upp [språk som stöds](.\v3-0-languages.md) med hjälp av den `transliteration` omfattning, att hitta inkommande skript är tillgängliga för det valda språket.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Obligatoriska parametern*.<br/>Anger det utgående skriptet. Lookup [språk som stöds](.\v3-0-languages.md) med hjälp av den `transliteration` omfattning, att hitta utdata skript är tillgängliga för den valda kombinationen av språk och indata-skript.</td>
+    <td>*Obligatoriska parametern*.<br/>Anger det utgående skriptet. Leta upp [språk som stöds](.\v3-0-languages.md) med hjälp av den `transliteration` omfattning, att hitta utdata skript är tillgängliga för den valda kombinationen av språk och indata-skript.</td>
   </tr>
 </table> 
 
@@ -171,7 +171,7 @@ JSON-nyttolast för begäran i det här exemplet:
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-Om du använder cUrl i ett kommandoradsfönster som inte stöder Unicode-tecken, vidta följande JSON-nyttolasten och spara den till en fil med namnet `request.txt`. Glöm inte att spara filen med `UTF-8` kodning.
+Om du använder cURL i ett kommandoradsfönster som inte stöder Unicode-tecken, vidta följande JSON-nyttolasten och spara den till en fil med namnet `request.txt`. Glöm inte att spara filen med `UTF-8` kodning.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

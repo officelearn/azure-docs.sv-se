@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: 0fcda59add346d60f37273625fbbcf41faab0e15
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 0ed488cd717bc1548b26dcf8ff5f200a62710132
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091211"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584896"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adresser i Azure Functions
 
@@ -58,21 +58,31 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="data-center-outbound-ip-addresses"></a>Utgående IP-adresser i datacentret
 
-Om du vill lista över tillåtna utgående IP-adresser som används av dina funktionsappar, ett annat alternativ är att vitlista i funktionsappar datacenter (Azure-region). Du kan [ladda ned en XML-fil som visar en lista över IP-adresser för alla Azure-Datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Hitta XML-element som används för den region som funktionsappen som körs i.
+Om du vill lista över tillåtna utgående IP-adresser som används av dina funktionsappar, ett annat alternativ är att vitlista i funktionsappar datacenter (Azure-region). Du kan [hämta en JSON-fil som visar en lista över IP-adresser för alla Azure-Datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Hitta den JSON-fragment som gäller för den region som funktionsappen som körs i.
 
-Det här är till exempel hur Västeuropa XML-elementet kan se ut:
+Det här är till exempel hur Västeuropa JSON-fragment kan se ut:
 
 ```
-  <Region Name="europewest">
-    <IpRange Subnet="13.69.0.0/17" />
-    <IpRange Subnet="13.73.128.0/18" />
-    <!-- Some IP addresses not shown here -->
-    <IpRange Subnet="213.199.180.192/27" />
-    <IpRange Subnet="213.199.183.0/24" />
-  </Region>
+{
+  "name": "AzureCloud.westeurope",
+  "id": "AzureCloud.westeurope",
+  "properties": {
+    "changeNumber": 9,
+    "region": "westeurope",
+    "platform": "Azure",
+    "systemService": "",
+    "addressPrefixes": [
+      "13.69.0.0/17",
+      "13.73.128.0/18",
+      ... Some IP addresses not shown here
+     "213.199.180.192/27",
+     "213.199.183.0/24"
+    ]
+  }
+}
 ```
 
- Information om när den här filen uppdateras och när IP-adresserna ändras, expandera den **information** delen av den [Download Center-sidan](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+ Information om när den här filen uppdateras och när IP-adresserna ändras, expandera den **information** delen av den [Download Center-sidan](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
 ## <a name="inbound-ip-address-changes"></a>Inkommande IP-adress ändras
 

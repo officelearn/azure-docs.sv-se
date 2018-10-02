@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: eebe41ea879ad34defadd08ce3095f7f6edca4d8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4dafab089e6ac4bbf4fb9441d995983ce5b58150
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719808"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016882"
 ---
 # <a name="about-the-text-to-speech-api"></a>Om Text till tal-API
 
@@ -34,13 +34,13 @@ Scenarier i vilka tal syntes används är:
 
 ## <a name="voice-support"></a>Stöd för röst
 
-Microsofts **text till tal** tjänsten erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda dessa standard ”rösttyper”, behöver du bara ange voice-namn med några andra parametrar när du anropar tjänstens REST API. Information om röster som stöds, se [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
+Microsofts **text till tal** tjänsten erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda dessa standard ”rösttyper”, behöver du bara ange voice-namn med några andra parametrar när du anropar tjänstens REST API. Information om röster som stöds, se [språk som stöds](language-support.md#text-to-speech). 
 
 Om du vill ha en unik röst för ditt program, kan du skapa [anpassade rösttyper](how-to-customize-voice-font.md) från din egen tal-exempel.
 
 ## <a name="api-capabilities"></a>API-funktioner
 
-Många av funktionerna i den **Text till tal** API - särskilt när det gäller anpassning - är tillgängliga via REST. I följande tabell sammanfattas funktionerna för varje metod för att komma åt API: et. För en fullständig lista över funktioner och API: et. detaljer finns [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+Många av funktionerna i den **Text till tal** API – särskilt när det gäller anpassning, är tillgängliga via REST. I följande tabell sammanfattas funktionerna för varje metod för att komma åt API: et. En fullständig lista över funktioner och API-information Kontakta [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/),
 
 | Användningsfall | REST | SDK:er |
 |-----|-----|-----|----|

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 09ca6fdc40aec84bcc7523bae0dee348d00f6d9f
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059685"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586129"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process i praktiken: Använd Azure HDInsight Hadoop-kluster
 I den här genomgången använder vi den [Team Data Science Process (TDSP)](overview.md) i ett scenario för slutpunkt till slutpunkt. Vi använder en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) att lagra, utforska, och funktion-tekniker data från de allmänt tillgängliga [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättningen, och att nedåtsampla data. Vi bygger modeller av data med Azure Machine Learning för att hantera binära och multiklass-baserad klassificering och regression förutsägande uppgifter. 
@@ -30,9 +30,9 @@ En genomgång som visar hur du hanterar en större datauppsättning, finns i [Te
 Du kan också använda en IPython notebook för att utföra uppgifter som visas i den här genomgången som använder 1 TB-datauppsättningen. Mer information finns i [Criteo genomgång med en Hive ODBC-anslutning](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 ## <a name="dataset"></a>NYC Taxi kommunikation datauppsättning beskrivning
-NYC Taxi resedata är cirka 20 GB komprimerad fil med kommaavgränsade värden (CSV)-filer (~ 48 GB okomprimerad). Det har mer än 173 miljoner enskilda kommunikation och inkluderar priser betalat för varje resa. Varje resa post innehåller upphämtning och Samlingsbibliotek plats och tid, avidentifierade hack (drivrutin) licensnummer och medallion nummer (den taxi unikt ID). Data omfattar alla kommunikation under året 2013 och anges i följande två datauppsättningar för varje månad:
+NYC Taxi resedata är cirka 20 GB komprimerad fil med kommaavgränsade värden (CSV)-filer (~ 48 GB okomprimerad). Det har mer än 173 miljoner enskilda kommunikation och inkluderar priser betalat för varje resa. Varje resa post innehåller upphämtning och dropoff plats och tid, avidentifierade hack (drivrutin) licensnummer och medallion nummer (den taxi unikt ID). Data omfattar alla kommunikation under året 2013 och anges i följande två datauppsättningar för varje månad:
 
-- CSV-filer trip_data innehålla resans information. Detta inkluderar antalet passagerare, vill hämta och lämna, resans varaktighet och resans längd. Här följer några Exempelposter:
+- CSV-filer trip_data innehålla resans information. Detta inkluderar antalet passagerare, vill hämta och dropoff punkter, resans varaktighet och resans längd. Här följer några Exempelposter:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -587,7 +587,7 @@ Frågan gäller standardfunktioner Hive direkt om du vill generera följande fr�
 - vecka på året
 - WEEKDAY (1 står för måndag och 7 står för söndag)
 
-Frågan genererar även direct avståndet mellan de vill hämta och Samlingsbibliotek platserna. En fullständig lista över funktioner finns i [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
+Frågan genererar även direct avståndet mellan platserna som vill hämta och dropoff. En fullständig lista över funktioner finns i [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
 
 Frågan sedan ned-samples data så att frågeresultatet passar in i Azure Machine Learning Studio. Normalt bara 1 procent av den ursprungliga datauppsättningen har importerats till studio.
 

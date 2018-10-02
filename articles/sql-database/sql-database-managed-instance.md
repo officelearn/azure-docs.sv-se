@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 626dd362248027831c78d1505662ca12d2ff334d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 10/01/2018
+ms.openlocfilehash: a09a19957c318416f3cb4de79305b181dbc3be81
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392830"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018300"
 ---
 # <a name="what-is-a-managed-instance"></a>Vad är en hanterad instans?
 
@@ -75,7 +75,7 @@ Hanterad instans finns i två tjänstnivåer:
 Båda versionerna garanterar 99,99% tillgänglighet och gör att du kan välja lagringsstorlek oberoende och beräkningskapacitet. Mer information om arkitektur med hög tillgänglighet i Azure SQL Database finns i [hög tillgänglighet och Azure SQL Database](sql-database-high-availability.md).
 
 > [!IMPORTANT]
-> Ändra din tjänstenivå från generell användning till affärskritiska eller vice versa stöds inte i offentlig förhandsversion. Om du vill migrera dina databaser till en instans i olika tjänstnivå du skapa en ny instans, återställa databaser med återställning till tidpunkt från den ursprungliga instansen och sedan släppa ursprunglig instans om det inte behövs längre. 
+> Ändra din tjänstenivå från generell användning till affärskritiska eller vice versa stöds inte i offentlig förhandsversion. Om du vill migrera dina databaser till en instans i olika tjänstnivå du skapa en ny instans, återställa databaser med återställning till tidpunkt från den ursprungliga instansen och sedan släppa ursprunglig instans om det inte behövs längre. Dock kan du skala dina antalet virtuella kärnor och lagring uppåt eller nedåt på en servicenivå utan avbrott.
 
 ### <a name="general-purpose-service-tier"></a>Tjänstnivå för allmänt syfte
 
@@ -108,7 +108,7 @@ I följande lista beskrivs de främsta egenskaperna för tjänstnivån generell 
 
 \* En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara. Gen 4 logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer och Gen 5 logiska processorer är baserade på Intel E5-2673 v4-processorn (Broadwell) 2,3 GHz-processorer. 
 
-Mer information finns i [Standard/generell användning, tillgänglighet och arkitektur](sql-database-high-availability.md#standardgeneral-purpose-availability) i Azure SQL Database.
+Mer information finns i [Standard/generell användning, tillgänglighet och arkitektur](sql-database-high-availability.md#standardgeneral-purpose-availability) i Azure SQL Database och [bästa praxis för prestanda för lagring och överväganden för Azure SQL DB Managed Instance (Allmänt Syfte)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
 ### <a name="business-critical-service-tier-preview"></a>Affärsnivå kritiska-(förhandsversion)
 

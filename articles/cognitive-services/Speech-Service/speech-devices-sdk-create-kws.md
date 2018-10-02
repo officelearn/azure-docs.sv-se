@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7ba62ce0cc2d391c96c31795aabaac9c8796f6d5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 5b5a13c5a655260bde0496cb2289aec8a55e4b21
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165542"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017045"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Skapa ett anpassat wake ord med Speech-tjänsten
 
@@ -49,30 +49,29 @@ Innan du kan använda ett anpassat wake ord med din enhet, måste du skapa wake 
 
 1. Gå till den [Custom Speech service-portalen](https://cris.ai/).
 
-2. Skapa ett nytt konto med den e-postadress som du har fått inbjudan för Azure Active Directory. 
+1. Skapa ett nytt konto med den e-postadress som du har fått inbjudan för Azure Active Directory. 
 
     ![Skapa ett nytt konto](media/speech-devices-sdk/wake-word-1.png)
  
-3.  När du har loggat in, Fyll i formuläret och välj sedan **starta min resa mot**.
+1.  När du har loggat in, Fyll i formuläret och välj sedan **starta min resa mot**.
 
     ![har loggat in](media/speech-devices-sdk/wake-word-3.png)
  
-4. Den **anpassad Wake Word** sidan är inte tillgänglig för allmänheten, så det finns ingen direkt koppling som tar dig det. Anpassad talfunktionen kräver en Azure-prenumerationer, men funktionen anpassade Wake Word inte. Om du har fått den **inga prenumerationer hittades.** felsidan, bara Ersätt den **”prenumerationer? errorMessage = ingen % 20Subscriptions % 20found”** med ”**customkws**” i URL: en och träffar på RETUR. URL: en ska vara något av följande: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws eller https://northeurope.cris.ai/customkws, beroende på var din region är.   
-
+1. Den **anpassad Wake Word** sidan är inte tillgänglig för allmänheten, så det finns ingen direkt koppling som tar dig det. Anpassad talfunktionen kräver en Azure-prenumerationer, men funktionen anpassade Wake Word inte. Om du har fått den **inga prenumerationer hittades.** felsidan, bara Ersätt den **”prenumerationer? errorMessage = ingen % 20Subscriptions % 20found”** med ”**customkws**” i URL: en och träffar på RETUR. URL: en ska vara något av följande: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws eller https://northeurope.cris.ai/customkws, beroende på var din region är.
 
     ![Anpassad Wake Word-sida är dold](media/speech-devices-sdk/wake-word-4.png)
  
-6. Skriver wake ordet valfritt och väljer sedan **skicka ordet**.
+1. Skriver wake ordet valfritt och väljer sedan **skicka ordet**.
 
     ![Ange ditt wake ord](media/speech-devices-sdk/wake-word-5.png)
  
-7. Det kan ta några minuter för filer som ska genereras. Du bör se en snurrande cirkel i webbläsarfönstret. Efter en stund visas ett informationsfält, där du kan ladda ned en ZIP-fil.
+1. Det kan ta några minuter för filer som ska genereras. Du bör se en snurrande cirkel i webbläsarfönstret. Efter en stund visas ett informationsfält, där du kan ladda ned en ZIP-fil.
 
     ![Ta emot .zip-filen](media/speech-devices-sdk/wake-word-6.png)
 
-8. Spara ZIP-filen till datorn. Du behöver den här filen för att distribuera anpassade wake ordet development Kit. Om du vill distribuera anpassad aktivering ordet, följer du anvisningarna i [Kom igång med tal enheter SDK](speech-devices-sdk-qsg.md).
+1. Spara ZIP-filen till datorn. Du behöver den här filen för att distribuera anpassade wake ordet development Kit. Om du vill distribuera anpassad aktivering ordet, följer du anvisningarna i [Kom igång med tal enheter SDK](speech-devices-sdk-qsg.md).
 
-9. Välj **logga ut.**
+1. Välj **logga ut.**
 
 ## <a name="next-steps"></a>Nästa steg
 

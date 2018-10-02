@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 521a7b90b971ff3ba867945a4713b1f6dc8dbebc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 84869a93dfe2f979e207257ebac80773a172a776
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503527"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017932"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Omvänd proxy i Azure Service Fabric
 Omvänd proxy som är inbyggda i Azure Service Fabric hjälper mikrotjänster som körs i ett Service Fabric-kluster identifiera och kommunicera med andra tjänster som har http-slutpunkter.
@@ -159,6 +159,7 @@ För det lokala klustret `Fabric_NodeIPOrFQDN` är inställd på ”localhost”
 ## <a name="next-steps"></a>Nästa steg
 * [Installera och konfigurera omvänd proxy i ett kluster](service-fabric-reverseproxy-setup.md).
 * [Konfigurera vidarebefordran till säker HTTP-tjänsten med omvänd proxy](service-fabric-reverseproxy-configure-secure-communication.md)
+* [Diagose omvänd proxy-händelser](service-fabric-reverse-proxy-diagnostics.md)
 * Se ett exempel på HTTP-kommunikation mellan tjänster i en [exempelprojektet på GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [RPC-anrop med Reliable Services-fjärrkommunikation](service-fabric-reliable-services-communication-remoting.md)
 * [Webb-API som använder OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md)

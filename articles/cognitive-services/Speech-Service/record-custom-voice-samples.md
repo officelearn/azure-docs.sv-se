@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: b1bab65b68c5f37165fbc8414ac4300c924e53b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c30d531876ae7c69c164bc1d73103e493aaaa8fa
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165184"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018323"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Post voice-exempel för att skapa en anpassad röst
 
@@ -38,7 +38,7 @@ Spela in-tekniker  |Övervakar de tekniska aspekterna av inspelningen och funger
 Director            |Förbereder skriptet och coaches voice-personal prestanda.
 Redigeringsprogram              |Slutför ljudfilerna och förbereder dem för överföring till den anpassade Voice-portalen.
 
-En person kan fylla mer än en roll. Den här guiden förutsätter att du ska främst fylla rollen director och anställa både en röst-personal och en inspelning tekniker. Om du vill göra inspelningarna själv, den här artikeln innehåller information om rollen inspelning tekniker. Rollen Redigerare behövs inte förrän efter sessionen, så kan utföras director inspelning-tekniker.
+En person kan fylla mer än en roll. Den här guiden förutsätter att du ska främst fylla rollen director och anställa både en röst-personal och en inspelning tekniker. Om du vill göra inspelningarna själv, den här artikeln innehåller information om rollen inspelning tekniker. Rollen Redigerare behövs inte förrän efter sessionen, så kan utföras av director eller spela in-tekniker.
 
 ## <a name="choose-your-voice-talent"></a>Välj din röst personal
 

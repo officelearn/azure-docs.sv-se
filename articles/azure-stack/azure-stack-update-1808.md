@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7278f784316fdbd7170bb69b9414911b8f5b3823
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 94e18b6a4fc367a9697078f8e0c1a307ae15d4be
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452691"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017950"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -137,7 +137,7 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
 Installera alla tillämpliga snabbkorrigeringar efter installationen av uppdateringen. Visa mer information i följande artiklar i kunskapsbasen, samt våra [Servicing princip](azure-stack-servicing-policy.md). 
-- [KB 4464226 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.1.99]( https://support.microsoft.com/help/4464226)
+- [KB 4465859 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.2.104](https://support.microsoft.com/help/4465859/)
 
 
 ## <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
@@ -230,8 +230,6 @@ Här följer efter installation kända problem för den här build-versionen.
 - <!-- 2724873 - IS --> När du använder PowerShell-cmdlets **Start AzsScaleUnitNode** eller **Stop-AzsScaleunitNode** för att hantera skalningsenheter, det första försöket att starta eller stoppa skalningsenheten kan misslyckas. Om cmdleten misslyckas på den första körningen, kör du cmdlet en gång. Den andra körningen bör fungera för att slutföra åtgärden. 
 
 - <!-- TBD - IS ASDK --> När du skapar virtuella datorer på Azure Stack-användarportalen visar portalen ett felaktigt antal datadiskar som kan ansluta till virtuella datorer i DS-serien. DS-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
-
-- <!-- TBD - IS ASDK --> Om du använder en miljö med flera organisationer, etablera en virtuell dator med en hanterad disk i en prenumeration som inte ingår i standard-klientorganisation misslyckas med följande fel: *resursåtgärden slutfördes med slutliga etableringstillståndet ”misslyckades”.*
 
 - <!-- TBD - IS ASDK --> Om det tar för lång tid att etablera ett tillägg på en VM-distribution, bör användarna låta etablering timeout-värde istället för att försöka stoppa processen för att frigöra eller ta bort den virtuella datorn.  
 

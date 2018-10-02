@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: bb62f892ec3d171958764d10f4b069bbd536d2ea
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f50714538cdfd1a0bd258a3b78d0885e3c7beed1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223448"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018493"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av mallar
 
@@ -188,7 +188,7 @@ Om du har en virtuell dator som inte längre behöver en automatiskt genererad h
 
    Om den virtuella datorn har både system och användartilldelade hanterade identiteter, ta bort `SystemAssigned` från identitetstyp och håll `UserAssigned` tillsammans med den `userAssignedIdentities` ordlista värden.
 
-   **Microsoft.Compute/virtualMachines API-versionen 2018-06-01 och tidigare**
+   **Microsoft.Compute/virtualMachines API-versionen 2018-06-01**
    
    Om din `apiVersion` är `2017-12-01` och den virtuella datorn har både system och användartilldelade hanterade identiteter, ta bort `SystemAssigned` från identitetstyp och håll `UserAssigned` tillsammans med den `identityIds` matris med de Användartilldelad hanterade identiteter.  
    
@@ -235,7 +235,7 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
    }
    ```
    
-   **Microsoft.Compute/virtualMachines API-versionen 2017-12-01 och tidigare**
+   **Microsoft.Compute/virtualMachines API-versionen 2017-12-01**
     
    Om din `apiVersion` är `2017-12-01`, dina hanterade användartilldelade identiteter lagras i den `identityIds` matris och `<USERASSIGNEDIDENTITYNAME>` värdet måste vara lagrad i en variabel som anges i den `variables` i mallen.
     
@@ -316,7 +316,7 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
        }
     ]
    ```
-   **Microsoft.Compute/virtualMachines API-versionen 2017-12-01 och tidigare**
+   **Microsoft.Compute/virtualMachines API-versionen 2017-12-01**
    
    ```JSON
    "resources": [
@@ -375,7 +375,7 @@ Om du har en virtuell dator som inte längre behövs en hanterad Användartillde
     }
    ```
    
-   **Microsoft.Compute/virtualMachines API-versionen 2018-06-01 och tidigare**
+   **Microsoft.Compute/virtualMachines API-versionen 2018-06-01**
     
    Om du vill ta bort en enda hanterad användartilldelade-identitet från en virtuell dator, ta bort den från den `useraAssignedIdentities` ordlista.
 

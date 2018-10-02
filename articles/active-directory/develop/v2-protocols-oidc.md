@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c2ff5272fc6cdc4cc18b8d461a8fb7edeee9878
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971458"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017995"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 och OpenID Connect-protokoll
 
@@ -111,7 +111,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | klient |Krävs |Du kan använda den `{tenant}` värdet i sökvägen för begäran om att kontrollera vem som kan logga in till programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
 | client_id |Krävs |Programmet med ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
-| response_type |Krävs |Måste innehålla `id_token` för OpenID Connect-inloggning. Det kan även innehålla andra `response_types` värden, till exempel `code`. |
+| response_type |Krävs |Måste innehålla `id_token` för OpenID Connect-inloggning. Det kan även innehålla andra `response_type` värden, till exempel `code`. |
 | redirect_uri |Rekommenderas |Omdirigerings-URI för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodas. |
 | omfång |Krävs |En blankstegsavgränsad lista med omfattningar. Det måste innehålla omfånget för OpenID Connect, `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Du kan även innehålla andra scope i den här begäran för att begära godkännande. |
 | nonce |Krävs |Ett värde som ingår i den begäran som skapats av appen, som ska tas med i det resulterande id_token-värdet som ett anspråk. Appen kan kontrollera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng som kan användas för att fastställa ursprunget för begäran. |

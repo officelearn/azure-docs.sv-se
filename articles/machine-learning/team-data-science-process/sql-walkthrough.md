@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 6e9813d989a54dbb1609a58dd502a7493d973faa
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a4587b1292652cd712b0bf389a9963a4f73b1333
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433726"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586384"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process i praktiken: med SQL Server
 I den här självstudien får du går igenom processen för att skapa och distribuera en maskininlärningsmodell med SQL Server och en datauppsättning som är allmänt tillgängliga – [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättning. Proceduren följer en standard arbetsflöde för datavetenskap: mata in och utforska data, bygg funktioner för att förenkla inlärningen, och sedan skapa och distribuera en modell.
 
 ## <a name="dataset"></a>NYC Taxi sätts datauppsättning beskrivning
-NYC Taxi resedata är cirka 20GB komprimerat CSV-filer (~ 48GB okomprimerad), som består av mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Hämtning och Samlingsbibliotek plats och tid, avidentifierade hack (drivrutin) licensnummer och medallion (taxi's unikt id) antalet innehåller varje resa-post. Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
+NYC Taxi resedata är cirka 20GB komprimerat CSV-filer (~ 48GB okomprimerad), som består av mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Hämtning och dropoff plats och tid, avidentifierade hack (drivrutin) licensnummer och medallion (taxi's unikt id) antalet innehåller varje resa-post. Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
 
 1. Trip_data CSV innehåller resans information, till exempel antalet passagerare, hämtning och dropoff punkter, resans varaktighet och resans längd. Här följer några Exempelposter:
    
@@ -220,7 +220,7 @@ Det här exemplet beräknar fördelningen av tip-intervall i en viss tidsperiod 
     GROUP BY tip_class
 
 #### <a name="exploration-compute-and-compare-trip-distance"></a>Utforskning: Beräkna och jämföra resans avstånd
-Det här exemplet konverterar hämtning och Samlingsbibliotek longitud och latitud till SQL geografiskt område återställningspunkter, beräknar avståndet resa med hjälp av SQL geografi punkter skillnaden och returnerar ett slumpmässigt urval av resultaten för jämförelse. I exempel begränsar resultaten till giltiga koordinater bara med data quality utvärdering fråga beskrivs tidigare.
+Det här exemplet konverterar hämtning och dropoff longitud och latitud till SQL geografiskt område återställningspunkter, beräknar avståndet resa med hjälp av SQL geografi punkter skillnaden och returnerar ett slumpmässigt urval av resultaten för jämförelse. I exempel begränsar resultaten till giltiga koordinater bara med data quality utvärdering fråga beskrivs tidigare.
 
     SELECT
     pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)

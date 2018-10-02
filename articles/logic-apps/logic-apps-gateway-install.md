@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: daeb0c5436d851b6e234c1b97583df526192659e
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842455"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018782"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera en lokal datagateway för Azure Logic Apps
 
@@ -101,7 +101,7 @@ Information om hur du använder gatewayen med andra tjänster finns i följande 
 
 ## <a name="install-data-gateway"></a>Installera datagateway
 
-1. [Hämta, spara och kör installationsprogrammet för gateway på en lokal dator](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Hämta, spara och kör installationsprogrammet för gateway på en lokal dator](https://aka.ms/on-premises-data-gateway-installer).
 
 2. Acceptera standardsökvägen eller ange platsen på datorn där du vill installera gatewayen.
 
@@ -182,7 +182,7 @@ Om du måste ändra platsen för din gateway, flytta din gateway-installation ti
 
 1. Från din dator **Kontrollpanelen**går du till **program och funktioner**. Välj i programlistan **lokal datagateway**, och välj sedan **avinstallera**.
 
-2. [Installera om den lokala datagatewayen](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+2. [Installera om den lokala datagatewayen](https://aka.ms/on-premises-data-gateway-installer).
 
 3. När installationsprogrammet öppnas och logga in med samma arbets- eller skolkonto som användes tidigare för att installera gatewayen.
 

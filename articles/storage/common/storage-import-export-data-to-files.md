@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 1be7dd9ce537d0999ace01eafa46318e42df9f20
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: adb3127e45166d4743c182cbd21944dd86810596
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732457"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584174"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Files
 
@@ -139,7 +139,7 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
     
     - Ladda upp journalfiler som du skapade under det föregående [steg 1: Förbered enheterna](#step-1-prepare-the-drives). 
     - Välj det lagringskonto som data ska importeras till. 
-    - Samlingsplats fylls i automatiskt baserat på regionen som det valda lagringskontot.
+    - Dropoff platsen fylls i automatiskt baserat på regionen som det valda lagringskontot.
    
        ![Skapa importjobb – steg 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

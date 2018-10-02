@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 283d27e330b7e1defb34196279693b5b5a7221df
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/24/2018
+ms.openlocfilehash: 09238b75680658e9efef3a6a9aaa3c288d3d91a4
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160595"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585857"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Justera prestanda i Azure SQL Database
 
@@ -30,29 +30,18 @@ Du har inte några tillämpliga rekommendationer och du fortfarande har problem 
 
 Det här är manuella metoder eftersom du måste bestämma mängden resurser som uppfyller dina behov. I annat fall skulle du behöva skriva om programmet eller databaskod och distribuera ändringarna.
 
-## <a name="increasing-servicce-tier-of-your-database"></a>Öka servicce nivå för din databas
+## <a name="increasing-service-tier-of-your-database"></a>Öka tjänstenivå för databasen
 
-Azure SQL Database erbjuder två inköpschef modeller, en [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och en [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) som du kan välja bland. Varje tjänstnivå isolerar enbart de resurser som din SQL-databas kan använda och garanterar förutsägbara prestanda för den tjänstnivån. Vi erbjuder vägledning som hjälper dig att välja tjänstnivå för ditt program i den här artikeln. Vi diskuterar också olika sätt att du kan finjustera dina program att få ut mest från Azure SQL Database.
+Azure SQL Database erbjuder [två inköpschef modeller](sql-database-service-tiers.md), ett [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och en [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) som du kan välja bland. Varje tjänstnivå isolerar enbart de resurser som din SQL-databas kan använda och garanterar förutsägbara prestanda för den tjänstnivån. Vi erbjuder vägledning som hjälper dig att välja tjänstnivå för ditt program i den här artikeln. Vi diskuterar också olika sätt att du kan finjustera dina program att få ut mest från Azure SQL Database. Varje tjänstenivå har en egen [resursgränser](sql-database-resource-limits.md). Mer information finns i [vCore-baserade resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md) och [DTU-baserade resursbegränsningar](sql-database-dtu-resource-limits-single-databases.md).
 
 > [!NOTE]
 > Den här artikeln fokuserar på prestanda hos enskilda databaser i Azure SQL Database. Prestandavägledning som rör elastiska pooler finns i [pris- och prestandaöverväganden för elastiska pooler](sql-database-elastic-pool-guidance.md). Observera dock att du kan använda flera av justeringsrekommendationer i den här artikeln för databaser i en elastisk pool och få liknande prestandafördelarna.
-> 
-
-* **Grundläggande**: Basic service-nivån erbjuder bra förutsägbara prestanda för varje databas, timme under timmen. I en Basic-databas stöder tillräckligt med resurser för bra prestanda för en liten databas som inte har flera samtidiga begäranden. Typiska användningsexempel när du skulle använda grundläggande tjänstnivå är:
-  * **Du precis har kommit igång med Azure SQL Database**. Program som är under utveckling ofta inte behöver hög-beräkning storlekar. Grundläggande databaser är en perfekt miljö för utveckling eller testning till ett lågt pris.
-  * **Du har en databas till en enda användare**. Program som associerar en användare med en databas normalt har inte höga krav för samtidighet och prestanda. Dessa program lämpar sig för Basic tjänstnivån.
-* **Standard**: Standard tjänstnivå erbjuder bättre prestanda, förutsägbarhet och ger bra prestanda för databaser som har flera samtidiga förfrågningar, som arbetsgrupp och webbprogram. När du väljer en Standard-nivån-tjänstdatabasen du kan ändra storlek på dina databasprogram baserat på förutsägbar prestanda, minut under minut.
-  * **Databasen har flera samtidiga begäranden**. Program som betjäna flera användare i taget vanligtvis måste högre storlekar. Exempelvis är arbetsgrupps- eller webbappar program som har låg till medelhög i/o-trafikkrav som stöder flera samtidiga frågor bra kandidater för Standard-tjänstnivå.
-* **Premium**: The premiumnivån ger förutsägbar prestanda, andra över andra för varje Premium- eller affärskritisk databas. När du väljer Premium-tjänstnivån, du kan ändra storlek databasen programmet baserat på toppbelastningen för den här databasen. Planen tar du bort fall i vilka varians orsaka små frågor tar längre tid än förväntat i känslig åtgärder. Den här modellen förenklar utveckling och produkten verifiering cykler för program som kräver att stark uttalanden om resursbehov för högsta prestanda varians eller svarstid. De flesta Premium-nivån används serviceärenden har en eller flera av följande egenskaper:
-  * **Hög belastning**. Ett program som kräver betydande CPU, minne eller indata/utdata (I/O) att slutföra dessa åtgärder kräver en dedikerad, hög-compute-storlek. En databasåtgärd kända för att använda flera processorkärnor en längre tid är till exempel en kandidat för Premium-tjänstnivån.
-  * **Många samtidiga begäranden**. Vissa databasprogram tjänsten många samtidiga begäranden, till exempel när du hanterar en webbplats som har en hög belastning på volym. Basic och Standard tjänstnivåer begränsa antalet samtidiga begäranden per databas. Program som kräver fler anslutningar måste välja en lämplig reservationsstorlek för att hantera det maximala antalet nödvändiga begäranden.
-  * **Låg latens**. Vissa program behöver att garantera ett svar från databasen på minimal tid. Om en specifik lagrad procedur anropas som en del av en bredare kund-åtgärd, kanske ett krav att ha en returnera från anropet i fler än 20 millisekunder, 99 procent av tiden. Den här typen av program dra nytta av Premium-tjänstnivån, kontrollera att nödvändiga databearbetningsfunktioner är tillgänglig.
 
 Tjänstenivå som du behöver för din SQL-databas är beroende av högsta belastning krav för varje resursdimension. Vissa program använder en trivial del av en enskild resurs, men har betydande krav för andra resurser.
 
 ### <a name="service-tier-capabilities-and-limits"></a>Tjänstfunktioner och begränsningar
 
-På varje tjänstnivå och ange beräkningsstorleken, så att du har flexibiliteten att betala bara för den kapacitet du behöver. Du kan [justera kapacitet](sql-database-service-tiers-dtu.md), upp eller ned, när arbetsbelastningen ändras. Om din databas-arbetsbelastning är hög under perioder som jul den tillbaka till skolan, kan du till exempel öka beräkningsstorleken för databasen för en viss tid, juli via September. Du kan minska det när din högsta säsongen avslutas. Du kan minimera det du betalar för genom att optimera din molnmiljö till säsongsvärdet för din verksamhet. Den här modellen fungerar bra för programvara utgivningscykler för produkten. Ett test-team kan allokera kapacitet medan den gör testa körningar och släpp den kapaciteten när de är klara testning. I ett prispaket av begäran betalar du för kapacitet du behöver det och undvika utgifterna på dedikerade resurser som du kan använda för sällan.
+På varje tjänstnivå och ange beräkningsstorleken, så att du har flexibiliteten att betala bara för den kapacitet du behöver. Du kan [justera kapacitet](sql-database-single-database-scale.md), upp eller ned, när arbetsbelastningen ändras. Om din databas-arbetsbelastning är hög under perioder som jul den tillbaka till skolan, kan du till exempel öka beräkningsstorleken för databasen för en viss tid, juli via September. Du kan minska det när din högsta säsongen avslutas. Du kan minimera det du betalar för genom att optimera din molnmiljö till säsongsvärdet för din verksamhet. Den här modellen fungerar bra för programvara utgivningscykler för produkten. Ett test-team kan allokera kapacitet medan den gör testa körningar och släpp den kapaciteten när de är klara testning. I ett prispaket av begäran betalar du för kapacitet du behöver det och undvika utgifterna på dedikerade resurser som du kan använda för sällan.
 
 ### <a name="why-service-tiers"></a>Varför tjänstnivåer?
 Varje databas-arbetsbelastning kan variera, är syftet med tjänstnivåer att tillhandahålla förutsägbara prestanda i olika storlekar. Kunder med storskaliga databasen resurskrav kan arbeta i en mer dedikerade datormiljö.

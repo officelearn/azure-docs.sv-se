@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531842"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018723"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway översikt över hälsoövervakning
 
@@ -96,7 +96,7 @@ Följande tabell innehåller definitioner för egenskaperna för en anpassad hä
 
 Om det finns en nätverkssäkerhetsgrupp (NSG) i programgatewayundernät, måste portintervall 65503 65534 vara öppna på application gateway-undernätet för inkommande trafik. Dessa portar är obligatoriska för serverdelens hälsotillstånd API som fungerar.
 
-Dessutom går inte att blockera utgående Internet-anslutning och trafik från taggen AzureLoadBalancer måste tillåtas.
+Dessutom går inte att blockera utgående Internet-anslutning och inkommande trafik som kommer från taggen AzureLoadBalancer måste tillåtas.
 
 ## <a name="next-steps"></a>Nästa steg
 När du läst om Application Gateway hälsoövervakning kan du konfigurera en [anpassade hälsoavsökning](application-gateway-create-probe-portal.md) i Azure-portalen eller en [anpassade hälsoavsökning](application-gateway-create-probe-ps.md) med PowerShell och Azure Resource Manager distributionsmodell.

@@ -7,24 +7,22 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: 0a91139d92570a2ee2828f9295590d580902c501
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/19/2018
+ms.openlocfilehash: 68746874ec01f44055421f0033acd0d485e1d230
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164998"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586095"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhetskopior
 
 Du kan konfigurera Azure SQL-databas med en [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md) princip (LTR) för att automatiskt behålla säkerhetskopior i Azure blob storage för upp till 10 år. Du kan sedan återställa en databas med hjälp av dessa säkerhetskopior med hjälp av Azure portal eller PowerShell.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Använda Azure portal för att konfigurera principer för långsiktig kvarhållning och återställa säkerhetskopior
-
 I följande avsnitt visas hur du använder Azure-portalen för att konfigurera långsiktig kvarhållning, visa säkerhetskopior i långsiktig kvarhållning och återställa säkerhetskopia från långsiktig kvarhållning.
 
 ### <a name="configure-long-term-retention-policies"></a>Konfigurera principer för långsiktig kvarhållning
@@ -78,6 +76,24 @@ I följande avsnitt visas hur du använder PowerShell för att konfigurera den l
 - [I AzureRM.Sql 4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) eller senare
 - [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) eller senare
 > 
+
+### <a name="rbac-roles-to-manage-long-term-retention"></a>RBAC-roller för att hantera långsiktig kvarhållning
+
+Hantera säkerhetskopior av LTR ska du kunna vara 
+- Prenumerationens ägare eller
+- SQL Server-rollen deltagare i **prenumeration** omfång eller
+- SQL-databas deltagarrollen i **prenumeration** omfång
+
+Om det krävs mer detaljerad kontroll, kan du skapa anpassade RBAC-roller och tilldela dem i **prenumeration** omfång. 
+
+För **Get-AzureRmSqlDatabaseLongTermRetentionBackup** och **Restore-AzureRmSqlDatabase** rollen måste ha följande behörigheter:
+
+Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/ longTermRetentionBackups/diskläsning
+ 
+För **Remove-AzureRmSqlDatabaseLongTermRetentionBackup** rollen måste du ha följande behörigheter:
+
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+
 
 ### <a name="create-an-ltr-policy"></a>Skapa en LTR-princip
 

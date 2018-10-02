@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: douglasl
-ms.openlocfilehash: ff112459ef23930329fc1959a633bd6f505893a1
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: aa8572ea0195891657baf3df1916ce0b4f36f788
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419614"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018816"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
@@ -112,6 +112,11 @@ Här följer stegen för att konfigurera en Azure-Pipelines version så kan du a
     f.  Välj **...** bredvid den **åsidosätta mallparametrar** fältet och Fyll i informationen för målet Data Factory. För de autentiseringsuppgifter som kommer från key vault använder samma namn för hemligheten i följande format: förutsatt att den hemliga namn är `cred1`, ange `"$(cred1)"` (mellan citattecken).
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
+
+    g. Välj den **inkrementella** Distributionsläget.
+
+    > [!WARNING]
+    > Om du väljer **Slutför** distributionsläget befintliga resurser kan tas bort, inklusive målresursgruppen.
 
 1.  Spara versionspipelinen.
 

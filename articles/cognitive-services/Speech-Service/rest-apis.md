@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc73be09cec4ef963a496687d112f98e05d98802
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032435"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018527"
 ---
 # <a name="speech-service-rest-apis"></a>Taltjänst REST API: er
 
@@ -36,7 +36,7 @@ Följande parametrar kan ingå i frågesträngen för REST-begäran.
 
 |Parameternamn|Krävs/valfritt|Betydelse|
 |-|-|-|
-|`language`|Krävs|Identifierare för språket som ska identifieras. Se [språk som stöds](supported-languages.md#speech-to-text).|
+|`language`|Krävs|Identifierare för språket som ska identifieras. Se [språk som stöds](language-support.md#speech-to-text).|
 |`format`|Valfri<br>standard: `simple`|Resultatformatet, `simple` eller `detailed`. Enkel resultatet inkluderar `RecognitionStatus`, `DisplayText`, `Offset`, och varaktighet. Detaljerade resultat omfattar flera kandidater med tillförsikt värden och fyra olika representationer.|
 |`profanity`|Valfri<br>standard: `masked`|Hur du hanterar svordomar i igenkänningsresultat. Kan vara `masked` (ersätter olämpligt språk med en asterisk), `removed` (tar bort alla svordomar) eller `raw` (inklusive svordomar).
 
@@ -195,9 +195,6 @@ Följande är REST-slutpunkter för tjänsten tal Text till tal-API. Använd den
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> Om du har skapat en anpassad rösttyp använder du den associerade anpassad slutpunkten.
-
 Speech-tjänsten stöder 24-KHz ljuduppspelning förutom 16 Khz utdata som stöds av Bing-taligenkänning. Fyra 24-KHz utdataformat är tillgängliga för användning i den `X-Microsoft-OutputFormat` HTTP-huvud, som är två 24-KHz röster `Jessa24kRUS` och `Guy24kRUS`.
 
 Nationell inställning | Språk   | Kön | Tjänsten Namnmappningen
@@ -205,7 +202,7 @@ Nationell inställning | Språk   | Kön | Tjänsten Namnmappningen
 sv-SE  | Svenska | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, Jessa24kRUS)” 
 sv-SE  | Svenska | Man   | ”Microsoft Server tal Text till tal-röst (en-US, Guy24kRUS)”
 
-En fullständig lista över tillgängliga röster är tillgängliga i [språk som stöds](supported-languages.md#text-to-speech).
+En fullständig lista över tillgängliga röster är tillgängliga i [språk som stöds](language-support.md#text-to-speech).
 
 ### <a name="request-headers"></a>Begärandehuvud
 
@@ -265,7 +262,8 @@ HTTP-kod|Betydelse|Möjlig orsak
 400 |Felaktig begäran |En obligatorisk parameter är tom, null eller saknas. Eller värdet som skickas till antingen en obligatorisk eller valfri parameter är ogiltig. Ett vanligt problem är en rubrik som är för lång.
 401|Behörighet saknas |Begäran har inte behörighet. Kontrollera att din prenumerationsnyckel eller token är giltig och i rätt region.
 413|Begäran om entiteten är för stor|SSML-indata är längre än 1024 tecken.
-|502|Felaktig gateway    | Problem med nätverket eller servern. Kan också vara ogiltiga sidhuvuden.
+429|För många begäranden|Du har överskridit kvoten eller antalet begäranden som tillåts för din prenumeration.
+502|Felaktig gateway | Problem med nätverket eller servern. Kan också vara ogiltiga sidhuvuden.
 
 Om HTTP-status är `200 OK`, brödtexten i svaret innehåller en ljudfil i det begärda formatet. Den här filen kan spelas upp när den överförs eller sparas till en buffert eller fil för senare uppspelning eller annan användning.
 

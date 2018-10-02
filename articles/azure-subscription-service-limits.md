@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: efaca1b9506ada02c52ad0833139d3b4e441d456
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0b78c7c94f5dc6d7c427188ac4ffd807a06a867e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393621"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585500"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker flera av plattformen.
@@ -102,7 +102,7 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>Prenumerationsgränser
-#### <a name="subscription-limits"></a>Prenumerationsgränser
+#### <a name="subscription-limits---azure-service-management-classic-resources"></a>Prenumerationsbegränsningar – Azure Service Management (klassiska resurser)
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>Prenumerationsbegränsningar – Azure Resource Manager

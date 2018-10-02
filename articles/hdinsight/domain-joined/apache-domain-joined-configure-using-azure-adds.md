@@ -8,12 +8,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: eb24aa0471604696de99f4878baef764cfef0a8b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 6cfe587abadf8350fecc497b1af1cea9700f4f28
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408362"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018738"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services
 
@@ -44,6 +44,10 @@ Visa hälsotillståndet för din Azure Active Directory Domain Services genom at
 ![Azure Active Directory Domain Services-hälsa](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
 ## <a name="add-managed-identity"></a>Lägg till hanterad identitet
+
+Skapa en hanterad Användartilldelad identitet om du inte redan har en. Se [skapa, lista, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) anvisningar. 
+
+Den hanterade identitet används för att förenkla domain services-åtgärder. Den här identiteten har åtkomst till läsa, skapa, ändra och ta bort domain services åtgärder som behövs för HDInsight Enterprise Security Package som att skapa organisationsenheter och principer för tjänsten.
 
 När du har aktiverat Azure AD-DS skapar en hanterad Användartilldelad identitet och kopplar den till den **HDInsight Domain Services deltagare** roll i Azure AD DS-åtkomstkontroll.
 

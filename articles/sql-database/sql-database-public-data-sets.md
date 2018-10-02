@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6977995fb33d221b48a633076f61d3ee39d6ba40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160425"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586265"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Offentliga datauppsättningar för testning och prototyper
 
@@ -40,7 +40,7 @@ Bläddra i den här listan över offentliga datauppsättningar för data som du 
 
 | Datakälla | Om de data som används | Om filerna |
 |---|---|---|
-| [New York City taxi-data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | ”Taxi resans posterna innehåller fält som avbildning du vill hämta och Samlingsbibliotek datum/tider, vill hämta och Samlingsbibliotek platser, resa avstånd, specificerade priser, priset typer, betalningstyper och drivrutinen rapporterat passagerartrafik räknar”. | Uppgifter som är i CSV-filer per månad. |
+| [New York City taxi-data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | ”Taxi resans posterna innehåller fält som avbildning du vill hämta och dropoff datum/tider, vill hämta och dropoff platser, resa avstånd, specificerade priser, priset typer, betalningstyper och drivrutinen rapporterat passagerartrafik räknar”. | Uppgifter som är i CSV-filer per månad. |
 | [Microsoft Research datauppsättningar – ”Data Science för forskning”](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Flera datauppsättningar som täcker datorn interaktion, ljud/video, data-utvinning/informationshämtning, geospatiala/plats, bearbetning av naturligt språk och robotteknik/visuellt. | Uppgifter som är i olika format, zippade för hämtning. |
 | [Offentliga genom data](http://www.completegenomics.com/public-data/) | ”En mängd olika människor genomer data är tillgängligt för allmänt bruk att förbättra den stora uppsättningar genomiska analys...” Providern, fullständig Genomics är en privat vinstdrivande corporation. | Datauppsättningar, är efter extrahering, i textformat för UNIX. Analysverktyg är också tillgängliga. |
 | [Öppna Science Data molndata](https://www.opensciencedatacloud.org/) | ”Öppna Science Data molnet erbjuder vetenskapliga community med resurser för att lagra, dela och analysera terabyte och petabyte-skala vetenskapliga datauppsättningar”.| Uppgifter som är i olika format. |

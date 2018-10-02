@@ -2,22 +2,21 @@
 title: Förstå Azure IoT Hub-frågespråk | Microsoft Docs
 description: Utvecklarguide – beskrivning av IoT-hubben som SQL-liknande frågespråk som används för att hämta information om enheten/modultvillingar och jobb från IoT hub.
 author: fsautomata
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4aa4a3b1e617009d88c581966f791569322d967f
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952485"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018443"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för tvillingar för enheten och modulen, jobb och meddelanderoutning
 
-IoT Hub tillhandahåller ett kraftfullt SQL-liknande språk för att hämta information om [enhetstvillingar] [ lnk-twins] och [jobb][lnk-jobs], och [meddelanderoutning][lnk-devguide-messaging-routes]. Den här artikeln beskriver vi:
+IoT Hub tillhandahåller ett kraftfullt SQL-liknande språk för att hämta information om [enhetstvillingar](iot-hub-devguide-device-twins.md) och [jobb](iot-hub-devguide-jobs.md), och [meddelanderoutning](iot-hub-devguide-messages-d2c.md). Den här artikeln beskriver vi:
 
 * En introduktion till de viktigaste funktionerna i frågespråket IoT Hub och
 * Detaljerad beskrivning av språket. Mer information om frågespråk för meddelanderoutning finns [frågor i meddelanderoutning](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +24,9 @@ IoT Hub tillhandahåller ett kraftfullt SQL-liknande språk för att hämta info
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-and-module-twin-queries"></a>Enheten och modulen twin frågor
-[Enhetstvillingar] [ lnk-twins] och modultvillingar kan innehålla godtycklig JSON-objekt som både taggar och egenskaper. IoT Hub kan du fråga enhetstvillingar och modultvillingar som ett enda JSON-dokument som innehåller alla twin information.
+
+[Enhetstvillingar](iot-hub-devguide-device-twins.md) och modultvillingar kan innehålla godtycklig JSON-objekt som både taggar och egenskaper. IoT Hub kan du fråga enhetstvillingar och modultvillingar som ett enda JSON-dokument som innehåller alla twin information.
+
 Anta exempelvis att din IoT hub-enhetstvillingar har följande struktur (modultvilling skulle vara liknande bara med en ytterligare moduleId):
 
 ```json
@@ -80,15 +81,14 @@ Anta exempelvis att din IoT hub-enhetstvillingar har följande struktur (modultv
 
 ### <a name="device-twin-queries"></a>Enhetstvillingfrågor
 
-IoT-hubb exponerar enhetstvillingar som en dokumentsamling som heter **enheter**.
-Följande fråga hämtar så hela uppsättningen av enhetstvillingar:
+IoT-hubb exponerar enhetstvillingar som en dokumentsamling som heter **enheter**. Följande fråga hämtar exempelvis hela uppsättningen av enhetstvillingar:
 
 ```sql
 SELECT * FROM devices
 ```
 
 > [!NOTE]
-> [Azure IoT SDK: er] [ lnk-hub-sdks] stöder sidindelning av stora resultat.
+> [Azure IoT SDK: er](iot-hub-devguide-sdks.md) stöder sidindelning av stora resultat.
 
 IoT Hub kan du hämta enhetstvillingar filtrering med godtyckliga villkor. Till exempel att ta emot device twins var den **location.region** tagg har angetts till **USA** använder du följande fråga:
 
@@ -97,11 +97,11 @@ SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-Booleska operatorer och aritmetiskt jämförelser stöds också. Till exempel använda twins finns i USA och konfigurerat att skicka telemetri om mindre än varje minut för att hämta enheten följande fråga:
+Booleska operatorer och aritmetiskt jämförelser stöds också. Till exempel om du vill hämta enhetstvillingar finns i USA och konfigurerad för att skicka telemetri till mindre än varje minut, använder du följande fråga:
 
 ```sql
 SELECT * FROM devices
-WHERE tags.location.region = 'US'
+  WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
@@ -109,25 +109,25 @@ Underlätta för dig, det är också möjligt att använda konstanterna i matris
 
 ```sql
 SELECT * FROM devices
-WHERE properties.reported.connectivity IN ['wired', 'wifi']
+  WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
 Du behöver ofta identifiera alla enhetstvillingar som innehåller en viss egenskap. Funktionen stöds av IoT Hub `is_defined()` för detta ändamål. Exempelvis kan du hämta enhetstvillingar som definierar den `connectivity` egenskapen använder du följande fråga:
 
 ```SQL
 SELECT * FROM devices
-WHERE is_defined(properties.reported.connectivity)
+  WHERE is_defined(properties.reported.connectivity)
 ```
 
-Referera till den [WHERE-satsen] [ lnk-query-where] avsnittet för fullständig referens av vilka filtreringsfunktioner.
+Referera till den [WHERE-satsen](iot-hub-devguide-query-language.md#where-clause) avsnittet för fullständig referens av vilka filtreringsfunktioner.
 
-Gruppering och aggregeringar stöds också. Om du vill hitta antal enheter i varje telemetri använder Konfigurationsstatus exempelvis följande fråga:
+Gruppering och aggregeringar stöds också. Till exempel om du vill hitta antal enheter i varje status för konfiguration av telemetri, använder du följande fråga:
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
     COUNT() AS numberOfDevices
-FROM devices
-GROUP BY properties.reported.telemetryConfig.status
+  FROM devices
+  GROUP BY properties.reported.telemetryConfig.status
 ```
 
 Den här grupperingen frågan returnerar ett resultat liknar följande exempel:
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Modulen twin frågor
 
-Frågekörning på modultvillingar påminner om att fråga på enhetstvillingar, men använder en annan samling/namnrymd, dvs. i stället för ”från enheter” som du kan fråga
+Frågekörning på modultvillingar liknar frågekörning på enhetstvillingar, men använder en annan samling/namnrymd, dvs. i stället för ”från enheter” kan du fråga device.modules:
 
 ```sql
 SELECT * FROM devices.modules
@@ -171,14 +171,18 @@ Tillåter vi inte koppling mellan enheter och devices.modules samlingar. Om du v
 Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
-Den här frågan returnerar alla modultvillingar med statusen genomsökning, men bara om den angivna Undergrupp enheter.
+Den här frågan returnerar alla modultvillingar med statusen genomsökning, men bara om den angivna Undergrupp enheter:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules 
+  where properties.reported.status = 'scanning' 
+  and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>C#-exempel
-Frågefunktioner som exponeras av den [C#-tjänst-SDK] [ lnk-hub-sdks] i den **RegistryManager** klass.
+
+Frågefunktioner som exponeras av den [C#-tjänst-SDK](iot-hub-devguide-sdks.md) i den **RegistryManager** klass.
+
 Här är ett exempel på en enkel fråga:
 
 ```csharp
@@ -198,7 +202,9 @@ Den **fråga** objektet instantieras med en storlek (upp till 100). Och sedan fl
 Frågeobjektet visar flera **nästa** värden, beroende på vilket alternativ för deserialisering som krävs av frågan. Till exempel enhetstvilling eller jobb enhetsobjekt eller vanlig JSON när du använder projektioner.
 
 ### <a name="nodejs-example"></a>Node.js-exempel
-Frågefunktioner som exponeras av den [Azure IoT service SDK för Node.js] [ lnk-hub-sdks] i den **registret** objekt.
+
+Frågefunktioner som exponeras av den [Azure IoT service SDK för Node.js](iot-hub-devguide-sdks.md) i den **registret** objekt.
+
 Här är ett exempel på en enkel fråga:
 
 ```nodejs
@@ -233,8 +239,7 @@ Jämförelser är för närvarande endast mellan primitiva typer (inga objekt), 
 
 ## <a name="get-started-with-jobs-queries"></a>Kom igång med frågor om jobb
 
-[Jobb] [ lnk-jobs] ger dig ett sätt att utföra åtgärder på Enhetsuppsättningar. Varje enhetstvillingen innehåller information om de jobb som den är en del i en samling som heter **jobb**.
-Logiskt
+[Jobb](iot-hub-devguide-jobs.md) ger dig ett sätt att utföra åtgärder på Enhetsuppsättningar. Varje enhetstvillingen innehåller information om de jobb som den är en del i en samling som heter **jobb**.
 
 ```json
 {
@@ -276,16 +281,18 @@ Du kan exempelvis använda följande fråga för att hämta alla jobb (senaste o
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
 Observera hur den här frågan innehåller specifika status (och svaret direkt metod) för varje jobb som returneras.
+
 Det är också möjligt att filtrera med valfritt booleskt villkor för alla objektegenskaper i den **devices.jobs** samling.
+
 Till exempel om du vill hämta alla slutförda device twin uppdateringsjobb som har skapats efter September 2016 för en specifik enhet, använder du följande fråga:
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
     AND devices.jobs.jobType = 'scheduleTwinUpdate'
     AND devices.jobs.status = 'completed'
     AND devices.jobs.createdTimeUtc > '2016-09-01'
@@ -295,10 +302,11 @@ Du kan också hämta resultat per enhet för ett enskilt jobb.
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.jobId = 'myJobId'
+  WHERE devices.jobs.jobId = 'myJobId'
 ```
 
 ### <a name="limitations"></a>Begränsningar
+
 För närvarande frågar på **devices.jobs** har inte stöd för:
 
 * Projektioner, därför kan bara `SELECT *` är möjligt.
@@ -306,24 +314,28 @@ För närvarande frågar på **devices.jobs** har inte stöd för:
 * Utföra aggregeringar, till exempel antal, avg, gruppera efter.
 
 ## <a name="basics-of-an-iot-hub-query"></a>Grunderna i en IoT Hub-fråga
+
 Varje IoT Hub-fråga består av väljer och från satser med valfritt var och en GROUP BY-satser. Varje fråga som körs på en samling av JSON-dokument, till exempel enhetstvillingar. FROM-satsen anger dokumentsamling itereras på (**enheter** eller **devices.jobs**). Sedan tillämpas filtret i WHERE-satsen. Resultatet av det här steget är grupperade med aggregeringar, som angetts i GROUP BY-satsen. En rad skapas för varje grupp som angetts i SELECT-satsen.
 
 ```sql
 SELECT <select_list>
-FROM <from_specification>
-[WHERE <filter_condition>]
-[GROUP BY <group_specification>]
+  FROM <from_specification>
+  [WHERE <filter_condition>]
+  [GROUP BY <group_specification>]
 ```
 
 ## <a name="from-clause"></a>FROM-satsen
+
 Den **från < from_specification >** satsen kan anta att bara två värden: **från enheter** att fråga enhetstvillingar, eller **från devices.jobs** till Frågedetaljer jobb per enhet.
+
 
 ## <a name="where-clause"></a>WHERE-satsen
 Den **där < filter_condition >** -satsen är valfritt. Anger ett eller flera villkor att JSON-dokument i samlingen från måste uppfylla för att vara med i resultatet. Valfritt JSON-dokument måste utvärderas de angivna villkoren ”true” som ska ingå i resultatet.
 
-Tillåtna villkor beskrivs i avsnittet [uttryck och villkor][lnk-query-expressions].
+Tillåtna villkor beskrivs i avsnittet [uttryck och villkor](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="select-clause"></a>SELECT-satsen
+
 Den **väljer < select_list >** är obligatoriskt och anger vilka värden hämtas från frågan. Den anger JSON-värden som används för att generera nya JSON-objekt.
 För varje element i den filtrerade (och eventuellt grupperade) delmängden av samlingen från genererar Projektionsfasen ett nytt JSON-objekt. Det här objektet har konstruerats med värdena som anges i SELECT-satsen.
 
@@ -349,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** refererar till en egenskap av JSON-dokument i samlingen från. Några exempel på Välj satser finns i den [komma igång med enhetstvillingfrågor] [ lnk-query-getstarted] avsnittet.
+**Attribute_name** refererar till en egenskap av JSON-dokument i samlingen från. Några exempel på Välj satser finns i den [komma igång med enhetstvillingfrågor](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) avsnittet.
 
 För närvarande val av satser skiljer sig från **Välj*** stöds endast i mängdfrågor på enhetstvillingar.
 
@@ -483,18 +495,5 @@ Följande sträng-funktioner stöds i vägar villkor:
 | CONTAINS(x,y) | Returnerar ett booleskt värde som anger om först stränguttryck innehåller andra. |
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig att köra frågor i dina appar med hjälp av [Azure IoT SDK: er][lnk-hub-sdks].
 
-[lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
-[lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#get-started-with-device-twin-queries
-
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-jobs]: iot-hub-devguide-jobs.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
-[lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
+Lär dig att köra frågor i dina appar med hjälp av [Azure IoT SDK: er](iot-hub-devguide-sdks.md).

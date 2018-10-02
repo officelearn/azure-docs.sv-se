@@ -1,6 +1,6 @@
 ---
-title: Hantera strömningsslutpunkter med Azure-portalen | Microsoft Docs
-description: Det här avsnittet visar hur du hanterar strömningsslutpunkter med Azure-portalen.
+title: Hantera slutpunkter för direktuppspelning med Azure portal | Microsoft Docs
+description: Det här avsnittet visar hur du hanterar slutpunkter för direktuppspelning med Azure-portalen.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,103 +15,103 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: juliako
-ms.openlocfilehash: 542780766cfa90026d5ff492fcf7b579cb2d7029
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a023cb2ea1cf74c8029cc207c9b899631facb929
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790351"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018272"
 ---
-# <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Hantera strömningsslutpunkter med Azure-portalen
+# <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Hantera slutpunkter för direktuppspelning med Azure portal
 
-Den här artikeln visar hur du använder Azure-portalen för att hantera strömningsslutpunkter. 
+Den här artikeln visar hur du använder Azure-portalen för att hantera slutpunkter för direktuppspelning. 
 
 >[!NOTE]
->Se till att granska den [översikt](media-services-streaming-endpoints-overview.md) artikel. 
+>Se till att granska den [översikt](media-services-streaming-endpoints-overview.md) artikeln. 
 
-Information om hur du skalar den strömmande slutpunkten finns [detta](media-services-portal-scale-streaming-endpoints.md) artikel.
+Information om hur du skalar slutpunkten för direktuppspelning finns i [detta](media-services-portal-scale-streaming-endpoints.md) artikeln.
 
-## <a name="start-managing-streaming-endpoints"></a>Börja hantera strömningsslutpunkter 
+## <a name="start-managing-streaming-endpoints"></a>Börja hantera slutpunkter för direktuppspelning 
 
-Gör följande om du vill börja hantera strömningsslutpunkter för ditt konto.
+Börja hantera strömningsslutpunkter för ditt konto genom att göra följande.
 
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
-2. I den **inställningar** bladet väljer **Strömningsslutpunkter**.
+2. I den **inställningar** bladet väljer **slutpunkter för direktuppspelning**.
    
     ![Slutpunkt för direktuppspelning](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
-> Du debiteras endast när din Strömningsslutpunkt är i körningstillstånd.
+> Du debiteras endast när din slutpunkt för direktuppspelning som är i körningstillstånd.
 
-## <a name="adddelete-a-streaming-endpoint"></a>Lägg till/ta bort en strömmande slutpunkt
+## <a name="adddelete-a-streaming-endpoint"></a>Lägg till/ta bort en slutpunkt för direktuppspelning
 
 >[!NOTE]
->Standard strömmande slutpunkten kan inte tas bort.
+>Standardslutpunkten för direktuppspelning kan inte tas bort.
 
-Om du vill lägga till/ta bort strömmande slutpunkt med hjälp av Azure portal, gör du följande:
+Om du vill lägga till/ta bort slutpunkten för direktuppspelning med Azure portal, gör du följande:
 
-1. Lägg till en strömningsslutpunkt, klicka på den **+ Endpoint** överst på sidan. 
+1. Lägg till en slutpunkt för direktuppspelning, klicka på den **+ slutpunkt** överst på sidan. 
 
-    Om du planerar att ha olika CDN-nät eller en CDN och direktåtkomst kanske du vill flera Strömningsslutpunkter.
+    Om du planerar att ha olika CDN-nät eller en CDN och direktåtkomst kanske du vill flera slutpunkter för direktuppspelning.
 
-2. Ta bort en strömmande slutpunkt, trycka på **ta bort** knappen.      
-3. Klicka på den **starta** för att starta den strömmande slutpunkten.
+2. Om du vill ta bort en slutpunkt för direktuppspelning, trycker du på **ta bort** knappen.      
+3. Klicka på den **starta** för att starta slutpunkten för direktuppspelning.
    
     ![Slutpunkt för direktuppspelning](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a id="configure_streaming_endpoints"></a>Konfigurera strömmande slutpunkt
-Strömmande slutpunkten kan du konfigurera följande egenskaper:
+## <a id="configure_streaming_endpoints"></a>Konfigurera slutpunkten för direktuppspelning
+Slutpunkt för direktuppspelning kan du konfigurera följande egenskaper:
 
 * Åtkomstkontroll
 * Cachekontroll
-* Mellan åtkomstprinciper för platsen
+* Mellan platsen åtkomstprinciper
 
-Detaljerad information om de här egenskaperna finns [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+Detaljerad information om de här egenskaperna finns i [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
 >[!NOTE]
->När CDN är aktiverat kan du inte kommer åt IP-åtkomst. IP-åtkomst kan bara användas när du inte har CDN.
+>När CDN är aktiverat kan du inte åtkomst till IP-åtkomst. IP-åtkomst gäller endast när du inte har CDN.
 
-Du kan konfigurera strömningsslutpunkt genom att göra följande:
+Du kan konfigurera slutpunkten för direktuppspelning genom att göra följande:
 
 1. Välj den strömningsslutpunkt som du vill konfigurera.
 2. Klicka på **inställningar**.
 
-En kort beskrivning av fälten följer.
+En kort beskrivning av fälten nedan.
 
 ![Slutpunkt för direktuppspelning](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
-1. Maximal cachestorlek princip: används för att konfigurera cache-livstid för tillgångar som hanteras via den här strömmande slutpunkten. Om inget värde har angetts används standardvärdet. Standardvärdena kan också definieras direkt i Azure-lagring. Om Azure CDN aktiveras för den strömmande slutpunkten kan ställas inte in principvärdet cache på mindre än 600 sekunder.  
-2. Tillåtna IP-adresser: används för att ange IP-adresser som skulle kunna ansluta till den publicerade strömningsslutpunkt. Om inga angivna IP-adresser, skulle IP-adresser kunna ansluta. IP-adresser kan anges som en IP-adress (t.ex, 10.0.0.1), en IP-intervall med IP-adress och nätmask CIDR (till exempel 10.0.0.1/22) eller en IP-intervall med IP-adress och en prickad decimal nätmask (till exempel ”10.0.0.1 () 255.255.255.0)').
-3. Konfiguration för autentisering med Akamai signatur-huvud: används för att ange hur signatur sidhuvud autentiseringsbegäran från Akamai servrar har konfigurerats. Förfallodatum är i UTC.
+1. Maximal cachestorlek princip: används för att konfigurera livslängd för cachelagring för tillgångar som delas ut via den här slutpunkten för direktuppspelning. Om inget värde anges används standardvärdet. Standardvärdena kan också definieras direkt i Azure storage. Om Azure CDN är aktiverat för slutpunkten för direktuppspelning, bör du inte ange principvärdet cache till mindre än 600 sekunder.  
+2. Tillåtna IP-adresser: används för att ange IP-adresser som skulle kunna ansluta till publicerade slutpunkten för direktuppspelning. Om inga IP-adresser som har angetts, skulle IP-adresser kunna ansluta. IP-adresser kan anges som en IP-adress (exempelvis 10.0.0.1), ett IP-intervall med en IP-adress och en CIDR-nätmask (exempelvis 10.0.0.1/22) eller ett IP-intervall med IP-adress och en undernätsmask med punktavgränsad decimalform (exempelvis 10.0.0.1 ' () 255.255.255.0) ”).
+3. Konfiguration för autentisering med Akamai signatur rubrik: används för att ange hur signatur rubrik autentiseringsbegäran från Akamai-servrar konfigureras. Förfallotid är i UTC.
 
-## <a name="scale-your-premium-streaming-endpoint"></a>Skala din Premium strömmande slutpunkten
+## <a name="scale-your-premium-streaming-endpoint"></a>Skala din Premiumslutpunkt för direktuppspelning
 
 Mer information finns i [den här artikeln](media-services-portal-scale-streaming-endpoints.md).
 
 ## <a id="enable_cdn"></a>Aktivera Azure CDN-integrering
 
-När du skapar ett nytt konto är standard strömmande slutpunkten Azure CDN-integrering aktiverad som standard.
+När du skapar ett nytt konto är standard strömmande slutpunkten Azure CDN-integreringen aktiverat som standard.
 
-Om du senare vill Aktiverar/inaktiverar CDN strömmande slutpunkten måste vara i den **stoppats** tillstånd. Det kan ta upp till två timmar för Azure CDN-integrering för att hämta aktiverad och för att ändringarna ska vara aktiva för alla de CDN POP. Dock kan starta strömmande slutpunkt och dataströmmen utan avbrott från strömningsslutpunkt och när integrationen är slutförd, dataströmmen levereras från CDN. Under etablering strömmande slutpunkten kommer att ha **startar** tillstånd och du kan se degredad prestanda.
+Om du senare vill aktivera/inaktivera CDN slutpunkten för direktuppspelning måste finnas i den **stoppats** tillstånd. Det kan ta upp till två timmar för Azure CDN-integreringen ska aktiveras och för att ändringarna ska vara aktiva för alla innehållsleveransnätverk. Dock kan starta din strömmande slutpunkt och stream utan avbrott från slutpunkten för direktuppspelning och när integrationen är slutförd, dataströmmen levereras från CDN. Under etablering blir slutpunkten för direktuppspelning i **startar** tillstånd och du kan se försämrade prestanda.
 
-CDN-integrering är aktiverat i Azure-Datacenter utom Kina och federala myndigheter regioner.
+CDN-integreringen har aktiverats i alla Azure-Datacenter förutom Kina och federala myndigheter regioner.
 
-När den har aktiverats på **åtkomstkontroll**, ** anpassade värdnamnet och **autentisering med Akamai signatur** konfigurationen hämtar inaktiverad.
+När den har aktiverats i **Access Control**, ** anpassat värdnamn och **autentisering med Akamai signatur** konfigurationen hämtar inaktiverad.
  
 > [!IMPORTANT]
-> Azure Media Services-integrering med Azure CDN implementeras på **Azure CDN från Verizon** standard strömningsslutpunkter. Premium strömningsslutpunkter kan konfigureras med hjälp av alla **Azure CDN priser nivåer och providers**. Mer information om Azure CDN-funktioner finns i [CDN-översikt](../../cdn/cdn-overview.md).
+> Azure Media Services-integrering med Azure CDN har implementerats på **Azure CDN från Verizon** för standard slutpunkter för direktuppspelning. Premium-slutpunkter för direktuppspelning kan konfigureras med alla **Azure CDN priser nivåerna och providers**. Mer information om Azure CDN-funktioner finns i den [översikt över CDN](../../cdn/cdn-overview.md).
  
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på
 
-* När CDN är aktiverad för en strömmande slutpunkten, det går inte att klienter begär innehåll direkt från ursprunget. Om du behöver kunna testa ditt innehåll med eller utan CDN kan skapa du en annan strömningsslutpunkt som inte är aktiverat CDN.
-* Din strömmande slutpunktens värdnamn är densamma när du har aktiverat CDN. Du behöver inte göra ändringar i media services arbetsflödet efter CDN har aktiverats. Om din strömmande slutpunktens värdnamn är strasbourg.streaming.mediaservices.windows.net, efter att aktivera CDN, använda exakt samma värdnamn.
-* För nya strömningsslutpunkter kan du aktivera CDN genom att skapa en ny slutpunkt; för befintliga strömningsslutpunkter behöver du först stoppa slutpunkten och sedan aktivera/inaktivera CDN.
-* Standard strömmande slutpunkten kan bara konfigureras med hjälp av **Verizon Standard CDN-providern** med klassiska Azure-portalen. Du kan dock aktivera andra leverantörer av Azure CDN med hjälp av REST API: er.
+* När CDN är aktiverat för en slutpunkt för direktuppspelning, det går inte att klienter begär innehåll direkt från ursprunget. Om du behöver kunna testa ditt innehåll med eller utan CDN kan skapa du en annan slutpunkt för direktuppspelning som inte är CDN har aktiverats.
+* Strömmande slutpunktens värdnamn detsamma när du aktiverar CDN. Du behöver inte göra ändringar i ditt arbetsflöde för media services när CDN har aktiverats. Om strömmande slutpunktens värdnamn är strasbourg.streaming.mediaservices.windows.net, när du har aktiverat CDN, används till exempel exakt samma värdnamn.
+* Ny för slutpunkter, för direktuppspelning kan du aktivera CDN helt enkelt genom att skapa en ny slutpunkt; för befintliga slutpunkter för direktuppspelning måste du först stoppa slutpunkten och sedan aktivera/inaktivera CDN.
+* Standard-slutpunkt för direktuppspelning kan bara konfigureras med hjälp av **Verizon Standard CDN-leverantör** med klassiska Azure-portalen. Men kan du aktivera andra Azure CDN-leverantörer med hjälp av REST API: er.
 
-## <a name="configure-cdn-profile"></a>Konfigurera CDN-profilen
+## <a name="configure-cdn-profile"></a>Konfigurera CDN-profil
 
-Du kan konfigurera CDN-profilen genom att välja den **hantera CDN** knappen från överkanten.
+Du kan konfigurera CDN-profil genom att välja den **hantera CDN** knappen högst upp.
 
 ![Slutpunkt för direktuppspelning](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
 

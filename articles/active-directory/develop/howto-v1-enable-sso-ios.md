@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e9598cb464360e35a86b6fe35d8c965a5e7fb51d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a2a9845f82f1a81f3e187edbbb2deaa2300b3be
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963040"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585925"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Så här: Aktivera enkel inloggning mellan appar på iOS med hjälp av ADAL
 
@@ -250,7 +250,7 @@ Steg att följa är:
 1. Aktivera broker läge i din programkod anrop till MS-SDK.
 2. Upprätta en ny omdirigerings-URI och ger som för både appen och appen registreringen.
 3. Registrera ett URL-schema.
-4. Stöd för iOS9: lägga till en behörighet i info.plist-filen.
+4. Lägg till en behörighet i filen info.plist.
 
 #### <a name="step-1-enable-broker-mode-in-your-application"></a>Steg 1: Aktivera broker läge i ditt program
 
@@ -307,12 +307,16 @@ Till stöd för certifikatbaserad autentisering en andra ”msauth” måste var
 
 Exempel: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>Steg 4: iOS9: lägga till en konfigurationsparameter i din app
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Steg 4: Lägg till en konfigurationsparameter till din app
 
-ADAL använder – canOpenURL: att kontrollera om den asynkrona meddelandekön är installerat på enheten. I iOS låsta 9 Apple scheman ett program kan fråga efter. Du måste lägga till ”msauth” i avsnittet LSApplicationQueriesSchemes i din `info.plist file`.
+ADAL använder – canOpenURL: att kontrollera om den asynkrona meddelandekön är installerat på enheten. I iOS 9 på låsta Apple scheman ett program kan fråga efter. Du måste lägga till ”msauth” i avsnittet LSApplicationQueriesSchemes i din `info.plist file`.
 
 ```
-<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>msauth</string>
+    </array>
+
 ```
 
 ### <a name="youve-configured-sso"></a>Du har konfigurerat SSO!

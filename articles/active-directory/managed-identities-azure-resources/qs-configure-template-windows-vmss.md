@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4bfaed3d908574eff3521cedcef4b117d45e1ca2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c6bc77e5ee1fa5e180b41dca50640dc01fee0691
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220927"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017524"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure VM-skalningsuppsättning med en mall
 
@@ -146,7 +146,7 @@ Om du har en skalningsuppsättning för virtuella datorer som inte längre behö
 
    Om din apiVersion är `2018-06-01` och den virtuella datorn har både system och användartilldelade hanterade identiteter, ta bort `SystemAssigned` från identitetstyp och håll `UserAssigned` tillsammans med userAssignedIdentities ordlista värden.
 
-   **Microsoft.Compute/virtualMachineScaleSets API-versionen 2018-06-01 och tidigare**
+   **Microsoft.Compute/virtualMachineScaleSets API-versionen 2018-06-01**
 
    Om din apiVersion är `2017-12-01` och din skalningsuppsättning för virtuell dator har både system och användartilldelade hanterade identiteter, ta bort `SystemAssigned` från identitetstyp och håll `UserAssigned` tillsammans med den `identityIds` matris med de användartilldelade hanteras identiteter. 
    
@@ -279,7 +279,7 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
     ]
    ```
 
-   **Microsoft.Compute/virtualMachines API version 2017-12-01-tidigare eand**
+   **Microsoft.Compute/virtualMachines API-versionen 2017-12-01**
 
    ```json
    "resources": [

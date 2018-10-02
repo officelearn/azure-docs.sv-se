@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: b925a382a32f320c5d6906bc3fa23f046d260cb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9ac48bd77087a8dc050ccd1ee8fe63ec5c25a643
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997445"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018392"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Snabbstart: Känna igen tal i JavaScript i en webbläsare med hjälp av Cognitive Services tal SDK
 
@@ -36,6 +36,8 @@ Programmet är baserad på Microsoft Cognitive Services tal SDK ([Download versi
 Skapa en ny, tom mapp. Om du vill vara värd för exemplet på en webbserver, se till att webbservern kan komma åt mappen.
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Packa upp tal-SDK för JavaScript till mappen
+
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Ladda ned SDK tal som en [ZIP-paketet](https://aka.ms/csspeech/jsbrowserpackage) och packa upp det till den nya mappen. Detta resulterar i två filer packas upp, d.v.s. `microsoft.cognitiveservices.speech.sdk.bundle.js` och `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 Filen senare är valfria och används för att felsöka i SDK-kod, om det behövs.

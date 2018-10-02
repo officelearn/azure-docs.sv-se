@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0f2543ff10f19d6f1ccd656855dbb41cf42e6ae2
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307121"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48019003"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Funktionsreferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -82,7 +82,7 @@ Om du vill arbeta med strängar, du kan använda dessa strängfunktioner och äv
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Returnera startpositionen för en delsträng. | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Returnera startpositionen för den sista förekomsten av en delsträng. | 
 | [Ersätt](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Ersätta en understräng med den angivna strängen och returnerar den uppdaterade strängen. | 
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Returnera en matris som innehåller alla tecken från en sträng, och mellan varje tecken med specifika avgränsningstecken. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Returnera en matris som innehåller delsträngar, avgränsade med kommatecken, från en större sträng baserat på en angiven avgränsare tecken i den ursprungliga strängen. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Kontrollera om en sträng som börjar med en viss delsträng. | 
 | [delsträngen](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Returnera tecken från en sträng, med början från den angivna positionen. | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Returnera en sträng i gemener format. | 
@@ -3016,32 +3016,32 @@ Och returnerar den här matrisen med de återstående objekt: `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Returnerar en matris som har alla tecken från en sträng och har varje tecken avgränsade med ett *avgränsare*.
+Returnera en matris som innehåller delsträngar, avgränsade med kommatecken, baserat på den angivna avgränsaren tecken i den ursprungliga strängen. 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | Parameter | Krävs | Typ | Beskrivning | 
 | --------- | -------- | ---- | ----------- | 
-| <*Text*> | Ja | Sträng | Den sträng som innehåller tecken att dela |  
-| <*avgränsare*> | Ja | Sträng | Avgränsaren mellan varje tecken i den resulterande matrisen | 
+| <*Text*> | Ja | Sträng | Strängen som ska dela upp i delsträngar baserat på den angivna avgränsaren i den ursprungliga strängen |  
+| <*avgränsare*> | Ja | Sträng | Tecken i den ursprungliga strängen som ska användas som avgränsare | 
 ||||| 
 
 | Returvärde | Typ | Beskrivning | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*avgränsare*><*char2*><*avgränsare*>...] | Matris | Den resulterande matrisen som skapats från alla objekt i den angivna strängen |
+| [<*substring1*>, <*substring2*>,...] | Matris | En matris som innehåller delsträngar från den ursprungliga strängen, avgränsade med kommatecken |
 |||| 
 
 *Exempel* 
 
-Det här exemplet skapar en matris från den angivna strängen, att avgränsa varje tecken med ett kommatecken som avgränsare:
+Det här exemplet skapar en matris med delsträngar från den angivna strängen baserat på det angivna tecknet som avgränsare: 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-Och returnerar resultatet: `[a, b, c]`
+Och returnerar den här matrisen som ett resultat: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 

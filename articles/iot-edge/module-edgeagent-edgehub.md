@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5e358992661f7bcf06121a07c1bafca0850316b2
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 259d61125828ee487b74daa525f3635cfa592ce7
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423145"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017712"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Egenskaper för Edge-agenten och Edge hub modultvillingar
 
@@ -46,6 +46,7 @@ Modultvillingen för Edge-agenten kallas `$edgeAgent` och samordnar kommunikatio
 | systemModules.edgeHub.configuration.id | ID för den distribution som har distribuerat den här modulen. | Den här egenskapen anges av IoT Hub när den här manifestet tillämpas med hjälp av en distribution. Inte en del av ett manifest för distribution. |
 | moduler. {moduleId} .version | En användardefinierad sträng som representerar versionen av den här modulen. | Ja |
 | moduler. {moduleId} .type | Måste vara ”docker” | Ja |
+| moduler. {moduleId} .status | {”körs” \| ”stoppad”} | Ja |
 | moduler. {moduleId} .restartPolicy | {”aldrig” \| ”på-misslyckades” \| ”på-defekta” \| ”alltid”} | Ja |
 | modules.{moduleId}.settings.image | URI: N i modulen avbildningen. | Ja |
 | moduler. {moduleId}.settings.createOptions | En Stringified.json med alternativ för att skapa behållaren modulen. [Alternativ för att skapa docker][lnk-docker-create-options] | Nej |

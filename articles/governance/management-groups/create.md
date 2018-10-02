@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/21/2018
 ms.author: rithorn
-ms.openlocfilehash: c2d4317bcbf70a0cebf6ab1915968eeb9ef8b4c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b436336a3484ec27e4b90785d668ba905281f158
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992635"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018612"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för resursorganisationen och hantering
 
@@ -48,7 +48,7 @@ Du kan skapa hanteringsgruppen med hjälp av portalen, PowerShell eller Azure CL
 
 ### <a name="create-in-powershell"></a>Skapa i PowerShell
 
-I PowerShell, kan du använda Lägg till AzureRmManagementGroups-cmdletar:
+I PowerShell kan använda du cmdletarna New-AzureRmManagementGroups:
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroup -GroupName 'Contoso'
@@ -77,7 +77,7 @@ az account management-group create --group-name 'Contoso'
 Mer information om hanteringsgrupper finns:
 
 - [Organisera dina resurser med Azure-hanteringsgrupper](overview.md)
-- [Ändra, ta bort eller hantera dina hanteringsgrupper](manage.md)
+- [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](manage.md)
 - [Installera Azure Powershell-modulen](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Granska REST API-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
+- [Granska specifikationerna för REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [Installera Azure CLI-tillägg](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

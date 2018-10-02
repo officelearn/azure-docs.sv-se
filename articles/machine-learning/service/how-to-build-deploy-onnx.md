@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 1350c543990963f8f860d9dd1da5670d3a1e990c
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434083"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585568"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX och Azure Machine Learning: skapa och distribuera samverkande AI-modeller
 
@@ -28,7 +28,7 @@ Microsoft stöder ONNX över dess produkter, inklusive Azure och Windows för at
 ## <a name="why-choose-onnx"></a>Varför ska jag välja ONNX?
 Du får med ONNX samverkan gör det möjligt att få bra idéer till produktionen snabbare. Dataexperter kan ONNX välja sin önskade ramverk för jobbet. På samma sätt kan utvecklare tid och förbereder modeller för produktion och distribuera i molnet och gränsen.  
 
-Du kan exportera ONNX-modeller från många ramverk, inklusive PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet och ML.Net. Det finns konverterare för andra ramverk, till exempel TensorFlow, Keras, lär du dig SciKit med mera.
+Du kan skapa ONNX-modeller från många ramverk, inklusive PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet, ML.Net, TensorFlow, Keras, lär du dig SciKit med mera.
 
 Det finns också ett ekosystem av verktyg för att visualisera och påskynda ONNX-modeller. Det finns också ett antal förtränade ONNX-modeller för vanliga scenarier.
 
@@ -36,18 +36,17 @@ Det finns också ett ekosystem av verktyg för att visualisera och påskynda ONN
 
 [ ![ONNX flow diagram som visar utbildning, konverterare och distribuera](media/concept-onnx/onnx.png) ] (. / media/concept-onnx/onnx.png#lightbox)
 
-## <a name="create-onnx-models-in-azure"></a>Skapa ONNX-modeller i Azure
+## <a name="get-onnx-models"></a>Hämta ONNX-modeller
 
-Du kan skapa ONNX-modeller på flera olika sätt:
-+ Träna en modell i Azure Machine Learning-tjänsten och konvertera eller exportera den till ONNX (se exemplet längst ned i den här artikeln)
+Du kan hämta ONNX-modeller på flera olika sätt:
++ Hämta en förtränade ONNX-modell från den [ONNX modellen Zoo](https://github.com/onnx/models) (se exemplet längst ned i den här artikeln)
++ Skapa en anpassad ONNX-modell från [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
++ Konvertera befintlig modell från ett annat format till ONNX (se exemplet längst ned i den här artikeln) 
++ Skapa en ny ONNX-modell i Azure Machine Learning-tjänsten (se exemplet längst ned i den här artikeln)
 
-+ Hämta en förtränade ONNX-modell från den [ONNX modellen Zoo](https://github.com/onnx/models)
+## <a name="saveconvert-your-models-to-onnx"></a>Spara/konvertera dina ONNX-modeller
 
-+ Skapa en anpassad ONNX-modell från [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)
-
-## <a name="exportconvert-your-models-to-onnx"></a>Export/konvertera dina ONNX-modeller
-
-Du kan också konvertera dina befintliga modeller till ONNX.
+Du kan konvertera befintliga modeller till ONNX eller spara dem som ONNX i slutet av utbildning.
 
 |Ramverk för modellen|Exempel på konvertering eller verktyg|
 |-----|-------|
@@ -172,10 +171,11 @@ Här är ett exempel för att distribuera en ONNX-modell:
 
    Filen `myenv.yml` beskriver de beroenden som krävs för avbildningen. Se den här [självstudien](tutorial-deploy-models-with-aml.md#create-environment-file) anvisningar om hur du skapar en miljöfil, t.ex den här exempelfilen:
 
-   ```
+   ```python
    from azureml.core.conda_dependencies import CondaDependencies 
 
    myenv = CondaDependencies()
+   myenv.add_pip_package("numpy")
    myenv.add_pip_package("azureml-core")
    myenv.add_pip_package("onnxruntime")
 
@@ -191,9 +191,13 @@ Här är ett exempel för att distribuera en ONNX-modell:
 
 ## <a name="examples"></a>Exempel
  
-Följande anteckningsböcker visar hur du distribuerar ONNX-modeller med Azure Machine Learning: 
-+ `/onnx/onnx-inference-mnist.ipynb`
- 
+Följande anteckningsböcker visar hur du kan skapa ONNX-modeller och distribuera dem med Azure Machine Learning: 
++ `/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb` 
++ `/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb`
++ `/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb`
+
+Följande anteckningsböcker visar hur du distribuerar befintliga ONNX-modeller med Azure Machine Learning: 
++ `/onnx/onnx-inference-mnist.ipynb` 
 + `/onnx/onnx-inference-emotion-recognition.ipynb`
  
 Hämta den här anteckningsboken:

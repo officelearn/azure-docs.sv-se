@@ -8,41 +8,44 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 02624b4f3b0fceb1816f4f43b1f435356f8d5235
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e43d00fde0f76efa4398865757c44d94592b8291
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984049"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585521"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
 
-Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**) som är kompatibel med [Händelsehubbar][lnk-event-hubs]. Den här slutpunkten är för närvarande endast synliga använder den [AMQP] [ lnk-amqp] -protokollet på port 5671. En IoT hub exponerar följande egenskaper så att du kan styra den inbyggda meddelanden för Event Hub-kompatibla slutpunkten **meddelanden/händelser**.
+Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**) som är kompatibel med [Händelsehubbar](http://azure.microsoft.com/documentation/services/event-hubs/
+). Den här slutpunkten är för närvarande endast synliga använder den [AMQP](https://www.amqp.org/) -protokollet på port 5671. En IoT hub exponerar följande egenskaper så att du kan styra den inbyggda meddelanden för Event Hub-kompatibla slutpunkten **meddelanden/händelser**.
 
 | Egenskap             | Beskrivning |
 | ------------------- | ----------- |
-| **Antalet partitioner** | Ange den här egenskapen när du skapar för att definiera hur många [partitioner] [ lnk-event-hub-partitions] för enhet-till-moln händelsepåfyllning. |
+| **Antalet partitioner** | Ange den här egenskapen när du skapar för att definiera hur många [partitioner](../event-hubs/event-hubs-features.md#partitions) för enhet-till-moln händelsepåfyllning. |
 | **Kvarhållningstid**  | Den här egenskapen anger hur länge i dagar som meddelanden ska bevaras av IoT Hub. Standardvärdet är en dag, men det kan ökas till sju dagar. |
 
 IoT Hub hjälper dig att hantera konsumentgrupper på det inbyggda enhet till molnet får slutpunkt.
 
 Om du använder [meddelanderoutning](iot-hub-devguide-messages-d2c.md) och [återställningsplats väg](iot-hub-devguide-messages-d2c.md#fallback-route) är aktiverat, skrivs alla meddelanden som inte matchar en fråga på någon väg till den inbyggda slutpunkten. Om du inaktiverar den här vägen som återställningsplats, hamnar meddelanden som inte matchar alla frågor.
 
-Du kan ändra kvarhållningstiden, antingen via programmering med hjälp av den [resursprovidern i IoT Hub REST API: er][lnk-resource-provider-apis], eller med den [Azure-portalen] [ lnk-management-portal].
+Du kan ändra kvarhållningstiden, antingen via programmering med hjälp av den [resursprovidern i IoT Hub REST API: er](/rest/api/iothub/iothubresource), eller med den [Azure-portalen](https://portal.azure.com).
 
 IoT-hubb exponerar den **meddelanden/händelser** inbyggd slutpunkt för ditt backend-tjänster kan läsa enhet-till-moln-meddelanden som tas emot av hubben. Den här slutpunkten är Event Hubs-kompatibla, där du kan använda någon av mekanismerna Event Hubs-tjänsten har stöd för att läsa meddelanden.
 
 ## <a name="read-from-the-built-in-endpoint"></a>Läsa från den inbyggda slutpunkten
 
-När du använder den [Azure Service Bus SDK för .NET] [ lnk-servicebus-sdk] eller [Event Hubs – Eventprocessorhost][lnk-eventprocessorhost], du kan använda en IoT Hub-anslutning strängar med rätt behörighet. Använd sedan **meddelanden/händelser** som Event Hub-namn.
+När du använder den [Azure Service Bus SDK för .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) eller [Event Hubs – Eventprocessorhost](..//event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md), du kan använda några anslutningssträngar för IoT Hub med rätt behörigheter. Använd sedan **meddelanden/händelser** som Event Hub-namn.
 
 När du använder SDK: er (eller produktintegreringar) som inte känner till IoT Hub, måste du hämta en Event Hub-kompatibla slutpunkten och Händelsehubb-kompatibelt namn:
 
-1. Logga in på den [Azure-portalen] [ lnk-management-portal] och navigera till din IoT-hubb.
-1. Klicka på **inbyggda slutpunkter**.
-1. Den **händelser** avsnittet innehåller följande värden: **Event Hub-kompatibla slutpunkten**, **Event Hub-kompatibla namnet**, **partitioner**, **Kvarhållningstid**, och **konsumentgrupper**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb.
 
-    ![Inställningar för enhet till moln][img-eventhubcompatible]
+2. Klicka på **inbyggda slutpunkter**.
+
+3. Den **händelser** avsnittet innehåller följande värden: **Event Hub-kompatibla slutpunkten**, **Event Hub-kompatibla namnet**, **partitioner**, **Kvarhållningstid**, och **konsumentgrupper**.
+
+    ![Inställningar för enhet till moln](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
 IoT Hub SDK kräver slutpunktsnamn IoT Hub som är **meddelanden/händelser** som visas **slutpunkter**.
 
@@ -62,20 +65,10 @@ SDK: er och integreringar som du kan använda med Event Hubs-kompatibla slutpunk
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om IoT Hub-slutpunkter, [IoT Hub-slutpunkter][lnk-endpoints].
-* Den [Snabbstarter] [ lnk-get-started] visar hur du skickar meddelanden från enheten till molnet från simulerade enheter och läsa meddelanden från den inbyggda slutpunkten. Mer information finns i den [Process IoT Hub enhet-till-moln-meddelanden med vägar] [ lnk-d2c-tutorial] självstudien.
-* Om du vill dirigera din enhet till moln-meddelanden till anpassade slutpunkter finns i [använder meddelandevägar och anpassade slutpunkter för meddelanden från enheten till molnet][lnk-custom].
+* Läs mer om IoT Hub-slutpunkter, [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md).
 
-[img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
+* Den [Snabbstarter](quickstart-send-telemetry-node.md) visar hur du skickar meddelanden från enheten till molnet från simulerade enheter och läsa meddelanden från den inbyggda slutpunkten. 
 
-[lnk-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
-[lnk-management-portal]: https://portal.azure.com
-[lnk-d2c-tutorial]: tutorial-routing.md
-[lnk-event-hub-partitions]: ../event-hubs/event-hubs-features.md#partitions
-[lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
-[lnk-eventprocessorhost]: https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph
-[lnk-amqp]: https://www.amqp.org/
+Mer information finns i den [Process IoT Hub enhet-till-moln-meddelanden med vägar](tutorial-routing.md) självstudien.
+
+* Om du vill dirigera din enhet till moln-meddelanden till anpassade slutpunkter finns i [använder meddelandevägar och anpassade slutpunkter för meddelanden från enheten till molnet](iot-hub-devguide-messages-read-custom.md).

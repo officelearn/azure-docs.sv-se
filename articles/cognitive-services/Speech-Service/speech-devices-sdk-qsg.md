@@ -9,16 +9,16 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 068f0a0d9202174faf5d54bebf5cf5f8fae86766
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: def8d8f9fc55aa6491799a134a554a8a7fe2884a
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721015"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017203"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Kom igång med SDK för tal-enheter
 
-Den här artikeln beskriver hur du konfigurerar din utveckling PC och tal Utvecklingskit för enheten för att utveckla tal-aktiverade enheter med hjälp av SDK för tal-enheter. Sedan kan du skapa och distribuera ett exempelprogram till enheten. 
+Den här artikeln beskriver hur du konfigurerar din utveckling PC och tal Utvecklingskit för enheten för att utveckla tal-aktiverade enheter med hjälp av SDK för tal-enheter. Sedan skapar och distribuerar ett exempelprogram till enheten. 
 
 Källkoden för exempelprogrammet som ingår i SDK: N för tal-enheter. Det är också [finns på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -45,7 +45,7 @@ Innan du börjar utveckla med tal Devices SDK måste du samla in information och
 
 ## <a name="set-up-the-development-kit"></a>Ställ in i development kit
 
-1. Anslut dev-paket till en dator eller driva nätverkskort med hjälp av en mini USB-kabel. När dev-paket är ansluten, en grön power-indikator som lysa under den översta tavlan.
+1. Ansluta i development kit till en dator eller driva nätverkskort med hjälp av en mini USB-kabel. När kit är ansluten, en grön power-indikator som lysa under den översta tavlan.
 
 1. Ansluta i development kit på en dator med hjälp av en andra mini USB-kabel.
 
@@ -72,7 +72,7 @@ Innan du börjar utveckla med tal Devices SDK måste du samla in information och
    ```
 
     > [!NOTE]
-    > De här kommandona använder Android Debug brygga adb.exe, vilket är en del av Android Studio-installationen. Det här verktyget finns i C:\Users\[användarnamn] \AppData\Local\Android\Sdk\platform-verktyg. Du kan lägga till den här katalogen till sökvägen att göra det mer praktiskt att anropa `adb`. Annars måste du ange den fullständiga sökvägen för din installation av adb.exe i alla kommandon som anropar `adb`.
+    > De här kommandona använder Android Debug-bryggan, `adb.exe`, vilket är en del av Android Studio-installationen. Det här verktyget finns i C:\Users\[användarnamn] \AppData\Local\Android\Sdk\platform-verktyg. Du kan lägga till den här katalogen till sökvägen att göra det mer praktiskt att anropa `adb`. Annars måste du ange den fullständiga sökvägen för din installation av adb.exe i alla kommandon som anropar `adb`.
 
     > [!TIP]
     > Stäng av datorns mikrofon och högtalare för att säkerställa att du arbetar med i development kit mikrofoner. På så sätt kan du inte av misstag utlösa enheten med ljud från datorn.
@@ -110,7 +110,7 @@ Om du vill köra testerna ROOBO och verifiera din development kit-konfiguration,
 
 1.  Starta Android Studio.
 
-1.  Välj **öppna ett befintligt Android Studio-projekt**.
+1.  Välja **Öppna ett befintligt Android Studio-projekt**.
 
     ![Android Studio – öppna ett befintligt projekt](media/speech-devices-sdk/qsg-5.png)
  

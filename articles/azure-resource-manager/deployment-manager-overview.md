@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2018
+ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8bc1165d131c593d5f4697b20166b72605ad488
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f19708d232080b53446bedd9316fcf9d7772890d
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228532"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585806"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera säker distribution metoder med Azure Deployment Manager (förhandsversion)
 
@@ -144,7 +144,7 @@ I följande exempel visas det allmänna formatet för resursen för tjänster. I
 
 Mer information finns i [services mallreferensen](/azure/templates/Microsoft.DeploymentManager/serviceTopologies/services).
 
-### <a name="service-units"></a>Serviceenheter
+### <a name="service-units"></a>Tjänstenheter
 
 I följande exempel visas det allmänna formatet för tjänstresurs för enheter. I varje tjänsteenhet ska du ange resursgruppen, den [distributionsläget](deployment-modes.md) ska användas för distribution och sökvägen till filen mall- och parameterfilerna. Om du anger en relativ sökväg för mallen och parametrarna, skapas den fullständiga sökvägen från rotmappen i käll-artefakter. Du kan ange en absolut sökväg till mall och parametrar, men du förlora möjligheten att enkelt version utgåvorna. Tjänsteenhet beror på tjänsten.
 
@@ -220,7 +220,7 @@ Mer information finns i [steg mallreferensen](/azure/templates/Microsoft.Deploym
 
 ### <a name="rollouts"></a>Distributioner
 
-För att säkerställa artefakt-källan är tillgänglig, beror detta på den. Detta definierar grupper av steg för varje tjänst som har distribuerats. Du kan definiera åtgärder som ska vidtas innan eller efter distributionen. Du kan till exempel ange att distributionen ska vänta efter tjänsteenhet har distribuerats. 
+För att säkerställa artefakt-källan är tillgänglig, beror detta på den. Detta definierar grupper av steg för varje tjänst som har distribuerats. Du kan definiera åtgärder som ska vidtas innan eller efter distributionen. Du kan till exempel ange att distributionen ska vänta efter tjänsteenhet har distribuerats. Du kan definiera ordningen för steg-grupper.
 
 Objektet identitet anger den [användartilldelade hanterad identitet](#identity-and-access) som utför distributionsåtgärder för.
 
@@ -248,6 +248,7 @@ I följande exempel visas det allmänna formatet för distributionen.
         "stepGroups": [
             {
                 "name": "stepGroup1",
+                "dependsOnStepGroups": ["<step-group-name>"],
                 "preDeploymentSteps": ["<step-ID>"],
                 "deploymentTargetId":
                     "<service-unit-ID>",

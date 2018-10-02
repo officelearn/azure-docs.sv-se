@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: d59de5beb01da3b23de0a7e177fd1cb1887694fc
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452538"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586061"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -99,7 +99,7 @@ Azure Stack-distributioner kanske *anslutna* eller *frånkopplad*.
 När du registrerar Azure Stack med Azure måste du ange ett unika registrerings-namn. Ett enkelt sätt att associera Azure Stack-prenumeration med en Azure-registrering är att använda Azure Stack **moln-ID**. 
 
 > [!NOTE]
-> Azure Stack-registreringar med hjälp av kapacitetsbaserad faktureringsmodellen behöver du ändra det unika namnet när omregistrering när dessa årliga prenumerationer upphör att gälla.
+> Azure Stack-registreringar med kapacitetsbaserad faktureringsmodellen måste du ändra det unika namnet när omregistrering när dessa årliga prenumerationer upphör att gälla, såvida inte du [ta bort utgångna registreringen](azure-stack-registration.md#change-the-subscription-you-use) och registrera med Azure.
 
 För att fastställa moln-ID för Azure Stack-distribution, öppnar du PowerShell som administratör på en dator än vad som kan komma åt den privilegierade slutpunkten kör du följande kommandon och registrera den **CloudID** värde: 
 
@@ -318,12 +318,12 @@ Du behöver uppdatera eller förnya din registrering under följande omständigh
 
 #### <a name="change-the-subscription-you-use"></a>Ändra den prenumeration som du använder
 
-Om du vill ändra prenumerationen du använder, måste du först köra den **Remove-AzsRegistration** cmdlet, kontrollera att du är inloggad rätt sammanhang för Azure PowerShell och kör slutligen **Set-AzsRegistration**  med alla parametrar som ändrats:
+Om du vill ändra prenumerationen du använder, måste du först köra den **Remove-AzsRegistration** cmdlet, kontrollera att du är inloggad rätt sammanhang för Azure PowerShell och kör slutligen **Set-AzsRegistration**  med ändrade parametrar, inklusive \<faktureringsmodellen\>:
 
   ```PowerShell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 #### <a name="change-the-billing-model-or-how-to-offer-features"></a>Ändra faktureringsmodellen eller hur du erbjuder funktioner
@@ -331,7 +331,7 @@ Om du vill ändra prenumerationen du använder, måste du först köra den **Rem
 Om du vill ändra faktureringsmodellen eller hur du erbjuder funktioner för din installation kan du anropa registreringsfunktionen för att ställa in de nya värdena. Du behöver inte först ta bort den aktuella registreringen:
 
   ```PowerShell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 ### <a name="renew-or-change-registration-in-disconnected-environments"></a>Förnya eller ändra registrering i frånkopplade miljöer

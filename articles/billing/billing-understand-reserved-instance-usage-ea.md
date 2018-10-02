@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: 4b418db3c4d9876a739ce94539a6f48402332a86
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a33a360d25930f1468f1c9240be2d0f306d682c7
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394904"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585755"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Förstå användningen av Azure reservation för din Enterprise-registrering
 
@@ -51,9 +51,11 @@ Du kan hämta Enterprise användning CSV-fil från Enterprise portal. Filtrera e
 3. **Mäter ID** är mätning för reservation med $0 kostnaden. Kostnaden för virtuell dator som körs betalas av den reserverade VM-instansen.
 4. Standard_D1 är en virtuell processor virtuella datorn och den virtuella datorn har distribuerats utan Azure Hybrid-förmånen. Den här mätaren omfattar så visas extra kostnaden för Windows-programvara. Du hittar den mätning som motsvarar D-serien 1 kärna VM [Azure reserverade VM-instanser Windows programvarukostnader](billing-reserved-instance-windows-software-costs.md).  Om du har Azure Hybrid-förmånen används inte den här extra kostnad.
 
-## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Användningen av SQL Database reserverad kapacitetsreservationer
+## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Användning för SQL Database och Cosmos DB reserverad kapacitetsreservationer
 
-Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informationen ser ut som i följande tabell i följande avsnitt:
+I följande avsnitt använder Azure SQL Database som exempel för att beskriva användningsrapporten. Du kan använda samma steg för att hämta användning för Azure Cosmos DB samt. 
+
+Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informationen ser ut som i följande tabell:
 
 | Fält | Värde |
 |---| --- |
@@ -62,9 +64,9 @@ Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informati
 |Produkt| SQL Database Gen 4 (2 kärnor)|
 |Region | usaöstra |
 
-### <a name="usage-in-csv-file-for-sql-database-reserved-capacity"></a>Användning i CSV-filen för SQL Database reserverad kapacitet
+### <a name="usage-in-csv-file"></a>Användning i CSV-fil 
 
-Filtrera på **ytterligare information** och skriver i din **reservations-ID**. Följande skärmbild visar relaterade fält till reservationen.
+Filtrera på **ytterligare information** och skriver i din **reservations-ID**, och välj de nödvändiga **Mätningskategori** – Azure SQL database eller Azure Cosmos DB. Följande skärmbild visar relaterade fält till reservationen.
 
 ![Enterprise Agreement (EA) csv för SQL Database reserverad kapacitet](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
 
@@ -94,3 +96,4 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
 Om du har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+

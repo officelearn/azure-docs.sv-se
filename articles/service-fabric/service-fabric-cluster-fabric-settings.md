@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: cf8e9dff020e16efe4b37a2bfd66563211be3020
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 69f29eac17ecdf5381a550bc182c547fa0c25278
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055547"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018986"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa inställningar för Service Fabric-kluster
 Den här artikeln beskriver hur du anpassar olika fabric inställningarna för Service Fabric-klustret. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall. Fristående kluster kan anpassa du inställningarna genom att uppdatera filen ClusterConfig.json och utför en uppgradering av konfigurationen på ditt kluster. 
@@ -352,6 +352,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |ApplicationUpgradeTimeout| TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(360)|Dynamisk| Ange tidsintervall i sekunder. Tidsgränsen för uppgradering av programmet. Om tidsgränsen är mindre än ”ActivationTimeout” deployer misslyckas. |
 |ContainerServiceArguments|sträng, standardvärdet är ”-H localhost: 2375 -H npipe: / /”|Statisk|Service Fabric (SA) hanterar docker-daemon (förutom på windows-klientdatorer som Win10). Den här konfigurationen gör att användaren anger anpassade argument som ska skickas till docker-daemon när du startar den. När anpassade argument, Service Fabric inte skickar några andra argument till Docker-motorn, förutom ”--pidfile' argumentet. Användare bör därför inte ange '--pidfile' argument som en del av deras kund-argument. De anpassade argumenten ska kontrollera också att daemon lyssnar på pipen med standardnamnet på Windows (eller Unix-domänsocket på Linux) för Service Fabric ska kunna kommunicera med den.|
 |ContainerServiceLogFileMaxSizeInKb|int, standard är 32768|Statisk|Maximal filstorlek på loggfil som genereras av docker-behållare.  Windows.|
+|ContainerImagesToSkip|String, avbildningsnamn som avgränsas med ett lodstreck tecken standardvärdet är ””|Statisk|Namnet på en eller flera behållaravbildningar som inte ska tas bort.  Används med parametern PruneContainerImages.|
 |ContainerServiceLogFileNamePrefix|sträng, standard är ”sfcontainerlogs”|Statisk|Fil-namnprefixet för loggfiler som genererats av docker-behållare.  Windows.|
 |ContainerServiceLogFileRetentionCount|Int, standarden är 10|Statisk|Antal loggfiler som genererats av docker-behållare innan loggfilerna skrivs över.  Windows.|
 |CreateFabricRuntimeTimeout|TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(120)|Dynamisk| Ange tidsintervall i sekunder. Timeout-värdet för synkronisering FabricCreateRuntime anropa |
@@ -375,6 +376,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |NTLMAuthenticationPasswordSecret|SecureString, standardvärdet är Common::SecureString("")|Statisk|Är ett krypterat har som används för att generera lösenordet för NTLM-användare. Måste anges om NTLMAuthenticationEnabled är sant. Godkänt distribueraren. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, standardvärdet är Common::TimeSpan::FromMinutes(3)|Dynamisk|Ange tidsintervall i sekunder. Miljö-specifika inställningar med vilka Hosting vilket regelbundna intervall söker efter nya certifikat som ska användas för konfiguration av FileStoreService NTLM. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan, standardvärdet är Common::TimeSpan::FromMinutes(4)|Dynamisk| Ange tidsintervall i sekunder. Tidsgränsen för att konfigurera NTLM-användare som använder vanliga namn för certifikatet. NTLM-användare krävs för FileStoreService resurser. |
+|PruneContainerImages|bool, standard är FALSKT|Dynamisk| Ta bort oanvända program behållaravbildningar från noder. När en ApplicationType avregistreras från Service Fabric-klustret, tas behållaravbildningar som användes av det här programmet bort på den hämtades av Service Fabric-noder. Rensningen körs varje timme, så det kan ta upp till en timme (plus tid att rensa avbildningen) för avbildningar som ska tas bort från klustret.<br>Service Fabric kommer aldrig ladda ned eller ta bort avbildningar som inte är relaterade till ett program.  Orelaterade bilder som laddats ned manuellt eller på annat sätt måste uttryckligen tas bort.<br>Avbildningar som inte ska raderas kan anges i parametern ContainerImagesToSkip.| 
 |RegisterCodePackageHostTimeout|TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(120)|Dynamisk| Ange tidsintervall i sekunder. Timeout-värdet för anropet FabricRegisterCodePackageHost synkronisering. Detta gäller endast med flera kod paketet programvärd som FWP |
 |RequestTimeout|TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(30)|Dynamisk| Ange tidsintervall i sekunder. Detta representerar tidsgränsen för kommunikation mellan användarens programvärd och Fabric-processen för olika värdbaserade relaterade åtgärder, till exempel factory registreringen. Runtime-registrering. |
 |RunAsPolicyEnabled| bool, standard är FALSKT|Statisk| Gör det möjligt att köra kodpaket som lokala användare än den processen körs under vilka fabric. För att kunna aktivera den här principen måste du köra Fabric som SYSTEM eller användare som har SeAssignPrimaryTokenPrivilege. |

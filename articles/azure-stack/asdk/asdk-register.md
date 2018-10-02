@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: eacf8fc9335af2dacffa3e13da47ea39a2776f2b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c90e51d1aa1c3215c40baeae2c5494ef90b01132
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714572"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584361"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registrering
 Du kan registrera din Azure Stack Development Kit (ASDK)-installation med Azure kan du hämta marketplace från Azure och du ställer in handelsdata rapporterar tillbaka till Microsoft. Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive marketplace syndikering. Registrering rekommenderas eftersom det gör att du kan testa viktiga Azure Stack-funktioner som marketplace-syndikering och användningsrapportering. När du har registrerat Azure Stack rapporteras användning till Azure commerce. Du kan se den prenumeration som du använde för registrering. ASDK användare debiteras dock inte för eventuell användning av rapporterar.
@@ -61,11 +61,14 @@ Följ dessa steg för att registrera ASDK med Azure.
     #Register Azure Stack
     $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+    $RegistrationName = "<unique-registration-name>"
+    $UsageReporting = True # Set to False if you using a Capacity Billing Model
     Set-AzsRegistration `
-    -PrivilegedEndpointCredential $CloudAdminCred `
-    -PrivilegedEndpoint AzS-ERCS01 `
-    -BillingModel Development `
-    -RegistrationName "<Unique-name>"
+        -PrivilegedEndpointCredential $CloudAdminCred `
+        -PrivilegedEndpoint AzS-ERCS01 `
+        -BillingModel Development
+        -RegistrationName $RegistrationName
+        -EnableUsageReporting $UsageReporting
     ```
 3. När skriptet har slutförts bör du se det här meddelandet: **miljön är nu registrerad och aktiverad med hjälp av de angivna parametrarna.**
 

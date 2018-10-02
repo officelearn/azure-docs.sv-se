@@ -1,6 +1,6 @@
 ---
 title: Välj Windows VM-avbildningar i Azure | Microsoft Docs
-description: Lär dig hur du använder Azure PowerShell för att fastställa utgivare, erbjudande, SKU och version för Marketplace VM-avbildningar.
+description: Lär dig hur du använder Azure PowerShell för att fastställa utgivare, erbjudande, SKU och version för Marketplace-VM-avbildningar.
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
@@ -13,49 +13,48 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/28/2018
+ms.date: 09/28/2018
 ms.author: danlep
-ms.openlocfilehash: 269d1392e00d02a79a360e3528fdde174563f2cf
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 4fb718eb7247bddd8869b8973479377e3baebdda
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295218"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017186"
 ---
-# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Hitta Windows VM-avbildningar i Azure Marketplace med Azure PowerShell
+# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Så här hittar du Windows VM-avbildningar på Azure Marketplace med Azure PowerShell
 
-Den här artikeln beskriver hur du använder Azure PowerShell för att hitta VM-avbildningar i Azure Marketplace. Använd informationen för att ange en Marketplace-avbildning när du skapar en virtuell dator via programmering med PowerShell Resource Manager-mallar eller andra verktyg.
+Den här artikeln beskriver hur du använder Azure PowerShell för att hitta VM-avbildningar på Azure Marketplace. Använd informationen för att ange en Marketplace-avbildning när du skapar en virtuell dator via programmering med PowerShell, Resource Manager-mallar eller andra verktyg.
 
-Även bläddra tillgängliga avbildningar och erbjudanden som använder den [Azure Marketplace](https://azuremarketplace.microsoft.com/) storefront, den [Azure-portalen](https://portal.azure.com), eller [Azure CLI](../linux/cli-ps-findimage.md). 
+Även bläddra bland tillgängliga avbildningar och erbjudanden med hjälp av den [Azure Marketplace](https://azuremarketplace.microsoft.com/) storefront, den [Azure-portalen](https://portal.azure.com), eller [Azure CLI](../linux/cli-ps-findimage.md). 
 
-Kontrollera att du har installerat och konfigurerat senast [Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps).
+Se till att du installerat och konfigurerat senast [Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 ## <a name="table-of-commonly-used-windows-images"></a>Tabell med vanliga Windows-avbildningar
 | Utgivare | Erbjudande | Sku |
 |:--- |:--- |:--- |:--- |
-| MicrosoftWindowsServer |WindowsServer |2016 Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer |WindowsServer |2016 Datacenter med behållare |
-| MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
-| MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
-| MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
-| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
+| MicrosoftSQLServer |SQL2017 WS2016 |Enterprise |
+| MicrosoftRServer |RServer-WS2016 |Enterprise |
 
-## <a name="navigate-the-images"></a>Navigera avbildningar
+## <a name="navigate-the-images"></a>Navigera bland avbildningarna
 
-Ett annat sätt att hitta en bild på en plats är att köra den [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), och [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) cmdlets i följd. Med dessa kommandon bestämma dessa värden:
+Ett annat sätt att hitta en bild på en plats är att köra den [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), och [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) cmdletar i följd. Med följande kommandon kan du bestämma dessa värden.
 
 1. Visa en lista över avbildningsutgivare.
 2. Visa en lista över erbjudanden från en viss utgivare.
 3. Visa en lista över SKU:er för ett visst erbjudande.
 
-Kör sedan följande för en markerad SKU [Get-AzureRMVMImage](/powershell/module/azurerm.compute/get-azurermvmimage) att visa versioner för att distribuera.
+Kör sedan följande för en vald SKU [Get-AzureRMVMImage](/powershell/module/azurerm.compute/get-azurermvmimage) listan över versioner för att distribuera.
 
 Börja med att skapa en lista över utgivare med hjälp av följande kommandon:
 
@@ -78,14 +77,14 @@ $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-Fyll i ditt valda SKU namn och kör följande kommandon:
+Fyll i din valda SKU-namnet och kör följande kommandon:
 
 ```powershell
 $skuName="<SKU>"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-Från utdata från den `Get-AzureRMVMImage` kommandot kan du välja en version bild för att distribuera en ny virtuell dator.
+Från utdata från den `Get-AzureRMVMImage` kommandot, kan du välja en version bild för att distribuera en ny virtuell dator.
 
 Följande kommandon visar ett fullständigt exempel:
 
@@ -95,11 +94,12 @@ Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
 ```
 
-Resultat:
+Delvisa utdata:
 
 ```
 PublisherName
 -------------
+...
 a10networks
 aiscaler-cache-control-ddos-and-url-rewriting-
 alertlogic
@@ -113,7 +113,7 @@ Canonical
 ...
 ```
 
-För den *Microsoft Windows Server* publisher:
+För den *MicrosoftWindowsServer* utgivare:
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
@@ -154,28 +154,26 @@ Skus
 2016-Datacenter-smalldisk
 2016-Datacenter-with-Containers
 2016-Datacenter-with-RDSH
-2016-Nano-Server
 ```
 
-Sedan för den *2016 Datacenter* SKU:
+Sedan för den *2016-Datacenter* SKU:
 
 ```powershell
 $skuName="2016-Datacenter"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-Nu kan du kombinera valda utgivare, erbjudande, SKU och version till en URN (kommatecken:). Skicka den här URN med den `--image` parameter när du skapar en virtuell dator med den [ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Kom ihåg att du kan ersätta versionsnumret i URN med ”senaste”. Den här versionen är alltid den senaste versionen av avbildningen. Du kan också använda URN med den [Set AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell-cmdlet. 
+Nu kan du kombinera valda utgivare, erbjudande, SKU och version till en URN (värden separerade med:). Skicka den här URN med den `--image` parameter när du skapar en virtuell dator med den [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Kom ihåg att du kan ersätta versionsnumret i URN med ”senaste”. Den här versionen är alltid den senaste versionen av avbildningen.
 
-Om du distribuerar en virtuell dator med en Resource Manager-mall måste du ange parametrarna bild individuellt i den `imageReference` egenskaper. Finns det [mallreferensen](/azure/templates/microsoft.compute/virtualmachines).
+Om du distribuerar en virtuell dator med Resource Manager-mall kan du ange parametrarna bild individuellt i den `imageReference` egenskaper. Se den [mallreferensen](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
+### <a name="view-plan-properties"></a>Visa egenskaperna för energischemat
 
-### <a name="view-plan-properties"></a>Visa plan egenskaper
+Om du vill visa en bild Köpinformation för plan, kör den `Get-AzureRMVMImage` cmdlet. Om den `PurchasePlan` -egenskapen i utdata är inte `null`, avbildningen har villkoren måste du godkänna innan programdistribution.  
 
-Om du vill visa information om en avbildning köp plan kör den `Get-AzureRMVMImage` cmdlet. Om den `PurchasePlan` -egenskapen i utdata är inte `null`, avbildningen har villkoren måste du acceptera för programdistribution.  
-
-Till exempel Windows Server 2016 Datacenter bilden inte har ytterligare villkor, eftersom den `PurchasePlan` information `null`:
+Till exempel Windows Server 2016 Datacenter-avbildning inte har ytterligare villkor, eftersom den `PurchasePlan` information är `null`:
 
 ```powershell
 $version = "2016.127.20170406"
@@ -202,7 +200,7 @@ DataDiskImages   : []
 
 ```
 
-Kör ett liknande kommando för den datavetenskap virtuella - Windows 2016 bilden visar följande `PurchasePlan` egenskaper: `name`, `product`, och `publisher`. (Vissa bilder har också en `promotion code` egenskap.) Om du vill distribuera den här avbildningen finns i följande avsnitt att acceptera villkoren och aktivera programdistribution.
+Köra en liknande kommando för den virtuella datorn för datavetenskap – Windows 2016 bild visar följande `PurchasePlan` egenskaper: `name`, `product`, och `publisher`. (Vissa bilder har också en `promotion code` egenskap.) Finns i följande avsnitt för att acceptera villkoren och aktivera programdistribution för att distribuera den här avbildningen.
 
 ```powershell
 Get-AzureRMVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
@@ -234,7 +232,7 @@ DataDiskImages   : []
 
 ### <a name="accept-the-terms"></a>Godkänn villkoren
 
-Om du vill visa licensvillkoren, Använd den [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/get-azurermmarketplaceterms) cmdlet- och pass i köpet planera parametrar. Utdata innehåller en länk till villkoren för Marketplace-avbildning och visar om du tidigare har accepterat villkoren. Exempel:
+Du kan visa licensvillkoren på [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/get-azurermmarketplaceterms) cmdlet och lägger köpet planera parametrar. Utdata innehåller en länk till villkoren för Marketplace-avbildning och visar om du tidigare har accepterat villkoren. Glöm inte att använda gemener i parametrarnas värden. Exempel:
 
 ```powershell
 Get-AzureRmMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -254,7 +252,7 @@ Accepted          : False
 Signdate          : 2/23/2018 7:43:00 PM
 ```
 
-Använd den [Set AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) för att godkänna eller avvisa villkoren. Du behöver bara godkänna villkoren en gång per prenumeration för avbildningen. Exempel:
+Använd den [Set-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) cmdlet för att godkänna eller avvisa villkoren. Du behöver bara godkänna villkoren en gång per prenumeration för avbildningen. Glöm inte att använda gemener i parametrarnas värden. Exempel:
 
 ```powershell
 
@@ -273,34 +271,50 @@ Plan              : windows2016
 LicenseTextLink   : https://storelegalterms.blob.core.windows.net/legalterms/3E5ED_legalterms_MICROSOFT%253a2DADS%253a24WINDOWS%253a2DDATA%253a2DSCIENCE%253a2DV
                     M%253a24WINDOWS2016%253a24OC5SKMQOXSED66BBSNTF4XRCS4XLOHP7QMPV54DQU7JCBZWYFP35IDPOWTUKXUC7ZAG7W6ZMDD6NHWNKUIVSYBZUTZ245F44SU5AD7Q.txt
 PrivacyPolicyLink : https://www.microsoft.com/EN-US/privacystatement/OnlineServices/Default.aspx
-Signature         : VNMTRJK3MNJ5SROEG2BYDA2YGECU33GXTD3UFPLPC4BAVKAUL3PDYL3KBKBLG4ZCDJZVNSA7KJWTGMDSYDD6KRLV3LV274DLBJSS4GQ
+Signature         : XXXXXXK3MNJ5SROEG2BYDA2YGECU33GXTD3UFPLPC4BAVKAUL3PDYL3KBKBLG4ZCDJZVNSA7KJWTGMDSYDD6KRLV3LV274DLBXXXXXX
 Accepted          : True
 Signdate          : 2/23/2018 7:49:31 PM
 ```
 
-### <a name="deploy-using-purchase-plan-parameters"></a>Distribuera med köp plan parametrar
-Du kan distribuera en virtuell dator i prenumerationen efter accepterar du villkoren för avbildningen. I följande fragment visas när du använder den [Set AzureRmVMPlan](/powershell/module/azurerm.compute/set-azurermvmplan) cmdleten Marketplace planera information för det Virtuella datorobjektet. Ett komplett skript för att skapa nätverksinställningarna för den virtuella datorn och slutför distributionen, finns det [exempel på PowerShell-skript](powershell-samples.md).
+### <a name="deploy-using-purchase-plan-parameters"></a>Distribuera med hjälp av köp plan parametrar
+
+När du accepterar villkoren för avbildningen kan distribuera du en virtuell dator i prenumerationen. Som du ser i följande kodavsnitt kan använda den [Set-AzureRmVMPlan](/powershell/module/azurerm.compute/set-azurermvmplan) cmdleten Marketplace-informationen för det Virtuella datorobjektet för planen. En fullständig skript för att skapa nätverksinställningar för den virtuella datorn och slutföra distributionen, finns det [PowerShell-exempelskript](powershell-samples.md).
 
 ```powershell
 ...
+
 $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize Standard_D1
 
 # Set the Marketplace plan information
-$vmConfig = Set-AzureRmVMPlan -VM $vmConfig -Publisher "imagePlanPublisher" -Product "imagePlanProduct" -Name "imagePlanName"
+
+$publisherName = "microsoft-ads"
+
+$productName = "windows-data-science-vm"
+
+$planName = "windows2016"
+
+$vmConfig = Set-AzureRmVMPlan -VM $vmConfig -Publisher $publisherName -Product $productName -Name $planName
 
 $cred=Get-Credential
 
 $vmConfig = Set-AzureRmVMOperatingSystem -Windows -VM $vmConfig -ComputerName "myVM" -Credential $cred
 
 # Set the Marketplace image
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "imagePublisher" -Offer "imageOffer" -Skus "imageSku" -Version "imageVersion"
+
+$offerName = "windows-data-science-vm"
+
+$skuName = "windows2016"
+
+$version = "0.2.02"
+
+$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisherName -Offer $offerName -Skus $skuName -Version $version
 ...
 ```
-Du skickar sedan VM-konfiguration tillsammans med network configuration-objekt till den `New-AzureRmVM` cmdlet.
+Sedan skickar du VM-konfigurationen tillsammans med network configuration-objekt till den `New-AzureRmVM` cmdlet.
 
 ## <a name="next-steps"></a>Nästa steg
-Så här skapar du en virtuell dator snabbt med `New-AzureRmVM` med hjälp av grundläggande avbildningen information, se [skapar en virtuell Windows-dator med PowerShell](quick-create-powershell.md).
+Skapa en virtuell dator snabbt med `New-AzureRmVM` med basic-avbildningen information, se [skapa en Windows-dator med PowerShell](quick-create-powershell.md).
 
-Exempel på en PowerShell-skript för att se [skapa en virtuell dator som helt konfigurerade](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
+Se ett exempel på PowerShell-skript till [skapa en fullständigt konfigurerad virtuell dator](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
 
 

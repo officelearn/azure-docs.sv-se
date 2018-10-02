@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure IoT Hub-priser | Microsoft Docs
-description: Utvecklarhandbok - information om hur fungerade avläsning och prissättning fungerar med IoT-hubben inklusive exempel.
+title: Förstå prissättningen för Azure IoT Hub | Microsoft Docs
+description: Utvecklarguide – information om hur Avläsning av programvara och priser fungerar med IoT-hubben som fungerade exempel.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 672adba0b4b17a25c0c0a1da3596808f767e3fbd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632847"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584106"
 ---
-# <a name="azure-iot-hub-pricing-information"></a>Information om priser för Azure IoT-hubb
+# <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub information om priser
 
-[Azure IoT-hubb priser] [ lnk-pricing] ger allmän information om olika SKU: er och priser för IoT-hubb. Den här artikeln innehåller ytterligare information om hur olika funktioner i IoT-hubben är avgiftsbelagda som meddelanden i IoT Hub.
+[Azure IoT Hub priser](https://azure.microsoft.com/pricing/details/iot-hub) innehåller allmän information om olika SKU: er och priser för IoT Hub. Den här artikeln innehåller ytterligare information om hur de olika funktionerna för IoT Hub mäts som meddelanden som IoT Hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -25,46 +25,42 @@ ms.locfileid: "34632847"
 
 | Åtgärd | Faktureringsinformation | 
 | --------- | ------------------- |
-| Identitetsregisteråtgärder <br/> (skapa, hämta, visa, uppdatera, ta bort) | Inte debiteras. |
-| Meddelanden från enheten till molnet | Skickade meddelanden debiteras i 4 KB-block på ingång i IoT-hubb. Till exempel debiteras ett meddelande på 6 KB 2 meddelanden. |
-| Meddelanden moln till enhet | Skickade meddelanden debiteras i 4 KB-block, till exempel ett meddelande på 6 KB debiteras 2 meddelanden. |
-| Filöverföringar | Filöverföring till Azure Storage mäts inte i IoT Hub. Filen överföring stöd för start och slutförande meddelanden debiteras som postmeddelandet förbrukade i steg 4 KB. Till exempel debiteras överföra en fil på 10 MB två meddelanden förutom kostnaden för Azure Storage. |
-| Direkta metoder | Lyckad metodbegäranden debiteras i 4 KB-block, debiteras svar med icke-tom organ i 4 KB-block som ytterligare meddelanden. Begäranden till frånkopplade enheter debiteras som meddelanden i 4 KB-block. Till exempel debiteras en metod med 6 KB brödtext som resulterar i ett svar med ingen brödtext från enheten, som två meddelanden. En metod med 6 KB brödtext som resulterar i ett 1-KB-svar från enheten debiteras som två meddelanden för begäran plus ett annat meddelande för svaret. |
-| Enheten och modulen dubbla läser | Dubbla läser från enheten eller modulen och lösningen tillbaka slutet debiteras som meddelanden i 512 byte-segment. Till exempel debiteras läsa en 6 KB dubbla som 12 meddelanden. |
-| Modulen dubbla uppdateringar för enhet och (taggar och egenskaper) | Dubbla uppdateringar från enheten eller modulen och lösningens serverdel debiteras som meddelanden i 512 byte-segment. Till exempel debiteras läsa en 6 KB dubbla som 12 meddelanden. |
-| Enheten och modulen dubbla frågor | Frågor debiteras som meddelanden beroende på storleken på resultatet i 512 byte-segment. |
+| Identitetsregisteråtgärder <br/> (skapa, hämta, lista, uppdatera och ta bort) | Inte debiteras. |
+| Meddelanden från enheten till molnet | Skickade meddelanden debiteras i segment om 4 KB på inkommande till IoT Hub. Ett meddelande på 6 KB debiteras till exempel 2 meddelanden. |
+| Meddelanden från moln till enhet | Skickade meddelanden debiteras i segment om 4 KB, till exempel ett meddelande på 6 KB debiteras 2 meddelanden. |
+| Filöverföringar | Filöverföring till Azure Storage mäts inte av IoT Hub. File transfer initiation och slutförande meddelanden debiteras som postmeddelandet förbrukade i steg om 4 KB. Till exempel debiteras överföra en fil på 10 MB två meddelanden förutom kostnaden för Azure Storage. |
+| Direkta metoder | Lyckad metodbegäranden debiteras i segment om 4 KB, debiteras svar med icke-tomma organ i segment om 4 KB som ytterligare meddelanden. Begäranden till frånkopplade enheter debiteras som meddelanden i segment om 4 KB. En metod med en 6-KB text som resulterar i ett svar med ingen text från en enhet är till exempel debiteras som två meddelanden. En metod med en 6-KB text som resulterar i ett 1 KB-svar från enheten debiteras som två meddelanden för begäran plus ett annat meddelande för svaret. |
+| Enheten och modulen twin läser | Twin läser från enheten eller modulen och från lösningens serverdel slut debiteras som meddelanden i 512 byte-segment. Till exempel debiteras läsning av en enhetstvilling på 6 KB som 12 meddelanden. |
+| Enheten och modulen uppdateringar för enhetstvilling (taggar och egenskaper) | Uppdateringar för enhetstvilling från enheten eller modulen och lösningens backend-server debiteras som meddelanden i 512 byte-segment. Till exempel debiteras läsning av en enhetstvilling på 6 KB som 12 meddelanden. |
+| Enheten och modulen twin frågor | Frågor debiteras som meddelanden beroende på resultatstorlek i 512 byte-segment. |
 | Jobbåtgärder <br/> (skapa, uppdatera, visa, ta bort) | Inte debiteras. |
-| Åtgärder för jobb per enhet | Jobb-åtgärder (till exempel dubbla uppdateringar och metoder) debiteras som vanligt. Till exempel debiteras ett jobb som ledde till 1000 metodanrop med 1 KB och -svar för tom brödtext 1000 meddelanden. |
+| Jobbåtgärder per enhet | Jobbåtgärder (t.ex uppdateringar för enhetstvilling och metoder) debiteras som vanligt. Ett jobb som lett till 1000 metodanrop med 1 KB begäranden och svar med tom brödtext debiteras till exempel 1000 meddelanden. |
 
 > [!NOTE]
-> Alla storlekar beräknas överväger nyttolastens storlek i byte (protokollet synkroniseringstecken ignoreras). För meddelanden som har egenskaper och brödtext beräknas storleken på protocol-oberoende sätt. Mer information finns i [IoT-hubb messaging Utvecklingsguide][lnk-message-size].
+> Alla storlekar beräknas överväger Nyttolaststorlek i byte (protokollet synkroniseringstecken ignoreras). För meddelanden som har egenskaper och brödtext, beräknas storleken på ett protokoll-oberoende sätt. Mer information finns i [IoT Hub-meddelandeformat](iot-hub-devguide-messages-construct.md).
 
 ## <a name="example-1"></a>Exempel #1
 
-En enhet skickar ett 1 KB enhet till moln meddelande per minut till IoT-hubb som läses sedan av Azure Stream Analytics. Lösningens serverdel anropar en metod (med 512 byte-nyttolast) på enheten var tionde minut för att utlösa en specifik åtgärd. Enheten svarar metoden med ett resultat av 200 byte.
+En enhet skickar ett 1 KB enhet-till-moln-meddelande per minut till IoT Hub, som sedan läses av Azure Stream Analytics. Lösningens serverdel anropar en metod (med 512 byte-nyttolast) på enheten var tionde minut för att utlösa en viss åtgärd. Enheten svarar på metoden med ett resultat av 200 byte.
 
-Enheten förbrukar:
+Enheten använder:
 
-* Ett meddelande * 60 minuter * 24 timmar = 1440 meddelanden per dag för meddelanden enhet till moln.
-* Två begära plus svar * 6 gånger i timmen * 24 timmar = 288 meddelanden för metoder.
+* Ett meddelande om att * 60 minuter * 24 timmar = 1440 meddelanden per dag för enhet-till-moln-meddelanden.
+* Två begär plus svar * 6 gånger per timme * 24 timmar = 288 meddelanden för metoder.
 
 Den här beräkningen ger totalt 1728 meddelanden per dag.
 
 ## <a name="example-2"></a>Exempel #2
 
-En enhet skickar en 100 KB enhet till moln meddelande varje timme. Uppdaterar den även dess enhet dubbla med 1 KB nyttolaster var fjärde timme. Lösningen tillbaka avslutas, en gång per dag, läser 14 KB enheten dubbla och uppdaterar med 512 byte-nyttolaster ändra konfigurationer.
+En enhet skickar ett meddelande om enheten till molnet att 100 KB varje timme. Uppdaterar den även dess enhetstvilling med 1 KB nyttolaster var fjärde timme. Lösningens serverdel sluta, en gång per dag, läser 14 KB enhetstvillingen och uppdaterar med 512 byte-nyttolaster ändra konfigurationer.
 
-Enheten förbrukar:
+Enheten använder:
 
-* 25 (100 KB/4 KB) meddelanden * 24 timmar för meddelanden från enhet till moln.
-* Två meddelanden (1 KB/0,5 KB) * sex gånger per dag för dubbla uppdateringar.
+* 25 (100 KB/4 KB) meddelanden * 24 timmar för meddelanden från enheten till molnet.
+* Två meddelanden (1 KB/0,5 KB) * sex gånger per dag för uppdateringar för enhetstvilling.
 
 Den här beräkningen ger totalt 612 meddelanden per dag.
 
-Lösningens serverdel förbrukar 28 meddelanden (14 KB/0,5 KB) för att läsa enhet dubbla plus ett meddelande att uppdatera det, totalt 29 meddelanden.
+Lösningens serverdel förbrukar 28 meddelanden (14 KB/0,5 KB) för att läsa enhetstvillingen, plus ett meddelande om att uppdatera det, 29 meddelanden totalt.
 
-Sammanlagt enheten och lösningens serverdel kan du använda 641 meddelanden per dag.
-
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-message-size]: iot-hub-devguide-messages-construct.md
+Totalt, enheten och lösningens backend-server kan du använda 641 meddelanden per dag.

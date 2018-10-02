@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 60a6061d6ac0998064897462c0e82db811bdc187
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e8d84d83636bc8bed287d1fa68d36ce1c2ea3d58
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435584"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018561"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Stöd för språk och din region för tjänsten för Taligenkänning
 
@@ -161,8 +161,6 @@ Röst anpassning är tillgängligt för amerikansk engelska (en-US), fastlandet 
 ## <a name="speech-translation"></a>Talöversättning
 
 Den **Talöversättning** API har stöd för olika språk för översättning av tal-till-tal- och tal till text. Källspråk måste alltid vara i följande tabell för tal-språk. Tillgängliga mål språk beror på om translation målet är tal eller text.
-
-Du kan hämta en lista med språk via programmering med hjälp av REST-API-slutpunkt för språk. Listan innehåller varje språkkod, samt språkets namn på engelska eller på något annat språk som stöds. Den här listan uppdateras av tjänsten Microsoft Translator när ett nytt språk blir tillgängliga.
 
 ### <a name="speech-languages"></a>Talspråk
 

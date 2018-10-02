@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: 6178c4a55d24bb37aae787129c9a0d390a2e536b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 192af40df3a8bc0545c9c3a86792e7eb8cb31de9
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226234"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586112"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process i praktiken: använda SQL Data Warehouse
 I de här självstudierna vi vägleder genom att skapa och distribuera en maskininlärningsmodell med SQL Data Warehouse (SQL DW) för en datauppsättning som allmänt tillgängliga – den [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättning. Binära klassificeringsmodellen konstrueras förutsäger huruvida ett tips är betalas för en resa och modeller för multiklass-baserad klassificering och regression beskrivs som förutsäga fördelningen för tips belopp som har betalats.
@@ -28,7 +28,7 @@ I de här självstudierna vi vägleder genom att skapa och distribuera en maskin
 Förfarandet som följer den [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) arbetsflöde. Vi visar hur du ställer in en datavetenskapsmiljö in data i SQL DW och använda hur SQL DW eller en IPython Notebook för att utforska data och -tekniker funktioner i modellen. Sedan visar vi hur du skapar och distribuerar en modell med Azure Machine Learning.
 
 ## <a name="dataset"></a>NYC Taxi och RETUR-datauppsättning
-NYC Taxi resedata består av cirka 20GB komprimerat CSV-filer (~ 48GB okomprimerad), registrera mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Varje resa post innehåller hämtning och Samlingsbibliotek platser och gånger, maskerade hack (drivrutin) licensnummer och antalet medallion (taxi's unikt id). Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
+NYC Taxi resedata består av cirka 20GB komprimerat CSV-filer (~ 48GB okomprimerad), registrera mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Varje resa post innehåller hämtning och dropoff platser och gånger, maskerade hack (drivrutin) licensnummer och antalet medallion (taxi's unikt id). Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
 
 1. Den **trip_data.csv** filen innehåller resans information, till exempel antalet passagerare, hämtning och dropoff, resans varaktighet och resans längd. Här följer några Exempelposter:
    
@@ -442,7 +442,7 @@ Det här exemplet beräknar fördelningen av tip-intervall i en viss tidsperiod 
 | 4 |85765 |
 
 ### <a name="exploration-compute-and-compare-trip-distance"></a>Utforskning: Beräkna och jämföra resans avstånd
-Det här exemplet konverterar hämtning och Samlingsbibliotek longitud och latitud till SQL geografiskt område återställningspunkter, beräknar avståndet resa med hjälp av SQL geografi punkter skillnaden och returnerar ett slumpmässigt urval av resultaten för jämförelse. I exempel begränsar resultaten till giltiga koordinater bara med data quality utvärdering fråga beskrivs tidigare.
+Det här exemplet konverterar hämtning och dropoff longitud och latitud till SQL geografiskt område återställningspunkter, beräknar avståndet resa med hjälp av SQL geografi punkter skillnaden och returnerar ett slumpmässigt urval av resultaten för jämförelse. I exempel begränsar resultaten till giltiga koordinater bara med data quality utvärdering fråga beskrivs tidigare.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
     SET ANSI_NULLS ON

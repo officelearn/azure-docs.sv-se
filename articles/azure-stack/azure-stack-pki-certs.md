@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8de34e4ac01dea9cf4a0c718883e8cc828be6403
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 61c91f7e1f2ba266be6453bb6e6fb25f3834485e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714629"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585904"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Certifikatkrav för Azure Stack-infrastruktur för offentliga nycklar
 
@@ -39,7 +39,7 @@ I följande lista beskrivs kraven på certifikaten som behövs för att distribu
 - Azure Stack-infrastruktur måste ha nätverksåtkomst till certifikatutfärdarens certifikat listan över Återkallade plats publiceras i certifikatet. Den här listan över återkallade certifikat måste vara en http-slutpunkt
 - När du roterar certifikat, måste certifikaten ha antingen utfärdas från samma interna certifikatutfärdare används för att signera certifikat som angavs vid distribution eller en offentlig certifikatutfärdare ovan
 - Användning av självsignerade certifikat stöds inte
-- För distribution och rotation som du kan antingen använda ett enstaka certifikat som täcker alla namnutrymmen i certifikatets ämnesnamn och alternativt namn på CERTIFIKATMOTTAGARE eller du kan använda person-certifikat för varje namnrum nedan som Azure Stack tjänster som du planerar att använda kräver. Obs: båda metoderna kräver med jokertecken för slutpunkter där de är obligatoriska, till exempel **KeyVault** och **KeyVaultInternal**. 
+- För distribution och rotation som du kan antingen använda ett enstaka certifikat som täcker alla namnutrymmen i certifikatets ämnesnamn och alternativt namn på CERTIFIKATMOTTAGARE eller du kan använda person-certifikat för varje namnrum nedan som Azure Stack tjänster som du planerar att använda kräver. Båda metoderna kräver med jokertecken för slutpunkter där de är obligatoriska, till exempel **KeyVault** och **KeyVaultInternal**. 
 - Signaturalgoritm certifikatet måste vara 3DES. Algoritmen kan inte vara SHA1, eftersom det måste vara starkare. 
 - Certifikatformatet måste vara PFX, som både offentliga och privata nycklar som krävs för installation av Azure Stack. 
 - Pfx-filer för certifikatet måste ha ett värde ”Digital signatur” och ”KeyEncipherment” i dess ”nyckelanvändning”.

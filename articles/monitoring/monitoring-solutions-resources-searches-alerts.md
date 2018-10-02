@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd8ba47e8fb0d591fab7717117329357b74f907a
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999519"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585976"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och aviseringar till lösning för hantering (förhandsversion)
 
@@ -84,7 +84,7 @@ I följande tabell beskrivs varje egenskap för en sparad sökning.
 | DocumentDB | Frågan ska köras. |
 
 > [!NOTE]
-> Du kan behöva använda escape-tecken i frågan om den innehåller tecken som kan tolkas som JSON.  Exempel: om din fråga var **typ: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write”**, den måste skrivas i lösningsfilen som **typ: AzureActivity OperationName:\" Microsoft.Compute/virtualMachines/write\"**.
+> Du kan behöva använda escape-tecken i frågan om den innehåller tecken som kan tolkas som JSON.  Exempel: om din fråga var **typ: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write”**, den måste skrivas i lösningsfilen som **typ: AzureActivity OperationName:\\” Microsoft.Compute/virtualMachines/write\\”**.
 
 ## <a name="alerts"></a>Aviseringar
 [Azure loggaviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) skapas av Azure Varningsregler som kör angivna loggfrågor med jämna mellanrum.  Om resultatet av frågan matchar angivna villkor, skapas en aviseringspost och en eller flera åtgärder körs med hjälp av [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).  
@@ -250,7 +250,7 @@ Varje schema har en **avisering** åtgärd.  Detta definierar information om avi
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
 | Mottagare | Ja | Kommaavgränsad lista över e-postadresser för att skicka meddelande när en avisering skapas som i följande exempel.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Ämne | Ja | Ämnesrad i e-postmeddelandet. |
+| Subjekt | Ja | Ämnesrad i e-postmeddelandet. |
 | Bifogad fil | Nej | Bifogade filer stöds inte för närvarande.  Om det här elementet ingår, bör den vara **ingen**. |
 
 

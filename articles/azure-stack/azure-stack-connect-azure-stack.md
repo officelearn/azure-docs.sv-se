@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Azure-stacken | Microsoft Docs
-description: Lär dig hur du ansluter till Azure-stacken.
+title: Anslut till Azure Stack | Microsoft Docs
+description: Lär dig hur du ansluter till Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,49 +12,49 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/06/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: c1932f2ed0486fb56e467466c0fed53702e8f9b0
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 1cdf013325afe4b217f5f56043e06f60a4933419
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248694"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585636"
 ---
-# <a name="connect-to-azure-stack-development-kit"></a>Ansluta till Azure-stacken Development Kit
+# <a name="connect-to-azure-stack-development-kit"></a>Ansluta till Azure Stack Development Kit
 
-*Gäller för: Azure stacken Development Kit*
+*Gäller för: Azure Stack Development Kit*
 
-För att hantera resurser, måste du först ansluta till Azure-stacken Development Kit. I den här artikeln beskrivs de steg som du utför för att ansluta till development kit. Du kan använda något av följande anslutningsalternativ för:
+För att hantera resurser, måste du först ansluta till Azure Stack Development Kit. I den här artikeln beskrivs de steg som du utför för att ansluta till i development kit. Du kan använda någon av följande anslutningsalternativ för:
 
-* [Anslutning till fjärrskrivbord](#connect-with-remote-desktop). När du ansluter med hjälp av anslutning till fjärrskrivbord kan snabbt ansluta till en enskild användare development Kit.
-* [Virtuellt privat nätverk (VPN)](#connect-with-vpn). När du ansluter via en VPN-anslutning ansluta flera användare samtidigt från klienter utanför Azure Stack-infrastruktur. En VPN-anslutning kräver vissa inställningar.
+* [Anslutning till fjärrskrivbord](#connect-with-remote-desktop). När du ansluter med hjälp av anslutning till fjärrskrivbord kan snabbt ansluta till en enskild användare i development Kit.
+* [Virtuellt privat nätverk (VPN)](#connect-with-vpn). När du ansluter med hjälp av en VPN-anslutning kan ansluta flera användare samtidigt från klienter utanför Azure Stack-infrastruktur. En VPN-anslutning kräver viss konfigurering.
 
 <a name="connect-to-azure-stack-with-remote-desktop"></a>
-##  <a name="connect-to-azure-stack-by-using-remote-desktop-connection"></a>Ansluta till Azure-stacken genom att använda anslutning till fjärrskrivbord
+##  <a name="connect-to-azure-stack-by-using-remote-desktop-connection"></a>Ansluta till Azure Stack med anslutning till fjärrskrivbord
 
-En enskild samtidiga användare kan hantera resurser på den operator-portalen eller användarportalen via anslutning till fjärrskrivbord.
+En enskild samtidiga användare kan hantera resurser i portalen operator eller användarportalen via anslutning till fjärrskrivbord.
 
-1. Öppna anslutning till fjärrskrivbord och Anslut development Kit. Användarnamnet, ange **AzureStack\AzureStackAdmin**. Använd operatorn lösenord som du angav när du ställer in Azure-stacken.  
+1. Öppna anslutning till fjärrskrivbord och Anslut development Kit. Användarnamnet, ange **AzureStack\AzureStackAdmin**. Använd operatorn lösenordet som du angav när du ställer in Azure Stack.  
 
-2. Öppna Serverhanteraren på utvecklingsdatorn kit. Välj **lokal Server**avmarkerar den **Förbättrad säkerhetskonfiguration i Internet Explorer** kryssrutan och Stäng Server Manager.
+2. Öppna Serverhanteraren på utvecklingsdatorn kit. Välj **lokal Server**, avmarkera de **förbättrad säkerhet i Internet Explorer** kryssrutan och Stäng Serverhanteraren.
 
-3. Öppna den [användarportalen](azure-stack-key-features.md#portal), gå till https://portal.local.azurestack.external/. Logga in med autentiseringsuppgifterna för användaren. Öppna Azure-stacken [operatorn portal](azure-stack-key-features.md#portal), gå till https://adminportal.local.azurestack.external/. Logga in med hjälp av Azure Active Directory (Azure AD)-autentiseringsuppgifterna som du angav under installationen.
+3. Öppna den [användarportalen](azure-stack-key-features.md#portal)går du till https://portal.local.azurestack.external/. Logga in med autentiseringsuppgifter för användare. Öppna Azure Stack [operatorn portal](azure-stack-key-features.md#portal)går du till https://adminportal.local.azurestack.external/. Logga in med hjälp av Azure Active Directory (Azure AD)-autentiseringsuppgifterna som du angav under installationen.
 
 <a name="connect-to-azure-stack-with-vpn"></a>
-## <a name="connect-to-azure-stack-by-using-vpn"></a>Ansluta till Azure-stacken med hjälp av VPN
+## <a name="connect-to-azure-stack-by-using-vpn"></a>Ansluta till Azure Stack via VPN
 
-Du kan upprätta en VPN-anslutning till en Azure-stacken Development Kit för delad tunnel. Du kan använda en VPN-anslutning för att få åtkomst till Azure-stacken operatorn portal, användarportalen och lokalt installerade verktyg som Visual Studio och PowerShell för att hantera Azure-stacken resurser. VPN-anslutningar stöds i Azure AD och Active Directory Federation Services (AD FS) distributioner. VPN-anslutningar gör det möjligt för flera klienter att ansluta till Azure-stacken på samma gång.
+Du kan upprätta en VPN-anslutning till en Azure Stack Development Kit för delade tunnlar. Du kan använda en VPN-anslutning för att få åtkomst till portalen för Azure Stack-operator, användarportalen och lokalt installerade verktyg som Visual Studio och PowerShell för att hantera Azure Stack-resurser. VPN-anslutning stöds i Azure AD och Active Directory Federation Services (AD FS)-distributioner. VPN-anslutningar som gör det möjligt för flera klienter att ansluta till Azure Stack på samma gång.
 
 > [!NOTE]
-> En VPN-anslutning innehåller inte anslutningen till Azure-stacken infrastruktur virtuella datorer.
+> En VPN-anslutning tillhandahåller inte anslutningen till Azure Stack-infrastrukturens virtuella datorer.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
 1. Installera [Azure Stack-kompatibla Azure PowerShell](azure-stack-powershell-install.md) på den lokala datorn.  
-2. Hämta den [verktyg som krävs för att arbeta med Azure Stack](azure-stack-powershell-download.md).
+2. Ladda ned den [verktyg som krävs för att arbeta med Azure Stack](azure-stack-powershell-download.md).
 
-### <a name="set-up-vpn-connectivity"></a>Konfigurera VPN-anslutningar
+### <a name="set-up-vpn-connectivity"></a>Konfigurera VPN-anslutning
 
 Öppna Windows PowerShell som administratör på den lokala Windows-baserade datorn för att skapa en VPN-anslutning i development Kit. Kör följande skript (uppdatera IP-adress och lösenord som värden för din miljö):
 
@@ -93,7 +93,7 @@ Om installationen lyckas, **azurestack** visas i listan över VPN-anslutningar.
 
 ### <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
 
-Anslut till Azure Stack-instans med någon av följande metoder:  
+Anslut till Azure Stack-instans med hjälp av något av följande metoder:  
 
 * Använd den `Connect-AzsVpn ` kommando:
     
@@ -102,14 +102,14 @@ Anslut till Azure Stack-instans med någon av följande metoder:
     -Password $Password
   ```
 
-  När du uppmanas, litar Azure Stack-värden och installera certifikatet från **AzureStackCertificateAuthority** i certifikatarkivet för den lokala datorn. (Frågan kanske döljs av PowerShell-fönstret.)
+  När du uppmanas, litar på Azure Stack-värden och installera certifikat från **AzureStackCertificateAuthority** i den lokala datorns certifikatarkiv. (Det kan vara dolt prompten av PowerShell-fönstret.)
 
-* På den lokala datorn, väljer **nätverksinställningar** > **VPN** > **azurestack** > **ansluta**. Ange användarnamnet i Kommandotolken inloggning (**AzureStack\AzureStackAdmin**) och lösenordet.
+* På den lokala datorn, Välj **nätverksinställningar** > **VPN** > **azurestack** > **ansluta**. Ange användarnamnet i Kommandotolken inloggning (**AzureStack\AzureStackAdmin**) och lösenordet.
 
-### <a name="test-vpn-connectivity"></a>Testa en VPN-anslutning
+### <a name="test-vpn-connectivity"></a>Testa VPN-anslutningen
 
-Om du vill testa anslutningen portal, öppna en webbläsare och gå sedan till antingen användarportalen (https://portal.local.azurestack.external/) eller operator-portal (https://adminportal.local.azurestack.external/). Logga in och skapa resurser.  
+Om du vill testa portal anslutningen, öppna en webbläsare och gå sedan till antingen användarportalen (https://portal.local.azurestack.external/) eller operator-portal (https://adminportal.local.azurestack.external/). Logga in och skapa resurser.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Tillhandahålla virtuella datorer till Azure Stack-användare](azure-stack-tutorial-tenant-vm.md)
+[Tillgängliggör virtuella datorer för Azure Stack-användare](azure-stack-tutorial-tenant-vm.md)

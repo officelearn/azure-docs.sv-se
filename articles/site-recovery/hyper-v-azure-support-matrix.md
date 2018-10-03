@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/14/2018
+ms.topic: conceptual
+ms.date: 10/02/2018
 ms.author: raynew
-ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 8c943b9ec8114699a7fad487c7d669b58942c019
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054364"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042537"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Stödmatris för Hyper-V-replikering till Azure
 
@@ -59,16 +59,16 @@ Lägg till disk på replikerade Hyper-V-dator | Stöds ej. Inaktivera replikerin
 
 **Komponent** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan att Virtual Machine Manager**
 --- | --- | ---
-Värdnätverket: NIC Teaming | Ja
-Värdnätverket: VLAN | Ja
-Värdnätverket: IPv4 | Ja
-Värdnätverket: IPv6 | Nej
-Gäst VM-nätverk: NIC Teaming | Nej
-Gäst VM-nätverk: IPv4 | Ja
-Gäst VM-nätverk: IPv6 | Nej
-Gäst VM-nätverk: statisk IP-adress (Windows) | Ja
-Gäst VM-nätverk: statisk IP-adress (Linux) | Nej
-Gäst VM-nätverk: Multi-NIC | Ja
+Värdnätverket: NIC Teaming | Ja | Ja
+Värdnätverket: VLAN | Ja | Ja
+Värdnätverket: IPv4 | Ja | Ja
+Värdnätverket: IPv6 | Nej | Nej
+Gäst VM-nätverk: NIC Teaming | Nej | Nej
+Gäst VM-nätverk: IPv4 | Ja | Ja
+Gäst VM-nätverk: IPv6 | Nej | Ja
+Gäst VM-nätverk: statisk IP-adress (Windows) | Ja | Ja
+Gäst VM-nätverk: statisk IP-adress (Linux) | Nej | Nej
+Gäst VM-nätverk: Multi-NIC | Ja | Ja
 
 
 

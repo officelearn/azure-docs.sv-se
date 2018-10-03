@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptal
-ms.date: 09/19/2018
+ms.date: 10/02/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 47e2db42e21be6b540882a9c316517cfb4fb82e7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.component: ''
+ms.openlocfilehash: 19334bd7a6c2d451e51237cc16462bae2cfffb0a
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054460"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041330"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Skapa en Log Analytics-arbetsyta med Azure CLI 2.0
 
@@ -118,7 +118,7 @@ Följande parametrar anger ett standardvärde:
 4. Nu är det dags att distribuera den här mallen. Använd följande kommandon från mappen som innehåller mallen:
 
     ```azurecli
-    azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+    azure group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 Det kan ta några minuter att slutföra distributionen. När den är klar kan du se ett meddelande som liknar följande som innehåller resultatet:

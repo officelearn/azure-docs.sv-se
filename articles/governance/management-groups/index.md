@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/18/2018
+ms.date: 9/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d031059f9811cedb703fec4920e00fd1b2e3f877
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6b369c8209e62ff3c98b3fdf78378b403b0a0d2d
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045365"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017661"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna resurser med hanteringsgrupper i Azure
 
@@ -62,19 +62,30 @@ Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och 
   - Alla som har åtkomst till en prenumeration kan se kontexten för den aktuella prenumerationens placering i hierarkin.  
   - Det är inte någon som får åtkomst till rothanteringsgruppen som standard. Globala katalogadministratörer är de enda användarna som kan ge sig själva åtkomst.  Efter att ha fått åtkomst kan katalogadministratörerna tilldela önskade RBAC-roller till andra användare.  
 
-> [!NOTE]
-> Om du började använda tjänsten för hanteringsgrupper för din katalog före 2018-06-25 så kanske inte katalogen kan konfigureras med alla prenumerationer i hierarkin. Teamet för hanteringsgrupper uppdaterar retroaktivt alla kataloger som började använda hanteringsgrupper i den allmänt tillgängliga förhandsversionen före det datumet i juli/augusti 2018. Alla prenumerationer i katalogerna kommer att göras till underordnade under rothanteringsgruppen Prior (Före).
->
-> Om du har frågor om den här retroaktiva processen kan du kontakta: managementgroups@microsoft.com  
-  
-## <a name="initial-setup-of-management-groups"></a>Initial konfiguration av hanteringsgrupper
-
-När användarna börjar använda hanteringsgrupper måste de genomföra en initial konfigurationsprocess. Det första steget är att rothanteringsgruppen skapas i katalogen. När den här gruppen har skapats blir alla befintliga prenumerationer i katalogen underordnade rothanteringsgruppen. Den här processen är till för att kontrollera att det endast finns en hanteringsgrupphierarki i en katalog. Hierarkin i katalogen gör det möjligt för administrativa kunder att använda global åtkomst och principer som andra kunder i katalogen inte kan kringgå. Allt som tilldelas på roten gäller för alla hanteringsgrupper, prenumerationer, resursgrupper och resurser i katalogen genom att det finns en hierarki inom katalogen.
-
 > [!IMPORTANT]
 > Alla tilldelningar av användaråtkomst eller principtilldelning för rothanteringsgruppen **gäller för alla resurser inom katalogen**.
 > Alla kunder bör därför utvärdera behovet av objekt som definierats för det här området.
 > Användaråtkomst och principtilldelningar bör endast vara ”måsten” i den här omfattningen.  
+
+## <a name="initial-setup-of-management-groups"></a>Initial konfiguration av hanteringsgrupper
+
+När användarna börjar använda hanteringsgrupper måste de genomföra en initial konfigurationsprocess. Det första steget är att rothanteringsgruppen skapas i katalogen. När den här gruppen har skapats blir alla befintliga prenumerationer i katalogen underordnade rothanteringsgruppen. Den här processen är till för att kontrollera att det endast finns en hanteringsgrupphierarki i en katalog. Hierarkin i katalogen gör det möjligt för administrativa kunder att använda global åtkomst och principer som andra kunder i katalogen inte kan kringgå. Allt som tilldelas på roten gäller för alla hanteringsgrupper, prenumerationer, resursgrupper och resurser i katalogen genom att det finns en hierarki inom katalogen.
+
+## <a name="trouble-seeing-all-subscriptions"></a>Problem med att visa alla prenumerationer
+
+Vissa kataloger som började använda hanteringsgrupper tidigt i förhandsversionen innan denna (25 juni 2018) märkte av ett problem med att inte alla prenumerationer lades till i hierarkin.  Det berodde på att processerna för att lägga till prenumerationer i hierarkin implementerades efter det att en roll- eller principtilldelning utfördes på katalogens rothanteringsgrupp.
+
+### <a name="how-to-resolve-the-issue"></a>Så här löser du problemet
+
+Det finns två självbetjäningsalternativ för att lösa detta.
+
+1. Ta bort alla roll- och principtilldelningar från rothanteringsgruppen
+    1. När du tar bort princip- och rolltilldelningar från rothanteringsgruppen återfyller tjänsten alla prenumerationer till hierarkin nästa dagcykel.  Anledningen till kontrollen är att försäkra att det inte har getts någon oavsiktlig åtkomst eller principtilldelning till alla prenumerationer i klientorganisationen.
+    1. Det bästa sättet att genomföra processen utan att påverka tjänsterna är att tilldela roll- eller principtilldelningar på en nivå lägre än rothanteringsgruppen. Sedan kan du ta bort alla tilldelningarna från rotomfånget.
+1. Direktanropa API:t och påbörja återfyllningsprocessen
+    1. Alla behöriga kunder i katalogen kan anropa API:erna *TenantBackfillStatusRequest* eller *StartTenantBackfillRequest*. När API:n StartTenantBackfillRequest anropas påbörjas den ursprungliga konfigurationsprocessen och alla prenumerationer flyttas till hierarkin. Processen gör även att alla nya prenumerationer blir underordnade rothanteringsgruppen. Processen kan genomföras utan att ändra några tilldelningar på rotnivån eftersom du anger att alla princip- eller åtkomsttilldelningar på rotnivå kan tilldelas alla prenumerationer.
+
+Om du har frågor om återfyllningsprocessen kan du kontakta: managementgroups@microsoft.com  
   
 ## <a name="management-group-access"></a>Åtkomst till hanteringsgrupp
 

@@ -1,6 +1,6 @@
 ---
-title: Samla in Azure PaaS resurs mått med Log Analytics | Microsoft Docs
-description: Lär dig hur du aktiverar Azure PaaS mått resurssamling använder PowerShell för kvarhållning och analys i logganalys.
+title: Samla in mätvärden för Azure PaaS-resurs med Log Analytics | Microsoft Docs
+description: Lär dig hur du aktiverar Azure PaaS mått resurssamling använder PowerShell för kvarhållning och analyser i Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: b44a6627ab12c8a4ad21e7beded7c5fd2c2e1d39
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: beac96629ef2cc0cbbe8644929e7e0cc7c97a243
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128470"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044356"
 ---
-# <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Konfigurera Azure PaaS resurs mått samling med logganalys
+# <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Konfigurera insamling av mätvärden för Azure PaaS-resurs med Log Analytics
 
-Azure-plattformen som en tjänst (PaaS)-resurser, t.ex. Azure SQL och webbplatser (webbprogram) kan sända mått prestandadata internt till logganalys. Det här skriptet kan du aktivera mätvärden loggning för PaaS-resurser som redan har distribuerats i en viss resursgrupp eller i en hela prenumerationen. 
+Azure-plattformen som en tjänst (PaaS)-resurser, t.ex. Azure SQL och webbplatser (Webbappar), kan generera mått prestandadata internt till Log Analytics. Det här skriptet kan du aktivera loggning för PaaS-resurser som redan har distribuerats i en specifik resursgrupp eller i en hela prenumerationen mätvärden. 
 
-Idag är går det inte att aktivera mätvärden loggning för PaaS-resurser via Azure-portalen. Därför måste du använda ett PowerShell.skript. Den här interna mätvärden loggningsfunktioner tillsammans med logganalys övervakning, kan du övervaka Azure-resurser i större skala. 
+Idag är går det inte att aktivera mätvärden loggning för PaaS-resurser via Azure-portalen. Därför kan behöva du använda ett PowerShell-skript. Den här inbyggda mått loggningsfunktioner tillsammans med Log Analytics övervakning, kan du övervaka Azure-resurser i stor skala. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Kontrollera att du har följande Azure Resource Manager-moduler är installerade på datorn innan du fortsätter:
+Kontrollera att du har följande Azure Resource Manager-moduler som installerats på datorn innan du fortsätter:
 
 - AzureRM.Insights
 - AzureRM.OperationalInsights
@@ -37,22 +37,22 @@ Kontrollera att du har följande Azure Resource Manager-moduler är installerade
 - AzureRM.profile
 
 >[!NOTE]
->Vi rekommenderar att alla Azure Resource Manager-moduler är samma version för att säkerställa kompatibilitet när du kör kommandon för Azure Resource Manager från PowerShell.
+>Vi rekommenderar att alla dina Azure Resource Manager-moduler är samma version för att garantera kompatibilitet när du kör Azure Resource Manager-kommandon från PowerShell.
 >
-Om du vill installera den senaste versionen av Azure Resource Manager-moduler på datorn, [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
+Om du vill installera den senaste versionen av Azure Resource Manager-moduler på din dator, se [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
 ## <a name="enable-azure-diagnostics"></a>Aktivera Azure-diagnostik  
-Konfigurera Azure-diagnostik för PaaS-resurser kan åstadkommas genom att köra skriptet **aktivera AzureRMDiagnostics.ps1**, som är tillgänglig från den [PowerShell-galleriet](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  Skriptet har stöd för följande scenarier:
+Konfigurera Azure Diagnostics för PaaS-resurser åstadkoms genom att köra skriptet **aktivera AzureRMDiagnostics.ps1**, som är tillgängligt från den [PowerShell-galleriet](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  Skriptet har stöd för följande scenarier:
   
 * Ange en resurs som är relaterade till en eller flera resursgrupper i en prenumeration  
-* Ange en resurs som rör en viss resursgrupp i en prenumeration  
+* Ange en resurs som är relaterade till en specifik resursgrupp i en prenumeration  
 * Konfigurera om en resurs ska vidarebefordras till en annan arbetsyta
 
-Endast resurser som stöd för att samla in mått med Azure-diagnostik och skicka direkt till Log Analytics stöds.  En detaljerad lista granska [samla in Azure tjänstloggar och mått för användning i logganalys](log-analytics-azure-storage.md) 
+Endast resurser som stöd för insamling av mått med Azure-diagnostik och skicka direkt till Log Analytics som stöds.  För en detaljerad lista över [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](log-analytics-azure-storage.md) 
 
-Utför följande steg om du vill hämta och köra skriptet.
+Utför följande steg för att ladda ned och kör skriptet.
 
-1.  Ange från startskärmen i Windows **PowerShell** och högerklicka på PowerShell i sökresultatet.  Välj på menyn **kör som administratör**.   
+1.  Ange från startskärmen i Windows **PowerShell** och högerklicka på PowerShell från sökresultaten.  Välj på menyn **kör som administratör**.   
 2. Spara den **aktivera AzureRMDiagnostics.ps1** skriptfilen lokalt genom att köra följande kommando och ange en sökväg för att lagra skriptet.    
 
     ```
@@ -60,29 +60,29 @@ Utför följande steg om du vill hämta och köra skriptet.
     ```
 
 3. Kör `Connect-AzureRmAccount` för att skapa en anslutning med Azure.   
-4. Kör följande skript `.\Enable-AzureRmDiagnostics.ps1` utan några parametrar för att aktivera datainsamling från en viss resurs i din prenumeration eller med parametern `-ResourceGroup <myResourceGroup>` att ange en resurs i en viss resursgrupp.   
-5. Välj lämplig prenumerationen i listan om du har fler än en, genom att ange rätt värde.<br><br> ![Välj prenumerationen som returneras av skript](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Annars väljs automatiskt den enda tillgängliga prenumerationen.
-6. Därefter returnerar skriptet en lista över logganalys arbetsytor registrerade i prenumerationen.  Välj en från listan.<br><br> ![Välj arbetsyta som returneras av skript](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
-7. Välj den Azure-resurs som du vill aktivera insamling från. Till exempel om du skriver 5 aktiverar du datainsamling för SQL Azure-databaser.<br><br> ![Välj resurstyp som returneras av skript](./media/log-analytics-collect-azurepass-posh/script-select-resource.png)<br>
-   Du kan endast välja resurser som har stöd för att samla in mått med Azure-diagnostik och skicka direkt till en Log Analytics.  Skriptet visar värdet **SANT** under den **mått** för listan över resurser som identifieras i din prenumeration eller angivna resursgruppen.    
-8. Du uppmanas att bekräfta valet.  Ange **Y** att aktivera mätvärden loggning för alla markerade resurser för det omfång som har definierats, som i vårt exempel är alla SQL-databaser i prenumerationen.  
+4. Kör följande skript `.\Enable-AzureRmDiagnostics.ps1` utan några parametrar för att aktivera insamling av data från en specifik resurs i din prenumeration eller med parametern `-ResourceGroup <myResourceGroup>` att ange en resurs i en specifik resursgrupp.   
+5. Välj lämplig prenumeration i listan om du har fler än en, genom att ange rätt värde.<br><br> ![Välj en prenumeration som returneras av skript](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Annars väljs automatiskt den enda prenumerationen som är tillgängliga.
+6. Skriptet returnerar sedan en lista med Log Analytics-arbetsytor som är registrerade i prenumerationen.  Välj lämpligaste i listan.<br><br> ![Välj arbetsyta som returneras av skriptet](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
+7. Välj den Azure-resurs som du vill aktivera insamling från. Till exempel om du anger 5 kan aktivera du datainsamling för SQL Azure-databaser.<br><br> ![Välj resurstyp som returneras av skriptet](./media/log-analytics-collect-azurepass-posh/script-select-resource.png)<br>
+   Du kan bara välja resurser som har stöd för insamling av mått med Azure Diagnostics och skickas direkt till en Log Analytics.  Skriptet visar värdet **SANT** under den **mått** kolumn för listan över resurser som identifieras i din prenumeration eller den angivna resursgruppen.    
+8. Du uppmanas att bekräfta valet.  Ange **Y** att aktivera loggning för mått för alla valda resurser för det omfång som har definierats, som i vårt exempel är alla SQL-databaser i prenumerationen.  
 
-Skriptet körs mot varje resurs som matchar valda villkoren och aktivera insamling av mätvärden för dessa. När den är klar, visas ett meddelande om konfigurationen är klar.  
+Skriptet körs mot varje resurs som matchar valda villkoren och aktivera insamling av mått för dem. När den har slutförts visas ett meddelande om konfigurationen är klar.  
 
-Strax efter slutförande startar du att se data från Azure PaaS-resurs i logganalys-databasen.  En post med typen `AzureMetrics` skapas och analysera dessa poster stöds av den [Azure SQL Analytics](log-analytics-azure-sql.md) och [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md) lösningar för hantering.   
+Inom kort när du har slutfört börjar du se data från Azure PaaS-resurs i Log Analytics-lagringsplatsen.  En post med typen `AzureMetrics` skapas och analysera dessa poster stöds av den [Azure SQL Analytics](log-analytics-azure-sql.md) och [Azure Web Apps-analys](log-analytics-azure-web-apps-analytics.md) hanteringslösningar.   
 
 ## <a name="update-a-resource-to-send-data-to-another-workspace"></a>Uppdatera en resurs för att skicka data till en annan arbetsyta
-Om du har en resurs som redan skickar data till logganalys-arbetsytan och du senare vill konfigurera om den för att referera till en annan arbetsyta, kan du köra skriptet med den `-Update` parameter.  
+Om du har en resurs som redan skickar data till Log Analytics-arbetsytan och du senare vill konfigurera om den för att referera till en annan arbetsyta, kan du köra skriptet med den `-Update` parametern.  
 
 **Exempel:** 
 `PS C:\users\<username>\Desktop\temp> .\Enable-AzureRMDiagnostics.ps1 -Update`
 
-Du uppmanas att besvara samma information som när du körde skript för att utföra den inledande konfigurationen.  
+Du uppmanas att svara på samma information som när du körde skriptet att köra den ursprungliga konfigurationen.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [logga sökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [loggsökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar. 
 
 * Använd [anpassade fält](log-analytics-custom-fields.md)(för att parsa händelseposter till enskilda fält.
 
-* Granska [skapa en anpassad instrumentpanel för användning i logganalys](log-analytics-dashboards.md) att förstå hur du visualisera loggen söker på ett meningsfullt sätt för organisationen.
+* Granska [skapa en anpassad instrumentpanel för användning i Log Analytics](log-analytics-dashboards.md) vill lära dig att visualisera din logg söker på ett meningsfullt sätt för organisationen.

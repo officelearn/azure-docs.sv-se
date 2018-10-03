@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: d276098c951cb26a97906e6ac7e23c0ab2e4d137
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432587"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043285"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure disk encryption (ADE) aktiverade virtuella datorer till en annan Azure-region
 
@@ -127,7 +127,7 @@ I den nedan scenarier, du kommer att behöva uppdatera Målinställningar för V
   - Du har aktiverat Site recovery-replikering på den virtuella datorn och aktiverat Azure Disk Encryption (ADE) på den Virtuella källdatorn vid ett senare tillfälle
   - Du har aktiverat Site recovery-replikering på den virtuella datorn och ändrat disk krypteringsnyckeln och/eller nyckelkrypteringsnyckel på den Virtuella källdatorn vid ett senare tillfälle
 
-Du kan använda [skriptet](#copy-ade-keys-to-dr-region-using-powerShell-script) att kopiera dem till målregion och sedan uppdatera krypteringsinställningar mål i **Recovery services-valv > replikerat objekt -> Egenskaper -> beräkning och nätverk.**
+Du kan använda [skriptet](#copy-ade-keys-to-dr-region-using-powershell-script) att kopiera dem till målregion och sedan uppdatera krypteringsinställningar mål i **Recovery services-valv > replikerat objekt -> Egenskaper -> beräkning och nätverk.**
 
 ![ade uppdateringsinställningar](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 

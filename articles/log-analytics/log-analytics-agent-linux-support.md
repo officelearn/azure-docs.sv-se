@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure Log Analytics Linux-agenten | Microsoft Docs
-description: Beskriv symptom, orsaker och lösningar på vanliga problem med Log Analytics Linux-agent.
+title: Felsöka Azure Log Analytics-agenten för Linux | Microsoft Docs
+description: Beskriv problem, orsaker och upplösning för de vanligaste problemen med Log Analytics Linux-agent.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 49a53b68fd394772f38b6040b80ec80c93d9c46c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: baa81a52d4b007cd690a2b01df642cd3775f7d6b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131777"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044144"
 ---
-# <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Felsökning av problem med Linux-agent för logganalys
+# <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Så här felsöker du problem med Linux-agenten för Log Analytics
 
-Du får hjälp med att felsöka fel som du kan uppleva med Linux-agent för Log Analytics och ger förslag på lösningar för att lösa dem.
+Du får hjälp med att felsöka fel du kan uppleva med Linux-agenten för Log Analytics och föreslår lösningar för att lösa dem.
 
-## <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>Problem: Det gick inte att ansluta via proxy till logganalys
+## <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>Problem: Det gick inte att ansluta via proxy till Log Analytics
 
 ### <a name="probable-causes"></a>Troliga orsaker
-* Proxyn som anges under onboarding var felaktigt
-* Log Analytics och Azure Automation-Tjänsteslutpunkter är inte vitlistad i ditt datacenter 
+* Proxyn som anges under publiceringen var felaktig
+* Log Analytics och Azure Automation-tjänstslutpunkter är inte tillåten i ditt datacenter 
 
 ### <a name="resolutions"></a>Lösningar
-1. Reonboard till Log Analytics-tjänsten med OMS-Agent för Linux med hjälp av följande kommando med alternativet `-v` aktiverat. Detta gör att utförliga utdata av agenten ansluter via proxy till OMS-tjänsten. 
+1. Reonboard till Log Analytics-tjänsten med OMS-agenten för Linux med hjälp av följande kommando med alternativet `-v` aktiverat. På så sätt kan utförliga utdata för den agent som ansluter via proxy till OMS-tjänsten. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. Läs avsnittet [uppdatera proxyinställningar](log-analytics-agent-manage.md#update-proxy-settings) att verifiera att du har konfigurerat agenten för kommunikation via en proxyserver korrekt.    
-* Kontrollera att följande slutpunkter för Log Analytics-tjänsten är godkända:
+* Kontrollera att följande slutpunkter för Log Analytics-tjänsten är vitlistade:
 
     |Agentresurs| Portar | Riktning |
     |------|---------|----------|  
@@ -49,32 +49,32 @@ Du får hjälp med att felsöka fel som du kan uppleva med Linux-agent för Log 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problem: Du får ett 403-fel vid försök att publicera
 
 ### <a name="probable-causes"></a>Troliga orsaker
-* Datum och tid är felaktiga på Linux-Server 
-* Arbetsyte-ID och Arbetsytenyckel som används är inte korrekt
+* Datum och tid stämmer på Linux-Server 
+* Arbetsyte-ID och Arbetsytenyckel används är inte rätt
 
 ### <a name="resolution"></a>Lösning
 
-1. Kontrollera tiden på Linux-servern med kommandot datum. Om tiden är +/-15 minuter från aktuell tid, misslyckas onboarding. Till rätt detta Uppdatera datum och/eller tidszonen för Linux-servern. 
-2. Kontrollera att du har installerat den senaste versionen av OMS-Agent för Linux.  Den senaste versionen nu meddelas du om tidsförskjutningsintervallet orsakar onboarding felet.
-3. Reonboard med rätt arbetsyte-ID och Arbetsytenyckel följa installationsanvisningarna tidigare i det här avsnittet.
+1. Kontrollera tiden på Linux-server med kommandot datum. Om tiden är +/-15 minuter efter den aktuella tiden, misslyckas onboarding. Till rätt detta Uppdatera datum och/eller tidszonen för din Linux-server. 
+2. Kontrollera att du har installerat den senaste versionen av OMS-agenten för Linux.  Den senaste versionen nu meddelar dig om tidsförskjutningsintervallet som orsakar onboarding felet.
+3. Reonboard med rätt arbetsyte-ID och Arbetsytenyckel följa installationsinstruktionerna tidigare i det här avsnittet.
 
-## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problem: Du ser ett 500 och 404-fel i loggfilen direkt efter onboarding
-Detta är ett känt problem som uppstår på första uppladdning av Linux-data i logganalys-arbetsytan. Detta påverkar inte data som skickas eller tjänsten erfarenhet.
+## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problem: Du ser ett 500 och 404-fel i loggfilen direkt efter integreringen
+Det här är ett känt problem som uppstår vid första överföring av Linux-data till Log Analytics-arbetsytan. Detta påverkar inte data som skickas eller service-upplevelse.
 
-## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problem: Du inte ser några data i Azure-portalen
+## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problem: Du inte ser några data i Azure portal
 
 ### <a name="probable-causes"></a>Troliga orsaker
 
-- Det gick inte att Onboarding till Log Analytics-tjänsten
-- Anslutningen till Log Analytics-tjänsten är blockerad
-- OMS-Agent för Linux data säkerhetskopieras
+- Kom igång med Log Analytics-tjänsten misslyckades
+- Anslutning till Log Analytics-tjänsten är blockerad
+- OMS-agenten för Linux-data som säkerhetskopieras
 
 ### <a name="resolutions"></a>Lösningar
 1. Kontrollera om onboarding Log Analytics-tjänsten lyckades genom att kontrollera om det finns följande fil: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Reonboard med hjälp av den `omsadmin.sh` kommandoradsinstruktioner
-3. Om du använder en proxyserver, referera till proxy upplösning stegen ovan.
-4. I vissa fall när OMS-Agent för Linux inte kan kommunicera med tjänsten, data på agenten är i kö på den fullständiga buffertstorleken, vilket är 50 MB. OMS-Agent för Linux ska startas om genom att köra följande kommando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
+3. Om du använder en proxyserver, referera till proxy Lösningssteg som angavs tidigare.
+4. I vissa fall när OMS-agenten för Linux inte kan kommunicera med tjänsten data på agenten är i kö till den fullständiga buffertstorleken, vilket är 50 MB. OMS-agenten för Linux ska startas genom att köra följande kommando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
 
     >[!NOTE]
-    >Det här problemet har lösts i agenten version 1.1.0-28 och senare.
+    >Det här problemet löses i agenten version 1.1.0-28 och senare.
 

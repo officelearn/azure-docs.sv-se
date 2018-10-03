@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 8f3dddd72ab8858a1e60389417cc0c7630df302f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 29e918733cc72010aa6aa5c0f42d613331eec2a2
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35621661"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044730"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).
@@ -652,7 +652,7 @@ OriginalUrl.
 
 -   **Princip-avsnitt:** inkommande
 
--   **Princip-scope:** produkt, API-åtgärden
+-   **Princip-scope:** globala, produkt, API, igen
 
 ##  <a name="XSLTransform"></a> Transformera XML med hjälp av en XSLT
  Den `Transform XML using an XSLT` principen gäller en XML-transformering för XML i brödtexten för begäran eller ett svar.

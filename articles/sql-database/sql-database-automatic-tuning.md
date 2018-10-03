@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 931e0f2c6be51c78187413d638259237f98bd9b0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: f9a9f3d04a3ee7a2917e04c378af135601f3eaac
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063361"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042062"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
@@ -66,7 +66,7 @@ Finns det inbäddade videoklippet för en översikt över hur automatisk justeri
 
 Alternativen för automatisk justering i Azure SQL Database är:
  1. **CREATE INDEX** -identifierar index som kan förbättra prestandan för din arbetsbelastning, skapar index och automatiskt verifierar att prestanda för frågor har förbättrats.
- 2. **DROP INDEX** -identifierar redundant och duplicerade index dagligen, förutom unika index och index som inte använts under en längre tid (> 90 dagar). Observera att det här alternativet inte är kompatibel med program som använder partition växla och index-tips.
+ 2. **DROP INDEX** -identifierar redundant och duplicerade index dagligen, förutom unika index och index som inte använts under en längre tid (> 90 dagar). Observera att just nu alternativet inte är kompatibel med program som använder partition växla och index-tips.
  3. **Tvinga fram den senaste bra PLANERINGEN** -identifierar SQL-frågor med Körningsplan som är lägre än den tidigare bra planering och frågor med senaste kända planen i stället för försämrad planen.
 
 Automatisk justering identifierar **CREATE INDEX**, **DROP INDEX**, och **kraft senaste bra planera** rekommendationer som kan optimera din databasprestanda och visar dem i [Azure-portalen](sql-database-advisor-portal.md), och visar dem via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) och [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).

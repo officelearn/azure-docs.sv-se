@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b11ce8bbbf4b270f7a3b9689f95b0cbfca3b14c9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 72824e5afb9f8d77c2f7d3bd01e6ff2035e95a95
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408886"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237272"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Lägg till värdservrar för MySQL-resursprovider
 
 Du kan ha en MySQL-instans på en virtuell dator (VM) i [Azure Stack](azure-stack-poc.md), eller på en virtuell dator utanför Azure Stack-miljön, så länge MySQL-resursprovider kan ansluta till instansen.
 
 > [!NOTE]
-> MySQL-databaser ska vara skapas på MySQL resource provider-servern. MySQL-resursprovider ska skapas i standard-providerprenumeration medan MySQL värdservrar ska skapas i en fakturerbar, användarprenumeration. Resource provider-servern bör inte användas till att värden användardatabaser.
+> MySQL-databaser ska skapas på MySQL resource provider-servern. MySQL-resursprovider ska skapas i standard-providerprenumeration medan MySQL värdservrar ska skapas i en fakturerbar, användarprenumeration. Resource provider-servern bör inte användas till att värden användardatabaser.
 
 MySQL-version 5.6, 5.7 och 8.0 kan användas för värdbaserade servrar. MySQL RP stöder inte caching_sha2_password autentisering; som kommer att läggas till i nästa version. MySQL 8.0 servrar måste konfigureras för att använda mysql_native_password. MariaDB stöds också.
 

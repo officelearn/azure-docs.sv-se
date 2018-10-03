@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 6d6e6a2aea867c5b603d950a4bbaa33f14695f45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4b4f926009f94162b43dcbb8934e44c1924e91df
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47011034"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239551"
 ---
 Logga in på [Azure-portalen](https://portal.azure.com/) med autentiseringsuppgifterna för den Azure-prenumeration du ska använda. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
 
@@ -26,15 +26,15 @@ Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
    ![Skapa en resurs i Azure-portalen](./media/aml-create-in-portal/portal-create-a-resource.png)
 
-Skriv **Machine Learning** i sökfältet. Välj sökresultatet **Machine Learning-arbetsyta**.
+Skriv **Machine Learning** i sökfältet. Välj sökresultatet **Machine Learning-tjänstens arbetsyta**.
 
    ![Sök efter arbetsyta](./media/aml-create-in-portal/allservices-search.PNG)
 
-I den **Machine Learning-arbetsyta** rutan, rulla ned till botten och välj **skapa** att börja.
+I den **Machine Learning-tjänstens arbetsyta** rutan, rulla ned till botten och välj **skapa** att börja.
 
    ![skapa](./media/aml-create-in-portal/portal-create-button.png)
 
-I den **ML-arbetsyta** fönstret Konfigurera din arbetsyta.
+I den **ML-tjänst arbetsytan** fönstret Konfigurera din arbetsyta.
 
    Fält|Beskrivning
    ---|---

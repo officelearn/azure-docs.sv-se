@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 728ed892b4be4334574a04c9794bf3ea549944d4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b1d47c495d24a40f254279db0e9db12a659c861c
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093996"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237729"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Hantera externa händelser i varaktiga funktioner (Azure Functions)
 
@@ -49,7 +49,7 @@ public static async Task Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const approved = yield context.df.waitForExternalEvent("Approval");
     if (approved) {
         // approval granted - do the approved action
@@ -95,7 +95,7 @@ public static async Task Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const event1 = context.df.waitForExternalEvent("Event1");
     const event2 = context.df.waitForExternalEvent("Event2");
     const event3 = context.df.waitForExternalEvent("Event3");
@@ -136,9 +136,9 @@ public static async Task Run(
 #### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
 
 ```javascript
-const df = require("durable-functions");
+const df = require.orchestrator("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const applicationId = context.df.getInput();
 
     const gate1 = context.df.waitForExternalEvent("CityPlanningApproval");
@@ -174,6 +174,34 @@ public static async Task Run(
     await client.RaiseEventAsync(instanceId, "Approval", true);
 }
 ```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+I JavaScript har vi att anropa en rest api för att utlösa en händelse som funktionen beständiga väntar.
+Koden nedan använder ”-begäran”-paket. Metoden nedan kan användas för att generera en händelse för alla hållbara funktion
+
+```js
+function raiseEvent(instanceId, eventName) {
+        var url = `<<BASE_URL>>/runtime/webhooks/durabletask/instances/${instanceId}/raiseEvent/${eventName}?taskHub=DurableFunctionsHub`;
+        var body = <<BODY>>
+            
+        return new Promise((resolve, reject) => {
+            request({
+                url,
+                json: body,
+                method: "POST"
+            }, (e, response) => {
+                if (e) {
+                    return reject(e);
+                }
+
+                resolve();
+            })
+        });
+    }
+```
+
+<< BASE_URL >> blir bas-url i din funktionsapp. Om du kör kod lokalt och sedan den ser ut ungefär så http://localhost:7071 eller i Azure som https://<<functionappname>>. azurewebsites.net
+
 
 Internt `RaiseEventAsync` placerar det i kö ett meddelande som hämtar slutpunktsstatus uppfattas av orchestrator-funktion för att vänta.
 

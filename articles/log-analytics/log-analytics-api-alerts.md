@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 7f55b762bda5ff0c7bbedf414b18465656496cbb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: 6aaf9b42677064b31c56be96775692c75812e145
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984593"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044628"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera Varningsregler i Log Analytics med REST API
 Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Operations Management Suite (OMS).  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
@@ -329,7 +329,7 @@ E-postaviseringar skicka e-post till en eller flera mottagare.  De kan innehåll
 | Egenskap  | Beskrivning |
 |:--- |:--- |
 | Mottagare |Lista över e-postadresser. |
-| Ämne |Ämne för e-postmeddelandet. |
+| Subjekt |Ämne för e-postmeddelandet. |
 | Bifogad fil |Bifogade filer stöds inte för närvarande, så att det alltid har värdet ”None”. |
 
 Följande är ett exempelsvar för en e-notification-åtgärd med ett tröskelvärde.  

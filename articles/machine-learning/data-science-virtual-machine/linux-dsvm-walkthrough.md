@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116171"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044662"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux virtuell dator för datavetenskap på Azure
 Den här genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella datorn datavetenskap för Linux. Linux Data Science Virtual Machine (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en uppsättning verktyg som ofta används för dataanalys och maskininlärning. Viktiga programkomponenterna är uppdelat i den [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång datavetenskap på några minuter, utan att behöva installera och konfigurera var och en av verktyg individuellt. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den när den inte används. Den här resursen är därför både elastisk och kostnadseffektiv.
@@ -483,7 +483,7 @@ Kom igång genom att starta Squirrel SQL på Program-menyn. Du ställer in drivr
 * Högerklicka på **PostgreSQL** och välj **ändra drivrutinen**.
 * Välj **Extra klassen sökväg**, sedan **lägga till**.
 * Ange ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** för den **filnamn** och
-* Välj **öppna**.
+* Välj **Öppna**.
 * Välj drivrutiner i listan och välj **org.postgresql.Driver** i **klassnamn**, och välj **OK**.
 
 Konfigurera anslutningen till den lokala servern:
@@ -544,6 +544,6 @@ Och fråga med sqlcmd:
 Du kan också fråga med Squirrel SQL. Följa liknande steg för PostgreSQL med hjälp av Microsoft MSSQL Server JDBC Driver, som finns i ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
 ## <a name="next-steps"></a>Nästa steg
-En översikt över avsnitt som vägleder dig genom de uppgifter som utgör Data Science process i Azure finns i [Team Data Science Process](http://aka.ms/datascienceprocess).
+En översikt över avsnitt som vägleder dig genom de uppgifter som utgör Data Science process i Azure finns i [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 
 En beskrivning av andra slutpunkt till slutpunkt genomgång som visar stegen i Team Data Science Process för specifika scenarier finns i [Team Data Science Process genomgångar](../team-data-science-process/walkthroughs.md). Genomgångar visar också hur du kombinera molnet och lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program.

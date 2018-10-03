@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.component: na
-ms.openlocfilehash: 47158d0c2b5a80ceae25b275836d45b63db50ff4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: ''
+ms.openlocfilehash: 1c72421be6cfb266293c98d9ad06bd6adb35019b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309347"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043661"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Azure Key Vault Analytics-lösning i Log Analytics
 
@@ -119,7 +119,7 @@ Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som
 | requestUri_s |URI för begäran |
 | Resurs |Namnet på nyckelvalvet |
 | ResourceGroup |Resursgrupp för nyckelvalvet |
-| Resurs-ID |Azure Resource Manager Resource-ID. För Key Vault-loggar är detta Key Vault-resurs-ID. |
+| ResourceId |Azure Resource Manager Resource-ID. För Key Vault-loggar är detta Key Vault-resurs-ID. |
 | ResourceProvider |*MICROSOFT. KEYVAULT* |
 | ResourceType | *VAULTS* |
 | resultSignature |HTTP-status (till exempel *OK*) |

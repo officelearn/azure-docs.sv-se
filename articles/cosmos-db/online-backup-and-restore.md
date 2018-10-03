@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: a2c52844e09daf42418b4e548f7185e31dcf4ae9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 77f22201b897703f6e74a5a3626a2ccc04a814f4
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053541"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043234"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatisk online säkerhetskopiering och återställning med Azure Cosmos DB
 Azure Cosmos DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Automatisk säkerhetskopiering är hämtade utan att påverka prestanda eller tillgänglighet för dina databasåtgärder. Alla säkerhetskopior lagras separat i en annan lagringstjänst och säkerhetskopieringarna replikeras globalt för återhämtning mot regionala problem. Automatisk säkerhetskopiering är avsett för scenarion med när du av misstag tar bort din Cosmos DB-behållare och senare kräver återställning av data eller en lösning för haveriberedskap.  
@@ -53,11 +53,15 @@ SQL-API: t, om du vill ha kvar din egen ögonblicksbilder, du kan använda expor
 > Om du ”etablera dataflöde för en uppsättning behållare på databasnivå –” Kom ihåg sker återställningen på fullständig kontonivå för databasen. Du måste också se till att kontakta dig inom 8 timmar supportteamet om du råkar ta bort behållaren. Data kan inte återställas om du inte kontaktar supporten inom 8 timmar. 
 
 
+
 ## <a name="restoring-a-database-from-an-online-backup"></a>Återställa en databas från en onlinesäkerhetskopiering
 
 Om du råkar ta bort din databas eller en behållare kan du [öppna ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) eller [anropa Azure-supporten](https://azure.microsoft.com/support/options/) att återställa data från den senaste automatiska säkerhetskopieringen. Azure-support är tillgänglig för valda planer endast som Standard, utvecklare, support är inte tillgänglig med Basic-avtal. Läs mer om olika supportplaner, i [supportavtal](https://azure.microsoft.com/support/plans/) sidan. 
 
 Om du vill återställa databasen på grund av data felärende (inklusive fall där dokument i en behållare tas bort), se [hantering av skadade data](#handling-data-corruption) eftersom du måste vidta ytterligare åtgärder för att förhindra skadade data skriver över befintliga säkerhetskopior. Cosmos DB kräver att data som var tillgängliga under hela säkerhetskopieringscykel för denna ögonblicksbild för en specifik ögonblicksbild av säkerhetskopian ska återställas.
+
+> [!NOTE]
+> Samlingar eller databaser kan återställas först efter en kund-begäranden för att återställa. Det är kundens responsbility att ta bort behållare eller databasen omedelbart efter att återställa data. Om du inte tar bort den återställda databaser eller samlingar, kommer de resultera i kostnader enligt taxan återställda samling eller databasen. Det är därför viktigt att ta bort dem direkt. 
 
 ## <a name="handling-data-corruption"></a>Hantering av skadade data
 

@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 46105ee92a5c98cb8180b2499d0ad295702aac43
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953384"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041517"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Ta med din egen nyckel för Apache Kafka på Azure HDInsight (förhandsversion)
 
@@ -35,17 +35,37 @@ Du kan använda Azure portal eller Azure CLI för att på ett säkert sätt rote
 
    ![Skapa användartilldelade hanterad identitet i Azure portal](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
-2. Skapa eller importera Azure Key Vault.
+2. Importera ett befintligt nyckelvalv eller skapa en ny.
 
    HDInsight har endast stöd för Azure Key Vault. Om du har ditt eget nyckelvalv kan importera du dina nycklar i Azure Key Vault. Kom ihåg att nycklarna måste ha ”mjuk borttagning” och ”gör inte rensa” aktiverat. ”Mjuk borttagning” och ”rensa inte” funktionerna är tillgängliga via REST, .NET / C#, PowerShell och Azure CLI-gränssnitt.
 
    Så här skapar du ett nytt nyckelvalv i [Azure Key Vault](../../key-vault/key-vault-get-started.md) Snabbstart. Mer information om att importera befintliga nycklar finns [om nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md).
 
+   Om du vill skapa en ny nyckel, Välj **generera/importera** från den **nycklar** menyn under **inställningar**.
+
+   ![Skapa en ny nyckel i Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png)
+
+   Ange **alternativ** till **generera** och namnge nyckeln.
+
+   ![Skapa en ny nyckel i Azure Key Vault](./media/apache-kafka-byok/kafka-create-a-key.png)
+
+   Markera den nyckel som du skapade i listan med nycklar.
+
+   ![Azure Key Vault-Nyckellista](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+
+   När du använder en egen nyckel för kryptering av Kafka-kluster, måste du ange URI för nyckel. Kopiera den **nyckelidentifierare** och spara den någonstans förrän du är redo att skapa klustret.
+
+   ![Kopiera nyckelidentifierare](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+   
 3. Lägg till hanterad identitet i nyckelvalvets åtkomstprincip.
 
    Skapa en ny åtkomstprincip för Azure Key Vault.
 
    ![Skapa ny åtkomstprincip för Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy.png)
+
+   Under **Välj huvudkonto**, Välj det användartilldelade hanterad identitet du skapade.
+
+   ![Ange Välj huvudkonto för Azure Key Vault åtkomstprincip](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
 
    Ange **Nyckelbehörigheter** till **hämta**, **nyckelomslutning**, och **omsluta nyckel**.
 
@@ -55,17 +75,13 @@ Du kan använda Azure portal eller Azure CLI för att på ett säkert sätt rote
 
    ![Ange behörigheter för Azure Key Vault åtkomstprincip](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
 
-   Under **Välj huvudkonto**, Välj det användartilldelade hanterad identitet du skapade.
-
-   ![Ange Välj huvudkonto för Azure Key Vault åtkomstprincip](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
-
 4. Skapa HDInsight-kluster
 
    Du är nu redo att skapa ett nytt HDInsight-kluster. BYOK kan endast tillämpas på nya kluster när klustret skapas. Kryptering kan inte tas bort från BYOK-kluster och BYOK går inte att lägga till befintliga kluster.
 
    ![Kafka-diskkryptering på Azure-portalen](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
 
-   När klustret skapas, ange fullständiga webbadress, inklusive nyckelns version. Till exempel `myakv.azure.com/KEK1/v1`. Du måste också tilldela den hanterade identitet till klustret och ange nyckel-URI.
+   När klustret skapas, ange fullständiga webbadress, inklusive nyckelns version. Till exempel `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identitet till klustret och ange nyckel-URI.
 
 ## <a name="faq-for-byok-to-kafka"></a>Vanliga frågor och svar för BYOK till Kafka
 

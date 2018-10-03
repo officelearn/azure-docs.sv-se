@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ecd58779262f6580287e6c72d3aa2aecf237a562
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 35027b4eadba72776fd27826a389763cc0832eee
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983129"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044322"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -84,7 +84,7 @@ När du klonar konfigurationen från en annan distributionsplats kan klonade kon
 * Skalningsinställningar
 * WebJobs-schemaläggare
 
-Om du vill konfigurera en app-inställningen eller anslutningssträng till fästs mot en plats (inte växlas) att komma åt den **programinställningar** bladet för en specifik plats, välj sedan den **platsinställning** kryssrutan för konfigurationen element som bör Håll dig facket. Markera en konfigurationselement som fack specifika har effekten av att etablera det elementet som inte under drift över alla distributionsplatser som är associerat med appen.
+Om du vill konfigurera en app-inställningen eller anslutningssträng till fästs mot en plats (inte växlas) att komma åt den **programinställningar** bladet för en specifik plats, välj sedan den **platsinställning** kryssrutan för konfigurationen element som bör fästs mot facket. Markera en konfigurationselement som fack specifika har effekten av att etablera det elementet som inte under drift över alla distributionsplatser som är associerat med appen.
 
 ![Platsinställningar][SlotSettings]
 

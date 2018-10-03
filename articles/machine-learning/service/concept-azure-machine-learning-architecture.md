@@ -9,18 +9,18 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3011fa85dbac2135f4d9113c6b76a8b667ee4013
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952145"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237984"
 ---
 # <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Arkitektur och begrepp: hur fungerar Azure Machine Learning-tjänsten? 
 
 Det här dokumentet beskriver arkitekturen och begrepp för Azure Machine Learning-tjänsten. Följande diagram visas de viktigaste komponenterna i tjänsten och visar det allmänna arbetsflödet när du använder tjänsten: 
 
-[![Azure Machine Learning-arkitektur och arbetsflöde](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning-tjänsten arkitektur och arbetsflöde](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 Arbetsflödet följer vanligtvis dessa steg:
 
@@ -41,7 +41,7 @@ Arbetsflödet följer vanligtvis dessa steg:
 
 ## <a name="workspace"></a>Arbetsyta
 
-Arbetsytan är den översta resursen för Azure Machine Learning-tjänsten. Det ger en centraliserad plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning.
+Arbetsytan är den översta resursen för Azure Machine Learning-tjänsten. Det ger en centraliserad plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten.
 
 Arbetsytan och ser en lista över beräkningsmål som kan användas för att träna din modell. Det håller också en historik över träningskörningar, inklusive loggar, mått, utdata och en ögonblicksbild av dina skript. Den här informationen används för att avgöra vilka kör utbildning ger den bästa modellen.
 
@@ -71,15 +71,15 @@ Följande diagram är en taxonomi för arbetsytan:
 
 I sin enklaste är en modell en typ av kod som hämtar indata och utdata. Skapa en modell för maskininlärning innebär att välja en algoritm, att förse den med data och justering av hyperparametrar. Utbildning är en iterativ process som skapar en tränad modell, som kapslar in det modellen har lärt dig under utbildning.
 
-En modell produceras av en körning i Azure Machine Learning. Du kan också använda en modell tränas utanför Azure Machine Learning. En modell kan registreras under en Azure Machine Learning-arbetsyta.
+En modell produceras av en körning i Azure Machine Learning. Du kan också använda en modell tränas utanför Azure Machine Learning. En modell kan registreras under en arbetsyta för Azure Machine Learning-tjänsten.
 
-Azure Machine Learning är framework oberoende. Du kan använda valfritt populära machine learning-ramverk när du skapar en modell, till exempel scikit-Läs xgboost, PyTorch, TensorFlow, Chainer och CNTK.
+Azure Machine Learning-tjänsten är framework oberoende. Du kan använda valfritt populära machine learning-ramverk när du skapar en modell, till exempel scikit-Läs xgboost, PyTorch, TensorFlow, Chainer och CNTK.
 
 Ett exempel för att träna en modell finns i den [Snabbstart: skapa en machine learning-arbetsyta](quickstart-get-started.md) dokumentet.
 
 ### <a name="model-registry"></a>Modell-registret
 
-Modellen registret håller reda på alla modeller i Azure Machine Learning-arbetsyta. 
+Modellen registret håller reda på alla modeller i din arbetsyta för Azure Machine Learning-tjänsten. 
 
 Modeller identifieras av namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig förutsätter registret att det är en ny version. Versionen ökas och den nya modellen är registrerad under namnet.
 

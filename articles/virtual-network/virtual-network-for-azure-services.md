@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 06af3351f5669f5cd9aeeb9c4cb2168666476b52
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ef902f58f37cd0d09195aa5d1ff03847906ef414
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994640"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238905"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Virtual network-integration för Azure-tjänster
 
@@ -58,12 +58,8 @@ Alla tjänster som distribueras direkt till virtuellt nätverk har särskilda kr
 Analytics | [Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 | Identitet | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 | Containrar | [Azure Kubernetes Service (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container-instans (ACI)](http://www.aka.ms/acivnet)<br/>[Azure Container Service Engine](https://github.com/Azure/acs-engine) med Azure virtuella nätverk CNI [plugin-programmet](https://github.com/Azure/acs-engine/tree/master/examples/vnet)||
-| Webb | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Environment](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Webbappar](http://www.aka.ms/WebAppsVNet)
-| Värdbaserade *| [Azure NetApp-filer (och)](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure dedikerade maskinvarusäkerhetsmodul](http://www.aka.ms/azurededicatedhsm)
-| | |
+| Webb | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Environment](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>
 <br/>
-* Särskilda tjänster som vanligtvis körs på specialbyggd maskinvara.
-
 
 
 ## <a name="service-endpoints-for-azure-services"></a>Tjänsteslutpunkter för Azure-tjänster

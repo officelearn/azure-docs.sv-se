@@ -10,14 +10,18 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: 83ea72e7c5c880ecab7d165e029f948144506271
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127712"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238632"
 ---
 # <a name="constituency-parsing"></a>Parsning av valkrets
+
+> [!IMPORTANT]
+> Förhandsversionen av Lingvistisk analys har ur den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning modulerna för textanalys](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för text-bearbetning och analys.
 
 Målet med beståndsdelar (även kallat ”frasen struktur parsning”) är att identifiera fraser i texten.
 Detta kan vara användbart vid extrahering av information från text.

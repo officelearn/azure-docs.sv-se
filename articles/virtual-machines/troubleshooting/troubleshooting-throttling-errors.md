@@ -13,16 +13,16 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 53d94d8674a064960b3447374f68af0d3fdf6e0c
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 7a1c283820b1ddef0c85899d9b56b6dcc3ea4b95
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414662"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043143"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Felsökning av API-begränsningsfel 
 
-Azure Compute-begäranden kan att begränsas på en prenumeration och på basis av per region för att den övergripande prestanda för tjänsten. Vi garanterar att alla anrop till Azure Compute Resource Provider (CRP: N) som hanterar resurser under Microsoft.Compute namnområdet inte överskrider högsta tillåtna API-begäran överföringshastighet. Det här dokumentet beskriver API begränsningar, information om hur du felsöker begränsning problem och bästa praxis för att undvika begränsas.  
+Azure Compute-begäranden kan att begränsas på en prenumeration och på basis av per region för att den övergripande prestanda för tjänsten. Vi garanterar att alla anrop till den Azure Compute-Resursprovidern (CRP), som hanterar resurser under Microsoft.Compute namnområdet inte överskrider högsta tillåtna API-begäran överföringshastighet. Det här dokumentet beskriver API begränsningar, information om hur du felsöker begränsning problem och bästa praxis för att undvika begränsas.  
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Begränsning av Azure Resource Manager vs Resursprovidrar  
 
@@ -40,7 +40,7 @@ När en Azure API-klient hämtar en begränsning fel, är HTTP-status 429 för m
 
 Observera att en API-begäran kan utsättas för flera principer för begränsning. Det blir en separat `x-ms-ratelimit-remaining-resource` rubrik för varje princip. 
 
-Här är ett exempelsvar för att ta bort en virtuell dator i en VM scale set-begäran.
+Här är ett exempelsvar för att ta bort VM scale set-begäran.
 
 ```
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/DeleteVMScaleSet3Min;107 
@@ -73,17 +73,18 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-Principen med återstående antalet anrop 0 är den på grund av som begränsning felet returneras. I det här fallet är `HighCostGet30Min`. Övergripande formatet för svarstexten är allmänna Azure Resource Manager API fel format (kompatibel med OData). Den huvudsakliga felkoden `OperationNotAllowed`, är det Compute-Resursprovidern använder för att rapportera begränsningsfel (bland andra typer av klientfel). 
+Principen med återstående antalet anrop 0 är den på grund av som begränsning felet returneras. I det här fallet är `HighCostGet30Min`. Övergripande formatet för svarstexten är allmänna Azure Resource Manager API fel format (kompatibel med OData). Den huvudsakliga felkoden `OperationNotAllowed`, är det Compute-Resursprovidern använder för att rapportera begränsningsfel (bland andra typer av klientfel). Den `message` egenskapen för den inre fel innehåller en serialiserade JSON-struktur med information om bandbreddsbegränsning överträdelsen.
 
 Enligt beskrivningen ovan, varje begränsning fel innehåller den `Retry-After` rubriken, som innehåller det minsta antalet sekunder som klienten ska vänta innan en ny begäran. 
 
 ## <a name="best-practices"></a>Bästa praxis 
 
-- Försök inte fel i tjänsten Azure API ovillkorligt. Vanligt förekommande avser klientkod att få in i en snabb omförsöksslinga när den påträffar ett fel som inte kan och försök igen. Återförsök kommer så småningom få slut tillåtna anrop gränsen för mål-åtgärden grupp och påverka andra klienter för prenumerationen. 
+- Försök inte Azure-tjänst-API-fel ovillkorligt och/eller omedelbart. Vanligt förekommande avser klientkod att få in i en snabb omförsöksslinga när den påträffar ett fel som inte kan och försök igen. Återförsök kommer så småningom få slut tillåtna anrop gränsen för mål-åtgärden grupp och påverka andra klienter för prenumerationen. 
 - Överväg att implementera proaktiv klientsidan automatisk begränsning när antalet tillgängliga anrop för en målgrupp för åtgärden sjunker under vissa lågtröskelövervakare i omfattande API automation fall. 
 - När du kartlägger asynkrona åtgärder, respektera sidhuvudet Retry-After-tips. 
-- Om klientkoden behöver information om en viss virtuell dator, en fråga på den virtuella datorn direkt i stället för att visa en lista över alla virtuella datorer i som innehåller resursgrupp eller hela prenumerationen och väljer sedan den nödvändiga virtuella datorn på klientsidan. 
-- Om klientkoden måste virtuella datorer, diskar och ögonblicksbilder från en specifik Azure-plats, använder du platsbaserad form av frågan i stället för att fråga alla prenumeration virtuella datorer och sedan filtrera efter plats på klientsidan: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` och `/subscriptions/<subId>/providers/Microsoft.Compute/virtualMachines` frågan till beräkning Resource Provider regionala slutpunkter. • När du skapar eller uppdaterar API-resurserna i synnerhet, virtuella datorer och VM-skalningsuppsättningar, är det mycket mer effektivt att spåra returnerade async-åtgärden för slutförande än avsökning på resurs-URL (baserat på den `provisioningState`).
+- Om klientkoden behöver information om en viss virtuell dator kan du fråga den virtuella datorn direkt i stället för att visa en lista över alla virtuella datorer i den aktuella resursgruppen eller hela prenumerationen och väljer sedan den nödvändiga virtuella datorn på klientsidan. 
+- Om klientkoden måste virtuella datorer, diskar och ögonblicksbilder från en specifik Azure-plats, använder du platsbaserad form av frågan i stället för att fråga alla prenumeration virtuella datorer och sedan filtrera efter plats på klientsidan: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` frågan till Compute-Resursprovidern nationella inställningar slutpunkter. 
+-   När du skapar eller uppdaterar API-resurserna i synnerhet, virtuella datorer och VM-skalningsuppsättningar, är det mycket mer effektivt att spåra returnerade async-åtgärden för slutförande än avsökning på resurs-URL (baserat på den `provisioningState`).
 
 ## <a name="next-steps"></a>Nästa steg
 

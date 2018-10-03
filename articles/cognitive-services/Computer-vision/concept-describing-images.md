@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: a65e3ea2fb28ca8a2250fb3e39860eb5e08c18f4
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: dc472a0a3f76dce8f3172689567e77c0b73ce8d9
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981992"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238756"
 ---
 # <a name="describing-images"></a>Beskriva bilder
 
@@ -54,8 +54,6 @@ Följande JSON-svar visar vad för visuellt innehåll returnerar att beskriva ex
     }
 }
 ```
-
-Ett exempel på en robot som använder den här tekniken för att skapa avbildningen undertexter kan hittas [här](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
 ## <a name="next-steps"></a>Nästa steg
 

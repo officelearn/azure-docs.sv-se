@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: aab532bb01e1ec0392f0b1c3ef155097a9f826f9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 48ba68e8fd40af859fc6701495a2dca280a1c222
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159643"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042639"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen 
 
@@ -127,7 +127,7 @@ En maximal storlek som är större än 1 TB för P11 och P15-databas stöds i f�
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga frågor och svar.
-- Se [översikt över Azure SQL Database-resursgränser](sql-database-resource-limits.md) information om begränsningar på de server och prenumeration.
+- Se [översikt över resource begränsar på en logisk server](sql-database-resource-limits-logical-server.md) information om begränsningar på de server och prenumeration.
 - Information om allmänna Azure-begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
 - Information om dtu: er och edtu: er finns i [dtu: er och edtu: er](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - Information om storleksgränser för tempdb finns i https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

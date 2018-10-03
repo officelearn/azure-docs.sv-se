@@ -1,5 +1,5 @@
 ---
-title: Konfiguration av lösenordsfri Azure AD-inloggningen med Microsoft Authenticator-appen (offentlig förhandsversion)
+title: Lösenord utan Azure AD-inloggningen med Microsoft Authenticator-appen (offentlig förhandsversion)
 description: Logga in på Azure AD med Microsoft Authenticator-appen utan att använda lösenordet (offentlig förhandsversion)
 services: active-directory
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: d348978924b4123944e019ef1a309633ee72b516
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: af5fe7c00b2dedd6b3447cd0919bdce3ac38ae5d
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048068"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237015"
 ---
-# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Konfiguration av lösenordsfri inloggning via mobilen med Microsoft Authenticator-appen (offentlig förhandsversion)
+# <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Lösenord utan telefoninloggning med Microsoft Authenticator-appen (offentlig förhandsversion)
 
 Microsoft Authenticator-appen kan användas för att logga in på alla Azure AD-konto utan lösenord. Liknande teknik för [Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator använder nyckel-baserad autentisering för att aktivera en autentiseringsuppgift för användare som är kopplad till en enhet och använder en biometriska eller PIN-kod.
 
@@ -45,7 +45,7 @@ För en förhandsversion, en administratör måste först lägga till en princip
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Hur aktiverar slutanvändarna telefoninloggning?
 
-För en förhandsversion går det inte att tvinga användare att skapa eller använda den här nya autentiseringsuppgifter. En användare får endast lösenordslös inloggning när en administratör som aktiverade klientorganisationen och användaren har uppdaterat sina Microsoft Authenticator-appen om du vill aktivera telefoninloggning.
+För en förhandsversion går det inte att tvinga användare att skapa eller använda den här nya autentiseringsuppgifter. En slutanvändare inträffar bara logga in utan lösenord när en administratör som aktiverade klientorganisationen och användaren har uppdaterat sina Microsoft Authenticator-appen om du vill aktivera telefoninloggning.
 
 > [!NOTE]
 > Den här funktionen har varit i appen sedan mars 2017, så det finns en möjlighet att när principen är aktiverad för en klient, kan användarna få det här flödet omedelbart. Tänk på och Förbered dina användare för den här ändringen.
@@ -61,11 +61,11 @@ När användaren har MFA-konto med push-meddelanden som ställts in i Microsoft 
 
 ### <a name="ad-fs-integration"></a>AD FS-integrering
 
-När en användare har aktiverat Microsoft Authenticator lösenordslös autentiseringsuppgifter, autentisering för den användaren alltid som standard skickar ett meddelande om godkännande. Den här logiken som förhindrar att användare i en hybrid-klient dirigeras till AD FS för att bekräfta din inloggning utan att användaren tar ytterligare ett steg att klicka på ”Använd ditt lösenord istället”. Den här processen kommer också kringgå alla principer för villkorlig åtkomst av lokala och direkt autentiseringsflöden. Undantag till den här processen är om en login_hint är anges en användare vara automatisk vidarebefordras till AD FS och kringgå alternativet att använda lösenordslös autentiseringsuppgifterna.
+När en användare har aktiverat Microsoft Authenticator lösenord utan autentiseringsuppgifter, autentisering för den användaren alltid som standard skickar ett meddelande om godkännande. Den här logiken som förhindrar att användare i en hybrid-klient dirigeras till AD FS för att bekräfta din inloggning utan att användaren tar ytterligare ett steg att klicka på ”Använd ditt lösenord istället”. Den här processen kommer också kringgå alla principer för villkorlig åtkomst av lokala och direkt autentiseringsflöden. Undantag till den här processen är om en login_hint är anges en användare vara automatisk vidarebefordras till AD FS och kringgå alternativet att använda lösenord utan autentiseringsuppgifter.
 
 ### <a name="azure-mfa-server"></a>Azure MFA-servern
 
-Slutanvändare som är aktiverade för MFA via en organisations lokal Azure MFA server kan fortfarande skapa och använda autentiseringsuppgift för enkel konfiguration av lösenordsfri phone. Om du försöker uppgradera flera installationer (5 +) av Microsoft Authenticator med autentiseringsuppgifterna, kan den här ändringen resultera i ett fel.  
+Slutanvändare som är aktiverade för MFA via en organisations lokal Azure MFA server kan fortfarande skapa och använda autentiseringsuppgift för enkel lösenord utan telefonnummer. Om du försöker uppgradera flera installationer (5 +) av Microsoft Authenticator med autentiseringsuppgifterna, kan den här ändringen resultera i ett fel.  
 
 ### <a name="device-registration"></a>Enhetsregistrering
 

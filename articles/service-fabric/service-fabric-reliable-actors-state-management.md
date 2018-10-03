@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d5bc6877aa353ae37ba3ada53ee620a0230357e9
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585177"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041175"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors-tillståndshantering
 Reliable Actors är single-threaded-objekt som kan kapsla både logik och tillstånd. Eftersom aktörer körs på Reliable Services, har de tillstånd på ett tillförlitligt sätt med hjälp av samma persistence och replikeringsmekanismer. På så sätt kan aktörer inte förlorar deras tillstånd efter fel vid återaktivering efter skräpinsamling eller när de flyttas mellan noder i ett kluster på grund av resurs belastningsutjämning eller uppgraderingar.
@@ -121,7 +121,7 @@ Här följer några rekommendationer och felsökningstips för att hantera dina 
 Detta är viktigt för prestanda och användning av ditt program. När det finns skrivning/uppdateringar ”namngivna tillstånd” för en aktör, är det hela värdet som motsvarar det aktuella ”namngivna tillståndet” serialiseras och skickas över nätverket till de sekundära replikerna.  Sekundära skriva det till lokal disk och svar tillbaka till den primära repliken. När den primära servern tar emot bekräftelser från ett kvorum av sekundära repliker, skriver tillståndet till den lokala disken. Anta exempelvis att värdet är en klass som har 20 medlemmar och en storlek på 1 MB. Även om du bara ändrat något av klassmedlemmar som är av storlek på 1 KB slutet betala kostnaden för serialisering och nätverks- och diskkonfiguration skrivningar för fullständig 1 MB. På samma sätt, om värdet är en samling (till exempel en lista, en matris eller en ordlista), betalar du kostnaden för den kompletta samlingen även om du ändrar en av dess medlemmar. StateManager-gränssnittet för aktörsklassen är som en ordlista. Du bör alltid modellera datastruktur som representerar aktörstillstånd ovanpå ordlistan.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Korrekt hantera livscykeln för den aktör
-Du bör ha en tydlig policy om att hantera storlek på tillstånd i varje partition för en aktörstjänsten. Actor-tjänst bör ha ett fast antal aktörer och återanvända en mycket som möjligt. Om du skapar nya aktörer kontinuerligt, måste du ta bort dem när de är klar med sitt arbete. Ramverket lagrar vissa metadata om varje skådespelare som finns. Tar bort alla tillståndet för en aktör tar inte bort metadata om den aktören. Du måste ta bort aktören (se [tar bort aktörer och deras tillstånd](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) ta bort all information om den lagras i systemet. Som en extra kontroll, bör du fråga aktörstjänsten (se [räkna upp aktörer](service-fabric-reliable-actors-enumerate.md)) ibland för att se till att antalet aktörer ligger inom det förväntade intervallet.
+Du bör ha en tydlig policy om att hantera storlek på tillstånd i varje partition för en aktörstjänsten. Actor-tjänst bör ha ett fast antal aktörer och återanvända dem så mycket som möjligt. Om du skapar nya aktörer kontinuerligt, måste du ta bort dem när de är klar med sitt arbete. Ramverket lagrar vissa metadata om varje skådespelare som finns. Tar bort alla tillståndet för en aktör tar inte bort metadata om den aktören. Du måste ta bort aktören (se [tar bort aktörer och deras tillstånd](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) ta bort all information om den lagras i systemet. Som en extra kontroll, bör du fråga aktörstjänsten (se [räkna upp aktörer](service-fabric-reliable-actors-enumerate.md)) ibland för att se till att antalet aktörer ligger inom det förväntade intervallet.
  
 Om du ser någonsin att ökar databasens filstorlek för en aktör Service utöver den förväntade storleken, se till att du följer riktlinjerna ovan. Om du följer dessa riktlinjer och är fortfarande databasen filen storlek problem, bör du [öppna ett supportärende](service-fabric-support.md) med produktteam för att få hjälp.
 

@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bbf94d53b24c4087e7212d56bd51131034e39212
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222462"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043002"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med intelligenta insikter
 
@@ -73,7 +73,7 @@ Diagnostikloggen matar ut fråga hash-värden för frågor som påverkas prestan
 
 Om du har nått gränserna tillgänglig, kan du optimera dina program genom att minska antalet inloggningar som gjorts i databasen. Om du inte att minska antalet inloggningar från dina program till databasen kan du överväga att öka prisnivån för din databas. Eller så kan du dela upp och flytta databasen till flera databaser för en mer avvägd arbetsbelastningsfördelning.
 
-Fler förslag om hur du löser tidsgränser för sessioner finns [hur du arbetar med gränserna för högsta inloggningar för SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Tillgängliga resursgränser för din prenumeration-nivå, finns i [SQL Database-resursgränser](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
+Fler förslag om hur du löser tidsgränser för sessioner finns [hur du arbetar med gränserna för högsta inloggningar för SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Se [översikt över resource begränsar på en logisk server](sql-database-resource-limits-logical-server.md) information om begränsningar på de server och prenumeration.
 
 ## <a name="workload-increase"></a>Ökning av arbetsbelastning
 

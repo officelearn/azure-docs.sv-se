@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
-ms.component: na
-ms.openlocfilehash: b7a7e2787128c74cd7d016c01b751d15628fb4b2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.component: ''
+ms.openlocfilehash: cc7dccd52bf5d3af383f807a5edfcb9c1088c5bf
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181999"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237101"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -251,7 +251,7 @@ AzureDiagnostics
 ```
 
 > [!NOTE]
-> - Före kravet för att ställa in den här aviseringen är att övervakade hanterad instans har den strömning av ResourceUsageStats log aktiverat i lösningen.
+> - Före krav för att ställa in den här aviseringen är att övervakade hanterad instans har strömning av ResourceUsageStats log aktiverat i lösningen.
 > - Den här frågan kräver en aviseringsregel som ställas in för att utlösa en avisering när det finns resultat (> 0 resultat) från frågan anger att villkoret finns på den hanterade instansen. Utdata är procent lagringsanvändning på den hanterade instansen.
 
 ## <a name="next-steps"></a>Nästa steg

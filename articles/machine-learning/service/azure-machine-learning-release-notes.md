@@ -7,23 +7,83 @@ ms.component: core
 ms.topic: reference
 author: hning86
 ms.author: haining
+ms.reviewer: j-martens
 ms.date: 03/28/2018
-ROBOTS: NOINDEX
-ms.openlocfilehash: 08be059cb30c8a7ec4ad24fc4f73f4b569883483
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: be12a9ef0d6b520c741f95903d43f81727bc3b9b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970625"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238018"
 ---
-# <a name="release-notes-in-azure-machine-learning-sept-2017---jun-2018"></a>Viktig information i Azure Machine Learning september 2017 – Jun 2018
+# <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner. 
 
-I den här artikeln lär du dig om tidigare versioner av Azure Machine Learning. 
+## <a name="2018-10-01"></a>2018-10-01
+
+### <a name="azure-machine-learning-sdk-for-python-v0165"></a>Azure Machine Learning-SDK för Python v0.1.65
+[Version 0.1.65](https://pypi.org/project/azureml-sdk/0.1.65) innehåller nya funktioner, mer dokumentation, felkorrigeringar och mer [exempel anteckningsböcker](https://aka.ms/aml-notebooks).
+
+Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
+
+#### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
+ * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images Workspace.web_services returnerade ordlista, som tidigare returnerats lista. Se [azureml.core.Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API-dokumentationen.
+
+ * Automatiserade Machine Learning bort normaliserade medelvärdet kvadrat fel från den primära måtten.
 
 
-## <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
+#### <a name="hyperdrive"></a>HyperDrive
+ * Olika HyperDrive felkorrigeringar för Bayesian, prestandaförbättringar för hämta mått-anrop. 
+ * Tensorflow 1.10 uppgradering från 1.9 
+ * Docker-avbildning optimering för kallstart. 
+ * Jobbet är nu korrekt Rapportstatus även om de avslutas med fel code än 0. 
+ * RunConfig attributet validering i SDK. 
+ * HyperDrive kör objektet stöder Avbryt liknar en vanlig körning: du behöver inte vidarebefordra alla parametrar. 
+ * Widget förbättringar för att underhålla tillståndet för listrutan värden för distribuerade körningar och HyperDrive körs. 
+ * TensorBoard och andra loggar som stöd för filer som fasta för parametern-server. 
+ * Intel(R) MPI stöd på serversidan. 
+ * Bugfix till parametern justering för distribuerade kör korrigering vid verifiering av i BatchAI. 
+ * Kontext Manager identifierar nu den primära instansen. 
+
+#### <a name="azure-portal-experience"></a>Azure-portalen
+ * log_table() och log_row() stöds i informationen om körningen. 
+ * Automatiskt skapa diagram för tabeller och rader med 1,2 eller 3 numeriska kolumner och en valfri kategoriska kolumn.
+
+#### <a name="automated-machine-learning"></a>Automatiserad Machine Learning
+ * Förbättrad felhantering och dokumentation 
+ * Fasta kör egenskapshämtning prestandaproblem. 
+ * Fast fortsätta köra problemet. 
+ * Ensembling iteration ett problem har åtgärdats.
+ * Fast utbildning hängande bugg i MAC OS.
+ * Nedsampling makrot genomsnittlig pull-begäran/ROC-kurvan i scenario med anpassad validering.
+ * Ta bort extra index logik.
+ * Ta bort filter från get_output API.
+
+#### <a name="pipelines"></a>Pipelines
+ * Lägga till en metod Pipeline.publish() att publicera en pipeline direkt, utan att kräva en körning köras först.   
+ * Lägga till en metod PipelineRun.get_pipeline_runs() att hämta pipelinen körs som har genererats från en publicerade pipeline.
+
+#### <a name="project-brainwave"></a>Project Brainwave
+ * Uppdaterade stöd för nya AI-modeller som finns på FPGA.
+
+### <a name="azure-machine-learning-data-prep-sdk-v020"></a>Azure Machine Learning Data Förbered SDK v0.2.0
+[Version 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) innehåller följande funktioner och bugfixes:
+
+**Nya funktioner:** 
+ * Stöd för en frekvent kodning
+ * Stöd för quantile transformering
+   
+**Bugg har åtgärdats:**
+ * Fungerar med en storm-version du behöver inte nedgradera din storm-version
+ * Antal värden för alla värden, inte bara de tre överst
+
+## <a name="2018-09-public-preview-refresh"></a>2018-09 (offentlig förhandsversion uppdatera)
+
+En ny, helt uppdaterade versionen av Azure Machine Learning: Läs mer om den här versionen: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+
+## <a name="older-notes-sept-2017---jun-2018"></a>Tidigare anteckningar: september 2017 – Jun 2018
+### <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
 
 Med den här versionen av Azure Machine Learning kan du:
 + Funktionalisera bilder med en quantized version av ResNet-50, träna en klassificerare som baseras på dessa funktioner och [distribuerar den modellen till en FPGA på Azure](../service/how-to-deploy-fpga-web-service.md) för extremt låg latens inferensjobb.
@@ -33,7 +93,7 @@ Med den här versionen av Azure Machine Learning kan du:
   + [Textanalys](../desktop-workbench/how-to-build-deploy-text-classification-models.md)
   + [Prognosticering](../desktop-workbench/how-to-build-deploy-forecast-models.md)
 
-## <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
+### <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
 **Versionsnumret**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
@@ -50,7 +110,7 @@ Många av följande uppdateringar görs som direkt resultat av din feedback. Du 
 
 Följande är en lista med detaljerade uppdateringar under varje komponent i Azure Machine Learning i den här sprint.
 
-### <a name="workbench-ui"></a>Workbench UI
+#### <a name="workbench-ui"></a>Workbench UI
 - Anpassningsbara rapporter med Körningshistorik
   - Förbättrad diagramkonfigurationen för Körningshistorik rapporter
     - Använda entrypoints kan ändras
@@ -68,14 +128,14 @@ Följande är en lista med detaljerade uppdateringar under varje komponent i Azu
 
 - Prestandaförbättringar i listan över filer i sidopanelen
 
-### <a name="data-preparation"></a>Förberedelse av data 
+#### <a name="data-preparation"></a>Förberedelse av data 
 - Azure Machine Learning Workbench kan du nu för att kunna söka efter en kolumn med en känd kolumnnamn.
 
 
-### <a name="experimentation"></a>Experimentering
+#### <a name="experimentation"></a>Experimentering
 - Azure Machine Learning Workbench stöder nu köra dina skript internt på din egen python eller pyspark-miljö. För den här funktionen användaren skapar och hanterar sina egna miljö på Virtuellt fjärrdatorn, och använda Azure Machine Learning Workbench för att köra sina skript på målet. Se [konfigurerar Azure Machine Learning Experimentation Service](../desktop-workbench/experimentation-service-configuration.md) 
 
-### <a name="model-management"></a>Modellhantering
+#### <a name="model-management"></a>Modellhantering
 - Stöd för att anpassa de behållare som distribueras: gör det möjligt att anpassa behållaravbildningen genom att tillåta installation av externa bibliotek med apt-get etc. Det är inte längre begränsad till pip-installation-bibliotek. Se den [dokumentation](../desktop-workbench/model-management-custom-container.md) för mer information.
   - Använd den `--docker-file myDockerStepsFilename` flaggan och filnamnet med manifest, bild eller tjänst skapas kommandon.
   - Observera att basavbildningen är Ubuntu och kan inte ändras.
@@ -87,7 +147,7 @@ Följande är en lista med detaljerade uppdateringar under varje komponent i Azu
 
 
 
-## <a name="2018-01-sprint-3"></a>2018-01 (sprint 3) 
+### <a name="2018-01-sprint-3"></a>2018-01 (sprint 3) 
 **Versionsnumret**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Här följer uppdateringar och förbättringar i den här sprint. Många av de här uppdateringarna görs direkt följd av feedback från användare. 
@@ -97,19 +157,19 @@ Följande är en lista med detaljerade uppdateringar under varje komponent i Azu
 
 - Uppdateringar till stacken autentisering tvingar inloggning och konto markerad vid start
 
-### <a name="workbench"></a>Workbench
+#### <a name="workbench"></a>Workbench
 - Möjligheten att installera/avinstallera appen från Lägg till/ta bort program
 - Uppdateringar till stacken autentisering tvingar inloggning och konto markerad vid start
 - Förbättrad upplevelse för enkel inloggning (SSO) på Windows
 - Användare som tillhör flera innehavare med olika autentiseringsuppgifter kommer nu att kunna logga in på Workbench
 
-### <a name="ui"></a>ANVÄNDARGRÄNSSNITTET
+#### <a name="ui"></a>ANVÄNDARGRÄNSSNITTET
 - Allmänna förbättringar och felkorrigeringar
 
-### <a name="notebooks"></a>Bärbara datorer
+#### <a name="notebooks"></a>Bärbara datorer
 - Allmänna förbättringar och felkorrigeringar
 
-### <a name="data-preparation"></a>Förberedelse av data 
+#### <a name="data-preparation"></a>Förberedelse av data 
 - Förbättrad automatisk-förslag när du utför med hjälp av exempel omvandlingar
 - Förbättrade algoritmen för mönstret frekvens inspector
 - Möjligheten att skicka exempeldata och feedback när du utför med hjälp av exempel transformationer ![bild av skicka feedbacklänk på Härled kolumn transformering](media/azure-machine-learning-release-notes/SendFeedbackFromDeriveColumn.png)
@@ -118,11 +178,11 @@ Följande är en lista med detaljerade uppdateringar under varje komponent i Azu
 - Fast oförmåga att Stäng Data är inte tillämpligt för Time Series-Inspector 
 - Fast låser sig tiden för Dataförberedelser körning för HDI
 
-### <a name="model-management-cli-updates"></a>Uppdaterar modellen Management CLI 
+#### <a name="model-management-cli-updates"></a>Uppdaterar modellen Management CLI 
   - Ägarskapet för prenumerationen är inte längre behövs för att etablera resurser. Deltagaråtkomst till resursgruppen räcker att ställa in distributionsmiljö.
   - Aktiverade lokala miljön utan kostnad konfigurera prenumerationer 
 
-## <a name="2017-12-sprint-2-qfe"></a>2017-12 (sprint 2 QFE) 
+### <a name="2017-12-sprint-2-qfe"></a>2017-12 (sprint 2 QFE) 
 **Versionsnumret**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Det här är QFE (Quick Fix Engineering)-versionen har en lägre version. Den lösningar på problemen flera telemetri och hjälper produktteam för att bättre förstå hur produkten används. Informationen kan gå in framtida ansträngningar för att förbättra upplevelsen för produkten. 
@@ -132,7 +192,7 @@ Dessutom finns två viktiga uppdateringar:
 - Ett fel har åtgärdats i dataförberedelser som förhindrade att time series inspector visas i paket för förberedelse av data.
 - I kommandoradsverktyget behöver du inte längre vara Azure-prenumerationsägare etablera Machine Learning Compute ACS-kluster. 
 
-## <a name="2017-12-sprint-2"></a>2017-12 (sprint 2)
+### <a name="2017-12-sprint-2"></a>2017-12 (sprint 2)
 **Versionsnumret**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Välkommen till den tredje uppdateringen av Azure Machine Learning. Den här uppdateringen innehåller förbättringar i workbench-appen och kommandoradsgränssnittet (CLI) backend-tjänster. Tack så mycket för att skicka leenden och frowns. Många av följande uppdateringar görs som direkt resultat av din feedback. 
@@ -147,21 +207,21 @@ Välkommen till den tredje uppdateringen av Azure Machine Learning. Den här upp
 
 **Detaljerad uppdateringar** följer en lista med detaljerade uppdateringar under varje komponent i Azure Machine Learning i den här sprint.
 
-### <a name="installer"></a>Installationsprogrammet
+#### <a name="installer"></a>Installationsprogrammet
 - Installationsprogrammet kan självsignerat uppdateringen så som buggar korrigeringar och nya funktioner kan användas utan att användaren behöver installera det på nytt
 
-### <a name="workbench-authentication"></a>Workbench-autentisering
+#### <a name="workbench-authentication"></a>Workbench-autentisering
 - Flera korrigeringar av autentiseringssystem. Kontakta oss gärna om du fortfarande har problem med inloggningen.
 - Ändringar i Användargränssnittet som gör det lättare att hitta inställningarna för Proxyhanteraren.
 
-### <a name="workbench"></a>Workbench
+#### <a name="workbench"></a>Workbench
 - Skrivskyddad vy har nu ljusblå bakgrund
 - Flyttade redigera-knappen till höger för att göra det enklare att hitta.
 - ”dsource”, ”dprep” och ”ipynb”-filformat kan nu återges i rå text-format
 - Workbench har nu en ny redigering upplevelse som hjälper användarna mot med externa IDE: er för att redigera skript och Använd Workbench endast om du vill redigera filtyper som har en omfattande redigering upplevelse (till exempel bärbara datorer, datakällor, paket för förberedelse av Data)
 - Inläsning av listan med arbetsytor och projekt som användaren har åtkomst till är betydligt snabbare nu
 
-### <a name="data-preparation"></a>Förberedelse av data 
+#### <a name="data-preparation"></a>Förberedelse av data 
 - En mönstret frekvens Inspector att visa mönster som sträng i en kolumn. Du kan också filtrera dina data med dessa mönster. Detta visar vyn liknar inspector antal värden. Skillnaden är att mönstret frekvens visar antalet unika mönster av data, snarare än antalet unika data. Du kan också filtrera in eller ut alla rader som motsvarar ett visst mönster.
 
 ![Bild av mönstret frekvens inspector på produktnumret](media/azure-machine-learning-release-notes/pattern-inspector-product-number.png)
@@ -182,7 +242,7 @@ Välkommen till den tredje uppdateringen av Azure Machine Learning. Den här upp
 - Ett problem har åtgärdats med att konvertera flera kolumner till dags datum
 - Ett problem har åtgärdats kan som användaren välja utdatakolumnen som källa i Härled kolumn genom att exempel om användaren har ändrat utdata kolumnnamnet i Avancerat läge.
 
-### <a name="job-execution"></a>Jobbkörning
+#### <a name="job-execution"></a>Jobbkörning
 Du kan nu skapa och få åtkomst till en remotedocker eller ett kluster typ beräkningsmål med hjälp av SSH-nyckel-baserad autentisering följa dessa steg:
 - Koppla beräkningsmål med följande kommando i CLI
 
@@ -198,13 +258,13 @@ Du kan nu skapa och få åtkomst till en remotedocker eller ett kluster typ ber�
 
 Läs mer om hur du skapar beräkningsmål [konfigurerar Azure Machine Learning Experimentation Service](../desktop-workbench/experimentation-service-configuration.md)
 
-### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools för AI
+#### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools för AI
 - Lagt till stöd för [Visual Studio Tools för AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
 
-### <a name="command-line-interface-cli"></a>Kommandoradsgränssnitt (CLI)
+#### <a name="command-line-interface-cli"></a>Kommandoradsgränssnitt (CLI)
 - Lagt till `az ml datasource create` kommandot tillåter att skapa en från kommandoraden
 
-### <a name="model-management-and-operationalization"></a>Modellhantering och driftsättning
+#### <a name="model-management-and-operationalization"></a>Modellhantering och driftsättning
 - [Alla AML-behållare som är kompatibla med Azure IoT Edge-enheter när operationaliserat (inga ytterligare åtgärder krävs)](http://aka.ms/aml-iot-edge-blog) 
 - Förbättringar av felmeddelanden i o16n CLI
 - Felkorrigeringar i hanteringsportalen för modellen UX  
@@ -216,27 +276,27 @@ Läs mer om hur du skapar beräkningsmål [konfigurerar Azure Machine Learning E
 
 ![Översikt över säkerhetsmodell i portalen](media/azure-machine-learning-release-notes/model-overview-portal.jpg)
 
-### <a name="mmlspark"></a>MMLSpark
+#### <a name="mmlspark"></a>MMLSpark
 - Deep Learning på Spark med [GPU-stöd](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - Stöd för Resource Manager-mallar för enkelt resursdistributionen
 - Stöd för SparklyR-ekosystem
 - [AZTK-integrering](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark)
 
-### <a name="sample-projects"></a>-Exempelprojekt
+#### <a name="sample-projects"></a>-Exempelprojekt
 - [Iris](https://github.com/Azure/MachineLearningSamples-Iris) och [MMLSpark](https://github.com/Azure/mmlspark) exempel uppdateras med den nya Azure ML SDK-versionen
 
-### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
+#### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
 - Upphöja den `--type` växel i `az ml computetarget attach` till underkommandot a. 
 
     - `az ml computetarget attach --type remotedocker` är nu `az ml computetarget attach remotedocker`
     - `az ml computetarget attach --type cluster` är nu `az ml computetarget attach cluster`
 
-## <a name="2017-11-sprint-1"></a>2017-11 (sprint 1) 
+### <a name="2017-11-sprint-1"></a>2017-11 (sprint 1) 
 **Versionsnumret**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Vi har gjort förbättringar kring säkerhet, stabilitet och underhåll i workbench-appen och CLI lagret backend-tjänster i den här versionen. Tack mycket för att skicka oss leenden och frowns. Många av de nedan uppdateringar görs som direkt resultat av din feedback. Nyårslöfte!
 
-### <a name="notable-new-features"></a>Viktiga nya funktioner
+#### <a name="notable-new-features"></a>Viktiga nya funktioner
 - Azure ML är nu tillgängligt i två nya Azure-regioner: **Västeuropa** och **Sydostasien**. De ansluta till de föregående regionerna **östra USA 2**, **USA, västra centrala**, och **östra**, tar det totala antalet distribueras regioner till fem.
 - Vi har aktiverat Python-kod för syntaxmarkering i Workbench-appen för att göra det enklare att läsa och redigera källkoden för Python. 
 - Nu kan du starta din favorit-IDE direkt från en fil i stället för från hela projektet.  Öppna en fil i Workbench och klicka på ”Redigera” startar din IDE (för närvarande VS Code och PyCharm stöds) till aktuella och projekt.  Du kan också klicka på pilen bredvid knappen Redigera Redigera filen i textredigeraren Workbench.  Filerna är skrivskyddade förrän du klickar på Redigera, förhindrar oavsiktliga ändringar.
@@ -245,22 +305,22 @@ Vi har gjort förbättringar kring säkerhet, stabilitet och underhåll i workbe
 - Vi har aktiverat en versionsspecifika appens startsida, så att du får mer relevant viktig information och uppdatera anvisningarna baserat på din nuvarande version av appen.
 - Om din lokala användarnamnet har ett utrymme i den, kan programmet nu installeras. 
 
-### <a name="detailed-updates"></a>Detaljerad uppdateringar
+#### <a name="detailed-updates"></a>Detaljerad uppdateringar
 Nedan visas en lista med detaljerade uppdateringar under varje komponent i Azure Machine Learning i den här sprint.
 
-#### <a name="installer"></a>Installationsprogrammet
+##### <a name="installer"></a>Installationsprogrammet
 - Appinstallationsprogram rensar nu installationskatalogen som skapats av äldre version av appen.
 - Ett fel som leder installer fastnar vid 100% i macOS High Sierra har åtgärdats.
 - Det finns nu en direktlänk till installationsprogrammet för katalogen för användare att granska installationsloggar om installationen misslyckas.
 - Installera nu fungerar för användare som har utrymme i deras användarnamn.
 
-#### <a name="workbench-authentication"></a>Workbench-autentisering
+##### <a name="workbench-authentication"></a>Workbench-autentisering
 - Stöd för autentisering i Proxyhanteraren.
 - Logga in nu lyckas om användaren är bakom en brandvägg. 
 - Om användaren har experimenteringskonton i flera Azure-regioner, och om en region råkar vara otillgänglig, appen låser sig inte längre.
 - När autentisering inte har slutförts och dialogrutan för autentisering är fortfarande är synlig, försöker app inte längre att läsa in arbetsyta från den lokala cachen.
 
-#### <a name="workbench-app"></a>Workbench-appen
+##### <a name="workbench-app"></a>Workbench-appen
 - Syntaxmarkering för Python-kod är aktiverat i en textredigerare.
 - Knappen Redigera i textredigeraren kan du redigera filen i en IDE-miljö (VS Code och PyCharm stöds) eller i inbyggda textredigeraren.
 - Textredigerare är i skrivskyddat läge som standard. 
@@ -279,7 +339,7 @@ Nedan visas en lista med detaljerade uppdateringar under varje komponent i Azure
 - Kontonamnet för experimentering visas nu i appen namnlisten och föregående appnamnet ”Azure Machine Learning Workbench”.
 - En versionsspecifika appens startsida visas nu baserat på vilken version av appen har identifierats.
 
-#### <a name="data-preparation"></a>Förberedelse av data 
+##### <a name="data-preparation"></a>Förberedelse av data 
 - Extern webbplats kan inte längre läsas från Kartkontrollen att förhindra potentiella säkerhetsproblem.
 - Histogram och antal värden inspectors har nu möjlighet att visa diagram i logaritmisk skala.
 - När en beräkning är pågående, datakvalitetsstapeln nu visar en annan färg för att signalera ”beräkning”-tillstånd.
@@ -301,7 +361,7 @@ Nedan visas en lista med detaljerade uppdateringar under varje komponent i Azure
 - Måttvy respekterar nu sampling strategi för uppdateringar.
 - Remote sampling jobb nu fungerar korrekt.
 
-#### <a name="job-execution"></a>Jobbkörning
+##### <a name="job-execution"></a>Jobbkörning
 - Argumentet ingår nu i post i körningshistoriken.
 - Jobb som startats CLI nu visas i panelen jobb körs automatiskt.
 - Jobbet panelen visas nu jobben som skapats av gästanvändare som lagts till i Azure AD-klient.
@@ -319,14 +379,14 @@ Nedan visas en lista med detaljerade uppdateringar under varje komponent i Azure
 - MMLSpark innehåller nu ämne kodning transformering (nät kodning) för medicinska dokument.
 - `matplotlib` version 2.1.0 är nu levererade out-nyckelfärdig med Workbench.
 
-#### <a name="jupyter-notebook"></a>Jupyter Notebook
+##### <a name="jupyter-notebook"></a>Jupyter Notebook
 - Anteckningsboken namnsökning fungerar nu korrekt i vyn anteckningsböcker.
 - Du kan nu ta bort en anteckningsbok i vyn anteckningsböcker.
 - Ny magic `%upload_artifact` har lagts till för överföringen av filer skapas i körningsmiljön anteckningsboken i körningshistoriken datalager.
 - Kernel-fel visas nu i anteckningsboken jobbstatus för enklare felsökning.
 - Jupyter server nu avslutas korrekt när användaren loggar ut från appen.
 
-#### <a name="azure-portal"></a>Azure Portal
+##### <a name="azure-portal"></a>Azure Portal
 - Konto för experimentering och modellhantering konto kan nu skapas i två nya Azure-regioner: västra Europa och Asien, sydöstra.
 - Modellen konto plan för labb för utveckling och nu finns bara när det är den första som skapas i prenumerationen. 
 - Hjälplänk i Azure-portalen uppdateras för att peka mot korrekt dokumentationssidan.
@@ -334,13 +394,13 @@ Nedan visas en lista med detaljerade uppdateringar under varje komponent i Azure
 - Information, inklusive inställningar för AppInsights och Autoskala läggs till sidan web service.
 - Sidan för hantering av modellen återger nu även om cookies från tredje part är inaktiverade i webbläsaren. 
 
-#### <a name="operationalization"></a>Driftsättning
+##### <a name="operationalization"></a>Driftsättning
 - Webbtjänsten med ”poäng” i namnet inte längre.
 - Användare kan nu skapa en distributionsmiljö med bara deltagaråtkomst till en Azure-resursgrupp eller prenumerationen. Ägaråtkomst till hela prenumerationen är inte längre behövs.
 - Driftsättning CLI nu gillar fliken automatisk komplettering i Linux.
 - Bild-konstruktion tjänst har nu stöd för att skapa avbildningar för Azure IoT-tjänster/enheter.
 
-#### <a name="sample-projects"></a>-Exempelprojekt
+##### <a name="sample-projects"></a>-Exempelprojekt
 - [_Klassificera Iris_ ](../desktop-workbench/tutorial-classifying-iris-part-1.md) exempelprojektet:
     - `iris_pyspark.py` har bytt namn till `iris_spark.py`.
     - `iris_score.py` har bytt namn till `score_iris.py`.
@@ -353,20 +413,20 @@ Nedan visas en lista med detaljerade uppdateringar under varje komponent i Azure
 - Ny exempelprojektet [ _klassificering av avbildning med hjälp av CNTK_](../desktop-workbench/scenario-image-classification-using-cntk.md).
 
 
-## <a name="2017-10-sprint-0"></a>2017-10 (sprint 0) 
+### <a name="2017-10-sprint-0"></a>2017-10 (sprint 0) 
 **Versionsnumret**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([hitta din version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Välkommen till den första uppdateringen av Azure Machine Learning Workbench följa vår första offentlig förhandsversion på Microsoft Ignite 2017-konferensen. De viktigaste uppdateringarna i den här versionen är tillförlitlighet och stabiliserade korrigeringar.  Några av de viktiga problem vi är:
 
-### <a name="new-features"></a>Nya funktioner
+#### <a name="new-features"></a>Nya funktioner
 - macOS High Sierra stöds nu
 
-### <a name="bug-fixes"></a>Felkorrigeringar
-#### <a name="workbench-experience"></a>Workbench-upplevelse
+#### <a name="bug-fixes"></a>Felkorrigeringar
+##### <a name="workbench-experience"></a>Workbench-upplevelse
 - Dra och släpp en fil i Workbench orsaker Workbench ska krascha.
 - Terminalfönstret i VS Code som konfigurerats som en IDE för inte känner igen Workbench _az ml_ kommandon.
 
-#### <a name="workbench-authentication"></a>Workbench-autentisering
+##### <a name="workbench-authentication"></a>Workbench-autentisering
 Vi har gjort ett antal uppdateringar för att förbättra olika inloggning och autentisering problem som har rapporterats.
 - Autentisering fönstret behåller dyker upp, särskilt när Internetanslutningen inte är stabil.
 - Förbättrad tillförlitlighetsproblem runt autentiseringstokens.
@@ -374,27 +434,27 @@ Vi har gjort ett antal uppdateringar för att förbättra olika inloggning och a
 - Workbench huvudfönstret visar fortfarande ”autentisera” visas när autentiseringen är klar och popup-dialogrutan redan stängs.
 - Om det finns ingen Internetanslutning, autentiseringsdialogen som öppnas med ett tomt fönster.
 
-#### <a name="data-preparation"></a>Förberedelse av data 
+##### <a name="data-preparation"></a>Förberedelse av data 
 - När ett specifikt värde filtreras, fel och värden som saknas också filtreras bort.
 - Ändra en samplingsstrategi tar bort efterföljande befintliga kopplingsåtgärder.
 - Ersätt saknas värdet tar transformeringen inte NaN i beräkningen.
 - Datum typ inferens utlöser undantag när null-värde påträffades.
 
-#### <a name="job-execution"></a>Jobbkörning
+##### <a name="job-execution"></a>Jobbkörning
 - Det finns inga Rensa felmeddelande när jobbet körs inte kan ladda upp projektmapp, till exempel eftersom den överskred storleksgränsen.
 - Om användarens Python-skriptet ändras arbetskatalogen, spåras inte filerna som skrivits till utdata-mappar. 
 - Om aktiv Azure-prenumeration är samma som det konto som tillhör det aktuella projektet, resulterar jobböverföring ett 403-fel.
 - Om Docker inte finns returneras utan tydliga felmeddelande om användaren försöker använda Docker som ett körningsmål.
 - .runconfig filen sparas inte automatiskt när användaren klickar på _kör_ knappen.
 
-#### <a name="jupyter-notebook"></a>Jupyter Notebook
+##### <a name="jupyter-notebook"></a>Jupyter Notebook
 - Notebook-server kan inte starta om användaren använder med vissa typer av inloggningen.
 - Felmeddelanden för notebook-server inte visa upp i loggar som är synliga för användaren.
 
-#### <a name="azure-portal"></a>Azure Portal
+##### <a name="azure-portal"></a>Azure Portal
 - Att välja det mörka temat Azure-portalen gör modellhantering bladet ska visas som en svart ruta.
 
-#### <a name="operationalization"></a>Driftsättning
+##### <a name="operationalization"></a>Driftsättning
 - Återanvända ett manifest för att uppdatera en webbtjänst leder till en ny Docker-avbildning som skapats med ett slumpmässigt namn.
 - Webbloggar för tjänsten kan inte hämtas från Kubernetes-kluster.
 - Vilseledande felmeddelandet skrivs ut när användare försöker skapa ett modellhanteringskonto eller en ML beräkningskonto och påträffar behörighetsproblem.

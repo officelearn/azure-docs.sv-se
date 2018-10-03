@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f79fa096484edc34294ea0a69584e12788dba647
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38578925"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043405"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mappa eget fält till Event Grid-schema
 
@@ -43,9 +43,9 @@ När du skapar ett anpassat ämne, ange mappning från din ursprungliga händels
 
 * Den `--input-schema` parametern anger vilken typ av schema. De tillgängliga alternativen är *cloudeventv01schema*, *customeventschema*, och *eventgridschema*. Standardvärdet är eventgridschema. När du skapar anpassade mappningen mellan ditt schema och event grid-schemat kan du använda customeventschema. Använd cloudeventv01schema när händelser är i CloudEvents-schema.
 
-* Den `--input-mapping-default-values` parametern anger standardvärden för fält i Event Grid-schemat. Du kan ange standardvärden för *ämne*, *händelsetyp*, och *dataversion*. Normalt använder du den här parametern när din anpassade schemat inte innehåller ett fält som överensstämmer med någon av dessa tre fält. Du kan till exempel ange den dataversion har alltid värdet **1.0**.
+* Den `--input-mapping-default-values` parametern anger standardvärden för fält i Event Grid-schemat. Du kan ange standardvärden för `subject`, `eventtype`, och `dataversion`. Normalt använder du den här parametern när din anpassade schemat inte innehåller ett fält som överensstämmer med någon av dessa tre fält. Du kan till exempel ange att dataversion har alltid värdet **1.0**.
 
-* Den `--input-mapping-fields` parametern mappar fält från ditt schema i event grid-schemat. Du anger värden i blankstegsavgränsad nyckel/värde-par. Använd namnet på event grid fältet Namn på nyckeln. Använd namnet på fältet som värde. Du kan använda nyckelnamnen för *id*, *avsnittet*, *eventtime*, *ämne*, *händelsetyp*, och *dataversion*.
+* Den `--input-mapping-fields` parametern mappar fält från ditt schema i event grid-schemat. Du anger värden i blankstegsavgränsad nyckel/värde-par. Använd namnet på event grid fältet Namn på nyckeln. Använd namnet på fältet som värde. Du kan använda nyckelnamnen för `id`, `topic`, `eventtime`, `subject`, `eventtype`, och `dataversion`.
 
 I följande exempel skapas ett anpassat ämne med några mappade och standardfält:
 
@@ -58,7 +58,7 @@ az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
   -g myResourceGroup \
-  --input-schema customeventschema
+  --input-schema customeventschema \
   --input-mapping-fields eventType=myEventTypeField \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
@@ -69,13 +69,14 @@ Prenumerera på anpassat ämne, ange det schema som du vill använda för att ta
 
 I exemplen i det här avsnittet används en Queue storage för händelsehanteraren. Mer information finns i [dirigera anpassade händelser till Azure Queue storage](custom-event-to-queue-storage.md).
 
-I följande exempel prenumererar på ett event grid-ämne och använder standardschemat för event grid:
+I följande exempel prenumererar på ett event grid-ämne som använder event grid-schema:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --topic-name demotopic \
   -g myResourceGroup \
   --name eventsub1 \
+  --event-delivery-schema eventgridschema \
   --endpoint-type storagequeue \
   --endpoint <storage-queue-url>
 ```
@@ -100,9 +101,9 @@ Du är nu redo att skicka en händelse till det anpassade ämnet och se resultat
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name demotopic -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/mapeventfields.json)'")
+event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000", "resourceData":{"someDataField1":"SomeDataFieldValue"} } ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 Nu kan du titta på Queue storage. De två prenumerationerna levereras händelser i olika scheman.

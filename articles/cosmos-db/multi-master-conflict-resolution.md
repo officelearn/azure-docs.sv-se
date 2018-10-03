@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5feefdb8fe6204bc8ef42a5e65bf1e30354e0cf9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 39fd393e78a2b66749c6aa34a758b185b38effdf
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393935"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041195"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Flera huvudservrar konfliktlösning i Azure Cosmos DB 
 
@@ -157,7 +157,7 @@ Proceduren har fyra parametrar:
 
 * **conflictingDocuments:** anger en uppsättning den dedicerade versionen av alla dokument i databasen, som står i konflikt med incomingDocument på ID-kolumnen eller alla fält som unikt index. De här dokumenten har olika ”rid”-värdet i förhållande till incomingDocument.
 
-Den användardefinierade proceduren har fullständig åtkomst till Cosmos DB-partitionsnyckel och kan utföra några store-åtgärder för att lösa konflikter. Om den användardefinierade proceduren inte checkar konflikt version systemet förlorar konflikten och existingDocument förblir allokerade. Om den användardefinierade proceduren misslyckas eller så finns inte, Azure Cosmos DB alla till konflikten i skrivskyddade konflikterna flöde där de kan bearbetas asynkront enligt den [asynkrona konflikt Upplösningsläge](). 
+Den användardefinierade proceduren har fullständig åtkomst till Cosmos DB-partitionsnyckel och kan utföra några store-åtgärder för att lösa konflikter. Om den användardefinierade proceduren inte checkar konflikt version systemet förlorar konflikten och existingDocument förblir allokerade. Om den användardefinierade proceduren misslyckas eller så finns inte, Azure Cosmos DB alla till konflikten i skrivskyddade konflikterna flöde där de kan bearbetas asynkront enligt den [asynkrona konflikt Upplösningsläge](#custom--asynchronous). 
 
 ### <a name="custom--asynchronous"></a>Anpassade – asynkrona  
 

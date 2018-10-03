@@ -11,36 +11,82 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 10/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 48056d6e2988dd674351aca83526032175c355b6
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: eebdc98db5ecdf518d3b0b58e6757a2b7ecd5dd7
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214402"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043812"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klassrum labb i Azure Lab Services 
 Den här artikeln beskriver hur du skapar och konfigurerar ett klassrumslabb, visa alla klassrum labb eller ta bort ett klassrumslabb.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till den här rollen. Labbägare kan att lägga till andra användare till rollen Labbskaparen med hjälp av stegen i följande artikel: [lägga till en användare till rollen Labbskaparen](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i den här rollen. Labbägaren kan lägga till andra användare till rollen Lab Creator genom att använda stegen i följande artikel: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) (Lägg till en användare till rollen Lab Creator).
 
 ## <a name="create-a-classroom-lab"></a>Skapa ett klassrumslabb
 
-1. Gå till [webbplatsen för Azure Lab Services](https://labs.azure.com).
-2. Välj **Logga in** och ange dina autentiseringsuppgifter. Azure Lab Services har stöd för organisationskonton och Microsoft-konton.
+1. Gå till [webbplatsen för Azure Lab Services](https://labs.azure.com). 
+2. Välj **Logga in** och ange dina autentiseringsuppgifter. Azure Lab Services har stöd för organisationskonton och Microsoft-konton. 
 3. Utför följande i fönstret **Nytt labb**: 
-    1. Ange ett **namn** på klassrumslabbet. 
-    2. Välj **storlek** för den virtuella dator som du tänker använda i klassrummet.
-    3. Välj **avbildning** som ska användas för att skapa den virtuella datorn.
-    4. Ange den **dardautentiseringsuppgifter** du använder för att logga in de virtuella datorerna i labbet.
-    7. Välj **Spara**.
+    1. Ange en **namn** för övningen. 
+    2. Ange maximal **antalet användare som** åtkomst till labbet. 
+    6. Välj **Spara**.
 
-        ![Skapa ett klassrumslabb](../media/how-to-manage-classroom-labs/new-lab-window.png)
+        ![Skapa ett klassrumslabb](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+4. På den **Välj specifikationer för virtuell dator** gör du följande steg:
+    1. Välj en **storlek** för virtuella datorer (VM) som skapas i labbet. 
+    2. Välj den **region** som du vill att de virtuella datorerna som ska skapas. 
+    3. Välj den **VM-avbildning** som används för att skapa virtuella datorer i labbet. 
+    4. Välj **Nästa**.
+
+        ![Ange VM-specifikationer](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
+5. På den **ange autentiseringsuppgifter** anger standardautentiseringsuppgifter för alla virtuella datorer i labbet. 
+    1. Ange den **användarens namn** för alla virtuella datorer i labbet.
+    2. Ange den **lösenord** för användaren. 
+
+        > [!IMPORTANT]
+        > Anteckna användarnamnet och lösenordet. De kommer inte att visas igen.
+    3. Välj **Skapa**. 
+
+        ![Ange autentiseringsuppgifter](../media/tutorial-setup-classroom-lab/set-credentials.png)
+6. På den **konfigurera mallen** kan du se statusen för labbprocessen. Skapandet av mallen i labbet tar upp till 20 minuter. 
+
+    ![Konfigurera mall](../media/tutorial-setup-classroom-lab/configure-template.png)
+7. När konfigurationen av mallen har slutförts, visas följande sida: 
+
+    ![Konfigurera mallsidan när det är klart](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
+8. Följande steg är valfria steg i den här självstudien: 
+    1. Starta VM-mallen genom att välja **starta**.
+    2. Anslut till VM-mallen genom att välja **Connect**. 
+    3. Installera och konfigurera programvara på din mall för virtuell dator. 
+    4. **Stoppa** den virtuella datorn.  
+    5. Ange en **beskrivning** för mallen
+
+        ![Nästa på konfigurationssidan för mallen](../media/tutorial-setup-classroom-lab/configure-template-next.png)
+9. Välj **nästa** på mallsidan. 
+10. På **publicerar du mallen** gör du följande åtgärder. 
+    1. Om du vill publicera mallen omedelbart, markerar du kryssrutan för *jag förstår att jag inte kan ändra mallen efter publicering. Den här processen kan bara göras en gång och kan ta upp till en timme*, och välj **publicera**.  
+
+        > [!WARNING]
+        > När du publicerar det går inte att du avpublicera. 
+    2. Om du vill publicera senare väljer **spara till senare**. Du kan publicera VM-mallen när guiden har slutförts. Mer information om hur du konfigurerar och publicerar när guiden slutförts, se mer information om hur du konfigurerar och publicerar när guiden slutförts finns i [publicerar du mallen](#publish-the-template) i avsnittet den [hantera klassrum labs ](how-to-manage-classroom-labs.md) artikeln.
+
+        ![Publicera mall](../media/tutorial-setup-classroom-lab/publish-template.png)
+11. Du ser den **förloppet för publicering** mallen. Den här processen kan ta upp till en timme. 
+
+    ![Publicera mall - förlopp](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
+12. Du ser följande sida när mallen är har publicerats. Välj **Done** (Klar).
+
+    ![Publicera mall – lyckades](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. **Instrumentpanelen** för labbet visas. 
     
-    ![Instrumentpanel för klassrumslabb](../media/how-to-manage-classroom-labs/classroom-lab-home-page.png)
+    ![Instrumentpanel för klassrumslabb](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
+4. Växla till sidan **Virtuella datorer** och bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 
+
+    ![Virtuella datorer i stoppat tillstånd](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="configure-usage-policy"></a>Konfigurera användningsprincip
 
@@ -77,7 +123,7 @@ En mall i ett labb är en basavbildning av en virtuell dator som alla användare
     ![Stoppa den virtuella malldatorn](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 
-### <a name="publish-the-template"></a>Publicera mallen 
+## <a name="publish-the-template"></a>Publicera mallen 
 När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet med hjälp av mallen. Antalet virtuella datorer som skapas i den här processen är samma som det högsta antalet användare som tillåts i labbet. Du kan definiera antalet i användningsprincipen för labbet. Alla virtuella datorer har samma konfiguration som mallen. 
 
 1. Välj **Publicera** i avsnittet **Mall**. 
@@ -125,7 +171,7 @@ När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet 
 
     ![Ta bort dialogrutan](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
  
-## <a name="manage-student-vms"></a>Hantera student virtuella datorer
+## <a name="manage-student-vms"></a>Hantera virtuella studentdatorer
 När studenter register med Azure Lab Services med hjälp av registreringen länka angivna dem ska du se de virtuella datorerna har tilldelats till studenter på **virtuella datorer** fliken. 
 
 ![Virtuella datorer som tilldelats studenter](../media/how-to-manage-classroom-labs/virtual-machines-students.png)

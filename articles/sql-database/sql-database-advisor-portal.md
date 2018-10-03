@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d06d29fb43ea8d8971c3f013c1e66406a30798d3
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 738e78e608dbd819f24125799a1e8d48859f1aa0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064268"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043687"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och tillämpa prestandarekommendationer
 
@@ -105,7 +105,7 @@ Du kan ange Azure SQL Database att implementera rekommendationer automatiskt. N�
     ![Rekommenderat index](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Tänk på att **DROP_INDEX** alternativet just nu är inte kompatibel med program som använder partition växla och index-tips och bör inte aktiveras i dessa fall.
+> Tänk på att **DROP_INDEX** alternativet är för närvarande inte kompatibelt med program som använder partition växla och index-tips. 
 >
 
 När du har valt önskade konfigurationen kan du klicka på Verkställ.

@@ -7,6 +7,8 @@ items:
     href: azure-stack-poc.md
   - name: Viktig information
     items:
+    - name: 1809 update
+      href: azure-stack-update-1809.md
     - name: Senaste uppdateringarna
       href: azure-stack-servicing-policy.md#update-package-release-cadence
     - name: 1808 update
@@ -15,8 +17,6 @@ items:
       href: azure-stack-update-1807.md
     - name: 1805 update
       href: azure-stack-update-1805.md
-    - name: 1804 update
-      href: azure-stack-update-1804.md
 - name: Snabbstarter
   items:
   - name: Utvärdera Azure Stack
@@ -382,9 +382,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Utbildning och certifiering
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 434ca3b33d74e95003daba04614b47b2fcce318a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: be115bf45412a7ca6dd384c40cda458f0fe5320d
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391980"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239463"

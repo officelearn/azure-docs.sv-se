@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 5a62d4b0b324d8b2536e408132210f07f08e8bb8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958704"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237185"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Distribuera webbtjänster till Azure Container Instances 
 
@@ -33,9 +33,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Azure Machine Learning-arbetsyta och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [Kom igång med Azure Machine Learning Snabbstart](quickstart-get-started.md).
+- En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [Kom igång med Azure Machine Learning Snabbstart](quickstart-get-started.md).
 
-- Objekt för Azure Machine Learning-arbetsyta
+- Azure Machine Learning-arbetsyta objektet
 
     ```python
     from azureml.core import Workspace

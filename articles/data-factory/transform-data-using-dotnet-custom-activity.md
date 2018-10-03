@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/01/2018
 ms.author: douglasl
-ms.openlocfilehash: f4a88c5495fc3297699110d8a12a22ff7d6c2bbb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: fa13b6509052438a0f59c4610f250d0b88b41f2b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144362"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043087"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,7 +105,7 @@ I följande tabell beskrivs namn och beskrivningar för egenskaper som är speci
 | linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.  | Ja      |
 | command               | Kommandot i anpassade program som ska köras. Om programmet redan är tillgängliga på Azure Batch Pool Node, kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot för att vara `cmd /c dir`, som stöds internt av Batch-Pool för Windows-nod. | Ja      |
 | resourceLinkedService | Azure Storage länkade tjänsten till det lagringskonto där programmet lagras | Nej       |
-| folderPath            | Sökvägen till mappen för anpassade program och alla dess beroenden | Nej       |
+| folderPath            | Sökvägen till mappen för anpassade program och alla dess beroenden<br/><br/>Om du har beroenden som lagras i undermappar – det vill säga i en hierarkisk mappstruktur under *folderPath* -mappstrukturen för närvarande förenklas när filerna har kopierats till Azure Batch. Det vill säga kopieras alla filer till en enda mapp med utan undermappar. Överväg att komprimerar filerna, kopiera den komprimerade filen och packat upp den med anpassad kod i önskad plats för att undvika problemet. | Nej       |
 | referenceObjects      | En matris med befintliga länkade tjänster och datauppsättningar. Refererade länkade tjänster och datauppsättningar som skickas till det anpassa programmet i JSON-format så att din anpassade kod kan hänvisa till resurser av Data Factory | Nej       |
 | ExtendedProperties    | Användardefinierade egenskaper som kan skickas till det anpassa programmet i JSON-format så att din anpassade kod kan referera till ytterligare egenskaper | Nej       |
 

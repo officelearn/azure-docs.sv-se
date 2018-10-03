@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar priser för Azure-nätverk Prestandaövervakaren | Microsoft Docs
+title: Vanliga frågor om priser för Azure Network Performance Monitor | Microsoft Docs
 description: Vanliga frågor och svar – Azure Network Performance Monitor
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -15,74 +15,74 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.component: na
-ms.openlocfilehash: 96eb26d6a4faf8c6907d23ebf21f2446722c913b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 9e9fdfce9dbb165227f88e9f72bc219dce8f3307
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127101"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043394"
 ---
-# <a name="pricing-changes-for-azure-network-performance-monitor"></a>Priser ändringar för Azure Network Performance Monitor
+# <a name="pricing-changes-for-azure-network-performance-monitor"></a>Prisändringar för Azure Network Performance Monitor
 
-Vi har lyssnat på din feedback och nyligen lades en [nya priser upplevelse](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) för olika övervaka tjänster i Azure. Den här artikeln innehåller de prisnivå ändringar som är relaterade till Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) i ett enkelt att läsa fråga och svar format.
+Vi har lyssnat på er feedback och nyligen introducerade en [ny prisnivå upplevelse](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) för olika övervakningstjänster i Azure. Den här artikeln fångar prisändringar som rör Azure [Övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) i ett enkelt att läsa frågor och svar-format.
 
-Network Performance Monitor består av tre komponenter:
-* [Prestandaövervakaren](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [Tjänsten Endpoint för övervakning](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor)
-* [Övervakare för ExpressRoute](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+Övervakare av nätverksprestanda består av tre komponenter:
+* [Övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
+* [Övervakning av tjänstens slutpunkt](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor)
+* [ExpressRoute-övervakning](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-I följande avsnitt beskrivs prisnivå ändringarna för NPM-komponenter.
+I följande avsnitt beskrivs prisändringar för NPM-komponenter.
 
 ## <a name="performance-monitor"></a>Prestandaövervakning
 
-**Hur var användning av Prestandaövervakaren debiteras i gamla modellen?**
+**Hur var användningen av Prestandaövervakaren faktureras enligt den gamla modellen?**
 
-Faktureringen för NPM var baserat på användning och förbrukning av två komponenter:
-* **Noder**: alla syntetiska transaktioner som har sitt ursprung och avsluta på noderna. Noder är kallas även för agenter eller Microsoft Hanteringsagenter.
+Faktureringen för NPM baserades på användning och förbrukning av två komponenter:
+* **Noder**: alla syntetiska transaktioner har sitt ursprung och avsluta på noderna. Noder är kallas även agenter eller Microsoft Hanteringsagenter.
 * **Data**: resultatet av olika nätverkstester lagras i Azure Log Analytics-databasen.
 
-Med den gamla modellen har växeln beräknas baserat på antalet noder och mängden data som genereras. 
+Under den gamla modellen beräknades fakturan utifrån antalet noder och mängden data som genereras. 
 
-**Hur debiteras användning av Prestandaövervakaren under den nya modellen?**
+**Hur debiteras användningen av Prestandaövervakaren under den nya modellen?**
 
-Funktionen Prestandaövervakaren i NPM nu faktureras baserat på en kombination av: 
+Funktionen Prestandaövervakaren i NPM faktureras nu baserat på en kombination av: 
 
-* Undernät länkar som övervakas
+* Länkar till undernätverk övervakas
 * Datavolym
 
 **Vad är en länk för undernät?**
 
-Prestandaövervakaren övervakar anslutning mellan två eller flera platser i nätverket. Anslutningen mellan en uppsättning noder eller agenter i ett undernät och en grupp av noder i ett annat undernät kallas för en länk i undernätet.
+Övervakare av nätverksprestanda övervakar anslutning mellan två eller flera platser i nätverket. Anslutningen mellan en uppsättning noder eller agenter i ett undernät och en grupp av noder i ett annat undernät kallas en länk för undernätet.
 
-**Jag har två undernät (A och B) och flera agenter har i varje undernät. Prestandaövervakaren övervakar anslutningen från alla agenter i Undernät A till alla agenter på undernätet B. Jag debiteras baserat på antalet anslutningar mellan undernät?**
+**Jag har två undernät (A och B) och jag har flera agenter i varje undernät. Övervakare av nätverksprestanda övervakar anslutningen mellan alla agenter i Undernät A och alla agenter på undernätet B. Kommer jag att debiteras baserat på antalet anslutningar mellan undernät?**
 
-Nej. Alla anslutningar från undernät A till undernät B grupperas tillsammans för fakturering, till en länk i undernätet. Det är du debiteras för en enda anslutning. Prestandaövervakaren fortsätter att övervaka anslutningen mellan olika agenter på varje undernät.
+Nej. I faktureringssyften grupperas alla anslutningar från undernät A till undernät B i en länk i undernätet. Du faktureras för en enda anslutning. Övervakare av nätverksprestanda fortsätter att övervaka anslutningen mellan olika agenter på varje undernät.
 
-**Vad är kostnader för att övervaka en länk för undernät?**
+**Vad är kostnaderna för att övervaka en länk för undernät?**
 
-Kostnaden för att övervaka en enda undernät länk för hela månaden, finns det [Ping nät](https://azure.microsoft.com/pricing/details/network-watcher/) avsnitt.
+Kostnaden för övervakning av en enda undernät länk under hela månaden, finns det [Ping nät](https://azure.microsoft.com/pricing/details/network-watcher/) avsnittet.
 
-**Vad är avgifterna för data som genereras av Prestandaövervakaren?**
+**Vad är kostnaderna för data som övervakaren av nätverksprestanda genererar?**
 
-Kostnad för införandet (dataöverföringen till logganalys bearbetning och indexering) är tillgängligt på den [sida med priser](https://azure.microsoft.com/pricing/details/log-analytics/) för Log Analytics i avsnittet Datapåfyllning. Kostnad för datalagring (det vill säga data som behålls enligt kundens val efter den första månaden) är också tillgängligt på den [sida med priser](https://azure.microsoft.com/pricing/details/log-analytics/), i avsnittet datalagring.
+Kostar datainmatning (ladda upp data till Log Analytics, bearbetning och indexering) är tillgänglig på den [prissättningssidan](https://azure.microsoft.com/pricing/details/log-analytics/) för Log Analytics i avsnittet datainmatning. Avgift för datakvarhållning (d.v.s. data som kvarhålls enligt kundens val, utöver den första månaden) är även tillgängligt i den [prissättningssidan](https://azure.microsoft.com/pricing/details/log-analytics/), i avsnittet Datakvarhållning.
 
 
 ## <a name="expressroute-monitor"></a>ExpressRoute-övervakning
 
-**Vad är avgifter för användning av ExpressRoute-Övervakaren?**
+**Vad är avgifter för användningen av ExpressRoute-övervakning?**
 
-Kostnader för ExpressRoute-övervakaren debiteras baserat på mängden data som genereras under övervakning. Mer information finns i ”vad är avgifterna för data som genereras av Prestandaövervakaren”?
+Avgifter för ExpressRoute-övervakning faktureras baserat på mängden data som genereras under övervakning. Mer information finns i ”vad är kostnaderna för data som övervakaren av nätverksprestanda genererar”?
 
-**Jag kan använda ExpressRoute Övervakaren för att övervaka flera ExpressRoute-kretsar. Kan jag debiteras baserat på antalet kretsar övervakas?**
+**Jag kan använda ExpressRoute-övervakning för att övervaka flera ExpressRoute-kretsar. Betalar jag baserat på antalet kretsar som övervakas?**
 
-Du inte debiteras baserat på antingen antalet kretsar eller typen av peering (till exempel privat peering, Microsoft-peering). Du debiteras baserat på mängden data som tidigare förklarats.
+Du inte debiteras utifrån antingen antalet kretsar eller vilken typ av peering (till exempel privat peering, Microsoft-peering). Du debiteras baserat på mängden data, enligt beskrivningen ovan.
 
 **Vad är mängden data som genereras när ExpressRoute övervakar en enda krets?**
 
-Mängden data som genereras per månad, när ExpressRoute övervakar en privat peering-anslutning, är följande:
+Mängden data som genereras per månad, när övervakar ExpressRoute privat peering-anslutning, är följande:
 
-|Percentil      |Data per månad (MB)|
+|Percentil      |Data/månad (MB)|
 | :---:          |           ---:|
 |50<sup>th</sup> |            192|
 |60<sup>th</sup> |            256|
@@ -92,34 +92,34 @@ Mängden data som genereras per månad, när ExpressRoute övervakar en privat p
 |95<sup>th</sup> |           1560|
 
 
-Kunder på den 50: e percentilen betalar för 192 MB data enligt den här tabellen. $2.30 USD/GB för den första månaden, är kostnaden för att övervaka en krets USD $0.43 (= 192 * 2.30 / 1024).
+Enligt den här tabellen Kunder den 50: e percentilen betalar för 192 MB data. $2.30 USD/GB för den första månaden, kostnaden för att övervaka en krets är USD $0.43 (= 192 * 2.30 / 1024).
 
-**Vad är olika orsaker för variationer i mängden data?**
+**Vilka är några orsaker för mängden data?**
 
-Mängden övervakningsdata genereras beror på flera faktorer, till exempel:
-* Antalet agenter. Riktighet fel isolering ökar med en ökning av antalet agenter.
+Mängden övervakningsdata som genereras beror på flera faktorer, till exempel:
+* Antal agenter. Hur korrekt referensdatorns felisolering ökar med en ökning av antalet agenter.
 * Antalet hopp i nätverket.
-* Antal sökvägar mellan källan och målet.
+* Antalet sökvägar mellan källan och målet.
 
-Kunder med högre percentiler (i tabellen ovan) vanligtvis övervaka deras kretsar från flera vantage punkter på sina lokala nätverk. Flera agenter placeras också djupare i nätverket, längre bort från service provider gränsroutern. Agenterna placeras ofta på flera platser för användaren, filialer, rack i datacenter.
+Till en högre percentiler (i tabellen ovan) vanligtvis övervaka sina kretsar från flera vantage punkter i sina lokala nätverk. Flera agenter placeras också djupare i nätverket, längre bort från service provider edge-routern. Agenterna placeras ofta på flera platser för användaren, filialer, rack i datacenter.
 
-## <a name="service-endpoint-monitor"></a>Tjänsten Endpoint för övervakning
+## <a name="service-endpoint-monitor"></a>Övervakning av tjänstens slutpunkt
 
-**Vad är avgifter för användning av tjänsten Endpoint övervakning?**
+**Vad är avgifter för användning av övervakning av tjänstens slutpunkt?**
 
-Avgifter för användning av tjänsten Endpoint övervakning beräknas baserat på:
-* Antalet anslutningar
-* Mängden data
+Avgifter för användning av övervakning av tjänstens slutpunkt beräknas baserat på:
+* Antal anslutningar
+* Datavolym
 
 **Vad är en anslutning?**
 
-En anslutning är ett test av tillgänglighet till en slutpunkt (URL eller network service) från en enskild agent för hela månaden. Till exempel utgör övervakning en anslutning till bing.com från tre agenter tre anslutningar.
+En anslutning är ett test av nätverksåtkomst till en slutpunkt (URL eller network service) från en enda agent under hela månaden. Till exempel kräver tre anslutningar att du övervakar en anslutning till bing.com från tre agenter.
 
-**Vad är kostnader för tjänsten Endpoint övervakning?**
+**Vad är kostnaderna för övervakning av tjänstens slutpunkt?**
 
-Referera till den [anslutning övervakning](https://azure.microsoft.com/pricing/details/network-watcher/) avsnittet för kostnaden för att övervaka en slutpunkt för hela månaden. Kostnad för data som är tillgängligt på den [sida med priser](https://azure.microsoft.com/pricing/details/log-analytics/) för Log Analytics i avsnittet Datapåfyllning.
+Referera till den [Anslutningsövervakning](https://azure.microsoft.com/pricing/details/network-watcher/) avsnittet för kostnaden av en slutpunkt för övervakning under hela månaden. Kostnad för data som är tillgänglig på den [prissättningssidan](https://azure.microsoft.com/pricing/details/log-analytics/) för Log Analytics i avsnittet datainmatning.
 
 ## <a name="references"></a>Referenser
 
-[Logga Analytics priser vanliga frågor och svar](https://azure.microsoft.com/pricing/details/log-analytics/): det vanliga frågor och svar avsnittet innehåller information om kostnadsfria nivån per nod priser och andra prisinformation.
+[Logga Analytics priser vanliga frågor och svar](https://azure.microsoft.com/pricing/details/log-analytics/): The vanliga frågor och svar har information på nivån kostnadsfri, per nod och andra prisinformation.
 

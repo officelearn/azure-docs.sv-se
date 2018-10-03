@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/5/2018
 ms.author: rkarlin
-ms.openlocfilehash: 313697d73d1e269691f1af4f021545049a907d66
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d0455e549745e743e7a8c0f65cb56a1e16dfb131
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127099"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044084"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.
@@ -62,8 +62,8 @@ Så här aktiverar du automatisk försörjning för Microsoft Monitoring Agent:
 > - Anvisningar för hur du etablerar en befintlig installation finns i [Automatisk etablering i händelse av en befintlig agentinstallation](#preexisting).
 > - Information om manuell etablering finns [installerar tillägget Microsoft Monitoring Agent manuellt](#manualagent).
 > - Anvisningar för att stänga av Automatisk etablering, se [inaktivera automatisk etablering](#offprovisioning).
+> - Mer information om hur du integrera Security Center med hjälp av PowerShell, se [automatisera onboarding av Azure Security Center med hjälp av PowerShell](security-center-powershell-onboarding.md).
 >
-
 
 ## <a name="workspace-configuration"></a>Arbetsytekonfiguration
 Data som samlas in av Security Center lagras i Log Analytics-arbetsytor.  Du kan välja för att ha data som samlas in från virtuella Azure-datorer lagras i arbetsytor som skapats av Security Center eller i en befintlig arbetsyta som du skapade. 
@@ -147,12 +147,17 @@ När du väljer en arbetsyta där du vill lagra dina data finns alla arbetsytor 
 
 
 ## <a name="data-collection-tier"></a>Samling datanivå
-Security Center kan minska mängden händelser samtidigt tillräckligt med händelser för undersökning, granskning och hotidentifiering. Du kan välja rätt filtrera principer för dina prenumerationer och arbetsytor från fyra uppsättningar av händelser som ska samlas in av agenten.
+Att välja en nivå för insamling av data i Azure Security Center påverkar endast lagring av säkerhetshändelser i Log Analytics-arbetsytan. Microsoft Monitoring Agent kommer fortfarande att samla in och analysera säkerhetshändelser som krävs för Azure Security Center threat identifieringar, oavsett vilken nivå av säkerhetshändelser som du väljer att lagra i Log Analytics-arbetsytan (om sådan finns). Välja att lagra säkerhetshändelser i din arbetsyta aktiverar undersökning, sökning och granskning av dessa händelser i din arbetsyta. 
+> [!NOTE]
+> Lagra data i Log Analytics kan debiteras ytterligare avgifter för lagring av data, se prissättningssidan för mer information.
+>
+Du kan välja rätt filtrera principer för dina prenumerationer och arbetsytor från fyra uppsättningar av händelser som ska lagras i din arbetsyta: 
 
-- **Alla händelser** – för kunder som vill se till att alla händelser har samlats in. Detta är standardinställningen.
-- **Vanliga** – det här är en uppsättning händelser som uppfyller de flesta kunder och låter dem till fullständiga spårningen.
+- **Ingen** – inaktivera händelselagring för säkerhet. Det här är standardinställningen.
 - **Minimal** – en mindre uppsättning händelser för kunder som vill minimera händelse volymen.
-- **Ingen** – inaktivera security händelseinsamling från säkerhet och AppLocker-loggar. För kunder som väljer det här alternativet kan ha sina security instrumentpaneler endast loggar från Windows-brandväggen och proaktiva utvärderingar som program mot skadlig kod, baslinjen och uppdatering.
+- **Vanliga** – det här är en uppsättning händelser som uppfyller de flesta kunder och låter dem till fullständiga spårningen.
+- **Alla händelser** – för kunder som vill se till att alla händelser lagras.
+
 
 > [!NOTE]
 > Uppsättningarna security händelser är endast tillgängliga på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
@@ -261,7 +266,7 @@ Du kan installera Microsoft Monitoring Agent manuellt så att Security Center ka
   > [!NOTE]
   > Avsnittet **samlar in händelse- och prestandadata** är valfritt.
   >
-6. Distribuera tillägget med hjälp av PowerShell: Använd följande PowerShell-exempel:
+6. Om du vill använda PowerShell för att distribuera tillägget, använder du följande PowerShell-exempel:
     1.  Gå till **Log Analytics** och klicka på **avancerade inställningar**.
     
         ![Ställ in log analytics][11]
@@ -289,8 +294,8 @@ Du kan installera Microsoft Monitoring Agent manuellt så att Security Center ka
         
              Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
-
-
+> [!NOTE]
+> Mer information om hur du integrera Security Center med hjälp av PowerShell, se [automatisera onboarding av Azure Security Center med hjälp av PowerShell](security-center-powershell-onboarding.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 

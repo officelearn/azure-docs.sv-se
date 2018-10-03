@@ -10,20 +10,18 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 436ff9d318dc311efe27352a8b2ac91cfb5be618
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221340"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237593"
 ---
-#<a name="load-and-read-data-with-azure-machine-learning"></a>Läsa in och läsa data med Azure Machine Learning
+# <a name="load-and-read-data-with-azure-machine-learning"></a>Läsa in och läsa data med Azure Machine Learning
 
 Använd den [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) att läsa in olika typer av indata. 
 
-Om du vill läsa in dina data, har du två metoder:
-+ Ange datatyp för fil och dess parametrar
-+ Använda funktionen för smarta läsning SDK att automatiskt identifiera vilken typ av en fil
+Ange datatyp för fil och dess parametrar för att läsa in data
 
 ## <a name="use-text-line-data"></a>Använda text raddata 
 Ett av de enklaste sätten att läsa in data är att läsa det som textrader.
@@ -352,7 +350,3 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|100 mil marknaden|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. Main gata bönder marknaden|http://thetownofsixmile.wordpress.com/ |106 S. Main gata|Sex mil|||
 |4|1010691|10th Steet Community bönder marknaden|http://agrimissouri.com/mo-grown/grodetail.php... |10 gata och poppel|Lamar|Barton|
-
-## <a name="use-smart-reading"></a>Använd ”smart läsning”
-
-Använda SDK smart läsning-funktioner för att automatiskt identifiera vilken typ av en fil.

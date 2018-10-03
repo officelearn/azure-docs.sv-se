@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 3c4c2d8f49fbddc4875d7a4abf5d7629bc8f942e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.component: ''
+ms.openlocfilehash: a04ca0c405cb61079f496b637a8ebd348112e676
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058817"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042231"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Log Analytics från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Log Analytics.  Exempel tillhandahålls för PowerShell, C# och Python.

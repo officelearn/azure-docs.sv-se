@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: f74521f77420fcfc60e99dd3d70574d5e94cf084
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4e2529e760e23ba9837137cf91fd6ca7f52253b2
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967752"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237848"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Hur du distribuerar modeller från Azure Machine Learning-tjänsten till Azure Kubernetes Service
 
@@ -27,7 +27,7 @@ Distribuera till AKS tillhandahåller automatisk skalning, loggning, insamling a
 
 - En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- En lokal katalog som innehåller dina skript och Azure Machine Learning-SDK för Python installerat en Azure Machine Learning-arbetsyta. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
+- En Azure Machine Learning-tjänsten arbetsyta, en lokal katalog som innehåller dina skript och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
 
 - En tränad modell för maskininlärning. Om du inte har någon kan se den [träna bild klassificeringsmodellen](tutorial-train-models-with-aml.md) självstudien.
 

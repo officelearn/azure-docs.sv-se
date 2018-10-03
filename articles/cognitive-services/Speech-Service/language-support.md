@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e8d84d83636bc8bed287d1fa68d36ce1c2ea3d58
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 9a867289cffa17030e397ef170e9055451057410
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018561"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237746"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Stöd för språk och din region för tjänsten för Taligenkänning
 
@@ -31,16 +31,16 @@ Microsoft taligenkänningens API stöder följande språk. Olika typer av anpass
  CA-ES | Katalanska (Spanien) | Nej | Nej | Nej
  da-DK | Danska (Danmark) | Nej | Nej | Nej
  de-DE | Tyska (Tyskland) | Ja | Ja | Nej
- SV-Australien | Engelska (Australien) | Ja | Ja | Ja
- en CA: N | Engelska (Kanada) | Ja | Ja | Ja
- en-GB | Engelska (Storbritannien) | Ja | Ja | Ja
- en Indien | English (India) | Nej | Ja | Ja
- en NZ | Engelska (Nya Zeeland) | Ja | Ja | Ja  
+ SV-Australien | Engelska (Australien) | Nej | Ja | Ja
+ en CA: N | Engelska (Kanada) | Nej | Ja | Ja
+ en-GB | Engelska (Storbritannien) | Nej | Ja | Ja
+ en Indien | English (India) | Ja | Ja | Ja
+ en NZ | Engelska (Nya Zeeland) | Nej | Ja | Ja  
  sv-SE | Engelska (USA) | Ja | Ja | Ja
- es-ES | Spanska (Spanien) | Ja | Ja | Nej
- es-MX | Spanska (Mexiko) | Ja | Ja | Nej
+ es-ES | Spanska (Spanien) | Nej | Ja | Nej
+ es-MX | Spanska (Mexiko) | Nej | Ja | Nej
  fi-FI | Finska (Finland) | Nej | Nej | Nej
- fr-CA | Franska (Kanada) | Ja | Ja | Nej
+ fr-CA | Franska (Kanada) | Nej | Ja | Nej
  fr-FR | Franska (Frankrike) | Ja | Ja | Nej
  Hej Indien | Hindi (Indien) | Nej | Ja | Nej
  IT-IT | Italienska (Italien) | Ja | Ja | Nej
@@ -51,7 +51,7 @@ Microsoft taligenkänningens API stöder följande språk. Olika typer av anpass
  pl-PL | Polska (Polen) | Nej | Nej | Nej
  pt-BR | Portugisiska (Brasilien) | Nej | Ja | Nej
  PT-PT | Portugisiska (Portugal) | Nej | Ja | Nej
- ru-RU | Ryska (Ryssland) | Nej | Ja | Nej
+ ru-RU | Ryska (Ryssland) | Ja | Ja | Nej
  SV-SE | Svenska (Sverige) | Nej | Nej | Nej
  zh-CN | Kinesiska (Mandarin, förenklad) | Ja | Ja | Nej
  zh-HK | Kinesiska (Mandarin, traditionell) | Nej | Ja | Nej

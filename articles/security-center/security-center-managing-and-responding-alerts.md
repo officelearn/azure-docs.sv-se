@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 10/3/2018
 ms.author: yurid
-ms.openlocfilehash: 7a7314b3aebd32c4a909bda4c88c5d43ab5df9f0
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f139f2f967edc03419f41f8c903c71b9ab9e6fcb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161449"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044441"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Hantera och åtgärda säkerhetsaviseringar i Azure Security Center
 Det här dokumentet beskriver hur du använder Azure Security Center för att hantera och svara på säkerhetsvarningar.
@@ -57,6 +57,7 @@ Längst ned på sidan visas information om de olika aviseringarna. Du kan sorter
 * **Date (Datum)**: det datum då händelsen inträffade
 * **State (Status)**: aktuell status för den här aviseringen Det finns två tillstånd:
   * **Active (Aktiv)**: Säkerhetsproblemet är upptäckt.
+  * **Dismissed (Avvisad)**: Säkerhetsaviseringen har avvisats av användaren. Den här statusen visas oftast för aviseringar som har undersöks och avhjälpts eller som visat inte vara något verkligt angrepp.
 * **Severity (Allvarlighetsgrad)**: kan vara hög, medelhög eller låg
 
 > [!NOTE]

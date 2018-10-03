@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: a79c09df7d5fec5884a6810b82b7c174042a4c93
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f6067a6270010aaf57a404f66b8a99cbafa525ca
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054571"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041706"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Så här fungerar det: Azure Multi-Factor Authentication
 
@@ -57,8 +57,7 @@ Eftersom de flesta användare är vana vid att använda endast lösenord för au
 
 * Träna supportpersonalen att hantera scenarier där användaren kan inte logga in eftersom de inte har åtkomst till sina autentiseringsmetoder eller de inte fungerar korrekt.
    * Med principer för villkorlig åtkomst för Azure MFA-tjänsten, supportpersonal kan lägga till en användare till en grupp som inte ingår i en princip som kräver MFA.
-   * Supportpersonalen kan aktivera en tillfällig engångsförbikoppling för Azure MFA Server användarna att låta en användare kan autentisera utan tvåstegsverifiering. Förbikopplingen är tillfällig och upphör att gälla efter ett angivet antal sekunder.
-   * Med principer för villkorlig åtkomst för Azure MFA-tjänsten supportpersonal kan lägga till en användare till en grupp som inte ingår i en princip som kräver MFA.
+   * Supportpersonalen kan aktivera en tillfällig engångsförbikoppling för Azure MFA Server användarna att låta en användare kan autentisera utan tvåstegsverifiering. Förbikopplingen är tillfällig och upphör att gälla efter ett angivet antal sekunder.   
 * Överväg att använda tillförlitliga IP-adresser eller namngivna platser som ett sätt att minimera tvåstegsverifiering verifiering anvisningarna. Med den här funktionen kan administratörer för en hanterad eller federerade klient kringgå tvåstegsverifiering för användare som loggar in från en betrodd nätverksplats, till exempel en organisations intranät.
 * Distribuera [Azure AD Identity Protection](../active-directory-identityprotection.md) och utlöser tvåstegsverifiering baserat på riskhändelser.
 

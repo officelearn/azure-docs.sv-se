@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.openlocfilehash: b21a9ca58fc29a3da62ea08e81e628368fe5385f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: acfa94799f36728f4e0041f1a51403edf6ffe37e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580777"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239480"
 ---
 # <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>Självstudier: Använd Azure Stack Ethereum blockchain-lösningsmallen
 
@@ -39,7 +39,7 @@ Ladda ned de senaste objekten [från Marketplace](azure-stack-download-azure-mar
 * Anpassat skript för Linux 2.0
 * Tillägget för anpassat skript för Windows
 
-Läs mer om blockkedjescenarier [Ethereum proof of work consortium lösningsmallen](../blockchain-workbench/ethereum-deployment-guide.md).
+Läs mer om blockkedjescenarier [Ethereum proof of work consortium lösningsmallen](../blockchain/templates/ethereum-deployment.md).
 
 ## <a name="deployment-architecture"></a>Distributionsarkitektur för
 

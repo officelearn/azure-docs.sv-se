@@ -1,6 +1,6 @@
 ---
-title: Hantera stora meddelanden i Azure Logic Apps | Microsoft Docs
-description: Lär dig att hantera stora meddelandestorleken med högoptimerat i logikappar
+title: Hantera stora meddelanden – Azure Logic Apps | Microsoft Docs
+description: Lär dig att hantera stora meddelanden storlekar med storlekar i Azure Logic Apps
 services: logic-apps
 documentationcenter: ''
 author: shae-hurst
@@ -14,82 +14,82 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 6064db5455d92d15dca0e2a4a78285f0aeade904
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299053"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041653"
 ---
-# <a name="handle-large-messages-with-chunking-in-logic-apps"></a>Hantera stora meddelanden med högoptimerat i Logic Apps
+# <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Hantera stora meddelanden med storlekar i Azure Logic Apps
 
-När du hanterar meddelanden begränsar Logic Apps meddelandeinnehåll till en maximal storlek. Den här gränsen som bidrar till att minska omkostnader som skapats av lagring och bearbetning av stora meddelanden. Om du vill hantera meddelanden som är större än den här gränsen Logic Apps kan *segment* ett stort meddelande i mindre meddelanden. På så sätt kan du fortfarande överföra stora filer med Logic Apps vissa villkor. När du kommunicerar med andra tjänster med hjälp av kopplingar eller HTTP Logic Apps kan förbruka stora meddelanden men *endast* i segment. Det här tillståndet innebär kopplingar måste också ha stöd för högoptimerat eller underliggande HTTP-meddelande utbytet mellan Logic Apps och dessa tjänster måste använda högoptimerat.
+Vid hantering av meddelanden, begränsar Logic Apps meddelandeinnehåll till en maximal storlek. Den här gränsen som hjälper dig att minska effekterna som skapats av lagring och bearbetning av stora meddelanden. Om du vill hantera meddelanden som är större än den här gränsen, Logic Apps kan *segment* ett stort meddelande i mindre meddelanden. På så sätt kan du fortfarande överföra stora filer med hjälp av Logic Apps vissa villkor. Vid kommunikation med andra tjänster via anslutningar eller HTTP, Logic Apps kan förbruka stora meddelanden men *endast* i segment. Det här tillståndet innebär kopplingar måste också ha stöd för storlekar eller underliggande HTTP-meddelandeutbyte mellan Logikappar och dessa tjänster måste använda storlekar.
 
-Den här artikeln visar hur du ställer in högoptimerat stöd för meddelanden som är större än gränsen.
+Den här artikeln visar hur du ställer in storlekar stöd för meddelanden som är större än gränsen.
 
 ## <a name="what-makes-messages-large"></a>Vad gör meddelanden ”stora”?
 
-Meddelanden är ”stora” baserat på den tjänst som hanterar dessa meddelanden. Den exakta storleksgränsen på stora meddelanden skiljer sig åt mellan Logic Apps och kopplingar. Både Logic Apps och kopplingar kan inte direkt förbruka stora-meddelanden måste vara chunked. Storleksgräns för Logic Apps meddelande finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md).
-Storleksgräns för varje koppling meddelande finns i [kopplingens specifika tekniska detaljer](../connectors/apis-list.md).
+Meddelanden är ”stora” baserat på den tjänst som hanterar dessa meddelanden. Exakta storleksgränsen för stora meddelanden skiljer sig åt mellan Logic Apps och anslutningsapparna. Både Logic Apps och anslutningsapparna kan inte använda stora meddelanden som måste vara chunked direkt. Storleksgräns för Logic Apps-meddelande Se [Logic Apps gränser och konfigurering](../logic-apps/logic-apps-limits-and-config.md).
+Storleksgräns för varje koppling meddelande finns den [kopplingens viss teknisk information](../connectors/apis-list.md).
 
 ### <a name="chunked-message-handling-for-logic-apps"></a>Chunked-meddelandehantering för Logic Apps
 
-Logic Apps kan inte direkt använda utdata från chunked meddelanden som är större än storleksgräns för meddelande. Åtgärder som har stöd för högoptimerat kan komma åt innehållet i dessa utdata. Så en åtgärd som hanterar stora meddelanden måste uppfylla *antingen* dessa villkor:
+Logic Apps kan inte direkt använda utdata från segmenterat meddelanden som är större än storleksgränsen för meddelanden. Endast de åtgärder som har stöd för storlekar kan komma åt meddelandeinnehåll i dessa utdata. Därför en åtgärd som hanterar stora meddelanden måste uppfylla *antingen* dessa kriterier:
 
-* Inbyggt stöd för högoptimerat när åtgärden tillhör en koppling. 
-* Har högoptimerat aktiverat i konfigurationen för den åtgärden runtime-stöd. 
+* Har inbyggt stöd för storlekar när åtgärden tillhör en koppling. 
+* Ha storlekar support som är aktiverad i den åtgärden runtime-konfigurationen. 
 
-Annars får ett körningsfel när du försöker komma åt stora innehåll utdata. För att aktivera högoptimerat, se [konfigurera högoptimerat support](#set-up-chunking).
+Annars kan få du ett körningsfel inträffade när du försöker få åtkomst till stora innehåll utdata. För att aktivera storlekar, se [konfigurera storlekar support](#set-up-chunking).
 
 ### <a name="chunked-message-handling-for-connectors"></a>Chunked-meddelandehantering för kopplingar
 
-Tjänster som kommunicerar med Logic Apps kan ha sina egna storleksgränser för meddelanden. Dessa gränser är ofta mindre än gränsen som Logic Apps. Till exempel förutsatt att en anslutning har stöd för högoptimerat kan överväga en koppling meddelandet 30 MB så stor, men inte av Logic Apps. Om du vill följa den här anslutningen gränsen delar Logic Apps alla meddelanden större än 30 MB i mindre delar.
+Tjänster som kommunicerar med Logic Apps kan ha sina egna begränsningar för meddelandestorlek. Dessa gränser är ofta mindre än gränsen för Logic Apps. Till exempel om vi antar att en anslutning har stöd för storlekar, en anslutningsapp kan överväga att meddelandet 30 MB så stor, men inte av Logic Apps. Om du vill följa den här kopplingen gränsen Logic Apps delar upp några meddelanden större än 30 MB i mindre segment.
 
-Underliggande segment protokollet är osynliga för slutanvändare för kopplingar som har stöd för högoptimerat. Inte alla kopplingar stöder dock högoptimerat, och dessa kopplingar generera körningsfel när inkommande meddelanden överskrider storleksgränsen för de kopplingar.
+Underliggande för att maximera dedupliceringsbesparingen protokollet är osynliga för slutanvändare för kopplingar som har stöd för storlekar. Inte alla kopplingar stöder dock storlekar, och dessa kopplingar generera körningsfel när inkommande meddelanden överskrider de kopplingar storleksgränser.
 
 <a name="set-up-chunking"></a>
 
-## <a name="set-up-chunking-over-http"></a>Ställ in högoptimerat via HTTP
+## <a name="set-up-chunking-over-http"></a>Konfigurera storlekar över HTTP
 
-I den allmänna http-scenarier kan dela upp stora nedladdning av innehåll och överförs via HTTP, så att din logikapp och en slutpunkt kan utbyta stora meddelanden. Dock måste du dela in meddelanden på sätt som förväntar att Logic Apps. 
+I den allmänna http-scenarier, du kan dela upp stora nedladdning av innehåll och överför via HTTP, så att din logikapp och en slutpunkt kan utbyta stora meddelanden. Dock måste du dela upp meddelanden på det sätt som förväntar sig att Logic Apps. 
 
-En slutpunkt har aktiverat högoptimerat för hämtningar eller överföringar, dela HTTP-åtgärder i din logikapp automatiskt in stora meddelanden. I annat fall måste du ställa in högoptimerat stöd på slutpunkten. Om du inte äger och hanterar endpoint eller koppling, kanske inte alternativet för att ställa in högoptimerat.
+Om en slutpunkt har aktiverat storlekar för nedladdningar eller överföringar, dela stora meddelanden automatiskt in HTTP-åtgärder i din logikapp. I annat fall måste du ställa in storlekar support på slutpunkten. Om du inte äger och hanterar endpoint eller anslutningen, kanske du inte har möjligheten att konfigurera storlekar.
 
-Även om en HTTP-åtgärd inte redan aktiverar högoptimerat, du måste också ange högoptimerat i åtgärden `runTimeConfiguration` egenskapen. Du kan ange den här egenskapen i åtgärden, antingen direkt i koden visa redigeraren såsom beskrivs senare eller i Logic Apps Designer som beskrivs här:
+Även om en HTTP-åtgärd inte redan aktiverar storlekar kan du också ställa in storlekar i åtgärdens `runTimeConfiguration` egenskapen. Du kan ange den här egenskapen i åtgärden, direkt i Kodredigeraren i vyn som beskrivs senare eller i Logic Apps Designer enligt nedan:
 
-1. Välj i HTTP-åtgärden övre högra hörnet på ellipsknappen (**...** ), och välj sedan **inställningar**.
+1. I HTTP-åtgärden övre högra hörnet väljer du knappen med tre punkter (**...** ), och välj sedan **inställningar**.
 
-   ![På åtgärden, öppna inställningsmenyn](./media/logic-apps-handle-large-messages/http-settings.png)
+   ![Öppna inställningsmenyn på åtgärden,](./media/logic-apps-handle-large-messages/http-settings.png)
 
-2. Under **innehållsöverföring**, ange **Tillåt högoptimerat** till **på**.
+2. Under **innehållsöverföring**anger **Tillåt storlekar** till **på**.
 
-   ![Aktivera högoptimerat](./media/logic-apps-handle-large-messages/set-up-chunking.png)
+   ![Aktivera storlekar](./media/logic-apps-handle-large-messages/set-up-chunking.png)
 
-3. Om du vill fortsätta konfigurera högoptimerat för hämtningar eller överföringar, fortsätter du med följande avsnitt.
+3. Om du vill fortsätta konfigurera storlekar för nedladdningar eller överföringar, fortsätter du med följande avsnitt.
 
 <a name="download-chunks"></a>
 
-## <a name="download-content-in-chunks"></a>Hämta innehåll i segment
+## <a name="download-content-in-chunks"></a>Ladda ned innehåll i segment
 
-Många slutpunkter Skicka automatiskt stora meddelanden i segment om du har hämtat via en HTTP GET-begäran. Hämta chunked meddelanden från en slutpunkt över HTTP genom slutpunkten måste stödja partiell innehållsbegäranden eller *chunked hämtningar*. När logikappen skickar en HTTP GET-begäran till en slutpunkt för hämtning av innehåll och slutpunkten svarar med en ”206” statuskod, innehåller svaret chunked innehåll. Logic Apps kan inte kontrollera om en slutpunkt stöder partiella begäranden. Men när logikappen hämtar först ”206” svaret, skickar logikappen automatiskt flera begäranden att hämta allt innehåll.
+Många slutpunkter Skicka automatiskt stora meddelanden i segment laddas ned via en HTTP GET-begäran. Hämta segmenterat meddelanden från en slutpunkt över HTTP genom slutpunkten måste ha stöd för partiell innehållsbegäranden eller *chunked-nedladdningar*. När logikappen skickar en HTTP GET-begäran till en slutpunkt för att ladda ned innehåll och slutpunkten svarar med statuskoden ”206”, innehåller svaret segmenterat innehåll. Logic Apps kan inte kontrollera om en slutpunkt stöder partiella begäranden. Men när logikappen får först ”206”-svar kan skickar logikappen automatiskt flera begäranden om att hämta allt innehåll.
 
-Skicka en HEAD-begäran för att kontrollera om en slutpunkt stöder del av innehåll. Denna begäran hjälper dig att avgöra om svaret innehåller den `Accept-Ranges` rubrik. På så sätt kan om slutpunkten stöder chunked hämtningar men inte skickar chunked innehåll, kan du *föreslår* det här alternativet genom att ange den `Range` rubriken i HTTP GET-begäran. 
+Om du vill kontrollera om en slutpunkt kan ha stöd för partiellt innehåll kan skicka en HEAD-begäran. Den här begäran hjälper dig att avgöra om svaret innehåller den `Accept-Ranges` rubrik. På så sätt kan om slutpunkten stöder segmenterat nedladdningar men inte skickar segmenterade innehåll, kan du *föreslår* det här alternativet genom att ange den `Range` rubriken i HTTP GET-begäran. 
 
-Dessa steg beskriver detaljerad process Logic Apps används för att hämta chunked innehåll från en slutpunkt till din logikapp:
+De här stegen beskriver detaljerad processen Logic Apps använder för att hämta segmenterat innehållet från en slutpunkt i logikappen:
 
-1. Din logikapp skickar en HTTP GET-begäran till slutpunkten.
+1. Logikappen skickar en HTTP GET-begäran till slutpunkten.
 
-   Begärandehuvudet kan du också inkludera en `Range` fält som beskriver en byte-intervall för att begära innehåll segment.
+   Rubriken kan du också inkludera en `Range` fält som beskriver en byte-intervallet för att begära innehåll segment.
 
-2. Slutpunkten svarar med ”206” statuskoden och en HTTP-meddelandetexten.
+2. Slutpunkten som svarar med ”206” statuskoden och en meddelandetext för HTTP.
 
-    Information om innehållet i det här segmentet visas i svaret `Content-Range` huvud, inklusive information som hjälper Logic Apps fastställa start- och slutdatum för segmentet, plus den totala storleken på hela innehållet innan högoptimerat.
+    Information om innehållet i det här segmentet visas i svarets `Content-Range` -huvud, inklusive information som hjälper Logikappar bestämma start- och slutdatum för segmentet, plus den totala storleken på hela innehållet innan storlekar.
 
-3. Din logikapp skickar automatiskt uppföljning HTTP GET-begäranden.
+3. Logikappen skickar automatiskt Uppföljnings HTTP GET-begäranden.
 
-    Din logikapp skickar uppföljning GET-begäranden tills hela innehållet hämtas.
+    Logikappen skickar Uppföljnings GET-begäranden tills hela innehållet hämtas.
 
-Den här åtgärdsdefinitionen visar exempelvis en HTTP GET-begäran som anger den `Range` rubrik. Huvudet *föreslår* att slutpunkten ska svara med chunked innehåll:
+Den här åtgärdsdefinitionen visar exempelvis en HTTP GET-begäran som anger den `Range` rubrik. Rubriken *föreslår* att slutpunkten bör svara med chunked-innehåll:
 
 ```json
 "getAction": {
@@ -105,48 +105,48 @@ Den här åtgärdsdefinitionen visar exempelvis en HTTP GET-begäran som anger d
 }
 ```
 
-Begäran om att hämta anger rubriken ”intervallet” till ”byte = 0 1023”, vilket är antalet byte. Om slutpunkten stöder begäranden för en del av innehåll, svarar slutpunkten med ett innehåll segment från det begärda intervallet. Baserat på slutpunkten kan exakt format för fältet ”intervall” huvudet variera.
+GET-begäran anger rubriken ”Range” till ”byte = 0 1023”, vilket är en uppsättning byte. Om slutpunkten stöder begäranden för del av innehåll, svarar slutpunkten med ett content segment från det begärda intervallet. Baserat på slutpunkten, det exakta formatet för fältet ”Range” huvud kan skilja sig åt.
 
 <a name="upload-chunks"></a>
 
-## <a name="upload-content-in-chunks"></a>Överföra innehåll i segment
+## <a name="upload-content-in-chunks"></a>Ladda upp innehåll i segment
 
-Om du vill överföra chunked innehåll från en HTTP-åtgärd måste åtgärden aktiverat segment stöd för åtgärden `runtimeConfiguration` egenskapen. Den här inställningen tillåter åtgärden för att starta protokollet segment. Din logikapp kan sedan skicka ett inledande POST eller PUT-meddelande till mål-slutpunkten. När slutpunkten svarar med en föreslagna segmentstorleken måste följer din logikapp genom att skicka korrigering av HTTP-begäranden som innehåller innehåll segment.
+Om du vill överföra segmenterat innehåll från en HTTP-åtgärd, åtgärden måste ha aktiverat för att maximera dedupliceringsbesparingen support via åtgärdens `runtimeConfiguration` egenskapen. Den här inställningen gör det möjligt för åtgärden som ska starta protokollet för att maximera dedupliceringsbesparingen. Din logikapp kan sedan skicka en inledande post- eller PUT-meddelande till mål-slutpunkten. När slutpunkten svarar med föreslagna segmentstorleken, följer logikappen genom att skicka HTTP KORRIGERA förfrågningar som innehåller innehåll segment.
 
-Dessa steg beskriver detaljerad process Logic Apps använder för överföring av chunked innehåll från din logikapp till en slutpunkt:
+De här stegen beskriver detaljerad processen Logic Apps använder för att ladda upp segmenterat innehåll från din logikapp till en slutpunkt:
 
-1. Din logikapp skickar en inledande HTTP POST eller PUT-begäran med ett tomt meddelandetexten. Begärandehuvudet innehåller följande information om det innehåll som din logikapp vill överföra i segment:
+1. Logikappen skickar en inledande HTTP post- eller PUT-begäran med tom meddelandetext. Huvudet för begäran och innehåller informationen om det innehåll som din logikapp vill ladda upp i segment:
 
-   | Logic Apps begära huvudfältet | Värde | Typ | Beskrivning |
+   | Logic Apps begära huvud-fält | Värde | Typ | Beskrivning |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-överföring-läge** | Chunked | Sträng | Anger att innehållet har laddats upp i segment |
-   | **x-ms-content-length** | <*innehållslängden*> | Integer | Hela innehållets storlek i byte innan högoptimerat |
+   | **x-ms-transfer-läge** | segmentvis | Sträng | Anger att innehållet har laddats upp i segment |
+   | **x-ms-content-length** | <*innehållslängd*> | Integer | Hela innehållets storlek i byte innan storlekar |
    ||||
 
-2. Slutpunkten svarar med statuskod ”200” lyckades och den här valfria informationen:
+2. Slutpunkten som svarar med ”200” lyckades statuskod och den här valfria informationen:
 
-   | Slutpunkten svar huvudfältet | Typ | Krävs | Beskrivning |
+   | Slutpunkten svarsfältet rubrik | Typ | Krävs | Beskrivning |
    |--------------------------------|------|----------|-------------|
-   | **x-ms--segmentstorleken** | Integer | Nej | Föreslagna segmentstorleken i byte |
-   | **Plats** | Sträng | Nej | URL-plats var du vill skicka meddelanden för HTTP-korrigering |
+   | **x-ms-segment-storlek** | Integer | Nej | Den föreslagna segmentstorleken i byte |
+   | **Plats** | Sträng | Nej | URL-plats att skicka HTTP-PATCH-meddelanden |
    ||||
 
-3. Din logikapp skapar och skickar uppföljning meddelanden i HTTP-korrigering: med den här informationen:
+3. Logikappen skapar och skickar Uppföljnings HTTP KORRIGERA meddelanden – var och en med den här informationen:
 
-   * Ett innehåll segment baserat på **x-ms--segmentstorleken** eller vissa internt beräknade storlek tills alla de innehåll summering **x-ms-content-length** överförs sekventiellt
+   * Ett content segment utifrån **x-ms--segmentstorleken** eller vissa internt beräknade storlek tills alla de innehåll addera **x-ms-content-length** sekventiellt har laddats upp
 
-   * Dessa huvudet innehåller information om innehåll segment skickas i varje korrigering meddelande:
+   * Följande rubrik information om det innehåll segmentet som skickas i varje PATCH-meddelande:
 
-     | Logic Apps begära huvudfältet | Värde | Typ | Beskrivning |
+     | Logic Apps begära huvud-fält | Värde | Typ | Beskrivning |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*intervallet*> | Sträng | Byte-intervallet för det aktuella innehållet segmentet, inklusive startvärdet slutar värde och den totala storleken för innehåll, till exempel ”: byte = 0-1023/10100” |
-     | **Innehållstyp** | <*innehållstyp*> | Sträng | Typ av chunked innehåll |
-     | **Content-Length** | <*innehållslängden*> | Sträng | Längden på storlek i byte för det aktuella segmentet |
+     | **Content-Range** | <*Adressintervall*> | Sträng | Byte-intervallet för det aktuella innehåll segmentet, inklusive Startvärde, slutar värde och den totala innehållsstorleken, till exempel ”: byte = 0-1023/10100” |
+     | **Innehållstyp** | <*innehållstyp*> | Sträng | Typ av segmenterat innehåll |
+     | **Content-Length** | <*innehållslängd*> | Sträng | Längden på storlek i byte för det aktuella segmentet |
      |||||
 
-4. Efter varje PATCH-begäran bekräftar slutpunkten inleverans för varje segment av svarar med ”200” statuskod.
+4. Efter varje PATCH-begäran bekräftar slutpunkten kvitto på varje segment genom att svara med statuskod ”200”.
 
-Den här åtgärdsdefinitionen visar exempelvis en HTTP POST-begäran för överföring av chunked innehåll till en slutpunkt. I åtgärden `runTimeConfiguration` -egenskapen i `contentTransfer` egenskapsuppsättningar `transferMode` till `chunked`:
+Den här åtgärdsdefinitionen visar exempelvis en HTTP POST-begäran för att ladda upp segmenterat innehåll till en slutpunkt. I åtgärdens `runTimeConfiguration` egenskapen den `contentTransfer` egenskapsuppsättningar `transferMode` till `chunked`:
 
 ```json
 "postAction": {

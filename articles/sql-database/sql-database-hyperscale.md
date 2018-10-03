@@ -12,16 +12,19 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/23/2018
-ms.openlocfilehash: 314a2182c3be5c5f10e075cdbda27f4a716f2536
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 18f354f931995731bf4f0da47e830a575e96fc7c
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160408"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237780"
 ---
 # <a name="what-is-the-hyperscale-service-tier-preview-in-azure-sql-database"></a>Vad är hyperskala tjänstnivån (förhandsversion) i Azure SQL Database?
 
 Hyperskala tjänstnivån i Azure SQL Database är den senaste tjänstnivån i den vCore-baserade inköpsmodellen. Den här är en mycket skalbar lagring och beräkning prestandanivå som utnyttjar Azure-arkitektur för att skala ut lagring och beräkna resurser för en Azure SQL Database avsevärt utöver gränserna som är tillgängliga för generell användning och företag Kritiska tjänstnivåer.
+
+> [!IMPORTANT]
+> Hyperskala tjänstnivå är för närvarande i offentlig förhandsversion och är tillgängliga i begränsade Azure-regioner. Regionlista fullständig finns i [hyperskala tjänsten nivå tillgängliga regioner](#hyperscale-regions)
 
 ## <a name="what-are-the-capabilities-of-the-hyperscale-service-tier"></a>Vilka är funktionerna i hyperskala tjänstnivån
 
@@ -83,9 +86,12 @@ Säkerhetskopior av base och de är därför nästan omedelbart. Lagring och ber
 
 Med möjligheten att snabbt öka eller minska ytterligare skrivskyddad compute-noder kan hyperskala arkitekturen gör betydande läsa skalningsfunktioner och kan även frigöra primära Beräkningsnoden för att betjäna flera skrivbegäranden. Dessutom kan compute-noderna skalas upp och ned snabbt på grund av delad lagring-arkitektur i hyperskala-arkitekturen. 
 
+### <a name="a-namehyperscale-regions-hyperscale-service-tier-available-regions"></a><a name="hyperscale-regions"> Hyperskala service nivå tillgängliga regioner
+Hyperskala tjänstnivå är för närvarande i offentlig förhandsversion och är tillgängliga i följande Azure-regioner: EastUS1, Usaöstra2, västra USA 2, CentralUS, Usanorracentrala, Europavästra, Europanorra, Västrastorbritannien, Australien, sydöstra Australien, SouthEastAsia, Sydostasien, Koreacentrala
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om tjänstnivåer finns i [tjänstnivåer](sql-database-service-tiers.md)
-- Information om resursgränser finns i [vCore resursbegränsningar](sql-database-resource-limits.md)
+- Se [översikt över resource begränsar på en logisk server](sql-database-resource-limits-logical-server.md) information om begränsningar på de server och prenumeration.
+- Köpa modellen gränser för en enskild databas, finns i [Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas](sql-database-vcore-resource-limits-single-databases.md).
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).

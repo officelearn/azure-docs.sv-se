@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: richrund; bwren
-ms.component: na
-ms.openlocfilehash: c2bb802213d903290a0168623d7e6a302ba0e324
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: magoedte
+ms.component: ''
+ms.openlocfilehash: c078320ce31e0c51c7aef0bc0a2aa14e68ac2fc3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127449"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042869"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Samla in Azures aktivitetsloggar till Log Analytics i alla prenumerationer
 
@@ -63,7 +63,7 @@ Nedan visas kraven för de Azure-resurser som används i det här scenariot.
 
    ![bild av dialogrutan skapa händelsehubb](media/log-analytics-activity-logs-subscriptions/create-event-hub1.png)
 
-4. Välj prisnivå (Basic eller Standard), en Azure-prenumeration, en resursgrupp och en plats för den nya resursen.  Klicka på **Skapa** för att skapa namnområdet. Du kan behöva vänta några minuter på att systemet blir klar med att etablera resurserna.
+4. Välj prisnivå (Basic eller Standard), en Azure-prenumeration, en resursgrupp och en plats för den nya resursen.  Klicka på **Skapa** för att skapa namnområdet. Du kan behöva vänta några minuter på att systemet ska bli klart med att etablera resurserna.
 6. Välj det namnområde som du nyss skapade från listan.
 7. Välj **Principer för delad åtkomst** och klicka sedan på **RootManageSharedAccessKey**.
 

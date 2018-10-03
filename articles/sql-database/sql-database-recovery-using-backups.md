@@ -11,26 +11,28 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 4c9edd60ffa1cd9ed5d95b37592fa49f44117818
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/01/2018
+ms.openlocfilehash: 31a423714154537cfc8d801b972869035aa61035
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161343"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042214"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL database med hjälp av automatiska databassäkerhetskopieringar
-SQL-databas finns följande alternativ för databas återställning med hjälp av [automatiska databassäkerhetskopieringar](sql-database-automated-backups.md) och [säkerhetskopior i långsiktig kvarhållning](sql-database-long-term-retention.md). Du kan återställa från en säkerhetskopia av databasen till:
+Som standard lagras SQL Database-säkerhetskopior i geo-replikerade blob storage (RA-GRS). Följande alternativ är tillgängliga för databas återställning med hjälp av [automatiska databassäkerhetskopieringar](sql-database-automated-backups.md):
 
-* En ny databas på samma logiska server återställt till en viss tidpunkt inom kvarhållningsperioden. 
-* En databas på samma logiska server återställas till borttagning av tid för en borttagen databas.
-* En ny databas på en logisk server i valfri region återställas till det datum då de senaste dagliga säkerhetskopior i geo-replikerade blob storage (RA-GRS).
+* Skapa en ny databas på samma logiska server återställt till en viss tidpunkt inom kvarhållningsperioden. 
+* Skapa en databas på samma logiska server återställas till borttagning av tid för en borttagen databas.
+* Skapa en ny databas på en logisk server i valfri region återställas till det datum då de senaste säkerhetskopiorna.
+
+Om du har konfigurerat [säkerhetskopiera långsiktig kvarhållning](sql-database-long-term-retention.md) du kan också skapa en ny databas från alla LTR backup på en logisk server i valfri region.  
 
 > [!IMPORTANT]
 > Du kan inte skriva över en befintlig databas under återställning.
 >
 
-En återställd databas tillkommer en extra lagringsutrymme kostnad under följande förhållanden: 
+När du använder Standard eller Premium-tjänstnivån, tillkommer en återställd databas en extra lagringsutrymme kostnad under följande förhållanden: 
 - Återställning av P11 – P15 S4 – S12 eller P1 – P6 om den maximala databasstorleken är större än 500 GB.
 - Återställning av P1 – P6 till S4 – S12 om den maximala databasstorleken är större än 250 GB.
 

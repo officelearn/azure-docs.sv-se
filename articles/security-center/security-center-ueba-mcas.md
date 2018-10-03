@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2018
+ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: d6777e187c04ef9a2f03e4ae813476f5a1093156
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2a747bdd8de41283b9cba1e40e2652aa826e9c60
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724127"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044458"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA för Azure-resurser och användare 
 
@@ -55,8 +55,9 @@ Security Center har stöd för Cloud App Security aviseringarna för avvikelseid
 
 Dessa aviseringar är aktiverade som standard, men du kan inaktivera dem:
 
-1. I Security Center-bladet väljer **Hotidentifiering**.
-2. Under **Hotidentifiering – för att göra integreringar**, avmarkera **Tillåt Microsoft Cloud App Security åtkomst till Mina data**, och klicka på **spara**.
+1. I Security Center-bladet väljer **säkerhetsprincip**. För den prenumeration som du vill ändra, klickar du på **redigera inställningar för**.
+2.  Klicka på **Hotidentifiering**.
+3. Under **för att göra integreringar**, avmarkera **Tillåt Microsoft Cloud App Security åtkomst till Mina data**, och klicka på **spara**.
 
    ![Varning för hot](./media/security-center-ueba-mcas/security-center-mcas-optout.png)
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158572"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236592"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migrera till den senaste versionen av Azure Machine Learning-tjänsten 
 
@@ -52,7 +52,7 @@ Läs mer om [vad som ändrats i den här versionen](overview-what-happened-to-wo
 
 Resurser, till exempel din experimenteringskonton och konton för modellhantering maskininlärning compute-miljöer inte kan migreras över till den senaste versionen av Azure Machine Learning-tjänsten. Se den [tidslinje](overview-what-happened-to-workbench.md#timeline) på hur länge dina tillgångar fortsätter att fungera.
 
-Kom igång med den senaste versionen genom att skapa en Azure Machine Learning-arbetsyta i den [Azure-portalen](quickstart-get-started.md). Portalens instrumentpanel för arbetsytan stöds i Edge, Chrome och Firefox webbläsare.
+Kom igång med den senaste versionen genom att skapa en arbetsyta med Azure Machine Learning-tjänsten i den [Azure-portalen](quickstart-get-started.md). Portalens instrumentpanel för arbetsytan stöds i Edge, Chrome och Firefox webbläsare.
 
 Den här nya arbetsytan är den huvudtjänst resursen och gör att du kan använda alla de senaste funktionerna i Azure Machine Learning-tjänsten. Mer information om detta [arbetsyta och arkitektur](concept-azure-machine-learning-architecture.md).
 

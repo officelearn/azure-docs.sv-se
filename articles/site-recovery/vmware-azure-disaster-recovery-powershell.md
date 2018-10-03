@@ -2,17 +2,18 @@
 title: Replikera och redundansväxla virtuella VMware-datorer till Azure med PowerShell i Azure Site Recovery | Microsoft Docs
 description: Lär dig hur du konfigurerar replikering och redundans till Azure för virtuella VMware-datorer med hjälp av PowerShell i Azure Site Recovery.
 services: site-recovery
-author: bsiva
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
-ms.author: bsiva
-ms.openlocfilehash: a826817b8f2b4ebff8442da1fbee79a95990a9e8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: sutalasi
+ms.openlocfilehash: 070e51b132828e4fdf597d28fc2ad602adf76692
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917820"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042810"
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replikera och redundansväxla virtuella VMware-datorer till Azure med PowerShell
 
@@ -25,7 +26,7 @@ Lär dig att:
 > - Verifiera registrera servern i valvet.
 > - Konfigurera replikering, inklusive en replikeringsprincip. Lägg till vCenter-servern och identifiera virtuella datorer. > – Lägg till en vCenter-server och identifiera 
 > - Skapa lagringskonton för att lagra data för replikering och replikera de virtuella datorerna.
-> - Utföra en redundansväxling. Konfigurera inställningar för växling vid fel, utföra en e-postinställningar för replikering av virtuella datorer.
+> - Utför en redundans. Konfigurera inställningar för växling vid fel, utföra en e-postinställningar för replikering av virtuella datorer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

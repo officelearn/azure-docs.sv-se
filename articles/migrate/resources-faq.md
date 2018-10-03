@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: d6677aa741b18bb6dbb6b90c07c5e7bd3f4d5afb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161870"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239225"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -54,7 +54,7 @@ Azure Migrate stöder för närvarande USA, östra och USA, västra centrala som
 
 Anslutningen kan vara via internet eller använda ExpressRoute med offentlig peering.
 
-### <a name="can-i-harden-the-vm-set-up-with-theova-template"></a>Kan jag skydda den virtuella datorn som konfigurerats med den. OVA mallen?
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan jag skydda den virtuella datorn som konfigurerats med den. OVA mallen?
 
 Ytterligare komponenter (till exempel ett virusskyddsprogram) kan läggas till i den. OVA mallen är så länge lämnas kommunikation och brandväggen regler som krävs för Azure Migrate-installation för att fungera som.   
 

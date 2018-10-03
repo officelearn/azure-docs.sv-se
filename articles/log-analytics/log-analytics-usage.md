@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 1bb96821b61647f5dfad54c8b0cb6248eb0db4af
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.component: ''
+ms.openlocfilehash: 8039a660a0f9fc94471e4b3e28b1b00bfb0d6b9e
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42061524"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042453"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 
@@ -54,7 +54,7 @@ Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehålle
 
 ### <a name="to-work-with-usage-data"></a>Att arbeta med användningsdata
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure-portalen](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. Välj en arbetsyta som du skapade tidigare i listan med Log Analytics-arbetsytor.
 4. Välj **Användning och beräknade kostnader** i listan i det vänstra fönstret.
 5. På instrumentpanelen för **användning och beräknade kostnader** kan du ändra tidsintervallet genom att välja **Time: Last 24 hours** (Tid: Senaste 24 timmarna) och ändra tidsintervallet.<br><br> ![tidsintervall](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>

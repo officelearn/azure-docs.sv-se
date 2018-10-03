@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: e36b8a680f0dc5bf6b438ab00620d4f2a5b9770c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c5d4299d2d391a25bfab579f5f78da3718afc24c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980601"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043015"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Använd IoT-tillägget för Azure CLI för Azure IoT Hub-enhetshantering
 
@@ -27,8 +27,8 @@ ms.locfileid: "46980601"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Management-alternativ          | Aktivitet                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Management-alternativ          | Aktivitet  |
+|----------------------------|-----------|
 | Direkta metoder             | Se en enhet som fungerar, till exempel starta eller stoppa skicka meddelanden eller att enheten startas om.                                        |
 | Enhetstvillingens egenskaper    | Placera en enhet i vissa lägen, till exempel ställa in en LED grönt eller 30 minuter att ställa in skicka telemetriintervall.         |
 | Enhetstvillingens egenskaper   | Hämta det rapporterade tillståndet för en enhet. Enheten rapporterar till exempel LAMPAN blinkar nu.                                    |
@@ -49,17 +49,19 @@ Kör Azure CLI och IoT-tillägget för Azure CLI med olika alternativ.
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-- Självstudien [konfigurera enheten](iot-hub-raspberry-pi-kit-node-get-started.md) slutförts som omfattar följande krav:
+* I självstudiekursen [konfigurera enheten](iot-hub-raspberry-pi-kit-node-get-started.md) som omfattar följande krav:
+
   - En aktiv Azure-prenumeration.
   - Azure IoT hub i din prenumeration.
   - Ett klientprogram som skickar meddelanden till din Azure IoT hub.
 
-- Kontrollera att enheten kör med klientprogrammet under den här självstudien.
+* Kontrollera att enheten kör med klientprogrammet under den här självstudien.
 
-- [Python 2.7x eller Python 3.x](https://www.python.org/downloads/)
-- Azure CLI. Om du vill installera det kan se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI-version måste minst vara 2.0.24 eller senare. Validera med `az –version`. 
-- Installera IoT-tillägget. Det enklaste sättet är att köra `az extension add --name azure-cli-iot-ext`. I [IoT-tilläggets Viktigt-fil](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) beskrivs olika sätt att installera tillägget.
+* [Python 2.7x eller Python 3.x](https://www.python.org/downloads/)
 
+* Azure CLI. Om du vill installera det kan se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI-version måste minst vara 2.0.24 eller senare. Validera med `az –version`. 
+
+* Installera IoT-tillägget. Det enklaste sättet är att köra `az extension add --name azure-cli-iot-ext`. I [IoT-tilläggets Viktigt-fil](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) beskrivs olika sätt att installera tillägget.
 
 ## <a name="log-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
@@ -72,7 +74,10 @@ az login
 ## <a name="direct-methods"></a>Direkta metoder
 
 ```bash
-az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
+az iot hub invoke-device-method --device-id <your device id> \
+  --hub-name <your hub name> \
+  --method-name <the method name> \
+  --method-payload <the method payload>
 ```
 
 ## <a name="device-twin-desired-properties"></a>Enhetstvillingens egenskaper
@@ -80,7 +85,8 @@ az iot hub invoke-device-method --device-id <your device id> --hub-name <your hu
 Ange ett intervall för önskad egenskap = 3000 genom att köra följande kommando:
 
 ```bash
-az iot hub device-twin update -n <your hub name> -d <your device id> --set properties.desired.interval = 3000
+az iot hub device-twin update -n <your hub name> \
+  -d <your device id> --set properties.desired.interval = 3000
 ```
 
 Den här egenskapen kan läsas från din enhet.
@@ -106,7 +112,10 @@ az iot hub device-twin show --hub-name <your hub name> --device-id <your device 
 Lägg till en roll för fältet = temperatur och fuktighet till enheten genom att köra följande kommando:
 
 ```bash
-az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
+az iot hub device-twin update \
+  --hub-name <your hub name> \
+  --device-id <your device id> \
+  --set tags = '{"role":"temperature&humidity"}}'
 ```
 
 ## <a name="device-twin-queries"></a>Enhetstvillingfrågor
@@ -114,13 +123,15 @@ az iot hub device-twin update --hub-name <your hub name> --device-id <your devic
 Fråga enheter med en tagg i rollen = 'temperatur och fuktighet' genom att köra följande kommando:
 
 ```bash
-az iot hub query --hub-name <your hub name> --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
+az iot hub query --hub-name <your hub name> \
+  --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
 Fråga efter alla enheter utom de som har en tagg i rollen = 'temperatur och fuktighet' genom att köra följande kommando:
 
 ```bash
-az iot hub query --hub-name <your hub name> --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
+az iot hub query --hub-name <your hub name> \
+  --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

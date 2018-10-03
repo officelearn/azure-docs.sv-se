@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 611f3e70425cd6c80f8a976606dc6cd592571c6e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.component: ''
+ms.openlocfilehash: 433914bc4501b13ba65015d15b0c513a38bf1273
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503476"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041670"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Anslut Konfigurationshanteraren till Log Analytics
 Du kan ansluta din miljö för System Center Configuration Manager till Azure Log Analytics att synkronisera enheten samlingsdata och referera till dessa samlingar i Log Analytics och Azure Automation.  
@@ -49,7 +49,7 @@ I följande procedur du bevilja den *deltagare* roll i Log Analytics-arbetsytan 
 > Du måste ange behörigheter i Log Analytics för Configuration Manager. I annat fall får du ett felmeddelande när du använder guiden för konfiguration av i Configuration Manager.
 >
 
-1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure-portalen](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. I listan med Log Analytics-arbetsytor, väljer du arbetsytan för att ändra.
 3. I den vänstra rutan, Välj **åtkomstkontroll (IAM)**.
 4. I Access Control-sidan klickar du på **Lägg till** och **Lägg till behörigheter** visas fönstret.

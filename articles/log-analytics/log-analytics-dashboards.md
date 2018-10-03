@@ -1,6 +1,6 @@
 ---
 title: Skapa en anpassad instrumentpanel i Azure Log Analytics | Microsoft Docs
-description: Den här guiden hjälper dig att förstå hur logganalys instrumentpaneler kan visualisera alla dina sparad logg-sökningar, vilket ger dig en enda lins att visa din miljö.
+description: Den här guiden hjälper dig att förstå hur instrumentpanelerna i Log Analytics kan visualisera alla dina sparade loggsökningar, vilket ger dig en enskild lins och visa din miljö.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,78 +14,78 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 7b17b23d30b15fe71dcf031ac67f0c54fc3cfe3e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: bf5b37bfa2cb103ef8151203359041fa4bd10f0b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129320"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043338"
 ---
-# <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Skapa en anpassad instrumentpanel för användning i logganalys
+# <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Skapa en anpassad instrumentpanel för användning i Log Analytics
 
-Den här guiden hjälper dig att förstå hur logganalys instrumentpaneler kan visualisera alla dina sparad logg-sökningar, vilket ger dig en enda lins att visa din miljö.
+Den här guiden hjälper dig att förstå hur instrumentpanelerna i Log Analytics kan visualisera alla dina sparade loggsökningar, vilket ger dig en enskild lins och visa din miljö.
 
 >[!NOTE]
-> Du kan inte längre redigera din befintliga **min instrumentpanel**. Den här funktionen håller inaktuell.
+> Du kan inte längre redigera din befintliga **min instrumentpanel**. Den här funktionen håller blir inaktuella.
 
-![Exempel instrumentpanelen](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
+![Instrumentpanelen för exemplet](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 
-Alla anpassade instrumentpaneler som du skapar i OMS-portalen är också tillgängliga i OMS-Mobilapp. Finns på följande sidor för mer information om apparna.
+Alla anpassade instrumentpaneler som du skapar i OMS-portalen är också tillgängliga i OMS Mobile-appen. Finns på följande sidor för mer information om appar.
 
-* [OMS mobilappar från Microsoft-Store](http://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
-* [OMS mobila appar från Apple iTunes](https://itunes.apple.com/app/microsoft-operations-management/id1042424859?mt=8)
+* [OMS-mobilappen från Microsoft Store](http://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+* [OMS-mobilappen från Apple iTunes](https://itunes.apple.com/app/microsoft-operations-management/id1042424859?mt=8)
 
-![mobila instrumentpanelen](./media/log-analytics-dashboards/oms-search-mobile.png)
+![mobila instrumentpanel](./media/log-analytics-dashboards/oms-search-mobile.png)
 
-## <a name="how-do-i-create-my-dashboard"></a>Hur skapar jag min instrumentpanel
-Börja, gå till sidan Översikt över OMS. Du ser den **min instrumentpanel** panelen till vänster. Klicka på den detaljnivån i instrumentpanelen.
+## <a name="how-do-i-create-my-dashboard"></a>Hur skapar jag min instrumentpanel?
+Börja genom att gå till sidan Översikt över OMS. Du ser den **min instrumentpanel** panelen till vänster. Klicka på den för att granska nedåt i din instrumentpanel.
 
 ![Översikt](./media/log-analytics-dashboards/oms-dashboards-overview.png)
 
 ## <a name="adding-a-tile"></a>Lägga till en panel
-I instrumentpaneler drivs paneler av sparad logg-sökningar. OMS levereras med många färdiga sparad logg sökningar, så att du kan börja direkt. Använd följande steg som beskriver hur du börjar.
+I instrumentpaneler drivs paneler av dina sparade loggsökningar. OMS levereras med många färdiga sparade loggsökningar, så att du kan börja direkt. Använd följande steg som beskriver hur du börjar.
 
 I vyn instrumentpanel för Mina Klicka bara på **anpassa** ange anpassningsläge.
 
 ![Illustrationer](./media/log-analytics-dashboards/oms-dashboards-pictorial01.png)
 
- Panelen som öppnas till höger på sidan visas alla ditt arbetsområde sparad logg sökningar. Om du vill visualisera en sparad logg sökning som en panel hovra över en sparad sökning och klicka sedan på den **plus** symbolen.
+ På panelen som öppnas till höger på sidan visas alla sparade loggsökningar i din arbetsyta. Om du vill visualisera en loggsökning som du har sparat som en panel, hovra över en sparad sökning och klicka sedan på den **plus** symbolen.
 
 ![Lägg till paneler 1](./media/log-analytics-dashboards/oms-dashboards-pictorial02.png)
 
-När du klickar på den **plus** symboler, en ny panel visas i den här instrumentpanelsvyn.
+När du klickar på den **plus** symbolen, en ny panel visas i vyn instrumentpanel för min.
 
 ![Lägg till paneler 2](./media/log-analytics-dashboards/oms-dashboards-pictorial03.png)
 
 ## <a name="edit-a-tile"></a>Redigera en panel
-I vyn instrumentpanel för Mina Klicka bara på **anpassa** ange anpassningsläge. Klicka på panelen som du vill redigera. De högra panelen ändringarna att redigera, och ger ett antal alternativ:
+I vyn instrumentpanel för Mina Klicka bara på **anpassa** ange anpassningsläge. Klicka på panelen som du vill redigera. De högra panelen ändringarna att redigera, och ger en uppsättning alternativ:
 
-![Redigera sida vid sida](./media/log-analytics-dashboards/oms-dashboards-pictorial04.png)
+![Redigera panel](./media/log-analytics-dashboards/oms-dashboards-pictorial04.png)
 
-![Redigera sida vid sida](./media/log-analytics-dashboards/oms-dashboards-pictorial05.png)
+![Redigera panel](./media/log-analytics-dashboards/oms-dashboards-pictorial05.png)
 
-### <a name="tile-visualizations"></a>Panelen visualiseringar
-Det finns tre typer av panelen visualiseringar kan välja mellan:
+### <a name="tile-visualizations"></a>Brickvisualiseringar
+Det finns tre typer av brickvisualiseringar att välja mellan:
 
-| diagramtyp | Syfte |
+| diagramtyp | Den gör |
 | --- | --- |
-| ![Liggande stapeldiagram](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Visar en tidslinje för din sparad logg sökresultat som ett stapeldiagram eller en lista med resultat av ett fält beroende på om sökningen loggen aggregerar resultaten efter ett fält eller inte. |
-| ![mått](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Visar träffar din totala Sök resultatet som ett tal i en panel. Mått paneler kan du ange ett tröskelvärde som ska markeras panelen när tröskelvärdet har uppnåtts. |
-| ![Raden](./media/log-analytics-dashboards/oms-dashboards-line.png) |Visar en tidslinje sparad logg Sök resultatet träffar med värden som ett linjediagram. |
+| ![Liggande stapeldiagram](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Visar en tidslinje för sökningen sparad logg resultatet som ett stapeldiagram eller en lista med resultat efter ett fält beroende på om din loggsökning aggregerar resultaten efter ett fält eller inte. |
+| ![mått](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Visar de totala log search resultatet träffar som ett tal i en panel. Metrisk paneler kan du ange ett tröskelvärde som belyser panelen när tröskelvärdet har uppnåtts. |
+| ![Rad](./media/log-analytics-dashboards/oms-dashboards-line.png) |Visar en tidslinje för sparade log search resultatet träffar med värden som ett linjediagram. |
 
 ### <a name="threshold"></a>Tröskelvärde
-Du kan skapa ett tröskelvärde på en panel med mått visualiseringen. Välj för att skapa ett tröskelvärde på panelen. Välj om du vill markera panelen när värdet ligger över eller under det valda tröskelvärdet och ange sedan tröskelvärdet nedan.
+Du kan skapa ett tröskelvärde på en panel med hjälp av mätvärden visualiseringen. Välj på för att skapa ett tröskelvärde på panelen. Välj om du vill markera panelen när värdet är över eller under det valda tröskelvärdet och ange sedan tröskelvärdet nedan.
 
 ## <a name="organizing-the-dashboard"></a>Ordna instrumentpanelen
-För att organisera instrumentpanelen, navigera till den här instrumentpanelsvyn och klickar på **anpassa** ange anpassningsläge. Klicka och dra panelen du vill flytta och placera den där du vill att din panel ska vara.
+Gå till vyn min instrumentpanel för att organisera din instrumentpanel, och klicka på **anpassa** ange anpassningsläge. Klicka och dra den panel som du vill flytta och flytta den dit du vill att din panel ska vara.
 
 ![Ordna din instrumentpanel](./media/log-analytics-dashboards/oms-dashboards-organize.png)
 
 ## <a name="remove-a-tile"></a>Ta bort en panel
-Om du vill ta bort en panel, navigera till den här instrumentpanelsvyn och klickar på **anpassa** ange anpassningsläge. Välj panelen du vill ta bort och klicka sedan på den högra panelen väljer **ta bort panelen**.
+Om du vill ta bort en panel, gå till vyn min instrumentpanel och klicka på **anpassa** ange anpassningsläge. Välj panelen du vill ta bort och klicka sedan på den högra rutan väljer **ta bort panelen**.
 
 ![Ta bort en panel](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Skapa [aviseringar](log-analytics-alerts.md) i logganalys att generera meddelanden och åtgärda problem.
+* Skapa [aviseringar](log-analytics-alerts.md) i Log Analytics för att generera meddelanden och åtgärda problem.

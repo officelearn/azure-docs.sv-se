@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/02/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b704db0b79d056f5c7081d3fed117e1d1f22b336
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978836"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237916"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Självstudie: Skapa en lösning för dataanalys av mellanlagrade data med Azure och Azure Stack 
 
@@ -55,7 +55,7 @@ Vissa förberedelser krävs för att skapa den här lösningen:
 
 -   Hämta och installera [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
--   Data som bearbetas av dessa funktioner har inte angetts. Data måste vara skapas och vara tillgänglig att överföra till Azure Stack storage blob-behållare.
+-   Du måste ange dina egna data som ska bearbetas av funktioner. Data måste vara skapas och vara tillgänglig att överföra till Azure Stack storage blob-behållare.
 
 ## <a name="issues-and-considerations"></a>Problem och överväganden
 
@@ -123,17 +123,11 @@ Storage-konto och blob behållare ska innehålla alla ursprungliga data som gene
 
 Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack till Azure.
 
-1.  Skapa en ny funktion genom att klicka på **Functions**, kommer **+ ny funktion** knappen.
+### <a name="create-the-azure-stack-function-app"></a>Skapa Azure Stack-funktionsapp
 
-    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image3.png)
-
-2.  Välj **Timerutlösare**.
-
-    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image4.png)
-
-3.  Välj **C\#**  som språk och namnet funktionen: `upload-to-azure` schemalägga `0 0 * * * *`, som i CRON-notation är en gång i timmen.
-
-    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image5.png)
+1. Logga in på den [Azure Stack-portalen](https://portal.local.azurestack.external).
+2. Välj **Alla tjänster**.
+3. Välj **Funktionsappar** i den **webb + mobilt** grupp.
 
 4.  Skapa funktionsappen med hjälp av inställningarna i tabellen nedanför bilden.
 
@@ -148,7 +142,7 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
     | Förbrukningsplan | Värdplan som definierar hur resurser allokeras till din funktionsapp. I standard Standardförbrukningsplanen läggs resurser dynamiskt när de behövs i funktionerna. I den här serverlösa värdtjänster betalar du bara för den tid som dina funktioner körs. |  |
     | Plats | Region nära dig | Välj en region nära dig eller nära andra tjänster för din functions-åtkomst. |
     | **Lagringskonto** |  |  |
-    | \<Storage-konto som skapades ovan > | Namnet på det nya lagringskonto som ska användas av funktionsappen. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto. |  |
+    | \<Storage-konto som skapades ovan > | Namnet på det nya lagringskonto som ska användas av funktionsappen. Lagringskontonamn måste vara mellan 3 och 24 tecken långt. Namnet kan bara använda siffror och gemener. Du kan också använda ett befintligt konto. |  |
 
     **Exempel:**
 
@@ -164,13 +158,25 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
 
 ![Funktionsappen skapades.](media\azure-stack-solution-staged-data-analytics\image8.png)
 
+### <a name="add-a-function-to-the-azure-stack-function-app"></a>Lägga till en funktion i Azure Stack-funktionsappen
+
+1.  Skapa en ny funktion genom att klicka på **Functions**, kommer **+ ny funktion** knappen.
+
+    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image3.png)
+
+2.  Välj **Timerutlösare**.
+
+    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image4.png)
+
+3.  Välj **C\#**  som språk och namnet funktionen: `upload-to-azure` schemalägga `0 0 * * * *`, som i CRON-notation är en gång i timmen.
+
+    ![Alternativ text](media\azure-stack-solution-staged-data-analytics\image5.png)
+
 ## <a name="create-a-blob-storage-triggered-function"></a>Skapa en funktion som utlöses av Blob Storage
 
-1.  Expandera funktionsappen och välj den **+** bredvid knappen **Functions**. Om det är den första funktionen i funktionsappen väljer **anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar.
+1.  Expandera funktionsappen och välj den **+** bredvid knappen **Functions**.
 
-  ![Sidan snabbstart för funktioner i Azure Portal](media\azure-stack-solution-staged-data-analytics\image9.png)
-
-2.  I sökfältet skriver blob och välj sedan önskat språk för utlösarmallen för Blob storage.
+2.  I sökfältet skriver `blob` och välj sedan önskat språk för den **Blob-utlösare** mall.
 
   ![Välj utlösarmallen för Blob Storage.](media\azure-stack-solution-staged-data-analytics\image10.png)
 

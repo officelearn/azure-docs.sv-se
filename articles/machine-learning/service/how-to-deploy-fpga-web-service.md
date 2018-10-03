@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 09/24/2018
-ms.openlocfilehash: ee67585a523ab96b1442d9eee3e9dfd55a758d32
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/01/2018
+ms.openlocfilehash: df6637f1a52b679ba9ad0a49fb37d4e4b72f35e4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971492"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237831"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning
 
@@ -24,7 +24,9 @@ Du kan distribuera en modell som en webbtjänst på [fältet programmable gate m
 
 - En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- En Azure Machine Learning-arbetsyta och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
+- Du måste begära och godkännas för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
+
+- En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
  
   - Din arbetsyta måste finnas i den *östra USA 2* region.
 
@@ -47,11 +49,7 @@ Följ anvisningarna för att:
 > [!IMPORTANT]
 > Din klient ska vara i samma Azure-region som slutpunkt för att optimera svarstid och dataflöde.  För närvarande skapas av API: er i regionen östra USA Azure.
 
-### <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Den här självstudien är tillgänglig som en Jupyter-anteckningsbok för din bekvämlighet. Använda någon av dessa metoder för att köra den `project-brainwave/project-brainwave-quickstart.ipynb` anteckningsboken:
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ### <a name="preprocess-image"></a>Förbearbeta bild
 Det första steget i pipelinen är att Förbearbeta bilderna.
@@ -66,6 +64,7 @@ in_images = tf.placeholder(tf.string)
 image_tensors = utils.preprocess_array(in_images)
 print(image_tensors.shape)
 ```
+
 ### <a name="add-featurizer"></a>Lägg till Upplärda
 Initiera modellen och ladda ned en TensorFlow kontrollpunkt för den quantized versionen av ResNet50 som ska användas som en upplärda.
 
@@ -317,3 +316,11 @@ Med någon av metoderna gör gRPC ska kunna använda certifikatet som rotcertifi
 
 > [!IMPORTANT]
 > gRPC accepterar inte icke betrodda certifikat. Med ett icke betrott certifikat misslyckas med ett `Unavailable` statuskod. Innehåller information om felet `Connection Failed`.
+
+## <a name="sample-notebook"></a>Exempel-anteckningsbok
+
+Begreppen i den här artikeln är visas i den `project-brainwave/project-brainwave-quickstart.ipynb` anteckningsboken.
+
+Hämta den här anteckningsboken:
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

@@ -9,16 +9,16 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 675dae022376fc62292f3b079bd735939b9199c2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f68d5d7faf3555918b9f9a6add7754c8ae23d0a8
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220303"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239242"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning-tjänsten
 
-Lär dig hur du konfigurerar din utvecklingsmiljö för att arbeta med Azure Machine Learning-tjänsten. Du kommer lära dig hur du skapar en konfigurationsfil som kopplar din miljö till en Azure Machine Learning-arbetsyta. Du får också lära dig hur du konfigurerar följande utvecklingsmiljöer:
+Lär dig hur du konfigurerar din utvecklingsmiljö för att arbeta med Azure Machine Learning-tjänsten. Du kommer lära dig hur du skapar en konfigurationsfil som kopplar din miljö till en arbetsyta för Azure Machine Learning-tjänsten. Du får också lära dig hur du konfigurerar följande utvecklingsmiljöer:
 
 * Jupyter Notebooks på din dator
 * Visual Studio-koden
@@ -35,6 +35,9 @@ Den rekommenderade metoden är att använda jämför Anaconda [conda-miljöer](h
 
  * För Visual Studio Code miljö den [Python-tillägg](https://code.visualstudio.com/docs/python/python-tutorial).
 
+> [!NOTE]
+> Shell-kommandon som används i det här dokumentet har testats med bash i Linux och macOS. Kommandona är också testats med cmd.exe på Windows.
+
 ## <a name="create-workspace-configuration-file"></a>Skapa konfigurationsfil för arbetsyta
 
 Konfigurationsfilen arbetsytan används av SDK: N för att kommunicera med din arbetsyta för Azure Machine Learning-tjänsten.  Det finns två sätt att hämta den här filen:
@@ -49,7 +52,8 @@ Konfigurationsfilen arbetsytan används av SDK: N för att kommunicera med din a
         ![Azure Portal](./media/how-to-configure-environment/configure.png) 
     
     1. Skapa filen med den här Python-koden. Kör koden i samma katalog som skript eller anteckningsböcker som refererar till arbetsytan:
-        ```
+
+        ```python
         from azureml.core import Workspace
 
         subscription_id ='<subscription-id>'

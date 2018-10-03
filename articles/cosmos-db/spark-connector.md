@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 6d5ee59271f0c091a1d60504db594407e30641ce
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 4fa28e2d3f5d94d7ab47ec3b1e1e3240e5c770de
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051433"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042999"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Påskynda analyser av stordata med Apache Spark för Azure Cosmos DB-anslutningsapp
  
@@ -179,7 +179,7 @@ Kommunikation mellan Spark och Azure Cosmos DB är betydligt snabbare, eftersom 
 
 4. Extrahera innehållet i Twitter-flöde exemplet och öppna filen config.py. Uppdatera masterKey, värden, databaseId, collectionId och preferredLocations värden.  
 
-5. Gå till `http://apps.twitter.com/`, och registrera den Twitter-flöde skriptet som ett nytt program. När du har valt ett namn och program för din app, visas med en **använda nyckeln, konsumenthemligheten, åtkomst-token och åtkomsttokenhemligheten**. Kopiera dessa värden och uppdatera dem i config.py filen att ge programmet programmässig åtkomst till Twitter.   
+5. Gå till `http://apps.twitter.com/`, och registrera den Twitter-flöde program. När du har valt ett namn för ditt program visas med en **använda nyckeln, konsumenthemligheten, åtkomst-token och åtkomsttokenhemligheten**. Kopiera dessa värden och uppdatera dem i filen config.py kan användas i Twitter-flöde programmet Programmeringsåtkomst till Twitter.   
 
 6. Spara filen config.py. Öppna en kommandotolk och kör Python-program med hjälp av följande kommando:
 

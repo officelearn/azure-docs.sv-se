@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 03d692ddfd6f41fd559e9b921f0214a9cd2ada22
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 20469e127c8e04f4c6418fe28c49b63fc3b363d8
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225233"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239208"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Förbereda för distribution av modeller på IoT Edge
 
@@ -43,7 +43,7 @@ Om du vill veta hur du registrerar din enhet och installera IoT-runtime, följer
 
 ## <a name="register-the-model"></a>Registrera modellen
 
-Azure IoT Edge-moduler är baserade på behållaravbildningar. Använd följande steg för att distribuera din modell till en IoT Edge-enhet genom att registrera din modell i Azure Machine Learning-arbetsytan och skapa en Docker-avbildning. 
+Azure IoT Edge-moduler är baserade på behållaravbildningar. Använd följande steg för att distribuera din modell till en IoT Edge-enhet genom att registrera din modell på en arbetsyta för Azure Machine Learning-tjänsten och skapa en Docker-avbildning. 
 
 > [!IMPORTANT]
 > Hoppa över steg 3 i det här fallet om du har använt Azure Machine Learning för att träna din modell som redan kan registreras i din arbetsyta.
@@ -122,7 +122,7 @@ Azure IoT måste autentiseringsuppgifterna för behållarregistret som Azure Mac
 
 1. Logga in på [Azure Portal](https://portal.azure.com/signin/index).
 
-1. Gå till din Azure Machine Learning-arbetsyta och välj __översikt__. Gå till behållaren för registerinställningarna genom att välja den __registret__ länk.
+1. Gå till din arbetsyta för Azure Machine Learning-tjänsten och välj __översikt__. Gå till behållaren för registerinställningarna genom att välja den __registret__ länk.
 
     ![En bild av registerposten behållare](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 

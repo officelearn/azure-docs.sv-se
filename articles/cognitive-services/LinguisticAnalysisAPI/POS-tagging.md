@@ -9,19 +9,23 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 636b8bc4ef41674d1e9ca12111aecee05870f381
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124576"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238540"
 ---
 # <a name="part-of-speech-tagging"></a>En del av tal-märkning
+
+> [!IMPORTANT]
+> Förhandsversionen av Lingvistisk analys har ur den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning modulerna för textanalys](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för text-bearbetning och analys.
 
 ## <a name="background-and-motivation"></a>Bakgrund och motivationen
 
 När en text har separerats i meningar och token, är nästa steg i analysis att identifiera den kategori eller en del av tal i varje ord.
-Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer, platser, saker, idéer, osv.) och *verb* (vanligtvis som representerar åtgärder, ändrar tillstånd osv. För vissa ord, en del av tal är entydiga (exempelvis *quagmire* verkligen är endast ett substantiv), men för många andra är det svårt att se.
+Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer, platser, saker, idéer, osv.) och *verb* (vanligtvis som representerar åtgärder, ändrar tillstånd osv. För vissa ord, en del av tal är entydiga (exempelvis *quagmire* är endast ett substantiv), men för många andra är det svårt att se.
 *Tabellen* kan vara en plats där du finns (eller 2D-layout med tal), men du kan också ”tabellen en diskussion”.
 
 ## <a name="list-of-part-of-speech-tags"></a>Lista över taggar som en del av tal
@@ -45,10 +49,10 @@ Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer,
 | INDIEN | preposition eller underordna tillsammans| i inuti om vid om |
 | JJ | adjektiv eller siffror, ordningstal | nionde ganska execrable multimodal |
 | JJR | adjektiv, jämförande | bättre snabbare billigare |
-| JJS | adjektiv, superlative | bästa snabbaste billigaste | 
+| JJS | adjektiv, superlative | bästa snabbaste billigaste |
 | LS | lista över objekt markör | (a) (b) 1 2 A B A. B. |
 | MD | modal assistent | kan kan skall kommer kunde kanske bör borde |
-| NN | substantiv vanliga, rapportanvändare eller drivrutiner för masslagring | ljus pengar sko |
+| NN | substantiv, vanliga, rapportanvändare eller lagringsenheter | ljus pengar sko |
 | NNP | substantiv rätt, rapportanvändare | Kennedy Roosevelt Chicago Weehauken |
 | NNPS | substantiv rätt, plural | Springfields buskar |
 | NNS | substantiv vanliga, plural | delar möss fält |

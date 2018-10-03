@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera Azure Machine Learning-arbetsytor
-description: Lär dig mer om att skapa, visa och ta bort Azure Machine Learning-arbetsytor i Azure-portalen.
+title: Skapa och hantera Azure Machine Learning-tjänstens arbetsytor
+description: Lär dig mer om att skapa, visa och ta bort Azure Machine Learning-tjänstens arbetsytor i Azure-portalen.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d01a2e3ebd46315966c82a43a17ffc5b329b829
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0bb27dccdaf25da818d5d54a8634556a95da737
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954355"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238688"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces"></a>Skapa och hantera Azure Machine Learning-arbetsytor
+# <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Skapa och hantera Azure Machine Learning-tjänstens arbetsytor
 
-I den här artikeln får du skapa, visa och ta bort [ **Azure Machine Learning-arbetsytor** ](concept-azure-machine-learning-architecture.md#workspace) i Azure-portalen för [Azure Machine Learning-tjänsten](overview-what-is-azure-ml.md).  Du kan också skapa och ta bort arbetsytor [med hjälp av CLI](reference-azure-machine-learning-cli.md) eller [med Python-koden](http://aka.ms/aml-sdk).
+I den här artikeln får du skapa, visa och ta bort [ **Azure Machine Learning-tjänstens arbetsytor** ](concept-azure-machine-learning-architecture.md#workspace) i Azure-portalen för [Azure Machine Learning-tjänsten](overview-what-is-azure-ml.md).  Du kan också skapa och ta bort arbetsytor [med hjälp av CLI](reference-azure-machine-learning-cli.md) eller [med Python-koden](http://aka.ms/aml-sdk).
 
 Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -30,17 +30,17 @@ Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har e
 
 1. I det övre vänstra hörnet i portalen, väljer **alla tjänster**. 
 
-1. I den **alla tjänster** filter och skriver **Machine Learning-arbetsyta**.  
+1. I den **alla tjänster** filter och skriver **Machine Learning-tjänstens arbetsyta**.  
 
-   ![Sök efter Azure Machine Learning-arbetsyta](media/how-to-manage-workspace/allservices-search1.png)
+   ![Sök efter Azure Machine Learning-tjänstens arbetsyta](media/how-to-manage-workspace/allservices-search1.png)
 
-1. Filtrera resultaten och välj **Machine Learning-arbetsyta** att visa en lista över dina arbetsytor. 
+1. Filtrera resultaten och välj **Machine Learning-tjänstens arbetsyta** att visa en lista över dina arbetsytor. 
 
-   ![Sök efter Azure Machine Learning-arbetsyta](media/how-to-manage-workspace/allservices-search.PNG)
+   ![Sök efter Azure Machine Learning-tjänstens arbetsyta](media/how-to-manage-workspace/allservices-search.PNG)
 
 1. Titta igenom listan över arbetsytor hittades. Du kan filtrera baserat på prenumerationen, resursgrupper och platser.  
 
-   ![Lista med Azure Machine Learning-arbetsyta](media/how-to-manage-workspace/allservices_view_workspace.PNG)
+   ![Azure Machine Learning-arbetsyta Tjänstlista](media/how-to-manage-workspace/allservices_view_workspace.PNG)
 
 1. Välj den arbetsyta som du nyss skapade om du vill visa dess egenskaper.
 

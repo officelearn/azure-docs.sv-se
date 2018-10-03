@@ -1,6 +1,6 @@
 ---
-title: Samlar in anpassad JSON-data i OMS Log Analytics | Microsoft Docs
-description: Anpassad JSON-datakällor kan samlas in Log Analytics med hjälp av OMS-Agent för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON som curl eller något av Fluentd's 300 + plugin-program. Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
+title: Samla in anpassade JSON-data i OMS Log Analytics | Microsoft Docs
+description: Anpassade JSON-datakällor kan samlas in i Log Analytics med hjälp av OMS-agenten för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON, till exempel curl eller någon av Fluentds över 300 plugin-program. Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: d3c8807b7624e68ff55557922f97d51e24fc2c19
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 9725a3df04ef28fc3a076c3c6ca6663e36b186a8
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131811"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040276"
 ---
-# <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Samla in anpassad JSON-datakällor med OMS-Agent för Linux i logganalys
-Anpassad JSON-datakällor kan samlas in Log Analytics med hjälp av OMS-Agent för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON [curl](https://curl.haxx.se/) eller någon av [Fluentd's 300 + plugin-program](http://www.fluentd.org/plugins/all). Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
+# <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Samla in anpassade JSON-datakällor med OMS-agenten för Linux i Log Analytics
+Anpassade JSON-datakällor kan samlas in i Log Analytics med hjälp av OMS-agenten för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON som [curl](https://curl.haxx.se/) eller någon av [Fluentds över 300 plugin-program](http://www.fluentd.org/plugins/all). Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
 
 > [!NOTE]
-> OMS-Agent för Linux v1.1.0-217 + krävs för anpassad JSON-Data
+> OMS-agenten för Linux v1.1.0-217 + krävs för anpassad JSON-Data
 
 ## <a name="configuration"></a>Konfiguration
 
-### <a name="configure-input-plugin"></a>Konfigurera plugin-programmet för indata
+### <a name="configure-input-plugin"></a>Konfigurera inkommande plugin-programmet
 
-Lägg till för att samla in JSON-data i logganalys `oms.api.` till början av en FluentD-tagg i en inkommande plugin-programmet.
+Om du vill samla in JSON-data i Log Analytics, lägger du till `oms.api.` i början av en FluentD-tagg i en indata-plugin-programmet.
 
-Till exempel följande är en separat fil `exec-json.conf` i `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Här används FluentD plugin-programmet `exec` att köra ett curl-kommando med 30 sekunders mellanrum.  Utdata från kommandot samlas in av pluginprogrammet JSON-utdata.
+Till exempel följande är en separat konfigurationsfil `exec-json.conf` i `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Här används plugin-programmet FluentD `exec` att köra ett curl-kommando med 30 sekunders mellanrum.  Utdata från det här kommandot samlas in av plugin-programmet för JSON-utdata.
 
 ```
 <source>
@@ -58,12 +58,12 @@ Till exempel följande är en separat fil `exec-json.conf` i `/etc/opt/microsoft
   retry_wait 30s
 </match>
 ```
-Konfigurationsfilen har lagts till under `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` måste du ha ägarskapet ändras med följande kommando.
+Konfigurationsfilen har lagts till `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` kräver för att ha ägarskapet ändrats med följande kommando.
 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
-### <a name="configure-output-plugin"></a>Konfigurera plugin-programmet för utdata 
-Lägg till följande utdata plugin-programmet för konfiguration i huvudsakliga konfigurationen i `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` eller som en separat fil placeras i `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
+### <a name="configure-output-plugin"></a>Konfigurera utdata-plugin-programmet 
+Lägg till följande konfiguration för utdata-plugin-programmet i den huvudsakliga konfigurationen av `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` eller som en separat konfigurationsfil placeras i `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
 
 ```
 <match oms.api.**>
@@ -80,19 +80,19 @@ Lägg till följande utdata plugin-programmet för konfiguration i huvudsakliga 
 </match>
 ```
 
-### <a name="restart-oms-agent-for-linux"></a>Starta om OMS-Agent för Linux
-Starta om OMS-Agent för Linux-tjänst med följande kommando.
+### <a name="restart-oms-agent-for-linux"></a>Starta om OMS-agenten för Linux
+Starta om OMS-agenten för Linux-tjänst med följande kommando.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Resultat
-Data samlas in i logganalys med en typ av post för `<FLUENTD_TAG>_CL`.
+Data kommer att samlas in i Log Analytics med en typ av post för `<FLUENTD_TAG>_CL`.
 
-Till exempel anpassade taggar `tag oms.api.tomcat` i logganalys med en typ av post för `tomcat_CL`.  Du kan hämta alla poster för den här typen med följande loggen sökningen.
+Till exempel anpassade taggar `tag oms.api.tomcat` i Log Analytics med en typ av post för `tomcat_CL`.  Du kan hämta alla poster i den här typen med följande loggsökning.
 
     Type=tomcat_CL
 
-Kapslade JSON-data som stöds, men indexeras baserad på överordnade fältet. Till exempel följande JSON-data har returnerats från en logganalys sökning som `tag_s : "[{ "a":"1", "b":"2" }]`.
+Kapslad JSON-data källor som stöds, men indexeras baserat på överordnad fältet. Till exempel följande JSON-data returneras från en Log Analytics-sökningen som `tag_s : "[{ "a":"1", "b":"2" }]`.
 
 ```
 {
@@ -105,5 +105,5 @@ Kapslade JSON-data som stöds, men indexeras baserad på överordnade fältet. T
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logga sökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [loggsökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar. 
  

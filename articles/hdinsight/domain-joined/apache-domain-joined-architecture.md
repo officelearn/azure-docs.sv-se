@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ee03d8dc8dba08994715ace940875980c4f21bb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998946"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041551"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Använda Enterprise Security Package i HDInsight
 
@@ -26,26 +26,20 @@ HDInsight bygger på populära identitetsprovidern – Active Directory--på ett
 
 Virtuella datorer (VM) i HDInsight är domänansluten till den angivna domänen. Detta visas alla tjänster som körs på HDInsight (Ambari, Hive-server, Ranger, Spark thrift-server och andra) fungerar sömlöst för autentiserade användare. Administratörer kan sedan skapa stark auktoriseringsprinciper med hjälp av Apache Ranger för att tillhandahålla rollbaserad åtkomstkontroll för resurser i klustret.
 
-
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrera HDInsight med Active Directory
 
 Hadoop för öppen källkod använder Kerberos för autentisering och säkerhet. Därför är HDInsight-klusternoder med Enterprise Security Package (ESP) anslutna till en domän som hanteras av Azure AD DS. Säkerhet för Kerberos har konfigurerats för Hadoop-komponenter på klustret. 
 
-För varje komponent i Hadoop skapas automatiskt ett huvudnamn för tjänsten. En motsvarande dator huvudnamn skapas också för varje dator som är ansluten till domänen. För att lagra dessa service och datorn säkerhetsobjekt, måste du ange en organisationsenhet (OU) i domänkontrollanten (Azure AD DS), där dessa säkerhetsobjekt är placerade. 
+Följande skapas automatiskt:
+- ett huvudnamn för tjänsten för varje Hadoop-komponent 
+- ett huvudnamn för datorn för varje dator som är ansluten till domänen
+- en organisationsenhet (OU) för varje kluster att lagra dessa huvudnamn för tjänsten och datorer 
 
 Sammanfattningsvis, måste du konfigurera en miljö med:
 
 - En Active Directory-domän (hanteras av Azure AD DS).
 - Säkert LDAP (LDAPS) aktiverat i Azure AD DS.
 - Rätt nätverket från det virtuella nätverket för HDInsight till det Azure AD DS virtuella nätverket, om du väljer separata virtuella nätverk för dessa. En virtuell dator i det virtuella nätverket HDInsight ska ha åtkomst till Azure AD DS via vnet-peering. Om HDInsight och Azure AD DS distribueras i samma virtuella nätverk, anslutningen tillhandahålls automatiskt och ingen ytterligare åtgärd krävs.
-- En Organisationsenhet [skapas på Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
-- Ett tjänstkonto som har behörighet att:
-    - Skapa tjänstens huvudnamn i Organisationsenheten.
-    - Ansluta datorer till domänen och skapa huvudnamn för datorn i Organisationsenheten.
-
-I följande skärmbild visas en Organisationsenhet som skapats i contoso.com. Den visar även vissa av tjänstens huvudnamn och datorn säkerhetsobjekt.
-
-![Organisationsenhet för HDInsight-kluster med ESP](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>Konfigurera olika domänkontrollanter
 HDInsight stöder för närvarande endast Azure AD DS som den huvudsakliga domänkontrollant som klustret använder för Kerberos-kommunikation. Men andra avancerade inställningar för Active Directory är möjligt, så länge som en sådan konfiguration leder till att aktivera Azure AD DS för HDInsight-åtkomst.

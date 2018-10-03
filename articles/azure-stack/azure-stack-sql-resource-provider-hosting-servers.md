@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8fc24e58af51a249e3305dbe1496c499387be6b1
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 57033de3224b5966b2dfa80dd1cb45fafd83b26b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407917"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238750"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovider
 
 Du kan ha en SQL-instans på en virtuell dator (VM) i [Azure Stack](azure-stack-poc.md), eller på en virtuell dator utanför Azure Stack-miljön, så länge som SQL-resursprovider kan ansluta till instansen.
 
 > [!NOTE]
-> SQL-databaser ska vara skapas på SQL resource provider-servern. SQL-resursprovider ska skapas i standard-providerprenumeration medan SQL värdservrar ska skapas i en fakturerbar, användarprenumeration. Resource provider-servern bör inte användas till att värden användardatabaser.
+> SQL-databaser ska skapas på SQL resource provider-servern. SQL-resursprovider ska skapas i standard-providerprenumeration medan SQL värdservrar ska skapas i en fakturerbar, användarprenumeration. Resource provider-servern bör inte användas till att värden användardatabaser.
 
 ## <a name="overview"></a>Översikt
 

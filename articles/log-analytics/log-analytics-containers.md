@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 9e00e9c3f90d668458d692db88570dac7e8df5a3
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.component: ''
+ms.openlocfilehash: 80749fedde17a9567aa13e1e72677dfdd027ca36
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359083"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043268"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i Log Analytics
 
@@ -595,7 +595,7 @@ Varje område av instrumentpanelen är en visuell representation av en sökning 
 
 I den **Behållarstatus** området klickar du på det översta området som visas nedan.
 
-![behållarstatus](./media/log-analytics-containers/containers-status.png)
+![Behållarstatus](./media/log-analytics-containers/containers-status.png)
 
 Loggsökning öppnas och visar information om tillståndet för dina behållare.
 
@@ -609,7 +609,7 @@ Log Analytics markerar en behållare som **misslyckades** om den har avslutats m
 
 ### <a name="to-find-failed-containers"></a>Att hitta misslyckade behållare
 1. Klicka på den **Behållarstatus** området.  
-   ![behållarstatus](./media/log-analytics-containers/containers-status.png)
+   ![Behållarstatus](./media/log-analytics-containers/containers-status.png)
 2. Loggsökning öppnas och visar tillståndet för dina behållare som liknar följande.  
    ![tillstånd för behållare](./media/log-analytics-containers/containers-log-search.png)
 3. Klicka sedan på sammanlagt värde för misslyckade behållarna för att visa ytterligare information. Expandera **visa fler** att visa avbildnings-ID.  

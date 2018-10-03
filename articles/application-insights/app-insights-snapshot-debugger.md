@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: d4c27c8297fb5a2ad13a245279a206d00fc4f8b1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 887e3361f5cb472d7a105558684d156826f89eab
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144133"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237255"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsök ögonblicksbilder på undantag i .NET-appar
 
@@ -191,9 +191,12 @@ Följande miljöer stöds:
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
-Ägare till den Azure-prenumerationen kan granska ögonblicksbilder. Andra användare måste ha behörigheten av en ägare.
+Åtkomst till ögonblicksbilder är skyddat av rollbaserad åtkomstkontroll (RBAC). Om du vill kontrollera en ögonblicksbild, måste du först läggas till rollen krävs av en prenumerationsägare.
 
-Om du vill bevilja behörighet, tilldela den `Application Insights Snapshot Debugger` roll till användare som inspektera ögonblicksbilder. Den här rollen kan tilldelas till enskilda användare eller grupper av prenumerationsägare för målets Application Insights-resursen eller dess resursgrupp eller prenumeration.
+> [!NOTE]
+> Ägare och deltagare har inte den här rollen automatiskt. Om de vill visa ögonblicksbilder måste de lägga till sig själva till rollen.
+
+Prenumerationsägare ska tilldela den `Application Insights Snapshot Debugger` roll till användare som inspektera ögonblicksbilder. Den här rollen kan tilldelas till enskilda användare eller grupper av prenumerationsägare för målets Application Insights-resursen eller dess resursgrupp eller prenumeration.
 
 1. Gå till Application Insights-resurs i Azure-portalen.
 1. Klicka på **åtkomstkontroll (IAM)**.

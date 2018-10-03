@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 1f7a38994cb127d2edb59e9d3befeece99a7feb1
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 8a84f2f13318dea5c2b99af0b880f2adb1343c8d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018700"
+ms.locfileid: "48042793"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Vad är automatisk användaretablering för SaaS-appar?
@@ -237,29 +237,29 @@ Scenariobaserade vägledning om hur du felsöker automatisk användaretablering 
 
 Ett exempel stegvisa distributionsplan för utgående användaretablering för ett program, finns det [identitet Distributionsguide för Användaretablering](https://aka.ms/userprovisioningdeploymentplan).
 
-##<a name="more-frequenty-asked-questions"></a>Mer frequenty frågor och svar
+##<a name="more-frequently-asked-questions"></a>Fler vanliga frågor och svar
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Stöder automatisk användaretablering till SaaS-appar fungerar med B2B-användare i Azure AD?
 
 Ja, det är möjligt att använda Azure AD-användare etablera tjänsten för att etablera B2B (eller gäst) användare i Azure AD SaaS-program.
 
-SaaS-programmet måste dock för B2B-användare för att kunna logga in till SaaS-program med hjälp av Azure AD, ha dess SAML-baserad enkel inloggning för funktionen konfigurerats i ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [konfigurera SaaS-appar för B2B-samarbete]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+SaaS-program måste dock för B2B-användare för att kunna logga in på SaaS-program med hjälp av Azure AD kan ha sin SAML-baserad enkel inloggning förmåga konfigurerats i ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [konfigurera SaaS-appar för B2B-samarbete]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Stöder automatisk användaretablering till SaaS-appar fungerar med dynamiska grupper i Azure AD?
 
-Ja. När konfigurerad att ”synkronisera enbart tilldelade användare och grupper”, Azure AD-tjänst för användaretablering kan etablerar eller Avetablerar användare i ett SaaS-program baserat på huruvida de är medlemmar i en [dynamisk grupp](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dynamiska grupper kan även användas med alternativet ”Synkronisera alla användare och grupper”.
+Ja. När konfigurerad att ”synkronisera enbart tilldelade användare och grupper”, Azure AD-tjänst för användaretablering kan etablera eller användares användare i ett SaaS-program baserat på huruvida de är medlemmar i en [dynamisk grupp](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dynamiska grupper kan även användas med alternativet ”Synkronisera alla användare och grupper”.
 
 Användning av dynamiska grupper kan dock påverka prestandan för slutpunkt till slutpunkt-användare från Azure AD-etablering till SaaS-program. När du använder dynamiska grupper Tänk på dessa varningar och rekommendationer:
 
 * Hur snabbt en användare i en dynamisk grupp etablerats eller avetableras i en SaaS-programmet beror på hur snabbt den dynamiska gruppen kan utvärdera ändringar i medlemskap. Information om hur du kontrollerar Bearbetningsstatus för av en dynamisk grupp finns i [Kontrollera Bearbetningsstatus för för en medlemskapsregel](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
 
-* När du använder dynamiska grupper, måste reglerna noggrant beaktas med användaren etablering och borttagning i åtanke, eftersom en förlust av medlemskap resulterar i en avställningsskript händelse.
+* När du använder dynamiska grupper, måste reglerna noggrant beaktas med användaren etablering och avetablering i åtanke, eftersom en förlust av medlemskap resulterar i en avställningsskript händelse.
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Stöder automatisk användaretablering till SaaS-appar fungerar med kapslade grupper i Azure AD?
 
 Nej. När konfigurerad att ”synkronisera enbart tilldelade användare och grupper”, kan Azure AD-tjänst för användaretablering inte läsa eller etablera användare som finns i kapslade grupper. Det är bara kunna läsa och etablera användare som är direkta medlemmar av gruppen uttryckligen tilldelad.
 
-Detta är en begränsning av ”gruppbaserad tilldelningar till program”, vilket också gäller för enkel inloggning och beskrivs i [hantera åtkomst till SaaS-program med hjälp av en grupp](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
+Detta är en begränsning av ”gruppbaserad tilldelningar till program”, som också påverkar enkel inloggning och beskrivs i [hantera åtkomst till SaaS-program med hjälp av en grupp](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
 
 Som en lösning kan du måste uttryckligen tilldela (eller på annat sätt [omfång i](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) de grupper som innehåller de användare som behöver etableras.
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 09/11/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 43acff5c4d37c46245566fb2e1d74d3e14d527bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1f7fc9916fc856d636b6ad850f831a3235b80632
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949850"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237763"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -108,60 +108,23 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 
 * <a id="sizeondisk-versus-size"></a>
 **Varför inte den *storlek på disken* -egenskapen för en fil matchar den *storlek* egenskapen när du har använt Azure File Sync?**  
-    Windows Utforskaren exponerar två egenskaper för att representera storleken på en fil: **storlek** och **storlek på disken**. De här egenskaperna skriftspråk i betydelse. **Storlek** representerar fullständig storleken på filen. **Storlek på disken** representerar storleken på fildataströmmen som lagras på disken. Värden för dessa egenskaper kan variera för olika skäl, till exempel komprimering, användning av Datadeduplicering eller molnnivå med Azure File Sync. Om en fil är nivåindelad till en Azure-filresurs, är storleken på disken noll, eftersom fildataströmmen lagras i din Azure-filresurs och inte på disken. Det är också möjligt för en fil som ska innehålla delvis nivåindelade (eller delvis återkallade). I en delvis nivåindelad fil är en del av filen på disken. Detta kan inträffa när filer läses delvis av program, t.ex. multimedia spelare eller zip-verktyg. 
+ Se [förstå Molnnivå](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
 **Hur vet jag om en fil har nivåindelade?**  
-    Det finns flera sätt att kontrollera om en fil nivåer till din Azure-filresurs:
-    
-   *  **Kontrollera filattribut för filen.**
-     Gör detta genom att högerklicka på en fil, gå till **information**, och bläddra till den **attribut** egenskapen. En nivåindelad fil har de följande attribut:     
-        
-        | Attributet bokstav | Attribut | Definition |
-        |:----------------:|-----------|------------|
-        | A | Arkiv | Anger att filen bör säkerhetskopieras av programvara för säkerhetskopiering. Det här attributet anges alltid, oavsett om filen nivåer eller helt lagras på disk. |
-        | P | Sparse-fil | Anger att filen är en sparse-fil. En sparse-fil är en särskild typ av fil som NTFS erbjuder effektiv när filen på disk stream huvudsakligen är tom. Azure File Sync använder sparse-filer eftersom en fil nivåer helt eller delvis återkallas. Fildataströmmen är en fullständigt nivåindelad fil lagras i molnet. I en delvis återställd fil, som en del av filen finns redan på disk. Om en fil är fullständigt kanske till disk, Azure File Sync konverteras från en sparse-fil till en vanlig fil. |
-        | L | Referenspunkt | Anger att filen har en referenspunkt. En referenspunkt är en särskild pekare för användning av ett filsystemsfilter. Azure File Sync använder referenspunkter för att definiera till Azure File Sync filsystemsfilter (StorageSync.sys) cloud platsen där filen lagras. Det stöder sömlös åtkomst. Användarna behöver inte veta att Azure File Sync som används eller hur du får åtkomst till filen i din Azure-filresurs. När en fil återställs helt bort Azure File Sync referenspunkten från filen. |
-        | O | Offline | Anger att en eller flera av dess innehåll inte lagras på disk. När en fil återställs fullständigt Azure File Sync tar du bort det här attributet. |
-
-        ![Dialogrutan Egenskaper för en fil med fliken information om markerad](media/storage-files-faq/azure-file-sync-file-attributes.png)
-        
-        Du kan se attributen för alla filer i en mapp genom att lägga till den **attribut** till tabellen visningen av Utforskaren. Gör detta genom att högerklicka på en befintlig kolumn (till exempel **storlek**), Välj **mer**, och välj sedan **attribut** från den nedrullningsbara listan.
-        
-   * **Använd `fsutil` att söka efter referenspunkter för en fil.**
-       Enligt beskrivningen i föregående alternativ, har en nivåindelad fil alltid en referenspunkt set. En referenspunkt pekare är en särskild pekare för Azure File Sync filsystemsfilter (StorageSync.sys). Om du vill kontrollera om en fil har en referenspunkt, i en upphöjd kommandotolk eller PowerShell-kommandotolk, kör den `fsutil` verktyget:
-    
-        ```PowerShell
-        fsutil reparsepoint query <your-file-name>
-        ```
-
-        Om filen har en referenspunkt, du kan förvänta dig att se **referenspunkter Taggvärde: 0x8000001e**. Den här hexadecimalt värde är punktvärdet referenspunkter som ägs av Azure File Sync. Utdata innehåller också referensdata som representerar sökvägen till din fil på din Azure-filresurs.
-
-        > [!WARNING]  
-        > Den `fsutil reparsepoint` verktyget kommandot har också möjlighet att ta bort en referenspunkt. Kör inte det här kommandot om inte det tekniska teamet för Azure File Sync ber dig. Kör det här kommandot kan resultera i dataförlust. 
+ Se [förstå Molnnivå](storage-sync-cloud-tiering.md#is-my-file-tiered).
 
 * <a id="afs-recall-file"></a>**En fil som jag vill använda har varit nivåindelade. Hur kan jag återställa filen till disk för att använda den lokalt?**  
-    Det enklaste sättet att återställa en fil till disk är att öppna filen. Azure File Sync filsystemsfilter (StorageSync.sys) hämtas sömlöst från din Azure-filresurs utan något arbete från din sida. För filtyper som kan vara delvis läsning från, t.ex multimediafiler eller ZIP-filer, öppna en fil inte ladda ned hela filen.
+ Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-recall-file).
 
-    Du kan också använda PowerShell om du vill tvinga en fil som ska återställas. Det här alternativet kan vara användbart om du vill återställa flera filer samtidigt, till exempel alla filer i en mapp. Öppna en PowerShell-session till noden där Azure File Sync är installerad och kör följande PowerShell-kommandon:
-    
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
-    ```
 
 * <a id="afs-force-tiering"></a>
 **Hur gör jag för att tvinga en fil eller katalog för att vara nivåindelad?**  
-    När funktionen cloud lagringsnivåer aktiveras molnlagringsnivåer automatiskt nivåer filer baserat på senaste åtkomst och ändra gånger för att uppnå den volymen ledigt utrymme i procent som anges på molnslutpunkten. Ibland, men kanske du vill tvinga en fil till tier manuellt. Detta kan vara användbart om du sparar en stor fil som du inte planerar att använda igen under en längre tid och du vill ha det lediga utrymmet på volymen nu ska användas för andra filer och mappar. Du kan tvinga lagringsnivåer med hjälp av följande PowerShell-kommandon:
-
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
-    ```
+ Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
 **Hur är *ledigt utrymme på volym* tolkas när jag har flera serverslutpunkter på en volym?**  
-    Om det finns fler än en serverslutpunkt på en volym, är effektiva volym ledigt utrymme tröskelvärdet den största ledigt utrymme på volym anges i valfri serverslutpunkt på den volymen. Filer nivåindelas enligt deras användningsmönster oavsett vilken serverslutpunkt som de tillhör. Till exempel om du har två server-slutpunkter på en volym, slutpunkt 1 och Endpoint2, är där slutpunkt 1 har ett tröskelvärde för ledigt utrymme för volymen med 25% och Endpoint2 har ett tröskelvärde för ledigt utrymme av volymen på 50% tröskelvärde för ledigt utrymme på volymen för både serverslutpunkter 50%.
+ Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-effective-vfs).
 
 * <a id="afs-files-excluded"></a>
 **Vilka filer och mappar undantas automatiskt av Azure File Sync?**  

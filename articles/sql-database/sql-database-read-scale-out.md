@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: d82f4e03176911804702db2ea18a5bc9a95583a3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/01/2018
+ms.openlocfilehash: 3242f683fd6190209e3395bd8410dd1b2cd36960
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158710"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043359"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)
 
-**Lässkalning** kan du belastningsutjämna Azure SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för skrivskyddade repliker. 
+**Lässkalning** kan du belastningsutjämna Azure SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för en skrivskyddad replik. 
 
 ## <a name="overview-of-read-scale-out"></a>Översikt över Lässkalning
 

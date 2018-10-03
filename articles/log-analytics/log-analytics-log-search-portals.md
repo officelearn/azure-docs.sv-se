@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 4677b8d5601dcafbf4760e6f185ef70393229b1a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: 8a73ad7c17710ab3e6e4ed41eced643ce9eb86dc
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961067"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042486"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Visa och analysera data i Log Analytics
 Det finns två alternativ som är tillgängliga i Azure-portalen för att analysera data som lagras i Log analytics och för att skapa frågor för ad hoc-analyser. Frågor som du skapar med hjälp av dessa portaler kan användas för andra funktioner, till exempel aviseringar och instrumentpaneler.

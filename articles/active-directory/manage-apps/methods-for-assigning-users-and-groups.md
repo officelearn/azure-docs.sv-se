@@ -5,25 +5,23 @@ services: active-directory
 documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 10/01/2018
 ms.author: barbkess
-ms.openlocfilehash: d357a9a7f249127289a256685d9555f777742b68
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c4aa311018603b32e854d3d3423d342350e6520d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357471"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044492"
 ---
-# <a name="how-to-assign-users-and-groups-to-an-application"></a>Tilldela användare och grupper till ett program
-
-Innan användarna kan göra något av följande för ett visst program, måste du först **tilldela dem till programmet** att ge åtkomst:
+# <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Tilldela användare och grupper till ett program i Azure Active Directory
+Den här artikeln visar hur du tilldelar användare eller grupper till ett program i Azure Active Directory (AD Azure). Användare måste först tilldelas till ett program innan en administratör kan ge dem åtkomst för att göra följande:
 
 -   Få åtkomst till ett program genom att **navigera till programmets URL direkt** (även kallat SP-initierat inloggning).
 
@@ -33,17 +31,19 @@ Innan användarna kan göra något av följande för ett visst program, måste d
 
 -   Finns i ett program som visas på deras [startprogrammet för Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="methods-to-assign-applications-with-azure-active-directory"></a>Metoder för att tilldela program med Azure Active Directory 
+## <a name="prerequisties"></a>Prerequisties
+Innan du kan tilldela användare och grupper till ett program, måste du kräva Användartilldelning. Att kräva Användartilldelning:
 
-Det finns 3 sätt som du kan tilldela program med Azure Active Directory:
+1. Logga in på Azure-portalen med ett administratörskonto.
+2. Klicka på den **alla tjänster** objekt på huvudmenyn.
+3. Välj det bibliotek som du använder för programmet.
+4. Klicka på den **företagsprogram** fliken.
+5. Välj programmet i listan över program som är associerade med den här katalogen.
+6. Klicka på den **egenskaper** fliken.
+7. Ändra den **Användartilldelning krävs?** växla till Ja.
+8. Klicka på den **spara** längst upp på skärmen.
 
--   [Tilldela en användare direkt till ett program som administratör](#assign-a-user-directly-as-an-administrator)
-
--   [Tilldela en grupp direkt till ett program som administratör](#assign-a-group-directly-to-an-application-as-an-administrator)
-
--   [Aktivera självbetjäning programåtkomst så att användarna kan hitta sina egna program](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications)
-
-## <a name="assign-a-user-directly-as-an-administrator"></a>Tilldela en användare direkt som en administratör
+## <a name="assign-users"></a>Tilldela användare
 
 Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt:
 
@@ -81,7 +81,7 @@ Följ stegen nedan om du vill tilldela en eller flera användare till ett progra
 
 De användare som du har valt att kunna starta dessa program med hjälp av metoderna som beskrivs i avsnittet lösning beskrivning efter en kort tidsperiod.
 
-## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Tilldela en grupp direkt till ett program som administratör
+## <a name="assign-groups"></a>Tilldela grupper
 
 Följ stegen nedan om du vill tilldela en eller flera grupper till ett program direkt:
 
@@ -119,7 +119,7 @@ Följ stegen nedan om du vill tilldela en eller flera grupper till ett program d
 
 Användare i de grupper som du har valt att kunna starta dessa program med hjälp av metoderna som beskrivs i avsnittet lösning beskrivning efter en kort tidsperiod. Om dessa är dynamiska grupper kan finnas det vissa ytterligare bearbetning-fördröjning i dessa tilldelningar visas för användare inom dessa tilldelade grupper.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Aktivera självbetjäning programåtkomst så att användarna kan hitta sina egna program
+## <a name="enable-self-service-application-access"></a>Aktivera Självbetjäning för programåtkomst
 
 Självbetjäning för programåtkomst är ett bra sätt så att användarna kan identifiera lokal program, låta affärsgrupp att godkänna åtkomst till dessa program. Du kan tillåta affärsgrupp att hantera de autentiseringsuppgifter som har tilldelats till de användarna av lösenord för enkel inloggning på program direkt från sina åtkomstpaneler.
 

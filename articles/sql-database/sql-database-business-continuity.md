@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b6708dac548db9e11d1092a6b84083d057401176
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221159"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237678"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -45,7 +45,7 @@ Sedan kan du lära dig om de ytterligare mekanismer som du kan använda för att
  - [Inbyggda automatiska säkerhetskopior](sql-database-automated-backups.md) och [tidpunkt för återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore) gör det möjligt att återställa fullständig till någon gång under de senaste 35 dagarna.
  - Du kan [återställa en borttagen databas](sql-database-recovery-using-backups.md#deleted-database-restore) till den tidpunkt då den togs bort om den **logisk server inte har tagits bort**.
  - [Långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md) gör det möjligt för dig att hålla säkerhetskopior till 10 år.
- - [GEO-replikering](sql-database-geo-replication-overview.md) kan programmet utföra snabb katastrofåterställning vid avbrott på datacentret skala.
+ - [Automatisk redundans grupp](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) kan programmet automatiskt återhämtning vid avbrott på datacentret skala.
 
 Den uppskattade återställningstiden (ERT) och den potentiella dataförlusten för de senaste transaktionerna skiljer sig mellan de olika metoderna. Om du förstår de olika alternativen blir det enklare att välja mellan dem, och i de flesta fall kan du använda dem tillsammans för olika scenarier. När du utvecklar din affärskontinuitetsplan måste du förstå den högsta acceptabla tiden innan programmet är helt återställt efter en avbrottshändelse. Den tid som krävs för programmet för att återställa kallas återställningstid (RTO). Du måste också att förstå den längsta tid för senaste datauppdateringar (tidsintervall) som programmet kan tolerera att förlora när det återställs efter en avbrottshändelse. Tid då uppdateringar som du kanske har råd att förlora kallas mål för återställningspunkt (RPO).
 
@@ -54,9 +54,8 @@ I följande tabell jämförs ERT och RPO för varje tjänstnivå för de tre van
 | Funktion | Basic | Standard | Premium  | Generellt syfte | Affärskritisk
 | --- | --- | --- | --- |--- |--- |
 | Återställning till tidpunkt från säkerhetskopia |En återställningspunkt inom sju dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom konfigurerade period (upp till 35 dagar)|En återställningspunkt inom konfigurerade period (upp till 35 dagar)|
-| GEO-återställning från geo-replikerade säkerhetskopior |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme|ERT < 12 timme, RPO < 1 timme|
-| Återställa från långsiktig kvarhållning i SQL |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka|ERT < 12 timme, RPO < 1 vecka|
-| Aktiv geo-replikering |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
+| GEO-återställning från geo-replikerade säkerhetskopior |ERT < 12 timme<br> RPO < 1 timme |ERT < 12 timme<br>RPO < 1 timme |ERT < 12 timme<br>RPO < 1 timme |ERT < 12 timme<br>RPO < 1 timme|ERT < 12 timme<br>RPO < 1 timme|
+| Automatisk redundans grupper |RTO = 1 timme<br>RPO < 5 SEK |RTO = 1 timme<br>RPO < 5 s |RTO = 1 timme<br>RPO < 5 s |RTO = 1 timme<br>RPO < 5 s|RTO = 1 timme<br>RPO < 5 s|
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Återställa en databas på den befintliga servern
 
@@ -73,7 +72,8 @@ Använd automatiska säkerhetskopieringar och [point-in-time-återställning](sq
 * Har en låg frekvens av dataändringar (lågt antal transaktioner per timme) och en förlust på upp till en timmes ändringar är en acceptabel dataförlust.
 * Är kostnadskänsligt.
 
-Om du behöver snabbare återställning använder [aktiv geo-replikering](sql-database-geo-replication-overview.md) (beskrivs nedan). Om du behöver för att kunna återställa data från en period som är äldre än 35 dagar eller använda [långsiktig kvarhållning](sql-database-long-term-retention.md). 
+Om du behöver snabbare återställning använder [redundansgrupper](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
+) (beskrivs nedan). Om du behöver för att kunna återställa data från en period som är äldre än 35 dagar eller använda [långsiktig kvarhållning](sql-database-long-term-retention.md). 
 
 ## <a name="recover-a-database-to-another-region"></a>Återställa en databas till en annan region
 <!-- Explain this scenario -->
@@ -82,9 +82,7 @@ Om du behöver snabbare återställning använder [aktiv geo-replikering](sql-da
 
 * Ett alternativ är att vänta tills databasen är tillbaka online när avbrottet på datadatacentret är över. Det här fungerar för program som har råd att ha databasen offline. Till exempel ett utvecklingsprojekt eller en kostnadsfri utvärderingsversion som du inte behöver arbeta med hela tiden. När det uppstår ett avbrott i ett datacenter, vet inte du hur länge driftstörningarna kan vara, så det här alternativet fungerar bara om du inte behöver databasen på ett tag.
 * Ett annat alternativ är att återställa en databas på en server i alla Azure-region med [geo-redundanta databassäkerhetskopior](sql-database-recovery-using-backups.md#geo-restore) (geo-återställning). GEO-återställning använder en geo-redundant säkerhetskopia som källa och kan användas för att återställa en databas, även om databasen eller datacenter är otillgängligt på grund av ett avbrott.
-* Slutligen kan du snabbt uppgradera en sekundär på en annan dataregion att bli den primära (även kallat redundansväxling) och konfigurera program ska ansluta till det uppgraderade primärt om du använder aktiv geo-replikering. Det kan finnas en mindre mängd data gå förlorade för de senaste transaktionerna på grund av asynkron replikering. Med automatisk redundans grupper kan anpassa du princip för redundansväxling för att minimera potentiell dataförlust. I samtliga fall upplever användarna ett kort avbrott och måste återansluta. Redundansväxlingar tar bara några sekunder medan databasåterställning från säkerhetskopior tar timmar.
-
-Du kan använda för att växla över till en annan region, [aktiv geo-replikering](sql-database-geo-replication-overview.md) du konfigurerar en databas om du vill ha upp till fyra läsbara sekundära databaser i regionerna som du önskar. Dessa sekundära databaser synkroniseras med den primära databasen med hjälp av en asynkron replikeringsmekanism. 
+* Slutligen kan du snabbt kan återställa från ett avbrott om du har konfigurerat en [automatisk redundans grupp](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) för din databas eller databaser. Du kan anpassa princip för redundansväxling för att använda automatisk eller manuell växling vid fel. Även om redundans själva tar bara några sekunder, tar tjänsten minst 1 timme för att aktivera den. Detta är nödvändigt att säkerställa att växling vid fel är berättigade av skalan om avbrottet. Dessutom kan redundansen resultera i små dataförlust på grund av asynkron replikering. Se tabellen tidigare i den här artikeln för information om automatisk redundans RTO och RPO.   
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -94,12 +92,12 @@ Du kan använda för att växla över till en annan region, [aktiv geo-replikeri
 > Om du vill använda aktiv geo-replikering och automatisk redundans grupper, måste du vara prenumerationsägaren eller ha administrativ behörighet i SQL Server. Du kan konfigurera och redundansväxla med Azure portal, PowerShell eller REST-API med hjälp av Azure-Prenumerationsbehörigheter eller med hjälp av Transact-SQL med SQL Server-behörigheter.
 > 
 
-Den här funktionen används för att skydda mot verksamhetsavbrott om det uppstår ett avbrott på datacentret eller under en uppgradering av programmet. Aktivera automatisk och transparent redundans bör du organisera dina geo-replikerade databaser i grupper med hjälp av den [automatisk redundans grupp](sql-database-geo-replication-overview.md) funktionen i SQL Database. Använda aktiv geo-replikering och automatisk redundans grupper om programmet uppfyller något av dessa villkor:
+Använda grupper i active automatisk redundans om programmet uppfyller något av dessa villkor:
 
 * Är verksamhetskritiskt.
-* Har ett serviceavtal (SLA) som inte tillåter driftavbrott på 24 timmar eller mer.
+* Har ett servicenivåavtal (SLA) som inte tillåter 12 timmar eller mer stillestånd.
 * Avbrott kan resultera i ekonomiska ansvarsskyldigheter.
-* Har en hög frekvens av dataändringar och en timmes dataförlust är inte acceptabelt.
+* Har en hög andel data som ändras och 1 timmes dataförlust kan inte godkännas.
 * Den extra kostnaden för aktiv geo-replikering är lägre än de potentiella ekonomiska skyldigheterna och den associerade affärsförlusten.
 
 När du utför en åtgärd, hur lång tid det tar att återställa och hur mycket data går förlorade beror på hur du väljer att använda dessa funktioner för affärskontinuitet i ditt program. Verkligen, kan du välja att använda en kombination av databassäkerhetskopior och aktiv geo-replikering beroende på dina programkrav. En beskrivning av designöverväganden för fristående databaser och för elastiska pooler när dessa funktioner för affärskontinuitet, finns i [utforma ett program för katastrofåterställning i molnet](sql-database-designing-cloud-solutions-for-disaster-recovery.md) och [elastisk lagringspoolen strategier för haveriberedskap](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
@@ -136,6 +134,11 @@ Efter återställningen från endera återställningsmetod måste du utföra fö
 * Se till att rätt inloggningar och behörigheter på huvuddatabasnivå är på plats (eller använd [inneslutna användare](https://msdn.microsoft.com/library/ff929188.aspx))
 * Konfigurera granskning efter behov
 * Konfigurera aviseringar efter behov
+
+> [!NOTE]
+> Om du använder en redundansgrupp och ansluta till databaser med läs-och lstener sker omdirigering efter en redundansväxling automatiskt och transparent för programmet.  
+>
+>
 
 ## <a name="upgrade-an-application-with-minimal-downtime"></a>Uppgradera ett program med minimal avbrottstid
 Ibland måste ett program kopplas från på grund av planerat underhåll, till exempel en uppgradering av programmet. [Hantera programuppgraderingar](sql-database-manage-application-rolling-upgrade.md) beskriver hur du använder aktiv geo-replikering för att möjliggöra löpande uppgraderingar av ditt molnprogram minimal avbrottstid under uppgraderingarna och etablera en återställningsväg om något går fel. 

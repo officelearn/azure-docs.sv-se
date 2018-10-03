@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 3c85398f140ccd61202c066f4394fa54358e0a1e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7459ae5153434887ade74f841a2239c76a7caef9
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161581"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043720"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL Database vCore-baserade köpa modellen lagringsgränser för elastiska pooler
 
@@ -151,5 +151,5 @@ I följande tabell beskrivs egenskaperna för databaser i en pool.
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga frågor och svar.
-- Se [översikt över Azure SQL Database-resursgränser](sql-database-resource-limits.md) information om begränsningar på de server och prenumeration.
+- Se [översikt över resource begränsar på en logisk server](sql-database-resource-limits-logical-server.md) information om begränsningar på de server och prenumeration.
 - Information om allmänna Azure-begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).

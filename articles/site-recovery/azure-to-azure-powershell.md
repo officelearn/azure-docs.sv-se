@@ -2,21 +2,21 @@
 title: Azure Site Recovery - installationsprogrammet och testa haveriberedskap för virtuella Azure-datorer med Azure PowerShell | Microsoft Docs
 description: Lär dig hur du konfigurerar haveriberedskap för virtuella Azure-datorer med Azure Site Recovery med hjälp av Azure PowerShell.
 services: site-recovery
-author: bsiva
-manager: abhemraj
-editor: raynew
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: bsiva
-ms.openlocfilehash: 1bf2fe84f9695993dacb6d197d75c18e5db86c4e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.date: 10/02/2018
+ms.author: sutalasi
+ms.openlocfilehash: 9b7200dab0351b6cd00aef05bf27c5c71a049d76
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433437"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044518"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Konfigurera haveriberedskap för virtuella Azure-datorer med Azure PowerShell
+
 
 I den här artikeln visas hur du konfigurerar och testar haveriberedskap för virtuella Azure-datorer med Azure PowerShell.
 
@@ -159,12 +159,15 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Förbereda valvet för att börja replikera virtuella Azure-datorer
 
-####<a name="1-create-a-site-recovery-fabric-object-to-represent-the-primarysource-region"></a>1. Skapa ett Site Recovery-fabric-objekt som representerar regionen primary(source)
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>Skapa ett Site Recovery-fabric-objekt som representerar regionen primära (källa)
 
-Fabric-objektet i valvet representerar en Azure-region. Det primära fabric-objektet, är det fabric-objekt som skapas för att representera den Azure-region som virtuella datorer som skyddas i valvet tillhör. I det här exemplet i den här artikeln är den virtuella datorn som skyddas i regionen östra USA.
+Fabric-objektet i valvet representerar en Azure-region. Primär fabric-objektet har skapats för att representera den Azure-region som virtuella datorer som skyddas i valvet tillhör. I det här exemplet i den här artikeln är den virtuella datorn som skyddas i regionen östra USA.
 
-> [!NOTE]
-> Azure Site Recovery-åtgärder körs asynkront. När du har initierat en åtgärd kan en Azure Site Recovery-jobb skickas och ett jobb spåra objekt returneras. Använda jobbet spåra objekt att hämta senaste status för jobbet (Get-ASRJob) och för att övervaka status för åtgärden.
+- Bara en infrastrukturresurs objekt kan skapas per region. 
+- Om du redan har aktiverat Site Recovery-replikering för en virtuell dator i Azure-portalen, skapar Site Recovery en fabric-objektet automatiskt. Om det finns ett fabric-objekt för en region, kan du inte skapa en ny.
+
+
+Innan du börjar bör du Observera att Site Recovery-åtgärder utförs asynkront. När du har initierat en åtgärd kan en Azure Site Recovery-jobb skickas och ett jobb spåra objekt returneras. Använda jobbet spåra objekt att hämta senaste status för jobbet (Get-ASRJob) och för att övervaka status för åtgärden.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -184,7 +187,7 @@ $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-EastUS"
 ```
 Om virtuella datorer från flera Azure-regioner skyddas på samma valv, skapar du ett fabric-objekt för varje källa Azure-region.
 
-####<a name="2-create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>2. Skapa ett Site Recovery-fabric-objekt för att representera återställningsregionen
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>Skapa ett Site Recovery-fabric-objekt för att representera återställningsregionen
 
 Recovery fabric-objektet representerar recovery Azure-plats. Virtuella datorer kommer att replikeras till och återställt till återställningsregionen som representeras av recovery-infrastruktur (vid en redundansväxling). Återställningen Azure-region i det här exemplet är västra USA 2.
 
@@ -205,7 +208,7 @@ $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-WestUS"
 
 ```
 
-####<a name="3-create-a-site-recovery-protection-container-in-the-primary-fabric"></a>3. Skapa en behållare för Site Recovery-skydd i den primära infrastrukturen
+### <a name="create-a-site-recovery-protection-container-in-the-primary-fabric"></a>Skapa en behållare för Site Recovery-skydd i den primära infrastrukturen
 
 Skyddsbehållaren är en behållare som används för att gruppera replikerade objekt inom en infrastruktur.
 
@@ -223,7 +226,7 @@ Write-Output $TempASRJob.State
 
 $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 ```
-####<a name="4-create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>4. Skapa en behållare för Site Recovery-skydd i recovery-infrastruktur
+### <a name="create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>Skapa en behållare för Site Recovery-skydd i recovery-infrastruktur
 
 ```azurepowershell
 #Create a Protection container in the recovery Azure region (within the Recovery fabric)
@@ -242,7 +245,7 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
-####<a name="5-create-a-replication-policy"></a>5. Skapa replikeringsprincip
+### <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 
 ```azurepowershell
 #Create replication policy
@@ -259,7 +262,7 @@ Write-Output $TempASRJob.State
 
 $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
 ```
-####<a name="6-create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>6. Skapa en skyddsbehållarmappning mellan den primära servern och recovery skyddsbehållaren
+### <a name="create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>Skapa en skyddsbehållarmappning mellan den primära servern och recovery skyddsbehållaren
 
 En skyddsbehållarmappning mappar primära skyddsbehållaren med en återställning skyddsbehållaren och en replikeringsprincip. Skapa en mappning för varje replikeringsprincip som du använder för att replikera virtuella datorer mellan två behållaren skydd.
 
@@ -279,7 +282,7 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
-####<a name="7-create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>7. Skapa en skyddsbehållarmappning för återställning efter fel (omvänd replikering efter en redundansväxling)
+### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Skapa en skyddsbehållarmappning för återställning efter fel (omvänd replikering efter en redundansväxling)
 
 Efter en redundansväxling, när du är redo att ta den redundansväxlade virtuella datorn tillbaka till den ursprungliga Azure-regionen, du återställning efter fel. För återställning efter fel, redundansväxlade virtuella datorn är omvänd replikeras från den misslyckade över regionen till den ursprungliga regionen. Rollerna för den ursprungliga regionen och återställningsregionen växla för omvänd replikering. Den ursprungliga regionen blir nu det nya recovery-området och vad var ursprungligen återställningsregionen nu blir den primära regionen. Skyddsbehållarmappning för omvänd replikering representerar växlade rollerna för de ursprungliga och återställning regionerna.
 

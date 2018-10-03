@@ -10,14 +10,18 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: b31ca8f88d1e8d5710c3a6a6cfccbb167fdd762a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126283"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237882"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Uppdelning i meningar och Tokenisering
+
+> [!IMPORTANT]
+> Förhandsversionen av Lingvistisk analys har ur den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning modulerna för textanalys](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för text-bearbetning och analys.
 
 ## <a name="background-and-motivation"></a>Bakgrund och motivationen
 
@@ -53,7 +57,8 @@ Första meningen kan vara skrivna som ”Whatdidyousay”?)
 
 Det finns några svårt fall.
 Först skiljetecken ofta (men inte alltid) ska delas upp från den omgivande kontext.
-Andra engelska har *förkortningar*, t.ex. ”inte” eller ”det är”, där ord har komprimeras och förkortas i mindre delar. Målet med tokenizer är att bryta teckensekvensen in ord.
+Andra engelska har *förkortningar*, t.ex. ”inte” eller ”det är”, där ord har komprimeras och förkortas i mindre delar.
+Målet med tokenizer är att bryta teckensekvensen in ord.
 
 Nu ska vi gå tillbaka till exempel meningarna ovan.
 Nu har vi placerat en ”center punkt” (&middot;) mellan varje distinkta token.
@@ -62,9 +67,10 @@ Nu har vi placerat en ”center punkt” (&middot;) mellan varje distinkta token
 - Jag &middot; gjorde &middot; nte &middot; höra &middot; om &middot; den &middot; director &middot; 's &middot; ” &middot; nya &middot; förslag &middot; . &middot; "
 - Den &middot; 's &middot; viktiga &middot; till &middot; Herr &middot; och &middot; FRU. &middot; Smith &middot; .
 
-Observera hur de flesta token är ord som du hittar i ordlistan (t.ex. *viktiga*, *director*).
+Observera hur de flesta token är ord som du hittar i ordlistan (till exempel *viktiga*, *director*).
 Andra bestå enbart av skiljetecken.
-Slutligen finns mer ovanliga-tokens för att representera förkortningar som *nte* för *inte*, genitiv som *'s*osv. Den här tokenisering ger oss möjlighet att hantera ordet *inte* och frasen *inte* på ett mer konsekvent sätt, till exempel.
+Slutligen finns mer ovanliga-tokens för att representera förkortningar som *nte* för *inte*, och genitiv som *'s*.
+Den här tokenisering ger oss möjlighet att hantera ordet *inte* och frasen *inte* på ett mer konsekvent sätt.
 
 ## <a name="specification"></a>Specifikationen
 

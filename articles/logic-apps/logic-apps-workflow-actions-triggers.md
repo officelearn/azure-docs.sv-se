@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093626"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044781"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Utlösare och åtgärd typer-referens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -62,7 +62,7 @@ Utlösare har de här översta elementen, även om vissa är valfria:
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*matris med villkor*> | Matris | En matris som innehåller en eller flera [villkor](#trigger-conditions) som avgör om du vill köra arbetsflödet | 
+| <*matris med villkor*> | Matris | En matris som innehåller en eller flera [villkor](#trigger-conditions) som avgör om du vill köra arbetsflödet. Endast tillgängligt för utlösare. | 
 | <*Runtime-konfigurationsalternativ*> | JSON-objekt | Du kan ändra utlösaren runtime beteendet genom att ange `runtimeConfiguration` egenskaper. Mer information finns i [Runtime konfigurationsinställningar](#runtime-config-options). | 
 | <*splitOn-uttrycket*> | Sträng | Du kan ange ett uttryck för utlösare som returnerar en matris, som [delar upp eller *debatches* ](#split-on-debatch) matrisen objekt till flera arbetsflödesinstanser för bearbetning. | 
 | <*åtgärden-alternativet*> | Sträng | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
@@ -657,7 +657,7 @@ Den här utlösaren anger att en inkommande begäran måste använda HTTP POST-m
 
 ## <a name="trigger-conditions"></a>Utlösarvillkor
 
-Du kan inkludera en matris som innehåller en eller flera uttryck för villkor som bestämmer om arbetsflödet ska köras för en utlösare. Att lägga till den `conditions` egenskap till logikappen, öppna logikappen i kodredigeraren för vyn.
+För alla utlösare och endast utlösare, kan du inkludera en matris som innehåller en eller flera uttryck för villkor som bestämmer om arbetsflödet ska köras. Att lägga till den `conditions` egenskapen till en utlösare i logikappen, öppna logikappen i kodredigeraren för vyn.
 
 Du kan till exempel ange att en utlösaren utlöses när en webbplats returnerar endast ett internt serverfel genom att referera till utlösarens-statuskod i den `conditions` egenskapen:
 
@@ -1340,7 +1340,7 @@ Den här åtgärden skapar en matris från objekten i en annan matris baserat p�
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
 | <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt. Om du anger ett uttryck, skriva uttrycket med dubbla citattecken. |
-| <*villkor eller filter*> | Sträng | Villkor som används för att filtrera objekt i matrisen källa <p>**Obs**: Om inga värden uppfyller villkoret, åtgärden skapar en tom matris. |
+| <*villkor eller filter*> | Sträng | Villkor som används för att filtrera objekt i matrisen källa <p>**Obs**: Om inga värden uppfyller villkoren och sedan skapar en tom matris för åtgärden. |
 |||| 
 
 *Exempel*
@@ -2318,7 +2318,7 @@ Du kan ändra standardinställningen för utlösare och åtgärder med den `oper
 
 ### <a name="change-trigger-concurrency"></a>Ändra utlösaren samtidighet
 
-Som standard logic app-instanserna körs på samma gång samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varje instans som utlösaren utlöses så innan körning är klar med den tidigare active logic app-instansen. Den här gränsen kan du styra hur många begäranden som tar emot backend-system. 
+Som standard logic app-instanserna körs på samma gång samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varje instans som utlösaren utlöses så innan körning är klar med den föregående logic app-instansen. Den här gränsen kan du styra hur många begäranden som tar emot backend-system. 
 
 Om du vill ändra Standardgränsen, du kan använda antingen kod Vyredigeraren eller Logic Apps Designer eftersom ändra inställningen för samtidighet via designern lägger till eller uppdaterar den `runtimeConfiguration.concurrency.runs` egenskapen i den underliggande utlösardefinitionen och vice versa. Den här egenskapen styr det maximala antalet logic app-instanser som kan köras parallellt. 
 
@@ -2385,7 +2385,7 @@ Här är ett exempel som begränsar samtidiga körningar till 10 iterationer:
 
 #### <a name="edit-in-logic-apps-designer"></a>Redigera i Logic Apps Designer
 
-1. I den **för var och en** åtgärdens övre högra hörnet väljer du ellipserna (...)-knappen och välj sedan **inställningar**.
+1. I den **för var och en** åtgärd i det övre högra hörnet, väljer du ellipserna (...)-knappen och välj sedan **inställningar**.
 
 2. Under **samtidighetskontroll**anger **åsidosätta standard** till **på**. 
 
@@ -2399,7 +2399,7 @@ Som standard logic app-instanserna körs på samma gång samtidigt eller paralle
 
 Antal körningar som kan vänta har också en [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), som du kan ändra. Men när logikappen når gränsen för att vänta körningar, accepterar Logic Apps-motorn inte längre nya körningar. Begäran och webhook-utlösare returnera 429-fel och återkommande utlösare starta hoppar över avsökningen försök.
 
-Om du vill ändra Standardgräns för att vänta körs i den underliggande utlösa definition, Lägg till och ange den `runtimeConfiguration.concurency.maximumWaitingRuns` egenskap med ett värde mellan `0` och `100`. 
+Om du vill ändra Standardgräns för att vänta körs i den underliggande utlösa definition, lägga till den `runtimeConfiguration.concurency.maximumWaitingRuns` egenskap med ett värde mellan `0` och `100`. 
 
 ```json
 "<trigger-name>": {

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 3d7cf50bd2c845764aa2c3ac3b3db6891ff5c8d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d9d40a111faefee705c3ce1987c380ee2ba695ec
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993858"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040195"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Prestandaövervakning med Log Analytics
 
@@ -86,7 +86,7 @@ Nu när du har lagt till Log Analytics-agenten, head vill till Log Analytics-por
 
 6. Stäng bladet avancerade inställningar.
 
-7. Under rubriken Allmänt, klickar du på **översikt**.
+7. Under rubriken Allmänt, klickar du på **arbetsytan Sammanfattning**.
 
 8. Paneler i form av ett diagram visas för var och en av de lösningar som är aktiverad, inklusive ett för Service Fabric. Klicka på den **Service Fabric** graph för att fortsätta till Service Fabric-analys-lösningen.
 

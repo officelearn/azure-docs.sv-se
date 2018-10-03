@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7aadb7b89cf1b338a257846882e34ff796df74b2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 745b26661d34357e44b6a7c2ed6e40f3195781f1
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580726"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238001"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -42,7 +42,7 @@ Delta i Microsofts molnmarknadsplats kräver medlemskap till Microsoft Partner N
 *   Du kan registrera i Microsoft Partner Network den [medlemskap sidan](https://partner.microsoft.com/membership) och följ anvisningarna för att starta registreringen.  
 
 Efter registreringen kan du registrera Microsoft Partner Network-ID för din organisation. Du behöver detta under steg 3 när du skickar in din marketplace-registreringsformuläret.
-*   Lär dig mer om fördelarna med den [Microsoft Partner Network](https://partner.microsoft.com/en-us/commercial)
+*   Lär dig mer om fördelarna med den [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *   Om din organisation har ett befintligt medlemskap, kommer du ansluta din organisation under registreringen. Om du använder [Partnercenter](https://partnercenter.microsoft.com/partner/home), kommer du att kunna se ID i Partnercenter-konto. Om du använder [Partner medlemskap Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), kommer du att kunna se den i ditt medlemskap Partnercenter-konto. 
 
 ---  
@@ -54,18 +54,18 @@ En Microsoft-konto, t.ex. *@outlook.com eller @live.com*, används för att få 
 [! [Viktigt] Tänk på att ett Microsoft-konto som är associerade med din e-postadress inte tillåter att du kan få åtkomst till portalen.
 
 >[!Note]
->Om du redan har ett Microsoft-konto kan du läsa den [riktlinjer för att skapa ett Microsoft-ID för att hantera en marketplace](https://review.docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) att avgöra om den kan användas för marketplace-publicering. 
+>Om du redan har ett Microsoft-konto kan du läsa den [riktlinjer för att skapa ett Microsoft-ID för att hantera en marketplace](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) att avgöra om den kan användas för marketplace-publicering. 
 
->Användare med en Azure Active Directory federated företagskonto bör läsa [i den här artikeln](https://review.docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) innan du försöker skapa eller använda din befintliga Account.
+>Användare med en Azure Active Directory federated företagskonto bör läsa [i den här artikeln](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) innan du försöker skapa eller använda din befintliga Account.
 
-*   Hjälp med att skapa eller hantera ditt Microsoft-konto, finns det [hjälpsidor för support på Microsoft-konto](https://support.microsoft.com/en-us/products/microsoft-account?category=manage-account).
+*   Hjälp med att skapa eller hantera ditt Microsoft-konto, finns det [hjälpsidor för support på Microsoft-konto](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 
 
 ---  
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Skicka formuläret av marketplace-registrering  
 | 15 min |  
-Slutför denna rapport [registreringsformuläret](https://azuremarketplace.microsoft.com/en-us/sell/signup) ska bli en marketplace-utgivare. Uppgifter i det här formuläret används för att skapa ett utgivarkonto i Cloud Partner Portal där du kan skapa, publicera och hantera marketplace-erbjudanden.
+Slutför denna rapport [registreringsformuläret](https://azuremarketplace.microsoft.com/sell/signup) ska bli en marketplace-utgivare. Uppgifter i det här formuläret används för att skapa ett utgivarkonto i Cloud Partner Portal där du kan skapa, publicera och hantera marketplace-erbjudanden.
 
 Du blir ombedd att inkludera följande information:
 *   Information om din organisation, inklusive Microsoft Partner Network-ID (som du kan söka efter antingen [Partnercenter](https://partnercenter.microsoft.com/partner/home) eller [medlemskap Partnercenter](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
@@ -75,26 +75,26 @@ Du blir ombedd att inkludera följande information:
 ---  
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Logga in på partnerportalen i molnet
 | 1 – 3 dagar | <br>
-Vår Marketplace Onboarding-teamet granskar och verifiera registreringsinformationen marketplace i steg 3. När du blivit godkänd, får du ett välkomstmeddelande med autentiseringsuppgifter för kontot och vägledning för att logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com).
+Vårt Registreringsteam för Marketplace ska verifiera registreringsinformationen marketplace i steg 3. När du blivit godkänd, får du ett välkomstmeddelande med autentiseringsuppgifter för kontot och vägledning för att logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com).
 
 Du kommer att använda den [Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa, publicera och hantera marketplace-erbjudanden. När du får välkomstmeddelandet godkännande kan du omedelbart kan logga in på [Cloud Partner Portal](https://cloudpartner.azure.com) med ditt Microsoft-konto för att få åtkomst till ytterligare teknisk information om publicering på marketplace och skapa ditt erbjudande. 
 *   Mer information om hur du använder Cloud Partner Portal [gå till komma igång-artikeln i Läs avsnittet](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Du måste vara inloggad på partnerportalen i molnet att komma åt informationen.
 *   Om du har frågor eller skulle så att du schemalägger en översikt över onboarding-anrop, granska andra artiklar i den här Publiceringsguiden eller öppna en supportbegäran under problemtyp > Marketplace Onboarding från inom partnerportalen i molnet.
-*   Om du inte fått välkomstmeddelandet Kontrollera din skräppostmapp för ett e-postmeddelande med ämnesraden ”Välkommen till Microsoft Marketplace!”. Om det finns ingen e-post i mappen för skräppost, [kontakta Microsoft-supporten](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). På supportsidan väljer: problemtyp > Marketplace Onboarding.  Vårt Registreringsteam för Marketplace Publisher kommer vara glad att hjälpa till med dina frågor. 
+*   Om du inte fått välkomstmeddelandet Kontrollera din skräppostmapp för ett e-postmeddelande med ämnesraden ”Välkommen till Microsoft Marketplace!”. Om det finns ingen e-post i mappen för skräppost, [kontakta Microsoft-supporten](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). På supportsidan väljer: problemtyp > Marketplace Onboarding.  Vårt Registreringsteam för Marketplace Publisher kommer vara glad att hjälpa till med dina frågor. 
 
 
 ## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. Registrera dig i Dev Center (för Transact publicera enbart för alternativet) 
 | 5 – 10 dagar |  
-En [Dev Center](https://developer.microsoft.com/en-us/store/register) konto krävs för erbjudanden som använder transact publicera alternativet: innehåller virtuella datorer, Azure-appar och SaaS-appar som är konfigurerad för att sälja via Azure. Den [Dev Center](https://developer.microsoft.com/en-us/store/register) information om kontot som används av Microsoft för att validera juridiska och skattemässiga och bankinformation för din organisation som ska användas för payout när du säljer och fakturerar din programvarulicensiering avgifter via Azure Marketplace. 
+En [Dev Center](https://developer.microsoft.com/store/register) konto krävs för erbjudanden som använder transact publicera alternativet: innehåller virtuella datorer, Azure-appar och SaaS-appar som är konfigurerad för att sälja via Azure. Den [Dev Center](https://developer.microsoft.com/store/register) information om kontot som används av Microsoft för att validera juridiska och skattemässiga och bankinformation för din organisation som ska användas för payout när du säljer och fakturerar din programvarulicensiering avgifter via Azure Marketplace. 
 
-Den [Dev Center](https://developer.microsoft.com/en-us/store/register) registreringsprocessen kan startas innan du skapar ditt erbjudande i partnerportalen i molnet, men måste slutföras innan du publicerar ditt erbjudande i marketplace. Med den vanliga varaktigheten 5 – 10 dagar i det här steget kan rekommenderar vi att börja den här processen så snart som möjligt om du planerar att använda transact-publiceringsalternativ. 
+Den [Dev Center](https://developer.microsoft.com/store/register) registreringsprocessen kan startas innan du skapar ditt erbjudande i partnerportalen i molnet, men måste slutföras innan du publicerar ditt erbjudande i marketplace. Med den vanliga varaktigheten 5 – 10 dagar i det här steget kan rekommenderar vi att börja den här processen så snart som möjligt om du planerar att använda transact-publiceringsalternativ. 
 
-Enskild registrering i [Dev Center](https://developer.microsoft.com/en-us/store/register) måste vara en giltig representativ för din organisation och måste ange personlig information för att verifiera sin identitet. Registrera med ditt Microsoft-konto som skapades i steg 2, och använda samma Microsoft-konto som du använde för att få åtkomst till partnerportalen i molnet.
+Enskild registrering i [Dev Center](https://developer.microsoft.com/store/register) måste vara en giltig representativ för din organisation och måste ange personlig information för att verifiera sin identitet. Registrera med ditt Microsoft-konto som skapades i steg 2, och använda samma Microsoft-konto som du använde för att få åtkomst till partnerportalen i molnet.
 
-*   Registrera dig för en [Dev Center](https://developer.microsoft.com/en-us/store/register) konto, [starta registreringsprocessen här](https://developer.microsoft.com/en-us/store/register).
+*   Registrera dig för en [Dev Center](https://developer.microsoft.com/store/register) konto, [starta registreringsprocessen här](https://developer.microsoft.com/store/register).
 *   Mer information om hur du skapar ett Microsoft-konto finns det *skapa ett Microsoft-konto* avsnittet.
  
-När du har slutfört den [Dev Center](https://developer.microsoft.com/en-us/store/register) registrering, länka ditt Partner-profil för molnet med dina [Dev Center](https://developer.microsoft.com/en-us/store/register) (se detaljerade anvisningar här). Det här steget måste utföras innan du publicerar ditt transact-erbjudande. 
+När du har slutfört den [Dev Center](https://developer.microsoft.com/store/register) registrering, länka ditt Partner-profil för molnet med dina [Dev Center](https://developer.microsoft.com/store/register) (se detaljerade anvisningar här). Det här steget måste utföras innan du publicerar ditt transact-erbjudande. 
 
 >[!Note]
 >För att avstå från registrering-avgift $99 Developer Center, fylla i registreringsformuläret för marketplace och du får ett e-postmeddelande som innehåller din kampanjkoden. 

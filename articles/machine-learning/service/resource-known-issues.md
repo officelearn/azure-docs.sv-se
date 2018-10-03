@@ -8,18 +8,27 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: d84040dc440c373ae9bae6dbac7a95109a387ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/01/2018
+ms.openlocfilehash: d4910eb3dfacb46efe3f85aea3a441bdaaeb1392
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162754"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236420"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
  
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstod när du använder Azure Machine Learning-tjänsten. 
 
+## <a name="image-building-failure"></a>Bild byggnad fel
+
+Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att lägga till ”pynacl == 1.2.1” som ett pip beroende till Conda-fil för konfiguration av avbildningen.  
+
+## <a name="pipelines"></a>Pipelines
+Ett fel uppstår när du anropar PythonScriptStep flera gånger i rad utan att ändra skriptet eller parametrar. Lösningen är att återskapa PipelineData-objektet.
+
+## <a name="fpgas"></a>FPGA
+Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
 
 ## <a name="databricks"></a>Databricks
 

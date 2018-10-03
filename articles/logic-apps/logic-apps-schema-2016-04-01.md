@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 43fd52dd04e679b9756c07e8c6e260323469026a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c1ef71ea2ec551335c3681760c181624334c3229
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126210"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043209"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Schemauppdateringar för Azure Logic Apps – 1 juni 2016
 
@@ -33,23 +33,23 @@ Uppgradera dina logic apps från den 1 augusti 2015 preview schemat till den 1 j
 
 Det här schemat innehåller scope, som låter dig grupp tillsammans eller kapslade åtgärder i varandra. Ett villkor kan exempelvis innehålla ytterligare ett villkor. Läs mer om [omfång syntax](../logic-apps/logic-apps-loops-and-scopes.md), eller gå igenom det här exemplet grundläggande omfång:
 
-```
+```json
 {
-    "actions": {
-        "My_Scope": {
-            "type": "scope",
-            "actions": {                
-                "Http": {
-                    "inputs": {
-                        "method": "GET",
-                        "uri": "http://www.bing.com"
-                    },
-                    "runAfter": {},
-                    "type": "Http"
-                }
+   "actions": {
+      "Scope": {
+         "type": "Scope",
+         "actions": {                
+            "Http": {
+               "inputs": {
+                   "method": "GET",
+                   "uri": "http://www.bing.com"
+               },
+               "runAfter": {},
+               "type": "Http"
             }
-        }
-    }
+         }
+      }
+   }
 }
 ```
 
@@ -57,29 +57,29 @@ Det här schemat innehåller scope, som låter dig grupp tillsammans eller kapsl
 
 ## <a name="conditions-and-loops-changes"></a>Villkor och slingor ändringar
 
-I föregående schemat var versioner, villkor och loopar du parametrar som är associerade med en enda åtgärd. Det här schemat hissar denna begränsning, så villkor och slingor visas nu som Åtgärdstyper. Läs mer om [loopar och scope](../logic-apps/logic-apps-loops-and-scopes.md), eller gå igenom det här grundläggande exemplet för en åtgärd för villkoret:
+I föregående schemat var versioner, villkor och loopar du parametrar som är associerade med en enda åtgärd. Det här schemat hissar denna begränsning, så villkor och slingor är nu tillgängligt som Åtgärdstyper. Läs mer om [loopar och scope](../logic-apps/logic-apps-loops-and-scopes.md), [villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md), eller gå igenom det här grundläggande exemplet som visar en condition-åtgärd:
 
-```
+```json
 {
-    "If_trigger_is_some-trigger": {
-        "type": "If",
-        "expression": "@equals(triggerBody(), 'some-trigger')",
-        "runAfter": { },
-        "actions": {
-            "Http_2": {
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://www.bing.com"
-                },
-                "runAfter": {},
-                "type": "Http"
-            }
-        },
-        "else": 
-        {
-            "if_trigger_is_another-trigger": "..."
-        }      
-    }
+   "Condition - If trigger is some trigger": {
+      "type": "If",
+      "expression": "@equals(triggerBody(), '<trigger-name>')",
+      "runAfter": {},
+      "actions": {
+         "Http_2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.bing.com"
+            },
+            "runAfter": {},
+            "type": "Http"
+         }
+      },
+      "else": 
+      {
+         "Condition - If trigger is another trigger": {}
+      }  
+   }
 }
 ```
 
@@ -87,16 +87,14 @@ I föregående schemat var versioner, villkor och loopar du parametrar som är a
 
 ## <a name="runafter-property"></a>Egenskapen 'runAfter'
 
-Den `runAfter` egenskapen ersätter `dependsOn`, tillhandahåller mer precision när du anger den kör ordningen för åtgärder baserat på status för tidigare åtgärder.
+Den `runAfter` egenskapen ersätter `dependsOn`, tillhandahåller mer precision när du anger den kör ordningen för åtgärder baserat på status för tidigare åtgärder. Den `dependsOn` egenskapen anges om ”åtgärden kördes och lyckades”, baserat på om den första åtgärden lyckades, misslyckades, eller som hoppades över - inte antalet gånger som du vill köra instruktionen. Den `runAfter` egenskapen tillhandahåller flexibilitet som ett objekt som anger åtgärden som har namn efter som objektet körs. Den här egenskapen definierar också en matris med statusar som accepteras som utlösare. Till exempel om du vill att en åtgärd som ska köras när åtgärden A fungerar och även efter åtgärden B lyckas eller misslyckas, ställa in den här `runAfter` egenskapen:
 
-Den `dependsOn` egenskapen var synonyma med ”åtgärden kördes och lyckades”, oavsett hur många gånger som du vill köra en åtgärd baserat på om den första åtgärden lyckades, misslyckades eller hoppades över. Den `runAfter` egenskapen ger den flexibiliteten som ett objekt som anger alla åtgärdsnamn efter objektet körs. Den här egenskapen definierar också en matris med statusar som accepteras som utlösare. Till exempel om du vill ska köras efter steget A lyckas och även efter steg B lyckas eller misslyckas kan du skapa det här `runAfter` egenskapen:
-
-```
+```json
 {
-    "...",
-    "runAfter": {
-        "A": ["Succeeded"],
-        "B": ["Succeeded", "Failed"]
+   // Other parts in action definition
+   "runAfter": {
+      "A": ["Succeeded"],
+      "B": ["Succeeded", "Failed"]
     }
 }
 ```
@@ -109,10 +107,12 @@ Uppgradera till den [senaste schemat](https://schema.management.azure.com/schema
 
 2. Gå till **översikt**. I verktygsfältet logic app välja **uppdatera Schema**.
    
-    ![Välj Uppdatera Schema][1]
+   ![Välj Uppdatera Schema][1]
    
-    Uppgraderade definitionen returneras som du kan kopiera och klistra in i en resursdefinition om det behövs. 
-    Men vi **rekommenderar** du väljer **Spara som** att se till att alla anslutningsreferenser är giltiga i den uppgraderade logikappen.
+   Uppgraderade definitionen returneras som du kan kopiera och klistra in i en resursdefinition om det behövs. 
+
+   > [!IMPORTANT]
+   > *Se till att* du väljer **Spara som** så att alla anslutningsreferenser fortfarande är giltiga för den uppgraderade logikappen.
 
 3. I verktygsfältet uppgradera bladet väljer **Spara som**.
 
@@ -125,17 +125,17 @@ Uppgradera till den [senaste schemat](https://schema.management.azure.com/schema
 
 6. *Valfritt* om du vill skriva över tidigare logikappen med den nya schemaversionen i verktygsfältet väljer **klona**, bredvid **uppdatera Schema**. Det här steget krävs bara om du vill behålla samma resurs-ID eller begära utlösaren URL: en för din logikapp.
 
-### <a name="upgrade-tool-notes"></a>Uppgradering av verktyget
+## <a name="upgrade-tool-notes"></a>Uppgradering av verktyget
 
-#### <a name="mapping-conditions"></a>Mappningsvillkoren
+### <a name="mapping-conditions"></a>Mappningsvillkoren
 
-I definitionen av uppgraderade gör verktyget en yttersta för att gruppera true och false gren åtgärder som omfattning. Mer specifikt designer mönstret för `@equals(actions('a').status, 'Skipped')` ska visas som en `else` åtgärd. Om verktyget identifierar okänt mönster, kan verktyget Skapa olika villkor för både true och false gren. Du kan mappa om åtgärder efter uppgraderingen, om det behövs.
+I definitionen av uppgraderade gör verktyget yttersta för att gruppera true och false gren åtgärder som omfattning. Mer specifikt designer mönstret för `@equals(actions('a').status, 'Skipped')` visas som en `else` åtgärd. Om verktyget identifierar okänt mönster, kan verktyget Skapa olika villkor för både true och false gren. Du kan mappa om åtgärder efter uppgraderingen, om det behövs.
 
 #### <a name="foreach-loop-with-condition"></a>”foreach”-loop med villkor
 
-I det nya schemat kan du använda Filtreringsåtgärden för att replikera mönstret för en `foreach` -loop med ett villkor per artikel, men den här ändringen automatiskt ska hända när du uppgraderar. Villkoret blir en filteråtgärd innan foreach-loop för att returnera en matris med objekt som matchar villkoret och matrisen skickas till foreach-åtgärder. Ett exempel finns i [loopar och scope](../logic-apps/logic-apps-loops-and-scopes.md).
+I det nya schemat kan du använda Filtreringsåtgärden för att replikera mönstret som använder en **för var och en** -loop med ett villkor per artikel. Ändringen sker dock automatiskt när du uppgraderar. Villkoret blir en filteråtgärd som visas före den **för var och en** loop, returnerar en matris med objekt som matchar villkoret och för att skicka den matrisen **för var och en** åtgärd. Ett exempel finns i [loopar och scope](../logic-apps/logic-apps-loops-and-scopes.md).
 
-#### <a name="resource-tags"></a>Resurstaggar
+### <a name="resource-tags"></a>Resurstaggar
 
 När du har uppgraderat tas resurstaggar bort, så du måste återställa dem för det uppgraderade arbetsflödet.
 
@@ -157,20 +157,20 @@ Den `foreach` och `until` loop är begränsade till en enda åtgärd.
 
 Åtgärder kan nu ha en annan egenskap som kallas `trackedProperties`, vilket är på samma nivå till den `runAfter` och `type` egenskaper. Det här objektet anger vissa åtgärdens indata eller utdata som du vill ska ingå i Azure Diagnostics telemetri, som en del av ett arbetsflöde. Exempel:
 
-```
-{                
-    "Http": {
-        "inputs": {
-            "method": "GET",
-            "uri": "http://www.bing.com"
-        },
-        "runAfter": {},
-        "type": "Http",
-        "trackedProperties": {
-            "responseCode": "@action().outputs.statusCode",
-            "uri": "@action().inputs.uri"
-        }
-    }
+``` json
+{
+   "Http": {
+      "inputs": {
+         "method": "GET",
+         "uri": "http://www.bing.com"
+      },
+      "runAfter": {},
+      "type": "Http",
+      "trackedProperties": {
+         "responseCode": "@action().outputs.statusCode",
+         "uri": "@action().inputs.uri"
+      }
+   }
 }
 ```
 

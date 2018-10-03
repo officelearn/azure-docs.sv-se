@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.component: na
-ms.openlocfilehash: ec35cece8da8eaaa89b11a35b0fc1e55d0cdfee8
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.component: ''
+ms.openlocfilehash: ef3cc76c0188cb2a0d3236d462d0645e3e45040b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573499"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044288"
 ---
 # <a name="log-analytics-for-service-providers"></a>Logganalys för tjänsteleverantörer
 Log Analytics kan leverantörer av hanterade tjänster (MSP), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens on-premises eller molninfrastruktur. 

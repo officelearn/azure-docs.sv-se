@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 7fb60f3c440b4804ad8c5e6c013ecfa454358833
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 231d7b875a7163aaa532be4a6477ca4e2eb67286
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716125"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043669"
 ---
 # <a name="using-gpus-on-aks"></a>Använda grafikprocessorer på AKS
 
@@ -63,7 +63,7 @@ aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
 ```
 
-Beskriv en av noderna att bekräfta de GPU: er är avtalad. Det finns under den `Capacity` avsnittet. Till exempel `alpha.kubernetes.io/nvidia-gpu:  1`.
+Beskriv en av noderna att bekräfta de GPU: er är avtalad. Det finns under den `Capacity` avsnittet. Till exempel `nvidia.com/gpu:  1`. Om du inte ser de GPU: er, läser du den **Felsök** nedan.
 
 ```
 $ kubectl describe node aks-nodepool1-22139053-0
@@ -96,12 +96,12 @@ Addresses:
   InternalIP:  10.240.0.4
   Hostname:    aks-nodepool1-22139053-0
 Capacity:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57691688Ki
  pods:                            110
 Allocatable:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57589288Ki
  pods:                            110
@@ -135,7 +135,7 @@ Events:         <none>
 
 För att kunna visa de GPU: er verkligen fungerar, aktivera schema en GPU arbetsbelastning med rätt resurs-begäran. Det här exemplet körs en [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) jobb mot den [MNIST datauppsättning](http://yann.lecun.com/exdb/mnist/).
 
-Följande jobbet Manifestet innehåller en resursgräns av `alpha.kubernetes.io/nvidia-gpu: 1`. Lämplig CUDA-bibliotek och verktyg för felsökning blir tillgängliga på noden på `/usr/local/nvidia` och måste monteras i en pod med lämplig volym-specifikationen som visas nedan.
+Följande jobbet Manifestet innehåller en resursgräns av `nvidia.com/gpu: 1`. 
 
 Kopiera manifestet och spara som **exempel-tf-mnist-demo.yaml**.
 ```
@@ -158,15 +158,8 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           limits:
-            alpha.kubernetes.io/nvidia-gpu: 1
-        volumeMounts:
-        - name: nvidia
-          mountPath: /usr/local/nvidia
+           nvidia.com/gpu: 1
       restartPolicy: OnFailure
-      volumes:
-        - name: nvidia
-          hostPath:
-            path: /usr/local/nvidia
 ```
 
 Använd den [kubectl gäller] [ kubectl-apply] kommando för att köra jobbet. Det här kommandot parsar manifestfilen och skapar de definierade Kubernetes-objekten.

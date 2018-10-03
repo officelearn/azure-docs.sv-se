@@ -5,17 +5,16 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 8/9/2018
+ms.date: 08/09/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 5a93cb7b2abbf0eaa25304f61a8a422edf209959
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: bd7f8748dc5260ed6574a1b48632318e9399bca0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091177"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042129"
 ---
-# <a name="integrate-azure-active-directory-with-aks"></a>Integrera Azure Active Directory med AKS
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) kan konfigureras för att använda Azure Active Directory (AD) för autentisering av användare. I den här konfigurationen måste du logga in på ett AKS-kluster med hjälp av din Azure Active Directory-autentiseringstoken. Dessutom är klusteradministratörer kan konfigurera Kubernetes rollbaserad åtkomstkontroll (RBAC) baserat på en identitet eller directory medlemskap i användargrupper.
 
@@ -120,13 +119,16 @@ Azure-portalen väljer du **Azure Active Directory** > **egenskaper** och anteck
 Använd den [az gruppen skapa] [ az-group-create] kommando för att skapa en resursgrupp för AKS-klustret.
 
 ```azurecli
-az group create --name myAKSCluster --location eastus
+az group create --name myResourceGroup --location eastus
 ```
 
 Distribuera kluster med hjälp av den [az aks skapa] [ az-aks-create] kommando. Ersätt värdena i exemplet-kommandot nedan med de värden som samlas in när du skapar Azure AD-program.
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-keys --enable-rbac \
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --generate-ssh-keys \
   --aad-server-app-id b1536b67-29ab-4b63-b60f-9444d0c15df1 \
   --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
   --aad-client-app-id 8aaf8bd5-1bdd-4822-99ad-02bfaa63eea7 \
@@ -140,7 +142,7 @@ Innan ett Azure Active Directory-konto kan användas med AKS-kluster, måste en 
 Använd först den [aaz aks get-credentials] [ az-aks-get-credentials] med den `--admin` argumentet för inloggning till klustret med administratörsåtkomst.
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
 Använd följande manifestet för att skapa en ClusterRoleBinding för ett Azure AD-konto. Uppdatera användarnamnet med en från Azure AD-klienten. Det här exemplet ger konto fullständig åtkomst till alla namnområden i klustret:
@@ -184,7 +186,7 @@ Läs mer om hur du skyddar ett Kubernetes-kluster med RBAC [med RBAC-auktoriseri
 Hämta sedan kontexten för en icke-användare med hjälp av den [aaz aks get-credentials] [ az-aks-get-credentials] kommando.
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 När alla kubectl-kommandot har körts kan uppmanas du att autentisera med Azure. Följ den på skärmen instruktioner.
@@ -195,18 +197,18 @@ $ kubectl get nodes
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
 
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-42032720-0   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-1   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
+aks-nodepool1-79590246-0   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 ```
 
 När du är klar cachelagras autentiseringstoken. Du är bara reprompted för inloggning när token har upphört att gälla eller Kubernetes-config-fil som skapas på nytt.
 
 Om du ser ett meddelande om auktoriseringsfel när inloggningen, kontrollerar du att användaren du loggar in som är inte en gäst i Azure AD (det är ofta fallet om du använder en federerad inloggning från en annan katalog).
+
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
-
 
 ## <a name="next-steps"></a>Nästa steg
 

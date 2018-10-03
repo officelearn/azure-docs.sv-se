@@ -1,0 +1,77 @@
+items:
+- name: Azure Blockchain Workbench (offentlig förhadsversion)
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Om Azure Blockchain Workbench
+    href: overview.md
+  expanded: true
+- name: Begrepp
+  items:
+  - name: Arkitektur
+    href: architecture.md
+  - name: Integreringsmönster
+    href: integration-patterns.md
+- name: Instruktionsguider
+  items:
+  - name: Distribuera Workbench
+    href: deploy.md
+  - name: Skapa en blockkedjeapp
+    href: create-app.md
+  - name: Hantera Workbench-användare
+    href: manage-users.md
+  - name: Använda en blockkedjeapp
+    href: use.md
+  - name: Använda Workbench-API
+    href: use-api.md
+  - name: Felsöka appar
+    href: troubleshooting.md
+  - name: Använda Workbench-data
+    items:
+    - name: Konfigurera DB-brandväggen
+      href: database-firewall.md
+    - name: Hämta information om DB
+      href: getdb-details.md
+    - name: Använda data i Excel
+      href: data-excel.md
+    - name: Använda data i Power BI
+      href: data-powerbi.md
+    - name: Använda data i SQL Management Studio
+      href: data-sql-management-studio.md
+  expanded: true
+- name: Referens
+  items:
+  - name: Konfiguration
+    href: configuration.md
+  - name: Databasvyer
+    href: database-views.md
+  - name: Meddelande-API
+    href: messages-overview.md
+  - name: REST-API
+    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
+- name: Resurser
+  items:
+  - name: Blogg
+    href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Kodexempel
+    href: https://github.com/Azure-Samples/blockchain
+  - name: Community
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
+  - name: Forum
+    href: https://aka.ms/workbenchforum
+  - name: Produktfeedback
+    href: https://aka.ms/blockchainuservoice
+- name: Lösningsmallar
+  items:
+  - name: Konsortium för bevis på auktoritet för Ethereum
+    href: ../templates/ethereum-poa-deployment.md
+  - name: Konsortium för bevis på arbete för Ethereum
+    href: ../templates/ethereum-deployment.md
+  - name: Konsortium för Hyperledger Fabric
+    href: ../templates/hyperledger-fabric-single-member-blockchain.md
+ms.openlocfilehash: de9b0906450f3ba26ebfac6699c07d93039db6a7
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239786"

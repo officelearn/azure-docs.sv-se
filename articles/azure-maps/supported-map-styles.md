@@ -3,20 +3,20 @@ title: Koppla format som stöds i Azure Maps | Microsoft Docs
 description: Koppla format som stöds av Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/28/2018
+ms.date: 10/02/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8f0910e9040c962bae30a33b91a93e71e692dfdb
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c8edaba8de597e3e76e760e1f5109006338a663c
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713450"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238828"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Koppla format som stöds av Azure Maps
-Azure maps stöd för fyra olika inbyggda Koppla format. Format tillsammans med deras beskrivningar finns nedan.
+Azure maps stöd för fyra olika inbyggda Koppla format. Format med deras beskrivningar finns nedan.
 
 ## <a name="road"></a>Väg
 En **väg** kartan är en standard karta som visar vägar, naturliga och konstgjorda funktioner tillsammans med etiketterna för dessa funktioner.
@@ -37,7 +37,7 @@ Den **satellit** style är en kombination av satellit och Flygfoto bilder.
 * [Satellit-panel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * JS kartkontroll
 
-## <a name="satelliteroadlabels"></a>Satellite_Road_Labels
+## <a name="satelliteroadlabels"></a>satellite_road_labels
 Den här kartan format är en kombination av vägar och etiketter som aktiviteter över satellit och Flygfoto bilder.
 
 ![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
@@ -45,7 +45,7 @@ Den här kartan format är en kombination av vägar och etiketter som aktivitete
 **Tillämpliga API: er:**
 * JS kartkontroll
 
-## <a name="grayscaledark"></a>Grayscale_Dark
+## <a name="grayscaledark"></a>grayscale_dark
 **Gråskala mörk** är en mörk version av formatmallen översikten.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)

@@ -1,5 +1,5 @@
 ---
-title: Skapa lokal integration runtime i Azure Data Factory | Microsoft Docs
+title: Skapa en lokal integration runtime i Azure Data Factory | Microsoft Docs
 description: Lär dig hur du skapar en lokal integration runtime i Azure Data Factory, vilket gör att datafabriker för att få åtkomst till datalager på ett privat nätverk.
 services: data-factory
 documentationcenter: ''
@@ -12,275 +12,269 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 379dd0efb0c40cbab6e356f011938d3e6116117e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8ae97869f51b4ab92b820bb05f1484d986095736
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434202"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042576"
 ---
-# <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Skapa och konfigurera lokal Integration Runtime
-Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Mer information om IR finns [översikten över Integration Runtime](concepts-integration-runtime.md).
+# <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
+Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
 
-En lokal integration runtime är kan köra Kopieringsaktivitet mellan butiker och ett datalager i privata nätverk och skicka transformeringsaktiviteter mot beräkningsresurser i en lokal eller Azure Virtual Network. Installera lokal integration runtime behov på en lokal dator eller en virtuell dator i ett privat nätverk.  
+En lokal integration runtime kan köra Kopieringsaktivitet mellan ett molndatalager och ett datalager i ett privat nätverk och den kan skicka transformeringsaktiviteter mot beräkningsresurser i ett lokalt nätverk eller ett Azure-nätverk. Installationen av en lokal integration runtime måste på en lokal dator eller en virtuell dator (VM) i ett privat nätverk.  
 
-Det här dokumentet beskriver hur du kan skapa och konfigurera lokal IR.
+Det här dokumentet beskriver hur du kan skapa och konfigurera en lokal IR.
 
-## <a name="high-level-steps-to-install-self-hosted-ir"></a>Övergripande steg för att installera lokal IR
-1. Skapa en lokal integration runtime. Du kan använda ADF UI för att skapa lokal IR. Här är ett PowerShell-exempel:
+## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>Övergripande steg för att installera en lokal IR
+1. Skapa Integration Runtime med egen värd. Du kan använda Azure Data Factory-Användargränssnittet för den här uppgiften. Här är ett PowerShell-exempel:
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
-2. [Ladda ned](https://www.microsoft.com/download/details.aspx?id=39717) och installera lokal integration runtime (på lokal dator).
-3. Hämta autentiseringsnyckeln och registrera lokal integration runtime med nyckeln. Här är ett PowerShell-exempel:
+  
+2. [Ladda ned](https://www.microsoft.com/download/details.aspx?id=39717) och installera den lokala integreringskörningen på en lokal dator.
+
+3. Hämta autentiseringsnyckeln och registrera den lokala integreringskörningen med nyckeln. Här är ett PowerShell-exempel:
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
-## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automation"></a>Konfigurera lokal IR på Azure VM med hjälp av Azure Resource Manager-mall (automatiskt)
-Du kan automatisera lokal IR-installationen på en virtuell Azure-dator med hjälp av [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Detta ger ett enkelt sätt att ha en fullt fungerande lokal IR i Azure virtuellt nätverk med hög Avalaibility och skalbarhet (förutsatt att du ställer in antalet noder vara 2 eller högre).
+## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Konfigurera en lokal IR på en Azure virtuell dator med hjälp av en Azure Resource Manager-mall (automatiskt)
+Du kan automatisera lokal IR-installationen på virtuella Azure-datorer med hjälp av [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Den här mallen innehåller ett enkelt sätt att ha en fullt fungerande lokal IR i Azure-nätverk med hög tillgänglighet och skalbarhet (förutsatt att du ställer in antalet noder 2 eller högre).
 
 ## <a name="command-flow-and-data-flow"></a>Kommandot flödet och dataflöde
-När du flyttar data mellan lokala och molnbaserade använder aktiviteten en lokal integration runtime för att överföra data från en lokal datakälla till molnet och tvärtom.
+När du flyttar data mellan lokalt och molnet, aktiviteten använder en lokal integration runtime för att överföra data från en lokal datakälla till molnet och tvärtom.
 
-Här är ett övergripande dataflöde för sammanfattning av stegen för att kopiera med lokal IR:
+Här är ett övergripande dataflöde för sammanfattning av stegen för att kopiera med en lokal IR:
 
 ![Översikt på hög nivå](media\create-self-hosted-integration-runtime\high-level-overview.png)
 
-1. Dataexperter skapar en lokal integration runtime i en Azure-datafabrik med en PowerShell-cmdlet. Azure-portalen stöder för närvarande inte den här funktionen.
-2. Dataexperter skapar en länkad tjänst för ett lokalt datalager genom att ange lokal integration runtime-instans som den ska använda för att ansluta till datalager. Som en del av konfigurationen av den länkade tjänsten, dataexperter använder programmet ' Autentiseringshanteraren ”(för närvarande stöds inte) för att ställa in typer av autentisering och autentiseringsuppgifter. I dialogrutan med Nätverksautentiseringsuppgifter manager program kommunicerar med datalagret för att testa anslutningen och den lokala integreringskörningen att spara autentiseringsuppgifter.
-   - Lokal integration runtime-noden krypterar autentiseringsuppgifter med Windows Data Protection Application Programming Interface (DPAPI) och sparar den lokalt. Om flera noder ställs in för hög tillgänglighet, synkroniseras ytterligare autentiseringsuppgifterna på andra noder. Varje nod krypterar den med hjälp av DPAPI och lagrar dem lokalt. Synkroniseringen av autentiseringsuppgifter är transparent för data-utvecklare och hanteras av lokal IR.    
-   - Data Factory-tjänsten kommunicerar med den lokala integreringskörningen för schemaläggning och hantering av jobb via **kontrollkanal** som använder en delad Azure service bus-kö. När en aktivitet jobbet måste köras, placerar Data Factory begäran tillsammans med eventuella autentiseringsuppgifter (om autentiseringsuppgifter inte lagras redan på den lokala integreringskörningen). Lokal integration runtime startar jobbet efter avsökning kön.
-   - Lokala integreringskörningen kopierar data från en lokal databas till en molnlagring, och vice versa beroende på konfigureringen av kopieringsaktiviteten i datapipelinen. För det här steget kommunicerar direkt lokal integration runtime med molnbaserade storage-tjänster som Azure Blob Storage via en säker kanal (HTTPS).
+1. Data-utvecklare skapar en lokal integration runtime i en Azure-datafabrik med hjälp av en PowerShell-cmdlet. Azure-portalen stöder för närvarande inte den här funktionen.
+2. Data-utvecklare skapar en länkad tjänst för ett lokalt datalager genom att ange lokal integration runtime-instans som den ska använda för att ansluta till datalager. Som en del av konfigurationen av den länkade tjänsten använder data utvecklaren Autentiseringshanteraren programmet (för närvarande stöds inte) för att ställa in typer av autentisering och autentiseringsuppgifter. Programmet Autentiseringshanteraren kommunicerar med datalagret för att testa anslutningen och den lokala integreringskörningen att spara autentiseringsuppgifter.
+3. Lokal integration runtime-noden krypterar autentiseringsuppgifterna med hjälp av Windows Data Protection Application Programming Interface (DPAPI) och sparar autentiseringsuppgifter lokalt. Om flera noder ställs in för hög tillgänglighet, synkroniseras ytterligare autentiseringsuppgifterna på andra noder. Varje nod krypterar autentiseringsuppgifterna med hjälp av DPAPI och lagrar dem lokalt. Synkroniseringen av autentiseringsuppgifter är transparent för data-utvecklare och hanteras av lokal IR.    
+4. Data Factory-tjänsten kommunicerar med den lokala integreringskörningen för schemaläggning och hantering av jobb via en *kontrollkanal* som använder en delad Azure Service Bus-kö. När en aktivitet jobbet måste köras, placerar Data Factory begäran tillsammans med eventuella autentiseringsuppgifter (om autentiseringsuppgifter inte lagras redan på den lokala integreringskörningen). Lokal integration runtime startar jobbet efter avsökning kön.
+5. Den lokala integreringskörningen kopierar data från en lokal databas till en molnlagring, och vice versa beroende på konfigureringen av kopieringsaktiviteten i datapipelinen. För det här steget kommunicerar lokal integration runtime direkt med molnbaserade storage-tjänster som Azure Blob storage via en säker kanal (HTTPS).
 
-## <a name="considerations-for-using-self-hosted-ir"></a>Att tänka på när lokal IR
+## <a name="considerations-for-using-a-self-hosted-ir"></a>Överväganden för att använda en lokal IR
 
-- En enda lokal integration runtime kan användas för flera lokala datakällor. En **enda lokal integration runtime kan** delas med en annan data factory inom samma Azure Active Directory-klientorganisation. Mer information finns i [delning av en lokal integration runtime](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
-- Du kan ha **endast en instans av lokal integration runtime** installeras på en enda dator. Anta att du har två datafabriker som behöver åtkomst till lokala datakällor kan behöva du installera lokal integration runtime på två lokala datorer. Med andra ord är en lokal integration runtime knuten till en specifik data factory
-- Den **lokal integration runtime behöver inte finnas på samma dator som datakällan**. Men minskar integration runtime med egen värd närmare datakällan tiden för lokal integration runtime kan ansluta till datakällan. Vi rekommenderar att du installerar den lokala integreringskörningen på en dator som skiljer sig från det som är värd för en lokal datakälla. När lokal integration runtime och datakällan finns på olika datorer, lokal integration runtime inte konkurrerar om resurser med datakällan.
-- Du kan ha **flera IR-körningar på olika datorer som ansluter till samma lokala datakälla**. Exempelvis kan du kan ha två lokal integration runtime som betjänar två datafabriker men samma lokala datakälla har registrerats med båda datafabriker.
-- Om du redan har en gateway som installerats på din dator fungerar en **Power BI** scenariot installerar ett **separat lokal integration runtime för Azure Data Factory** på en annan dator.
-- Lokal integration runtime måste användas för att stödja integrering i Azure Virtual Network.
-- Hantera din datakälla som en lokal datakälla (som finns bakom en brandvägg) även när du använder **ExpressRoute**. Använd lokal integration runtime för att upprätta en anslutning mellan tjänsten och datakällan.
-- Du måste använda den lokala integreringskörningen även om datalagret finns i molnet på ett **Azure IaaS-dator**.
-- Uppgifter kan misslyckas på en lokal Integration Runtime som installeras på en Windows-Server på vilken FIPS-kompatibel kryptering är aktiverat. Undvik problemet genom att inaktivera FIPS-kompatibel kryptering på servern. Om du vill inaktivera FIPS-kompatibel kryptering, kan du ändra följande registervärde från 1 (aktiverad) på 0 (inaktiverad): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
+- En enda lokal integration runtime kan användas för flera lokala datakällor. En enda lokal integration runtime kan delas med en annan data factory inom samma Azure Active Directory-klientorganisation. Mer information finns i [delning av en lokal integration runtime](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
+- Du kan ha endast en instans av en lokal integration runtime som installeras på en enda dator. Om du har två datafabriker som behöver åtkomst till lokala datakällor måste du installera den lokala integreringskörningen på två lokala datorer. Med andra ord är en lokal integration runtime kopplad till en specifik data factory.
+- Lokal integration runtime behöver inte finnas på samma dator som datakällan. Men minskar med den lokala integreringskörningen närmare datakällan tiden för lokal integration runtime kan ansluta till datakällan. Vi rekommenderar att du installerar den lokala integreringskörningen på en dator som skiljer sig från det som är värd för en lokal datakälla. När lokal integration runtime och datakällan finns på olika datorer, lokal integration runtime inte konkurrerar om resurser med datakällan.
+- Du kan ha flera IR-körningar på olika datorer som ansluter till samma lokala datakällan. Till exempel kanske du har två IR-körningar som betjänar två datafabriker, men samma lokala datakälla har registrerats med båda datafabriker.
+- Om du redan har ingen gateway installerad på datorn för att hantera ett scenario med Power BI kan du installera en separat lokal integration runtime för Azure Data Factory på en annan dator.
+- Den lokala integreringskörningen måste användas för att stödja dataintegrering inom en Azure-nätverk.
+- Hantera din datakälla som en lokal datakälla som finns bakom en brandvägg, även om du använder Azure ExpressRoute. Använd lokal integration runtime för att upprätta en anslutning mellan tjänsten och datakällan.
+- Även om datalagret är i molnet på en virtuell Azure IaaS-dator måste du använda en lokal integration runtime.
+- Uppgifter kan misslyckas på en lokal integration runtime som är installerad på en Windows-server på vilken FIPS-kompatibel kryptering är aktiverat. Undvik problemet genom att inaktivera FIPS-kompatibel kryptering på servern. Om du vill inaktivera FIPS-kompatibel kryptering, kan du ändra följande registervärde från 1 (aktiverad) på 0 (inaktiverad): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Den stöds **operativsystemet** versioner är Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. Installationen av den lokala integreringskörningen på en **domänkontrollant stöds inte**.
-- **.NET framework 4.6.1 eller senare** krävs. Om du installerar lokal integration runtime på en Windows 7-dator, installera .NET Framework 4.6.1 eller senare. Se [systemkrav för .NET Framework](/dotnet/framework/get-started/system-requirements) mer information.
-- Den rekommenderade **configuration** för lokal integration runtime datorn är minst 2 GHz, 4 kärnor, 8 GB RAM-minne och 80 GB-disk.
-- Om värddatorn i viloläge, svarar lokal integration runtime inte på databegäranden. Därför konfigurera en lämplig energischema på datorn innan du installerar den lokala integreringskörningen. Om datorn är konfigurerad för att viloläge, anvisningarna lokal integration runtime för ett meddelande.
+- Versionerna av operativsystem som stöds är Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016. Installationen av den lokala integreringskörningen på en domänkontrollant stöds inte.
+- .NET framework 4.6.1 eller senare krävs. Om du installerar den lokala integreringskörningen på en Windows 7-dator, installera .NET Framework 4.6.1 eller senare. Se [systemkrav för .NET Framework](/dotnet/framework/get-started/system-requirements) mer information.
+- Den rekommenderade konfigurationen för den lokala installationen av integration runtime-datorn är minst 2 GHz, fyra kärnor, 8 GB RAM och en 80GB-disk.
+- Om värddatorn i viloläge, svarar lokal integration runtime inte på databegäranden. Konfigurera en lämplig energischema på datorn innan du installerar den lokala integreringskörningen. Om datorn är konfigurerad för att viloläge, anvisningarna lokal integration runtime för ett meddelande.
 - Du måste vara administratör på datorn för att installera och konfigurera den lokala integreringskörningen har.
-- Som kopiera aktivitet körs sker på en specifik frekvens, följer Resursanvändning (processor, minne) på datorn också samma mönster med högsta och inaktivitetstid. Resursutnyttjande beror också kraftigt på mängden data som flyttas. När flera kopia jobb pågår, visas gå upp under Högbelastningstider Resursanvändning.
+- Kopiera aktivitetskörningar sker på en specifik frekvens. Resursanvändning (processor, minne) på datorn följer samma mönster med högsta och inaktivitetstid. Resursutnyttjande beror också kraftigt på mängden data som flyttas. När flera kopia jobb pågår, visas gå upp under Högbelastningstider Resursanvändning.
 
 ## <a name="installation-best-practices"></a>Metodtips för installation
-Lokal integration runtime kan installeras genom att ladda ned en MSI-installationspaketet från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Se [flytta data mellan lokala och molnbaserade artikeln](tutorial-hybrid-copy-powershell.md) stegvisa instruktioner.
+Du kan installera den lokala integreringskörningen genom att ladda ned en MSI-installationspaketet från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Se [flytta data mellan lokala och molnbaserade artikeln](tutorial-hybrid-copy-powershell.md) stegvisa instruktioner.
 
-- Konfigurera energischema på värddatorn för den lokala integreringskörningen så att datorn inte försättas i viloläge. Om värddatorn i viloläge, aktiveras den lokala integreringskörningen offline.
+- Konfigurera ett energischema på värddatorn för den lokala integreringskörningen så att datorn inte försättas i viloläge. Om värddatorn i viloläge, kopplas lokal integration runtime från.
 - Säkerhetskopiera autentiseringsuppgifter som är associerade med den lokala integreringskörningen regelbundet.
 
-## <a name="install-and-register-self-hosted-ir-from-download-center"></a>Installera och registrera lokal IR från download center
+## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Installera och registrera lokal IR från Download Center
 
-1. Gå till [hämtningssidan för Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Klicka på **hämta**, Välj lämplig version (**32-bitars** vs. **64-bitars**), och klicka på **nästa**.
-3. Kör den **MSI** direkt eller spara den på hårddisken och kör.
-4. På den **Välkommen** väljer en **språk** klickar du på **nästa**.
-5. **Acceptera** licensavtalet och klicka på **nästa**.
-6. Välj **mappen** installera den lokala integreringskörningen och klicka **nästa**.
-7. På den **redo att installera** klickar du på **installera**.
+1. Gå till den [hämtningssidan för Microsoft integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
+2. Välj **hämta**, Välj lämplig version (**32-bitars** eller **64-bitars**), och välj **nästa**.
+3. Kör MSI-filen direkt, eller spara det på hårddisken och kör den.
+4. På den **Välkommen** , Välj ett språk och välj **nästa**.
+5. Acceptera licensvillkoren för programvara från Microsoft och välj **nästa**.
+6. Välj **mappen** att installera den lokala integreringskörningen och välj **nästa**.
+7. På den **redo att installera** väljer **installera**.
 8. Klicka på **Slutför** att slutföra installationen.
-9. Hämta nyckel för autentisering med Azure PowerShell. PowerShell-exempel för att hämta autentiseringsnyckel:
+9. Hämta autentiseringsnyckel för med hjälp av Azure PowerShell. Här är ett PowerShell-exempel för att hämta nyckeln:
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. På den **registrera Integration Runtime (lokal installation)** sidan för Microsoft Integration Runtime Configuration Manager som körs på din dator, gör följande:
-    1. Klistra in den **autentiseringsnyckeln** i textområdet.
-    2. Du kan också klicka på **Show autentiseringsnyckeln** att se nyckeltexten.
-    3. Klicka på **registrera**.
+
+    a. Klistra in nyckeln i textområdet.
+
+    b. Alternativt kan du välja **Show autentiseringsnyckeln** att se nyckeltexten.
+
+    c. Välj **Registrera**.
 
 
 ## <a name="high-availability-and-scalability"></a>Hög tillgänglighet och skalbarhet
-En lokal Integration Runtime kan kopplas till flera lokala datorer. Dessa datorer kallas noder. Du kan ha upp till fyra noder som är associerade med en lokal Integration Runtime. Fördelarna med att ha flera noder (lokala datorer med installerad gateway) för en logisk gateway är:
-1. Högre tillgänglighet för lokal Integration Runtime så att den inte längre felpunkt i Big Data-lösning eller molnet dataintegreringen med Azure Data Factory, att säkerställa affärskontinuitet med upp till 4 noder.
-2. Förbättrad prestanda och genomflöde under dataförflyttning mellan lokala och molnbaserade datalager. Få mer information om [prestandajämförelser](copy-activity-performance.md).
+En lokal integration runtime kan associeras med flera lokala datorer. Dessa datorer kallas noder. Du kan ha upp till fyra noder som är associerade med en lokal integration runtime. Fördelarna med att ha flera noder (lokala datorer med en installerad gateway) för en logisk gateway är:
+* Högre tillgänglighet för lokal integration runtime så att den är inte längre felpunkt i dina stordata lösning eller molnet dataintegrering med Azure Data Factory, att säkerställa affärskontinuitet med upp till fyra noder.
+* Förbättrad prestanda och genomflöde under dataförflyttning mellan lokala och molnbaserade datalager. Få mer information om [prestandajämförelser](copy-activity-performance.md).
 
-Du kan associera flera noder genom att helt enkelt installera lokal Integration Runtime-programvara från den [hämtningssidan](https://www.microsoft.com/download/details.aspx?id=39717) och genom att registrera den med någon av autentiseringsnycklar som hämtats från Ny AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet som beskrivs i den [självstudien](tutorial-hybrid-copy-powershell.md)
-
-> [!NOTE]
-> Du behöver inte skapa en ny lokal Integration Runtime för att associera varje nod. Du kan installera den lokala integreringskörningen på en annan dator och registrera den med samma nyckel för autentisering. 
+Du kan associera flera noder genom att installera lokal integration runtime-programvara från den [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Sedan, registrera den med någon av autentiseringsnycklarna har hämtats från den **New-AzureRmDataFactoryV2IntegrationRuntimeKey** cmdlet, enligt beskrivningen i den [självstudien](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
-> Innan du lägger till en annan nod för **hög tillgänglighet och skalbarhet**, kontrollera att **”fjärråtkomst till intranät'** alternativet är **aktiverat** på 1 nod (Microsoft Konfigurationshanteraren för integration Runtime -> Inställningar -> Remote åtkomst till intranät). 
+> Du behöver inte skapa nya lokal integration runtime för att associera varje nod. Du kan installera den lokala integreringskörningen på en annan dator och registrera den med hjälp av samma autentiseringsnyckeln. 
+
+> [!NOTE]
+> Innan du lägger till en annan nod för hög tillgänglighet och skalbarhet, kontrollera att den **fjärråtkomst till intranät** är aktiverat på den första noden (**Konfigurationshanteraren för Microsoft Integration Runtime**  >  **Inställningar** > **fjärråtkomst till intranät**). 
 
 ### <a name="scale-considerations"></a>Skala överväganden
 
 #### <a name="scale-out"></a>Skala ut
 
-När den **tillgängligt minne på den lokala Integreringskörningen är lågt** och **processoranvändningen är hög**, lägga till en ny nod hjälper till att skala ut belastningen över datorer. Om aktiviteter som misslyckas på grund av timeout eller egenvärdbaserade IR-noden är offline, hjälper det om du lägger till en nod till gatewayen.
+När det tillgängliga minnet på den lokala Integreringskörningen är låg och CPU-användning är hög, kan lägga till en ny nod skala ut belastningen över datorer. Om aktiviteter som misslyckas eftersom de når sin tidsgräns eller eftersom lokal IR-noden är offline, hjälper det om du lägger till en nod till gatewayen.
 
 #### <a name="scale-up"></a>Skala upp
 
-När tillgängligt minne och CPU används inte bra, men körningen samtidiga jobb når gränsen, ska du skala upp genom att öka antalet samtidiga jobb som kan köras på en nod. Du kanske också vill skala upp när aktiviteter Tidsgränsen nåddes för eftersom lokal IR är överbelastad. I följande bild visas kan du öka maximal kapacitet för en nod.  
+När tillgängligt minne och CPU används inte bra, men körningen av samtidiga jobb når gränsen, ska du skala upp genom att öka antalet samtidiga jobb som kan köras på en nod. Du kanske också vill skala upp när aktiviteter Tidsgränsen nåddes för eftersom lokal IR är överbelastad. Du kan öka den maximala kapaciteten för en nod som du ser i följande bild:  
 
-![](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Öka samtidiga jobb som kan köras på en nod](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>Krav för TLS/SSL-certifikat
 
 Här följer kraven för TLS/SSL-certifikatet som används för att säkra kommunikationen mellan integration runtime-noder:
 
-- Certifikatet måste vara ett offentligt betrott X509 v3-certifikat. Vi rekommenderar att du använder certifikat som utfärdas av en offentlig (tredje parts) certifikatutfärdare (CA).
+- Certifikatet måste vara ett offentligt betrott X509 v3-certifikat. Vi rekommenderar att du använder certifikat som utfärdas av en offentlig (partner) certifikatutfärdare (CA).
 - Det här certifikatet måste lita på varje nod för integration runtime.
-- SAN-certifikat rekommenderas inte eftersom det sista objektet i Alternativt ämnesnamn används och alla andra kommer att ignoreras på grund av aktuell begränsning. T.ex. du har ett SAN-certifikat vars SAN är **node1.domain.contoso.com** och **node2.domain.contoso.com**, du kan bara använda det här certifikatet på datorn vars FQDN är **node2.domain.contoso.com**.
-- Stöder alla nyckelstorlek som stöds av Windows Server 2012 R2 för SSL-certifikat.
+- Vi rekommenderar inte alternativt namn på CERTIFIKATMOTTAGARE certifikat eftersom endast den sista punkten SAN ska användas och alla andra kommer att ignoreras på grund av nuvarande begränsningar. Till exempel om du har ett SAN-certifikat som SAN är **node1.domain.contoso.com** och **node2.domain.contoso.com**, du kan använda det här certifikatet endast på en dator vars FQDN är  **node2.domain.contoso.com**.
+- Certifikatet har stöd för alla nyckelstorlek som stöds av Windows Server 2012 R2 för SSL-certifikat.
 - Certifikat med CNG-nycklar stöds inte.  
 
-## <a name="sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories"></a>Dela lokal Integration Runtime (IR) med flera olika datafabriker för
+## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Dela en lokal integration runtime med flera olika datafabriker för
 
-Du kan återanvända en befintlig lokal integration runtime-infrastruktur kan du redan har installationen i en datafabrik. På så sätt kan du skapa en **länkad lokal integration runtime** i en annan data factory genom att referera till en redan befintlig lokal IR (delad).
+Du kan återanvända en befintlig lokal integration runtime-infrastruktur som du redan har konfigurerat i en datafabrik. Detta kan du skapa en *länkad lokal integration runtime* i en annan data factory genom att referera till en befintlig lokal IR (delad).
 
-#### <a name="terminologies"></a>**Termer**
+### <a name="terminology"></a>Terminologi
 
-- **Delade IR** – ursprungligt lokal IR som körs på en fysisk infrastruktur.  
-- **Länkad IR** – The IR som refererar till en annan delad IR. Detta är en logisk IR och infrastrukturen i en annan lokal IR (delad).
+- **Delade IR**: ursprungligt lokal IR som körs på en fysisk infrastruktur.  
+- **Länkad IR**: The IR som refererar till en annan delad IR. Detta är en logisk IR och infrastrukturen i en annan lokal IR (delad).
 
-#### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Hög nivå stegen för att skapa en länkad lokal IR
+### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Anvisningar för att skapa en länkad lokal IR
 
-I den lokala Integreringskörningen som ska delas
+1. I den lokala Integreringskörningen som ska delas, bevilja behörighet till datafabriken som du vill skapa den länkade IR. 
 
-1. Bevilja behörighet till Datafabriken som du vill skapa den länkade IR. 
+   ![Knappen för att bevilja behörighet i delningsfliken](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
-   ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![Val för att tilldela behörigheter](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
 
-   ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+2. Observera resurs-ID för den lokala Integreringskörningen som ska delas.
 
-2. Obs den **resurs-ID** av lokal IR som ska delas.
+   ![Platsen för resurs-ID](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
 
-   ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+3. I data factory som behörigheten har beviljats, skapa en ny lokal IR (länk) och ange resurs-ID.
 
-I Data Factory som behörigheten har beviljats,
+   ![Knappen för att skapa en länkad lokal integration runtime](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
 
-3. Skapa en ny lokal IR (länk) och ange ovanstående **resurs-ID**
+   ![Rutorna för namn och resurs-ID](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
 
-   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
-
-   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
-
-#### <a name="monitoring"></a>Övervakning 
+### <a name="monitoring"></a>Övervakning 
 
 - **Delade IR**
 
-  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Val för att söka efter en delad integration runtime](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
 
-  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![Flik för att övervaka](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
 
 - **Länkade IR**
 
-  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Val för att hitta en länkad integration runtime](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
 
-  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![Flik för att övervaka](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
 
-#### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Kända begränsningar i lokal IR-delning
+### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Kända begränsningar i lokal IR-delning
 
-1. Standardvärdet för länkade IR som kan skapas under en enda lokal IR är **20**. Kontakta supporten om du behöver fler. 
+* Data factory som en länkad IR ska skapas måste ha en [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Som standard datafabriker skapas i Azure portal eller PowerShell-cmdlets har en MSI som skapats implicit. Men när en datafabrik har skapats via en Azure Resource Manager-mall eller SDK, den **identitet** egenskapen måste anges uttryckligen att säkerställa att Azure Resource Manager skapar en datafabrik som innehåller en MSI. 
 
-2. Data factory som är länkade IR som ska skapas måste ha en MSI ([hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Som standard datafabriker skapas i Azure-portalen eller PowerShell-cmdlets har skapats implicit MSI. Men i vissa fall när datafabriken har skapats med hjälp av en Azure Resorce Manager-mall eller SDK, den ”**identitet**” **egenskapen måste anges** explicit för att säkerställa Azure Resorce Manager skapar en datafabrik som innehåller en MSI. 
+* Azure Data Factory .NET SDK som stöder den här funktionen är version 1.1.0 eller senare.
 
-3. Lokal IR-version måste vara lika med eller större än 3.8.xxxx.xx. . [Hämta den senaste versionen](https://www.microsoft.com/download/details.aspx?id=39717) av lokal IR
+* Azure PowerShell-version som stöder den här funktionen är 6.6.0 eller senare (AzureRM.DataFactoryV2, 0.5.7 eller senare).
 
-4. Data factory som är länkade IR som ska skapas måste ha en MSI ([hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Som standard datafabriker som skapats i Azure portal eller PowerShell-cmdlets har MSI ([hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
-  skapas implicit datafabriker som skapats med Azure Resource Manager-mall eller SDK kräver dock ”**identitet**” egenskapen anges för att säkerställa att en MSI har skapats.
+* Användaren måste rollen ägare eller ärvda ägarrollen i datafabriken där det finns delad IR för att ge behörighet. 
 
-5. ADF .net SDK som stöder den här funktionen är version > = 1.1.0
-
-6. Azure PowerShell som stöder den här funktionen är version > = 6.6.0 (AzureRM.DataFactoryV2 > = 0.5.7)
-
-7. Om du vill bevilja behörighet, användaren kräver ”**ägare**” roll eller ärvs ”**ägare**” roll i Data Factory där delade IR finns. 
-
-8. För Active Directory  **[gästanvändare](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)**, sökfunktionen (lista alla Datafabriker med hjälp av sökordet) i Användargränssnittet [fungerar inte](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Men så länge som gästanvändare är det ”**ägare**” av Data Factory, de kan dela IR utan att sökningen genom att skriva den hanterade tjänstidentiteten för Data Factory IR måste delas i direkt ”**Tilldela Pemission**”textrutan och välja”**Lägg till**”i ADF UI. 
+* För Active Directory [gästanvändare](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), sökfunktionen (lista alla datafabriker med hjälp av en sökordet) i Användargränssnittet [fungerar inte](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Men så länge som gästanvändare är ägare till data factory, de kan dela IR utan att sökningen genom att direkt skriva MSI på data factory IR måste delas i den **tilldela behörighet** textruta och att välja **Lägg till** i Användargränssnittet för Azure Data Factory. 
 
   > [!NOTE]
-  > Den här funktionen är endast tillgänglig i Azure Data Factory version 2 
+  > Den här funktionen är endast tillgänglig i Azure Data Factory V2. 
 
-## <a name="system-tray-icons-notifications"></a>Ikoner i systemfältet / meddelanden
+## <a name="notification-area-icons-and-notifications"></a>Ikoner i meddelandefältet och meddelanden
 
-Om du flyttar markören över system systemfältet ikonen/meddelandet hittar du information om tillståndet för lokal integration runtime.
+Om du flyttar du markören över ikonen eller meddelande i meddelandefältet, kan du hitta information om tillståndet för lokal integration runtime.
 
-![Systemfältet systemmeddelanden](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Meddelanden i meddelandefältet](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>Portar och brandvägg
-Det finns två brandväggar som du behöver tänka på: **företagsbrandväggen** som körs på den centrala routern för organisationen, och **Windows-brandväggen** konfigurerad som en daemon på den lokala datorn där den lokal integration runtime har installerats.
+Det finns två brandväggar att tänka på: den *företagsbrandväggen* som körs på den centrala routern för organisationen, och *Windows-brandväggen* konfigurerad som en daemon på den lokala datorn där den lokal integration runtime har installerats.
 
 ![Brandvägg](media\create-self-hosted-integration-runtime\firewall.png)
 
-Vid **företagets brandvägg** nivån, du behöver konfigurera följande domäner och utgående portar:
+På den *företagets brandvägg* nivå, måste du konfigurera följande domäner och utgående portar:
 
 Domännamn | Portar | Beskrivning
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443 | Används för kommunikation med Data Movement Service-serverdelen
-*.core.windows.net | 443 | Används för mellanlagrad kopiering med hjälp av Azure Blob (om konfigurerad)
-*.frontend.clouddatahub.net | 443 | Används för kommunikation med Data Movement Service-serverdelen
+*.servicebus.windows.net | 443 | Används för kommunikation med av backend-data movement service
+*.core.windows.net | 443 | Används för mellanlagrad kopiering via Azure Blob-lagringen (om konfigurerad)
+*.frontend.clouddatahub.net | 443 | Används för kommunikation med av backend-data movement service
 Download.microsoft.com | 443 | Används för att ladda ned uppdateringar
 
-Vid **Windows-brandväggen** nivå (datornivå), dessa utgående portar aktiveras normalt. Om inte, du kan konfigurera de domäner och portar i enlighet med detta på egenvärdbaserade datorn.
+På den *Windows-brandväggen* nivå (datornivå), dessa utgående portar aktiveras normalt. Om inte, du kan konfigurera de domäner och portar i enlighet med detta på en lokal integration runtime-dator.
 
 > [!NOTE]
-> Baserat på din källa / mottagare, du kan behöva godkänna ytterligare domäner och utgående portar i företagets/Windows-brandväggen.
+> Baserat på din källa och mottagare, kan du behöva godkänna ytterligare domäner och utgående portar i företagets brandvägg eller Windows-brandväggen.
 >
-> För vissa Molndatabaser (till exempel: Azure SQL Database, Azure Data Lake osv), du kan behöva listan över godkända IP-adressen för lokal integration runtime-dator på sina brandväggskonfigurationen.
+> För vissa molndatabaser (till exempel Azure SQL Database och Azure Data Lake), kan du behöva vitlista IP-adresser för lokal integration runtime-datorer på sina brandväggskonfigurationen.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Kopieringsdata från en källa till en mottagare
 Kontrollera att brandväggsreglerna har aktiverats korrekt på företagets brandvägg och Windows-brandväggen på den lokala installation av integration runtime-datorn, och den datalagringen själva. Om du aktiverar de här reglerna kan den lokala integreringskörningen att ansluta till både källa och mottagare har. Aktivera regler för varje datalager som är inblandade i kopieringsåtgärden.
 
-Till exempel att kopiera från en **lokala datalager till en Azure SQL Database-mottagare eller en Azure SQL Data Warehouse sink**, gör följande:
+Till exempel för att kopiera från ett lokalt datalager till en Azure SQL Database-mottagare eller en Azure SQL Data Warehouse-mottagaren, gör du följande:
 
-- Tillåt utgående **TCP** kommunikation på port **1433** för både Windows-brandväggen och företagets brandvägg.
-- Konfigurera brandväggsinställningarna för Azure SQL-server för att lägga till IP-adressen för den lokala installation av integration runtime-datorn i listan över tillåtna IP-adresser.
+1. Tillåt utgående TCP-kommunikation på port 1433 för både Windows-brandväggen och företagets brandvägg.
+2. Konfigurera brandväggsinställningarna för Azure SQL-databasen för att lägga till IP-adressen för den lokala installation av integration runtime-datorn i listan över tillåtna IP-adresser.
 
 > [!NOTE]
-> Om din brandvägg inte tillåter utgående port 1433, lokal integration runtime kan inte komma åt Azure SQL direkt. I det här fallet kan du använda [mellanlagrad kopiering](copy-activity-performance.md) till SQL Azure-databas / SQL Azure DW. I det här scenariot kan kräver du bara HTTPS (port 443) för dataförflyttning.
+> Om din brandvägg inte tillåter utgående port 1433, lokal integration runtime kan inte komma åt Azure SQL-databasen direkt. I det här fallet kan du använda en [mellanlagrad kopiering](copy-activity-performance.md) till Azure SQL Database och Azure SQL Data Warehouse. I det här scenariot skulle du behöver endast HTTPS (port 443) för dataförflyttning.
 
 
 ## <a name="proxy-server-considerations"></a>Proxyserver
-Om nätverksmiljön företagets använder en proxyserver för att få åtkomst till internet, kan du konfigurera lokal integration runtime för att använda rätt proxyinställningar. Du kan ange proxyservern under fasen för första registreringen.
+Om nätverksmiljön företagets använder en proxyserver för att få åtkomst till internet, kan du konfigurera den lokala integreringskörningen för att använda rätt proxyinställningar. Du kan ange proxyservern under fasen för första registreringen.
 
 ![Ange proxy](media\create-self-hosted-integration-runtime\specify-proxy.png)
 
-Lokal integration runtime använder proxyservern för att ansluta till Molntjänsten. Klicka på Ändra-länk under installationen. Du ser en dialogruta för proxy-inställningen.
+Lokal integration runtime använder proxyservern för att ansluta till Molntjänsten. Välj **Ändra-länk** under installationen. Du ser dialogrutan proxy-inställning.
 
 ![Ställ in proxy](media\create-self-hosted-integration-runtime\set-http-proxy.png)
 
 Det finns tre alternativ:
 
-- **Använd inte proxy**: lokal integration runtime inte uttryckligen använder alla proxy för att ansluta till molntjänster.
-- **Använd systemproxy**: lokal installation av integration runtime använder Proxyinställningen som har konfigurerats för diahost.exe.config och diawp.exe.config. Om ingen proxy har konfigurerats i diahost.exe.config och diawp.exe.config, ansluter lokal integration runtime till Molntjänsten direkt utan att gå via proxy.
-- **Använd anpassad proxy**: konfigurera HTTP-proxyinställning för lokal integration runtime, istället för att använda konfigurationer i diahost.exe.config och diawp.exe.config. Adress och Port krävs. Användarnamn och lösenord är valfria beroende på inställningen för autentisering av din proxyserver. Alla inställningar är krypterad med Windows DPAPI på den lokala integreringskörningen och lagras lokalt på datorn.
+- **Använd inte proxy**: den lokala integreringskörningen inte uttryckligen använder alla proxy för att ansluta till molntjänster.
+- **Använd systemproxy**: den lokala integreringskörningen använder Proxyinställningen som är konfigurerade i diahost.exe.config och diawp.exe.config. Om ingen proxy har konfigurerats i diahost.exe.config och diawp.exe.config, ansluter lokal integration runtime till Molntjänsten direkt utan att gå via en proxyserver.
+- **Använd anpassad proxy**: konfigurera HTTP-proxyinställning för lokal integration runtime, istället för att använda konfigurationer i diahost.exe.config och diawp.exe.config. **Adress** och **Port** krävs. **Användarnamn** och **lösenord** är valfria beroende på inställningen för autentisering av din proxyserver. Alla inställningar är krypterad med Windows DPAPI på den lokala integreringskörningen och lagras lokalt på datorn.
 
 Integration runtime värdtjänsten startas om automatiskt när du har sparat de uppdaterade proxyinställningarna.
 
-När lokal integration runtime har registrerats, om du vill visa eller uppdatera proxyinställningarna, använda Konfigurationshanteraren för Integration Runtime.
+När den lokala integreringskörningen har registrerats, om du vill visa eller uppdatera proxyinställningarna, använda Konfigurationshanteraren för Integration Runtime.
 
-1. Starta **Konfigurationshanteraren för Microsoft Integration Runtime**.
-   - Växla till fliken **Settings** (Inställningar).
-   - Klicka på **ändra** länken i **HTTP-Proxy** avsnitt för att starta den **ange HTTP-Proxy** dialogrutan.
-   - När du klickar på den **nästa** knappen, visas en varningsdialogruta som ber om din tillåtelse för att spara Proxyinställningen och starta om värdtjänsten för Integration Runtime.
+1. Öppna **Konfigurationshanteraren för Microsoft Integration Runtime**.
+2. Växla till fliken **Settings** (Inställningar).
+3. Välj den **ändra** länken i den **HTTP-Proxy** avsnitt för att öppna den **ange HTTP-Proxy** dialogrutan.
+4. Välj **Nästa**. Du kan sedan visas en varning som frågar efter din tillåtelse för att spara Proxyinställningen och starta om värdtjänsten för integration runtime.
 
-Du kan visa och uppdatera HTTP-proxy med verktyget Configuration Manager.
+Du kan visa och uppdatera HTTP-proxy med hjälp av verktyget Configuration Manager.
 
 ![Visa proxy](media\create-self-hosted-integration-runtime\view-proxy.png)
 
 > [!NOTE]
-> Om du har konfigurerat en proxyserver med NTLM-autentisering, Integration runtime värdtjänsten körs under domänkontot. Om du ändrar lösenordet för domänkontot senare, Kom ihåg att uppdatera konfigurationsinställningarna för tjänsten och starta om den i enlighet med detta. På grund av det här kravet föreslår vi att du använder en särskild domän-konto för att få åtkomst till proxyservern kräver inte att uppdatera lösenordet för ofta.
+> Om du har konfigurerat en proxyserver med NTLM-autentisering körs värdtjänsten för integration runtime under domänkontot. Om du ändrar lösenordet för domänkontot senare, Kom ihåg att uppdatera konfigurationsinställningarna för tjänsten och starta om den i enlighet med detta. Vi rekommenderar att du använder en särskild domän-konto för att få åtkomst till proxyservern som inte behöver du uppdatera lösenordet ofta att på grund av det här kravet.
 
 ### <a name="configure-proxy-server-settings"></a>Konfigurera inställningar för proxyserver
 
-Om du väljer **Använd systemproxy** ställa in för HTTP-proxy, lokal integration runtime använder Proxyinställningen i diahost.exe.config och diawp.exe.config. Om ingen proxy har angetts i diahost.exe.config och diawp.exe.config ansluter lokal integration runtime till Molntjänsten direkt utan att gå via proxy. Följande procedur innehåller instruktioner för att uppdatera filen diahost.exe.config.
+Om du väljer den **Använd systemproxy** ställa in för HTTP-proxy, lokal integration runtime använder Proxyinställningen i diahost.exe.config och diawp.exe.config. Om ingen proxy har angetts i diahost.exe.config och diawp.exe.config ansluter lokal integration runtime till Molntjänsten direkt utan att gå via proxy. Följande procedur innehåller instruktioner för att uppdatera filen diahost.exe.config:
 
 1. Skapa en säker kopia av C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config att säkerhetskopiera den ursprungliga filen i Utforskaren.
-2. Starta Notepad.exe kör som administratör och öppna textfil ”C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config. Du kan hitta Standardetiketten för system.net enligt följande kod:
+2. Öppna Notepad.exe köra som administratör och öppna filen C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config. Hitta Standardetiketten för system.net enligt följande kod:
 
     ```xml
     <system.net>
@@ -297,45 +291,49 @@ Om du väljer **Använd systemproxy** ställa in för HTTP-proxy, lokal integrat
     </system.net>
     ```
 
-    Ytterligare egenskaper tillåts i proxy-taggen för att ange inställningarna som krävs som scriptLocation. Se [proxy Element (nätverksinställningar)](https://msdn.microsoft.com/library/sa91de1e.aspx) för syntax.
+    Ytterligare egenskaper tillåts i proxy-taggen anger du inställningarna som krävs som `scriptLocation`. Se [proxy Element (nätverksinställningar)](https://msdn.microsoft.com/library/sa91de1e.aspx) för syntax.
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
     ```
-3. Spara konfigurationsfilen till den ursprungliga platsen och sedan starta om tjänsten lokal Integration Runtime-värden, som hämtar ändringarna. Starta om tjänsten: använda tjänster-appleten på Kontrollpanelen, eller från den **Konfigurationshanteraren för Integration Runtime** > klickar du på den **stoppa tjänsten** knappen och klicka sedan på den **Start Tjänsten**. Om tjänsten inte startar, är det troligt att en felaktig syntax för XML-taggen har lagts till i programmets konfigurationsfil som har redigerats.
+3. Spara konfigurationsfilen på den ursprungliga platsen. Starta sedan om den lokala integreringskörningen värdtjänsten som hämtar ändringarna. 
+
+   Starta om tjänsten genom att använda tjänster-appleten på Kontrollpanelen. Eller från Integration Runtime Configuration Manager, Välj den **stoppa tjänsten** och välj sedan **starta tjänsten**. 
+   
+   Om tjänsten inte startar, är det troligt att en felaktig syntax för XML-taggen har lagts till i programmets konfigurationsfil som har redigerats.
 
 > [!IMPORTANT]
 > Glöm inte att uppdatera både diahost.exe.config och diawp.exe.config.
 
-Förutom de här punkterna måste du också se till att Microsoft Azure är ditt företags vitlistan. Lista över giltiga Microsoft Azure-IP-adresser kan laddas ned från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+Du måste också se till att Microsoft Azure i ditt företags-vitlistan. Du kan hämta listan över giltiga Microsoft Azure IP-adresser från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Eventuella symptom för brandväggen och proxyservern serverproblem
-Om det uppstår fel som liknar det följande är det troligen på grund av felaktig konfigurering av brandvägg eller proxy-servern, vilket blockerar lokal integration runtime från att ansluta till Data Factory för att autentisera sig själv. Se föregående avsnitt för att se till att brandväggen och proxyservern konfigureras korrekt.
+Om det uppstår fel som liknar det följande är det troligen på grund av felaktig konfigurering av brandvägg eller proxy-server, som blockerar den lokala integreringskörningen från att ansluta till Data Factory för att autentisera sig själv. För att säkerställa att din brandvägg och proxy server har konfigurerats korrekt, se föregående avsnitt.
 
-1. När du försöker registrera den lokala integreringskörningen visas följande felmeddelande: ”Det gick inte att registrera den här Integration Runtime-noden! Bekräfta att autentiseringsnyckeln är giltig och värdtjänsten för Integration-tjänsten körs på den här datorn. "
-   - När du öppnar Konfigurationshanteraren för Integration Runtime kan du se statusen ”**frånkopplad**” eller ”**ansluter**”. När du visar Windows-händelseloggar, under ”Loggboken” > ”program och tjänstloggar” > ”Microsoft Integration Runtime” felmeddelanden visas till exempel följande fel:
+* När du försöker registrera den lokala integreringskörningen visas följande felmeddelande: ”Det gick inte att registrera den här Integration Runtime-noden! Bekräfta att autentiseringsnyckeln är giltig och integrationstjänsten värdtjänsten körs på den här datorn ”.
+* När du öppnar Konfigurationshanteraren för Integration Runtime kan du se statusen **frånkopplad** eller **ansluter**. När du visar Windows-händelseloggar, under **Loggboken** > **program- och tjänstloggar** > **Microsoft Integration Runtime**, Du får felmeddelanden som den här:
 
     ```
     Unable to connect to the remote server
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="enable-remote-access-from-intranet"></a>Aktivera fjärråtkomst från intranät  
-I fallet om du använder **PowerShell** eller **Autentiseringshanteraren** att kryptera autentiseringsuppgifter från en annan dator (i nätverket) än där den lokala integreringskörningen installeras sedan Du skulle kräva den **fjärråtkomst från intranät** alternativet är aktiverat. Om du kör den **PowerShell** eller **Autentiseringshanteraren** att kryptera autentiseringsuppgifter på samma dator där den lokala integreringskörningen installeras sedan **' fjärråtkomst från intranätet '** får inte aktiveras.
+### <a name="enabling-remote-access-from-an-intranet"></a>Aktivera fjärråtkomst från intranät  
+Om du använder PowerShell eller programmet Autentiseringshanteraren för att kryptera autentiseringsuppgifter från en annan dator (i nätverket) än där lokal integration runtime har installerats kan du aktivera den **fjärråtkomst från intranät**alternativet. Om du kör PowerShell eller Autentiseringshanteraren kryptera autentiseringsuppgifterna på samma dator där den lokala integreringskörningen har installerats kan du inte aktivera **fjärråtkomst från intranät**.
 
-Fjärråtkomst från intranätet ska vara **aktiverat** innan du lägger till en annan nod för **hög tillgänglighet och skalbarhet**.  
+Du bör aktivera **fjärråtkomst från intranät** innan du lägger till en annan nod för hög tillgänglighet och skalbarhet.  
 
-Under lokal installation av integration runtime (och senare för v 3.3.xxxx.x), som standard, lokal integration runtime-installation inaktiverar den **fjärråtkomst från intranät** på den lokala installation av integration runtime-datorn.
+Under lokal installation av integration runtime (senare version-3.3.xxxx.x), som standard, lokal integration runtime-installation inaktiverar **fjärråtkomst från intranät** på den lokala installation av integration runtime-datorn.
 
-Om du använder en brandvägg från tredje part, kan du manuellt öppna port 8060 (eller den konfigurerade användaren-porten). Om du stöter på problem med brandväggen under installationen av lokal integration runtime, kan du använda följande kommando för att installera den lokala integreringskörningen utan att konfigurera brandväggen.
+Om du använder en brandvägg från tredje part, kan du manuellt öppna port 8060 (eller användardefinierat-port). Om du har problem med brandväggen när du konfigurerar lokal integration runtime kan du prova med följande kommando för att installera den lokala integreringskörningen utan att konfigurera brandväggen:
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
 > [!NOTE]
-> **Autentiseringshanteraren** ännu inte är tillgängliga för kryptering av autentiseringsuppgifter i ADFv2. Vi ska lägga till det här stödet senare.  
+> Programmet Autentiseringshanteraren är ännu inte tillgänglig för kryptering av autentiseringsuppgifter i Azure Data Factory V2.  
 
-Om du inte väljer att öppna port 8060 på den lokala installation av integration runtime-datorn, använda metoder än med hjälp av den ** inställningen autentiseringsuppgifter ** program för att konfigurera autentiseringsuppgifter för datalagring. Du kan till exempel använda New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell-cmdlet. Se avsnittet Ange autentiseringsuppgifter och säkerhet på hur data lagrar autentiseringsuppgifter kan ställas in.
+Om du inte väljer att öppna port 8060 på den lokala installation av integration runtime-datorn, kan du använda metoder än programmet ange autentiseringsuppgifter för att konfigurera autentiseringsuppgifter för datalagring. Du kan till exempel använda den **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** PowerShell-cmdlet.
 
 
 ## <a name="next-steps"></a>Nästa steg

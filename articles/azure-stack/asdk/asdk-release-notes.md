@@ -12,87 +12,60 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2018
-git ms.author: sethm
+ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: e157211109825f3edaa910250e083ecb80faf941
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: d322fe378e7f662c233e9572dfc79dcd961137bd
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586333"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237814"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Viktig information om Azure Stack Development Kit  
 Den här artikeln innehåller information om förbättringar, korrigeringar och kända problem i Azure Stack Development Kit. Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Håll dig uppdaterad med Nyheter i ASDK genom att prenumerera på den [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## <a name="build-11808097"></a>Skapa 1.1808.0.97
+## <a name="build-11809xxx"></a>Skapa 1.1809.x.xx
 
 ### <a name="new-features"></a>Nya funktioner
 Den här versionen innehåller följande förbättringar och korrigeringar för Azure Stack.  
 
-- <!-- 2682594   | ASDK  -->   **Alla miljöer i Azure Stack kan nu använda formatet tidszon Coordinated Universal Time (UTC).**  Alla logga data nu relaterad information visas i UTC-format. 
+- <!--  2712869   | IS  ASDK -->  **Azure Stack syslog-klienten (allmän tillgänglighet)** den här klienten gör att vidarebefordra granskningar, aviseringar och säkerhetsloggar som rör Azure Stack-infrastruktur till en syslog-server eller säkerhet och händelsehantering (SIEM) hanteringsprogramvara extern till Azure Stack. Syslog-klienten har nu stöd för att ange den port som syslog-servern lyssnar.
 
-- <!-- 2437250  | IS  ASDK --> **Hanterade diskar stöds.** Du kan nu använda Managed Disks i Azure Stack virtuella datorer och VM-skalningsuppsättningar. Mer information finns i [Azure Stack Managed Disks: skillnader och överväganden](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
- 
-- <!-- 2563799  | IS  ASDK -->  **Azure Monitor**. Som Azure Monitor på Azure ger Azure Monitor på Azure Stack beroende på infrastruktur-mått och loggar för de flesta tjänster. Mer information finns i [Azure Monitor på Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
+Syslog-klienten är allmänt tillgänglig i den här versionen och den kan användas i produktionsmiljöer.
 
-- <!-- ASDK --> **Galleriobjekt för Virtual Machine Scale Sets är nu inbyggda**.  Virtual Machine Scale Sets galleriobjekt är nu tillgänglig i användar- och analytikerportaler utan att behöva hämta dem. 
-
-- <!-- IS, ASDK --> **Virtual Machine Scale Sets skalning**.  Du kan använda portalen för att [skala en VM-Skalningsuppsättning](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
-
-- <!-- 2489570 | IS ASDK--> **Stöd för anpassade konfigurationer för IPSec/IKE-princip** för [VPN-gatewayer i Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
-
-- <!-- | IS ASDK--> **Marketplace-objekt för Kubernetes**. Du kan nu distribuera Kubernetes-kluster med hjälp av den [Kubernetes Marketplace-objekt](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Användare kan det Kubernetes-objekt och fylla i några parametrar för att distribuera ett Kubernetes-kluster i Azure Stack. Syftet med mallarna är att göra det enkelt för användarna att installationsprogrammet utveckling/testning i Kubernetes-distribution med några få steg.
-
-- <!-- | IS ASDK--> **Blockchain mallar**. Du kan nu köra [Ethereum consortium distributioner](/azure/azure-stack/azure-stack-ethereum) på Azure Stack. Du kan hitta tre nya mallar i den [Azure Stack Snabbstartsmallarna](https://github.com/Azure/AzureStack-QuickStart-Templates). De används att distribuera och konfigurera ett flera medlem Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum. Syftet med mallarna är att göra det enkelt för användarna att installationsprogrammet utveckling/testning Blockchain distributioner med några få steg.
-
-- <!-- | IS ASDK--> **API-version profilen 2017-03-09-profilen har uppdaterats till 2018-03-01-hybrid**. API-profiler ange Azure-resursprovidern och API-version för Azure REST-slutpunkter. Mer information om profiler finns i [hantera API-versionsprofiler i Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
-
+Mer information finns i [Azure Stack syslog-vidarebefordran](../azure-stack-integrate-security.md).
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
-- <!-- IS ASDK--> Vi har åtgärdat problemet för att skapa en tillgänglighetsuppsättning i portalen som resulterade i gruppen med en feldomän och uppdateringsdomän 1.
 
-- <!-- IS ASDK --> Inställningar för att skala VM-skalningsuppsättningar är nu tillgängliga i portalen.  
+- <!-- 2702741 -  IS ASDK --> Ett problem har åtgärdats i vilka offentliga IP-adresser som har distribuerats med hjälp av dynamisk allokering metoden inte har garanterat bevaras när en frigörandet har utfärdats. De finns kvar.
 
-- <!-- 2494144- IS, ASDK --> Problem som gjorde att vissa F-serien-storlekar för virtuella datorer från att visas när du väljer en VM-storlek för distribution är löst. 
-
-- <!-- IS, ASDK --> Förbättringar av prestanda när du skapar virtuella datorer med mera optimerad användning av underliggande lagring.
+- <!-- 3078022 - IS ASDK --> Om en virtuell dator var frigörandet innan 1808 gick det inte att uppdatera allokerade efter 1808 uppdateringen.  Det här problemet löses i 1809. Instanser som fanns i det här tillståndet och kunde inte startas kan startas i 1809 med den här snabbkorrigeringen. Korrigeringen förhindrar också att det här problemet igen.
 
 - **Olika korrigeringar** för prestanda, stabilitet, säkerhet och det operativsystem som används av Azure Stack
 
 
 ### <a name="changes"></a>Ändringar
+
 - <!-- 1697698  | IS, ASDK --> *Snabbstartsguider* i användaren portalens instrumentpanel nu länken till artiklarna i onlinedokumentationen för Azure Stack.
 
 - <!-- 2515955   | IS ,ASDK--> *Alla tjänster* ersätter *fler tjänster* i Azure Stack administratörs- och portaler. Du kan nu använda *alla tjänster* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler.
 
-- <!-- TBD | IS, ASDK --> *+ Skapa en resurs* ersätter *+ ny* i Azure Stack administratörs- och portaler.  Du kan nu använda *+ skapa en resurs* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler. 
-
-- <!--  TBD – IS, ASDK --> *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](.\.\azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken. 
+- <!--  TBD – IS, ASDK --> *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](../azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken. 
 
 ### <a name="known-issues"></a>Kända problem
 
 #### <a name="portal"></a>Portalen  
-- <!-- 2967387 – IS, ASDK --> Det konto som används för att logga in på Azure Stack-administratör eller användare portalen visas som **Oidentifierad användare**. Detta inträffar när kontot inte har antingen en *första* eller *senaste* namnen. Undvik problemet genom att redigera användarkontot om du vill använda den första eller sista. Du måste sedan logga ut och logga sedan in igen på portalen. 
 
--  <!--  2873083 - IS ASDK --> När du använder portalen för att skapa en virtuell datorskalning ange (VMSS), den *instansstorlek* listrutan inte in korrekt när du använder Internet Explorer. Undvik problemet genom att använda en annan webbläsare när du använder portalen för att skapa en VMSS.  
+- <!-- 1697698  | IS, ASDK --> *Snabbstartsguider* i användaren portalens instrumentpanel nu länken till artiklarna i onlinedokumentationen för Azure Stack.
 
-- <!-- TBD  ASDK --> Standardtidszon för alla Azure Stack-distributioner är nu ställa in att Coordinated Universal Time (UTC). Du kan välja en tidszon när du installerar Azure Stack, men det automatiskt med UTC som standard under installationen.
+- <!-- 2515955   | IS ,ASDK--> *Alla tjänster* ersätter *fler tjänster* i Azure Stack administratörs- och portaler. Du kan nu använda *alla tjänster* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler.
 
-- <!-- 2931230 – IS  ASDK --> Planer som läggs till i en användarprenumeration som en tilläggsplanen kan inte raderas även när du tar bort planen från användarprenumerationen. Planen finns kvar tills de prenumerationer som refererar till tilläggsplanen tas också bort. 
-
-- <!--2760466 – IS  ASDK --> När du installerar en ny Azure Stack-miljö med den här versionen, aviseringen-värde som anger *aktivering krävs* kanske inte visas. [Aktivering](.\.\azure-stack-registration.md) krävs innan du kan använda marketplace syndikering. 
-
-- <!-- TBD - IS ASDK --> Två administrativa prenumerationstyper som var [introducerades i version 1804](.\.\azure-stack-update-1804.md#new-features) bör inte användas. Typerna av prenumeration är **Avläsning av prenumeration**, och **förbrukning prenumeration**. Dessa typer av prenumerationer är **Avläsning av prenumeration**, och **förbrukning prenumeration**. Dessa typer av prenumerationer visas i den nya Azure Stack miljöer från och med version 1804 men ännu inte är redo att användas. Du bör fortsätta att använda den **standard providerprenumeration** typen.
-
-- <!-- TBD -  IS ASDK --> Tar bort användaren prenumerationer resulterar i överblivna resurser. Som en lösning kan du först ta bort användarresurser eller hela resursgruppen och tar bort användarprenumerationer.
-
-- <!-- TBD -  IS ASDK --> Du kan inte visa behörigheter till din prenumeration med hjälp av Azure Stack-portaler. Som en lösning kan du använda PowerShell för att kontrollera behörigheterna.
-
-
+- <!--  TBD – IS, ASDK --> *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](../azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken.
 
 #### <a name="health-and-monitoring"></a>Hälsa och övervakning
+
 - <!-- 1264761 - IS ASDK -->  Du kan se aviseringar för den *hälsotillstånd controller* komponent som har följande information:  
 
    Avisera #1:

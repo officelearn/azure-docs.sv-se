@@ -10,14 +10,18 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
-ms.openlocfilehash: a998bdf32be948448131ea12db1b7d4204e6722d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: f8c7aba2b853f3916c2d01d94d49090a4b3e36a0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127473"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237241"
 ---
 # <a name="analyzer-names"></a>Analyzer-namn
+
+> [!IMPORTANT]
+> Förhandsversionen av Lingvistisk analys har ur den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning modulerna för textanalys](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för text-bearbetning och analys.
 
 Vi använder en något komplicerade namngivningsstrukturen för analysverktyg för båda flexibelt på analysverktyg och precision förstå vad ett namn innebär.
 Analyzer-namn som består av fyra delar: ett ID, en typ, en specifikation och en implementering.

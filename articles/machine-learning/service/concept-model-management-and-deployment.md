@@ -1,6 +1,6 @@
 ---
-title: Hantera och distribuera modeller i Azure Machine Learning
-description: Lär dig hur du använder Azure Machine Learning för att distribuera, hantera och övervaka dina modeller för att kontinuerligt förbättra dem. Du kan distribuera modeller som du tränas med Azure Machine Learning, på din lokala dator eller från andra källor.
+title: Hantera och distribuera modeller i Azure Machine Learning-tjänsten
+description: Lär dig hur du använder Azure Machine Learning-tjänsten för att distribuera, hantera och övervaka dina modeller för att kontinuerligt förbättra dem. Du kan distribuera modeller som du tränas med Azure Machine Learning-tjänsten på den lokala datorn eller från andra källor.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,21 +9,21 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: d3e0b63d42ad8c6d4765f5120c26c5dfdf5ad6fb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: afba483172bc34b9d54afc3af755f0967affc875
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166545"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239174"
 ---
-# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning"></a>Hantera, distribuera och övervaka modeller med Azure Machine Learning
+# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten
 
-I den här artikeln får du lära dig hur du använder Azure Machine Learning för att distribuera, hantera och övervaka dina modeller för att kontinuerligt förbättra dem. Du kan distribuera modeller som du tränas med Azure Machine Learning, på din lokala dator eller från andra källor. 
+I den här artikeln får du lära dig hur du använder Azure Machine Learning-tjänsten för att distribuera, hantera och övervaka dina modeller för att kontinuerligt förbättra dem. Du kan distribuera modeller som du tränas med Azure Machine Learning, på din lokala dator eller från andra källor. 
 
 Följande diagram illustrerar arbetsflödet slutförts: [ ![arbetsflöde för distribution för Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 Arbetsflödet innehåller följande steg:
-1. **Registrera modellen** i ett register som lagras i Azure Machine Learning-arbetsyta
+1. **Registrera modellen** i ett register som lagras i din arbetsyta för Azure Machine Learning-tjänsten
 1. **Registrera en bild** som kombinationer av en modell med ett bedömningsskript och beroenden i en bärbar behållare 
 1. **Distribuera** bilden som en webbtjänst i molnet eller edge-enheter
 1. **Övervaka och samla in data**
@@ -35,7 +35,7 @@ Varje steg kan utföras separat eller som en del av en enskild distribution-komm
 
 ## <a name="step-1-register-model"></a>Steg 1: Registrera modellen
 
-Modellen registret håller reda på alla modeller i Azure Machine Learning-arbetsyta.
+Modellen registret håller reda på alla modeller i din arbetsyta för Azure Machine Learning-tjänsten.
 Modeller identifieras av namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig ökas registret versionen. Du kan också ange ytterligare metadatataggar under registreringen som kan användas när du söker för modeller.
 
 Du kan inte ta bort modeller som används av en avbildning.

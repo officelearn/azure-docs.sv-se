@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 65134d78fb011ae707c0629bef1ebb1a66bd8ec2
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 99d85c769b876baa360628bfc20ad5b1563a0a3f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018510"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237338"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Använd ett beräkningsmål träna din modell
 
@@ -27,7 +27,7 @@ Du kan börja med lokala körs på din dator och sedan skala uppåt och utåt ti
 
 ## <a name="supported-compute-targets"></a>Stöds beräkningsmål
 
-Azure Machine Learning har stöd för följande beräkningsmål:
+Azure Machine Learning-tjänsten stöder följande beräkningsmål:
 
 |Beräkningsmål| GPU-acceleration | Automatiserad finjustering av hyperparametrar | Vald automatiserade modell | Kan användas i pipelines|
 |----|:----:|:----:|:----:|:----:|
@@ -41,8 +41,8 @@ __[Azure Container Instances (ACI)](#aci)__  kan också användas för att trän
 Viktiga skillnaderna mellan beräkningsmål är:
 * __GPU-acceleration__: GPU: er är tillgängliga med den virtuella datorn för datavetenskap och Azure Batch AI. Du kan ha åtkomst till en GPU på din lokala dator, beroende på maskinvara, drivrutiner och ramverk som är installerade.
 * __Automatiserad finjustering av hyperparametrar__: Azure Machine Learning automatiserad finjustering optimering hjälper dig att hitta den bästa hyperparametrar för din modell.
-* __Automatiserad vald modell__: Azure Machine Learning kan smart rekommenderar algoritmen och finjustering markerad när du skapar en modell. Vald automatiserade modell hjälper dig att Konvergera till en modell med hög kvalitet snabbare än att försöka manuellt olika kombinationer. Mer information finns i den [självstudie: automatiskt tränar en modell för klassificering med Azure automatiserad Machine Learning](tutorial-auto-train-models.md) dokumentet.
-* __Pipelines__: Azure Machine Learning kan du kombinera olika uppgifter, till exempel inlärning och distribuering i en pipeline. Pipelines kan vara körde parallellt eller i följd och tillhandahålla en tillförlitlig automation-metod. Mer information finns i den [skapa machine learning pipelines med Azure Machine Learning-tjänsten](concept-ml-pipelines.md) dokumentet.
+* __Automatiserad vald modell__: Azure Machine Learning-tjänsten kan smart rekommenderar algoritmen och finjustering markerad när du skapar en modell. Vald automatiserade modell hjälper dig att Konvergera till en modell med hög kvalitet snabbare än att försöka manuellt olika kombinationer. Mer information finns i den [självstudie: automatiskt tränar en modell för klassificering med Azure automatiserad Machine Learning](tutorial-auto-train-models.md) dokumentet.
+* __Pipelines__: Azure Machine Learning-tjänsten gör att du kan kombinera olika uppgifter, till exempel inlärning och distribuering i en pipeline. Pipelines kan vara körde parallellt eller i följd och tillhandahålla en tillförlitlig automation-metod. Mer information finns i den [skapa machine learning pipelines med Azure Machine Learning-tjänsten](concept-ml-pipelines.md) dokumentet.
 
 Du kan använda SDK för Azure Machine Learning, Azure CLI eller Azure-portalen för att skapa beräkningsmål. Du kan också använda befintliga beräkningsmål genom att lägga till (koppla) dem till din arbetsyta.
 

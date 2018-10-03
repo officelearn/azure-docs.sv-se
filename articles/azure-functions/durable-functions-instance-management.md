@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 70ea13c1badf79c86bed53a34d9036706dbbac6a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c3292651de7fba5a8f442f54f92d25fa6a97fe1a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378164"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238705"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Hantera instanser i varaktiga funktioner (Azure Functions)
 
@@ -60,6 +60,19 @@ module.exports = function (context, input) {
 
     context.done(null);
 };
+```
+Koden ovan förutsätter att du har definierat en bindning med namn som ”starter- och Skriv som” orchestrationClient ”i filen function.json. Om bindningen inte har definierats, kommer inte beständig funktionen-instans skapas.
+
+För beständig funktionen anropas i function.json ska ändras så att den har en bindning för orkestreringsklient som beskrivs nedan
+
+```js
+{
+    "bindings": [{
+        "name":"starter",
+        "type":"orchestrationClient",
+        "direction":"out"
+    }]
+}
 ```
 
 > [!NOTE]

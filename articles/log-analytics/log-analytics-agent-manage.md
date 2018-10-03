@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure Log Analytics agenten | Microsoft Docs
-description: Den här artikeln beskriver de olika administrativa uppgifter som du vanligtvis utför under livscykeln för Microsofts övervakning Agent (MMA) har distribuerats på en dator.
+title: Hantera Azure Log Analytics-agenten | Microsoft Docs
+description: Den här artikeln beskrivs de olika administrativa uppgifter som du vanligtvis utför under livscykeln för den Microsoft Monitoring Agent (MMA) distribueras på en dator.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 908418dffaffc25be320bd0008edf03493aa4e55
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: e00ccc4d55da805538801a0a8f3ee5502d871fab
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128800"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042316"
 ---
-# <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantera och underhålla logganalys-agenten för Windows och Linux
+# <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantering och underhåll av Log Analytics-agenten för Windows och Linux
 
-Du kan behöva konfigurera om agenten eller ta bort den från datorn om du har nått pensionering stadium i livscykeln efter första distributionen av Windows eller Linux-agenten för Log Analytics.  Du kan enkelt hantera dessa rutinunderhåll manuellt eller via automation, vilket minskar både åtgärdsfel och kostnader.
+Efter den första distributionen av Windows eller Linux-agenten för Log Analytics kan du behöva konfigurera om agenten eller ta bort den från datorn om du har nått tillbakadragande steg i livscykeln.  Du kan enkelt hantera dessa rutinunderhåll manuellt eller via automatisering, vilket minskar både operativt fel och utgifter.
 
-## <a name="adding-or-removing-a-workspace"></a>Lägga till eller ta bort en arbetsyta 
+## <a name="adding-or-removing-a-workspace"></a>Att lägga till eller ta bort en arbetsyta 
 
 ### <a name="windows-agent"></a>Windows-agenten
 
-#### <a name="update-settings-from-control-panel"></a>Uppdatera inställningar från Kontrollpanelen
+#### <a name="update-settings-from-control-panel"></a>Uppdatera inställningarna från Kontrollpanelen
 
 1. Logga in på datorn med ett konto som har administrativa rättigheter.
 2. Öppna **Kontrollpanelen**.
-3. Välj **Microsoft Monitoring Agent** och klicka sedan på den **Azure logganalys (OMS)** fliken.
-4. Om du tar bort en arbetsyta, markerar du den och klicka sedan på **ta bort**. Upprepa det här steget för alla andra arbetsytan som du vill att agenten att sluta rapportera till.
-5. Om du lägger till en arbetsyta, klickar du på **Lägg till** och på den **lägga till en Log Analytics-arbetsyta** dialogrutan, klistra in arbetsyte-ID och Arbetsytenyckel (primärnyckel). Om datorn ska rapportera till logganalys-arbetsytan i Azure Government molnet, väljer du Azure som tillhör amerikanska myndigheter från listrutan Azure-molnet. 
+3. Välj **Microsoft Monitoring Agent** och klicka sedan på den **Azure Log Analytics (OMS)** fliken.
+4. Om du tar bort en arbetsyta, markera den och klicka sedan på **ta bort**. Upprepa det här steget för en arbetsyta som du vill att agenten att sluta rapportera till.
+5. Om du lägger till en arbetsyta, klickar du på **Lägg till** på den **lägga till en Log Analytics-arbetsyta** dialogrutan, klistra in arbetsyte-ID och Arbetsytenyckel (primärnyckel). Om datorn ska rapportera till en Log Analytics-arbetsyta i Azure Government-molnet väljer du Azure US Government från listrutan Azure-molnet. 
 6. Spara ändringarna genom att klicka på **OK**.
 
 #### <a name="remove-a-workspace-using-powershell"></a>Ta bort en arbetsyta med hjälp av PowerShell 
@@ -58,7 +58,7 @@ $mma.AddCloudWorkspace($workspaceId, $workspaceKey)
 $mma.ReloadConfiguration()
 ```
 
-#### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>Lägga till en arbetsyta i Azure för som tillhör amerikanska myndigheter med hjälp av PowerShell 
+#### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>Lägg till en arbetsyta i Azure för amerikanska myndigheter med hjälp av PowerShell 
 
 ```PowerShell
 $workspaceId = "<Your workspace Id>"
@@ -69,39 +69,39 @@ $mma.ReloadConfiguration()
 ```
 
 >[!NOTE]
->Om du tidigare har använt kommandorad eller skript att installera eller konfigurera agenten `EnableAzureOperationalInsights` ersattes med `AddCloudWorkspace` och `RemoveCloudWorkspace`.
+>Om du tidigare har använt den kommandorad eller ett skript att installera eller konfigurera agenten `EnableAzureOperationalInsights` ersattes med `AddCloudWorkspace` och `RemoveCloudWorkspace`.
 >
 
-### <a name="linux-agent"></a>Linux-agent
-Följande steg visar hur du konfigurerar om Linux-agent om du vill registrera den med en annan arbetsyta eller vill du ta bort en arbetsyta från dess konfiguration.  
+### <a name="linux-agent"></a>Linux-agenten
+Följande steg visar hur du konfigurerar om Linux-agenten om du vill registrera den med en annan arbetsyta eller vill du ta bort en arbetsyta från dess konfiguration.  
 
-1.  Kör följande kommando för att verifiera den är registrerad på en arbetsyta.
+1.  Kör följande kommando för att verifiera den är registrerad till en arbetsyta.
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
 
-    Det ska returnera statusen liknar följande exempel- 
+    Den ska returnera statusen liknar följande exempel- 
 
     `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
 
-    Det är viktigt att statusen visar även agenten körs, annars följande steg för att konfigurera om agenten kommer inte att slutföra.  
+    Det är viktigt att även statusen agenten körs, annars följande steg för att konfigurera om agenten kommer inte att slutföra.  
 
-2. Om den redan är registrerad med en arbetsyta kan du ta bort registrerade arbetsytan genom att köra följande kommando.  Annars om den inte är registrerad, fortsätter du till nästa steg.
+2. Om den redan är registrerad med en arbetsyta kan du ta bort registrerade arbetsytan genom att köra följande kommando.  Annars om det inte är registrerad, fortsätter du till nästa steg.
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
     
 3. Om du vill registrera med en annan arbetsyta, kör du kommandot `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 
-4. Kör kommandot för att verifiera ändringarna tog påverkar.
+4. Om du vill kontrollera ändringarna tog påverkar, kör du kommandot.
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
 
-    Det ska returnera statusen liknar följande exempel- 
+    Den ska returnera statusen liknar följande exempel- 
 
     `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
 
 Agent-tjänsten behöver inte startas om för att ändringarna ska börja gälla.
 
-## <a name="update-proxy-settings"></a>Uppdatera proxyinställningarna 
-Konfigurera agenten för kommunikation till tjänsten via en proxyserver eller [OMS Gateway](log-analytics-oms-gateway.md) efter distributionen, använda något av följande metoder för att slutföra åtgärden.
+## <a name="update-proxy-settings"></a>Inställningar för proxy 
+Konfigurera agenten för kommunikation till tjänsten via en proxyserver eller [OMS-gatewayen](log-analytics-oms-gateway.md) efter distributionen kan du använda någon av följande metoder för att slutföra den här uppgiften.
 
 ### <a name="windows-agent"></a>Windows-agenten
 
@@ -110,11 +110,11 @@ Konfigurera agenten för kommunikation till tjänsten via en proxyserver eller [
 1. Logga in på datorn med ett konto som har administrativa rättigheter.
 2. Öppna **Kontrollpanelen**.
 3. Välj **Microsoft Monitoring Agent** och klicka sedan på den **proxyinställningar** fliken.
-4. Klicka på **använder en proxyserver** och ange en URL och portnummer för proxyservern eller gateway. Om din proxyserver eller OMS Gateway kräver autentisering, skriver du användarnamn och lösenord för att autentisera och klicka sedan på **OK**. 
+4. Klicka på **använder en proxyserver** och anger URL och portnummer för proxyservern eller gateway. Om din proxyserver eller OMS-gatewayen kräver autentisering anger du användarnamn och lösenord för att autentisera och klicka sedan på **OK**. 
 
 #### <a name="update-settings-using-powershell"></a>Uppdatera inställningar med hjälp av PowerShell 
 
-Kopiera följande PowerShell exempelkod, uppdatera det med information som är specifika för din miljö och spara om filen med filnamnstillägget PS1.  Kör skriptet på varje dator som ansluter direkt till Log Analytics-tjänsten.
+Kopiera följande PowerShell exempelkod, uppdatera den information som är specifika för din miljö och spara det med filnamnstillägget PS1.  Kör skriptet på varje dator som ansluter direkt till Log Analytics-tjänsten.
 
 ```PowerShell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))
@@ -140,8 +140,8 @@ Write-Output "Setting proxy to $ProxyDomainName with proxy username $ProxyUserNa
 $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 ```  
 
-### <a name="linux-agent"></a>Linux-agent
-Utför följande steg om Linux-datorer som behöver kommunicera via en proxyserver eller OMS Gateway till logganalys.  Konfigurationsvärdet för proxyn har följande syntax `[protocol://][user:password@]proxyhost[:port]`.  Egenskapen *proxyhost* accepterar ett fullständigt domännamn eller en fullständig IP-adress för proxyservern.
+### <a name="linux-agent"></a>Linux-agenten
+Utför följande steg om Linux-datorerna måste kommunicera via en proxyserver eller OMS-gatewayen till Log Analytics.  Konfigurationsvärdet för proxyn har följande syntax `[protocol://][user:password@]proxyhost[:port]`.  Egenskapen *proxyhost* accepterar ett fullständigt domännamn eller en fullständig IP-adress för proxyservern.
 
 1. Redigera filen `/etc/opt/microsoft/omsagent/proxy.conf` genom att köra följande kommandon och ändra värdena enligt dina specifika inställningar.
 
@@ -157,8 +157,8 @@ Utför följande steg om Linux-datorer som behöver kommunicera via en proxyserv
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ``` 
 
-## <a name="uninstall-agent"></a>Avinstallera agenten
-Använd någon av följande procedurer för att avinstallera Windows eller Linux-agenten med hjälp av guiden kommandorads- eller installationen.
+## <a name="uninstall-agent"></a>Avinstallera agent
+Använd någon av följande procedurer för att avinstallera Windows eller Linux-agenten med hjälp av guiden kommandoraden eller konfiguration.
 
 ### <a name="windows-agent"></a>Windows-agenten
 
@@ -168,43 +168,43 @@ Använd någon av följande procedurer för att avinstallera Windows eller Linux
 3. I **program och funktioner**, klickar du på **Microsoft Monitoring Agent**, klickar du på **avinstallera**, och klicka sedan på **Ja**.
 
 >[!NOTE]
->Kan också köra installationsguiden för agenten genom att dubbelklicka på **MMASetup -<platform>.exe**, som är tillgänglig för nedladdning från en arbetsyta i Azure-portalen.
+>Installationsguiden för agenten kan även köra genom att dubbelklicka på **MMASetup -<platform>.exe**, som är tillgänglig för nedladdning från en arbetsyta i Azure-portalen.
 
 #### <a name="uninstall-from-the-command-line"></a>Avinstallera från kommandoraden
-Den hämta filen för agenten är ett fristående installationsprogram som skapats med IExpress.  Installationsprogrammet för agenten och stödfilerna finns i paketet och behöver extraheras för att kunna återställas med hjälp av kommandoraden som visas i följande exempel. 
+Den hämta filen för agenten är ett fristående installationsprogram som skapats med IExpress.  Installationsprogrammet för agenten och filerna som ingår i paketet och måste extraheras för att kunna återställas med hjälp av kommandoraden som visas i följande exempel. 
 
 1. Logga in på datorn med ett konto som har administrativa rättigheter.  
-2. Extrahera installationsfilerna för agent från en upphöjd kommandotolk kör `extract MMASetup-<platform>.exe` och blir du ombedd för sökvägen till filerna ska extraheras.  Du kan också ange sökvägen genom att skicka argumenten `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`.  Mer information om kommandoradsverktyget switchar som stöds av IExpress finns [kommandoradsväxlar för IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) och uppdatera sedan exempel så att de passar dina behov.
-3. I Kommandotolken skriver du `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
+2. Extrahera installationsfilerna för agent från en upphöjd kommandotolk kör `extract MMASetup-<platform>.exe` och du blir ombedd du sökvägen till filerna ska extraheras.  Du kan också ange sökvägen genom att skicka argument `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`.  Läs mer på kommandoraden switchar som stöds av IExpress [kommandoradsväxlar för IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) och uppdatera sedan det exemplet så att den passar dina behov.
+3. I Kommandotolken, Skriv `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
-### <a name="linux-agent"></a>Linux-agent
+### <a name="linux-agent"></a>Linux-agenten
 Kör följande kommando för att ta bort agenten på Linux-datorn.  Argumentet *--purge* tar bort agenten och dess konfiguration fullständigt.
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Konfigurera agent ska rapportera till en Operations Manager-hanteringsgrupp
+## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Konfigurera agent rapporterar till en Operations Manager-hanteringsgrupp
 
 ### <a name="windows-agent"></a>Windows-agenten
-Utför följande steg om du vill konfigurera OMS-Agent för Windows att rapportera till en System Center Operations Manager-hanteringsgrupp. 
+Utför följande steg om du vill konfigurera i OMS-agenten för Windows att rapportera till en hanteringsgrupp för System Center Operations Manager. 
 
 1. Logga in på datorn med ett konto som har administrativa rättigheter.
 2. Öppna **Kontrollpanelen**. 
 3. Klicka på **Microsoft Monitoring Agent** och klicka sedan på den **Operations Manager** fliken.
 4. Om Operations Manager-servrar har integrering med Active Directory, klickar du på **automatiskt uppdatera hanteringsgrupptilldelningar från AD DS**.
 5. Klicka på **Lägg till** att öppna den **lägga till en Hanteringsgrupp** dialogrutan.
-6. I **hanteringsgruppnamn** skriver du namnet på hanteringsgruppen.
-7. I den **primära hanteringsserver** skriver du namnet på den primära hanteringsservern.
-8. I den **hanteringsserverporten** anger TCP-portnummer.
-9. Under **Agentåtgärdskontot**, välja kontot Lokalt System eller en lokal domänkonto.
-10. Klicka på **OK** att stänga den **lägga till en Hanteringsgrupp** dialogrutan och klicka sedan på **OK** att stänga den **egenskaper för Microsoft Monitoring Agent** i dialogrutan.
+6. I **hanteringsgruppnamn** skriver namnet på hanteringsgruppen.
+7. I den **primära hanteringsserver** skriver namnet på den primära hanteringsservern.
+8. I den **hanteringsserverport** skriver TCP-portnumret.
+9. Under **Agentåtgärdskontot**, väljer du antingen kontot Lokalt System eller ett lokala domänkonto.
+10. Klicka på **OK** att Stäng den **lägga till en Hanteringsgrupp** dialogrutan och klicka sedan på **OK** att Stäng den **egenskaper för Microsoft Monitoring Agent** dialogrutan.
 
-### <a name="linux-agent"></a>Linux-agent
-Utför följande steg för att konfigurera OMS-Agent för Linux rapportera till en System Center Operations Manager-hanteringsgrupp. 
+### <a name="linux-agent"></a>Linux-agenten
+Utför följande steg om du vill konfigurera OMS-agenten för Linux för att rapportera till en hanteringsgrupp för System Center Operations Manager. 
 
 1. Redigera filen `/etc/opt/omi/conf/omiserver.conf`
-2. Se till att den rad som början med `httpsport=` definierar port 1270. Exempelvis: `httpsport=1270`
+2. Kontrollera att den rad som början med `httpsport=` definierar port 1270. Exempel: `httpsport=1270`
 3. Starta om OMI-servern: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska [felsökning av Linux-agenten](log-analytics-agent-linux-support.md) om du får problem när du installerar eller hantera agenten.  
+Granska [felsökning av Linux-agenten](log-analytics-agent-linux-support.md) om det uppstår problem när du installerar eller hantering av agenten.  

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 2f0568064eed556429675ffb34c84d588ac670d5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0e23f5ac8dcce940389f62097fef7de36abe2387
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064364"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269221"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Hur att publicera Azure övervakar för virtuella datorer 
 Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer för att övervaka hälsotillståndet för operativsystemet för virtuella datorer i Azure och identifiera och mappa programberoenden som kan vara baserad på dem.  
@@ -31,11 +31,11 @@ Aktivera Azure Monitor för virtuella datorer görs på något av följande meto
 * Flera virtuella Azure-datorer eller VM scale sets för över en viss prenumeration eller resursgrupp med hjälp av PowerShell.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du börjar bör du kontrollera att du har följande enligt beskrivningen i underordnade avsnitten nedan.
+Innan du börjar bör du kontrollera att du har följande enligt beskrivningen i underavsnitt nedan.
 
 ### <a name="log-analytics"></a>Log Analytics 
 
-Log Analytics-arbetsytan i följande regioner stöds för närvarande:
+Log Analytics-arbetsytan i följande regioner är för närvarande:
 
   - Västra centrala USA  
   - Östra USA  
@@ -44,11 +44,18 @@ Log Analytics-arbetsytan i följande regioner stöds för närvarande:
 
 <sup>1</sup> den här regionen stöder för närvarande inte funktionen Health i Azure Monitor för virtuella datorer   
 
-Om du inte har en arbetsyta kan du skapa det via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), via [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), eller i den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).  
+Om du inte har en arbetsyta kan du skapa den via [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), via [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md)i den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md), eller med [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  Om du aktiverar övervakning för en virtuell Azure-dator från Azure portal, har du möjlighet att skapa en arbetsyta under den här processen.  
 
 Du måste vara medlem i rollen som deltagare Log Analytics för att aktivera lösningen. Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
+Att aktivera lösningen för den i stor skala scenariot först måste konfigurera följande i din Log Analytics-arbetsyta:
+
+* Installera den **ServiceMap** och **InfrastructureInsights** lösningar
+* Konfigurera Log Analytics-arbetsytan för att samla in prestandaräknare
+
+För att konfigurera din arbetsyta för det här scenariot, se [installationsprogrammet Log Analytics-arbetsyta](#setup-log-analytics-workspace).
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -138,7 +145,7 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 |12 SP3 | 4.4. * |
 
 ### <a name="hybrid-environment-connected-sources"></a>Hybridmiljö anslutna källor
-Azure Monitor för virtuella datorer kartan hämtar data från Microsoft Dependency agenten. Beroendeagenten är beroende av Log Analytics-agenten ansluter till Log Analytics. Det innebär att ett system måste ha Log Analytics-agenten installeras och konfigureras med beroendeagenten.  I följande tabell beskrivs de anslutna källor som har stöd för funktionen kartan i en hybridmiljö.
+Azure Monitor för virtuella datorer kartan hämtar data från Microsoft Dependency agenten. Beroendeagenten är beroende av Log Analytics-agenten för anslutningen till Log Analytics och därför är ett system måste ha Log Analytics-agenten installeras och konfigureras med beroendeagenten. I följande tabell beskrivs de anslutna källor som har stöd för funktionen kartan i en hybridmiljö.
 
 | Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
@@ -150,7 +157,7 @@ På Windows, Microsoft Monitoring Agent (MMA) används av både System Center Op
 
 På Linux, Log Analytics-agenten för Linux samlar och skickar övervakning av data till Log Analytics.   
 
-Om din Windows- eller Linux-datorer inte kan ansluta direkt till tjänsten, måste du konfigurera Log Analytics-agenten för att ansluta till Log Analytics med hjälp av OMS-gatewayen. Mer information om hur du distribuerar och konfigurerar OMS-gatewayen finns [ansluter datorer utan Internetåtkomst med OMS-gatewayen](../log-analytics/log-analytics-oms-gateway.md).  
+Om din Windows- eller Linux-datorer inte kan ansluta direkt till tjänsten, måste du konfigurera Log Analytics-agenten för att ansluta till Log Analytics med hjälp av OMS-gatewayen. Mer information om hur du distribuerar och konfigurerar OMS-gatewayen finns i [ansluter datorer utan Internetåtkomst med OMS-gatewayen](../log-analytics/log-analytics-oms-gateway.md).  
 
 Beroendeagenten kan hämtas från följande plats.
 
@@ -206,6 +213,9 @@ Azure Monitor för virtuella datorer konfigureras en Log Analytics-arbetsyta fö
 |Nätverk |Totalt antal överförda byte |  
 |Processor |Tid i procent för processor |  
 
+## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
+
 ## <a name="enable-from-the-azure-portal"></a>Aktivera från Azure portal
 Om du vill aktivera övervakning av Azure-VM i Azure-portalen, gör du följande:
 
@@ -225,76 +235,183 @@ När du har aktiverat övervakning, kan det ta ungefär 10 minuter innan du kan 
 
 ![Aktivera Azure Monitor för virtuella datorer övervakning distributionsbearbetning](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
 
-## <a name="enable-using-azure-policy"></a>Aktivera med hjälp av Azure Policy
-Att aktivera lösningen för flera virtuella Azure-datorer som säkerställer konsekvent efterlevnad och automatisk aktivering för nya virtuella datorer som etablerats [Azure Policy](../azure-policy/azure-policy-introduction.md) rekommenderas.  Med hjälp av Azure Policy enligt de principer som angetts ger följande fördelar för nya virtuella datorer:
 
-* Aktivera Azure Monitor för virtuella datorer för varje virtuell dator i definierade omfattning
-* Distribuera Log Analytics-agenten 
-* Distribuera Beroendeagenten för att identifiera programberoenden och visas på kartan
-* Granska om din Azure VM OS-avbildning i en fördefinierad lista i principdefinitionen  
-* Granska om arbetsytan än den angivna loggar in Azure-VM
-* Rapport om kompatibilitetsresultat 
-* Stöd för åtgärder för inkompatibla virtuella datorer
+## <a name="on-boarding-at-scale"></a>Registreringen i stor skala
+I det här avsnittet anvisningar om hur du utför den på skala distributionen av Azure Monitor för virtuella datorer som använder antingen Azure Policy eller med Azure PowerShell.  Det första steg som krävs är att konfigurera Log Analytics-arbetsytan.  
 
-Om du vill aktivera den för din klient, kräver den här processen:
+### <a name="setup-log-analytics-workspace"></a>Konfigurera Log Analytics-arbetsyta
+Om du inte har en Log Analytics-arbetsyta kan du granska de tillgängliga metoderna som föreslås den [krav](#log-analytics) avsnitt för att skapa en.  
 
-- Konfigurera en Log Analytics-arbetsyta med hjälp av anvisningarna här
-- Importera initiativdefinition till din klient (på Hanteringsgruppen eller prenumerationen nivå)
-- Tilldela principen till önskad omfattning
-- Granska kompatibilitetsresultaten
+#### <a name="enable-performance-counters"></a>Aktivera prestandaräknare
+Om Log Analytics-arbetsytan som refereras av lösningen inte är konfigurerat för att samla in prestandaräknare som krävs av lösningen redan kan måste de vara aktiverat. Detta kan åstadkommas manuellt enligt [här](../log-analytics/log-analytics-data-sources-performance-counters.md), eller genom att hämta och köra ett PowerShell-skript som är tillgängliga från [Azure Powershell-galleriet](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+ 
+#### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>Installera ServiceMap och InfrastructureInsights lösningar
+Den här metoden innehåller en JSON-mall som anger konfigurationen för att aktivera lösningskomponenter till Log Analytics-arbetsytan.  
 
-### <a name="add-the-policies-and-initiative-to-your-subscription"></a>Lägga till principer och initiativ i prenumerationen
-Om du vill använda principerna som du kan använda ett angivet PowerShell-skript – [Lägg till VMInsightsPolicy.ps1](https://www.powershellgallery.com/packages/Add-VMInsightsPolicy/1.2) tillgängliga från Azure PowerShell-galleriet för att slutföra den här uppgiften. Skriptet lägger till principer och ett initiativ till din prenumeration.  Utför följande steg för att konfigurera Azure Policy i din prenumeration. 
+Om du inte är bekant med begreppet att distribuera resurser med hjälp av en mall, se:
+* [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 
 
-1. Ladda ned PowerShell-skriptet till ditt lokala filsystem.
+Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-2. Använd följande PowerShell-kommando i mappen för att lägga till principer. Skriptet har stöd för följande valfria parametrar: 
+1. Kopiera och klistra in följande JSON-syntax i filen:
+
+    ```json
+    {
+
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "WorkspaceName": {
+            "type": "string"
+        },
+        "WorkspaceLocation": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-03-15-preview",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('WorkspaceName')]",
+            "location": "[parameters('WorkspaceLocation')]",
+            "resources": [
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+
+                    "plan": {
+                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                        "promotionCode": ""
+                    }
+                },
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+                    "plan": {
+                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
+                        "promotionCode": ""
+                    }
+                }
+            ]
+        }
+    ]
+    ```
+
+2. Spara filen som **installsolutionsforvminsights.json** till en lokal mapp.
+3. Redigera värdena för **WorkspaceName**, **ResourceGroupName**, och **WorkspaceLocation**.  Värdet för **WorkspaceName** är fullständiga resurs-ID för Log Analytics-arbetsytan, som innehåller namnet på arbetsytan och värdet för **WorkspaceLocation** är den region som arbetsytan är definierad i.
+4. Du är redo att distribuera den här mallen med hjälp av följande PowerShell-kommando:
 
     ```powershell
-    -UseLocalPolicies [<SwitchParameter>]
-      <Optional> Load the policies from a local folder instead of https://raw.githubusercontent.com/dougbrad/OnBoardVMInsights/Policy/Policy/
+    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    ```
 
-    -SubscriptionId <String>
-      <Optional> SubscriptionId to add the Policies/Initiatives to
-    -ManagementGroupId <String>
-      <Optional> Management Group Id to add the Policies/Initiatives to
+    Konfigurationsändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
-    -Approve [<SwitchParameter>]
-      <Optional> Gives the approval to add the Policies/Initiatives without any prompt
-    ```  
+    ```powershell
+    provisioningState       : Succeeded
+    ```
+
+### <a name="enable-using-azure-policy"></a>Aktivera med hjälp av Azure Policy
+Aktivera Azure Monitor för virtuella datorer i stor skala som säkerställer konsekvent efterlevnad och automatisk aktivering för nya virtuella datorer som etablerats [Azure Policy](../azure-policy/azure-policy-introduction.md) rekommenderas. Dessa principer:
+
+* Distribuera Log Analytics-agenten och beroendeagenten 
+* Rapport om kompatibilitetsresultat 
+* Åtgärda problemet för icke-kompatibla virtuella datorer
+
+Aktivera Azure Monitor för virtuella datorer via Grupprincip till din klient kräver: 
+
+- Tilldela initiativ till ett omfång – hanteringsgruppen, prenumeration eller resursgrupp 
+- Granska och reparation av kompatibilitetsresultat  
+
+Mer information om Azure Policy-tilldelning, se [översikten över Azure Policy](../governance/policy/overview.md#policy-assignment) och granska de [översikt över hanteringsgrupper](../governance/management-groups/index.md) innan du fortsätter.  
+
+I följande tabell visas de principdefinitioner som tillhandahålls.  
+
+|Namn |Beskrivning |Typ |  
+|-----|------------|-----|  
+|[Förhandsversion]: aktivera Azure Monitor för virtuella datorer |Aktivera Azure Monitor för virtuella datorer (VM) i definitionsområdet (hanteringsgruppen, prenumeration eller resursgrupp). Tar Log Analytics-arbetsyta som parameter. |Initiativ |  
+|[Förhandsversion]: granska beroende Agentdistribution – VM Image (OS) inte finns i listan |Rapporter virtuella datorer som icke-kompatibel om VM-avbildning (OS) inte är i listan över definierade och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: Agentdistribution för granskning Log Analytics – VM Image (OS) inte finns i listan |Rapporter virtuella datorer som icke-kompatibel om VM-avbildning (OS) inte är i listan över definierade och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: distribuera Beroendeagenten för virtuella Linux-datorer |Distribuera Beroendeagenten för virtuella Linux-datorer om VM-avbildning (OS) är i listan över definierade och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: distribuera Beroendeagenten för virtuella Windows-datorer |Distribuera beroende Agent för Windows virtuella datorer om VM-avbildning (OS) är i listan över definierade och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: distribuerar Log Analytics-agenten för Linux-datorer |Distribuera Log Analytics-agenten för Linux-datorer om VM-avbildning (OS) är i listan över definierade och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: distribuerar Log Analytics-agenten för Windows-datorer |Distribuera Log Analytics-agenten för Windows virtuella datorer om VM-avbildning (OS) är i listan över definierade och agenten är inte installerad. |Princip |  
+
+Fristående princip (ingår inte i initiativet) 
+
+|Namn |Beskrivning |Typ |  
+|-----|------------|-----|  
+|[Förhandsversion]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel |Rapporter för virtuella datorer som inkompatibla om de inte loggar till arbetsytan LA som angetts i principen/initiativ tilldelningen. |Princip |
+
+#### <a name="assign-azure-monitor-initiative"></a>Tilldela Azure Monitor initiativ
+Du kan bara skapa principtilldelningen från Azure-portalen med den här första versionen. Information om hur du utför de här stegen finns i [skapa en principtilldelning från Azure portal](../governance/policy/assign-policy-portal.md). 
+
+1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**. 
+2. Välj **Tilldelningar** till vänster på sidan Azure Policy. En tilldelning är en princip som tilldelats ett specifikt område.
+3. Välj **tilldela initiativ** högst upp på den **princip – tilldelningar** sidan.
+4. På den **tilldela initiativ** väljer den **omfång** genom att klicka på ellipsen och välj antingen en hanteringsgrupp eller prenumeration och eventuellt en resursgrupp. Ett omfång begränsar principtilldelning i vårt fall till en gruppering av virtuella datorer för tvång. Klicka på **Välj** längst ned på den **omfång** sidan för att spara dina ändringar.
+5. **Undantag** kan du utelämna en eller flera resurser från scope, vilket är valfritt. 
+6. Välj den **initiativdefinition** ellipsen för att öppna listan med tillgängliga definitioner och välja  **[förhandsversion] aktivera Azure Monitor för virtuella datorer** i listan och klicka sedan på **Välj**.
+7. Den **tilldelningsnamn** är automatiskt ifylld med initiativ namn du valt, men du kan ändra den. Du kan också lägga till en valfri **Beskrivning**. **Tilldelad av** fylls i automatiskt baserat på vem som har loggat in och det här fältet är valfritt.
+8. Välj en **Log Analytics-arbetsyta** i listrutan som är tillgänglig i regionen som stöds.
 
     >[!NOTE]
-    >Obs: Om du planerar att tilldela initiativ/principen till flera prenumerationer, definitionerna måste vara lagrad i hanteringsgruppen som innehåller de prenumerationer som du tilldelar principen till. Därför måste du använda parametern - ManagementGroupID.
+    >Om arbetsytan som är utanför omfånget för tilldelningen, måste du ge **Log Analytics Contributor** behörigheter till principtilldelningen huvudnamn-ID. Om du inte gör det kan du se ett distributionsfel som: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` granska [manuellt konfigurera den hanterade identitet](../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity) att bevilja åtkomst.
     >
-   
-    Exempel utan parametrar:  `.\Add-VMInsightsPolicy.ps1`
 
-### <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
-När du har kört den `Add-VMInsightsPolicy.ps1` PowerShell-skript, följande initiativ och principer har lagts till:
+9. Observera den **hanterade identiteter** alternativet är markerat. Detta kontrolleras när initiativet tilldelas innehåller en princip med effekten deployIfNotExists. Från den **hantera identitet plats** listrutan väljer du rätt region.  
+10. Klicka på **Tilldela**.
 
-* **Distribuera Log Analytics-agenten för virtuella Windows-datorer – förhandsversion**
-* **Distribuera Log Analytics-agenten för Linux-datorer – förhandsversion**
-* **Distribuera Beroendeagenten för virtuella Windows-datorer – förhandsversion**
-* **Distribuera Beroendeagenten för virtuella Linux-datorer – förhandsversion**
-* **Granska distribution - VM Image (OS) olistade - förhandsversionen av Log Analytics-agenten**
-* **Granska beroende Agent Deployment - VM Image (OS) olistade - Preview**
+#### <a name="review-and-remediate-the-compliance-results"></a>Granska och åtgärda kompatibilitetsresultaten 
 
-Följande initiativ parameter har lagts till:
+Du kan lära dig hur du granskar kompatibilitetsresultat genom att läsa [identifiera inkompatibilitet resultat](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). Välj **efterlevnad** till vänster på sidan och leta upp den  **[förhandsversion] aktivera Azure Monitor för virtuella datorer** initiativ som inte är kompatibla per tilldelningen som du skapade.
 
-- **Logga Analytice arbetsyta** (du måste ange resurs-ID för arbetsytan kopplar en tilldelning med PowerShell eller CLI)
+![För virtuella Azure-datorer](./media/monitoring-vminsights-onboard/policy-view-compliance-01.png)
 
-    För virtuella datorer finns som icke-kompatibla från granskningsprinciperna **virtuella datorer inte i OS omfång...**  villkor princip för programdistribution bara innehåller virtuella datorer som distribueras från välkända Azure VM-avbildningar. I dokumentationen om VM-operativsystem som stöds eller inte.  Om den inte behöver duplicera princip för programdistribution och uppdatera/ändra det så att bilden i omfånget.
+Baserat på resultatet av de principer som ingår i initiativet, rapporteras virtuella datorer som icke-kompatibel i följande scenarier:  
+  
+1. Log Analytics eller Beroendeagenten har inte distribuerats.  
+   Det här är vanligt för ett omfång med befintliga virtuella datorer. Förhindras, [skapa reparation uppgifter](../governance/policy/how-to/remediate-resources.md) på en icke-kompatibla princip för att distribuera nödvändiga agenter.    
+ 
+    - [Förhandsversion]: Deploy Dependency Agent for Linux VMs   
+    - [Förhandsversion]: Deploy Dependency Agent for Windows VMs  
+    - [Förhandsversion]: Deploy Log Analytics Agent for Linux VMs  
+    - [Förhandsversion]: Deploy Log Analytics Agent for Windows VMs  
 
-Följande valfria fristående princip har lagts till:
+2. VM-avbildning (OS) är inte i listan över identifierade i principdefinitionen.  
+   Villkor för distribution av princip bara innehåller virtuella datorer som distribueras från välkända Azure VM-avbildningar. I dokumentationen om VM-operativsystem som stöds eller inte. Om inte måste du duplicera princip för programdistribution och uppdatera/ändra det så att avbildningen som är kompatibla. 
+  
+    - [Förhandsversion]: granska beroende Agentdistribution – VM Image (OS) inte finns i listan  
+    - [Förhandsversion]: Agentdistribution för granskning Log Analytics – VM Image (OS) inte finns i listan
 
-- **Virtuell dator har konfigurerats för Felmatchade Log Analytics-arbetsyta – förhandsversion**
+3. Virtuella datorer loggar inte på den angivna LA-arbetsytan.  
+Det är möjligt att vissa virtuella datorer i området initiativ loggar till en LA arbetsyta skiljer sig från den en gång anges i rolltilldelningen. Den här principen är ett verktyg för att identifiera vilka virtuella datorer rapporterar till en icke-kompatibla arbetsyta.  
+ 
+    - [Förhandsversion]: Audit Log Analytics Workspace for VM - Report Mismatch  
 
-    Detta kan användas för att identifiera virtuella datorer som redan har konfigurerats med den [Log Analytics VM-tillägget](../virtual-machines/extensions/oms-windows.md), men har konfigurerats med en annan arbetsyta än avsett (vilket indikeras med principtilldelningen). Detta tar en parameter för WorkspaceID.
-
-Du kan bara skapa principtilldelningen från Azure-portalen med den här första versionen. Information om hur du utför de här stegen finns i [skapa en principtilldelning från Azure portal](../azure-policy/assign-policy-definition.md).
-
-## <a name="enable-with-powershell"></a>Aktivera med PowerShell
-Om du vill aktivera Azure Monitor för virtuella datorer för flera virtuella datorer eller VM-skalningsuppsättningar, kan du använda ett angivet PowerShell-skript – [installera VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) tillgängliga från Azure PowerShell-galleriet för att slutföra den här uppgiften.  Det här skriptet ska gå igenom varje virtuell dator och VM-skalningsuppsättning i din prenumeration, i den begränsade resursgruppen som anges av *ResourceGroup*, eller till en enda virtuell dator eller skala som anges av *namn*.  För varje virtuell dator eller virtuell dator kontrollerar skriptet-skalningsuppsättning om VM-tillägget har installerats, och om inte försöker installera det på nytt.  I annat fall fortsätter den att installera Log Analytics och beroende Agent VM-tillägg.   
+### <a name="enable-with-powershell"></a>Aktivera med PowerShell
+Om du vill aktivera Azure Monitor för virtuella datorer för flera virtuella datorer eller VM-skalningsuppsättningar, kan du använda ett angivet PowerShell-skript – [installera VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) tillgängliga från Azure PowerShell-galleriet för att slutföra den här uppgiften.  Det här skriptet ska gå igenom varje virtuella dator och VM-skalningsuppsättning i prenumerationen i den begränsade resursgruppen som anges av *ResourceGroup*, eller till en enda virtuell dator eller virtuell dator skala som anges av *Namn*.  Skriptet verifierar för varje virtuell dator eller VM-skalningsuppsättning om VM-tillägget har installerats, och om inte försöker installera det på nytt.  I annat fall fortsätter den att installera Log Analytics och beroende Agent VM-tillägg.   
 
 Det här skriptet kräver Azure PowerShell-Modulversion 5.7.0-installationsprogram eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
@@ -588,7 +705,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     ```
 
 2. Spara filen som **installsolutionsforvminsights.json** till en lokal mapp.
-3. Redigera värdena för **WorkspaceName**, **ResourceGroupName**, och **WorkspaceLocation**.  Värdet för **WorkspaceName** är den är fullständiga resurs-ID för Log Analytics-arbetsytan, som innehåller namnet på arbetsytan och värdet för **WorkspaceLocation** är den region som arbetsytan har definierats i.
+3. Redigera värdena för **WorkspaceName**, **ResourceGroupName**, och **WorkspaceLocation**.  Värdet för **WorkspaceName** är fullständiga resurs-ID för Log Analytics-arbetsytan, som innehåller namnet på arbetsytan och värdet för **WorkspaceLocation** är den region som arbetsytan är definierad i.
 4. Du är redo att distribuera den här mallen med hjälp av följande PowerShell-kommando:
 
     ```powershell

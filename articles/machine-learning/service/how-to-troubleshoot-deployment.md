@@ -9,14 +9,14 @@ ms.author: haining
 author: hning86
 ms.reviewer: jmartens
 ms.date: 10/01/2018
-ms.openlocfilehash: 5c5468619533e66ddaac352dea8bdcbc9616b10d
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 92db115ed826b756e11b572a5a62f0f82d4535a7
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243376"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269197"
 ---
-# <a name="troubleshoot-your-azure-machine-learning-service-deployments"></a>Felsöka din distribution av Azure Machine Learning-tjänster
+# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Felsökning av distribution av Azure Machine Learning-tjänster
 
 I den här artikeln får lära du dig att undvika eller lösa vanliga Docker-distributionsfel med Azure Machine Learning-tjänsten.
 
@@ -41,9 +41,7 @@ Mer information om den här processen i den [modellhantering](concept-model-mana
 
 Om du stöter på några problem, det första du ska göra är att bryta ned aktiviteten distribution (tidigare beskrivs) till enskilda steg för att isolera problemet. 
 
-Detta är särskilt användbart om du använder den `Webservice.deploy` API, eller `Webservice.deploy_from_model` API, eftersom dessa funktioner gruppera de tidigare nämnda steg i en enda åtgärd. Vanligtvis dessa API: er är ganska enkelt, men det hjälper dig för att dela upp stegen när du felsöker. 
-
-Här följer funktionerna som ska användas när större distributionen steg:
+Detta är särskilt användbart om du använder den `Webservice.deploy` API, eller `Webservice.deploy_from_model` API, eftersom dessa funktioner gruppera de tidigare nämnda steg i en enda åtgärd. Vanligtvis dessa API: er är ganska enkelt, men det hjälper dig för att dela upp stegen när du felsöker genom att ersätta dem med den nedan API-anrop.
 
 1. Registrera modellen. Här är exempelkod:
 
@@ -64,7 +62,7 @@ Här följer funktionerna som ska användas när större distributionen steg:
                                                       conda_file="myenv.yml")
 
     # create the image
-    image = Image.create(name='myimg', models=[model], image_config=img_cfg, workspace=ws)
+    image = Image.create(name='myimg', models=[model], image_config=image_config, workspace=ws)
 
     # wait for image creation to finish
     image.wait_for_creation(show_output=True)
@@ -74,9 +72,9 @@ Här följer funktionerna som ska användas när större distributionen steg:
 
     ```python
     # configure an ACI-based deployment
-    aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
+    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
 
-    aci_service = Webservice.deploy_from_image(deployment_config=aciconfig, 
+    aci_service = Webservice.deploy_from_image(deployment_config=aci_config, 
                                                image=image, 
                                                name='mysvc', 
                                                workspace=ws)
@@ -86,7 +84,7 @@ Här följer funktionerna som ska användas när större distributionen steg:
 När du har uppdelade distributionsprocessen i enskilda aktiviteter kan vi titta på några av de vanligaste felen.
 
 ## <a name="image-building-fails"></a>Bild som att skapa misslyckas
-Om systemet är det går inte att skapa Docker-avbildningen i `image.wait_for_creation` anrop misslyckas med vissa felmeddelanden. Du kan också hitta mer information om felet från image build-loggen. Logg-URI: n är en SAS-URL som pekar på en loggfil som lagras i Azure blob storage. Helt enkelt kopiera och klistra in URI: n i ett webbläsarfönster och du kan hämta och visa loggen.
+Om systemet är det går inte att skapa Docker-avbildningen i `image.wait_for_creation()` anrop misslyckas med vissa felmeddelanden som kan erbjuda viss vägledning. Du kan också hitta mer information om felen från image build-loggen. Nedan är exempelkod som visar hur du identifierar build log-uri för avbildning.
 
 ```python
 # if you already have the image object handy
@@ -99,14 +97,16 @@ print(ws.images()['myimg'].image_build_log_uri)
 for name, img in ws.images().items()
     print (img.name, img.version, img.image_build_log_uri)
 ```
+Logg-uri för avbildning är en SAS-URL som pekar på en loggfil som lagras i Azure blob storage. Helt enkelt kopiera och klistra in URI: n i ett webbläsarfönster och du kan hämta och visa loggfilen.
+
 
 ## <a name="service-launch-fails"></a>Starta tjänsten misslyckas
-När avbildningen har har skapats, försöker systemet att starta en behållare i ACI eller AKS beroende på din konfiguration av distributionen. Vi rekommenderar alltid att använda en ACI-distribution först eftersom det är en enkel enskild behållare-distribution. Det här sättet du kan sedan försäkra dig om eventuella problem med AKS.
+När avbildningen har har skapats, försöker systemet att starta en behållare i ACI eller AKS beroende på din konfiguration av distributionen. Allmänt rekommenderar vi att du prova en ACI-distribution först, eftersom det är en enklare distribution av enskild behållare. Det här sättet du kan sedan försäkra dig om eventuella problem med AKS.
 
 Som en del i processen för att starta upp behållaren, den `init()` funktionen i din bedömningsskriptet anropas av systemet. Om det finns undantag utan felhantering i den `init()` fungerar, visas **CrashLoopBackOff** fel i felmeddelandet. Nedan följer några tips för att felsöka problemet.
 
 ### <a name="inspect-the-docker-log"></a>Inspektera Docker-loggen
-Om avbildningen upprättas, men det uppstår fel när du distribuerar avbildningen som en behållare kan du se felmeddelande i Docker-loggen.
+Du kan skriva ut detaljerad Docker-motorn loggmeddelanden från objektet.
 
 ```python
 # if you already have the service object handy
@@ -128,16 +128,23 @@ print(image.image_location)
 
 Bildplatsen har följande format: `<acr-name>.azurecr.io/<image-name>:<version-number>`, till exempel `myworkpaceacr.azurecr.io/myimage:3`. 
 
-Gå till Kommandotolken och Skriv följande kommandon för att logga in på ACR (Azure Container Registry) kopplade till arbetsytan där avbildningen finns sparad.
+Gå nu till din kommandoradsfönster. Om du har installerat azure-cli kan skriva du följande kommandon för att logga in på ACR (Azure Container Registry) kopplade till arbetsytan där avbildningen finns sparad. 
 
 ```sh
-# note the acr_name is just the domain name WITHOUT the ".azurecr.io" postfix
+# log on to Azure first if you haven't done so before
+$ az login
+
+# make sure you set the right subscription in case you have access to multiple subscriptions
+$ az account set -s <subscription_name_or_id>
+
+# now let's log in to the workspace ACR
+# note the acr-name is the domain name WITHOUT the ".azurecr.io" postfix
 # e.g.: az acr login -n myworkpaceacr
 $ az acr login -n <acr-name>
 ```
-Om du inte har installerat azure-cli kan du också använda `docker login` kommando för att logga in på ACR. Du behöver bara hämta användarnamn och lösenord för ACR från Azure-portalen.
+Om du inte har installerat azure-cli kan du använda `docker login` kommando för att logga in på ACR. Men du måste först hämta användarnamn och lösenord för ACR från Azure-portalen.
 
-Du kan nu hämta Docker-avbildningen och starta en behållare lokalt och sedan starta bash-session för felsökning.
+När du har loggat in till ACR, du kan hämta Docker-avbildningen och starta en behållare lokalt och sedan starta bash-session för felsökning med hjälp av den `docker run` kommando:
 
 ```sh
 # note the image_id is <acr-name>.azurecr.io/<image-name>:<version-number>
@@ -165,7 +172,7 @@ Om du behöver en textredigerare för att ändra skripten kan du installera vim,
 # update package index
 apt-get update
 
-# install text editor of your choice
+# install a text editor of your choice
 apt-get install vim
 apt-get install nano
 apt-get install emacs
@@ -184,18 +191,18 @@ $ docker run -p 8000:5001 <image_id>
 ```
 
 ## <a name="function-fails-getmodelpath"></a>Funktionen misslyckas: get_model_path()
-Ofta, i den `init()` funktionen i bedömningsskriptet, `Model.get_model_path()` funktionen anropas för att hitta en modellfil eller en mapp med filer i behållaren. Det här är ofta en felkälla om modellfilen eller mappen inte kan hittas. Det enklaste sättet att felsöka det här felet är att köra den nedan Python-kod i behållaren shell:
+Ofta, i den `init()` funktionen i bedömningsskriptet, `Model.get_model_path()` funktionen anropas för att hitta en modellfil eller en mapp med modellfiler i behållaren. Det här är ofta en felkälla om modellfilen eller mappen inte kan hittas. Det enklaste sättet att felsöka det här felet är att köra den nedan Python-kod i behållaren shell:
 
 ```python
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Detta skulle skriva ut den lokala sökvägen att din bedömningsskriptet förväntar sig att hitta modellfilen eller mappen. Därefter kan du kontrollera om filen eller mappen är verkligen där det förväntas vara.
+Detta skulle skriva ut den lokala sökvägen (relativt till `/var/azureml-app`) i behållaren där dina bedömningsskriptet förväntar sig att hitta modellfilen eller mappen. Därefter kan du kontrollera om filen eller mappen är verkligen där det förväntas vara.
 
 
 ## <a name="function-fails-runinputdata"></a>Funktionen misslyckas: run(input_data)
-Om tjänsten har distribuerats och kraschar när du publicerar data till bedömnings-slutpunkten, du kan lägga till fel vid identifiering av instruktionen i din `run(input_data)` funktionen för att dela ut ett felmeddelande. Exempel:
+Om tjänsten har distribuerats, men den kraschar när du publicerar data till bedömnings-slutpunkten, du kan lägga till fel vid identifiering av instruktionen i din `run(input_data)` så att den returnerar detaljerat felmeddelande i stället. Exempel:
 
 ```python
 def run(input_data):
@@ -209,6 +216,8 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
+**Obs**: returnerar felmeddelanden från den `run(input_data)` anrop görs för felsökning endast syfte. Det kanske inte är en bra idé att göra detta i en produktionsmiljö av säkerhetsskäl.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

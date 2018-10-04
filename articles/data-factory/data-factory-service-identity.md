@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: db0bc0cb64c0b6d7df9319c8d2c5850a27e767a1
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061698"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249221"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory-tjänstidentitet
 
@@ -169,6 +169,6 @@ Type                  : ServicePrincipal
 Finns i följande avsnitt som introducerar när och hur du använder tjänstidentitet för datafabrik:
 
 - [Store-autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md)
-- [Kopieringsdata från/till Azure Data Lake Store med hjälp av hanterad tjänst identitetsautentisering](connector-azure-data-lake-store.md)
+- [Kopieringsdata från/till Azure Data Lake Store med hjälp av hanterade identiteter för autentisering av Azure-resurser](connector-azure-data-lake-store.md)
 
-Se [MSI översikt](~/articles/active-directory/msi-overview.md) Mer bakgrundsinformation om hanterad tjänstidentitet vilka tjänstidentitet för datafabrik baseras på. 
+Se [hanterade identiteter för översikt över Azure-resurser](~/articles/active-directory/msi-overview.md) Mer bakgrundsinformation om hanterade identiteter för Azure-resurser som tjänstidentitet för datafabrik baseras på. 

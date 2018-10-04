@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 54bb6056c41126aecada265eb0e079bc7c281be8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865941"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269527"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management-principer för begränsning av åtkomst
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -216,7 +216,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |IP-filter|Rotelement.|Ja|  
-|adress|Anger en IP-adress som ska filtreras.|Minst en `address` eller `address-range` elementet krävs.|  
+|Adress|Anger en IP-adress som ska filtreras.|Minst en `address` eller `address-range` elementet krävs.|  
 |adressintervallet från = ”adress” till = ”adress”|Anger ett intervall med IP-adress som ska filtreras.|Minst en `address` eller `address-range` elementet krävs.|  
   
 ### <a name="attributes"></a>Attribut  
@@ -277,7 +277,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |namn|Namnet på API: et eller åtgärden som kvoten gäller.|Ja|Gäller inte|  
-|bandbredd|Det högsta totala antalet kilobyte tillåts under en tidsperiod som anges i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
+|Bandbredd|Det högsta totala antalet kilobyte tillåts under en tidsperiod som anges i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
 |anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som anges i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
 |förnyelseperioden|Hur lång tid i sekunder efter vilken kvoten återställs.|Ja|Gäller inte|  
   
@@ -288,7 +288,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 -   **Princip-scope:** produkt  
   
 ##  <a name="SetUsageQuotaByKey"></a> Ange användningskvot av nyckel  
- Den `quota-by-key` principen tvingar fram en förnyas eller livslängd anrop volym och/eller bandbredd kvoten på basis av per nyckel. Nyckeln kan ha en godtycklig sträng-värde och anges vanligtvis med en principuttryck. Valfritt steg villkor kan läggas till ange vilka begäranden som ska räknas mot kvoten.  
+ Den `quota-by-key` principen tvingar fram en förnyas eller livslängd anrop volym och/eller bandbredd kvoten på basis av per nyckel. Nyckeln kan ha en godtycklig sträng-värde och anges vanligtvis med en principuttryck. Valfritt steg villkor kan läggas till ange vilka begäranden som ska räknas mot kvoten. När den här principen aktiveras anroparen får en `403 Forbidden` Svarets statuskod.
   
  Mer information och exempel på den här principen kan du se [avancerad begränsning av förfrågningar med Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
@@ -335,7 +335,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|bandbredd|Det högsta totala antalet kilobyte tillåts under en tidsperiod som anges i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
+|Bandbredd|Det högsta totala antalet kilobyte tillåts under en tidsperiod som anges i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
 |anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som anges i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
 |avdelningar nyckel|Nyckeln som ska användas för kvot-principen.|Ja|Gäller inte|  
 |öka villkor|Den booleska uttryck som anger om begäran ska räknas mot kvoten (`true`)|Nej|Gäller inte|  
@@ -508,7 +508,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |Kräv förfallotid|Booleskt värde. Anger om ett anspråk för förfallodatum krävs i token.|Nej|true|
 |Kräv schema|Namnet på token system, t.ex. ”Ägar”. När det här attributet anges garanterar principen som att det angivna schemat finns i värdet för auktoriseringsrubriken.|Nej|Gäller inte|
 |Kräv-signerade-token|Booleskt värde. Anger om det krävs en token signeras.|Nej|true|  
-|avgränsare|Sträng. Anger en avgränsare (t.ex. ””,) som ska användas för att extrahera en uppsättning värden från ett med flera värden anspråk.|Nej|Gäller inte| 
+|avgränsare|sträng. Anger en avgränsare (t.ex. ””,) som ska användas för att extrahera en uppsättning värden från ett med flera värden anspråk.|Nej|Gäller inte| 
 |url|Öppna ID configuration slutpunkts-URL från där öppna ID konfigurationsmetadata kan hämtas. Svaret ska vara enligt specifikationer som definierats på URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Använd följande URL för Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` Ersätt ditt klientnamn katalog, t.ex. `contoso.onmicrosoft.com`.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  

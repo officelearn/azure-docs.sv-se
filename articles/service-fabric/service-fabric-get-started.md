@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: f9bcbbdbfb961cc229bac11115c07c0ecd6c931e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9d287abf8963ba46cce42f101aecba31c9762c7a
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041279"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249544"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 > [!div class="op_single_selector"]
@@ -48,6 +48,8 @@ Följande operativsystemversioner stöds för utveckling:
 >
 
 ## <a name="install-the-sdk-and-tools"></a>Installera SDK och verktyg
+Webbplattformen (WebPI) är det rekommenderade sättet att installera SDK och verktyg. Om du får körningsfel med installationsprogram för webbplattform, kan du också hitta Direktlänkar till installationsprogram i viktig information för en specifik version av Service Fabric. Viktig information finns i olika lanseringsmeddelanden på den [Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/).
+
 ### <a name="to-use-visual-studio-2017"></a>Använda Visual Studio 2017
 Service Fabric-verktygen är en del av arbetsbelastningen i Azure Development i Visual Studio 2017. Aktivera den här arbetsbelastningen som en del av Visual Studio-installationen.
 Du måste också installera Microsoft Azure Service Fabric SDK:n och körmiljön med hjälp av installationsprogrammet för webbplattform.

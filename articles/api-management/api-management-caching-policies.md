@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: f3734304bdcc4b3f0944ebf568094595eea01a4e
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 160172b25f4bcdb04ac9f9649bca6b08e0be1b0d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214908"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269080"
 ---
 # <a name="api-management-caching-policies"></a>API Management cachelagringsprinciperna
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -83,7 +83,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
  Det här exemplet visar hur du konfigurerar API Management svar lagringstiden som matchar svar cachelagring av backend-tjänsten som anges av tjänsten säkerhetskopierade `Cache-Control` direktiv. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 25:25.  
   
 ```xml  
-<!-- The following cache policy snippets demonstrate how to control API Management reponse cache duration with Cache-Control headers sent by the backend service. -->  
+<!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
   
 <!-- Copy this snippet into the inbound section -->  
 <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="public" must-revalidate="true" >  
@@ -91,7 +91,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   <vary-by-header>Accept-Charset</vary-by-header>  
 </cache-lookup>  
   
-<!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the deafult value of 5 min if none is found  -->  
+<!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the default value of 5 min if none is found  -->  
 <cache-store duration="@{  
     var header = context.Response.Headers.GetValueOrDefault("Cache-Control","");  
     var maxAge = Regex.Match(header, @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value;  
@@ -161,7 +161,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
  Det här exemplet visar hur du konfigurerar API Management svar lagringstiden som matchar svar cachelagring av backend-tjänsten som anges av tjänsten säkerhetskopierade `Cache-Control` direktiv. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 25:25.  
   
 ```xml  
-<!-- The following cache policy snippets demonstrate how to control API Management reponse cache duration with Cache-Control headers sent by the backend service. -->  
+<!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
   
 <!-- Copy this snippet into the inbound section -->  
 <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="public" must-revalidate="true" >  
@@ -169,7 +169,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   <vary-by-header>Accept-Charset</vary-by-header>  
 </cache-lookup>  
   
-<!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the deafult value of 5 min if none is found  -->  
+<!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the default value of 5 min if none is found  -->  
 <cache-store duration="@{  
     var header = context.Response.Headers.GetValueOrDefault("Cache-Control","");  
     var maxAge = Regex.Match(header, @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value;  
@@ -190,7 +190,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|Varaktighet|Time-to-live posternas cachelagrade anges i sekunder.|Ja|Gäller inte|  
+|varaktighet|Time-to-live posternas cachelagrade anges i sekunder.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -274,7 +274,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|Varaktighet|Värdet cachelagras för det angivna duration-värde som anges i sekunder.|Ja|Gäller inte|  
+|varaktighet|Värdet cachelagras för det angivna duration-värde som anges i sekunder.|Ja|Gäller inte|  
 |key|Cachenyckel värdet lagras.|Ja|Gäller inte|  
 |värde|Värdet som ska cachelagras.|Ja|Gäller inte|  
   

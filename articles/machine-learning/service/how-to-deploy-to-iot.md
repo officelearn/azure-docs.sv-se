@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 20469e127c8e04f4c6418fe28c49b63fc3b363d8
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 66370aec76044454ab4f11eb432fe2e9b0cdb9cf
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239208"
+ms.locfileid: "48248593"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Förbereda för distribution av modeller på IoT Edge
 
@@ -35,7 +35,7 @@ Innan du distribuerar en modell till en edge-enhet, använder du stegen i det h�
 
 * En [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) i Azure-prenumerationen. 
 
-* En tränad modell. Ett exempel på hur du tränar en modell finns i den [tränar en modell för klassificering av avbildning med Azure Machine Learning](tutorial-train-models-with-aml.md) dokumentet.
+* En tränad modell. Ett exempel på hur du tränar en modell finns i den [tränar en modell för klassificering av avbildning med Azure Machine Learning](tutorial-train-models-with-aml.md) dokumentet. En förtränade modellen är tillgänglig på den [AI-verktyg för Azure IoT Edge GitHub-lagringsplatsen](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
 ## <a name="prepare-the-iot-device"></a>Förbereda IoT-enhet
 

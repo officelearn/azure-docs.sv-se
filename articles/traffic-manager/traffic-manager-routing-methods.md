@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 797f97b9c1548484d72f518ae1d2c56633b7b5b3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ab5f6d10e4f9edc4d899e976291482bb3a795c07
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126776"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248932"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager-dirigeringsmetoder
 
@@ -105,7 +105,7 @@ När en profil har konfigurerats för geografisk routning för varje slutpunkt s
 - Världen – valfri region
 - Regional gruppering – till exempel Afrika, Mellanöstern, Australien/Pacific osv. 
 - Land/Region – till exempel Irland, Peru, Hongkong SAR osv. 
-- Stat/provins – till exempel USA Kalifornien, Australien-Queensland, Kanada Alberta etc. (Obs: den här filnivå stöds endast för tillstånd / regioner i Australien, Kanada, Storbritannien och USA).
+- Stat/provins – till exempel USA Kalifornien, Australien-Queensland, Kanada Alberta etc. (Obs: den här filnivå stöds endast för tillstånd / regioner i Australien, Kanada och USA).
 
 När en region eller en uppsättning regioner tilldelas till en slutpunkt, dirigeras förfrågningar från dessa regioner endast till denna slutpunkt. Traffic Manager använder källans IP-adress för DNS-fråga för att bestämma en region som en användare frågor från – detta är vanligtvis IP-adressen för den lokala DNS-matcharen göra frågan användarens räkning.  
 

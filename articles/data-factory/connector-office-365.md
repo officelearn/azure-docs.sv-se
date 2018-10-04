@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: dc5f6c8c12dc10d135eaaf26d83236b2287bf059
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2229a8a01d29fc167eb3696423224f1d2ef0df4e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223126"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248473"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Kopiera data från Office 365 till Azure med hjälp av Azure Data Factory (förhandsversion) 
 
@@ -33,8 +33,8 @@ För närvarande i en enda Kopieringsaktivitet du kan bara **kopiera data från 
 >[!IMPORTANT]
 >- Azure-prenumerationen som innehåller data factory och det mottagande datalagren måste vara under samma Azure Active Directory (Azure AD)-klient som Office 365-klient.
 >- Se till att Azure Integration Runtime-regionen som används för kopieringsaktiviteten samt målet är i samma region där Office 365-klient användarnas postlådan finns. Se [här](concepts-integration-runtime.md#integration-runtime-location) att förstå hur Azure IR-platsen bestäms. Referera till [tabellen här](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) lista över regioner som stöds Office och motsvarande Azure-regioner.
->-  Om du läser in Office 365-data i **Azure Blob Storage** som mål, se till att du använder **[tjänstobjektautentisering](connector-azure-blob-storage.md#service-principal-authentication)** när du definierar länkat Tjänsten till Azure Blob Storage och inte använder [kontonyckel](connector-azure-blob-storage.md#account-key-authentication), [signatur för delad åtkomst](connector-azure-blob-storage.md#shared-access-signature-authentication) eller [hanterad tjänstidentitet ](connector-azure-blob-storage.md#managed-service-identity-authentication) autentiseringar.
->-  Om du läser in Office 365-data i **Azure Data Lake Storage Gen1** som mål, se till att du använder [ **tjänstobjektautentisering** ](connector-azure-data-lake-store.md#using-service-principal-authentication) när du definierar den Länkad tjänst till Azure Data Lake Storage Gen1 och inte använder [managed service identity-autentisering](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+>-  Om du läser in Office 365-data i **Azure Blob Storage** som mål, se till att du använder **[tjänstobjektautentisering](connector-azure-blob-storage.md#service-principal-authentication)** när du definierar länkat Tjänsten till Azure Blob Storage och inte använder [kontonyckel](connector-azure-blob-storage.md#account-key-authentication), [signatur för delad åtkomst](connector-azure-blob-storage.md#shared-access-signature-authentication) eller [hanterade identiteter för Azure-resurser](connector-azure-blob-storage.md#managed-identity) autentiseringar.
+>-  Om du läser in Office 365-data i **Azure Data Lake Storage Gen1** som mål, se till att du använder [ **tjänstobjektautentisering** ](connector-azure-data-lake-store.md#using-service-principal-authentication) när du definierar den Länkad tjänst till Azure Data Lake Storage Gen1 och inte använder [hanterade identiteter för Azure-resurser autentisering](connector-azure-data-lake-store.md#managed-identity).
 
 ## <a name="prerequisites"></a>Förutsättningar
 

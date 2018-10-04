@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 10/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8b09170c31691be34cea577eb82c8cce3402be96
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e1d116b96abab89f08546d3c2d5d7bff3234ecbc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294676"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249238"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
 
@@ -121,7 +121,9 @@ Du inte behöver ange den `contentVersion` -egenskapen för mallen eller paramet
 
 ### <a name="external-template-and-inline-parameters"></a>Externa mallen och infogade parametrar
 
-Eller så kan du ange parametern-infogade. Om du vill skicka ett värde från den huvudsakliga mallen till länkad mall, använda **parametrar**.
+Eller så kan du ange parametern-infogade. Du kan inte använda både infogade parametrar och en länk till en parameterfil. Distributionen misslyckas med ett fel när båda `parametersLink` och `parameters` har angetts.
+
+Om du vill skicka ett värde från den huvudsakliga mallen till länkad mall, använda **parametrar**.
 
 ```json
 "resources": [

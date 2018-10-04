@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: 3242f683fd6190209e3395bd8410dd1b2cd36960
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: bc322857a459f9417ed7c89a6e4df7ce5c41c3f0
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043359"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246489"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)
 
@@ -75,7 +75,11 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 > [!NOTE]
 > Vid en given tidpunkt kan endast en av AlwaysON-repliker nås av ReadOnly-sessioner.
 
-## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Aktivera och inaktivera Lässkalning med hjälp av Azure PowerShell
+## <a name="enable-and-disable-read-scale-out"></a>Aktivera och inaktivera Lässkalning
+
+Lässkalning är aktiverat som standard i [Managed Instance](sql-database-managed-instance.md) affärskritisk tier(Preview). Funktionen ska vara explicit aktiverad i [databasen placeras på logisk server](sql-database-logical-servers.md) Premium och affärskritisk nivåer. Här beskrivs metoder för att aktivera och inaktivera Lässkalning. 
+
+### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Aktivera och inaktivera Lässkalning med hjälp av Azure PowerShell
 
 Hantera Lässkalning i Azure PowerShell kräver December 2016 Azure PowerShell-versionen eller senare. Den senaste versionen av PowerShell, se [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -99,7 +103,7 @@ Att skapa en ny databas med läsning skalbar aktiverad (Ersätt objekten i hakpa
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-## <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Aktivera och inaktivera Lässkalning med hjälp av Azure SQL Database REST API
+### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Aktivera och inaktivera Lässkalning med hjälp av Azure SQL Database REST API
 
 Om du vill skapa en databas med skrivskyddade skalbar aktiverad, eller aktivera eller inaktivera Läs skalbar för en befintlig databas, skapa eller uppdatera motsvarande databasen entiteten med det `readScale` egenskapen `Enabled` eller `Disabled` som i den nedan exemplet begäran.
 

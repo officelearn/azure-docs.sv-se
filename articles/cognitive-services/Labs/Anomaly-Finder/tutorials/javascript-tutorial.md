@@ -9,14 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 42c3941a05efe8b74f818cd99f3606b3073892a9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5bb123648a683454597b0561f9f82dffb70eab04
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453177"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248371"
 ---
 # <a name="anomaly-detection-javascript-application"></a>Avvikelseidentifiering identifiering av Javascript-programmet
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Utforska ett webbprogram som använder den Avvikelseidentifiering REST API: T för att identifiera avvikelser. I exempel skickar time series-data till API: T för Avvikelseidentifiering identifiering med din prenumerationsnyckel och sedan hämtar alla avvikelser punkter och det förväntade värdet för varje datapunkt från API: et.
 

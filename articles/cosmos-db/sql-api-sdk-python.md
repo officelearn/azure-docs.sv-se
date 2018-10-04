@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 9/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bfe815b9664e499f7ae458dfc42b88199e0ecb4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 75b5fd2f586a9122aa1248ba88d7ceab59b13215
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037940"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269300"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.locfileid: "47037940"
 
 <tr><td>**Hämta SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**API-dokumentation**</td><td>[Python API-referensdokumentation](https://docs.microsoft.com/python/api/azure-cosmos)</td></tr>
+<tr><td>**API-dokumentation**</td><td>[Python API-referensdokumentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
 
 <tr><td>**Installationsinstruktioner för SDK**</td><td>[Instruktioner för installation av Python SDK](https://github.com/Azure/azure-cosmos-python)</td></tr>
 

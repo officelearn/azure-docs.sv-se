@@ -1,6 +1,6 @@
 ---
-title: 'Hur du använder API: et för Avvikelseidentifiering Finder med PHP - kognitiva Microsoft-tjänster | Microsoft Docs'
-description: Hämta information och exempel på kod för att snabbt komma igång med Avvikelseidentifiering Finder med PHP i kognitiva Services.
+title: 'Hur du använder API: T för Avvikelseidentifiering Finder med PHP – Microsoft Cognitive Services | Microsoft Docs'
+description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Avvikelsesökare med PHP i Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,32 +9,34 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f81c99b77f931b5b259633fa8fcd0bf3e358e281
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f5f055be584aa9c6afb66ff651fd3c01851afd76
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353328"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246403"
 ---
-# <a name="use-the-anomaly-finder-api-with-php"></a>Använda Avvikelseidentifiering Finder API med PHP
+# <a name="use-the-anomaly-finder-api-with-php"></a>Använda Avvikelsesökare API med PHP
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: et för Avvikelseidentifiering Finder med PHP för att utföra uppgiften för att få avvikelseidentifiering resultat för tid series-data.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: T för Avvikelseidentifiering Finder med PHP till att utföra uppgiften för att få avvikelseidentifiering resultatet för time series-data.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-php"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering Finder API använder PHP
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-php"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering Finder API med PHP
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Exempel på tid series-data
-Exempel på serien tidsdata är som följer.
+### <a name="example-of-time-series-data"></a>Exempel på time series-data
+Exempel på time series-data är som följer.
 [!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-php-example"></a>Analysera data och få avvikelseidentifiering punkter PHP-exempel
-1. Ersätt den `[YOUR_SUBSCRIPTION_KEY]` värde med en giltig prenumeration nyckel.
-2. Ersätt den `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` med exemplet eller egna datapunkter.
-3. Köra och kontrollera svaret.
+1. Ersätt värdet `[YOUR_SUBSCRIPTION_KEY]` med en giltig prenumerationsnyckel.
+2. Ersätt den `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` med exemplet eller dina egna datapunkter.
+3. Kör och kontrollera svaret.
 
 ```PHP
 <?php
@@ -74,7 +76,7 @@ catch (HttpException $ex)
 
 ### <a name="example-response"></a>Exempelsvar
 
-Ett lyckat svar returneras i JSON. Exempelsvar är som följer.
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelsvar är som följer.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Nästa steg

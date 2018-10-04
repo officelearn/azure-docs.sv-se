@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: edb4995b626055be830a7accb74d99f1db3ef8d0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 946c045407b150a923d0067776bf80cbfab54c67
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962227"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268046"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure Data Box Gateway-begränsningar (förhandsgranskning)
 
@@ -28,12 +28,12 @@ ms.locfileid: "46962227"
 Överväg att dessa gränser som du distribuerar och använder din Microsoft Azure Data Box Gateway-lösning. 
 
 > [!IMPORTANT] 
-> Data Box-Gateway är i förhandsversion. Granska den [villkor för användning av förhandsversionen av](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen. 
+> Data Box Gateway är en förhandsversion. Läs [användningsvillkoren för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen. 
 
 
 ## <a name="data-box-gateway-service-limits"></a>Tjänstbegränsningar för data Box-Gateway
 
-- I den här är tjänsten tillgänglig i vissa regioner i USA, Europa och Asien/Stillahavsområdet. Mer information går du till [regiontillgänglighet](#data-box-gateway-overview#region-availability). Lagringskontot ska vara fysiskt närmast den region där enheten distribuerats (kan skilja sig från service geo).
+- I den här är tjänsten tillgänglig i vissa regioner i USA, Europa och Asien/Stillahavsområdet. Mer information finns i [regional tillgänglighet](#data-box-gateway-overview#region-availability). Lagringskontot ska vara fysiskt närmast den region där enheten distribuerats (kan skilja sig från service geo).
 - Flytta en resurs för Data Box-gatewayen till en annan prenumeration eller resursgrupp grupp stöds inte. Mer information går du till [flytta resurser till ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="data-box-gateway-device-limits"></a>Enhetsgränser för data Box-Gateway
@@ -44,7 +44,7 @@ I följande tabell beskrivs gränserna för Data Box-Gateway-enheten.
 |---|---|
 |Nej. filer per enhet |100 miljoner <br> Gränsen är ~ 25 miljoner filer för varje 2 TB diskutrymme med maxgränsen på 100 miljoner |
 |Nej. resurser per enhet |24 |
-|Maximal filstorlek som skrivs till en resurs|5 TB |
+|Maximal filstorlek som skrivs till en resurs|Maximal filstorlek är 500 GB för virtuella enheter 2 TB. <br> Den maximala filstorleken ökar med datadiskstorleken i föregående förhållandet tills den når högst 5 TB. |
 
 ## <a name="azure-storage-limits"></a>Azure storage-begränsningar
 
@@ -89,4 +89,4 @@ Här följer storlekarna på de Azure-objekt som kan skrivas. Se till att alla f
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förbereda för distribution av Azure Data Box-Gateway](data-box-gateway-deploy-prep.md)
+- [Förbereda distributionen av Azure Data Box Gateway](data-box-gateway-deploy-prep.md)

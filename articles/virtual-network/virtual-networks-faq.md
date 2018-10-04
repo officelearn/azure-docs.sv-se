@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999876"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269487"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -230,7 +230,7 @@ VNet-peering (eller virtuell nätverkspeering) kan du ansluta virtuella nätverk
 Ja. Global VNet-peering kan du peerkoppla virtuella nätverk i olika regioner. Global VNet-peering är tillgängligt i alla offentliga Azure-regioner. Du kan inte globalt peer-kopplas från offentliga Azure-regioner till nationella moln. Global peering är inte för närvarande tillgängligt i nationella moln.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Kan jag aktivera VNet-Peering om min virtuella nätverk som hör till prenumerationer i olika Azure Active Directory-klienter?
-Det är för närvarande inte möjligt att upprätta VNet-Peering (antingen lokal eller global) om dina prenumerationer tillhör olika Azure Active Directory-klienter.
+Ja. Det går att upprätta VNet-Peering (antingen lokal eller global) om dina prenumerationer tillhör olika Azure Active Directory-klienter. Du kan göra detta via PowerShell eller CLI. Portal stöds inte ännu.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mina VNet-peering-anslutningen finns i *initierad* tillstånd, varför inte kan jag ansluta?
 Om peering-anslutningen är i tillståndet initierad, innebär det du har skapat endast en länk. En dubbelriktad länk måste skapas för att upprätta en anslutning har. Till exempel to-peer VNet A VNet B, måste en länk skapas från VNetA till VNetB och VNetB till VNetA. Skapa båda länkarna ändrar status till *ansluten.*
@@ -259,7 +259,7 @@ Nej. Transitiva peering stöds inte. Du måste peer VNetA och VNetC för den hä
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Finns det några begränsningar i nätverksbandbredd för peering-anslutningar?
 Nej. VNet-peering, lokal eller global, medför inte några bandbreddsbegränsningar. Bandbredd är endast begränsningar av resursen VM eller beräkning.
 
-## <a name="virtual-network-tap"></a>Virtuell nätverks-TAP
+## <a name="virtual-network-tap"></a>Virtual Network TAP
 
 ### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Vilka Azure-regioner är tillgängliga för virtuella nätverks-TAP?
 Developer förhandsversionen kan är funktionen tillgänglig i regionen västra centrala USA. Övervakade nätverksgränssnitt, ett TRYCK för den virtuella nätverksresursen och insamlare eller analytics-lösningen måste distribueras i samma region.

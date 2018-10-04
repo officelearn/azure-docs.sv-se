@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7984d156c1f8d1c29bda57ae39991876341ea0ac
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 56f1769d601df6292decc46c9470768eac29102c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127252"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249085"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Läs in data till Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory
 
@@ -85,7 +85,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
    2. Ange den **hemliga åtkomstnyckel** värde.
    3. Välj **Slutför**.
    
-   ![Ange Amazon S3-konto](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+     ![Ange Amazon S3-konto](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. Du ser en ny anslutning. Välj **Nästa**.
    
@@ -110,7 +110,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
    3. Välj **Nästa**.
    
    > [!IMPORTANT]
-   > I den här genomgången ska du använda en _hanterad tjänstidentitet_ att autentisera ditt Data Lake Storage Gen1-konto. Se till att ge MSI rätt behörighet i Data Lake Storage Gen1 genom att följa [instruktionerna](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > I den här genomgången använder du en hanterad identitet för Azure-resurser för att autentisera ditt Data Lake Storage Gen1-konto. Se till att ge MSI rätt behörighet i Data Lake Storage Gen1 genom att följa [instruktionerna](connector-azure-data-lake-store.md#managed-identity).
    
    ![Ange Data Lake Storage Gen1 konto](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. I den **Välj utdatafil eller mapp** anger **copyfroms3** som utdata mappnamn och välj **nästa**: 

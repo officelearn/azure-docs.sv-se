@@ -4,7 +4,7 @@ description: Den här artikeln förklarar hur Azure kan virtuella datorer kommun
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: jpconnock
 editor: ''
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 58ae89a6b9d7b9e3858358d290e3ecb197e0ac2b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036998"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249136"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -67,7 +67,7 @@ När den belastningsutjämnade virtuella datorn skapar en flöde för utgående,
 
 Tillfälliga belastningsutjämnarens offentliga IP-adress frontend-portar används för att särskilja enskilda flöden som har sitt ursprung av den virtuella datorn. SNAT använder dynamiskt [förallokerade tillfälliga portar](#preallocatedports) när utgående flöden skapas. I det här sammanhanget kallas tillfälliga portarna som används för SNAT SNAT portar.
 
-SNAT portar är förallokerade enligt beskrivningen i den [förstå SNAT och PAT](#snat) avsnittet. Det är en begränsad resurs som kan vara förbrukat. Det är viktigt att förstå hur de är [förbrukas](#pat). Om du vill lära dig mer om att utforma för den här förbrukning och minimera efter behov, granska [hantera SNAT överbelastning](#snatexhaust).
+Tilldelas före SNAT portar som beskrivs i den [förstå SNAT och PAT](#snat) avsnittet. Det är en begränsad resurs som kan vara förbrukat. Det är viktigt att förstå hur de är [förbrukas](#pat). Om du vill lära dig mer om att utforma för den här förbrukning och minimera efter behov, granska [hantera SNAT överbelastning](#snatexhaust).
 
 När [flera offentliga IP-adresser som är associerade med Load Balancer grundläggande](load-balancer-multivip-overview.md), några av de här offentliga IP-adresser är en [kandidat för utgående flöden](#multivipsnat), och en väljs slumpmässigt.  
 
@@ -75,7 +75,7 @@ Du kan använda för att övervaka hälsotillståndet för utgående anslutninga
 
 ### <a name="defaultsnat"></a>Scenario 3: Standalone VM utan en offentlig IP på instansnivå-adress
 
-I det här scenariot den virtuella datorn är inte en del av en offentlig belastningsutjämnare pool (och inte en del av en intern Standard Load Balancer-pool) och har inte tilldelats en ILPIP-adress. När den virtuella datorn skapar en flöde för utgående, omvandlar Azure privata IP-källadressen för utgående flödet till en offentlig IP-källadressen. Offentliga IP-adress som används för det här utgående flödet kan inte konfigureras och räknas inte mot prenumerationens gräns för offentlig IP.
+I det här scenariot den virtuella datorn är inte en del av en offentlig belastningsutjämnare pool (och inte en del av en intern Standard Load Balancer-pool) och har inte tilldelats en ILPIP-adress. När den virtuella datorn skapar en flöde för utgående, omvandlar Azure privata IP-källadressen för utgående flödet till en offentlig IP-källadressen. Offentliga IP-adress som används för det här utgående flödet kan inte konfigureras och räknas inte mot prenumerationens gräns för offentlig IP. Den här offentliga IP-adressen hör inte till dig och kan inte reserverade. Om du distribuerar om den virtuella datorn eller Tillgänglighetsuppsättning eller VMSS den här offentliga IP-adressen kommer att släppas och en ny offentlig IP-adress som efterfrågas. Använd inte det här scenariot för lista över tillåtna IP-adresser. Använd istället en av de andra två scenarierna där du uttryckligen deklarera utgående scenariot och offentliga IP-adress som ska användas för utgående anslutningar.
 
 >[!IMPORTANT] 
 >Det här scenariot gäller även när __endast__ en intern belastningsutjämnare är ansluten. Scenario 3 är __inte tillgänglig__ när en intern Standard Load Balancer är kopplad till en virtuell dator.  Du måste uttryckligen skapa [scenario 1](#ilpip) eller [scenario 2](#lb) förutom att använda en intern Standard Load Balancer.

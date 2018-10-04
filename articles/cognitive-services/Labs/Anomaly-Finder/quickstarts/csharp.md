@@ -1,6 +1,6 @@
 ---
-title: 'Hur du använder API: et för Avvikelseidentifiering Finder med C# - kognitiva Microsoft-tjänster | Microsoft Docs'
-description: Hämta information och exempel på kod för att snabbt komma igång med C# och Avvikelseidentifiering Finder API i kognitiva tjänster.
+title: 'Hur du använder API: T för Avvikelseidentifiering Finder med C# – Microsoft Cognitive Services | Microsoft Docs'
+description: 'Hämta information och exempel på kod som hjälper dig att snabbt komma igång med C# och API: T för Avvikelseidentifiering Finder i Cognitive Services.'
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,37 +9,39 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 867ce4d0262c94de8da0dadeb8de71c28a8295d5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3ae3d85e8e37fbf896405948f9bc7042bcdaca7b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353334"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246456"
 ---
-# <a name="use-the-anomaly-finder-api-with-c"></a>Använda Avvikelseidentifiering Finder API med C#
+# <a name="use-the-anomaly-finder-api-with-c"></a>Använda Avvikelsesökare API med C#
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: et för Avvikelseidentifiering Finder med C# för att utföra uppgiften för att få avvikelseidentifiering resultatet av tid series-data.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: T för Avvikelseidentifiering Finder med C# för att utföra uppgiften för att få avvikelseidentifiering resultatet av time series-data.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-c"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering Finder API: et med C#
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-c"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering Finder API med C#
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data-points"></a>Exempel på tid datapunkter i serien
+### <a name="example-of-time-series-data-points"></a>Exempel på time series-data pekar
 
 Exempel på den tid som datapunkter i serien är som följer.
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-c-example"></a>Analysera data och få avvikelseidentifiering punkter C# exempel
+### <a name="analyze-data-and-get-anomaly-points-c-example"></a>Analysera data och få avvikelseidentifiering punkter C#-exempel
 
-Stegen i exemplet är som följer.
+Steg för att använda exemplet är som följer.
 
-1. Skapa en ny konsol lösning i Visual Studio.
+1. Skapa en ny konsol-lösning i Visual Studio.
 2. Ersätt Program.cs med följande kod och Lägg till referens till System.Net.Http.
-3. Ersätt `[YOUR_SUBSCRIPTION_KEY]` värde med en giltig prenumeration nyckel.
+3. Ersätt `[YOUR_SUBSCRIPTION_KEY]` värde med giltig prenumeration-nyckel.
 4. Ersätt `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` med datapunkterna.
 
 ```csharp
@@ -119,10 +121,10 @@ namespace Console
 
 ### <a name="example-response"></a>Exempelsvar
 
-Ett lyckat svar returneras i JSON. Exempel svaret är som följer.
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempel-svaret är som följer.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [C#-appen](../tutorials/csharp-tutorial.md)
+> [C#-app](../tutorials/csharp-tutorial.md)

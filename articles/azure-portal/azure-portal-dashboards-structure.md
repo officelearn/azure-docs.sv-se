@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: cwatson
-ms.openlocfilehash: 405e0d5184880a00c07de55bd968210fa28e45fc
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 76f4a52b702a609d7181b9c6c0f2ce600d8a6aac
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393085"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267995"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Strukturen för Azure-instrumentpaneler
 Det här dokumentet beskriver strukturen för en Azure-instrumentpanel, med följande instrumentpanel som exempel:
@@ -326,7 +326,7 @@ Den __delar__ objektet innehåller en egenskap för varje del, där namnet på e
 Varje enskild del objekt har en __position__, och __metadata__.
 
 ### <a name="the-position-object"></a>Placera objekt
-Den __position__ egenskapen innehåller informationen och plats för delen uttryckt i form av __x__, __y__, __rowSpan__, och __colSpan__. Värdena är i rutnätsenheter. Dessa grid-enheter är synliga när instrumentpanelen är i läget anpassa som visas här. Om du vill att en panel har en bredden på två grid enheter en höjden på en grid enhet och en plats i övre vänstra hörnet på instrumentpanelen och sedan position obejct ser ut så här:
+Den __position__ egenskapen innehåller informationen och plats för delen uttryckt i form av __x__, __y__, __rowSpan__, och __colSpan__. Värdena är i rutnätsenheter. Dessa grid-enheter är synliga när instrumentpanelen är i läget anpassa som visas här. Om du vill att en panel har en bredden på två grid enheter en höjden på en grid enhet och en plats i övre vänstra hörnet på instrumentpanelen och sedan placera objekt ser ut så här:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
@@ -338,7 +338,7 @@ Varje del har en metadata-egenskap, ett objekt har endast en obligatorisk egensk
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Används för att visa övervakning av mått
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Används för att visa text och bilder med grundläggande formatering för listor, länkar, osv.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` Används för att visa videor från YouTube, Channel 9 och någon annan typ av video som fungerar i en video html-tagg.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` Används för att visa videor från YouTube, Channel 9 och någon annan typ av video som fungerar i en video HTML-tagg.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` Används för att visa namn och status för virtuella Azure-datorer.
 
 Varje typ av en del har sin egen konfiguration. Möjliga konfigurationsegenskaperna kallas __indata__, __inställningar__, och __tillgången__. 

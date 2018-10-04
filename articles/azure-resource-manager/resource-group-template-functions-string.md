@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 10/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e0578572de53fefddb88e163520d2bf5f580012
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 578d078550daaae54c63bf91da1fa5590bb8fdf6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434321"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249153"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Strängfunktioner för Azure Resource Manager-mallar
 
@@ -1680,15 +1680,15 @@ Returnerar en understräng som börjar vid angiven position och innehåller det 
 |:--- |:--- |:--- |:--- |
 | stringToParse |Ja |sträng |Den ursprungliga strängen från vilket delsträngen ska extraheras. |
 | startIndex |Nej |int |Nollbaserade tecken startposition delsträngen. |
-| Längd |Nej |int |Antalet tillåtna tecken för delsträngen. Måste referera till en plats i strängen. |
+| Längd |Nej |int |Antalet tillåtna tecken för delsträngen. Måste referera till en plats i strängen. Måste vara noll eller större. |
 
 ### <a name="return-value"></a>Returvärde
 
-Delsträngen.
+Delsträngen. Eller en tom sträng om längden är noll.
 
 ### <a name="remarks"></a>Kommentarer
 
-Det går inte att funktionen när delsträngen sträcker sig utanför slutet av strängen. I följande exempel misslyckas med felmeddelandet ”parametrarna index och längd måste referera till en plats i strängen. Indexparametern: '0', Längdparametern: ‘11’, längden på strängparametern: '10'.".
+Det går inte att funktionen när delsträngen sträcker sig utanför slutet av strängen, eller när längden är mindre än noll. I följande exempel misslyckas med felmeddelandet ”parametrarna index och längd måste referera till en plats i strängen. Indexparametern: '0', Längdparametern: ‘11’, längden på strängparametern: '10'.".
 
 ```json
 "parameters": {

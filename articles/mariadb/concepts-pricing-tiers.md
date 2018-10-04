@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 92db6442352242d5c7f25d39442d208d6007621b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 561244efd653294694cc16a1115962473e9a7cec
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984355"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249040"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB prisnivåer
 
@@ -21,7 +21,7 @@ Du kan skapa en Azure Database for MariaDB-servern på något av tre olika tjän
 
 |    | **Basic** | **Generell användning** | **Optimerat minne** |
 |:---|:----------|:--------------------|:---------------------|
-| Compute-generering | <!--Gen 4,--> 5: e generationen |<!--Gen 4,-->5: e generationen |<!--Gen 4,--> 5: e generationen |
+| Compute-generering | Generation 5 |Generation 5 | Generation 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Minne per vCore | 2 GB | 5 GB | 10 GB |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
@@ -40,40 +40,7 @@ När du har skapat en server, antalet virtuella kärnor och prisnivå (förutom 
 
 ## <a name="compute-generations-and-vcores"></a>Beräkningsgenereringar och virtuella kärnor
 
-Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU som den underliggande maskinvaran.<!--Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors.--> Gen 5 logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3 GHz-processorer.
-
-<!--
-| **Azure region** | **Gen 5** |
-|:---|:----------:|:--------------------:|
-| Central US | X | X |
-| East US | X | X |
-| East US 2 | X | X |
-| North Central US | X | X |
-| South Central US | X | X |
-| West US | X | X |
-| West US 2 |  | X |
-| Canada Central | X | X |
-| Canada East | X | X |
-| Brazil South | X | X |
-| North Europe | X | X |
-| West Europe |  | X |
-| France Central |  | X |
-| UK West |  | X |
-| UK South |  | X |
-| East Asia | X | X |
-| Southeast Asia | X | X |
-| Australia East |  | X |
-| Australia Central |  | X |
-| Australia Central 2 |  | X |
-| Australia Southeast |  | X |
-| Central India | X | X |
-| West India | X | X |
-| South India |  | X |
-| Japan East | X | X |
-| Japan West | X | X |
-| Korea Central |  | X |
-| Korea South |  | X |
--->
+Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU som den underliggande maskinvaran. Gen 5 logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3 GHz-processorer.
 
 ## <a name="storage"></a>Storage
 
@@ -97,7 +64,9 @@ Servern är skrivskyddad när mängden ledigt utrymme uppnår mindre än 5 GB el
 
 När tjänsten försöker skrivskydda servern, alla nya transaktion skrivbegäranden blockeras och befintliga aktiva transaktioner fortsätter att köra. När servern har angetts till skrivskyddat läge, genomför alla efterföljande skrivåtgärder och transaktionen misslyckas. Läs frågor kommer att fortsätta att arbeta utan avbrott. När du ökar den etablerade lagringen, kommer servern vara redo att acceptera skrivtransaktioner igen.
 
-Vi rekommenderar att du ställer in en avisering som meddelar dig när tröskelvärdet närmar sig din serverlagring för att undvika hämta till skrivskyddat läge. <!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+Vi rekommenderar att du ställer in en avisering som meddelar dig när tröskelvärdet närmar sig din serverlagring för att undvika hämta till skrivskyddat läge. 
+
+<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
 
 ## <a name="backup"></a>Backup
 
@@ -105,9 +74,11 @@ Tjänsten tar automatiskt säkerhetskopior av din server. Minsta kvarhållningsp
 
 ## <a name="scale-resources"></a>Skala resurser
 
-När du har skapat din server kan du oberoende av varandra kan ändra vCores, <!--the hardware generation,--> prisnivån (förutom till och från Basic), hur mycket lagringsutrymme och kvarhållningsperioden för säkerhetskopior. Du kan inte ändra lagringstypen säkerhetskopiering när en server har skapats. Antalet virtuella kärnor kan skalas upp eller ned. Kvarhållningsperiod för säkerhetskopiering kan skalas upp eller ned från 7 till 35 dagar. Lagringsutrymmet kan bara ökas. Skalning av resurser kan göras antingen via portalen eller Azure CLI. <!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
+När du har skapat din server kan du oberoende av varandra kan ändra vCores, prisnivån (förutom till och från Basic), hur mycket lagringsutrymme och kvarhållningsperioden för säkerhetskopior. Du kan inte ändra lagringstypen säkerhetskopiering när en server har skapats. Antalet virtuella kärnor kan skalas upp eller ned. Kvarhållningsperiod för säkerhetskopiering kan skalas upp eller ned från 7 till 35 dagar. Lagringsutrymmet kan bara ökas. Skalning av resurser kan göras antingen via portalen eller Azure CLI. 
 
-När du ändrar antalet virtuella kärnor, <!--the hardware generation,--> eller prisnivån, skapas en kopia av den ursprungliga servern för den nya compute-fördelningen. När den nya servern är igång kan växlas anslutningar till den nya servern. Inga nya anslutningar kan upprättas vid den tidpunkt då när systemet växlar till den nya servern, och alla ogenomförda transaktioner återställs. Det här fönstret varierar, men i de flesta fall är mindre än en minut.
+<!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
+
+När du ändrar antalet virtuella kärnor eller prisnivån, skapas en kopia av den ursprungliga servern för den nya compute-fördelningen. När den nya servern är igång kan växlas anslutningar till den nya servern. Inga nya anslutningar kan upprättas vid den tidpunkt då när systemet växlar till den nya servern, och alla ogenomförda transaktioner återställs. Det här fönstret varierar, men i de flesta fall är mindre än en minut.
 
 Skala lagring och ändra kvarhållningsperioden för säkerhetskopior är SANT online åtgärder. Stilleståndstid ingen och ditt program påverkas inte. När IOPS skalar med storleken på den etablerade lagringen, kan du öka IOPS som är tillgängliga till servern genom att skala upp lagring.
 

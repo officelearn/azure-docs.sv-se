@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2c50ba1abfe3681a39b39bf52f127efd9d518aef
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4365f12992c96ca45ff6b97b0f59202f1eeb4483
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041876"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268977"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsöka hybrid Azure Active Directory-anslutna äldre enheter 
 
@@ -39,23 +39,18 @@ Den här artikeln förutsätter att du har [konfigurerade Azure Active Directory
 
 - Enhetsbaserad villkorlig åtkomst
 
-- [Företagsnätverksväxling av inställningar](../active-directory-windows-enterprise-state-roaming-overview.md)
-
-- [Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) 
-
-
-
-
 
 Den här artikeln ger felsökningsanvisningar för att lösa eventuella problem.  
 
 **Vad du bör känna till:** 
 
-- Det maximala antalet enheter per användare är enhetscentrerad. Till exempel om *jdoe* och *jharnett* logga in på en enhet, en separat registrering (DeviceID) skapas för var och en av dem i den **användaren** informationsfliken.  
+- Det maximala antalet enheter per användare för närvarande gäller även för äldre hybrid Azure AD-anslutna enheter. 
+
+- På samma fysiska enhet visas flera gånger i Azure AD när flera användare logga in äldre hybrid Azure AD-anslutna enheter.  Till exempel om *jdoe* och *jharnett* logga in på en enhet, en separat registrering (DeviceID) skapas för var och en av dem i den **användaren** informationsfliken. 
+
+- Du kan även få flera poster för en enhet på informationsfliken användare på grund av en ominstallation av operativsystemet eller en manuell omregistrering.
 
 - Den första registreringen / koppling för enheter som har konfigurerats för att utföra ett försök med antingen logga in eller låsa / låsa upp. Det kan vara 5 minuters fördröjning som utlöses av en uppgift i Schemaläggaren. 
-
-- Du kan hämta flera poster för en enhet på informationsfliken användare på grund av en ominstallation av operativsystemet eller en manuell omregistrering. 
 
 - Se till att [KB4284842](https://support.microsoft.com/help/4284842) installeras när det gäller Windows 7 SP1 eller Windows Server 2008 R2 SP1. Den här uppdateringen förhindrar framtida autentiseringsfel på grund av förlust av kundens åtkomst till skyddade nycklar när du har ändrat lösenordet.
 
@@ -65,24 +60,39 @@ Den här artikeln ger felsökningsanvisningar för att lösa eventuella problem.
 
 1. Logga in med det användarkonto som har utfört en hybrid Azure AD-anslutning.
 
-2. Öppna Kommandotolken som administratör 
+2. Öppna Kommandotolken 
 
 3. Typ `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
-Det här kommandot visar en dialogruta som ger dig med mer information om join-status.
+Det här kommandot visar en dialogruta som ger dig information om join-status.
 
 ![Anslut till arbetsplatsen för Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Steg 2: Utvärdera hybrid Azure AD join-status 
 
-Om hybrid Azure AD-anslutning inte slutfördes korrekt visas ger dialogrutan dig information om problemet som har inträffat.
+Om enheten inte hybrid Azure AD-anslutna, kan du försöka göra hybrid Azure AD-anslutning genom att klicka på knappen ”Gå med”. Om det inte går att försök att utföra hybrid Azure AD-anslutning, visas information om felet.
+
 
 **De vanligaste problemen är:**
 
-- En felkonfigurerad AD FS eller Azure AD
+- En felkonfigurerad AD FS eller Azure AD eller problem med nätverket
 
     ![Anslut till arbetsplatsen för Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    
+    - Autoworkplace.exe kan inte autentisera tyst med Azure AD eller AD FS. Detta kan bero på saknade eller felkonfigurerad AD FS (för federerade domäner) eller saknas eller är felkonfigurerad Azure AD sömlös enkel inloggning (för hanterade domäner) eller nätverksproblem. 
+    
+     - Det kan vara att Multi-Factor authentication (MFA) är aktiverat/konfigurerats för användaren och WIAORMUTLIAUTHN inte är konfigurerad på AD FS-servern. 
+     
+     - En annan möjlighet är startsfär (HRD) för identifiering sidan väntar för användarinteraktion, vilket förhindrar att **autoworkplace.exe** tyst begär en token.
+     
+     - Det kan vara att AD FS och Azure AD-URL: er saknas i Internet Explorers intranätzonen på klienten.
+     
+     - Problem med nätverksanslutningen kan förhindra **autoworkplace.exe** från att nå AD FS eller URL: er för Azure AD. 
+     
+     - **Autoworkplace.exe** kräver att klienten har direkt åtkomst från klienten till den orgnanization på lokala AD-domänkontrollant, vilket innebär att hybrid Azure AD-anslutning lyckas bara när klienten är ansluten till intranätet .
+     
+     - Din organisation använder Azure AD sömlös enkel inloggning, `https://autologon.microsoftazuread-sso.com` eller `https://aadg.windows.net.nsatc.net` finns inte på enhetens intranätsinställningar för Internet Explorer, och **tillåta uppdateringar till statusfältet via skript** har inte aktiverats för zonen Intranät.
 
 - Du är inte inloggad som domänanvändare
 
@@ -92,9 +102,7 @@ Om hybrid Azure AD-anslutning inte slutfördes korrekt visas ger dialogrutan dig
     
     - Den inloggade användaren är inte en domänanvändare (till exempel en lokal användare). Hybrid Azure AD join i äldre enheter stöds endast för domänanvändare.
     
-    - Autoworkplace.exe kan inte autentisera tyst med Azure AD eller AD FS. Detta kan bero på ett ut bundna problem med nätverksanslutningen till URL: er för Azure AD. Det kan också vara att Multi-Factor authentication (MFA) är aktiverat/konfigurerats för användaren och WIAORMUTLIAUTHN inte är konfigurerad på federationsservern. En annan möjlighet är startsfär (HRD) för identifiering sidan väntar för användarinteraktion, vilket förhindrar att **autoworkplace.exe** tyst begär en token.
-    
-    - Din organisation använder Azure AD sömlös enkel inloggning, `https://autologon.microsoftazuread-sso.com` eller `https://aadg.windows.net.nsatc.net` finns inte på enhetens intranätsinställningar för Internet Explorer, och **tillåta uppdateringar till statusfältet via skript** har inte aktiverats för zonen Intranät.
+    - Klienten är inte kan ansluta till en domänkontrollant.    
 
 - En kvot har uppnåtts
 
@@ -114,9 +122,11 @@ Du kan också hitta statusinformation i Loggboken under: **program och tjänster
 
 - Tjänsten konfigurationsproblem: 
 
-  - Federationsservern har konfigurerats för att stödja **WIAORMULTIAUTHN**. 
+  - AD FS-servern inte har konfigurerats för att stödja **WIAORMULTIAUTHN**. 
 
   - Datorns skog har ingen tjänstanslutningspunkt-objekt som pekar på ett verifierat domännamn i Azure AD 
+  
+  - Eller om din domän är hanterad och sömlös enkel inloggning har inte konfigurerats eller fungerar.
 
   - En användare har nått gränsen för enheter. 
 

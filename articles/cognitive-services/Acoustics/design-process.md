@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b6bb04d9cec690198de663189dacd41fcbe960eb
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433232"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248612"
 ---
 # <a name="design-process-overview"></a>Processöversikt för design
 Du kan uttrycka design avsikt i alla tre faser av projektet Akustik arbetsflödet: förväg skapa scen konfiguration, ljudkälla placering och efter ändamålet design. Processen kräver mindre markup som är associerade med placera eko volymer samtidigt som du behåller designer kontroll över hur en scen låter.
@@ -45,18 +45,30 @@ Ljudet DSP tillhandahålls av den **Microsoft Acoustics** Unity spatializer plug
 
 ![Avståndet dämpning](media/distanceattenuation.png)
 
+Akustik utför beräkning i en ”simulering region” heldag player-platsen. Om en bra källa är långt från spelare, utanför den här regionen för simulering, påverkas endast geometri i rutan ljud spridning (till exempel orsakar ocklusion) som fungerar förhållandevis bra när occluders är i närheten av spelaren. Men i fall kan när spelaren är i öppet område men occluders närmar sig avlägsna ljudkälla ljudet bli orealistiskt disoccluded. Vår Föreslagen lösning är att säkerställa i sådana fall att ljud dämpning ligger till 0 på ungefär 45m, standardavståndet spelaren vid gränsen till rutan.
+
 ### <a name="tuning-scene-parameters"></a>Justering scenparametrar
 Om du vill justera parametrarna för alla källor, klicka på kanalen remsans i Unity's **ljud Mixer**, och justera parametrarna på den **Akustik Mixer** effekt.
 
 ![Mixer-anpassning](media/MixerParameters.png)
 
 ### <a name="tuning-source-parameters"></a>Justering källparametrar
-Koppla den **AcousticsSourceCustomization** skriptet till en datakälla kan justering parametrar för den här källan. Om du vill koppla skriptet, klickar du på **Lägg till komponent** längst ned på den **Inspector** panelen och gå till **skript > Akustik källa anpassning**. Skriptet har tre parametrar:
+Koppla den **AcousticsDesign** skriptet till en datakälla kan justering parametrar för den här källan. Om du vill koppla skriptet, klickar du på **Lägg till komponent** längst ned på den **Inspector** panelen och gå till **skript > Akustik Design**. Skriptet har sex kontroller:
 
-![Käll-anpassning](media/SourceCustomization.png)
+![AcousticsDesign](media/AcousticsDesign.png)
 
-* **Eko Power justera** -justerar eko-kraften i dB. Positiva värden göra ett ljud mer reverberant medan negativa värden göra ett ljud mer torr.
+* **Ocklusion faktor** -gäller en multiplikator för ocklusion dB-nivån beräknas av Akustik-system. Om den här multiplikatorn är större än 1, är spärrat vara överdrivna när värden mindre än 1 är spärrat effekten mer diskreta och kontrollera värdet 0 inaktiverar ocklusion.
+* **Överföring (dB)** -ange dämpning (i dB) på grund av överföring via geometri. Ange det här reglaget till den lägsta nivån att inaktivera överföringen. Akustik spatializes inledande torr ljud som inkommer runt scen geometri (portaling). Överföringen ger ett ytterligare torr ankomst spatialized i linje med för att se riktning. Observera att tillämpas också avståndet dämpning kurvan för källan.
+* **Wetness justera (dB)** -justerar eko-kraften i dB enligt avståndet från källan. Positiva värden göra ett ljud mer reverberant medan negativa värden göra ett ljud mer torr. Klicka på kontrollen kurvan (gröna linjen) att ta fram kurvan redigeraren. Ändra kurvan genom vänsterklicka för att lägga till punkterna och dra dessa datapunkter för att skapa funktionen som du vill. X-axeln är avståndet från källan och y-axeln är eko justering i dB. Se den här [Unity manuell](https://docs.unity3d.com/Manual/EditingCurves.html) för mer information om hur du redigerar kurvor. Om du vill återställa kurvan till standard, högerklicka på **Wetness justera** och välj **återställa**.
 * **Decay skala** -justerar en multiplikator för decay-tid. Om resultatet ändamålet anger en decay tid på 750 millisekunder, men det här värdet anges till 1.5, är decay-tiden som tillämpas på källan 1,125 millisekunder.
 * **Aktivera Akustik** – styr om Akustik tillämpas på den här källan. När alternativet är avmarkerat spatialized källan med HRTFs, men utan Akustik, vilket innebär utan hinder, är spärrat och dynamiska genljudet parametrar, t.ex nivå och decay tid. Genljudet används fortfarande med ett fast nivå och decay tid.
+* **Outdoorness justering** -additiva justering på systemet Akustik uppskattning av hur ”utomhus” genljudet på en källa bör ljud. Om du anger detta till 1 gör att en källa alltid ljud helt utomhus, när inställningen det till-1 gör en källa ljud inne.
 
-Olika källor kan kräva olika inställningar att uppnå vissa dess estetiska egenskaper eller spelupplevelse effekter. Dialogrutan är ett exempel som möjligt. Mänskliga ensa är mer attuned genljudet i tal, medan dialogrutan ofta måste vara begriplig för spel. Du kan ta hänsyn till detta utan att göra dialogrutan icke-diegetic genom att justera eko kraften nedåt.
+Olika källor kan kräva olika inställningar att uppnå vissa dess estetiska egenskaper eller spelupplevelse effekter. Dialogrutan är ett exempel som möjligt. Mänskliga ensa är mer attuned genljudet i tal, medan dialogrutan ofta måste vara begriplig för spel. Du kan ta hänsyn till detta utan att göra dialogrutan icke-diegetic genom att flytta den **Wetness justera** nedåt, justera den **Perceptuell avståndet tänja** parameter som beskrivs nedan, som att lägga till vissa **Överföring** för vissa torr ljud boost sprider via väggar och/eller minska den **ocklusion faktor** från 1 till har flera ljud som tas emot via portaler.
+
+Koppla den **AcousticsDesignExperimental** skriptet till en datakälla kan ytterligare experimentella justering parametrar för den här källan. Om du vill koppla skriptet, klickar du på **Lägg till komponent** längst ned på den **Inspector** panelen och gå till **skript > Akustik Design experimentella**. Det finns för närvarande en experimentell kontroll:
+
+![AcousticsDesignExperimental](media/AcousticsDesignExperimental.png)
+
+* **Perceptuell avståndet tänja** -använda en exponentiell förvrängning avståndet används för att beräkna förhållandet torr igång. Akustik beräknas våt nivåer i hela utrymmet som kan variera smidigt med avståndet och ger Perceptuell avståndet tips. Förvrängning värden som är större än 1 exaggerate detta genom att öka avståndet-relaterade genljudet nivåer, och den ljud ”avlägsna”, medan förvrängning värden mindre än 1 gör mer diskreta, vilket gör ljudet mer avståndet-baserade genljudet ändringen ”finns”.
+

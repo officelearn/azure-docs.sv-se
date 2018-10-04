@@ -12,19 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
-ms.author: daseidma;bwren
-ms.openlocfilehash: 30a03fd5df9d4119e61698cfe1e5fc612e2cfd3f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.date: 10/03/2018
+ms.author: magoedte
+ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297834"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269266"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Service Map, du kan visa dina servrar på det sätt som du tänker på dem: sammankopplat system som levererar viktiga tjänster. Service Map ser du anslutningarna mellan servrar, processer, svarstid för inkommande och utgående anslutningar, och portar i alla TCP-anslutna arkitekturer utan konfiguration måste installera en agent.
 
 Den här artikeln innehåller information om onboarding och med hjälp av Tjänstkarta. Information om hur du konfigurerar Service Map och publicering av agenter finns i [konfigurerar Service Map lösning i Azure]( monitoring-service-map-configure.md).
+
+>[!NOTE]
+>Om du redan har distribuerat Service Map kan du nu också se dina kartor i Azure Monitor för virtuella datorer, som innehåller ytterligare funktioner för att övervaka VM-hälsa och prestanda. Mer information finns i [Azure Monitor för virtuella datorer översikt](monitoring-vminsights-overview.md).
+
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
@@ -230,6 +234,7 @@ Klicka för att öppna objektet i dina anslutna ITSM-lösning **visa arbetsobjek
 
 Om du vill visa information om objektet i Loggsökning, klickar du på **visa i Loggsökning**.
 Anslutningsmått skrivs till två nya tabeller i Log Analytics 
+
 ## <a name="change-tracking-integration"></a>Ändra – integrering
 Tjänstkarta-integrering med ändringsspårning sker automatiskt när båda lösningarna är aktiverade och konfigurerade i Log Analytics-arbetsytan.
 
@@ -359,16 +364,16 @@ Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättni
 | Egenskap  | Beskrivning |
 |:--|:--|
 |MaliciousIp |RemoteIp-adress |
-|IndicatorThreadType | |
-|Beskrivning | |
-|TLPLevel | |
-|Konfidensbedömning | |
-|Severity | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Threat indikatorn har identifierats är något av följande värden *Botnät*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *skadlig kod*, *nätfiske*, *Proxy*, *oönskade program*, *Visningslista*.   |
+|Beskrivning |Beskrivning av observerade hotet. |
+|TLPLevel |Trafikljus Protocol (TLP) är en av de definierade värdena *White*, *grönt*, *gul*, *Red*. |
+|Konfidensbedömning |Värden är *0 – 100*. |
+|Severity |Värden är *0 – 5*, där *5* är den mest allvarliga och *0* inte är allvarligt alls. Standardvärdet är *3*.  |
+|FirstReportedDateTime |Första gången providern rapporterade indikatorn. |
+|LastReportedDateTime |Senast indikatorn har setts av Interflow. |
+|IsActive |Anger indikatorer inaktiveras med *SANT* eller *FALSKT* värde. |
+|ReportReferenceLink |Länkar till rapporter som rör en viss övervakas. |
+|AdditionalInformation |Tillhandahåller ytterligare information om det är tillämpligt, om observerade hotet. |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL poster
 Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar med Service Map agenter. Dessa poster har egenskaper i följande tabell:

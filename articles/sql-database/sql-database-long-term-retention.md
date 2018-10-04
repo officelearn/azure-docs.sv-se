@@ -12,16 +12,20 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: b2d4166c25014416efbb7392acda3f3f028b4fa9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6110773ecaba0ad333e4cfc9f9cc6014bd29a7a6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162057"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249527"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Store Azure SQL Database-säkerhetskopior i upp till 10 år
 
 Många program har föreskrifter, efterlevnad och andra affärsrelaterade syften som kräver att du behåller säkerhetskopior av databasen efter de 7-35 dagar som tillhandahålls av Azure SQL Database [automatiska säkerhetskopieringar](sql-database-automated-backups.md). Med hjälp av funktionen för långsiktig kvarhållning av säkerhetskopior (LTR), kan du lagra angiven SQL database fullständiga säkerhetskopieringar i [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob-lagring för upp till 10 år. Du kan sedan återställa alla säkerhetskopiering som en ny databas.
+
+> [!NOTE]
+> LTR kan aktiveras på de databaser som finns i Azure SQL Database logiska servrar. Det är fortfarande inte i hanterade instanser.
+> 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Hur fungerar SQL-databas med långsiktig kvarhållning
 

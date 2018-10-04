@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf57acdcbcfa792a6c5ab62c6e8ec0589d625df7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4fd2f28f52c45a0ec3128302b02ad5ba498c982b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994603"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247779"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Server begrepp i Azure Database for MariaDB
 Den här artikeln innehåller överväganden och riktlinjer för att arbeta med Azure-databas för MariaDB-servrar.
@@ -44,7 +44,7 @@ Följande element säkerställer säker åtkomst till databasen.
 | **Protokoll** | Tjänsten stöder ett meddelandebaserat protokoll som används av MySQL. |
 | **TCP/IP** | Protokollet som stöds via TCP/IP och över sockets för Unix-domän. |
 | **Brandvägg** | För att skydda dina data, förhindrar en brandväggsregel all åtkomst till din databasserver tills du anger vilka datorer som har behörighet. Se [Azure Database for MariaDB serverbrandväggsregler](./concepts-firewall-rules.md). |
-| **SSL** | Tjänsten stöder framtvinga SSL-anslutningar mellan dina program och din databasserver.  <!--See [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).--> |
+| **SSL** | Tjänsten stöder framtvinga SSL-anslutningar mellan dina program och din databasserver. Se [Konfigurera SSL-anslutning i ditt program för säker anslutning till Azure Database for MariaDB](./howto-configure-ssl.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Hur gör jag för att hantera en server?
 Du kan hantera Azure-databas för MariaDB-servrar med hjälp av Azure portal eller Azure CLI.
@@ -52,4 +52,5 @@ Du kan hantera Azure-databas för MariaDB-servrar med hjälp av Azure portal ell
 ## <a name="next-steps"></a>Nästa steg
 - En översikt över tjänsten finns i [Azure Database for MariaDB-översikt](./overview.md)
 - Information om specifika resurskvoter och begränsningar baserat på din **tjänstnivå**, se [tjänstnivåer](./concepts-pricing-tiers.md)
+
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

@@ -9,14 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 6eb559f8971583afe9619fb41fe331bd3013bb69
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ef85b82adf3b177678cc8175a7fb2d0eb44323fa
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41988773"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246867"
 ---
 # <a name="use-the-anomaly-finder-api-with-ruby"></a>Använda Avvikelsesökare API med Ruby
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: T för Avvikelseidentifiering Finder med Ruby för att utföra uppgiften för att få Identifieringsresultat för avvikelseidentifiering av time series-data.
 
@@ -38,7 +40,7 @@ Steg för att använda exemplet är som följer.
 
 1. Installera [rest-klient](https://github.com/rest-client/rest-client) genom att köra 'gem installera rest-klient ”.
 2. Spara under koden som en .rb-fil.
-3. Ersätt den `[YOUR_SUBSCRIPTION_KEY]` värde med giltig prenumeration-nyckel.
+3. Ersätt värdet `[YOUR_SUBSCRIPTION_KEY]` med en giltig prenumerationsnyckel.
 4. Ersätt den `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` med exemplet eller dina egna datapunkter.
 5. Kör och kontrollera svaret.
 
@@ -76,7 +78,7 @@ puts response.body
 
 ### <a name="example-response"></a>Exempelsvar
 
-Ett lyckat svar returneras i JSON. Exempelsvar är som följer.
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelsvar är som följer.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Nästa steg

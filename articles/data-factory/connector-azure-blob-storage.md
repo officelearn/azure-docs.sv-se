@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 46e12378812788d147c903046b50a93c13119f2f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 79bb3042af6a42b4a8c33e9a19c80d117c3216e7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444596"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248864"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Blob storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ Du kan kopiera data från alla dataarkiv till Blob storage. Du kan också kopier
 Mer specifikt stöder denna Blob storage-anslutning:
 
 - Kopiera BLOB-objekt till och från Allmänt Azure storage-konton och frekvent/lågfrekvent – blob storage. 
-- Kopiera blobar med hjälp av nyckeln, tjänsten signatur för delad åtkomst, identitetsautentiseringar för tjänstens huvudnamn eller hanterad tjänst.
+- Kopiera blobar med hjälp av kontonyckel, signatur för delad åtkomst för tjänsten, tjänstens huvudnamn eller hanterade identiteter för Azure-resurser autentiseringar.
 - Kopiera blobar från block, lägga till eller page blobs och kopiera data till endast blockblob-objekt. Azure Premium Storage stöds inte som en mottagare eftersom den backas upp av sidblobar.
 - Kopiera BLOB-objekt som är eller parsning eller genererar-objekt med [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
@@ -47,7 +47,7 @@ Azure Blob-anslutningsapp stöd för följande autentiseringstyper av, se inform
 - [Konto-nyckelautentisering](#account-key-authentication)
 - [Autentisering med signatur för delad åtkomst](#shared-access-signature-authentication)
 - [Autentisering av tjänstens huvudnamn](#service-principal-authentication)
-- [Hanterad tjänst identitetsautentisering](#managed-service-identity-authentication)
+- [Hanterade identiteter för autentisering av Azure-resurser](#managed-service-identity-authentication)
 
 >[!NOTE]
 >HDInsights, Azure Machine Learning och Azure SQL Data Warehouse PolyBase laddning stöder bara nyckelautentisering för Azure Blob storage-konto.
@@ -191,13 +191,13 @@ De här egenskaperna har stöd för en Azure Blob storage-länkad tjänst:
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Hanterad tjänst identitetsautentisering
+### <a name="managed-identity"></a> Hanterade identiteter för autentisering av Azure-resurser
 
-En data factory kan associeras med en [hanterad tjänstidentitet](data-factory-service-identity.md), som representerar den här specifika data factory. Du kan använda den här tjänstidentitet direkt för Blob storage-autentisering som är ungefär som att använda tjänstens huvudnamn. Det gör att den här avsedda factory ska kunna komma åt och kopiera data från/till ditt Blob storage.
+En data factory kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md), som representerar den här specifika data factory. Du kan använda den här tjänstidentitet direkt för Blob storage-autentisering som är ungefär som att använda tjänstens huvudnamn. Det gör att den här avsedda factory ska kunna komma åt och kopiera data från/till ditt Blob storage.
 
 Azure Storage MSI-autentisering i allmänhet finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory](../storage/common/storage-auth-aad.md).
 
-Följ dessa steg om du vill använda managed service identity (MSI)-autentisering:
+Följ dessa steg om du vill använda hanterade identiteter för Azure-resurser autentisering:
 
 1. [Hämta tjänstidentitet för datafabrik](data-factory-service-identity.md#retrieve-service-identity) genom att kopiera värdet för ”SERVICE IDENTITETSPROGRAM-ID” genererade tillsammans med din datafabrik.
 
@@ -214,8 +214,8 @@ De här egenskaperna har stöd för en Azure Blob storage-länkad tjänst:
 | serviceEndpoint | Ange Azure Blob storage-tjänsteslutpunkt med mönstret för `https://<accountName>.blob.core.windows.net/`. |Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om det är ditt datalager i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
->[!NOTE]
->Hanterad tjänst identitetsautentisering stöds endast av ”AzureBlobStorage” typen länkad tjänst men inte föregående ”AzureStorage” skriva länkad tjänst. 
+> [!NOTE]
+> Hanterade identiteter för Azure-resurser autentisering stöds endast av ”AzureBlobStorage” Skriv länkade tjänsten men inte föregående ”AzureStorage” skriva länkad tjänst. 
 
 **Exempel:**
 

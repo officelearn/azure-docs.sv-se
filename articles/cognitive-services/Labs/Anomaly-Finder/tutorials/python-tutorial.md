@@ -1,6 +1,6 @@
 ---
-title: Avvikelseidentifiering Python app – kognitiva Microsoft-tjänster | Microsoft Docs
-description: 'Utforska en Python bärbar dator som använder API: et för Avvikelseidentifiering identifiering i kognitiva Microsoft-tjänster. Skicka ursprungliga datapunkter-API: et och få ett förväntat värde och avvikelseidentifiering punkter.'
+title: Identifiering av avvikelser Python-app – Microsoft Cognitive Services | Microsoft Docs
+description: 'Utforska en Python notebook som använder API: T för Avvikelseidentifiering identifiering i Microsoft Cognitive Services. Skicka ursprungliga datapunkter till API: et och få det förväntade värdet och avvikelseidentifiering punkter.'
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,37 +9,39 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: d35f41ddab21aa155376ad52ff4084298dab8fc5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87cd9e976d231291ad13acecf188cfd668d692b6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353937"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248235"
 ---
-# <a name="anomaly-detection-python-application"></a>Avvikelseidentifiering identifiering Python program
+# <a name="anomaly-detection-python-application"></a>Avvikelseidentifiering identifiering av Python-program
 
-Kursen visar hur du använder API: et för Avvikelseidentifiering identifiering i Python och hur du visualisera dina resultat populära bibliotek. Med Jupyter för att köra guiden och försök dina egna data med din prenumeration nyckel. Information om hur du kommer igång med interaktiva Jupyter-anteckningsböcker som avser [Jupyter dokumentationen](http://jupyter.readthedocs.io/en/latest/index.html). 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Kursen visar hur du använder API: T för Avvikelseidentifiering identifiering i Python och hur du visualisera dina resultat med hjälp av populära bibliotek. För att köra självstudien med Jupyter och försök dina egna data med din prenumerationsnyckel. Läs hur du kommer igång med interaktiva Jupyter-anteckningsböcker [Jupyter dokumentation](http://jupyter.readthedocs.io/en/latest/index.html). 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på Avvikelseidentifiering och få en nyckel för prenumeration 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på identifiering av avvikelser och få en prenumerationsnyckel 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
 ## <a name="download-the-example-code"></a>Hämta exempelkoden
 
 1. Navigera till den [självstudiekursen anteckningsboken i Github](https://github.com/MicrosoftAnomalyDetection/python-sample).
-2. Klicka på den gröna knappen att klona eller hämta kursen. 
+2. Klicka på den gröna knappen att klona eller hämta självstudien. 
 
 ## <a name="opening-the-tutorial-notebook-in-jupyter"></a>Öppna självstudiekursen anteckningsboken i Jupyter
 
 1. Öppna en kommandotolk och gå till mappen python-exemplet.
-2. Kör kommandot Jupyter-anteckningsbok från Kommandotolken, vilket startar Jupyter.
-3. I Jupyter-fönstret klickar du på <em>Avvikelseidentifiering identifiering API Example.ipynb</em> vill öppna självstudiekursen anteckningsboken.   
+2. Kör kommandot Jupyter-anteckningsboken från Kommandotolken, vilket startar Jupyter.
+3. I fönstret Jupyter klickar du på <em>Avvikelseidentifiering identifiering API Example.ipynb</em> att öppna självstudiekursen anteckningsboken.   
 
-## <a name="running-the-tutorial"></a>Kör självstudien
+## <a name="running-the-tutorial"></a>Kör kursen
 
-Om du vill använda den här anteckningsboken, behöver du en prenumeration nyckel för Avvikelseidentifiering identifiering API. Gå till prenumerationssidan för att logga. På sidan ”inloggning” använda ditt Microsoft-konto för att logga in och du kommer att kunna prenumerera på och hämta dina nycklar. När du har slutfört registreringsprocessen klistrar du in din nyckel i avsnittet variabler i anteckningsboken (reproduceras nedan). Primärt eller den sekundära nyckeln fungerar. Se till att nyckeln omges av citattecken så att det blir en sträng.
+Om du vill använda den här anteckningsboken, måste en prenumerationsnyckel för API: T för Avvikelseidentifiering identifiering. Gå till prenumerationssidan för att registrera dig. På sidan ”inloggning” använda ditt Microsoft-konto för inloggning och du kommer att kunna prenumerera och få dina nycklar. När du har slutfört registreringsprocessen klistra du in din nyckel i avsnittet variabler i anteckningsboken (reproduceras nedan). Primärt eller sekundära nyckeln fungerar. Se till att ange nyckeln inom citattecken så att de blir en sträng.
 
 ```Python
 

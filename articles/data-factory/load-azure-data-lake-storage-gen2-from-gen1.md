@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: jingwang
-ms.openlocfilehash: a160c47e12db3c4ef9cefc5cd70293468ddf8234
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008743"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249340"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Kopiera data från Azure Data Lake Storage Gen1 till Gen2 (förhandsversion) med Azure Data Factory
 
@@ -80,7 +80,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
    3. Välj **Nästa**.
    
    > [!IMPORTANT]
-   > I den här genomgången ska du använda en _hanterad tjänstidentitet_ att autentisera ditt Data Lake Storage Gen1e. Se till att ge MSI rätt behörighet i Azure Data Lake Storage Gen1 genom att följa [instruktionerna](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > I den här genomgången ska använda du en hanterad identitet för Azure-resurser för att autentisera ditt Data Lake Storage Gen1e. Se till att ge MSI rätt behörighet i Azure Data Lake Storage Gen1 genom att följa [instruktionerna](connector-azure-data-lake-store.md#managed-identity).
    
    ![Ange konto för Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
    

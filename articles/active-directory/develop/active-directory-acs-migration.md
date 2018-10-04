@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036549"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249442"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Så här: migrera från Azure Access Control service
 
@@ -116,6 +116,9 @@ Här är schemat för avvecklar Access Control-komponenter:
 - **November 2017**: Azure AD-administratören användarupplevelsen i den klassiska Azure-portalen [har dragits tillbaka](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Nu hantering av namnområdet för åtkomstkontroll är tillgängligt på en ny, dedikerad URL: `http://manage.windowsazure.com?restoreClassic=true`. Använd denna URl att visa dina befintliga namnområden, aktivera och inaktivera namnområden och ta bort namnområden, om du vill.
 - **Den 2 april 2018**: Azure klassiska portal helt dras tillbaka, vilket innebär att hantering av åtkomstkontroll namnområden är inte längre tillgänglig via alla URL: er. Du kan nu inaktivera eller aktivera, ta bort eller räkna upp dina Access Control-namnområden. Access Control-hanteringsportalen kommer dock att helt funktionella och finns på `https://\<namespace\>.accesscontrol.windows.net`. Alla andra komponenter i Access Control fortsätta att fungera normalt.
 - **7 november 2018**: alla åtkomstkontroll komponenter permanent stänga. Detta inkluderar Access Control-hanteringsportalen, management-tjänsten, STS och token omvandling regeln motorn. Nu kan alla förfrågningar som skickas till Access Control (finns på \<namnområde\>. accesscontrol.windows.net) misslyckas. Du bör har migrerat alla befintliga appar och tjänster till andra tekniker bra före denna tidpunkt.
+
+> [!NOTE]
+> En princip inaktiverar namnområden som inte har begärt en token för en viss tidsperiod. Från och med tidig September 2018 denna tidsperiod är för närvarande på 14 dagar av inaktivitet, men detta kommer att förkortas till 7 dagars inaktivitet under de kommande veckorna. Om du har Access Control-namnområden som för tillfället är inaktiverade, kan du [ladda ned och installera ACS PowerShell](#download-and-install-acs-powershell) återaktivera namespace(s).
 
 ## <a name="migration-strategies"></a>Migreringsstrategier
 
@@ -347,6 +350,10 @@ I dessa fall kan du migrera ditt webbprogram till en annan molntjänst för aute
 | ![Pinga](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molnbaserad identitetstjänst som har stöd för många av samma funktioner som ACS och PingFederate är en produkt med liknande lokal identitet som erbjuder mer flexibilitet. Referera till [Ping's ACS tillbakadragande vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter. |
 
 Vårt syfte i att arbeta med Ping Identity och Auth0 är att säkerställa att alla Access Control-kunder har en migreringsvägen för sina appar och tjänster som minimerar mängden arbete som krävs för att flytta från Access Control.
+
+#### <a name="passthrough-authentication"></a>Direktautentisering
+
+För-autentisering med godtyckliga token omvandling finns det ingen motsvarande Microsoft-teknik till ACS. Om det är vad dina kunder behöver vara Auth0 som ger den närmaste uppskattning-lösningen.
 
 ## <a name="questions-concerns-and-feedback"></a>Frågor och funderingar feedback
 

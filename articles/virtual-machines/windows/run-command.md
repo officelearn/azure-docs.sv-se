@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128603"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267961"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med kommandot Kör
 
@@ -21,7 +21,7 @@ Kör kommandot använder VM-agenten för att köra PowerShell-skript i en Window
 
 ## <a name="benefits"></a>Fördelar
 
-Det finns flera alternativ som kan användas för att få åtkomst till dina virtuella datorer. Kör kommandot kan köra skript på dina virtuella datorer via fjärranslutning med VM-agenten. Kör kommandot kan användas via Azure-portalen [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), eller [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Det finns flera alternativ som kan användas för att få åtkomst till dina virtuella datorer. Kör kommandot kan köra skript på dina virtuella datorer via fjärranslutning med VM-agenten. Kör kommandot kan användas via Azure-portalen [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), eller [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) för virtuella Windows-datorer.
 
 Den här funktionen är användbar i samtliga scenarier där du vill köra ett skript i en virtuella datorer och är ett av de enda sätten att felsöka och åtgärda en virtuell dator som inte har RDP eller SSH-porten som är öppna på grund av felaktig nätverks- eller administrativ användare konfiguration.
 
@@ -33,6 +33,7 @@ Följande begränsningar gäller när du kör kommandot:
 * Den minsta tid att köra ett skript är ungefär 20 sekunder
 * Skript som körs som System på Windows
 * Köra ett skript i taget
+* Skript som efterfrågar information (interaktivt läge) stöds inte.
 * Du kan inte avbryta en som kör skript
 * Den längsta tid som ett skript kan köras är 90 minuter, når tidsgränsen efter som den
 * Utgående anslutning från den virtuella datorn krävs för att returnera resultatet av skriptet.

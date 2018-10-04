@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: e3296430cd58c8ba33f7cc9acd4cded2925b5be9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: bd224317ba777939a1db4edeb7cb5df728fc434c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166290"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249017"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Översikt: Active geo-replikering och automatisk redundans-grupper
 
@@ -90,6 +90,10 @@ Aktiv geo-replikering-funktionen ger följande viktiga funktioner:
 ## <a name="auto-failover-group-capabilities"></a>Funktioner för automatisk redundans-grupp
 
 Automatisk redundans med funktionen ger en kraftfull abstraktion av aktiv geo-replikering genom att stödja grupp på replikering och automatisk redundans. Dessutom tas bort behovet av att ändra SQL-anslutningssträng efter redundans genom att tillhandahålla ytterligare lyssnare-slutpunkter. 
+
+> [!NOTE]
+> Automatisk redundans är inte tillgänglig i hanterade instanser.
+>  
 
 * **Redundansgruppen**: en eller flera redundansgrupper kan skapas mellan två servrar i olika regioner (primära och sekundära servrar). Varje grupp kan innehålla en eller flera databaser som återställs som en enhet om alla eller vissa primära databaser blir otillgänglig på grund av ett avbrott i den primära regionen.  
 * **Primär server**: en server som är värd för primära databaser i redundansgruppen.

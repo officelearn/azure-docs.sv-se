@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171443"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248389"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Hur du loggar in dialogrutor i en Konversationsdeltagare-modell
 
@@ -76,7 +76,7 @@ Nu har du två åtgärder.
 
 Lägg till ett annat exempel dialogrutan:
 
-1. Klicka på ny åtgärd och sedan dialogrutan Ny träna.
+1. Klicka på träna dialogrutor och därefter nytt träna dialogrutan.
 2. Skriv ”vad är vädret i Seattle”?. Lägg märke till Seattle märkts med en entitet.
 5. Klicka på poäng åtgärder 
 6. Välj ”vädret i $city är förmodligen solig”.
@@ -86,7 +86,7 @@ Lägg till ett annat exempel dialogrutan:
 Låt oss anta att vi har distribuerat den här bot till användare.
 
 1. Klicka på logg-dialogrutor.
-2. Klicka på ny chatt.
+2. Klicka på dialogrutan för nytt Log.
     - Detta medför roboten när användaren skulle uppleva i webbchattskontroll till vänster i Användargränssnittet. Du kan ignorera området tomt utrymme till höger.
 3. Skriv ”hello”.
 4. Bot svar: ”vilka city”?
@@ -97,10 +97,10 @@ Låt oss anta att vi har distribuerat den här bot till användare.
 
 Låt oss börja en ny session:
 
-2. Klicka på ny chatt.
+2. Klicka på dialogrutan för nytt Log.
 3. Skapa prognoser för Boston typ.
 4. Bot svar: ”vilka city”?
-2. Klicka på klar undervisning.
+2. Klicka på klar testning.
 
 Nu ska vi göra korrigeringar av andra dialogrutan:
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 446268f28e7c87196023636889f03be2da92ecfd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967650"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269402"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer
 Azure Monitor för virtuella datorer samlar in prestanda- och anslutningshanteringstjänsten mått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till Log Analytics-datalager i Azure Monitor.  Informationen är tillgänglig för [search](../log-analytics/log-analytics-log-searches.md) i Log Analytics. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
@@ -39,7 +39,7 @@ Anslutningsmått skrivs till en ny tabell i Log Analytics - VMConnection. Den h�
 
 Poster i tabellerna genereras från data som rapporteras av beroendeagenten. Varje post representerar en områdes under ett tidsintervall för en minut. Egenskapen TimeGenerated anger början av tidsintervallet. Varje post innehåller information för att identifiera entiteten respektive, det vill säga, anslutning eller port samt mått som är associerade med denna entitet. För närvarande rapporteras endast nätverksaktivitet som sker med TCP över IPv4.
 
-För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte enskilda fysiska nätverksanslutningar. Flera fysiska nätverksanslutningar är grupperade i en logisk anslutning, som sedan visas i respektive tabell.  Betydelse, registrerar i *VMConnection* tabell representerar en logisk gruppering och inte de enskilda fysiska anslutningar som är som observeras. Fysiska nätverksanslutningen som delar samma värde för följande attribut under ett visst minuts intervall, slås ihop till en enskild logisk post i *VMConnection*. 
+För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte enskilda fysiska nätverksanslutningar. Flera fysiska nätverksanslutningar är grupperade i en logisk anslutning, som sedan visas i respektive tabell.  Betydelse, registrerar i *VMConnection* tabell representerar en logisk gruppering och inte de enskilda fysiska anslutningar som är som observeras. Fysiska nätverksanslutningen som delar samma värde för följande attribut under ett givet intervall för en minut, slås ihop till en enskild logisk post i *VMConnection*. 
 
 | Egenskap  | Beskrivning |
 |:--|:--|
@@ -69,9 +69,9 @@ Förutom antalet anslutningsmått, information om mängden data som skickas och 
 |BytesSent |Sammanlagt antal byte som har skickats under tidsperioden för rapportering |
 |BytesReceived |Sammanlagt antal byte som tagits emot under tidsperioden för rapportering |
 |Svar |Antal svar som observerats under tidsperioden för rapportering. 
-|ResponseTimeMax |Den största svarstid (millisekunder) observerats under tidsperioden för rapportering.  Egenskapen är tomt om inget värde.|
-|ResponseTimeMin |Den minsta svarstid (millisekunder) observerats under tidsperioden för rapportering.  Egenskapen är tomt om inget värde.|
-|ResponseTimeSum |Summan av alla svarstider (millisekunder) som observerats under tidsperioden för rapportering.  Om inget värde är egenskapen tomt|
+|ResponseTimeMax |Den största svarstid (millisekunder) observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
+|ResponseTimeMin |Den minsta svarstid (millisekunder) observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
+|ResponseTimeSum |Summan av alla svarstider (millisekunder) som observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
 
 Den tredje typ av data som rapporteras svarstid – hur länge en anropare ägna åt att vänta på en begäran som skickas via en anslutning som ska bearbetas och besvarats av fjärrslutpunkten. Svarstiden som rapporteras är en uppskattning av SANT svarstiden för det underliggande protokollet. Det beräknas med hjälp av heuristik baserat på observationer av flödet av data mellan käll- och slutet av en fysisk anslutning. Den övergripande är skillnaden mellan den tid som den sista byten av en begäran lämnar avsändaren och tid när den sista byten av svaret kommer tillbaka till den. Dessa två tidsstämplar används för att ge en bild av händelser som begäranden och svar på en viss fysisk anslutning. Skillnaden mellan dem representerar svarstiden för en enskild begäran. 
 
@@ -93,8 +93,8 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 | Egenskap  | Beskrivning |
 |:--|:--|
 |RemoteCountry |Namnet på det land som är värd för RemoteIp.  Till exempel *USA* |
-|RemoteLatitude |Geoplats latitud.  Till exempel *47.68* |
-|RemoteLongitude |Geoplats longitud.  Till exempel *-122.12* |
+|RemoteLatitude |Geoplats latitud. Till exempel *47.68* |
+|RemoteLongitude |Geoplats longitud. Till exempel *-122.12* |
 
 #### <a name="malicious-ip"></a>Skadlig IP
 Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig följande egenskaper är ifyllda (de är tom, när den IP-Adressen inte anses vara skadlig) i följande egenskaper för posten:
@@ -102,16 +102,16 @@ Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättni
 | Egenskap  | Beskrivning |
 |:--|:--|
 |MaliciousIp |RemoteIp-adress |
-|IndicatorThreadType | |
-|Beskrivning | |
-|TLPLevel | |
-|Konfidensbedömning | |
-|Severity | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Threat indikatorn har identifierats är något av följande värden *Botnät*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *skadlig kod*, *nätfiske*, *Proxy*, *oönskade program*, *Visningslista*.   |
+|Beskrivning |Beskrivning av observerade hotet. |
+|TLPLevel |Trafikljus Protocol (TLP) är en av de definierade värdena *White*, *grönt*, *gul*, *Red*. |
+|Konfidensbedömning |Värden är *0 – 100*. |
+|Severity |Värden är *0 – 5*, där *5* är den mest allvarliga och *0* inte är allvarligt alls. Standardvärdet är *3*.  |
+|FirstReportedDateTime |Första gången providern rapporterade indikatorn. |
+|LastReportedDateTime |Senast indikatorn har setts av Interflow. |
+|IsActive |Anger indikatorer inaktiveras med *SANT* eller *FALSKT* värde. |
+|ReportReferenceLink |Länkar till rapporter som rör en viss övervakas. |
+|AdditionalInformation |Tillhandahåller ytterligare information om det är tillämpligt, om observerade hotet. |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL poster
 Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar med beroendeagenten. Dessa poster har egenskaper i följande tabell:
@@ -166,34 +166,34 @@ Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslut
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 
 ### <a name="list-all-known-machines"></a>Lista över alla kända datorer
-ServiceMapComputer_CL | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Lista över kapacitet för fysiskt minne för alla hanterade datorer.
-ServiceMapComputer_CL | Sammanfatta arg_max(TimeGenerated, *) av ResourceId | projektet PhysicalMemory_d, ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Lista datornamn, DNS, IP- och OS.
-ServiceMapComputer_CL | Sammanfatta arg_max(TimeGenerated, *) av ResourceId | projektet ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Hitta alla processer med ”sql” på kommandoraden
-ServiceMapProcess_CL | där CommandLine_s contains_cs ”sql” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Hitta en dator (senaste post) efter resursnamn
-Sök i (ServiceMapComputer_CL) ”m-4b9c93f9-bc37-46df-b43c-899ba829e07b” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Hitta en dator (senaste post) genom att IP-adress
-Sök i (ServiceMapComputer_CL) ”10.229.243.232” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Lista över alla kända processer på en angiven dator
-ServiceMapProcess_CL | där MachineResourceName_s == ”m-559dbcd8-3130-454d-8d1d-f624e57961bc” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-computers-running-sql"></a>Lista över alla datorer som kör SQL
-ServiceMapComputer_CL | där ResourceName_s i ((Sök i (ServiceMapProcess_CL) ”\*sql\*” | distinkta MachineResourceName_s)) | distinkta ComputerName_s
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Lista över alla unika produktversioner av curl i mitt datacenter
-ServiceMapProcess_CL | där ExecutableName_s == ”curl” | distinkta ProductVersion_s
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Skapa en datorgrupp för alla datorer som kör CentOS
-ServiceMapComputer_CL | där OperatingSystemFullName_s contains_cs ”CentOS” | distinkta ComputerName_s
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Sammanfatta utgående anslutningar från en grupp datorer
 ```

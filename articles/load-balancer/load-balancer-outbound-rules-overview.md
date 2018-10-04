@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/3/2018
 ms.author: kumud
-ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 50b567b298406b936a11ad5a8737ce4b1e21c0c7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163026"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248732"
 ---
 # <a name="load-balancer-outbound-rules"></a>Utgående regler för belastningsutjämnare
 
@@ -180,10 +180,10 @@ Definiera en offentlig Standard Load Balancer, placera de virtuella datorerna i 
 
 #### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>Utgående NAT för interna Standard Load Balancer-scenarier
 
-När du använder en intern Standard Load Balancer, är utgående NAT inte tillgängligt förrän en offentlig Standard Load Balancer har konfigurerats. Du kan ändra detta genom att använda och utgående regel för att skapa utgående anslutning för virtuella datorer bakom en intern Standard Load Balancer.
+När du använder en intern Standard Load Balancer, är utgående NAT inte tillgängligt förrän utgående anslutning har deklarerats explicit. Du kan definiera utgående anslutning som använder en utgående regel för att skapa utgående anslutning för virtuella datorer bakom en intern Standard Load Balancer med de här stegen:
 
 1. Skapa en offentlig Standard Load Balancer.
-2. Skapa en serverdelspool och placera de virtuella datorerna i en serverdelspool för den offentliga belastningsutjämnare.
+2. Skapa en serverdelspool och placera de virtuella datorerna i en serverdelspool för den offentliga belastningsutjämnare utöver den interna belastningsutjämnaren.
 3. Konfigurera en utgående regel på offentlig belastningsutjämnare att programmera utgående NAT för dessa virtuella datorer.
 
 #### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Aktivera både TCP och UDP-protokoll för utgående NAT med en offentlig Standard Load Balancer

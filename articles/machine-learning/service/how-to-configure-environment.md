@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: f68d5d7faf3555918b9f9a6add7754c8ae23d0a8
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 73cc346e882acab1c2c00cc49738a388927d3ccf
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239242"
+ms.locfileid: "48248252"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning-tjänsten
 
@@ -117,6 +117,11 @@ Ett exempel på hur du använder Azure-datorer med Azure Machine Learning-tjäns
      ```shell
     pip install --upgrade azureml-sdk[notebooks,automl]
     ```
+
+    > [!NOTE]
+    > Om du får ett meddelande som `PyYAML` får inte vara avinstallerats klickar du i stället använder du följande kommando:
+    > 
+    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
 
     Det kan ta flera minuter att installera SDK.
 

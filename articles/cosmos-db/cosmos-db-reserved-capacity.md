@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 1be2d67d8a1ee51c4883ae1f50b80ad3a9691c2d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291b2429e6c5c25e051c8f3eca30e1cc3f64611
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981975"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247337"
 ---
 # <a name="prepay-for-azure-cosmos-db-resources-with-reserved-capacity"></a>Betala i förskott för Azure Cosmos DB-resurser med reserverad kapacitet
 
@@ -32,11 +32,11 @@ Du kan köpa Azure Cosmos DB reserverad kapacitet från den [Azure-portalen](htt
 
 Storleken på reservationen ska baseras på den totala mängden dataflöde som används av de befintliga eller snart-till--distribueras Azure Cosmos DB-resurserna (till exempel databaser eller behållare - samlingar, tabeller, diagram). Du kan fastställa nödvändiga dataflödet på följande sätt:
 
-* Gå till [Azure-portalen](https://portal.azure.com), hitta ditt Azure Cosmos DB-konto, öppnar du bladet mått och få information genomsnittligt dataflöde per sekund från den **dataflöde** fliken under en period på 3 – 6 månader. Ange den här storleken som reserverad kapacitetsenheter när du köper.
+* Hämta historiska data för totalt etablerat dataflöde i Azure Cosmos DB-konton, databaser och samlingar i alla regioner. Exempel: du kan utvärdera det dagliga genomsnittliga dataflöden genom att ladda ned din dagliga användningsinformation från `https://account.azure.com`
 
-Om du är en Enterprise Agreement (EA) kan du också hämta din användningsfil och referera till **tjänsttyp** värde i den **ytterligare information** i användningsfilen för att hämta Azure Cosmos DB dataflöde information.
+* Om du är en Enterprise Agreement (EA) kan du också hämta din användningsfil och referera till **tjänsttyp** värde i den **ytterligare information** i användningsfilen för att hämta Azure Cosmos DB dataflöde information.
 
-Du kan också summera genomsnittlig genomströmning för alla arbetsbelastningar på Azure Cosmos DB-konton som du förväntar körs för bredvid ett eller tre år och Använd den kvantiteten för reservation.
+* Du kan också summera genomsnittlig genomströmning för alla arbetsbelastningar på Azure Cosmos DB-konton som du förväntar körs för bredvid ett eller tre år och Använd den kvantiteten för reservation.
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Köp Azure Cosmos DB reserverad kapacitet
 

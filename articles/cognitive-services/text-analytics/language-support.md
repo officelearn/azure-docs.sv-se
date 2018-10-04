@@ -1,21 +1,21 @@
 ---
 title: Stöd för språk - API för textanalys
 titleSuffix: Azure Cognitive Services
-description: 'En lista med naturligt språk som stöds av API för textanalys. Den här artikeln beskriver vilka språk som stöds för varje åtgärd: attitydanalys, extrahering av diskussionsämne och språkidentifiering.'
+description: 'En lista med naturligt språk som stöds av API för textanalys. Den här artikeln beskriver vilka språk som stöds för varje åtgärd: attitydanalys, extrahering av diskussionsämne, språkidentifiering och igenkänning av entiteter.'
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: e9f466ac6bce98a6a9f2d79a443c9602ca40bb26
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a94c2af4d3e0d0d0c466f7cb7d58ec35351ebc3e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435577"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247745"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Stöd för språk och din region för Textanalys
 
@@ -25,15 +25,15 @@ Den här artikeln beskriver vilka språk som stöds för varje åtgärd: attityd
 
 API för textanalys kan identifiera upp till 120 olika språk. Språkidentifiering returnerar ”skript” för ett språk. Exempel för frasen ”jag har en hund” returneras `en` i stället för `en-US`. Endast specialfall är kinesiska, där identifieringsmöjligheter språk returnerar `zh_CHS` eller `zh_CHT` om det kan fastställa skriptet ges text som tillhandahålls. I situationer där ett visst skript inte kan identifieras för ett kinesiska dokument, returneras bara `zh`.
 
-## <a name="sentiment-analysis-key-phrase-extraction-and-entity-linking"></a>Attitydanalys, extrahering av diskussionsämne och Entitetslänkning
+## <a name="sentiment-analysis-key-phrase-extraction-and-entity-recognition"></a>Attitydanalys, extrahering av diskussionsämne och Entitetsidentifiering
 
-För attitydanalys, extrahering av diskussionsämne och entitetslänkning, är listan över språk som stöds mer selektiv analysatorer är förfinade för språklig reglerna för ytterligare språk.
+För attitydanalys, extrahering av diskussionsämne och entitetsidentifiering är listan över språk som stöds mer selektiv analysatorer är förfinade för språklig reglerna för ytterligare språk.
 
 ## <a name="language-list-and-status"></a>Språklista och status
 
 Språk som stöds är inledningsvis lanseras i förhandsversion, de blivit allmänt tillgänglig (GA) status, oberoende av varandra och av övergripande Text Analytics-tjänsten. Det är möjligt för språk som ska behållas i förhandsversion, även under API för textanalys övergår till allmänt tillgänglig.
 
-| Språk    | Språkkod | Sentiment | Nyckelfraser | Entity Linking |   Anteckningar  |
+| Språk    | Språkkod | Sentiment | Nyckelfraser | Igenkänning av entiteter |   Anteckningar  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Danska      | `da`          | ✔ \*     | ✔           |             |     |
 | Nederländska       | `nl`          | ✔ \*     | ✔          |             |     |
@@ -52,7 +52,7 @@ Språk som stöds är inledningsvis lanseras i förhandsversion, de blivit allm�
 | Ryska     | `ru`          | ✔ \*     | ✔           |             |     |
 | Spanska     | `es`          | ✔        | ✔           |     |     |
 | Svenska     | `sv`          | ✔ \*     | ✔           |             |     |
-| Turkiska     | `tr`          | ✔ \*     |             |             |     |
+| Turkiska     | `tr`          | ✔ \*     |             |             |  |
 
 \* Anger språkstöd i förhandsversion
 

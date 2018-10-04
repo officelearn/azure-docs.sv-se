@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 58ccc328281bb70e00294ccef054232108212ccc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 930e561c1777ccfcb8046c824853ebb12367cee5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997666"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248108"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Azure Database for MariaDB serverbrandväggsregler
 Förhindrar brandväggar all åtkomst till din databasserver tills du anger vilka datorer som har behörighet. Brandväggen ger åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
@@ -46,7 +46,9 @@ Om du vill tillåta att program från Azure att ansluta till din Azure Database 
 ![Konfigurera Tillåt åtkomst till Azure-tjänster i portalen](./media/concepts-firewall-rules/allow-azure-services.png)
 
 ## <a name="programmatically-managing-firewall-rules"></a>Hantera brandväggsregler via programmering
-Utöver Azure portal hanteras brandväggsregler via programmering med hjälp av Azure CLI. <!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
+Utöver Azure portal hanteras brandväggsregler via programmering med hjälp av Azure CLI. 
+
+<!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
 
 ## <a name="troubleshooting-the-database-firewall"></a>Felsöka databasbrandväggen
 Tänk på följande när åtkomst till Microsoft Azure-databas för MariaDB server-tjänsten inte fungerar som förväntat:

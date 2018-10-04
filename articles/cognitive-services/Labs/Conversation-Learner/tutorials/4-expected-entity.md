@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a43c52143f936eaefd4383714b1c67b6b74d34e8
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378677"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268029"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Hur du använder ”förväntades entitet”-egenskapen för åtgärder
 
@@ -30,7 +30,7 @@ Den här självstudien krävs att Allmänt självstudiekursen bot körs
 
     npm run tutorial-general
 
-## <a name="details"></a>Detaljer
+## <a name="details"></a>Information
 Använd fältet ”förväntades entitet” i en åtgärd för att kommunicera med systemet som du förväntar dig användarens svar till en åtgärd är att ange en entitet.
 
 Concretely, om fältet ”förväntades entitet” i en åtgärd har angetts till $entity och sedan på nästa användaren uttryck, kommer systemet:
@@ -63,9 +63,10 @@ Concretely, om fältet ”förväntades entitet” i en åtgärd har angetts til
 2. I svaret, skriver du ”vad heter du”?.
 3. Ange $name i förväntat entiteter. Klicka på Spara.
     - Det här värdet innebär att om den här frågan ombeds och användarens svar inte har några entiteter som har identifierats, roboten anta att hela användarens svar är den här entiteten.
+    - Entiteten läggs automatiskt som en disqualifying enhet. 
 2. Klicka på åtgärder och sedan ny åtgärd för att skapa en andra åtgärd.
 3. Skriv ”Hello $name' som svar.
-    - Observera att entiteten automatiskt läggs till som en obligatorisk entitet. 
+    - Entiteten läggs automatiskt som en obligatorisk entitet.
 4. Klicka på Spara.
 
 Nu har du två åtgärder.
@@ -111,7 +112,7 @@ I följande exempel, ”förväntades entitet” tumregeln utlöser, men det är
 2. Ange ”hello”.
 3. Ange som svar på ”vad är namnet på din”, ”jag är kallas frank”.
     - Hela frasen är markerad. Det beror på att statistiska modellen inte gick att hitta ett namn, så tumregeln utlöstes och valt hela svaret som entiteten namn.
-2. Åtgärda det genom att klicka på markerade frasen sedan klickar du på ett rött x. 
+2. För att rätta till det, klickar på markerade frasen och sedan klicka på röda Papperskorgen. 
 3. Välj frank och klicka sedan på namnet på.
 2. Klicka på poäng åtgärder
 3. Välj ”Hello $name'.

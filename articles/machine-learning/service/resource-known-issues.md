@@ -9,16 +9,25 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: d4910eb3dfacb46efe3f85aea3a441bdaaeb1392
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 02cee5a3e088c919ec94aee6f46ef6f428b9bb48
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236420"
+ms.locfileid: "48249425"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
  
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstod när du använder Azure Machine Learning-tjänsten. 
+
+## <a name="sdk-installation-issues"></a>SDK-installationsproblem
+
+**Felmeddelande: Det går inte att avinstallera 'PyYAML'** 
+
+PyYAML är ett distutils installerade projekt. Vi kan inte därför korrekt fastställa vilka filer som hör till den i händelse av en partiell avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
+```Python 
+pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
+```
 
 ## <a name="image-building-failure"></a>Bild byggnad fel
 
@@ -45,7 +54,7 @@ Databricks och Azure Machine Learning-problem.
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
    ```
 
-## <a name="gather-diagnostics-information"></a>Samla in diagnostikinformation
+## <a name="diagnostic-logs"></a>Diagnostikloggar
 Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Här är där loggfilerna live:
 
 ## <a name="resource-quotas"></a>Resurskvoter

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: d820898b1a0cc26d6832be9d302c74306fa4882f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d9ac3334d790c1844993c7d95bc24ce6690bed19
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056296"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248508"
 ---
 # <a name="read-before-you-scale"></a>Läsa innan du skalar
 Skala beräkningsresurser till källan arbetsbelastning för ditt program kräver avsiktlig planering, nästan alltid tar längre tid än en timme att slutföra för en produktionsmiljö och kräver att du kan läsa mer arbetsbelastning affärskontexten; i själva verket om du aldrig har gjort den här aktiviteten innan, bör du börja med att läsa och förstå [Service Fabric-kluster kapacitetsplanering](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity), innan du fortsätter med resten av det här dokumentet. Den här rekommendationen är att undvika oväntade LiveSite problem och vi rekommenderar också att du har testa de åtgärder som du vill utföra mot en icke-produktionsmiljö. Du kan när som helst [rapportera produktionsproblem eller begära betald support för Azure](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). För tekniker som allokerats för att utföra dessa åtgärder som har rätt kontext, i den här artikeln beskriver skalningsåtgärder, men du måste bestämma och förstå vilka åtgärder som är lämpliga för ditt användningsområde; till exempel vilka resurser för att skala (processor, lagring, minne), vilken riktning skala (vågrätt eller lodrätt) och vilka åtgärder att utföra (resursmall distribution, Portal, PowerShell/CLI).
@@ -33,7 +33,7 @@ Virtual machine scale sets är en Azure-beräkningsresurs som du kan använda f�
 > 
 
 ## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>Välj noden typ/virtuell datorskalning som anger att skala
-Du är för närvarande inte kunna ange regler för automatisk skalning för VM scale sets med hjälp av portalen, så kan vi använda Azure PowerShell (1.0 +) lista nodtyperna och sedan lägga till regler för automatisk skalning i dem.
+Du är för närvarande inte kan ange regler för automatisk skalning för VM scale sets med hjälp av portalen så kan vi använda Azure PowerShell (1.0 +) lista över typer noden och sedan lägga till regler för automatisk skalning till dem om du vill skapa ett Service Fabric-kluster.
 
 Om du vill hämta listan över virtuella datorns skaluppsättning som utgör ditt kluster, kör du följande cmdlets:
 

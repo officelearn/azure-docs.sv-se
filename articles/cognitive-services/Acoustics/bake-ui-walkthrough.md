@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 0e16ec765ae3cbef8a941f43a149428ffdf5bd8d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a82472ccd5524e7cbe3d92070a6d2b583d8eb4d5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181807"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249306"
 ---
 # <a name="bake-acoustics"></a>Skapa Akustik
 
@@ -199,15 +199,19 @@ När du är nöjd med förhandsgranskningsdata kan du använda den **skapa** fli
 1. Knappen Skapa flik används för att ta fram den här sidan.
 2. En kort beskrivning av vad du gör på den här sidan.
 3. Fält att ange dina autentiseringsuppgifter för Azure när du har skapat ditt Azure-konto. Mer information finns i [skapa ett Azure Batch-konto](create-azure-account.md).
-4. Azure batch-beräkningsnod nodtyp för beräkningen. Nodtypen måste stödjas av din Azure data center plats. Om det inte att lämna på **Standard_F8**.
-5. Antalet noder som ska användas för den här beräkningen. Det antal som du anger här påverkar hur lång tid att slutföra ändamålet och begränsas av Azure Batch core allokeringen. Standardallokeringen kan du bara tillåter två 8 kärnor noder eller ett 16 kärnor nod, men kan utökas. Mer information om core allokering begränsningar finns i [skapa ett Azure Batch-konto](create-azure-account.md).
-6. Antalet avsökning för din scen som beräknas på den **avsökningar** fliken. Antal avsökningar avgör hur många simuleringar som måste köras i molnet. Du kan inte ange fler noder än vad som finns på avsökningar.
-7. Mängden tid som gått för det förväntas ta för jobbet ska köras i molnet. Detta inkluderar inte starttiden för noden. Detta är om hur lång tid det bör vara innan du kommer tillbaka resultaten när jobbet börjar köras. Observera att detta är endast en uppskattning.
-8. Den totala arbetstiden som behövs för att köra simuleringar. Det här är den totala mängden noden beräkningstiden som ska användas i Azure. Se [Estimating ändamålet kostnaden](#Estimating-bake-cost) nedan för mer information om hur du använder det här värdet.
-9. Det här meddelandet visar var resultatet av ändamålet ska sparas när jobbet har slutförts.
-10. (Endast för avancerad användning) Om du skickat av någon anledning att tvinga Unity att glömma en ändamålet (t.ex. du har hämtat resultat i en annan dator), klickar du på den **rensa tillstånd** knappen att glömma om jobbet som har skickats. Alltså resultatfilen, när du är klar, kommer **inte** laddas ned och **detta är inte detsamma som att avbryta jobbet**. Jobbet fortsätter om kör, att köras i molnet.
-11. Klicka på knappen ändamålet om du vill skicka ändamålet till molnet. När ett jobb körs, visar detta **Avbryt jobb** i stället.
-12. Det här området visar status för ändamålet. När du är klar bör du se **hämtade**.
+4. Docker bildtagg för Akustik verktygsuppsättningen.
+5. Starta Azure-portalen för att hantera dina prenumerationer, övervaka användning och visa faktureringsinformation osv. 
+6. Azure batch-beräkningsnod nodtyp för beräkningen. Nodtypen måste stödjas av din Azure data center plats. Om det inte att lämna på **Standard_F8s_v2**.
+7. Antalet noder som ska användas för den här beräkningen. Det antal som du anger här påverkar hur lång tid att slutföra ändamålet och begränsas av Azure Batch core allokeringen. Standardallokeringen kan du bara tillåter två 8 kärnor noder eller ett 16 kärnor nod, men kan utökas. Mer information om core allokering begränsningar finns i [skapa ett Azure Batch-konto](create-azure-account.md).
+8. Markera kryssrutan för att konfigurera din beräknings-pool för att använda [lågprioritetsnoder](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Beräkningsnoder med låg prioritet har mycket lägre kostnad, men de kanske inte alltid är tillgänglig eller kan avbrytas när som helst.
+9. Antalet avsökning för din scen som beräknas på den **avsökningar** fliken. Antal avsökningar avgör hur många simuleringar som måste köras i molnet. Du kan inte ange fler noder än vad som finns på avsökningar.
+10. Mängden tid som gått för det förväntas ta för jobbet ska köras i molnet. Detta inkluderar inte starttiden för noden. Detta är om hur lång tid det bör vara innan du kommer tillbaka resultaten när jobbet börjar köras. Observera att detta är endast en uppskattning.
+11. Den totala arbetstiden som behövs för att köra simuleringar. Det här är den totala mängden noden beräkningstiden som ska användas i Azure. Se [Estimating ändamålet kostnaden](#Estimating-bake-cost) nedan för mer information om hur du använder det här värdet.
+12. Det här meddelandet visar var resultatet av ändamålet ska sparas när jobbet har slutförts.
+13. (Endast för avancerad användning) Om du skickat av någon anledning att tvinga Unity att glömma en ändamålet (t.ex. du har hämtat resultat i en annan dator), klickar du på den **rensa tillstånd** knappen att glömma om jobbet som har skickats. Alltså resultatfilen, när du är klar, kommer **inte** laddas ned och **detta är inte detsamma som att avbryta jobbet**. Jobbet fortsätter om kör, att köras i molnet.
+14. Klicka på knappen ändamålet om du vill skicka ändamålet till molnet. När ett jobb körs, visar detta **Avbryt jobb** i stället.
+15. Förbereder för att bearbeta Akustik simulering på lokala datorer. Se [lokala ändamålet](#Local-bake) för mer information.  
+16. Det här området visar status för ändamålet. När du är klar bör du se **hämtade**.
 
 Du kan alltid få fullständig information om aktiva jobb, beräkningspooler och lagring på den [Azure-portalen](https://portal.azure.com).
 
@@ -217,13 +221,34 @@ När du har startat en ändamålet, kan du stänga Unity. En cloud-ändamålet k
 
 Azure-autentiseringsuppgifterna lagras på ett säkert sätt på den lokala datorn och som är associerade med dina Unity-redigeraren. De används endast för att upprätta en säker anslutning till Azure.
 
-### <a name="Estimating-bake-cost"></a> Beräknar ändamålet kostnad
+### <a name="Estimating-bake-cost"></a> Beräknar Azure ändamålet kostnad
 
-Om du vill beräkna vad en viss ändamålet kostar måste ta värdet som visas för **beräknade Compute kostnad**, vilket är en varaktighet och multiplicera som av de varje timme kostar i din lokala valuta av den **VM nodtyp** du har valt. Resultatet innehåller inte noden tiden behövs för att komma noderna och körs. Exempel: Om du väljer **Standard_F8** för nodtypen, vilket kostar $ 0,75/timme, och den uppskattade kostnaden för Compute är 3 timmar och 57 minuter, den uppskattade kostnaden för att köra jobbet kommer att $0,75 * ~ 4 timmar = ~ $3.00. Verklig kostnad kommer antagligen vara lite högre på grund av den extra tid att hämta de noder som är igång. Du kan hitta noden per timme kostnaden på den [priser för Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (Välj ”Beräkningsoptimerad” eller ”databehandling med höga prestanda” för kategorin).
+Om du vill beräkna vad en viss ändamålet kostar måste ta värdet som visas för **beräknade Compute kostnad**, vilket är en varaktighet och multiplicera som av de varje timme kostar i din lokala valuta av den **VM nodtyp** du har valt. Resultatet innehåller inte noden tiden behövs för att komma noderna och körs. Exempel: Om du väljer **Standard_F8s_v2** för nodtypen, vilket kostar $ 0,40/timme, och den uppskattade kostnaden för Compute är 3 timmar och 57 minuter, den uppskattade kostnaden för att köra jobbet kommer att $0,40 * ~ 4 timmar = ~ 1,60. Verklig kostnad kommer antagligen vara lite högre på grund av den extra tid att hämta de noder som är igång. Du kan hitta noden per timme kostnaden på den [priser för Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (Välj ”Beräkningsoptimerad” eller ”databehandling med höga prestanda” för kategorin).
 
 ### <a name="reviewing-the-bake-results"></a>Granska resultaten ändamålet
 
 När ändamålet har slutförts kan du kontrollera att voxels och avsökning punkter är i deras förväntade platser genom att köra runtime-plugin-programmet. Mer information finns i [Design processöversikt för Akustik](design-process.md).
+
+## <a name="Local-bake"></a>Lokala ändamålet
+Lokala ändamålet körs Akustik simulering på din lokala dator i stället för att överföra det till Azure Batch-kluster. Detta kan vara ett bra alternativ för att experimentera med Akustik utan att kräva en Azure-prenumeration men Observera att Akustik simulering beräkningsmässigt krävande och kan ta lång tid beroende på storleken på scenen simulering konfiguration, och raw datorkraft för bearbetning av datorn.
+
+### <a name="minimum-hardware-requirements"></a>Minsta maskinvarukrav
+64-bitars Intel-processor med minst 8 kärnor och 32 GB RAM-minne eller högre.
+
+Till exempel på en dator 8 kärnor med Intel Xeon E5-1660 @ 3 GHz och 32 GB minne:
+* Liten scen med 100 avsökningar tar ~ 2 timmar för en grov ändamålet och ~ 32 timmar för en bra lösning ändamålet.
+* Större scen med 1000 avsökningar kan ta upp till ~ 20 timmar för en grov upplösning och ~ 21 dagar för en bra lösning ändamålet.
+
+### <a name="setup-docker"></a>Konfigurera Docker
+Installera och konfigurera Docker på den dator som kommer att bearbeta simuleringen-
+1. Installera den [Docker verktygsuppsättningen](https://www.docker.com/products/docker-desktop).
+2. Starta Docker-inställningar, navigera till ”avancerat”-alternativ och konfigurera resurser enligt nedan. ![Docker-resurser](media/DockerSettings.png)
+3. Navigera till ”delade enheter” alternativ och aktivera delning av enheten som används för bearbetning.![DockerDriveSharing](media/DockerSharedDrives.png)
+
+### <a name="run-local-bake"></a>Kör lokala ändamålet
+1. Klicka på ”förbereda lokala skapa” ändamålet-fliken och välj en mapp där inkommande filer och skript för körning ska sparas. Du kan sedan köra ändamålet på valfri dator så länge som den uppfyller minimikraven på maskinvara och har Docker installerat genom att kopiera mappen till den datorn.
+2. Starta simuleringen med hjälp av ”runlocalbake.bat” skript som ska hämta projektet Akustik Docker-avbildning med verktyg som behövs för simulering bearbetning och starta simuleringen. 
+3. När simuleringen har slutförts kan du kopiera den resulterande .ace filen tillbaka till dina Unity-projekt på samma plats som har angetts i fliken avsökningar. Se till att Målfilnamnet överensstämmer med kraven för Unitys genom att lägga till ”.bytes” till filnamnstillägget. Detaljerade loggar för simuleringen lagras i filen ”AcousticsLog.txt”. Om du stöter på problem, kan du dela den här filen som hjälper till med diagnos.
 
 ## <a name="Data-Files"></a>Datafiler
 

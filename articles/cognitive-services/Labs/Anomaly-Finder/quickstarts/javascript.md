@@ -9,14 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 048647f1657a5674bcb508b20b7c57a8a6ed5ed9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8a880e5924ec6bfbabb5ae4d71742f2a29bdea7f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665030"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246937"
 ---
 # <a name="use-the-anomaly-finder-api-with-javascript"></a>Använda Avvikelsesökare API med Javascript
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: T för Avvikelseidentifiering identifiering med Javascript för att utföra uppgiften för att få Identifieringsresultat för avvikelseidentifiering av time series-data.
 
@@ -40,7 +42,7 @@ Steg för att använda exemplet är som följer.
 
 1. Skapa en ny HTML-fil.
 2. Ersätt HTML-fil med följande kod.
-3. Ersätt den `[YOUR_SUBSCRIPTION_KEY]` värde med giltig prenumeration-nyckel.
+3. Ersätt värdet `[YOUR_SUBSCRIPTION_KEY]` med en giltig prenumerationsnyckel.
 4. Ersätt data i requestTextArea med datapunkterna.
 5. Öppna HTML-fil i en webbläsare och klicka på `Anomaly Detection` knappen.
 
@@ -306,7 +308,7 @@ Steg för att använda exemplet är som följer.
 
 ### <a name="example-response"></a>Exempelsvar
 
-Ett lyckat svar returneras i JSON. Exempelsvar är som följer.
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelsvar är som följer.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Nästa steg

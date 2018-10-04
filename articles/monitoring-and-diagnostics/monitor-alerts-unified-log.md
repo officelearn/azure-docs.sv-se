@@ -5,15 +5,15 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 2e2db54f4c356a754144e17b11cf25fdf3f12d9f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1490e60f3c6537a661fc1e76907b502a586547c9
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994011"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248898"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
 Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](monitoring-overview-unified-alerts.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
@@ -106,7 +106,7 @@ Nu antar vi att vi har en loggvarningsregel som kallas *Contoso-Log-avisering*, 
 - Klockan 13:15 när Contoso-Log-avisering utfördes av Azure-aviseringar, får resultatet 2 poster; som överskrider tröskeln och aktiveringen aviseringen strax efter genom att utlösa den [åtgärdsgrupp](monitoring-action-groups.md) som är associerade.
 - Nu får resultatet i nästa iteration klockan 13:20 när Contoso-Log-aviseringen har utförts genom Azure avisering igen 0 poster; under tröskelvärdet och kan därför inte startas aviseringen.
 
-Men ovan listade om klockan 13:15 - Azure-aviseringar kan inte fastställa att de underliggande problem som kan uppstå vid 1:10 kvarstår och om det finns net nya fel; När frågan som användaren kan hänsyn till tidigare poster – kan Azure-aviseringar vara säker på att. Därför för att ta till en viss försiktighet, Contoso-Log-aviseringen skickas igen klockan 13:15 via konfigurerats [åtgärdsgrupp](monitoring-action-groups.md). Klockan 13:20 när inga poster ses: Azure-aviseringar får inte vara säker på att har nu orsaken posterna åtgärdats; Contoso-Log-aviseringen ska därför inte ändras till löst i aviseringen om Azure-instrumentpanel och/eller meddelanden som skickas ut om upplösning av avisering.
+Men ovan listade om klockan 13:15 - Azure-aviseringar kan inte fastställa att de underliggande problem som kan uppstå vid 1:10 kvarstår och om det finns net nya fel; Azure-aviseringar går inte att att som frågan som användaren kan hänsyn till tidigare poster –. Därför för att ta till en viss försiktighet, Contoso-Log-aviseringen skickas igen klockan 13:15 via konfigurerats [åtgärdsgrupp](monitoring-action-groups.md). Klockan 13:20 när inga poster ses: Azure-aviseringar får inte vara säker på att har nu orsaken posterna åtgärdats; Contoso-Log-aviseringen ska därför inte ändras till löst i aviseringen om Azure-instrumentpanel och/eller meddelanden som skickas ut om upplösning av avisering.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Priser och fakturering av aviseringar

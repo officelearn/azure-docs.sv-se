@@ -1,6 +1,6 @@
 ---
-title: 'Hur du använder API: et för Avvikelseidentifiering Finder med Java - kognitiva Microsoft-tjänster | Microsoft Docs'
-description: Hämta information och exempel på kod för att snabbt komma igång med Java och Anomaly Detection i kognitiva tjänster.
+title: 'Hur du använder API: T för Avvikelseidentifiering Finder med Java – Microsoft Cognitive Services | Microsoft Docs'
+description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Java och Avvikelseidentifiering i Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,41 +9,43 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: kefre
-ms.openlocfilehash: 8152c23e6c5332d243d851be56bab1e4085dbe5a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84997b5d50f879fd4be286a3ca362e70f90c9202
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353346"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249198"
 ---
-# <a name="use-the-anomaly-finder-api-with-java"></a>Använda Avvikelseidentifiering Finder API med Java
+# <a name="use-the-anomaly-finder-api-with-java"></a>Använda Avvikelsesökare API med Java
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: et för Avvikelseidentifiering identifiering med Java för att utföra uppgiften för att få resultat av identifiering av avvikelseidentifiering för tid series-data.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: T för Avvikelseidentifiering identifiering med Java för att utföra uppgiften för att få Identifieringsresultat för avvikelseidentifiering för time series-data.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-the-anomaly-detection-api-using-java"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering identifiering API använder Java
+## <a name="getting-anomaly-points-with-the-anomaly-detection-api-using-java"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering identifiering API med Java
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Exempel på tid series-data
+### <a name="example-of-time-series-data"></a>Exempel på time series-data
 
 Exempel på den tid som datapunkter i serien är som följer.
 
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-java-example"></a>Analysera data och få avvikelseidentifiering punkter Java-exempel
+### <a name="analyze-data-and-get-anomaly-points-java-example"></a>Analysera data och få avvikelseidentifiering punkter Java-exemplet
 
-Utför följande steg om du vill köra exemplet:
-1. Skapa en ny kommandoradsverktyget App.
-2. Ersätt Main-klassen med följande kod (behålla `package` instruktioner).
-3. Ersätt den `[YOUR_SUBSCRIPTION_KEY]` värde med en giltig prenumeration nyckel.
-4. Ersätt den `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` med exemplet eller egna datapunkter.
-5. Ladda ned dessa globala bibliotek från Maven-databasen till den `lib` katalogen i ditt projekt:
+Om du vill köra exemplet utför du följande steg:
+1. Skapa en ny Command-Line-App.
+2. Ersätt Main-klassen med följande kod (behåll alla `package`-uttryck).
+3. Ersätt värdet `[YOUR_SUBSCRIPTION_KEY]` med en giltig prenumerationsnyckel.
+4. Ersätt den `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` med exemplet eller dina egna datapunkter.
+5. Ladda ned dessa globala bibliotek från Maven-centrallagret till den `lib` katalogen i projektet:
    * `org.apache.httpcomponents:httpclient:4.5.2`
-6. Kör 'Main.
+6. Kör "Main".
 
 ```java
 
@@ -113,7 +115,7 @@ public class Main {
 
 ### <a name="example-response"></a>Exempelsvar
 
-Ett lyckat svar returneras i JSON. Exempelsvar är som följer.
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempel på ett svar är som följer.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Nästa steg

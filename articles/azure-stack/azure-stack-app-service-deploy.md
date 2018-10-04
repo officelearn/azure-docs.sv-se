@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f584213a65b9f2408d4ca2a06108cf18222376d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995286"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268807"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en App Service-resursprovider i Azure Stack
 
@@ -97,7 +97,7 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 8. Ange information för filresursen och välj sedan **nästa**. Adressen till filresursen måste använda det fullständigt kvalificerade domännamn (FQDN) eller IP-adressen för din filserver. Till exempel \\\appservicefileserver.local.cloudapp.azurestack.external\websites, eller \\\10.0.0.1\websites.
 
    >[!NOTE]
-   >Ett försök görs att testa anslutningen till filresursen innan du fortsätter. Men om du distribuerar till ett befintligt virtuellt nätverk, det här Anslutningstestet misslyckas. Du får en varning och en fråga för att fortsätta. Om filresursen informationen är korrekt, fortsätter distributionen.
+   >Ett försök görs att testa anslutningen till filresursen innan du fortsätter. Men om du distribuerar till ett befintligt virtuellt nätverk, det här Anslutningstestet misslyckas. Du får en varning och en fråga för att fortsätta. Om informationen om filresurs är korrekt kan du fortsätta med distributionen.
 
    ![App Service-installationsprogrammet][7]
 

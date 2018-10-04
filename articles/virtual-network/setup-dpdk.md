@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 205a1e399eadd268ffaa390a7ebb4397fda9feff
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444661"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268284"
 ---
-# <a name="setup-dpdk-in-a-linux-virtual-machine"></a>Konfigurera DPDK i en Linux-dator
+# <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Ställ in DPDK i en Linux-dator
 
-Data plan Development Kit (DPDK) på Azure erbjuder en snabbare användaren utrymme paket ramverk för prestanda-intensiva program som kringgår nätverksstacken för den virtuella datorns kernel.
+Data plan Development Kit (DPDK) på Azure erbjuder ett ramverk för behandling av pakethantering av snabbare Användarutrymmet för prestandakrävande program. Det här ramverket kringgår nätverksstacken för den virtuella datorns kernel.
 
-Vanliga paket bearbetning med kernel nätverksstacken är avbrott som drivs. Varje gång som ett nätverksgränssnitt tar emot inkommande paket är det en kernel-avbrott att bearbeta paketet och kontext bytet från kernel utrymme till användaren utrymme. DPDK eliminerar växla kontext och interrupt driven metoden inaktuell och ersatts med implementering användaren utrymme med drivrutiner för pull-läge för behandling av snabba paketet.
+I vanliga behandling av pakethantering som använder nätverksstacken kernel, är processen interrupt-drivna. När nätverksgränssnittet tar emot inkommande paket, finns det en kernel-avbrott att bearbeta paketet och en kontext växla från kernel-utrymme till området användare. DPDK eliminerar växla kontext och metoden interrupt-drivna inaktuell och ersatts med en Användarutrymmet-implementering som använder avsöka lägesdrivrutiner för snabb paket.
 
-DPDK består av uppsättning användare utrymme bibliotek som ger åtkomst till resurser, till exempel maskinvara, logiska kärnor, minneshantering lägre nivå och söka lägesdrivrutiner för nätverkskort.
+DPDK består av uppsättningar Användarutrymmet bibliotek som ger åtkomst till resurser på lägre nivå. De här resurserna kan innehålla maskinvara, logiska kärnor, minneshantering och avsökning lägesdrivrutiner för nätverkskort.
 
-DPDK kan köra i Azure-datorer, stöd för flera operativsystem-distributioner. DPDK tillhandahåller en KPI-differentiering i utveckla nätverksfunktion virtualisering implementeringar, i form av virtuella nätverksinstallationer (NVA) som en virtuell router, brandvägg, VPN, belastningsutjämnare, utvecklade paket core och denial of service ( DDoS) program.
+DPDK kan köras på Azure virtuella datorer som stöder flera operativsystem-distributioner. DPDK innehåller KPI differentiering föra nätverk funktionen virtualisering implementeringar. Dessa implementeringar kan utgöras av virtuella nätverksinstallationer (Nva), till exempel virtuella routrar, brandväggar, VPN, belastningsutjämnare, utvecklade paket kärnor och denial of service (DDoS) program.
 
 ## <a name="benefit"></a>Fördelar
 
-**Högre paket per sekund (PPS)**: kringgår kernel och få kontroll av paket i Användarutrymmet minskar antalet cykel genom att eliminera kontext växel och förbättrar paket som bearbetas per sekund i Azure Linux-datorer.
+**Högre paket per sekund (PPS)**: kringgår kernel och få kontroll av paket i Användarutrymmet minskar antalet cykel genom att eliminera kontext växlar. Det förbättrar också paket som bearbetas per sekund i Azure Linux-datorer.
 
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
 Följande distributioner från Azure-galleriet stöds:
 
-| Linux OS     | Kernel-Version        |
+| Linux OS     | Kernel-version        |
 |--------------|----------------       |
 | Ubuntu 16.04 | 4.15.0-1015-Azure     |
 | Ubuntu 18.04 | 4.15.0-1015-Azure     |
@@ -50,7 +50,7 @@ Följande distributioner från Azure-galleriet stöds:
 
 **Anpassade kernel-stöd**
 
-Referera till [korrigeringar för att skapa en anpassad Azure Linux-kernel](https://github.com/microsoft/azure-linux-kernel) för alla Linux kernel-version som inte visas, eller för ytterligare information, kontakta [ azuredpdk@microsoft.com ](mailto:azuredpdk@microsoft.com). 
+Alla Linux kernel-version som inte visas, se [korrigeringar för att skapa en anpassad Azure Linux-kernel](https://github.com/microsoft/azure-linux-kernel). Mer information kan du även kontakta [ azuredpdk@microsoft.com ](mailto:azuredpdk@microsoft.com). 
 
 ## <a name="region-support"></a>Regionsstöd
 
@@ -105,17 +105,17 @@ zypper \
   --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
 ```
 
-## <a name="setup-virtual-machine-environment-once"></a>Konfigurationsmiljö för virtuell dator (en gång)
+## <a name="set-up-the-virtual-machine-environment-once"></a>Konfigurera VM-miljö (en gång)
 
 1. [Ladda ned den senaste DPDK](https://core.dpdk.org/download). Version 18.02 eller senare krävs för Azure.
-2. Skapa först standard-konfigurationen med `make config T=x86_64-native-linuxapp-gcc`.
+2. Skapa standard-konfigurationen med `make config T=x86_64-native-linuxapp-gcc`.
 3. Aktivera Mellanox PMDs in genererade konfigurationen med `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
 4. Kompilera med `make`.
 5. Installera med `make install DESTDIR=<output folder>`.
 
-# <a name="configure-runtime-environment"></a>Konfigurera körningsmiljö
+## <a name="configure-the-runtime-environment"></a>Konfigurera runtime-miljö
 
-Kör följande kommandon en gång, efter omstart:
+Kör följande kommandon en gång efter omstart:
 
 1. Hugepages
 
@@ -128,27 +128,29 @@ Kör följande kommandon en gång, efter omstart:
 
    *  Skapa en katalog för montering med `mkdir /mnt/huge`.
    *  Montera hugepages med `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Kontrollera hugepages reserveras med `grep Huge /proc/meminfo`.
+   *  Kontrollera att hugepages är reserverade med `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > Det går att ändra grub-filen så att stora sidor är reserverade vid start genom att följa den [instruktioner](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) för DPDK. Instruktionen är längst ned på sidan. Vid körning i en virtuell Azure Linux-dator kan du ändra filer under /etc/config/grub.d i stället för att reservera hugepages mellan omstarter.
+     > Det går att ändra grub-filen så att hugepages är reserverade vid start genom att följa den [instruktioner](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) för DPDK. Anvisningarna är längst ned på sidan. När du använder en virtuell Azure Linux-dator, ändra filer under **/etc/config/grub.d** i stället att reservera hugepages mellan omstarter.
 
-2. MAC och IP-adresser: Använd `ifconfig –a` att visa MAC och IP-adressen för nätverksgränssnitten. Den *VF* nätverksgränssnitt och *NETVSC* nätverksgränssnitt har samma MAC-adress, men endast den *NETVSC* nätverksgränssnittet har en IP-adress. Kör VF-gränssnitt som underordnad gränssnitt för NETVSC gränssnitt.
+2. MAC och IP-adresser: Använd `ifconfig –a` att visa MAC och IP-adressen för nätverksgränssnitten. Den *VF* nätverksgränssnitt och *NETVSC* nätverksgränssnitt har samma MAC-adress, men endast den *NETVSC* nätverksgränssnittet har en IP-adress. Kör VF-gränssnitt som underordnade gränssnitt för NETVSC gränssnitt.
 
 3. PCI-adresser
 
-   * Ta reda på vilka PCI-adressen för *VF* med `ethtool -i <vf interface name>`.
-   * Se till att testpmd inte råkar ta över VF pci-enhet för *eth0*om *eth0* har accelererat nätverk aktiverat. Om DPDK program av misstag har tagit över nätverket hanteringsgränssnitt och förlorar din SSH-anslutning, använder du seriekonsolen att avsluta DPDK program, eller för att stoppa och starta den virtuella datorn.
+   * Använd `ethtool -i <vf interface name>` att ta reda på vilka PCI-adressen för *VF*.
+   * Om *eth0* har accelererat nätverk aktiverat, kontrollera att den testpmd inte råkar ta över VF pci-enhet för *eth0*. Om programmet DPDK av misstag tar över hanteringsgränssnitt för nätverket och du blir din SSH-anslutning, kan du använda seriekonsolen för att stoppa programmet DPDK. Du kan också använda seriekonsolen för att stoppa eller starta den virtuella datorn.
 
 4. Läs in *ibuverbs* vid varje omstart med `modprobe -a ib_uverbs`. För SLES-15, även läsa in *mlx4_ib* med `modprobe -a mlx4_ib`.
 
 ## <a name="failsafe-pmd"></a>Felsäker Kontrollpanelstillägget
 
-DPDK program måste köra över felsäker Kontrollpanelstillägget som exponeras i Azure. Om programmet körs direkt via VF Kontrollpanelstillägget, kommer den inte får **alla** paket som är avsedd för den virtuella datorn, eftersom vissa paket visas över syntetisk gränssnittet. Kör över felsäker Kontrollpanelstillägget garanterar att programmet tar emot alla paket som är avsedd för det och även säkerställer att programmet fortsätter att köras i DPDK läge, även om VF återkallas när värden blir servad. Mer information om felsäker Kontrollpanelstillägget avser [felsäker avsökning läge drivrutinen biblioteket](http://doc.dpdk.org/guides/nics/fail_safe.html).
+DPDK program måste köra över felsäker Kontrollpanelstillägget som exponeras i Azure. Om programmet körs direkt via VF Kontrollpanelstillägget kan den inte har tagit emot **alla** paket som är avsedd för den virtuella datorn, eftersom vissa paket som visas över syntetisk gränssnittet. 
+
+Om du kör ett DPDK program över felsäker Kontrollpanelstillägget garanterar det att programmet tar emot alla paket som ska den. Gör det också se till att programmet köras i DPDK läge, även om VF återkallas när värden blir servad. Läs mer om felsäker Kontrollpanelstillägget [felsäker avsökning läge drivrutinen biblioteket](http://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## <a name="run-testpmd"></a>Kör testpmd
 
-Använd `sudo` innan den *testpmd* kommando körs med rot.
+Om du vill köra testpmd i rot-läge, Använd `sudo` innan den *testpmd* kommando.
 
 ### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: Förstånd kontroll, felsäker att initiera nätverkskortets
 
@@ -171,12 +173,12 @@ Använd `sudo` innan den *testpmd* kommando körs med rot.
    -- -i
    ```
 
-   Om kör med mer än 2 nätverkskort i `--vdev` argumentet följer detta mönster: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
+   Om du kör testpmd med fler än två nätverkskort på `--vdev` argumentet följer detta mönster: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
 
-3.  När startats kör `show port info all` att kontrollera portinformation. Du bör se en eller två DPDK-portar som är net_failsafe (inte *net_mlx4*).
+3.  När den startas kör `show port info all` att kontrollera portinformation. Du bör se en eller två DPDK-portar som är net_failsafe (inte *net_mlx4*).
 4.  Använd `start <port> /stop <port>` att starta trafik.
 
-De tidigare kommandona start *testpmd* i interaktivt läge, vilket rekommenderas, du prova att använda vissa testpmd-kommandon.
+De tidigare kommandona start *testpmd* i interaktivt läge som rekommenderas för att prova testpmd kommandon.
 
 ### <a name="basic-single-sendersingle-receiver"></a>Basic: Enstaka avsändaren/enkel mottagare
 
@@ -188,7 +190,7 @@ Följande kommandon utskriftsserverns regelbundet paket per sekund-statistik:
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -203,7 +205,7 @@ Följande kommandon utskriftsserverns regelbundet paket per sekund-statistik:
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -212,7 +214,7 @@ Följande kommandon utskriftsserverns regelbundet paket per sekund-statistik:
      --stats-period <display interval in seconds>
    ```
 
-När du kör kommandona på en virtuell dator kan du ändra *IP_SRC_ADDR* och *IP_DST_ADDR* i `app/test-pmd/txonly.c` att matcha den faktiska IP-adressen för de virtuella datorerna innan du kompilerar. I annat fall ignoreras paket innan de når mottagaren.
+När du kör kommandona på en virtuell dator, ändra *IP_SRC_ADDR* och *IP_DST_ADDR* i `app/test-pmd/txonly.c` att matcha den faktiska IP-adressen för de virtuella datorerna innan du kompilerar. I annat fall ignoreras paket innan de når mottagaren.
 
 ### <a name="advanced-single-sendersingle-forwarder"></a>Avancerat: Enstaka avsändaren/enskild vidarebefordrare
 Följande kommandon utskriftsserverns regelbundet paket per sekund-statistik:
@@ -223,7 +225,7 @@ Följande kommandon utskriftsserverns regelbundet paket per sekund-statistik:
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -248,7 +250,7 @@ Följande kommandon utskriftsserverns regelbundet paket per sekund-statistik:
      --stats-period <display interval in seconds>
     ```
 
-När du kör kommandona på en virtuell dator kan du ändra *IP_SRC_ADDR* och *IP_DST_ADDR* i `app/test-pmd/txonly.c` att matcha den faktiska IP-adressen för de virtuella datorerna innan du kompilerar. I annat fall ignoreras paket innan de når vidarebefordraren. Du kan inte ha en tredje virtuell dator får vidarebefordrad trafik, eftersom den *testpmd* vidarebefordrare ändrar inte layer 3-adresser om du inte gör några ändringar i koden.
+När du kör kommandona på en virtuell dator, ändra *IP_SRC_ADDR* och *IP_DST_ADDR* i `app/test-pmd/txonly.c` att matcha den faktiska IP-adressen för de virtuella datorerna innan du kompilerar. I annat fall ignoreras paket innan de når vidarebefordraren. Du kan inte ha en tredje virtuell dator får vidarebefordrad trafik, eftersom den *testpmd* vidarebefordrare ändrar inte layer 3-adresser om du inte gör några ändringar i koden.
 
 ## <a name="references"></a>Referenser
 

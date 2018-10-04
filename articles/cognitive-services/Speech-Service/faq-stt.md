@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 0a30cce92de4b96b7dc0d29ce12f409df3e895df
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d176c33a37b26b1e13d5b9beb7ac68d335cc7862
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721888"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249204"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga och frågor svar om tal till Text
 
@@ -57,6 +57,12 @@ Du kan distribuera baslinje- och anpassade modeller i portalen och sedan köra p
 **En**: du kan inte uppdatera en befintlig modell. Kombinera den gamla datamängden med den nya datauppsättningen och readapt som en lösning.
 
 Gammal datauppsättning och den nya datauppsättningen måste kombineras i en enda .zip-fil (för akustiska data) eller i en txt-fil (för språk data). När anpassningen är klar visas måste den nya, uppdaterade modellen distribueras för att få en ny slutpunkt
+
+**F: när en ny version av en baslinje är tillgänglig är min distribution uppdateras automatiskt?**
+
+**En**: distributioner inte uppdateras automatiskt. 
+
+Om du har anpassat och distribuerat en modell med baslinjen V1.0, förblir den distributionen skick. Kunder kan decommision distribuerad modell, igen efter behov med hjälp av den nya versionen av baslinjen och omdistribuera.
 
 **F: Vad händer om jag behöver högre samtidighet för min distribuerad modell än vad som är tillgängligt i portalen?** 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: ef1bd613943543f78d358064f4abefc6fa31b63e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 77b6149f175723ccf19db660ed500fb8897080e8
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842343"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249629"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -33,7 +33,7 @@ Du kan kopiera data från Azure SQL Data Warehouse till alla datalager för mott
 
 Mer specifikt stöder den här Azure SQL Data Warehouse-anslutningsappen dessa funktioner:
 
-- Kopiera data med hjälp av SQL-autentisering och autentisering med enhetstoken Azure Active Directory (Azure AD)-program med ett huvudnamn för tjänsten eller hanterad tjänstidentitet (MSI).
+- Kopiera data med hjälp av SQL-autentisering och autentisering med Azure Active Directory (Azure AD) Application-token med ett tjänstens huvudnamn eller hanterade identiteter för Azure-resurser.
 - Hämta data med hjälp av en SQL-fråga eller en lagrad procedur som en källa.
 - Läs in data med hjälp av PolyBase eller en grupp Infoga som en mottagare. Vi rekommenderar PolyBase för ger kopieringen bättre prestanda.
 
@@ -70,7 +70,7 @@ För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel
 
 - [SQL-autentisering](#sql-authentication)
 - Azure AD-token-autentisering: [tjänstens huvudnamn](#service-principal-authentication)
-- Azure AD-token-autentisering: [hanterad tjänstidentitet](#managed-service-identity-authentication)
+- Azure AD-token-autentisering: [hanterade identiteter för Azure-resurser](#managed-service-identity-authentication)
 
 >[!TIP]
 >Om du når fel med felkod som ”UserErrorFailedToConnectToSqlServer” och visas som ”sessionens tidsgräns för databasen är XXX och har uppnåtts”., lägga till `Pooling=false` till din anslutningssträng och försök igen.
@@ -152,9 +152,9 @@ Följ dessa steg om du vill använda tokenautentisering för service principal-b
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Hanterad tjänstidentitet autentisering
+### <a name="managed-identities-for-azure-resources-authentication"></a>Hanterade identiteter för autentisering av Azure-resurser
 
-En data factory kan associeras med en [hanterad tjänstidentitet](data-factory-service-identity.md) som representerar den specifika fabriken. Du kan använda den här tjänstidentitet för Azure SQL Data Warehouse-autentisering. Den angivna datafabriken kan komma åt och kopieringsdata från eller till dina data warehouse med hjälp av den här identiteten.
+En data factory kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md) som representerar den specifika fabriken. Du kan använda den här tjänstidentitet för Azure SQL Data Warehouse-autentisering. Den angivna datafabriken kan komma åt och kopieringsdata från eller till dina data warehouse med hjälp av den här identiteten.
 
 > [!IMPORTANT]
 > Observera att PolyBase inte stöds för närvarande för MSI-autentisering.

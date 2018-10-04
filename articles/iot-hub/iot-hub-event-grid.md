@@ -2,30 +2,29 @@
 title: Azure IoT Hub och Event Grid | Microsoft Docs
 description: Använd Azure Event Grid för att utlösa processer baserat på åtgärder som sker i IoT Hub.
 author: kgremban
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 3c12e98137f44ac094adaae282b5d56d30061e60
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 14bdbb5d629cb5a3fccd6f874e30ded0648e0124
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719859"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249476"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub-händelser med Event Grid för att utlösaråtgärder
 
 Azure IoT Hub kan integreras med Azure Event Grid så att du kan skicka händelsemeddelanden till andra tjänster och utlösa underordnade processer. Konfigurera dina affärsprogram att lyssna efter IoT Hub-händelser så att du kan reagera på kritiska händelser på ett sätt som tillförlitlig, skalbar och säker. Till exempel skapa ett program för att utföra flera åtgärder som uppdaterar en databas, skapa en biljett och leverera ett e-postmeddelande varje gång en ny IoT-enhet är registrerad på IoT-hubben. 
 
-[Azure Event Grid] [ lnk-eg-overview] är en fullständigt hanterad tjänst för händelsedirigering som använder en Publicera-prenumerera modellen. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](../azure-functions/functions-overview.md) och [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), och kan skicka aviseringar till icke-Azure-tjänster med webhookar. En fullständig lista över de händelsehanterare som har stöd för Event Grid finns [en introduktion till Azure Event Grid][lnk-eg-overview]. 
+[Azure Event Grid](../event-grid/overview.md) är en fullständigt hanterad tjänst för händelsedirigering som använder en Publicera-prenumerera modellen. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](../azure-functions/functions-overview.md) och [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), och kan skicka aviseringar till icke-Azure-tjänster med webhookar. En fullständig lista över de händelsehanterare som har stöd för Event Grid finns [en introduktion till Azure Event Grid](../event-grid/overview.md). 
 
 ![Azure Event Grid-arkitektur](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Event Grid-integration är tillgänglig för IoT-hubbar finns i regioner där Event Grid stöds. Den senaste listan över regioner finns [en introduktion till Azure Event Grid][lnk-eg-overview]. 
+Event Grid-integration är tillgänglig för IoT-hubbar finns i regioner där Event Grid stöds. Den senaste listan över regioner finns [en introduktion till Azure Event Grid](../event-grid/overview.md). 
 
 ## <a name="event-types"></a>Händelsetyper
 
@@ -132,23 +131,23 @@ devices/{deviceId}
 ```
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Begränsningar för enheter som är kopplade och enheten frånkopplad händelser
 
-För att få enheten är ansluten och enhetshändelser kopplas från, måste du öppna den D2C eller C2D-länk för din enhet. Om din enhet använder MQTT-protokollet, behåller IoT Hub C2D länken öppnas. För AMQP kan du öppna länken C2D genom att anropa den [ta emot asynkrona API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). Länken D2C är öppen om du skickar telemetri. Om enheten anslutningen flimrar, dvs. enheten ansluter och kopplar från ofta skickar vi inte varje enskild anslutning tillstånd, men ska publicera Anslutningsstatus är ögonblicksbild av varje minut. Vid ett avbrott i IoT Hub publicerar vi enhetens anslutning tillstånd så fort driftstörningarna har över. Om enheten kopplar från under det avbrottet, publiceras enheten frånkopplade händelsen inom 10 minuter.
+För att få enheten är ansluten och enhetshändelser kopplas från, måste du öppna den D2C eller C2D-länk för din enhet. Om din enhet använder MQTT-protokollet, behåller IoT Hub C2D länken öppnas. För AMQP kan du öppna länken C2D genom att anropa den [ta emot asynkrona API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
+
+Länken D2C är öppen om du skickar telemetri. Om enheten anslutningen flimrar, dvs. enheten ansluter och kopplar från ofta skickar vi inte varje enskild anslutning tillstånd, men ska publicera Anslutningsstatus är ögonblicksbild av varje minut. Vid ett avbrott i IoT Hub publicerar vi enhetens anslutning tillstånd så fort driftstörningarna har över. Om enheten kopplar från under det avbrottet, publiceras enheten frånkopplade händelsen inom 10 minuter.
 
 ## <a name="tips-for-consuming-events"></a>Tips för att använda händelser
 
 Program som hanterar IoT Hub-händelser bör följa dessa rekommendationer:
 
 * Flera prenumerationer kan konfigureras för att dirigera händelser till samma händelsehanterare, så det är viktigt att inte förutsätter att händelser som kommer från en viss källa. Kontrollera alltid meddelande avsnittet för att säkerställa att det kommer från IoT-hubben som du förväntar dig. 
+
 * Inte förutsätter att alla händelser som du får de typer som du förväntar dig. Kontrollera alltid händelsetyp innan behandlingen av meddelandet.
+
 * Meddelanden kan tas emot i fel ordning eller efter en fördröjning. Använd fältet etag för att förstå om din information om objekt är uppdaterad.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Prova guiden för IoT Hub-händelser](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* [Lär dig att ordna enhetsanslutningshändelser och frånkopplingar](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
-* [Läs mer om Event Grid][lnk-eg-overview]
-* [Jämför routning IoT Hub-händelser och meddelanden][lnk-eg-compare]
-
-<!-- Links -->
-[lnk-eg-overview]: ../event-grid/overview.md
-[lnk-eg-compare]: iot-hub-event-grid-routing-comparison.md
+* [Lär dig att ordna enhetsanslutningshändelser och frånkopplingar](iot-hub-how-to-order-connection-state-events.md)
+* [Läs mer om Event Grid](../event-grid/overview.md)
+* [Jämför routning IoT Hub-händelser och meddelanden](iot-hub-event-grid-routing-comparison.md)

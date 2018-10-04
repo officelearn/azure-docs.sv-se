@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 932ddf5f377556e815205b7ad34a735815317ac0
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338770"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249051"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Du kan kopiera data från alla dataarkiv till Azure Data Lake Store eller kopier
 
 Mer specifikt stöder den här Azure Data Lake Store-anslutningen:
 
-- Kopiering av filer med hjälp av **tjänstens huvudnamn** eller **hanterad tjänstidentitet (MSI)** autentisering.
+- Kopiering av filer med hjälp av **tjänstens huvudnamn** eller **hanterade identiteter för Azure-resurser** autentisering.
 - Kopiera filer som-är eller parsning/genererar filer med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ Följande egenskaper stöds för Azure Data Lake Store-länkade tjänst:
 Se följande avsnitt om fler egenskaper och JSON-exempel för olika typer av autentisering respektive:
 
 - [Med hjälp av autentisering av tjänstens huvudnamn](#using-service-principal-authentication)
-- [Med hjälp av hanterad tjänst identitetsautentisering](#using-managed-service-identity-authentication)
+- [Med hjälp av hanterade identiteter för autentisering av Azure-resurser](#using-managed-service-identity-authentication)
 
 ### <a name="using-service-principal-authentication"></a>Med hjälp av autentisering av tjänstens huvudnamn
 
@@ -114,11 +114,11 @@ Följande egenskaper stöds:
 }
 ```
 
-### <a name="using-managed-service-identity-authentication"></a>Med hjälp av hanterad tjänst identitetsautentisering
+### <a name="managed-identity"></a> Med hjälp av hanterade identiteter för autentisering av Azure-resurser
 
-En data factory kan associeras med en [hanterad tjänstidentitet](data-factory-service-identity.md), som representerar den här specifika data factory. Du kan använda den här tjänstidentitet direkt för Data Lake Store-autentisering är ungefär som att använda tjänstens huvudnamn. Det gör den här avsedda factory ska kunna komma åt och kopiera data från/till ditt Data Lake Store.
+En data factory kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md), som representerar den här specifika data factory. Du kan använda den här tjänstidentitet direkt för Data Lake Store-autentisering är ungefär som att använda tjänstens huvudnamn. Det gör den här avsedda factory ska kunna komma åt och kopiera data från/till ditt Data Lake Store.
 
-Använda managed service identity (MSI)-autentisering:
+Använda hanterade identiteter för Azure-resurser autentisering:
 
 1. [Hämta tjänstidentitet för datafabrik](data-factory-service-identity.md#retrieve-service-identity) genom att kopiera värdet för ”SERVICE IDENTITETSPROGRAM-ID” genererade tillsammans med din datafabrik.
 2. Ge tjänstens identitet åtkomst till Data Lake Store på samma sätt som du gör med tjänstens huvudnamn följande kommentarerna nedan.

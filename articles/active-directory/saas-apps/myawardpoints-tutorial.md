@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e3e3ff05836cb49d46a25ef3fa55d40a0bd134f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184882"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Självstudier: Azure Active Directory-integration med min Award punkter upp Sub/Top-teamet
 
@@ -50,7 +50,8 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
+Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till min Award punkter upp Sub/Top-teamet från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
@@ -112,7 +113,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
 
     > [!NOTE]
-    > Inloggnings-URL-värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Mina Award punkter upp Sub/upp Team klienten supportteamet](mailto:myawardpoints@biworldwide.com) att hämta det här värdet.
+    > Du får den `<SAMLENTITYID>` värdet i senare steg i den här självstudien.
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -122,7 +123,9 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning spara-knapp](./media/myawardpoints-tutorial/tutorial_general_400.png)
 
-6. Att konfigurera enkel inloggning på **Mina Award punkter upp Sub/Top-teamet** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Mina Award punkter upp Sub/Top-teamet supportteamet](mailto:myawardpoints@biworldwide.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+6. I den **min Award punkter upp Sub/upp Team konfiguration** väljer **Konfigurera mina Award punkter upp Sub/Top-teamet** att öppna fönstret Konfigurera inloggning. Kopiera SAML entitets-ID från den **Snabbreferens** avsnittet och lägger till SAML entitets-ID-värdet med URL: en i stället för inloggning `<SAMLENTITYID>` i den **Mina Award punkter upp Sub/upp Team domän och URL: er** avsnitt i Azure-portalen.
+
+7. Att konfigurera enkel inloggning på **Mina Award punkter upp Sub/Top-teamet** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Mina Award punkter upp Sub/Top-teamet supportteamet](mailto:myawardpoints@biworldwide.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 

@@ -1,6 +1,6 @@
 ---
-title: 'Hur du använder API: et för Avvikelseidentifiering Finder med cURL - kognitiva Microsoft-tjänster | Microsoft Docs'
-description: 'Hämta information som hjälper dig att snabbt komma igång med API: er för Avvikelseidentifiering Finder och cURL i kognitiva tjänster.'
+title: 'Hur du använder API: T för Avvikelseidentifiering Finder med cURL - Microsoft Cognitive Services | Microsoft Docs'
+description: 'Hämta information som hjälper dig att snabbt komma igång med cURL och API: T för Avvikelseidentifiering Finder i Cognitive Services.'
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,26 +9,28 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 3c1d791b8c0478715b4ffa93cd7dfa43f9be4586
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 31049e24687192b1ea1030a7180299f57bc76771
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353316"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246338"
 ---
-# <a name="use-the-anomaly-finder-api-with-curl"></a>Använda API: et för Avvikelseidentifiering Finder med cURL
+# <a name="use-the-anomaly-finder-api-with-curl"></a>Använda API: T för Avvikelseidentifiering Finder med cURL
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: et för Avvikelseidentifiering Finder med cURL för att utföra uppgiften för att få avvikelseidentifiering resultatet av tid series-data.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: T för Avvikelseidentifiering Finder med cURL till att utföra uppgiften för att få avvikelseidentifiering resultatet av time series-data.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-the-anomaly-finder-api-using-curl"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering Finder API: et med cURL 
+## <a name="getting-anomaly-points-with-the-anomaly-finder-api-using-curl"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering Finder API med cURL 
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Exempel på tid series-data
+### <a name="example-of-time-series-data"></a>Exempel på time series-data
 
 Exempel på den tid som datapunkter i serien är som följer.
 
@@ -36,12 +38,12 @@ Exempel på den tid som datapunkter i serien är som följer.
 
 ### <a name="analyze-data-and-get-anomaly-points-curl-example"></a>Analysera data och få avvikelseidentifiering punkter cURL-exempel
 
-Stegen i exemplet är som följer.
+Steg för att använda exemplet är som följer.
 
-1. Ersätt den `[YOUR_SUBSCRIPTION_KEY]` värde med en giltig prenumeration nyckel.
-2. Ersätt den `[YOUR_REGION]` att använda den plats där du har köpt din prenumeration nycklar.
-3. Ersätt den `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` med exemplet eller egna datapunkter.
-4. Köra och kontrollera svaret.
+1. Ersätt värdet `[YOUR_SUBSCRIPTION_KEY]` med en giltig prenumerationsnyckel.
+2. Ersätt den `[YOUR_REGION]` att använda den plats där du har fått din prenumerationsnycklar.
+3. Ersätt den `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` med exemplet eller dina egna datapunkter.
+4. Kör och kontrollera svaret.
 
 ```cURL
 
@@ -53,7 +55,7 @@ curl -v -X POST "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/ano
 ```
 
 ### <a name="example-response"></a>Exempelsvar
-Ett lyckat svar returneras i JSON. Exempelsvar är följande: [!INCLUDE [Response](../includes/response.md)]
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempel på ett svar är följande: [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

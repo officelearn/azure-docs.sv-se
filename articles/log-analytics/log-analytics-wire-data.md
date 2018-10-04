@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/03/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 109d4eda7d7ad05b4d6138228be23b48076090ca
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.component: na
+ms.openlocfilehash: 9ee388e8d33d293240e70ccf79ec8d3c445dffd1
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237372"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269165"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0-lösning (förhandsversion) i Log Analytics
 
@@ -30,8 +30,8 @@ Kommunikationsdata (wire data) är konsoliderade nätverks- och prestandadata fr
 
 Förutom OMS-agenten använder Wire Data-lösningen Microsofts beroendeagenter som du installerar på datorer i din IT-infrastruktur. Beroendeagenterna övervakar nätverksdata som skickas till och från dina datorer på nätverksnivåerna 2–3 i [OSI-modellen](https://en.wikipedia.org/wiki/OSI_model), inklusive de olika protokoll och portar som används. Informationen skickas sedan till Log Analytics med hjälp av agenter.  
 
-> [!NOTE]
-> Du kan inte lägga till den tidigare Wire Data-versionen på nya arbetsytor. Om du har den ursprungliga Wire Data-lösningen aktiverad, kan du fortsätta att använda den. Men för att använda Wire Data 2.0 måste du först ta bort den ursprungliga versionen.
+>[!NOTE]
+>Om du redan har distribuerat Service Map eller överväger Service Map eller [Azure Monitor för virtuella datorer](../monitoring/monitoring-vminsights-overview.md), det finns en ny anslutning mått datauppsättning de samla in och lagra i Log Analytics som ger jämförbara information till Wire-Data.
 
 Som standard loggar Log Analytics data för CPU, minne, disk och nätverksprestanda från räknare som är inbyggda i Windows och Linux, samt från andra prestandaräknare som du kan ange. Nätverks- och annan datainsamling är klar i realtid för varje agent, inklusive de undernät och protokoll på programnivå som används av datorn.  Wire Data granskar nätverksdata på programnivå, inte ned på TCP-transportnivå.  Lösningen granskar inte enskilda ACK:er och SYN-förfrågningar.  När handskakningen har slutförts anses det finnas en live-anslutning, vilken markeras med Ansluten. Anslutningen finns så länge båda sidorna är överens om att socketen är öppen och data kan överföras fram och tillbaka.  När någon av sidorna stänger anslutningen, markeras den som Frånkopplad.  Därför räknar den bara bandbredden för paket som har slutförts, den rapporterar inte om återsända eller misslyckade paket.
 
@@ -200,6 +200,9 @@ Utför följande steg när du konfigurerar Wire Data-lösningen för dina arbets
 1. Aktivera Aktivitetslogganalys från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) eller använd processen som beskrivs i [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
 2. Installera beroendeagenten på varje dator som du vill hämta data från. Beroendeagenten kan övervaka anslutningar till omedelbara grannar, så du behöver kanske inte ha en agent på varje dator.
 
+> [!NOTE]
+> Du kan inte lägga till den tidigare Wire Data-versionen på nya arbetsytor. Om du har den ursprungliga Wire Data-lösningen aktiverad, kan du fortsätta att använda den. Men för att använda Wire Data 2.0 måste du först ta bort den ursprungliga versionen.
+> 
 ### <a name="install-the-dependency-agent-on-windows"></a>Installera beroendeagenten i Windows
 
 Administratörsbehörighet krävs för att installera eller avinstallera agenten.
@@ -268,7 +271,7 @@ Det är enklare att distribuera beroendeagenten på flera servrar samtidigt med 
 
 ```PowerShell
 
-Invoke-WebRequest 'https://aka.ms/dependencyagentwindows' -OutFile InstallDependencyAgent-Windows.exe
+Invoke-WebRequest &quot;https://aka.ms/dependencyagentwindows&quot; -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S
 
@@ -291,7 +294,7 @@ Om du vill distribuera beroendeagenten via Desired State Configuration, kan du a
 ```
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
-$DAPackageLocalPath = 'C:\InstallDependencyAgent-Windows.exe'
+$DAPackageLocalPath = &quot;C:\InstallDependencyAgent-Windows.exe&quot;
 
 
 
@@ -305,11 +308,11 @@ Node $NodeName
 
     {
 
-        Uri = 'https://aka.ms/dependencyagentwindows'
+        Uri = &quot;https://aka.ms/dependencyagentwindows&quot;
 
         DestinationPath = $DAPackageLocalPath
 
-        DependsOn = '[Package]OI'
+        DependsOn = &quot;[Package]OI&quot;
 
     }
 
@@ -317,21 +320,21 @@ Node $NodeName
 
     {
 
-        Ensure='Present'
+        Ensure=&quot;Present&quot;
 
-        Name = 'Dependency Agent'
+        Name = &quot;Dependency Agent&quot;
 
         Path = $DAPackageLocalPath
 
         Arguments = '/S'
 
-        ProductId = ''
+        ProductId = &quot;&quot;
 
-        InstalledCheckRegKey = 'HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent'
+        InstalledCheckRegKey = &quot;HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent&quot;
 
-        InstalledCheckRegValueName = 'DisplayName'
+        InstalledCheckRegValueName = &quot;DisplayName&quot;
 
-        InstalledCheckRegValueData = 'Dependency Agent'
+        InstalledCheckRegValueData = &quot;Dependency Agent&quot;
 
     }
 

@@ -7,28 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2f6720e39856366e4bca387effdc2a0624d85826
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734479"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248002"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Ange och hämta dataflöde för Azure Cosmos DB-behållare och databasen
 
-Du kan ange dataflödet för en Azure Cosmos DB-behållare eller en uppsättning behållare med hjälp av Azure-portalen eller med hjälp av klienten SDK: er. 
-
-**Etablera dataflöde för en enskild behållare:** när du etablerar dataflödet för en uppsättning behållare måste alla de här behållarna dela det etablerade dataflödet. Etablering genomströmning för enskilda behållare garanterar att reservationen av dataflöde för den specifika behållaren. När du tilldelar RU/sek på enskilda behållarenivån, behållarna som kan skapas som *fast* eller *obegränsad*. Containrar med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Om du vill skapa en obegränsad behållare, måste du ange ett minsta dataflöde på 1 000 RU/s och en [partitionsnyckel](partition-data.md). Eftersom dina data kan behöva delas upp på flera partitioner, är det nödvändigt att välja en partitionsnyckel som har en hög kardinalitet (100 till miljontals distinkta värden). Genom att välja en partitionsnyckel med många distinkta värden kan du se till att dina behållare/tabell/diagram och begäranden kan skalas enhetligt av Azure Cosmos DB. 
-
-**Etablera dataflöde för en uppsättning behållare eller en databas:** etablering dataflödet för en databas kan du dela dataflödet mellan alla behållare som hör till den här databasen. Du kan ha en uppsättning behållare som delar dataflöde samt behållare som kan ha dedikerade dataflöde i en Azure Cosmos DB-databas. När du tilldelar RU/sek i en behållare, behållare som hör till den här uppsättningen behandlas som *obegränsad* behållare och måste ange en partitionsnyckel.
-
-Utifrån dataflöden, allokerar Azure Cosmos DB fysiska partitioner som värd för dina behållare och delar upp/rebalances data över partitioner som den växer. Behållare och nivån dataflöde Databasetableringen är två separata erbjudanden och växla mellan något av dessa kräver att migrera data från källa till mål. Vilket innebär att du behöver skapa en ny databas eller en ny samling och sedan migrera data med hjälp av [bulk executor biblioteket](bulk-executor-overview.md) eller [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). Följande bild illustrerar etablering dataflöde på olika nivåer:
-
-![Etablera enheter för programbegäran för enskilda behållare och uppsättning behållare](./media/request-units/provisioning_set_containers.png)
-
-I nästa avsnitt kommer du lära dig de steg som krävs för att konfigurera dataflöde på olika nivåer för ett Azure Cosmos DB-konto. 
+Du kan ange dataflödet för en Azure Cosmos DB-behållare eller en uppsättning behållare med hjälp av Azure-portalen eller med hjälp av klienten SDK: er. Den här artikeln beskriver de steg som krävs för att konfigurera dataflöde på olika granulariteter för ett Azure Cosmos DB-konto.
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Etablera dataflöde med hjälp av Azure-portalen
 

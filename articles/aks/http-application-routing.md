@@ -8,16 +8,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 8934852fe3d95d0a96af0283c30bba4b3bdb411b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: fa9c9416a8a1f80a62a21e5d9041e750b1debb98
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345887"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269385"
 ---
 # <a name="http-application-routing"></a>Routning av HTTP-program
 
-HTTP-Programlösningen routning gör det enkelt att komma åt program som distribueras till ditt kluster i Azure Kubernetes Service (AKS). När lösningen är aktiverad, konfigurerar en Ingress-kontrollanten för AKS-klustret. När program distribueras skapar lösningen även offentligt tillgänglig DNS-namn för slutpunkterna.
+HTTP-Programlösningen routning gör det enkelt att komma åt program som distribueras till ditt kluster i Azure Kubernetes Service (AKS). När lösningen är aktiverad, konfigurerar en Ingress-kontrollanten för AKS-klustret. När program distribueras skapar lösningen även offentliga DNS-namn för slutpunkterna.
 
 När tillägget är aktiverat skapas en DNS-zon i din prenumeration. Läs mer om DNS-kostnaden [DNS priser][dns-pricing].
 

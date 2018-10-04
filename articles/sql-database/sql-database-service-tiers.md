@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 8f1c16aba3a3c082091707e33d3341e6eb6dc31e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/02/2018
+ms.openlocfilehash: 99914fd1fbfb2647f54c8257145132db2c7bf045
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158727"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249119"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database köpa modeller och resurser 
 
@@ -26,7 +26,7 @@ Azure SQL Database kan du enkelt köpa helt hanterad PaaS-databasmotor som passa
  - [Hanterade instanser](sql-database-managed-instance.md) i Azure SQL Database endast erbjudandet den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
-> [Hyperskala databaser (förhandsversion)](sql-database-hyperscale.md) är bara tillgängliga med den vCore-baserade inköpsmodellen för enskilda databaser med en logisk server eller i en hanterad instans. 
+> [Hyperskala databaser (förhandsversion)](sql-database-hyperscale.md) finns i offentlig förhandsversion endast för enskilda databaser med hjälp av vCore köpa modellen. 
 
 Följande tabell och diagrammet Jämför och kontrastera dessa två inköpschef modeller.
 

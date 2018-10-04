@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 94e18b6a4fc367a9697078f8e0c1a307ae15d4be
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 5370b2e49b400211dd30804db3a07e646cfe312c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017950"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249255"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -205,6 +205,8 @@ Här följer efter installation kända problem för den här build-versionen.
 
 ### <a name="compute"></a>Compute
 
+- <!-- 3099544 – IS, ASDK --> När du skapar en ny virtuell dator (VM) med hjälp av Azure Stack-portalen och du väljer virtuella datorstorlek, kolumnen USD/månad visas med en **ej tillgänglig** meddelande. Den här kolumnen visas inte; Visar den virtuella datorn stöds prissättning kolumn inte i Azure Stack.
+
 - <!-- 3090289 – IS, ASDK --> Efter att ha tillämpat 1808 uppdatera, du kan stöta på följande problem när du distribuerar virtuella datorer med hanterade diskar:
 
    1. Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
@@ -213,7 +215,6 @@ Här följer efter installation kända problem för den här build-versionen.
    2. Om du har konfigurerat en miljö med flera organisationer kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med ett internt felmeddelande. Följ dessa steg för att lösa problemet:
       1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4465859).
       2. Följ stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
-
 
 - <!-- 2869209 – IS, ASDK --> När du använder den [ **Lägg till AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), måste du använda den **- OsUri** parameter som lagringskontot URI där disken har laddats upp. Om du använder den lokala sökvägen på disken kan cmdleten misslyckas med följande fel: *tidskrävande åtgärden misslyckades med statusen ”misslyckades”*. 
 

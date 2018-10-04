@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: acadd1adec93d10d64712a2fbedb89e098998294
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d361b4165c1fbbf79321e3f6d2ade711f9173c56
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025970"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267223"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Hur du distribuera om Azure App Service i Azure Stack via feldomäner
 
@@ -32,7 +32,7 @@ Med den 1802 uppdateringen stöder Azure Stack nu distribution av arbetsbelastni
 
 ## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Balansera om en App Service-resursprovider över feldomäner
 
-Du måste utföra stegen i den här artikeln för varje skalningsuppsättning för att distribuera om skalningsuppsättningar distribueras för App Service-resursprovidern. Som standard är scaleset namnen:
+Du måste utföra stegen i den här artikeln för varje skalningsuppsättning för att distribuera om skalningsuppsättningar distribueras för App Service-resursprovidern. Som standard är de skala namn:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet

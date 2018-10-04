@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0f2543ff10f19d6f1ccd656855dbb41cf42e6ae2
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019003"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269572"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Funktionsreferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -493,7 +493,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln | 
 | <*dagar*> | Ja | Integer | Positiv eller negativ antalet dagar att lägga till | 
-| <*Format*> | Nej | Sträng | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddT:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Format*> | Nej | Sträng | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 ||||| 
 
 | Returvärde | Typ | Beskrivning | 

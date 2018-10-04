@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 9c06a028df098874a1ec12d83a362e01a5f4a711
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: dfb1e218218a44aafd318acb53750c875bdf1263
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161904"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247727"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 
@@ -56,7 +56,7 @@ I premium-modellen integreras Azure SQL-databas beräkning och lagring på en en
 
 Både SQL Server Database Engine-processen och underliggande mdf/ldf-filerna är placerade på samma nod med lokalt anslutna SSD-lagring som ger låg fördröjning till din arbetsbelastning. Hög tillgänglighet implementeras med hjälp av standard [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Varje databas är ett kluster av databasnoder med en primär databas som är tillgänglig för kunds arbetsbelastning och en tre sekundära processer som innehåller kopior av data. Den primära noden skickar ständigt ändringarna till sekundära noder för att säkerställa att data är tillgängliga på sekundära repliker om den primära noden kraschar av någon anledning. Redundansväxling hanteras av SQL Server Database Engine – en sekundär replik blir den primära noden och en ny sekundär replik skapas för att se till att tillräckligt många noder i klustret. Arbetsbelastningen omdirigeras automatiskt till den nya primära noden.
 
-Affärskritisk kluster tillhandahåller dessutom inbyggda skrivskyddad nod som kan användas för att köra skrivskyddade frågor (till exempel rapporter) som inte påverkar prestanda hos din primära arbetsbelastning. 
+Dessutom affärskritisk kluster har inbyggd [Lässkalning](sql-database-read-scale-out.md) funktioner som ger kostnadsfri av debiterar inbyggda skrivskyddad nod som kan användas för att köra skrivskyddade frågor (till exempel rapporter) som inte påverkar prestanda i din primära arbetsbelastning.
 
 ## <a name="zone-redundant-configuration-preview"></a>Zonen redundant konfiguration (förhandsversion)
 
@@ -70,15 +70,6 @@ Eftersom zonen redundant kvorum-set har repliker i olika datacenter med vissa av
 Zonen redundant versionen av arkitektur med hög tillgänglighet är illustreras med följande diagram:
  
 ![hög tillgänglighet arkitektur zonredundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
-
-## <a name="read-scale-out"></a>Lässkalbarhet
-Enligt beskrivningen, utnyttja Premium och affärskritisk tjänstnivåer kvorum uppsättningar och Always On-teknik för hög tillgänglighet för både i samma zon och zonen redundant konfigurationer. En av fördelarna med AlwaysOn är att replikerna alltid är i ett konsekvent tillstånd. Eftersom replikerna har samma beräkning storlek som primärt, programmet kan dra nytta av den extra kapaciteten för att underhålla de skrivskyddade arbetsbelastningarna utan extra kostnad (Läs skala ut). Det här sättet skrivskyddade frågor isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Läs uppskalningsfunktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar som analyser och därför kan nu använda den här ytterligare kapacitet utan att ansluta till primärt. 
-
-Om du vill använda funktionen Lässkalning med en viss databas, måste du uttryckligen aktivera den när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att aktivera den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdletar eller Azure Resource Manager REST API med hjälp av den [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate) metod.
-
-När Lässkalning är aktiverade för en databas, program som ansluter till den här databasen kommer att dirigeras till Läs-och-repliken eller till en skrivskyddad replik av databasen enligt den `ApplicationIntent` egenskapen som konfigurerats i programmets anslutningssträng. Information om den `ApplicationIntent` egenskap, finns i [att ange Programavsikt](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
-
-Om Lässkalning är inaktiverad eller egenskapen ReadScale på en nivå i tjänsten stöds inte, alla anslutningar dirigeras till den skrivskyddade repliken, oberoende av den `ApplicationIntent` egenskapen.
 
 ## <a name="conclusion"></a>Sammanfattning
 Azure SQL Database är djupt integrerad med Azure-plattformen och är mycket beroende på Service Fabric för identifiering och återställning på Azure-Lagringsblobar för dataskydd och Tillgänglighetszoner för högre feltolerans. På samma gång använder Azure SQL-databas fullständigt Always On Availability Group-teknik från SQL Server-box-produkt för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att fullständigt nytta av fördelarna med en blandad lagringsmodell och stöd för de mest krävande serviceavtal. 

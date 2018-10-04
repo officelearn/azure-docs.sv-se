@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 99e9edf0bb31ec0eab96e22e866d9602a26c2693
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 64cd440947c95de92ea156c14e4c524ecdc8e76c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47179926"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268824"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Konfigurera inloggning Azure Active Directory-konton en inbyggd princip i Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Aktivera inloggning för användare från en viss Azure AD-organisation kan du b
 >`Contoso.com` används för i organisationens Azure AD-klient och `fabrikamb2c.onmicrosoft.com` används som Azure AD B2C-klient i följande anvisningar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrollera att du använder den katalog som innehåller organisationens Azure AD-klient (contoso.com) genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient (fabrikamb2c.onmicrosoft.com) genom att klicka på katalog- och prenumerationsfilter i menyn längst upp till den katalog som innehåller din Azure AD B2C-klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **appregistreringar**.
 4. Välj **Ny programregistrering**.
 5. Ange ett namn för ditt program. Till exempel `Azure AD B2C App`.

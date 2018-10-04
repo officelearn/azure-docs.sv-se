@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: e0c2ad2385b5c8a54b4d8a743cc4f081e5ff6703
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 06965c43408e943922048804099f8f28d69c8540
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127303"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248293"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-slutpunkter
 Microsoft Azure Traffic Manager kan du styra hur nätverkstrafiken distribueras till distribution av program som körs i olika datacenter. Du konfigurerar varje programdistribution som en slutpunkt i Traffic Manager. När Traffic Manager tar emot en DNS-begäran, väljer en slutpunkt som är tillgängliga för att returnera i DNS-svaret. Traffic manager baser valet aktuella statusen för slutpunkten och routning av nätverkstrafik-metoden. Mer information finns i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md).
@@ -37,8 +37,9 @@ I följande avsnitt beskrivs varje typ av slutpunkt i större detalj.
 
 Azure-slutpunkter används för Azure-baserade tjänster i Traffic Manager. Följande typer av Azure-resurs stöds:
 
-* ”Klassiska” virtuella IaaS-datorer och PaaS-molntjänster.
+* PaaS-molntjänster.
 * Web Apps
+* Webbappsplatser
 * PublicIPAddress-resurser (som kan anslutas till virtuella datorer direkt eller via en Azure Load Balancer). PublicIpAddress måste ha ett DNS-namn som tilldelats som ska användas i en Traffic Manager-profil.
 
 PublicIPAddress-resurser är Azure Resource Manager-resurser. De finns inte i den klassiska distributionsmodellen. De är därför endast stöds i Traffic Manager Azure Resource Manager upplevelser. Andra typer av slutpunkter stöds via både Resource Manager och den klassiska distributionsmodellen.

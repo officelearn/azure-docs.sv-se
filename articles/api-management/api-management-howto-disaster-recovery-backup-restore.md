@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046387"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268537"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveriberedskap med hjälp av service-säkerhetskopiering och återställning i Azure API Management
 
@@ -74,7 +74,7 @@ Alla aktiviteter som du kan utföra på resurser med hjälp av Azure Resource Ma
 
 7. Klicka på **delegerade behörigheter** bredvid det nyligen tillagda programmet, markera kryssrutan för **åtkomst till Azure Service Management (förhandsversion)**.
 8. Tryck på **Välj**.
-9. Klicka på **bevilja Permisssions**.
+9. Klicka på **bevilja**.
 
 ### <a name="configuring-your-app"></a>Konfigurera din app
 
@@ -204,7 +204,7 @@ Ange värdet för den `Content-Type` begärandehuvudet till `application/json`.
 > **Ändringar** gjorde att konfigurationen av (till exempel API: er, principer, developer portal utseende) vid återställning pågår **kan skrivas över**.
 
 > [!NOTE]
-> Säkerhetskopiering och återställning kan också utföras med Powershell *Backup-AzureRmApiManagement* och *Restore-AzureRmApiManagement* respektive-kommandon.
+> Säkerhetskopiering och återställning kan också utföras med PowerShell *Backup-AzureRmApiManagement* och *Restore-AzureRmApiManagement* respektive-kommandon.
 
 ## <a name="next-steps"></a>Nästa steg
 

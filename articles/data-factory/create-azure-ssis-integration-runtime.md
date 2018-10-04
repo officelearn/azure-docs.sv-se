@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a7ba62a28b65d1cd7152c793bc303e747057cdf8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ace95d39cf7c2d183249b0b6c4094835132b3198
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991478"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249391"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa Azure-SSIS integration runtime i Azure Data Factory
 Den här artikeln innehåller steg för att distribuera en Azure-SSIS integration runtime i Azure Data Factory. Sedan kan du använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera och köra SQL Server Integration Services-paket (SSIS) till den här körningen i Azure. 
@@ -27,7 +27,7 @@ Självstudien [självstudie: distribuera SQL Server Integration Services-paket (
 
 - Du kan också använda Azure SQL Database med virtuellt nätverk tjänstens slutpunkter/hanterad instans som databasserver som värd för SSIS-katalogen (SSISDB-databasen). Vägledning i att välja vilken typ av database-server som värd för SSISDB finns i [logisk jämför SQL Database-server och SQL Database Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Som ett krav måste du ansluta till din Azure-SSIS IR till ett virtuellt nätverk och konfigurera behörigheter för virtuella nätverk och inställningar efter behov. Se [ansluta till Azure-SSIS IR till ett virtuellt nätverk](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
-- Du kan också använda Azure Active Directory (AAD)-autentisering med din Azure Data Factory hanterad tjänstidentitet (MSI) för Azure-SSIS IR kan ansluta till databasservern. Som ett krav, måste du lägga till din Data Factory MSI i ett AAD-grupp med behörigheter för åtkomst till databasservern [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
+- Du kan också använda Azure Active Directory (AAD)-autentisering med Azure Data Factory hanterade identiteter för Azure-resurser för Azure-SSIS IR för att ansluta till databasservern. Som ett krav, måste du lägga till din Data Factory MSI i ett AAD-grupp med behörigheter för åtkomst till databasservern [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
 ## <a name="overview"></a>Översikt
 Den här artikeln beskrivs olika sätt för att etablera en Azure-SSIS IR: 
@@ -146,7 +146,7 @@ I det här avsnittet använder du Azure-portalen, särskilt i Användargränssni
 
     c. För **Serverslutpunkt för katalogdatabas**, välj en slutpunkt på din databasserver som värd för SSISDB. Baserat på valda databasservern, kan SSISDB skapas för din räkning som en enkel databas, en del av en elastisk pool eller i en hanterad instans och kan nås i offentliga nätverk eller genom att koppla ett virtuellt nätverk. 
 
-    d. På **Använd AAD-autentisering...**  markerar du kryssrutan Välj autentiseringsmetod för din database-server som värd för SSISDB: SQL- eller Azure Active Directory (AAD) med din Azure Data Factory hanterad tjänstidentitet (MSI). Om du markerar det, du måste lägga till din Data Factory MSI i ett AAD-grupp med behörigheter för åtkomst till databasservern, se [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
+    d. På **Använd AAD-autentisering...**  markerar du kryssrutan Välj autentiseringsmetod för din database-server som värd för SSISDB: SQL- eller Azure Active Directory (AAD) med Azure Data Factory-hanterad identitet för Azure-resurser. Om du markerar det, du måste lägga till din Data Factory MSI i ett AAD-grupp med behörigheter för åtkomst till databasservern, se [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
     e. För **Admin Username**, ange användarnamn för SQL-autentisering för databasservern som är värd för SSISDB. 
 
@@ -333,7 +333,7 @@ Om du inte använder Azure SQL Database med virtuellt nätverk tjänstens slutpu
 
 Om du använder hanterad instans som värd för SSISDB du utelämnar CatalogPricingTier parametern eller skicka ett tomt värde för den. I annat fall du kan inte utelämna den och skicka ett giltigt värde i listan med prisnivåer för Azure SQL Database som stöds, se [SQL Database-resursgränser](../sql-database/sql-database-resource-limits.md). 
 
-Om du använder Azure Active Directory (AAD)-autentisering med din Azure Data Factory hanterad tjänstidentitet (MSI) för att ansluta till databasservern, du kan utelämna CatalogAdminCredential parametern, men du måste lägga till din Data Factory MSI i en AAD-grupp med åtkomst behörighet till databasservern, se [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). Annars kan inte utelämna den och måste ange ett giltigt objekt som skapats på rätt sätt från dina server administratörens användarnamn och lösenord för SQL-autentisering.
+Om du använder Azure Active Directory (AAD)-autentisering med Azure Data Factory-hanterad identitet för Azure-resurser att ansluta till databasservern, du kan utelämna CatalogAdminCredential parametern, men du måste lägga till din Data Factory MSI i en AAD-grupp med åtkomstbehörigheter till databasservern, se [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). Annars kan inte utelämna den och måste ange ett giltigt objekt som skapats på rätt sätt från dina server administratörens användarnamn och lösenord för SQL-autentisering.
 
 ```powershell               
 Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

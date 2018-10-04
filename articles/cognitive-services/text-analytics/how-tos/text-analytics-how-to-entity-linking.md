@@ -1,35 +1,71 @@
 ---
-title: Använda entitetslänkning med API för textanalys
+title: Använda igenkänning av entiteter med API för textanalys
 titleSuffix: Azure Cognitive Services
-description: Lär dig att identifiera och lösa entiteter med hjälp av den REST API för textanalys.
+description: Lär dig hur du känner igen entiteter med hjälp av den REST API för textanalys.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: ad2168806f9ddd124faf66cdb5a0f51ed13dfadc
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b2916e5c414562c55c35c9c5e7ab378963e004be
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604747"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248082"
 ---
-# <a name="how-to-identify-linked-entities-in-text-analytics-preview"></a>Så här identifierar du länkade entiteter i Text Analytics (förhandsversion)
+# <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Hur du använder med namnet Entitetsidentifiering i Text Analytics (förhandsversion)
 
-Den [API för Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) tar ostrukturerad text och för varje JSON-dokument, returnerar du en lista över skiljas åt entiteter med länkar till mer information på webben (Wikipedia och Bing). 
+Den [entitet-API: T](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) tar ostrukturerad text och för varje JSON-dokument, returnerar du en lista över skiljas åt entiteter med länkar till mer information på webben (Wikipedia och Bing). 
 
-## <a name="entity-linking-vs-named-entity-recognition"></a>Entity Linking vs. Igenkänning av namngiven enhet
+## <a name="entity-linking-and-named-entity-recognition"></a>Entitetslänkning och igenkänning av namngivna entiteter
 
-I bearbetning av naturligt språk, kan du enkelt ihop begreppen entitetslänkning och igenkänning av namngivna entiteter (NER). I förhandsversionen av Text Analytics `entities` slutpunkt, bara för entitetslänkning stöds.
+Text Analytics `entities` endpoint supprts både med namnet entitetsidentifiering (NER) och entitetslänkning.
 
+### <a name="entity-linking"></a>Entity Linking
 Entitetslänkning är möjligheten att identifiera och disambiguate identiteten för en entitet som påträffats i texten (t.ex. avgöra om ”Mars” används som arrangemang eller latinska krigsguden). Den här processen kräver förekomsten av en knowledge base som känns igen entiteter är länkade – Wikipedia används som kunskapsbas för den `entities` endpoint textanalys.
+
+I textanalys [Version 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), endast entitetslänkning är tillgänglig.
+
+### <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna entiteter (NER)
+Med namnet entitetsidentifiering är (NER) möjligheten att identifiera olika enheter i text och kategorisera dem i fördefinierade klasser. Klasserna stöds av entiteter visas nedan.
+
+Text Analytics Version 2.1 förhandsversion (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`), både entitetslänkning och igenkänning av namngivna entiteter (NER) är tillgängliga.
 
 ### <a name="language-support"></a>Stöd för språk
 
 Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskapsbas på varje språk. För entitetslänkning i Text Analytics, det innebär att alla språk som stöds av den `entities` endpoint länkar till motsvarande Wikipedia-Kristi på det språket. Eftersom storleken på korpus varierar mellan olika språk, förväntas varierar även funktionens återkallande för entitetslänkning.
+
+## <a name="supported-types-for-named-entity-recognition"></a>Typer som stöds för igenkänning av namngivna entiteter
+
+| Typ  | Undertyp | Exempel |
+|:-----------   |:------------- |:---------|
+| Person        | EJ TILLÄMPLIGT\*         | ”Jeff”, ”Bill Gates”     |
+| Plats      | EJ TILLÄMPLIGT\*         | ”Redmond, Washington”, ”Paris”  |
+| Organisation  | EJ TILLÄMPLIGT\*         | ”Microsoft”   |
+| Antal      | Tal        | ”6”, ”sex”     | 
+| Antal      | Procent    | ”50%”, ”50 procent”| 
+| Antal      | Ordningstal       | ”2”, ”andra”     | 
+| Antal      | NumberRange   | ”4 till 8”     | 
+| Antal      | Ålder           | ”90 dagar gamla”, ”30 år”    | 
+| Antal      | Valuta      | ”$10,99”     | 
+| Antal      | Dimension     | ”10 miles”, ”40 cm”     | 
+| Antal      | Temperatur   | ”32 grader”    |
+| DateTime      | EJ TILLÄMPLIGT\*         | ”18:30:00 den 4 februari 2012”      | 
+| DateTime      | Date          | ”Den 2 maj 2017”, ”2017-05-02”   | 
+| Tidpunkt     | Tid          | ”8 am”, ”8:00”  | 
+| DateTime      | DateRange     | ”2 maj till 5 maj”    | 
+| DateTime      | timeRange     | ”18: 00 till 19: 00”     | 
+| DateTime      | Varaktighet      | ”1 minut och 45 sekunder”   | 
+| DateTime      | Ange           | ”varje tisdag”     | 
+| DateTime      | TimeZone      |    | 
+| URL           | EJ TILLÄMPLIGT\*         | "http://www.bing.com"    |
+| E-post         | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
+\* Beroende på indata- och extraherade entiteter, vissa entiteter kan utelämna den `SubType`.
+
 
 
 ## <a name="preparation"></a>Förberedelse
@@ -43,11 +79,11 @@ Dokumentstorlek måste vara under 5 000 tecken per dokument och du kan ha upp ti
 ```
 {"documents": [{"id": "1",
                 "language": "en",
-                "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."
+                "text": "Jeff bought three dozen eggs because there was a 50% discount."
                 },
                {"id": "2",
                 "language": "en",
-                "text": "The Seattle Seahawks won the Super Bowl in 2014."
+                "text": "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%."
                 }
                ]
 }
@@ -59,14 +95,14 @@ Information om begäran-definition finns i [hur du anropar API för textanalys](
 
 + Skapa en **POST** begäran. Läs API-dokumentationen för denna begäran: [API för Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Ange HTTP-slutpunkt för extrahering av diskussionsämne. Det måste innehålla den `/entities` resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/entities`
++ Ange HTTP-slutpunkt för extrahering av diskussionsämne. Det måste innehålla den `/entities` resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Ange en rubrik för begäran att inkludera åtkomstnyckeln för Text Analytics-åtgärder. Mer information finns i [hur du hittar slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
 
 + Ange JSON-dokument samlingen som du har förberett för den här analysen i begärandetexten,
 
 > [!Tip]
-> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna den **API testkonsolen** i den [dokumentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) att strukturera en begäran och skicka den till tjänsten.
+> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna den **API testkonsolen** i den [dokumentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) att strukturera en begäran och skicka den till tjänsten.
 
 ## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
 
@@ -82,74 +118,168 @@ Utdata returneras direkt. Du kan strömma resultaten till ett program som stöde
 
 Ett exempel på utdata för entitetslänkning visas nästa:
 
-```
+```json
 {
-    "documents": [
+    "Documents": [
         {
-            "id": "1",
-            "entities": [
+            "Id": "1",
+            "Entities": [
                 {
-                    "name": "Xbox One",
-                    "matches": [
+                    "Name": "Jeff",
+                    "Matches": [
                         {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    "Type": "Person"
                 },
                 {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
+                    "Name": "three dozen",
+                    "Matches": [
                         {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         },
         {
-            "id": "2",
-            "entities": [
+            "Id": "2",
+            "Entities": [
                 {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
+                    "Name": "Great Depression",
+                    "Matches": [
                         {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         }
     ],
-    "errors": []
+    "Errors": []
 }
 ```
-
-När det är tillgängligt, innehåller svaret Wikipedia-ID, Wikipedias URL och Bing-ID för varje identifierad entitet. Dessa kan användas för att förbättra ditt program med information om den länkade entiteten.
 
 
 ## <a name="summary"></a>Sammanfattning
 
 I den här artikeln beskrivs begrepp och arbetsflöde för entitetslänkning med textanalys i Cognitive Services. Sammanfattningsvis:
 
-+ [API för Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) är tillgänglig för valda språken.
++ [Entiteter API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) är tillgänglig för valda språken.
 + JSON-dokument i begärandetexten innehålla ett id, text och språk-kod.
 + POST-begäran är att en `/entities` slutpunkten, med hjälp av en personligt anpassad [åtkomst till nyckeln och en slutpunkt](text-analytics-how-to-access-key.md) som är giltig för prenumerationen.
 + Svarsutdata som består av länkade entiteter (inklusive säker poäng, förskjutningar och webblänkar, för varje dokument ID) kan användas i alla program
@@ -163,4 +293,4 @@ I den här artikeln beskrivs begrepp och arbetsflöde för entitetslänkning med
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [API för textanalys](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [API för textanalys](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: glenga
-ms.openlocfilehash: a601ea42549abad84d6cab5c429cf94147776436
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d4a0d53c3438be9ea4e0229e4a456ed6f5960996
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978632"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249068"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions runtime versioner-översikt
 
@@ -98,7 +98,7 @@ För VS Code du också behöva uppdatera användarinställningen för den `azure
 
 ### <a name="changing-version-of-apps-in-azure"></a>Ändra versionen av appar i Azure
 
-Publicerade versioner anges via inställningen `FUNCTIONS_RUNTIME_VERSION`.  Detta är inställt på `~2` för v2-appar och `~1` för v1-appar.  Nu är det rekommenderas inte att ändra runtime-versionen av en app som har befintliga funktioner som publiceras till den utan att också ändra koden för dessa funktioner.  Den rekommendera sökvägen är att skapa en ny funktionsapp och inställd på rätt version, testa ändringar, och sedan inaktivera eller ta bort appen tidigare.
+Publicerade versioner anges via inställningen `FUNCTIONS_EXTENSION_VERSION`.  Detta är inställt på `~2` för v2-appar och `~1` för v1-appar.  Nu är det rekommenderas inte att ändra runtime-versionen av en app som har befintliga funktioner som publiceras till den utan att också ändra koden för dessa funktioner.  Den rekommendera sökvägen är att skapa en ny funktionsapp och inställd på rätt version, testa ändringar, och sedan inaktivera eller ta bort appen tidigare.
 
 ## <a name="bindings"></a>Bindningar 
 

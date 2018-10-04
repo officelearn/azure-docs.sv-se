@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd8ba47e8fb0d591fab7717117329357b74f907a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585976"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269538"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och aviseringar till lösning för hantering (förhandsversion)
 
@@ -84,7 +84,7 @@ I följande tabell beskrivs varje egenskap för en sparad sökning.
 | DocumentDB | Frågan ska köras. |
 
 > [!NOTE]
-> Du kan behöva använda escape-tecken i frågan om den innehåller tecken som kan tolkas som JSON.  Exempel: om din fråga var **typ: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write”**, den måste skrivas i lösningsfilen som **typ: AzureActivity OperationName:\\” Microsoft.Compute/virtualMachines/write\\”**.
+> Du kan behöva använda escape-tecken i frågan om den innehåller tecken som kan tolkas som JSON.  Exempel: om din fråga var **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write”**, den måste skrivas i lösningsfilen som **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Aviseringar
 [Azure loggaviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) skapas av Azure Varningsregler som kör angivna loggfrågor med jämna mellanrum.  Om resultatet av frågan matchar angivna villkor, skapas en aviseringspost och en eller flera åtgärder körs med hjälp av [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).  

@@ -7,37 +7,37 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 10/02/2018
 ms.author: rimman
-ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 23a3e629e12e2a4d417757c9fef5db804bb72c9e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286773"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248762"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
+# <a name="throughput-and-request-units-in-azure-cosmos-db"></a>Dataflöde och begäransenheter i Azure Cosmos DB
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) är Microsoft globalt distribuerad databastjänst. Du behöver inte hyr virtuella datorer, distribuera programvara eller övervaka databaser med Azure Cosmos DB. Azure Cosmos DB är drivs och kontinuerligt övervakas av Microsofts främsta tekniker att leverera i världsklass tillgänglighet, prestanda och dataskydd. Du kan komma åt dina data med hjälp av API: er föredrar, som den [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), och [tabell](table-introduction.md) API: er och en graf via den [Gremlin-API](graph-introduction.md). Alla API: er stöds alla internt. 
+Azure Cosmos DB-resurser faktureras baserat på etablerat dataflöde och lagringsutrymme. Dataflöde för Azure Cosmos DB uttrycks i **Begärandeenheter per sekund (RU/s)**. Azure Cosmos DB stöder olika API: erna som har olika åtgärder, allt från enkla läser och skriver till komplexa graph-frågor. Varje begäran förbrukar baserat på mängden beräkning som krävs för att hantera begäran för enheter för programbegäran. Antalet enheter för programbegäran för en åtgärd är deterministisk. Du kan spåra hur många enheter för programbegäran som förbrukas av alla åtgärder i Azure Cosmos DB med hjälp av svarshuvudet. För att tillhandahålla förutsägbar prestanda, bör du reservera dataflöde i enheter om 100 RU/sekund. Du kan beräkna dataflödet behöver med hjälp av Azure Cosmos DB [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
 
-Valutan i Azure Cosmos DB är den *begäransenhet (RU)*. Med begäransenheter behöver du inte reservera Läs/Skriv-kapaciteter eller etablera CPU, minne och IOPS. Azure Cosmos DB stöder olika API: erna som har olika åtgärder, allt från enkla läser och skriver till komplexa graph-frågor. Eftersom inte alla begäranden som är lika med, tilldelas en normaliserad mängd begäransenheter baserat på mängden beräkning som krävs för att hantera begäran med begäranden. Antalet enheter för programbegäran för en åtgärd är deterministisk. Du kan spåra hur många enheter för programbegäran som förbrukas av alla åtgärder i Azure Cosmos DB via en svarshuvudet. 
+Du kan etablera dataflöde på två precision i Azure Cosmos DB: 
 
-För att tillhandahålla förutsägbar prestanda, Reservera dataflöde i enheter om 100 RU/sekund. Du kan [beräkna dataflödet behöver](request-units.md#estimating-throughput-needs) med hjälp av Azure Cosmos DB [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
+1. **Azure Cosmos DB-behållare:** dataflödet som etableras för en behållare är reserverad för den specifika behållaren. När du tilldelar throughput(RU/s) på behållarenivån, behållarna som kan skapas som **fast** eller **obegränsad**. 
 
-![Dataflöde Kalkylatorn][5]
+  Behållare med fast storlek har en maximal genomströmning högst 10 000 RU/s och en storage gräns på 10 GB. Om du vill skapa en obegränsad behållare, måste du ange ett minsta dataflöde på 1 000 RU/s och en [partitionsnyckel](partition-data.md). Eftersom dina data kan delas över flera partitioner, måste du välja en partitionsnyckel som har en hög kardinalitet (100 till miljontals distinkta värden). Genom att välja en partitionsnyckel med många distinkta värden, garanterar Azure Cosmos DB att begäranden till en samling, en tabell och en graf skalas ett enhetligt sätt. 
 
-När du har läst den här artikeln kommer du att kunna besvara följande frågor:
+2. **Azure Cosmos DB-databasen:** dataflödet som etableras för en databas delas mellan alla behållare i databasen. När du etablerar dataflöde på databasnivå kan du uttryckligen utesluter vissa behållare och etablera dataflöde för de här behållarna på behållarenivån i stället. Databasen på dataflöde kräver alla samlingar som ska skapas med en partitionsnyckel. När du tilldelar dataflöde på databasnivå, de behållare som hör till den här databasen ska skapas med en partitionsnyckel eftersom varje samling är en **obegränsad** behållare.  
 
-* Vad är begäransenheter och begäran kostnader på Azure Cosmos DB?
-* Hur anger jag begäran enhet kapacitet för en behållare eller en uppsättning behållare i Azure Cosmos DB?
-* Hur beräknar jag mitt program begäransenhet behöver?
-* Vad händer om jag överskrider begäran enhet kapacitet för en behållare eller en uppsättning behållare i Azure Cosmos DB?
+Utifrån dataflöden, allokerar Azure Cosmos DB fysiska partitioner som värd för dina behållare och delar upp data över partitioner som den växer. Följande bild illustrerar etablering dataflöde på olika nivåer:
 
-Eftersom Azure Cosmos DB är en databas för flera modeller, är det viktigt att notera att den här artikeln gäller för alla datamodeller och API: er i Azure Cosmos DB. Den här artikeln använder allmänna villkor som *behållare* att Allmänt referera till en samling eller en graf och *objekt* att Allmänt referera till en tabell, dokument, noden eller entitet.
+  ![Etablera enheter för programbegäran för enskilda behållare och uppsättning behållare](./media/request-units/provisioning_set_containers.png)
+
+> [!NOTE] 
+> Etablera dataflöde på behållarenivån och databasnivå är två separata erbjudanden och växla mellan något av dessa kräver migrera data från källan till målet. Vilket innebär att du behöver skapa en ny databas eller en ny samling och sedan migrera data med hjälp av [bulk executor biblioteket](bulk-executor-overview.md) eller [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ## <a name="request-units-and-request-charges"></a>Enheter för programbegäran och begära avgifter
 
-Azure Cosmos DB ger snabb, förutsägbar prestanda genom att reservera resurser för att uppfylla programmets dataflödesbehov. Programmet belastning och åtkomst mönster ändras med tiden. Azure Cosmos DB kan du enkelt kan öka eller minska mängden reserverat dataflöde som är tillgängliga för ditt program.
+Azure Cosmos DB ger snabb och förutsägbar prestanda genom att reservera resurser för att uppfylla programmets dataflödesbehov. Programmets inläsnings- och åtkomstmönster ändras över tid. Med Azure Cosmos DB kan du enkelt öka eller minska mängden reserverat dataflöde som är tillgängligt för programmet.
 
 Med Azure Cosmos DB är reserverat dataflöde anges som begäransenhet som bearbetades per sekund. Du kan tänka dig begäransenheter som dataflöde valuta. Du kan reservera ett antal garanterad begäransenheter ska vara tillgängliga för ditt program på basis av per sekund. Varje åtgärd i Azure Cosmos DB, såsom skriva dokument, utför en fråga och uppdatera ett dokument, förbrukar processor, minne och IOPS. Varje åtgärd medför det vill säga en avgift för begäran, uttryckt i begäransenheter. När du förstår de faktorer som påverkar programmets dataflödeskrav och begäran units, kan du köra programmet som kostnad effektivt som möjligt. 
 
@@ -57,7 +57,7 @@ När du uppskatta antalet enheter för programbegäran att etablera, är det vik
 * **Skriptet användning**. Precis som med frågor, använda begäransenheter baserat på komplexiteten för åtgärder som utförs av lagrade procedurer och utlösare. Granska kostnad rubriken för att bättre förstå hur varje åtgärd förbrukar begäran enhet kapacitet när du utvecklar ditt program.
 
 ## <a name="estimating-throughput-needs"></a>Uppskattning dataflödesbehov
-En begäransenhet är ett normaliserat mått på kostnaden för behandling. En enskild begäransenhet motsvarar bearbetningskapacitet som krävs för att läsa (via självsignerat länk eller ID) ett enskilt 1 KB-objekt som består av 10 unika egenskapsvärden (exklusive Systemegenskaper). En begäran om att skapa (insert), ersätta eller ta bort samma objekt förbrukar mer bearbetning från tjänsten och därmed kräver mer begäransenheter. 
+En begäransenhet är ett normaliserat mått på kostnaden för behandling. En enskild begäransenhet motsvarar bearbetningskapacitet som krävs för att läsa (via självlänken eller ID) ett enskilt 1KB-objekt som består av 10 unika egenskapsvärden (exklusive Systemegenskaper). En begäran om att skapa (insert), ersätta eller ta bort samma objekt förbrukar mer bearbetning från tjänsten och därmed kräver mer begäransenheter. 
 
 > [!NOTE]
 > 1 begäransenhet för ett 1 KB-objekt baslinjen motsvarar en enkel hämtning av självsignerat länk eller ID: T för objektet.
@@ -74,7 +74,6 @@ Här är till exempel en tabell som visar hur många enheter för programbegära
 | 4 KB | 500 | 500 | (500 * 1.3) + (500 * 7) = 4,150 RU/s
 | 64 kB | 500 | 100 | (500 * 10) + (100 * 48) = 9,800 RU/s
 | 64 kB | 500 | 500 | (500 * 10) + (500 * 48) = 29,000 RU/s
-
 
 ### <a name="use-the-request-unit-calculator"></a>Använda Kalkylatorn för begäran-enhet
 Om du vill kan du finjustera din dataflöde uppskattningar, du kan använda en webbaserad [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner). Kalkylatorn kan beräkningen begäran enhet kraven för vanliga åtgärder, inklusive:
@@ -237,4 +236,5 @@ Om du har mer än en klient kumulativt fungerar ovan blir förfrågningsfrekvens
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+
 

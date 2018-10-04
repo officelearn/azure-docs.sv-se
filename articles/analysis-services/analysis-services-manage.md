@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa5eeaad6ec98bb7ce725e1bf4c977cb2d5398a6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 52dd9d0ab5a22b702ad7d55d91b860d57e81f607
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448619"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267774"
 ---
 # <a name="manage-analysis-services"></a>Hantera Analysis Services
 När du har skapat en Analysis Services-server i Azure, kan det finnas vissa administration och hantering av uppgifter du behöver utföra direkt eller någon gång ned vägen. Till exempel bearbetning för att uppdatera data, styra vem som kan komma åt modeller på servern eller övervaka hälsa för din server. Vissa hanteringsuppgifter kan endast utföras i Azure-portalen, andra i SQL Server Management Studio (SSMS), och vissa aktiviteter kan göras antingen.
@@ -46,7 +46,7 @@ För att få de senaste funktionerna och jämnaste upplevelsen när du ansluter 
     > Autentiseringstyp, **Active Directory - Universal med stöd för MFA**, rekommenderas.
 
     > [!NOTE]
-    > Lämna lösenordsfältet tomt om du loggar in med en Account, Live ID, Yanoo, Gmail, osv. Du uppmanas ange ett lösenord när du klickar på Anslut.
+    > Lämna lösenordsfältet tomt om du loggar in med en Account, Live ID, Yahoo, Gmail, osv. Du uppmanas ange ett lösenord när du klickar på Anslut.
 
     **Windows-autentisering** att använda dina Windows-autentiseringsuppgifter i domän\användarnamn och lösenord.
 

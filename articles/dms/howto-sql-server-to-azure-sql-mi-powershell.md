@@ -3,7 +3,7 @@ title: Använd Azure Database Migration Service-modul i Microsoft Azure PowerShe
 description: Lär dig hur du migrerar från en lokal SQL Server till Azure SQL DB MI med hjälp av Azure PowerShell.
 services: database-migration
 author: HJToland3
-ms.author: jtoland
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 08/13/2018
-ms.openlocfilehash: 7bd7e7a4cb78cf8a9f818936c980b47a2e7865e7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: c8747b7b8125f097fab3752693f4f14440ed7ce7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099952"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804386"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrera SQL Server lokalt till Azure SQL DB med hjälp av Azure PowerShell
 I den här artikeln får du migrera den **Adventureworks2012** databasen återställs till en lokal instans av SQL Server 2005 eller senare till en Azure SQL Database med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en lokal SQL Server-instans till Azure SQL Database med hjälp av den `AzureRM.DataMigration` modul i Microsoft Azure PowerShell.
@@ -26,7 +26,7 @@ I den här artikeln kan du se hur du:
 > * Skapa en resursgrupp.
 > * Skapa en instans av Azure Database Migration Service.
 > * Skapa ett migreringsprojekt i en Azure Database Migration Service-instans.
-> * Kör migreringen.
+> * Köra migreringen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra dessa steg:

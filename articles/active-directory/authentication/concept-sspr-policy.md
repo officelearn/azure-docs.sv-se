@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ee30ee4fa89ce47e8441845b088919b26ce32b31
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a4ea483104a28e436ac35b50b962d3a153483789
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434287"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804182"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -119,27 +119,27 @@ Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerS
 1. Ansluta till Windows PowerShell med hjälp av företagets administratörsautentiseringsuppgifter.
 2. Kör något av följande kommandon:
 
-   * Om du vill se om en användares lösenord har angetts att aldrig upphöra, kör du följande cmdlet med hjälp av UPN-namnet (till exempel *aprilr@contoso.onmicrosoft.com*) eller användar-ID för den användare som du vill kontrollera: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * Se den **lösenordet upphör aldrig att gälla** inställningen för alla användare kör du följande cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * Om du vill se om en användares lösenord har angetts att aldrig upphöra, kör du följande cmdlet med hjälp av UPN-namnet (till exempel *aprilr@contoso.onmicrosoft.com*) eller användar-ID för den användare som du vill kontrollera: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Se den **lösenordet upphör aldrig att gälla** inställningen för alla användare kör du följande cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>Ange ett lösenord att gälla
 
 1. Ansluta till Windows PowerShell med hjälp av företagets administratörsautentiseringsuppgifter.
 2. Kör något av följande kommandon:
 
-   * Kör följande cmdlet för att ange lösenordet för en användare så att lösenordet upphör att gälla, med hjälp av UPN-namnet eller det användar-ID för användaren: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * Om du vill ange lösenorden för alla användare i organisationen så att de går ut, använder du följande cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * Kör följande cmdlet för att ange lösenordet för en användare så att lösenordet upphör att gälla, med hjälp av UPN-namnet eller det användar-ID för användaren: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
+   * Om du vill ange lösenorden för alla användare i organisationen så att de går ut, använder du följande cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
 
 ### <a name="set-a-password-to-never-expire"></a>Ange ett lösenord aldrig upphör att gälla
 
 1. Ansluta till Windows PowerShell med hjälp av företagets administratörsautentiseringsuppgifter.
 2. Kör något av följande kommandon:
 
-   * Kör följande cmdlet för att ange lösenordet för en användare att aldrig upphöra, med hjälp av UPN-namnet eller det användar-ID för användaren: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * Om du vill ange lösenorden för alla användare i en organisation att aldrig upphöra, kör du följande cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * Kör följande cmdlet för att ange lösenordet för en användare att aldrig upphöra, med hjälp av UPN-namnet eller det användar-ID för användaren: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
+   * Om du vill ange lösenorden för alla användare i en organisation att aldrig upphöra, kör du följande cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`
 
    > [!WARNING]
-   > Lösenord har angetts till `-PasswordNeverExpires $true` fortfarande ålder baserat på den `pwdLastSet` attribut. Om du ställer in användarlösenord aldrig upphör att gälla och sedan 90 dagar sedan genom att lösenorden går ut. Utifrån den `pwdLastSet` attributet, om du ändrar förfallotiden att `-PasswordNeverExpires $false`, alla lösenord som har en `pwdLastSet` äldre än 90 dagar kräver att användaren ändrar dem nästa gång de loggar in. Den här ändringen kan påverka ett stort antal användare. 
+   > Lösenord har angetts till `-PasswordPolicies DisablePasswordExpiration` fortfarande ålder baserat på den `pwdLastSet` attribut. Om du ställer in användarlösenord aldrig upphör att gälla och sedan 90 dagar sedan genom att lösenorden går ut. Utifrån den `pwdLastSet` attributet, om du ändrar förfallotiden att `-PasswordPolicies None`, alla lösenord som har en `pwdLastSet` äldre än 90 dagar kräver att användaren ändrar dem nästa gång de loggar in. Den här ändringen kan påverka ett stort antal användare. 
 
 ## <a name="next-steps"></a>Nästa steg
 

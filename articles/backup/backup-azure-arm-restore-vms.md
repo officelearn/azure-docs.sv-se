@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: eb47b1d8d3f2859b2b5c0b79633b2d37e5a40756
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f7561ef4978e19439eafb6ef1a6ca1275c0f2bc7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380173"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804624"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Använd Azure portal för att återställa virtuella datorer
 Skydda dina data genom att ta ögonblicksbilder av dina data med definierade intervall. De här ögonblicksbilderna kallas återställningspunkter och de lagras i Recovery Services-valv. Om det är nödvändigt att reparera eller återskapa en virtuell dator (VM), kan du återställa den virtuella datorn från någon av de sparade återställningspunkterna. När du återställer en återställningspunkt kan du:
@@ -37,6 +37,7 @@ Den här artikeln förklarar hur du återställer en virtuell dator till en ny v
 * Välj typ av återställning, skapa en ny virtuell dator eller Återställ diskar och ange de obligatoriska parametrarna. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Välj en återställningspunkt för återställning
+
 1. Logga in på [Azure Portal](http://portal.azure.com/).
 
 1. På Azure-menyn, Välj **Bläddra**. I listan över tjänster skriver **återställningstjänster**. Listan över tjänster som anpassar sig till det du skriver. När du ser **Recovery Services-valv**, markera den.
@@ -102,7 +103,7 @@ Välj en konfiguration för återställning av virtuell dator när du har valt �
 Portalen ger en **Snabbregistrering** alternativet för en återställd virtuell dator. Använd PowerShell eller portalen för att anpassa VM-konfigurationen eller namnen på de resurser som skapades som en del av ett nytt alternativ för virtuell dator, återställa säkerhetskopierade diskar. Använd PowerShell-kommandon för att koppla dem till ditt val av VM-konfiguration. Du kan också använda mallen som medföljer återställda diskar för att anpassa den återställda virtuella datorn. Information om hur du återställer en virtuell dator som har flera nätverkskort eller omfattas av en belastningsutjämnare finns i [återställa en virtuell dator med särskilda nätverkskonfigurationer](#restore-vms-with-special-network-configurations). Om din virtuella Windows-dator använder [HUB licensiering](../virtual-machines/windows/hybrid-use-benefit-licensing.md), Återställ diskar och använda PowerShell/mall som anges i den här artikeln för att skapa den virtuella datorn. Se till att du anger den **licenstyp** som ”Windows_Server” när du skapar den virtuella datorn för att ta del av HUB fördelar med den återställda virtuella datorn. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Skapa en ny virtuell dator från en återställningspunkt
-1. Om du inte redan är där [Välj en återställningspunkt](#restore-a vm-with-special-network-configurations) innan du börjar skapa en ny virtuell dator från en återställningspunkt. När du har valt en återställningspunkt på den **Återställ konfigurationen** bladet ange eller Välj värden för var och en av följande fält:
+1. Om du inte redan är där [Välj en återställningspunkt](#select-a-restore-point-for-restore) innan du börjar skapa en ny virtuell dator från en återställningspunkt. När du har valt en återställningspunkt på den **Återställ konfigurationen** bladet ange eller Välj värden för var och en av följande fält:
 
     a. **Återställ typ**. Skapa en virtuell dator.
 
@@ -239,9 +240,9 @@ Följ dessa steg för att fullständigt återskapa de virtuella datorerna när d
 
    b. Skapa en virtuell dator att ansluta till en [internetuppkopplade belastningsutjämnare](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
-   c. Skapa en virtuell dator med [flera nätverkskort](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
+   c. Skapa en virtuell dator med [flera nätverkskort](../virtual-machines/windows/multiple-nics.md).
 
-   d. Skapa en virtuell dator med [flera reserverade IP-adresser](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
+   d. Skapa en virtuell dator med [flera reserverade IP-adresser](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du kan återställa dina virtuella datorer, se felsökningsartikeln information på vanliga fel med virtuella datorer. Kontrollera också artikel om hantering av åtgärder med dina virtuella datorer.

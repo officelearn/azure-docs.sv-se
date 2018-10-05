@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 21350fe9a44ad801204b8288f3c49eda82ca6343
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/04/2018
+ms.openlocfilehash: dc5147ff2ebd7bdd6782d92fab33a08b62d854d2
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163196"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804131"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database? 
 
@@ -59,7 +59,7 @@ SQL Database har en [DTU-baserad inköpsmodell](sql-database-service-tiers-dtu.m
 Du kan skapa din första app på en liten, enkel databas till en låg kostnad per månad på nivån generell användning tjänsten och sedan ändra dess tjänstnivå manuellt eller programmässigt när som helst på kritiska tjänstnivån företag att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
 
 > [!IMPORTANT]
-> Du kan skala från en tjänstnivå för generell användning och affärskritiska till en [hyperskala tjänstnivå](sql-database-hyperscale.md). Du kan dock ändra prestandanivåerna inom tjänstnivån hyperskala.
+> Den [hyperskala tjänstnivå](sql-database-hyperscale.md) finns för närvarande i offentlig förhandsversion. Vi rekommenderar inte någon produktionsarbetsbelastning körs ännu i hyperskala databaser. Du kan inte uppdatera en storskalig databas till andra tjänstnivåer. Testa syfte rekommenderar vi du göra en kopia av den aktuella databasen och uppdatera kopian hyperskala tjänstnivån...
 
 Dynamisk skalbarhet skiljer sig från autoskalning. Med Autoskala avses när en tjänst skalar automatiskt utifrån olika kriterier, medan dynamisk skalbarhet möjliggör manuell skalning utan avbrott. Enskilda Azure SQL-databaser stöder manuell dynamisk skalbarhet, men inte Autoskala. Om du vill ha en mer *automatisk* upplevelse bör du använda elastiska pooler, vilka tillåter databaser att dela resurser i en pool utifrån enskilda databasbehov. Det finns dock skript som kan hjälpa dig att automatisera skalbarhet för en enskild Azure SQL-databas. Mer information finns i [Använd PowerShell till att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-powershell.md). 
 

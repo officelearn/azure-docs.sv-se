@@ -11,19 +11,19 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 48ba68e8fd40af859fc6701495a2dca280a1c222
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.date: 10/04/2018
+ms.openlocfilehash: 2f25b167572f36334ce84657ee3d235683dfa125
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042639"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803893"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen 
 
 Den här artikeln innehåller detaljerade resursgränser för enskilda databaser i Azure SQL Database med hjälp av den DTU-baserade inköpsmodellen.
 
-DTU-baserade inköpschef modellen resursgränser för elastiska pooler, se [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md). VCore-baserade resursbegränsningar finns [vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+DTU-baserade inköpschef modellen resursgränser för elastiska pooler, se [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md). VCore-baserade resursbegränsningar finns [vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md). Läs mer om de olika modellerna för inköp, [köpa modeller och tjänstnivåer](sql-database-service-tiers.md). 
 
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).

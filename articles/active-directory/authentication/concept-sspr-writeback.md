@@ -5,27 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 43d2ba496be90e9e87185e6365dd998adccfa09d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295843"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804539"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösenord?
 
-Med verktyget molnbaserad lösenordsåterställning är bra, men de flesta företag fortfarande har en lokal katalog där användarna finns. Så här hanterar Microsoft support att se till att traditionella lokala Active Directory (AD) synkroniserade med ändringar av lösenord i molnet? Tillbakaskrivning av lösenord är en funktion som aktiveras med [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) som tillåter ändringar av lösenord i molnet för att skrivas tillbaka till en befintlig lokal katalog i realtid.
+Med en molnbaserad lösenordsåterställning verktyget är bra, men de flesta företag fortfarande har en lokal katalog där användarna finns. Så här hanterar Microsoft support att se till att traditionella lokala Active Directory (AD) synkroniserade med ändringar av lösenord i molnet? Tillbakaskrivning av lösenord är en funktion som aktiveras med [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) som tillåter ändringar av lösenord i molnet för att skrivas tillbaka till en befintlig lokal katalog i realtid.
 
 Tillbakaskrivning av lösenord stöds i miljöer där:
 
 * [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
 * [Synkronisering av lösenordshash](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Direktautentisering](../hybrid/how-to-connect-pta.md)
+
+> [!WARNING]
+> Tillbakaskrivning av lösenord att sluta fungera för kunder som använder Azure AD Connect-versioner 1.0.8641.0 och äldre när den [Azure Access Control service (ACS) är ur bruk 7 November 2018](../develop/active-directory-acs-migration.md). Azure AD Connect-versioner 1.0.8641.0 och äldre inte längre att tillåta tillbakaskrivning av lösenord vid den tidpunkten eftersom de använder ACS för den funktionen.
+>
+> Om du vill undvika avbrott i tjänsten, uppgradera från en tidigare version av Azure AD Connect till en nyare version finns i artikeln [Azure AD Connect: uppgradera från en tidigare version till senast](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 Tillbakaskrivning av lösenord innehåller:
 

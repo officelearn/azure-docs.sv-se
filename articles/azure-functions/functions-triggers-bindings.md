@@ -9,14 +9,14 @@ keywords: azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 05/24/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969435"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801313"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 
@@ -168,7 +168,7 @@ Det här avsnittet gäller enbart för Functions 2.x. Tillägg av bindning inte 
 
 När du skapar en funktion eller lägga till en bindning, uppmanas du när tillägget för lagringsutlösare eller bindning kräver registrering. Besvarar frågan genom att klicka på **installera** att registrera tillägget. Installationen kan ta upp till 10 minuter i en förbrukningsplan.
 
-Du behöver bara installera varje tillägg en gång för en viss funktionsapp. 
+Du behöver bara installera varje tillägg en gång för en viss funktionsapp. För stöds bindningar som inte är tillgängliga i portalen eller för att uppdatera den ett installerade tillägg, du kan också [manuellt installera eller uppdatera Azure Functions bindande tillägg från portalen](install-update-binding-extensions-manual.md).  
 
 ### <a name="local-development-azure-functions-core-tools"></a>Lokal utveckling Azure Functions Core Tools
 

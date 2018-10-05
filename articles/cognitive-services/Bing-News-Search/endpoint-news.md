@@ -1,22 +1,23 @@
 ---
-title: Bing News Sök slutpunkter | Microsoft Docs
+title: Slutpunkt för nyhetssökning i Bing
+titlesuffix: Azure Cognitive Services
 description: Sammanfattning av nyheter search API-slutpunkt.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: v-gedod
-ms.openlocfilehash: ab892e947566adf025499382b213a52ed3e96e35
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0ed8b9048c04c4aff5214cea697810a0c573559e
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433692"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800553"
 ---
-# <a name="news-search-endpoints"></a>Nyheter Sök slutpunkter
+# <a name="bing-news-search-endpoints"></a>Slutpunkt för nyhetssökning i Bing
 Den **nyheter Search API** returnerar nyheter artiklar, webbsidor, bilder, videor, och [entiteter](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Entiteter innehåller översiktsinformation om en person, plats eller ett ämne.
 ## <a name="endpoints"></a>Slutpunkter
 För att få nyhetssökningsresultat med hjälp av Bing-API kan skicka en `GET` begäran till någon av följande slutpunkter. Rubriker och URL-parametrar kan definiera ytterligare specifikationer.

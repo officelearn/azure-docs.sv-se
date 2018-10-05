@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f4659d2dc8dfd52ae6f7ec19dc29ec31c9b3ca6b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047350"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391821"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Hybrid Azure Active Directory-anslutningar för federerade domäner
 
@@ -48,9 +48,9 @@ I den här självstudien förutsätts att du känner till:
 
 -  [Introduktion till enhetshantering i Azure Active Directory](../device-management-introduction.md)
 
--  [Så här planerar du implementeringen av Hybrid Azure Active Directory-anslutningen](hybrid-azuread-join-plan.md)
+-  [Så här planerar du Azure Active Directory Join-hybridimplementeringen](hybrid-azuread-join-plan.md)
 
--  [Så här kontrollerar du Hybrid Azure Active Directory-anslutningen för dina enheter](hybrid-azuread-join-control.md)
+-  [Så här kontrollerar du Azure Active Directory Join-hybriden för dina enheter](hybrid-azuread-join-control.md)
 
 
 För att kunna konfigurera scenariot i den här självstudien behöver du:
@@ -122,7 +122,7 @@ Om du vill konfigurera en Hybrid Azure AD-anslutning med Azure AD Connect behöv
 
     a. Välj skogen.
 
-    b. Välj autentiseringstjänst.
+    b. Välj autentiseringstjänst. Du måste välja AD FS-server om din organisation inte endast har Windows 10-klients.
 
     c. Klicka på **Lägg till** för att ange autentiseringsuppgifter för företagsadministratör.
 

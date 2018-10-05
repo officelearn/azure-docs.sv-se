@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: ''
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d0da9107fe1dd34481ca0bf1aa9a0b260bb10951
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e47ffbe15291275a7104d5e201a597d084cdbdd9
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946637"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422872"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -117,7 +117,7 @@ A.
 A.-->
 
 ### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>F. Indikatorn för systemfel lyser på framsidan av datorn. Vad ska jag göra?
-A. Om indikatorn för systemfel lyser betyder det att datorn inte är felfri. Kontakta Microsoft-supporten om du vill ha hjälp.
+A. Om indikatorn för systemfel lyser betyder det att datorn inte är felfri. [Kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md) om du vill ha hjälp.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>F. Jag kan inte komma åt Data Box-upplåsningslösenordet på Azure-portalen. Vad kan det bero på?
 A. Om du inte kan komma åt upplåsningslösenordet på Azure-portalen kontrollerar du behörigheterna för din prenumeration och ditt lagringskonto. Kontrollera att du har behörighet som deltagare eller ägare på resursgruppsnivå. Om inte behöver du minst ha rollbehörigheten som Data Box-operator för att kunna se autentiseringsuppgifterna.
@@ -127,8 +127,8 @@ A. Om du inte kan komma åt upplåsningslösenordet på Azure-portalen kontrolle
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>F. Hur spårar jag Data Box från tidpunkten då jag gjorde beställningen till returen av enheten? 
 A.  Du kan spåra statusen för Data Box Disk-beställningen på Azure-portalen. När du skapar beställningen blir du ombedd att ange en e-postadress dit aviseringar kan skickas. Om du angav en sådan e-postadress meddelas du om alla statusändringar för beställningen. Mer information om hur du [konfigurerar e-postaviseringar](data-box-portal-ui-admin.md#edit-notification-details).
 
-### <a name="q-how-do-i-return-the-disks"></a>F. Hur gör jag för att skicka tillbaka diskarna? 
-A.  Microsoft visar en adressetikett på skärmen E Ink (E-bläck). Fäst etiketten på leveranskartongen och lämna in det förseglade paketet hos transportföretaget. Om etiketten är skadad eller har försvunnit kan du hämta en ny via **Översikt > Ladda ned adressetikett**.
+### <a name="q-how-do-i-return-the-device"></a>F. Hur gör jag för att skicka tillbaka enheten? 
+A.  Microsoft visar en adressetikett på e-bläckskärmen. Om adressetiketten inte visas på e-bläckskärmen går du till **Översikt > Ladda ned adressetikett**. Ladda ned och skriv ut etiketten, sätt in etiketten i plastfickan på enheten och lämna enheten hos transportföretaget. 
 
 ### <a name="q-i-received-an-email-notification-that-my-device-has-reached-the-azure-datacenter-how-do-i-find-out-if-the-data-upload-is-in-progress"></a>F. Jag har fått ett e-postmeddelande om att enheten har kommit fram till Azure-datacentret. Hur tar jag reda på om dataöverföringen har startat?
 A. Du kan gå till din Data Box-beställning på Azure-portalen och sedan till **Översikt**. Om dataöverföringen till Azure har börjat visas kopieringsprocessen i den högra rutan. 
@@ -181,11 +181,11 @@ A. Om enheten är skadad eller om det finns tecken på att den har manipulerats 
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>F. Kan jag använda mitt eget transportföretag för att skicka Data Box?
 A. För Data Box-tjänsten hanterar Microsoft leveransen till och från Azure-datacentret. Om du vill använda ditt eget transportföretag kan du använda tjänsten Azure Import/Export. Mer information finns i [Vad är Azure Import/Export-tjänsten?](../storage/common/storage-import-export-service.md)
 
-### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>F. Returadressetiketten visas inte på skärmen E-Ink (E-bläck). Vad ska jag göra?
-A. Om returadressetiketten inte visas på skärmen E-ink (E-bläck) följer du dessa steg:
+### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>F. Returadressetiketten visas inte på e-bläckskärmen. Vad ska jag göra?
+A. Om returadressetiketten inte visas på e-bläckskärmen följer du dessa steg:
 - Ta bort den gamla adressetiketten och eventuella klistermärken från den tidigare leveransen.
-- Gå till din beställning på Azure-portalen. Gå till Översikt och ladda ned adressetiketten. Mer information finns i [Ladda ned adressetikett](data-box-portal-admin.md#download-shipping-label).
-- Skriv ut adressetiketten och lägg den i den genomskinliga fickan som är fäst på enheten. 
+- Gå till din beställning på Azure-portalen. Gå till **Översikt** och **Ladda ned adressetikett**. Mer information finns i [Ladda ned adressetikett](data-box-portal-admin.md#download-shipping-label).
+- Skriv ut adressetiketten och sätt in den i plastfickan som är fäst på enheten. 
 - Kontrollera att adressetiketten syns tydligt. 
 
 ### <a name="q-how-is-my-data-protected-during-transit"></a>F. Hur skyddade är mina data under transporten? 
@@ -204,12 +204,11 @@ A. Ja. Du kan aktivera enheten och lägga till mer data. Du måste köra **Förb
 A.  När orderstatusen för **datakopieringen** visas som **Slutförd** bör du komma åt dina data direkt.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>F. Var i Azure finns mina data efter uppladdningen?
-A.  När du kopierar data till Data Box överförs data till någon av dessa sökvägar i ditt Azure Storage-konto, beroende på om de utgör en blockblob, sidblob eller Azure-filer:
- - `<You_storage_account_name_BlockBlob>/<my_container>/Blob` 
- - `<Your_storage_account_name_PageBlob>/<my_container>/Blob`
- - `<Your_storage_account_name_AzFile>/` 
-
-Under blockblob- och sidblobresurser är entiteter på första nivån containrar och entiteter på andra nivån är blobar. Under resurser för Azure Files är entiteter på första nivån resurser och entiteter på andra nivån är filer.
+A.  När du kopierar data till Data Box laddas data upp någon av följande sökvägar i ditt Azure Storage-konto, beroende på om de utgör en blockblob, sidblob eller Azure-filer.
+ - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+ -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+ 
+ Du kan också gå till ditt Azure-lagringskonto i Azure-portalen och navigera därifrån.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>F. Jag har precis märkt att jag inte följde namngivningskraven för min container. Misslyckas dataöverföringen till Azure?
 A.  Versaler omvandlas automatiskt till gemener. Om namnen inte uppfyller kraven på andra sätt (specialtecken, andra språk och så vidare) misslyckas uppladdningen. Mer information om metodtips för namngivning av resurser, containrar och filer finns här: 

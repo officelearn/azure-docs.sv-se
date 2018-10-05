@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: 23f10280cd34927e2e74cb7c5001850bedc6dd35
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63b34b6ddc1809031dc66fb3e41fa4a22d9f4a03
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967548"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182798"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Skapa en testmiljö för Azure Firewall
 
@@ -25,7 +25,7 @@ Dessutom skapas en användardefinierad väg som skickar nätverkstrafik från Se
 
 Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/powershell) eller från en lokal PowerShell-installation. 
 
-Om du kör PowerShell lokalt kräver det här skriptet den senaste versionen av AzureRM PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. 
+Om du kör PowerShell lokalt kräver det här skriptet den senaste versionen av AzureRM PowerShell-modulen (6.9.0 eller senare). Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. 
 
 Du kan använda `PowerShellGet` om du behöver uppgradera, och det är inbyggt i Windows 10 och Windows Server 2016.
 
@@ -70,10 +70,10 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Skapar en virtuell datorkonfiguration. Den här konfigurationen omfattar information som virtuellt datornamn, operativsystem och administrativa autentiseringsuppgifter. Konfigurationen används vid skapande av virtuell dator. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Skapa en virtuell dator. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
-|[New-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewall.md)| Skapar en ny Azure Firewall-brandvägg.|
-|[Get-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Get-AzureRmFirewall.md)|Hämtar ett Azure Firewall-objekt.|
-|[New-AzureRmFirewallApplicationRule](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewallApplicationRule.md)|Skapar en ny Azure Firewall-programregel.|
-|[Set-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Set-AzureRmFirewall.md)|Sparar ändringarna i Azure Firewall-objektet.|
+|[New-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermfirewall?view=azurermps-6.9.0)| Skapar en ny Azure Firewall-brandvägg.|
+|[Get-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermfirewall?view=azurermps-6.9.0)|Hämtar ett Azure Firewall-objekt.|
+|[New-AzureRmFirewallApplicationRule](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermfirewallapplicationrule?view=azurermps-6.9.0)|Skapar en ny Azure Firewall-programregel.|
+|[Set-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermfirewall?view=azurermps-6.9.0)|Sparar ändringarna i Azure Firewall-objektet.|
 
 
 ## <a name="next-steps"></a>Nästa steg

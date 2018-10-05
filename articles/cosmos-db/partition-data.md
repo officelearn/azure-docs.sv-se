@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d53106efa4e3761a497e67181546c8ec09fd880c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c35082d107b538e7e908162c00facafecc406bc6
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055513"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785655"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Azure Cosmos DB tillhandahåller behållare för lagring av anropade samlingar (
 
 ### <a name="physical-partition"></a>Fysisk partition
 
-En *fysiska* partitionen är en fast mängd reserverade SSD-uppbackad lagring tillsammans med variabeln mängden beräkningsresurser (processor och minne). Varje fysisk partition replikeras för hög tillgänglighet. Varje uppsättning behållare kan dela en eller flera fysiska partitioner. Fysisk partition management hanteras fullständigt av Azure Cosmos DB och du behöver inte skriva komplex kod eller hantera din partitioner. Azure Cosmos DB-behållare är obegränsade vad gäller lagring och dataflöde. Fysiska partitioner är en intern koncept i Azure Cosmos DB och är tillfälligt. Azure Cosmos DB skalar automatiskt antalet fysiska partitioner baserat på din arbetsbelastning. Så du inte bör corelate databasdesignen baserat på antalet fysiska partitioner bör i stället du kontrollera att välja rätt Partitionsnyckeln som avgör logiska partitioner. 
+En *fysiska* partitionen är en fast mängd reserverade SSD-uppbackad lagring tillsammans med variabeln mängden beräkningsresurser (processor och minne). Varje fysisk partition replikeras för hög tillgänglighet. Varje uppsättning behållare kan dela en eller flera fysiska partitioner. Fysisk partition management hanteras fullständigt av Azure Cosmos DB och du behöver inte skriva komplex kod eller hantera din partitioner. Azure Cosmos DB-behållare är obegränsade vad gäller lagring och dataflöde. Fysiska partitioner är en intern koncept i Azure Cosmos DB och är tillfälligt. Azure Cosmos DB skalar automatiskt antalet fysiska partitioner baserat på arbetsbelastningen. Så du inte bör corelate databasdesignen baserat på antalet fysiska partitioner bör i stället du kontrollera att välja rätt Partitionsnyckeln som avgör logiska partitioner. 
 
 ### <a name="logical-partition"></a>Logisk partition
 
@@ -93,11 +93,13 @@ När du väljer en partitionsnyckel med ovan överväganden du inte behöver bek
 
 ## <a name="prerequisites"></a>Krav för partitionering
 
-Azure Cosmos DB-behållare kan skapas som fasta eller obegränsat i Azure-portalen. Containrar med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Du måste ange en partitionsnyckel och en minsta genomströmning av 1 000 RU/s för att skapa en behållare som obegränsade. Azure Cosmos DB-behållare kan också konfigureras för att dela dataflödet mellan en uppsättning behållare, där varje behållare måste ange en partition nyckeln och kan växa obegränsad. Följande är förutsättningar för att tänka på för partitionering och skalning:
+Azure Cosmos DB-behållare kan skapas som fasta eller obegränsad. Containrar med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Du måste ange en partitionsnyckel och en minsta genomströmning av 1 000 RU/s för att skapa en behållare som obegränsade. Du kan också skapa Azure Cosmos DB-behållare så att de delar dataflöde. I sådana fall kan varje behållare måste ange en partitionsnyckel och den kan växa obegränsad. 
 
-* När du skapar en behållare (t.ex. en samling, ett diagram eller en tabell) i Azure-portalen, väljer den **obegränsad** lagringsalternativ för kapacitet att utnyttja fördelarna med obegränsad skalning. För fysiska partitioner för att automatiskt dela upp i **p1** och **p2** enligt beskrivningen i [hur fungerar partitionering](#how-does-partitioning-work), behållaren måste skapas med ett dataflöde på 1 000 RU/s eller mer (eller dela genomflöde i en uppsättning behållare) och en partitionsnyckel som måste anges. 
+Följande är förutsättningar för att tänka på för partitionering och skalning:
 
-* Om du har skapat en behållare i Azure portal eller programmässigt och inledande dataflöde var 1 000 RU/s eller mer, och du har angett en partitionsnyckel, kan du dra nytta av obegränsad skalning utan ändringar i din behållare. Detta inkluderar **fast** behållare, så länge som den första behållaren har skapats med minst 1 000 RU/s genomströmning och en partitionsnyckel anges.
+* När du skapar en behållare (t.ex. en samling, ett diagram eller en tabell) i Azure-portalen, väljer den **obegränsad** lagringsalternativ för kapacitet att utnyttja fördelarna med obegränsad skalning. Att automatiskt dela fysiska partitioner i **p1** och **p2** enligt beskrivningen i [hur fungerar partitionering](#how-does-partitioning-work) artikeln behållaren måste skapas med ett dataflöde på 1 000 RU/s eller flera (eller dela genomflöde i en uppsättning behållare) och en partitionsnyckel som måste anges. 
+
+* Om du skapar en behållare med inledande dataflöde är större än eller lika med 1 000 RU/s och ange en partitionsnyckel, kan du dra nytta av obegränsad skalning utan ändringar i din behållare. Vilket innebär att även om du skapar en **fast** behållare, om den första behållaren har skapats med en genomströmning på minst 1 000 RU/s och om en partitionsnyckel anges behållaren fungerar som en obegränsad behållare.
 
 * Alla behållare som är konfigurerad för att dela dataflöde som en del av en uppsättning behållare behandlas som **obegränsad** behållare.
 

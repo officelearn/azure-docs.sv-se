@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 5c6ebfcb7eae52915af24fc67e9b3c774656149d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e01f48ebee9ade35b44242eba3b03e6e0a4faf46
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181149"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802040"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Mer information om automatisk SQL Database-säkerhetskopior
 
@@ -59,7 +59,8 @@ Standardkvarhållningsperioden för en databas som skapats med den DTU-baserade 
 * Standard-tjänstnivå är fem veckor.
 * Premiumnivån är fem veckor.
 
-Om du använder den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md), kvarhållning för säkerhetskopior är Konfigurerbart upp till 35 dagar. 
+Om du använder den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md), standard-kvarhållningsperiod är 7 dagar (både på logiska servrar och hanterade instanser).
+På logisk Server kan du [ändra kvarhållningsperioden för säkerhetskopior upp till 35 dagar](#how-to-change-backup-retention-period). Ändra kvarhållningsperiod för säkerhetskopiering är inte tillgänglig i hanterade instanser. 
 
 Om du minskar den aktuella kvarhållningsperioden för PITR längre alla befintliga säkerhetskopior som är äldre än den nya kvarhållningsperioden inte tillgängliga. 
 
@@ -74,7 +75,7 @@ PITR säkerhetskopiorna är geo-redundant och skyddas av [tvärregional Azure St
 Mer information finns i [Point-in-time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### <a name="backups-for-long-term-retention"></a>Säkerhetskopior för långsiktig kvarhållning
-SQL Database erbjuder alternativet att konfigurera långsiktig kvarhållning av säkerhetskopior (LTR) av fullständiga säkerhetskopior för upp till 10 år i Azure blob storage. Om LTR principen är aktiverad, kopieras de veckovisa, fullständiga säkerhetskopiorna automatiskt till en annan behållare för RA-GRS-lagring. Du kan välja olika kvarhållningsperioder för veckovisa, månatliga och årliga säkerhetskopior för att uppfylla olika krav. Lagringsanvändningen beror på den valda frekvensen för säkerhetskopiering och kvarhållning längd. Du kan använda den [LTR priskalkylator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) att uppskatta kostnaden för LTR-lagring. 
+SQL-databas som finns på logisk Server erbjuder alternativet att konfigurera långsiktig kvarhållning av säkerhetskopior (LTR) av fullständiga säkerhetskopior för upp till 10 år i Azure blob storage. Om LTR principen är aktiverad, kopieras de veckovisa, fullständiga säkerhetskopiorna automatiskt till en annan behållare för RA-GRS-lagring. Du kan välja olika kvarhållningsperioder för veckovisa, månatliga och årliga säkerhetskopior för att uppfylla olika krav. Lagringsanvändningen beror på den valda frekvensen för säkerhetskopiering och kvarhållning längd. Du kan använda den [LTR priskalkylator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) att uppskatta kostnaden för LTR-lagring. 
 
 Precis som PITR, LTR-säkerhetskopior är geo-redundant och skyddas av [Azure Storage-replikering mellan tillgänglighetszoner](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -95,6 +96,10 @@ När du migrerar din databas från en DTU-baserade tjänstnivå med standard PIT
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="how-to-change-backup-retention-period"></a>Så här ändrar du kvarhållningsperiod för säkerhetskopiering
+
+> [!Note]
+> Standard kvarhållningsperiod (7 dagar) kan inte ändras på hanterad instans. 
+
 Du kan ändra den standard kvarhållning av säkerhetskopior med REST API eller PowerShell. Godkända värden är: 7, 14, 21, 28 eller 35 dagar. I följande exempel visas hur du ändrar PITR kvarhållning till 28 dagar. 
 
 > [!NOTE]

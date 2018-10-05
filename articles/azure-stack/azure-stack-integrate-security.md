@@ -10,18 +10,21 @@ ms.date: 08/14/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: 3712ea278a983d107f754af4bfa8e5bd608a0576
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: d46fd8f5ea00ee1fc1ee5f7bf09a15dd6af5ba50
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239395"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785587"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integrering med Azure Stack datacenter - syslog-vidarebefordran
 
 Den här artikeln visar hur du använder syslog för att integrera Azure Stack-infrastruktur med externa security-lösningar som redan har distribuerats i ditt datacenter. Till exempel ett system Security Information händelsehantering (SIEM). Syslog-kanalen exponerar granskningar, aviseringar och säkerhetsloggar från alla komponenter i Azure Stack-infrastruktur. Använd syslog-vidarebefordran för att integrera med lösningar för säkerhetsövervakning och/eller att hämta alla granskningar, aviseringar och säkerhet loggar för att spara dem för kvarhållning. 
 
 Från och med uppdateringen 1805, har Azure Stack en integrerad syslog-klient som, när konfigurationen är klar, genererar syslog-meddelanden med nyttolast i Common Event Format (CEF). 
+
+> [!IMPORTANT] 
+> Syslog-vidarebefordran är en förhandsversion. Det bör inte förlita sig på detta i produktionsmiljöer.  
 
 Följande diagram visar huvudkomponenterna som ingår i syslog-integrering.
 
@@ -49,7 +52,7 @@ Konfigurera syslog-vidarebefordran kräver åtkomst till privilegierad slutpunkt
 ```powershell
 ### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption and the authentication between the client and the server
 
-Set-SyslogServer [-ServerName <String>] [-ServerPort <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
+Set-SyslogServer [-ServerName <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
 
 ### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
@@ -62,7 +65,6 @@ Parametrar för *Set-SyslogServer* cmdlet:
 | Parameter | Beskrivning | Typ | Krävs |
 |---------|---------|---------|---------|
 |*Servernamn* | FQDN eller IP-adress för syslog-servern | Sträng | ja|
-|*ServerPort* | Portnumret syslog-servern lyssnar på | Sträng | ja|
 |*NoEncryption*| Tvinga klienten att skicka syslog-meddelanden i klartext | Flagga | nej|
 |*SkipCertificateCheck*| Hoppa över verifieringen av det certifikat som tillhandahålls av syslog-servern under den inledande TLS-handskakning | Flagga | nej|
 |*SkipCNCheck*| Hoppa över validering av nätverksnamn värdet för det certifikat som tillhandahålls av syslog-servern under den inledande TLS-handskakning | Flagga | nej|
@@ -87,7 +89,7 @@ Om du vill konfigurera syslog-vidarebefordran med TCP, ömsesidig autentisering 
 
 ```powershell
 # Configure the server
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 
 # Provide certificate to the client to authenticate against the server
 Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file>
@@ -132,30 +134,28 @@ I den här konfigurationen vidarebefordrar syslog-klienten i Azure Stack de till
 TCP använda autentisering och kryptering är standardkonfigurationen och representerar den lägsta nivån av säkerhet som Microsoft rekommenderar för en produktionsmiljö. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 ```
 
 Om du vill testa integreringen av syslog-servern med Azure Stack-klienten med hjälp av ett självsignerat och/eller ej betrodda certifikat kan du kan använda dessa flaggor för att hoppa över serververifiering som utförts av klienten under den inledande handskakningen.
 
 ```powershell
- #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
- ```-SkipCNCheck
+#Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCNCheck 
  
- #Skip entirely the server certificate validation
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
-```-SkipCertificateCheck
+#Skip entirely the server certificate validation
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCertificateCheck
 ```
+
 > [!IMPORTANT]
 > Microsoft rekommenderar mot att använda flaggan - SkipCertificateCheck för produktionsmiljöer. 
-
 
 ### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>Konfigurera syslog-vidarebefordran med TCP- och ingen kryptering
 
 I den här konfigurationen vidarebefordrar syslog-klienten i Azure Stack de till syslog-servern via TCP, med Ingen kryptering. Klienten verifiera inte identiteten för servern eller den tillhandahåller sin egen identitet till servern för verifiering. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -NoEncryption
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -NoEncryption
 ```
 
 > [!IMPORTANT]
@@ -167,8 +167,9 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <
 I den här konfigurationen vidarebefordrar syslog-klienten i Azure Stack de till syslog-servern över UDP, med Ingen kryptering. Klienten verifiera inte identiteten för servern eller den tillhandahåller sin egen identitet till servern för verifiering. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -UseUDP
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -UseUDP
 ```
+
 UDP med Ingen kryptering är den enklaste att konfigurera, ger inte skydd mot man-in-the-middle-attacker och avlyssning av meddelanden. 
 
 > [!IMPORTANT]
@@ -226,72 +227,6 @@ CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|
 * Device Product: Microsoft Azure Stack
 * Device Version: 1.0
 ```
-
-### <a name="cef-mapping-for-privileged-endpoint-events"></a>CEF-mappning för privilegierad slutpunkt händelser
-
-```
-Prefix fields
-* Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>
-* Name: <PEP Task Name>
-* Severity: mapped from PEP Level (details see the PEP Severity table below)
-```
-
-Tabell med händelser för privilegierad slutpunkt:
-
-| Händelse | Händelse-ID för program | Aktivitet för program | Severity |
-|-------|--------------| --------------|----------|
-|PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
-|SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
-|SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
-|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
-|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10|
-|PrivilegedEndpointClosed |1005|PrivilegedEndpointClosedEvent|5|
-|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10|
-|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10|
-|SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
-|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
-|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
-
-PROGRAM allvarlighetsgrad tabell:
-
-| Severity | Nivå | Numeriskt värde |
-|----------|-------| ----------------|
-|0|Odefinierat|Värde: 0. Anger loggar på alla nivåer|
-|10|Kritisk|Värde: 1. Anger loggar för en kritisk varning|
-|8|Fel| Värde: 2. Anger loggar för ett fel|
-|5|Varning|Värde: 3. Anger loggar för en varning|
-|2|Information|Värde: 4. Anger loggar för ett informationsmeddelande|
-|0|Utförlig|Värde: 5. Anger loggar på alla nivåer|
-
-### <a name="cef-mapping-for-recovery-endpoint-events"></a>CEF-mappning för recovery endpoint-händelser
-
-```
-Prefix fields
-* Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <REP Event ID>
-* Name: <REP Task Name>
-* Severity: mapped from REP Level (details see the REP Severity table below)
-```
-
-Tabell med händelser för återställning-slutpunkten:
-
-| Händelse | REP händelse-ID | REP aktivitetsnamn | Severity |
-|-------|--------------| --------------|----------|
-|RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
-|RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
-|RecoverySessionDevelopmentTokenRequested |1013|RecoverySessionDevelopmentTokenRequestedEvent|5|
-|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10|
-|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10|
-|RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
-
-REP Severity tabell:
-| Severity | Nivå | Numeriskt värde |
-|----------|-------| ----------------|
-|0|Odefinierat|Värde: 0. Anger loggar på alla nivåer|
-|10|Kritisk|Värde: 1. Anger loggar för en kritisk varning|
-|8|Fel| Värde: 2. Anger loggar för ett fel|
-|5|Varning|Värde: 3. Anger loggar för en varning|
-|2|Information|Värde: 4. Anger loggar för ett informationsmeddelande|
-|0|Utförlig|Värde: 5. Anger loggar på alla nivåer|
 
 ### <a name="cef-mapping-for-windows-events"></a>CEF-mappning för Windows-händelser
 

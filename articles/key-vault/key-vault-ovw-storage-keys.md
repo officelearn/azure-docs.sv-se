@@ -8,19 +8,19 @@ ms.service: key-vault
 author: bryanla
 ms.author: bryanla
 manager: mbaldwin
-ms.date: 08/21/2017
-ms.openlocfilehash: 7545a035541a4e464a6c82acb9fa9de18cf8e86d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/03/2018
+ms.openlocfilehash: 38717fed9f3877dfd0aa9819571ef0f32befc117
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304330"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785519"
 ---
-# <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault-Lagringskontonycklar
+# <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault-lagringskontonycklar
 
-Innan Azure Key Vault Lagringskontonycklar, utvecklare var tvungen att hantera sina egna nycklar för Azure Storage-konto (ASA) och rotera dem manuellt eller via en extern automation. Nu kan Key Vault-Lagringskontonycklar implementeras som [Key Vault-hemligheter](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) för att autentisera med Azure Storage-kontot.
+Innan Azure Key Vault-lagringskontonycklar, utvecklare var tvungen att hantera sina egna nycklar för Azure Storage-konto (ASA) och rotera dem manuellt eller via en extern automation. Nu kan Key Vault-Lagringskontonycklar implementeras som [Key Vault-hemligheter](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) för att autentisera med Azure Storage-kontot.
 
-Funktionen Azure Storage-konto (ASA) hanterar hemliga rotation för dig. Det tar också bort behovet av din direkt kontakt med en nyckel som ASA genom att erbjuda signaturer för delad åtkomst (SAS) som en metod.
+Funktionen Azure Storage-konto (ASA) hanterar hemliga rotation för dig. Det tar också bort behovet av direkt kontakt med en nyckel som ASA, genom att erbjuda signaturer för delad åtkomst (SAS) som en metod.
 
 Mer allmän information om Azure Storage-konton finns i [om Azure storage-konton](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
@@ -95,28 +95,38 @@ accountSasCredential.UpdateSASToken(sasToken);
 - Tillåt inte ASA nycklar som ska hanteras av fler än ett Key Vault-objekt.
 - Om du måste manuellt återskapa nycklarna ASA, rekommenderar vi att du återskapar dem via Key Vault.
 
-## <a name="getting-started"></a>Komma igång
+## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Auktorisera Key Vault får tillgång till ditt storage-konto
 
-### <a name="give-key-vault-access-to-your-storage-account"></a>Ge Key Vault-åtkomst till ditt Storage-konto 
+Innan Key Vault kan komma åt och hantera dina lagringskontonycklar, måste du godkänna åtkomsten ditt storage-konto.  Liksom många program, Key Vault kan integreras med Azure AD för identitets- och hanteringstjänster. 
 
-Liksom många program registreras Key Vault med Azure AD för att kunna använda OAuth för att få åtkomst till andra tjänster. Under registreringen, [ett huvudnamn för tjänsten](/azure/active-directory/develop/app-objects-and-service-principals) objekt skapas, som används för att representera programmets identitet vid körning. Tjänstens huvudnamn används också för att auktorisera programmets identitet för åtkomst till en annan resurs via rollbaserad åtkomstkontroll (RBAC).
+Eftersom Key Vault är ett Microsoft-program, den redan är registrerad i Azure AD-klienter under program-ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`. Och som alla program som är registrerade med Azure AD en [tjänstens huvudnamn](/azure/active-directory/develop/app-objects-and-service-principals) objektet innehåller programmets identitetsegenskaper. Tjänstens huvudnamn kan sedan få åtkomstbehörighet till en annan resurs via rollbaserad åtkomstkontroll (RBAC).  
 
-Azure Key Vault-Programidentitet måste ha behörighet att *lista* och *återskapa* nycklar för ditt lagringskonto. Ställ in dessa behörigheter med följande steg:
+Azure Key Vault-programmet kräver behörighet att *lista* och *återskapa* nycklar för ditt lagringskonto. Dessa behörigheter aktiveras genom inbyggda [Storage Account Key operatorn Service](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role) RBAC-roll. Du kan tilldela Key Vault-tjänstens huvudnamn i den här rollen med följande steg:
 
 ```powershell
-# Get the resource ID of the Azure Storage Account you want to manage.
-# Below, we are fetching a storage account using Azure Resource Manager
+# Get the resource ID of the Azure Storage Account you want Key Vault to manage
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get Application ID of Azure Key Vault's service principal
-$servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
-
 # Assign Storage Key Operator role to Azure Key Vault Identity
-New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storage.Id
+New-AzureRmRoleAssignment -ApplicationId “cfa8b339-82a2-471a-a3c9-0fc0be7a4093” -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storage.Id
 ```
 
-    >[!NOTE]
-    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role."*
+> [!NOTE]
+> För en klassisk kontotyp inställd rollparametern *”klassisk lagring konto nyckeln Tjänstroll som operatör”.*
+
+Vid lyckad rolltilldelningen, bör du se utdata som liknar följande
+
+```console
+RoleAssignmentId   : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgSandbox/providers/Microsoft.Storage/storageAccounts/sabltest/providers/Microsoft.Authorization/roleAssignments/189cblll-12fb-406e-8699-4eef8b2b9ecz
+Scope              : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgSandbox/providers/Microsoft.Storage/storageAccounts/sabltest
+DisplayName        : Azure Key Vault
+SignInName         :
+RoleDefinitionName : Storage Account Key Operator Service Role
+RoleDefinitionId   : 81a9blll-bebf-436f-a333-f67b29880f1z
+ObjectId           : c730c8da-blll-4032-8ad5-945e9dc8262z
+ObjectType         : ServicePrincipal
+CanDelegate        : False
+```
 
 ## <a name="working-example"></a>Exempel
 
@@ -124,7 +134,7 @@ I följande exempel visar hur du skapar ett Key Vault hanteras Azure Storage-kon
 
 ### <a name="prerequisite"></a>Krav
 
-Se till att du har slutfört [konfigurera för rollbaserade behörigheter för åtkomstkontroll (RBAC)](#setup-for-role-based-access-control-rbac-permissions).
+Innan du startar, se till att du [auktorisera Key Vault för att få åtkomst till ditt lagringskonto](#authorize-key-vault-to-access-to-your-storage-account).
 
 ### <a name="setup"></a>Konfiguration
 

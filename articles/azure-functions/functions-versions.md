@@ -7,14 +7,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: d4a0d53c3438be9ea4e0229e4a456ed6f5960996
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 372cf445e518ccdb287ce23ade6a3d92ddc5bc2b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249068"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784907"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions runtime versioner-översikt
 
@@ -63,6 +63,7 @@ Förutom ändringarna i språk och bindningar finns det vissa funktioner som har
 * Programinställningar (`local.settings.json`) kräver ett värde för egenskapen `FUNCTIONS_WORKER_RUNTIME` som mappar till språket i appen `dotnet | node | java | python`.
     * Appar är begränsad till ett språk för att förbättra tid-fotavtryck och Start. Du kan publicera flera appar om du vill ha funktioner på olika språk för samma lösning.
 * Standardvärdet för timeout för i en app service-plan är 30 minuter.  Det kan fortfarande manuellt sättas till obegränsad.
+* HTTP-begränsningar för samtidighet implementeras som standard för consumption-plan (100 samtidiga begäranden per instans).  De här inställningarna kan ändras den `host.json` filen.
 * [På grund av .NET core uppladdningskvoter](https://github.com/Azure/azure-functions-host/issues/3414), `.fsx` skript för F #-funktioner har tagits bort. Kompilerade F #-funktioner stöds fortfarande.
 * Formatet för webhook-baserade utlösare (t.ex. Event Grid) har ändrats till `https://{app}/runtime/webhooks/{triggerName}`
 

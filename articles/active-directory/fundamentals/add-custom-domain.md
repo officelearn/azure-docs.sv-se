@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: c4529948a0a1b165945de78de97cc2470c6b431e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 30b4a038c2ad9bd86f2ba78d52ed3754acec07f0
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237559"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785265"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Så här: Lägg till ditt domännamn med hjälp av Azure Active Directory-portalen
 Varje ny Azure AD-klienten levereras med ett första domännamn *domainname*. onmicrosoft.com. Du kan inte ändra eller ta bort det ursprungliga domännamnet, men du kan lägga till din organisations namn i listan. Att lägga till anpassade domännamn som hjälper dig att skapa användarnamn som dina användare känner igen som *alain@contoso.com*.
@@ -84,7 +84,7 @@ När du registrerar ditt domännamn måste du kontrollera att den är giltig i A
 
     ![Contoso-sida med information om DNS-post och knappen verifiera](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
-### <a name="common-verification-issues"></a>Vanliga problem med verifiering
+## <a name="common-verification-issues"></a>Vanliga problem med verifiering
 - Om Azure AD inte kan verifiera ett anpassat domännamn, kan du prova följande rekommendationer:
     - **Vänta minst en timme och försök igen**. DNS-posterna måste spridas innan Azure AD kan verifiera domänen och den här processen kan ta en timme eller mer.
 
@@ -93,7 +93,8 @@ När du registrerar ditt domännamn måste du kontrollera att den är giltig i A
     Om du inte kan uppdatera posten på webbplatsen registrator, måste du dela posten med någon som har rätt behörighet för att lägga till posten och kontrollera att den är korrekt.
 
 - **Kontrollera att domännamnet inte redan används i en annan katalog.** Ett domännamn kan bara verifieras i en katalog, vilket innebär att om ditt domännamn är för närvarande verifierat i en annan katalog, den inte kan också verifieras på den nya katalogen. Åtgärda problemet duplicering, måste du ta bort domännamnet från den gamla katalogen. Mer information om hur du tar bort domännamn finns [hantera egna domännamn](../users-groups-roles/domains-manage.md).
-    - IT-administratören kan hantera den här klienten genom övertagning, eller fortsätta med att lägga till domänen med alternativet för framtvingat övertagande i PowerShell, om du har användare som har aktiverat PowerBI via självanmälan och har skapat en ohanterad klient för din organisation. Läs mer om övertagande av administratörsdomäner i [ta över en ohanterad katalog som administratör i Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
+
+- **Kontrollera att du inte har någon ohanterade Power BI-klienter.** Om användarna har aktiverat Powerbi via självanmälan och skapat en ohanterad klient för din organisation, måste du vidta över hantering som interna eller externa-administratör med hjälp av PowerShell. Mer information om hur du tar över en ohanterad katalog finns [ta över en ohanterad katalog som administratör i Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

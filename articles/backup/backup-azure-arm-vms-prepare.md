@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 00432e1b5a181c57e4901b684d0a86c1cc843037
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ebfd879fcd619dab48e4a08130f86afc68f91207
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408988"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785434"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -37,7 +37,7 @@ Om dessa villkor finns redan i din miljö, fortsätter du till den [säkerhetsko
 
  * **Linux**: Azure Backup stöder [en lista över distributioner som Azure godkänner](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), förutom CoreOS Linux. Lista över Linux-operativsystem som stöd för att återställa filer, finns i [återställa filer från säkerhetskopiering av virtuella datorer](backup-azure-restore-files-from-vm.md#for-linux-os).
 
-    > [!NOTE] 
+    > [!NOTE]
     > Andra bring-your-own-Linux-distributioner kan fungera, så länge som den Virtuella datoragenten är tillgänglig på den virtuella datorn och har stöd för Python finns. Dessa distributioner stöds dock inte.
     >
  * **Windows Server**, **Windows-klienten**: versioner som är äldre än Windows Server 2008 R2 eller Windows 7, stöds inte.
@@ -46,11 +46,10 @@ Om dessa villkor finns redan i din miljö, fortsätter du till den [säkerhetsko
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Begränsningar när du säkerhetskopierar och återställer en virtuell dator
 Innan du förbereder din miljö måste du förstå följande begränsningar:
 
-* Säkerhetskopiera virtuella datorer med Standard SSD stöds inte för närvarande.
 * Säkerhetskopiering av virtuella datorer med mer än 32 datadiskar stöds inte.
 * Säkerhetskopiering av virtuella datorer med en reserverad IP-adress och ingen definierad slutpunkt stöds inte.
 * Säkerhetskopiera virtuella Linux-datorer krypteras med kryptering för Linux Unified nyckel installationsprogrammet (LUKS) stöds inte.
-* Vi rekommenderar inte att du säkerhetskopierar virtuella datorer som innehåller klusterdelade volymer (CSV) eller skalbar filserver. Om gjort, förväntas fel i CSV-skrivare. De kräver som omfattar alla virtuella datorer som ingår i klusterkonfigurationen under en ögonblicksbild-aktivitet. Azure Backup stöder inte konsekvens. 
+* Vi rekommenderar inte att du säkerhetskopierar virtuella datorer som innehåller klusterdelade volymer (CSV) eller skalbar filserver. Om gjort, förväntas fel i CSV-skrivare. De kräver som omfattar alla virtuella datorer som ingår i klusterkonfigurationen under en ögonblicksbild-aktivitet. Azure Backup stöder inte konsekvens.
 * Säkerhetskopierade data omfattar inte monterade nätverksenheter som är kopplade till en virtuell dator.
 * Att ersätta en befintlig virtuell dator under återställningen stöds inte. Om du försöker återställa den virtuella datorn när den virtuella datorn finns, misslyckas återställningen.
 * Interregionala säkerhetskopiera och Återställ stöds inte.
@@ -115,7 +114,7 @@ Så här redigerar du inställningen för lagringsreplikering:
    Om du använder Azure som en slutpunkt för primär lagring av säkerhetskopior kan fortsätta använda geo-redundant lagring. Om du använder Azure som en slutpunkt för icke-primär lagring av säkerhetskopior väljer du lokalt redundant lagring. Läs mer om lagringsalternativ i den [översikt över Azure Storage-replikering](../storage/common/storage-redundancy.md).
 
 1. Om du har ändrat lagringsreplikeringstyp Välj **spara**.
-    
+
 När du har valt lagringsalternativet för valvet är du redo att associera den virtuella datorn med valvet. För att börja kopplingen identifierar du och registrerar de virtuella Azure-datorerna.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Välj ett säkerhetskopieringsmål, ange en princip och definiera objekt som ska skyddas
@@ -172,11 +171,11 @@ När du har har aktiverat säkerhetskopieringen körs säkerhetskopieringspolicy
 Om du har problem med att registrera den virtuella datorn kan du se följande information om hur du installerar VM-agenten och på nätverksanslutning. Förmodligen behöver inte du följande information om du skyddar virtuella datorer som skapats i Azure. Men om du har migrerat dina virtuella datorer till Azure är det viktigt att du installerade VM-agenten och att den virtuella datorn kan kommunicera med det virtuella nätverket.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installera VM-agenten på den virtuella datorn
-För att säkerhetskopieringstillägget ska fungera, Azure [VM-agenten](../virtual-machines/extensions/agent-windows.md) måste installeras på virtuella Azure-datorer. Om den virtuella datorn skapades från Azure Marketplace finns redan VM-agenten på den virtuella datorn. 
+För att säkerhetskopieringstillägget ska fungera, Azure [VM-agenten](../virtual-machines/extensions/agent-windows.md) måste installeras på virtuella Azure-datorer. Om den virtuella datorn skapades från Azure Marketplace finns redan VM-agenten på den virtuella datorn.
 
 Den här informationen för situationer där du är *inte* med hjälp av en virtuell dator skapas från Azure Marketplace. **Exempelvis kan migrerat du en virtuell dator från ett lokalt datacenter. I sådana fall måste VM-agenten installeras för att skydda den virtuella datorn.**
 
-**Obs**: när du har installerat VM-agenten måste du också använda Azure PowerShell för att uppdatera egenskapen ProvisionGuestAgent så att Azure vet att den virtuella datorn har agenten installerad. 
+**Obs**: när du har installerat VM-agenten måste du också använda Azure PowerShell för att uppdatera egenskapen ProvisionGuestAgent så att Azure vet att den virtuella datorn har agenten installerad.
 
 Om du har problem med säkerhetskopiering av Virtuella Azure kan du använda följande tabell för att kontrollera att Azure VM-agenten är korrekt installerad på den virtuella datorn. Tabellen innehåller ytterligare information om VM-agenten för Windows och Linux-datorer.
 
@@ -207,11 +206,11 @@ När du bestämmer vilket alternativ som är avvägningarna mellan hanterbarhet,
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Listan över godkända Azure-datacenter IP-intervall
 Godkänna Azure datacenter IP-intervall finns i den [Azure-webbplatsen](http://www.microsoft.com/en-us/download/details.aspx?id=41653) mer information om IP-intervall och anvisningar.
 
-Du kan tillåta anslutningar till storage för den specifika regionen med hjälp av [tjänsttaggar](../virtual-network/security-overview.md#service-tags). Se till att den regel som tillåter åtkomst till storage-kontot har högre prioritet än den regel som blockerar Internetåtkomst. 
+Du kan tillåta anslutningar till storage för den specifika regionen med hjälp av [tjänsttaggar](../virtual-network/security-overview.md#service-tags). Se till att den regel som tillåter åtkomst till storage-kontot har högre prioritet än den regel som blockerar Internetåtkomst.
 
 ![NSG med storage-taggar för en region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
-Följande videoklipp går du igenom steg för steg-procedur för att konfigurera tjänsttaggar: 
+Följande videoklipp går du igenom steg för steg-procedur för att konfigurera tjänsttaggar:
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
@@ -292,7 +291,7 @@ HttpProxy.Port=<proxy port>
    * För **lokal port**väljer **specifika portar**. I följande ruta anger du antalet Proxyport som har konfigurerats.
    * För **Fjärrport**väljer **alla portar**.
 
-Acceptera standardinställningarna för resten av guiden tills du kommer till slutet. Sedan ge regeln ett namn. 
+Acceptera standardinställningarna för resten av guiden tills du kommer till slutet. Sedan ge regeln ett namn.
 
 #### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Steg 3: Lägga till en undantagsregel i NSG
 Följande kommando lägger till ett undantag i NSG. Det här undantaget kan TCP-trafik från alla portar på 10.0.0.5 till en Internetadress på port 80 (HTTP) eller 443 (HTTPS). Om du behöver en viss port på internet, måste du lägga till den porten till ```-DestinationPortRange```.

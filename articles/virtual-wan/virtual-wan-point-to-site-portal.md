@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: bf0e766f082b2e137c90b5ea66bb7570bea2e1e6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963380"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409294"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Självstudie: Skapa en punkt-till-plats-anslutning med Azure Virtual WAN (förhandsversion)
 
@@ -40,6 +40,38 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
+## <a name="register"></a>Registrera funktionen
+
+Klicka på **TryIt** för att registrera funktionen enkelt med Azure Cloud Shell.
+
+>[!NOTE]
+>Om du inte registrerar funktionen kan du inte använda den eller se den i portalen.
+>
+>
+
+När du har klickat på **TryIt** för att öppna Azure Cloud Shell kopierar du och klistrar in följande kommandon:
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
+ 
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+
+När funktionen visas som registrerad registrerar du prenumerationen på nytt i Microsoft.Network-namnrymden.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
 
 ## <a name="vnet"></a>1. Skapa ett virtuellt nätverk
 
@@ -47,7 +79,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="openvwan"></a>2. Skapa ett virtuellt WAN
 
-Öppna en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
+Öppna en webbläsare, navigera till [Azure-portalen (förhandsversion)](http://aka.ms/azurevirtualwanpreviewfeatures) och logga in med ditt Azure-konto.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 

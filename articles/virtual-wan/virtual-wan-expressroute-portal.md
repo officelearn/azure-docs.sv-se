@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/12/2018
+ms.date: 09/26/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 46a48c6e06f37968ab3f41b30d983f2664785811
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0b8de4d04d9cca47423634164e458e8699154f30
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990560"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405316"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Självstudie: Skapa en ExpressRoute-association med hjälp av Azure Virtual WAN (förhandsversion)
 
@@ -39,6 +39,30 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
+## <a name="register"></a>Registrera funktionen
+
+Klicka på **TryIt** för att registrera funktionen enkelt med Azure Cloud Shell.
+
+>[!NOTE]
+>Om du inte registrerar funktionen kan du inte använda den eller se den i portalen.
+>
+>
+
+När du har klickat på **TryIt** för att öppna Azure Cloud Shell kopierar du och klistrar in följande kommandon:
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
+```
+ 
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
+```
+
+När funktionen visas som registrerad registrerar du prenumerationen på nytt i Microsoft.Network-namnrymden.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
 
 ## <a name="vnet"></a>1. Skapa ett virtuellt nätverk
 
@@ -46,7 +70,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="openvwan"></a>2. Skapa ett virtuellt WAN
 
-Öppna en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
+Öppna en webbläsare, navigera till [Azure-portalen (förhandsversion)](http://aka.ms/azurevirtualwanpreviewfeatures) och logga in med ditt Azure-konto.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: c4c60cccb890c883e9e57c9f146cc93aae99f224
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 191471d3538a9151827ee24a5887aa559383345b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057004"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785672"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuera ett Service Fabric-kluster som använder certifikatets unika namn i stället för tumavtryck
 Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet för klustret eller management svårt. Flera certifikat kan dock ha samma namn eller ämne.  Ett kluster med vanliga namn för certifikatet gör det mycket enklare att certifikathantering. Den här artikeln beskriver hur du distribuerar Service Fabric-kluster för certifikatets unika namn istället för certifikatets tumavtryck.
@@ -116,7 +116,7 @@ Därefter öppnar den *azuredeploy.json* filen i en textredigerare och gör tre 
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. I den **Microsoft.Compute/virtualMachineScaleSets** resurs, uppdatera tillägg för virtuell dator om du vill använda det gemensamma namnet i certifikatinställningarna i stället för tumavtrycket för.  I **virtualMachineProfile**->**extenstionProfile**->**tillägg**->**egenskaper** -> **inställningar**->**certifikat**, lägga till 
+3. I den **Microsoft.Compute/virtualMachineScaleSets** resurs, uppdatera tillägg för virtuell dator om du vill använda det gemensamma namnet i certifikatinställningarna i stället för tumavtrycket för.  I **virtualMachineProfile**->**extensionProfile**->**tillägg**->**egenskaper** -> **inställningar**->**certifikat**, lägga till 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"

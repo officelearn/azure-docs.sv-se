@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 73cc346e882acab1c2c00cc49738a388927d3ccf
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 40a74af4f71fe649e5e4c6e67d4fdcb9751cc06e
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248252"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800765"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning-tjänsten
 
@@ -188,7 +188,7 @@ Ett exempel på hur du använder Azure-datorer med Azure Machine Learning-tjäns
     conda install <new package>
     ```
 
-6. Starta Visual Studio Code och sedan använda __CTRL-SHIFT-P__ att hämta den __Kommandopaletten__. Ange *Python: Välj tolk*, och välj den conda-miljö som du skapade.
+6. Starta Visual Studio Code och sedan använda __CTRL-SHIFT-P__ för Windows eller __kommandot SKIFT P__ för Mac att hämta den __Kommandopaletten__. Ange *Python: Välj tolk*, och välj den conda-miljö som du skapade.
 
     > [!NOTE]
     > Visual Studio Code har automatiskt om conda miljöer på datorn. Mer information finns i [Visual Studio code-dokumentation](https://code.visualstudio.com/docs/python/environments#_conda-environments).

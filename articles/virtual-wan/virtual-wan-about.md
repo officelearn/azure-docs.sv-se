@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/21/2018
+ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: a21b97f603fc28cdbba8983547ce958a34df0774
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 54d177d7542d7501a91a955be20af776b16657a2
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968602"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182373"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Vad är Azure Virtual WAN?
 
@@ -43,6 +43,8 @@ När du arbetar med en Virtual WAN-partner är processen:
 Om du inte vill använda en prioriterad partner kan du konfigurera anslutningen manuellt, se [Skapa en plats-till-plats-anslutning med Virtual WAN](virtual-wan-site-to-site-portal.md).
 
 ## <a name="p2s"></a>Punkt-till-plats-anslutningar (förhandsversion)
+
+En P2S-anslutning (punkt-till-plats) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. En P2S-anslutning upprättas genom att du startar den från klientdatorn. Den här lösningen är praktisk för distansarbetare som vill ansluta från en fjärransluten plats, t.ex. hemifrån eller från en konferens. VPN för punkt-till-plats är också ett bra alternativ till VPN för plats-till-plats om du bara har ett fåtal klienter som behöver ansluta.
 
 Om du vill skapa anslutningen manuellt läser du [Skapa en punkt-till-plats-anslutning med hjälp av Virtual WAN](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid).
 

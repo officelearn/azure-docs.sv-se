@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: d28b9177684cf7b9a3ddc83107806aaa6afde477
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434046"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785315"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
@@ -41,19 +41,21 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 I Azure Search, de viktigaste fakturering konceptet att förstå är en *sökenheten* (SU). Eftersom Azure Search är beroende av både repliker och partitioner ska fungera, vara inte det klokt att debiterar per bara någondera. I stället baseras fakturering på en kombination av båda. 
 
-Formulaically, en SU är produkten av *repliken* och *partitioner* används av en tjänst: **`(R X P = SU)`**
+SU är produkten av *repliken* och *partitioner* används av en tjänst: **`(R X P = SU)`**
 
-Varje tjänst som börjar med 1 SU (en replik multiplicerat med en partition) som ett minimum, men för större belastningar en mer realistisk modell kan vara en 3-replik 3-partition tjänst som 9 su: er. 
+Varje tjänst börjar med 1 SU (en replik multiplicerat med en partition) som minst. Den maximala storleken för alla tjänster är 36 su: er, vilket kan ske på flera olika sätt: 6 partitioner x 6 repliker eller 3 partitioner x 12 repliker, att nämna några. 
+
+Det är vanligt att använda mindre än total kapacitet. Till exempel en 3-replik 3-partition tjänst, som 9 su: er. 
 
 Debiteringen är **per timme per SU**, där varje nivå har en progressivt högre kostnad. På högre nivå har större och snabbare partitioner, bidrar till ett högre övergripande timpris för den nivån. Gällande priser för varje nivå finns på [prisinformation om](https://azure.microsoft.com/pricing/details/search/). 
 
-Även om varje nivå erbjuder progressivt högre kapacitet, du kan hämta en *del* av den totala kapaciteten online, hålla resten reserv. När det gäller fakturering är det antalet partitioner och -repliker som du infogar online, beräknade med hjälp av SU-formeln som anger vad du faktiskt betalar.
+De flesta kunder använda bara en del av den totala kapaciteten online, hålla resten reserv. När det gäller fakturering är det antalet partitioner och -repliker som du infogar online, beräknade med hjälp av SU-formeln som anger vad du betalar per timme.
 
 ### <a name="tips-for-reducing-costs"></a>Tips för att minska kostnaderna
 
-Du kan inte stänga av tjänsten för att sänka kostnader. Dedikerade resurser för partitioner och -repliker är operativa 24-7, tilldelat för din exklusiv användning för livslängden för din tjänst. Det enda sättet att sänka en faktura är genom att minska repliker och partitioner till en låg nivå som ger acceptabel prestanda fortfarande och [SLA efterlevnad](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Du kan inte stänga av tjänsten för att sänka kostnader. Dedikerade resurser är operativa 24-7, tilldelat för din exklusiv användning för livslängden för din tjänst. Det enda sättet att sänka en faktura är genom att minska repliker och partitioner till en låg nivå som ger acceptabel prestanda fortfarande och [SLA efterlevnad](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-En annan Spak för att minska kostnaderna är att välja en nivå med ett lägre pris per timme. S1 timpris är lägre än S2 eller S3-priser. Du kan etablera en tjänst som syftar till att den nedre delen av load-projektioner. Om företaget har växt ur tjänsten, skapa en andra tjänst för större nivåer, återskapar dina index på den andra tjänsten och ta sedan bort förstnämnda. På lokala servrar är det vanligt att ”köpa” så att du kan hantera planerade tillväxt. Men med en molnbaserad tjänst kan du välja kostnadsbesparingar mest aggressivt att veta att du kan alltid växla till en högre nivåer tjänst om den inte är tillräckligt.
+En Spak för att minska kostnaderna är att välja en nivå med ett lägre pris per timme. S1 timpris är lägre än S2 eller S3-priser. Du kan etablera en tjänst som syftar till att den nedre delen av load-projektioner. Om företaget har växt ur tjänsten, skapa en andra tjänst för större nivåer, återskapar dina index på den andra tjänsten och ta sedan bort förstnämnda. Om du har gjort kapacitetsplanering på lokala servrar, vet du att det är vanligt att ”köpa dig” så att du kan hantera planerade tillväxt. Men med en molnbaserad tjänst att försöka göra kostnadsbesparingar mer aggressivt eftersom du inte låst att en särskild försäljningsorder. Du kan alltid växla till en högre nivåer tjänst om den inte är tillräckligt.
 
 ### <a name="capacity-drill-down"></a>Kapacitet nedåt
 
@@ -92,7 +94,7 @@ Portalen och prissättning sidor lägga fokus i partitionsstorlek och lagring, m
 **S3** och **S3 HD** backas upp av identiska hög kapacitet infrastruktur, men var och en når sin maxgräns på olika sätt. **S3** riktar sig mot ett mindre antal mycket stora index. Därför maxlängden är bundet till en resurs (2,4 TB för varje tjänst). **S3 HD** riktar sig mot ett stort antal mycket små index. På 1 000 index **S3 HD** når gränsen i form av index begränsningar. Om du är en **S3 HD** kund som kräver mer än 1 000 index, kontakta Microsoft Support för information om hur du fortsätter.
 
 > [!NOTE]
-> Tidigare dokumentet gränser har ersättning men kan inte längre gäller för de flesta Azure Search-tjänsterna som etablerats efter januari 2018. Mer information om villkor som dokumentet begränsningar gäller fortfarande finns [tjänstbegränsningar: dokumentera gränser](search-limits-quotas-capacity.md#document-limits).
+> Tidigare dokumentet gränser har ersättning men kan inte längre gäller för nya tjänster. Mer information om villkor som dokumentet begränsningar gäller fortfarande finns [tjänstbegränsningar: dokumentera gränser](search-limits-quotas-capacity.md#document-limits).
 >
 
 ## <a name="evaluate-capacity"></a>Utvärdera kapacitet

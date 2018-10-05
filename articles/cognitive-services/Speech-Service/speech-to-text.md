@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ef2f349333592e05185c5502490828832cb6c24c
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 456b60ee44f3e47bc04da341fd0e3df86662d16b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018357"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785451"
 ---
 # <a name="about-the-speech-to-text-api"></a>Om tal till Text API
 
@@ -34,9 +34,11 @@ Den **tal till Text** API: et erbjuder följande funktioner:
 
 - Naturlig språkförståelse. Integreringen med [Språkförståelse](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS), du kan härleda avsikter och entiteter från tal. Användare behöver inte ha någon ordförråd för din app, men kan beskriva vad de vill med egna ord.
 
+- Förtroendepoäng returneras från tjänsten om du anger ett detaljerat resultat på konfigurationsobjektet tal (SpeechConfig.OutputFormat egenskap). Sedan kan du använda antingen Best()-metoden på resultatet eller få poäng direkt från JSON som returneras från tjänsten (exempelvis resultat. Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)).
+
 ## <a name="api-capabilities"></a>API-funktioner
 
-Många av funktionerna i den **tal till Text** API - särskilt när det gäller anpassning - är tillgängliga via REST. I följande tabell sammanfattas funktionerna för varje metod för att komma åt API: et. För en fullständig lista över funktioner och API: et. detaljer finns [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+Några av funktionerna i den **tal till Text** API - särskilt när det gäller anpassning - är tillgängliga via REST. I följande tabell sammanfattas funktionerna för varje metod för att komma åt API: et. 
 
 | Användningsfall | REST | SDK:er |
 |-----|-----|-----|----|

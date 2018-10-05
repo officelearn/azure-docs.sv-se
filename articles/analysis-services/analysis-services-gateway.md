@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 09/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3b731d44348c506f09f0d30d6d42b9cbdc623936
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 84c82da933b17679e8c69c08b0c9cc7372951cfd
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041943"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802061"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Ansluta till lokala datakällor med Azure lokala Data Gateway
 Den lokala datagatewayen fungerar som en brygga med säker dataöverföring mellan lokala datakällor och din Azure Analysis Services-servrar i molnet. Utöver att arbeta med flera Azure Analysis Services-servrar i samma region, fungerar den senaste versionen av gatewayen även med Azure Logic Apps, Power BI, Powerapps och Microsoft Flow. Du kan associera flera tjänster i samma prenumeration och samma region med en enda gateway. 

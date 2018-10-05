@@ -26,7 +26,7 @@ Följ instruktionerna i den [installera innehållsredigeringsverktyg](https://do
 
 ## <a name="license"></a>Licens
 
-Se [licens](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) och [ThirdPartyNotices](.github/ThirdPartyNotices) för alla licensinformation.
+Se [licens](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) och [ThirdPartyNotices](.github/ThirdPartyNotices.md) för alla licensinformation.
 
 ## <a name="code-of-conduct"></a>Regler för uppförande
 

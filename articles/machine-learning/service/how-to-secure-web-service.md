@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 8a26491acc7215598e57ce6074fffe26a4374a96
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251149"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801020"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Skydda Azure Machine Learning-webbtjänster med SSL
 
@@ -81,7 +81,7 @@ Om du vill distribuera (eller omdistribuera) tjänsten med SSL aktiverat, ange d
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-+ **Distribuera på fältet programmerbart gamma matriser (FPGA)**
++ **Distribuera på fältet Programmable Gate matriser (FPGA)**
 
   Svaret på den `create_service` åtgärden innehåller IP-adressen för tjänsten. IP-adressen används när du kartlägger DNS-namn till IP-adressen för tjänsten. Svaret innehåller även en __primärnyckel__ och __sekundärnyckel__ som används för att använda tjänsten. Ange värden för SSL-relaterade parametrar som du ser i kodfragmentet:
 
@@ -119,7 +119,7 @@ Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
 
   Uppdatera DNS under fliken ”Configuration” i ”offentliga IP-adressen” för AKS-kluster som du ser i bilden. Du hittar den offentliga IP-adressen som en av de resurstyper som skapats under resursgruppen med agentnoderna AKS och andra nätverksresurser.
 
-  [ ![Azure Machine Learning-tjänsten: skydda webbtjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png) ] ((.media/how-to-secure-web-service/aks-public-ip-address.png#lightbox)
+  ![Azure Machine Learning-tjänsten: skydda webbtjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## <a name="consume-authenticated-services"></a>Använda autentiserade tjänster
 
@@ -131,7 +131,7 @@ Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
 
   + [Hur du distribuerar till AKS](how-to-deploy-to-aks.md)
 
-+ **För ACI och FPGA**:  
++ **För FPGA**:  
 
   I följande exempel visar hur du använder en autentiserad FPGA-tjänst i Python och C#.
   Ersätt `authkey` med den primära eller sekundära nyckeln som returnerades när tjänsten har distribuerats.

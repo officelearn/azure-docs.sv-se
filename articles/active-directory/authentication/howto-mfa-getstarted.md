@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e8d4286e282ebbe727941712f3f3c4d3ea749cb5
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 07e9126b73b0282f61567fe8d06f785bf9a04fef
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366598"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803487"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Distribuera molnbaserade Azure Multi-Factor Authentication
 
@@ -30,9 +30,9 @@ Innan du börjar bör du kontrollera att du har följande krav:
 
 **Aktiverad av villkorliga åtkomstprinciper** -den här metoden beskrivs i den här artikeln. Det är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Aktivera med hjälp av endast princip för villkorlig åtkomst fungerar för Azure MFA i molnet och är en premiumfunktion i Azure AD.
 
-Aktiveras med Azure AD Identity Protection - används den här metoden Azure AD Identity Protection risken för att kräva tvåstegsverifiering endast utifrån inloggningsrisk för alla molnprogram. Den här metoden kräver Azure Active Directory P2 licensiering. Mer information om den här metoden finns i [så här konfigurerar du principen för användarrisk](../identity-protection/howto-user-risk-policy.md).
+**Aktiveras med Azure AD Identity Protection** -den här metoden används Azure AD Identity Protection risken för att kräva tvåstegsverifiering endast utifrån inloggningsrisk för alla molnprogram. Den här metoden kräver Azure Active Directory P2 licensiering. Mer information om den här metoden finns i [så här konfigurerar du principen för användarrisk](../identity-protection/howto-user-risk-policy.md).
 
-Aktiverat genom att ändra användarens tillstånd - detta är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både Azure MFA i molnet och Azure MFA-servern. Med den här metoden kräver att användare utför en tvåstegsverifiering **varje gång** de logga in och åsidosätter principer för villkorlig åtkomst. Mer information om den här metoden finns i [kräva tvåstegsverifiering för en användare](howto-mfa-userstates.md).
+**Aktiverat genom att ändra användarens tillstånd** – detta är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både Azure MFA i molnet och Azure MFA-servern. Med den här metoden kräver att användare utför en tvåstegsverifiering **varje gång** de logga in och åsidosätter principer för villkorlig åtkomst. Mer information om den här metoden finns i [kräva tvåstegsverifiering för en användare](howto-mfa-userstates.md).
 
 > [!Note]
 > Mer information om licenser och priser finns på den [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/

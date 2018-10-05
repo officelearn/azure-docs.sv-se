@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 4ec0433fe2bc1447344ea7b3b7ec296c7cbb583f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368741"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803366"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Ta emot händelser från Azure Event Hubs med hjälp av Node.js
 
@@ -73,7 +73,6 @@ SDK: N som du har klonat innehåller flera exempel som visar dig hur du tar emot
 ## <a name="review-the-sample-code"></a>Granska exempelkoden 
 Här är exempelkod för att ta emot händelser från en event hub med node.js. Du kan manuellt skapa en sampleEph.js-fil och kör den för att ta emot händelser till en händelsehubb. 
 
-
   ```nodejs
   const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
@@ -124,6 +123,19 @@ Här är exempelkod för att ta emot händelser från en event hub med node.js. 
   });
       
   ```
+
+Kom ihåg att ange din miljövariabler innan du kör skriptet. Du kan konfigurera det på kommandoraden som visas i följande exempel eller Använd den [dotenv paketet](https://www.npmjs.com/package/dotenv#dotenv). 
+
+```
+// For windows
+set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+set EVENTHUB_NAME="<your-event-hub-name>"
+
+// For linux or macos
+export EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+export EVENTHUB_NAME="<your-event-hub-name>"
+```
+
 Du hittar fler exempel [här](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples).
 
 

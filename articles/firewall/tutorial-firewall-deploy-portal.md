@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983522"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221675"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -31,9 +31,7 @@ Nätverkstrafiken måste följa konfigurerade brandväggsregler när du vidarebe
 
 Program- och nätverksregler lagras i *regelsamlingar*. En regelsamling är en lista med regler som delar samma åtgärd och prioritet.  En nätverksregelsamling är en lista med nätverksregler och en programregelsamling är en lista med programregler.
 
-Azure Firewall använder inte begreppen inkommande och utgående regler. Det finns programregler och nätverksregler och de tillämpas på all trafik som kommer in i brandväggen. Nätverksregler tillämpas först, sedan programregler, och reglerna är avslutande.
-
-Om till exempel en nätverksregel matchas utvärderas paketet inte av programregler. Om det inte finns någon nätverksregelmatchning och paketprotokollet är HTTP/HTTPS utvärderas paketet av programreglerna. Om det fortfarande inte finns någon matchning utvärderas paketet mot infrastrukturregelsamlingen. Om det fortfarande inte finns någon matchning nekas paketet som standard.
+Azure Firewall har NAT-regler, nätverksregler och programregler. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](rule-processing.md).
 
 I den här guiden får du lära dig att:
 
@@ -215,9 +213,6 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 11. Klicka på **Lägg till**.
 
 Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn för mål (FQDN) i infrastrukturen som tillåts som standard. Dessa FQDN är specifika för plattformen och kan inte användas för andra ändamål. Mer information finns i [Infrastruktur-FQDN](infrastructure-fqdns.md).
-
-> [!Note]
-> FQDN-taggar kan för närvarande endast konfigureras med Azure PowerShell och REST. [Klicka här](https://aka.ms/firewallapplicationrule) om du vill läsa mer. 
 
 ## <a name="configure-network-rules"></a>Konfigurera nätverksregler
 

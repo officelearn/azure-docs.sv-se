@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 9/24/2018
+ms.date: 9/26/2018
 ms.author: victorh
-ms.openlocfilehash: 2961f6cc8607ba7ec670b297a1858bf433c3ec89
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1527ed9c0a83577da9a231cb91a93ad7f182061c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960795"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392710"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -68,7 +68,9 @@ Azure Firewall har följande kända problem:
 |Nav och ekrar med global peering fungerar inte|Modellen med nav och ekrar, där navet och brandväggen distribueras i en Azure-region och ekrarna är i en annan Azure-region, har inte stöd för anslutning via Global VNet-peering.|Mer information finns på sidan om att [skapa, ändra eller ta bort en virtuell nätverkspeering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
 Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll (till exempel ICMP) fungerar inte för Internetbunden trafik|Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll fungerar inte med SNAT till din offentliga IP-adress. Icke-TCP-/UDP-protokoll stöds mellan ekerundernät och virtuella nätverk.|Azure Firewall använder Standard Load Balancer, [som för närvarande inte stöder SNAT för IP-protokoll](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Vi utforskar alternativ för att stödja det här scenariot i en framtida version.|
 |Destination NAT (DNAT) fungerar inte för port 80 och 22.|Målportsfältet i NAT-regelsamlingen kan inte innehålla port 80 eller port 22.|Vi arbetar för att åtgärda detta inom en snar framtid. Under tiden kan du använda en annan port som målport i NAT-regler. Port 80 eller 22 kan fortfarande användas som den översatta porten (till exempel kan du mappa offentligt ip:81 till privat ip:80).|
-|
+|Saknat PowerShell- och CLI-stöd för ICMP|Azure PowerShell och CLI stöder inte ICMP som ett giltigt protokoll i nätverksregler.|Du kan fortfarande använda ICMP som protokoll via portalen och REST API. Vi jobbar på att lägga till ICMP i PowerShell och CLI snart.|
+|FQDN-taggar kräver att protokoll: port anges|Programregler med FQDN-taggar kräver port: protokoll-definition.|Du kan använda **https** som port: protokoll-värde. Vi jobbar på att göra det här fältet valfritt när FQDN-taggar används.|
+|Det går inte att flytta en brandvägg till en annan resursgrupp eller prenumeration.|Det går inte att flytta en brandvägg till en annan resursgrupp eller prenumeration.|Stöd för den här funktionen finns i vår planering. För att kunna flytta en brandvägg till en annan resursgrupp eller prenumeration måste du ta bort den aktuella instansen och återskapa den i den nya resursgruppen eller prenumerationen.|
 
 ## <a name="next-steps"></a>Nästa steg
 

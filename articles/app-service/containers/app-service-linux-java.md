@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 2b2256ef5802160dbaa66e2a098a798fcdc653d2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 48d6836a2f1c7eb53fd6d7a08ee5a049cd9503f6
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47065121"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803043"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -229,7 +229,7 @@ För delade resurser på servernivå:
 
 ## <a name="docker-containers"></a>Docker-containrar
 
-Om du vill använda den Azure-stöd Zulu JDK som körs i App Service i dina behållare, se till att ditt programs `Dockerfile` använder avbildningar från den [Java-App Service Docker-avbildning lagringsplatsen](https://github.com/Azure-App-Service/java).
+Om du vill använda Azure stöder Zulu JDK-Paketet i din behållare, se till att hämta och använda de färdiga avbildningar som listas på [Azuls hämtningssidan](https://www.azul.com/downloads/azure-only/zulu/#docker) eller Använd den `Dockerfile` exempel från den [Microsoft Java GitHub-lagringsplatsen](https://github.com/Microsoft/java/tree/master/docker).
 
 ## <a name="runtime-availability-and-statement-of-support"></a>Runtime-tillgänglighet och support-instruktionen
 
@@ -242,7 +242,7 @@ App Service för Linux stöder två körningar för hanterade användning av Jav
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK-versioner och underhåll
 
-Azures stöds Java Development Kit (JDK) är [Zulu](https://www.azul.com/products/zulu-and-zulu-enterprise/) via [Azul Systems](https://www.azul.com/).
+Azures stöds Java Development Kit (JDK) är [Zulu](https://www.azul.com/downloads/azure-only/zulu/) via [Azul Systems](https://www.azul.com/).
 
 Stora versionsuppdateringar tillhandahålls via nya körningsalternativ i Azure App Service för Linux. Kunder uppdateras till dessa senare versioner av Java genom att konfigurera deras App Service-distribution och ansvarar för att testa och att se till att viktig uppdatering uppfyller deras behov.
 
@@ -258,15 +258,15 @@ Om en stöds Java runtime kommer att dras tillbaka, får Azure-utvecklare som an
 
 ### <a name="local-development"></a>Lokal utveckling
 
-Utvecklare kan ladda ned produktion Edition av Azul Zulu Enterprise JDK-Paketet för lokal utveckling från [Azuls hämtningsplats](https://www.azul.com/downloads/zulu/).
+Utvecklare kan ladda ned produktion Edition av Azul Zulu Enterprise JDK-Paketet för lokal utveckling från [Azuls hämtningsplats](https://www.azul.com/downloads/azure-only/zulu/).
 
 ### <a name="development-support"></a>Stöd för programutveckling
 
-Produktsupport för Azul Zulu Enterprise JDK är tillgänglig via när du utvecklar för Azure eller [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) med en [kvalificerade Azure-supportplan](https://azure.microsoft.com/support/plans/).
+Produktsupport för den [Azure stöder Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) är tillgänglig via när du utvecklar för Azure eller [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) med en [kvalificerade Azure-supportplan](https://azure.microsoft.com/support/plans/).
 
 ### <a name="runtime-support"></a>Runtime-stöd
 
-Utvecklare kan [öppna ett ärende](/azure/azure-supportability/how-to-create-azure-support-request) med App Service Linux Java runtime via supporten för Azure om de har en [kvalificerade supportavtal](https://azure.microsoft.com/support/plans/).
+Utvecklare kan [öppna ett ärende](/azure/azure-supportability/how-to-create-azure-support-request) med Azul Zulu JDKs via supporten för Azure om de har en [kvalificerade supportavtal](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Nästa steg
 

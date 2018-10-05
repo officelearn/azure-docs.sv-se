@@ -9,12 +9,12 @@ manager: kfile
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: f18510e83d4e7d6498f34012b68368552399c806
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5787d49623862654a7ef906e8f75ac822b25c0e3
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439583"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803230"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Konfigurera SSL-anslutning i din app för säker anslutning till Azure Database for MySQL
 Azure Database för MySQL stöder anslutning av din Azure Database for MySQL-server till klientprogram som använder Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
@@ -59,7 +59,7 @@ Om du vill upprätta en säker anslutning till Azure Database for MySQL via SSL 
 ```php
 $conn = mysqli_init();
 mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL) ; 
-mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
+mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }

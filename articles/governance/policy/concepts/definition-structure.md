@@ -8,18 +8,18 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 329bba11c95056b038fdab5041637cbb6a0feb6a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1d2925f36001ac37a3d94eb192c52fc3f25a95d5
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407271"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785722"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
 Resursdefinitionen princip som används av Azure Policy kan du etablera konventioner för resurser i din organisation genom att beskriva när principen tillämpas och vilken effekt ska börja. Du kan styra kostnaderna genom att definiera konventioner och mer hantera enkelt dina resurser. Du kan till exempel ange att bara vissa typer av virtuella datorer är tillåtna. Eller så kan du kräva att alla resurser har en viss tagg. Principer ärvs av alla underordnade resurser. Om en princip tillämpas på en resursgrupp, är det därför gäller för alla resurser i resursgruppen.
 
-Ett schema som används av Azure Policy finns här: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
+Ett schema som används av Azure Policy finns här: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
 
 Du kan använda JSON för att skapa en principdefinition. Principdefinitionen innehåller element för:
 

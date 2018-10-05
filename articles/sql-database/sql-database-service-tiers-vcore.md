@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 3fb1357b7a70579fa527a896d5bd359749b10ad6
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 10/04/2018
+ms.openlocfilehash: 9056eb6d93b0ead2a62dc5f58984fa6342af2d8e
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407663"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801667"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Välja tjänstnivå vCore beräkning, minne, lagring och IO-resurser
 
@@ -25,7 +25,7 @@ Den vCore-baserade inköpsmodellen kan du oberoende skala beräknings- och lagri
 - Gen 4 – upp till 24 logiska processorer bygger på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, vCore = 1 sidor (fysiska kärnor), 7 GB per kärna, anslutna SSD
 - Gen 5 – upp till 80 logiska processorer som baseras på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer, vCore = 1 LP (hyper-tråd), 5.5. GB per kärna, snabb eNVM SSD
 
-vCore-modellen kan du använda [Azure Hybrid Use-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) att få kostnadsbesparingar.
+vCore-modellen kan du använda [Azure Hybrid Use-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) att få kostnadsbesparingar.
 
 ## <a name="service-tier-characteristics"></a>Tjänstens nivån egenskaper
 

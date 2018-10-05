@@ -5,26 +5,22 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 9/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 766ad04251fbe404d43734115e41e23ae0a4be28
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 894389ec07fb8e371a269f895473fe82985de7c3
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982060"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405979"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudie: Filtrera inkommande trafik med Azure Firewall DNAT med hjälp av Azure-portalen
 
-Du kan konfigurera Azure Firewall Destination Network Address Translation (DNAT) att översätta och filtrera inkommande trafik till dina undernät. Azure Firewall använder inte begreppen inkommande och utgående regler. Det finns programregler och nätverksregler och de tillämpas på all trafik som kommer in i brandväggen. Nätverksregler tillämpas först, sedan programregler, och reglerna är avslutande.
+Du kan konfigurera Azure Firewall Destination Network Address Translation (DNAT) att översätta och filtrera inkommande trafik till dina undernät. När du konfigurerar DNAT, ställs åtgärden för NAT-regelsamling in på **Destination Network Address Translation (DNAT)**. Varje regel i NAT-regelsamlingen kan sedan användas till att översätta brandväggens offentliga IP-adress och port till en privat IP-adress och port. DNAT-regler lägger implicit till en motsvarande nätverksregel för att tillåta den översatta trafiken. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](rule-processing.md).
 
->[!NOTE]
->Firewall DNAT-funktionen är för tillfället bara tillgänglig i Azure PowerShell och REST.
-
-Om till exempel en nätverksregel matchas utvärderas paketet inte av programregler. Om det inte finns någon nätverksregelmatchning och om paketprotokollet är HTTP/HTTPS utvärderas paketet av programreglerna. Om det fortfarande inte finns någon matchning utvärderas paketet mot [infrastrukturregelsamlingen](infrastructure-fqdns.md). Om det fortfarande inte finns någon matchning nekas paketet som standard.
-
-När du konfigurerar DNAT, ställs åtgärden för NAT-regelsamling in på **Destination Network Address Translation (DNAT)**. Brandväggens offentliga IP-adress och port översätts till en privat IP-adress och port. Sedan tillämpas regler som vanligt, nätverksregler först och sedan programregler. Du kan till exempel konfigurera en nätverksregel att tillåta trafik från Fjärrskrivbord på TCP-port 3389. Adressöversättning sker först och sedan tillämpas nätverks- och programregler med hjälp av de översatta adresserna.
+> [!NOTE]
+> DNAT fungerar inte för port 80 och 22. Vi arbetar för att åtgärda detta inom en snar framtid. Under tiden kan du använda en annan port som målport i NAT-regler. Port 80 eller 22 kan fortfarande användas som den översatta porten. Du kan till exempel mappa offentlig ip:81 till privat ip:80.
 
 I den här guiden får du lära dig att:
 
@@ -33,7 +29,6 @@ I den här guiden får du lära dig att:
 > * distribuera en brandvägg
 > * Skapa en standardväg
 > * Konfigurera en DNAT-regel
-> * Konfigurera en nätverksregel
 > * Testa brandväggen
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -199,48 +194,18 @@ För undernätet **SN-Workload** ställer du in att den utgående standardvägen
 
 ## <a name="configure-a-dnat-rule"></a>Konfigurera en DNAT-regel
 
-```azurepowershell-interactive
- $rgName  = "RG-DNAT-Test"
- $firewallName = "FW-DNAT-test"
- $publicip = type the Firewall public ip
- $newAddress = type the private IP address for the Srv-Workload virtual machine 
- 
-# Get Firewall
-    $firewall = Get-AzureRmFirewall -ResourceGroupName $rgName -Name $firewallName
-  # Create NAT rule
-    $natRule = New-AzureRmFirewallNatRule -Name RL-01 -SourceAddress * -DestinationAddress $publicip -DestinationPort 3389 -Protocol TCP -TranslatedAddress $newAddress -TranslatedPort 3389
-  # Create NAT rule collection
-    $natRuleCollection = New-AzureRmFirewallNatRuleCollection -Name RC-DNAT-01 -Priority 200 -Rule $natRule
-  # Add NAT Rule collection to firewall:
-    $firewall.AddNatRuleCollection($natRuleCollection)
-  # Save:
-    $firewall | Set-AzureRmFirewall
-```
-## <a name="configure-a-network-rule"></a>Konfigurera en nätverksregel
-
-1. Öppna **RG-DNAT-Test** och klicka på brandväggen **FW-DNAT-test**.
-1. På sidan **FW-DNAT-test**, under **Inställningar** klickar du på **Regler**.
-2. Klicka på **Lägg till nätverksregelsamling**.
-
-Konfigurera regeln med hjälp av följande tabell och klicka sedan på **Lägg till**:
-
-
-|Parameter  |Värde  |
-|---------|---------|
-|Namn     |**RC-Net-01**|
-|Prioritet     |**200**|
-|Åtgärd     |**Tillåt**|
-
-Under **Regler**:
-
-|Parameter  |Inställning  |
-|---------|---------|
-|Namn     |**RL-RDP**|
-|Protokoll     |**TCP**|
-|Källadresser     |*|
-|Måladresser     |**Srv-Workload** privat IP-adress|
-|Målportar|**3389**|
-
+1. Öppna **RG-DNAT-Test** och klicka på brandväggen **FW-DNAT-test**. 
+1. På sidan **FW-DNAT-test**, under **Inställningar** klickar du på **Regler**. 
+2. Klicka på **Lägg till DNAT-regelsamling**. 
+3. I fältet **Namn** skriver du **RC-DNAT-01**. 
+1. I fältet **Prioritet** skriver du **200**. 
+6. Under **Regler**, i fältet **Namn**, skriver du **RL-01**. 
+7. I fältet **Källadresser** skriver du *. 
+8. I fältet **Måladresser** skriver du brandväggens offentliga IP-adress. 
+9. I fältet **Målportar** skriver du **3389**. 
+10. I fältet **Översatt adress** skriver du den privata IP-adressen för den virtuella datorn Srv-Workload. 
+11. I fältet **Översatt port** skriver du **3389**. 
+12. Klicka på **Lägg till**. 
 
 ## <a name="test-the-firewall"></a>Testa brandväggen
 
@@ -262,7 +227,6 @@ I den här självstudiekursen lärde du dig att:
 > * distribuera en brandvägg
 > * Skapa en standardväg
 > * Konfigurera en DNAT-regel
-> * Konfigurera en nätverksregel
 > * Testa brandväggen
 
 Därefter kan du övervaka Azure Firewall-loggarna.

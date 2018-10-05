@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9fe18c5e9514d7b8ecc3e38b394ddb4fadcc4393
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303952"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452640"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -56,10 +56,10 @@ När du har installerat de nödvändiga komponenterna uppmanas du att välja anv
 | Federation med AD FS |Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk.  Användarna dirigeras till deras lokala AD FS-instans för att logga in och autentiseringen sker lokalt. |
 | Federation med PingFederate|Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk.  Användarna dirigeras till deras lokala PingFederate-instans för att logga in och autentiseringen sker lokalt. |
 | Konfigurera inte |Ingen användarinloggningsfunktion installeras eller konfigureras. Välj det här alternativet om du redan har en federationsserver från en annan tillverkare eller en annan befintlig lösning på plats. |
-|Aktivera enkel inloggning|Det här alternativet är tillgängligt med både lösenordssynkronisering och Direktautentisering och tillhandahåller enkel inloggning för datoranvändare i företagsnätverket. Mer information finns i avsnittet om [enkel inloggning](how-to-connect-sso.md). </br>Observera att det här alternativet inte är tillgängligt för AD FS-kunder eftersom AD FS redan erbjuder samma nivå av enkel inloggning.</br>
+|Aktivera enkel inloggning|Det här alternativet är tillgängligt med både lösenordshashsynkronisering och Direktautentisering och tillhandahåller enkel inloggning för datoranvändare i företagsnätverket. Mer information finns i avsnittet om [enkel inloggning](how-to-connect-sso.md). </br>Observera att det här alternativet inte är tillgängligt för AD FS-kunder eftersom AD FS redan erbjuder samma nivå av enkel inloggning.</br>
 
 ### <a name="connect-to-azure-ad"></a>Anslut till Azure AD
-Ange ett globalt administratörskonto och lösenord på skärmen Anslut till Azure AD. Om du valde **Federation med AD FS** på föregående sida ska du inte logga in med ett konto i en domän som du planerar att aktivera för federation. En rekommendation är att använda ett konto i standarddomänen **onmicrosoft.com**, som medföljer din Azure AD-katalog.
+Ange ett globalt administratörskonto och lösenord på skärmen Anslut till Azure AD. Om du valde **Federation med AD FS** på föregående sida ska du inte logga in med ett konto i en domän som du planerar att aktivera för federation. En rekommendation är att använda ett konto i standarddomänen **onmicrosoft.com**, som medföljer din Azure AD-klientorganisation.
 
 Det här kontot används bara för att skapa ett tjänstkonto i Azure AD och används inte när guiden har slutförts.  
 ![Användarinloggning](./media/how-to-connect-install-custom/connectaad.png)
@@ -93,7 +93,7 @@ På den här sidan kan du granska de UPN-domäner som finns i lokala AD DS och s
 ![Overifierade domäner](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 Granska varje domän som markerats med **Inte tillagd** och **Inte verifierad**. Kontrollera att de domäner som du använder har verifierats i Azure AD. Klicka på symbolen Uppdatera när du har verifierat dina domäner. Mer information finns i [Lägga till och verifiera domänen](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName** – Attributet userPrincipalName är det attributet som användare använder när de loggar in i Azure AD och Office 365. Domänerna som används, även kallade UPN-suffixet, bör verifieras i Azure AD innan användarna synkroniseras. Microsoft rekommenderar att du behåller standardattributet userPrincipalName. Om det här attributet är icke-dirigerbart och inte kan verifieras går det att välja ett annat attribut. Du kan till exempel välja email som attributet som ska innehålla inloggnings-ID:t. Om du använder ett annat attribut än userPrincipalName kallas det för ett **Alternativt ID**. Attributvärdet för ett alternativt ID måste följa standarden RFC822. Ett alternativt ID kan användas med både lösenordssynkronisering och federation. Attributet måste inte definieras som flera värden i Active Directory, inte ens om den bara har ett enda värde.
+**UserPrincipalName** – Attributet userPrincipalName är det attributet som användare använder när de loggar in i Azure AD och Office 365. Domänerna som används, även kallade UPN-suffixet, bör verifieras i Azure AD innan användarna synkroniseras. Microsoft rekommenderar att du behåller standardattributet userPrincipalName. Om det här attributet är icke-dirigerbart och inte kan verifieras går det att välja ett annat attribut. Du kan till exempel välja email som attributet som ska innehålla inloggnings-ID:t. Om du använder ett annat attribut än userPrincipalName kallas det för ett **Alternativt ID**. Attributvärdet för ett alternativt ID måste följa standarden RFC822. Ett alternativt ID kan användas med lösenordshashsynkronisering, direktautentisering och federation. Attributet måste inte definieras som flera värden i Active Directory, inte ens om den bara har ett enda värde.
 
 >[!NOTE]
 > När du aktiverar Direktautentisering måste du ha minst en verifierad domän för att kunna fortsätta med guiden.
@@ -139,7 +139,7 @@ Attributet sourceAnchor är ett attribut som inte kan ändras under ett använda
 | Låt Azure hantera källfästpunkten | Välj det här alternativet om du vill att Azure AD ska hämta attributet. Om du väljer det här alternativet använder Azure AD Connect attributet sourceAnchor-attributvalslogiken som beskrivs i avsnittet [Azure AD Connect: Design concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) (Azure AD Connect: Designbegrepp - Använda ms-DS-ConsistencyGuid som sourceAnchor). Guiden informerar dig vilket attribut som har valts som källfästpunktsattribut när den anpassade installationen har slutförts. |
 | Ett specifikt attribut | Välj det här alternativet om du vill ange ett befintligt AD-attribut som sourceAnchor-attribut. |
 
-Eftersom attributet inte kan ändras måste du planera för ett lämpligt attribut som ska användas. En bra kandidat är objectGUID. Det här attributet ändras inte, såvida inte användarkontot flyttas mellan skogar/domäner. I en miljö med flera skogar där du flyttar konton mellan skogar måste ett annat attribut användas, till exempel ett attribut med employeeID. Undvik attribut som kan ändras när en person gifter sig eller får nya uppgifter. Du kan inte använda attribut med ett @-sign. Det betyder att du inte kan använda email eller userPrincipalName. Attributet är också skiftlägeskänsligt. Därför är det viktigt att du inte ändrar gemener/versaler om du flyttar ett objekt mellan skogar. Binära attribut är base64-kodade, men andra attributtyper är kvar i kodat tillstånd. I federationsscenarier och i vissa Azure AD-gränssnitt kallas det här attributet även för immutableID. Mer information om källfästpunkten finns i [designbegreppen](plan-connect-design-concepts.md#sourceanchor).
+Eftersom attributet inte kan ändras måste du planera för ett lämpligt attribut som ska användas. En bra kandidat är objectGUID. Det här attributet ändras inte, såvida inte användarkontot flyttas mellan skogar/domäner. Undvik attribut som kan ändras när en person gifter sig eller får nya uppgifter. Du kan inte använda attribut med ett @-sign. Det betyder att du inte kan använda email eller userPrincipalName. Attributet är också skiftlägeskänsligt. Därför är det viktigt att du inte ändrar gemener/versaler om du flyttar ett objekt mellan skogar. Binära attribut är base64-kodade, men andra attributtyper är kvar i kodat tillstånd. I federationsscenarier och i vissa Azure AD-gränssnitt kallas det här attributet även för immutableID. Mer information om källfästpunkten finns i [designbegreppen](plan-connect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Synkroniseringsfiltrering baserat på grupper
 Med funktionen för gruppfiltrering kan du synkronisera en mindre deluppsättning objekt för en pilotdistribution. Om du vill använda den här funktionen skapar du en grupp för detta ändamål i din lokala Active Directory. Lägg sedan till användare och grupper som ska synkroniseras till Azure AD som direkta medlemmar. Senare kan du lägga till och ta bort användare i den här gruppen så att du har en lista med objekt som ska finnas i Azure AD. Alla objekt som du vill synkronisera måste vara direkta medlemmar i gruppen. Användare, grupper, kontakter och datorer/enheter måste vara direkta medlemmar. Kapslade gruppmedlemskap stöds inte. När du lägger till en grupp som en medlem läggs bara själva gruppen till, inte dess medlemmar.
@@ -220,7 +220,7 @@ På en dator med verktyg för grupprinciphantering.
 
         Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-    
+
 
 5.  Det bör se ut ungefär så här:  
 ![Intranätszoner](./media/how-to-connect-install-custom/sitezone.png)
@@ -382,7 +382,7 @@ För att kontrollera att autentiseringen från slutpunkt till slutpunkt lyckades
 ## <a name="troubleshooting"></a>Felsökning
 Följande avsnitt innehåller hjälp och felsökningsinformation som du kan använda om det uppstår problem när du installerar Azure AD Connect.
 
-### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>”ADSync-databasen innehåller redan data och kan inte skrivas över” 
+### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>”ADSync-databasen innehåller redan data och kan inte skrivas över”
 När du gör en anpassad installation av Azure AD Connect och väljer alternativet **Använd en befintlig SQL-server** på sidan **Installera nödvändiga komponenter** kan det hända att följande felmeddelande visas: **Please remove the existing database and try again. Please remove the existing database and try again.** (ADSync-databasen innehåller redan data och kan inte skrivas över. Ta bort den befintliga databasen och försök igen.)
 
 ![Fel](./media/how-to-connect-install-custom/error1.png)
@@ -393,7 +393,7 @@ Detta inträffar vanligtvis när du har avinstallerat Azure AD Connect.  Databas
 
 För att åtgärda problemet måste du först kontrollera att **ADSync**-databasen som användes av Azure AD Connect innan avinstallationen inte längre används.
 
-Därefter bör du säkerhetskopiera databasen innan du tar bort den. 
+Därefter bör du säkerhetskopiera databasen innan du tar bort den.
 
 Slutligen måste du ta bort databasen.  Du kan göra det genom att använda **Microsoft SQL Server Management Studio** och ansluta till SQL-instansen. Leta upp **ADSync**-databasen, högerklicka på den och välj **Ta bort** på snabbmenyn.  Klicka sedan på **OK** för att ta bort den.
 

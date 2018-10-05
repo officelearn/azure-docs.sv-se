@@ -1,21 +1,22 @@
 ---
-title: Självstudie om att skapa en akustisk modell med Custom Speech Service – Microsoft Cognitive Services | Microsoft Docs
-description: I den här självstudien lär du dig att skapa en akustisk modell med Custom Speech Service i Microsoft Cognitive Services.
+title: 'Självstudie: Skapa en akustisk modell – Custom Speech Service'
+titlesuffix: Azure Cognitive Services
+description: I den här självstudiekursen lär du dig hur du skapar en akustisk modell med Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 60fea175e8dffeefeb9cb3ecaadad5d8fc7caeb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 72c5a0dfb8f33f273ba850378c1fefeef82b4d7a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971557"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220249"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Självstudie: Skapa en anpassad akustisk modell
 

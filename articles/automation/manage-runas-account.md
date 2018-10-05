@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 5e8e8d1923caf5f51cffedd6b918dbc617b5c3a9
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433709"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785485"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -35,7 +35,7 @@ Det finns två typer av kör som-konton:
 
 ## <a name="permissions"></a>Behörigheter för att konfigurera kör som-konton
 
-Om du vill skapa eller uppdatera en Kör som-konto, måste du ha specifika privilegier och behörigheter. En Global administratör/Medadministratör kan utföra alla aktiviteter. I en situation där du har seperation av uppgifter, visas i följande tabell en lista över aktiviteterna, motsvarande cmdlet och behörigheter som krävs:
+Om du vill skapa eller uppdatera en Kör som-konto, måste du ha specifika privilegier och behörigheter. En Global administratör/Medadministratör kan utföra alla aktiviteter. I en situation där du har uppdelning av uppgifter, visas i följande tabell en lista över aktiviteterna, motsvarande cmdlet och behörigheter som krävs:
 
 |Aktivitet|Cmdlet  |Minsta möjliga behörigheter  |
 |---|---------|---------|
@@ -49,18 +49,18 @@ Om du vill skapa eller uppdatera en Kör som-konto, måste du ha specifika privi
 * En AD-användarkonto med behörigheter motsvarande deltagarrollen för Microsoft.Automation-resurser enligt beskrivningen i artikeln [rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md#contributor).  
 * Användare som inte är administratörer i din Azure AD-klient kan [registrera AD-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) om alternativet **Användare kan registrera program** för Azure AD-klienten har angetts till **Ja** på sidan **Användarinställningar**. Om **Nej** har angetts för inställningen Appregistreringar måste användaren som utför den här åtgärden vara global administratör i Azure AD.
 
-Om du inte är medlem i prenumerationens Active Directory-instans innan du läggs till i rollen som global administratör/medadministratör för prenumerationen läggs du till i Active Directory som gäst. I så fall kan du få en `You do not have permissions to create…` varning på den **Lägg till Automation-konto** sidan. Användare som har tilldelats rollen som global administratör/medadministratör kan tas bort från prenumerationens Active Directory-instans och sedan läggas till igen så att de blir fullständiga användare i Active Directory. Du kan kontrollera detta i rutan **Azure Active Directory** på Azure Portal genom att välja **Användare och grupper**, välja **Alla användare**, välja den specifika användaren och sedan välja **Profil**. Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.
+Om du inte är medlem i prenumerationens Active Directory-instans innan du läggs till global administratör/medadministratör rollen för prenumerationen läggs som gäst. I så fall kan du få en `You do not have permissions to create…` varning på den **Lägg till Automation-konto** sidan. Användare som har tilldelats rollen som global administratör/medadministratör kan tas bort från prenumerationens Active Directory-instans och sedan läggas till igen så att de blir fullständiga användare i Active Directory. Du kan kontrollera detta i rutan **Azure Active Directory** på Azure Portal genom att välja **Användare och grupper**, välja **Alla användare**, välja den specifika användaren och sedan välja **Profil**. Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>Skapa ett kör som-konto i portalen
 
 I det här avsnittet utför du följande steg för att uppdatera ditt Azure Automation-konto i Azure Portal. Du skapar kör som-konton och klassiska kör som-konton var för sig. Om du inte behöver hantera klassiska resurser kan du bara skapa Azure Kör som-kontot.  
 
 1. Logga in på Azure Portal med ett konto som är medlem i rollen Prenumerationsadministratörer och som är medadministratör för prenumerationen.
-1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Automation**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Automation-konton**.
-1. På sidan **Automation-konton** väljer du ditt Automation-konto i listan med Automation-konton.
-1. I vänster fönster väljer du **Kör som-konton** under avsnittet **Kontoinställningar**.  
-1. Beroende på vilket konto du behöver väljer du antingen **Azures Kör som-konto** eller **Azures klassiska Kör som-konto**. När du har gjort ditt val visas antingen fönstret **Lägg till Azures Kör som-konto** eller **Lägg till Azures klassiska Kör som-konto**. Efter att du läst översiktsinformationen klickar du på **Skapa** för att fortsätta att skapa Kör som-kontot.  
-1. Medan Azure skapar Kör-som-kontot kan du följa förloppet under **Meddelanden** på menyn. En banderoll som meddelar att kontot skapats visas också. Den här processen kan ta ett par minuter att slutföra.  
+2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Automation**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Automation-konton**.
+3. På sidan **Automation-konton** väljer du ditt Automation-konto i listan med Automation-konton.
+4. I vänster fönster väljer du **Kör som-konton** under avsnittet **Kontoinställningar**.  
+5. Beroende på vilket konto du behöver väljer du antingen **Azures Kör som-konto** eller **Azures klassiska Kör som-konto**. När du har gjort ditt val visas antingen fönstret **Lägg till Azures Kör som-konto** eller **Lägg till Azures klassiska Kör som-konto**. Efter att du läst översiktsinformationen klickar du på **Skapa** för att fortsätta att skapa Kör som-kontot.  
+6. Medan Azure skapar Kör-som-kontot kan du följa förloppet under **Meddelanden** på menyn. En banderoll som meddelar att kontot skapats visas också. Den här processen kan ta ett par minuter att slutföra.  
 
 ## <a name="create-run-as-account-using-powershell"></a>Skapa kör som-konto med hjälp av PowerShell
 
@@ -73,7 +73,7 @@ Följande lista innehåller kraven för att skapa ett kör som-konto i PowerShel
 * Ett Automation-konto, som refereras till som värdet för *-AutomationAccountName*- och *-ApplicationDisplayName*-parametrarna.
 * Behörigheter som motsvarar det som listas i [krävs behörighet för att konfigurera kör som-konton](#permissions)
 
-Du hämtar värdena för *SubscriptionID*, *ResourceGroup* och *AutomationAccountName*, som är obligatoriska parametrar för skriptet, genom att göra följande:
+Att hämta värden för *SubscriptionID*, *ResourceGroup*, och *AutomationAccountName*, som är obligatoriska parametrar för skriptet, gör du följande:
 
 1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Automation**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Automation-konton**.
 1. På sidan Automation-konto väljer du ditt Automation-konto och sedan under **Kontoinställningar** väljer du **Egenskaper**.  
@@ -306,7 +306,7 @@ Notera följande när skriptet har körts:
 
 * Om du skapade ett klassiskt Kör som-konto med ett självsignerat offentligt certifikat (CER-fil) skapas och sparas det av skriptet i mappen för tillfälliga filer på datorn under användarprofilen *%USERPROFILE%\AppData\Local\Temp*, som du använde för att köra PowerShell-sessionen.
 
-* Om du skapade ett klassiskt Kör som-konto med ett offentligt företagscertifikat (CER-fil) använder du det här certifikatet. Följ anvisningarna för [laddar upp ett hanterings-API-certifikat till Azure-portalen](../azure-api-management-certs.md). () Automation-verify-runas-Authentication.MD#Classic-Run-as-Authentication).
+* Om du skapade ett klassiskt Kör som-konto med ett offentligt företagscertifikat (CER-fil) använder du det här certifikatet. Följ anvisningarna för [laddar upp ett hanterings-API-certifikat till Azure-portalen](../azure-api-management-certs.md).
 
 ## <a name="delete-a-run-as-or-classic-run-as-account"></a>Ta bort ett Kör som-konto eller ett klassiskt Kör som-konto
 
@@ -314,9 +314,9 @@ Det här avsnittet beskriver hur du tar bort och sedan återskapar ett Kör som-
 
 1. Öppna ditt Automation-konto på Azure Portal.
 
-1. På sidan **Automation-konto** väljer du **Kör som-konton**.
+2. På sidan **Automation-konto** väljer du **Kör som-konton**.
 
-1. På egenskapssidan för **Kör som-konton** väljer du antingen Kör som-kontot eller det klassiska Kör som-kontot som du vill ta bort. Klicka på **Ta bort** i rutan **Egenskaper** för det valda kontot.
+3. På egenskapssidan för **Kör som-konton** väljer du antingen Kör som-kontot eller det klassiska Kör som-kontot som du vill ta bort. Klicka på **Ta bort** i rutan **Egenskaper** för det valda kontot.
 
  ![Ta bort Kör som-konto](media/manage-runas-account/automation-account-delete-runas.png)
 
@@ -330,7 +330,7 @@ Det här avsnittet beskriver hur du tar bort och sedan återskapar ett Kör som-
 
 Någon gång innan kör som-kontot upphör att gälla, måste du förnya certifikatet. Om du tror att ditt Kör som-konto har komprometterats kan du ta bort och återskapa det. Det här avsnittet beskriver hur du utför dessa åtgärder.
 
-Det självsignerade certifikatet som du skapade för Kör som-kontot går ut ett år efter det datum då det skapades. Du kan förnya det när som helst innan det upphör att gälla. När du förnyar det behålls det aktuella giltiga certifikatet för att säkerställa att alla runbookflöden som placerats i kö eller som körs aktivt, och som autentiserar med Kör som-kontot, inte påverkas negativt. Certifikatet förblir giltigt fram till dess förfallodatum.
+Det självsignerade certifikatet som du skapade för Kör som-kontot går ut ett år efter det datum då det skapades. Du kan förnya det när som helst innan det upphör att gälla. När du förnyar det behålls det aktuella giltiga certifikatet för att säkerställa att alla runbooks som köas upp eller som körs aktivt, och som autentiserar med Kör som-kontot inte påverkas negativt. Certifikatet förblir giltigt fram till dess förfallodatum.
 
 > [!NOTE]
 > Om du har konfigurerat ditt Kör som-konto för Automation att använda ett certifikat som utfärdats av din företagscertifikatutfärdare och du använder det här alternativet, så ersätts företagscertifikatet av ett självsignerat certifikat.
@@ -359,7 +359,7 @@ I Azure-portalen väljer du **prenumerationer** och välj prenumerationen för d
 
 ![Deltagare i prenumeration](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Om du vill lägga till tjänstens huvudnamn till en resursgrupp, Välj resursgruppen i Azure-portalen och välj **åtkomstkontroll (IAM)**. Välj **Lägg till**, öppnas den **Lägg till behörigheter** sidan. För **rollen**väljer **deltagare**. I den **Välj** text Skriv namnet på tjänstens huvudnamn för Kör som-kontot och väljer den i listan. Klicka på **Spara** för att spara ändringarna. Gör detta för de resursgrupper som du vill ge dina Azure Automation kör som tjänstens huvudnamn åtkomst till.
+Om du vill lägga till tjänstens huvudnamn till en resursgrupp, Välj resursgruppen i Azure-portalen och välj **åtkomstkontroll (IAM)**. Välj **Lägg till**, öppnas den **Lägg till behörigheter** sidan. För **rollen**väljer **deltagare**. I den **Välj** text Skriv namnet på tjänstens huvudnamn för Kör som-kontot och väljer den i listan. Klicka på **Spara** för att spara ändringarna. Slutför de här stegen för de resursgrupper som du vill ge dina Azure Automation kör som tjänstens huvudnamn åtkomst till.
 
 ## <a name="misconfiguration"></a>Felaktig konfiguration
 

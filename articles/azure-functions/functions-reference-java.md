@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: f6c5eb4a3ace1fcca1bbbef321371d55a0ce8da9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9e07cddb9d446ea24143d3a6dec5e310d3ed6f1c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123495"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802125"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarguide för Azure Functions Java
 
@@ -115,9 +115,15 @@ med motsvarande `function.json`:
 
 ```
 
+## <a name="jdk-runtime-availability-and-support"></a>JDK runtime tillgänglighet och support 
+
+Ladda ned och använda den [Azul Zulu för Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDKs från [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) för lokal utveckling av Java-funktionsappar. JDKs är tillgängliga för Windows, Linux och macOS och [Azure-supporten](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) är tillgänglig för problem som kan uppstå under utvecklingen med en [kvalificerade supportavtal](https://azure.microsoft.com/support/plans/).
+
 ## <a name="third-party-libraries"></a>Bibliotek från tredje part 
 
 Azure Functions har stöd för användning av bibliotek från tredje part. Som standard alla beroenden som anges i ditt projekt `pom.xml` filen automatiskt ska ligga under den `mvn package` mål. För bibliotek som inte har angetts som beroenden i den `pom.xml` filen, placera dem i en `lib` katalogen i funktionens rotkatalog. Beroendena placeras i den `lib` directory kommer att läggas till klassinläsare system vid körning.
+
+Den `com.microsoft.azure.functions:azure-functions-java-library` beroende tillhandahålls på klassökvägen som standard och behöver inte inkluderas i den `lib` directory.
 
 ## <a name="data-type-support"></a>Stöd för datatypen
 

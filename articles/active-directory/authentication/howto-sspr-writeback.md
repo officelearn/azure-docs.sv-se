@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295826"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801938"
 ---
 # <a name="how-to-configure-password-writeback"></a>Anvisningar: Konfigurera tillbakaskrivning av lösenord
 
@@ -34,6 +34,12 @@ Följande steg förutsätter att du redan har konfigurerat Azure AD Connect i di
 8. När du ser att konfigurationen är klar väljer du **Avsluta**.
 
 Vanliga uppgifter för felsökning för tillbakaskrivning av lösenord finns i avsnittet [felsöka tillbakaskrivning av lösenord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) i vår felsökningsartikel.
+
+> [!WARNING]
+> Tillbakaskrivning av lösenord att sluta fungera för kunder som använder Azure AD Connect-versioner 1.0.8641.0 och äldre när den [Azure Access Control service (ACS) är ur bruk 7 November 2018](../develop/active-directory-acs-migration.md). Azure AD Connect-versioner 1.0.8641.0 och äldre inte längre att tillåta tillbakaskrivning av lösenord vid den tidpunkten eftersom de använder ACS för den funktionen.
+>
+> Om du vill undvika avbrott i tjänsten, uppgradera från en tidigare version av Azure AD Connect till en nyare version finns i artikeln [Azure AD Connect: uppgradera från en tidigare version till senast](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 ## <a name="active-directory-permissions"></a>Active Directory-behörigheter
 
@@ -67,7 +73,7 @@ Om du vill konfigurera lämpliga behörigheter för tillbakaskrivning av löseno
 4. Från den **behörigheter** fliken **Lägg till**.
 5. Välj det konto som behörigheter som används för (från Azure AD Connect-konfiguration).
 6. I den **gäller** listrutan, väljer **underordnade** objekt.
-7. Under **behörigheter**, markerar kryssrutorna för följande:
+7. Under **behörigheter**, markerar kryssrutorna för följande alternativ:
     * **Återställ lösenord**
     * **Ändra lösenord**
     * **Skriva lockoutTime**

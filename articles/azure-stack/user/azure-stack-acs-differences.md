@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 89f6a0c1adaded724f159ffbf33aae98969ab9fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 14e32bdfcde6969b820c0950d59bd5cf946a51e6
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027177"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802329"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-lagring: skillnader och överväganden
 
@@ -41,7 +41,6 @@ Den här artikeln sammanfattas de kända Azure Stack Storage skillnaderna från 
 |Hanterade diskar|Premium och standard som stöds|Stöds när du använder version 1808 eller senare.
 |Blobnamn|1 024 tecken (2 048 byte)|880 tecken (1,760 byte)
 |Maxstorlek för block blob|4,75 TB (100 MB X 50 000 block)|4,75 TB (100 MB x 50 000 block) för 1802 update eller senare version. 50 000 x 4 MB (cirka 195 GB) för tidigare versioner.
-|Kopiering av sidan blob-ögonblicksbild|Säkerhetskopiering Azure ohanterade Virtuella diskar som är anslutna till en aktiv virtuell dator stöds|Stöds inte än.
 |Sidan kopiering av blob inkrementell ögonblicksbild|Premium och standard Azure sidblobar som stöds|Stöds inte än.
 |Lagringsnivåer för bloblagring|Frekvent, lågfrekvent och arkivlagringsnivå.|Stöds inte än.
 Mjuk borttagning för blob storage|Förhandsversion|Stöds inte än.

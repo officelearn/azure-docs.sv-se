@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: alkohli
-ms.openlocfilehash: 0204445464a9d61b4e25be1d71373ce8394b32f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957679"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161938"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Självstudie: Kopiera data till Azure Data Box 
 
@@ -45,7 +45,7 @@ Innan du börjar ska du kontrollera att:
 ## <a name="connect-to-data-box"></a>Ansluta till Data Box
 
 Utifrån det lagringskontot som väljs skapar Data Box upp till:
-- Tre resurser för varje associerat lagringskonto (GPv1 och GPv2).
+- Tre resurser för varje associerat lagringskonto för GPv1 och GPv2.
 - En resurs för premium- eller bloblagringskonto. 
 
 Under blockblob- och sidblobresurser är entiteter på första nivån containrar och entiteter på andra nivån är blobar. Under resurser för Azure Files är entiteter på första nivån resurser och entiteter på andra nivån är filer.
@@ -233,7 +233,7 @@ För att säkerställa dataintegriteten beräknas kontrollsumman infogat när da
 
 Om du använder en Linux-värddator använder du en kopieringsverktyg som liknar Robocopy. Några av alternativen som är tillgängliga i Linux är [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) eller [Ultracopier](https://ultracopier.first-world.info/).  
 
-Kommandot cp är ett av de bästa alternativen för att kopiera en katalog. Mer information om användningen finns på [cp man-sidorna](http://man7.org/linux/man-pages/man1/cp.1.html).
+Kommandot `cp` är ett av de bästa alternativen för att kopiera en katalog. Mer information om användningen finns på [cp man-sidorna](http://man7.org/linux/man-pages/man1/cp.1.html).
 
 Om du använder rsync-alternativet för en flertrådig kopia följer du dessa riktlinjer:
 
@@ -273,7 +273,7 @@ Det sista steget är att förbereda enheten för att skickas. I det här steget 
    
     ![Förbered för att skicka 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
-2. Om kontrollsumma inte har aktiverats visas alternativet att aktivera kontrollsumma. Vi rekommenderar att du för dataintegriteten utför verifiering av kontrollsumma. När du väljer **Aktivera kontrollsumma** utlöser sedan beräkning av kontrollsumma och kan ta lite tid, beroende på storleken på dina data. Klicka på **Starta förberedelser**.
+2. Som standard beräknas kontrollsummor infogat under leveransförberedelserna. Beräkningen av kontrollsumma kan ta lite tid beroende på storleken på data. Klicka på **Starta förberedelser**.
     1. Enhetsresurserna kopplas från och enheten låses när vi förbereder för att skicka.
         
         ![Förbered för att skicka 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 

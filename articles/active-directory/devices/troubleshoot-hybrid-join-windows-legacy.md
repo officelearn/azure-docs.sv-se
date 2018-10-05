@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4365f12992c96ca45ff6b97b0f59202f1eeb4483
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268977"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800867"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsöka hybrid Azure Active Directory-anslutna äldre enheter 
 
@@ -43,6 +43,10 @@ Den här artikeln förutsätter att du har [konfigurerade Azure Active Directory
 Den här artikeln ger felsökningsanvisningar för att lösa eventuella problem.  
 
 **Vad du bör känna till:** 
+
+- Hybrid Azure AD-anslutning för äldre Windows-enheter fungerar lite annorlunda än den sker i Windows 10. Många kunder utan att veta att de behöver för AD FS (för federerade domäner) eller sömlös SSO konfigurerats (för hanterade domäner).
+
+- För kunder med federerade domäner om den tjänstanslutningspunkt (SCP) har konfigurerats så att den pekar till det hanterade domännamnet (t.ex, contoso.onmicrosoft.com, i stället för contoso.com), kommer sedan Hybrid Azure AD Join för äldre Windows-enheter inte fungera.
 
 - Det maximala antalet enheter per användare för närvarande gäller även för äldre hybrid Azure AD-anslutna enheter. 
 

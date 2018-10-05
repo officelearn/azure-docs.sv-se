@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 9/14/2018
+ms.date: 10/4/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1242cf80ffd283471eb507612949a81d4b3fd594
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: fa2542d530c37876de38a510a6771144043aae77
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401634"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48812160"
 ---
 ### <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -69,7 +69,7 @@ Brandvägg för Azure är en enkel brandvägg-tjänst som kan lösa vissa kundsc
  
 ### <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Vad är skillnaden mellan Application Gateway WAF och Azure-brandvägg?
 
-Web Application Firewall (WAF) är en funktion i Application Gateway som ger ett centraliserat inkommande skydd av dina webbappar mot vanliga kryphål och säkerhetsproblem. Azure-brandväggen ger utgående på nätverksnivå för alla portar och protokoll på programnivå skydd och för utgående HTTP/S. Inkommande skydd för icke-HTTP/S-protokoll (till exempel RDP, SSH, FTP) är preliminärt planerat för Azure-brandvägg GA.
+Web Application Firewall (WAF) är en funktion i Application Gateway som ger ett centraliserat inkommande skydd av dina webbappar mot vanliga kryphål och säkerhetsproblem. Azure-brandväggen ger inkommande skydd för icke-HTTP/S-protokoll (till exempel RDP, SSH, FTP) och utgående på nätverksnivå skydd för alla portar och protokoll på programnivå skydd för utgående HTTP/S.
 
 ### <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Vad är skillnaden mellan Nätverkssäkerhetsgrupper (NSG) och Azure-brandvägg?
 

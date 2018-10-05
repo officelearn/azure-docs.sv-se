@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: ab5f6d10e4f9edc4d899e976291482bb3a795c07
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be429e7d3ae847eec6dc4fd5ad6b9c3e5d76d5b5
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248932"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785417"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager-dirigeringsmetoder
 
@@ -39,7 +39,7 @@ Alla Traffic Manager-profiler innehåller övervakning av slutpunktshälsa och a
 
 Ofta vill en organisation att tillhandahålla tillförlitlighet för sina tjänster genom att distribuera en eller flera säkerhetskopierade tjänster om deras primära tjänst slutar fungera. ”Prioritet” trafikdirigeringsmetoden kan Azure-kunder enkelt kan implementera det här mönstret för redundans.
 
-! [Azure Traffic Manager ”prioritet” trafikdirigeringsmetoden] [1]
+![Azure Traffic Manager ”prioritet” trafikdirigeringsmetoden](media/traffic-manager-routing-methods/priority.png)
 
 Traffic Manager-profilen innehåller en prioriterad lista med Tjänsteslutpunkter. Traffic Manager skickar all trafik till den primära slutpunkten (högsta prioritet) som standard. Om den primära slutpunkten inte är tillgänglig, dirigerar Traffic Manager trafiken till den andra slutpunkten. Om både de primära och sekundära slutpunkterna inte är tillgängliga går trafiken till den tredje och så vidare. Tillgängligheten för slutpunkten som baseras på den konfigurerade status (aktiverad eller inaktiverad) och pågående slutpunktsövervakning.
 
@@ -47,10 +47,10 @@ Traffic Manager-profilen innehåller en prioriterad lista med Tjänsteslutpunkte
 
 Med Azure Resource Manager kan du konfigurera slutpunktsprioritet uttryckligen med hjälp av egenskapen ”prioritet” för varje slutpunkt. Den här egenskapen är ett värde mellan 1 och 1000. Lägre värden motsvarar högre prioritet. Slutpunkter kan inte dela prioritetsvärdet. Egenskapen är valfri. När det utelämnas används en standardprioritet baserat på den slutpunkt för.
 
-##<a name = "weighted"></a>Viktad trafikdirigeringsmetoden
+## <a name = "weighted"></a>Viktad trafikdirigeringsmetoden
 Metoden 'Viktad' routning av nätverkstrafik kan du vill distribuera trafiken jämnt eller använda en fördefinierad värde.
 
-! [Azure Traffic Manager-viktad' trafikdirigeringsmetoden] [2]
+![Azure Traffic Manager-viktad' trafikdirigeringsmetoden](media/traffic-manager-routing-methods/weighted.png)
 
 I viktad routning av nätverkstrafik metoden tilldelar du en vikt till varje slutpunkt i Traffic Manager profilkonfigurationen. Vikten som är ett heltal mellan 1 och 1000. Den här parametern är valfri. Om det utelämnas används en standard-vikt på ”1” i Traffic Manager-hanterare. Högre vikt, desto högre prioritet.
 
@@ -78,7 +78,7 @@ Dessa DNS-cachelagring effekter är gemensamma för alla DNS-baserad trafik rout
 
 Distribuera slutpunkter i två eller flera platser i hela världen kan förbättra svarstiden för många program genom att dirigera trafiken till den plats som är närmast dig. Trafikdirigeringsmetoden ”Performance” innehåller den här funktionen.
 
-! [Azure Traffic Manager ”Performance” trafikdirigeringsmetoden] [3]
+![Azure Traffic Manager ”Performance” trafikdirigeringsmetoden](media/traffic-manager-routing-methods/performance.png)
 
 ”Närmaste' slutpunkt är inte nödvändigtvis närmaste enligt geografisk avstånd. I stället anger trafikdirigeringsmetoden ”Performance” närmaste slutpunkten genom att mäta svarstiden i nätverket. Traffic Manager har en tabell med Internet svarstid för att spåra mäts tiden mellan IP-adressintervall och varje Azure-datacenter.
 

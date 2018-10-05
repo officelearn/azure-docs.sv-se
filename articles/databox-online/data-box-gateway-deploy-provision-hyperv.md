@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: bf744d2aaab168b8ce918f7b776d8855cdc5ad16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad498dc8c5bea9516bef5a62495fc0d0cc8f7399
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975255"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419703"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Självstudie: Etablera Azure Data Box Gateway i Hyper-V (förhandsversion)
 
@@ -87,7 +87,7 @@ För att skapa en virtuell enhet behöver du följande:
 
     * Minst 4 kärnor.
     * Minst 8 GB RAM.
-    * Ett nätverksgränssnitt anslutet till det nätverk som kan dirigera trafik till Internet. .
+    * Ett nätverksgränssnitt anslutet till det nätverk som kan dirigera trafik till Internet. 
     * En operativsystemdisk på 250 GB.
     * En virtuell disk på 2 TB för systemdata.
 
@@ -105,9 +105,6 @@ Utför följande steg för att etablera en enhet i ditt hypervisor-program.
    ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. På sidan **Innan du börjar** i guiden för ny virtuell dator klickar du på **Nästa**.
 5. På sidan **Ange namn och plats** anger du ett **Namn** för din virtuella enhet. Klicka på **Nästa**.
-   
-   > [!IMPORTANT]
-   > I den här versionen kan du bara använda versaler för namnet på den virtuella enheten.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. På sidan **Ange generation** väljer du **Generation 2** för .vhdx-enhetsavbildningstypen och klickar sedan på **Nästa**.    
@@ -171,17 +168,10 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
 3. Du kan behöva vänta 10–15 minuter innan enheten blir klar. Ett statusmeddelande visas på konsolen som visar förloppet. När enheten är klar går du till **Åtgärd**. Tryck på `Ctrl + Alt + Delete` för att logga in på den virtuella enheten. Standardanvändaren är *EdgeUser* och standardlösenordet är *Password1*.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-4. Av säkerhetsskäl upphör enhetens administratörslösenord vid första inloggningen. Du uppmanas att ändra lösenordet.
-
-   Ange ett lösenord som innehåller minst 8 tecken. Lösenordet måste uppfylla minst 3 av följande 4 krav: versaler, gemener, siffror och specialtecken. Ange lösenordet igen för att bekräfta det. Du meddelas om att lösenordet har ändrats.
    
-5. När lösenordet har ändrats startas den virtuella enheten kanske om. Vänta tills enheten har startat.  Enhetens Windows PowerShell-konsolen visas tillsammans med en förloppsindikator.
-
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image22.png)
-
-6. Steg 6–8 gäller bara när du startar i en icke-DHCP-miljö. Om du använder en DHCP-miljö hoppar du över dessa steg och går till steg 9. Om du startade enheten i en icke-DHCP-miljö visas ett meddelande som reflekterar det.
+6. Steg 5–7 gäller bara när du startar i en icke-DHCP-miljö. Om du använder en DHCP-miljö hoppar du över dessa steg. Om du startade enheten i en icke-DHCP-miljö visas ett meddelande som reflekterar det.
     
-7. Konfigurera nätverket genom att använda kommandot `Get-HcsIpAddress` för att lista de nätverksgränssnitt som har aktiverats på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `DATA1`.
+7. Konfigurera nätverket genom att använda kommandot `Get-HcsIpAddress` för att lista de nätverksgränssnitt som har aktiverats på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
 
 8. Använd cmdleten `Set-HcsIpAddress` för att konfigurera nätverket. Se följande exempel:
 
@@ -192,7 +182,7 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-Om enheten inte uppfyller minimikraven för konfiguration visas ett felmeddelande i banderollstexten. Ändra enhetskonfigurationen så att datorn har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Se till minikraven för konfiguration i [Steg 1: Kontrollera att värdsystemet uppfyller minimikraven för virtuella enheter](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Om enheten inte uppfyller minimikraven för konfiguration visas ett felmeddelande i banderollstexten. Ändra enhetskonfigurationen så att datorn har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Se till minikraven för konfiguration i [Kontrollera att värdsystemet uppfyller minimikraven för virtuella enheter](#check-the-host-system).
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 

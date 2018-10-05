@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: d0c6f8723909b71501894c9363932c752c1e130c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989863"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419550"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Självstudie: Etablera Azure Data Box Gateway i VMware (förhandsversion)
 
@@ -33,8 +33,8 @@ Du måste ha administratörsbehörighet för att etablera och ansluta till en vi
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Se till att värden uppfyller minsta enhetskravet
-> * Etablera en virtuell enhet i hypervisor-program
+> * Se till att värden uppfyller minimikraven för enhet
+> * Etablera en virtuell enhet i VMware
 > * Starta den virtuella enheten och hämta IP-adressen
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -64,7 +64,7 @@ Innan du distribuerar en virtuell enhet kontrollerar du att:
 * Värdsystemet kan dedikera följande resurser för att etablera den virtuella enheten:
 
   * Minst 4 kärnor.
-  * Minst 8 GB RAM-minne.
+  * Minst 8 GB RAM.
   * Ett nätverksgränssnitt.
   * En operativsystemdisk på 250 GB.
   * En 2 TB virtuell disk för systemdata.
@@ -74,7 +74,7 @@ Innan du distribuerar en virtuell enhet kontrollerar du att:
 Innan du börjar:
 
 - Granska nätverkskraven för att distribuera en Data Box Gateway och konfigurera datacenternätverket enligt kraven. Mer information finns i [Nätverkskrav för Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
-- Se till att den minsta bandbredden är 20 Mbps för att enheten ska fungera optimalt.
+- Se till att den minsta Internetbandbredden är 20 Mbps för att enheten ska fungera optimalt.
 
 ## <a name="check-the-host-system"></a>Kontrollera värdsystemet
 
@@ -83,8 +83,8 @@ Om du vill skapa en virtuell enhet måste du ha följande:
 * Åtkomst till ett värdsystem som kör VMware ESXi Server 6.0 eller 6.5. Värdsystemet kan dedikera följande resurser för den virtuella enheten:
  
   * Minst 4 kärnor.
-  * Minst 8 GB RAM-minne. 
-  * Ett nätverksgränssnitt anslutet till det nätverk som kan dirigera trafik till internet. 
+  * Minst 8 GB RAM. 
+  * Ett nätverksgränssnitt anslutet till det nätverk som kan dirigera trafik till Internet. 
   * En operativsystemdisk på 250 GB.
   * En 2 TB virtuell disk för data.
 * VMware vSphere-klient i systemet för att hantera ESXi-värden.
@@ -175,7 +175,7 @@ Nästa steg är att aktivera datorn och hämta IP-adressen.
 
 Utför följande steg för att starta den virtuella enheten och ansluta till den.
 
-#### <a name="to-start-the-virtual-device"></a>Starta den virtuella enheten
+#### <a name="to-start-the-virtual-device"></a>Så startar du den virtuella enheten
 1. Starta den virtuella enheten. I det högra fönstret väljer du din enhet i listan över virtuella datorer och högerklickar för att ta fram snabbmenyn. Välj **Power** (Av/på) och sedan **Power on** (På). Den virtuella datorn bör aktiveras. Du kan visa statusen i fönstret längst ned i webbklienten.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image19.png)
@@ -198,7 +198,7 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
 
 6. Steg 5–7 gäller bara när du startar i en icke-DHCP-miljö. Om du använder en DHCP-miljö hoppar du över dessa steg och går till steg 8. Om du har startat enheten i en icke-DHCP-miljö visas ett meddelande om detta: **Use the Set-HcsIPAddress cmdlet to configure the network** (Använd cmdleten Set-HcsIPAddress för att konfigurera nätverket). 
    
-7. Konfigurera nätverket genom att i kommandotolken använda kommandot `Get-HcsIpAddress` för att lista de nätverksgränssnitt som har aktiverats på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `DATA1`.
+7. Konfigurera nätverket genom att i kommandotolken använda kommandot `Get-HcsIpAddress` för att lista de nätverksgränssnitt som har aktiverats på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
 
 8. Använd cmdleten `Set-HcsIpAddress` för att konfigurera nätverket. Ett exempel på detta visas nedan:
 
@@ -208,7 +208,7 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-Om enheten inte uppfyller minimikraven för konfiguration visas ett felmeddelande i banderollstexten (visas nedan). Du måste ändra enhetskonfigurationen så att den har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Referera till minikraven för konfiguration i [Steg 1: Kontrollera att värdsystemet uppfyller minimikraven för virtuella enheter](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Om enheten inte uppfyller minimikraven för konfiguration visas ett felmeddelande i banderollstexten (visas nedan). Du måste ändra enhetskonfigurationen så att den har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Se till minikraven för konfiguration i [Kontrollera att värdsystemet uppfyller minimikraven för virtuella enheter](#check-the-host-system).
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -220,8 +220,8 @@ Om enheten inte uppfyller minimikraven för konfiguration visas ett felmeddeland
 I den här kursen har du lärt dig om Data Gateway-ämnen som att:
 
 > [!div class="checklist"]
-> * Se till att värden uppfyller minsta enhetskravet
-> * Etablera en virtuell enhet i hypervisor-program
+> * Se till att värden uppfyller minimikraven för enhet
+> * Etablera en virtuell enhet i VMware
 > * Starta den virtuella enheten och hämta IP-adressen
 
 Gå vidare till nästa självstudie och lär dig hur du ansluter, konfigurerar och aktiverar din virtuella enhet.

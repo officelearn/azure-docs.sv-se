@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841513"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452623"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Självstudie: Kopiera data till en Azure Data Box-disk och verifiera
 
@@ -30,17 +30,14 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Kopiera data till en Data Box-disk
-> * Verifiera dataintegriteten
+> * Verifiera data
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du kontrollera att:
 - Du har slutfört [självstudien Installera och konfigurera Azure Data Box Disk](data-box-disk-deploy-set-up.md).
-- Diskarna har packats upp och är aktiverade.
-- Du har en värddator som du kan använda för att kopiera data till diskarna. Värddatorn måste
-    - Köra ett [operativsystem som stöds](data-box-disk-system-requirements.md).
-    - Ha [Windows PowerShell 4 installerat](https://www.microsoft.com/download/details.aspx?id=40855).
-    - Ha [.NET Framework 4.5 installerat](https://www.microsoft.com/download/details.aspx?id=30653).
+- Diskarna låses upp och ansluts till en klientdator.
+- Klientdatorn som används till att kopiera data till diskarna måste köra ett [operativsystem som stöds](data-box-disk-system-requirements.md).
 
 
 ## <a name="copy-data-to-disks"></a>Kopiera data till diskar
@@ -59,6 +56,7 @@ Utför stegen nedan för att ansluta och kopiera data från din dator till Data 
 
     Följ Azure-namngivningskraven för container- och blobnamn.
 
+    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>Azure-namngivningskonventioner för container- och blobnamn
     |Entitet   |Konventioner  |
     |---------|---------|
     |Containernamn för blockblobar och sidblobar     |Måste börja med en bokstav eller siffra och får endast innehålla gemener, siffror och bindestreck (-). Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. Flera bindestreck i rad tillåts inte i namn. <br>Måste vara ett giltigt DNS-namn som är 3 till 63 tecken långt.          |
@@ -165,17 +163,21 @@ Utför stegen nedan för att ansluta och kopiera data från din dator till Data 
 > -  När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box Disk-gränser](data-box-disk-limits.md). 
 > - Om data som laddas upp av Data Box Disk samtidigt överförs av andra program utanför Data Box Disk, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
 
-## <a name="verify-data-integrity"></a>Verifiera dataintegriteten
+## <a name="verify-data"></a>Verifiera data 
 
-Kontrollera dataintegriteten genom att utföra stegen nedan.
+Verifiera data med hjälp av följande steg.
 
-1. Kör `AzureExpressDiskService.ps1` för validering av kontrollsummor. Använd Utforskaren och gå till mappen *AzureImportExport* på enheten. Högerklicka och välj **Kör med PowerShell**. 
+1. Kör `DataBoxDiskValidation.cmd` validering av kontrollsumma i mappen *AzureImportExport* för din enhet. 
+    
+    ![Utdata för Data Box Disk-valideringsverktyget](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-    ![Kör checksum](media/data-box-disk-deploy-copy-data/data-box-disk-checksum.png)
-
-2. Beroende på datastorleken kan det här steget ta en stund. När skriptet har körts visas en sammanfattning av dataintegritetskontrollen samt hur lång tid processen tog. Du kan trycka på **Retur** för att stänga kommandofönstret.
+2. Välj lämpligt alternativ. **Vi rekommenderar att du alltid validerar filerna och genererar kontrollsummor genom att välja alternativ 2**. Beroende på datastorleken kan det här steget ta en stund. När skriptet är klart stänger du kommandofönstret. Om det uppstår fel vid valideringen och genereringen av kontrollsumma meddelas du och du får även en länk till felloggarna.
 
     ![Checksum-utdata](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
+
+    > [!TIP]
+    > - Återställ verktyget mellan de två körningarna.
+    > - Använd alternativ 1 för att validera de filer som bara hanterar en stor datamängd som innehåller små filer (~KB). I dessa fal kan genereringen av kontrollsumma ta mycket lång tid och prestanda kan vara mycket långsamma.
 
 3. Om du använder flera diskar kör du kommandot för varje disk.
 

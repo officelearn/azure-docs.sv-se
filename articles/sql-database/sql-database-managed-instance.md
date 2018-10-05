@@ -12,19 +12,19 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: a09a19957c318416f3cb4de79305b181dbc3be81
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 698fafac771c79bf014d6e9492c8ca22d1c31b47
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018300"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784991"
 ---
 # <a name="what-is-a-managed-instance"></a>Vad är en hanterad instans?
 
 Azure SQL Database Managed Instance är en ny distributionsmodell för av Azure SQL Database, vilket ger nästan 100% kompatibilitet med den senaste SQL Server lokalt (Enterprise Edition) databasmotorn, ger ett ursprungligt [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) implementering som åtgärdar vanliga säkerhetsproblem och en [affärsmodell](https://azure.microsoft.com/pricing/details/sql-database/) fördelaktig för en lokal SQL Server-kunder. Hanterad instans tillåter att befintliga SQL Server-kunder att flytta över sina lokala program till molnet med minimala ändringar för programmet och databasen. På samma gång, Managed Instance bevarar alla PaaS-funktioner (automatiska uppdateringar för uppdatering och version, [automatiska säkerhetskopior](sql-database-automated-backups.md), [hög tillgänglighet](sql-database-high-availability.md) ), vilket drastiskt minskar hanteringskostnader och TCO.
 
 > [!IMPORTANT]
-> En lista över regioner där hanterade instanser är tillgängliga finns i [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migrera dina databaser till en helt hanterad tjänst med Azure SQL Database Managed Instance).
+> En lista över regioner där hanterade instanser är tillgängliga finns i [regioner som stöds](sql-database-managed-instance-resource-limits.md#supported-regions).
  
 Följande diagram illustrerar viktiga funktioner i den hanterade instansen:
 
@@ -41,7 +41,7 @@ Att välja mellan Azure SQL Database enkel databas, Azure SQL Database Managed I
 Azure SQL Database Managed Instance kombinerar de bästa funktionerna som finns både i Azure SQL Database och SQL Server Database Engine.
 
 > [!IMPORTANT]
-> En hanterad instans körs med alla funktioner i den senaste versionen av SQL Server, inklusive online åtgärder, plan för automatisk korrigeringar och andra enterprise prestandaförbättringar. 
+> En hanterad instans körs med alla funktioner i den senaste versionen av SQL Server, inklusive online åtgärder, plan för automatisk korrigeringar och andra enterprise prestandaförbättringar. En jämförelse av funktionerna förklaras i [funktionsjämförelse: Azure SQL Database jämfört med SQL Server](sql-database-features.md).
 
 | **PaaS-fördelar** | **Verksamhetskontinuitet** |
 | --- | --- |
@@ -49,22 +49,34 @@ Azure SQL Database Managed Instance kombinerar de bästa funktionerna som finns 
 |**Säkerhet och efterlevnad** | **Hantering**|
 |Isolerad miljö ([VNet-integrering](sql-database-managed-instance-vnet-configuration.md), enskild klient-tjänsten, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), enkel inloggning för support <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Identifiering av hot](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API för att automatisera service etablering och skalning <br>Azure-portalen funktioner för manuell tjänsten etablering och skalning <br>Data Migration Service 
 
+I följande tabell visas de viktigaste funktionerna i Managed Instance:
+
+|Funktion | Beskrivning|
+|---|---|
+| SQL Server-version / skapa | SQL Server Database Engine (senaste stabil) |
+| Hanterade automatiska säkerhetskopieringar | Ja |
+| Inbyggd instans och databasövervakning och mått | Ja |
+| Automatisk uppdatering av programvaror | Ja |
+| De senaste funktionerna i Database Engine | Ja | 
+| Antalet datafiler (rader) per databasen | Flera | 
+| Antal loggfiler (loggning) per databas | 1 | 
+| Virtuellt nätverk – Azure Resource Manager-distribution | Ja |
+| Virtuellt nätverk – klassiska distributionsmodellen | Nej |
+| Portal-support | Ja|
+| Inbyggd Integration-tjänsten (SSIS) | Nej, SSIS är en del av [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
+| Inbyggda Analysis Service (SSAS) | Nej, SSAS är separat [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
+| Inbyggda rapporteringstjänsten (SSRS) | Nej, Använd Power BI eller SSRS IaaS |
+|||
+
 ## <a name="vcore-based-purchasing-model"></a>vCore-baserade inköpsmodellen
 
-Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) ger dig flexibilitet, kontroll, transparens och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du skala beräkning, minne och lagring utifrån deras arbetsbelastningsbehov. VCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) i Managed Instance ger dig flexibilitet, kontroll, transparens och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du ändra beräkning, minne och lagring utifrån dina arbetsbelastningsbehov. VCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
-En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara.
-- Logiska generation 4-CPU:er baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer.
-- Gen 5 logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2,3 GHz-processorer.
+Du kan välja mellan av maskinvara i vCore-modellen.
+- **Gen 4** logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, SSD, enheter anslutna fysiska kärnor, 7 GB RAM-minne per kärna och storlekar på mellan 8 och 24 virtuella kärnor.
+- **5: e generationen** logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3-GHz-processorer, snabb eNVM SSD, hyper-threaded logiska kärna, och beräkna storlekar mellan 8 och 80 kärnor.
 
-I följande tabell beskriver vi hur du väljer den bästa konfigurationen av din beräkning, minne, lagring och i/o-resurser.
-
-||Generation 4|Generation 5|
-|----|------|-----|
-|Maskinvara|Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysiska kärnor)|Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer för snabb eNVM SSD, vCore = 1 LP (hyper-tråd)|
-|Compute-storlekar|8, 16, 24 virtuella kärnor|8, 16, 24, 32, 40, 64, 80 virtuella kärnor|
-|Minne|7 GB per vCore|5.5 GB per vCore|
-||||
+Mer information om skillnaden mellan maskinvarugenerationer i [resursgränser för hanterad instans](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
 ## <a name="managed-instance-service-tiers"></a>Hanterad instans-tjänstnivåer
 
@@ -83,32 +95,11 @@ I följande lista beskrivs nyckelegenskap för tjänstnivån generell användnin
 
 - Design för flesta affärsprogram med vanliga prestandakrav 
 - Azure Premium storage med höga prestanda (8 TB) 
-- 100 databaserna per instans 
+- Inbyggda [hög tillgänglighet](sql-database-high-availability.md#standardgeneral-purpose-availability) baserat på tillförlitlig Azure Premium Storage och [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
-I följande lista beskrivs de främsta egenskaperna för tjänstnivån generell användning:
+Mer information finns i [Storate lager i nivån generell användning](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) och [bästa praxis för prestanda för lagring och överväganden för Azure SQL DB Managed Instance (Allmänt)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
-|Funktion | Beskrivning|
-|---|---|
-| Antal virtuella kärnor * | 8, 16, 24 (gen 4)<br>8, 16, 24, 32, 40, 64, 80 (5: e generationen)|
-| SQL Server-version / skapa | SQL Server Database Engine (senaste stabil) |
-| Minimistorlek för lagring | 32 GB |
-| Maxstorlek för lagring | 8 TB |
-| Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans |
-| Förväntade storage IOPS | 500-7500 IOPS per fil (beror på datafilen). Se [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
-| Antalet datafiler (rader) per databasen | Flera | 
-| Antal loggfiler (loggning) per databas | 1 | 
-| Hanterade automatiska säkerhetskopieringar | Ja |
-| HÖG TILLGÄNGLIGHET | Data som lagras i Azure Storage och [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Inbyggd instans och databasövervakning och mått | Ja |
-| Automatisk uppdatering av programvaror | Ja |
-| Virtuellt nätverk – Azure Resource Manager-distribution | Ja |
-| Virtuellt nätverk – klassiska distributionsmodellen | Nej |
-| Portal-support | Ja|
-|||
-
-\* En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara. Gen 4 logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer och Gen 5 logiska processorer är baserade på Intel E5-2673 v4-processorn (Broadwell) 2,3 GHz-processorer. 
-
-Mer information finns i [Standard/generell användning, tillgänglighet och arkitektur](sql-database-high-availability.md#standardgeneral-purpose-availability) i Azure SQL Database och [bästa praxis för prestanda för lagring och överväganden för Azure SQL DB Managed Instance (Allmänt Syfte)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+Mer information om skillnaden mellan tjänstnivåerna i [resursgränser för hanterad instans](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### <a name="business-critical-service-tier-preview"></a>Affärsnivå kritiska-(förhandsversion)
 
@@ -117,33 +108,14 @@ Kritiska-affärsnivå har utformats för program med höga i/o-krav. Det erbjude
 I följande lista beskrivs de främsta egenskaperna för nivån affärskritisk service: 
 -   Utformad för affärsprogram med högsta prestanda och hög tillgänglighet krav 
 -   Medföljer Supersnabb SSD-lagring (upp till 1 TB på Gen 4 och upp till 4 TB på Gen 5)
--   Har stöd för upp till 100 databaser per instans 
-- Inbyggda ytterligare skrivskyddad instans som kan användas för rapportering och andra skrivskyddade arbetsbelastningar
+- Inbyggda [hög tillgänglighet](sql-database-high-availability.md#premiumbusiness-critical-availability) utifrån [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) och [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+- Ytterligare inbyggda [skrivskyddad databasrepliken](sql-database-read-scale-out.md) som kan användas för rapportering och andra skrivskyddade arbetsbelastningar
 - [In-Memory OLTP](sql-database-in-memory.md) som kan användas för arbetsbelastning med hög prefrmance krav  
-
-|Funktion | Beskrivning|
-|---|---|
-| Antal virtuella kärnor * | 8, 16, 24, 32 (gen 4)<br>8, 16, 24, 32, 40, 64, 80 (5: e generationen)|
-| SQL Server-version / skapa | SQL Server senaste (tillgänglig) |
-| Ytterligare funktioner | [Minnesintern OLTP](sql-database-in-memory.md)<br> 1 ytterligare skrivskyddad replik ([Lässkalning](sql-database-read-scale-out.md))
-| Minimistorlek för lagring | 32 GB |
-| Maxstorlek för lagring | Gen 4: 1 TB (alla vCore storlekar)<br> 5: e generationen:<ul><li>1 TB för 8, 16 virtuella kärnor</li><li>2 TB för 24 virtuella kärnor</li><li>4 TB för 32, 40, 64, 80 virtuella kärnor</ul>|
-| Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans |
-| Antalet datafiler (rader) per databasen | Flera | 
-| Antal loggfiler (loggning) per databas | 1 | 
-| Hanterade automatiska säkerhetskopieringar | Ja |
-| HÖG TILLGÄNGLIGHET | Data som lagras på lokala SSD och [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) och [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Inbyggd instans och databasövervakning och mått | Ja |
-| Automatisk uppdatering av programvaror | Ja |
-| Virtuellt nätverk – Azure Resource Manager-distribution | Ja |
-| Virtuellt nätverk – klassiska distributionsmodellen | Nej |
-| Portal-support | Ja|
-|||
-
-Mer information finns i [Premium/affärskritisk tillgänglighet och arkitektur](sql-database-high-availability.md#premiumbusiness-critical-availability) i Azure SQL Database.
 
 > [!IMPORTANT]
 > Den **affärskritisk** tjänstnivå finns i en förhandsversion.
+
+Mer information om skillnaden mellan tjänstnivåerna i [resursgränser för hanterad instans](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ## <a name="advanced-security-and-compliance"></a>Avancerad säkerhet och efterlevnad 
 

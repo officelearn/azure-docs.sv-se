@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8a7ecac3776d767160b07f550251c54793926056
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8fbfd37be0bc6f05f30b71fdae2e7cc88601d628
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033200"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785553"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Skriv- och slutpunkt användaråtkomst
 Redigera åtkomst är tillgänglig för ägare och medarbetare. För en privat app är slutpunkt för åtkomst tillgänglig för ägare och medarbetare. För en app för offentlig är åtkomst för slutpunkten tillgänglig för alla som har sina egna LUIS-konto och har den offentliga app-ID. 
@@ -85,7 +85,7 @@ Du kan styra vilka som får se din LUIS slutpunktsnyckeln genom att anropa den i
 
 ## <a name="security-compliance"></a>Säkerhet
  
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-security-compliance.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-security-compliance.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

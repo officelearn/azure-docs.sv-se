@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: c500a1ecc817e4d95e39ca0ac985e1d90ffc8a78
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5678b8408eac303d9036d21612f60fafc325425d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721271"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801921"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap recovery (BCDR): parade Azure-regioner
 
@@ -34,6 +34,7 @@ Bild 1 – Azure regionala par
 | Kanada |Centrala Kanada |Östra Kanada |
 | Kina |Norra Kina |Östra Kina|
 | Europa |Nordeuropa |Västra Europa |
+| Frankrike |Centrala Frankrike|Frankrike, södra|
 | Tyskland |Centrala Tyskland |Nordöstra Tyskland |
 | Indien |Indien, centrala |Södra Indien |
 | Indien |Västra Indien (1) |Södra Indien |
@@ -69,7 +70,7 @@ Bild 2 – hypotetiska Azure regionala par
 ## <a name="cross-region-activities"></a>Interregionala aktiviteter
 Enligt figur 2.
 
-![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (PaaS)** – måste du etablera ytterligare beräkningsresurser i förväg för att säkerställa att resurser är tillgängliga i en annan region vid ett haveri. Mer information finns i [Azure återhämtning, tekniska riktlinjer](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (IaaS)** – måste du etablera ytterligare beräkningsresurser i förväg för att säkerställa att resurser är tillgängliga i en annan region vid ett haveri. Mer information finns i [Azure återhämtning, tekniska riktlinjer](resiliency/resiliency-technical-guidance.md).
 
 ![Storage](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** -Geo-Redundant lagring (GRS) är konfigurerat som standard när ett Azure Storage-konto har skapats. Med GRS, är dina data automatiskt replikeras tre gånger inom den primära regionen och tre gånger i den parade regionen. Mer information finns i [redundansalternativ för Azure Storage](storage/common/storage-redundancy.md).
 

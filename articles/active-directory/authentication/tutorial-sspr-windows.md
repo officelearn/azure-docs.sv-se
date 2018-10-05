@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918846"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166885"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -45,8 +45,6 @@ Att distribuera konfigurationsändringen för att aktivera lösenordsåterställ
    * Du kan också ange en beskrivning av profilen
    * Plattform **Windows 10 och senare**
    * Profiltyp **Anpassad**
-
-   ![CreateProfile][CreateProfile]
 
 3. Konfigurera **inställningar**
    * **Lägg till** följande OMA-URI-inställning för att aktivera länken Återställ lösenord
@@ -100,7 +98,6 @@ Vad förändras för användaren när principen är konfigurerad och tilldelad? 
 ![LoginScreen][LoginScreen]
 
 När användarna försöker logga in ser de nu en länk för återställning av lösenord som öppnar självbetjäningen för återställning av lösenord på inloggningsskärmen. Via den här funktionen kan användarna återställa sina lösenord utan att de behöver använda en annan enhet för att få åtkomst till webbläsaren.
-När användarna försöker logga in ser de nu en länk för återställning av lösenord som öppnar självbetjäningen för återställning av lösenord på inloggningsskärmen. Via den här funktionen kan användarna återställa sina lösenord utan att de behöver använda en annan enhet för att få åtkomst till webbläsaren.
 
 Dina användare får hjälp med att använda funktionen i [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) (Återställa ditt arbets- eller skollösenord)
 
@@ -116,6 +113,10 @@ När du testar funktionen med Fjärrskrivbord visas inte länken ”Återställ 
 
 Om Windows-låsskärmen har inaktiverats med hjälp av en registernyckel eller grupprincip är **Återställ lösenord** inte tillgänglig.
 
+Azure AD-granskningsloggen innehåller information om IP-adressen och klienttypen där lösenordsåterställningen har gjorts.
+
+![Exempel på lösenordsåterställning för inloggningssida i Azure AD-granskningsloggen](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte längre vill använda funktioner som du har konfigurerat i den här kursen kan du ta bort Intune-enhetens konfigurationsprofil som du skapade eller registernyckeln.
@@ -127,6 +128,5 @@ I den här självstudien gjorde du så att användare kan återställa sina lös
 > [!div class="nextstepaction"]
 > [Utvärdera risk vid inloggning](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Skapa en Intune-enhetskonfigurationsprofil för att aktivera länken Återställ lösenord på Windows 10-inloggningsskärmen"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Tilldela principer för Intune-enhetskonfiguration till en grupp med Windows 10-enheter"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Länken Återställ lösenord på Windows 10-inloggningsskärmen"

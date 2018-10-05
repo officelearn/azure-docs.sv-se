@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: bab88c00b8c429bc604c4606d2db72df6b694243
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9c4aea2493ffed12b90f82113baf81c6c77a0ea2
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982801"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801411"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Snabbstart: Skapa ett Cognitive Services-konto i Azure portal
 
@@ -47,6 +47,9 @@ Använd den här snabbstarten för att börja använda Azure Cognitive Services.
     ![Resursen skapa-skärmen](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ## <a name="access-your-resource"></a>Komma åt din resurs 
+
+> [!NOTE]
+> Prenumerationsägare kan inaktivera skapandet av Cognitive Services-konton för resursgrupper och prenumerationer genom att använda [Azure policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview#policy-definition), att tilldela en principdefinition för ”tillåts inte resurstyper” och ange **Microsoft.CognitiveServices/accounts** som resource måltypen.
 
 När du har skapat din resurs kommer du åt den från instrumentpanelen för Azure om du har Fäst. I annat fall hittar du den i **resursgrupper**.
 

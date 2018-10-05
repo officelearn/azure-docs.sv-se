@@ -9,16 +9,22 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918279"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409498"
 ---
-# <a name="archive-azure-monitoring-data"></a>Arkivera Azure-övervakningsdata
+# <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arkivera Azure mått och loggdata med hjälp av Azure Storage
 
-Flera lager i Azure-miljön producerar logg- och måttdata som kan arkiveras i ett Azure Storage-konto. Du kanske vill bevara historik för övervakningsdata i en kostnadseffektiv men icke sökbar lagring när dess data har passerat bevarandeperioden i Log Analytics och Azure Monitor. Här leder vi dig genom processen med att konfigurera Azure-miljön så att du kan arkivera data på ett lagringskonto.
+Flera lager i Azure-miljön producerar logg- och måttdata som kan arkiveras i ett Azure Storage-konto. Du kanske vill bevara historik för övervakningsdata i en kostnadseffektiv men icke sökbar lagring när dess data har passerat bevarandeperioden. 
+
+- Azure Monitor-plattformens mått behålls i 93 dagar. 
+- Resursdiagnostikloggar visas bara om de dirigeras till Log Analytics, där de har en konfigurerbar kvarhållningsperiod på minst 30 dagar. 
+- Aktivitetsloggposter behålls i 90 dagar.  
+
+Här leder vi dig genom processen med att konfigurera Azure-miljön så att du kan arkivera data på ett lagringskonto.
 
 > [!div class="checklist"]
 > * Skapa ett lagringskonto och lagra övervakningsdata
@@ -150,11 +156,11 @@ Om du har följt föregående steg har data börjat flöda till lagringskontot.
 
 3. Identifiera det lagringskonto som du skapade i föregående avsnitt och klicka på det.
 
-4. Klicka på **Blobar**och sedan på behållaren med etiketten **insights-operational-logs** och slutligen på behållaren märkt **name=default**. Det här är den behållare som innehåller aktivitetsloggen. Övervakningsdata bryts ned i behållare efter resurs-ID (bara prenumerations-ID för aktivitetsloggen) och sedan datum och tid. Fullständigt format för dessa blobar är:
+4. Klicka på **Blobar**och sedan på containern med etiketten **insights-operational-logs** och slutligen på containern märkt **name=default**. Det här är den container som innehåller aktivitetsloggen. Övervakningsdata bryts ned i containrar efter resurs-ID (bara prenumerations-ID för aktivitetsloggen) och sedan datum och tid. Fullständigt format för dessa blobar är:
 
    insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{prenumerations-ID}/y={fyrsiffrigt årtal}/m={månad med två siffror}/d={dag med två siffror}/h={24-timmarsklocka med två siffror}/m=00/PT1H.json
 
-5. Navigera till filen PT1H.json genom att klicka på behållarna för resurs-ID, datum och tid. Klicka på filen PT1H.json och på **Hämta**. Varje PT1H.json-blob innehåller en JSON-blob med händelser som inträffade inom den angivna timmen i blob-URL (till exempel h=12). Under den aktuella timmen läggs händelser till i filen PT1H.json allt eftersom de inträffar. Minutvärdet (m=00) är alltid 00, eftersom logghändelser delas upp i enskilda blobar per timme.
+5. Navigera till filen PT1H.json genom att klicka på containrarna för resurs-ID, datum och tid. Klicka på filen PT1H.json och på **Hämta**. Varje PT1H.json-blob innehåller en JSON-blob med händelser som inträffade inom den angivna timmen i blob-URL (till exempel h=12). Under den aktuella timmen läggs händelser till i filen PT1H.json allt eftersom de inträffar. Minutvärdet (m=00) är alltid 00, eftersom logghändelser delas upp i enskilda blobar per timme.
 
    Du kan nu visa JSON-händelsen som lagrats i lagringskontot. Formatet för blobarna för resursdiagnostikloggar är:
 

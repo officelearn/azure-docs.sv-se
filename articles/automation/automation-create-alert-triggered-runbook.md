@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac117994140f96ec993e4fed739626f736ad7efc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 98de7a84dc388f74c64d7c265d2ce8ed32995a5a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965287"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784783"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Använd en avisering för att utlösa en Azure Automation-runbook
 
@@ -211,7 +211,7 @@ Skapa en meddelandeåtgärd i åtgärdsgruppen:
    ![Lägg till åtgärd gruppsidan](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. Om du vill skapa åtgärdsgruppen, Välj **OK**.
 
-Du kan använda den här åtgärdsgruppen i den [aktivitetsloggaviseringar](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) och [nära realtidsaviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal) som du skapar.
+Du kan använda den här åtgärdsgruppen i den [aktivitetsloggaviseringar](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) och [nära realtidsaviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) som du skapar.
 
 ## <a name="classic-alert"></a>Klassiska avisering
 
@@ -231,4 +231,4 @@ Att skapa en klassisk:
 * Mer information om hur du startar en Automation-runbook med en webhook finns i [starta en runbook från en webhook](automation-webhooks.md).
 * Mer information om olika sätt att starta en runbook finns [starta en runbook](automation-starting-a-runbook.md).
 * Läs hur du skapar en aktivitetsloggavisering i [skapa aviseringar för aktivitetsloggen](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
-* Läs hur du skapar en avisering om nästan i realtid i [skapar en aviseringsregel i Azure-portalen](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal).
+* Läs hur du skapar en avisering om nästan i realtid i [skapar en aviseringsregel i Azure-portalen](../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json).

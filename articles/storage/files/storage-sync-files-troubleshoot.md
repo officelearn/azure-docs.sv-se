@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: ef70d3d3dd2a806ea978be8e996b7d5ba0fbc96b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2b2d817c85528ef56fd0baef80d17c7cd6eae543
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586367"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802244"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -319,6 +319,16 @@ Det här felet beror på att Azure File Sync-agenten inte kan komma åt Azure-fi
 | **Reparation krävs** | Ja |
 
 Det här felet uppstår när det finns ett problem med den interna databasen som används av Azure File Sync. När det här problemet uppstår, skapa en supportbegäran så kontaktar vi dig för att hjälpa dig att lösa problemet.
+
+<a id="-2134364053"></a>**Azure File Sync-agent-version som installerats på servern stöds inte.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (decimal)** | -2134364053 |
+| **Felsträng** | ECS_E_AGENT_VERSION_BLOCKED |
+| **Reparation krävs** | Ja |
+
+Det här felet uppstår om Azure File Sync-agent-version som installerats på servern inte stöds. Lös problemet, [uppgradera]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#upgrade-paths) till en [agentversion som stöds]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**Du har nått lagringsgränsen för Azure file-resursen.**  
 | | |

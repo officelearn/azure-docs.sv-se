@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/04/2018
+ms.date: 09/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 26f8f59d940c1e4a25e24229c2a3df75052e63e4
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 611dcb2cb904b5d3ee6ce0f571c2d04cfd7e7c35
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783298"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451758"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Vad är Azure Data Box Disk? (Förhandsversion)
 
@@ -74,10 +74,12 @@ A. Om du får problem med Data Box-diskarna kan du kontakta [Data Box-supporten]
 A.  Nej. Du får diskar på 8 TB (högst fem diskar) beroende på datastorlek och tillgänglighet.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>F. Hur låser jag upp Data Box-diskarna? 
-A.  Öppna Azure-portalen och öppna din Data Box-diskbeställning. Navigera till **Enhetsinformation**. Kopiera supportnyckeln. Ladda ned och extrahera upplåsningsverktyget för Data Box Disk via Azure-portalen och kör *DataBoxDiskUnlock.exe* på den dator där de data du vill kopiera till diskarna finns. Ange nyckeln för att låsa upp diskarna. Samma nyckel låser upp alla diskar.
+A.  Öppna Azure-portalen och öppna din Data Box-diskbeställning. Navigera till **Enhetsinformation**. Kopiera supportnyckeln. Ladda ned och extrahera upplåsningsverktyget för Data Box Disk från Azure-portalen för ditt operativsystem. Kör verktyget på den dator som har de data du vill kopiera till diskarna. Ange nyckeln för att låsa upp diskarna. Samma nyckel låser upp alla diskar. 
+
+Stegvisa instruktioner finns i [Låsa upp diskar på en Windows-klient](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) eller [Låsa upp diskar på en Linux-klient](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box-disks"></a>F. Kan jag använda en Linux-dator som värd och ansluta och kopiera data till Data Box-diskar?
-A.  Nej. Endast Windows-datorer stöds. Mer information finns i listan över [operativsystem som stöds](data-box-disk-system-requirements.md) för värddatorn.
+A.  Ja. Både Linux- och Windows-klienten kan användas till att ansluta och kopiera data på Data Box-diskarna. Mer information finns i listan över [operativsystem som stöds](data-box-disk-system-requirements.md) för värddatorn.
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>F. Mina diskar har skickats men jag vill avbryta beställningen. Varför kan jag inte trycka på knappen och avbryta?
 A.  Det går bara att avbryta redan beställda diskar innan de skickas till dig. När diskarna har skickats iväg går det inte att avbryta beställningen. Under förhandsversionen kan du skicka tillbaka diskarna utan kostnad. När lösningen i framtiden blir allmänt tillgängligt läggs förmodligen en avgift på. 
@@ -139,10 +141,10 @@ A.  När orderstatusen för datakopieringen visas som slutförd bör du komma å
 A.  När du kopierar data under mapparna *BlockBlob* och *PageBlob* på disken skapas en container i Azure-lagringskontot för varje undermapp under mappen *BlockBlob* och *PageBlob*. Om du kopierade filerna under mapparna *BlockBlob* och *PageBlob* direkt kopieras de till en standardcontainer *$root* under Azure Storage-kontot. 
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>F. Jag har precis märkt att jag inte följde namngivningskraven för min container. Misslyckas dataöverföringen till Azure?
-A. Versaler omvandlas automatiskt till gemener. Om namn inte efterlever kraven på andra sätt (specialtecken, andra språk och så vidare) misslyckas uppladdningen.
+A. Versaler omvandlas automatiskt till gemener. Om namn inte efterlever kraven på andra sätt (specialtecken, andra språk och så vidare) misslyckas uppladdningen. Mer information finns i [Azure-namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>F. Hur verifierar jag de data jag kopierade till flera Data Box-diskar?
-A.  När kopieringen är klar kan du köra `AzureExpressDiskService.cmd` i mappen *AzureImportExport* för att generera kontrollsummor för verifiering. Om du har flera diskar behöver du öppna ett kommandofönster per disk och kör det här kommandot. Tänk på att den här åtgärden kan ta lång tid (~ timmar) beroende på storleken på dina data.
+A.  När kopieringen är klar kan du köra `DataBoxDiskValidation.cmd` i mappen *DataBoxDiskImport* för att generera kontrollsummor för verifiering. Om du har flera diskar behöver du öppna ett kommandofönster per disk och kör det här kommandot. Tänk på att den här åtgärden kan ta lång tid (~ timmar) beroende på storleken på dina data.
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-disks"></a>F. Vad händer med mina data när jag har skickat tillbaka diskarna?
 A.  När datakopieringen till Azure är klar raderas alla data på disken på ett säkert sätt enligt riktlinjerna NIST SP 800-88 Revision 1.  

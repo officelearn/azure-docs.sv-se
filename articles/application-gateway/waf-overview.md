@@ -1,35 +1,29 @@
 ---
-title: Introduktion till brandväggen för webbaserade program (WAF) för Azure Application Gateway | Microsoft Docs
-description: Den här sidan innehåller en översikt över brandväggen för webbaserade program (WAF) för Application Gateway
-documentationcenter: na
+title: Introduktion till Brandvägg för webbaserade program (WAF) för Azure Application Gateway
+description: Den här artikeln innehåller en översikt över Brandvägg för webbaserade program (WAF) för Application Gateway
 services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 10/6/2017
 ms.author: amsriva
-ms.openlocfilehash: 9e04f69410251b5748facf44e9f2947b1415bc19
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: a16f8d988c900d015810bfe72b04ff5e9eb0682a
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160842"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815676"
 ---
 # <a name="web-application-firewall-waf"></a>Brandvägg för webbaserade program (WAF)
 
 Brandvägg för webbaserade program (WAF) är en funktion i Application Gateway som ger ett centraliserat skydd för dina webbappar mot vanliga kryphål och säkerhetsproblem. 
 
-Brandväggen använder regler från [OWASP Core Rule Sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 eller 2.2.9. Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av flera skikt i programtopologin. Med en centraliserad brandvägg för webbaserade program blir det enklare att hantera säkerheten och programadministratörer får bättre möjligheter skydda mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en Application Gateway med brandväggen för webbprogram.
+Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av flera skikt i programtopologin. Med en centraliserad brandvägg för webbaserade program blir det enklare att hantera säkerheten och programadministratörer får bättre möjligheter skydda mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en Application Gateway med brandväggen för webbprogram.
+
+WAF är baserat på regler från den [OWASP core rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 eller 2.2.9. Den uppdateras automatiskt med skydd mot nya säkerhetsrisker med ingen ytterligare konfiguration krävs.
 
 ![imageURLroute](./media/waf-overview/WAF1.png)
 
-Application Gateway fungerar som en domänkontrollant och erbjuder SSL-avslutning, cookie-baserad sessionstillhörighet, fördelning av resursallokeringsbelastning, innehållsbaserad routning, möjlighet att vara värd för flera webbplatser och säkerhetsförbättringar. Säkerhetsförbättringarna som erbjuds av Application Gateway inkluderar SSL-principhantering och SSL-support för slutpunkt till slutpunkt. Programsäkerheten har förstärkts genom att WAF är direkt integrerad i ADC. Den utgör ett enkelt sätt att konfigurera en central plats för att hantera dina webbprogram och skydda dem mot vanliga säkerhetsrisker.
+Application Gateway fungerar som en application Deliver controller (ADC) och erbjuder SSL-avslutning, cookie-baserad sessionstillhörighet, belastningsutjämning med resursallokering, innehållsbaserad routning, möjlighet att vara värd för flera webbplatser och säkerhetsförbättringar. Säkerhetsförbättringarna som erbjuds av Application Gateway inkluderar SSL-principhantering och SSL-support för slutpunkt till slutpunkt. Programsäkerheten har förstärkts genom att WAF är direkt integrerad i ADC. Den utgör ett enkelt sätt att konfigurera en central plats för att hantera dina webbprogram och skydda dem mot vanliga säkerhetsrisker.
 
 ## <a name="benefits"></a>Fördelar
 
@@ -61,7 +55,7 @@ Brandväggen för webbaserade program är förkonfigurerad med CRS 3.0 som stand
 * Skydd mot åtgärder som inte följer HTTP-protokollet
 * Skydd mot avvikelser i HTTP-protokollet som att användaragent för värden och accept-huvud saknas
 * Skydd mot robotar, crawlers och skannrar
-* Identifiering av vanliga felkonfigureringar i program (t.ex. Apache, IIS osv.)
+* Identifiering av vanliga felkonfigureringar för programmet (det vill säga Apache, IIS osv.)
 
 En detaljerad lista över regler och deras skydd finns följande [Core Rule Sets](#core-rule-sets).
 
@@ -108,7 +102,7 @@ Core Rule Set 2.2.9 har 10 regelgrupper (se följande tabell). Var och en av des
 
 Application Gateway WAF kan konfigureras för att köras i följande två lägen:
 
-* **Identifieringsläge** – När Application Gateway WAF körs i identifieringsläge övervakas och loggas alla hotvarningar i en loggfil. Loggningsdiagnostik för Application Gateway bör aktiveras i avsnittet **Diagnostik**. Du måste också säkerställa att WAF-loggen har valts och är aktiverad. Vid körning i identifieringsläge blockerar brandväggen för webbaserade program inte inkommande begäranden.
+* **Identifieringsläge** – när du konfigurerade för körning i identifieringsläge, Application Gateway WAF övervakar och loggar in alla hotaviseringar till en loggfil. Loggningsdiagnostik för Application Gateway bör aktiveras i avsnittet **Diagnostik**. Du måste också säkerställa att WAF-loggen har valts och är aktiverad. Vid körning i identifieringsläge blockerar brandväggen för webbaserade program inte inkommande begäranden.
 * **Förhindringsläge** – När Application Gateway har konfigurerats för att köras i förhindringsläge blockerar den aktivt intrång och attacker som identifieras enligt reglerna för den. Attackeraren erhåller undantag 403 för obehörig åtkomst och anslutningen avbryts. Förhindringsläget fortsätter logga sådana attacker i WAF-loggarna.
 
 ### <a name="application-gateway-waf-reports"></a>WAF-övervakning
@@ -119,7 +113,7 @@ Det är viktigt att övervaka hälsotillståndet för Application Gateway. Över
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-Alla Application Gateway-loggar är integrerade med [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Det gör att du kan spåra diagnostisk information, t.ex. varningar och loggar för brandväggen för webbaserade program.  Den här funktionen hittar du på fliken **Diagnostik** i Application Gateway-resursen på portalen eller direkt i Azure Monitor-tjänsten. Mer information om hur du aktiverar diagnostikloggar för Application Gateway finns på sidan om [Application Gateway-diagnostik](application-gateway-diagnostics.md) (på engelska)
+Alla Application Gateway-loggar är integrerade med [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Det gör att du kan spåra diagnostisk information, t.ex. varningar och loggar för brandväggen för webbaserade program.  Den här funktionen hittar du på fliken **Diagnostik** i Application Gateway-resursen på portalen eller direkt i Azure Monitor-tjänsten. Mer information om hur du aktiverar diagnostikloggar för application gateway finns [Application Gateway-diagnostik](application-gateway-diagnostics.md)
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
@@ -167,5 +161,5 @@ Brandväggen för webbaserade program är tillgänglig i en ny WAF SKU. Denna SK
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har lärt dig mer om funktionerna i WAF går du vidare till [Konfigurera brandväggen för webbaserade program på Application Gateway](tutorial-restrict-web-traffic-powershell.md).
+När du har läst om WAF [hur du konfigurerar brandväggen för webbaserade program på Application Gateway](tutorial-restrict-web-traffic-powershell.md).
 

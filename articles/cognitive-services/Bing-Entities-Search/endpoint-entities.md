@@ -1,39 +1,40 @@
 ---
-title: Entiteten Sök endpoint | Microsoft Docs
-description: Sammanfattning av entiteten Sök API-slutpunkt.
+title: Slutpunkt för entitetsökning i Bing
+titlesuffix: Azure Cognitive Services
+description: Sammanfattning av Entitetssökning i Bing-slutpunkten.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: a2557c6000445544b3b47a05d7d356ccaa9928b4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d781a4b3cd0119f5624b4dd20b514894ea339414
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351402"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816590"
 ---
-# <a name="entity-search-endpoint"></a>Entiteten Sök slutpunkt
-Den **entitet Sök API** inkluderar en slutpunkt som returnerar entiteter från webben baserat på en fråga.
+# <a name="entity-search-endpoint"></a>Entiteten Search slutpunkt
+Den **Entitetssökning** innehåller en slutpunkt som returnerar entiteter från webben baserat på en fråga.
 
 ## <a name="endpoint"></a>Slutpunkt
-Att hämta entiteten resultat med hjälp av den **Bing API**, skicka ett `GET` begäran till följande slutpunkt. Använda sidhuvuden och URL-parametrar för att definiera ytterligare specifikationer.
+Att hämta entiteten resultat med hjälp av den **API för Bing**, skicka en `GET` begäran till följande slutpunkt. Använda rubriker och URL-parametrar för att definiera ytterligare specifikationer.
 
-**Slutpunkt:** returnerar entiteter som är relevanta för användarens sökfråga definieras av `?q=""`.
+**Slutpunkt:** returnerar entiteter som är relevanta för användarens sökfråga som definieras av `?q=""`.
 ```
  GET https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
 
-Mer information om huvuden, parametrar, marknaden koder, svar objekt, fel, etc., se den [Bing enheten Sök API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) referens.
+Mer information om huvuden, parametrar, marknaden koder, svarsobjekt, fel, o.s.v., se den [Entitetssökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) referens.
 
 ## <a name="response-json"></a>Svaret JSON
-Svaret på en sökbegäran entiteten innehåller resultatet som JSON-objekt. Exempel på resultat finns [Kom igång](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start).
+Svaret på en entitet sökbegäran inkluderar resultat som JSON-objekt. Exempel på resultaten finns [börjar](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start).
 
 ## <a name="next-steps"></a>Nästa steg
-Den **Bing** API: er stöder sökning åtgärder som returnerar enligt deras typ. Alla Sök slutpunkter returnerar resultat som objekt för JSON-svar.  Alla slutpunkter stöd för frågor som returnerar ett visst språk och/eller plats genom longitud, latitud och RADIUS-sökning.
+Den **Bing** API: er stöder sökåtgärder som returnerar resultat enligt typ. Alla Sök slutpunkter returnerar resultat som JSON-svar-objekt.  Alla slutpunkter stöd för frågor som returnerar ett visst språk och/eller plats genom att longitud, latitud och Sök radius.
 
-Fullständig information om de parametrar som stöds av varje slutpunkt finns på referenssidor för varje typ av.
-Exempel med hjälp av sökfunktionen API för entiteten finns [Kom igång](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start) och [Resizing och Beskär miniatyrbilder](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/resize-and-crop-thumbnails).
+Fullständig information om de parametrar som stöds av varje slutpunkt finns referenssidor för varje typ av.
+Exempel med hjälp av API för entitetssökning finns [börjar](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start) och [ändrar storlek och beskärning miniatyrbilder](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/resize-and-crop-thumbnails).

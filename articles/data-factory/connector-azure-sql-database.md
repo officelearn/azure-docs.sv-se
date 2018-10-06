@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: c513ef76174507f1ea78b265b1882266b8473737
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248949"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815876"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -64,7 +64,7 @@ För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel
 
 - [SQL-autentisering](#sql-authentication)
 - [Azure AD-token-autentisering: tjänstens huvudnamn](#service-principal-authentication)
-- [Azure AD-token-autentisering: hanterade identiteter för Azure-resurser](#managed-service-identity-authentication)
+- [Azure AD-token-autentisering: hanterade identiteter för Azure-resurser](#managed-identity)
 
 >[!TIP]
 >Om du når fel med felkod som ”UserErrorFailedToConnectToSqlServer” och visas som ”sessionens tidsgräns för databasen är XXX och har uppnåtts”., lägga till `Pooling=false` till din anslutningssträng och försök igen.
@@ -146,7 +146,7 @@ Följ dessa steg om du vill använda autentisering med enhetstoken en service pr
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a>Hanterade identiteter för autentisering av Azure-resurser
+### <a name="managed-identity"></a> Hanterade identiteter för autentisering av Azure-resurser
 
 En data factory kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md) som representerar specifika data factory. Du kan använda den här tjänstidentitet för Azure SQL Database-autentisering. Den angivna datafabriken kan komma åt och kopiera data från eller till din databas med hjälp av den här identiteten.
 

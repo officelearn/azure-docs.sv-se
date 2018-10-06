@@ -1,20 +1,21 @@
 ---
-title: 'Anpassad sökning i Bing: Söka efter en anpassad vy | Microsoft Docs'
-description: Beskriver hur du söker efter en anpassad vy över webben
+title: Sök efter en anpassad vy – Bing Custom Search
+titlesuffix: Azure Cognitive Services
+description: Beskriver hur du söker efter en anpassad vy över webben.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7a2db7881dfe7efedb1a83637a6281f786652958
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 235062c1b3e54843b5e64f4ef16091ae5d630894
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964913"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814363"
 ---
 # <a name="call-your-custom-search"></a>Anropa dina anpassad sökning
 

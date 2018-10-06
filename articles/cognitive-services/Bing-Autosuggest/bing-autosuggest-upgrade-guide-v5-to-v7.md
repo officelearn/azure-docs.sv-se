@@ -1,53 +1,53 @@
 ---
-title: Uppgradera Bing Autosuggest API v5 till v7 | Microsoft Docs
+title: Uppgradera automatiska förslag i Bing API v5 till v7
+titlesuffix: Azure Cognitive Services
 description: Identifierar delarna av programmet som du behöver uppdatera om du vill använda version 7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 751EDCF0-0C8B-4C23-942C-FA06F5DAD3FD
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: 5663a671711dba4f44c89e8221a729c6670ec8fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ada9ab6622ea12e48475230787168d90e95ec0d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354543"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829876"
 ---
-# <a name="autosuggest-api-upgrade-guide"></a>Autosuggest API uppgraderingshandboken
+# <a name="autosuggest-api-upgrade-guide"></a>Uppgraderingsguide för API för automatiska förslag
 
-Den här uppgraderingshandboken identifierar ändringar mellan version 5 och version 7 för Bing Autosuggest API. Använd den här guiden för att identifiera delarna av programmet som du behöver uppdatera om du vill använda version 7.
+Den här uppgraderingshandboken identifierar ändringar mellan version 5 och version 7 för automatiska förslag i Bing. Använd den här guiden hjälper dig att identifiera delarna av programmet som du behöver uppdatera om du vill använda version 7.
 
 ## <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
 
 ### <a name="endpoints"></a>Slutpunkter
 
-- Versionsnummer för slutpunkten har ändrats från v5 till v7. Till exempel https://api.cognitive.microsoft.com/bing/\ * \*v7.0 ** / förslag.
+- Versionsnumret för den slutpunkt som har ändrats från v5 till v7. Till exempel https://api.cognitive.microsoft.com/bing/\ * \*v7.0 ** / förslag.
 
-### <a name="error-response-objects-and-error-codes"></a>Fel svar objekt och felkoder
+### <a name="error-response-objects-and-error-codes"></a>Fel svarsobjekt och felkoder
 
-- Alla misslyckade begäranden innehåller nu ett `ErrorResponse` -objekt på brödtext för svar.
+- Alla misslyckade begäranden ska nu innehålla en `ErrorResponse` objekt i svarstexten.
 
-- Lägga till följande fält till den `Error` objekt.  
-  - `subCode`&mdash;Partitionerar felkoden till diskreta buckets, om möjligt
-  - `moreDetails`&mdash;Mer information om fel som beskrivs i den `message` fält
+- Lagt till följande fält i den `Error` objekt.  
+  - `subCode`&mdash;Partitionerar felkoden i diskreta buckets, om möjligt
+  - `moreDetails`&mdash;Mer information om felet som beskrivs i den `message` fält
 
-- Ersatt felkoder v5 med följande möjliga `code` och `subCode` värden.
+- Ersatt v5-felkoder med följande möjliga `code` och `subCode` värden.
 
-|Kod|Delkoden|Beskrivning
+|Kod|Obligatorisk|Beskrivning
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av de underordnade kod inträffar. Svaret innehåller dessa fel om HTTP-statuskoden är 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. Till exempel en obligatorisk parameter saknas eller ett parametervärde är inte giltig.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue, är HTTP-statuskoden 400.<br/><br/>Om felet är HttpNotAllowed, felkod HTTP-status 410.
-|RateLimitExceeded||Bing returnerar RateLimitExceeded när du överskrider din frågor per sekund (QPS) eller frågor per månad (QPM) kvoten.<br/><br/>Bing returnerar HTTP-statuskod 429 om du har överskridit QPS och 403 om du har överskridit QPM.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returnerar InvalidAuthorization när Bing inte kan verifiera anroparen. Till exempel den `Ocp-Apim-Subscription-Key` huvud saknas eller nyckeln prenumerationen är inte giltigt.<br/><br/>Redundans inträffar om du anger fler än en autentiseringsmetod.<br/><br/>Om felet InvalidAuthorization är 401 HTTP-statuskoden.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returnerar InsufficientAuthorization när anroparen inte har behörighet att komma åt resursen. Detta kan inträffa om nyckeln för prenumerationen har inaktiverats eller har upphört att gälla. <br/><br/>Om felet InsufficientAuthorization är 403 HTTP-statuskoden.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av de underordnade kod inträffar. Svaret innehåller de här felen om HTTP-statuskoden är 500.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. Till exempel en obligatorisk parameter saknas eller ett parametervärde är inte giltig.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue, är HTTP-statuskod 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
+|RateLimitExceeded||Bing returnerar RateLimitExceeded varje gång du överskrider din frågor per sekund (QPS) eller frågor per månad (QPM) kvot.<br/><br/>Bing returnerar HTTP-statuskod 429 om du har överskridit Indexlagring och 403 om du har överskridit QPM.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returnerar InvalidAuthorization när Bing inte kan autentisera anroparen. Till exempel den `Ocp-Apim-Subscription-Key` huvud saknas eller prenumerationsnyckeln är inte giltig.<br/><br/>Redundans inträffar om du anger mer än en autentiseringsmetod.<br/><br/>Om felet är InvalidAuthorization, är HTTP-statuskod 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returnerar InsufficientAuthorization när anroparen inte har behörighet att komma åt resursen. Detta kan inträffa om prenumerationsnyckeln har inaktiverats eller har upphört att gälla. <br/><br/>Om felet är InsufficientAuthorization, är HTTP-statuskod 403.
 
-- Följande mappar tidigare felkoder till de nya koderna. Om du har gjort ett beroende på v5 felkoder, måste din kod uppdateras också.
+- Följande mappar tidigare felkoder till de nya koderna. Om du har gått ett beroende på v5 felkoder, måste din kod uppdateras också.
 
-|Version 5-kod|Version 7 code.subCode
+|Versionskod 5|Version 7 code.subCode
 |-|-
 |RequestParameterMissing|InvalidRequest.ParameterMissing
 RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
@@ -71,4 +71,4 @@ Blockerad|InvalidRequest.Blocked
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använda och visa krav](./UseAndDisplayRequirements.md)
+> [Använd och visa krav](./UseAndDisplayRequirements.md)

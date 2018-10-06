@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2f6720e39856366e4bca387effdc2a0624d85826
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: c345235fa16a28877a46d5eaef54093d89ffcdd0
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248002"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815842"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Ange och hämta dataflöde för Azure Cosmos DB-behållare och databasen
 
@@ -35,7 +35,7 @@ Du kan ange dataflödet för en Azure Cosmos DB-behållare eller en uppsättning
    |Databas-id  |  Ange ett unikt namn som identifierar din databas. Databasen är en logisk behållare för en eller flera samlingar. Databasnamn måste innehålla mellan 1 och 255 tecken och får inte innehålla /, \\, #, ? eller avslutande blanksteg. |
    |Samlings-id  | Ange ett unikt namn som identifierar din samling. Samma teckenkrav gäller för samlings-ID:n som databasnamn. |
    |Lagringskapacitet   | Det här värdet representerar lagringskapaciteten för databasen. När du etablerar genomströmning för en enskild samling lagringskapacitet kan vara **fast (10 GB)** eller **obegränsad**. Obegränsade lagringskapacitet måste du ange en partitionsnyckel för dina data.  |
-   |Dataflöde   | Varje samling och databas kan ha dataflöde i enheter för programbegäran per sekund.  Fast lagringskapacitet, minsta dataflödet är 400 begäransenheter per sekund (RU/s), för obegränsad lagring kapacitet, minsta dataflöde är inställt på 1000 RU/s.|
+   |Dataflöde   | Varje samling och databas kan ha dataflöde i enheter för programbegäran per sekund.  Och en samling kan har åtgärdat eller obegränsade lagringskapacitet. |
 
 6. När du har angett värden för dessa fält, Välj **OK** att spara inställningarna.  
 

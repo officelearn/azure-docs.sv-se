@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fbbc5a199116e46aac0874f3dc6d6d9aa18c60cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7f1e06fba76b833d4a344af1163ef7ef2c29bdb6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954032"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816862"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Hantera databasbehörigheter för Azure Data Explorer
 
@@ -31,7 +31,6 @@ Azure Data Explorer har följande roller:
 |Databasanvändare              |Kan läsa alla data och metadata i databasen. De kan även skapa tabeller (bli tabell administratören för tabellen) och funktioner i databasen.|
 |Visningsprogrammet för databasen            |Kan läsa alla data och metadata i databasen.|
 |Databas-lösning          |Kan mata in data till alla befintliga tabeller i databasen, men inte fråga efter data.|
-|Databasen unrestrictedviewer|Fråga tabeller som har den **RestrictedViewAccess** principen är aktiverad. Det går inte att fråga andra tabeller.|
 |Databasövervakning           |Kan utföra '.show... ”-kommandon i kontexten för databasen och dess underordnade entiteter.|
 |Tabell-administratör                |Göra allt inom omfånget för en viss tabell. |
 |Tabell-lösning             |Kan mata in data i omfånget för en viss tabell, men inte fråga efter data.|

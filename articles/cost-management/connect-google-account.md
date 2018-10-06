@@ -5,21 +5,24 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 09035146fe3211f9fc46d3ad51326a6e76921b7d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 48f1afcbef873e1af4346199c00ee2fadb1ad858
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977306"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830256"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Ansluta ett Google Cloud Platform-konto
 
 Du kan ansluta ditt befintliga Google Cloud Platform-konto till Cloudyn. När du ansluter ditt konto till Cloudyn, är kostnader och användning data tillgängliga i Cloudyn-rapporter. Den här artikeln hjälper dig att konfigurera och ansluta ditt Google-konto med Cloudyn.
+
+> [!NOTE]
+> Google har ändrat deras kontosäkerhet, vilket förhindrar att nya anslutningar upprättas mellan Cloudyn och Google. Cloudyn fortsätter att samla in data i Google för användare som redan har Cloudyn som är anslutna till Google. Men du kan inte lägga till nya Google-konton till Cloudyn för närvarande. Cloudyn-teamet vet inte när supporten för att lägga till nya Google-konton till Cloudyn återupptas. Vi ska ta bort det här meddelandet när support återställs.
 
 ## <a name="collect-project-information"></a>Samla in projektinformation
 

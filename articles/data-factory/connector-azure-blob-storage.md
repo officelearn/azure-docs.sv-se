@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 79bb3042af6a42b4a8c33e9a19c80d117c3216e7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: ee3dafe55799c46231aa3ca7c19684d905a057de
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248864"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815434"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Blob storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,7 +47,7 @@ Azure Blob-anslutningsapp stöd för följande autentiseringstyper av, se inform
 - [Konto-nyckelautentisering](#account-key-authentication)
 - [Autentisering med signatur för delad åtkomst](#shared-access-signature-authentication)
 - [Autentisering av tjänstens huvudnamn](#service-principal-authentication)
-- [Hanterade identiteter för autentisering av Azure-resurser](#managed-service-identity-authentication)
+- [Hanterade identiteter för autentisering av Azure-resurser](#managed-identity)
 
 >[!NOTE]
 >HDInsights, Azure Machine Learning och Azure SQL Data Warehouse PolyBase laddning stöder bara nyckelautentisering för Azure Blob storage-konto.

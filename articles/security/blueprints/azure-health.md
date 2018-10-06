@@ -9,20 +9,22 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214949"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831627"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
 ## <a name="overview"></a>Översikt
 
-**Den Azure Blueprint för säkerhet och efterlevnad – HIPAA/hitrust – hälsodata och AI erbjuder en nyckelfärdig distribution av en Azure PaaS-lösning för att demonstrera hur du på ett säkert sätt mata in, lagra, analysera och interagera med hälsodata samtidigt som det är uppfylla branschledande efterlevnad krav. Skissen hjälper dig att påskynda molnanvändning och belastningen för kunder med data som har reglerats.**
+**Den Azure Blueprint för säkerhet och efterlevnad – HIPAA/hitrust – hälsodata och AI erbjuder en nyckelfärdig distribution av en Azure PaaS och IaaS-lösning som visar hur du kan mata in, lagra, analysera, interagera, identitet och distribuera lösningar med hälsodata samtidigt på ett säkert sätt att kunna uppfylla efterlevnadskrav i branschen. Skissen hjälper dig att påskynda molnanvändning och belastningen för kunder med data som har reglerats.**
 
-Den Azure Blueprint för säkerhet och efterlevnad – HIPAA/hitrust – hälsodata och AI skiss tillhandahåller verktyg och vägledning för att distribuera ett säkert, Health Insurance Portability och Accountability Act (HIPAA) och Health Information förtroende Alliance (HITRUST) redo Platform as a service (PaaS)-miljö för att mata in, lagra, analysera och interagera med personlig och icke-personlig medicinska journaler i en säker och flera nivåer molnmiljö som har distribuerats som en lösning för slutpunkt till slutpunkt. Den visar en gemensam Referensarkitektur och har utformats för att förenkla användningen av Microsoft Azure. Den här tillhandahållna arkitekturen illustrerar en lösning för att uppfylla behoven hos organisationer som vill ha en molnbaserad metod för att minska belastningen och kostnaden för distributionen.
+Den Azure Blueprint för säkerhet och efterlevnad – HIPAA/hitrust – hälsodata och AI skiss tillhandahåller verktyg och vägledning för att distribuera ett säkert, Health Insurance Portability och Accountability Act (HIPAA) och Health Information förtroende Alliance (HITRUST) redo Platform as a service (PaaS)-miljö för att mata in, lagra, analysera och interagera med personlig och icke-personlig medicinska journaler i en säker och flera nivåer molnmiljö som har distribuerats som en lösning för slutpunkt till slutpunkt. 
+
+IaaS-lösningen visar hur du migrerar en lokal SQL-baserad lösning till Azure och för att implementera en privilegierad åtkomst arbetsstation (PAW) för att på ett säkert sätt hantera molnbaserade tjänster och lösningar. IaaS SQL Server-databasen läggs potentiella experimentering data importeras till en SQL IaaS-VM och att virtuell dator använder MSI-autentiserad åtkomst för att interagera med en SQL Azure PaaS-tjänst. Båda dessa presenterar en gemensam Referensarkitektur och har utformats för att förenkla användningen av Microsoft Azure. Den här tillhandahållna arkitekturen illustrerar en lösning för att uppfylla behoven hos organisationer som vill ha en molnbaserad metod för att minska belastningen och kostnaden för distributionen.
 
 ![](images/components.png)
 
@@ -38,23 +40,15 @@ Den här skissen är avsedd att fungera som en modulbaserad grund för kunder en
 
 ## <a name="deploying-the-automation"></a>Distribuera automation
 
-- Distribuera lösningen, följer du anvisningarna i vägledning för distribution. 
+- För att distribuera lösningen, följer du instruktionerna i den [distributionsvägledning](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md). 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-Titta på den här för en snabb överblick över hur den här lösningen fungerar [video](https://aka.ms/healthblueprintvideo) hon förklarar och visar dess distribution.
+- Titta på den här för en snabb överblick över hur den här lösningen fungerar [video](https://aka.ms/healthblueprintvideo) hon förklarar och visar dess distribution.
 
 - Vanliga frågor och svar finns i den [vanliga frågor och svar](https://aka.ms/healthblueprintfaq) vägledning.
 
 -   **Arkitekturdiagram för.** Diagrammet visar referensarkitekturen används för skissen och exemplet användningsfallsscenario.
 
--   **Distributionsmallar**. I den här distributionen [Azure Resource Manager-mallar](/azure/azure-resource-manager/resource-group-overview#template-deployment) används för att automatiskt distribuera komponenter i arkitekturen i Microsoft Azure genom att ange konfigurationsparametrar under installationen.
-
--   **[Automatiserad distributionsskript](https://aka.ms/healthblueprintdeploy)**. Dessa skript att distribuera lösningen. Skripten består av:
-
-
--   En modul-installation och [global administratör](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installationsskriptet används för att installera och verifiera att PowerShell-moduler som krävs och global administratörsroller är korrekt konfigurerade. 
--   En installation av PowerShell-skript används för att distribuera lösningen tillhandahålls via en .zip-fil som innehåller en färdiga demo-funktioner.
+-   [IaaS-tillägget](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) den här lösningen visar hur du migrerar en lokal SQL-baserad lösning till Azure och för att implementera en Privieged åtkomst arbetsstation för att på ett säkert sätt hantera moln-bsed tjänster och lösningar. 
 
 ## <a name="solution-components"></a>Lösningskomponenter
 
@@ -70,7 +64,7 @@ Grundläggande arkitekturen består av följande komponenter:
 # <a name="architectural-diagram"></a>Arkitekturdiagram
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## <a name="roles"></a>Roller
 

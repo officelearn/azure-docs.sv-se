@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0ac19ec18c443f677260ba22b6bce1c06237fb2e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405928"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816438"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur arbetet aviseringar i mått i Azure Monitor
 
@@ -93,7 +93,43 @@ För måttaviseringar, vanligtvis meddelas du inom 5 minuter om du ställer in f
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Resurstyper som stöds för måttaviseringar
 
-Du hittar en fullständig lista över resurstyper som stöds i den här [artikel](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+Du hittar en fullständig lista över resurstyper som stöds i den här [artikeln](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+Om du använder klassiska måttaviseringar idag och vill ha mer information om måttaviseringar stöder alla resurstyperna du använder, i följande tabell visas resursen typer som stöds av klassiska måttaviseringar och om de stöds av måttaviseringar idag eller inte.
+
+|Resurstyp som stöds av klassiska måttaviseringar | Stöds av måttaviseringar |
+|-------------------------------------------------|----------------------------|
+| Microsoft.ApiManagement/service | Ja |
+| Microsoft.Batch/batchAccounts| Ja|
+|Microsoft.Cache/redis| Ja
+|Microsoft.ClassicCompute/virtualMachines | Nej |
+|Microsoft.ClassicCompute/domainNames/slots/roles | Nej|
+|Microsoft.CognitiveServices/accounts | Nej |
+|Microsoft.Compute/virtualMachines | Ja|
+|Microsoft.Compute/virtualMachineScaleSets| Ja|
+|Microsoft.ClassicStorage/storageAccounts| Nej |
+|Microsoft.DataFactory/datafactories | Ja|
+|Microsoft.DBforMySQL/servers| Ja|
+|Microsoft.DBforPostgreSQL/servers| Ja|
+|Microsoft.Devices/IotHubs | Nej|
+|Microsoft.DocumentDB/databaseAccounts| Nej|
+|Microsoft.EventHub/namespaces | Ja|
+|Microsoft.Logic/workflows | Ja|
+|Microsoft.Network/loadBalancers |Ja|
+|Microsoft.Network/publicIPAddresses| Ja|
+|Microsoft.Network/applicationGateways| Ja|
+|Microsoft.Network/expressRouteCircuits| Ja|
+|Microsoft.Network/trafficManagerProfiles | Ja|
+|Microsoft.Search/searchServices | Nej|
+|Microsoft.ServiceBus/namespaces| Nej|
+|Microsoft.Storage/storageAccounts | Ja|
+|Microsoft.StreamAnalytics/streamingjobs| Ja|
+|Microsoft.TimeSeriesInsights/environments | Ja|
+|Microsoft. Web/servergrupper | Ja |
+|Microsoft. -/ Webbplatser (exklusive funktioner) | Ja|
+|Microsoft. Web/hostingEnvironments/multiRolePools | Nej|
+|Microsoft. Web/hostingEnvironments/workerPools| Nej
+|Microsoft.SQL/Servers | Nej|
 
 ## <a name="next-steps"></a>Nästa steg
 

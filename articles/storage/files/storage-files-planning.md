@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 19adbbfc456303b471251c28cd984d1676786b19
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 0701049eb1aa86398e90484dbf21ef3781270fba
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783159"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831389"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Eftersom Azure Files är fullständigt hanterad, är distribuerar den i produktionsscenarier mycket enklare än att distribuera och hantera en filserver eller NAS-enhet. Den här artikeln tar upp ämnen att tänka på när du distribuerar en Azure-filresurs för användning i produktion i din organisation.
@@ -56,19 +56,36 @@ Azure Files finns flera inbyggda alternativ för att säkerställa datasäkerhet
 
 * Stöd för kryptering i båda protokollen över ledare: SMB 3.0-kryptering och fil-REST via HTTPS. Som standard: 
     * Klienter som stöder SMB 3.0-kryptering skicka och ta emot data via en krypterad kanal.
-    * Klienter som inte stöder SMB 3.0 kan kommunicera intra-datacenter över SMB 2.1 eller SMB 3.0 utan kryptering. Observera att klienterna inte tillåts att kommunicera mellan datacenter över SMB 2.1 eller SMB 3.0 utan kryptering.
+    * Klienter som inte stöder SMB 3.0 med kryptering kan kommunicera intra-datacenter över SMB 2.1 eller SMB 3.0 utan kryptering. SMB-klienter är inte tillåtna att kommunicera mellan datacenter över SMB 2.1 eller SMB 3.0 utan kryptering.
     * Klienter kan kommunicera via File REST med HTTP eller HTTPS.
 * Kryptering i vila ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Storage Service Encryption (SSE) har aktiverats för alla lagringskonton. Data i vila är krypterad med fullständigt hanterade nycklar. Kryptering i vila inte öka kostnader för lagring och minska prestanda. 
 * Valfritt behovet av krypterade data under överföring: när du väljer Azure Files nekar åtkomst till data i okrypterad kanaler. Mer specifikt tillåts endast HTTPS och SMB 3.0 med kryptering anslutningar. 
 
     > [!Important]  
-    > Äldre SMB-klienter inte kan kommunicera med SMB 3.0 med kryptering inte leder till att kräva säker överföring av data. Se [montera på Windows](storage-how-to-use-files-windows.md), [montera i Linux](storage-how-to-use-files-linux.md), [montera på macOS](storage-how-to-use-files-mac.md) för mer information.
+    > Äldre SMB-klienter inte kan kommunicera med SMB 3.0 med kryptering inte leder till att kräva säker överföring av data. Mer information finns i [montera på Windows](storage-how-to-use-files-windows.md), [montera i Linux](storage-how-to-use-files-linux.md), och [montera på macOS](storage-how-to-use-files-mac.md).
 
 För maximal säkerhet rekommenderar vi alltid att aktivera båda kryptering i vila och aktivera kryptering av data under överföring när du använder modern klienter för att komma åt dina data. Om du behöver att montera en filresurs på en virtuell Windows Server 2008 R2 dator som bara stöder SMB 2.1, måste du tillåta okrypterade trafik till ditt lagringskonto eftersom SMB 2.1 inte stöder kryptering.
 
 Om du använder Azure File Sync för att få åtkomst till din Azure-filresurs, använder vi alltid HTTPS och SMB 3.0 med kryptering för att synkronisera dina data till dina Windows-servrar, oavsett om du kräver kryptering av data i vila.
 
-## <a name="data-redundancy"></a>Dataredundans
+## <a name="file-share-performance-tiers"></a>Filen prestandanivåer för resursen
+Azure Files stöder två prestandanivåer: standard och premium.
+
+* **Standard-filresurser** backas upp av rotational hårddiskar (HDD) som ger en pålitlig prestanda för i/o-arbetsbelastningar som är mindre känsliga för variationer i prestandan, till exempel allmänna filresurser och miljöer för utveckling/testning. Standard-filresurser är endast tillgängliga i en användningsbaserad fakturering modell.
+* **Premium-filresurser (förhandsversion)** backas upp av SSD-diskar (SSD) som ger konsekvent hög prestanda och låg latens på ensiffriga millisekunder för de flesta i/o-åtgärder för de i/o-intensiva arbetsbelastningar. Detta gör dem lämpliga för en mängd olika arbetsbelastningar som databaser, webbplatsvärd, utvecklingsmiljöer osv. Premium-filresurser är endast tillgängliga i den etablerade faktureringsmodellen.
+
+### <a name="provisioned-shares"></a>Etablerade resurser
+Premium-filresurser har etablerats utifrån ett fast GiB/IOPS/dataflödet-förhållande. För varje GiB som etablerats utfärdas resursen en IOPS och 0,1 MiB/s genomströmning för upp till de maximala gränserna per resurs. Minsta tillåtna etablering är 100 GiB med min IOPS/dataflödet. Filresursens storlek kan ökas när som helst och minskas när som helst, men kan minskas en gång per dygn sedan den senaste ökningen.
+
+Efter bästa förmåga Utöka alla resurser upp till tre IOPS per GiB etablerad lagring i 60 minuter eller längre beroende på storleken på resursen. Nya resurser börjar med den fullständiga burst-krediten baserat på etablerad kapacitet.
+
+| Etablerad kapacitet | 100 giB | 500 giB | 1 TiB | 5 TiB | 
+|----------------------|---------|---------|-------|-------|
+| Baslinjen IOPS | 100 | 500 | 1,024 | över 5 120 | 
+| Burst-gräns | 300 | 1,500 | 3,072 | 15,360 | 
+| Dataflöde | 110 MiB/sek | 150 MiB/sek | 202 MiB/sek | 612 MiB/sek |
+
+## <a name="file-share-redundancy"></a>Filen resurs redundans
 Azure Files stöder tre alternativ för dataredundans: lokalt redundant lagring (LRS), zonredundant lagring (ZRS) och geo-redundant lagring (GRS). I följande avsnitt beskrivs skillnaderna mellan de olika redundansalternativ:
 
 ### <a name="locally-redundant-storage"></a>Lokalt redundant lagring
@@ -81,9 +98,9 @@ Azure Files stöder tre alternativ för dataredundans: lokalt redundant lagring 
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Tillväxt datamönster
-Idag är den maximala storleken för en Azure-filresurs 5 TiB. På grund av den här tillfälliga begränsningen måste du överväga att den förväntade datatillväxten när du distribuerar en Azure-filresurs. Observera att ett Azure Storage-konto kan lagra flera filresurser med en totalsumma på 500 TiB som lagras på alla resurser.
+Idag är den maximala storleken för en Azure-filresurs 5 TiB. På grund av den här tillfälliga begränsningen måste du överväga att den förväntade datatillväxten när du distribuerar en Azure-filresurs. 
 
-Det är möjligt att synkronisera flera Azure-filresurser på en enda Windows Server med Azure File Sync. På så sätt kan du se till att äldre, mycket stora filresurser som du kan ha en lokal kan anslutas till Azure File Sync. Se [planera för distribution av Azure File Sync](storage-files-planning.md) för mer information.
+Det är möjligt att synkronisera flera Azure-filresurser på en enda Windows Server med Azure File Sync. På så sätt kan du se till att äldre, stora filresurser som du kan ha en lokal kan anslutas till Azure File Sync. Mer information finns i [planera för distribution av Azure File Sync](storage-files-planning.md).
 
 ## <a name="data-transfer-method"></a>Metod för överföring av data
 Det finns många enkelt alternativ för att massregistrera överföra data från en befintlig fil delar, till exempel en lokal filresurs, för i Azure Files. Några populära alternativ inkluderar (ofullständig lista):

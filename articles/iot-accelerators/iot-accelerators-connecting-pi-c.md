@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: add49aaf96190f782d2133e2a5f620a340f05eaf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733839"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831108"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Anslut Raspberry Pi enheten till lösningsacceleratorn för fjärrövervakning (C)
 
@@ -57,15 +57,15 @@ Följande steg visar hur du förbereder Raspberry Pi för att skapa ett C-progra
 
 ## <a name="view-the-code"></a>Visa koden
 
-Den [exempelkoden](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring) används i den här guiden är tillgänglig i Azure IoT C SDK: er GitHub-lagringsplatsen.
+Den [exempelkoden](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) används i den här guiden är tillgänglig i Azure IoT C SDK: er GitHub-lagringsplatsen.
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Ladda ned källkoden och Förbered projektet
 
 För att förbereda projektet, klona eller ladda ned den [databasen Azure IoT C SDKs](https://github.com/Azure/azure-iot-sdk-c) från GitHub.
 
-Du hittar exemplet i den **samples/lösningar/remote_monitoring** mapp.
+Du hittar exemplet i den **samples/lösningar/remote_monitoring_client** mapp.
 
-Öppna den **remote_monitoring.c** fil i den **samples/lösningar/remote_monitoring** mapp i en textredigerare.
+Öppna den **remote_monitoring.c** fil i den **samples/lösningar/remote_monitoring_client** mapp i en textredigerare.
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
@@ -87,7 +87,7 @@ Följande steg beskriver hur du använder *CMake* du skapar klientprogrammet. Fj
 1. Kör klientprogrammet och skickar telemetri till IoT Hub:
 
     ```sh
-    ./samples/solutions/remote_monitoring/remote_monitoring_client
+    ./samples/solutions/remote_monitoring_client/remote_monitoring_client
     ```
 
     Konsolen visar meddelanden som:

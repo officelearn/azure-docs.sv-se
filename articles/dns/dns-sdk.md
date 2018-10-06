@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 14860ae48e520f86ce9d5bea739605d1a4baf0c7
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173201"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829777"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Skapa DNS-zoner och postuppsättningar med .NET SDK
 
@@ -33,7 +33,7 @@ Vanligtvis beviljas programmatisk åtkomst till Azure-resurser via ett särskilt
 3. Använd Azure RBAC för att bevilja tjänstens objektkonto DNS-zon-bidragsgivare till resursgruppen ([här är hur](../role-based-access-control/role-assignments-portal.md).)
 4. Om du använder Azure DNS-SDK-exempelprojektet, redigerar du filen 'program.cs' på följande sätt:
 
-   * Infoga rätt värden för tenantId, clientId (även kallat konto-ID), hemlighet (service principal kontolösenordet) och prenumerations-ID som används i steg 1.
+   * Infoga rätt värden för den `tenantId`, `clientId` (även kallat konto-ID), `secret` (service principal kontolösenordet) och `subscriptionId` som används i steg 1.
    * Ange resursgruppens namn valdes i steg 2.
    * Ange namnet på en DNS-zon valfri.
 
@@ -59,7 +59,7 @@ using Microsoft.Azure.Management.Dns.Models;
 
 ## <a name="initialize-the-dns-management-client"></a>Initiera DNS management-klienten
 
-Den *DnsManagementClient* innehåller metoder och egenskaper som är nödvändiga för att hantera DNS-zoner och postuppsättningar.  Följande kod loggar in på tjänstens objektkonto och skapar ett DnsManagementClient-objekt.
+Den `DnsManagementClient` innehåller metoder och egenskaper som är nödvändiga för att hantera DNS-zoner och uppsättningar av poster.  Följande kod som loggar in på tjänstens objektkonto och skapar en `DnsManagementClient` objekt.
 
 ```cs
 // Build the service credentials and DNS management client
@@ -72,7 +72,7 @@ dnsClient.SubscriptionId = subscriptionId;
 
 Om du vill skapa en DNS-zon skapas först en ”zonobjektet” så att den innehåller parametrar för DNS-zon. Eftersom DNS-zoner inte är länkade till en viss region, anges platsen till ”global”. I det här exemplet en [Azure Resource Manager-tagg-](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) läggs också till i zonen.
 
-För att verkligen skapa eller uppdatera zonen i Azure DNS, zonobjektet som innehåller parametrar för zonen skickas till den *DnsManagementClient.Zones.CreateOrUpdateAsyc* metod.
+För att verkligen skapa eller uppdatera zonen i Azure DNS, zonobjektet som innehåller parametrar för zonen skickas till den `DnsManagementClient.Zones.CreateOrUpdateAsyc` metoden.
 
 > [!NOTE]
 > DnsManagementClient stöder tre lägen för åtgärden: synkron (”CreateOrUpdate”), asynkrona (”CreateOrUpdateAsync”), eller asynkron med åtkomst till HTTP-svaret (CreateOrUpdateWithHttpMessagesAsync).  Du kan välja någon av dessa lägen, beroende på dina programbehov.
@@ -98,7 +98,7 @@ var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneN
 
 DNS-poster som hanteras som en uppsättning av poster. En postuppsättning är en uppsättning poster med samma namn och typ av post inom en zon.  Namnet på postuppsättningen är i förhållande till zonnamnet, inte det fullständigt kvalificerade DNS-namnet.
 
-Om du vill skapa eller uppdatera en postuppsättning, ett ”RecordSet” parametrarna-objekt skapas och skickas till *DnsManagementClient.RecordSets.CreateOrUpdateAsync*. Som med DNS-zoner, det finns tre lägen för åtgärden: synkron (”CreateOrUpdate”), asynkrona (”CreateOrUpdateAsync”), eller asynkron med åtkomst till HTTP-svaret (CreateOrUpdateWithHttpMessagesAsync).
+Om du vill skapa eller uppdatera en postuppsättning, ett ”RecordSet” parametrarna-objekt skapas och skickas till `DnsManagementClient.RecordSets.CreateOrUpdateAsync`. Som med DNS-zoner, det finns tre lägen för åtgärden: synkron (”CreateOrUpdate”), asynkrona (”CreateOrUpdateAsync”), eller asynkron med åtkomst till HTTP-svaret (CreateOrUpdateWithHttpMessagesAsync).
 
 Precis som med DNS-zoner, omfattar åtgärder på postuppsättningar stöd för Optimistisk samtidighet.  I det här exemplet, eftersom varken ”If-Match” eller ”If-None-Match' har angetts, skapas postuppsättningen alltid.  Det här anropet skriver över alla befintliga postuppsättningen med samma namn och typ av resurspost i DNS-zonen.
 
@@ -122,7 +122,7 @@ var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName
 
 ## <a name="get-zones-and-record-sets"></a>Get-zoner och uppsättningar av poster
 
-Den *DnsManagementClient.Zones.Get* och *DnsManagementClient.RecordSets.Get* metoder hämta enskilda zoner och postuppsättningar, respektive. Postuppsättningar identifieras efter typ, namn och gruppen zon och DNS-resurs som de finns i. Zoner identifieras av sina namn och resursgrupp som de finns i.
+Den `DnsManagementClient.Zones.Get` och `DnsManagementClient.RecordSets.Get` metoder hämta enskilda zoner och postuppsättningar, respektive. Postuppsättningar identifieras efter typ, namn och gruppen zon och DNS-resurs som de finns i. Zoner identifieras av sina namn och resursgrupp som de finns i.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);

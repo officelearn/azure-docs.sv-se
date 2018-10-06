@@ -4,15 +4,15 @@ description: Hitta svar på vanliga frågor och svar om Azure Files.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 09/11/2018
+ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 1f7fc9916fc856d636b6ad850f831a3235b80632
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 725aa5ff0d5ac0d6760656fc596fe44ca8661d1f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237763"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816131"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -179,7 +179,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 * <a id="ad-support-regions"></a>
 **Är förhandsversionen av Azure AD via SMB för Azure Files tillgänglig i alla Azure-regioner?**
 
-    Förhandsgranskningen är tillgänglig i alla offentliga regioner förutom: västra USA, västra USA 2, södra centrala USA, östra USA, östra USA 2, centrala USA, norra centrala USA, Östra Australien, Västeuropa, Nordeuropa.
+    Förhandsgranskningen är tillgänglig i alla offentliga regioner förutom: västra USA, södra centrala USA, centrala USA, Västeuropa, Nordeuropa.
 
 * <a id="ad-support-on-premises"></a>
 **Stöder autentisering med hjälp av Azure AD från lokala datorer i Azure AD-autentisering över SMB för Azure Files (förhandsversion)?**

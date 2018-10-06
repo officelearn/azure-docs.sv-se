@@ -14,27 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 059920c710b202e22a22f8431c536c5dfa19f2b9
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4a730c340ea4d1e1137a7449c6d1005ea59917bf
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724199"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814016"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Så här ändrar du standardinställningarna för ett egenutvecklat program
 
 Azure AD Premium kan apputvecklare och administratörer av klientorganisationer för att konfigurera livslängd för token som utfärdas för icke-konfidentiella klienter. Livslängd för uppdateringstoken policys ställs in på basis av klienten som helhet eller de resurser som används.
 
- * Om du vill ange en livslängd för token-princip, måste du hämta den [Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Om du vill ange en livslängd för token-princip, måste du hämta den [Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Kör den **Connect-AzureAD-Bekräfta** kommando.
 
- * Kör den **Connect-AzureAD-Bekräfta** kommando.
-
- * Här är ett exempel på princip som anger uppdateringstoken maxåldern en faktor. Skapa principen: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
-
- * Kolla in den [konfigurera livslängd för uppdateringstoken](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) dokumentet för att lära dig hur du skapar andra anpassade.
+    Här är ett exempel på princip som anger uppdateringstoken maxåldern en faktor. Skapa principen: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
 ## <a name="next-steps"></a>Nästa steg
-[Konfigurera livslängd för Token](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
-[Referens för Azure AD-Token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+* Se [konfigurerbara tokenlivslängder i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) och lär dig att konfigurera livslängd för token som utfärdas av Azure AD, inklusive hur du ställer in tokenlivslängder för alla appar i din organisation, för en app för flera klientorganisationer eller för en specifik tjänst huvudnamn i din organisation. 
+* [Referens för Azure AD-Token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
 

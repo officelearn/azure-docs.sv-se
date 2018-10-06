@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 48d6836a2f1c7eb53fd6d7a08ee5a049cd9503f6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803043"
+ms.locfileid: "48815179"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -216,14 +216,18 @@ För delade resurser på servernivå:
 
 4. Se till att JDBC-drivrutinsfilerna är tillgängliga för Tomcat classloader genom att placera dem i den `/home/tomcat/lib` directory. Utför följande steg om du vill överföra filerna till din App Service-instans:  
     1. Installera tillägget Azure App Service webpp:
+
       ```azurecli-interactive
       az extension add –name webapp
       ```
+
     2. Kör följande CLI-kommando för att skapa en SSH-tunnel från ditt lokala system till App Service:
+
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
-    3. Ansluta till den lokala tunneltrafik porten med SFTP-klienten och ladda upp filer till `/home/tomcat/lib`.
+
+    3. Ansluta till den lokala tunneltrafik porten med SFTP-klienten och ladda upp filer till den `/home/tomcat/lib` mapp.
 
 5. Starta om App Service på Linux-programmet. Tomcat återställs `CATALINA_HOME` till `/home/tomcat` och använda den uppdaterade konfigurationen och klasser.
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 3c18478fb2996178ee0b75870ce63dfc79ad4c4c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054731"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817117"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB från serversidan programmering: lagrade procedurer, databasutlösare och UDF: er
 
@@ -92,7 +92,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-Context-objektet ger åtkomst till alla åtgärder som kan utföras på Cosmos DB-lagring, samt åtkomst till begäranden och svar-objekt. I det här fallet kan du använda svarsobjekt för att ange brödtexten i svaret som skickades tillbaka till klienten. Mer information finns i den [Azure Cosmos DB JavaScript server SDK-dokumentation](https://azure.github.io/azure-cosmosdb-js-server/).  
+Context-objektet ger åtkomst till alla åtgärder som kan utföras på Cosmos DB-lagring, samt åtkomst till begäranden och svar-objekt. I det här fallet kan du använda svarsobjekt för att ange brödtexten i svaret som skickades tillbaka till klienten. Mer information finns i den [Azure Cosmos DB JavaScript API-referens för serversidan](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Låt oss Expandera på det här exemplet och lägga till fler funktioner för databas-relaterade till den lagrade proceduren. Lagrade procedurer kan skapa, uppdatera, läsa, fråga och ta bort dokument och bifogade filer i samlingen.    
 
@@ -503,7 +503,7 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 ```
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript språkintegrerade frågorna API
-Förutom att utfärda frågor med Azure Cosmos DB SQL-grammatik kan serversidan SDK du utföra optimerade frågor med en fluent JavaScript-gränssnitt utan att SQL. Frågan JavaScript API kan du programmässigt skapa frågor genom att skicka predikat funktioner i chainable funktionen anropas med en syntax som är bekanta dig av ECMAScript5's matris built-ins och populära JavaScript-bibliotek som Lodash. Frågor parsas av JavaScript-körning som ska köras effektivt med hjälp av Azure Cosmos DB.
+Förutom att utfärda frågor med Azure Cosmos DB SQL-grammatik på [SDK för serversidan](https://azure.github.io/azure-cosmosdb-js-server/) kan du utföra optimerade frågor med en fluent JavaScript-gränssnitt utan att SQL. Frågan JavaScript API kan du programmässigt skapa frågor genom att skicka predikat funktioner i chainable funktionen anropas med en syntax som är bekanta dig av ECMAScript5's matris built-ins och populära JavaScript-bibliotek som Lodash. Frågor parsas av JavaScript-körning som ska köras effektivt med hjälp av Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (double-understreck) är ett alias till `getContext().getCollection()`.
@@ -831,9 +831,8 @@ När du har en eller flera lagrade procedurer, utlösare och användardefinierad
 
 Du kan också vara användbara följande referenser och resurser i din sökväg till mer information om programmering av serversidan för Azure Cosmos dB:
 
-* [Azure Cosmos DB SDK: er](sql-api-sdk-dotnet.md)
+* [Azure Cosmos DB JavaScript serversidan API-referens](https://azure.github.io/azure-cosmosdb-js-server/)
 * [DocumentDB-Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Säker och bärbar databasen utökningsbarhet](http://dl.acm.org/citation.cfm?id=276339) 
 * [Tjänst-orienterade Database-arkitektur](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 

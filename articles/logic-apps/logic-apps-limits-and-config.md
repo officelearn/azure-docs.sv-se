@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 10/03/2018
+ms.openlocfilehash: ac13080ec6100734a5b777cc7cb243720f8424a6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452468"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817168"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -156,6 +156,15 @@ Här följer begränsningarna för anpassade anslutningsappar som du kan skapa f
 | Antal anpassade anslutningsappar | 1 000 per Azure-prenumeration | 
 | Antal begäranden per minut för varje anslutning som skapats av en anpassad anslutningsapp | 500 begäranden per anslutning |
 |||| 
+
+<a name="managed-identity"></a>
+
+## <a name="managed-identities"></a>Hanterade identiteter
+
+| Namn | Gräns | 
+| ---- | ----- | 
+| Antalet logikappar med systemtilldelade hanterade identiteter per Azure-prenumeration | 10 | 
+|||
 
 <a name="integration-account-limits"></a>
 

@@ -12,26 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 2b989fbebe237e4e3746ef2f237193587173dfe4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 12a8b1f43fd822035417096bc21e0e44f574448d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963414"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830643"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-azure-monitor-for-containers"></a>Hur du stoppar övervakningen av din Azure Monitor för Azure Kubernetes Service (AKS) för behållare
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Hur du stoppar övervakningen Azure Kubernetes Service (AKS) med Azure Monitor för behållare
 
-Om du aktiverar när övervakningen av AKS-klustret kan du beslutar att du inte längre vill du övervaka den, kan du *avanmäla dig* genom att använda antingen de tillhandahållna Azure Resource Manager-mallarna med PowerShell-cmdleten  **Ny AzureRmResourceGroupDeployment** eller Azure CLI. En JSON-mallen används för att konfigurationen av *avanmäla dig*. Den andra innehåller parametervärden som du konfigurerar för att ange AKS-kluster-ID och resurs resursgruppen som klustret distribueras i. 
+Om du aktiverar när övervakningen av AKS-klustret kan du beslutar att du inte längre vill du övervaka den, kan du *avanmäla dig*.  Den här artikeln visar hur du gör detta med hjälp av Azure CLI eller med de angivna Azure Resource Manager-mallarna.  
+
+
+## <a name="azure-cli"></a>Azure CLI
+Använd den [az aks disable-tillägg](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) kommando för att inaktivera Azure Monitor för behållare. Kommandot tar bort agenten från noder i klustret, den tar inte bort lösningen eller data som samlas in och lagras i Log Analytics-resursen redan.  
+
+```azurecli
+az aks disable -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
+```
+
+Om du vill återaktivera övervakning för ditt kluster, se [aktivera övervakning med hjälp av Azure CLI](monitoring-container-insights-onboard.md#enable-monitoring-using-azure-cli).
+
+## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
+Tillhandahållna är två Azure Resource Manager-mall för ta bort lösningsresurser konsekvent och upprepade gånger i resursgruppen. En är en JSON-mall som anger att konfigurationen ska *avanmäla dig* och den andra innehåller parametervärden som du konfigurerar för att ange AKS-kluster-ID och resurs resursgruppen som klustret distribueras i. 
 
 Om du inte är bekant med begreppet att distribuera resurser med hjälp av en mall, se:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
+>[!NOTE]
+>Mallen måste distribueras i samma resursgrupp som klustret.
+>
+
 Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-## <a name="create-template"></a>Skapa mallen
+### <a name="create-template"></a>Skapa mallen
 
 1. Kopiera och klistra in följande JSON-syntax i filen:
 
@@ -101,7 +118,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
 5. Spara filen som **OptOutParam.json** till en lokal mapp.
 6. Nu är det dags att distribuera den här mallen. 
 
-## <a name="remove-the-solution-using-azure-cli"></a>Ta bort lösningen med hjälp av Azure CLI
+### <a name="remove-the-solution-using-azure-cli"></a>Ta bort lösningen med hjälp av Azure CLI
 Kör du följande kommando med Azure CLI på Linux för att ta bort lösningen och rensa konfigurationen på AKS-klustret.
 
 ```azurecli
@@ -116,7 +133,7 @@ Konfigurationsändringen kan ta några minuter att slutföra. När det är klart
 ProvisioningState       : Succeeded
 ```
 
-## <a name="remove-the-solution-using-powershell"></a>Ta bort lösningen med hjälp av PowerShell
+### <a name="remove-the-solution-using-powershell"></a>Ta bort lösningen med hjälp av PowerShell
 
 Kör följande PowerShell-kommandon i den mapp som innehåller mallen för att ta bort lösningen och rensa konfigurationen från ditt AKS-kluster.    
 

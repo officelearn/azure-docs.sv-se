@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7de476c6b96856e9b783ed8182985846bb39cfa
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 76ad14bb52e2eedbfa1450c53a8b947719fef310
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452402"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830792"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -50,6 +50,10 @@ ms.locfileid: "47452402"
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* Diagnostikspårning förbättringar
+
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 
 * Lägga till mer flexibilitet vid tillfälliga fel i flera regioner begäran.
@@ -327,6 +331,7 @@ Alla begäranden till Azure Cosmos DB med hjälp av en pensionerad SDK avvisas a
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.1.2](#2.1.2) |04 oktober 2018 |--- |
 | [2.1.1](#2.1.1) |27 september 2018 |--- |
 | [2.1.0](#2.1.0) |21 september 2018 |--- |
 | [2.0.0](#2.0.0) |07 september 2018 |--- |

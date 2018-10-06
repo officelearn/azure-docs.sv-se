@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database-servicenivåerna - DTU | Microsoft Docs
-description: Läs om tjänstnivåer för en enskild och poolen databaser att tillhandahålla storlekar och lagringsstorlekar.
+description: Läs om tjänstnivåer för en enskild och databaser i en pool att tillhandahålla compute storlekar och lagringsstorlekar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,22 +11,25 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 2f9362a6d771df3cdb11855844025bc8d9ea732e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/04/2018
+ms.openlocfilehash: a9e274cea7543fc3361b1f2d0a60fc18176b6248
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162380"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831321"
 ---
-# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>Välja DTU-baserade tjänstnivå compute storlek och lagringsresurser 
+# <a name="dtu-based-service-tiers"></a>DTU-baserade tjänstnivåer
 
-Tjänstnivåer särskiljs med hjälp av olika storlekar med en fast mängd lagringsutrymme, fast kvarhållningsperiod för säkerhetskopior och fast pris. Alla tjänstnivåer ger flexibilitet för att ändra instansstorlekarna utan avbrott. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och beräkningsstorleken.
+DTU-baserade tjänstnivåer särskiljs med hjälp av olika storlekar med en fast mängd lagringsutrymme, fast kvarhållningsperiod för säkerhetskopior och fast pris. Alla tjänstnivåer ger flexibilitet för att ändra instansstorlekarna utan avbrott. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och beräkningsstorleken.
 
 > [!IMPORTANT]
-> SQL Database Managed Instance är stöder för närvarande i förhandsversionen inte en DTU-baserade inköpsmodellen. Mer information finns i [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
+> SQL Database Managed Instance är stöder för närvarande i förhandsversionen inte en DTU-baserade inköpsmodellen. Mer information finns i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 
-## <a name="choosing-a-dtu-based-service-tier"></a>Välja DTU-baserade tjänstnivå
+> [!NOTE]
+> Läs om hur vCore-baserade tjänstnivåer [vCore-baserade tjänstnivåer](sql-database-service-tiers-vcore.md). Information om hur man skiljer DTU-baserade tjänstnivåer och vCore-baserade tjänstnivåer finns i [Azure SQL Database köpa modeller](sql-database-service-tiers.md).
+
+## <a name="compare-the-dtu-based-service-tiers"></a>Jämför de DTU-baserade tjänstnivåerna
 
 Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings- och prestandakrav.
 ||Basic|Standard|Premium|
@@ -43,7 +46,7 @@ Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Enkel databas DTU och Lagringsgränser
 
-Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [vad är dtu: er och edtu: er](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
+Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [DTU-baserade inköpsmodellen](sql-database-service-tiers.md#dtu-based-purchasing-model)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -76,14 +79,17 @@ Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda 
 Fysiska egenskaper (processor, minne, i/o) som är kopplade till varje DTU-mått kalibreras med hjälp av en benchmark som simulerar verkliga databas-arbetsbelastning.
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Korrelera-resultaten till verkliga databasprestanda
+
 Det är viktigt att förstå att alla prestandamått är representativt och vägledande endast. Transaktionspriser uppnås med benchmark-programmet kan inte samma som de som kan uppnås med andra program. Benchmark består av en samling med annan transaktion typer kör mot ett schema som innehåller en mängd tabeller och datatyper. Medan prestandamått utövar samma grundläggande åtgärder som är gemensamma för alla OLTP-arbetsbelastningar, representerar inte någon specifik klass av databas eller ett program. Målet med prestandamått är att tillhandahålla en rimlig guide till den relativa prestandan för en databas som kan förväntas vid skalning upp eller ned mellan storlekar. I verkligheten kan databaser är av olika storlekar och komplexitet, stöta på olika kombinationer av arbetsbelastningar och svarar på olika sätt. Till exempel ett i/o-intensiva program kan träffa tröskelvärden för i/o tidigare eller ett CPU-intensiva program kan träffa CPU-gränser snabbare. Det finns ingen garanti för att en viss databas skalas på samma sätt som prestandamått under ökande belastning.
 
 Prestandamått och dess metoder beskrivs i detalj nedan.
 
 ### <a name="benchmark-summary"></a>Benchmark-översikt
+
 ASDB mäter prestanda för en blandning av grundläggande databasåtgärder som förekommer oftast i online transaktionsbearbetning (OLTP) arbetsbelastningar. Även om prestandamått är utformad med molnbaserad databehandling i åtanke, databasschemat, ifyllnad av data och transaktioner som har utformats för att vara brett representativ för de grundläggande delarna som används mest i OLTP-arbetsbelastningar.
 
 ### <a name="schema"></a>Schema
+
 Schemat har utformats för att ha tillräckligt med variationen och komplexiteten för en mängd olika åtgärder. Benchmark körs mot en databas som består av sex tabeller. Tabeller är indelade i tre kategorier: fast storlek, skalning och växer. Det finns två tabeller för fast storlek. tre skalning tabeller. och en växande tabell. Tabeller med fast storlek har ett konstant antal rader. Skalning tabeller har en kardinalitet som står i proportion till databasens prestanda, men inte ändras under prestandamått. Tabellen växande storlek som en skalning tabeller på första men kardinalitet ändringarna körs prestandamått som rader infogas och raderas.
 
 Schemat innehåller en blandning av datatyper, inklusive heltal, numeriska tecken och datum/tid. Schemat innehåller primära och sekundära nycklarna, men inte alla sekundärnycklar – det vill säga det finns inga referensintegritetsbegränsningar mellan tabeller.
@@ -93,6 +99,7 @@ Ett program för generering av data genererar data för den ursprungliga databas
 Databasen är storlek baserat på en ”skalfaktor”. Skalningsfaktorn (förkortas SF) avgör Kardinaliteten för att skala och växande tabeller. Enligt beskrivningen nedan i avsnittet användare och Pacing, databasens storlek, antalet användare och maximala prestanda alla skala i förhållande till varandra.
 
 ### <a name="transactions"></a>Transaktioner
+
 Arbetsbelastningen består av nio transaktionstyper som visas i tabellen nedan. Varje transaktion är utformad för att markera en viss uppsättning egenskaper i database engine och system för maskinvara med hög kontrast från andra transaktioner. Den här metoden gör det enklare att utvärdera effekten av olika komponenter för systemets prestanda. Till exempel genererar ”läsa” intensiv transaktionen ett stort antal läsåtgärder från disken.
 
 | Transaktionstyp | Beskrivning |
@@ -108,6 +115,7 @@ Arbetsbelastningen består av nio transaktionstyper som visas i tabellen nedan. 
 | CPU-intensiv |VÄLJ; minnesinterna; relativt tung CPU-belastning. skrivskyddad |
 
 ### <a name="workload-mix"></a>Blandning av arbetsbelastning
+
 Transaktioner väljs slumpmässigt bland en viktad distribution med följande övergripande blandning. Den övergripande kombination har en Läs/Skriv-förhållande på cirka 2:1.
 
 | Transaktionstyp | % av blandning |
@@ -123,38 +131,41 @@ Transaktioner väljs slumpmässigt bland en viktad distribution med följande ö
 | CPU-intensiv |10 |
 
 ### <a name="users-and-pacing"></a>Användare och hastighetsstyrningen
+
 Benchmark-arbetsbelastningen drivs från ett verktyg som skickar transaktioner över en uppsättning anslutningar till simulera beteendet för ett antal samtidiga användare. Även om alla anslutningar och transaktioner är datorn som genereras för enkelhetens skull kallar vi dessa anslutningar ”användare”. Även om varje användare fungerar oberoende av alla andra användare, utför alla användare samma cykeln av stegen som visas nedan:
 
 1. Upprätta en databasanslutning.
 2. Upprepa tills signal om att avsluta:
-   * Välj en transaktion slumpmässigt (från en viktad distribution).
-   * Utför den valda transaktionen och mäta svarstiden.
-   * Vänta tills en pacing fördröjning.
+   - Välj en transaktion slumpmässigt (från en viktad distribution).
+   - Utför den valda transaktionen och mäta svarstiden.
+   - Vänta tills en pacing fördröjning.
 3. Stäng anslutningen till databasen.
 4. Avsluta.
 
 Pacing fördröjningen (i steg 2c) väljs slumpmässigt, men med en distribution som har ett genomsnitt av 1.0 sekund. Därmed kan varje användare i genomsnitt generera högst en transaktion per sekund.
 
 ### <a name="scaling-rules"></a>Skalningsregler
+
 Antalet användare som bestäms av databasens storlek (i skalfaktor enheter). Det finns en användare för varje fem skalfaktor enheter. På grund av pacing fördröjningen, kan en användare skapa högst en transaktion per sekund, i genomsnitt.
 
 Till exempel en-skalfaktor av 500 (SF = 500) databasen kommer att ha 100 användare och kan högst 100 TPS. För att driva en högre TPS kräver frekvens fler användare och en större databas.
 
 ### <a name="measurement-duration"></a>Varaktighet för mätning
+
 En giltig benchmark-körning kräver en stabil mätning varaktighet på minst en timme.
 
 ### <a name="metrics"></a>Mått
+
 Viktiga mått i prestandamått är dataflöde och svarstid.
 
-* Dataflödet är det grundläggande prestandamått i prestandamått. Dataflöde rapporteras i transaktioner per i-tid, räkna alla transaktionstyper.
-* Svarstiden är ett mått på förutsägbara prestanda. Tidsbegränsning för svar varierar med tjänsteklass med högre klasser av tjänsten som har strängare svar tid krav, enligt nedan.
+- Dataflödet är det grundläggande prestandamått i prestandamått. Dataflöde rapporteras i transaktioner per i-tid, räkna alla transaktionstyper.
+- Svarstiden är ett mått på förutsägbara prestanda. Tidsbegränsning för svar varierar med tjänsteklass med högre klasser av tjänsten som har strängare svar tid krav, enligt nedan.
 
 | Tjänsteklass | Mått för dataflöde | Tidsåtgången för svar |
 | --- | --- | --- |
 | Premium |Transaktioner per sekund |95: e percentilen vid 0,5 sekunder |
 | Standard |Transaktioner per minut |90: e percentilen vid 1.0 sekunder |
 | Basic |Transaktioner per timme |80: e percentilen vid 2.0 sekunder |
-
 
 ## <a name="next-steps"></a>Nästa steg
 

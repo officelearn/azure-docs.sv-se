@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 77b6149f175723ccf19db660ed500fb8897080e8
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 03f02d9d36ffc6a14334cdcccf2d1455db34e2bc
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249629"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815814"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -70,7 +70,7 @@ För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel
 
 - [SQL-autentisering](#sql-authentication)
 - Azure AD-token-autentisering: [tjänstens huvudnamn](#service-principal-authentication)
-- Azure AD-token-autentisering: [hanterade identiteter för Azure-resurser](#managed-service-identity-authentication)
+- Azure AD-token-autentisering: [hanterade identiteter för Azure-resurser](#managed-identity)
 
 >[!TIP]
 >Om du når fel med felkod som ”UserErrorFailedToConnectToSqlServer” och visas som ”sessionens tidsgräns för databasen är XXX och har uppnåtts”., lägga till `Pooling=false` till din anslutningssträng och försök igen.
@@ -152,7 +152,7 @@ Följ dessa steg om du vill använda tokenautentisering för service principal-b
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a>Hanterade identiteter för autentisering av Azure-resurser
+### <a name="managed-identity"></a> Hanterade identiteter för autentisering av Azure-resurser
 
 En data factory kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md) som representerar den specifika fabriken. Du kan använda den här tjänstidentitet för Azure SQL Data Warehouse-autentisering. Den angivna datafabriken kan komma åt och kopieringsdata från eller till dina data warehouse med hjälp av den här identiteten.
 

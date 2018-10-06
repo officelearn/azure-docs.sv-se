@@ -1,55 +1,56 @@
 ---
-title: Vanliga frågor (FAQ) om Azure Autosuggest API | Microsoft Docs
-description: Få svar på vanliga frågor om Azure kognitiva Services Autosuggest API på Azure.
+title: Vanliga frågor (FAQ) - automatiska förslag för Bing
+titlesuffix: Azure Cognitive Services
+description: Få svar på vanliga frågor om automatiska förslag i Bing.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 00b91728bcfec52ff30697f080d5c2619bab79a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84f1b0555922119e9de4addc3d51ac233e7bae65
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354474"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831372"
 ---
-# <a name="frequently-asked-questions-faq-about-autosuggest-api-cognitive-services"></a>Vanliga frågor (FAQ) om Autosuggest API (kognitiva Services)
+# <a name="frequently-asked-questions-faq-about-bing-autosuggest-api"></a>Vanliga frågor (och svar FAQ) om Bing för automatiska förslag i
  
- Få svar på vanliga frågor om begrepp och koden scenarion för Autosuggest-API för kognitiva Azure-tjänster.
+ Hitta svar på vanliga frågor om koncept, kod och scenarier som rör API: et för automatiska förslag för Azure Cognitive Services.
 
-### <a name="how-do-i-get-the-optional-client-headers-when-calling-the-bing-autosuggest-api-from-javascript"></a>Hur skaffar jag valfria klientcertifikat huvuden vid anrop av Bing Autosuggest API: et från JavaScript?
+### <a name="how-do-i-get-the-optional-client-headers-when-calling-the-bing-autosuggest-api-from-javascript"></a>Hur får jag valfria klientcertifikat rubriker när du anropar den automatiska förslag i Bing från JavaScript?
 
-Följande huvuden är valfria, men vi rekommenderar att du behandlar dem efter behov. Dessa huvuden med hjälp av Bing Autosuggest API: N returnerar mer exakta resultat.
+Följande huvuden är valfria, men vi rekommenderar att du ska hantera dem efter behov. Dessa huvuden kan den automatiska förslag i Bing returnera mer exakta resultat.
 
-- X sökplats
+- X-Sök-plats
 - X-MSEdge-ClientID
 - X-MSEdge-ClientIP
 
-Men när du anropar Bing Autosuggest API: et från JavaScript kan inbyggda säkerhetsfunktionerna i din webbläsare hindra dig från att få åtkomst till värdena för dessa huvuden.
+Men när du anropar den automatiska förslag i Bing från JavaScript kanske i webbläsaren inbyggda säkerhetsfunktioner hindrar dig från att komma åt värdena för dessa rubriker.
 
-Du kan göra Bing Autosuggest API-begäran via en proxyserver för CORS för att lösa problemet. Svaret från en sådan proxy har en `Access-Control-Expose-Headers` huvud som whitelists svarshuvuden och gör dem tillgängliga för JavaScript.
+Du kan göra automatiska förslag i Bing-begäran via en CORS-proxy för att lösa problemet. Svaret från sådan proxy har en `Access-Control-Expose-Headers` rubrik som vitlistor svarshuvuden och gör dem tillgängliga för JavaScript.
 
-Det är lätt att installera en CORS-proxy för att tillåta vår [självstudiekursen app](tutorials/autosuggest.md) åtkomst till de valfria klientcertifikat huvudena. Första, om du inte redan har det, [installera Node.js](https://nodejs.org/en/download/). Ange sedan följande kommando vid en kommandotolk.
+Det är enkelt att installera en proxy för CORS så att våra [självstudieappen](tutorials/autosuggest.md) att komma åt valfria klientcertifikat-huvuden. Första, om du inte redan har det, [installera Node.js](https://nodejs.org/en/download/). Ange sedan följande kommando i Kommandotolken.
 
     npm install -g cors-proxy-server
 
-Ändra Bing Autosuggest API-slutpunkt i HTML-filen:
+Sedan ändra den automatiska förslag i Bing-slutpunkten i HTML-filen:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
-Slutligen starta CORS-proxy med följande kommando:
+Slutligen börja CORS-proxyn med följande kommando:
 
     cors-proxy-server
 
-Lämna Kommandotolken öppen när du använder appen självstudiekursen; stänger fönstret stoppar proxyn. I avsnittet nedan sökresultaten utbyggbara HTTP-huvuden, kan du nu se den `X-MSEdge-ClientID` huvud (bland andra) och kontrollera att det är samma för varje begäran.
+Lämna Kommandotolken öppen medan du använder självstudieappen; stänga fönstret stoppar proxyn. I avsnittet nedan sökresultaten utbyggbara HTTP-huvuden, kan du nu se den `X-MSEdge-ClientID` rubrik (bland annat) och kontrollera att det är samma för varje begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Är en fråga om en funktion eller funktionalitet som saknas? Överväg att begära eller röstning för den vår [User Voice-webbplats](https://cognitive.uservoice.com/).
+Är en fråga om en funktion eller funktionalitet som saknas? Överväg att begära eller röstat vår [User Voice-webbplatsen](https://cognitive.uservoice.com/).
 
 ## <a name="see-also"></a>Se också
 
-- [Stackspill: Kognitiva tjänster](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+- [Stackspill: Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

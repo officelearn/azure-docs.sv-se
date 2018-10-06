@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 873660f362d2ad0002f512f911d4149519092787
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055953"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830013"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
 
 I den här självstudien beskrivs flera prestandarelaterade hanteringsscenarier som används i SaaS-program. Använder en belastningsgenerator för att simulera aktivitet på shardade databaser för flera innehavare, är inbyggd övervakning och aviseringsfunktionerna i SQL-databas visas.
 
-Databas för flera klienter i Wingtip biljetter SaaS-appen använder en modell för shardade data för flera innehavare, där distribueras lokal (klient) data genom att klient-ID på potentiellt flera databaser. Precis som för flera SaaS-program så är de förväntade belastningsmönstren för klienterna oberäkneliga och sporadiska. Biljettförsäljningar kan med andra ord ske när som helst. Om du vill dra nytta av den här typiska databasanvändningsmönstret, kan databaser skalas upp och ned för att optimera kostnaderna för en lösning. Med den här typen av mönster är det viktigt att övervaka databasresursanvändning för att säkerställa att belastningar belastningarna balanseras över potentiellt flera databaser. Du måste också se till att enskilda databaser har tillräckliga resurser och inte träffar sina [DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) gränser. Den här guiden går igenom sätt att övervaka och hantera databaser och hur du vidta åtgärder som svar på belastningsvariationer.
+Databas för flera klienter i Wingtip biljetter SaaS-appen använder en modell för shardade data för flera innehavare, där distribueras lokal (klient) data genom att klient-ID på potentiellt flera databaser. Precis som för flera SaaS-program så är de förväntade belastningsmönstren för klienterna oberäkneliga och sporadiska. Biljettförsäljningar kan med andra ord ske när som helst. Om du vill dra nytta av den här typiska databasanvändningsmönstret, kan databaser skalas upp och ned för att optimera kostnaderna för en lösning. Med den här typen av mönster är det viktigt att övervaka databasresursanvändning för att säkerställa att belastningar belastningarna balanseras över potentiellt flera databaser. Du måste också se till att enskilda databaser har tillräckliga resurser och inte träffar sina [DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) gränser. Den här guiden går igenom sätt att övervaka och hantera databaser och hur du vidta åtgärder som svar på belastningsvariationer.
 
 I den här självstudiekursen får du lära du dig att:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/26/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 76da33a74ad95d7f074bc4efd3a8d9f97c19d612
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049618"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830320"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Flytta data till och från Azure Storage
 Om du vill flytta lokala data till Azure Storage (eller vice versa) finns en mängd olika sätt att göra detta. Den metod som passar dig bäst beror på ditt scenario. Den här artikeln ger en snabb överblick över olika scenarier och lämpliga erbjudanden för vart och ett.
@@ -38,7 +38,7 @@ Om du behöver eller är bekvämare med ett kommandoradsverktyg (t.ex. systemadm
 ### <a name="azcopy"></a>AzCopy
 AzCopy är ett kommandoradsverktyg som utformats för högpresterande kopiering av data till och från Azure Storage. Du kan också kopiera data i ett lagringskonto eller mellan olika lagringskonton. AzCopy är tillgänglig på [Windows](storage-use-azcopy.md) på [Linux](storage-use-azcopy-linux.md).
 
-Se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md) eller [överföra data med AzCopy i Linux](storage-use-azcopy-linux.md) vill veta mer.
+Läs hur du migrerar lokala data till Azure Storage i [självstudie: migrera lokala data till molnlagring med AzCopy](storage-use-azcopy-migrate-on-premises-data.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell är en modul som tillhandahåller cmdletar för att hantera tjänster på Azure. Det är ett uppgiftsbaserat kommandoradsgränssnitt och skriptspråk som utformats specifikt för systemadministration.

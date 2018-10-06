@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3e21cb90dbe76a648cbb23729cc5068e75e8e5f7
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 403c52cb2de61f1c2d02ad72e9067da09b40a814
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498546"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816046"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -36,6 +36,8 @@ Följande diagram visar en konceptuell vy över beteende och dataflöde över hu
 ![Uppdatera processflöde för hantering](media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Hantering av uppdateringar kan användas för att internt registrera datorer i flera prenumerationer i samma klientorganisation. Hantera virtuella datorer i en annan klient måste du publicera dem som [icke-Azure-datorer](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
+
+När en CVE är viktig, tar 2 – 3 timmar innan uppdateringen att visas för Linux-datorer för utvärdering.  För Windows-datorer tar den 12 – 15 timmar för uppdatering ska visas för utvärderingen efter att det har släppts.
 
 När en dator utför en sökning för att kontrollera uppdateringskompatibilitet, vidarebefordrar agenten informationen gruppvis till Azure Log Analytics. På en Windows-dator utförs kompatibilitetsgenomsökningen var 12: e timme som standard.
 

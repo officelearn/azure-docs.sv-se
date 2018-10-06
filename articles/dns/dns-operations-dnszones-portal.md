@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
-ms.openlocfilehash: a9325dff84635955600bc78687ec0156495ae893
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954389"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829690"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Så här hanterar du DNS-zoner i Azure portal
 
@@ -32,7 +32,7 @@ Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure portal. Du
 ## <a name="create-a-dns-zone"></a>Skapa en DNS-zon
 
 1. Logga in på Azure Portal
-2. På navmenyn och klicka **skapa en resurs > nätverk >** och klicka sedan på **DNS-zon** att öppna bladet skapa DNS-zon.
+2. Gå till hubbmenyn, **skapa en resurs > nätverk > DNS-zon** att öppna den **skapa DNS-zon** bladet.
 
     ![DNS-zon](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -51,13 +51,13 @@ Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure portal. Du
 
 ## <a name="list-dns-zones"></a>Lista DNS-zoner
 
-I Azure-portalen går du till **fler tjänster** > **nätverk** > **DNS-zoner**. Varje DNS-zon är är det egna resurs, information, till exempel antalet postuppsättningar och DNS-servrar kan visas från den här vyn. Kolumnen **NAMNSERVRAR** är inte i standardvyn, att lägga till det klickar du på **kolumner**väljer **namnservrar** och klicka på **klar**.
+I Azure-portalen går du till **fler tjänster** > **nätverk** > **DNS-zoner**. Varje DNS-zon är en egen resurs och information, till exempel antalet postuppsättningar och DNS-servrar kan visas från den här vyn. Kolumnen **NAMNSERVRAR** är inte i standardvyn. Om du vill lägga till den, klickar du på **kolumner**väljer **namnservrar**, och klicka sedan på **klar**.
 
 ![Visa en lista över DNS-zoner](./media/dns-operations-dnszones-portal/listzones.png)
 
 ## <a name="delete-a-dns-zone"></a>Ta bort en DNS-zon
 
-Navigera till en DNS-zon i portalen. På den **DNS-zon** bladet klickar du på **ta bort zonen**. Du uppmanas att bekräfta att du vill ta bort DNS-zonen. Tar bort en DNS-zon tas även bort alla poster i zonen.
+Navigera till en DNS-zon i portalen. På den **DNS-zon** bladet klickar du på **ta bort zonen**. Du uppmanas sedan att bekräfta att du vill ta bort DNS-zonen. Tar bort en DNS-zon tas även bort alla poster i zonen.
 
 ## <a name="next-steps"></a>Nästa steg
 

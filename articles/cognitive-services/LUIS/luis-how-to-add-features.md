@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6831f67a33d114ca5c42ddacf8ef4de704e21711
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036964"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830998"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Använd frasen visar att boost signaler med ordlistan
 
@@ -46,7 +46,7 @@ Du kan lägga till funktioner till din LUIS-app för att förbättra dess noggra
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> Du kan redigera, ta bort eller inaktivera en fras lista från de tre punkterna (***...*** ) i slutet av raden med UK frasen lista.
+> Du kan ta bort eller inaktivera en fras lista från verktygsfältet sammanhangsberoende på den **fras listor** sidan.
 
 ## <a name="pattern-regular-expression-feature"></a>Funktionen för mönster (återkommande uttryck) 
 **Den här funktionen är inaktuell**. Nya funktioner i mönstret kan inte läggas till LUIS. Alla befintliga mönstret-funktioner som stöds till maj 2018. Bidra till standard LUIS-reguljärt uttryck matchar med en pull-begäran till den [identifierare fulltext Github-lagringsplatsen](https://github.com/Microsoft/Recognizers-Text). 

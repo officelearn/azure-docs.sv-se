@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 890a6b9dd1ef63fcc59984686b2d6dec773cdb52
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 8ba1286f7283a1062b2b94d58c2439e8461c1573
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391852"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817134"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -111,17 +111,33 @@ Innan du börjar måste du vara medveten om följande begränsningar:
 * Gränsen för filstorlek är 5 MB.
 * Autentiseringsmeddelanden bör vara kortare än 20 sekunder. Meddelanden som är längre än 20 sekunder kan orsaka verifieringen att misslyckas. Användaren kan inte hantera innan meddelandet är klar och tidsgränsen uppnås för verifiering.
 
+### <a name="custom-message-language-behavior"></a>Anpassat meddelande språk beteende
+
+När ett anpassat meddelande spelas för användaren, beror språket för meddelandet på faktorer:
+
+* Den aktuella användaren språk.
+   * Det språket som identifierats av användarens webbläsare.
+   * Andra autentiseringsscenarier fungera annorlunda.
+* Språket i tillgängliga anpassade meddelanden.
+   * Det här språket väljs av administratören, när du lägger till ett anpassat meddelande.
+
+Exempel: om det finns bara ett anpassat meddelande med tyska som systemspråk:
+
+* En användare som autentiserar tyska hör anpassade tyska meddelandet.
+* En användare som autentiseras på engelska hör meddelandet engelska.
+
 ### <a name="set-up-a-custom-message"></a>Konfigurera ett anpassat meddelande
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Bläddra till **Azure Active Directory** > **MFA Server** > **telefonsamtalsinställningarna**.
+1. Bläddra till **Azure Active Directory** > **MFA Server** > **telefonsamtalsinställningarna**.
 
    ![Post telefon, eget meddelanden](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
-3. Välj **Lägg till hälsning**.
-4. Välj typ av hälsning. Välj språket.
-5. Välj en .mp3 eller .wav fil att ladda upp.
-6. Välj **Lägg till**.
+1. Välj **Lägg till hälsning**.
+1. Välj typ av hälsning. 
+1. Välj språket.
+1. Välj en .mp3 eller .wav fil att ladda upp.
+1. Välj **Lägg till**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Cachelagring i Azure Multi-Factor Authentication
 

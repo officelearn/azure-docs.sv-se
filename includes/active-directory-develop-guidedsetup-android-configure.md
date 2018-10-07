@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,18 +14,18 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: f0e584a4a4a54fc04b5539b56d5c901bfaa42bcc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6e20ce083c415bced22231835cc616ede8f0dd04
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293768"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843153"
 ---
 ## <a name="register-your-application"></a>Registrera ditt program
 Du kan registrera programmet i något av två sätt, enligt beskrivningen i följande två avsnitt.
 
 ### <a name="option-1-express"></a>Alternativ 1: Express
-1. Gå till den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
+1. Gå till [Microsoft-portalen för appregistrering](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
 2.  I **programnamn**, ange ett namn för ditt program.
 
 3. Se till att den **interaktiva installation** kryssrutan är markerad och välj sedan **skapa**.
@@ -34,12 +33,12 @@ Du kan registrera programmet i något av två sätt, enligt beskrivningen i föl
 4. Följ anvisningarna för att hämta program-ID, och klistra in den i din kod.
 
 ### <a name="option-2-advanced"></a>Alternativ 2: avancerad 
-1. Gå till den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/portal/register-app).
-2. I den **programnamn** anger du ett namn för ditt program. 
+1. Gå till [Microsoft-portalen för appregistrering](https://apps.dev.microsoft.com/portal/register-app).
+2. I rutan **Programnamn** anger du namnet på programmet. 
 
-3. Se till att den **interaktiva installation** kryssrutan är avmarkerad och välj sedan **skapa**.
+3. Kontrollera att kryssrutan **Interaktiv installation** är avmarkerad och välj sedan **Skapa**.
 
-4. Välj **Lägg till plattform**väljer **programspecifik**, och välj sedan **spara**.
+4. Välj **Lägg till plattform**, välj **Internt program** och välj sedan **Spara**.
 
 5. Under **app** > **java** > **{värden}. { namnområdet}** öppnar `MainActivity`. 
 

@@ -3,24 +3,23 @@ title: ta med fil
 description: ta med fil
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/18/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d4ba15e4ad46044c04c242c8805af9f320e95150
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 538b0c969d8c039079c09232e06f55e24aabf393
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368466"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843393"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Om du Använd MSAL för att hämta en token för Microsoft Graph API
 
@@ -98,11 +97,11 @@ I det här avsnittet använder MSAL för att hämta en token för Microsoft Grap
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-#### <a name="get-a-user-token-interactively"></a>Hämta åtkomsttoken för en användare interaktivt
+#### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
 Anropa den `AcquireTokenAsync` metoden resulterar i ett fönster som uppmanar användaren att logga in. Program kräver vanligtvis användare att logga in interaktivt första gången som de behöver för att få åtkomst till en skyddad resurs. De kan också behöva logga in när en tyst åtgärden att hämta en token misslyckas (till exempel när en användares lösenord har upphört att gälla).
 
-#### <a name="get-a-user-token-silently"></a>Hämta åtkomsttoken för en användare tyst
+#### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
 Den `AcquireTokenSilentAsync` metoden hanterar token anskaffning och förnyelser utan någon användarinteraktion. Efter `AcquireTokenAsync` körs för första gången `AcquireTokenSilentAsync` är den vanliga metoden för att använda för att hämta token som kommer åt skyddade resurser för efterföljande anrop, eftersom anrop till begära eller förnya token görs tyst.
 

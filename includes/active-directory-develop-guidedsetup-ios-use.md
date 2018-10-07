@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: c6d5fab6ff065dee336c510e3f94583cb0c4960b
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 248f2575e284ae456578b071013e1a5501329116
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466202"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48842939"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Använd Microsoft Authentication Library (MSAL) för att hämta en token för Microsoft Graph API
 
@@ -205,10 +204,10 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
-#### <a name="getting-a-user-token-interactively"></a>Hämta en användaren token interaktivt
+#### <a name="getting-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 Anropa den `acquireToken` metoden resulterar i ett webbläsarfönster som uppmanar användaren att logga in. Program kräver vanligtvis en användare att logga in interaktivt första gången som de behöver för att få åtkomst till en skyddad resurs, eller när en tyst åtgärd för att hämta en token misslyckas (t.ex. användarens lösenord har upphört att gälla).
 
-#### <a name="getting-a-user-token-silently"></a>Hämta en användaren token tyst
+#### <a name="getting-a-user-token-silently"></a>Hämta en token obevakat
 Den `acquireTokenSilent` metoden hanterar token anskaffning och förnyelse utan någon användarinteraktion. Efter `acquireToken` körs för första gången `acquireTokenSilent` är den metod som ofta används för att hämta token som används för att komma åt skyddade resurser för efterföljande anrop - eftersom anrop till begära eller förnya token görs tyst.
 
 Så småningom `acquireTokenSilent` misslyckas – t.ex. användaren har loggat ut eller har ändrat sitt lösenord på en annan enhet. När MSAL upptäcker att problemet kan lösas genom att kräva en interaktiv åtgärd, det utlöses en `MSALErrorCode.interactionRequired` undantag. Programmet kan hantera det här undantaget på två sätt:

@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,12 +14,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: cf6ded1252528a0bbfac9c7378f03384cc484c50
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9d512af7fdd68ec3356b427429144ec9195fd95b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293497"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843241"
 ---
 ## <a name="use-msal-to-get-a-token"></a>Om du Använd MSAL för att hämta en token 
 
@@ -242,10 +241,10 @@ ms.locfileid: "46293497"
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
-#### <a name="get-a-user-token-interactively"></a>Hämta åtkomsttoken för en användare interaktivt
+#### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 Anropa den `AcquireTokenAsync` metoden öppnas ett fönster som uppmanar användaren att logga in eller välja sitt konto. Program måste vanligtvis fråga användaren efter en inledande interaktion, men kan användas utan meddelanden från den tidpunkten i. 
 
-#### <a name="get-a-user-token-silently"></a>Hämta åtkomsttoken för en användare tyst
+#### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 Den `AcquireTokenSilentAsync` metoden hämtar en token utan någon användarinteraktion.  `AcquireTokenSilentAsync` kan hanteras som en mån-begäran med reserv för `AcquireTokenAsync` när användaren måste logga in igen eller göra vissa extra auktorisering, t.ex. Multi-Factor-autentisering. 
 
 När `AcquireTokenSilentAsync` misslyckas, den genererar en `MsalUiRequiredException`. Programmet kan hantera det här undantaget på två sätt:

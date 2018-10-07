@@ -2,24 +2,30 @@
 title: ta med fil
 description: ta med fil
 services: active-directory
+documentationcenter: dev-center-name
 author: andretms
+manager: mtillman
+editor: ''
 ms.service: active-directory
+ms.devlang: na
 ms.topic: include
-ms.date: 05/08/2018
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 9c7daf7bc947b08835148f6d09c58b47c9e0186b
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 99eabd8f9c9b3ab86c348350e8924cea0eb668ba
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36204928"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843561"
 ---
 ## <a name="set-up-your-project"></a>Konfigurera ditt projekt
 
-Det här avsnittet visar hur du installerar och konfigurerar autentisering pipeline via OWIN mellanprogram på en ASP.NET-projekt med OpenID Connect. 
+Det här avsnittet visar hur du installerar och konfigurerar autentiseringspipelinen via OWIN-mellanprogrammet på en ASP.NET-projekt med hjälp av OpenID Connect. 
 
-> Om du vill hämta det här exemplet Visual Studio-projekt i stället? [Hämta ett projekt](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) och gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan du kör.
+> Om du vill ladda ned det här exemplet Visual Studio-projekt i stället? [Ladda ned ett projekt](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) och gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan du kör.
 
 ### <a name="create-your-aspnet-project"></a>Skapa din ASP.NET-projekt
 
@@ -28,10 +34,10 @@ Det här avsnittet visar hur du installerar och konfigurerar autentisering pipel
 3. Namnge ditt program och klicka på *OK*
 4. Välj `Empty` och markera kryssrutan för att lägga till `MVC` referenser
 
-## <a name="add-authentication-components"></a>Lägga till autentiseringskomponenter
+## <a name="add-authentication-components"></a>Lägg till autentiseringskomponenter
 
 1. I Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. Lägg till *OWIN mellanprogram NuGet-paket* genom att skriva följande i fönstret Package Manager-konsolen:
+2. Lägg till *NuGet-paket för OWIN-mellanprogram* genom att skriva följande i Package Manager-konsolfönstret:
 
     ```powershell
     Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -41,18 +47,18 @@ Det här avsnittet visar hur du installerar och konfigurerar autentisering pipel
 
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>Om dessa bibliotek
->Bibliotek ovan aktivera enkel inloggning (SSO) med OpenID Connect via cookie-baserad autentisering. När autentiseringen är slutförd och token som representerar användaren skickas till ditt program, skapar OWIN mellanprogram sessions-cookie. Webbläsaren använder sedan cookien för efterföljande förfrågningar så att användaren inte behöver ange lösenordet igen och ingen ytterligare verifiering krävs.
+>Biblioteken ovan möjliggör enkel inloggning (SSO) med hjälp av OpenID Connect via cookie-baserad autentisering. När autentiseringen har slutförts och den token som representerar användaren skickas till ditt program, skapar OWIN-mellanprogrammet en sessions-cookie. Webbläsaren använder sedan den här cookien för efterföljande förfrågningar så att användaren behöver inte ange lösenordet på nytt och ingen ytterligare verifiering krävs.
 <!--end-collapse-->
 
-## <a name="configure-the-authentication-pipeline"></a>Konfigurera autentisering pipeline
-Stegen nedan för att skapa ett mellanprogram för OWIN-startklass konfigurera OpenID Connect autentisering. Den här klassen kommer att köras automatiskt när IIS-processen startar.
+## <a name="configure-the-authentication-pipeline"></a>Konfigurera autentiseringspipelinen
+Stegen nedan används för att skapa en OWIN-mellanprogrammet startklass konfigurera autentisering med OpenID Connect. Den här klassen körs automatiskt när IIS-processen startar.
 
 > [!TIP]
-> Om ditt projekt inte har en `Startup.cs` filen i rotmappen:
-> 1. Högerklicka på projektets rotmapp: > `Add` > `New Item...` > `OWIN Startup class`<br/>
+> Om ditt projekt inte har en `Startup.cs`-fil i rotmappen:
+> 1. Högerklicka på projektets rotmappen: > `Add` > `New Item...` > `OWIN Startup class`<br/>
 > 2. Ge den namnet `Startup.cs`
 >
->> Kontrollera att den klass som valts är en OWIN-startklass och inte en standard C#-klass. Kontrollera detta genom att kontrollera om du ser `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` ovanför namnområdet.
+>> Kontrollera att den klass som valts är en OWIN-startklass och inte en C#-standardklass. Bekräfta detta genom att kontrollera om `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` visas ovanför namnområdet.
 
 1. Lägg till *OWIN* och *Microsoft.IdentityModel* referenser till `Startup.cs`:
 
@@ -67,7 +73,7 @@ Stegen nedan för att skapa ett mellanprogram för OWIN-startklass konfigurera O
     using Microsoft.Owin.Security.Notifications;
     ```
 
-2. Ersätt startklass med koden nedan:
+2. Ersätt-startklass med koden nedan:
 
     ```csharp
     public class Startup
@@ -137,6 +143,6 @@ Stegen nedan för att skapa ett mellanprogram för OWIN-startklass konfigurera O
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mer information
-> De parametrar som du anger i *OpenIDConnectAuthenticationOptions* fungerar som koordinater för programmet som ska kommunicera med Azure AD. Eftersom OpenID Connect mellanprogram använder cookies i bakgrunden, måste du också konfigurera cookie-autentisering som koden ovan visas. Den *ValidateIssuer* värde anger OpenIdConnect inte begränsa åtkomsten till en specifik organisation.
+> De parametrar som du anger i *OpenIDConnectAuthenticationOptions* fungerar som koordinater som programmet använder för att kommunicera med Azure AD. Eftersom OpenID Connect-mellanprogram använder cookies i bakgrunden kan behöva du också konfigurera cookie-autentisering som koden ovan visar. Värdet *ValidateIssuer* instruerar OpenIdConnect att inte begränsa åtkomsten till en specifik organisation.
 <!--end-collapse-->
 

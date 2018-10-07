@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: navyasric
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: be8ffeae1977fb2f56e0f85a716d982a6d2f84dc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 77400453e455ff2ebf20f59f888a3e3d641bcf07
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060718"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843309"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Använd Microsoft Authentication Library (MSAL) för att logga in användaren
 
@@ -132,16 +131,16 @@ När en användare klickar på *logga In* knappen för första gången `signIn` 
 
 SPA som genereras av det här hjälper anrop `acquireTokenSilent` och/eller `acquireTokenPopup` att hämta en *åtkomsttoken* används för att fråga Microsoft Graph API för profilinformation för användaren. Om du behöver ett exempel som validerar ID-token kan ta en titt på [detta](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 exempel") exempelprogrammet i GitHub – exemplet använder en ASP .NET webb-API för tokenvalidering.
 
-#### <a name="getting-a-user-token-interactively"></a>Hämta en användaren token interaktivt
+#### <a name="getting-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
 Efter den första inloggningen, du inte vill be användare att autentiseras på nytt varje gång som de behöver för att begära en token till en resurs – så *acquireTokenSilent* bör användas för de flesta fall för att hämta token. Det finns dock situationer när måste du tvinga användare att interagera med Azure Active Directory v2-slutpunkten – några exempel är:
-- Användare kan behöva ange sina autentiseringsuppgifter igen eftersom lösenordet har upphört att gälla
-- Ditt program begär åtkomst till en resurs som användaren behöver för att godkänna
-- Tvåstegs-autentisering krävs
+- Användarna kan behöva ange sina autentiseringsuppgifter igen eftersom lösenordet har upphört att gälla
+- Din app begär åtkomst till en resurs som användaren behöver ge sitt medgivande för
+- Tvåfaktorsautentisering krävs
 
 Anropa den *acquireTokenPopup(scope)* resulterar i ett popup-fönster (eller *acquireTokenRedirect(scope)* resulterar i att omdirigera användare till Azure Active Directory v2-slutpunkten) där användare måste interagera genom att antingen bekräfta sina autentiseringsuppgifter, ge samtycke till den begärda resursen eller du har slutfört tvåfaktorautentisering.
 
-#### <a name="getting-a-user-token-silently"></a>Hämta en användaren token tyst
+#### <a name="getting-a-user-token-silently"></a>Hämta en token obevakat
 Den ` acquireTokenSilent` metoden hanterar token anskaffning och förnyelse utan någon användarinteraktion. Efter `loginPopup` (eller `loginRedirect`) körs för första gången `acquireTokenSilent` är den metod som ofta används för att hämta token som används för att komma åt skyddade resurser för efterföljande anrop - eftersom anrop till begära eller förnya token görs tyst.
 `acquireTokenSilent` kanske inte kan utföras i vissa fall – till exempel användarens lösenord har upphört att gälla. Programmet kan hantera det här undantaget på två sätt:
 

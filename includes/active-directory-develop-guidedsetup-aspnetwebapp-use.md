@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,21 +14,21 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 98bb86be1e1d0dccb5a76b91489e664ee4a30765
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 167fccd8e0546bc8f5ac1b24489cae68cc14191f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943597"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843517"
 ---
-## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Lägg till en domänkontrollant för att hantera begäranden för inloggning och utloggning
+## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Lägga till en styrenhet för att hantera inloggning och utloggning begäranden
 
-Det här steget visar hur du skapar en ny domänkontrollant om du vill exponera metoder för inloggning och utloggning.
+Det här steget visar hur du skapar en ny kontrollant som exponerar metoder för inloggning och utloggning.
 
-1.  Högerklicka på den `Controllers` och väljer `Add` > `Controller`
+1.  Högerklicka på den `Controllers` mappen och välj `Add` > `Controller`
 2.  Välj `MVC (.NET version) Controller – Empty`.
 3.  Klicka på *Lägg till*
-4.  Ge den namnet `HomeController` och på *Lägg till*
+4.  Ge den namnet `HomeController` och klicka på *Lägg till*
 5.  Lägg till *OWIN* referenser till klassen:
 
     ```csharp
@@ -38,7 +37,7 @@ Det här steget visar hur du skapar en ny domänkontrollant om du vill exponera 
     using Microsoft.Owin.Security.OpenIdConnect;
     ```
     
-6. Lägg till de två metoderna nedan för att hantera inloggning och utloggning styrenheten genom att initiera en autentiseringsfråga via kod:
+6. Lägg till de två metoderna nedan för att hantera inloggning och utloggning i din kontrollant genom att initiera en autentiseringsfråga via kod:
     
     ```csharp
     /// <summary>
@@ -66,13 +65,13 @@ Det här steget visar hur du skapar en ny domänkontrollant om du vill exponera 
     }
     ```
 
-## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Skapa appens startsida för att logga in användare via en knapp för inloggning
+## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Skapa appens startsida för inloggning av användare via en knapp för inloggning
 
-Skapa en ny vy för att lägga till knappen Logga in och visa information om användare efter autentisering i Visual Studio:
+Skapa en ny vy i Visual Studio för att lägga till inloggningsknappen och visa användarinformation efter autentiseringen:
 
-1.  Högerklicka på den `Views\Home` och väljer `Add View`
+1.  Högerklicka på den `Views\Home` mappen och välj `Add View`
 2.  Ge den namnet `Index`.
-3.  Lägg till följande HTML, som innehåller knappen Logga in i filen:
+3.  Lägg till följande HTML-kod, som innehåller inloggningsknappen, i filen:
 
     ```html
     <html>
@@ -114,17 +113,17 @@ Skapa en ny vy för att lägga till knappen Logga in och visa information om anv
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mer information
-> Den här sidan lägger till en knapp för inloggning i SVG-format med svart bakgrund:<br/>![Logga in med Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Flera logga in, på knappar går du till den [den här sidan](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "företagsanpassning riktlinjer").
+> Den här sidan lägger till en knapp för inloggning i SVG-format med en svart bakgrund:<br/>![Logga in med Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> För mer inloggning knapparna går du till den [den här sidan](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "riktlinjer för anpassning").
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Lägg till en domänkontrollant om du vill visa användarens anspråk
-Den här domänkontrollanten visar användning av den `[Authorize]` attribut för att skydda en domänkontrollant. Det här attributet begränsar åtkomsten till styrenhet genom att bara tillåta autentiserade användare. Koden nedan använder attributet för att visa användaranspråk som har hämtats som en del av inloggningen.
+Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en kontrollant. Det här attributet begränsar åtkomsten till kontrollanten genom att bara tillåta autentiserade användare. Koden nedan använder attributet för att visa användaranspråk som hämtades som en del av inloggningen.
 
 1.  Högerklicka på den `Controllers` mapp: `Add` > `Controller`
 2.  Välj `MVC {version} Controller – Empty`.
 3.  Klicka på *Lägg till*
 4.  Ge den namnet `ClaimsController`
-5.  Ersätt Koden i klassen domänkontrollant med koden nedan - läggs till i `[Authorize]` attribut i klassen:
+5.  Ersätt Koden i din kontrollantklassen med koden nedan – detta lägger till den `[Authorize]` attributet klassen:
 
     ```csharp
     [Authorize]
@@ -157,16 +156,16 @@ Den här domänkontrollanten visar användning av den `[Authorize]` attribut fö
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mer information
-> På grund av användningen av den `[Authorize]` attribut, alla metoderna för den här styrenheten kan endast utföras om användaren har autentiserats. Om användaren inte har autentiserats och försöker komma åt domänkontrollanten, initiera en autentiseringsfråga OWIN och tvinga användaren att autentisera. Koden ovan tittar på listan med anspråk för specifika användarattribut som ingår i användarens Id-token. Attributen omfattar användarens fullständiga namn och användarnamn samt global användare identifierare ämne. Det innehåller även den *klient-ID*, som representerar ID för användarens organisation. 
+> Eftersom attributet `[Authorize]` används kan metoderna för den här kontrollanten endast köras om användaren har autentiserats. Om användaren inte har autentiserats och försöker få åtkomst till kontrollanten, initiera en autentiseringsfråga OWIN och tvinga användaren att autentisera. Koden ovan tittar på listan över anspråk för specifika användarattribut som ingår i användarens Id-token. Dessa attribut är användarens fullständiga namn och användarnamn, samt objektidentifieraren för den globala användaren. Den innehåller också *klientorganisations-ID:t*, som representerar ID:t för användarens organisation. 
 <!--end-collapse-->
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Skapa en vy för att visa användarens anspråk
 
-Skapa en ny vy för att visa användarens anspråk i en webbsida i Visual Studio:
+Skapa en ny vy i Visual Studio för att visa användarens anspråk på en webbsida:
 
 1.  Högerklicka på den `Views\Claims` mappen och: `Add View`
 2.  Ge den namnet `Index`.
-3.  Lägg till följande HTML i filen:
+3.  Lägg till följande HTML-kod i filen:
 
     ```html
     <html>

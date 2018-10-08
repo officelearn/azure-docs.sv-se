@@ -1,114 +1,103 @@
 ---
-title: 'Snabbstart: Känna igen tal i Java på Android med hjälp av Cognitive Services tal SDK'
+title: 'Snabbstart: Känna igen tal i Java på Android med hjälp av Speech SDK för Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
-description: Lär dig att känna igen tal i Java på Android med hjälp av Cognitive Services tal SDK
+description: Lär dig att känna igen tal i Java på Android med hjälp av Speech SDK för Cognitive Services
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
 ms.technology: Speech
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 9f761fed46f0730a64a984111da1bae1229cc93d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 0a52889ef879aeb8a5a1ed59b74619dc3337e1e9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127079"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432816"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av tal-SDK
+# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln lär du dig att skapa ett Java-program för Android med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
-Programmet är baserad på Microsoft Cognitive Services tal SDK Maven-paketet, version 0.6.0 och Android Studio 3.1.
+I den här artikeln lär du dig att skapa ett Java-program för Android med hjälp av Speech SDK för Cognitive Services för att transkribera tal till text.
+Programmet är baserat på Microsoft Cognitive Services Speech SDK Maven-paketet, version 1.0.0 och Android Studio 3.1.
+Speech SDK är kompatibelt med Android-enheter med 32-bitars eller 64-bitars ARM-processorer.
 
 > [!NOTE]
-> Tal Devices SDK Roobo-enhet, finns det [tal Devices SDK](speech-devices-sdk.md) sidan.
+> Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En prenumerationsnyckel för Speech-tjänsten. Se [prova speech-tjänsten utan kostnad](get-started.md).
-* En dator (Windows, Linux, Mac) kapacitet att köra Android Studio.
-* Version 3.1 av [Android Studio](https://developer.android.com/studio/).
-* En ARM-baserade Android-enhet (API-23: Android 6.0 Marshmallow eller senare) [aktiverat för utveckling](https://developer.android.com/studio/debug/dev-options) med en fungerande mikrofon.
+Du behöver en Speech-tjänstprenumerationsnyckel för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Mer information finns i [Prova Speech Service kostnadsfritt](get-started.md).
 
-## <a name="create-an-android-studio-project"></a>Skapa ett Android Studio-projekt
+## <a name="create-and-configure-a-project"></a>Skapa och konfigurera ett projekt
 
-Starta Android Studio och välj **starta ett nytt Android Studio-projekt**.
+1. Starta Android Studio och välj alternativet för att **starta ett nytt Android Studio-projekt** i välkomstfönstret.
 
-![](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
+    ![Skärmbild av Android Studio-välkomstfönstret](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-I den **Skapa nytt projekt** guiden som visas gör du följande val:
+1. Guiden **Skapa ett nytt projekt** visas. På skärmen för att **skapa Android-projekt** anger du **snabbstart** som **programnamn**, **samples.speech.cognitiveservices.microsoft.com** som **företagsdomän** och väljer en projektkatalog. Lämna kryssrutorna C++ och Kotlin avmarkerade och välj **Nästa**.
 
-1. I den **skapa Androidprojektet** anger **snabbstarten** som **programnamn**, **samples.speech.cognitiveservices.microsoft.com** som **företagsdomän**, och väljer en projektplats. Lämnar du kryssrutorna avmarkerad och klickar på **nästa**.
+   ![Skärmdump som visar guiden Skapa ett nytt projekt](media/sdk/qs-java-android-02-create-android-project.png)
 
-   ![](media/sdk/qs-java-android-02-create-android-project.png)
+1. På skärmen **Target Android Devices** (Android-målenheter) väljer du endast **Phone and Tablet** (Telefon och surfplatta). I listrutan under väljer du **API 23: Android 6.0 (Marshmallow)** och väljer **Nästa**.
 
-1. I den **Android målenheter** kan du kontrollera **Telefoner och surfplattor** som det enda alternativet Välj **API-23: Android 6.0 (Marshmallow)** under den och klicka på listrutan **Nästa**.
+   ![Skärmdump som visar guiden Skapa ett nytt projekt](media/sdk/qs-java-android-03-target-android-devices.png)
 
-   ![](media/sdk/qs-java-android-03-target-android-devices.png)
+1. På skärmen för att **lägga till en aktivitet till en mobil** väljer du **Tom aktivitet** och klickar på **Nästa**.
 
-1. I den **lägga till en aktivitet till Mobile** väljer **tom aktivitet** och klicka på **nästa**.
+   ![Skärmdump som visar guiden Skapa ett nytt projekt](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
 
-   ![](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
+1. På skärmen för att **konfigurera aktivitet** använder du **MainActivity** som aktivitetsnamn och **activity\_main** som layoutnamn. Markera båda kryssrutorna och välj **Slutför**.
 
-1. I den **konfigurera aktiviteten** hjälp **MainActivity** som aktivitetsnamnet och **aktivitet\_huvudsakliga** som namn på den Layout. Båda kryssrutorna och klicka på **Slutför**.
+   ![Skärmdump som visar guiden Skapa ett nytt projekt](media/sdk/qs-java-android-05-configure-activity.png)
 
-   ![](media/sdk/qs-java-android-05-configure-activity.png)
-
-Efter att ha kört ett tag, bör det nyskapade projektet i Android Studio kommer.
-
-## <a name="configure-your-project-for-the-speech-sdk"></a>Konfigurera ditt projekt för tal-SDK
+Det tar en stund för Android Studio att förbereda det nya projektet för Android. Konfigurera projektet att veta om Speech SDK och använda Java 8.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services tal SDK är `0.6.0`.
+Den aktuella versionen av Cognitive Services Speech SDK är `1.0.0`.
 
-Tal-SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs för att använda den.
+Speech SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs för att använda den.
 Den finns i ett Maven-centrallager på https://csspeechstorage.blob.core.windows.net/maven/.
 
-Beskrivs nedan hur du ställer in ditt projekt att använda SDK: N för tal.
+Konfigurera ditt projekt för att använda Speech SDK. Öppna projektstrukturfönstret genom att välja **File** (Fil)  > **Project Structure** (Projektstruktur) på menyraden i Android Studio. I projektstrukturfönstret gör du följande ändringar: 
 
-Öppna fönstret projekt struktur under **filen** \> **projektstruktur**.
-I fönstret som visas gör följande ändringar (klicka på **OK** bara när du har slutfört alla steg):
+1. I listan till vänster i fönstret väljer du **Projekt**. Redigera inställningarna för **standardbiblioteksdatabasen** genom att lägga till ett kommatecken och vår URL till Maven-lagringsplatsen inom enkla citattecken. 'https://csspeechstorage.blob.core.windows.net/maven/'
 
-1. Välj **projekt**, och redigera den **standard biblioteket databasen** inställningar genom att lägga till ett kommatecken och våra URL till Maven-lagringsplats inom enkla citattecken `'https://csspeechstorage.blob.core.windows.net/maven/'`:
+   ![Skärmbild av projektstrukturfönstret](media/sdk/qs-java-android-06-add-maven-repository.png)
 
-  ![](media/sdk/qs-java-android-06-add-maven-repository.png)
+1. På samma skärm till vänster väljer du **app**. Välj sedan fliken **Beroenden** högst upp i fönstret. Markera det gröna plustecknet (+) och välj **Library dependency** (Biblioteksberoenden) på den nedrullningsbara menyn.
 
-1. Fortfarande på samma skärm till vänster, Välj den **App** modulen, och längst upp i **beroenden** fliken. Sedan klickar du på grönt plustecken i det övre högra hörnet och välj **biblioteket beroende**.
+   ![Skärmbild av projektstrukturfönstret](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-  ![](media/sdk/qs-java-android-07-add-module-dependency.png)
+1. I fönstret som visas anger du namnet och versionen av vårt Speech SDK för Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`. Välj sedan **OK**.
+   Speech SDK:n ska läggas till i listan över beroenden nu enligt nedan:
 
-1. I fönstret som visas anger du namnet och versionen av vår tal-SDK för Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`, klicka sedan på **OK**.
-   Tal-SDK ska läggas till i listan över beroenden nu enligt nedan:
+   ![Skärmbild av projektstrukturfönstret](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
 
-  ![](media/sdk/qs-java-android-08-dependency-added.png)
+1. Välj fliken **Egenskaper**. För både **Källkompatibilitet** och **Målkompatibilitet** väljer du **1.8**.
 
-1. I övre, Välj den **egenskaper** fliken. Välj **1.8** både för **Source Compability** och **rikta kompatibilitet**.
+   ![](media/sdk/qs-java-android-09-dependency-added.png)
 
-  ![](media/sdk/qs-java-android-09-dependency-added.png)
+1. Välj **OK** för att stänga fönstret Project Structure (Projektstruktur) och tillämpa ändringarna i projektet.
 
-1. Klicka slutligen på **OK** att Stäng den **projektstruktur** windows och installera alla uppdateringar.
+## <a name="create-user-interface"></a>Skapa användargränssnitt
 
-## <a name="create-a-minimal-ui"></a>Skapa ett minimalt gränssnitt
+Vi skapar ett grundläggande användargränssnitt för programmet. Redigera layouten för din huvudsakliga aktivitet, `activity_main.xml`. Inledningsvis innehåller layouten en namnlist med programmets namn och en TextView med texten ”Hello World”!
 
-Redigera layouten för dina huvudsakliga aktiviteter `activity_main.xml`.
-Som standard bör den få fram en namnlist med programmets namn och en TextView med texten ”Hello World”!.
+* Klicka på elementet TextView. Ändra dess ID-attribut i det övre högra hörnet till `hello`.
 
-* Klicka på TextView. Ändra dess ID-attribut i det övre högra hörnet att `hello`.
+* I paletten i det övre vänstra hörnet i fönstret `activity_main.xml` drar du en knapp till det tomma utrymmet ovanför texten.
 
-* I paletten i det övre vänstra hörnet av din `activity_main.xml` och dra en knapp i det tomma utrymmet ovanför texten.
+* I knappens attribut till höger, i värdet för attributet `onClick` anger du `onSpeechButtonClicked`. Vi skriver en metod med det här namnet att hantera knapphändelsen.  Ändra dess ID-attribut i det övre högra hörnet till `button`.
 
-* I knappens attribut till höger, i värdet för den `onClick` attributet, ange `onSpeechButtonClicked`, som kommer att vara namnet på vår knappen-hanteraren.
-  Ändra dess ID-attribut i det övre högra hörnet att `button`.
+* Använd trollstavsikonen överst i designern för att härleda layoutbegränsningar.
 
-* Använd ikonen magic Trollstav överst i designern om du vill att härleda layout begränsningar för dig.
+  ![Skärmbild trollstavsikonen](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
-  ![](media/sdk/qs-java-android-10-infer-layout-constraints.png)
-
-Text och grafiska version i Gränssnittet bör nu se ut ungefär så här:
+Texten och den grafiska representationen av ditt användargränssnitt bör nu se ut så här.
 
 <table>
 <tr>
@@ -116,47 +105,51 @@ Text och grafiska version i Gränssnittet bör nu se ut ungefär så här:
 ![](media/sdk/qs-java-android-11-gui.png)
 </td>
 <td valign="top">
-[! code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
+[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
 </td>
 </tr>
 </table>
 
-## <a name="add-the-sample-code"></a>Lägg till exempelkoden
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Redigera den `MainActivity.java` källfil och Ersätt Koden med följande (under kontoutdraget paketet):
+1. Öppna till källfilen `MainActivity.java`. Ersätt koden efter instruktionen `package` med följande.
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
-   * Den `onCreate` metoden inkluderar den kod som begär mikrofon och Internet-behörigheter som initierar inbyggd plattform bindningen. Konfigurera inbyggd plattform-bindningar är endast nödvändiga en gång, det vill säga den bör göras tidigt under initieringen av programmet.
+   * Metoden `onCreate` inkluderar den kod som begär mikrofon- och internet-behörigheter och initierar inbyggd plattformsbindning. Du behöver bara konfigurera inbyggda plattformsbindningar en gång. Det bör göras tidigt under initieringen av programmet.
    
-   * Metoden `onSpeechButtonClicked` har tidigare utformad så klickar du på knappen på hanteraren. Tryck på en knapp utlöser den faktiska taligenkänningen.
+   * Metoden `onSpeechButtonClicked` är, som tidigare nämnts, knappklickshanteraren. En knapptryckning utlöser transkription från tal till text.
 
-1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
+1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerade med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt även strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
+## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-* Att bygga, tryck på Ctrl + F9 eller välj **skapa** \> **se projekt**.
+1. Anslut din Android-enhet till utvecklingsdatorn. Kontrollera att du har aktiverat [utvecklingsläge och USB-felsökning](https://developer.android.com/studio/debug/dev-options) på enheten.
 
-* Anslut din Android-enhet till utvecklingen av din dator. Kontrollera att du har [utvecklingsläge och USB-felsökning aktiverat](https://developer.android.com/studio/debug/dev-options).
+1. Tryck på Ctrl + F9 för att skapa programmet, eller välj **Skapa** > **Skapa projekt** på menyraden.
 
-* Tryck på SKIFT + F10 för att starta appen, eller välj **kör** \> **kör ”app”**.
+1. Tryck på Skift + F10 för att starta programmet, eller välj **Kör** > **Kör ”app”**.
 
-* I windows för distribution-mål som visas, väljer du en Android-enhet.
+1. Välj din Android-enhet i målfönstret för distribution som visas.
 
-  ![Starta appen into-felsökning](media/sdk/qs-java-android-12-deploy.png)
+   ![Skärmbild av fönstret för att välja distributionsmål](media/sdk/qs-java-android-12-deploy.png)
 
-* Appen ska starta på din enhet.
-  När du trycker på knappen Nästa 15 sekunder ska identifieras och visas i Användargränssnittet (du bör även kunna se svar i fönstret logcat i Android Studio):
+Tryck på knappen i programmet för att starta en taligenkänningssession. De nästa 15 sekunderna med engelskt tal skickas till Speech-tjänsten och transkriberas. Resultatet visas i Android-programmet och i fönstret logcat i Android Studio.
 
-  ![Användargränssnittet efter lyckad taligenkänning](media/sdk/qs-java-android-13-gui-on-device.png)
+![Skärmbild av Android-programmet](media/sdk/qs-java-android-13-gui-on-device.png)
 
-Den här skärmbilden avslutar Android Snabbstart. Exempelkoden-projekt kan hämtas från exempeldatabasen.
-
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Leta efter det här exemplet i den `quickstart/java-android` mapp.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Leta efter det här exemplet i mappen `quickstart/java-android`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta våra exempel](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Identifiera avsikter från tal med hjälp av Speech SDK för Java](how-to-recognize-intents-from-speech-java.md)
+
+## <a name="see-also"></a>Se även
+
+- [Översätta tal](how-to-translate-speech-csharp.md)
+- [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
+- [Anpassa språkmodeller](how-to-customize-language-model.md)

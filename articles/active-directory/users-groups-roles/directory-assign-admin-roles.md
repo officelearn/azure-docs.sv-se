@@ -14,12 +14,12 @@ ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 293d8376d83d729588aab0aeaa1040d9b3e5e0b5
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 722a9ada338420cc1ed55eb7c4400f946d58ebac
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182288"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831661"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -51,7 +51,7 @@ Följande administratörsroller är tillgängliga:
   > [!NOTE]
   > Om du vill distribuera Exchange ActiveSync villkorsstyrd åtkomstprincip i Azure, måste användaren också vara en Global administratör.
   
-* **[Enhetsadministratörer](#device-administrators)**: den här rollen är tilldelas endast som en ytterligare lokal administratör i [Enhetsinställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir lokala administratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheters objekt i Azure Active Directory. 
+* **[Enhetsadministratörer](#device-administrators)**: den här rollen är tilldelas endast som en ytterligare lokal administratör i [Enhetsinställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir administratörer för den lokala datorn på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheters objekt i Azure Active Directory. 
 
 * **[Katalogläsare](#directory-readers)**: det här är en äldre roll som ska tilldelas till program som inte stöder den [godkänna Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Det ska inte tilldelas alla användare.
 
@@ -84,11 +84,15 @@ Följande administratörsroller är tillgängliga:
 
 * **[Partner – nivå 2-stöd](#partner-tier2-support)**: Använd inte. Den här rollen har gjorts inaktuell och kommer att tas bort från Azure AD i framtiden. Den här rollen är avsedd att användas av ett litet antal Microsoft återförsäljning-partner och är inte avsedd för allmänt bruk.
 
-* **[Lösenordsadministratör / Supportavdelningsadministratör](#helpdesk-administrator)**: användare med den här rollen kan ändra lösenord, ogiltigförklara uppdateringstoken, hanterar tjänstbegäranden och övervakar tjänstehälsa. Helpdeks-administratörer kan ändra lösenord och ogiltigförklara uppdateringstoken endast för användare och andra supportadministratörer. Ogiltigförklara en uppdateringstoken Tvingar användaren att logga in igen.
-
+* **[Lösenordsadministratör / Supportavdelningsadministratör](#helpdesk-administrator)**: användare med den här rollen kan ändra lösenord, ogiltigförklara uppdateringstoken, hanterar tjänstbegäranden och övervakar tjänstehälsa. Ogiltigförklara en uppdateringstoken Tvingar användaren att logga in igen. Helpdeks-administratörer kan återställa lösenord och ogiltigförklara uppdaterings-tokens för andra användare som är icke-administratörer eller medlemmar i följande roller:
+  * Katalogläsare
+  * Gäst bjuder in
+  * Supportavdelningsadministratör
+  * Meddelandecenterläsare
+  * Rapportläsare
+  
   > [!NOTE]
   > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Supportavdelningsadministratör”. Det är ”Lösenordsadministratör” i den [Azure-portalen](https://portal.azure.com/).
-  >
   >
   
 * **[Power BI-tjänstadministratör](#power-bi-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Power BI när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Mer information på [förstå administratörsrollen för Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
@@ -132,15 +136,17 @@ Följande administratörsroller är tillgängliga:
 
 * **[Team tjänstadministratör](#teams-service-administrator)**: användare i den här rollen kan hantera alla aspekter av Microsoft Teams-arbetsbelastning via Microsoft Teams och Skype för företag-administrationscentret och respektive PowerShell-moduler. Detta inkluderar bland andra delar alla hanteringsverktyg som är relaterade till telefoni, meddelanden, möten och team själva. Den här rollen ger även möjlighet att hantera Office 365-grupper.
 
-* **[Användarkontoadministratören](#user-account-administrator)**: användarna med den här rollen kan skapa och hantera alla aspekter av användare och grupper. Dessutom innehåller den här rollen möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Vissa begränsningar gäller. Den här rollen tillåter exempelvis inte att ta bort en global administratör. Användarkontoadministratörer kan ändra lösenord och ogiltigförklara uppdateringstoken för användare, supportadministratörer och andra användaradministratörer endast. Ogiltigförklara en uppdateringstoken Tvingar användaren att logga in igen.
+* **[Användarkontoadministratören](#user-account-administrator)**: användare med den här rollen kan skapa användare och hantera alla aspekter av användare med vissa begränsningar (se nedan). Dessutom kan kan användare med den här rollen skapa och hantera alla grupper. Den här rollen inkluderar även möjligheten att skapa och hantera användarvyer, hantera supportbegäranden och kontrollera tjänstens hälsotillstånd.
 
-| Kan göra | Det går inte att göra |
-| --- | --- |
-| <p>Visa företaget och användaren information</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare, supportadministratörer och andra användaradministratörer endast</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera och ta bort användare och grupper och hantera användarlicenser, med begränsningar. Han eller hon kan inte ta bort en global administratör eller skapa andra administratörer.</p> |<p>Utföra åtgärder för fakturering och inköp för Office-produkter</p><p>Hantera domäner</p><p>Hantera företagsinformation</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Aktivera eller inaktivera multifaktorautentisering</p><p>Visa granskningsloggar</p> |
+  | | |
+  | --- | --- |
+  |Allmänna behörigheter|<p>Skapa användare och grupper</p><p>Skapa och hantera användarvyer</p><p>Hantera supportärenden för Office|
+  |<p>På alla användare, inklusive alla administratörer</p>|<p>Hantera licenser</p><p>Hantera alla användaregenskaper utom User Principal Name</p>
+  |Endast på användare som är icke-administratörer eller begränsade administrativa roller i något av följande:<ul><li>Katalogläsare<li>Gäst bjuder in<li>Supportavdelningsadministratör<li>Meddelandecenterläsare<li>Rapportläsare<li>Användarkonto-administratör|<p>Ta bort och återställning</p><p>Inaktivera och aktivera</p><p>Ogiltigförklara uppdatera token</p><p>Hantera egenskaper för alla användare, inklusive användarens huvudnamn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhetsnycklar</p>
 
 I följande tabeller beskrivs de särskilda behörigheterna i Azure Active Directory för varje roll. Vissa roller kan ha ytterligare behörigheter i Microsoft services outide av Azure Active Directory.
 
-## <a name="adhoc-license-administrator"></a>AdHoc-licensadministratör
+## <a name="adhoc-license-administrator"></a>Ad hoc-licensadministratör
 Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar.
 
   > [!NOTE]
